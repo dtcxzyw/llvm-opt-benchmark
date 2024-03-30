@@ -4543,10 +4543,12 @@ if.end:                                           ; preds = %entry
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %li) #23
   %2 = lshr i32 %keyspec_flags, 4
   %spec.select = and i32 %2, 1
-  %or9 = or disjoint i32 %spec.select, 2
-  %3 = and i32 %keyspec_flags, 224
-  %4 = icmp eq i32 %3, 0
-  %key_flags.3 = select i1 %4, i32 %spec.select, i32 %or9
+  %3 = lshr i32 %keyspec_flags, 5
+  %4 = and i32 %3, 2
+  %5 = and i32 %keyspec_flags, 160
+  %6 = icmp eq i32 %5, 0
+  %key_flags.3.v = select i1 %6, i32 %4, i32 2
+  %key_flags.3 = or disjoint i32 %key_flags.3.v, %spec.select
   %call12 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool23.not13 = icmp eq ptr %call12, null
   br i1 %tobool23.not13, label %return, label %while.body
@@ -4554,9 +4556,9 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %if.end, %while.cond.backedge
   %call14 = phi ptr [ %call, %while.cond.backedge ], [ %call12, %if.end ]
   %value = getelementptr inbounds i8, ptr %call14, i64 16
-  %5 = load ptr, ptr %value, align 8
-  %6 = load i32, ptr %5, align 8
-  %and25 = and i32 %6, %key_flags.3
+  %7 = load ptr, ptr %value, align 8
+  %8 = load i32, ptr %7, align 8
+  %and25 = and i32 %8, %key_flags.3
   %cmp.not = icmp eq i32 %and25, %key_flags.3
   br i1 %cmp.not, label %if.end28, label %while.cond.backedge
 
@@ -4566,11 +4568,11 @@ while.cond.backedge:                              ; preds = %while.body, %sdslen
   br i1 %tobool23.not, label %return, label %while.body, !llvm.loop !43
 
 if.end28:                                         ; preds = %while.body
-  %pattern29 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load ptr, ptr %pattern29, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 -1
-  %8 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %8 to i32
+  %pattern29 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = load ptr, ptr %pattern29, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 -1
+  %10 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %10 to i32
   %and.i = and i32 %conv.i, 7
   switch i32 %and.i, label %sdslen.exit [
     i32 0, label %sw.bb.i
@@ -4586,32 +4588,32 @@ sw.bb.i:                                          ; preds = %if.end28
   br label %sdslen.exit
 
 sw.bb3.i:                                         ; preds = %if.end28
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 -3
-  %9 = load i8, ptr %add.ptr.i, align 1
-  %conv4.i = zext i8 %9 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 -3
+  %11 = load i8, ptr %add.ptr.i, align 1
+  %conv4.i = zext i8 %11 to i64
   br label %sdslen.exit
 
 sw.bb5.i:                                         ; preds = %if.end28
-  %add.ptr6.i = getelementptr inbounds i8, ptr %7, i64 -5
-  %10 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i = zext i16 %10 to i64
+  %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 -5
+  %12 = load i16, ptr %add.ptr6.i, align 1
+  %conv8.i = zext i16 %12 to i64
   br label %sdslen.exit
 
 sw.bb9.i:                                         ; preds = %if.end28
-  %add.ptr10.i = getelementptr inbounds i8, ptr %7, i64 -9
-  %11 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i = zext i32 %11 to i64
+  %add.ptr10.i = getelementptr inbounds i8, ptr %9, i64 -9
+  %13 = load i32, ptr %add.ptr10.i, align 1
+  %conv12.i = zext i32 %13 to i64
   br label %sdslen.exit
 
 sw.bb13.i:                                        ; preds = %if.end28
-  %add.ptr14.i = getelementptr inbounds i8, ptr %7, i64 -17
-  %12 = load i64, ptr %add.ptr14.i, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %9, i64 -17
+  %14 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %if.end28, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i = phi i64 [ %12, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end28 ]
+  %retval.0.i = phi i64 [ %14, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end28 ]
   %conv32 = trunc i64 %retval.0.i to i32
-  %call33 = call i32 @stringmatchlen(ptr noundef nonnull %7, i32 noundef %conv32, ptr noundef %key, i32 noundef %keylen, i32 noundef 0) #23
+  %call33 = call i32 @stringmatchlen(ptr noundef nonnull %9, i32 noundef %conv32, ptr noundef %key, i32 noundef %keylen, i32 noundef 0) #23
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %while.cond.backedge, label %return
 
@@ -4642,31 +4644,33 @@ if.end:                                           ; preds = %entry
 while.body.lr.ph:                                 ; preds = %if.end
   %1 = lshr i32 %flags, 4
   %spec.select.i = and i32 %1, 1
-  %or10.i = or disjoint i32 %spec.select.i, 2
-  %2 = and i32 %flags, 224
-  %3 = icmp eq i32 %2, 0
-  %access_flags.3.i = select i1 %3, i32 %spec.select.i, i32 %or10.i
+  %2 = lshr i32 %flags, 5
+  %3 = and i32 %2, 2
+  %4 = and i32 %flags, 160
+  %5 = icmp eq i32 %4, 0
+  %access_flags.3.v.i = select i1 %5, i32 %3, i32 2
+  %access_flags.3.i = or disjoint i32 %access_flags.3.v.i, %spec.select.i
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end6
   %call15 = phi ptr [ %call13, %while.body.lr.ph ], [ %call, %if.end6 ]
   %value = getelementptr inbounds i8, ptr %call15, i64 16
-  %4 = load ptr, ptr %value, align 8
-  %call1 = call fastcc i32 @ACLSelectorCheckCmd(ptr noundef %4, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull %local_idxptr, ptr noundef nonnull %cache)
+  %6 = load ptr, ptr %value, align 8
+  %call1 = call fastcc i32 @ACLSelectorCheckCmd(ptr noundef %6, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull %local_idxptr, ptr noundef nonnull %cache)
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
-  %5 = load i32, ptr %4, align 8
-  %and.i = and i32 %5, 2
+  %7 = load i32, ptr %6, align 8
+  %and.i = and i32 %7, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then5
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %patterns.i = getelementptr inbounds i8, ptr %4, i64 144
-  %6 = load ptr, ptr %patterns.i, align 8
-  call void @listRewind(ptr noundef %6, ptr noundef nonnull %li.i) #23
+  %patterns.i = getelementptr inbounds i8, ptr %6, i64 144
+  %8 = load ptr, ptr %patterns.i, align 8
+  call void @listRewind(ptr noundef %8, ptr noundef nonnull %li.i) #23
   %call11.i = call ptr @listNext(ptr noundef nonnull %li.i) #23
   %tobool24.not12.i = icmp eq ptr %call11.i, null
   br i1 %tobool24.not12.i, label %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, label %while.body.i
@@ -4674,9 +4678,9 @@ if.end.i:                                         ; preds = %land.lhs.true
 while.body.i:                                     ; preds = %if.end.i, %while.cond.backedge.i
   %call13.i = phi ptr [ %call.i, %while.cond.backedge.i ], [ %call11.i, %if.end.i ]
   %value.i = getelementptr inbounds i8, ptr %call13.i, i64 16
-  %7 = load ptr, ptr %value.i, align 8
-  %8 = load i32, ptr %7, align 8
-  %and26.i = and i32 %8, %access_flags.3.i
+  %9 = load ptr, ptr %value.i, align 8
+  %10 = load i32, ptr %9, align 8
+  %and26.i = and i32 %10, %access_flags.3.i
   %cmp.not.i = icmp eq i32 %and26.i, %access_flags.3.i
   br i1 %cmp.not.i, label %if.end29.i, label %while.cond.backedge.i
 
@@ -4686,9 +4690,9 @@ while.cond.backedge.i:                            ; preds = %if.end29.i, %while.
   br i1 %tobool24.not.i, label %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, label %while.body.i, !llvm.loop !44
 
 if.end29.i:                                       ; preds = %while.body.i
-  %pattern30.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %pattern30.i, align 8
-  %call31.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(2) @.str.206) #27
+  %pattern30.i = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = load ptr, ptr %pattern30.i, align 8
+  %call31.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.206) #27
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %if.then5, label %while.cond.backedge.i
 
@@ -4698,8 +4702,8 @@ ACLSelectorHasUnrestrictedKeyAccess.exit.thread:  ; preds = %while.cond.backedge
 
 if.then5:                                         ; preds = %land.lhs.true, %if.end29.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
-  %10 = load i32, ptr %cache, align 8
-  %tobool.not.i3 = icmp eq i32 %10, 0
+  %12 = load i32, ptr %cache, align 8
+  %tobool.not.i3 = icmp eq i32 %12, 0
   br i1 %tobool.not.i3, label %return, label %return.sink.split
 
 if.end6:                                          ; preds = %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, %while.body
@@ -4709,8 +4713,8 @@ if.end6:                                          ; preds = %ACLSelectorHasUnres
 
 while.end:                                        ; preds = %if.end6
   %.pre = load i32, ptr %cache, align 8
-  %11 = icmp eq i32 %.pre, 0
-  br i1 %11, label %return, label %return.sink.split
+  %13 = icmp eq i32 %.pre, 0
+  br i1 %13, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %while.end, %if.then5
   %retval.0.ph = phi i32 [ 1, %if.then5 ], [ 0, %while.end ]
