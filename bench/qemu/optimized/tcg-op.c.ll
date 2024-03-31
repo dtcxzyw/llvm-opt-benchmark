@@ -2351,8 +2351,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 33
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
@@ -2427,6 +2425,8 @@ if.end24.thread:                                  ; preds = %if.end18
 
 tcg_gen_shli_i32.exit:                            ; preds = %if.end24.thread, %if.end24
   %call83 = phi ptr [ %call79, %if.end24.thread ], [ %call, %if.end24 ]
+  %or.cond.i = icmp ult i32 %len, 32
+  tail call void @llvm.assume(i1 %or.cond.i)
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef %len) #5
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
@@ -2451,6 +2451,8 @@ tcg_gen_shli_i32.exit:                            ; preds = %if.end24.thread, %i
 
 tcg_gen_rotli_i32.exit:                           ; preds = %if.end24
   tail call void @tcg_gen_extract2_i32(ptr noundef %ret, ptr noundef %arg1, ptr noundef %arg2, i32 noundef %len)
+  %or.cond.i49 = icmp ult i32 %len, 32
+  tail call void @llvm.assume(i1 %or.cond.i49)
   %call.i52 = tail call ptr @tcg_constant_i32(i32 noundef %len) #5
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %23 = load ptr, ptr %22, align 8
@@ -2652,8 +2654,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 33
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
@@ -2918,8 +2918,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 33
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
@@ -3131,8 +3129,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 33
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 33
   tail call void @llvm.assume(i1 %cmp12)
@@ -6890,8 +6886,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 65
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)
@@ -6967,6 +6961,8 @@ if.end24.thread:                                  ; preds = %if.end18
 tcg_gen_shli_i64.exit:                            ; preds = %if.end24.thread, %if.end24
   %call83 = phi ptr [ %call79, %if.end24.thread ], [ %call, %if.end24 ]
   %conv29 = zext nneg i32 %len to i64
+  %or.cond.i = icmp ult i32 %len, 64
+  tail call void @llvm.assume(i1 %or.cond.i)
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef %conv29) #5
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
@@ -6992,6 +6988,8 @@ tcg_gen_shli_i64.exit:                            ; preds = %if.end24.thread, %i
 tcg_gen_rotli_i64.exit:                           ; preds = %if.end24
   tail call void @tcg_gen_extract2_i64(ptr noundef %ret, ptr noundef %arg1, ptr noundef %arg2, i32 noundef %len)
   %conv34 = zext nneg i32 %len to i64
+  %or.cond.i49 = icmp ult i32 %len, 64
+  tail call void @llvm.assume(i1 %or.cond.i49)
   %call.i52 = tail call ptr @tcg_constant_i64(i64 noundef %conv34) #5
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %23 = load ptr, ptr %22, align 8
@@ -7196,8 +7194,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 65
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)
@@ -7433,8 +7429,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 65
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)
@@ -7691,8 +7685,6 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %cmp2 = icmp ne i32 %len, 0
   tail call void @llvm.assume(i1 %cmp2)
-  %cmp7 = icmp ult i32 %len, 65
-  tail call void @llvm.assume(i1 %cmp7)
   %add = add nuw nsw i32 %len, %ofs
   %cmp12 = icmp ult i32 %add, 65
   tail call void @llvm.assume(i1 %cmp12)

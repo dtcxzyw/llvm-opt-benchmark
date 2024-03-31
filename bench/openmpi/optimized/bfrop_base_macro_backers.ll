@@ -4065,10 +4065,11 @@ pmix_strncpy.exit.i:                              ; preds = %20, %.lr.ph.i.i
   %24 = getelementptr inbounds i8, ptr %0, i64 %.0.i.i
   store i8 58, ptr %24, align 1
   %25 = getelementptr i8, ptr %24, i64 1
-  %26 = sub nsw i64 255, %.0.i.i
-  br label %.lr.ph.i19.i
+  %26 = xor i64 %.0.i.i, 255
+  %.not.i.i = icmp eq i64 %26, 0
+  br i1 %.not.i.i, label %pmix_strncpy.exit25.i, label %.lr.ph.i19.i
 
-.lr.ph.i19.i:                                     ; preds = %29, %pmix_strncpy.exit.i
+.lr.ph.i19.i:                                     ; preds = %pmix_strncpy.exit.i, %29
   %.012.i20.i = phi i64 [ %30, %29 ], [ 0, %pmix_strncpy.exit.i ]
   %.0811.i21.i = phi ptr [ %32, %29 ], [ %25, %pmix_strncpy.exit.i ]
   %.0910.i22.i = phi ptr [ %31, %29 ], [ %2, %pmix_strncpy.exit.i ]
@@ -4084,9 +4085,9 @@ pmix_strncpy.exit.i:                              ; preds = %20, %.lr.ph.i.i
   %exitcond.not.i23.i = icmp eq i64 %30, %26
   br i1 %exitcond.not.i23.i, label %pmix_strncpy.exit25.i, label %.lr.ph.i19.i, !llvm.loop !4
 
-pmix_strncpy.exit25.i:                            ; preds = %29, %.lr.ph.i19.i
-  %.08.lcssa.i24.ph.i = phi ptr [ %32, %29 ], [ %.0811.i21.i, %.lr.ph.i19.i ]
-  store i8 0, ptr %.08.lcssa.i24.ph.i, align 1
+pmix_strncpy.exit25.i:                            ; preds = %29, %.lr.ph.i19.i, %pmix_strncpy.exit.i
+  %.08.lcssa.i24.i = phi ptr [ %25, %pmix_strncpy.exit.i ], [ %.0811.i21.i, %.lr.ph.i19.i ], [ %32, %29 ]
+  store i8 0, ptr %.08.lcssa.i24.i, align 1
   br label %pmix_bfrops_base_tma_multicluster_nspace_construct.exit
 
 pmix_bfrops_base_tma_multicluster_nspace_construct.exit: ; preds = %pmix_nslen.exit17.i, %pmix_strncpy.exit25.i

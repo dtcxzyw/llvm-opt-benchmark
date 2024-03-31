@@ -930,8 +930,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit29.i: ; preds =
   br i1 %130, label %._crit_edge.i43.i, label %120, !llvm.loop !6
 
 ._crit_edge.i43.i:                                ; preds = %122
-  %.pre18.i45.i = and i64 %indvars.iv.next65, 4294967295
-  %.pre254.i = add nsw i64 %.sroa.2.0.ptr.add.i, %.pre18.i45.i
+  %.pre254.i = add nuw nsw i64 %.sroa.2.0.ptr.add.i, %indvars.iv.next65
   br label %split.i32.i
 
 split.i32.i.loopexit:                             ; preds = %120
