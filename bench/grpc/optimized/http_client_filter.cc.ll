@@ -4717,20 +4717,20 @@ invoke.cont:
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %x, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %agg.tmp1, align 16, !noalias !132
-  %agg.tmp2.sroa.3.0.promises1.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %agg.tmp1, align 16, !noalias !132
   store ptr %latch, ptr %ref.tmp, align 16, !alias.scope !132
   %next_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %agg.tmp2.sroa.0.0.copyload.i, ptr %next_.i.i, align 16, !alias.scope !132
   %agg.tmp.sroa.4.0.next_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.4.0.next_.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.sroa.3.0.promises1.sroa_idx.i, i64 24, i1 false)
+  %0 = getelementptr inbounds i8, ptr %x, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.4.0.next_.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %arg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %arg.i, align 16
   store ptr @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_14promise_detail4RaceIJZNS_5LatchIS6_E4WaitEvEUlvE_NS_12ArenaPromiseIS6_EEEEEE6vtableE, ptr %agg.result, align 16
-  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
-  %1 = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
-  %2 = ptrtoint ptr %latch to i64
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
+  %2 = load ptr, ptr %1, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %3 = ptrtoint ptr %latch to i64
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
@@ -4741,79 +4741,79 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i: ; preds = %invoke.cont
-  %3 = atomicrmw add ptr %1, i64 48 monotonic, align 8
-  %add2.i.i.i.i.i = add i64 %3, 48
-  %initial_zone_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = load i64, ptr %initial_zone_size_.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %4
+  %4 = atomicrmw add ptr %2, i64 48 monotonic, align 8
+  %add2.i.i.i.i.i = add i64 %4, 48
+  %initial_zone_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = load i64, ptr %initial_zone_size_.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %4
   br label %invoke.cont4
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
-  %call4.i.i.i.i.i2 = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 48)
+  %call4.i.i.i.i.i2 = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 48)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call4.i.i.i.i.i2, %if.else.i.i.i.i.i ]
-  store i64 %2, ptr %retval.0.i.i.i.i.i, align 16
+  store i64 %3, ptr %retval.0.i.i.i.i.i, align 16
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %next_.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %next_.i.i, i64 32, i1 false)
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %next_.i.i, align 16
   store ptr %retval.0.i.i.i.i.i, ptr %arg.i, align 16
-  %5 = load ptr, ptr %agg.tmp1, align 16
-  %destroy.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %destroy.i, align 8
+  %6 = load ptr, ptr %agg.tmp1, align 16
+  %destroy.i = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %destroy.i, align 8
   %arg.i3 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  invoke void %6(ptr noundef nonnull %arg.i3)
+  invoke void %7(ptr noundef nonnull %arg.i3)
           to label %_ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont4
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #22
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #22
   unreachable
 
 _ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit: ; preds = %invoke.cont4
   ret void
 
 lpad3:                                            ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   %destroy.i.i.i5 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 8
-  %10 = load ptr, ptr %destroy.i.i.i5, align 8
+  %11 = load ptr, ptr %destroy.i.i.i5, align 8
   %arg.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  invoke void %10(ptr noundef nonnull %arg.i.i.i6)
+  invoke void %11(ptr noundef nonnull %arg.i.i.i6)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i7
 
 terminate.lpad.i.i.i7:                            ; preds = %lpad3
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #22
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #22
   unreachable
 
 ehcleanup:                                        ; preds = %lpad3
-  %13 = load ptr, ptr %agg.tmp1, align 16
-  %destroy.i9 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load ptr, ptr %destroy.i9, align 8
+  %14 = load ptr, ptr %agg.tmp1, align 16
+  %destroy.i9 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load ptr, ptr %destroy.i9, align 8
   %arg.i10 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  invoke void %14(ptr noundef nonnull %arg.i10)
+  invoke void %15(ptr noundef nonnull %arg.i10)
           to label %_ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit12 unwind label %terminate.lpad.i11
 
 terminate.lpad.i11:                               ; preds = %ehcleanup
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #22
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
 _ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit12: ; preds = %ehcleanup
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: uwtable

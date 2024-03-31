@@ -37128,7 +37128,6 @@ _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dict
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictINS2_5RTLIL6SigBitES6_NS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS9_4sortISt4lessIS6_EEEvT_EUlRKSA_SN_E_EEEvSL_T0_SQ_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef byval(%"struct.Yosys::hashlib::dict<Yosys::RTLIL::SigBit, Yosys::RTLIL::SigBit>::entry_t") align 8 %3) local_unnamed_addr #4 comdat {
-  %.sroa.6 = alloca [16 x i8], align 4
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp sgt i64 %6, %1
@@ -37231,9 +37230,6 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4dictINS2_5RTLIL6SigBitES6_
   %.fr.i = freeze ptr %.sroa.040.0.copyload
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %.sroa.541.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   %.sroa.541.0.copyload = load i32, ptr %.sroa.541.0..sroa_idx, align 8
   %62 = icmp sgt i64 %.1, %1
@@ -37323,11 +37319,10 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictINS2_5RTLI
   %.sroa.5.0..sroa_idx37 = getelementptr inbounds i8, ptr %100, i64 8
   store i32 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx37, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 16
-  %.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.6, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %101, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.16..sroa_idx, i64 12, i1 false)
-  %102 = getelementptr inbounds i8, ptr %100, i64 32
-  store i32 %.sroa.541.0.copyload, ptr %102, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  %102 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %101, ptr noundef nonnull align 8 dereferenceable(12) %102, i64 12, i1 false)
+  %103 = getelementptr inbounds i8, ptr %100, i64 32
+  store i32 %.sroa.541.0.copyload, ptr %103, align 8
   ret void
 }
 
@@ -38134,8 +38129,6 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictINS2_5RTLIL6SigBitESt4pairIS6_S6_ENS3_8hash_opsIS6_EEE7entry_tESt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_comp_iterIZNSB_4sortISt4lessIS6_EEEvT_EUlRKSC_SP_E_EEEvSN_T0_SS_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef byval(%"struct.Yosys::hashlib::dict<Yosys::RTLIL::SigBit, std::pair<Yosys::RTLIL::SigBit, Yosys::RTLIL::SigBit>>::entry_t") align 8 %3) local_unnamed_addr #4 comdat {
-  %.sroa.6 = alloca [16 x i8], align 4
-  %.sroa.7 = alloca [16 x i8], align 4
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp sgt i64 %6, %1
@@ -38244,12 +38237,6 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4dictINS2_5RTLIL6SigBitESt4
   %.fr.i = freeze ptr %.sroa.040.0.copyload
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
   %.sroa.642.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   %.sroa.642.0.copyload = load i32, ptr %.sroa.642.0..sroa_idx, align 8
   %66 = icmp sgt i64 %.1, %1
@@ -38345,15 +38332,13 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictINS2_5RTLI
   %.sroa.5.0..sroa_idx37 = getelementptr inbounds i8, ptr %108, i64 8
   store i32 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx37, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 16
-  %.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.6, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %109, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.16..sroa_idx, i64 12, i1 false)
-  %110 = getelementptr inbounds i8, ptr %108, i64 32
-  %.sroa.7.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.7, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %110, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.32..sroa_idx, i64 12, i1 false)
-  %111 = getelementptr inbounds i8, ptr %108, i64 48
-  store i32 %.sroa.642.0.copyload, ptr %111, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
+  %110 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %109, ptr noundef nonnull align 8 dereferenceable(12) %110, i64 12, i1 false)
+  %111 = getelementptr inbounds i8, ptr %108, i64 32
+  %112 = getelementptr inbounds i8, ptr %3, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %111, ptr noundef nonnull align 8 dereferenceable(12) %112, i64 12, i1 false)
+  %113 = getelementptr inbounds i8, ptr %108, i64 48
+  store i32 %.sroa.642.0.copyload, ptr %113, align 8
   ret void
 }
 

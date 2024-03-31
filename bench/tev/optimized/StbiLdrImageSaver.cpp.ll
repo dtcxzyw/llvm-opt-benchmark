@@ -40735,7 +40735,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt2v99formatterINSt3__117basic_string_v
 
 9:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZN3fmt2v96detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull byval(%"struct.fmt::v9::detail::arg_ref") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %11 = getelementptr inbounds i8, ptr %4, i64 4
   %12 = getelementptr inbounds i8, ptr %4, i64 40

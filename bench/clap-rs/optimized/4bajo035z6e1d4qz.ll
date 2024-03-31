@@ -9107,30 +9107,25 @@ define hidden noundef align 8 dereferenceable_or_null(104) ptr @_ZN12clap_builde
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN12clap_builder6parser11arg_matcher10ArgMatcher6remove17h28a41f819a99b3b4E(ptr noalias noundef align 8 dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
-  %.sroa.02.i = alloca [120 x i8], align 8
   %3 = alloca { [2 x i64], i64, [12 x i64] }, align 8
   %4 = alloca { i64, [12 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3), !noalias !1896
-  call void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remove_entry17h7463ba68e919c492E.llvm.7008872586094235178"(ptr noalias nocapture noundef nonnull sret({ [2 x i64], i64, [12 x i64] }) align 8 dereferenceable(120) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1901
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3)
+  call void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remove_entry17h7463ba68e919c492E.llvm.7008872586094235178"(ptr noalias nocapture noundef nonnull sret({ [2 x i64], i64, [12 x i64] }) align 8 dereferenceable(120) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1), !noalias !1896
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !range !349, !noalias !1896, !noundef !5
+  %7 = load i64, ptr %6, align 8, !range !349, !noalias !1899, !noundef !5
   %8 = icmp eq i64 %7, 2
   br i1 %8, label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.thread", label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit"
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit.thread": ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3), !noalias !1896
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3)
   br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$clap_builder..parser..matches..matched_arg..MatchedArg$GT$$GT$17h53f4198f97a06b19E.llvm.1283588139133547551.exit"
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE.exit": ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %.sroa.02.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.02.i, ptr noundef nonnull align 8 dereferenceable(120) %3, i64 120, i1 false), !noalias !1896
-  %.sroa.02.16..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.02.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.02.16..sroa_idx.i, i64 104, i1 false), !noalias !1902
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.02.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false), !noalias !1902
   %.pr = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3), !noalias !1896
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3)
   %9 = icmp ne i64 %.pr, 2
   %10 = icmp eq i64 %.pr, 2
   br i1 %10, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$clap_builder..parser..matches..matched_arg..MatchedArg$GT$$GT$17h53f4198f97a06b19E.llvm.1283588139133547551.exit", label %11
@@ -12474,13 +12469,13 @@ attributes #41 = { nounwind }
 !1893 = !{!1894}
 !1894 = distinct !{!1894, !1895, !"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$clap_builder..parser..matches..matched_arg..MatchedArg$GT$$GT$17h53f4198f97a06b19E.llvm.1283588139133547551: argument 0"}
 !1895 = distinct !{!1895, !"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$clap_builder..parser..matches..matched_arg..MatchedArg$GT$$GT$17h53f4198f97a06b19E.llvm.1283588139133547551"}
-!1896 = !{!1897, !1899, !1900}
+!1896 = !{!1897}
 !1897 = distinct !{!1897, !1898, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE: argument 0"}
 !1898 = distinct !{!1898, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE"}
-!1899 = distinct !{!1899, !1898, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE: argument 1"}
-!1900 = distinct !{!1900, !1898, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE: argument 2"}
-!1901 = !{!1897}
-!1902 = !{!1899, !1900}
+!1899 = !{!1897, !1900, !1901}
+!1900 = distinct !{!1900, !1898, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE: argument 1"}
+!1901 = distinct !{!1901, !1898, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE: argument 2"}
+!1902 = !{!1900, !1901}
 !1903 = !{!1904}
 !1904 = distinct !{!1904, !1905, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12contains_key17h85a14fbd23d1d557E: argument 0"}
 !1905 = distinct !{!1905, !"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12contains_key17h85a14fbd23d1d557E"}

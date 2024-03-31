@@ -21841,7 +21841,8 @@ entry:
   call void @_ZN4pbrt5ScaleEfff(ptr nonnull sret(%"class.pbrt::Transform") align 4 %rasterFromNDC, float noundef %conv, float noundef %conv26, float noundef 1.000000e+00)
   call void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(128) %rasterFromNDC, ptr noundef nonnull align 4 dereferenceable(128) %NDCFromScreen)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %rasterFromScreen, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp27, i64 128, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(64) %mInv.i6, i64 64, i1 false)
+  %7 = getelementptr inbounds i8, ptr %ref.tmp27, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false)
   %mInv3.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp27, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %screenFromRaster, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp29, i64 128, i1 false)

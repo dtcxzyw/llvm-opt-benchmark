@@ -28981,7 +28981,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2pb6solver6assignEN3sat7literalENS1_13justificationE(ptr noundef nonnull align 8 dereferenceable(1049) %this, i32 %l.coerce, ptr noundef byval(%"class.sat::justification") align 8 %j) unnamed_addr #3 comdat align 2 {
 entry:
-  %agg.tmp52.sroa.4 = alloca <{ [4 x i8], i64, i32 }>, align 4
+  %agg.tmp164.sroa.5.i = alloca <{ [4 x i8], i64, i32, [4 x i8] }>, align 4
   %m_lookahead = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_lookahead, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -28994,16 +28994,12 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %m_solver = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_solver, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp52.sroa.4)
-  %agg.tmp52.sroa.0.0.copyload = load i32, ptr %j, align 8
-  %agg.tmp52.sroa.4.0.j.sroa_idx = getelementptr inbounds i8, ptr %j, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp52.sroa.4, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp52.sroa.4.0.j.sroa_idx, i64 16, i1 false)
   %m_assignment.i.i = getelementptr inbounds i8, ptr %1, i64 3440
   %2 = load ptr, ptr %m_assignment.i.i, align 8
   %idxprom.i.i.i = zext i32 %l.coerce to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i.i.i
   %3 = load i32, ptr %arrayidx.i.i.i, align 4
-  switch i32 %3, label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit [
+  switch i32 %3, label %if.end [
     i32 -1, label %sw.bb.i
     i32 0, label %sw.bb10.i
     i32 1, label %sw.bb14.i
@@ -29012,38 +29008,42 @@ if.else:                                          ; preds = %entry
 sw.bb.i:                                          ; preds = %if.else
   %xor.i.i = xor i32 %l.coerce, 1
   tail call void @_ZN3sat6solver12set_conflictENS_13justificationENS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %1, ptr noundef nonnull byval(%"class.sat::justification") align 8 %j, i32 %xor.i.i)
-  br label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit
+  br label %if.end
 
 sw.bb10.i:                                        ; preds = %if.else
   tail call void @_ZN3sat6solver11assign_coreENS_7literalENS_13justificationE(ptr noundef nonnull align 8 dereferenceable(4408) %1, i32 %l.coerce, ptr noundef nonnull byval(%"class.sat::justification") align 8 %j)
-  br label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit
+  br label %if.end
 
 sw.bb14.i:                                        ; preds = %if.else
+  %agg.tmp52.sroa.0.0.copyload = load i32, ptr %j, align 8
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i)
+  %4 = getelementptr inbounds i8, ptr %j, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp164.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
   %cmp.i.i = icmp eq i32 %agg.tmp52.sroa.0.0.copyload, 0
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit
+  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb14.i
   %m_trim.i.i = getelementptr inbounds i8, ptr %1, i64 3976
-  %4 = load i8, ptr %m_trim.i.i, align 8
-  %tobool.i.i = trunc i8 %4 to i1
-  br i1 %tobool.i.i, label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit, label %if.then.i.i
+  %5 = load i8, ptr %m_trim.i.i, align 8
+  %tobool.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %m_justification.i.i = getelementptr inbounds i8, ptr %1, i64 3448
   %shr.i.i.i = lshr i32 %l.coerce, 1
-  %5 = load ptr, ptr %m_justification.i.i, align 8
+  %6 = load ptr, ptr %m_justification.i.i, align 8
   %idxprom.i.i5.i = zext nneg i32 %shr.i.i.i to i64
-  %arrayidx.i.i6.i = getelementptr inbounds %"class.sat::justification", ptr %5, i64 %idxprom.i.i5.i
+  %arrayidx.i.i6.i = getelementptr inbounds %"class.sat::justification", ptr %6, i64 %idxprom.i.i5.i
   store i32 0, ptr %arrayidx.i.i6.i, align 8
   %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp52.sroa.4, i64 16, i1 false)
-  br label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.i, i64 16, i1 false)
+  br label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i
 
-_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit: ; preds = %sw.bb14.i, %land.lhs.true.i.i, %if.then.i.i, %if.else, %sw.bb.i, %sw.bb10.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp52.sroa.4)
+_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i: ; preds = %if.then.i.i, %land.lhs.true.i.i, %sw.bb14.i
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit, %if.then
+if.end:                                           ; preds = %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i, %sw.bb10.i, %sw.bb.i, %if.else, %if.then
   ret void
 }
 
@@ -29327,11 +29327,8 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn80_N2pb6solver6assignEN3sat7literalENS1_13justificationE(ptr noundef %this, i32 %l.coerce, ptr noundef byval(%"class.sat::justification") align 8 %j) unnamed_addr #6 comdat align 2 {
 entry:
-  %j1.sroa.4 = alloca <{ [4 x i8], i64, i32 }>, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %j1.sroa.4)
+  %agg.tmp164.sroa.5.i.i = alloca <{ [4 x i8], i64, i32, [4 x i8] }>, align 4
   %j1.sroa.0.0.copyload = load i32, ptr %j, align 8
-  %j1.sroa.4.0.j.sroa_idx = getelementptr inbounds i8, ptr %j, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %j1.sroa.4, ptr noundef nonnull align 4 dereferenceable(16) %j1.sroa.4.0.j.sroa_idx, i64 16, i1 false)
   %m_lookahead.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_lookahead.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -29365,28 +29362,34 @@ sw.bb10.i.i:                                      ; preds = %if.else.i
   br label %_ZN2pb6solver6assignEN3sat7literalENS1_13justificationE.exit
 
 sw.bb14.i.i:                                      ; preds = %if.else.i
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
+  %4 = getelementptr inbounds i8, ptr %j, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp164.sroa.5.i.i, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
   %cmp.i.i.i = icmp eq i32 %j1.sroa.0.0.copyload, 0
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZN2pb6solver6assignEN3sat7literalENS1_13justificationE.exit
+  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %sw.bb14.i.i
   %m_trim.i.i.i = getelementptr inbounds i8, ptr %1, i64 3976
-  %4 = load i8, ptr %m_trim.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %4 to i1
-  br i1 %tobool.i.i.i, label %_ZN2pb6solver6assignEN3sat7literalENS1_13justificationE.exit, label %if.then.i.i.i
+  %5 = load i8, ptr %m_trim.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %5 to i1
+  br i1 %tobool.i.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %m_justification.i.i.i = getelementptr inbounds i8, ptr %1, i64 3448
   %shr.i.i.i.i = lshr i32 %l.coerce, 1
-  %5 = load ptr, ptr %m_justification.i.i.i, align 8
+  %6 = load ptr, ptr %m_justification.i.i.i, align 8
   %idxprom.i.i5.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i6.i.i = getelementptr inbounds %"class.sat::justification", ptr %5, i64 %idxprom.i.i5.i.i
+  %arrayidx.i.i6.i.i = getelementptr inbounds %"class.sat::justification", ptr %6, i64 %idxprom.i.i5.i.i
   store i32 0, ptr %arrayidx.i.i6.i.i, align 8
   %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %j1.sroa.4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.i.i, i64 16, i1 false)
+  br label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i
+
+_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i: ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %sw.bb14.i.i
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
   br label %_ZN2pb6solver6assignEN3sat7literalENS1_13justificationE.exit
 
-_ZN2pb6solver6assignEN3sat7literalENS1_13justificationE.exit: ; preds = %if.else.i, %sw.bb.i.i, %sw.bb10.i.i, %if.then.i.i.i, %land.lhs.true.i.i.i, %sw.bb14.i.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %j1.sroa.4)
+_ZN2pb6solver6assignEN3sat7literalENS1_13justificationE.exit: ; preds = %if.else.i, %sw.bb.i.i, %sw.bb10.i.i, %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i, %if.then.i
   ret void
 }
 

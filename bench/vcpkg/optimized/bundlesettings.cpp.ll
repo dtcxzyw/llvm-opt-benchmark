@@ -1415,26 +1415,25 @@ switch.lookup:                                    ; preds = %3
   %19 = load i32, ptr %18, align 8
   %.not19.i.i = icmp eq i32 %19, 0
   %or.cond.i.i = select i1 %.not.i.i, i1 %.not19.i.i, i1 false
-  br i1 %or.cond.i.i, label %25, label %20
+  br i1 %or.cond.i.i, label %24, label %20
 
 20:                                               ; preds = %switch.lookup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %22 = getelementptr inbounds i8, ptr %4, i64 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %21 = getelementptr inbounds i8, ptr %4, i64 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %2, align 8
-  %24 = call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i.i.i, ptr nonnull %switch.load, i64 %switch.load4, ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %23 = call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i.i.i, ptr nonnull %switch.load, i64 %switch.load4, ptr noundef nonnull align 4 dereferenceable(16) %4)
   br label %_ZNK3fmt3v109formatterIN5vcpkg13StringLiteralEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit
 
-25:                                               ; preds = %switch.lookup
+24:                                               ; preds = %switch.lookup
   %.sroa.0.0.copyload.i22.i.i = load ptr, ptr %2, align 8
-  %26 = tail call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i22.i.i, ptr nonnull %switch.load, i64 %switch.load4, ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %25 = tail call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i22.i.i, ptr nonnull %switch.load, i64 %switch.load4, ptr noundef nonnull align 4 dereferenceable(16) %0)
   br label %_ZNK3fmt3v109formatterIN5vcpkg13StringLiteralEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit
 
-_ZNK3fmt3v109formatterIN5vcpkg13StringLiteralEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit: ; preds = %20, %25
-  %.sroa.018.0.i.i = phi ptr [ %24, %20 ], [ %26, %25 ]
+_ZNK3fmt3v109formatterIN5vcpkg13StringLiteralEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit: ; preds = %20, %24
+  %.sroa.018.0.i.i = phi ptr [ %23, %20 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   ret ptr %.sroa.018.0.i.i
 }

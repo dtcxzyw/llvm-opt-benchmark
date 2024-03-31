@@ -7888,7 +7888,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit76: ; preds = %if.th
 for.end:                                          ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit76
   %.pre110 = load i32, ptr %count.i, align 4
   %pt.i80 = getelementptr inbounds i8, ptr %env, i64 4448
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt115, ptr noundef nonnull align 8 dereferenceable(16) %pt.i80, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt115, ptr noundef nonnull align 16 dereferenceable(16) %pt3, i64 16, i1 false)
   %cmp.not.i.i82 = icmp ugt i32 %.pre110, %add107
   br i1 %cmp.not.i.i82, label %if.end.i.i86, label %if.then.i.i83
 
@@ -8013,7 +8013,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33: ; preds = %if.th
 for.end:                                          ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8eval_argEj.exit33
   %.pre110 = load i32, ptr %count.i, align 4
   %pt.i34 = getelementptr inbounds i8, ptr %env, i64 4448
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt17, ptr noundef nonnull align 8 dereferenceable(16) %pt.i34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pt17, ptr noundef nonnull align 16 dereferenceable(16) %pt1, i64 16, i1 false)
   %cmp.not.i.i36 = icmp ugt i32 %.pre110, %add107
   br i1 %cmp.not.i.i36, label %if.end.i.i40, label %if.then.i.i37
 

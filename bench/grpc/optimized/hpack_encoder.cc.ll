@@ -2412,17 +2412,17 @@ _ZNK9grpc_core5Slice3RefEv.exit80:                ; preds = %_ZN9grpc_core5Slice
 
 invoke.cont73.thread:                             ; preds = %_ZNK9grpc_core5Slice3RefEv.exit80
   %ref.tmp.i.sroa.0.0.copyload.i.i.i = load ptr, ptr %ref.tmp71, align 8
-  %ref.tmp.i.sroa.4.0.__args.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.sroa.4.0.__args.sroa_idx.i.i.i, i64 24, i1 false)
+  %73 = getelementptr inbounds i8, ptr %value, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false)
   store ptr %ref.tmp.i.sroa.0.0.copyload.i.i.i, ptr %71, align 8
   %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4.i.i.i)
   %index3.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 32
   store i32 %call67, ptr %index3.i.i.i.i, align 8
-  %73 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i82 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i82 = getelementptr inbounds i8, ptr %74, i64 40
   store ptr %incdec.ptr.i82, ptr %_M_finish.i, align 8
   br label %return
 
@@ -2436,40 +2436,40 @@ invoke.cont73:                                    ; preds = %if.else.i
   br i1 %cmp.i.i83, label %if.then.i.i84, label %return
 
 if.then.i.i84:                                    ; preds = %invoke.cont73
-  %74 = atomicrmw sub ptr %.pre109, i64 1 acq_rel, align 8
-  %cmp.i.i.i85 = icmp eq i64 %74, 1
+  %75 = atomicrmw sub ptr %.pre109, i64 1 acq_rel, align 8
+  %cmp.i.i.i85 = icmp eq i64 %75, 1
   br i1 %cmp.i.i.i85, label %if.then.i.i.i86, label %return
 
 if.then.i.i.i86:                                  ; preds = %if.then.i.i84
   %destroyer_fn_.i.i.i87 = getelementptr inbounds i8, ptr %.pre109, i64 8
-  %75 = load ptr, ptr %destroyer_fn_.i.i.i87, align 8
-  invoke void %75(ptr noundef nonnull %.pre109)
+  %76 = load ptr, ptr %destroyer_fn_.i.i.i87, align 8
+  invoke void %76(ptr noundef nonnull %.pre109)
           to label %return unwind label %terminate.lpad.i88
 
 terminate.lpad.i88:                               ; preds = %if.then.i.i.i86
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #22
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #22
   unreachable
 
 return:                                           ; preds = %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit, %land.rhs, %invoke.cont73.thread, %if.end49, %if.then.i.i.i86, %if.then.i.i84, %invoke.cont73, %if.then.i.i.i23, %if.then.i.i21, %_ZN9grpc_core5SliceD2Ev.exit
   ret void
 
 lpad65:                                           ; preds = %invoke.cont64
-  %78 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp62) #21
   br label %eh.resume
 
 lpad72:                                           ; preds = %if.else.i
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad72, %lpad65, %lpad33, %lpad9
   %ref.tmp71.sink = phi ptr [ %ref.tmp71, %lpad72 ], [ %agg.tmp60, %lpad65 ], [ %agg.tmp28, %lpad33 ], [ %agg.tmp, %lpad9 ]
-  %.pn15.pn = phi { ptr, i32 } [ %79, %lpad72 ], [ %78, %lpad65 ], [ %36, %lpad33 ], [ %15, %lpad9 ]
+  %.pn15.pn = phi { ptr, i32 } [ %80, %lpad72 ], [ %79, %lpad65 ], [ %36, %lpad33 ], [ %15, %lpad9 ]
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.sink) #21
   resume { ptr, i32 } %.pn15.pn
 }

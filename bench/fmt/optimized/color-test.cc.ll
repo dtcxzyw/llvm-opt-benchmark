@@ -7626,8 +7626,8 @@ if.end40:                                         ; preds = %_ZNSt20back_insert_
 
 if.then.i:                                        ; preds = %if.end40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %specs.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
-  %width_ref6.i = getelementptr inbounds i8, ptr %specs.i, i64 16
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %specs.i, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %width_ref6.i, ptr noundef nonnull align 8 dereferenceable(32) %ctx)
+  %28 = getelementptr inbounds i8, ptr %this, i64 16
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %specs.i, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %ctx)
   %precision.i = getelementptr inbounds i8, ptr %specs.i, i64 4
   %precision_ref8.i = getelementptr inbounds i8, ptr %specs.i, i64 40
   call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %precision_ref8.i, ptr noundef nonnull align 8 dereferenceable(32) %ctx)
@@ -7648,28 +7648,28 @@ for.body.lr.ph.i.i.i.i.i85:                       ; preds = %_ZNK3fmt3v109format
 for.body.i.i.i.i.i89:                             ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94, %for.body.lr.ph.i.i.i.i.i85
   %__first.addr.05.i.i.i.i.i91.idx = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i85 ], [ %__first.addr.05.i.i.i.i.i91.add, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94 ]
   %__first.addr.05.i.i.i.i.i91.ptr = getelementptr inbounds i8, ptr @.str.119, i64 %__first.addr.05.i.i.i.i.i91.idx
-  %28 = load i64, ptr %size_.i.i.i.i.i.i.i86, align 8
-  %add.i.i.i.i.i.i.i92 = add i64 %28, 1
-  %29 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i87, align 8
-  %cmp.i.i.i.i.i.i.i.i93 = icmp ult i64 %29, %add.i.i.i.i.i.i.i92
+  %29 = load i64, ptr %size_.i.i.i.i.i.i.i86, align 8
+  %add.i.i.i.i.i.i.i92 = add i64 %29, 1
+  %30 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i87, align 8
+  %cmp.i.i.i.i.i.i.i.i93 = icmp ult i64 %30, %add.i.i.i.i.i.i.i92
   br i1 %cmp.i.i.i.i.i.i.i.i93, label %if.then.i.i.i.i.i.i.i.i100, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94
 
 if.then.i.i.i.i.i.i.i.i100:                       ; preds = %for.body.i.i.i.i.i89
   %vtable.i.i.i.i.i.i.i.i101 = load ptr, ptr %call.i78, align 8
-  %30 = load ptr, ptr %vtable.i.i.i.i.i.i.i.i101, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(32) %call.i78, i64 noundef %add.i.i.i.i.i.i.i92)
+  %31 = load ptr, ptr %vtable.i.i.i.i.i.i.i.i101, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(32) %call.i78, i64 noundef %add.i.i.i.i.i.i.i92)
   %.pre.i.i.i.i.i.i.i102 = load i64, ptr %size_.i.i.i.i.i.i.i86, align 8
   %.pre1.i.i.i.i.i.i.i103 = add i64 %.pre.i.i.i.i.i.i.i102, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94
 
 _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94: ; preds = %if.then.i.i.i.i.i.i.i.i100, %for.body.i.i.i.i.i89
   %inc.pre-phi.i.i.i.i.i.i.i95 = phi i64 [ %add.i.i.i.i.i.i.i92, %for.body.i.i.i.i.i89 ], [ %.pre1.i.i.i.i.i.i.i103, %if.then.i.i.i.i.i.i.i.i100 ]
-  %31 = phi i64 [ %28, %for.body.i.i.i.i.i89 ], [ %.pre.i.i.i.i.i.i.i102, %if.then.i.i.i.i.i.i.i.i100 ]
-  %32 = load i8, ptr %__first.addr.05.i.i.i.i.i91.ptr, align 1
-  %33 = load ptr, ptr %ptr_.i.i.i.i.i.i.i88, align 8
+  %32 = phi i64 [ %29, %for.body.i.i.i.i.i89 ], [ %.pre.i.i.i.i.i.i.i102, %if.then.i.i.i.i.i.i.i.i100 ]
+  %33 = load i8, ptr %__first.addr.05.i.i.i.i.i91.ptr, align 1
+  %34 = load ptr, ptr %ptr_.i.i.i.i.i.i.i88, align 8
   store i64 %inc.pre-phi.i.i.i.i.i.i.i95, ptr %size_.i.i.i.i.i.i.i86, align 8
-  %arrayidx.i.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %33, i64 %31
-  store i8 %32, ptr %arrayidx.i.i.i.i.i.i.i96, align 1
+  %arrayidx.i.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %34, i64 %32
+  store i8 %33, ptr %arrayidx.i.i.i.i.i.i.i96, align 1
   %__first.addr.05.i.i.i.i.i91.add = add nuw nsw i64 %__first.addr.05.i.i.i.i.i91.idx, 1
   %exitcond110.not = icmp eq i64 %__first.addr.05.i.i.i.i.i91.idx, 3
   br i1 %exitcond110.not, label %if.end56, label %for.body.i.i.i.i.i89, !llvm.loop !528
@@ -10914,8 +10914,8 @@ if.end40:                                         ; preds = %_ZNSt20back_insert_
 
 if.then.i:                                        ; preds = %if.end40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %specs.i, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
-  %width_ref6.i = getelementptr inbounds i8, ptr %specs.i, i64 16
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %specs.i, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %width_ref6.i, ptr noundef nonnull align 8 dereferenceable(32) %ctx)
+  %28 = getelementptr inbounds i8, ptr %this, i64 16
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %specs.i, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %ctx)
   %precision.i = getelementptr inbounds i8, ptr %specs.i, i64 4
   %precision_ref8.i = getelementptr inbounds i8, ptr %specs.i, i64 40
   call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %precision.i, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %precision_ref8.i, ptr noundef nonnull align 8 dereferenceable(32) %ctx)
@@ -10936,28 +10936,28 @@ for.body.lr.ph.i.i.i.i.i85:                       ; preds = %_ZNK3fmt3v109format
 for.body.i.i.i.i.i89:                             ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94, %for.body.lr.ph.i.i.i.i.i85
   %__first.addr.05.i.i.i.i.i91.idx = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i85 ], [ %__first.addr.05.i.i.i.i.i91.add, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94 ]
   %__first.addr.05.i.i.i.i.i91.ptr = getelementptr inbounds i8, ptr @.str.119, i64 %__first.addr.05.i.i.i.i.i91.idx
-  %28 = load i64, ptr %size_.i.i.i.i.i.i.i86, align 8
-  %add.i.i.i.i.i.i.i92 = add i64 %28, 1
-  %29 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i87, align 8
-  %cmp.i.i.i.i.i.i.i.i93 = icmp ult i64 %29, %add.i.i.i.i.i.i.i92
+  %29 = load i64, ptr %size_.i.i.i.i.i.i.i86, align 8
+  %add.i.i.i.i.i.i.i92 = add i64 %29, 1
+  %30 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i87, align 8
+  %cmp.i.i.i.i.i.i.i.i93 = icmp ult i64 %30, %add.i.i.i.i.i.i.i92
   br i1 %cmp.i.i.i.i.i.i.i.i93, label %if.then.i.i.i.i.i.i.i.i100, label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94
 
 if.then.i.i.i.i.i.i.i.i100:                       ; preds = %for.body.i.i.i.i.i89
   %vtable.i.i.i.i.i.i.i.i101 = load ptr, ptr %call.i78, align 8
-  %30 = load ptr, ptr %vtable.i.i.i.i.i.i.i.i101, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(32) %call.i78, i64 noundef %add.i.i.i.i.i.i.i92)
+  %31 = load ptr, ptr %vtable.i.i.i.i.i.i.i.i101, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(32) %call.i78, i64 noundef %add.i.i.i.i.i.i.i92)
   %.pre.i.i.i.i.i.i.i102 = load i64, ptr %size_.i.i.i.i.i.i.i86, align 8
   %.pre1.i.i.i.i.i.i.i103 = add i64 %.pre.i.i.i.i.i.i.i102, 1
   br label %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94
 
 _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSERKc.exit.i.i.i.i.i94: ; preds = %if.then.i.i.i.i.i.i.i.i100, %for.body.i.i.i.i.i89
   %inc.pre-phi.i.i.i.i.i.i.i95 = phi i64 [ %add.i.i.i.i.i.i.i92, %for.body.i.i.i.i.i89 ], [ %.pre1.i.i.i.i.i.i.i103, %if.then.i.i.i.i.i.i.i.i100 ]
-  %31 = phi i64 [ %28, %for.body.i.i.i.i.i89 ], [ %.pre.i.i.i.i.i.i.i102, %if.then.i.i.i.i.i.i.i.i100 ]
-  %32 = load i8, ptr %__first.addr.05.i.i.i.i.i91.ptr, align 1
-  %33 = load ptr, ptr %ptr_.i.i.i.i.i.i.i88, align 8
+  %32 = phi i64 [ %29, %for.body.i.i.i.i.i89 ], [ %.pre.i.i.i.i.i.i.i102, %if.then.i.i.i.i.i.i.i.i100 ]
+  %33 = load i8, ptr %__first.addr.05.i.i.i.i.i91.ptr, align 1
+  %34 = load ptr, ptr %ptr_.i.i.i.i.i.i.i88, align 8
   store i64 %inc.pre-phi.i.i.i.i.i.i.i95, ptr %size_.i.i.i.i.i.i.i86, align 8
-  %arrayidx.i.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %33, i64 %31
-  store i8 %32, ptr %arrayidx.i.i.i.i.i.i.i96, align 1
+  %arrayidx.i.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %34, i64 %32
+  store i8 %33, ptr %arrayidx.i.i.i.i.i.i.i96, align 1
   %__first.addr.05.i.i.i.i.i91.add = add nuw nsw i64 %__first.addr.05.i.i.i.i.i91.idx, 1
   %exitcond110.not = icmp eq i64 %__first.addr.05.i.i.i.i.i91.idx, 3
   br i1 %exitcond110.not, label %if.end56, label %for.body.i.i.i.i.i89, !llvm.loop !528

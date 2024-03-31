@@ -29024,19 +29024,18 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail5valueINS0_20basic_format_
 
 26:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %27 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %_ZNK3fmt3v109formatterIN5vcpkg10StringViewEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEES3_RT_.exit
 
 _ZNK3fmt3v109formatterIN5vcpkg10StringViewEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEES3_RT_.exit: ; preds = %3, %26
   %.sink = phi ptr [ %4, %26 ], [ %5, %3 ]
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %30 = call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 4 dereferenceable(16) %.sink)
+  %29 = call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 4 dereferenceable(16) %.sink)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  store ptr %30, ptr %2, align 8
+  store ptr %29, ptr %2, align 8
   ret void
 }
 
@@ -35394,21 +35393,20 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail5valueINS0_20basic_format_
 
 27:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
-  %28 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %_ZNK3fmt3v109formatterIN5vcpkg4PathEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit
 
 _ZNK3fmt3v109formatterIN5vcpkg4PathEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit: ; preds = %3, %27
   %.sink = phi ptr [ %4, %27 ], [ %5, %3 ]
-  %31 = extractvalue { ptr, i64 } %24, 1
-  %32 = extractvalue { ptr, i64 } %24, 0
+  %30 = extractvalue { ptr, i64 } %24, 1
+  %31 = extractvalue { ptr, i64 } %24, 0
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %2, align 8
-  %33 = call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i.i.i, ptr %32, i64 %31, ptr noundef nonnull align 4 dereferenceable(16) %.sink)
+  %32 = call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_12format_specsIS6_EE(ptr %.sroa.0.0.copyload.i.i.i, ptr %31, i64 %30, ptr noundef nonnull align 4 dereferenceable(16) %.sink)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  store ptr %33, ptr %2, align 8
+  store ptr %32, ptr %2, align 8
   ret void
 }
 
@@ -35696,7 +35694,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt3v109formatterINS0_9join_viewIPiS3_cE
 
 18:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %19 = getelementptr inbounds i8, ptr %8, i64 16
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %20 = getelementptr inbounds i8, ptr %8, i64 4
   %21 = getelementptr inbounds i8, ptr %8, i64 40
@@ -35801,14 +35799,14 @@ _ZN3fmt3v106detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIX
 .lr.ph:                                           ; preds = %67
   %69 = getelementptr inbounds i8, ptr %1, i64 16
   %70 = getelementptr inbounds i8, ptr %1, i64 24
-  %71 = getelementptr inbounds i8, ptr %9, i64 16
-  %72 = getelementptr inbounds i8, ptr %9, i64 4
-  %73 = getelementptr inbounds i8, ptr %9, i64 40
-  %74 = getelementptr inbounds i8, ptr %2, i64 24
-  %75 = getelementptr inbounds i8, ptr %9, i64 9
-  %76 = getelementptr inbounds i8, ptr %5, i64 16
-  %77 = getelementptr inbounds i8, ptr %0, i64 9
-  %78 = getelementptr inbounds i8, ptr %4, i64 16
+  %71 = getelementptr inbounds i8, ptr %9, i64 4
+  %72 = getelementptr inbounds i8, ptr %9, i64 40
+  %73 = getelementptr inbounds i8, ptr %2, i64 24
+  %74 = getelementptr inbounds i8, ptr %9, i64 9
+  %75 = getelementptr inbounds i8, ptr %5, i64 16
+  %76 = getelementptr inbounds i8, ptr %0, i64 9
+  %77 = getelementptr inbounds i8, ptr %4, i64 16
+  %78 = getelementptr inbounds i8, ptr %0, i64 16
   br label %79
 
 79:                                               ; preds = %.lr.ph, %148
@@ -35880,18 +35878,18 @@ _ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit: ; preds = %_ZSt2
 
 108:                                              ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %71, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %72, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %73, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %78, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void @_ZN3fmt3v106detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_(ptr noundef nonnull align 4 dereferenceable(4) %71, ptr noundef nonnull byval(%"struct.fmt::v10::detail::arg_ref") align 8 %72, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.sroa.0.0.copyload.i127 = load ptr, ptr %2, align 8
   %109 = load i32, ptr %.0146, align 4
-  %.sroa.0.0.copyload.i128 = load ptr, ptr %74, align 8
-  %110 = load i16, ptr %75, align 1
+  %.sroa.0.0.copyload.i128 = load ptr, ptr %73, align 8
+  %110 = load i16, ptr %74, align 1
   %111 = and i16 %110, 256
   %.not113 = icmp eq i16 %111, 0
   br i1 %.not113, label %114, label %112
 
 112:                                              ; preds = %108
-  store i32 1, ptr %76, align 16, !alias.scope !393
+  store i32 1, ptr %75, align 16, !alias.scope !393
   %.sroa.0.0.insert.ext.i.i129 = zext i32 %109 to i64
   store i64 %.sroa.0.0.insert.ext.i.i129, ptr %5, align 16, !alias.scope !393
   %113 = call noundef zeroext i1 @_ZN3fmt3v106detail9write_locENS0_8appenderENS0_9loc_valueERKNS0_12format_specsIcEENS1_10locale_refE(ptr %.sroa.0.0.copyload.i127, ptr noundef nonnull byval(%"class.fmt::v10::loc_value") align 16 %5, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr %.sroa.0.0.copyload.i128)
@@ -35906,7 +35904,7 @@ _ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit: ; preds = %_ZSt2
   br label %_ZN3fmt3v106detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.exit134
 
 118:                                              ; preds = %114
-  %119 = load i16, ptr %75, align 1
+  %119 = load i16, ptr %74, align 1
   %120 = lshr i16 %119, 4
   %121 = and i16 %120, 7
   %122 = zext nneg i16 %121 to i64
@@ -35926,14 +35924,14 @@ _ZN3fmt3v106detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIX
 
 128:                                              ; preds = %_ZN3fmt3v106detail8copy_strIcPKcEENS0_8appenderET0_S6_S5_.exit
   %129 = load i32, ptr %.0146, align 4
-  %.sroa.0.0.copyload.i136 = load ptr, ptr %74, align 8
-  %130 = load i16, ptr %77, align 1
+  %.sroa.0.0.copyload.i136 = load ptr, ptr %73, align 8
+  %130 = load i16, ptr %76, align 1
   %131 = and i16 %130, 256
   %.not112 = icmp eq i16 %131, 0
   br i1 %.not112, label %134, label %132
 
 132:                                              ; preds = %128
-  store i32 1, ptr %78, align 16, !alias.scope !396
+  store i32 1, ptr %77, align 16, !alias.scope !396
   %.sroa.0.0.insert.ext.i.i137 = zext i32 %129 to i64
   store i64 %.sroa.0.0.insert.ext.i.i137, ptr %4, align 16, !alias.scope !396
   %133 = call noundef zeroext i1 @_ZN3fmt3v106detail9write_locENS0_8appenderENS0_9loc_valueERKNS0_12format_specsIcEENS1_10locale_refE(ptr %.sroa.020.0145, ptr noundef nonnull byval(%"class.fmt::v10::loc_value") align 16 %4, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr %.sroa.0.0.copyload.i136)
@@ -35948,7 +35946,7 @@ _ZN3fmt3v106detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIX
   br label %_ZN3fmt3v106detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.exit142
 
 138:                                              ; preds = %134
-  %139 = load i16, ptr %77, align 1
+  %139 = load i16, ptr %76, align 1
   %140 = lshr i16 %139, 4
   %141 = and i16 %140, 7
   %142 = zext nneg i16 %141 to i64

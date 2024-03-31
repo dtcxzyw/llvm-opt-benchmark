@@ -34,125 +34,123 @@ define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expr
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { i64, [28 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
-  %9 = alloca { ptr, { i64, { { { i64, ptr }, i64 } } } }, align 8
-  %10 = alloca { { i64, ptr }, i64 }, align 8
-  %11 = alloca { ptr, i64, ptr, ptr, {}, { {} } }, align 8
-  %12 = alloca { { ptr, i64, ptr, ptr, {}, { {} } }, {} }, align 8
-  %13 = alloca { { i64, ptr }, i64 }, align 8
-  %14 = alloca { i64, [28 x i64] }, align 8
-  %15 = alloca { ptr, { i64, { { { i64, ptr }, i64 } } } }, align 8
-  %16 = alloca { ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
+  %9 = alloca { { i64, ptr }, i64 }, align 8
+  %10 = alloca { ptr, i64, ptr, ptr, {}, { {} } }, align 8
+  %11 = alloca { { ptr, i64, ptr, ptr, {}, { {} } }, {} }, align 8
+  %12 = alloca { { i64, ptr }, i64 }, align 8
+  %13 = alloca { i64, [28 x i64] }, align 8
+  %14 = alloca { ptr, { i64, { { { i64, ptr }, i64 } } } }, align 8
+  %15 = alloca { ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0180d3786f5fdcd7E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %8, ptr nonnull align 8 @anon.19fac61c77b15ff8d2d74d1eb9669630.0)
-  %17 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h60cd69a3992e783aE"(ptr nonnull align 8 %8, ptr nonnull align 1 @anon.19fac61c77b15ff8d2d74d1eb9669630.1, i64 70, ptr nonnull align 8 @anon.19fac61c77b15ff8d2d74d1eb9669630.3)
-  %18 = extractvalue { i64, i64 } %17, 0
-  %19 = extractvalue { i64, i64 } %17, 1
-  store ptr %3, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) @anon.19fac61c77b15ff8d2d74d1eb9669630.5, i64 32, i1 false)
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 40
-  store i64 %18, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 48
-  store i64 %19, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
-  invoke void @"_ZN13dsl_auto_type9auto_type25expression_type_inference82_$LT$impl$u20$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$8inferrer17h94283985a7df7b37E"(ptr nonnull sret({ ptr, { i64, { { { i64, ptr }, i64 } } } }) align 8 %15, ptr nonnull align 8 %16)
-          to label %24 unwind label %22
+  %16 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h60cd69a3992e783aE"(ptr nonnull align 8 %8, ptr nonnull align 1 @anon.19fac61c77b15ff8d2d74d1eb9669630.1, i64 70, ptr nonnull align 8 @anon.19fac61c77b15ff8d2d74d1eb9669630.3)
+  %17 = extractvalue { i64, i64 } %16, 0
+  %18 = extractvalue { i64, i64 } %16, 1
+  store ptr %3, ptr %15, align 8
+  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.19fac61c77b15ff8d2d74d1eb9669630.5, i64 32, i1 false)
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 40
+  store i64 %17, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 48
+  store i64 %18, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
+  invoke void @"_ZN13dsl_auto_type9auto_type25expression_type_inference82_$LT$impl$u20$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$8inferrer17h94283985a7df7b37E"(ptr nonnull sret({ ptr, { i64, { { { i64, ptr }, i64 } } } }) align 8 %14, ptr nonnull align 8 %15)
+          to label %23 unwind label %21
 
-21:                                               ; preds = %37, %.thread, %22
-  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.thread ], [ %23, %22 ], [ %38, %37 ]
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$17h7907afca92dbef78E"(ptr nonnull align 8 %16) #9
-          to label %46 unwind label %44
+20:                                               ; preds = %36, %.thread, %21
+  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.thread ], [ %22, %21 ], [ %37, %36 ]
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$17h7907afca92dbef78E"(ptr nonnull align 8 %15) #9
+          to label %45 unwind label %43
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %20
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %7)
-  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nonnull align 8 %7, ptr nonnull align 8 %15, ptr align 8 %1, ptr align 8 %2) #10
-          to label %.noexc unwind label %35
+  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nonnull align 8 %7, ptr nonnull align 8 %14, ptr align 8 %1, ptr align 8 %2) #10
+          to label %.noexc unwind label %34
 
-.noexc:                                           ; preds = %24
-  %25 = load i64, ptr %7, align 8, !range !3, !noundef !4
-  %.not.i = icmp eq i64 %25, 17
-  br i1 %.not.i, label %27, label %26
+.noexc:                                           ; preds = %23
+  %24 = load i64, ptr %7, align 8, !range !3, !noundef !4
+  %.not.i = icmp eq i64 %24, 17
+  br i1 %.not.i, label %26, label %25
+
+25:                                               ; preds = %.noexc
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %13, ptr noundef nonnull align 8 dereferenceable(232) %7, i64 232, i1 false)
+  br label %38
 
 26:                                               ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %14, ptr noundef nonnull align 8 dereferenceable(232) %7, i64 232, i1 false)
-  br label %39
-
-27:                                               ; preds = %.noexc
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
+  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17hdd0f5fb90e5ca17cE(ptr nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 %5, ptr align 8 %1)
-          to label %29 unwind label %32
+          to label %28 unwind label %31
 
-29:                                               ; preds = %27
-  %30 = invoke i32 @_ZN5quote7spanned10join_spans17hb3248c53475767b1E(ptr nonnull align 8 %5)
-          to label %31 unwind label %32
+28:                                               ; preds = %26
+  %29 = invoke i32 @_ZN5quote7spanned10join_spans17hb3248c53475767b1E(ptr nonnull align 8 %5)
+          to label %30 unwind label %31
 
-31:                                               ; preds = %29
-  invoke void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer14register_error17hc8d4db963ff7b04dE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %14, ptr nonnull align 8 %15, ptr nonnull align 8 %6, i32 %30)
-          to label %39 unwind label %35
+30:                                               ; preds = %28
+  invoke void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer14register_error17hc8d4db963ff7b04dE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %13, ptr nonnull align 8 %14, ptr nonnull align 8 %6, i32 %29)
+          to label %38 unwind label %34
 
-32:                                               ; preds = %29, %27
+31:                                               ; preds = %28, %26
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17hab1abc2346f673abE"(ptr nonnull align 8 %6) #9
-          to label %.thread unwind label %33
+          to label %.thread unwind label %32
 
-33:                                               ; preds = %32
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %31
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-35:                                               ; preds = %31, %24
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %30, %23
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-37:                                               ; preds = %41, %39
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %40, %38
+  %37 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbaa7b74a29f0e1f7E"(ptr nonnull align 8 %14) #9
-          to label %21 unwind label %44
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbaa7b74a29f0e1f7E"(ptr nonnull align 8 %13) #9
+          to label %20 unwind label %43
 
-39:                                               ; preds = %31, %26
+38:                                               ; preds = %30, %25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
-  %40 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
-  invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf7ac3418a3ace438E"(ptr nonnull sret({ ptr, i64, ptr, ptr, {}, { {} } }) align 8 %11, ptr nonnull align 8 %10)
-          to label %41 unwind label %37
+  %39 = getelementptr inbounds i8, ptr %14, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
+  invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf7ac3418a3ace438E"(ptr nonnull sret({ ptr, i64, ptr, ptr, {}, { {} } }) align 8 %10, ptr nonnull align 8 %9)
+          to label %40 unwind label %36
 
-41:                                               ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  invoke void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17h7b13590c4673df78E"(ptr nonnull sret({ { i64, ptr }, i64 }) align 8 %13, ptr nonnull align 8 %12)
-          to label %42 unwind label %37
+40:                                               ; preds = %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
+  invoke void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17h7b13590c4673df78E"(ptr nonnull sret({ { i64, ptr }, i64 }) align 8 %12, ptr nonnull align 8 %11)
+          to label %41 unwind label %36
 
-42:                                               ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(232) %14, i64 232, i1 false)
-  %43 = getelementptr inbounds i8, ptr %0, i64 232
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  call void @"_ZN4core3ptr85drop_in_place$LT$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$17h7907afca92dbef78E"(ptr nonnull align 8 %16)
+41:                                               ; preds = %40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(232) %13, i64 232, i1 false)
+  %42 = getelementptr inbounds i8, ptr %0, i64 232
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  call void @"_ZN4core3ptr85drop_in_place$LT$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$17h7907afca92dbef78E"(ptr nonnull align 8 %15)
   ret void
 
-44:                                               ; preds = %.thread, %37, %21
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %.thread, %36, %20
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-.thread:                                          ; preds = %32, %35
-  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %lpad.thr_comm.i, %32 ]
-  invoke void @"_ZN4core3ptr86drop_in_place$LT$dsl_auto_type..auto_type..expression_type_inference..TypeInferrer$GT$17hb1d990003e3b3defE"(ptr nonnull align 8 %15) #9
-          to label %21 unwind label %44
+.thread:                                          ; preds = %31, %34
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %lpad.thr_comm.i, %31 ]
+  invoke void @"_ZN4core3ptr86drop_in_place$LT$dsl_auto_type..auto_type..expression_type_inference..TypeInferrer$GT$17hb1d990003e3b3defE"(ptr nonnull align 8 %14) #9
+          to label %20 unwind label %43
 
-46:                                               ; preds = %21
+45:                                               ; preds = %20
   resume { ptr, i32 } %.pn.pn
 }
 

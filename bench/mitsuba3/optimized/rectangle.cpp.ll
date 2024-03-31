@@ -2753,13 +2753,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm4EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i291.2, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2, label %90, !llvm.loop !151
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2: ; preds = %90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %20, ptr noundef nonnull align 16 dereferenceable(64) %21, i64 64, i1 false), !noalias !138
-  %100 = getelementptr inbounds i8, ptr %20, i64 16
-  %101 = getelementptr inbounds i8, ptr %20, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0323, ptr noundef nonnull align 16 dereferenceable(16) %21, i64 16, i1 false)
   %.sroa.0323.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0323, i64 16
+  %100 = getelementptr inbounds i8, ptr %21, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0323.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %100, i64 16, i1 false)
   %.sroa.0323.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0323, i64 32
+  %101 = getelementptr inbounds i8, ptr %21, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0323.32..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %101, i64 16, i1 false)
   %102 = getelementptr inbounds i8, ptr %2, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %17, ptr noundef nonnull align 16 dereferenceable(64) %22, i64 64, i1 false), !noalias !158
@@ -2855,13 +2854,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm4EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i301.1, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit302.1, label %132, !llvm.loop !151
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit302.1: ; preds = %132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %17, ptr noundef nonnull align 16 dereferenceable(64) %18, i64 64, i1 false), !noalias !158
-  %142 = getelementptr inbounds i8, ptr %17, i64 16
-  %143 = getelementptr inbounds i8, ptr %17, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0324, ptr noundef nonnull align 16 dereferenceable(16) %18, i64 16, i1 false)
   %.sroa.0324.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0324, i64 16
+  %142 = getelementptr inbounds i8, ptr %18, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0324.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %142, i64 16, i1 false)
   %.sroa.0324.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0324, i64 32
+  %143 = getelementptr inbounds i8, ptr %18, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0324.32..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %143, i64 16, i1 false)
   %144 = getelementptr inbounds i8, ptr %2, i64 96
   %.sroa.04.0.copyload = load <4 x float>, ptr %144, align 16, !noalias !179
@@ -3178,13 +3176,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm4EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i265.2, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2, label %89, !llvm.loop !151
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2: ; preds = %89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %19, ptr noundef nonnull align 16 dereferenceable(64) %20, i64 64, i1 false), !noalias !201
-  %99 = getelementptr inbounds i8, ptr %19, i64 16
-  %100 = getelementptr inbounds i8, ptr %19, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0293, ptr noundef nonnull align 16 dereferenceable(16) %20, i64 16, i1 false)
   %.sroa.0293.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0293, i64 16
+  %99 = getelementptr inbounds i8, ptr %20, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0293.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %99, i64 16, i1 false)
   %.sroa.0293.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0293, i64 32
+  %100 = getelementptr inbounds i8, ptr %20, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0293.32..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %100, i64 16, i1 false)
   %101 = getelementptr inbounds i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %16, ptr noundef nonnull align 16 dereferenceable(64) %21, i64 64, i1 false), !noalias !219
@@ -3280,13 +3277,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm4EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i275.1, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit276.1, label %131, !llvm.loop !151
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit276.1: ; preds = %131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %16, ptr noundef nonnull align 16 dereferenceable(64) %17, i64 64, i1 false), !noalias !219
-  %141 = getelementptr inbounds i8, ptr %16, i64 16
-  %142 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0294, ptr noundef nonnull align 16 dereferenceable(16) %17, i64 16, i1 false)
   %.sroa.0294.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0294, i64 16
+  %141 = getelementptr inbounds i8, ptr %17, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0294.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %141, i64 16, i1 false)
   %.sroa.0294.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0294, i64 32
+  %142 = getelementptr inbounds i8, ptr %17, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0294.32..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %142, i64 16, i1 false)
   %143 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.04.0.copyload = load <4 x float>, ptr %143, align 16, !noalias !239
@@ -3592,13 +3588,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm8EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i327.2, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2, label %90, !llvm.loop !275
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2: ; preds = %90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %20, ptr noundef nonnull align 32 dereferenceable(128) %21, i64 128, i1 false), !noalias !262
-  %100 = getelementptr inbounds i8, ptr %20, i64 32
-  %101 = getelementptr inbounds i8, ptr %20, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0359, ptr noundef nonnull align 32 dereferenceable(32) %21, i64 32, i1 false)
   %.sroa.0359.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0359, i64 32
+  %100 = getelementptr inbounds i8, ptr %21, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0359.32..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %100, i64 32, i1 false)
   %.sroa.0359.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0359, i64 64
+  %101 = getelementptr inbounds i8, ptr %21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0359.64..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %101, i64 32, i1 false)
   %102 = getelementptr inbounds i8, ptr %2, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %17, ptr noundef nonnull align 32 dereferenceable(128) %22, i64 128, i1 false), !noalias !282
@@ -3694,13 +3689,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm8EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i337.1, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit338.1, label %132, !llvm.loop !275
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit338.1: ; preds = %132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %17, ptr noundef nonnull align 32 dereferenceable(128) %18, i64 128, i1 false), !noalias !282
-  %142 = getelementptr inbounds i8, ptr %17, i64 32
-  %143 = getelementptr inbounds i8, ptr %17, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0360, ptr noundef nonnull align 32 dereferenceable(32) %18, i64 32, i1 false)
   %.sroa.0360.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0360, i64 32
+  %142 = getelementptr inbounds i8, ptr %18, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0360.32..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %142, i64 32, i1 false)
   %.sroa.0360.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0360, i64 64
+  %143 = getelementptr inbounds i8, ptr %18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0360.64..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %143, i64 32, i1 false)
   %144 = getelementptr inbounds i8, ptr %2, i64 192
   %.sroa.04.0.copyload = load <8 x float>, ptr %144, align 32, !noalias !303
@@ -4012,13 +4006,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm8EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i301.2, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2, label %89, !llvm.loop !275
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2: ; preds = %89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %19, ptr noundef nonnull align 32 dereferenceable(128) %20, i64 128, i1 false), !noalias !325
-  %99 = getelementptr inbounds i8, ptr %19, i64 32
-  %100 = getelementptr inbounds i8, ptr %19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0329, ptr noundef nonnull align 32 dereferenceable(32) %20, i64 32, i1 false)
   %.sroa.0329.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0329, i64 32
+  %99 = getelementptr inbounds i8, ptr %20, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0329.32..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %99, i64 32, i1 false)
   %.sroa.0329.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0329, i64 64
+  %100 = getelementptr inbounds i8, ptr %20, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0329.64..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %100, i64 32, i1 false)
   %101 = getelementptr inbounds i8, ptr %1, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %16, ptr noundef nonnull align 32 dereferenceable(128) %21, i64 128, i1 false), !noalias !343
@@ -4114,13 +4107,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm8EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iEE
   br i1 %exitcond.not.i311.1, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit312.1, label %131, !llvm.loop !275
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit312.1: ; preds = %131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %16, ptr noundef nonnull align 32 dereferenceable(128) %17, i64 128, i1 false), !noalias !343
-  %141 = getelementptr inbounds i8, ptr %16, i64 32
-  %142 = getelementptr inbounds i8, ptr %16, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0330, ptr noundef nonnull align 32 dereferenceable(32) %17, i64 32, i1 false)
   %.sroa.0330.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0330, i64 32
+  %141 = getelementptr inbounds i8, ptr %17, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0330.32..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %141, i64 32, i1 false)
   %.sroa.0330.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0330, i64 64
+  %142 = getelementptr inbounds i8, ptr %17, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %.sroa.0330.64..sroa_idx, ptr noundef nonnull align 32 dereferenceable(32) %142, i64 32, i1 false)
   %143 = getelementptr inbounds i8, ptr %1, i64 192
   %.sroa.04.0.copyload = load <8 x float>, ptr %143, align 32, !noalias !363
@@ -4421,13 +4413,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm16EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iE
   br i1 %exitcond.not.i333.2, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2, label %90, !llvm.loop !399
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2: ; preds = %90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %20, ptr noundef nonnull align 64 dereferenceable(256) %21, i64 256, i1 false), !noalias !386
-  %100 = getelementptr inbounds i8, ptr %20, i64 64
-  %101 = getelementptr inbounds i8, ptr %20, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0369, ptr noundef nonnull align 64 dereferenceable(64) %21, i64 64, i1 false)
   %.sroa.0369.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0369, i64 64
+  %100 = getelementptr inbounds i8, ptr %21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0369.64..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %100, i64 64, i1 false)
   %.sroa.0369.128..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0369, i64 128
+  %101 = getelementptr inbounds i8, ptr %21, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0369.128..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %101, i64 64, i1 false)
   %102 = getelementptr inbounds i8, ptr %2, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %17, ptr noundef nonnull align 64 dereferenceable(256) %22, i64 256, i1 false), !noalias !406
@@ -4523,13 +4514,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm16EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iE
   br i1 %exitcond.not.i343.1, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit344.1, label %132, !llvm.loop !399
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit344.1: ; preds = %132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %17, ptr noundef nonnull align 64 dereferenceable(256) %18, i64 256, i1 false), !noalias !406
-  %142 = getelementptr inbounds i8, ptr %17, i64 64
-  %143 = getelementptr inbounds i8, ptr %17, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0370, ptr noundef nonnull align 64 dereferenceable(64) %18, i64 64, i1 false)
   %.sroa.0370.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0370, i64 64
+  %142 = getelementptr inbounds i8, ptr %18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0370.64..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %142, i64 64, i1 false)
   %.sroa.0370.128..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0370, i64 128
+  %143 = getelementptr inbounds i8, ptr %18, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0370.128..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %143, i64 64, i1 false)
   %144 = getelementptr inbounds i8, ptr %2, i64 384
   %.sroa.04.0.copyload = load <16 x float>, ptr %144, align 64, !noalias !427
@@ -4841,13 +4831,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm16EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iE
   br i1 %exitcond.not.i307.2, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2, label %89, !llvm.loop !399
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit.2: ; preds = %89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %19, ptr noundef nonnull align 64 dereferenceable(256) %20, i64 256, i1 false), !noalias !449
-  %99 = getelementptr inbounds i8, ptr %19, i64 64
-  %100 = getelementptr inbounds i8, ptr %19, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0339, ptr noundef nonnull align 64 dereferenceable(64) %20, i64 64, i1 false)
   %.sroa.0339.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0339, i64 64
+  %99 = getelementptr inbounds i8, ptr %20, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0339.64..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %99, i64 64, i1 false)
   %.sroa.0339.128..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0339, i64 128
+  %100 = getelementptr inbounds i8, ptr %20, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0339.128..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %100, i64 64, i1 false)
   %101 = getelementptr inbounds i8, ptr %1, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %16, ptr noundef nonnull align 64 dereferenceable(256) %21, i64 256, i1 false), !noalias !467
@@ -4943,13 +4932,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm16EEELm4EECI2NS_15StaticArrayImplIS2_Lm4ELb0ES3_iE
   br i1 %exitcond.not.i317.1, label %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit318.1, label %131, !llvm.loop !399
 
 _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.exit318.1: ; preds = %131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %16, ptr noundef nonnull align 64 dereferenceable(256) %17, i64 256, i1 false), !noalias !467
-  %141 = getelementptr inbounds i8, ptr %16, i64 64
-  %142 = getelementptr inbounds i8, ptr %16, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0340, ptr noundef nonnull align 64 dereferenceable(64) %17, i64 64, i1 false)
   %.sroa.0340.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0340, i64 64
+  %141 = getelementptr inbounds i8, ptr %17, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0340.64..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %141, i64 64, i1 false)
   %.sroa.0340.128..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0340, i64 128
+  %142 = getelementptr inbounds i8, ptr %17, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %.sroa.0340.128..sroa_idx, ptr noundef nonnull align 64 dereferenceable(64) %142, i64 64, i1 false)
   %143 = getelementptr inbounds i8, ptr %1, i64 384
   %.sroa.04.0.copyload = load <16 x float>, ptr %143, align 64, !noalias !487

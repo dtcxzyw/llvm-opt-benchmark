@@ -278,8 +278,8 @@ define weak_odr void @_ZNK7mitsuba6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   call void %28(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.14") align 16 %9, ptr noundef nonnull align 16 dereferenceable(192) %1, float noundef %2, float noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %5, i1 noundef zeroext true)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.046.64..sroa_idx48, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 16, i1 false)
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.046.96..sroa_idx = getelementptr inbounds i8, ptr %.sroa.046, i64 96
+  %29 = getelementptr inbounds i8, ptr %9, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.046.96..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %29, i64 16, i1 false)
   %30 = load <2 x float>, ptr %4, align 4
   %31 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %22, i64 1
@@ -289,27 +289,27 @@ define weak_odr void @_ZNK7mitsuba6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %34 = getelementptr inbounds i8, ptr %33, i64 88
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.14") align 16 %11, ptr noundef nonnull align 16 dereferenceable(192) %1, float noundef %2, float noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %5, i1 noundef zeroext true)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %11, i64 64, i1 false)
   %.sroa.046.80..sroa_idx = getelementptr inbounds i8, ptr %.sroa.046, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.046.80..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
   %.sroa.046.112..sroa_idx = getelementptr inbounds i8, ptr %.sroa.046, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.046.112..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %29, i64 16, i1 false)
+  %36 = getelementptr inbounds i8, ptr %11, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.046.112..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %36, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 16 dereferenceable(128) %.sroa.046, i64 128, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 144
-  br label %37
+  %37 = getelementptr inbounds i8, ptr %0, i64 144
+  br label %38
 
-37:                                               ; preds = %37, %7
-  %.013.i = phi i64 [ 0, %7 ], [ %40, %37 ]
-  %38 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %16, i64 0, i64 %.013.i
-  %39 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %36, i64 0, i64 %.013.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %39, ptr noundef nonnull align 16 dereferenceable(64) %38, i64 64, i1 false)
-  %40 = add nuw nsw i64 %.013.i, 1
-  %exitcond.not.i = icmp eq i64 %40, 4
-  br i1 %exitcond.not.i, label %_ZNSt3__14pairIN7mitsuba15RayDifferentialINS1_5PointIfLm3EEEN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES9_EC2B8ne190000IRSA_RS9_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSG_OSH_.exit, label %37, !llvm.loop !4
+38:                                               ; preds = %38, %7
+  %.013.i = phi i64 [ 0, %7 ], [ %41, %38 ]
+  %39 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %16, i64 0, i64 %.013.i
+  %40 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %37, i64 0, i64 %.013.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %40, ptr noundef nonnull align 16 dereferenceable(64) %39, i64 64, i1 false)
+  %41 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i = icmp eq i64 %41, 4
+  br i1 %exitcond.not.i, label %_ZNSt3__14pairIN7mitsuba15RayDifferentialINS1_5PointIfLm3EEEN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES9_EC2B8ne190000IRSA_RS9_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSG_OSH_.exit, label %38, !llvm.loop !4
 
-_ZNSt3__14pairIN7mitsuba15RayDifferentialINS1_5PointIfLm3EEEN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES9_EC2B8ne190000IRSA_RS9_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSG_OSH_.exit: ; preds = %37
+_ZNSt3__14pairIN7mitsuba15RayDifferentialINS1_5PointIfLm3EEEN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES9_EC2B8ne190000IRSA_RS9_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSG_OSH_.exit: ; preds = %38
   ret void
 }
 
