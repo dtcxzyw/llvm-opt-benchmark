@@ -130,7 +130,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [9 x i8] c"asphodel\00", align 1
 @proto_asphodel = internal unnamed_addr global i32 0, align 4
 @.str.72 = private unnamed_addr constant [17 x i8] c"asphodel_inquiry\00", align 1
-@asphodel_inquiry_handle = internal unnamed_addr global ptr null, align 8
 @.str.73 = private unnamed_addr constant [18 x i8] c"asphodel_response\00", align 1
 @asphodel_response_handle = internal unnamed_addr global ptr null, align 8
 @.str.74 = private unnamed_addr constant [13 x i8] c"asphodel_tcp\00", align 1
@@ -289,7 +288,6 @@ define hidden void @proto_register_asphodel() local_unnamed_addr #0 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71) #4
   store i32 %1, ptr @proto_asphodel, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.72, ptr noundef nonnull @dissect_asphodel_inquiry, i32 noundef %1) #4
-  store ptr %2, ptr @asphodel_inquiry_handle, align 8
   %3 = load i32, ptr @proto_asphodel, align 4
   %4 = tail call ptr @register_dissector(ptr noundef nonnull @.str.73, ptr noundef nonnull @dissect_asphodel_response, i32 noundef %3) #4
   store ptr %4, ptr @asphodel_response_handle, align 8

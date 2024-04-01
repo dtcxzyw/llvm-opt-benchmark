@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [51 x i8] c"Encountered unsupported resource type %d of alias\0A\00", align 1
 @_ZL5start = internal unnamed_addr global i1 false, align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"LocaleElements\00", align 1
-@_ZL5bName = internal unnamed_addr global ptr null, align 8
 @.str.2 = private unnamed_addr constant [22 x i8] c"com.ibm.icu.impl.data\00", align 1
 @_ZL5pName = internal unnamed_addr global ptr null, align 8
 @_ZL8srBundle = internal unnamed_addr global ptr null, align 8
@@ -1129,7 +1128,6 @@ entry:
   store i1 false, ptr @_ZL5start, align 1
   %cmp = icmp eq ptr %bundleName, null
   %cond = select i1 %cmp, ptr @.str.1, ptr %bundleName
-  store ptr %cond, ptr @_ZL5bName, align 8
   %cmp1 = icmp eq ptr %packageName, null
   %cond5 = select i1 %cmp1, ptr @.str.2, ptr %packageName
   store ptr %cond5, ptr @_ZL5pName, align 8

@@ -2525,7 +2525,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1374 = private unnamed_addr constant [49 x i8] c"Version of protocol supported by this dissector.\00", align 1
 @.str.1375 = private unnamed_addr constant [36 x i8] c"BTMesh Network and Application keys\00", align 1
 @.str.1376 = private unnamed_addr constant [15 x i8] c"btmesh_nw_keys\00", align 1
-@btmesh_uat = internal unnamed_addr global ptr null, align 8
 @.str.1377 = private unnamed_addr constant [16 x i8] c"mesh_keys_table\00", align 1
 @.str.1378 = private unnamed_addr constant [10 x i8] c"Mesh Keys\00", align 1
 @.str.1379 = private unnamed_addr constant [21 x i8] c"Configured Mesh Keys\00", align 1
@@ -2533,7 +2532,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1381 = private unnamed_addr constant [16 x i8] c"btmesh_dev_keys\00", align 1
 @uat_btmesh_dev_key_records = internal global ptr null, align 8
 @num_btmesh_dev_key_uat = internal global i32 0, align 4
-@btmesh_dev_key_uat = internal unnamed_addr global ptr null, align 8
 @.str.1382 = private unnamed_addr constant [19 x i8] c"mesh_dev_key_table\00", align 1
 @.str.1383 = private unnamed_addr constant [12 x i8] c"Device Keys\00", align 1
 @.str.1384 = private unnamed_addr constant [28 x i8] c"Configured Mesh Device Keys\00", align 1
@@ -2541,7 +2539,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1386 = private unnamed_addr constant [19 x i8] c"btmesh_label_uuids\00", align 1
 @uat_btmesh_label_uuid_records = internal global ptr null, align 8
 @num_btmesh_label_uuid_uat = internal global i32 0, align 4
-@btmesh_label_uuid_uat = internal unnamed_addr global ptr null, align 8
 @.str.1387 = private unnamed_addr constant [22 x i8] c"mesh_label_uuid_table\00", align 1
 @.str.1388 = private unnamed_addr constant [12 x i8] c"Label UUIDs\00", align 1
 @.str.1389 = private unnamed_addr constant [28 x i8] c"Configured Mesh Label UUIDs\00", align 1
@@ -3673,13 +3670,10 @@ define hidden void @proto_register_btmesh() local_unnamed_addr #0 {
   %5 = tail call ptr @prefs_register_protocol_subtree(ptr noundef nonnull @.str.1371, i32 noundef %4, ptr noundef null) #16
   tail call void @prefs_register_static_text_preference(ptr noundef %5, ptr noundef nonnull @.str.1372, ptr noundef nonnull @.str.1373, ptr noundef nonnull @.str.1374) #16
   %6 = tail call ptr @uat_new(ptr noundef nonnull @.str.1375, i64 noundef 104, ptr noundef nonnull @.str.1376, i1 noundef zeroext true, ptr noundef nonnull @uat_btmesh_records, ptr noundef nonnull @num_btmesh_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_btmesh_record_copy_cb, ptr noundef nonnull @uat_btmesh_record_update_cb, ptr noundef nonnull @uat_btmesh_record_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_btmesh.btmesh_uat_flds) #16
-  store ptr %6, ptr @btmesh_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %5, ptr noundef nonnull @.str.1377, ptr noundef nonnull @.str.1378, ptr noundef nonnull @.str.1379, ptr noundef %6) #16
   %7 = tail call ptr @uat_new(ptr noundef nonnull @.str.1380, i64 noundef 56, ptr noundef nonnull @.str.1381, i1 noundef zeroext true, ptr noundef nonnull @uat_btmesh_dev_key_records, ptr noundef nonnull @num_btmesh_dev_key_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_btmesh_dev_key_record_copy_cb, ptr noundef nonnull @uat_btmesh_dev_key_record_update_cb, ptr noundef nonnull @uat_btmesh_dev_key_record_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_btmesh.btmesh_dev_key_uat_flds) #16
-  store ptr %7, ptr @btmesh_dev_key_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %5, ptr noundef nonnull @.str.1382, ptr noundef nonnull @.str.1383, ptr noundef nonnull @.str.1384, ptr noundef %7) #16
   %8 = tail call ptr @uat_new(ptr noundef nonnull @.str.1385, i64 noundef 24, ptr noundef nonnull @.str.1386, i1 noundef zeroext true, ptr noundef nonnull @uat_btmesh_label_uuid_records, ptr noundef nonnull @num_btmesh_label_uuid_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_btmesh_label_uuid_record_copy_cb, ptr noundef nonnull @uat_btmesh_label_uuid_record_update_cb, ptr noundef nonnull @uat_btmesh_label_uuid_record_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_btmesh.btmesh_label_uuid_uat_flds) #16
-  store ptr %8, ptr @btmesh_label_uuid_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %5, ptr noundef nonnull @.str.1387, ptr noundef nonnull @.str.1388, ptr noundef nonnull @.str.1389, ptr noundef %8) #16
   %9 = load i32, ptr @proto_btmesh, align 4
   %10 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.1390, i32 noundef %9, i32 noundef 5, i32 noundef 1) #16

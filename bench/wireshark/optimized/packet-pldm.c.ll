@@ -381,7 +381,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.222 = private unnamed_addr constant [5 x i8] c"PLDM\00", align 1
 @.str.223 = private unnamed_addr constant [5 x i8] c"pldm\00", align 1
 @proto_pldm = internal unnamed_addr global i32 0, align 4
-@proto_reg_handoff_pldm.pldm_handle = internal unnamed_addr global ptr null, align 8
 @.str.224 = private unnamed_addr constant [10 x i8] c"mctp.type\00", align 1
 @.str.225 = private unnamed_addr constant [9 x i8] c"response\00", align 1
 @.str.226 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
@@ -1960,7 +1959,6 @@ dissect_FRU.exit:                                 ; preds = %.thread.i, %691, %6
 define hidden void @proto_reg_handoff_pldm() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_pldm, align 4
   %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_pldm, i32 noundef %1) #5
-  store ptr %2, ptr @proto_reg_handoff_pldm.pldm_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.224, i32 noundef 1, ptr noundef %2) #5
   ret void
 }

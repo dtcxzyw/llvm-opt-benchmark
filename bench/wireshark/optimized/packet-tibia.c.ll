@@ -426,7 +426,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.248 = private unnamed_addr constant [15 x i8] c"tibia_rsa_keys\00", align 1
 @rsakeylist_uats = internal global ptr null, align 8
 @nrsakeys = internal global i32 0, align 4
-@rsakeys_uat = internal unnamed_addr global ptr null, align 8
 @.str.249 = private unnamed_addr constant [13 x i8] c"rsakey_table\00", align 1
 @.str.250 = private unnamed_addr constant [14 x i8] c"RSA keys list\00", align 1
 @.str.251 = private unnamed_addr constant [61 x i8] c"A table of RSA keys for decrypting protocols newer than 7.61\00", align 1
@@ -442,7 +441,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.259 = private unnamed_addr constant [16 x i8] c"tibia_xtea_keys\00", align 1
 @xteakeylist_uats = internal global ptr null, align 8
 @nxteakeys = internal global i32 0, align 4
-@xteakeys_uat = internal unnamed_addr global ptr null, align 8
 @.str.260 = private unnamed_addr constant [14 x i8] c"xteakey_table\00", align 1
 @.str.261 = private unnamed_addr constant [15 x i8] c"XTEA keys list\00", align 1
 @.str.262 = private unnamed_addr constant [62 x i8] c"A table of XTEA keys for decrypting protocols newer than 7.61\00", align 1
@@ -608,12 +606,10 @@ define hidden void @proto_register_tibia() local_unnamed_addr #0 {
   tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.232, ptr noundef nonnull @.str.233, ptr noundef nonnull @dissect_game_commands) #13
   tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.236, ptr noundef nonnull @reassemble_tcp_segments) #13
   %9 = tail call ptr @uat_new(ptr noundef nonnull @.str.247, i64 noundef 32, ptr noundef nonnull @.str.248, i1 noundef zeroext true, ptr noundef nonnull @rsakeylist_uats, ptr noundef nonnull @nrsakeys, i32 noundef 1, ptr noundef null, ptr noundef nonnull @rsakeys_copy_cb, ptr noundef null, ptr noundef nonnull @rsakeys_free_cb, ptr noundef nonnull @rsa_parse_uat, ptr noundef null, ptr noundef nonnull @proto_register_tibia.rsakeylist_uats_flds) #13
-  store ptr %9, ptr @rsakeys_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %8, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.251, ptr noundef %9) #13
   %10 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @rsakey_hash, ptr noundef nonnull @rsakey_equal, ptr noundef nonnull @rsakey_free, ptr noundef null) #13
   store ptr %10, ptr @rsakeys, align 8
   %11 = tail call ptr @uat_new(ptr noundef nonnull @.str.258, i64 noundef 16, ptr noundef nonnull @.str.259, i1 noundef zeroext true, ptr noundef nonnull @xteakeylist_uats, ptr noundef nonnull @nxteakeys, i32 noundef 1, ptr noundef null, ptr noundef nonnull @xteakeys_copy_cb, ptr noundef null, ptr noundef nonnull @xteakeys_free_cb, ptr noundef nonnull @xtea_parse_uat, ptr noundef null, ptr noundef nonnull @proto_register_tibia.xteakeylist_uats_flds) #13
-  store ptr %11, ptr @xteakeys_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %8, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.262, ptr noundef %11) #13
   %12 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #13
   store ptr %12, ptr @xteakeys, align 8

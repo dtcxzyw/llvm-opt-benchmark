@@ -320,9 +320,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.182 = private unnamed_addr constant [39 x i8] c"btvdp_content_protection_header_scms_t\00", align 1
 @btvdp_content_protection_header_scms_t = internal unnamed_addr global ptr null, align 8
 @.str.183 = private unnamed_addr constant [7 x i8] c"bta2dp\00", align 1
-@bta2dp_handle = internal unnamed_addr global ptr null, align 8
 @.str.184 = private unnamed_addr constant [6 x i8] c"btvdp\00", align 1
-@btvdp_handle = internal unnamed_addr global ptr null, align 8
 @.str.185 = private unnamed_addr constant [4 x i8] c"sbc\00", align 1
 @sbc_handle = internal unnamed_addr global ptr null, align 8
 @.str.186 = private unnamed_addr constant [12 x i8] c"btl2cap.cid\00", align 1
@@ -3671,10 +3669,8 @@ define hidden void @proto_reg_handoff_rtp() local_unnamed_addr #1 {
   store ptr %31, ptr @btvdp_content_protection_header_scms_t, align 8
   %32 = load i32, ptr @proto_rtp, align 4
   %33 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.183, i32 noundef %32) #11
-  store ptr %33, ptr @bta2dp_handle, align 8
   %34 = load i32, ptr @proto_rtp, align 4
   %35 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.184, i32 noundef %34) #11
-  store ptr %35, ptr @btvdp_handle, align 8
   %36 = load i32, ptr @proto_rtp, align 4
   %37 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.185, i32 noundef %36) #11
   store ptr %37, ptr @sbc_handle, align 8

@@ -295,9 +295,7 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_ocp1 = internal unnamed_addr global i32 0, align 4
 @expert_ocp1 = hidden local_unnamed_addr global ptr null, align 8
 @.str.158 = private unnamed_addr constant [9 x i8] c"ocp1.tcp\00", align 1
-@ocp1_tcp_handle = internal unnamed_addr global ptr null, align 8
 @.str.159 = private unnamed_addr constant [9 x i8] c"ocp1.udp\00", align 1
-@ocp1_udp_handle = internal unnamed_addr global ptr null, align 8
 @.str.160 = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
 @.str.161 = private unnamed_addr constant [15 x i8] c"OCP.1 over TCP\00", align 1
 @.str.162 = private unnamed_addr constant [9 x i8] c"ocp1_tcp\00", align 1
@@ -619,10 +617,8 @@ define hidden void @proto_register_ocp1() local_unnamed_addr #0 {
   tail call void @expert_register_field_array(ptr noundef %6, ptr noundef nonnull @proto_register_ocp1.ei, i32 noundef 3) #6
   %7 = load i32, ptr @proto_ocp1, align 4
   %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.158, ptr noundef nonnull @dissect_ocp1_tcp, i32 noundef %7) #6
-  store ptr %8, ptr @ocp1_tcp_handle, align 8
   %9 = load i32, ptr @proto_ocp1, align 4
   %10 = tail call ptr @register_dissector(ptr noundef nonnull @.str.159, ptr noundef nonnull @dissect_ocp1, i32 noundef %9) #6
-  store ptr %10, ptr @ocp1_udp_handle, align 8
   ret void
 }
 

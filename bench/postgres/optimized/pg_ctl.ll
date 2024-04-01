@@ -38,16 +38,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [7 x i8] c"PGDATA\00", align 1
 @.str.21 = private unnamed_addr constant [9 x i8] c"-D \22%s\22 \00", align 1
 @pgdata_opt = internal unnamed_addr global ptr null, align 8
-@event_source = internal unnamed_addr global ptr null, align 8
 @log_file = internal unnamed_addr global ptr null, align 8
-@register_servicename = internal unnamed_addr global ptr @.str.79, align 8
 @post_opts = internal unnamed_addr global ptr null, align 8
 @.str.22 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
 @exec_path = internal unnamed_addr global ptr null, align 8
-@register_password = internal unnamed_addr global ptr null, align 8
 @silent_mode = internal unnamed_addr global i1 false, align 1
 @.str.23 = private unnamed_addr constant [46 x i8] c"%s: -S option not supported on this platform\0A\00", align 1
-@register_username = internal unnamed_addr global ptr null, align 8
 @.str.24 = private unnamed_addr constant [5 x i8] c".\\%s\00", align 1
 @do_wait = internal unnamed_addr global i1 false, align 1
 @allow_core_files = internal unnamed_addr global i1 false, align 1
@@ -333,7 +329,6 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 46:                                               ; preds = %39
   %47 = load ptr, ptr @optarg, align 8
   %48 = call ptr @pg_strdup(ptr noundef %47) #17
-  store ptr %48, ptr @event_source, align 8
   br label %.backedge
 
 49:                                               ; preds = %39
@@ -390,7 +385,6 @@ set_mode.exit:                                    ; preds = %52, %56, %59, %62, 
 73:                                               ; preds = %39
   %74 = load ptr, ptr @optarg, align 8
   %75 = call ptr @pg_strdup(ptr noundef %74) #17
-  store ptr %75, ptr @register_servicename, align 8
   br label %.backedge
 
 76:                                               ; preds = %39
@@ -419,7 +413,6 @@ set_mode.exit:                                    ; preds = %52, %56, %59, %62, 
 86:                                               ; preds = %39
   %87 = load ptr, ptr @optarg, align 8
   %88 = call ptr @pg_strdup(ptr noundef %87) #17
-  store ptr %88, ptr @register_password, align 8
   br label %.backedge
 
 89:                                               ; preds = %39
@@ -446,7 +439,6 @@ set_mode.exit:                                    ; preds = %52, %56, %59, %62, 
 
 98:                                               ; preds = %95
   %99 = call ptr @pg_strdup(ptr noundef %96) #17
-  store ptr %99, ptr @register_username, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %98, %100, %79, %81, %104, %103, %102, %92, %89, %86, %83, %73, %set_mode.exit, %49, %46, %41
@@ -454,7 +446,6 @@ set_mode.exit:                                    ; preds = %52, %56, %59, %62, 
 
 100:                                              ; preds = %95
   %101 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef %96) #17
-  store ptr %101, ptr @register_username, align 8
   br label %.backedge
 
 102:                                              ; preds = %39

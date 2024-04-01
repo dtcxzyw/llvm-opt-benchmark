@@ -43,7 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [14 x i8] c"juniper.proto\00", align 1
 @osi_juniper_handle = internal unnamed_addr global ptr null, align 8
 @.str.32 = private unnamed_addr constant [4 x i8] c"ppp\00", align 1
-@ppp_handle = internal unnamed_addr global ptr null, align 8
 @.str.33 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @osi_tpkt_handle = internal unnamed_addr global ptr null, align 8
 @proto_register_osi.hf = internal global [1 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_osi_nlpid, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 2, ptr @nlpid_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -677,7 +676,6 @@ define hidden void @proto_reg_handoff_osi() local_unnamed_addr #0 {
   %13 = load ptr, ptr @osi_juniper_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.31, i32 noundef 33, ptr noundef %13) #4
   %14 = tail call ptr @find_dissector(ptr noundef nonnull @.str.32) #4
-  store ptr %14, ptr @ppp_handle, align 8
   %15 = load ptr, ptr @osi_tpkt_handle, align 8
   tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.33, ptr noundef %15) #4
   ret void

@@ -4684,22 +4684,14 @@ $_ZTIN4absl18container_internal26gtest_suite_ModifiersTest_4SwapINS_13node_hash_
 @_ZN4absl18container_internalL41gtest_allow_ignore_UniquePtrModifiersTestE = internal global %"struct.testing::internal::MarkAsIgnored" zeroinitializer, align 1
 @.str.119 = private unnamed_addr constant [23 x i8] c"UniquePtrModifiersTest\00", align 1
 @_ZN4absl18container_internalL54gtest_typed_test_suite_p_state_UniquePtrModifiersTest_E = internal global %"class.testing::internal::TypedTestSuitePState" zeroinitializer, align 8
-@_ZN4absl18container_internalL51gtest_registered_test_names_UniquePtrModifiersTest_E = internal unnamed_addr global ptr null, align 8
 @.str.124 = private unnamed_addr constant [12 x i8] c"NodeHashMap\00", align 1
 @.str.125 = private unnamed_addr constant [136 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/container/node_hash_map_test.cc\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_124NodeHashMap_Emplace_Test10test_info_E = internal unnamed_addr global ptr null, align 8
-@_ZN4absl18container_internal12_GLOBAL__N_132NodeHashMap_AssignRecursive_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.131 = private unnamed_addr constant [16 x i8] c"AssignRecursive\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_128FlatHashMap_MoveOnlyKey_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.133 = private unnamed_addr constant [12 x i8] c"FlatHashMap\00", align 1
 @.str.134 = private unnamed_addr constant [12 x i8] c"MoveOnlyKey\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.136 = private unnamed_addr constant [19 x i8] c"MergeExtractInsert\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_124NodeHashMap_EraseIf_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.138 = private unnamed_addr constant [8 x i8] c"EraseIf\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_143NodeHashMap_NodeHandleMutableKeyAccess_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.140 = private unnamed_addr constant [27 x i8] c"NodeHandleMutableKeyAccess\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_138NodeHashMap_RecursiveTypeCompiles_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.142 = private unnamed_addr constant [22 x i8] c"RecursiveTypeCompiles\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.143 = private unnamed_addr constant [73 x i8] c"%s Test %s must be defined before REGISTER_TYPED_TEST_SUITE_P(%s, ...).\0A\00", align 1
@@ -155560,7 +155552,6 @@ entry:
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8internal20TypedTestSuitePStateD2Ev, ptr nonnull @_ZN4absl18container_internalL54gtest_typed_test_suite_p_state_UniquePtrModifiersTest_E, ptr nonnull @__dso_handle) #29
   %call.i53 = tail call noundef zeroext i1 @_ZN7testing8internal20TypedTestSuitePState11AddTestNameEPKciS3_S3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL54gtest_typed_test_suite_p_state_UniquePtrModifiersTest_E, ptr noundef nonnull @.str.83, i32 noundef 329, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.105)
   %call.i54 = tail call noundef ptr @_ZN7testing8internal20TypedTestSuitePState25VerifyRegisteredTestNamesEPKcS3_iS3_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN4absl18container_internalL54gtest_typed_test_suite_p_state_UniquePtrModifiersTest_E, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.83, i32 noundef 346, ptr noundef nonnull @.str.105)
-  store ptr %call.i54, ptr @_ZN4absl18container_internalL51gtest_registered_test_names_UniquePtrModifiersTest_E, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -156056,7 +156047,6 @@ __cxx_global_var_init.129.exit:                   ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i161) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i162) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i163) #29
-  store ptr %call15.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_124NodeHashMap_Emplace_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i161)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i162)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i163)
@@ -156133,7 +156123,6 @@ __cxx_global_var_init.130.exit:                   ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i178) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i179) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i180) #29
-  store ptr %call15.i201, ptr @_ZN4absl18container_internal12_GLOBAL__N_132NodeHashMap_AssignRecursive_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i178)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i179)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i180)
@@ -156210,7 +156199,6 @@ __cxx_global_var_init.132.exit:                   ; preds = %invoke.cont10.i226
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i202) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i203) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i204) #29
-  store ptr %call15.i227, ptr @_ZN4absl18container_internal12_GLOBAL__N_128FlatHashMap_MoveOnlyKey_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i202)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i203)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i204)
@@ -156287,7 +156275,6 @@ __cxx_global_var_init.135.exit:                   ; preds = %invoke.cont10.i252
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i228) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i229) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i230) #29
-  store ptr %call15.i253, ptr @_ZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i228)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i229)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i230)
@@ -156364,7 +156351,6 @@ __cxx_global_var_init.137.exit:                   ; preds = %invoke.cont10.i278
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i254) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i255) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i256) #29
-  store ptr %call15.i279, ptr @_ZN4absl18container_internal12_GLOBAL__N_124NodeHashMap_EraseIf_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i254)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i255)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i256)
@@ -156441,7 +156427,6 @@ __cxx_global_var_init.139.exit:                   ; preds = %invoke.cont10.i304
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i280) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i281) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i282) #29
-  store ptr %call15.i305, ptr @_ZN4absl18container_internal12_GLOBAL__N_143NodeHashMap_NodeHandleMutableKeyAccess_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i280)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i281)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i282)
@@ -156518,7 +156503,6 @@ __cxx_global_var_init.141.exit:                   ; preds = %invoke.cont10.i330
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i306) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i307) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i308) #29
-  store ptr %call15.i331, ptr @_ZN4absl18container_internal12_GLOBAL__N_138NodeHashMap_RecursiveTypeCompiles_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i306)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i307)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i308)

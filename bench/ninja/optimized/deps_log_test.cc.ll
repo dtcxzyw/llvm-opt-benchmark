@@ -137,23 +137,15 @@ $_ZTIN7testing8internal15TestFactoryBaseE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_126DepsLogTest_WriteRead_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [12 x i8] c"DepsLogTest\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"WriteRead\00", align 1
 @.str.3 = private unnamed_addr constant [110 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/ninja/ninja/src/deps_log_test.cc\00", align 1
-@_ZN12_GLOBAL__N_127DepsLogTest_LotsOfDeps_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [11 x i8] c"LotsOfDeps\00", align 1
-@_ZN12_GLOBAL__N_128DepsLogTest_DoubleEntry_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [12 x i8] c"DoubleEntry\00", align 1
-@_ZN12_GLOBAL__N_126DepsLogTest_Recompact_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [10 x i8] c"Recompact\00", align 1
-@_ZN12_GLOBAL__N_130DepsLogTest_InvalidHeader_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [14 x i8] c"InvalidHeader\00", align 1
-@_ZN12_GLOBAL__N_126DepsLogTest_Truncated_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [10 x i8] c"Truncated\00", align 1
-@_ZN12_GLOBAL__N_134DepsLogTest_TruncatedRecovery_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [18 x i8] c"TruncatedRecovery\00", align 1
-@_ZN12_GLOBAL__N_133DepsLogTest_ReverseDepsNodes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [17 x i8] c"ReverseDepsNodes\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126DepsLogTest_WriteRead_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126DepsLogTest_WriteRead_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126DepsLogTest_WriteRead_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126DepsLogTest_WriteRead_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_126DepsLogTest_WriteRead_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -19465,7 +19457,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #19
-  store ptr %37, ptr @_ZN12_GLOBAL__N_126DepsLogTest_WriteRead_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
@@ -19538,7 +19529,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #19
-  store ptr %56, ptr @_ZN12_GLOBAL__N_127DepsLogTest_LotsOfDeps_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
@@ -19611,7 +19601,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #19
-  store ptr %75, ptr @_ZN12_GLOBAL__N_128DepsLogTest_DoubleEntry_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
@@ -19684,7 +19673,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
-  store ptr %94, ptr @_ZN12_GLOBAL__N_126DepsLogTest_Recompact_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
@@ -19757,7 +19745,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
-  store ptr %113, ptr @_ZN12_GLOBAL__N_130DepsLogTest_InvalidHeader_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
@@ -19830,7 +19817,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %131
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
-  store ptr %132, ptr @_ZN12_GLOBAL__N_126DepsLogTest_Truncated_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
@@ -19903,7 +19889,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %150
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
-  store ptr %151, ptr @_ZN12_GLOBAL__N_134DepsLogTest_TruncatedRecovery_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -19976,7 +19961,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %169
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  store ptr %170, ptr @_ZN12_GLOBAL__N_133DepsLogTest_ReverseDepsNodes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)

@@ -158,23 +158,16 @@ $_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traits
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_134RawLoggingCompilationTest_Log_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [26 x i8] c"RawLoggingCompilationTest\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"Log\00", align 1
 @.str.3 = private unnamed_addr constant [129 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/base/raw_logging_test.cc\00", align 1
-@_ZN12_GLOBAL__N_143RawLoggingCompilationTest_PassingCheck_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [13 x i8] c"PassingCheck\00", align 1
-@_ZN12_GLOBAL__N_137RawLoggingDeathTest_FailingCheck_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [20 x i8] c"RawLoggingDeathTest\00", align 1
 @.str.8 = private unnamed_addr constant [13 x i8] c"FailingCheck\00", align 1
-@_ZN12_GLOBAL__N_133RawLoggingDeathTest_LogFatal_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.10 = private unnamed_addr constant [9 x i8] c"LogFatal\00", align 1
-@_ZN12_GLOBAL__N_132InternalLog_CompilationTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.12 = private unnamed_addr constant [12 x i8] c"InternalLog\00", align 1
 @.str.13 = private unnamed_addr constant [16 x i8] c"CompilationTest\00", align 1
-@_ZN12_GLOBAL__N_138InternalLogDeathTest_FailingCheck_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [21 x i8] c"InternalLogDeathTest\00", align 1
-@_ZN12_GLOBAL__N_134InternalLogDeathTest_LogFatal_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134RawLoggingCompilationTest_Log_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134RawLoggingCompilationTest_Log_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134RawLoggingCompilationTest_Log_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134RawLoggingCompilationTest_Log_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134RawLoggingCompilationTest_Log_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134RawLoggingCompilationTest_Log_TestEEE = internal constant [91 x i8] c"N7testing8internal15TestFactoryImplIN12_GLOBAL__N_134RawLoggingCompilationTest_Log_TestEEE\00", align 1
@@ -3771,7 +3764,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #17
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_134RawLoggingCompilationTest_Log_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -3848,7 +3840,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #17
-  store ptr %call15.i23, ptr @_ZN12_GLOBAL__N_143RawLoggingCompilationTest_PassingCheck_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -3925,7 +3916,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #17
-  store ptr %call15.i49, ptr @_ZN12_GLOBAL__N_137RawLoggingDeathTest_FailingCheck_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i26)
@@ -4002,7 +3992,6 @@ __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont10.i74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i50) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i52) #17
-  store ptr %call15.i75, ptr @_ZN12_GLOBAL__N_133RawLoggingDeathTest_LogFatal_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i50)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i52)
@@ -4079,7 +4068,6 @@ __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont10.i100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i76) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i77) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i78) #17
-  store ptr %call15.i101, ptr @_ZN12_GLOBAL__N_132InternalLog_CompilationTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i76)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i77)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i78)
@@ -4156,7 +4144,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i102) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i103) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i104) #17
-  store ptr %call15.i127, ptr @_ZN12_GLOBAL__N_138InternalLogDeathTest_FailingCheck_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i102)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i103)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i104)
@@ -4233,7 +4220,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i128) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i129) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i130) #17
-  store ptr %call15.i153, ptr @_ZN12_GLOBAL__N_134InternalLogDeathTest_LogFatal_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i128)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i129)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i130)

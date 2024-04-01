@@ -1255,7 +1255,6 @@ $_ZTVN7testing8internal26ParameterizedTestSuiteInfoINS_13TestWithParamISt5tupleI
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_121StreamTest_Works_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [11 x i8] c"StreamTest\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"Works\00", align 1
 @.str.3 = private unnamed_addr constant [130 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/base/log_severity_test.cc\00", align 1
@@ -1268,14 +1267,10 @@ $_ZTVN7testing8internal26ParameterizedTestSuiteInfoINS_13TestWithParamISt5tupleI
 @.str.21 = private unnamed_addr constant [25 x i8] c"ParseFlagFromGarbageTest\00", align 1
 @.str.24 = private unnamed_addr constant [28 x i8] c"UnparseFlagToEnumeratorTest\00", align 1
 @.str.27 = private unnamed_addr constant [30 x i8] c"UnparseFlagToOtherIntegerTest\00", align 1
-@_ZN12_GLOBAL__N_144LogThresholdTest_LogSeverityAtLeastTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.30 = private unnamed_addr constant [17 x i8] c"LogThresholdTest\00", align 1
 @.str.31 = private unnamed_addr constant [23 x i8] c"LogSeverityAtLeastTest\00", align 1
-@_ZN12_GLOBAL__N_143LogThresholdTest_LogSeverityAtMostTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.33 = private unnamed_addr constant [22 x i8] c"LogSeverityAtMostTest\00", align 1
-@_ZN12_GLOBAL__N_130LogThresholdTest_Extremes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.35 = private unnamed_addr constant [9 x i8] c"Extremes\00", align 1
-@_ZN12_GLOBAL__N_128LogThresholdTest_Output_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.37 = private unnamed_addr constant [7 x i8] c"Output\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121StreamTest_Works_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121StreamTest_Works_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121StreamTest_Works_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121StreamTest_Works_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121StreamTest_Works_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -30780,7 +30775,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #24
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_121StreamTest_Works_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -33321,7 +33315,6 @@ __cxx_global_var_init.29.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i678) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i679) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i680) #24
-  store ptr %call15.i701, ptr @_ZN12_GLOBAL__N_144LogThresholdTest_LogSeverityAtLeastTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i678)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i679)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i680)
@@ -33398,7 +33391,6 @@ __cxx_global_var_init.32.exit:                    ; preds = %invoke.cont10.i726
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i702) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i703) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i704) #24
-  store ptr %call15.i727, ptr @_ZN12_GLOBAL__N_143LogThresholdTest_LogSeverityAtMostTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i702)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i703)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i704)
@@ -33475,7 +33467,6 @@ __cxx_global_var_init.34.exit:                    ; preds = %invoke.cont10.i752
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i728) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i729) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i730) #24
-  store ptr %call15.i753, ptr @_ZN12_GLOBAL__N_130LogThresholdTest_Extremes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i728)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i729)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i730)
@@ -33552,7 +33543,6 @@ __cxx_global_var_init.36.exit:                    ; preds = %invoke.cont10.i778
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i754) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i755) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i756) #24
-  store ptr %call15.i779, ptr @_ZN12_GLOBAL__N_128LogThresholdTest_Output_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i754)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i755)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i756)

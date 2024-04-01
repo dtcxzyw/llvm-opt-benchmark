@@ -496,15 +496,10 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @.str = private unnamed_addr constant [26 x i8] c"CordRepBtreeNavigatorTest\00", align 1
 @.str.2 = private unnamed_addr constant [154 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/strings/internal/cord_rep_btree_navigator_test.cc\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"WithParam\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_144CordRepBtreeNavigatorTest_Uninitialized_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [14 x i8] c"Uninitialized\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_136CordRepBtreeNavigatorTest_Reset_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [6 x i8] c"Reset\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_141CordRepBtreeNavigatorTest_InitOffset_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [11 x i8] c"InitOffset\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_160CordRepBtreeNavigatorTest_InitOffsetAndSeekBeyondLength_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [30 x i8] c"InitOffsetAndSeekBeyondLength\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_155CordRepBtreeNavigatorTest_NavigateMaximumTreeDepth_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [25 x i8] c"NavigateMaximumTreeDepth\00", align 1
 @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorImEE = linkonce_odr dso_local unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN7testing8internal30ValuesInIteratorRangeGeneratorImEE, ptr @_ZN7testing8internal30ValuesInIteratorRangeGeneratorImED2Ev, ptr @_ZN7testing8internal30ValuesInIteratorRangeGeneratorImED0Ev, ptr @_ZNK7testing8internal30ValuesInIteratorRangeGeneratorImE5BeginEv, ptr @_ZNK7testing8internal30ValuesInIteratorRangeGeneratorImE3EndEv] }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -22048,7 +22043,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #27
-  store ptr %call15.i, ptr @_ZN4absl13cord_internal12_GLOBAL__N_144CordRepBtreeNavigatorTest_Uninitialized_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -22661,7 +22655,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i146) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i147) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i148) #27
-  store ptr %call15.i169, ptr @_ZN4absl13cord_internal12_GLOBAL__N_136CordRepBtreeNavigatorTest_Reset_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i146)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i147)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i148)
@@ -23006,7 +22999,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i278
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i254) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i255) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i256) #27
-  store ptr %call15.i279, ptr @_ZN4absl13cord_internal12_GLOBAL__N_141CordRepBtreeNavigatorTest_InitOffset_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i254)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i255)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i256)
@@ -23083,7 +23075,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i304
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i280) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i281) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i282) #27
-  store ptr %call15.i305, ptr @_ZN4absl13cord_internal12_GLOBAL__N_160CordRepBtreeNavigatorTest_InitOffsetAndSeekBeyondLength_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i280)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i281)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i282)
@@ -23428,7 +23419,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i414
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i390) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i391) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i392) #27
-  store ptr %call15.i415, ptr @_ZN4absl13cord_internal12_GLOBAL__N_155CordRepBtreeNavigatorTest_NavigateMaximumTreeDepth_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i390)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i391)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i392)

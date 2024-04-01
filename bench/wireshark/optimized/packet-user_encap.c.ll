@@ -52,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 @encaps = internal global ptr null, align 8
 @num_encaps = internal global i32 0, align 4
 @.str.27 = private unnamed_addr constant [18 x i8] c"ChUserDLTsSection\00", align 1
-@encaps_uat = internal unnamed_addr global ptr null, align 8
 @.str.28 = private unnamed_addr constant [13 x i8] c"encaps_table\00", align 1
 @.str.29 = private unnamed_addr constant [21 x i8] c"Encapsulations Table\00", align 1
 @.str.30 = private unnamed_addr constant [84 x i8] c"A table that enumerates the various protocols to be used against a certain user DLT\00", align 1
@@ -117,7 +116,6 @@ define hidden void @proto_register_user_encap() local_unnamed_addr #0 {
   %3 = load i32, ptr @proto_user_encap, align 4
   %4 = tail call ptr @prefs_register_protocol(i32 noundef %3, ptr noundef null) #3
   %5 = tail call ptr @uat_new(ptr noundef nonnull @.str.25, i64 noundef 64, ptr noundef nonnull @.str.26, i1 noundef zeroext true, ptr noundef nonnull @encaps, ptr noundef nonnull @num_encaps, i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef nonnull @user_copy_cb, ptr noundef null, ptr noundef nonnull @user_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_user_encap.user_flds) #3
-  store ptr %5, ptr @encaps_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %4, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %5) #3
   %6 = load i32, ptr @proto_user_encap, align 4
   %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.24, ptr noundef nonnull @dissect_user, i32 noundef %6) #3

@@ -1802,7 +1802,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1007 = private unnamed_addr constant [4 x i8] c"AIN\00", align 1
 @.str.1008 = private unnamed_addr constant [4 x i8] c"ain\00", align 1
 @proto_ain = internal unnamed_addr global i32 0, align 4
-@ain_handle = internal unnamed_addr global ptr null, align 8
 @.str.1009 = private unnamed_addr constant [26 x i8] c"Unknown or not applicable\00", align 1
 @.str.1010 = private unnamed_addr constant [37 x i8] c"ISDN Numbering Plan (ITU Rec. E.164)\00", align 1
 @.str.1011 = private unnamed_addr constant [45 x i8] c"Telephony Numbering (ITU-T Rec. E.164,E.163)\00", align 1
@@ -2283,7 +2282,6 @@ define hidden void @proto_register_ain() local_unnamed_addr #1 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.1006, ptr noundef nonnull @.str.1007, ptr noundef nonnull @.str.1008) #4
   store i32 %1, ptr @proto_ain, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.1008, ptr noundef nonnull @dissect_ain, i32 noundef %1) #4
-  store ptr %2, ptr @ain_handle, align 8
   %3 = load i32, ptr @proto_ain, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_ain.hf, i32 noundef 493) #4
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ain.ett, i32 noundef 178) #4

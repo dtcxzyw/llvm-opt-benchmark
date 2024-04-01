@@ -381,7 +381,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.205 = private unnamed_addr constant [5 x i8] c"GLOW\00", align 1
 @.str.206 = private unnamed_addr constant [5 x i8] c"glow\00", align 1
 @proto_glow = internal unnamed_addr global i32 0, align 4
-@glow_handle = internal unnamed_addr global ptr null, align 8
 @.str.207 = private unnamed_addr constant [5 x i8] c"none\00", align 1
 @.str.208 = private unnamed_addr constant [5 x i8] c"read\00", align 1
 @.str.209 = private unnamed_addr constant [6 x i8] c"write\00", align 1
@@ -473,7 +472,6 @@ define hidden void @proto_register_glow() local_unnamed_addr #0 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.205, ptr noundef nonnull @.str.206) #3
   store i32 %1, ptr @proto_glow, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.206, ptr noundef nonnull @dissect_glow, i32 noundef %1) #3
-  store ptr %2, ptr @glow_handle, align 8
   %3 = load i32, ptr @proto_glow, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_glow.hf, i32 noundef 94) #3
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_glow.ett, i32 noundef 43) #3

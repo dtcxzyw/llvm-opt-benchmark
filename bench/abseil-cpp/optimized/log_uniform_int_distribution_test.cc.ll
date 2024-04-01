@@ -574,7 +574,6 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @.str.4 = private unnamed_addr constant [14 x i8] c"SerializeTest\00", align 1
 @.str.7 = private unnamed_addr constant [28 x i8] c"LogUniformIntChiSquaredTest\00", align 1
 @.str.8 = private unnamed_addr constant [4 x i8] c"All\00", align 1
-@_ZN12_GLOBAL__N_148LogUniformIntDistributionTest_StabilityTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.10 = private unnamed_addr constant [30 x i8] c"LogUniformIntDistributionTest\00", align 1
 @.str.11 = private unnamed_addr constant [14 x i8] c"StabilityTest\00", align 1
 @.str.12 = private unnamed_addr constant [10 x i8] c"MultiTest\00", align 1
@@ -47975,7 +47974,6 @@ __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i49) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i50) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i51) #27
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_148LogUniformIntDistributionTest_StabilityTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i49)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i50)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i51)

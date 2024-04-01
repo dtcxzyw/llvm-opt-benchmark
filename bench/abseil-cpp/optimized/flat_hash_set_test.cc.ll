@@ -6918,15 +6918,10 @@ $_ZTIN4absl18container_internal26gtest_suite_ModifiersTest_4SwapINS_13flat_hash_
 @.str.105 = private unnamed_addr constant [145 x i8] c"Clear, Insert, InsertHint, InsertRange, InsertWithinCapacity, InsertRangeWithinCapacity, Emplace, EmplaceHint, Erase, EraseRange, EraseKey, Swap\00", align 1
 @.str.108 = private unnamed_addr constant [12 x i8] c"FlatHashSet\00", align 1
 @.str.109 = private unnamed_addr constant [136 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/container/flat_hash_set_test.cc\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_130FlatHashSet_EmplaceString_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.114 = private unnamed_addr constant [14 x i8] c"EmplaceString\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_133FlatHashSet_BitfieldArgument_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.116 = private unnamed_addr constant [17 x i8] c"BitfieldArgument\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.118 = private unnamed_addr constant [19 x i8] c"MergeExtractInsert\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_124FlatHashSet_EraseIf_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.120 = private unnamed_addr constant [8 x i8] c"EraseIf\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_129FlatHashSet_PoisonInline_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.122 = private unnamed_addr constant [13 x i8] c"PoisonInline\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.123 = private unnamed_addr constant [73 x i8] c"%s Test %s must be defined before REGISTER_TYPED_TEST_SUITE_P(%s, ...).\0A\00", align 1
@@ -232677,7 +232672,6 @@ __cxx_global_var_init.113.exit:                   ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i155) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i156) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i157) #32
-  store ptr %call15.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_130FlatHashSet_EmplaceString_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i155)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i156)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i157)
@@ -232759,7 +232753,6 @@ __cxx_global_var_init.115.exit:                   ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i172) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i173) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i174) #32
-  store ptr %call15.i195, ptr @_ZN4absl18container_internal12_GLOBAL__N_133FlatHashSet_BitfieldArgument_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i172)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i173)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i174)
@@ -232841,7 +232834,6 @@ __cxx_global_var_init.117.exit:                   ; preds = %invoke.cont10.i220
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i196) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i197) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i198) #32
-  store ptr %call15.i221, ptr @_ZN4absl18container_internal12_GLOBAL__N_135FlatHashSet_MergeExtractInsert_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i196)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i197)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i198)
@@ -232923,7 +232915,6 @@ __cxx_global_var_init.119.exit:                   ; preds = %invoke.cont10.i246
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i222) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i223) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i224) #32
-  store ptr %call15.i247, ptr @_ZN4absl18container_internal12_GLOBAL__N_124FlatHashSet_EraseIf_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i222)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i223)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i224)
@@ -233005,7 +232996,6 @@ __cxx_global_var_init.121.exit:                   ; preds = %invoke.cont10.i272
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i248) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i249) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i250) #32
-  store ptr %call15.i273, ptr @_ZN4absl18container_internal12_GLOBAL__N_129FlatHashSet_PoisonInline_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i248)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i249)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i250)

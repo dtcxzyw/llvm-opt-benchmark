@@ -144,7 +144,6 @@ target triple = "x86_64-pc-linux-gnu"
 @other_control_dissector_table = internal unnamed_addr global ptr null, align 8
 @llc_handle = internal unnamed_addr global ptr null, align 8
 @.str.82 = private unnamed_addr constant [8 x i8] c"epd_llc\00", align 1
-@epd_llc_handle = internal unnamed_addr global ptr null, align 8
 @proto_register_basicxid.hf = internal global [3 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_llc_xid_format, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 4, i32 2, ptr @format_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_llc_xid_types, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 4, i32 2, ptr @type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_llc_xid_wsize, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_llc_xid_format = internal global i32 0, align 4
 @.str.83 = private unnamed_addr constant [11 x i8] c"XID Format\00", align 1
@@ -555,7 +554,6 @@ define hidden void @proto_register_llc() local_unnamed_addr #0 {
   store ptr %9, ptr @llc_handle, align 8
   %10 = load i32, ptr @proto_llc, align 4
   %11 = tail call ptr @register_dissector(ptr noundef nonnull @.str.82, ptr noundef nonnull @dissect_epd_llc, i32 noundef %10) #4
-  store ptr %11, ptr @epd_llc_handle, align 8
   %12 = load i32, ptr @proto_llc, align 4
   %13 = tail call ptr @register_capture_dissector(ptr noundef nonnull @.str.77, ptr noundef nonnull @capture_llc, i32 noundef %12) #4
   ret void

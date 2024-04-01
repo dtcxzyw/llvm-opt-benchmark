@@ -156,7 +156,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.104 = private unnamed_addr constant [4 x i8] c"rtp\00", align 1
 @rtp_handle = internal unnamed_addr global ptr null, align 8
 @.str.105 = private unnamed_addr constant [12 x i8] c"rtp.rfc4571\00", align 1
-@rtp_rfc4571_handle = internal unnamed_addr global ptr null, align 8
 @.str.106 = private unnamed_addr constant [5 x i8] c"rtcp\00", align 1
 @rtcp_handle = internal unnamed_addr global ptr null, align 8
 @.str.107 = private unnamed_addr constant [4 x i8] c"rdt\00", align 1
@@ -1611,7 +1610,6 @@ define hidden void @proto_reg_handoff_rtsp() local_unnamed_addr #0 {
   store ptr %2, ptr @rtp_handle, align 8
   %3 = load i32, ptr @proto_rtsp, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.105, i32 noundef %3) #10
-  store ptr %4, ptr @rtp_rfc4571_handle, align 8
   %5 = load i32, ptr @proto_rtsp, align 4
   %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.106, i32 noundef %5) #10
   store ptr %6, ptr @rtcp_handle, align 8

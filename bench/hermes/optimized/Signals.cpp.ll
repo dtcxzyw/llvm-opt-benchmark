@@ -58,7 +58,6 @@ $_ZN4llvh14object_deleterINS_3sys10SmartMutexILb1EEEE4callEPv = comdat any
 @_ZL8KillSigs = internal unnamed_addr constant [10 x i32] [i32 4, i32 5, i32 6, i32 8, i32 7, i32 11, i32 3, i32 31, i32 24, i32 25], align 16
 @_ZL20NumRegisteredSignals = internal global { i32 } zeroinitializer, align 4
 @_ZL11OldAltStack = internal global %struct.stack_t zeroinitializer, align 8
-@_ZL18NewAltStackPointer = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
 @_ZL20RegisteredSignalInfo = internal global [16 x %struct.anon] zeroinitializer, align 16
 @_ZZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4Lock = internal global { %"struct.std::atomic.47", ptr, ptr } zeroinitializer, align 8
@@ -506,7 +505,6 @@ if.then.i.i8:                                     ; preds = %if.end.i
 
 _ZN4llvh11safe_mallocEm.exit.i:                   ; preds = %if.then.i.i8, %if.end.i
   store ptr %call.i.i7, ptr %AltStack.i, align 8
-  store ptr %call.i.i7, ptr @_ZL18NewAltStackPointer, align 8
   %ss_size.i = getelementptr inbounds i8, ptr %AltStack.i, i64 16
   store i64 %add.i, ptr %ss_size.i, align 8
   %call7.i = call i32 @sigaltstack(ptr noundef nonnull %AltStack.i, ptr noundef nonnull @_ZL11OldAltStack) #15

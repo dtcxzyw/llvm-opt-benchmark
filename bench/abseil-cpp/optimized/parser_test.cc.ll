@@ -265,33 +265,21 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN4absl19str_format_internal12_GLOBAL__N_124LengthModTest_Names_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [14 x i8] c"LengthModTest\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"Names\00", align 1
 @.str.3 = private unnamed_addr constant [147 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/strings/internal/str_format/parser_test.cc\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_129ConversionCharTest_Names_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [19 x i8] c"ConversionCharTest\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_154ConsumeUnboundConversionTest_ConsumeSpecification_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [29 x i8] c"ConsumeUnboundConversionTest\00", align 1
 @.str.8 = private unnamed_addr constant [21 x i8] c"ConsumeSpecification\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_149ConsumeUnboundConversionTest_BasicConversion_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.10 = private unnamed_addr constant [16 x i8] c"BasicConversion\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_145ConsumeUnboundConversionTest_ArgPosition_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.12 = private unnamed_addr constant [12 x i8] c"ArgPosition\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_151ConsumeUnboundConversionTest_WidthAndPrecision_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.14 = private unnamed_addr constant [18 x i8] c"WidthAndPrecision\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_139ConsumeUnboundConversionTest_Flags_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_BasicFlag_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.18 = private unnamed_addr constant [10 x i8] c"BasicFlag\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_LengthMod_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.20 = private unnamed_addr constant [10 x i8] c"LengthMod\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_136ParsedFormatTest_ValueSemantics_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.22 = private unnamed_addr constant [17 x i8] c"ParsedFormatTest\00", align 1
 @.str.23 = private unnamed_addr constant [15 x i8] c"ValueSemantics\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_129ParsedFormatTest_Parsing_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.25 = private unnamed_addr constant [8 x i8] c"Parsing\00", align 1
-@_ZN4absl19str_format_internal12_GLOBAL__N_138ParsedFormatTest_ParsingFlagOrder_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.27 = private unnamed_addr constant [17 x i8] c"ParsingFlagOrder\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_124LengthModTest_Names_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_124LengthModTest_Names_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_124LengthModTest_Names_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_124LengthModTest_Names_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_124LengthModTest_Names_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -24942,7 +24930,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #19
-  store ptr %call15.i, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_124LengthModTest_Names_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -25019,7 +25006,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #19
-  store ptr %call15.i23, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_129ConversionCharTest_Names_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -25092,7 +25078,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #19
-  store ptr %call15.i47, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_154ConsumeUnboundConversionTest_ConsumeSpecification_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i26)
@@ -25165,7 +25150,6 @@ __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont10.i70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i48) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i50) #19
-  store ptr %call15.i71, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_149ConsumeUnboundConversionTest_BasicConversion_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i48)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i49)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i50)
@@ -25238,7 +25222,6 @@ __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont10.i94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i72) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i73) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i74) #19
-  store ptr %call15.i95, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_145ConsumeUnboundConversionTest_ArgPosition_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i72)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i73)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i74)
@@ -25311,7 +25294,6 @@ __cxx_global_var_init.13.exit:                    ; preds = %invoke.cont10.i118
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i96) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i97) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i98) #19
-  store ptr %call15.i119, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_151ConsumeUnboundConversionTest_WidthAndPrecision_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i96)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i97)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i98)
@@ -25384,7 +25366,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont10.i142
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i120) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i121) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i122) #19
-  store ptr %call15.i143, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_139ConsumeUnboundConversionTest_Flags_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i120)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i121)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i122)
@@ -25457,7 +25438,6 @@ __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont10.i166
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i144) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i145) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i146) #19
-  store ptr %call15.i167, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_BasicFlag_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i144)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i145)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i146)
@@ -25530,7 +25510,6 @@ __cxx_global_var_init.19.exit:                    ; preds = %invoke.cont10.i190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i168) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i169) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i170) #19
-  store ptr %call15.i191, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_LengthMod_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i168)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i169)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i170)
@@ -25603,7 +25582,6 @@ __cxx_global_var_init.21.exit:                    ; preds = %invoke.cont10.i214
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i192) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i193) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i194) #19
-  store ptr %call15.i215, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_136ParsedFormatTest_ValueSemantics_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i192)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i193)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i194)
@@ -25676,7 +25654,6 @@ __cxx_global_var_init.24.exit:                    ; preds = %invoke.cont10.i238
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i216) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i217) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i218) #19
-  store ptr %call15.i239, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_129ParsedFormatTest_Parsing_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i216)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i217)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i218)
@@ -25749,7 +25726,6 @@ __cxx_global_var_init.26.exit:                    ; preds = %invoke.cont10.i262
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i240) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i241) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i242) #19
-  store ptr %call15.i263, ptr @_ZN4absl19str_format_internal12_GLOBAL__N_138ParsedFormatTest_ParsingFlagOrder_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i240)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i241)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i242)

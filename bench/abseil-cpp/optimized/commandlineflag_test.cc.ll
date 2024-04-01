@@ -160,16 +160,11 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_view
 @.absl.3 = internal constant %"struct.absl::flags_internal::FixedCharArray.5" zeroinitializer, section "flags_help_cold", align 1
 @_Z18FLAGS_string_flag2B5cxx11 = dso_local global { { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] }, %"struct.absl::flags_internal::FlagValue.2" } { { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { ptr }, [8 x i8] } { ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl14flags_internal8FlagImplE, i32 0, i32 0, i32 2), ptr @.str.9, ptr @.str.1, ptr @_ZN4absl14flags_internal7FlagOpsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPvNS0_6FlagOpEPKvS8_S8_, %"union.absl::flags_internal::FlagHelpMsg" { ptr @.absl.3 }, i8 6, i8 1, { { i32 } } zeroinitializer, { { i64 } } { { i64 } { i64 -1 } }, ptr null, { ptr } { ptr @_ZN33AbslFlagDefaultGenForstring_flag23GenEPv }, [8 x i8] zeroinitializer }, %"struct.absl::flags_internal::FlagValue.2" zeroinitializer }, align 8
 @FLAGS_nostring_flag2 = dso_local local_unnamed_addr global %"struct.absl::flags_internal::FlagRegistrarEmpty" zeroinitializer, align 1
-@_ZN12_GLOBAL__N_152CommandLineFlagTest_TestAttributesAccessMethods_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.12 = private unnamed_addr constant [20 x i8] c"CommandLineFlagTest\00", align 1
 @.str.13 = private unnamed_addr constant [28 x i8] c"TestAttributesAccessMethods\00", align 1
-@_ZN12_GLOBAL__N_147CommandLineFlagTest_TestValueAccessMethods_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [23 x i8] c"TestValueAccessMethods\00", align 1
-@_ZN12_GLOBAL__N_150CommandLineFlagTest_TestParseFromCurrentValue_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [26 x i8] c"TestParseFromCurrentValue\00", align 1
-@_ZN12_GLOBAL__N_150CommandLineFlagTest_TestParseFromDefaultValue_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [26 x i8] c"TestParseFromDefaultValue\00", align 1
-@_ZN12_GLOBAL__N_147CommandLineFlagTest_TestParseFromIfDefault_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [23 x i8] c"TestParseFromIfDefault\00", align 1
 @.str.22 = private unnamed_addr constant [6 x i8] c" help\00", align 1
 @.str.23 = private unnamed_addr constant [5 x i8] c"dflt\00", align 1
@@ -10002,7 +9997,6 @@ __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #18
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_152CommandLineFlagTest_TestAttributesAccessMethods_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -10075,7 +10069,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i5) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i6) #18
-  store ptr %call15.i24, ptr @_ZN12_GLOBAL__N_147CommandLineFlagTest_TestValueAccessMethods_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i6)
@@ -10148,7 +10141,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i25) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i26) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i27) #18
-  store ptr %call15.i48, ptr @_ZN12_GLOBAL__N_150CommandLineFlagTest_TestParseFromCurrentValue_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i26)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i27)
@@ -10221,7 +10213,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i71
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i49) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i50) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i51) #18
-  store ptr %call15.i72, ptr @_ZN12_GLOBAL__N_150CommandLineFlagTest_TestParseFromDefaultValue_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i49)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i50)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i51)
@@ -10294,7 +10285,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i73) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i74) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i75) #18
-  store ptr %call15.i96, ptr @_ZN12_GLOBAL__N_147CommandLineFlagTest_TestParseFromIfDefault_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i73)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i74)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i75)

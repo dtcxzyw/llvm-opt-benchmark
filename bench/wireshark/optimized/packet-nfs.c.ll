@@ -3433,7 +3433,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2378 = private unnamed_addr constant [6 x i8] c"WrOwn\00", align 1
 @.str.2379 = private unnamed_addr constant [5 x i8] c"Sync\00", align 1
 @aclsupport_fields = internal constant [5 x ptr] [ptr @hf_nfs4_aclsupport_allow_acl, ptr @hf_nfs4_aclsupport_deny_acl, ptr @hf_nfs4_aclsupport_audit_acl, ptr @hf_nfs4_aclsupport_alarm_acl, ptr null], align 16
-@dissect_nfs4_threshold_item.bitmap_info_p = internal unnamed_addr global ptr null, align 8
 @dissect_nfs4_threshold_item.bitmap_info_files = internal global %struct._nfs4_bitmap_info_t { ptr @th4_names_ext_file, ptr @dissect_nfs4_threshold_item_file, ptr null, ptr @hf_nfs4_mdsthreshold_hint_mask, ptr @hf_nfs4_mdsthreshold_hint_file, ptr @hf_nfs4_mdsthreshold_hint_count, ptr @hf_nfs4_mdsthreshold_mask_count, ptr null, ptr null }, align 8
 @dissect_nfs4_threshold_item.bitmap_info_default = internal global %struct._nfs4_bitmap_info_t { ptr null, ptr null, ptr null, ptr @hf_nfs4_mdsthreshold_hint_mask, ptr null, ptr null, ptr @hf_nfs4_mdsthreshold_mask_count, ptr @hf_nfs4_bitmap_data, ptr null }, align 8
 @.str.2380 = private unnamed_addr constant [7 x i8] c" = %lu\00", align 1
@@ -13005,7 +13004,6 @@ define internal i32 @dissect_nfs4_threshold_item(ptr noundef %0, i32 noundef %1,
   %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %3, i32 noundef %7, i32 noundef %1) #18
   %cond = icmp eq i32 %6, 1
   %dissect_nfs4_threshold_item.bitmap_info_files.dissect_nfs4_threshold_item.bitmap_info_default = select i1 %cond, ptr @dissect_nfs4_threshold_item.bitmap_info_files, ptr @dissect_nfs4_threshold_item.bitmap_info_default
-  store ptr %dissect_nfs4_threshold_item.bitmap_info_files.dissect_nfs4_threshold_item.bitmap_info_default, ptr @dissect_nfs4_threshold_item.bitmap_info_p, align 8
   %9 = tail call fastcc i32 @dissect_nfs4_bitmap(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %dissect_nfs4_threshold_item.bitmap_info_files.dissect_nfs4_threshold_item.bitmap_info_default, i32 noundef 1, ptr noundef null)
   ret i32 %9
 }

@@ -111,18 +111,12 @@ $_ZZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_strin
 @.str.2 = private unnamed_addr constant [146 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/random/internal/fast_uniform_bits_test.cc\00", align 1
 @.str.3 = private unnamed_addr constant [25 x i8] c"FastUniformBitsTypedTest\00", align 1
 @.str.4 = private unnamed_addr constant [10 x i8] c"BasicTest\00", align 1
-@_ZN4absl15random_internal12_GLOBAL__N_143FastUniformBitsTest_IsPowerOfTwoOrZero_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.6 = private unnamed_addr constant [20 x i8] c"FastUniformBitsTest\00", align 1
 @.str.7 = private unnamed_addr constant [19 x i8] c"IsPowerOfTwoOrZero\00", align 1
-@_ZN4absl15random_internal12_GLOBAL__N_136FastUniformBitsTest_IntegerLog2_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [12 x i8] c"IntegerLog2\00", align 1
-@_ZN4absl15random_internal12_GLOBAL__N_134FastUniformBitsTest_RangeSize_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [10 x i8] c"RangeSize\00", align 1
-@_ZN4absl15random_internal12_GLOBAL__N_142FastUniformBitsTest_OutputsUpTo32Bits_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [18 x i8] c"OutputsUpTo32Bits\00", align 1
-@_ZN4absl15random_internal12_GLOBAL__N_138FastUniformBitsTest_Outputs64Bits_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [14 x i8] c"Outputs64Bits\00", align 1
-@_ZN4absl15random_internal12_GLOBAL__N_144FastUniformBitsTest_URBG32bitRegression_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [20 x i8] c"URBG32bitRegression\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN4absl15random_internal12_GLOBAL__N_143FastUniformBitsTest_IsPowerOfTwoOrZero_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4absl15random_internal12_GLOBAL__N_143FastUniformBitsTest_IsPowerOfTwoOrZero_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4absl15random_internal12_GLOBAL__N_143FastUniformBitsTest_IsPowerOfTwoOrZero_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl15random_internal12_GLOBAL__N_143FastUniformBitsTest_IsPowerOfTwoOrZero_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl15random_internal12_GLOBAL__N_143FastUniformBitsTest_IsPowerOfTwoOrZero_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -15727,7 +15721,6 @@ __cxx_global_var_init.5.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2) #17
-  store ptr %call15.i, ptr @_ZN4absl15random_internal12_GLOBAL__N_143FastUniformBitsTest_IsPowerOfTwoOrZero_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2)
@@ -15804,7 +15797,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i12) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i13) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i14) #17
-  store ptr %call15.i35, ptr @_ZN4absl15random_internal12_GLOBAL__N_136FastUniformBitsTest_IntegerLog2_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i13)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i14)
@@ -15881,7 +15873,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i60
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i36) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i37) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i38) #17
-  store ptr %call15.i61, ptr @_ZN4absl15random_internal12_GLOBAL__N_134FastUniformBitsTest_RangeSize_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i37)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i38)
@@ -15958,7 +15949,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i62) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i63) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i64) #17
-  store ptr %call15.i87, ptr @_ZN4absl15random_internal12_GLOBAL__N_142FastUniformBitsTest_OutputsUpTo32Bits_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i62)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i63)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i64)
@@ -16035,7 +16025,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i88) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i89) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i90) #17
-  store ptr %call15.i113, ptr @_ZN4absl15random_internal12_GLOBAL__N_138FastUniformBitsTest_Outputs64Bits_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i88)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i89)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i90)
@@ -16112,7 +16101,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i138
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i114) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i115) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i116) #17
-  store ptr %call15.i139, ptr @_ZN4absl15random_internal12_GLOBAL__N_144FastUniformBitsTest_URBG32bitRegression_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i114)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i115)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i116)

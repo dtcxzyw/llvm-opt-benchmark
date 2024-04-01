@@ -95,7 +95,6 @@ target triple = "x86_64-pc-linux-gnu"
 @TAG_DELIMITER = internal constant [2 x i8] c"\01\00", align 1
 @.str.51 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.52 = private unnamed_addr constant [11 x i8] c"6667,57000\00", align 1
-@ctcp_handle = internal unnamed_addr global ptr null, align 8
 @.str.53 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
 @g_ascii_table = external local_unnamed_addr constant ptr, align 8
 @.str.54 = private unnamed_addr constant [19 x i8] c"Command parameters\00", align 1
@@ -837,7 +836,6 @@ define hidden void @proto_reg_handoff_irc() local_unnamed_addr #0 {
   tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %1) #4
   %2 = load i32, ptr @proto_irc_ctcp, align 4
   %3 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_irc_ctcp, i32 noundef %2) #4
-  store ptr %3, ptr @ctcp_handle, align 8
   ret void
 }
 

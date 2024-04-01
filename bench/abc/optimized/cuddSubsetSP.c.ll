@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.NodeDist = type { i32, i32, i32, i32, ptr, ptr }
 
 @memOut = internal unnamed_addr global i1 false, align 4
-@one = internal unnamed_addr global ptr null, align 8
 @zero = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [30 x i8] c"Cannot partition, nil object\0A\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"Something wrong, root node must be in table\0A\00", align 1
@@ -57,7 +56,6 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr @one, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr

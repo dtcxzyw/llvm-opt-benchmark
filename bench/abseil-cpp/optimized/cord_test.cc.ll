@@ -3393,21 +3393,13 @@ $_ZN4absl13cord_internal24ConstInitExternalStorageINS_16strings_internal14String
 @.str.289 = private unnamed_addr constant [2 x i8] c"b\00", align 1
 @.str.290 = private unnamed_addr constant [6 x i8] c"a + b\00", align 1
 @.str.291 = private unnamed_addr constant [6 x i8] c"b + a\00", align 1
-@_ZN12_GLOBAL__N_134CordTest_CordMemoryUsageEmpty_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.327 = private unnamed_addr constant [21 x i8] c"CordMemoryUsageEmpty\00", align 1
-@_ZN12_GLOBAL__N_136CordTest_CordMemoryUsageInlined_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.329 = private unnamed_addr constant [23 x i8] c"CordMemoryUsageInlined\00", align 1
-@_ZN12_GLOBAL__N_143CordTest_CordMemoryUsageExternalMemory_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.331 = private unnamed_addr constant [30 x i8] c"CordMemoryUsageExternalMemory\00", align 1
-@_ZN12_GLOBAL__N_133CordTest_CordMemoryUsageFlat_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.333 = private unnamed_addr constant [20 x i8] c"CordMemoryUsageFlat\00", align 1
-@_ZN12_GLOBAL__N_148CordTest_CordMemoryUsageSubStringSharedFlat_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.335 = private unnamed_addr constant [35 x i8] c"CordMemoryUsageSubStringSharedFlat\00", align 1
-@_ZN12_GLOBAL__N_139CordTest_CordMemoryUsageFlatShared_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.337 = private unnamed_addr constant [26 x i8] c"CordMemoryUsageFlatShared\00", align 1
-@_ZN12_GLOBAL__N_150CordTest_CordMemoryUsageFlatHardenedAndShared_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.339 = private unnamed_addr constant [37 x i8] c"CordMemoryUsageFlatHardenedAndShared\00", align 1
-@_ZN12_GLOBAL__N_134CordTest_CordMemoryUsageBTree_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.341 = private unnamed_addr constant [21 x i8] c"CordMemoryUsageBTree\00", align 1
 @_ZN27CordTest_Concat_Append_Test24gtest_registering_dummy_E = dso_local local_unnamed_addr global i32 0, align 4
 @.str.346 = private unnamed_addr constant [19 x i8] c"foobarbarbarbarbar\00", align 1
@@ -156192,7 +156184,6 @@ __cxx_global_var_init.326.exit:                   ; preds = %invoke.cont10.i1593
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1569) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1570) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1571) #31
-  store ptr %call15.i1594, ptr @_ZN12_GLOBAL__N_134CordTest_CordMemoryUsageEmpty_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1569)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1570)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1571)
@@ -156269,7 +156260,6 @@ __cxx_global_var_init.328.exit:                   ; preds = %invoke.cont10.i1619
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1595) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1596) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1597) #31
-  store ptr %call15.i1620, ptr @_ZN12_GLOBAL__N_136CordTest_CordMemoryUsageInlined_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1595)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1596)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1597)
@@ -156346,7 +156336,6 @@ __cxx_global_var_init.330.exit:                   ; preds = %invoke.cont10.i1645
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1621) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1622) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1623) #31
-  store ptr %call15.i1646, ptr @_ZN12_GLOBAL__N_143CordTest_CordMemoryUsageExternalMemory_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1621)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1622)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1623)
@@ -156423,7 +156412,6 @@ __cxx_global_var_init.332.exit:                   ; preds = %invoke.cont10.i1671
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1647) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1648) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1649) #31
-  store ptr %call15.i1672, ptr @_ZN12_GLOBAL__N_133CordTest_CordMemoryUsageFlat_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1647)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1648)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1649)
@@ -156500,7 +156488,6 @@ __cxx_global_var_init.334.exit:                   ; preds = %invoke.cont10.i1697
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1673) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1674) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1675) #31
-  store ptr %call15.i1698, ptr @_ZN12_GLOBAL__N_148CordTest_CordMemoryUsageSubStringSharedFlat_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1673)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1674)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1675)
@@ -156577,7 +156564,6 @@ __cxx_global_var_init.336.exit:                   ; preds = %invoke.cont10.i1723
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1699) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1700) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1701) #31
-  store ptr %call15.i1724, ptr @_ZN12_GLOBAL__N_139CordTest_CordMemoryUsageFlatShared_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1699)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1700)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1701)
@@ -156654,7 +156640,6 @@ __cxx_global_var_init.338.exit:                   ; preds = %invoke.cont10.i1749
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1725) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1726) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1727) #31
-  store ptr %call15.i1750, ptr @_ZN12_GLOBAL__N_150CordTest_CordMemoryUsageFlatHardenedAndShared_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1725)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1726)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1727)
@@ -156731,7 +156716,6 @@ __cxx_global_var_init.340.exit:                   ; preds = %invoke.cont10.i1775
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1751) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1752) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1753) #31
-  store ptr %call15.i1776, ptr @_ZN12_GLOBAL__N_134CordTest_CordMemoryUsageBTree_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1751)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1752)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1753)

@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [10 x i8] c"RTPS-PROC\00", align 1
 @.str.7 = private unnamed_addr constant [9 x i8] c"rtpsproc\00", align 1
 @rtpsproc_tree = internal unnamed_addr global i32 -1, align 4
-@rtpsproc_hf = internal unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [23 x i8] c"RTPS Security decoding\00", align 1
 @.str.9 = private unnamed_addr constant [27 x i8] c"RTPS Security pre-encoding\00", align 1
 @.str.10 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
@@ -50,7 +49,6 @@ define hidden void @proto_register_rtps_processed() local_unnamed_addr #0 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #4
   store i32 %1, ptr @rtpsproc_tree, align 4
   %2 = tail call ptr @proto_registrar_get_nth(i32 noundef %1) #4
-  store ptr %2, ptr @rtpsproc_hf, align 8
   %3 = load i32, ptr @rtpsproc_tree, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_rtps_processed.hf, i32 noundef 2) #4
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rtps_processed.ett, i32 noundef 4) #4

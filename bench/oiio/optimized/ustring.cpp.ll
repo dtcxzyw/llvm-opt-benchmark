@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<const char *, unsigned long>, std::allocator<std::pair<const char *, unsigned long>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<const char *, unsigned long>, std::allocator<std::pair<const char *, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<const char *, unsigned long>, std::allocator<std::pair<const char *, unsigned long>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<const char *, unsigned long>, std::allocator<std::pair<const char *, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenImageIO_v2_6_0::ustring" = type { ptr }
 %"struct.OpenImageIO_v2_6_0::UstringTable" = type { [4096 x %"struct.OpenImageIO_v2_6_0::TableRepMap"] }
 %"struct.OpenImageIO_v2_6_0::TableRepMap" = type { %"class.OpenImageIO_v2_6_0::spin_rw_mutex", i64, ptr, i64, ptr, i64, i64, [8 x i8] }
 %"class.OpenImageIO_v2_6_0::spin_rw_mutex" = type { %"struct.std::atomic" }
@@ -29,6 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %"class.OpenImageIO_v2_6_0::basic_string_view" = type { ptr, i64 }
 %"struct.std::pair.9" = type { ptr, i64 }
+%"class.OpenImageIO_v2_6_0::ustring" = type { ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -68,7 +68,6 @@ $_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImE
 @__dso_handle = external hidden global i8
 @_ZN18OpenImageIO_v2_6_07ustring16empty_std_stringB5cxx11E = global %"class.std::__cxx11::basic_string" zeroinitializer, align 8
 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_119all_hash_collisionsE = internal global %"class.std::vector" zeroinitializer, align 8
-@_ZN18OpenImageIO_v2_6_03pvtL30ustring_force_make_unique_callE = internal unnamed_addr global %"class.OpenImageIO_v2_6_0::ustring" zeroinitializer, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.5 = private unnamed_addr constant [35 x i8] c"%s:%u: %s: Assertion '%s' failed.\0A\00", align 1
@@ -3165,7 +3164,6 @@ entry:
   %m_len.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   store i64 0, ptr %m_len.i.i.i, align 8
   %call.i.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07ustring11make_uniqueENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %agg.tmp.i.i)
-  store ptr %call.i.i, ptr @_ZN18OpenImageIO_v2_6_03pvtL30ustring_force_make_unique_callE, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   ret void
 }

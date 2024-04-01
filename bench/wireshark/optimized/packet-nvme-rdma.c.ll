@@ -100,7 +100,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [26 x i8] c"NVMe Fabrics RDMA packets\00", align 1
 @.str.60 = private unnamed_addr constant [10 x i8] c"nvme_rdma\00", align 1
 @.str.61 = private unnamed_addr constant [11 x i8] c"infiniband\00", align 1
-@ib_handler = internal unnamed_addr global ptr null, align 8
 @proto_ib = internal unnamed_addr global i32 0, align 4
 @.str.62 = private unnamed_addr constant [8 x i8] c"%x (%s)\00", align 1
 @.str.63 = private unnamed_addr constant [4 x i8] c"IOQ\00", align 1
@@ -160,7 +159,6 @@ define hidden void @proto_reg_handoff_nvme_rdma() local_unnamed_addr #0 {
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.58, ptr noundef nonnull @dissect_nvme_ib, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %2, i32 noundef 1) #5
   %3 = load i32, ptr @proto_nvme_rdma, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.61, i32 noundef %3) #5
-  store ptr %4, ptr @ib_handler, align 8
   %5 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef %4) #5
   store i32 %5, ptr @proto_ib, align 4
   ret void

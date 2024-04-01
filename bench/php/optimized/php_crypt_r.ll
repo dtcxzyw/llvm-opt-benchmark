@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @_crypt_extended_init_r.initialized = internal unnamed_addr global i1 false, align 4
 @php_md5_crypt_r.passwd = internal global [120 x i8] zeroinitializer, align 16
-@php_md5_crypt_r.p = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [4 x i8] c"$1$\00", align 1
 @itoa64 = internal unnamed_addr constant [65 x i8] c"./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\00", align 16
 
@@ -180,7 +179,6 @@ define hidden noundef nonnull ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr @php_md5_crypt_r.passwd, i64 %16
   %47 = getelementptr inbounds i8, ptr %46, i64 4
-  store ptr %47, ptr @php_md5_crypt_r.p, align 8
   %48 = load i8, ptr %4, align 16
   %49 = zext i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 16
@@ -362,7 +360,6 @@ to64.exit83:                                      ; preds = %.lr.ph.i79
 
 to64.exit88:                                      ; preds = %.lr.ph.i84
   %168 = getelementptr inbounds i8, ptr %46, i64 26
-  store ptr %168, ptr @php_md5_crypt_r.p, align 8
   store i8 0, ptr %168, align 1
   call void @explicit_bzero(ptr noundef nonnull %4, i64 noundef 16) #7
   ret ptr @php_md5_crypt_r.passwd

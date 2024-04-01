@@ -96,39 +96,23 @@ $_ZTIN7testing8internal15TestFactoryBaseE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_132FromChars_NearRoundingCases_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [10 x i8] c"FromChars\00", align 1
 @.str.2 = private unnamed_addr constant [18 x i8] c"NearRoundingCases\00", align 1
 @.str.3 = private unnamed_addr constant [129 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/strings/charconv_test.cc\00", align 1
-@_ZN12_GLOBAL__N_140FromChars_NearRoundingCasesExplicit_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [26 x i8] c"NearRoundingCasesExplicit\00", align 1
-@_ZN12_GLOBAL__N_129FromChars_DoubleRounding_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [15 x i8] c"DoubleRounding\00", align 1
-@_ZN12_GLOBAL__N_128FromChars_FloatRounding_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [14 x i8] c"FloatRounding\00", align 1
-@_ZN12_GLOBAL__N_124FromChars_Underflow_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [10 x i8] c"Underflow\00", align 1
-@_ZN12_GLOBAL__N_123FromChars_Overflow_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [9 x i8] c"Overflow\00", align 1
-@_ZN12_GLOBAL__N_140FromChars_RegressionTestsFromFuzzer_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [26 x i8] c"RegressionTestsFromFuzzer\00", align 1
-@_ZN12_GLOBAL__N_129FromChars_ReturnValuePtr_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [15 x i8] c"ReturnValuePtr\00", align 1
-@_ZN12_GLOBAL__N_131FromChars_TestVersusStrtod_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [17 x i8] c"TestVersusStrtod\00", align 1
-@_ZN12_GLOBAL__N_131FromChars_TestVersusStrtof_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [17 x i8] c"TestVersusStrtof\00", align 1
-@_ZN12_GLOBAL__N_125FromChars_NaNDoubles_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [11 x i8] c"NaNDoubles\00", align 1
-@_ZN12_GLOBAL__N_124FromChars_NaNFloats_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.25 = private unnamed_addr constant [10 x i8] c"NaNFloats\00", align 1
-@_ZN12_GLOBAL__N_137FromChars_HexdecimalDoubleLimits_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.27 = private unnamed_addr constant [23 x i8] c"HexdecimalDoubleLimits\00", align 1
-@_ZN12_GLOBAL__N_136FromChars_HexdecimalFloatLimits_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.29 = private unnamed_addr constant [22 x i8] c"HexdecimalFloatLimits\00", align 1
-@_ZN12_GLOBAL__N_134FromChars_DecimalDoubleLimits_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.31 = private unnamed_addr constant [20 x i8] c"DecimalDoubleLimits\00", align 1
-@_ZN12_GLOBAL__N_133FromChars_DecimalFloatLimits_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.33 = private unnamed_addr constant [19 x i8] c"DecimalFloatLimits\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132FromChars_NearRoundingCases_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132FromChars_NearRoundingCases_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132FromChars_NearRoundingCases_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132FromChars_NearRoundingCases_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132FromChars_NearRoundingCases_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -24755,7 +24739,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #20
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_132FromChars_NearRoundingCases_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -24832,7 +24815,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #20
-  store ptr %call15.i23, ptr @_ZN12_GLOBAL__N_140FromChars_NearRoundingCasesExplicit_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -24909,7 +24891,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #20
-  store ptr %call15.i49, ptr @_ZN12_GLOBAL__N_129FromChars_DoubleRounding_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i26)
@@ -24986,7 +24967,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %invoke.cont10.i74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i50) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i52) #20
-  store ptr %call15.i75, ptr @_ZN12_GLOBAL__N_128FromChars_FloatRounding_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i50)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i52)
@@ -25063,7 +25043,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i76) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i77) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i78) #20
-  store ptr %call15.i101, ptr @_ZN12_GLOBAL__N_124FromChars_Underflow_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i76)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i77)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i78)
@@ -25140,7 +25119,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i102) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i103) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i104) #20
-  store ptr %call15.i127, ptr @_ZN12_GLOBAL__N_123FromChars_Overflow_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i102)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i103)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i104)
@@ -25217,7 +25195,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i128) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i129) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i130) #20
-  store ptr %call15.i153, ptr @_ZN12_GLOBAL__N_140FromChars_RegressionTestsFromFuzzer_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i128)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i129)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i130)
@@ -25294,7 +25271,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i178
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i154) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i155) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i156) #20
-  store ptr %call15.i179, ptr @_ZN12_GLOBAL__N_129FromChars_ReturnValuePtr_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i154)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i155)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i156)
@@ -25371,7 +25347,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i204
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i180) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i181) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i182) #20
-  store ptr %call15.i205, ptr @_ZN12_GLOBAL__N_131FromChars_TestVersusStrtod_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i180)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i181)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i182)
@@ -25448,7 +25423,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i230
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i206) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i207) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i208) #20
-  store ptr %call15.i231, ptr @_ZN12_GLOBAL__N_131FromChars_TestVersusStrtof_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i206)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i207)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i208)
@@ -25525,7 +25499,6 @@ __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i232) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i233) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i234) #20
-  store ptr %call15.i257, ptr @_ZN12_GLOBAL__N_125FromChars_NaNDoubles_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i232)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i233)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i234)
@@ -25602,7 +25575,6 @@ __cxx_global_var_init.24.exit:                    ; preds = %invoke.cont10.i282
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i258) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i259) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i260) #20
-  store ptr %call15.i283, ptr @_ZN12_GLOBAL__N_124FromChars_NaNFloats_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i258)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i259)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i260)
@@ -25679,7 +25651,6 @@ __cxx_global_var_init.26.exit:                    ; preds = %invoke.cont10.i308
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i284) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i285) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i286) #20
-  store ptr %call15.i309, ptr @_ZN12_GLOBAL__N_137FromChars_HexdecimalDoubleLimits_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i284)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i285)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i286)
@@ -25756,7 +25727,6 @@ __cxx_global_var_init.28.exit:                    ; preds = %invoke.cont10.i334
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i310) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i311) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i312) #20
-  store ptr %call15.i335, ptr @_ZN12_GLOBAL__N_136FromChars_HexdecimalFloatLimits_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i310)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i311)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i312)
@@ -25833,7 +25803,6 @@ __cxx_global_var_init.30.exit:                    ; preds = %invoke.cont10.i360
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i336) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i337) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i338) #20
-  store ptr %call15.i361, ptr @_ZN12_GLOBAL__N_134FromChars_DecimalDoubleLimits_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i336)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i337)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i338)
@@ -25910,7 +25879,6 @@ __cxx_global_var_init.32.exit:                    ; preds = %invoke.cont10.i386
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i362) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i363) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i364) #20
-  store ptr %call15.i387, ptr @_ZN12_GLOBAL__N_133FromChars_DecimalFloatLimits_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i362)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i363)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i364)

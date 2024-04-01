@@ -3353,7 +3353,6 @@ target triple = "x86_64-pc-linux-gnu"
 @e2ap_ies_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.1822 = private unnamed_addr constant [15 x i8] c"e2ap.extension\00", align 1
 @.str.1823 = private unnamed_addr constant [24 x i8] c"E2AP-PROTOCOL-EXTENSION\00", align 1
-@e2ap_extension_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.1824 = private unnamed_addr constant [44 x i8] c"E2AP-ELEMENTARY-PROCEDURE InitiatingMessage\00", align 1
 @e2ap_proc_imsg_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.1825 = private unnamed_addr constant [44 x i8] c"E2AP-ELEMENTARY-PROCEDURE SuccessfulOutcome\00", align 1
@@ -3362,7 +3361,6 @@ target triple = "x86_64-pc-linux-gnu"
 @e2ap_proc_uout_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.1827 = private unnamed_addr constant [16 x i8] c"e2ap.n2_ie_type\00", align 1
 @.str.1828 = private unnamed_addr constant [16 x i8] c"E2AP N2 IE Type\00", align 1
-@e2ap_n2_ie_type_dissector_table = internal unnamed_addr global ptr null, align 8
 @e2ap_tap = internal unnamed_addr global i32 0, align 4
 @Cause_choice = internal constant [7 x %struct._per_choice_t] [%struct._per_choice_t { i32 0, ptr @hf_e2ap_ricRequest, i32 1, ptr @dissect_e2ap_CauseRICrequest }, %struct._per_choice_t { i32 1, ptr @hf_e2ap_ricService, i32 1, ptr @dissect_e2ap_CauseRICservice }, %struct._per_choice_t { i32 2, ptr @hf_e2ap_e2Node, i32 1, ptr @dissect_e2ap_CauseE2node }, %struct._per_choice_t { i32 3, ptr @hf_e2ap_transport, i32 1, ptr @dissect_e2ap_CauseTransport }, %struct._per_choice_t { i32 4, ptr @hf_e2ap_protocol, i32 1, ptr @dissect_e2ap_CauseProtocol }, %struct._per_choice_t { i32 5, ptr @hf_e2ap_misc, i32 1, ptr @dissect_e2ap_CauseMisc }, %struct._per_choice_t zeroinitializer], align 16
 @CriticalityDiagnostics_sequence = internal constant [6 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_e2ap_procedureCode, i32 1, i32 4, ptr @dissect_e2ap_ProcedureCode }, %struct._per_sequence_t { ptr @hf_e2ap_triggeringMessage, i32 1, i32 4, ptr @dissect_e2ap_TriggeringMessage }, %struct._per_sequence_t { ptr @hf_e2ap_procedureCriticality, i32 1, i32 4, ptr @dissect_e2ap_Criticality }, %struct._per_sequence_t { ptr @hf_e2ap_ricRequestorID, i32 1, i32 4, ptr @dissect_e2ap_RICrequestID }, %struct._per_sequence_t { ptr @hf_e2ap_iEsCriticalityDiagnostics, i32 1, i32 4, ptr @dissect_e2ap_CriticalityDiagnostics_IE_List }, %struct._per_sequence_t zeroinitializer], align 16
@@ -7932,7 +7930,6 @@ define hidden void @proto_register_e2ap() local_unnamed_addr #1 {
   store ptr %7, ptr @e2ap_ies_dissector_table, align 8
   %8 = load i32, ptr @proto_e2ap, align 4
   %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1822, ptr noundef nonnull @.str.1823, i32 noundef %8, i32 noundef 7, i32 noundef 1) #8
-  store ptr %9, ptr @e2ap_extension_dissector_table, align 8
   %10 = load i32, ptr @proto_e2ap, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1824, i32 noundef %10, i32 noundef 7, i32 noundef 1) #8
   store ptr %11, ptr @e2ap_proc_imsg_dissector_table, align 8
@@ -7944,7 +7941,6 @@ define hidden void @proto_register_e2ap() local_unnamed_addr #1 {
   store ptr %15, ptr @e2ap_proc_uout_dissector_table, align 8
   %16 = load i32, ptr @proto_e2ap, align 4
   %17 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1827, ptr noundef nonnull @.str.1828, i32 noundef %16, i32 noundef 26, i32 noundef 0) #8
-  store ptr %17, ptr @e2ap_n2_ie_type_dissector_table, align 8
   tail call void @register_init_routine(ptr noundef nonnull @e2ap_init_protocol) #8
   %18 = tail call i32 @register_tap(ptr noundef nonnull @.str.24) #8
   store i32 %18, ptr @e2ap_tap, align 4

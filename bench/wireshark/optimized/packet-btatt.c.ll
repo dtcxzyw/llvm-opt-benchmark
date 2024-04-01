@@ -3690,7 +3690,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2285 = private unnamed_addr constant [8 x i8] c"BT GATT\00", align 1
 @.str.2286 = private unnamed_addr constant [7 x i8] c"btgatt\00", align 1
 @proto_btgatt = internal unnamed_addr global i32 0, align 4
-@btgatt_handle = internal unnamed_addr global ptr null, align 8
 @.str.2287 = private unnamed_addr constant [37 x i8] c"6e400001-b5a3-f393-e0a9-e50e24dcca9e\00", align 1
 @.str.2288 = private unnamed_addr constant [20 x i8] c"Nordic UART Service\00", align 1
 @.str.2289 = private unnamed_addr constant [37 x i8] c"6e400002-b5a3-f393-e0a9-e50e24dcca9e\00", align 1
@@ -6773,7 +6772,6 @@ define hidden void @proto_register_btgatt() local_unnamed_addr #1 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.2284, ptr noundef nonnull @.str.2285, ptr noundef nonnull @.str.2286) #13
   store i32 %1, ptr @proto_btgatt, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.2286, ptr noundef nonnull @dissect_btgatt, i32 noundef %1) #13
-  store ptr %2, ptr @btgatt_handle, align 8
   %3 = load i32, ptr @proto_btgatt, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_btgatt.hf, i32 noundef 79) #13
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_btgatt.ett, i32 noundef 6) #13

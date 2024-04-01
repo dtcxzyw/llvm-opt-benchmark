@@ -134,7 +134,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.88 = private unnamed_addr constant [26 x i8] c"IPDU Multiplexer over CAN\00", align 1
 @.str.89 = private unnamed_addr constant [26 x i8] c"ipdu_multiplexer_can_heur\00", align 1
 @.str.90 = private unnamed_addr constant [30 x i8] c"ipdu_multiplexer_over_flexray\00", align 1
-@ipdum_handle_flexray = internal unnamed_addr global ptr null, align 8
 @.str.91 = private unnamed_addr constant [21 x i8] c"flexray.subdissector\00", align 1
 @.str.92 = private unnamed_addr constant [8 x i8] c"flexray\00", align 1
 @.str.93 = private unnamed_addr constant [30 x i8] c"IPDU Multiplexer over FlexRay\00", align 1
@@ -1341,7 +1340,6 @@ define hidden void @proto_reg_handoff_autosar_ipdu_multiplexer() local_unnamed_a
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.87, ptr noundef nonnull @dissect_ipdum_message_can_heur, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef %4, i32 noundef 1) #7
   %5 = load i32, ptr @proto_ipdu_multiplexer, align 4
   %6 = tail call ptr @register_dissector(ptr noundef nonnull @.str.90, ptr noundef nonnull @dissect_ipdum_message_flexray, i32 noundef %5) #7
-  store ptr %6, ptr @ipdum_handle_flexray, align 8
   tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.91, ptr noundef %6) #7
   %7 = load i32, ptr @proto_ipdu_multiplexer, align 4
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.92, ptr noundef nonnull @dissect_ipdum_message_flexray_heur, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, i32 noundef %7, i32 noundef 1) #7

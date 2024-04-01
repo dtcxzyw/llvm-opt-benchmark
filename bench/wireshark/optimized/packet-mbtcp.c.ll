@@ -293,7 +293,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.163 = private unnamed_addr constant [12 x i8] c"Modbus Data\00", align 1
 @modbus_data_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.164 = private unnamed_addr constant [31 x i8] c"Modbus/TCP protocol identifier\00", align 1
-@modbus_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.165 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
 @.str.166 = private unnamed_addr constant [64 x i8] c"Desegment all Modbus RTU packets spanning multiple TCP segments\00", align 1
 @.str.167 = private unnamed_addr constant [94 x i8] c"Whether the Modbus RTU dissector should desegment all messages spanning multiple TCP segments\00", align 1
@@ -461,7 +460,6 @@ define hidden void @proto_register_modbus() local_unnamed_addr #0 {
   store ptr %15, ptr @modbus_data_dissector_table, align 8
   %16 = load i32, ptr @proto_mbtcp, align 4
   %17 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.164, i32 noundef %16, i32 noundef 5, i32 noundef 1) #5
-  store ptr %17, ptr @modbus_dissector_table, align 8
   %18 = load i32, ptr @proto_mbtcp, align 4
   tail call void @proto_register_field_array(i32 noundef %18, ptr noundef nonnull @proto_register_modbus.mbtcp_hf, i32 noundef 4) #5
   %19 = load i32, ptr @proto_mbrtu, align 4

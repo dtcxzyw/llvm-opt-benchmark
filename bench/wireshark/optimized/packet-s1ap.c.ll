@@ -3688,10 +3688,8 @@ target triple = "x86_64-pc-linux-gnu"
 @s1ap_ies_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.1998 = private unnamed_addr constant [20 x i8] c"s1ap.ies.pair.first\00", align 1
 @.str.1999 = private unnamed_addr constant [34 x i8] c"S1AP-PROTOCOL-IES-PAIR FirstValue\00", align 1
-@s1ap_ies_p1_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.2000 = private unnamed_addr constant [21 x i8] c"s1ap.ies.pair.second\00", align 1
 @.str.2001 = private unnamed_addr constant [35 x i8] c"S1AP-PROTOCOL-IES-PAIR SecondValue\00", align 1
-@s1ap_ies_p2_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.2002 = private unnamed_addr constant [24 x i8] c"S1AP-PROTOCOL-EXTENSION\00", align 1
 @s1ap_extension_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.2003 = private unnamed_addr constant [44 x i8] c"S1AP-ELEMENTARY-PROCEDURE InitiatingMessage\00", align 1
@@ -12710,10 +12708,8 @@ define hidden void @proto_register_s1ap() local_unnamed_addr #0 {
   store ptr %7, ptr @s1ap_ies_dissector_table, align 8
   %8 = load i32, ptr @proto_s1ap, align 4
   %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1998, ptr noundef nonnull @.str.1999, i32 noundef %8, i32 noundef 7, i32 noundef 1) #7
-  store ptr %9, ptr @s1ap_ies_p1_dissector_table, align 8
   %10 = load i32, ptr @proto_s1ap, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.2000, ptr noundef nonnull @.str.2001, i32 noundef %10, i32 noundef 7, i32 noundef 1) #7
-  store ptr %11, ptr @s1ap_ies_p2_dissector_table, align 8
   %12 = load i32, ptr @proto_s1ap, align 4
   %13 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.2002, i32 noundef %12, i32 noundef 7, i32 noundef 1) #7
   store ptr %13, ptr @s1ap_extension_dissector_table, align 8

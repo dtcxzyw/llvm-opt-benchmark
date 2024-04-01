@@ -267,7 +267,6 @@ target triple = "x86_64-pc-linux-gnu"
 @dsp_option_dissectors = internal unnamed_addr global ptr null, align 8
 @.str.134 = private unnamed_addr constant [12 x i8] c"dof.secmode\00", align 1
 @.str.135 = private unnamed_addr constant [31 x i8] c"DOF Security Mode of Operation\00", align 1
-@dof_sec_dissectors = internal unnamed_addr global ptr null, align 8
 @.str.136 = private unnamed_addr constant [11 x i8] c"dof.2008.1\00", align 1
 @.str.137 = private unnamed_addr constant [15 x i8] c"DOF Common PDU\00", align 1
 @.str.138 = private unnamed_addr constant [4 x i8] c"DOF\00", align 1
@@ -1146,7 +1145,6 @@ target triple = "x86_64-pc-linux-gnu"
 @sid_buffer_to_sid_id = internal unnamed_addr global ptr null, align 8
 @sid_id_to_sid_buffer = internal unnamed_addr global ptr null, align 8
 @oap_1_alias_to_binding = internal unnamed_addr global ptr null, align 8
-@dof_tun_handoff.tcp_handle = internal unnamed_addr global ptr null, align 8
 @.str.674 = private unnamed_addr constant [20 x i8] c"DOF Tunnel Protocol\00", align 1
 @.str.675 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.676 = private unnamed_addr constant [8 x i8] c"APP(%u)\00", align 1
@@ -1270,7 +1268,6 @@ define hidden void @proto_register_dof() local_unnamed_addr #0 {
   store ptr %7, ptr @dsp_option_dissectors, align 8
   %8 = load i32, ptr @proto_2008_1_dof, align 4
   %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, i32 noundef %8, i32 noundef 5, i32 noundef 1) #21
-  store ptr %9, ptr @dof_sec_dissectors, align 8
   %10 = load i32, ptr @proto_2008_1_dof, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, i32 noundef %10, i32 noundef 26, i32 noundef 1) #21
   %12 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139) #21
@@ -1692,7 +1689,6 @@ define hidden void @proto_reg_handoff_dof() local_unnamed_addr #0 {
   %2 = tail call ptr @register_dissector_with_description(ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.674, ptr noundef nonnull @dissect_tun_app_common, i32 noundef %1) #21
   %3 = load i32, ptr @proto_2012_1_tunnel, align 4
   %4 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_tunnel_tcp, i32 noundef %3) #21
-  store ptr %4, ptr @dof_tun_handoff.tcp_handle, align 8
   tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.675, i32 noundef 8567, ptr noundef %4) #21
   %5 = load i32, ptr @oid_proto, align 4
   %6 = tail call ptr @register_dissector_with_description(ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.204, ptr noundef nonnull @dissect_2009_11_type_4, i32 noundef %5) #21

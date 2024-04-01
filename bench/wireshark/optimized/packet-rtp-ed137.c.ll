@@ -256,17 +256,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.132 = private unnamed_addr constant [38 x i8] c"RTP header ED137A additional features\00", align 1
 @rtp_hdr_ext_ed137a_add_features_table = internal unnamed_addr global ptr null, align 8
 @.str.133 = private unnamed_addr constant [38 x i8] c"rtp.hdr_ext.ed137a.ed137a_feature_sqi\00", align 1
-@rtp_hdr_ext_ed137a_feature_sqi_handle = internal unnamed_addr global ptr null, align 8
 @.str.134 = private unnamed_addr constant [46 x i8] c"rtp.hdr_ext.ed137a.ed137a_feature_climax_tdly\00", align 1
-@rtp_hdr_ext_ed137a_feature_climax_tdly_handle = internal unnamed_addr global ptr null, align 8
 @.str.135 = private unnamed_addr constant [45 x i8] c"rtp.hdr_ext.ed137a.ed137b_feature_rrc_single\00", align 1
-@rtp_hdr_ext_ed137b_feature_rrc_single_handle = internal unnamed_addr global ptr null, align 8
 @.str.136 = private unnamed_addr constant [49 x i8] c"rtp.hdr_ext.ed137a.ed137b_feature_climax_ddc_rmm\00", align 1
-@rtp_hdr_ext_ed137b_feature_climax_ddc_rmm_handle = internal unnamed_addr global ptr null, align 8
 @.str.137 = private unnamed_addr constant [49 x i8] c"rtp.hdr_ext.ed137a.ed137b_feature_climax_ddc_mam\00", align 1
-@rtp_hdr_ext_ed137b_feature_climax_ddc_mam_handle = internal unnamed_addr global ptr null, align 8
 @.str.138 = private unnamed_addr constant [49 x i8] c"rtp.hdr_ext.ed137a.ed137c_feature_climax_ddc_mam\00", align 1
-@rtp_hdr_ext_ed137c_feature_climax_ddc_mam_handle = internal unnamed_addr global ptr null, align 8
 @proto_reg_handoff_rtp_ed137.prefs_initialized = internal unnamed_addr global i1 false, align 4
 @.str.139 = private unnamed_addr constant [12 x i8] c"rtp.hdr_ext\00", align 1
 @.str.140 = private unnamed_addr constant [8 x i8] c"PTT OFF\00", align 1
@@ -373,27 +367,21 @@ define hidden void @proto_register_rtp_ed137() local_unnamed_addr #0 {
   store ptr %9, ptr @rtp_hdr_ext_ed137a_add_features_table, align 8
   %10 = load i32, ptr @proto_rtp_ed137, align 4
   %11 = tail call ptr @register_dissector(ptr noundef nonnull @.str.133, ptr noundef nonnull @dissect_rtp_hdr_ext_ed137a_feature_sqi, i32 noundef %10) #5
-  store ptr %11, ptr @rtp_hdr_ext_ed137a_feature_sqi_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.131, i32 noundef 17, ptr noundef %11) #5
   %12 = load i32, ptr @proto_rtp_ed137, align 4
   %13 = tail call ptr @register_dissector(ptr noundef nonnull @.str.134, ptr noundef nonnull @dissect_rtp_hdr_ext_ed137a_feature_climax_tdly, i32 noundef %12) #5
-  store ptr %13, ptr @rtp_hdr_ext_ed137a_feature_climax_tdly_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.131, i32 noundef 33, ptr noundef %13) #5
   %14 = load i32, ptr @proto_rtp_ed137, align 4
   %15 = tail call ptr @register_dissector(ptr noundef nonnull @.str.135, ptr noundef nonnull @dissect_rtp_hdr_ext_ed137b_feature_rrc_single, i32 noundef %14) #5
-  store ptr %15, ptr @rtp_hdr_ext_ed137b_feature_rrc_single_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.131, i32 noundef 49, ptr noundef %15) #5
   %16 = load i32, ptr @proto_rtp_ed137, align 4
   %17 = tail call ptr @register_dissector(ptr noundef nonnull @.str.136, ptr noundef nonnull @dissect_rtp_hdr_ext_ed137b_feature_climax_ddc_rmm, i32 noundef %16) #5
-  store ptr %17, ptr @rtp_hdr_ext_ed137b_feature_climax_ddc_rmm_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.131, i32 noundef 67, ptr noundef %17) #5
   %18 = load i32, ptr @proto_rtp_ed137, align 4
   %19 = tail call ptr @register_dissector(ptr noundef nonnull @.str.137, ptr noundef nonnull @dissect_rtp_hdr_ext_ed137b_feature_climax_ddc_mam, i32 noundef %18) #5
-  store ptr %19, ptr @rtp_hdr_ext_ed137b_feature_climax_ddc_mam_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.131, i32 noundef 76, ptr noundef %19) #5
   %20 = load i32, ptr @proto_rtp_ed137, align 4
   %21 = tail call ptr @register_dissector(ptr noundef nonnull @.str.138, ptr noundef nonnull @dissect_rtp_hdr_ext_ed137c_feature_climax_ddc_mam, i32 noundef %20) #5
-  store ptr %21, ptr @rtp_hdr_ext_ed137c_feature_climax_ddc_mam_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.131, i32 noundef 78, ptr noundef %21) #5
   ret void
 }

@@ -38,10 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [22 x i8] c"locamation-im.llc.pid\00", align 1
 @.str.13 = private unnamed_addr constant [23 x i8] c"LLC Locamation OUI PID\00", align 1
 @llc_registration = internal global [1 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_llc_company_pid, %struct._header_field_info { ptr @.str.170, ptr @.str.12, i32 5, i32 2, ptr @company_pid_vals, i64 0, ptr @.str.171, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
-@h_calibration = internal unnamed_addr global ptr null, align 8
-@h_ident = internal unnamed_addr global ptr null, align 8
-@h_samples_im1 = internal unnamed_addr global ptr null, align 8
-@h_samples_im2r0 = internal unnamed_addr global ptr null, align 8
 @ett_protocol_calibration = internal global i32 0, align 4
 @ett_calibration_lines = internal global i32 0, align 4
 @ett_protocol_ident = internal global i32 0, align 4
@@ -365,19 +361,15 @@ declare void @llc_add_oui(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i3
 define hidden void @proto_reg_handoff_locamation_im() local_unnamed_addr #0 {
   %1 = load i32, ptr @h_protocol_calibration, align 4
   %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_calibration, i32 noundef %1) #7
-  store ptr %2, ptr @h_calibration, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.12, i32 noundef 0, ptr noundef %2) #7
   %3 = load i32, ptr @h_protocol_ident, align 4
   %4 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_ident, i32 noundef %3) #7
-  store ptr %4, ptr @h_ident, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.12, i32 noundef 65535, ptr noundef %4) #7
   %5 = load i32, ptr @h_protocol_samples_im1, align 4
   %6 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_samples_im1, i32 noundef %5) #7
-  store ptr %6, ptr @h_samples_im1, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.12, i32 noundef 2, ptr noundef %6) #7
   %7 = load i32, ptr @h_protocol_samples_im2r0, align 4
   %8 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_samples_im2r0, i32 noundef %7) #7
-  store ptr %8, ptr @h_samples_im2r0, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.12, i32 noundef 14, ptr noundef %8) #7
   ret void
 }

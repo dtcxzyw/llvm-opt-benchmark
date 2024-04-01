@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { i32, [150 x i8] }
 
 @.str = private unnamed_addr constant [11 x i8] c"mm/dd/yyyy\00", align 1
-@value.5 = internal unnamed_addr global ptr null, align 8
 @sqlca_init = internal unnamed_addr constant %struct.sqlca_t { [8 x i8] c"SQLCA   ", i64 256, i64 0, %struct.anon.0 zeroinitializer, [8 x i8] c"NOT SET ", [6 x i64] zeroinitializer, [8 x i8] zeroinitializer, [5 x i8] c"00000" }, align 8
 @switch.table.rdefmtdate = private unnamed_addr constant [5 x i32] [i32 -1212, i32 -1209, i32 -1212, i32 -1206, i32 -1205], align 4
 
@@ -857,7 +856,6 @@ define noundef i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, ptr nounde
   %27 = add i32 %.sink.i, 1
   %28 = sext i32 %27 to i64
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #18
-  store ptr %29, ptr @value.5, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %38, label %.preheader.i
 

@@ -587,9 +587,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.378 = private unnamed_addr constant [15 x i8] c"WASSP over UDP\00", align 1
 @.str.379 = private unnamed_addr constant [10 x i8] c"wassp_udp\00", align 1
 @.str.380 = private unnamed_addr constant [5 x i8] c"snmp\00", align 1
-@snmp_handle = internal unnamed_addr global ptr null, align 8
 @.str.381 = private unnamed_addr constant [16 x i8] c"wlan_withoutfcs\00", align 1
-@ieee80211_handle = internal unnamed_addr global ptr null, align 8
 @.str.382 = private unnamed_addr constant [15 x i8] c"eth_withoutfcs\00", align 1
 @eth_handle = internal unnamed_addr global ptr null, align 8
 @.str.383 = private unnamed_addr constant [5 x i8] c"data\00", align 1
@@ -2199,10 +2197,8 @@ define hidden void @proto_reg_handoff_wassp() local_unnamed_addr #0 {
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.377, ptr noundef nonnull @dissect_wassp_heur, ptr noundef nonnull @.str.378, ptr noundef nonnull @.str.379, i32 noundef %2, i32 noundef 0) #5
   %3 = load i32, ptr @proto_wassp, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.380, i32 noundef %3) #5
-  store ptr %4, ptr @snmp_handle, align 8
   %5 = load i32, ptr @proto_wassp, align 4
   %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.381, i32 noundef %5) #5
-  store ptr %6, ptr @ieee80211_handle, align 8
   %7 = tail call ptr @find_dissector(ptr noundef nonnull @.str.382) #5
   store ptr %7, ptr @eth_handle, align 8
   %8 = tail call ptr @find_dissector(ptr noundef nonnull @.str.383) #5

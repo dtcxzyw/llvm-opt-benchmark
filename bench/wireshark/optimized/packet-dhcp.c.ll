@@ -2245,7 +2245,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1514 = private unnamed_addr constant [13 x i8] c"custom_bootp\00", align 1
 @uat_dhcp_records = internal global ptr null, align 8
 @num_dhcp_records_uat = internal global i32 0, align 4
-@dhcp_uat = internal unnamed_addr global ptr null, align 8
 @.str.1515 = private unnamed_addr constant [18 x i8] c"custom_dhcp_table\00", align 1
 @.str.1516 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.1517 = private unnamed_addr constant [11 x i8] c"67-68,4011\00", align 1
@@ -3057,7 +3056,6 @@ define hidden void @proto_register_dhcp() local_unnamed_addr #0 {
   tail call void @prefs_register_enum_preference(ptr noundef %19, ptr noundef nonnull @.str.1509, ptr noundef nonnull @.str.1510, ptr noundef nonnull @.str.1511, ptr noundef nonnull @dhcp_secs_endian, ptr noundef nonnull @dhcp_secs_endian_vals, i32 noundef 0) #9
   tail call void @prefs_register_obsolete_preference(ptr noundef %19, ptr noundef nonnull @.str.1512) #9
   %20 = tail call ptr @uat_new(ptr noundef nonnull @.str.1513, i64 noundef 24, ptr noundef nonnull @.str.1514, i1 noundef zeroext true, ptr noundef nonnull @uat_dhcp_records, ptr noundef nonnull @num_dhcp_records_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_dhcp_record_copy_cb, ptr noundef nonnull @uat_dhcp_record_update_cb, ptr noundef nonnull @uat_dhcp_record_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_dhcp.dhcp_uat_flds) #9
-  store ptr %20, ptr @dhcp_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %19, ptr noundef nonnull @.str.1515, ptr noundef nonnull @.str.1513, ptr noundef nonnull @.str.1513, ptr noundef %20) #9
   tail call void @register_stat_tap_table_ui(ptr noundef nonnull @proto_register_dhcp.dhcp_stat_table) #9
   ret void

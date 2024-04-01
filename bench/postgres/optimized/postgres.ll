@@ -203,7 +203,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.86 = private unnamed_addr constant [15 x i8] c"MessageContext\00", align 1
 @MessageContext = external local_unnamed_addr global ptr, align 8
 @.str.87 = private unnamed_addr constant [22 x i8] c"RowDescriptionContext\00", align 1
-@row_description_context = internal unnamed_addr global ptr null, align 8
 @row_description_buf = internal global %struct.StringInfoData zeroinitializer, align 8
 @PqCommMethods = external local_unnamed_addr global ptr, align 8
 @debug_query_string = dso_local local_unnamed_addr global ptr null, align 8
@@ -2729,7 +2728,6 @@ define dso_local void @PostgresMain(ptr noundef %0, ptr noundef %1) local_unname
   store ptr %87, ptr @MessageContext, align 8
   %88 = load ptr, ptr @TopMemoryContext, align 8
   %89 = call ptr @AllocSetContextCreateInternal(ptr noundef %88, ptr noundef nonnull @.str.87, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #25
-  store ptr %89, ptr @row_description_context, align 8
   store ptr %89, ptr @CurrentMemoryContext, align 8
   call void @initStringInfo(ptr noundef nonnull @row_description_buf) #25
   %90 = load ptr, ptr @TopMemoryContext, align 8

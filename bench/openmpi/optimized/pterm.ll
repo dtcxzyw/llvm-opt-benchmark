@@ -81,7 +81,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [8 x i8] c"dvm-uri\00", align 1
 @.str.36 = private unnamed_addr constant [14 x i8] c"pmix.srvr.uri\00", align 1
 @term_pipe = internal global [2 x i32] zeroinitializer, align 4
-@myevbase = internal unnamed_addr global ptr null, align 8
 @term_handler = internal global %struct.event zeroinitializer, align 8
 @.str.37 = private unnamed_addr constant [35 x i8] c"unable to set the pipe to CLOEXEC\0A\00", align 1
 @myproc = internal global %struct.pmix_proc zeroinitializer, align 4
@@ -554,7 +553,6 @@ pmix_cmd_line_get_param.exit172.thread:           ; preds = %198, %pmix_cmd_line
 
 211:                                              ; preds = %pmix_cmd_line_get_param.exit172.thread
   %212 = call ptr @prte_progress_thread_init(ptr noundef null) #14
-  store ptr %212, ptr @myevbase, align 8
   %213 = load i32, ptr @term_pipe, align 4
   %214 = call i32 @prte_event_assign(ptr noundef nonnull @term_handler, ptr noundef %212, i32 noundef %213, i16 noundef signext 2, ptr noundef nonnull @clean_abort, ptr noundef null) #14
   %215 = call i32 @event_add(ptr noundef nonnull @term_handler, ptr noundef null) #14

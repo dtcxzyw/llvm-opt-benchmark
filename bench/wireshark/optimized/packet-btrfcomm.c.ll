@@ -203,7 +203,6 @@ target triple = "x86_64-pc-linux-gnu"
 @rfcomm_channels = internal global ptr null, align 8
 @num_rfcomm_channels = internal global i32 0, align 4
 @uat_rfcomm_channels_fields = internal global [3 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.184, ptr @.str.5, i32 1, %struct.anon { ptr @uat_fld_chk_num_dec, ptr @rfcomm_channels_channel_set_cb, ptr @rfcomm_channels_channel_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.185, ptr null }, %struct._uat_field_t { ptr @.str.186, ptr @.str.187, i32 4, %struct.anon { ptr @uat_fld_chk_proto, ptr @rfcomm_channels_payload_proto_set_cb, ptr @rfcomm_channels_payload_proto_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.188, ptr null }, %struct._uat_field_t zeroinitializer], align 16
-@uat_rfcomm_channels = internal unnamed_addr global ptr null, align 8
 @.str.112 = private unnamed_addr constant [16 x i8] c"rfcomm.channels\00", align 1
 @.str.113 = private unnamed_addr constant [24 x i8] c"Force Decode by channel\00", align 1
 @.str.114 = private unnamed_addr constant [18 x i8] c"Decode by channel\00", align 1
@@ -344,7 +343,6 @@ define hidden void @proto_register_btrfcomm() local_unnamed_addr #0 {
   tail call void @prefs_register_static_text_preference(ptr noundef %12, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106) #6
   tail call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull @rfcomm_channels_enabled) #6
   %13 = tail call ptr @uat_new(ptr noundef nonnull @.str.110, i64 noundef 24, ptr noundef nonnull @.str.111, i1 noundef zeroext true, ptr noundef nonnull @rfcomm_channels, ptr noundef nonnull @num_rfcomm_channels, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_rfcomm_channels_copy_cb, ptr noundef null, ptr noundef nonnull @uat_rfcomm_channels_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @uat_rfcomm_channels_fields) #6
-  store ptr %13, ptr @uat_rfcomm_channels, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %12, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114, ptr noundef %13) #6
   tail call void @register_decode_as(ptr noundef nonnull @proto_register_btrfcomm.btrfcomm_directed_channel_da) #6
   ret void

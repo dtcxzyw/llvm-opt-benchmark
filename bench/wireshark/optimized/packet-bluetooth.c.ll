@@ -1334,7 +1334,6 @@ target triple = "x86_64-pc-linux-gnu"
 @bluetooth_table = internal unnamed_addr global ptr null, align 8
 @.str.1278 = private unnamed_addr constant [17 x i8] c"bluetooth.vendor\00", align 1
 @.str.1279 = private unnamed_addr constant [11 x i8] c"HCI Vendor\00", align 1
-@hci_vendor_table = internal unnamed_addr global ptr null, align 8
 @.str.1280 = private unnamed_addr constant [17 x i8] c"bluetooth.device\00", align 1
 @.str.1281 = private unnamed_addr constant [22 x i8] c"bluetooth.hci_summary\00", align 1
 @bluetooth_hci_summary_tap = hidden local_unnamed_addr global i32 0, align 4
@@ -5433,7 +5432,6 @@ define hidden void @proto_register_bluetooth() local_unnamed_addr #1 {
   store ptr %34, ptr @hci_vendors, align 8
   %35 = load i32, ptr @proto_bluetooth, align 4
   %36 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1278, ptr noundef nonnull @.str.1279, i32 noundef %35, i32 noundef 5, i32 noundef 2) #9
-  store ptr %36, ptr @hci_vendor_table, align 8
   %37 = tail call ptr @wmem_epan_scope() #9
   %38 = tail call noalias ptr @wmem_tree_new(ptr noundef %37) #9
   store ptr %38, ptr @bluetooth_uuids, align 8

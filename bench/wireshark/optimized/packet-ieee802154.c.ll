@@ -1246,12 +1246,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.756 = private unnamed_addr constant [17 x i8] c"802154_addresses\00", align 1
 @static_addrs = internal global ptr null, align 8
 @num_static_addrs = internal global i32 0, align 4
-@static_addr_uat = internal unnamed_addr global ptr null, align 8
 @.str.757 = private unnamed_addr constant [12 x i8] c"static_addr\00", align 1
 @.str.758 = private unnamed_addr constant [88 x i8] c"A table of static address mappings between 16-bit short addressing and EUI-64 addresses\00", align 1
 @.str.759 = private unnamed_addr constant [5 x i8] c"Keys\00", align 1
 @.str.760 = private unnamed_addr constant [16 x i8] c"ieee802154_keys\00", align 1
-@ieee802154_key_uat = internal unnamed_addr global ptr null, align 8
 @.str.761 = private unnamed_addr constant [16 x i8] c"Decryption Keys\00", align 1
 @.str.762 = private unnamed_addr constant [34 x i8] c"Decryption key configuration data\00", align 1
 @.str.763 = private unnamed_addr constant [11 x i8] c"802154_key\00", align 1
@@ -1292,7 +1290,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.782 = private unnamed_addr constant [9 x i8] c"zbee_nwk\00", align 1
 @zigbee_nwk_handle = internal unnamed_addr global ptr null, align 8
 @.str.783 = private unnamed_addr constant [10 x i8] c"thread_ie\00", align 1
-@thread_ie_handle = internal unnamed_addr global ptr null, align 8
 @.str.784 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
 @.str.785 = private unnamed_addr constant [10 x i8] c"sll.ltype\00", align 1
 @.str.786 = private unnamed_addr constant [10 x i8] c"ethertype\00", align 1
@@ -6376,10 +6373,8 @@ define hidden void @proto_register_ieee802154() local_unnamed_addr #0 {
   tail call void @prefs_register_bool_preference(ptr noundef %11, ptr noundef nonnull @.str.749, ptr noundef nonnull @.str.750, ptr noundef nonnull @.str.751, ptr noundef nonnull @ieee802154_ack_tracking) #16
   tail call void @prefs_register_bool_preference(ptr noundef %11, ptr noundef nonnull @.str.752, ptr noundef nonnull @.str.753, ptr noundef nonnull @.str.754, ptr noundef nonnull @ieee802154e_compatibility) #16
   %12 = tail call ptr @uat_new(ptr noundef nonnull @.str.755, i64 noundef 24, ptr noundef nonnull @.str.756, i1 noundef zeroext true, ptr noundef nonnull @static_addrs, ptr noundef nonnull @num_static_addrs, i32 noundef 1, ptr noundef null, ptr noundef nonnull @addr_uat_copy_cb, ptr noundef nonnull @addr_uat_update_cb, ptr noundef nonnull @addr_uat_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_ieee802154.addr_uat_flds) #16
-  store ptr %12, ptr @static_addr_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %11, ptr noundef nonnull @.str.757, ptr noundef nonnull @.str.755, ptr noundef nonnull @.str.758, ptr noundef %12) #16
   %13 = tail call ptr @uat_new(ptr noundef nonnull @.str.759, i64 noundef 48, ptr noundef nonnull @.str.760, i1 noundef zeroext true, ptr noundef nonnull @ieee802154_keys, ptr noundef nonnull @num_ieee802154_keys, i32 noundef 1, ptr noundef null, ptr noundef nonnull @ieee802154_key_copy_cb, ptr noundef nonnull @ieee802154_key_update_cb, ptr noundef nonnull @ieee802154_key_free_cb, ptr noundef nonnull @ieee802154_key_post_update_cb, ptr noundef null, ptr noundef nonnull @proto_register_ieee802154.key_uat_flds) #16
-  store ptr %13, ptr @ieee802154_key_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %11, ptr noundef nonnull @.str.760, ptr noundef nonnull @.str.761, ptr noundef nonnull @.str.762, ptr noundef %13) #16
   tail call void @prefs_register_obsolete_preference(ptr noundef %11, ptr noundef nonnull @.str.763) #16
   tail call void @prefs_register_enum_preference(ptr noundef %11, ptr noundef nonnull @.str.764, ptr noundef nonnull @.str.765, ptr noundef nonnull @.str.766, ptr noundef nonnull @ieee802154_sec_suite, ptr noundef nonnull @ieee802154_2003_sec_suite_enums, i32 noundef 0) #16
@@ -6889,7 +6884,6 @@ define hidden void @proto_reg_handoff_ieee802154() #0 {
   store ptr %4, ptr @zigbee_nwk_handle, align 8
   %5 = load i32, ptr @proto_ieee802154, align 4
   %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.783, i32 noundef %5) #16
-  store ptr %6, ptr @thread_ie_handle, align 8
   %7 = load ptr, ptr @ieee802154_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.784, i32 noundef 104, ptr noundef %7) #16
   %8 = load ptr, ptr @ieee802154_nonask_phy_handle, align 8

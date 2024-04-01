@@ -321,29 +321,18 @@ $_ZTIN4absl13cord_internal16CordzSampleTokenE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN4absl13cord_internal12_GLOBAL__N_133CordzInfoStatisticsTest_Flat_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [24 x i8] c"CordzInfoStatisticsTest\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"Flat\00", align 1
 @.str.3 = private unnamed_addr constant [151 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/strings/internal/cordz_info_statistics_test.cc\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_139CordzInfoStatisticsTest_SharedFlat_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [11 x i8] c"SharedFlat\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_137CordzInfoStatisticsTest_External_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [9 x i8] c"External\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_143CordzInfoStatisticsTest_SharedExternal_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [15 x i8] c"SharedExternal\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_138CordzInfoStatisticsTest_Substring_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [10 x i8] c"Substring\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_144CordzInfoStatisticsTest_SharedSubstring_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [16 x i8] c"SharedSubstring\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_138CordzInfoStatisticsTest_BtreeLeaf_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [10 x i8] c"BtreeLeaf\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_144CordzInfoStatisticsTest_BtreeNodeShared_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [16 x i8] c"BtreeNodeShared\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_132CordzInfoStatisticsTest_Crc_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [4 x i8] c"Crc\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_137CordzInfoStatisticsTest_EmptyCrc_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [9 x i8] c"EmptyCrc\00", align 1
-@_ZN4absl13cord_internal12_GLOBAL__N_141CordzInfoStatisticsTest_ThreadSafety_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [13 x i8] c"ThreadSafety\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN4absl13cord_internal12_GLOBAL__N_133CordzInfoStatisticsTest_Flat_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4absl13cord_internal12_GLOBAL__N_133CordzInfoStatisticsTest_Flat_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4absl13cord_internal12_GLOBAL__N_133CordzInfoStatisticsTest_Flat_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl13cord_internal12_GLOBAL__N_133CordzInfoStatisticsTest_Flat_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl13cord_internal12_GLOBAL__N_133CordzInfoStatisticsTest_Flat_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -10728,7 +10717,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #20
-  store ptr %call15.i, ptr @_ZN4absl13cord_internal12_GLOBAL__N_133CordzInfoStatisticsTest_Flat_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -10805,7 +10793,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #20
-  store ptr %call15.i23, ptr @_ZN4absl13cord_internal12_GLOBAL__N_139CordzInfoStatisticsTest_SharedFlat_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -10882,7 +10869,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #20
-  store ptr %call15.i49, ptr @_ZN4absl13cord_internal12_GLOBAL__N_137CordzInfoStatisticsTest_External_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i26)
@@ -10959,7 +10945,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %invoke.cont10.i74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i50) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i52) #20
-  store ptr %call15.i75, ptr @_ZN4absl13cord_internal12_GLOBAL__N_143CordzInfoStatisticsTest_SharedExternal_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i50)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i52)
@@ -11036,7 +11021,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i76) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i77) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i78) #20
-  store ptr %call15.i101, ptr @_ZN4absl13cord_internal12_GLOBAL__N_138CordzInfoStatisticsTest_Substring_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i76)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i77)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i78)
@@ -11113,7 +11097,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i102) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i103) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i104) #20
-  store ptr %call15.i127, ptr @_ZN4absl13cord_internal12_GLOBAL__N_144CordzInfoStatisticsTest_SharedSubstring_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i102)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i103)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i104)
@@ -11190,7 +11173,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i128) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i129) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i130) #20
-  store ptr %call15.i153, ptr @_ZN4absl13cord_internal12_GLOBAL__N_138CordzInfoStatisticsTest_BtreeLeaf_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i128)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i129)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i130)
@@ -11267,7 +11249,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i178
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i154) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i155) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i156) #20
-  store ptr %call15.i179, ptr @_ZN4absl13cord_internal12_GLOBAL__N_144CordzInfoStatisticsTest_BtreeNodeShared_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i154)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i155)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i156)
@@ -11344,7 +11325,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i204
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i180) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i181) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i182) #20
-  store ptr %call15.i205, ptr @_ZN4absl13cord_internal12_GLOBAL__N_132CordzInfoStatisticsTest_Crc_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i180)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i181)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i182)
@@ -11421,7 +11401,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i230
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i206) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i207) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i208) #20
-  store ptr %call15.i231, ptr @_ZN4absl13cord_internal12_GLOBAL__N_137CordzInfoStatisticsTest_EmptyCrc_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i206)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i207)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i208)
@@ -11498,7 +11477,6 @@ __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i232) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i233) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i234) #20
-  store ptr %call15.i257, ptr @_ZN4absl13cord_internal12_GLOBAL__N_141CordzInfoStatisticsTest_ThreadSafety_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i232)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i233)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i234)

@@ -384,12 +384,9 @@ target triple = "x86_64-pc-linux-gnu"
 @http2_streaming_reassembly_table = internal global %struct.reassembly_table zeroinitializer, align 8
 @.str.243 = private unnamed_addr constant [23 x i8] c"streaming_content_type\00", align 1
 @.str.244 = private unnamed_addr constant [46 x i8] c"Data Transmitted over HTTP2 in Streaming Mode\00", align 1
-@streaming_content_type_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.245 = private unnamed_addr constant [29 x i8] c"HTTP2 content type in stream\00", align 1
-@stream_id_content_type_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.246 = private unnamed_addr constant [13 x i8] c"http2_follow\00", align 1
 @.str.247 = private unnamed_addr constant [5 x i8] c"data\00", align 1
-@data_handle = internal unnamed_addr global ptr null, align 8
 @.str.248 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.249 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.250 = private unnamed_addr constant [9 x i8] c"tls.alpn\00", align 1
@@ -1364,10 +1361,8 @@ define hidden void @proto_register_http2() local_unnamed_addr #1 {
   tail call void @reassembly_table_register(ptr noundef nonnull @http2_streaming_reassembly_table, ptr noundef nonnull @addresses_ports_reassembly_table_functions) #6
   %8 = load i32, ptr @proto_http2, align 4
   %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.244, i32 noundef %8, i32 noundef 26, i32 noundef 0) #6
-  store ptr %9, ptr @streaming_content_type_dissector_table, align 8
   %10 = load i32, ptr @proto_http2, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.245, i32 noundef %10, i32 noundef 7, i32 noundef 1) #6
-  store ptr %11, ptr @stream_id_content_type_dissector_table, align 8
   %12 = tail call i32 @register_tap(ptr noundef nonnull @.str.241) #6
   store i32 %12, ptr @http2_tap, align 4
   %13 = tail call i32 @register_tap(ptr noundef nonnull @.str.246) #6
@@ -1548,7 +1543,6 @@ define internal noundef i32 @http2_get_sub_stream_id(i32 noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_http2() local_unnamed_addr #1 {
   %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.247) #6
-  store ptr %1, ptr @data_handle, align 8
   %2 = load ptr, ptr @http2_handle, align 8
   tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.249, ptr noundef %2) #6
   %3 = load ptr, ptr @http2_handle, align 8

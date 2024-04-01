@@ -471,7 +471,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_reg_handoff_z21.initialized = internal unnamed_addr global i1 false, align 1
 @.str.294 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.295 = private unnamed_addr constant [12 x i8] c"21105,21106\00", align 1
-@udp_port_range = internal unnamed_addr global ptr null, align 8
 @.str.296 = private unnamed_addr constant [31 x i8] c"LAN_CAN_BOOSTER_SET_TRACKPOWER\00", align 1
 @.str.297 = private unnamed_addr constant [33 x i8] c"LAN_CAN_BOOSTER_SYSTEMSTATE_CHGD\00", align 1
 @.str.298 = private unnamed_addr constant [17 x i8] c"LAN_CAN_DETECTOR\00", align 1
@@ -697,7 +696,6 @@ define hidden void @proto_reg_handoff_z21() #0 {
 
 3:                                                ; preds = %1, %0
   %4 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.292, ptr noundef nonnull @.str.294) #2
-  store ptr %4, ptr @udp_port_range, align 8
   ret void
 }
 

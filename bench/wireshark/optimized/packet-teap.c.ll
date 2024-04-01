@@ -138,7 +138,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.70 = private unnamed_addr constant [5 x i8] c"TEAP\00", align 1
 @.str.71 = private unnamed_addr constant [5 x i8] c"teap\00", align 1
 @proto_teap = internal unnamed_addr global i32 0, align 4
-@teap_handle = internal unnamed_addr global ptr null, align 8
 @.str.72 = private unnamed_addr constant [4 x i8] c"eap\00", align 1
 @eap_handle = internal unnamed_addr global ptr null, align 8
 @.str.73 = private unnamed_addr constant [11 x i8] c"Unassigned\00", align 1
@@ -231,7 +230,6 @@ define hidden void @proto_register_teap() local_unnamed_addr #0 {
   tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_teap.ei, i32 noundef 1) #2
   %4 = load i32, ptr @proto_teap, align 4
   %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.71, ptr noundef nonnull @dissect_teap, i32 noundef %4) #2
-  store ptr %5, ptr @teap_handle, align 8
   ret void
 }
 

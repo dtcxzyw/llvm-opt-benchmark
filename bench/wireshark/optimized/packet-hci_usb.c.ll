@@ -78,7 +78,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.37 = private unnamed_addr constant [8 x i8] c"HCI_USB\00", align 1
 @.str.38 = private unnamed_addr constant [8 x i8] c"hci_usb\00", align 1
 @proto_hci_usb = internal unnamed_addr global i32 0, align 4
-@hci_usb_handle = internal unnamed_addr global ptr null, align 8
 @.str.39 = private unnamed_addr constant [10 x i8] c"Bluetooth\00", align 1
 @.str.40 = private unnamed_addr constant [18 x i8] c"bthci_usb.version\00", align 1
 @.str.41 = private unnamed_addr constant [42 x i8] c"Bluetooth HCI USB Transport from Core 4.0\00", align 1
@@ -119,7 +118,6 @@ define hidden void @proto_register_hci_usb() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_hci_usb.ett, i32 noundef 3) #3
   %5 = load i32, ptr @proto_hci_usb, align 4
   %6 = tail call ptr @register_dissector(ptr noundef nonnull @.str.38, ptr noundef nonnull @dissect_hci_usb, i32 noundef %5) #3
-  store ptr %6, ptr @hci_usb_handle, align 8
   %7 = load i32, ptr @proto_hci_usb, align 4
   %8 = tail call ptr @prefs_register_protocol_subtree(ptr noundef nonnull @.str.39, i32 noundef %7, ptr noundef null) #3
   tail call void @prefs_register_static_text_preference(ptr noundef %8, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42) #3

@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 @tcpcl_handle = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [18 x i8] c"tcpcl.v4.sess_ext\00", align 1
 @.str.6 = private unnamed_addr constant [26 x i8] c"TCPCLv4 Session Extension\00", align 1
-@sess_ext_dissectors = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [18 x i8] c"tcpcl.v4.xfer_ext\00", align 1
 @.str.8 = private unnamed_addr constant [27 x i8] c"TCPCLv4 Transfer Extension\00", align 1
 @xfer_ext_dissectors = internal unnamed_addr global ptr null, align 8
@@ -710,7 +709,6 @@ define hidden void @proto_register_tcpcl() local_unnamed_addr #0 {
   store ptr %7, ptr @tcpcl_handle, align 8
   %8 = load i32, ptr @proto_tcpcl, align 4
   %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %8, i32 noundef 5, i32 noundef 2) #10
-  store ptr %9, ptr @sess_ext_dissectors, align 8
   %10 = load i32, ptr @proto_tcpcl, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %10, i32 noundef 5, i32 noundef 2) #10
   store ptr %11, ptr @xfer_ext_dissectors, align 8

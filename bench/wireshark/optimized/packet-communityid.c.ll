@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [26 x i8] c"Community ID Flow Hashing\00", align 1
 @.str.4 = private unnamed_addr constant [12 x i8] c"CommunityID\00", align 1
 @proto_communityid = internal unnamed_addr global i32 0, align 4
-@communityid_handle = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [10 x i8] c"do_base64\00", align 1
 @.str.6 = private unnamed_addr constant [20 x i8] c"Use base64 encoding\00", align 1
 @.str.7 = private unnamed_addr constant [53 x i8] c"Whether to base64-encode the Community ID hash value\00", align 1
@@ -51,7 +50,6 @@ define hidden void @proto_register_communityid() local_unnamed_addr #0 {
   tail call void @proto_disable_by_default(i32 noundef %2) #7
   %3 = load i32, ptr @proto_communityid, align 4
   %4 = tail call ptr @register_dissector(ptr noundef nonnull @.str.1, ptr noundef nonnull @communityid_dissector, i32 noundef %3) #7
-  store ptr %4, ptr @communityid_handle, align 8
   tail call void @register_postdissector(ptr noundef %4) #7
   %5 = load i32, ptr @proto_communityid, align 4
   %6 = tail call ptr @prefs_register_protocol(i32 noundef %5, ptr noundef null) #7

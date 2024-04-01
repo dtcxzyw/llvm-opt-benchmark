@@ -704,7 +704,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.514 = private unnamed_addr constant [13 x i8] c"[Last Chunk]\00", align 1
 @.str.515 = private unnamed_addr constant [28 x i8] c"HTTP Chunked Body fragments\00", align 1
 @http_tcp_range = internal unnamed_addr global ptr null, align 8
-@http_sctp_range = internal unnamed_addr global ptr null, align 8
 @http_tls_range = internal unnamed_addr global ptr null, align 8
 @.str.516 = private unnamed_addr constant [27 x i8] c"Header name can't be empty\00", align 1
 @.str.517 = private unnamed_addr constant [31 x i8] c"Header name can't contain '%c'\00", align 1
@@ -1240,11 +1239,11 @@ conversation_dissector_is_http.exit.i:            ; preds = %138
   %143 = icmp ne ptr %141, %142
   %144 = load ptr, ptr @http_tcp_handle, align 8
   %145 = icmp ne ptr %141, %144
-  %or.cond.i.not.i = select i1 %143, i1 %145, i1 false
+  %or.cond.i.not69.i = select i1 %143, i1 %145, i1 false
   %146 = load ptr, ptr @http_sctp_handle, align 8
   %147 = icmp ne ptr %141, %146
-  %narrow.i.i = select i1 %or.cond.i.not.i, i1 %147, i1 false
-  br i1 %narrow.i.i, label %conversation_dissector_is_http.exit.thread.i, label %148
+  %narrow.i.not.i = select i1 %or.cond.i.not69.i, i1 %147, i1 false
+  br i1 %narrow.i.not.i, label %conversation_dissector_is_http.exit.thread.i, label %148
 
 148:                                              ; preds = %conversation_dissector_is_http.exit.i, %131
   %149 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #14
@@ -1343,7 +1342,6 @@ define internal void @reinit_http() #0 {
   %1 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.323, ptr noundef nonnull @.str.360) #14
   store ptr %1, ptr @http_tcp_range, align 8
   %2 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.323, ptr noundef nonnull @.str.393) #14
-  store ptr %2, ptr @http_sctp_range, align 8
   %3 = load ptr, ptr @http_tls_range, align 8
   tail call void @range_foreach(ptr noundef %3, ptr noundef nonnull @range_delete_http_tls_callback, ptr noundef null) #14
   %4 = tail call ptr @wmem_epan_scope() #14
@@ -2252,7 +2250,6 @@ define hidden void @proto_reg_handoff_message_http() local_unnamed_addr #0 {
   %10 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.323, ptr noundef nonnull @.str.360) #14
   store ptr %10, ptr @http_tcp_range, align 8
   %11 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.323, ptr noundef nonnull @.str.393) #14
-  store ptr %11, ptr @http_sctp_range, align 8
   %12 = load ptr, ptr @http_tls_range, align 8
   tail call void @range_foreach(ptr noundef %12, ptr noundef nonnull @range_delete_http_tls_callback, ptr noundef null) #14
   %13 = tail call ptr @wmem_epan_scope() #14

@@ -139,7 +139,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.73 = private unnamed_addr constant [8 x i8] c"credssp\00", align 1
 @proto_credssp = internal unnamed_addr global i32 0, align 4
 @.str.74 = private unnamed_addr constant [7 x i8] c"Unused\00", align 1
-@credssp_heur_subdissector_list = internal unnamed_addr global ptr null, align 8
 @.str.75 = private unnamed_addr constant [7 x i8] c"gssapi\00", align 1
 @gssapi_handle = internal unnamed_addr global ptr null, align 8
 @.str.76 = private unnamed_addr constant [12 x i8] c"gssapi_verf\00", align 1
@@ -178,7 +177,6 @@ define hidden void @proto_register_credssp() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_credssp.ett, i32 noundef 12) #5
   %4 = load i32, ptr @proto_credssp, align 4
   %5 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef %4) #5
-  store ptr %5, ptr @credssp_heur_subdissector_list, align 8
   ret void
 }
 

@@ -101,7 +101,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.52 = private unnamed_addr constant [6 x i8] c"GCSNA\00", align 1
 @.str.53 = private unnamed_addr constant [6 x i8] c"gcsna\00", align 1
 @proto_gcsna = internal unnamed_addr global i32 0, align 4
-@gcsna_handle = internal unnamed_addr global ptr null, align 8
 @.str.54 = private unnamed_addr constant [7 x i8] c"cdma2k\00", align 1
 @cdma2k_handle = internal unnamed_addr global ptr null, align 8
 @.str.55 = private unnamed_addr constant [6 x i8] c"False\00", align 1
@@ -126,7 +125,6 @@ define hidden void @proto_register_gcsna() local_unnamed_addr #0 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53) #2
   store i32 %1, ptr @proto_gcsna, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.53, ptr noundef nonnull @dissect_gcsna, i32 noundef %1) #2
-  store ptr %2, ptr @gcsna_handle, align 8
   %3 = load i32, ptr @proto_gcsna, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_gcsna.hf, i32 noundef 25) #2
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_gcsna.ett, i32 noundef 3) #2

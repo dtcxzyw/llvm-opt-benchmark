@@ -61,7 +61,6 @@ module asm ".previous\09\09\09\09\09"
 @.str.10 = private unnamed_addr constant [22 x i8] c"max_inotify_instances\00", align 1
 @.str.11 = private unnamed_addr constant [20 x i8] c"max_inotify_watches\00", align 1
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
-@user_namespace_sysctl_init.user_header = internal unnamed_addr global ptr null, align 8
 @user_namespace_sysctl_init.empty = internal global [1 x %struct.ctl_table] zeroinitializer, align 16
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_user_namespace_sysctl_init166], section "llvm.metadata"
 
@@ -910,7 +909,6 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @user_namespace_sysctl_init() #6 section ".init.text" align 16 {
   %1 = tail call ptr @register_sysctl_sz(ptr noundef nonnull @.str, ptr noundef nonnull @user_namespace_sysctl_init.empty, i64 noundef 0) #11
-  store ptr %1, ptr @user_namespace_sysctl_init.user_header, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %4, !prof !19
 

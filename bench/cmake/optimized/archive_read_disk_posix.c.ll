@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [14 x i8] c"openat failed\00", align 1
 @.str.32 = private unnamed_addr constant [14 x i8] c"statfs failed\00", align 1
 @tree_current_is_symblic_link_target.lst = internal unnamed_addr global ptr null, align 8
-@tree_current_is_symblic_link_target.st = internal unnamed_addr global ptr null, align 8
 @.str.33 = private unnamed_addr constant [20 x i8] c"Can't allocate data\00", align 1
 @.str.34 = private unnamed_addr constant [24 x i8] c"archive_read_data_block\00", align 1
 @.str.35 = private unnamed_addr constant [17 x i8] c"Couldn't open %s\00", align 1
@@ -2180,20 +2179,19 @@ tree_current_lstat.exit.i.i.i.i:                  ; preds = %457, %449
 
 tree_current_stat.exit.i.i.i.i:                   ; preds = %468, %tree_current_lstat.exit.i.i.i.i
   %471 = phi ptr [ %.0.i.i.i.i.i, %tree_current_lstat.exit.i.i.i.i ], [ %.pre12.i.i.i.i, %468 ]
-  %472 = getelementptr inbounds i8, ptr %445, i64 256
-  store ptr %472, ptr @tree_current_is_symblic_link_target.st, align 8
   %.not.i.i.i.i = icmp eq ptr %471, null
-  br i1 %.not.i.i.i.i, label %tree_current_is_symblic_link_target.exit.thread.i.i.i, label %473
+  br i1 %.not.i.i.i.i, label %tree_current_is_symblic_link_target.exit.thread.i.i.i, label %472
 
-473:                                              ; preds = %tree_current_stat.exit.i.i.i.i
-  %474 = load i64, ptr %472, align 8
+472:                                              ; preds = %tree_current_stat.exit.i.i.i.i
+  %473 = getelementptr inbounds i8, ptr %445, i64 256
+  %474 = load i64, ptr %473, align 8
   %475 = getelementptr inbounds i8, ptr %445, i64 488
   %476 = load ptr, ptr %475, align 8
   %477 = load i64, ptr %476, align 8
   %478 = icmp eq i64 %474, %477
   br i1 %478, label %tree_current_is_symblic_link_target.exit.i.i.i, label %tree_current_is_symblic_link_target.exit.thread.i.i.i
 
-tree_current_is_symblic_link_target.exit.i.i.i:   ; preds = %473
+tree_current_is_symblic_link_target.exit.i.i.i:   ; preds = %472
   %479 = load i64, ptr %471, align 8
   %.not54.i.i.i = icmp eq i64 %474, %479
   br i1 %.not54.i.i.i, label %tree_current_is_symblic_link_target.exit.thread.i.i.i, label %480
@@ -2224,7 +2222,7 @@ tree_current_is_symblic_link_target.exit.i.i.i:   ; preds = %473
   %494 = icmp eq i32 %488, -1
   br label %504
 
-tree_current_is_symblic_link_target.exit.thread.i.i.i: ; preds = %462, %tree_current_is_symblic_link_target.exit.i.i.i, %473, %tree_current_stat.exit.i.i.i.i
+tree_current_is_symblic_link_target.exit.thread.i.i.i: ; preds = %tree_current_is_symblic_link_target.exit.i.i.i, %472, %tree_current_stat.exit.i.i.i.i, %462
   %495 = getelementptr inbounds i8, ptr %445, i64 104
   %496 = load i32, ptr %495, align 8
   %497 = call i32 @fstatvfs(i32 noundef %496, ptr noundef nonnull %6) #17

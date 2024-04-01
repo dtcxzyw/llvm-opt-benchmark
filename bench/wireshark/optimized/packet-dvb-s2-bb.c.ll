@@ -394,7 +394,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.240 = private unnamed_addr constant [15 x i8] c"eth_withoutfcs\00", align 1
 @eth_withoutfcs_handle = internal unnamed_addr global ptr null, align 8
 @.str.241 = private unnamed_addr constant [5 x i8] c"data\00", align 1
-@data_handle = internal unnamed_addr global ptr null, align 8
 @.str.242 = private unnamed_addr constant [5 x i8] c"mp2t\00", align 1
 @mp2t_handle = internal unnamed_addr global ptr null, align 8
 @.str.243 = private unnamed_addr constant [21 x i8] c"rtp_dyn_payload_type\00", align 1
@@ -2352,7 +2351,6 @@ define hidden void @proto_reg_handoff_dvb_s2_modeadapt() local_unnamed_addr #0 {
   %8 = tail call ptr @find_dissector(ptr noundef nonnull @.str.240) #9
   store ptr %8, ptr @eth_withoutfcs_handle, align 8
   %9 = tail call ptr @find_dissector(ptr noundef nonnull @.str.241) #9
-  store ptr %9, ptr @data_handle, align 8
   %10 = load i32, ptr @proto_dvb_s2_bb, align 4
   %11 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.242, i32 noundef %10) #9
   store ptr %11, ptr @mp2t_handle, align 8

@@ -55,7 +55,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_bdev_mark_de
 @__UNIQUE_ID___addressable_bdev_thaw468 = internal global ptr @bdev_thaw, section ".discard.addressable", align 8
 @blockdev_superblock = dso_local global ptr null, section ".data..ro_after_init", align 8
 @__UNIQUE_ID___addressable_blockdev_superblock469 = internal global ptr @blockdev_superblock, section ".discard.addressable", align 8
-@bdev_cache_init.bd_mnt = internal unnamed_addr global ptr null, section ".data..ro_after_init", align 8
 @.str = private unnamed_addr constant [11 x i8] c"bdev_cache\00", align 1
 @bdev_cachep = internal unnamed_addr global ptr null, section ".data..ro_after_init", align 8
 @bd_type = internal global %struct.file_system_type { ptr @.str.8, i32 0, ptr @bd_init_fs_context, ptr null, ptr null, ptr @kill_anon_super, ptr null, ptr null, %struct.hlist_head zeroinitializer, %struct.lock_class_key zeroinitializer, %struct.lock_class_key zeroinitializer, %struct.lock_class_key zeroinitializer, [3 x %struct.lock_class_key] zeroinitializer, %struct.lock_class_key zeroinitializer, %struct.lock_class_key zeroinitializer, %struct.lock_class_key zeroinitializer, %struct.lock_class_key zeroinitializer }, align 8
@@ -687,7 +686,6 @@ define dso_local void @bdev_cache_init() local_unnamed_addr #4 section ".init.te
 
 5:                                                ; preds = %0
   %6 = tail call ptr @kern_mount(ptr noundef nonnull @bd_type) #12
-  store ptr %6, ptr @bdev_cache_init.bd_mnt, align 8
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
   br i1 %7, label %8, label %9
 

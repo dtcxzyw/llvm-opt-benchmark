@@ -54,7 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [5 x i8] c"rrzb\00", align 1
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
-@user_filter_class_entry = internal unnamed_addr global ptr null, align 8
 @.str.1 = private unnamed_addr constant [26 x i8] c"userfilter.bucket brigade\00", align 1
 @le_bucket_brigade = internal unnamed_addr global i32 0, align 4
 @.str.2 = private unnamed_addr constant [18 x i8] c"userfilter.bucket\00", align 1
@@ -344,7 +343,6 @@ register_class_php_user_filter.exit:              ; preds = %59, %71, %78, %79
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  store ptr %15, ptr @user_filter_class_entry, align 8
   %80 = call i32 @zend_register_list_destructors_ex(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %1) #11
   store i32 %80, ptr @le_bucket_brigade, align 4
   %81 = call i32 @zend_register_list_destructors_ex(ptr noundef nonnull @php_bucket_dtor, ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %1) #11

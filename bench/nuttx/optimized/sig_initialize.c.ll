@@ -10,10 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 @g_sigpendingirqaction = local_unnamed_addr global %struct.sq_queue_s zeroinitializer, align 8
 @g_sigpendingsignal = local_unnamed_addr global %struct.sq_queue_s zeroinitializer, align 8
 @g_sigpendingirqsignal = local_unnamed_addr global %struct.sq_queue_s zeroinitializer, align 8
-@g_sigpendingactionalloc = internal unnamed_addr global ptr null, align 8
-@g_sigpendingirqactionalloc = internal unnamed_addr global ptr null, align 8
-@g_sigpendingsignalalloc = internal unnamed_addr global ptr null, align 8
-@g_sigpendingirqsignalalloc = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: write) uwtable
 define void @nxsig_initialize() local_unnamed_addr #0 {
@@ -44,7 +40,6 @@ define void @nxsig_initialize() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %nxsig_alloc_block.exit, label %.preheader.i, !llvm.loop !6
 
 nxsig_alloc_block.exit:                           ; preds = %.preheader.i, %0
-  store ptr %1, ptr @g_sigpendingactionalloc, align 8
   %7 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #3
   %.not.i1 = icmp eq ptr %7, null
   br i1 %.not.i1, label %nxsig_alloc_block.exit8, label %.preheader.i2.preheader
@@ -71,7 +66,6 @@ nxsig_alloc_block.exit:                           ; preds = %.preheader.i, %0
   br i1 %exitcond.not.i7, label %nxsig_alloc_block.exit8, label %.preheader.i2, !llvm.loop !6
 
 nxsig_alloc_block.exit8:                          ; preds = %.preheader.i2, %nxsig_alloc_block.exit
-  store ptr %7, ptr @g_sigpendingirqactionalloc, align 8
   %13 = tail call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #3
   %.not.i9 = icmp eq ptr %13, null
   br i1 %.not.i9, label %nxsig_alloc_pendingsignalblock.exit, label %.preheader.i10.preheader
@@ -98,7 +92,6 @@ nxsig_alloc_block.exit8:                          ; preds = %.preheader.i2, %nxs
   br i1 %exitcond.not.i15, label %nxsig_alloc_pendingsignalblock.exit, label %.preheader.i10, !llvm.loop !8
 
 nxsig_alloc_pendingsignalblock.exit:              ; preds = %.preheader.i10, %nxsig_alloc_block.exit8
-  store ptr %13, ptr @g_sigpendingsignalalloc, align 8
   %19 = tail call noalias dereferenceable_or_null(384) ptr @malloc(i64 noundef 384) #3
   %.not.i16 = icmp eq ptr %19, null
   br i1 %.not.i16, label %nxsig_alloc_pendingsignalblock.exit23, label %.preheader.i17.preheader
@@ -125,7 +118,6 @@ nxsig_alloc_pendingsignalblock.exit:              ; preds = %.preheader.i10, %nx
   br i1 %exitcond.not.i22, label %nxsig_alloc_pendingsignalblock.exit23, label %.preheader.i17, !llvm.loop !8
 
 nxsig_alloc_pendingsignalblock.exit23:            ; preds = %.preheader.i17, %nxsig_alloc_pendingsignalblock.exit
-  store ptr %19, ptr @g_sigpendingirqsignalalloc, align 8
   ret void
 }
 

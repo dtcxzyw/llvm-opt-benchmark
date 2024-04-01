@@ -80,7 +80,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [6 x i8] c"PPCAP\00", align 1
 @.str.42 = private unnamed_addr constant [6 x i8] c"ppcap\00", align 1
 @proto_ppcap = internal unnamed_addr global i32 0, align 4
-@ppcap_handle = internal unnamed_addr global ptr null, align 8
 @.str.43 = private unnamed_addr constant [5 x i8] c"mtp3\00", align 1
 @mtp3_handle = internal unnamed_addr global ptr null, align 8
 @.str.44 = private unnamed_addr constant [5 x i8] c"tcap\00", align 1
@@ -654,7 +653,6 @@ dissect_ppcap_destination_address.exit:           ; preds = %174, %.sink.split.i
 define hidden void @proto_reg_handoff_ppcap() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_ppcap, align 4
   %2 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.42, i32 noundef %1) #4
-  store ptr %2, ptr @ppcap_handle, align 8
   %3 = load i32, ptr @proto_ppcap, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.43, i32 noundef %3) #4
   store ptr %4, ptr @mtp3_handle, align 8

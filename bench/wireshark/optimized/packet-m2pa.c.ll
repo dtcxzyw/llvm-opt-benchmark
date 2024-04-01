@@ -99,7 +99,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [5 x i8] c"m2pa\00", align 1
 @proto_m2pa = internal unnamed_addr global i32 0, align 4
 @m2pa_handle = internal unnamed_addr global ptr null, align 8
-@m2pa_module = internal unnamed_addr global ptr null, align 8
 @.str.48 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 @.str.49 = private unnamed_addr constant [13 x i8] c"M2PA version\00", align 1
 @.str.50 = private unnamed_addr constant [26 x i8] c"Version used by Wireshark\00", align 1
@@ -145,7 +144,6 @@ define hidden void @proto_register_m2pa() local_unnamed_addr #0 {
   store ptr %5, ptr @m2pa_handle, align 8
   %6 = load i32, ptr @proto_m2pa, align 4
   %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #2
-  store ptr %7, ptr @m2pa_module, align 8
   tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, ptr noundef nonnull @m2pa_version, ptr noundef nonnull @proto_register_m2pa.m2pa_version_options, i32 noundef 0) #2
   ret void
 }

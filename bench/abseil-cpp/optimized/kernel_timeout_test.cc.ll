@@ -94,29 +94,18 @@ $_ZTIN7testing8internal15TestFactoryBaseE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_130KernelTimeout_FiniteTimes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [14 x i8] c"KernelTimeout\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c"FiniteTimes\00", align 1
 @.str.3 = private unnamed_addr constant [152 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/synchronization/internal/kernel_timeout_test.cc\00", align 1
-@_ZN12_GLOBAL__N_133KernelTimeout_InfiniteFuture_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [15 x i8] c"InfiniteFuture\00", align 1
-@_ZN12_GLOBAL__N_137KernelTimeout_DefaultConstructor_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [19 x i8] c"DefaultConstructor\00", align 1
-@_ZN12_GLOBAL__N_131KernelTimeout_TimeMaxNanos_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [13 x i8] c"TimeMaxNanos\00", align 1
-@_ZN12_GLOBAL__N_124KernelTimeout_Never_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [6 x i8] c"Never\00", align 1
-@_ZN12_GLOBAL__N_131KernelTimeout_InfinitePast_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [13 x i8] c"InfinitePast\00", align 1
-@_ZN12_GLOBAL__N_134KernelTimeout_FiniteDurations_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [16 x i8] c"FiniteDurations\00", align 1
-@_ZN12_GLOBAL__N_136KernelTimeout_NegativeDurations_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [18 x i8] c"NegativeDurations\00", align 1
-@_ZN12_GLOBAL__N_135KernelTimeout_InfiniteDuration_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [17 x i8] c"InfiniteDuration\00", align 1
-@_ZN12_GLOBAL__N_135KernelTimeout_DurationMaxNanos_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [17 x i8] c"DurationMaxNanos\00", align 1
-@_ZN12_GLOBAL__N_132KernelTimeout_OverflowNanos_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [14 x i8] c"OverflowNanos\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130KernelTimeout_FiniteTimes_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130KernelTimeout_FiniteTimes_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130KernelTimeout_FiniteTimes_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130KernelTimeout_FiniteTimes_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130KernelTimeout_FiniteTimes_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -17308,7 +17297,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #17
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_130KernelTimeout_FiniteTimes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -17385,7 +17373,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #17
-  store ptr %call15.i23, ptr @_ZN12_GLOBAL__N_133KernelTimeout_InfiniteFuture_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -17462,7 +17449,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #17
-  store ptr %call15.i49, ptr @_ZN12_GLOBAL__N_137KernelTimeout_DefaultConstructor_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i26)
@@ -17539,7 +17525,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %invoke.cont10.i74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i50) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i52) #17
-  store ptr %call15.i75, ptr @_ZN12_GLOBAL__N_131KernelTimeout_TimeMaxNanos_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i50)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i52)
@@ -17616,7 +17601,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i76) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i77) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i78) #17
-  store ptr %call15.i101, ptr @_ZN12_GLOBAL__N_124KernelTimeout_Never_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i76)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i77)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i78)
@@ -17693,7 +17677,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i102) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i103) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i104) #17
-  store ptr %call15.i127, ptr @_ZN12_GLOBAL__N_131KernelTimeout_InfinitePast_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i102)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i103)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i104)
@@ -17770,7 +17753,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i128) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i129) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i130) #17
-  store ptr %call15.i153, ptr @_ZN12_GLOBAL__N_134KernelTimeout_FiniteDurations_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i128)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i129)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i130)
@@ -17847,7 +17829,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i178
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i154) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i155) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i156) #17
-  store ptr %call15.i179, ptr @_ZN12_GLOBAL__N_136KernelTimeout_NegativeDurations_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i154)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i155)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i156)
@@ -17924,7 +17905,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i204
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i180) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i181) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i182) #17
-  store ptr %call15.i205, ptr @_ZN12_GLOBAL__N_135KernelTimeout_InfiniteDuration_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i180)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i181)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i182)
@@ -18001,7 +17981,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i230
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i206) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i207) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i208) #17
-  store ptr %call15.i231, ptr @_ZN12_GLOBAL__N_135KernelTimeout_DurationMaxNanos_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i206)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i207)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i208)
@@ -18078,7 +18057,6 @@ __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i232) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i233) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i234) #17
-  store ptr %call15.i257, ptr @_ZN12_GLOBAL__N_132KernelTimeout_OverflowNanos_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i232)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i233)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i234)

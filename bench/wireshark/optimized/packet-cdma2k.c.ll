@@ -1352,7 +1352,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.851 = private unnamed_addr constant [7 x i8] c"CDMA2K\00", align 1
 @.str.852 = private unnamed_addr constant [7 x i8] c"cdma2k\00", align 1
 @proto_cdma2k = internal unnamed_addr global i32 0, align 4
-@cdma2k_handle = internal unnamed_addr global ptr null, align 8
 @.str.853 = private unnamed_addr constant [21 x i8] c"CSCH_LOGICAL_CHANNEL\00", align 1
 @.str.854 = private unnamed_addr constant [21 x i8] c"DSCH_LOGICAL_CHANNEL\00", align 1
 @.str.855 = private unnamed_addr constant [16 x i8] c"CDMA2KRegIndMsg\00", align 1
@@ -1733,7 +1732,6 @@ define hidden void @proto_register_cdma2k() local_unnamed_addr #0 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.851, ptr noundef nonnull @.str.851, ptr noundef nonnull @.str.852) #4
   store i32 %1, ptr @proto_cdma2k, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.852, ptr noundef nonnull @dissect_cdma2k, i32 noundef %1) #4
-  store ptr %2, ptr @cdma2k_handle, align 8
   %3 = load i32, ptr @proto_cdma2k, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_cdma2k.hf, i32 noundef 433) #4
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_cdma2k.ett, i32 noundef 6) #4

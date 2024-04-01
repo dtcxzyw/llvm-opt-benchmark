@@ -5611,10 +5611,8 @@ target triple = "x86_64-pc-linux-gnu"
 @ngap_ies_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.3014 = private unnamed_addr constant [20 x i8] c"ngap.ies.pair.first\00", align 1
 @.str.3015 = private unnamed_addr constant [34 x i8] c"NGAP-PROTOCOL-IES-PAIR FirstValue\00", align 1
-@ngap_ies_p1_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.3016 = private unnamed_addr constant [21 x i8] c"ngap.ies.pair.second\00", align 1
 @.str.3017 = private unnamed_addr constant [35 x i8] c"NGAP-PROTOCOL-IES-PAIR SecondValue\00", align 1
-@ngap_ies_p2_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.3018 = private unnamed_addr constant [24 x i8] c"NGAP-PROTOCOL-EXTENSION\00", align 1
 @ngap_extension_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.3019 = private unnamed_addr constant [44 x i8] c"NGAP-ELEMENTARY-PROCEDURE InitiatingMessage\00", align 1
@@ -19764,10 +19762,8 @@ define hidden void @proto_register_ngap() local_unnamed_addr #0 {
   store ptr %9, ptr @ngap_ies_dissector_table, align 8
   %10 = load i32, ptr @proto_ngap, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.3014, ptr noundef nonnull @.str.3015, i32 noundef %10, i32 noundef 7, i32 noundef 1) #10
-  store ptr %11, ptr @ngap_ies_p1_dissector_table, align 8
   %12 = load i32, ptr @proto_ngap, align 4
   %13 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.3016, ptr noundef nonnull @.str.3017, i32 noundef %12, i32 noundef 7, i32 noundef 1) #10
-  store ptr %13, ptr @ngap_ies_p2_dissector_table, align 8
   %14 = load i32, ptr @proto_ngap, align 4
   %15 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3018, i32 noundef %14, i32 noundef 7, i32 noundef 1) #10
   store ptr %15, ptr @ngap_extension_dissector_table, align 8

@@ -141,7 +141,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [10 x i8] c"mint_data\00", align 1
 @.str.72 = private unnamed_addr constant [13 x i8] c"mint_control\00", align 1
 @mint_control_handle = internal unnamed_addr global ptr null, align 8
-@mint_data_handle = internal unnamed_addr global ptr null, align 8
 @.str.73 = private unnamed_addr constant [9 x i8] c"mint_eth\00", align 1
 @mint_eth_handle = internal unnamed_addr global ptr null, align 8
 @.str.74 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
@@ -239,7 +238,6 @@ define hidden void @proto_register_mint() local_unnamed_addr #0 {
   %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.72, ptr noundef nonnull @dissect_mint_control_static, i32 noundef %4) #4
   store ptr %5, ptr @mint_control_handle, align 8
   %6 = tail call ptr @register_dissector(ptr noundef nonnull @.str.71, ptr noundef nonnull @dissect_mint_data_static, i32 noundef %2) #4
-  store ptr %6, ptr @mint_data_handle, align 8
   %7 = load i32, ptr @proto_mint, align 4
   %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.73, ptr noundef nonnull @dissect_mint_ethshim_static, i32 noundef %7) #4
   store ptr %8, ptr @mint_eth_handle, align 8

@@ -268,7 +268,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.142 = private unnamed_addr constant [12 x i8] c"chargingase\00", align 1
 @proto_charging_ase = internal unnamed_addr global i32 0, align 4
 @.str.143 = private unnamed_addr constant [13 x i8] c"charging_ase\00", align 1
-@charging_ase_handle = internal unnamed_addr global ptr null, align 8
 @ChargingTariffInformation_sequence = internal constant [7 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_charging_ase_chargingControlIndicators, i8 2, i32 0, i32 2, ptr @dissect_charging_ase_ChargingControlIndicators }, %struct._ber_sequence_t { ptr @hf_charging_ase_chargingTariff, i8 2, i32 1, i32 2, ptr @dissect_charging_ase_T_chargingTariff }, %struct._ber_sequence_t { ptr @hf_charging_ase_extensions, i8 2, i32 2, i32 3, ptr @dissect_charging_ase_SEQUENCE_SIZE_1_numOfExtensions_OF_ExtensionField }, %struct._ber_sequence_t { ptr @hf_charging_ase_originationIdentification, i8 2, i32 3, i32 2, ptr @dissect_charging_ase_ChargingReferenceIdentification }, %struct._ber_sequence_t { ptr @hf_charging_ase_destinationIdentification, i8 2, i32 4, i32 3, ptr @dissect_charging_ase_ChargingReferenceIdentification }, %struct._ber_sequence_t { ptr @hf_charging_ase_currency, i8 2, i32 5, i32 2, ptr @dissect_charging_ase_Currency }, %struct._ber_sequence_t zeroinitializer], align 16
 @ChargingControlIndicators_bits = internal constant [4 x ptr] [ptr @hf_charging_ase_ChargingControlIndicators_subscriberCharge, ptr @hf_charging_ase_ChargingControlIndicators_immediateChangeOfActuallyAppliedTariff, ptr @hf_charging_ase_ChargingControlIndicators_delayUntilStart, ptr null], align 16
 @T_chargingTariff_choice = internal constant [3 x %struct._ber_choice_t] [%struct._ber_choice_t { i32 0, ptr @hf_charging_ase_tariffCurrency, i8 2, i32 0, i32 2, ptr @dissect_charging_ase_TariffCurrency }, %struct._ber_choice_t { i32 1, ptr @hf_charging_ase_tariffPulse, i8 2, i32 1, i32 2, ptr @dissect_charging_ase_TariffPulse }, %struct._ber_choice_t zeroinitializer], align 16
@@ -361,7 +360,6 @@ define hidden void @proto_register_charging_ase() local_unnamed_addr #0 {
   tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_charging_ase.ei, i32 noundef 1) #4
   %4 = load i32, ptr @proto_charging_ase, align 4
   %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.143, ptr noundef nonnull @dissect_charging_ase, i32 noundef %4) #4
-  store ptr %5, ptr @charging_ase_handle, align 8
   ret void
 }
 

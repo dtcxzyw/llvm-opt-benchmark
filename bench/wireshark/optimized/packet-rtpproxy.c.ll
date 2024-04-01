@@ -373,8 +373,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.275 = private unnamed_addr constant [9 x i8] c"OVERLOAD\00", align 1
 @.str.276 = private unnamed_addr constant [4 x i8] c"E99\00", align 1
 @.str.277 = private unnamed_addr constant [87 x i8] c"Software error: proxy is in the deorbiting-burn mode, new session rejected (SLOWSHTDN)\00", align 1
-@rtpproxy_tcp_range = internal unnamed_addr global ptr null, align 8
-@rtpproxy_udp_range = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_rtpproxy() local_unnamed_addr #0 {
@@ -1036,9 +1034,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal void @rtpproxy_prefs_apply() #0 {
   %1 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.95) #7
-  store ptr %1, ptr @rtpproxy_tcp_range, align 8
   %2 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.97) #7
-  store ptr %2, ptr @rtpproxy_udp_range, align 8
   ret void
 }
 
@@ -1057,9 +1053,7 @@ define hidden void @proto_reg_handoff_rtpproxy() local_unnamed_addr #0 {
   %3 = load ptr, ptr @rtpproxy_handle, align 8
   tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.96, ptr noundef %3) #7
   %4 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.95) #7
-  store ptr %4, ptr @rtpproxy_tcp_range, align 8
   %5 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.97) #7
-  store ptr %5, ptr @rtpproxy_udp_range, align 8
   store i1 true, ptr @proto_reg_handoff_rtpproxy.rtpproxy_initialized, align 4
   br label %6
 

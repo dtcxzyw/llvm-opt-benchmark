@@ -1046,7 +1046,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.596 = private unnamed_addr constant [15 x i8] c"reload_kindids\00", align 1
 @kindidlist_uats = internal global ptr null, align 8
 @nreloadkinds = internal global i32 0, align 4
-@reloadkindids_uat = internal unnamed_addr global ptr null, align 8
 @.str.597 = private unnamed_addr constant [13 x i8] c"kindid.table\00", align 1
 @.str.598 = private unnamed_addr constant [13 x i8] c"Kind ID list\00", align 1
 @.str.599 = private unnamed_addr constant [31 x i8] c"A table of Kind ID definitions\00", align 1
@@ -4233,7 +4232,6 @@ define hidden void @proto_register_reload() local_unnamed_addr #0 {
   %6 = load i32, ptr @proto_reload, align 4
   %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #5
   %8 = tail call ptr @uat_new(ptr noundef nonnull @.str.595, i64 noundef 16, ptr noundef nonnull @.str.596, i1 noundef zeroext true, ptr noundef nonnull @kindidlist_uats, ptr noundef nonnull @nreloadkinds, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_kindid_copy_cb, ptr noundef null, ptr noundef nonnull @uat_kindid_record_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_reload.reloadkindidlist_uats_flds) #5
-  store ptr %8, ptr @reloadkindids_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %7, ptr noundef nonnull @.str.597, ptr noundef nonnull @.str.598, ptr noundef nonnull @.str.599, ptr noundef %8) #5
   tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.600, ptr noundef nonnull @.str.601, ptr noundef nonnull @.str.602, ptr noundef nonnull @reload_defragment) #5
   tail call void @prefs_register_uint_preference(ptr noundef %7, ptr noundef nonnull @.str.603, ptr noundef nonnull @.str.604, ptr noundef nonnull @.str.605, i32 noundef 10, ptr noundef nonnull @reload_nodeid_length) #5

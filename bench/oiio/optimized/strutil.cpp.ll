@@ -707,7 +707,6 @@ $_ZTISt18codecvt_utf8_utf16IDsLm1114111ELSt12codecvt_mode0EE = comdat any
 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_15c_locE = internal unnamed_addr global ptr null, align 8
 @.str.4 = private unnamed_addr constant [2 x i8] c"C\00", align 1
 @.str.5 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@_ZN18OpenImageIO_v2_6_03pvtL14oiio_debug_envE = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [18 x i8] c"OPENIMAGEIO_DEBUG\00", align 1
 @_ZN18OpenImageIO_v2_6_03pvt16oiio_print_debugE = local_unnamed_addr global i32 0, align 4
 @_ZZN18OpenImageIO_v2_6_07Strutil3pvt5debugENS_17basic_string_viewIcSt11char_traitsIcEEEE11debug_mutex = internal global { %union.pthread_mutex_t } zeroinitializer, align 8
@@ -51096,7 +51095,6 @@ entry:
   %call.i = tail call ptr @newlocale(i32 noundef 8127, ptr noundef nonnull @.str.4, ptr noundef null) #35
   store ptr %call.i, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_15c_locE, align 8
   %call.i1 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #35
-  store ptr %call.i1, ptr @_ZN18OpenImageIO_v2_6_03pvtL14oiio_debug_envE, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %tobool.not.i = icmp eq ptr %call.i1, null
   br i1 %tobool.not.i, label %__cxx_global_var_init.8.exit, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i

@@ -317,7 +317,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.181 = private unnamed_addr constant [23 x i8] c"c1222_decryption_table\00", align 1
 @c1222_uat_data = internal global ptr null, align 8
 @num_c1222_uat_data = internal global i32 0, align 4
-@c1222_uat = internal unnamed_addr global ptr null, align 8
 @.str.182 = private unnamed_addr constant [17 x i8] c"decryption_table\00", align 1
 @.str.183 = private unnamed_addr constant [62 x i8] c"Table of security parameters for decryption of C12.22 packets\00", align 1
 @proto_reg_handoff_c1222.initialized = internal unnamed_addr global i1 false, align 4
@@ -481,7 +480,6 @@ define hidden void @proto_register_c1222() local_unnamed_addr #0 {
   tail call void @prefs_register_bool_preference(ptr noundef %9, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.176, ptr noundef nonnull @c1222_decrypt) #6
   tail call void @prefs_register_bool_preference(ptr noundef %9, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179, ptr noundef nonnull @c1222_big_endian) #6
   %10 = tail call ptr @uat_new(ptr noundef nonnull @.str.180, i64 noundef 24, ptr noundef nonnull @.str.181, i1 noundef zeroext true, ptr noundef nonnull @c1222_uat_data, ptr noundef nonnull @num_c1222_uat_data, i32 noundef 1, ptr noundef null, ptr noundef nonnull @c1222_uat_data_copy_cb, ptr noundef nonnull @c1222_uat_data_update_cb, ptr noundef nonnull @c1222_uat_data_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_c1222.c1222_uat_flds) #6
-  store ptr %10, ptr @c1222_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %9, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.183, ptr noundef %10) #6
   ret void
 }

@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base.3" = type { ptr }
 %"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
 %"struct.std::__atomic_base.5" = type { ptr }
-%"struct.std::atomic.6" = type { %"struct.std::__atomic_base.7" }
-%"struct.std::__atomic_base.7" = type { ptr }
 %"class.absl::base_internal::AtomicHook.8" = type { %"struct.std::atomic.9", ptr }
 %"struct.std::atomic.9" = type { %"struct.std::__atomic_base.10" }
 %"struct.std::__atomic_base.10" = type { ptr }
@@ -34,7 +32,6 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN4absl12_GLOBAL__N_118prepend_log_prefixE.0 = internal unnamed_addr global i8 1, align 1
 @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE = internal global %"class.absl::base_internal::AtomicHook" { %"struct.std::atomic.2" { %"struct.std::__atomic_base.3" { ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv } }, ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv }, align 8
 @_ZN4absl12_GLOBAL__N_115android_log_tagE = internal global %"struct.std::atomic.4" { %"struct.std::__atomic_base.5" { ptr @_ZN4absl12_GLOBAL__N_118kDefaultAndroidTagE } }, align 8
-@_ZZN4absl19SetAndroidNativeTagEPKcE12user_log_tagB5cxx11 = internal unnamed_addr global %"struct.std::atomic.6" zeroinitializer, align 8
 @.str = private unnamed_addr constant [19 x i8] c"Check tag failed: \00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"tag must be non-null.\00", align 1
 @.str.2 = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/log/globals.cc\00", align 1
@@ -428,8 +425,6 @@ ehcleanup54:                                      ; preds = %lpad47, %ehcleanup4
   br label %eh.resume
 
 do.end57:                                         ; preds = %invoke.cont21
-  %14 = ptrtoint ptr %call18 to i64
-  store atomic i64 %14, ptr @_ZZN4absl19SetAndroidNativeTagEPKcE12user_log_tagB5cxx11 monotonic, align 8
   ret void
 
 eh.resume:                                        ; preds = %lpad20.body, %ehcleanup54, %lpad31, %ehcleanup15, %lpad

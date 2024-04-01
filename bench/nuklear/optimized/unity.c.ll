@@ -79,7 +79,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @nk_utfmax = internal unnamed_addr constant [5 x i32] [i32 1114111, i32 127, i32 2047, i32 65535, i32 1114111], align 16
 @.str.18 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @nk__barrier2 = internal unnamed_addr global ptr null, align 8
-@nk__barrier3 = internal unnamed_addr global ptr null, align 8
 @nk__barrier = internal unnamed_addr global ptr null, align 8
 @nk__barrier4 = internal unnamed_addr global ptr null, align 8
 @nk__dout = internal unnamed_addr global ptr null, align 8
@@ -30251,7 +30250,7 @@ return:                                           ; preds = %if.end, %nk_file_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_compressed(ptr noundef %atlas, ptr noundef %compressed_data, i64 noundef %compressed_size, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #22 {
+define ptr @nk_font_atlas_add_compressed(ptr noundef %atlas, ptr noundef %compressed_data, i64 %compressed_size, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #22 {
 entry:
   %cfg = alloca %struct.nk_font_config, align 8
   %tobool = icmp ne ptr %atlas, null
@@ -30367,9 +30366,6 @@ if.end29.i:                                       ; preds = %if.end.i
   %conv9.i.i = zext i8 %20 to i64
   %add10.i.i = or disjoint i64 %add7.i.i, %conv9.i.i
   store ptr %compressed_data, ptr @nk__barrier2, align 8
-  %idx.ext.i = and i64 %compressed_size, 4294967295
-  %add.ptr.i = getelementptr inbounds i8, ptr %compressed_data, i64 %idx.ext.i
-  store ptr %add.ptr.i, ptr @nk__barrier3, align 8
   %add.ptr31.i = getelementptr inbounds i8, ptr %call17, i64 %add10.i.i
   store ptr %add.ptr31.i, ptr @nk__barrier, align 8
   store ptr %call17, ptr @nk__barrier4, align 8
@@ -31034,7 +31030,7 @@ while.body.i16:                                   ; preds = %if.end20, %while.bo
   br i1 %tobool.not.i, label %nk_decode_85.exit, label %while.body.i16, !llvm.loop !156
 
 nk_decode_85.exit:                                ; preds = %while.body.i16, %if.end20
-  %call22 = tail call ptr @nk_font_atlas_add_compressed(ptr noundef nonnull %atlas, ptr noundef nonnull %call17, i64 noundef %siz.05.i.lcssa, float noundef %height, ptr noundef %config)
+  %call22 = tail call ptr @nk_font_atlas_add_compressed(ptr noundef nonnull %atlas, ptr noundef nonnull %call17, i64 poison, float noundef %height, ptr noundef %config)
   %18 = load ptr, ptr %free, align 8
   %19 = load ptr, ptr %temporary, align 8
   tail call void %18(ptr %19, ptr noundef nonnull %call17) #51

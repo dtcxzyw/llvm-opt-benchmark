@@ -301,7 +301,6 @@ target triple = "x86_64-pc-linux-gnu"
 @ess_category_attributes = internal global ptr null, align 8
 @num_ess_category_attributes = internal global i32 0, align 4
 @.str.162 = private unnamed_addr constant [24 x i8] c"ChEssCategoryAttributes\00", align 1
-@proto_register_ess.ess_module = internal unnamed_addr global ptr null, align 8
 @.str.163 = private unnamed_addr constant [27 x i8] c"Extended Security Services\00", align 1
 @.str.164 = private unnamed_addr constant [4 x i8] c"ESS\00", align 1
 @.str.165 = private unnamed_addr constant [4 x i8] c"ess\00", align 1
@@ -415,7 +414,6 @@ define hidden void @proto_register_ess() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ess.ett, i32 noundef 32) #3
   %3 = load i32, ptr @proto_ess, align 4
   %4 = tail call ptr @prefs_register_protocol(i32 noundef %3, ptr noundef null) #3
-  store ptr %4, ptr @proto_register_ess.ess_module, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %4, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.167, ptr noundef %1) #3
   ret void
 }

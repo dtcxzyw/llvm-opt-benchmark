@@ -58,9 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [15 x i8] c"eth_withoutfcs\00", align 1
 @ethnofcs_handle = internal unnamed_addr global ptr null, align 8
 @.str.27 = private unnamed_addr constant [5 x i8] c"clnp\00", align 1
-@clnp_handle = internal unnamed_addr global ptr null, align 8
 @.str.28 = private unnamed_addr constant [4 x i8] c"arp\00", align 1
-@arp_handle = internal unnamed_addr global ptr null, align 8
 @.str.29 = private unnamed_addr constant [4 x i8] c"ppp\00", align 1
 @ppp_handle = internal unnamed_addr global ptr null, align 8
 @.str.30 = private unnamed_addr constant [9 x i8] c"ppp_hdlc\00", align 1
@@ -291,10 +289,8 @@ define hidden void @proto_reg_handoff_redback() local_unnamed_addr #0 {
   store ptr %8, ptr @ethnofcs_handle, align 8
   %9 = load i32, ptr @proto_redback, align 4
   %10 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.27, i32 noundef %9) #2
-  store ptr %10, ptr @clnp_handle, align 8
   %11 = load i32, ptr @proto_redback, align 4
   %12 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.28, i32 noundef %11) #2
-  store ptr %12, ptr @arp_handle, align 8
   %13 = load i32, ptr @proto_redback, align 4
   %14 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.29, i32 noundef %13) #2
   store ptr %14, ptr @ppp_handle, align 8

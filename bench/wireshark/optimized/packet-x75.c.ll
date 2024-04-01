@@ -53,7 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [5 x i8] c"X.75\00", align 1
 @.str.22 = private unnamed_addr constant [4 x i8] c"x75\00", align 1
 @proto_x75 = internal unnamed_addr global i32 0, align 4
-@x75_handle = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [5 x i8] c"data\00", align 1
 @data_handle = internal unnamed_addr global ptr null, align 8
 @.str.24 = private unnamed_addr constant [10 x i8] c"Broadcast\00", align 1
@@ -75,7 +74,6 @@ define hidden void @proto_register_x75() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_x75.ett, i32 noundef 2) #3
   %2 = load i32, ptr @proto_x75, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.22, ptr noundef nonnull @dissect_x75, i32 noundef %2) #3
-  store ptr %3, ptr @x75_handle, align 8
   ret void
 }
 

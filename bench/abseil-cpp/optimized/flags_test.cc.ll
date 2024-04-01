@@ -348,30 +348,18 @@ $_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_18test_envE = internal unnamed_addr global ptr null, align 8
-@_ZN12_GLOBAL__N_145LogFlagsTest_DISABLED_StderrKnobsDefault_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [13 x i8] c"LogFlagsTest\00", align 1
 @.str.3 = private unnamed_addr constant [28 x i8] c"DISABLED_StderrKnobsDefault\00", align 1
 @.str.4 = private unnamed_addr constant [122 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/log/flags_test.cc\00", align 1
-@_ZN12_GLOBAL__N_136LogFlagsTest_SetStderrThreshold_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.6 = private unnamed_addr constant [19 x i8] c"SetStderrThreshold\00", align 1
-@_ZN12_GLOBAL__N_132LogFlagsTest_SetMinLogLevel_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [15 x i8] c"SetMinLogLevel\00", align 1
-@_ZN12_GLOBAL__N_134LogFlagsTest_PrependLogPrefix_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.10 = private unnamed_addr constant [17 x i8] c"PrependLogPrefix\00", align 1
-@_ZN12_GLOBAL__N_138LogFlagsTest_EmptyBacktraceAtFlag_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.12 = private unnamed_addr constant [21 x i8] c"EmptyBacktraceAtFlag\00", align 1
-@_ZN12_GLOBAL__N_137LogFlagsTest_BacktraceAtNonsense_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.14 = private unnamed_addr constant [20 x i8] c"BacktraceAtNonsense\00", align 1
-@_ZN12_GLOBAL__N_138LogFlagsTest_BacktraceAtWrongFile_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [21 x i8] c"BacktraceAtWrongFile\00", align 1
-@_ZN12_GLOBAL__N_138LogFlagsTest_BacktraceAtWrongLine_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.18 = private unnamed_addr constant [21 x i8] c"BacktraceAtWrongLine\00", align 1
-@_ZN12_GLOBAL__N_142LogFlagsTest_BacktraceAtWholeFilename_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.20 = private unnamed_addr constant [25 x i8] c"BacktraceAtWholeFilename\00", align 1
-@_ZN12_GLOBAL__N_146LogFlagsTest_BacktraceAtNonmatchingSuffix_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.22 = private unnamed_addr constant [29 x i8] c"BacktraceAtNonmatchingSuffix\00", align 1
-@_ZN12_GLOBAL__N_131LogFlagsTest_LogsBacktrace_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.24 = private unnamed_addr constant [14 x i8] c"LogsBacktrace\00", align 1
 @_ZTVN4absl12log_internal18LogTestEnvironmentE = external unnamed_addr constant { [7 x ptr] }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -7953,7 +7941,6 @@ entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl12log_internal18LogTestEnvironmentE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %call.i.i = tail call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %call1.i.i = tail call noundef ptr @_ZN7testing8UnitTest14AddEnvironmentEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i, ptr noundef nonnull %call.i)
-  store ptr %call1.i.i, ptr @_ZN12_GLOBAL__N_18test_envE, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -8029,7 +8016,6 @@ __cxx_global_var_init.2.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #21
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_145LogFlagsTest_DISABLED_StderrKnobsDefault_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -8102,7 +8088,6 @@ __cxx_global_var_init.5.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #21
-  store ptr %call15.i21, ptr @_ZN12_GLOBAL__N_136LogFlagsTest_SetStderrThreshold_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -8175,7 +8160,6 @@ __cxx_global_var_init.7.exit:                     ; preds = %invoke.cont10.i44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i22) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i23) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i24) #21
-  store ptr %call15.i45, ptr @_ZN12_GLOBAL__N_132LogFlagsTest_SetMinLogLevel_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i23)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i24)
@@ -8248,7 +8232,6 @@ __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont10.i68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i46) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i47) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i48) #21
-  store ptr %call15.i69, ptr @_ZN12_GLOBAL__N_134LogFlagsTest_PrependLogPrefix_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i46)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i47)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i48)
@@ -8321,7 +8304,6 @@ __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont10.i92
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i70) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i71) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i72) #21
-  store ptr %call15.i93, ptr @_ZN12_GLOBAL__N_138LogFlagsTest_EmptyBacktraceAtFlag_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i70)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i71)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i72)
@@ -8394,7 +8376,6 @@ __cxx_global_var_init.13.exit:                    ; preds = %invoke.cont10.i116
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i94) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i95) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i96) #21
-  store ptr %call15.i117, ptr @_ZN12_GLOBAL__N_137LogFlagsTest_BacktraceAtNonsense_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i94)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i95)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i96)
@@ -8467,7 +8448,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont10.i140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i118) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i119) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i120) #21
-  store ptr %call15.i141, ptr @_ZN12_GLOBAL__N_138LogFlagsTest_BacktraceAtWrongFile_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i118)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i119)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i120)
@@ -8540,7 +8520,6 @@ __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont10.i164
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i142) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i143) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i144) #21
-  store ptr %call15.i165, ptr @_ZN12_GLOBAL__N_138LogFlagsTest_BacktraceAtWrongLine_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i142)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i143)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i144)
@@ -8613,7 +8592,6 @@ __cxx_global_var_init.19.exit:                    ; preds = %invoke.cont10.i188
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i166) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i167) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i168) #21
-  store ptr %call15.i189, ptr @_ZN12_GLOBAL__N_142LogFlagsTest_BacktraceAtWholeFilename_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i166)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i167)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i168)
@@ -8686,7 +8664,6 @@ __cxx_global_var_init.21.exit:                    ; preds = %invoke.cont10.i212
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i190) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i191) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i192) #21
-  store ptr %call15.i213, ptr @_ZN12_GLOBAL__N_146LogFlagsTest_BacktraceAtNonmatchingSuffix_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i190)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i191)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i192)
@@ -8759,7 +8736,6 @@ __cxx_global_var_init.23.exit:                    ; preds = %invoke.cont10.i236
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i214) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i215) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i216) #21
-  store ptr %call15.i237, ptr @_ZN12_GLOBAL__N_131LogFlagsTest_LogsBacktrace_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i214)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i215)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i216)

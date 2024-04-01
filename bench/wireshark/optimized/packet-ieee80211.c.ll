@@ -12097,7 +12097,6 @@ target triple = "x86_64-pc-linux-gnu"
 @uat_wep_key_records = internal global ptr null, align 8
 @num_wepkeys_uat = internal global i32 0, align 4
 @.str.7249 = private unnamed_addr constant [12 x i8] c"Ch80211Keys\00", align 1
-@wep_uat = internal unnamed_addr global ptr null, align 8
 @.str.7250 = private unnamed_addr constant [14 x i8] c"wep_key_table\00", align 1
 @.str.7251 = private unnamed_addr constant [16 x i8] c"Decryption keys\00", align 1
 @.str.7252 = private unnamed_addr constant [250 x i8] c"WEP and pre-shared WPA keys\0AKey examples: 01:02:03:04:05 (40/64-bit WEP),\0A010203040506070809101111213 (104/128-bit WEP),\0AMyPassword[:MyAP] (WPA + plaintext password [+ SSID]),\0A0102030405...6061626364 (WPA + 256-bit key).Invalid keys will be ignored.\00", align 1
@@ -22479,7 +22478,6 @@ define hidden void @proto_register_ieee80211() local_unnamed_addr #2 {
   tail call void @prefs_register_obsolete_preference(ptr noundef %49, ptr noundef nonnull @.str.7243) #22
   tail call void @prefs_register_bool_preference(ptr noundef %49, ptr noundef nonnull @.str.7244, ptr noundef nonnull @.str.7245, ptr noundef nonnull @.str.7246, ptr noundef nonnull @enable_decryption) #22
   %50 = tail call ptr @uat_new(ptr noundef nonnull @.str.7247, i64 noundef 16, ptr noundef nonnull @.str.7248, i1 noundef zeroext true, ptr noundef nonnull @uat_wep_key_records, ptr noundef nonnull @num_wepkeys_uat, i32 noundef 1, ptr noundef nonnull @.str.7249, ptr noundef nonnull @uat_wep_key_record_copy_cb, ptr noundef nonnull @uat_wep_key_record_update_cb, ptr noundef nonnull @uat_wep_key_record_free_cb, ptr noundef nonnull @init_wepkeys, ptr noundef null, ptr noundef nonnull @proto_register_ieee80211.wep_uat_flds) #22
-  store ptr %50, ptr @wep_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %49, ptr noundef nonnull @.str.7250, ptr noundef nonnull @.str.7251, ptr noundef nonnull @.str.7252, ptr noundef %50) #22
   ret void
 }

@@ -158,7 +158,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.89 = private unnamed_addr constant [9 x i8] c"dmx_text\00", align 1
 @proto_dmx_text = internal unnamed_addr global i32 0, align 4
 @.str.90 = private unnamed_addr constant [9 x i8] c"dmx-text\00", align 1
-@dmx_text_handle = internal unnamed_addr global ptr null, align 8
 @.str.91 = private unnamed_addr constant [5 x i8] c"Text\00", align 1
 @.str.92 = private unnamed_addr constant [5 x i8] c"Test\00", align 1
 @.str.93 = private unnamed_addr constant [4 x i8] c"RDM\00", align 1
@@ -427,7 +426,6 @@ define hidden void @proto_register_dmx_text() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_dmx() local_unnamed_addr #0 {
   %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.90) #2
-  store ptr %1, ptr @dmx_text_handle, align 8
   %2 = load i32, ptr @proto_dmx_chan, align 4
   %3 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dmx_chan, i32 noundef %2) #2
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %3) #2

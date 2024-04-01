@@ -588,11 +588,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.332 = private unnamed_addr constant [4 x i8] c"UDS\00", align 1
 @.str.333 = private unnamed_addr constant [4 x i8] c"uds\00", align 1
 @proto_uds = internal unnamed_addr global i32 0, align 4
-@uds_handle = internal unnamed_addr global ptr null, align 8
 @.str.334 = private unnamed_addr constant [14 x i8] c"uds_over_doip\00", align 1
-@uds_handle_doip = internal unnamed_addr global ptr null, align 8
 @.str.335 = private unnamed_addr constant [14 x i8] c"uds_over_hsfz\00", align 1
-@uds_handle_hsfz = internal unnamed_addr global ptr null, align 8
 @.str.336 = private unnamed_addr constant [18 x i8] c"uds_over_iso10681\00", align 1
 @uds_handle_iso10681 = internal unnamed_addr global ptr null, align 8
 @.str.337 = private unnamed_addr constant [18 x i8] c"uds_over_iso15765\00", align 1
@@ -1138,13 +1135,10 @@ define hidden void @proto_register_uds() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_uds.ett, i32 noundef 15) #9
   %2 = load i32, ptr @proto_uds, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.333, ptr noundef nonnull @dissect_uds_no_data, i32 noundef %2) #9
-  store ptr %3, ptr @uds_handle, align 8
   %4 = load i32, ptr @proto_uds, align 4
   %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.334, ptr noundef nonnull @dissect_uds_doip, i32 noundef %4) #9
-  store ptr %5, ptr @uds_handle_doip, align 8
   %6 = load i32, ptr @proto_uds, align 4
   %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.335, ptr noundef nonnull @dissect_uds_hsfz, i32 noundef %6) #9
-  store ptr %7, ptr @uds_handle_hsfz, align 8
   %8 = load i32, ptr @proto_uds, align 4
   %9 = tail call ptr @register_dissector(ptr noundef nonnull @.str.336, ptr noundef nonnull @dissect_uds_iso10681, i32 noundef %8) #9
   store ptr %9, ptr @uds_handle_iso10681, align 8

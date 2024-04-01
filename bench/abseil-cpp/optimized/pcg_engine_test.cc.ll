@@ -167,17 +167,11 @@ $_ZTIN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm636413622384679300
 @.str.10 = private unnamed_addr constant [20 x i8] c"StreamSerialization\00", align 1
 @.str.12 = private unnamed_addr constant [28 x i8] c"RandomNumberEngineInterface\00", align 1
 @.str.14 = private unnamed_addr constant [23 x i8] c"RandenEngineSFINAETest\00", align 1
-@_ZN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [20 x i8] c"PCG642018EngineTest\00", align 1
 @.str.17 = private unnamed_addr constant [13 x i8] c"VerifyGolden\00", align 1
-@_ZN12_GLOBAL__N_143PCG642018EngineTest_VerifyGoldenSeeded_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [19 x i8] c"VerifyGoldenSeeded\00", align 1
-@_ZN12_GLOBAL__N_159PCG642018EngineTest_VerifyGoldenFromDeserializedEngine_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [35 x i8] c"VerifyGoldenFromDeserializedEngine\00", align 1
-@_ZN12_GLOBAL__N_137PCG322018EngineTest_VerifyGolden_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [20 x i8] c"PCG322018EngineTest\00", align 1
-@_ZN12_GLOBAL__N_143PCG322018EngineTest_VerifyGoldenSeeded_Test10test_info_E = internal unnamed_addr global ptr null, align 8
-@_ZN12_GLOBAL__N_159PCG322018EngineTest_VerifyGoldenFromDeserializedEngine_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_TestEEE = internal constant [94 x i8] c"N7testing8internal15TestFactoryImplIN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_TestEEE\00", align 1
@@ -15908,7 +15902,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1328) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1329) #20
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_137PCG642018EngineTest_VerifyGolden_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1328)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1329)
@@ -15985,7 +15978,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1339) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1340) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1341) #20
-  store ptr %call15.i1362, ptr @_ZN12_GLOBAL__N_143PCG642018EngineTest_VerifyGoldenSeeded_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1339)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1340)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1341)
@@ -16062,7 +16054,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i1387
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1363) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1364) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1365) #20
-  store ptr %call15.i1388, ptr @_ZN12_GLOBAL__N_159PCG642018EngineTest_VerifyGoldenFromDeserializedEngine_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1363)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1364)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1365)
@@ -16139,7 +16130,6 @@ __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i1413
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1389) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1390) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1391) #20
-  store ptr %call15.i1414, ptr @_ZN12_GLOBAL__N_137PCG322018EngineTest_VerifyGolden_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1389)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1390)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1391)
@@ -16216,7 +16206,6 @@ __cxx_global_var_init.24.exit:                    ; preds = %invoke.cont10.i1439
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1415) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1416) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1417) #20
-  store ptr %call15.i1440, ptr @_ZN12_GLOBAL__N_143PCG322018EngineTest_VerifyGoldenSeeded_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1415)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1416)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1417)
@@ -16293,7 +16282,6 @@ __cxx_global_var_init.25.exit:                    ; preds = %invoke.cont10.i1465
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1441) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1442) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i1443) #20
-  store ptr %call15.i1466, ptr @_ZN12_GLOBAL__N_159PCG322018EngineTest_VerifyGoldenFromDeserializedEngine_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1441)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1442)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i1443)

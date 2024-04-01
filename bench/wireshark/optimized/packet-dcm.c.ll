@@ -414,15 +414,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.272 = private unnamed_addr constant [28 x i8] c"%-8.8sBytes %d - %d [start]\00", align 1
 @.str.273 = private unnamed_addr constant [7 x i8] c"Value:\00", align 1
 @.str.274 = private unnamed_addr constant [23 x i8] c"<Bytes %d - %d, start>\00", align 1
-@dcm_tag_lookup.tag_def = internal unnamed_addr global ptr null, align 8
-@dcm_tag_lookup.tag_unknown = internal constant %struct.dcm_tag { i32 0, ptr @.str.275, ptr @.str.268, ptr @.str.276, i32 0, i32 0 }, align 8
+@dcm_tag_lookup.tag_unknown = internal unnamed_addr constant %struct.dcm_tag { i32 0, ptr @.str.275, ptr @.str.268, ptr @.str.276, i32 0, i32 0 }, align 8
 @.str.275 = private unnamed_addr constant [10 x i8] c"(unknown)\00", align 1
 @.str.276 = private unnamed_addr constant [2 x i8] c"1\00", align 1
-@dcm_tag_lookup.tag_private = internal constant %struct.dcm_tag { i32 0, ptr @.str.277, ptr @.str.268, ptr @.str.276, i32 0, i32 0 }, align 8
+@dcm_tag_lookup.tag_private = internal unnamed_addr constant %struct.dcm_tag { i32 0, ptr @.str.277, ptr @.str.268, ptr @.str.276, i32 0, i32 0 }, align 8
 @.str.277 = private unnamed_addr constant [12 x i8] c"Private Tag\00", align 1
-@dcm_tag_lookup.tag_private_grp_len = internal constant %struct.dcm_tag { i32 0, ptr @.str.278, ptr @.str.258, ptr @.str.276, i32 0, i32 0 }, align 8
+@dcm_tag_lookup.tag_private_grp_len = internal unnamed_addr constant %struct.dcm_tag { i32 0, ptr @.str.278, ptr @.str.258, ptr @.str.276, i32 0, i32 0 }, align 8
 @.str.278 = private unnamed_addr constant [25 x i8] c"Private Tag Group Length\00", align 1
-@dcm_tag_lookup.tag_grp_length = internal constant %struct.dcm_tag { i32 0, ptr @.str.279, ptr @.str.258, ptr @.str.276, i32 0, i32 0 }, align 8
+@dcm_tag_lookup.tag_grp_length = internal unnamed_addr constant %struct.dcm_tag { i32 0, ptr @.str.279, ptr @.str.258, ptr @.str.276, i32 0, i32 0 }, align 8
 @.str.279 = private unnamed_addr constant [13 x i8] c"Group Length\00", align 1
 @dcm_tag_table = internal unnamed_addr global ptr null, align 8
 @.str.280 = private unnamed_addr constant [19 x i8] c"(Retired) %-35.35s\00", align 1
@@ -8705,7 +8704,6 @@ dcm_tag_is_open.exit353:                          ; preds = %44
   %59 = zext i32 %58 to i64
   %60 = inttoptr i64 %59 to ptr
   %61 = tail call ptr @wmem_map_lookup(ptr noundef %54, ptr noundef %60) #10
-  store ptr %61, ptr @dcm_tag_lookup.tag_def, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %dcm_tag_lookup.exit
 
@@ -8717,7 +8715,7 @@ dcm_tag_is_open.exit353:                          ; preds = %44
   %dcm_tag_lookup.tag_private_grp_len.mux.i = select i1 %or.cond.i, ptr @dcm_tag_lookup.tag_private_grp_len, ptr @dcm_tag_lookup.tag_private
   %brmerge40.i = or i1 %66, %65
   %dcm_tag_lookup.tag_private_grp_len.mux.mux.i = select i1 %65, ptr %dcm_tag_lookup.tag_private_grp_len.mux.i, ptr @dcm_tag_lookup.tag_grp_length
-  br i1 %brmerge40.i, label %.thread.sink.split.i, label %67
+  br i1 %brmerge40.i, label %dcm_tag_lookup.exit, label %67
 
 67:                                               ; preds = %63
   %68 = and i32 %55, 65280
@@ -8779,7 +8777,7 @@ dcm_tag_is_open.exit353:                          ; preds = %44
   br label %thread-pre-split.i
 
 102:                                              ; preds = %93
-  switch i16 %.0316377, label %.thread.sink.split.i [
+  switch i16 %.0316377, label %dcm_tag_lookup.exit [
     i16 4096, label %103
     i16 4112, label %110
   ]
@@ -8802,17 +8800,12 @@ dcm_tag_is_open.exit353:                          ; preds = %44
 
 thread-pre-split.i:                               ; preds = %110, %103, %95, %86, %80, %69
   %.sink.i = phi ptr [ %75, %69 ], [ %92, %86 ], [ %109, %103 ], [ %114, %110 ], [ %101, %95 ], [ %82, %80 ]
-  store ptr %.sink.i, ptr @dcm_tag_lookup.tag_def, align 8
   %115 = icmp eq ptr %.sink.i, null
-  br i1 %115, label %.thread.sink.split.i, label %dcm_tag_lookup.exit
-
-.thread.sink.split.i:                             ; preds = %thread-pre-split.i, %102, %63
-  %dcm_tag_lookup.tag_private_grp_len.sink.i = phi ptr [ %dcm_tag_lookup.tag_private_grp_len.mux.mux.i, %63 ], [ @dcm_tag_lookup.tag_unknown, %102 ], [ @dcm_tag_lookup.tag_unknown, %thread-pre-split.i ]
-  store ptr %dcm_tag_lookup.tag_private_grp_len.sink.i, ptr @dcm_tag_lookup.tag_def, align 8
+  %spec.select = select i1 %115, ptr @dcm_tag_lookup.tag_unknown, ptr %.sink.i
   br label %dcm_tag_lookup.exit
 
-dcm_tag_lookup.exit:                              ; preds = %53, %thread-pre-split.i, %.thread.sink.split.i
-  %116 = phi ptr [ %.sink.i, %thread-pre-split.i ], [ %61, %53 ], [ %dcm_tag_lookup.tag_private_grp_len.sink.i, %.thread.sink.split.i ]
+dcm_tag_lookup.exit:                              ; preds = %thread-pre-split.i, %63, %102, %53
+  %116 = phi ptr [ %61, %53 ], [ %dcm_tag_lookup.tag_private_grp_len.mux.mux.i, %63 ], [ @dcm_tag_lookup.tag_unknown, %102 ], [ %spec.select, %thread-pre-split.i ]
   %117 = icmp eq i16 %.0316377, -2
   br i1 %117, label %118, label %119
 

@@ -1095,7 +1095,6 @@ $_ZTVN7testing8internal21QuantifierMatcherImplIRKSt6vectorIN3nix7MachineESaIS4_E
 @_ZGVN5boost4noneE = linkonce_odr global i64 0, comdat($_ZN5boost4noneE), align 8
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZL7foo_env = internal unnamed_addr global ptr null, align 8
 @_ZN42machines_getMachinesWithEmptyBuilders_Test10test_info_E = local_unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [9 x i8] c"machines\00", align 1
 @.str.6 = private unnamed_addr constant [29 x i8] c"getMachinesWithEmptyBuilders\00", align 1
@@ -34986,7 +34985,6 @@ define internal void @_GLOBAL__sub_I_machines.cc() #17 section ".text.startup" p
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV11Environment, i64 0, i32 0, i64 2), ptr %41, align 8
   %42 = tail call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %43 = tail call noundef ptr @_ZN7testing8UnitTest14AddEnvironmentEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %42, ptr noundef nonnull %41)
-  store ptr %43, ptr @_ZL7foo_env, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39)

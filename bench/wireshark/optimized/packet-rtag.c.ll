@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_rtag = internal unnamed_addr global i32 0, align 4
 @rtag_breakdown = internal global [3 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_rtag_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtag_sequence, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtag_protocol, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 2, ptr @etype_vals, i64 0, ptr @.str.10, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @ett = internal global [1 x ptr] [ptr @ett_rtag], align 8
-@rtag_handle = internal unnamed_addr global ptr null, align 8
 @.str.3 = private unnamed_addr constant [10 x i8] c"ethertype\00", align 1
 @ethertype_handle = internal unnamed_addr global ptr null, align 8
 @hf_rtag_reserved = internal global i32 0, align 4
@@ -50,7 +49,6 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 define hidden void @proto_reg_handoff_rtag() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_rtag, align 4
   %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_rtag, i32 noundef %1) #2
-  store ptr %2, ptr @rtag_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.3, i32 noundef 61889, ptr noundef %2) #2
   %3 = load i32, ptr @proto_rtag, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.3, i32 noundef %3) #2

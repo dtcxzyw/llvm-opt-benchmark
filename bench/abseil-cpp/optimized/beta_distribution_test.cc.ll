@@ -844,9 +844,7 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @.str.9 = private unnamed_addr constant [21 x i8] c"BetaDistributionTest\00", align 1
 @.str.10 = private unnamed_addr constant [33 x i8] c"TestSampleStatisticsCombinations\00", align 1
 @.str.12 = private unnamed_addr constant [35 x i8] c"TestSampleStatistics_SelectedPairs\00", align 1
-@_ZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.14 = private unnamed_addr constant [14 x i8] c"StabilityTest\00", align 1
-@_ZN12_GLOBAL__N_141BetaDistributionTest_AlgorithmBounds_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [16 x i8] c"AlgorithmBounds\00", align 1
 @.str.17 = private unnamed_addr constant [21 x i8] c"TestSampleStatistics\00", align 1
 @.str.18 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -37340,7 +37338,6 @@ __cxx_global_var_init.13.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i327) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i328) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i329) #31
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_139BetaDistributionTest_StabilityTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i327)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i328)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i329)
@@ -37417,7 +37414,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont10.i367
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i343) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i344) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i345) #31
-  store ptr %call15.i368, ptr @_ZN12_GLOBAL__N_141BetaDistributionTest_AlgorithmBounds_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i343)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i344)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i345)

@@ -129,7 +129,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [14 x i8] c"DECT DLC SAPI\00", align 1
 @dlc_sapi_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.69 = private unnamed_addr constant [5 x i8] c"data\00", align 1
-@data_handle = internal unnamed_addr global ptr null, align 8
 @dect_dlc_reassembly_table = internal global %struct.reassembly_table zeroinitializer, align 8
 @addresses_reassembly_table_functions = external constant %struct.reassembly_table_functions, align 8
 @dect_dlc_last_n_s_map = internal unnamed_addr global ptr null, align 8
@@ -166,7 +165,6 @@ define hidden void @proto_register_dect_dlc() local_unnamed_addr #0 {
   %6 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.68, i32 noundef %5, i32 noundef 4, i32 noundef 1) #4
   store ptr %6, ptr @dlc_sapi_dissector_table, align 8
   %7 = tail call ptr @find_dissector(ptr noundef nonnull @.str.69) #4
-  store ptr %7, ptr @data_handle, align 8
   tail call void @reassembly_table_register(ptr noundef nonnull @dect_dlc_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions) #4
   %8 = tail call ptr @wmem_epan_scope() #4
   %9 = tail call ptr @wmem_file_scope() #4

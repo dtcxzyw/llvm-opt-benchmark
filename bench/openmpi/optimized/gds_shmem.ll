@@ -115,7 +115,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [12 x i8] c"pmix.tmpdir\00", align 1
 @__const.fetch_base_tmpdir.fetch_keys = private unnamed_addr constant [3 x ptr] [ptr @.str.26, ptr @.str.27, ptr null], align 16
 @.str.28 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@fetch_base_tmpdir.tmpdir = internal unnamed_addr global ptr null, align 8
 @.str.29 = private unnamed_addr constant [7 x i8] c"TMPDIR\00", align 1
 @.str.30 = private unnamed_addr constant [5 x i8] c"/tmp\00", align 1
 @.str.31 = private unnamed_addr constant [19 x i8] c"help-gds-shmem.txt\00", align 1
@@ -4682,7 +4681,6 @@ pmix_obj_run_destructors.exit24.i.i:              ; preds = %.lr.ph.i21.i.i, %82
   %96 = call ptr @getenv(ptr noundef nonnull @.str.29) #20
   %97 = icmp eq ptr %96, null
   %spec.store.select.i.i = select i1 %97, ptr @.str.30, ptr %96
-  store ptr %spec.store.select.i.i, ptr @fetch_base_tmpdir.tmpdir, align 8
   br label %get_shmem_backing_path.exit
 
 get_shmem_backing_path.exit:                      ; preds = %pmix_obj_run_destructors.exit24.i.i, %.critedge.i.i

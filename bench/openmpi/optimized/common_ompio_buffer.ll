@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_common_ompio_buffer_mutex = internal global %struct.opal_mutex_t zeroinitializer, align 8
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [6 x i8] c"basic\00", align 1
-@mca_common_ompio_allocator_component = internal unnamed_addr global ptr null, align 8
 @mca_common_ompio_allocator = internal unnamed_addr global ptr null, align 8
 @mca_common_ompio_pagesize = internal unnamed_addr global i32 4096, align 4
 @.str.1 = private unnamed_addr constant [66 x i8] c"error in mca_common_ompio_release_buf: allocator not initialized\0A\00", align 1
@@ -111,7 +110,6 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
 
 25:                                               ; preds = %opal_obj_run_constructors.exit, %23
   %26 = tail call ptr @mca_allocator_component_lookup(ptr noundef nonnull @.str) #5
-  store ptr %26, ptr @mca_common_ompio_allocator_component, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %31
 

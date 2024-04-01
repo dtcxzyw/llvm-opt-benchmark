@@ -217,7 +217,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.119 = private unnamed_addr constant [5 x i8] c"mp2t\00", align 1
 @mp2t_handle = internal unnamed_addr global ptr null, align 8
 @.str.120 = private unnamed_addr constant [7 x i8] c"Unused\00", align 1
-@heur_subdissector_list = internal unnamed_addr global ptr null, align 8
 @mp2t_reassembly_table = internal global %struct.reassembly_table zeroinitializer, align 8
 @mp2t_reassembly_table_functions = internal constant %struct.reassembly_table_functions { ptr @mp2t_fragment_hash, ptr @mp2t_fragment_equal, ptr @mp2t_fragment_persistent_key, ptr @mp2t_fragment_persistent_key, ptr @mp2t_fragment_free_persistent_key, ptr @mp2t_fragment_free_persistent_key }, align 8
 @mp2t_stream_hashtable = internal unnamed_addr global ptr null, align 8
@@ -401,7 +400,6 @@ define hidden void @proto_register_mp2t() local_unnamed_addr #0 {
   tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_mp2t.ei, i32 noundef 3) #9
   %6 = load i32, ptr @proto_mp2t, align 4
   %7 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.120, i32 noundef %6) #9
-  store ptr %7, ptr @heur_subdissector_list, align 8
   tail call void @reassembly_table_register(ptr noundef nonnull @mp2t_reassembly_table, ptr noundef nonnull @mp2t_reassembly_table_functions) #9
   %8 = tail call ptr @wmem_epan_scope() #9
   %9 = tail call ptr @wmem_file_scope() #9

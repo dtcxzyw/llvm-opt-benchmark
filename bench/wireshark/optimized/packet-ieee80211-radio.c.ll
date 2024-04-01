@@ -229,7 +229,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_wlan_radio = internal unnamed_addr global i32 0, align 4
 @wlan_radio_handle = internal unnamed_addr global ptr null, align 8
 @.str.132 = private unnamed_addr constant [17 x i8] c"wlan_noqos_radio\00", align 1
-@wlan_noqos_radio_handle = internal unnamed_addr global ptr null, align 8
 @.str.133 = private unnamed_addr constant [22 x i8] c"always_short_preamble\00", align 1
 @.str.134 = private unnamed_addr constant [43 x i8] c"802.11/11b preamble length is always short\00", align 1
 @.str.135 = private unnamed_addr constant [144 x i8] c"Some generators incorrectly indicate long preamble when the preamble was actuallyshort. Always assume short preamble when calculating duration.\00", align 1
@@ -368,7 +367,6 @@ define hidden void @proto_register_ieee80211_radio() local_unnamed_addr #1 {
   store ptr %5, ptr @wlan_radio_handle, align 8
   %6 = load i32, ptr @proto_wlan_radio, align 4
   %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.132, ptr noundef nonnull @dissect_wlan_noqos_radio, i32 noundef %6) #9
-  store ptr %7, ptr @wlan_noqos_radio_handle, align 8
   %8 = load i32, ptr @proto_wlan_radio, align 4
   %9 = tail call ptr @prefs_register_protocol(i32 noundef %8, ptr noundef null) #9
   tail call void @prefs_register_bool_preference(ptr noundef %9, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull @wlan_radio_always_short_preamble) #9

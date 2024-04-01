@@ -126,7 +126,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [12 x i8] c"ADB Service\00", align 1
 @.str.68 = private unnamed_addr constant [12 x i8] c"adb_service\00", align 1
 @proto_adb_service = internal unnamed_addr global i32 0, align 4
-@adb_service_handle = internal unnamed_addr global ptr null, align 8
 @.str.69 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 @.str.70 = private unnamed_addr constant [64 x i8] c"ADB Service protocol version is compatible prior to: adb 1.0.31\00", align 1
 @.str.71 = private unnamed_addr constant [49 x i8] c"Version of protocol supported by this dissector.\00", align 1
@@ -221,7 +220,6 @@ define hidden void @proto_register_adb_service() local_unnamed_addr #0 {
   %10 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68) #6
   store i32 %10, ptr @proto_adb_service, align 4
   %11 = tail call ptr @register_dissector(ptr noundef nonnull @.str.68, ptr noundef nonnull @dissect_adb_service, i32 noundef %10) #6
-  store ptr %11, ptr @adb_service_handle, align 8
   %12 = load i32, ptr @proto_adb_service, align 4
   tail call void @proto_register_field_array(i32 noundef %12, ptr noundef nonnull @proto_register_adb_service.hf, i32 noundef 34) #6
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_adb_service.ett, i32 noundef 5) #6

@@ -65,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [4 x i8] c"VPP\00", align 1
 @.str.26 = private unnamed_addr constant [4 x i8] c"vpp\00", align 1
 @proto_vpp = internal unnamed_addr global i32 0, align 4
-@expert_vpp = internal unnamed_addr global ptr null, align 8
 @.str.27 = private unnamed_addr constant [20 x i8] c"VPP Buffer Metadata\00", align 1
 @.str.28 = private unnamed_addr constant [13 x i8] c"VPP-Metadata\00", align 1
 @.str.29 = private unnamed_addr constant [13 x i8] c"vpp-metadata\00", align 1
@@ -112,7 +111,6 @@ define hidden void @proto_register_vpp() local_unnamed_addr #0 {
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.26, ptr noundef nonnull @dissect_vpp, i32 noundef %2) #3
   %4 = load i32, ptr @proto_vpp, align 4
   %5 = tail call ptr @expert_register_protocol(i32 noundef %4) #3
-  store ptr %5, ptr @expert_vpp, align 8
   tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_vpp.vpp_ei, i32 noundef 3) #3
   %6 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #3
   store i32 %6, ptr @proto_vpp_metadata, align 4

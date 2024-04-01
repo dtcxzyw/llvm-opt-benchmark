@@ -6781,11 +6781,8 @@ $_ZTIN4absl18container_internal26gtest_suite_ModifiersTest_4SwapINS_13node_hash_
 @.str.105 = private unnamed_addr constant [145 x i8] c"Clear, Insert, InsertHint, InsertRange, InsertWithinCapacity, InsertRangeWithinCapacity, Emplace, EmplaceHint, Erase, EraseRange, EraseKey, Swap\00", align 1
 @.str.107 = private unnamed_addr constant [12 x i8] c"NodeHashSet\00", align 1
 @.str.108 = private unnamed_addr constant [136 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/container/node_hash_set_test.cc\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_144NodeHashSet_MoveableNotCopyableCompiles_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.113 = private unnamed_addr constant [28 x i8] c"MoveableNotCopyableCompiles\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.115 = private unnamed_addr constant [19 x i8] c"MergeExtractInsert\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_124NodeHashSet_EraseIf_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.117 = private unnamed_addr constant [8 x i8] c"EraseIf\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.118 = private unnamed_addr constant [73 x i8] c"%s Test %s must be defined before REGISTER_TYPED_TEST_SUITE_P(%s, ...).\0A\00", align 1
@@ -227421,7 +227418,6 @@ __cxx_global_var_init.112.exit:                   ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i153) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i154) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i155) #29
-  store ptr %call15.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_144NodeHashSet_MoveableNotCopyableCompiles_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i153)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i154)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i155)
@@ -227498,7 +227494,6 @@ __cxx_global_var_init.114.exit:                   ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i170) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i171) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i172) #29
-  store ptr %call15.i193, ptr @_ZN4absl18container_internal12_GLOBAL__N_135NodeHashSet_MergeExtractInsert_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i170)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i171)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i172)
@@ -227575,7 +227570,6 @@ __cxx_global_var_init.116.exit:                   ; preds = %invoke.cont10.i218
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i194) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i195) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i196) #29
-  store ptr %call15.i219, ptr @_ZN4absl18container_internal12_GLOBAL__N_124NodeHashSet_EraseIf_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i194)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i195)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i196)

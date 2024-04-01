@@ -174,7 +174,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.94 = private unnamed_addr constant [20 x i8] c"devicenet_bodytypes\00", align 1
 @uat_devicenet_records = internal global ptr null, align 8
 @num_devicenet_records_uat = internal global i32 0, align 4
-@devicenet_uat = internal unnamed_addr global ptr null, align 8
 @.str.95 = private unnamed_addr constant [15 x i8] c"bodytype_table\00", align 1
 @devicenet_handle = internal unnamed_addr global ptr null, align 8
 @.str.96 = private unnamed_addr constant [17 x i8] c"can.subdissector\00", align 1
@@ -287,7 +286,6 @@ define hidden void @proto_register_devicenet() local_unnamed_addr #0 {
   %5 = load i32, ptr @proto_devicenet, align 4
   %6 = tail call ptr @prefs_register_protocol(i32 noundef %5, ptr noundef null) #5
   %7 = tail call ptr @uat_new(ptr noundef nonnull @.str.93, i64 noundef 8, ptr noundef nonnull @.str.94, i1 noundef zeroext true, ptr noundef nonnull @uat_devicenet_records, ptr noundef nonnull @num_devicenet_records_uat, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull @uat_devicenet_record_update_cb, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_devicenet.devicenet_uat_flds) #5
-  store ptr %7, ptr @devicenet_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %6, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.93, ptr noundef %7) #5
   %8 = load i32, ptr @proto_devicenet, align 4
   %9 = tail call ptr @register_dissector(ptr noundef nonnull @.str.90, ptr noundef nonnull @dissect_devicenet, i32 noundef %8) #5

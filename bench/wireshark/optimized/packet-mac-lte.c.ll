@@ -1401,7 +1401,6 @@ target triple = "x86_64-pc-linux-gnu"
 @lcid_drb_mappings = internal global ptr null, align 8
 @num_lcid_drb_mappings = internal global i32 0, align 4
 @.str.833 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@lcid_drb_mappings_uat = internal unnamed_addr global ptr null, align 8
 @.str.834 = private unnamed_addr constant [10 x i8] c"drb_table\00", align 1
 @.str.835 = private unnamed_addr constant [27 x i8] c"LCID -> DRB Mappings Table\00", align 1
 @.str.836 = private unnamed_addr constant [66 x i8] c"A table that maps from configurable lcids -> RLC logical channels\00", align 1
@@ -3092,7 +3091,6 @@ define hidden void @proto_register_mac_lte() local_unnamed_addr #0 {
   tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.826, ptr noundef nonnull @.str.827, ptr noundef nonnull @.str.827, ptr noundef nonnull @global_mac_lte_call_rlc_for_mtch) #16
   tail call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef nonnull @.str.828, ptr noundef nonnull @.str.829, ptr noundef nonnull @.str.830, ptr noundef nonnull @global_mac_lte_lcid_drb_source, ptr noundef nonnull @proto_register_mac_lte.lcid_drb_source_vals, i32 noundef 0) #16
   %9 = tail call ptr @uat_new(ptr noundef nonnull @.str.831, i64 noundef 12, ptr noundef nonnull @.str.832, i1 noundef zeroext true, ptr noundef nonnull @lcid_drb_mappings, ptr noundef nonnull @num_lcid_drb_mappings, i32 noundef 1, ptr noundef nonnull @.str.833, ptr noundef nonnull @lcid_drb_mapping_copy_cb, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_mac_lte.lcid_drb_mapping_flds) #16
-  store ptr %9, ptr @lcid_drb_mappings_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %8, ptr noundef nonnull @.str.834, ptr noundef nonnull @.str.835, ptr noundef nonnull @.str.836, ptr noundef %9) #16
   tail call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef nonnull @.str.837, ptr noundef nonnull @.str.838, ptr noundef nonnull @.str.839, i32 noundef 10, ptr noundef nonnull @global_mac_lte_bsr_warn_threshold) #16
   tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.840, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.842, ptr noundef nonnull @global_mac_lte_track_sr) #16

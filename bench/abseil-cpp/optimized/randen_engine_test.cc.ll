@@ -196,18 +196,12 @@ $_ZZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_strin
 @.str.10 = private unnamed_addr constant [20 x i8] c"StreamSerialization\00", align 1
 @.str.12 = private unnamed_addr constant [28 x i8] c"RandomNumberEngineInterface\00", align 1
 @.str.14 = private unnamed_addr constant [23 x i8] c"RandenEngineSFINAETest\00", align 1
-@_ZN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden64Default_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [11 x i8] c"RandenTest\00", align 1
 @.str.17 = private unnamed_addr constant [28 x i8] c"VerifyGoldenRanden64Default\00", align 1
-@_ZN12_GLOBAL__N_142RandenTest_VerifyGoldenRanden64Seeded_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [27 x i8] c"VerifyGoldenRanden64Seeded\00", align 1
-@_ZN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden32Default_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [28 x i8] c"VerifyGoldenRanden32Default\00", align 1
-@_ZN12_GLOBAL__N_142RandenTest_VerifyGoldenRanden32Seeded_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [27 x i8] c"VerifyGoldenRanden32Seeded\00", align 1
-@_ZN12_GLOBAL__N_150RandenTest_VerifyGoldenFromDeserializedEngine_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.25 = private unnamed_addr constant [35 x i8] c"VerifyGoldenFromDeserializedEngine\00", align 1
-@_ZN12_GLOBAL__N_128RandenTest_IsFastOrSlow_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.27 = private unnamed_addr constant [13 x i8] c"IsFastOrSlow\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden64Default_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden64Default_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden64Default_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden64Default_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden64Default_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -29740,7 +29734,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2506) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2507) #23
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden64Default_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2506)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2507)
@@ -29817,7 +29810,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2517) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2518) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2519) #23
-  store ptr %call15.i2540, ptr @_ZN12_GLOBAL__N_142RandenTest_VerifyGoldenRanden64Seeded_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i2517)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2518)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2519)
@@ -29894,7 +29886,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i2565
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2541) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2542) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2543) #23
-  store ptr %call15.i2566, ptr @_ZN12_GLOBAL__N_143RandenTest_VerifyGoldenRanden32Default_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i2541)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2542)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2543)
@@ -29971,7 +29962,6 @@ __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i2591
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2567) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2568) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2569) #23
-  store ptr %call15.i2592, ptr @_ZN12_GLOBAL__N_142RandenTest_VerifyGoldenRanden32Seeded_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i2567)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2568)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2569)
@@ -30048,7 +30038,6 @@ __cxx_global_var_init.24.exit:                    ; preds = %invoke.cont10.i2617
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2593) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2594) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2595) #23
-  store ptr %call15.i2618, ptr @_ZN12_GLOBAL__N_150RandenTest_VerifyGoldenFromDeserializedEngine_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i2593)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2594)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2595)
@@ -30125,7 +30114,6 @@ __cxx_global_var_init.26.exit:                    ; preds = %invoke.cont10.i2643
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2619) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2620) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2621) #23
-  store ptr %call15.i2644, ptr @_ZN12_GLOBAL__N_128RandenTest_IsFastOrSlow_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i2619)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2620)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2621)

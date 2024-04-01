@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 @g_CoverInfo = external local_unnamed_addr global %struct.cinfo_tag, align 8
 @DammyBitData = internal unnamed_addr global [78 x i32] zeroinitializer, align 16
 @nDiffVarsIn = internal unnamed_addr global i32 0, align 4
-@pDiffVars = internal unnamed_addr global ptr null, align 8
 @DiffVarWords = internal unnamed_addr global [5 x i32] zeroinitializer, align 16
 @DiffVarBits = internal unnamed_addr global [5 x i32] zeroinitializer, align 16
 @StartingLiterals = internal unnamed_addr global i32 0, align 4
@@ -79,7 +78,6 @@ define noundef i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writeonly %0
   store i32 %22, ptr @nDiffVarsIn, align 4
   %23 = icmp sgt i32 %21, -1
   %24 = select i1 %23, ptr @DiffVars, ptr getelementptr inbounds ([5 x i32], ptr @DiffVars, i64 0, i64 1)
-  store ptr %24, ptr @pDiffVars, align 8
   %25 = icmp sgt i32 %22, 0
   br i1 %25, label %.lr.ph111.preheader, label %._crit_edge112.thread
 

@@ -52,7 +52,6 @@ module asm ".previous\09\09\09\09\09"
 @default_dram_perf_error = internal unnamed_addr global i1 false, align 1
 @default_dram_perf_ref_nid = internal unnamed_addr global i32 -1, align 4
 @default_dram_perf = internal unnamed_addr global %struct.access_coordinate zeroinitializer, align 4
-@default_dram_perf_ref_source = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [96 x i8] c"\016memory-tiers: the performance of DRAM node %d mismatches that of the reference\0ADRAM node %d.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"\016  performance of reference DRAM node %d:\0A\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"    \00", align 1
@@ -422,7 +421,6 @@ define dso_local noundef i32 @mt_set_default_dram_perf(i32 noundef %0, ptr nocap
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @default_dram_perf, ptr noundef align 4 dereferenceable(16) %1, i64 16, i1 false)
   store i32 %0, ptr @default_dram_perf_ref_nid, align 4
   %22 = tail call noalias ptr @kstrdup(ptr noundef %2, i32 noundef 3264) #11
-  store ptr %22, ptr @default_dram_perf_ref_source, align 8
   br label %63
 
 23:                                               ; preds = %18

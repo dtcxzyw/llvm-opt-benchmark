@@ -860,19 +860,13 @@ $_ZTISt15_Sp_counted_ptrIPN7testing8internal16TypedExpectationIFvPvPiS4_EEELN9__
 @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE = internal global %"class.std::function.2" zeroinitializer, align 8
 @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE = internal global %"class.std::function.4" zeroinitializer, align 8
 @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithMemcpyTransfer8transferE = internal global %"class.std::function.6" zeroinitializer, align 8
-@_ZN4absl18container_internal12_GLOBAL__N_119Test_construct_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [5 x i8] c"Test\00", align 1
 @.str.7 = private unnamed_addr constant [10 x i8] c"construct\00", align 1
 @.str.8 = private unnamed_addr constant [152 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/container/internal/common_policy_traits_test.cc\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_117Test_destroy_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.10 = private unnamed_addr constant [8 x i8] c"destroy\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_117Test_element_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.12 = private unnamed_addr constant [8 x i8] c"element\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_126Test_without_transfer_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.14 = private unnamed_addr constant [17 x i8] c"without_transfer\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_123Test_with_transfer_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [14 x i8] c"with_transfer\00", align 1
-@_ZN4absl18container_internal12_GLOBAL__N_129TransferUsesMemcpy_Basic_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.18 = private unnamed_addr constant [19 x i8] c"TransferUsesMemcpy\00", align 1
 @.str.19 = private unnamed_addr constant [6 x i8] c"Basic\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Test_construct_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Test_construct_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Test_construct_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Test_construct_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Test_construct_TestEE10CreateTestEv] }, align 8
@@ -21536,7 +21530,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #24
-  store ptr %call15.i, ptr @_ZN4absl18container_internal12_GLOBAL__N_119Test_construct_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -21609,7 +21602,6 @@ __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #24
-  store ptr %call15.i21, ptr @_ZN4absl18container_internal12_GLOBAL__N_117Test_destroy_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -21682,7 +21674,6 @@ __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont10.i44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i22) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i23) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i24) #24
-  store ptr %call15.i45, ptr @_ZN4absl18container_internal12_GLOBAL__N_117Test_element_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i23)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i24)
@@ -21755,7 +21746,6 @@ __cxx_global_var_init.13.exit:                    ; preds = %invoke.cont10.i68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i46) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i47) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i48) #24
-  store ptr %call15.i69, ptr @_ZN4absl18container_internal12_GLOBAL__N_126Test_without_transfer_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i46)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i47)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i48)
@@ -21828,7 +21818,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont10.i92
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i70) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i71) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i72) #24
-  store ptr %call15.i93, ptr @_ZN4absl18container_internal12_GLOBAL__N_123Test_with_transfer_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i70)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i71)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i72)
@@ -21905,7 +21894,6 @@ __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont10.i116
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i94) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i95) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i96) #24
-  store ptr %call15.i117, ptr @_ZN4absl18container_internal12_GLOBAL__N_129TransferUsesMemcpy_Basic_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i94)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i95)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i96)

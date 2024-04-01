@@ -424,10 +424,8 @@ $_ZTIN4absl8DurationE = comdat any
 @FLAGS_nostring_flag = dso_local local_unnamed_addr global %"struct.absl::flags_internal::FlagRegistrarEmpty" zeroinitializer, align 1
 @_ZL31RETIRED_FLAGS_bool_retired_flag = internal global %"class.absl::flags_internal::RetiredFlag" zeroinitializer, align 8
 @.str.6 = private unnamed_addr constant [18 x i8] c"bool_retired_flag\00", align 1
-@_ZN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [15 x i8] c"ReflectionTest\00", align 1
 @.str.9 = private unnamed_addr constant [24 x i8] c"TestFindCommandLineFlag\00", align 1
-@_ZN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [16 x i8] c"TestGetAllFlags\00", align 1
 @.str.12 = private unnamed_addr constant [13 x i8] c"test_flag_01\00", align 1
 @.absl.2 = internal constant %"struct.absl::flags_internal::FixedCharArray.7" zeroinitializer, section "flags_help_cold", align 1
@@ -482,11 +480,8 @@ $_ZTIN4absl8DurationE = comdat any
 @FLAGS_test_flag_13 = dso_local global { { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] }, { { i64 } } } { { ptr, ptr, ptr, ptr, %"union.absl::flags_internal::FlagHelpMsg", i8, i8, { { i32 } }, { { i64 } }, ptr, { i32, [4 x i8] }, [8 x i8] } { ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl14flags_internal8FlagImplE, i32 0, i32 0, i32 2), ptr @.str.36, ptr @.str.1, ptr @_ZN4absl14flags_internal7FlagOpsIiEEPvNS0_6FlagOpEPKvS2_S2_, %"union.absl::flags_internal::FlagHelpMsg" { ptr @.absl.14 }, i8 0, i8 2, { { i32 } } zeroinitializer, { { i64 } } { { i64 } { i64 -1 } }, ptr null, { i32, [4 x i8] } { i32 200, [4 x i8] undef }, [8 x i8] zeroinitializer }, { { i64 } } zeroinitializer }, align 8
 @FLAGS_notest_flag_13 = dso_local local_unnamed_addr global %"struct.absl::flags_internal::FlagRegistrarEmpty" zeroinitializer, align 1
 @FLAGS_notest_flag_14 = dso_local local_unnamed_addr global %"struct.absl::flags_internal::FlagRegistrarEmpty" zeroinitializer, align 1
-@_ZN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.40 = private unnamed_addr constant [21 x i8] c"TestFlagSaverInScope\00", align 1
-@_ZN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.42 = private unnamed_addr constant [35 x i8] c"TestFlagSaverVsUpdateViaReflection\00", align 1
-@_ZN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.44 = private unnamed_addr constant [39 x i8] c"TestMultipleFlagSaversInEnclosedScopes\00", align 1
 @.str.45 = private unnamed_addr constant [5 x i8] c"dflt\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_TestEE10CreateTestEv] }, align 8
@@ -16825,7 +16820,6 @@ __cxx_global_var_init.7.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #28
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_143ReflectionTest_TestFindCommandLineFlag_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -16898,7 +16892,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i4) #28
-  store ptr %call15.i22, ptr @_ZN12_GLOBAL__N_135ReflectionTest_TestGetAllFlags_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i4)
@@ -16986,7 +16979,6 @@ __cxx_global_var_init.39.exit:                    ; preds = %invoke.cont10.i59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i37) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i38) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i39) #28
-  store ptr %call15.i60, ptr @_ZN12_GLOBAL__N_140ReflectionTest_TestFlagSaverInScope_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i37)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i38)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i39)
@@ -17059,7 +17051,6 @@ __cxx_global_var_init.41.exit:                    ; preds = %invoke.cont10.i83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i61) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i62) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i63) #28
-  store ptr %call15.i84, ptr @_ZN12_GLOBAL__N_154ReflectionTest_TestFlagSaverVsUpdateViaReflection_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i61)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i62)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i63)
@@ -17132,7 +17123,6 @@ __cxx_global_var_init.43.exit:                    ; preds = %invoke.cont10.i107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i85) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i86) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i87) #28
-  store ptr %call15.i108, ptr @_ZN12_GLOBAL__N_158ReflectionTest_TestMultipleFlagSaversInEnclosedScopes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i85)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i86)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i87)

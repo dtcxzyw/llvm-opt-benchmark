@@ -3308,7 +3308,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1911 = private unnamed_addr constant [8 x i8] c"OPA MAD\00", align 1
 @.str.1912 = private unnamed_addr constant [8 x i8] c"opa.mad\00", align 1
 @proto_opa_mad = internal unnamed_addr global i32 0, align 4
-@opa_mad_handle = internal unnamed_addr global ptr null, align 8
 @global_mad_vendor_class = internal global ptr null, align 8
 @.str.1913 = private unnamed_addr constant [10 x i8] c"0x09-0x0F\00", align 1
 @global_mad_vendor_rmpp_class = internal global ptr null, align 8
@@ -3926,7 +3925,6 @@ define hidden void @proto_register_opa_mad() local_unnamed_addr #0 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.1910, ptr noundef nonnull @.str.1911, ptr noundef nonnull @.str.1912) #6
   store i32 %1, ptr @proto_opa_mad, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.1912, ptr noundef nonnull @dissect_opa_mad, i32 noundef %1) #6
-  store ptr %2, ptr @opa_mad_handle, align 8
   %3 = load i32, ptr @proto_opa_mad, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_opa_mad.hf, i32 noundef 1185) #6
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_opa_mad.ett, i32 noundef 153) #6

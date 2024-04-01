@@ -706,7 +706,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.410 = private unnamed_addr constant [11 x i8] c"CIP Safety\00", align 1
 @.str.411 = private unnamed_addr constant [10 x i8] c"cipsafety\00", align 1
 @proto_cipsafety = internal unnamed_addr global i32 0, align 4
-@cipsafety_handle = internal unnamed_addr global ptr null, align 8
 @.str.412 = private unnamed_addr constant [49 x i8] c"Common Industrial Protocol, Safety - Base - Data\00", align 1
 @.str.413 = private unnamed_addr constant [25 x i8] c"CIP Safety - Base - Data\00", align 1
 @.str.414 = private unnamed_addr constant [13 x i8] c"cipsafety_bd\00", align 1
@@ -1456,7 +1455,6 @@ define hidden void @proto_register_cipsafety() local_unnamed_addr #2 {
   tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_cipsafety.ei, i32 noundef 11) #6
   %4 = load i32, ptr @proto_cipsafety, align 4
   %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.411, ptr noundef nonnull @dissect_cipsafety, i32 noundef %4) #6
-  store ptr %5, ptr @cipsafety_handle, align 8
   %6 = load i32, ptr @proto_cipsafety, align 4
   %7 = tail call i32 @proto_register_protocol_in_name_only(ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.413, ptr noundef nonnull @.str.414, i32 noundef %6, i32 noundef 1) #6
   %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.414, ptr noundef nonnull @dissect_cipsafety_base_data, i32 noundef %7) #6

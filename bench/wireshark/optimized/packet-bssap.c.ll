@@ -317,9 +317,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.163 = private unnamed_addr constant [5 x i8] c"rrlp\00", align 1
 @rrlp_handle = internal unnamed_addr global ptr null, align 8
 @.str.164 = private unnamed_addr constant [14 x i8] c"gsm_bssmap_le\00", align 1
-@gsm_bssmap_le_dissector_handle = internal unnamed_addr global ptr null, align 8
 @.str.165 = private unnamed_addr constant [13 x i8] c"gsm_a_bssmap\00", align 1
-@gsm_a_bssmap_dissector_handle = internal unnamed_addr global ptr null, align 8
 @.str.166 = private unnamed_addr constant [9 x i8] c"sccp.ssn\00", align 1
 @.str.167 = private unnamed_addr constant [15 x i8] c"BSS Management\00", align 1
 @.str.168 = private unnamed_addr constant [16 x i8] c"Direct Transfer\00", align 1
@@ -2671,10 +2669,8 @@ define hidden void @proto_reg_handoff_bssap() local_unnamed_addr #0 {
   store ptr %4, ptr @rrlp_handle, align 8
   %5 = load i32, ptr @proto_bssap, align 4
   %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.164, i32 noundef %5) #2
-  store ptr %6, ptr @gsm_bssmap_le_dissector_handle, align 8
   %7 = load i32, ptr @proto_bssap, align 4
   %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.165, i32 noundef %7) #2
-  store ptr %8, ptr @gsm_a_bssmap_dissector_handle, align 8
   %9 = load ptr, ptr @bssap_handle, align 8
   tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.166, ptr noundef %9) #2
   %10 = load ptr, ptr @bsap_handle, align 8

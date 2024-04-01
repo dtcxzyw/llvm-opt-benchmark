@@ -325,7 +325,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.187 = private unnamed_addr constant [15 x i8] c"zigbee_gp_keys\00", align 1
 @gp_uat_key_records = internal global ptr null, align 8
 @num_uat_key_records = internal global i32 0, align 4
-@zbee_gp_sec_key_table_uat = internal unnamed_addr global ptr null, align 8
 @.str.188 = private unnamed_addr constant [13 x i8] c"gp_key_table\00", align 1
 @.str.189 = private unnamed_addr constant [32 x i8] c"Pre-configured GP Security Keys\00", align 1
 @.str.190 = private unnamed_addr constant [33 x i8] c"Pre-configured GP Security Keys.\00", align 1
@@ -473,7 +472,6 @@ define hidden void @proto_register_zbee_nwk_gp() local_unnamed_addr #1 {
   store i32 %1, ptr @proto_zbee_nwk_gp, align 4
   %2 = tail call ptr @prefs_register_protocol(i32 noundef %1, ptr noundef null) #11
   %3 = tail call ptr @uat_new(ptr noundef nonnull @.str.186, i64 noundef 40, ptr noundef nonnull @.str.187, i1 noundef zeroext true, ptr noundef nonnull @gp_uat_key_records, ptr noundef nonnull @num_uat_key_records, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_key_record_copy_cb, ptr noundef nonnull @uat_key_record_update_cb, ptr noundef nonnull @uat_key_record_free_cb, ptr noundef nonnull @uat_key_record_post_update_cb, ptr noundef null, ptr noundef nonnull @proto_register_zbee_nwk_gp.key_uat_fields) #11
-  store ptr %3, ptr @zbee_gp_sec_key_table_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %2, ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, ptr noundef %3) #11
   tail call void @register_init_routine(ptr noundef nonnull @gp_init_zbee_security) #11
   tail call void @register_cleanup_routine(ptr noundef nonnull @gp_cleanup_zbee_security) #11

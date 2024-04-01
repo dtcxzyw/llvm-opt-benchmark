@@ -430,7 +430,6 @@ target triple = "x86_64-pc-linux-gnu"
 @ebhscr_handle = internal unnamed_addr global ptr null, align 8
 @.str.263 = private unnamed_addr constant [20 x i8] c"ebhscr.subdissector\00", align 1
 @.str.264 = private unnamed_addr constant [28 x i8] c"ebhscr next level dissector\00", align 1
-@subdissector_table = internal unnamed_addr global ptr null, align 8
 @.str.265 = private unnamed_addr constant [15 x i8] c"can-hostendian\00", align 1
 @can_handle = internal unnamed_addr global ptr null, align 8
 @.str.266 = private unnamed_addr constant [6 x i8] c"canfd\00", align 1
@@ -570,7 +569,6 @@ define hidden void @proto_register_ebhscr() local_unnamed_addr #0 {
   store ptr %5, ptr @ebhscr_handle, align 8
   %6 = load i32, ptr @proto_ebhscr, align 4
   %7 = tail call ptr @register_decode_as_next_proto(i32 noundef %6, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.264, ptr noundef null) #3
-  store ptr %7, ptr @subdissector_table, align 8
   ret void
 }
 

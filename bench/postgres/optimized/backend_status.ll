@@ -15,9 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [21 x i8] c"Backend Status Array\00", align 1
 @BackendStatusArray = internal unnamed_addr global ptr null, align 8
 @.str.1 = private unnamed_addr constant [32 x i8] c"Backend Application Name Buffer\00", align 1
-@BackendAppnameBuffer = internal unnamed_addr global ptr null, align 8
 @.str.2 = private unnamed_addr constant [32 x i8] c"Backend Client Host Name Buffer\00", align 1
-@BackendClientHostnameBuffer = internal unnamed_addr global ptr null, align 8
 @BackendActivityBufferSize = internal unnamed_addr global i64 0, align 8
 @.str.3 = private unnamed_addr constant [24 x i8] c"Backend Activity Buffer\00", align 1
 @BackendActivityBuffer = internal unnamed_addr global ptr null, align 8
@@ -124,7 +122,6 @@ define dso_local void @CreateSharedBackendStatus() local_unnamed_addr #0 {
   %29 = sext i32 %28 to i64
   %30 = call i64 @mul_size(i64 noundef 64, i64 noundef %29) #11
   %31 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.1, i64 noundef %30, ptr noundef nonnull %1) #11
-  store ptr %31, ptr @BackendAppnameBuffer, align 8
   %32 = load i8, ptr %1, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %.loopexit103..loopexit101_crit_edge, label %34
@@ -195,7 +192,6 @@ define dso_local void @CreateSharedBackendStatus() local_unnamed_addr #0 {
   %63 = sext i32 %.pre-phi to i64
   %64 = call i64 @mul_size(i64 noundef 64, i64 noundef %63) #11
   %65 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef %64, ptr noundef nonnull %1) #11
-  store ptr %65, ptr @BackendClientHostnameBuffer, align 8
   %66 = load i8, ptr %1, align 1
   %67 = trunc i8 %66 to i1
   br i1 %67, label %.loopexit101..loopexit99_crit_edge, label %68

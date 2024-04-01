@@ -299,7 +299,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.213 = private unnamed_addr constant [20 x i8] c"Signal PDU over CAN\00", align 1
 @.str.214 = private unnamed_addr constant [20 x i8] c"signal_pdu_can_heur\00", align 1
 @.str.215 = private unnamed_addr constant [24 x i8] c"signal_pdu_over_flexray\00", align 1
-@signal_pdu_handle_flexray = internal unnamed_addr global ptr null, align 8
 @.str.216 = private unnamed_addr constant [21 x i8] c"flexray.subdissector\00", align 1
 @.str.217 = private unnamed_addr constant [8 x i8] c"flexray\00", align 1
 @.str.218 = private unnamed_addr constant [24 x i8] c"Signal PDU over FlexRay\00", align 1
@@ -1874,7 +1873,6 @@ define hidden void @proto_reg_handoff_signal_pdu() #0 {
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.212, ptr noundef nonnull @dissect_spdu_message_can_heur, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.214, i32 noundef %6, i32 noundef 1) #13
   %7 = load i32, ptr @proto_signal_pdu, align 4
   %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.215, ptr noundef nonnull @dissect_spdu_message_flexray, i32 noundef %7) #13
-  store ptr %8, ptr @signal_pdu_handle_flexray, align 8
   tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.216, ptr noundef %8) #13
   %9 = load i32, ptr @proto_signal_pdu, align 4
   tail call void @heur_dissector_add(ptr noundef nonnull @.str.217, ptr noundef nonnull @dissect_spdu_message_flexray_heur, ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.219, i32 noundef %9, i32 noundef 1) #13

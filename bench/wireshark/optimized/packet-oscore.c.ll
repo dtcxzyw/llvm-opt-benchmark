@@ -186,7 +186,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.144 = private unnamed_addr constant [16 x i8] c"oscore_contexts\00", align 1
 @oscore_contexts = internal global ptr null, align 8
 @num_oscore_contexts = internal global i32 0, align 4
-@oscore_context_uat = internal unnamed_addr global ptr null, align 8
 @.str.145 = private unnamed_addr constant [9 x i8] c"contexts\00", align 1
 @.str.146 = private unnamed_addr constant [36 x i8] c"Security context configuration data\00", align 1
 @.str.147 = private unnamed_addr constant [5 x i8] c"CoAP\00", align 1
@@ -222,7 +221,6 @@ define hidden void @proto_register_oscore() local_unnamed_addr #0 {
   %4 = load i32, ptr @proto_oscore, align 4
   %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null) #9
   %6 = tail call ptr @uat_new(ptr noundef nonnull @.str.143, i64 noundef 112, ptr noundef nonnull @.str.144, i1 noundef zeroext true, ptr noundef nonnull @oscore_contexts, ptr noundef nonnull @num_oscore_contexts, i32 noundef 1, ptr noundef null, ptr noundef nonnull @oscore_context_copy_cb, ptr noundef nonnull @oscore_context_update_cb, ptr noundef nonnull @oscore_context_free_cb, ptr noundef nonnull @oscore_context_post_update_cb, ptr noundef null, ptr noundef nonnull @proto_register_oscore.oscore_context_uat_flds) #9
-  store ptr %6, ptr @oscore_context_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %5, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.146, ptr noundef %6) #9
   %7 = load i32, ptr @proto_oscore, align 4
   %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.142, ptr noundef nonnull @oscore_dissect, i32 noundef %7) #9

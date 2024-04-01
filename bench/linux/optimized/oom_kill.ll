@@ -445,7 +445,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_unregister_o
 @.str.62 = private unnamed_addr constant [9 x i8] c"progress\00", align 1
 @this_cpu_off = external dso_local global i64, section ".data..percpu..read_mostly", align 8
 @.str.63 = private unnamed_addr constant [11 x i8] c"oom_reaper\00", align 1
-@oom_reaper_th = internal unnamed_addr global ptr null, align 8
 @.str.64 = private unnamed_addr constant [3 x i8] c"vm\00", align 1
 @vm_oom_kill_table = internal global [4 x %struct.ctl_table] [%struct.ctl_table { ptr @.str.69, ptr @sysctl_panic_on_oom, i32 4, i16 420, i32 0, ptr @proc_dointvec_minmax, ptr null, ptr @sysctl_vals, ptr getelementptr (i8, ptr @sysctl_vals, i64 8) }, %struct.ctl_table { ptr @.str.70, ptr @sysctl_oom_kill_allocating_task, i32 4, i16 420, i32 0, ptr @proc_dointvec, ptr null, ptr null, ptr null }, %struct.ctl_table { ptr @.str.71, ptr @sysctl_oom_dump_tasks, i32 4, i16 420, i32 0, ptr @proc_dointvec, ptr null, ptr null, ptr null }, %struct.ctl_table zeroinitializer], align 16
 @.str.65 = private unnamed_addr constant [18 x i8] c"vm_oom_kill_table\00", align 1
@@ -1758,7 +1757,6 @@ define internal noundef i32 @oom_init() #5 section ".init.text" align 16 {
   br label %5
 
 5:                                                ; preds = %3, %0
-  store ptr %1, ptr @oom_reaper_th, align 8
   tail call void @__register_sysctl_init(ptr noundef nonnull @.str.64, ptr noundef nonnull @vm_oom_kill_table, ptr noundef nonnull @.str.65, i64 noundef 4) #17
   ret i32 0
 }

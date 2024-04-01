@@ -666,7 +666,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.500 = private unnamed_addr constant [7 x i8] c"BT LMP\00", align 1
 @.str.501 = private unnamed_addr constant [6 x i8] c"btlmp\00", align 1
 @proto_btlmp = internal unnamed_addr global i32 0, align 4
-@btlmp_handle = internal unnamed_addr global ptr null, align 8
 @.str.502 = private unnamed_addr constant [13 x i8] c"LMP_name_req\00", align 1
 @.str.503 = private unnamed_addr constant [13 x i8] c"LMP_name_res\00", align 1
 @.str.504 = private unnamed_addr constant [13 x i8] c"LMP_accepted\00", align 1
@@ -926,7 +925,6 @@ define hidden void @proto_register_btlmp() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_btlmp.ett, i32 noundef 1) #4
   %2 = load i32, ptr @proto_btlmp, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.501, ptr noundef nonnull @dissect_btlmp, i32 noundef %2) #4
-  store ptr %3, ptr @btlmp_handle, align 8
   ret void
 }
 

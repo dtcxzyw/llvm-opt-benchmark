@@ -50,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [6 x i8] c"RDPMT\00", align 1
 @.str.22 = private unnamed_addr constant [6 x i8] c"rdpmt\00", align 1
 @proto_rdpmt = internal unnamed_addr global i32 0, align 4
-@rdpmt_handle = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [12 x i8] c"rdp_drdynvc\00", align 1
 @drdynvcDissector = internal unnamed_addr global ptr null, align 8
 @.str.24 = private unnamed_addr constant [4 x i8] c"tls\00", align 1
@@ -75,7 +74,6 @@ define hidden void @proto_register_rdpmt() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rdpmt.ett, i32 noundef 5) #2
   %2 = load i32, ptr @proto_rdpmt, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.22, ptr noundef nonnull @dissect_rdpmt, i32 noundef %2) #2
-  store ptr %3, ptr @rdpmt_handle, align 8
   ret void
 }
 

@@ -256,36 +256,22 @@ $_ZTIN4absl16strings_internal13OStringStreamE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_124StrJoin_APIExamples_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [8 x i8] c"StrJoin\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c"APIExamples\00", align 1
 @.str.3 = private unnamed_addr constant [129 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/strings/str_join_test.cc\00", align 1
-@_ZN12_GLOBAL__N_128StrJoin_CustomFormatter_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [16 x i8] c"CustomFormatter\00", align 1
-@_ZN12_GLOBAL__N_135AlphaNumFormatter_FormatterAPI_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [18 x i8] c"AlphaNumFormatter\00", align 1
 @.str.8 = private unnamed_addr constant [13 x i8] c"FormatterAPI\00", align 1
-@_ZN12_GLOBAL__N_135AlphaNumFormatter_VectorOfBool_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.10 = private unnamed_addr constant [13 x i8] c"VectorOfBool\00", align 1
-@_ZN12_GLOBAL__N_131AlphaNumFormatter_AlphaNum_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.12 = private unnamed_addr constant [9 x i8] c"AlphaNum\00", align 1
-@_ZN12_GLOBAL__N_133StreamFormatter_FormatterAPI_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.14 = private unnamed_addr constant [16 x i8] c"StreamFormatter\00", align 1
-@_ZN12_GLOBAL__N_131PairFormatter_FormatterAPI_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [14 x i8] c"PairFormatter\00", align 1
-@_ZN12_GLOBAL__N_138DereferenceFormatter_FormatterAPI_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.18 = private unnamed_addr constant [21 x i8] c"DereferenceFormatter\00", align 1
-@_ZN12_GLOBAL__N_131StrJoin_PublicAPIOverloads_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.20 = private unnamed_addr constant [19 x i8] c"PublicAPIOverloads\00", align 1
-@_ZN12_GLOBAL__N_118StrJoin_Array_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.22 = private unnamed_addr constant [6 x i8] c"Array\00", align 1
-@_ZN12_GLOBAL__N_128StrJoin_InitializerList_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.24 = private unnamed_addr constant [16 x i8] c"InitializerList\00", align 1
-@_ZN12_GLOBAL__N_118StrJoin_Tuple_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.26 = private unnamed_addr constant [6 x i8] c"Tuple\00", align 1
-@_ZN12_GLOBAL__N_148StrJoin_TestIteratorRequirementsNoFormatter_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.28 = private unnamed_addr constant [36 x i8] c"TestIteratorRequirementsNoFormatter\00", align 1
-@_ZN12_GLOBAL__N_152StrJoin_TestIteratorRequirementsCustomFormatter_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.30 = private unnamed_addr constant [40 x i8] c"TestIteratorRequirementsCustomFormatter\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrJoin_APIExamples_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrJoin_APIExamples_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrJoin_APIExamples_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrJoin_APIExamples_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrJoin_APIExamples_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -17380,7 +17366,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #20
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_124StrJoin_APIExamples_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -17457,7 +17442,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #20
-  store ptr %call15.i23, ptr @_ZN12_GLOBAL__N_128StrJoin_CustomFormatter_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -17534,7 +17518,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i24) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i26) #20
-  store ptr %call15.i49, ptr @_ZN12_GLOBAL__N_135AlphaNumFormatter_FormatterAPI_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i26)
@@ -17611,7 +17594,6 @@ __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont10.i74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i50) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i52) #20
-  store ptr %call15.i75, ptr @_ZN12_GLOBAL__N_135AlphaNumFormatter_VectorOfBool_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i50)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i52)
@@ -17688,7 +17670,6 @@ __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont10.i100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i76) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i77) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i78) #20
-  store ptr %call15.i101, ptr @_ZN12_GLOBAL__N_131AlphaNumFormatter_AlphaNum_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i76)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i77)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i78)
@@ -17765,7 +17746,6 @@ __cxx_global_var_init.13.exit:                    ; preds = %invoke.cont10.i126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i102) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i103) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i104) #20
-  store ptr %call15.i127, ptr @_ZN12_GLOBAL__N_133StreamFormatter_FormatterAPI_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i102)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i103)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i104)
@@ -17842,7 +17822,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont10.i152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i128) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i129) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i130) #20
-  store ptr %call15.i153, ptr @_ZN12_GLOBAL__N_131PairFormatter_FormatterAPI_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i128)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i129)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i130)
@@ -17919,7 +17898,6 @@ __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont10.i178
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i154) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i155) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i156) #20
-  store ptr %call15.i179, ptr @_ZN12_GLOBAL__N_138DereferenceFormatter_FormatterAPI_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i154)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i155)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i156)
@@ -17996,7 +17974,6 @@ __cxx_global_var_init.19.exit:                    ; preds = %invoke.cont10.i204
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i180) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i181) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i182) #20
-  store ptr %call15.i205, ptr @_ZN12_GLOBAL__N_131StrJoin_PublicAPIOverloads_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i180)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i181)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i182)
@@ -18073,7 +18050,6 @@ __cxx_global_var_init.21.exit:                    ; preds = %invoke.cont10.i230
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i206) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i207) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i208) #20
-  store ptr %call15.i231, ptr @_ZN12_GLOBAL__N_118StrJoin_Array_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i206)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i207)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i208)
@@ -18150,7 +18126,6 @@ __cxx_global_var_init.23.exit:                    ; preds = %invoke.cont10.i256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i232) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i233) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i234) #20
-  store ptr %call15.i257, ptr @_ZN12_GLOBAL__N_128StrJoin_InitializerList_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i232)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i233)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i234)
@@ -18227,7 +18202,6 @@ __cxx_global_var_init.25.exit:                    ; preds = %invoke.cont10.i282
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i258) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i259) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i260) #20
-  store ptr %call15.i283, ptr @_ZN12_GLOBAL__N_118StrJoin_Tuple_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i258)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i259)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i260)
@@ -18304,7 +18278,6 @@ __cxx_global_var_init.27.exit:                    ; preds = %invoke.cont10.i308
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i284) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i285) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i286) #20
-  store ptr %call15.i309, ptr @_ZN12_GLOBAL__N_148StrJoin_TestIteratorRequirementsNoFormatter_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i284)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i285)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i286)
@@ -18381,7 +18354,6 @@ __cxx_global_var_init.29.exit:                    ; preds = %invoke.cont10.i334
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i310) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i311) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i312) #20
-  store ptr %call15.i335, ptr @_ZN12_GLOBAL__N_152StrJoin_TestIteratorRequirementsCustomFormatter_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i310)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i311)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i312)

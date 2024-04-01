@@ -217,7 +217,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.127 = private unnamed_addr constant [5 x i8] c"SANE\00", align 1
 @.str.128 = private unnamed_addr constant [5 x i8] c"sane\00", align 1
 @proto_sane = internal unnamed_addr global i32 0, align 4
-@sane_handle = internal unnamed_addr global ptr null, align 8
 @.str.129 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.130 = private unnamed_addr constant [5 x i8] c"6566\00", align 1
 @.str.131 = private unnamed_addr constant [14 x i8] c"SANE_NET_INIT\00", align 1
@@ -360,7 +359,6 @@ define internal void @apply_sane_prefs() #0 {
 define hidden void @proto_reg_handoff_sane() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_sane, align 4
   %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_sane, i32 noundef %1) #4
-  store ptr %2, ptr @sane_handle, align 8
   tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130, ptr noundef %2) #4
   %3 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129) #4
   store ptr %3, ptr @sane_server_ports, align 8

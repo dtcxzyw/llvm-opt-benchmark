@@ -1276,14 +1276,12 @@ target triple = "x86_64-pc-linux-gnu"
 @ikev1_uat_data = internal global ptr null, align 8
 @num_ikev1_uat_data = internal global i32 0, align 4
 @.str.807 = private unnamed_addr constant [25 x i8] c"ChIKEv1DecryptionSection\00", align 1
-@ikev1_uat = internal unnamed_addr global ptr null, align 8
 @.str.808 = private unnamed_addr constant [68 x i8] c"Table of IKE_SA security parameters for decryption of IKEv1 packets\00", align 1
 @.str.809 = private unnamed_addr constant [23 x i8] c"IKEv2 Decryption Table\00", align 1
 @.str.810 = private unnamed_addr constant [23 x i8] c"ikev2_decryption_table\00", align 1
 @ikev2_uat_data = internal global ptr null, align 8
 @num_ikev2_uat_data = internal global i32 0, align 4
 @.str.811 = private unnamed_addr constant [25 x i8] c"ChIKEv2DecryptionSection\00", align 1
-@ikev2_uat = internal unnamed_addr global ptr null, align 8
 @.str.812 = private unnamed_addr constant [68 x i8] c"Table of IKE_SA security parameters for decryption of IKEv2 packets\00", align 1
 @.str.813 = private unnamed_addr constant [4 x i8] c"eap\00", align 1
 @eap_handle = internal unnamed_addr global ptr null, align 8
@@ -5334,10 +5332,8 @@ define hidden void @proto_register_isakmp() local_unnamed_addr #0 {
   %6 = load i32, ptr @proto_isakmp, align 4
   %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #17
   %8 = tail call ptr @uat_new(ptr noundef nonnull @.str.805, i64 noundef 32, ptr noundef nonnull @.str.806, i1 noundef zeroext true, ptr noundef nonnull @ikev1_uat_data, ptr noundef nonnull @num_ikev1_uat_data, i32 noundef 1, ptr noundef nonnull @.str.807, ptr noundef nonnull @ikev1_uat_data_copy_cb, ptr noundef nonnull @ikev1_uat_data_update_cb, ptr noundef nonnull @ikev1_uat_data_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_isakmp.ikev1_uat_flds) #17
-  store ptr %8, ptr @ikev1_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %7, ptr noundef nonnull @.str.806, ptr noundef nonnull @.str.805, ptr noundef nonnull @.str.808, ptr noundef %8) #17
   %9 = tail call ptr @uat_new(ptr noundef nonnull @.str.809, i64 noundef 120, ptr noundef nonnull @.str.810, i1 noundef zeroext true, ptr noundef nonnull @ikev2_uat_data, ptr noundef nonnull @num_ikev2_uat_data, i32 noundef 1, ptr noundef nonnull @.str.811, ptr noundef nonnull @ikev2_uat_data_copy_cb, ptr noundef nonnull @ikev2_uat_data_update_cb, ptr noundef nonnull @ikev2_uat_data_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_isakmp.ikev2_uat_flds) #17
-  store ptr %9, ptr @ikev2_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %7, ptr noundef nonnull @.str.810, ptr noundef nonnull @.str.809, ptr noundef nonnull @.str.812, ptr noundef %9) #17
   ret void
 }

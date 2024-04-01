@@ -131,34 +131,21 @@ $_ZZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_strin
 @.str.2 = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/numeric/bits_test.cc\00", align 1
 @.str.3 = private unnamed_addr constant [17 x i8] c"IntegerTypesTest\00", align 1
 @.str.4 = private unnamed_addr constant [13 x i8] c"HandlesTypes\00", align 1
-@_ZN4absl12_GLOBAL__N_116Rotate_Left_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.6 = private unnamed_addr constant [7 x i8] c"Rotate\00", align 1
 @.str.7 = private unnamed_addr constant [5 x i8] c"Left\00", align 1
-@_ZN4absl12_GLOBAL__N_117Rotate_Right_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [6 x i8] c"Right\00", align 1
-@_ZN4absl12_GLOBAL__N_120Rotate_Symmetry_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [9 x i8] c"Symmetry\00", align 1
-@_ZN4absl12_GLOBAL__N_127Counting_LeadingZeroes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [9 x i8] c"Counting\00", align 1
 @.str.14 = private unnamed_addr constant [14 x i8] c"LeadingZeroes\00", align 1
-@_ZN4absl12_GLOBAL__N_125Counting_LeadingOnes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [12 x i8] c"LeadingOnes\00", align 1
-@_ZN4absl12_GLOBAL__N_128Counting_TrailingZeroes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.18 = private unnamed_addr constant [15 x i8] c"TrailingZeroes\00", align 1
-@_ZN4absl12_GLOBAL__N_126Counting_TrailingOnes_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.20 = private unnamed_addr constant [13 x i8] c"TrailingOnes\00", align 1
-@_ZN4absl12_GLOBAL__N_122Counting_Popcount_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.22 = private unnamed_addr constant [9 x i8] c"Popcount\00", align 1
-@_ZN4absl12_GLOBAL__N_126Counting_PopcountFuzz_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.24 = private unnamed_addr constant [13 x i8] c"PopcountFuzz\00", align 1
-@_ZN4absl12_GLOBAL__N_134IntegralPowersOfTwo_SingleBit_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.26 = private unnamed_addr constant [20 x i8] c"IntegralPowersOfTwo\00", align 1
 @.str.27 = private unnamed_addr constant [10 x i8] c"SingleBit\00", align 1
-@_ZN4absl12_GLOBAL__N_132IntegralPowersOfTwo_Ceiling_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.29 = private unnamed_addr constant [8 x i8] c"Ceiling\00", align 1
-@_ZN4absl12_GLOBAL__N_130IntegralPowersOfTwo_Floor_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.31 = private unnamed_addr constant [6 x i8] c"Floor\00", align 1
-@_ZN4absl12_GLOBAL__N_130IntegralPowersOfTwo_Width_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.33 = private unnamed_addr constant [6 x i8] c"Width\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_116Rotate_Left_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_116Rotate_Left_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_116Rotate_Left_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_116Rotate_Left_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_116Rotate_Left_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -20598,7 +20585,6 @@ __cxx_global_var_init.5.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i2) #18
-  store ptr %call15.i, ptr @_ZN4absl12_GLOBAL__N_116Rotate_Left_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i2)
@@ -20675,7 +20661,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i12) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i13) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i14) #18
-  store ptr %call15.i35, ptr @_ZN4absl12_GLOBAL__N_117Rotate_Right_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i13)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i14)
@@ -20752,7 +20737,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i60
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i36) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i37) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i38) #18
-  store ptr %call15.i61, ptr @_ZN4absl12_GLOBAL__N_120Rotate_Symmetry_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i37)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i38)
@@ -20829,7 +20813,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i62) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i63) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i64) #18
-  store ptr %call15.i87, ptr @_ZN4absl12_GLOBAL__N_127Counting_LeadingZeroes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i62)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i63)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i64)
@@ -20906,7 +20889,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont10.i112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i88) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i89) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i90) #18
-  store ptr %call15.i113, ptr @_ZN4absl12_GLOBAL__N_125Counting_LeadingOnes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i88)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i89)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i90)
@@ -20983,7 +20965,6 @@ __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont10.i138
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i114) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i115) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i116) #18
-  store ptr %call15.i139, ptr @_ZN4absl12_GLOBAL__N_128Counting_TrailingZeroes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i114)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i115)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i116)
@@ -21060,7 +21041,6 @@ __cxx_global_var_init.19.exit:                    ; preds = %invoke.cont10.i164
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i140) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i141) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i142) #18
-  store ptr %call15.i165, ptr @_ZN4absl12_GLOBAL__N_126Counting_TrailingOnes_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i140)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i141)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i142)
@@ -21137,7 +21117,6 @@ __cxx_global_var_init.21.exit:                    ; preds = %invoke.cont10.i190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i166) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i167) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i168) #18
-  store ptr %call15.i191, ptr @_ZN4absl12_GLOBAL__N_122Counting_Popcount_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i166)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i167)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i168)
@@ -21214,7 +21193,6 @@ __cxx_global_var_init.23.exit:                    ; preds = %invoke.cont10.i216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i192) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i193) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i194) #18
-  store ptr %call15.i217, ptr @_ZN4absl12_GLOBAL__N_126Counting_PopcountFuzz_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i192)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i193)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i194)
@@ -21291,7 +21269,6 @@ __cxx_global_var_init.25.exit:                    ; preds = %invoke.cont10.i242
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i218) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i219) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i220) #18
-  store ptr %call15.i243, ptr @_ZN4absl12_GLOBAL__N_134IntegralPowersOfTwo_SingleBit_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i218)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i219)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i220)
@@ -21368,7 +21345,6 @@ __cxx_global_var_init.28.exit:                    ; preds = %invoke.cont10.i268
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i244) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i245) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i246) #18
-  store ptr %call15.i269, ptr @_ZN4absl12_GLOBAL__N_132IntegralPowersOfTwo_Ceiling_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i244)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i245)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i246)
@@ -21445,7 +21421,6 @@ __cxx_global_var_init.30.exit:                    ; preds = %invoke.cont10.i294
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i270) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i271) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i272) #18
-  store ptr %call15.i295, ptr @_ZN4absl12_GLOBAL__N_130IntegralPowersOfTwo_Floor_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i270)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i271)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i272)
@@ -21522,7 +21497,6 @@ __cxx_global_var_init.32.exit:                    ; preds = %invoke.cont10.i320
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i296) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i297) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i298) #18
-  store ptr %call15.i321, ptr @_ZN4absl12_GLOBAL__N_130IntegralPowersOfTwo_Width_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i296)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i297)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i298)

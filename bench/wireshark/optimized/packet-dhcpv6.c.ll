@@ -706,7 +706,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.416 = private unnamed_addr constant [17 x i8] c"DHCPv6 Cablelabs\00", align 1
 @.str.417 = private unnamed_addr constant [18 x i8] c"DHCPv6(cablelabs)\00", align 1
 @.str.418 = private unnamed_addr constant [17 x i8] c"dhcpv6_cablelabs\00", align 1
-@dhcpv6_cablelabs_handle = internal unnamed_addr global ptr null, align 8
 @.str.419 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.420 = private unnamed_addr constant [8 x i8] c"546-547\00", align 1
 @.str.421 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
@@ -1218,7 +1217,6 @@ define hidden void @proto_register_dhcpv6() local_unnamed_addr #0 {
   store ptr %16, ptr @dhcpv6_enterprise_opts_dissector_table, align 8
   %17 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.416, ptr noundef nonnull @.str.417, ptr noundef nonnull @.str.418) #6
   %18 = tail call ptr @register_dissector(ptr noundef nonnull @.str.418, ptr noundef nonnull @dissect_cablelabs_specific_opts, i32 noundef %17) #6
-  store ptr %18, ptr @dhcpv6_cablelabs_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.414, i32 noundef 4491, ptr noundef %18) #6
   ret void
 }

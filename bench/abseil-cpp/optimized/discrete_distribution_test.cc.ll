@@ -906,12 +906,9 @@ $_ZTISt6vectorIiSaIiEE = comdat any
 @.str.3 = private unnamed_addr constant [29 x i8] c"DiscreteDistributionTypeTest\00", align 1
 @.str.4 = private unnamed_addr constant [19 x i8] c"ParamSerializeTest\00", align 1
 @.str.6 = private unnamed_addr constant [12 x i8] c"Constructor\00", align 1
-@_ZN12_GLOBAL__N_154DiscreteDistributionTest_InitDiscreteDistribution_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [25 x i8] c"DiscreteDistributionTest\00", align 1
 @.str.9 = private unnamed_addr constant [25 x i8] c"InitDiscreteDistribution\00", align 1
-@_ZN12_GLOBAL__N_146DiscreteDistributionTest_ChiSquaredTest50_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [17 x i8] c"ChiSquaredTest50\00", align 1
-@_ZN12_GLOBAL__N_143DiscreteDistributionTest_StabilityTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [14 x i8] c"StabilityTest\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154DiscreteDistributionTest_InitDiscreteDistribution_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154DiscreteDistributionTest_InitDiscreteDistribution_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154DiscreteDistributionTest_InitDiscreteDistribution_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154DiscreteDistributionTest_InitDiscreteDistribution_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_154DiscreteDistributionTest_InitDiscreteDistribution_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -48596,7 +48593,6 @@ __cxx_global_var_init.7.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i255) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i256) #22
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_154DiscreteDistributionTest_InitDiscreteDistribution_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i255)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i256)
@@ -48673,7 +48669,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i266) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i267) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i268) #22
-  store ptr %call15.i289, ptr @_ZN12_GLOBAL__N_146DiscreteDistributionTest_ChiSquaredTest50_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i266)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i267)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i268)
@@ -48750,7 +48745,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i314
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i290) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i291) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i292) #22
-  store ptr %call15.i315, ptr @_ZN12_GLOBAL__N_143DiscreteDistributionTest_StabilityTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i290)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i291)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i292)

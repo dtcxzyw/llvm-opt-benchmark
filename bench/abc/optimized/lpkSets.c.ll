@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [13 x i8] c"SRed = %2d  \00", align 1
 @.str.5 = private unnamed_addr constant [15 x i8] c"              \00", align 1
 @Lpk_MapSuppRedDecSelect.pStore = internal global [256 x %struct.Lpk_Set_t_] zeroinitializer, align 16
-@Lpk_MapSuppRedDecSelect.pSet = internal unnamed_addr global ptr null, align 8
 @Lpk_MapSuppRedDecSelect.pSetBest = internal unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [25 x i8] c"Evaluating variable %c:\0A\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
@@ -1104,7 +1103,6 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   br i1 %exitcond112.not, label %89, label %79, !llvm.loop !19
 
 89:                                               ; preds = %87
-  store ptr %81, ptr @Lpk_MapSuppRedDecSelect.pSet, align 8
   %90 = icmp eq ptr %88, null
   br i1 %90, label %.thread114, label %92
 

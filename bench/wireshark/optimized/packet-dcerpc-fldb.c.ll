@@ -348,7 +348,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.246 = private unnamed_addr constant [39 x i8] c" :FIXME!: Invalid string length of  %u\00", align 1
 @st = internal global i32 0, align 4
 @dce_error_vals_ext = external global %struct._value_string_ext, align 8
-@st_str = internal unnamed_addr global ptr null, align 8
 @.str.247 = private unnamed_addr constant [10 x i8] c"%s st:%s \00", align 1
 @.str.248 = private unnamed_addr constant [21 x i8] c"GetEntryByName reply\00", align 1
 @.str.249 = private unnamed_addr constant [8 x i8] c" st:%s \00", align 1
@@ -528,7 +527,6 @@ define internal i32 @fldb_dissect_getentrybyname_resp(ptr noundef %0, i32 nounde
   %12 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull @st) #3
   %13 = load i32, ptr @st, align 4
   %14 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %14, ptr @st_str, align 8
   %15 = load i32, ptr @st, align 4
   %.not17 = icmp eq i32 %15, 0
   %16 = getelementptr inbounds i8, ptr %2, i64 8
@@ -850,7 +848,6 @@ define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %
   %121 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, ptr noundef nonnull @st) #3
   %122 = load i32, ptr @st, align 4
   %123 = call ptr @val_to_str_ext(i32 noundef %122, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %123, ptr @st_str, align 8
   %124 = load i32, ptr @st, align 4
   %.not81 = icmp eq i32 %124, 0
   %125 = load ptr, ptr %27, align 8
@@ -897,7 +894,6 @@ define internal i32 @fldb_dissect_createentry_resp(ptr noundef %0, i32 noundef %
   %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
   %12 = load i32, ptr @st, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
   %15 = getelementptr inbounds i8, ptr %2, i64 8
@@ -961,7 +957,6 @@ define internal i32 @fldb_dissect_deleteentry_resp(ptr noundef %0, i32 noundef %
   %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
   %12 = load i32, ptr @st, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
   %15 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1023,7 +1018,6 @@ define internal i32 @fldb_dissect_replaceentry_resp(ptr noundef %0, i32 noundef 
   %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
   %12 = load i32, ptr @st, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
   %15 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1089,7 +1083,6 @@ define internal i32 @fldb_dissect_setlock_resp(ptr noundef %0, i32 noundef %1, p
   %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
   %12 = load i32, ptr @st, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
   %15 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1153,7 +1146,6 @@ define internal i32 @fldb_dissect_releaselock_resp(ptr noundef %0, i32 noundef %
   %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
   %12 = load i32, ptr @st, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
   %15 = getelementptr inbounds i8, ptr %2, i64 8

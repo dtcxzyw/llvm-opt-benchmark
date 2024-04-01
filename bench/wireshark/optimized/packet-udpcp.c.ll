@@ -188,7 +188,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.120 = private unnamed_addr constant [47 x i8] c"No ACK seen for this data frame (message_id=%u\00", align 1
 @.str.121 = private unnamed_addr constant [58 x i8] c"No SN frame seen corresponding to this ACK (message_id=%u\00", align 1
 @.str.122 = private unnamed_addr constant [16 x i8] c"UDPCP fragments\00", align 1
-@global_udpcp_port_range = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_udpcp() local_unnamed_addr #0 {
@@ -951,7 +950,6 @@ define hidden void @proto_reg_handoff_udpcp() local_unnamed_addr #0 {
   %1 = load ptr, ptr @udpcp_handle, align 8
   tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.93, ptr noundef %1) #6
   %2 = tail call ptr @prefs_get_range_value(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.96) #6
-  store ptr %2, ptr @global_udpcp_port_range, align 8
   %3 = tail call ptr @find_dissector(ptr noundef nonnull @.str.97) #6
   store ptr %3, ptr @xml_handle, align 8
   ret void

@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 @ppp_hdlc_handle = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
 @ip_cap_handle = internal unnamed_addr global ptr null, align 8
-@ipv6_cap_handle = internal unnamed_addr global ptr null, align 8
 @ppp_hdlc_cap_handle = internal unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [4 x i8] c"N/A\00", align 1
 @zeroes = internal constant [10 x i8] zeroinitializer, align 1
@@ -143,7 +142,6 @@ define hidden void @proto_reg_handoff_raw() local_unnamed_addr #0 {
   %10 = tail call ptr @find_capture_dissector(ptr noundef nonnull @.str.4) #3
   store ptr %10, ptr @ip_cap_handle, align 8
   %11 = tail call ptr @find_capture_dissector(ptr noundef nonnull @.str.5) #3
-  store ptr %11, ptr @ipv6_cap_handle, align 8
   %12 = tail call ptr @find_capture_dissector(ptr noundef nonnull @.str.6) #3
   store ptr %12, ptr @ppp_hdlc_cap_handle, align 8
   ret void

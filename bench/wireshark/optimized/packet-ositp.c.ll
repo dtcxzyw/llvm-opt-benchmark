@@ -311,9 +311,7 @@ target triple = "x86_64-pc-linux-gnu"
 @cltp_heur_subdissector_list = internal unnamed_addr global ptr null, align 8
 @.str.184 = private unnamed_addr constant [9 x i8] c"ip.proto\00", align 1
 @.str.185 = private unnamed_addr constant [7 x i8] c"rdp_cr\00", align 1
-@rdp_cr_handle = internal unnamed_addr global ptr null, align 8
 @.str.186 = private unnamed_addr constant [7 x i8] c"rdp_cc\00", align 1
-@rdp_cc_handle = internal unnamed_addr global ptr null, align 8
 @.str.187 = private unnamed_addr constant [5 x i8] c"clnp\00", align 1
 @proto_clnp = internal unnamed_addr global i32 0, align 4
 @.str.188 = private unnamed_addr constant [4 x i8] c"udp\00", align 1
@@ -510,9 +508,7 @@ define hidden void @proto_reg_handoff_cotp() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ositp_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.184, i32 noundef 29, ptr noundef %1) #8
   %2 = tail call ptr @find_dissector(ptr noundef nonnull @.str.185) #8
-  store ptr %2, ptr @rdp_cr_handle, align 8
   %3 = tail call ptr @find_dissector(ptr noundef nonnull @.str.186) #8
-  store ptr %3, ptr @rdp_cc_handle, align 8
   %4 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.187) #8
   store i32 %4, ptr @proto_clnp, align 4
   %5 = load i32, ptr @proto_cltp, align 4

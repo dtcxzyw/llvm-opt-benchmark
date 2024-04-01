@@ -720,7 +720,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.398 = private unnamed_addr constant [4 x i8] c"CMS\00", align 1
 @.str.399 = private unnamed_addr constant [4 x i8] c"cms\00", align 1
 @proto_cms = internal unnamed_addr global i32 0, align 4
-@cms_handle = internal unnamed_addr global ptr null, align 8
 @.str.400 = private unnamed_addr constant [5 x i8] c".p7s\00", align 1
 @.str.401 = private unnamed_addr constant [5 x i8] c".p7m\00", align 1
 @.str.402 = private unnamed_addr constant [5 x i8] c".p7c\00", align 1
@@ -1183,7 +1182,6 @@ define hidden void @proto_register_cms() local_unnamed_addr #0 {
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.397, ptr noundef nonnull @.str.398, ptr noundef nonnull @.str.399) #4
   store i32 %1, ptr @proto_cms, align 4
   %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.399, ptr noundef nonnull @dissect_cms, i32 noundef %1) #4
-  store ptr %2, ptr @cms_handle, align 8
   %3 = load i32, ptr @proto_cms, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_cms.hf, i32 noundef 185) #4
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_cms.ett, i32 noundef 80) #4

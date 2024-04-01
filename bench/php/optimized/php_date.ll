@@ -396,6 +396,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.277 = private unnamed_addr constant [9 x i8] c"December\00", align 1
 @date_object_handlers_date = internal global %struct._zend_object_handlers zeroinitializer, align 8
 @std_object_handlers = external constant %struct._zend_object_handlers, align 8
+@date_object_handlers_immutable = internal unnamed_addr global %struct._zend_object_handlers zeroinitializer, align 8
 @date_object_handlers_timezone = internal global %struct._zend_object_handlers zeroinitializer, align 8
 @date_object_handlers_interval = internal global %struct._zend_object_handlers zeroinitializer, align 8
 @zend_ce_aggregate = external local_unnamed_addr global ptr, align 8
@@ -1502,6 +1503,7 @@ register_class_DateTimeInterface.exit.i:          ; preds = %389, %388, %381, %3
   store ptr @date_object_new_date, ptr %406, align 8
   %407 = getelementptr inbounds i8, ptr %405, i64 360
   store ptr @date_object_handlers_date, ptr %407, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @date_object_handlers_immutable, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)

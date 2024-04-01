@@ -876,7 +876,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.508 = private unnamed_addr constant [8 x i8] c"ntlmssp\00", align 1
 @ntlmssp_handle = internal unnamed_addr global ptr null, align 8
 @.str.509 = private unnamed_addr constant [4 x i8] c"tls\00", align 1
-@tls_handle = internal unnamed_addr global ptr null, align 8
 @.str.510 = private unnamed_addr constant [23 x i8] c"ISO assigned OIDs, USA\00", align 1
 @.str.511 = private unnamed_addr constant [8 x i8] c"1.2.840\00", align 1
 @.str.512 = private unnamed_addr constant [29 x i8] c"LDAP_PAGED_RESULT_OID_STRING\00", align 1
@@ -1924,7 +1923,6 @@ define hidden void @proto_reg_handoff_ldap() local_unnamed_addr #0 {
   store ptr %9, ptr @ntlmssp_handle, align 8
   %10 = load i32, ptr @proto_ldap, align 4
   %11 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.509, i32 noundef %10) #12
-  store ptr %11, ptr @tls_handle, align 8
   %12 = load i32, ptr @ssl_port, align 4
   %13 = load i32, ptr @global_ldaps_tcp_port, align 4
   %.not.i = icmp eq i32 %12, %13

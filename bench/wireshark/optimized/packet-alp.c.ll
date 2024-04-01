@@ -187,7 +187,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.102 = private unnamed_addr constant [4 x i8] c"ALP\00", align 1
 @.str.103 = private unnamed_addr constant [4 x i8] c"alp\00", align 1
 @proto_alp = internal unnamed_addr global i32 0, align 4
-@alp_handle = internal unnamed_addr global ptr null, align 8
 @.str.104 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
 @.str.105 = private unnamed_addr constant [3 x i8] c"ip\00", align 1
 @ip_handle = internal unnamed_addr global ptr null, align 8
@@ -234,7 +233,6 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 define hidden void @proto_reg_handoff_alp() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_alp, align 4
   %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_alp, i32 noundef %1) #5
-  store ptr %2, ptr @alp_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.104, i32 noundef 220, ptr noundef %2) #5
   %3 = tail call ptr @find_dissector(ptr noundef nonnull @.str.105) #5
   store ptr %3, ptr @ip_handle, align 8

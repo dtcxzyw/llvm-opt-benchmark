@@ -638,7 +638,6 @@ target triple = "x86_64-pc-linux-gnu"
 @addresses_reassembly_table_functions = external constant %struct.reassembly_table_functions, align 8
 @q931_handle = internal unnamed_addr global ptr null, align 8
 @.str.365 = private unnamed_addr constant [10 x i8] c"q931.tpkt\00", align 1
-@q931_tpkt_handle = internal unnamed_addr global ptr null, align 8
 @q931_tpkt_pdu_handle = internal unnamed_addr global ptr null, align 8
 @.str.366 = private unnamed_addr constant [13 x i8] c"q931.over_ip\00", align 1
 @q931_over_ip_handle = internal unnamed_addr global ptr null, align 8
@@ -1924,7 +1923,6 @@ define hidden void @proto_register_q931() local_unnamed_addr #0 {
   store ptr %9, ptr @q931_handle, align 8
   %10 = load i32, ptr @proto_q931, align 4
   %11 = tail call ptr @register_dissector(ptr noundef nonnull @.str.365, ptr noundef nonnull @dissect_q931_tpkt, i32 noundef %10) #5
-  store ptr %11, ptr @q931_tpkt_handle, align 8
   %12 = load i32, ptr @proto_q931, align 4
   %13 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_q931_tpkt_pdu, i32 noundef %12) #5
   store ptr %13, ptr @q931_tpkt_pdu_handle, align 8

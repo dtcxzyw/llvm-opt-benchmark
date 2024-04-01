@@ -5468,7 +5468,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3183 = private unnamed_addr constant [5 x i8] c"xIRI\00", align 1
 @.str.3184 = private unnamed_addr constant [5 x i8] c"xiri\00", align 1
 @proto_lix2 = internal unnamed_addr global i32 0, align 4
-@lix2_handle = internal unnamed_addr global ptr null, align 8
 @.str.3185 = private unnamed_addr constant [12 x i8] c"lEAProvided\00", align 1
 @.str.3186 = private unnamed_addr constant [9 x i8] c"observed\00", align 1
 @.str.3187 = private unnamed_addr constant [10 x i8] c"matchedOn\00", align 1
@@ -6654,7 +6653,6 @@ define hidden void @proto_register_lix2() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_lix2.ett, i32 noundef 541) #2
   %2 = load i32, ptr @proto_lix2, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.3184, ptr noundef nonnull @dissect_XIRIPayload_PDU, i32 noundef %2) #2
-  store ptr %3, ptr @lix2_handle, align 8
   ret void
 }
 

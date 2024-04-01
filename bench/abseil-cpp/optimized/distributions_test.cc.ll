@@ -115,35 +115,21 @@ $_ZTIN7testing8internal15TestFactoryBaseE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_149RandomDistributionsTest_UniformTypeInference_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [24 x i8] c"RandomDistributionsTest\00", align 1
 @.str.2 = private unnamed_addr constant [21 x i8] c"UniformTypeInference\00", align 1
 @.str.3 = private unnamed_addr constant [133 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/random/distributions_test.cc\00", align 1
-@_ZN12_GLOBAL__N_144RandomDistributionsTest_UniformExamples_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.5 = private unnamed_addr constant [16 x i8] c"UniformExamples\00", align 1
-@_ZN12_GLOBAL__N_144RandomDistributionsTest_UniformNoBounds_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [16 x i8] c"UniformNoBounds\00", align 1
-@_ZN12_GLOBAL__N_150RandomDistributionsTest_UniformNonsenseRanges_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [22 x i8] c"UniformNonsenseRanges\00", align 1
-@_ZN12_GLOBAL__N_140RandomDistributionsTest_UniformReal_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.11 = private unnamed_addr constant [12 x i8] c"UniformReal\00", align 1
-@_ZN12_GLOBAL__N_139RandomDistributionsTest_UniformInt_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [11 x i8] c"UniformInt\00", align 1
-@_ZN12_GLOBAL__N_140RandomDistributionsTest_Exponential_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [12 x i8] c"Exponential\00", align 1
-@_ZN12_GLOBAL__N_143RandomDistributionsTest_PoissonDefault_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [15 x i8] c"PoissonDefault\00", align 1
-@_ZN12_GLOBAL__N_141RandomDistributionsTest_PoissonLarge_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [13 x i8] c"PoissonLarge\00", align 1
-@_ZN12_GLOBAL__N_138RandomDistributionsTest_Bernoulli_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [10 x i8] c"Bernoulli\00", align 1
-@_ZN12_GLOBAL__N_133RandomDistributionsTest_Beta_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [5 x i8] c"Beta\00", align 1
-@_ZN12_GLOBAL__N_133RandomDistributionsTest_Zipf_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.25 = private unnamed_addr constant [5 x i8] c"Zipf\00", align 1
-@_ZN12_GLOBAL__N_137RandomDistributionsTest_Gaussian_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.27 = private unnamed_addr constant [9 x i8] c"Gaussian\00", align 1
-@_ZN12_GLOBAL__N_139RandomDistributionsTest_LogUniform_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.29 = private unnamed_addr constant [11 x i8] c"LogUniform\00", align 1
 @_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149RandomDistributionsTest_UniformTypeInference_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149RandomDistributionsTest_UniformTypeInference_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149RandomDistributionsTest_UniformTypeInference_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149RandomDistributionsTest_UniformTypeInference_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_149RandomDistributionsTest_UniformTypeInference_TestEE10CreateTestEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -13526,7 +13512,6 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #15
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_149RandomDistributionsTest_UniformTypeInference_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -13599,7 +13584,6 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i1) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i3) #15
-  store ptr %call15.i21, ptr @_ZN12_GLOBAL__N_144RandomDistributionsTest_UniformExamples_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i3)
@@ -13672,7 +13656,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i22) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i23) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i24) #15
-  store ptr %call15.i45, ptr @_ZN12_GLOBAL__N_144RandomDistributionsTest_UniformNoBounds_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i23)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i24)
@@ -13745,7 +13728,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %invoke.cont10.i68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i46) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i47) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i48) #15
-  store ptr %call15.i69, ptr @_ZN12_GLOBAL__N_150RandomDistributionsTest_UniformNonsenseRanges_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i46)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i47)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i48)
@@ -13818,7 +13800,6 @@ __cxx_global_var_init.10.exit:                    ; preds = %invoke.cont10.i92
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i70) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i71) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i72) #15
-  store ptr %call15.i93, ptr @_ZN12_GLOBAL__N_140RandomDistributionsTest_UniformReal_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i70)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i71)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i72)
@@ -13891,7 +13872,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i116
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i94) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i95) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i96) #15
-  store ptr %call15.i117, ptr @_ZN12_GLOBAL__N_139RandomDistributionsTest_UniformInt_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i94)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i95)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i96)
@@ -13964,7 +13944,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i118) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i119) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i120) #15
-  store ptr %call15.i141, ptr @_ZN12_GLOBAL__N_140RandomDistributionsTest_Exponential_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i118)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i119)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i120)
@@ -14037,7 +14016,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i164
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i142) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i143) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i144) #15
-  store ptr %call15.i165, ptr @_ZN12_GLOBAL__N_143RandomDistributionsTest_PoissonDefault_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i142)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i143)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i144)
@@ -14110,7 +14088,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i188
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i166) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i167) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i168) #15
-  store ptr %call15.i189, ptr @_ZN12_GLOBAL__N_141RandomDistributionsTest_PoissonLarge_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i166)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i167)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i168)
@@ -14183,7 +14160,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i212
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i190) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i191) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i192) #15
-  store ptr %call15.i213, ptr @_ZN12_GLOBAL__N_138RandomDistributionsTest_Bernoulli_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i190)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i191)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i192)
@@ -14256,7 +14232,6 @@ __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i236
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i214) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i215) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i216) #15
-  store ptr %call15.i237, ptr @_ZN12_GLOBAL__N_133RandomDistributionsTest_Beta_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i214)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i215)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i216)
@@ -14329,7 +14304,6 @@ __cxx_global_var_init.24.exit:                    ; preds = %invoke.cont10.i260
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i238) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i239) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i240) #15
-  store ptr %call15.i261, ptr @_ZN12_GLOBAL__N_133RandomDistributionsTest_Zipf_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i238)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i239)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i240)
@@ -14402,7 +14376,6 @@ __cxx_global_var_init.26.exit:                    ; preds = %invoke.cont10.i284
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i262) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i263) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i264) #15
-  store ptr %call15.i285, ptr @_ZN12_GLOBAL__N_137RandomDistributionsTest_Gaussian_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i262)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i263)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i264)
@@ -14475,7 +14448,6 @@ __cxx_global_var_init.28.exit:                    ; preds = %invoke.cont10.i308
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i286) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i287) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i288) #15
-  store ptr %call15.i309, ptr @_ZN12_GLOBAL__N_139RandomDistributionsTest_LogUniform_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i286)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i287)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i288)

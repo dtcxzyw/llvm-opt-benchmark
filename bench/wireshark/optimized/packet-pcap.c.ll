@@ -4483,10 +4483,8 @@ target triple = "x86_64-pc-linux-gnu"
 @pcap_ies_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.2649 = private unnamed_addr constant [20 x i8] c"pcap.ies.pair.first\00", align 1
 @.str.2650 = private unnamed_addr constant [34 x i8] c"PCAP-PROTOCOL-IES-PAIR FirstValue\00", align 1
-@pcap_ies_p1_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.2651 = private unnamed_addr constant [21 x i8] c"pcap.ies.pair.second\00", align 1
 @.str.2652 = private unnamed_addr constant [35 x i8] c"PCAP-PROTOCOL-IES-PAIR SecondValue\00", align 1
-@pcap_ies_p2_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.2653 = private unnamed_addr constant [24 x i8] c"PCAP-PROTOCOL-EXTENSION\00", align 1
 @pcap_extension_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.2654 = private unnamed_addr constant [44 x i8] c"PCAP-ELEMENTARY-PROCEDURE InitiatingMessage\00", align 1
@@ -7634,10 +7632,8 @@ define hidden void @proto_register_pcap() local_unnamed_addr #0 {
   store ptr %5, ptr @pcap_ies_dissector_table, align 8
   %6 = load i32, ptr @proto_pcap, align 4
   %7 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.2649, ptr noundef nonnull @.str.2650, i32 noundef %6, i32 noundef 7, i32 noundef 1) #3
-  store ptr %7, ptr @pcap_ies_p1_dissector_table, align 8
   %8 = load i32, ptr @proto_pcap, align 4
   %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.2651, ptr noundef nonnull @.str.2652, i32 noundef %8, i32 noundef 7, i32 noundef 1) #3
-  store ptr %9, ptr @pcap_ies_p2_dissector_table, align 8
   %10 = load i32, ptr @proto_pcap, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2653, i32 noundef %10, i32 noundef 7, i32 noundef 1) #3
   store ptr %11, ptr @pcap_extension_dissector_table, align 8

@@ -839,11 +839,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.518 = private unnamed_addr constant [11 x i8] c"gsm_bsslap\00", align 1
 @gsm_bsslap_handle = internal unnamed_addr global ptr null, align 8
 @.str.519 = private unnamed_addr constant [6 x i8] c"bssgp\00", align 1
-@bssgp_handle = internal unnamed_addr global ptr null, align 8
 @.str.520 = private unnamed_addr constant [4 x i8] c"rrc\00", align 1
-@rrc_handle = internal unnamed_addr global ptr null, align 8
 @.str.521 = private unnamed_addr constant [9 x i8] c"bicc_mst\00", align 1
-@bicc_mst_handle = internal unnamed_addr global ptr null, align 8
 @.str.522 = private unnamed_addr constant [10 x i8] c"Undefined\00", align 1
 @.str.523 = private unnamed_addr constant [22 x i8] c"Circuit Identity Code\00", align 1
 @.str.524 = private unnamed_addr constant [19 x i8] c"Resource Available\00", align 1
@@ -4275,13 +4272,10 @@ define hidden void @proto_reg_handoff_gsm_a_bssmap() local_unnamed_addr #1 {
   store ptr %5, ptr @gsm_bsslap_handle, align 8
   %6 = load i32, ptr @proto_a_bssmap, align 4
   %7 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.519, i32 noundef %6) #3
-  store ptr %7, ptr @bssgp_handle, align 8
   %8 = load i32, ptr @proto_a_bssmap, align 4
   %9 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.520, i32 noundef %8) #3
-  store ptr %9, ptr @rrc_handle, align 8
   %10 = load i32, ptr @proto_a_bssmap, align 4
   %11 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.521, i32 noundef %10) #3
-  store ptr %11, ptr @bicc_mst_handle, align 8
   ret void
 }
 

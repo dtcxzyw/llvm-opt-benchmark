@@ -3002,7 +3002,6 @@ $_ZGVZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELN
 @constinit = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5], align 4
 @.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @_ZN3vcgL9colorMapsE = internal global %"class.std::map" zeroinitializer, align 8
-@_ZN4CGAL12_GLOBAL__N_114default_randomE = internal unnamed_addr global ptr null, align 8
 @_ZZN4CGAL18get_default_randomEvE14default_random = linkonce_odr thread_local global %"class.CGAL::Random" zeroinitializer, comdat, align 8
 @_ZGVZN4CGAL18get_default_randomEvE14default_random = linkonce_odr thread_local local_unnamed_addr global i64 0, comdat, align 8
 @_ZTV19FilterMeshAlphaWrap = external unnamed_addr constant { [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, align 8
@@ -211341,8 +211340,6 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   br label %__cxx_global_var_init.8.exit
 
 __cxx_global_var_init.8.exit:                     ; preds = %__cxx_global_var_init.5.exit, %85
-  %86 = call noundef nonnull align 8 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4CGAL18get_default_randomEvE14default_random)
-  store ptr %86, ptr @_ZN4CGAL12_GLOBAL__N_114default_randomE, align 8
   ret void
 }
 

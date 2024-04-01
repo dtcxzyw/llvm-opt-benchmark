@@ -236,9 +236,7 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @.str = private unnamed_addr constant [14 x i8] c"BernoulliTest\00", align 1
 @.str.4 = private unnamed_addr constant [142 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/random/bernoulli_distribution_test.cc\00", align 1
 @.str.5 = private unnamed_addr constant [4 x i8] c"All\00", align 1
-@_ZN12_GLOBAL__N_132BernoulliTest_StabilityTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.7 = private unnamed_addr constant [14 x i8] c"StabilityTest\00", align 1
-@_ZN12_GLOBAL__N_133BernoulliTest_StabilityTest2_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.9 = private unnamed_addr constant [15 x i8] c"StabilityTest2\00", align 1
 @.str.10 = private unnamed_addr constant [10 x i8] c"Serialize\00", align 1
 @.str.11 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -10244,7 +10242,6 @@ __cxx_global_var_init.6.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i47) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i48) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #24
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_132BernoulliTest_StabilityTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i47)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i48)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -10321,7 +10318,6 @@ __cxx_global_var_init.8.exit:                     ; preds = %invoke.cont10.i86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i62) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i63) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i64) #24
-  store ptr %call15.i87, ptr @_ZN12_GLOBAL__N_133BernoulliTest_StabilityTest2_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i62)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i63)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i64)

@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @ett = internal global [18 x ptr] [ptr @ett_msg, ptr @ett_sig_list, ptr @ett_sig, ptr @ett_recip_list, ptr @ett_recip, ptr @ett_prot_bstr, ptr @ett_unprot, ptr @ett_hdr_map, ptr @ett_hdr_label, ptr @ett_hdr_kid, ptr @ett_hdr_static_key, ptr @ett_hdr_ephem_key, ptr @ett_hdr_crit_list, ptr @ett_hdr_x5cert_list, ptr @ett_hdr_x5t_list, ptr @ett_key, ptr @ett_key_set, ptr @ett_keyops_list], align 16
 @expertitems = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_invalid_tag, %struct.expert_field_info { ptr @.str.222, i32 83886080, i32 6291456, ptr @.str.223, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_value_partial_decode, %struct.expert_field_info { ptr @.str.224, i32 117440512, i32 6291456, ptr @.str.225, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @.str.5 = private unnamed_addr constant [17 x i8] c"cose.msg.headers\00", align 1
-@handle_cose_msg_hdr = internal unnamed_addr global ptr null, align 8
 @.str.6 = private unnamed_addr constant [12 x i8] c"cose.msgtag\00", align 1
 @.str.7 = private unnamed_addr constant [17 x i8] c"COSE Message Tag\00", align 1
 @table_cose_msg_tag = internal unnamed_addr global ptr null, align 8
@@ -478,7 +477,6 @@ define hidden void @proto_register_cose() local_unnamed_addr #0 {
   tail call void @expert_register_field_array(ptr noundef %6, ptr noundef nonnull @expertitems, i32 noundef 2) #7
   %7 = load i32, ptr @proto_cose, align 4
   %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.5, ptr noundef nonnull @dissect_cose_msg_header_map, i32 noundef %7) #7
-  store ptr %8, ptr @handle_cose_msg_hdr, align 8
   %9 = load i32, ptr @proto_cose, align 4
   %10 = tail call ptr @register_custom_dissector_table(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %9, ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal, ptr noundef nonnull @g_free) #7
   store ptr %10, ptr @table_cose_msg_tag, align 8

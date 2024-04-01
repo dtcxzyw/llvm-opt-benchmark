@@ -63,7 +63,6 @@ module asm ".previous\09\09\09\09\09"
 @__tracepoint_read_msr = external dso_local global %struct.tracepoint, align 8
 @system_wq = external dso_local local_unnamed_addr global ptr, align 8
 @__tracepoint_write_msr = external dso_local global %struct.tracepoint, align 8
-@intel_pstate_init._all_cpu_data = internal unnamed_addr global ptr null, align 8
 @hwp_support_ids = internal constant [4 x %struct.x86_cpu_id] [%struct.x86_cpu_id { i16 0, i16 6, i16 79, i16 0, i16 455, i64 1 }, %struct.x86_cpu_id { i16 0, i16 6, i16 86, i16 0, i16 455, i64 1 }, %struct.x86_cpu_id { i16 0, i16 6, i16 0, i16 0, i16 455, i64 0 }, %struct.x86_cpu_id zeroinitializer], section ".init.rodata", align 16
 @hwp_forced = internal unnamed_addr global i8 0, section ".data..read_mostly", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"\016intel_pstate: HWP enabled by BIOS\0A\00", align 1
@@ -426,7 +425,6 @@ define internal i32 @intel_pstate_init() #3 section ".init.text" align 16 {
   %78 = shl i64 %77, 3
   %79 = and i64 %78, 34359738360
   %80 = tail call noalias ptr @vzalloc(i64 noundef %79) #30
-  store ptr %80, ptr @intel_pstate_init._all_cpu_data, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %124, label %82
 

@@ -94,12 +94,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.43 = private unnamed_addr constant [8 x i8] c"RTPS-VT\00", align 1
 @.str.44 = private unnamed_addr constant [7 x i8] c"rtpsvt\00", align 1
 @proto_rtpsvt = internal unnamed_addr global i32 0, align 4
-@rtpsvt_hf = internal unnamed_addr global ptr null, align 8
 @.str.45 = private unnamed_addr constant [15 x i8] c"Version: %d.%d\00", align 1
 @.str.46 = private unnamed_addr constant [5 x i8] c"RTPS\00", align 1
 @.str.47 = private unnamed_addr constant [10 x i8] c"LOST_INFO\00", align 1
 @.str.48 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@dissect_rtps_virtual_transport_rtps_type.advanced_handle = internal unnamed_addr global ptr null, align 8
 @.str.49 = private unnamed_addr constant [52 x i8] c"Real-Time Publish-Subscribe Wire Protocol (content)\00", align 1
 @.str.50 = private unnamed_addr constant [9 x i8] c"rtpsproc\00", align 1
 @ndds_transport_class_id_vals = internal constant [15 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.70 }, %struct._value_string { i32 1, ptr @.str.71 }, %struct._value_string { i32 16777217, ptr @.str.72 }, %struct._value_string { i32 16777216, ptr @.str.73 }, %struct._value_string { i32 3, ptr @.str.74 }, %struct._value_string { i32 2, ptr @.str.75 }, %struct._value_string { i32 6, ptr @.str.76 }, %struct._value_string { i32 7, ptr @.str.77 }, %struct._value_string { i32 8, ptr @.str.78 }, %struct._value_string { i32 9, ptr @.str.79 }, %struct._value_string { i32 10, ptr @.str.80 }, %struct._value_string { i32 11, ptr @.str.81 }, %struct._value_string { i32 12, ptr @.str.82 }, %struct._value_string { i32 13, ptr @.str.83 }, %struct._value_string zeroinitializer], align 16
@@ -143,7 +141,6 @@ define hidden void @proto_register_rtps_virtual_transport() local_unnamed_addr #
   %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44) #7
   store i32 %1, ptr @proto_rtpsvt, align 4
   %2 = tail call ptr @proto_registrar_get_nth(i32 noundef %1) #7
-  store ptr %2, ptr @rtpsvt_hf, align 8
   %3 = load i32, ptr @proto_rtpsvt, align 4
   tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_rtps_virtual_transport.hf, i32 noundef 20) #7
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rtps_virtual_transport.ett, i32 noundef 12) #7
@@ -519,7 +516,6 @@ dissect_parameter_transport_rtps_type.exit.i:     ; preds = %184, %173, %168, %1
 218:                                              ; preds = %207
   %219 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %200, i32 noundef -1) #7
   %220 = call ptr @find_dissector(ptr noundef nonnull @.str.50) #7
-  store ptr %220, ptr @dissect_rtps_virtual_transport_rtps_type.advanced_handle, align 8
   %221 = call i32 @call_dissector_with_data(ptr noundef %220, ptr noundef %219, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12) #7
   %222 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %dissect_rtps_virtual_transport_rtps_type.exit

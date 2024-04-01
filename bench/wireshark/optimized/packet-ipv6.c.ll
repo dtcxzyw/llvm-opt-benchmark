@@ -1177,7 +1177,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.749 = private unnamed_addr constant [15 x i8] c"NAT64_NSP_list\00", align 1
 @nat64_prefix_uats = internal global ptr null, align 8
 @number_of_nat64_prefix = internal global i32 0, align 4
-@nat64_prefix_uat = internal unnamed_addr global ptr null, align 8
 @.str.750 = private unnamed_addr constant [15 x i8] c"nat64_prefixes\00", align 1
 @.str.751 = private unnamed_addr constant [15 x i8] c"NAT64 Prefixes\00", align 1
 @.str.752 = private unnamed_addr constant [40 x i8] c"A list of IPv6 prefixes used for NAT64s\00", align 1
@@ -1645,7 +1644,6 @@ define hidden void @proto_register_ipv6() local_unnamed_addr #0 {
   tail call void @prefs_register_bool_preference(ptr noundef %25, ptr noundef nonnull @.str.734, ptr noundef nonnull @.str.735, ptr noundef nonnull @.str.736, ptr noundef nonnull @ipv6_tso_supported) #13
   tail call void @prefs_register_static_text_preference(ptr noundef %25, ptr noundef nonnull @.str.737, ptr noundef nonnull @.str.738, ptr noundef nonnull @.str.738) #13
   %26 = tail call ptr @uat_new(ptr noundef nonnull @.str.748, i64 noundef 16, ptr noundef nonnull @.str.749, i1 noundef zeroext true, ptr noundef nonnull @nat64_prefix_uats, ptr noundef nonnull @number_of_nat64_prefix, i32 noundef 1, ptr noundef null, ptr noundef nonnull @nat64_prefix_copy_cb, ptr noundef null, ptr noundef nonnull @nat64_prefix_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_ipv6.nat64_uats_flds) #13
-  store ptr %26, ptr @nat64_prefix_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %25, ptr noundef nonnull @.str.750, ptr noundef nonnull @.str.751, ptr noundef nonnull @.str.752, ptr noundef %26) #13
   tail call void @register_init_routine(ptr noundef nonnull @ipv6_init) #13
   %27 = load i32, ptr @proto_ipv6, align 4

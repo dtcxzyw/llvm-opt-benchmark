@@ -109,7 +109,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.63 = private unnamed_addr constant [5 x i8] c"SFTP\00", align 1
 @.str.64 = private unnamed_addr constant [5 x i8] c"sftp\00", align 1
 @proto_sftp = internal unnamed_addr global i32 0, align 4
-@sftp_handle = internal unnamed_addr global ptr null, align 8
 @.str.65 = private unnamed_addr constant [13 x i8] c"SSH_FXP_INIT\00", align 1
 @.str.66 = private unnamed_addr constant [16 x i8] c"SSH_FXP_VERSION\00", align 1
 @.str.67 = private unnamed_addr constant [13 x i8] c"SSH_FXP_OPEN\00", align 1
@@ -174,7 +173,6 @@ define hidden void @proto_register_sftp() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_sftp.ett, i32 noundef 2) #2
   %2 = load i32, ptr @proto_sftp, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.64, ptr noundef nonnull @dissect_sftp, i32 noundef %2) #2
-  store ptr %3, ptr @sftp_handle, align 8
   ret void
 }
 

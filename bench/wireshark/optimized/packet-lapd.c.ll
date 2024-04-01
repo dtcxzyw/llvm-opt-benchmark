@@ -106,7 +106,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_lapd = internal unnamed_addr global i32 0, align 4
 @lapd_handle = internal unnamed_addr global ptr null, align 8
 @.str.50 = private unnamed_addr constant [10 x i8] c"lapd-phdr\00", align 1
-@lapd_phdr_handle = internal unnamed_addr global ptr null, align 8
 @.str.51 = private unnamed_addr constant [11 x i8] c"linux-lapd\00", align 1
 @linux_lapd_handle = internal unnamed_addr global ptr null, align 8
 @.str.52 = private unnamed_addr constant [15 x i8] c"lapd-bitstream\00", align 1
@@ -167,7 +166,6 @@ define hidden void @proto_register_lapd() local_unnamed_addr #0 {
   store ptr %5, ptr @lapd_handle, align 8
   %6 = load i32, ptr @proto_lapd, align 4
   %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.50, ptr noundef nonnull @dissect_lapd_phdr, i32 noundef %6) #7
-  store ptr %7, ptr @lapd_phdr_handle, align 8
   %8 = load i32, ptr @proto_lapd, align 4
   %9 = tail call ptr @register_dissector(ptr noundef nonnull @.str.51, ptr noundef nonnull @dissect_linux_lapd, i32 noundef %8) #7
   store ptr %9, ptr @linux_lapd_handle, align 8

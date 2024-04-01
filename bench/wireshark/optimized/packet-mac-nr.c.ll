@@ -930,7 +930,6 @@ target triple = "x86_64-pc-linux-gnu"
 @lcid_drb_mappings = internal global ptr null, align 8
 @num_lcid_drb_mappings = internal global i32 0, align 4
 @.str.573 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@lcid_drb_mappings_uat = internal unnamed_addr global ptr null, align 8
 @.str.574 = private unnamed_addr constant [10 x i8] c"drb_table\00", align 1
 @.str.575 = private unnamed_addr constant [27 x i8] c"LCID -> DRB Mappings Table\00", align 1
 @.str.576 = private unnamed_addr constant [64 x i8] c"A table that maps from configurable lcids -> RLC bearer configs\00", align 1
@@ -1937,7 +1936,6 @@ define hidden void @proto_register_mac_nr() local_unnamed_addr #0 {
   tail call void @prefs_register_bool_preference(ptr noundef %8, ptr noundef nonnull @.str.565, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.567, ptr noundef nonnull @global_mac_nr_attempt_srb_decode) #12
   tail call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef nonnull @.str.568, ptr noundef nonnull @.str.569, ptr noundef nonnull @.str.570, ptr noundef nonnull @global_mac_nr_lcid_drb_source, ptr noundef nonnull @proto_register_mac_nr.lcid_drb_source_vals, i32 noundef 0) #12
   %9 = tail call ptr @uat_new(ptr noundef nonnull @.str.571, i64 noundef 16, ptr noundef nonnull @.str.572, i1 noundef zeroext true, ptr noundef nonnull @lcid_drb_mappings, ptr noundef nonnull @num_lcid_drb_mappings, i32 noundef 1, ptr noundef nonnull @.str.573, ptr noundef nonnull @lcid_drb_mapping_copy_cb, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_mac_nr.lcid_drb_mapping_flds) #12
-  store ptr %9, ptr @lcid_drb_mappings_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %8, ptr noundef nonnull @.str.574, ptr noundef nonnull @.str.575, ptr noundef nonnull @.str.576, ptr noundef %9) #12
   tail call void @register_init_routine(ptr noundef nonnull @mac_nr_init_protocol) #12
   tail call void @register_cleanup_routine(ptr noundef nonnull @mac_nr_cleanup_protocol) #12

@@ -1589,7 +1589,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.985 = private unnamed_addr constant [19 x i8] c"gtp_pdcp_lte_keys2\00", align 1
 @uat_pdcp_lte_keys_records = internal global ptr null, align 8
 @num_pdcp_lte_keys_uat = internal global i32 0, align 4
-@pdcp_lte_keys_uat = internal unnamed_addr global ptr null, align 8
 @.str.986 = private unnamed_addr constant [15 x i8] c"pdcp_lte_table\00", align 1
 @.str.987 = private unnamed_addr constant [18 x i8] c"GTP PDCP-LTE Keys\00", align 1
 @.str.988 = private unnamed_addr constant [28 x i8] c"Preconfigured PDCP-LTE Keys\00", align 1
@@ -1610,7 +1609,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.998 = private unnamed_addr constant [18 x i8] c"gtp_pdcp_nr_keys2\00", align 1
 @uat_pdcp_nr_keys_records = internal global ptr null, align 8
 @num_pdcp_nr_keys_uat = internal global i32 0, align 4
-@pdcp_nr_keys_uat = internal unnamed_addr global ptr null, align 8
 @.str.999 = private unnamed_addr constant [14 x i8] c"pdcp_nr_table\00", align 1
 @.str.1000 = private unnamed_addr constant [17 x i8] c"GTP PDCP-NR Keys\00", align 1
 @.str.1001 = private unnamed_addr constant [27 x i8] c"Preconfigured PDCP-NR Keys\00", align 1
@@ -1640,7 +1638,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1010 = private unnamed_addr constant [5 x i8] c"ipv6\00", align 1
 @ipv6_handle = internal unnamed_addr global ptr null, align 8
 @.str.1011 = private unnamed_addr constant [4 x i8] c"ppp\00", align 1
-@ppp_handle = internal unnamed_addr global ptr null, align 8
 @.str.1012 = private unnamed_addr constant [5 x i8] c"sync\00", align 1
 @sync_handle = internal unnamed_addr global ptr null, align 8
 @.str.1013 = private unnamed_addr constant [7 x i8] c"gtpcdr\00", align 1
@@ -1657,7 +1654,6 @@ target triple = "x86_64-pc-linux-gnu"
 @pdcp_lte_handle = internal unnamed_addr global ptr null, align 8
 @proto_pdcp_lte = internal unnamed_addr global i32 0, align 4
 @.str.1019 = private unnamed_addr constant [15 x i8] c"bssap.pdu_type\00", align 1
-@bssap_pdu_type_table = internal unnamed_addr global ptr null, align 8
 @.str.1020 = private unnamed_addr constant [14 x i8] c"diameter.3gpp\00", align 1
 @.str.1021 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.1022 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
@@ -7466,10 +7462,8 @@ define hidden void @proto_register_gtp() local_unnamed_addr #1 {
   tail call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef nonnull @.str.961, ptr noundef nonnull @.str.962, ptr noundef nonnull @.str.962, ptr noundef nonnull @g_gtp_over_tcp) #13
   tail call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef nonnull @.str.963, ptr noundef nonnull @.str.964, ptr noundef nonnull @.str.964, ptr noundef nonnull @g_gtp_session) #13
   %13 = tail call ptr @uat_new(ptr noundef nonnull @.str.984, i64 noundef 72, ptr noundef nonnull @.str.985, i1 noundef zeroext true, ptr noundef nonnull @uat_pdcp_lte_keys_records, ptr noundef nonnull @num_pdcp_lte_keys_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @pdcp_lte_copy_cb, ptr noundef nonnull @pdcp_lte_update_cb, ptr noundef nonnull @pdcp_lte_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_gtp.pdcp_lte_keys_uat_flds) #13
-  store ptr %13, ptr @pdcp_lte_keys_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %12, ptr noundef nonnull @.str.986, ptr noundef nonnull @.str.987, ptr noundef nonnull @.str.988, ptr noundef %13) #13
   %14 = tail call ptr @uat_new(ptr noundef nonnull @.str.997, i64 noundef 80, ptr noundef nonnull @.str.998, i1 noundef zeroext true, ptr noundef nonnull @uat_pdcp_nr_keys_records, ptr noundef nonnull @num_pdcp_nr_keys_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @pdcp_nr_copy_cb, ptr noundef nonnull @pdcp_nr_update_cb, ptr noundef nonnull @pdcp_nr_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_gtp.pdcp_nr_keys_uat_flds) #13
-  store ptr %14, ptr @pdcp_nr_keys_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %12, ptr noundef nonnull @.str.999, ptr noundef nonnull @.str.1000, ptr noundef nonnull @.str.1001, ptr noundef %14) #13
   %15 = load i32, ptr @proto_gtp, align 4
   %16 = tail call ptr @register_dissector(ptr noundef nonnull @.str.931, ptr noundef nonnull @dissect_gtp, i32 noundef %15) #13
@@ -7533,7 +7527,6 @@ define hidden void @proto_reg_handoff_gtp() #1 {
   store ptr %7, ptr @ipv6_handle, align 8
   %8 = load i32, ptr @proto_gtp, align 4
   %9 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.1011, i32 noundef %8) #13
-  store ptr %9, ptr @ppp_handle, align 8
   %10 = load i32, ptr @proto_gtp, align 4
   %11 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.1012, i32 noundef %10) #13
   store ptr %11, ptr @sync_handle, align 8
@@ -7558,7 +7551,6 @@ define hidden void @proto_reg_handoff_gtp() #1 {
   %24 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef %23) #13
   store i32 %24, ptr @proto_pdcp_lte, align 4
   %25 = tail call ptr @find_dissector_table(ptr noundef nonnull @.str.1019) #13
-  store ptr %25, ptr @bssap_pdu_type_table, align 8
   %26 = load i32, ptr @proto_gtp, align 4
   %27 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_3gpp_qosprofile, i32 noundef %26) #13
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.1020, i32 noundef 5, ptr noundef %27) #13

@@ -895,7 +895,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_mip6_option_dmnp = internal unnamed_addr global i32 0, align 4
 @.str.511 = private unnamed_addr constant [9 x i8] c"ip.proto\00", align 1
 @.str.512 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
-@ip_dissector_table = internal unnamed_addr global ptr null, align 8
 @mip6_mh_types = internal constant [20 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.224 }, %struct._value_string { i32 1, ptr @.str.514 }, %struct._value_string { i32 2, ptr @.str.415 }, %struct._value_string { i32 3, ptr @.str.515 }, %struct._value_string { i32 4, ptr @.str.418 }, %struct._value_string { i32 5, ptr @.str.516 }, %struct._value_string { i32 6, ptr @.str.517 }, %struct._value_string { i32 7, ptr @.str.518 }, %struct._value_string { i32 8, ptr @.str.519 }, %struct._value_string { i32 9, ptr @.str.520 }, %struct._value_string { i32 10, ptr @.str.228 }, %struct._value_string { i32 11, ptr @.str.521 }, %struct._value_string { i32 12, ptr @.str.522 }, %struct._value_string { i32 13, ptr @.str.523 }, %struct._value_string { i32 14, ptr @.str.524 }, %struct._value_string { i32 15, ptr @.str.525 }, %struct._value_string { i32 16, ptr @.str.526 }, %struct._value_string { i32 17, ptr @.str.527 }, %struct._value_string { i32 18, ptr @.str.528 }, %struct._value_string zeroinitializer], align 16
 @.str.513 = private unnamed_addr constant [14 x i8] c"mip6_mh_types\00", align 1
 @.str.514 = private unnamed_addr constant [15 x i8] c"Home Test Init\00", align 1
@@ -1949,7 +1948,6 @@ define hidden void @proto_reg_handoff_mip6() local_unnamed_addr #0 {
   %3 = load ptr, ptr @mip6_handle, align 8
   tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.512, i32 noundef 5436, ptr noundef %3) #5
   %4 = tail call ptr @find_dissector_table(ptr noundef nonnull @.str.511) #5
-  store ptr %4, ptr @ip_dissector_table, align 8
   %5 = load i32, ptr @proto_mip6, align 4
   %6 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_mip6_opt_vsm_3gpp, i32 noundef %5) #5
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.369, i32 noundef 10415, ptr noundef %6) #5

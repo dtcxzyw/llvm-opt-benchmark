@@ -238,7 +238,6 @@ target triple = "x86_64-pc-linux-gnu"
 @num_mka_ckn_uat_data = internal global i32 0, align 4
 @.str.133 = private unnamed_addr constant [9 x i8] c"ckn_info\00", align 1
 @.str.134 = private unnamed_addr constant [32 x i8] c"A table to define names of CKNs\00", align 1
-@proto_reg_handoff_mka.mka_handle = internal unnamed_addr global ptr null, align 8
 @.str.135 = private unnamed_addr constant [11 x i8] c"eapol.type\00", align 1
 @.str.136 = private unnamed_addr constant [15 x i8] c"Live Peer List\00", align 1
 @.str.137 = private unnamed_addr constant [20 x i8] c"Potential Peer List\00", align 1
@@ -1173,7 +1172,6 @@ declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr nounde
 define hidden void @proto_reg_handoff_mka() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_mka, align 4
   %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_mka, i32 noundef %1) #8
-  store ptr %2, ptr @proto_reg_handoff_mka.mka_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.135, i32 noundef 5, ptr noundef %2) #8
   ret void
 }

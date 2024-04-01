@@ -403,8 +403,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.221 = private unnamed_addr constant [14 x i8] c"rf4ce_profile\00", align 1
 @proto_rf4ce_profile = internal unnamed_addr global i32 0, align 4
 @.str.222 = private unnamed_addr constant [14 x i8] c"rf4ce.profile\00", align 1
-@rf4ce_profile_dissector_table = internal unnamed_addr global ptr null, align 8
-@rf4ce_profile_handle = internal unnamed_addr global ptr null, align 8
 @.str.223 = private unnamed_addr constant [17 x i8] c"Generic Response\00", align 1
 @.str.224 = private unnamed_addr constant [23 x i8] c"Configuration Complete\00", align 1
 @.str.225 = private unnamed_addr constant [10 x i8] c"Heartbeat\00", align 1
@@ -557,10 +555,8 @@ define hidden void @proto_register_rf4ce_profile() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rf4ce_profile.ett, i32 noundef 20) #7
   %2 = load i32, ptr @proto_rf4ce_profile, align 4
   %3 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.220, i32 noundef %2, i32 noundef 0, i32 noundef 0) #7
-  store ptr %3, ptr @rf4ce_profile_dissector_table, align 8
   %4 = load i32, ptr @proto_rf4ce_profile, align 4
   %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.221, ptr noundef nonnull @dissect_rf4ce_profile_common, i32 noundef %4) #7
-  store ptr %5, ptr @rf4ce_profile_handle, align 8
   ret void
 }
 

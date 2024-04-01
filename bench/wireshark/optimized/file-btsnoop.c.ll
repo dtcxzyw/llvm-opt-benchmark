@@ -89,7 +89,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [8 x i8] c"BTSNOOP\00", align 1
 @.str.42 = private constant [8 x i8] c"btsnoop\00", align 1
 @proto_btsnoop = internal unnamed_addr global i32 0, align 4
-@btsnoop_handle = internal unnamed_addr global ptr null, align 8
 @.str.43 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 @.str.44 = private unnamed_addr constant [19 x i8] c"BTSNOOP version: 1\00", align 1
 @.str.45 = private unnamed_addr constant [52 x i8] c"Version of file-format supported by this dissector.\00", align 1
@@ -126,7 +125,6 @@ define hidden void @proto_register_btsnoop() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_btsnoop.ett, i32 noundef 5) #3
   %2 = load i32, ptr @proto_btsnoop, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.42, ptr noundef nonnull @dissect_btsnoop, i32 noundef %2) #3
-  store ptr %3, ptr @btsnoop_handle, align 8
   %4 = load i32, ptr @proto_btsnoop, align 4
   %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null) #3
   tail call void @prefs_register_static_text_preference(ptr noundef %5, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #3

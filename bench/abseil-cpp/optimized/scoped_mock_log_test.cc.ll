@@ -671,36 +671,22 @@ $_ZZN7testing8internal11MatcherBaseIN4absl11LogSeverityEE9GetVTableINS4_11ValueP
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN12_GLOBAL__N_18test_envE = internal unnamed_addr global ptr null, align 8
-@_ZN12_GLOBAL__N_180ScopedMockLogDeathTest_StartCapturingLogsCannotBeCalledWhenAlreadyCapturing_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [23 x i8] c"ScopedMockLogDeathTest\00", align 1
 @.str.3 = private unnamed_addr constant [53 x i8] c"StartCapturingLogsCannotBeCalledWhenAlreadyCapturing\00", align 1
 @.str.4 = private unnamed_addr constant [132 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/log/scoped_mock_log_test.cc\00", align 1
-@_ZN12_GLOBAL__N_175ScopedMockLogDeathTest_StopCapturingLogsCannotBeCalledWhenNotCapturing_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.6 = private unnamed_addr constant [48 x i8] c"StopCapturingLogsCannotBeCalledWhenNotCapturing\00", align 1
-@_ZN12_GLOBAL__N_171ScopedMockLogDeathTest_FailsCheckIfStartCapturingLogsIsNeverCalled_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.8 = private unnamed_addr constant [44 x i8] c"FailsCheckIfStartCapturingLogsIsNeverCalled\00", align 1
-@_ZN12_GLOBAL__N_161ScopedMockLogTest_LogMockCatchAndMatchStrictExpectations_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.10 = private unnamed_addr constant [18 x i8] c"ScopedMockLogTest\00", align 1
 @.str.11 = private unnamed_addr constant [39 x i8] c"LogMockCatchAndMatchStrictExpectations\00", align 1
-@_ZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [37 x i8] c"LogMockCatchAndMatchSendExpectations\00", align 1
-@_ZN12_GLOBAL__N_145ScopedMockLogTest_ScopedMockLogCanBeNice_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.15 = private unnamed_addr constant [23 x i8] c"ScopedMockLogCanBeNice\00", align 1
-@_ZN12_GLOBAL__N_144ScopedMockLogTest_RejectsUnexpectedLogs_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [22 x i8] c"RejectsUnexpectedLogs\00", align 1
-@_ZN12_GLOBAL__N_158ScopedMockLogTest_CapturesLogsAfterStartCapturingLogs_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [36 x i8] c"CapturesLogsAfterStartCapturingLogs\00", align 1
-@_ZN12_GLOBAL__N_163ScopedMockLogTest_DoesNotCaptureLogsAfterStopCapturingLogs_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.21 = private unnamed_addr constant [41 x i8] c"DoesNotCaptureLogsAfterStopCapturingLogs\00", align 1
-@_ZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.23 = private unnamed_addr constant [23 x i8] c"LogFromMultipleThreads\00", align 1
-@_ZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.25 = private unnamed_addr constant [30 x i8] c"NoSequenceWithMultipleThreads\00", align 1
-@_ZN12_GLOBAL__N_178ScopedMockLogTsanTest_ScopedMockLogCanBeDeletedWhenAnotherThreadIsLogging_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.27 = private unnamed_addr constant [22 x i8] c"ScopedMockLogTsanTest\00", align 1
 @.str.28 = private unnamed_addr constant [52 x i8] c"ScopedMockLogCanBeDeletedWhenAnotherThreadIsLogging\00", align 1
-@_ZN12_GLOBAL__N_134ScopedMockLogTest_AsLocalSink_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.30 = private unnamed_addr constant [12 x i8] c"AsLocalSink\00", align 1
 @_ZTVN4absl12log_internal18LogTestEnvironmentE = external unnamed_addr constant { [7 x ptr] }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -16047,7 +16033,6 @@ entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl12log_internal18LogTestEnvironmentE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %call.i.i = tail call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %call1.i.i = tail call noundef ptr @_ZN7testing8UnitTest14AddEnvironmentEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i, ptr noundef nonnull %call.i)
-  store ptr %call1.i.i, ptr @_ZN12_GLOBAL__N_18test_envE, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -16127,7 +16112,6 @@ __cxx_global_var_init.2.exit:                     ; preds = %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #24
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_180ScopedMockLogDeathTest_StartCapturingLogsCannotBeCalledWhenAlreadyCapturing_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -16204,7 +16188,6 @@ __cxx_global_var_init.5.exit:                     ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i2) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i4) #24
-  store ptr %call15.i24, ptr @_ZN12_GLOBAL__N_175ScopedMockLogDeathTest_StopCapturingLogsCannotBeCalledWhenNotCapturing_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i4)
@@ -16281,7 +16264,6 @@ __cxx_global_var_init.7.exit:                     ; preds = %invoke.cont10.i49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i25) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i26) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i27) #24
-  store ptr %call15.i50, ptr @_ZN12_GLOBAL__N_171ScopedMockLogDeathTest_FailsCheckIfStartCapturingLogsIsNeverCalled_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i26)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i27)
@@ -16358,7 +16340,6 @@ __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont10.i75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i51) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i52) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i53) #24
-  store ptr %call15.i76, ptr @_ZN12_GLOBAL__N_161ScopedMockLogTest_LogMockCatchAndMatchStrictExpectations_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i51)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i52)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i53)
@@ -16435,7 +16416,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i77) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i78) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i79) #24
-  store ptr %call15.i102, ptr @_ZN12_GLOBAL__N_159ScopedMockLogTest_LogMockCatchAndMatchSendExpectations_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i77)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i78)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i79)
@@ -16512,7 +16492,6 @@ __cxx_global_var_init.14.exit:                    ; preds = %invoke.cont10.i127
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i103) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i104) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i105) #24
-  store ptr %call15.i128, ptr @_ZN12_GLOBAL__N_145ScopedMockLogTest_ScopedMockLogCanBeNice_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i103)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i104)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i105)
@@ -16589,7 +16568,6 @@ __cxx_global_var_init.16.exit:                    ; preds = %invoke.cont10.i153
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i129) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i130) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i131) #24
-  store ptr %call15.i154, ptr @_ZN12_GLOBAL__N_144ScopedMockLogTest_RejectsUnexpectedLogs_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i129)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i130)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i131)
@@ -16666,7 +16644,6 @@ __cxx_global_var_init.18.exit:                    ; preds = %invoke.cont10.i179
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i155) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i156) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i157) #24
-  store ptr %call15.i180, ptr @_ZN12_GLOBAL__N_158ScopedMockLogTest_CapturesLogsAfterStartCapturingLogs_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i155)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i156)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i157)
@@ -16743,7 +16720,6 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i205
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i181) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i182) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i183) #24
-  store ptr %call15.i206, ptr @_ZN12_GLOBAL__N_163ScopedMockLogTest_DoesNotCaptureLogsAfterStopCapturingLogs_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i181)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i182)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i183)
@@ -16820,7 +16796,6 @@ __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i231
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i207) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i208) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i209) #24
-  store ptr %call15.i232, ptr @_ZN12_GLOBAL__N_145ScopedMockLogTest_LogFromMultipleThreads_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i207)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i208)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i209)
@@ -16897,7 +16872,6 @@ __cxx_global_var_init.24.exit:                    ; preds = %invoke.cont10.i257
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i233) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i234) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i235) #24
-  store ptr %call15.i258, ptr @_ZN12_GLOBAL__N_152ScopedMockLogTest_NoSequenceWithMultipleThreads_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i233)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i234)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i235)
@@ -16974,7 +16948,6 @@ __cxx_global_var_init.26.exit:                    ; preds = %invoke.cont10.i283
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i259) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i260) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i261) #24
-  store ptr %call15.i284, ptr @_ZN12_GLOBAL__N_178ScopedMockLogTsanTest_ScopedMockLogCanBeDeletedWhenAnotherThreadIsLogging_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i259)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i260)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i261)
@@ -17051,7 +17024,6 @@ __cxx_global_var_init.29.exit:                    ; preds = %invoke.cont10.i309
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i285) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i286) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i287) #24
-  store ptr %call15.i310, ptr @_ZN12_GLOBAL__N_134ScopedMockLogTest_AsLocalSink_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i285)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i286)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i287)

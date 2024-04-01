@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [12 x i8] c"pkcs11_libs\00", align 1
 @uat_pkcs11_libs = internal global ptr null, align 8
 @uat_num_pkcs11_libs = internal global i32 0, align 4
-@pkcs11_libs_uat = internal unnamed_addr global ptr null, align 8
 @register_rsa_uats.uat_rsa_privkeys_fields = internal global [3 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.11, ptr @.str.12, i32 6, %struct.anon { ptr null, ptr @rsa_privkeys_uats_uri_set_cb, ptr @rsa_privkeys_uats_uri_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.13, ptr null }, %struct._uat_field_t { ptr @.str.14, ptr @.str.15, i32 6, %struct.anon { ptr null, ptr @rsa_privkeys_uats_password_set_cb, ptr @rsa_privkeys_uats_password_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.16, ptr null }, %struct._uat_field_t zeroinitializer], align 16
 @.str.11 = private unnamed_addr constant [4 x i8] c"uri\00", align 1
 @.str.12 = private unnamed_addr constant [21 x i8] c"Keyfile or Token URI\00", align 1
@@ -41,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [9 x i8] c"rsa_keys\00", align 1
 @uat_rsa_privkeys = internal global ptr null, align 8
 @uat_num_rsa_privkeys = internal global i32 0, align 4
-@rsa_privkeys_uat = internal unnamed_addr global ptr null, align 8
 @.str.19 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.20 = private unnamed_addr constant [34 x i8] c"Error loading PKCS #11 libraries:\00", align 1
 @.str.21 = private unnamed_addr constant [8 x i8] c"\0A%s: %s\00", align 1
@@ -56,9 +54,7 @@ define hidden void @secrets_init() local_unnamed_addr #0 {
   %2 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @key_id_hash, ptr noundef nonnull @key_id_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @gnutls_privkey_deinit) #14
   store ptr %2, ptr @rsa_privkeys, align 8
   %3 = tail call ptr @uat_new(ptr noundef nonnull @.str.9, i64 noundef 8, ptr noundef nonnull @.str.10, i1 noundef zeroext false, ptr noundef nonnull @uat_pkcs11_libs, ptr noundef nonnull @uat_num_pkcs11_libs, i32 noundef 0, ptr noundef null, ptr noundef nonnull @uat_pkcs11_lib_copy_str_cb, ptr noundef null, ptr noundef nonnull @uat_pkcs11_lib_free_str_cb, ptr noundef nonnull @uat_pkcs11_libs_load_all, ptr noundef null, ptr noundef nonnull @register_rsa_uats.uat_pkcs11_libs_fields) #14
-  store ptr %3, ptr @pkcs11_libs_uat, align 8
   %4 = tail call ptr @uat_new(ptr noundef nonnull @.str.17, i64 noundef 16, ptr noundef nonnull @.str.18, i1 noundef zeroext false, ptr noundef nonnull @uat_rsa_privkeys, ptr noundef nonnull @uat_num_rsa_privkeys, i32 noundef 0, ptr noundef null, ptr noundef nonnull @uat_rsa_privkey_copy_str_cb, ptr noundef null, ptr noundef nonnull @uat_rsa_privkey_free_str_cb, ptr noundef nonnull @uat_rsa_privkeys_post_update, ptr noundef null, ptr noundef nonnull @register_rsa_uats.uat_rsa_privkeys_fields) #14
-  store ptr %4, ptr @rsa_privkeys_uat, align 8
   ret void
 }
 

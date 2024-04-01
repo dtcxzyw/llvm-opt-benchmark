@@ -907,7 +907,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.527 = private unnamed_addr constant [4 x i8] c"UBX\00", align 1
 @.str.528 = private unnamed_addr constant [4 x i8] c"ubx\00", align 1
 @proto_ubx = internal unnamed_addr global i32 0, align 4
-@ubx_handle = internal unnamed_addr global ptr null, align 8
 @.str.529 = private unnamed_addr constant [23 x i8] c"UBX Message Class & ID\00", align 1
 @ubx_class_id_dissector_table = internal unnamed_addr global ptr null, align 8
 @.str.530 = private unnamed_addr constant [27 x i8] c"UBX-RXM-SFRBX GNSS Type ID\00", align 1
@@ -1219,7 +1218,6 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
   %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.526, ptr noundef nonnull @.str.527, ptr noundef nonnull @.str.528) #5
   store i32 %16, ptr @proto_ubx, align 4
   %17 = tail call ptr @register_dissector(ptr noundef nonnull @.str.528, ptr noundef nonnull @dissect_ubx, i32 noundef %16) #5
-  store ptr %17, ptr @ubx_handle, align 8
   %18 = load i32, ptr @proto_ubx, align 4
   tail call void @proto_register_field_array(i32 noundef %18, ptr noundef nonnull @proto_register_ubx.hf, i32 noundef 293) #5
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ubx.ett, i32 noundef 1306) #5

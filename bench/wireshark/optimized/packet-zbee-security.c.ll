@@ -88,7 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [15 x i8] c"zigbee_pc_keys\00", align 1
 @uat_key_records = internal global ptr null, align 8
 @num_uat_key_records = internal global i32 0, align 4
-@zbee_sec_key_table_uat = internal unnamed_addr global ptr null, align 8
 @.str.42 = private unnamed_addr constant [10 x i8] c"key_table\00", align 1
 @.str.43 = private unnamed_addr constant [37 x i8] c"Pre-configured link or network keys.\00", align 1
 @dissect_zbee_secure.sec_flags = internal constant [5 x ptr] [ptr @hf_zbee_sec_level, ptr @hf_zbee_sec_key_id, ptr @hf_zbee_sec_nonce, ptr @hf_zbee_sec_verified_fc, ptr null], align 16
@@ -140,7 +139,6 @@ define hidden void @zbee_security_register(ptr noundef %0, i32 noundef %1) local
   %.0 = phi ptr [ %5, %4 ], [ %0, %2 ]
   tail call void @prefs_register_enum_preference(ptr noundef %.0, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.39, ptr noundef nonnull @gPREF_zbee_sec_level, ptr noundef nonnull @zbee_sec_level_enums, i32 noundef 0) #11
   %7 = tail call ptr @uat_new(ptr noundef nonnull @.str.40, i64 noundef 24, ptr noundef nonnull @.str.41, i1 noundef zeroext true, ptr noundef nonnull @uat_key_records, ptr noundef nonnull @num_uat_key_records, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_key_record_copy_cb, ptr noundef nonnull @uat_key_record_update_cb, ptr noundef nonnull @uat_key_record_free_cb, ptr noundef nonnull @uat_key_record_post_update, ptr noundef null, ptr noundef nonnull @zbee_security_register.key_uat_fields) #11
-  store ptr %7, ptr @zbee_sec_key_table_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %.0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, ptr noundef %7) #11
   tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @zbee_security_register.hf, i32 noundef 12) #11
   tail call void @proto_register_subtree_array(ptr noundef nonnull @zbee_security_register.ett, i32 noundef 2) #11

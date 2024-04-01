@@ -204,7 +204,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.108 = private unnamed_addr constant [11 x i8] c"FTDI MPSSE\00", align 1
 @.str.109 = private unnamed_addr constant [11 x i8] c"ftdi-mpsse\00", align 1
 @proto_ftdi_mpsse = internal unnamed_addr global i32 0, align 4
-@ftdi_mpsse_handle = internal unnamed_addr global ptr null, align 8
 @.str.110 = private unnamed_addr constant [10 x i8] c"Byte mode\00", align 1
 @.str.111 = private unnamed_addr constant [9 x i8] c"Bit mode\00", align 1
 @.str.112 = private unnamed_addr constant [10 x i8] c"MSB first\00", align 1
@@ -376,7 +375,6 @@ define hidden void @proto_register_ftdi_mpsse() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ftdi_mpsse.ett, i32 noundef 8) #6
   %8 = load i32, ptr @proto_ftdi_mpsse, align 4
   %9 = tail call ptr @register_dissector(ptr noundef nonnull @.str.109, ptr noundef nonnull @dissect_ftdi_mpsse, i32 noundef %8) #6
-  store ptr %9, ptr @ftdi_mpsse_handle, align 8
   %10 = load i32, ptr @proto_ftdi_mpsse, align 4
   %11 = tail call ptr @expert_register_protocol(i32 noundef %10) #6
   tail call void @expert_register_field_array(ptr noundef %11, ptr noundef nonnull @proto_register_ftdi_mpsse.ei, i32 noundef 4) #6

@@ -21,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @font_charset = internal unnamed_addr global ptr @.str.2, align 8
 @screen = internal unnamed_addr global ptr null, align 8
 @vga_to_curses = internal unnamed_addr global ptr null, align 8
-@dcl = internal unnamed_addr global ptr null, align 8
 @dcl_ops = internal constant %struct.DisplayChangeListenerOps { ptr @.str.249, ptr @curses_refresh, ptr null, ptr null, ptr null, ptr @curses_cursor_position, ptr @curses_resize, ptr @curses_update, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @invalidate = internal unnamed_addr global i1 false, align 4
 @.str.2 = private unnamed_addr constant [6 x i8] c"CP437\00", align 1
@@ -943,7 +942,6 @@ curses_keyboard_setup.exit:                       ; preds = %curses_setup.exit, 
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %old.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %winch.i)
   %call11 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #15
-  store ptr %call11, ptr @dcl, align 8
   %ops = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr @dcl_ops, ptr %ops, align 8
   call void @register_displaychangelistener(ptr noundef %call11) #12

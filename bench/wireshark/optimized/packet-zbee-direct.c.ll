@@ -125,7 +125,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.69 = private unnamed_addr constant [22 x i8] c"zigbee_direct_pc_keys\00", align 1
 @uat_key_records = internal global ptr null, align 8
 @num_uat_key_records = internal global i32 0, align 4
-@zbd_secur_key_table_uat = internal unnamed_addr global ptr null, align 8
 @.str.70 = private unnamed_addr constant [10 x i8] c"key_table\00", align 1
 @.str.71 = private unnamed_addr constant [28 x i8] c"Pre-configured session keys\00", align 1
 @.str.72 = private unnamed_addr constant [17 x i8] c"ignore_late_keys\00", align 1
@@ -148,7 +147,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.87 = private unnamed_addr constant [37 x i8] c"8bd178fd-0001-45f4-8120-b2378bd5313f\00", align 1
 @.str.88 = private unnamed_addr constant [15 x i8] c"bluetooth.uuid\00", align 1
 @.str.89 = private unnamed_addr constant [9 x i8] c"zbee_nwk\00", align 1
-@zbee_nwk_handle = internal unnamed_addr global ptr null, align 8
 @.str.90 = private unnamed_addr constant [16 x i8] c"Delete CCM* key\00", align 1
 @.str.91 = private unnamed_addr constant [13 x i8] c"Set CCM* key\00", align 1
 @.str.92 = private unnamed_addr constant [22 x i8] c"Set encryption status\00", align 1
@@ -219,7 +217,6 @@ define hidden void @proto_register_zb_direct() local_unnamed_addr #0 {
   %4 = load i32, ptr @proto_zb_direct, align 4
   %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null) #10
   %6 = tail call ptr @uat_new(ptr noundef nonnull @.str.68, i64 noundef 32, ptr noundef nonnull @.str.69, i1 noundef zeroext true, ptr noundef nonnull @uat_key_records, ptr noundef nonnull @num_uat_key_records, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uat_key_record_copy_cb, ptr noundef nonnull @uat_key_record_update_cb, ptr noundef nonnull @uat_key_record_free_cb, ptr noundef nonnull @uat_key_record_post_update, ptr noundef null, ptr noundef nonnull @proto_register_zb_direct.key_uat_fields) #10
-  store ptr %6, ptr @zbd_secur_key_table_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %5, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.71, ptr noundef %6) #10
   tail call void @prefs_register_bool_preference(ptr noundef %5, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, ptr noundef nonnull @ignore_late_keys) #10
   ret void
@@ -1196,7 +1193,6 @@ define hidden void @proto_reg_handoff_zb_direct() local_unnamed_addr #0 {
 
 11:                                               ; preds = %1
   %12 = tail call ptr @find_dissector(ptr noundef nonnull @.str.89) #10
-  store ptr %12, ptr @zbee_nwk_handle, align 8
   ret void
 }
 

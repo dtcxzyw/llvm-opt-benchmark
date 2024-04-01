@@ -155,7 +155,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.92 = private unnamed_addr constant [24 x i8] c"vcdu_bitstream_channels\00", align 1
 @uat_bitchannels = internal global ptr null, align 8
 @num_channels_uat = internal global i32 0, align 4
-@vcdu_uat = internal unnamed_addr global ptr null, align 8
 @.str.93 = private unnamed_addr constant [19 x i8] c"bitstream_channels\00", align 1
 @.str.94 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.95 = private unnamed_addr constant [6 x i8] c"ccsds\00", align 1
@@ -198,7 +197,6 @@ define hidden void @proto_register_vcdu() local_unnamed_addr #0 {
   %6 = load i32, ptr @proto_vcdu, align 4
   %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef nonnull @vcdu_prefs_apply_cb) #6
   %8 = tail call ptr @uat_new(ptr noundef nonnull @.str.91, i64 noundef 4, ptr noundef nonnull @.str.92, i1 noundef zeroext true, ptr noundef nonnull @uat_bitchannels, ptr noundef nonnull @num_channels_uat, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull @vcdu_uat_data_update_cb, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_vcdu.vcdu_uat_flds) #6
-  store ptr %8, ptr @vcdu_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %7, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.91, ptr noundef %8) #6
   ret void
 }

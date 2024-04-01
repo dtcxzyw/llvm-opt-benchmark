@@ -352,6 +352,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.234 = private unnamed_addr constant [43 x i8] c"Could not allocate JIT exit groups buffer!\00", align 1
 @.str.235 = private unnamed_addr constant [36 x i8] c"Could not obtain JIT traces buffer!\00", align 1
 @.str.236 = private unnamed_addr constant [41 x i8] c"Could not obtain JIT exit groups buffer!\00", align 1
+@dummy_op_array = internal unnamed_addr global %struct._zend_op_array zeroinitializer, align 8
 @.str.237 = private unnamed_addr constant [45 x i8] c"Could not allocate JIT exit counters buffer!\00", align 1
 @switch.table.zend_jit_incdec_obj = private unnamed_addr constant [4 x ptr] [ptr @zend_jit_inc_typed_prop, ptr @zend_jit_dec_typed_prop, ptr @zend_jit_inc_typed_prop, ptr @zend_jit_dec_typed_prop], align 8
 @switch.table.zend_jit_incdec_obj.39 = private unnamed_addr constant [4 x ptr] [ptr @zend_jit_pre_inc_typed_prop, ptr @zend_jit_pre_dec_typed_prop, ptr @zend_jit_post_inc_typed_prop, ptr @zend_jit_post_dec_typed_prop], align 8
@@ -20572,6 +20573,7 @@ zend_jit_init_handlers.exit:                      ; preds = %zend_jit_protect.ex
   unreachable
 
 232:                                              ; preds = %228, %214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) @dummy_op_array, i8 0, i64 240, i1 false)
   %233 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 12), align 8
   %234 = call noalias ptr @calloc(i64 noundef %233, i64 noundef 1) #41
   store ptr %234, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 32), align 8

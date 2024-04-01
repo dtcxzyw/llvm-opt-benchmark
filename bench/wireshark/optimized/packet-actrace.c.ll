@@ -211,7 +211,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.164 = private unnamed_addr constant [18 x i8] c"MF: inter_exch_sw\00", align 1
 @.str.165 = private unnamed_addr constant [22 x i8] c"DTMF/MF: sending DNIS\00", align 1
 @.str.166 = private unnamed_addr constant [21 x i8] c"DTMF/MF: sending ANI\00", align 1
-@actrace_pi = internal unnamed_addr global ptr null, align 8
 @.str.167 = private unnamed_addr constant [2 x i8] c"D\00", align 1
 @.str.168 = private unnamed_addr constant [2 x i8] c"U\00", align 1
 @.str.169 = private unnamed_addr constant [2 x i8] c"T\00", align 1
@@ -684,7 +683,6 @@ is_actrace.exit:                                  ; preds = %14, %14, %4
   %153 = getelementptr inbounds i8, ptr %1, i64 408
   %154 = load ptr, ptr %153, align 8
   %155 = tail call noalias ptr @wmem_alloc(ptr noundef %154, i64 noundef 24) #3
-  store ptr %155, ptr @actrace_pi, align 8
   store i32 1, ptr %155, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 4
   store i32 %.0.i21, ptr %156, align 4
@@ -723,7 +721,6 @@ is_actrace.exit:                                  ; preds = %14, %14, %4
   %178 = getelementptr inbounds i8, ptr %1, i64 408
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noalias ptr @wmem_alloc(ptr noundef %179, i64 noundef 24) #3
-  store ptr %180, ptr @actrace_pi, align 8
   store i32 2, ptr %180, align 8
   %181 = icmp eq i32 %162, 1229218915
   %182 = zext i1 %181 to i32

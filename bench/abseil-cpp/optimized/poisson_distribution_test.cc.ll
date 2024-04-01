@@ -660,14 +660,10 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @.str.7 = private unnamed_addr constant [25 x i8] c"PoissonDistributionZTest\00", align 1
 @.str.8 = private unnamed_addr constant [4 x i8] c"All\00", align 1
 @.str.11 = private unnamed_addr constant [34 x i8] c"PoissonDistributionChiSquaredTest\00", align 1
-@_ZN12_GLOBAL__N_142PoissonDistributionTest_StabilityTest_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.13 = private unnamed_addr constant [24 x i8] c"PoissonDistributionTest\00", align 1
 @.str.14 = private unnamed_addr constant [14 x i8] c"StabilityTest\00", align 1
-@_ZN12_GLOBAL__N_153PoissonDistributionTest_AlgorithmExpectedValue_1_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.16 = private unnamed_addr constant [25 x i8] c"AlgorithmExpectedValue_1\00", align 1
-@_ZN12_GLOBAL__N_153PoissonDistributionTest_AlgorithmExpectedValue_2_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.18 = private unnamed_addr constant [25 x i8] c"AlgorithmExpectedValue_2\00", align 1
-@_ZN12_GLOBAL__N_153PoissonDistributionTest_AlgorithmExpectedValue_3_Test10test_info_E = internal unnamed_addr global ptr null, align 8
 @.str.20 = private unnamed_addr constant [25 x i8] c"AlgorithmExpectedValue_3\00", align 1
 @.str.21 = private unnamed_addr constant [24 x i8] c"AbslPoissonDistribution\00", align 1
 @.str.22 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -46813,7 +46809,6 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i276) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i277) #33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i278) #33
-  store ptr %call15.i, ptr @_ZN12_GLOBAL__N_142PoissonDistributionTest_StabilityTest_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i276)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i277)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i278)
@@ -46890,7 +46885,6 @@ __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont10.i316
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i292) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i293) #33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i294) #33
-  store ptr %call15.i317, ptr @_ZN12_GLOBAL__N_153PoissonDistributionTest_AlgorithmExpectedValue_1_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i292)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i293)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i294)
@@ -46967,7 +46961,6 @@ __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont10.i342
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i318) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i319) #33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i320) #33
-  store ptr %call15.i343, ptr @_ZN12_GLOBAL__N_153PoissonDistributionTest_AlgorithmExpectedValue_2_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i318)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i319)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i320)
@@ -47044,7 +47037,6 @@ __cxx_global_var_init.19.exit:                    ; preds = %invoke.cont10.i368
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i344) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i345) #33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i346) #33
-  store ptr %call15.i369, ptr @_ZN12_GLOBAL__N_153PoissonDistributionTest_AlgorithmExpectedValue_3_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i344)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i345)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i346)

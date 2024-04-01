@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_string_init_interned = external local_unnamed_addr global ptr, align 8
 @zend_new_interned_string = external local_unnamed_addr global ptr, align 8
 @module_registry = external local_unnamed_addr global %struct._zend_array, align 8
-@zend_unregister_ini_entries_ex.ini_directives = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [5 x i8] c"true\00", align 1
@@ -488,7 +487,6 @@ define noundef i32 @zend_register_ini_entries_ex(ptr nocapture noundef readonly 
   %.val.i = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 46), align 8
   %registered_zend_ini_directives.val.i = load ptr, ptr @registered_zend_ini_directives, align 8
   %storemerge.i = select i1 %49, ptr %.val.i, ptr %registered_zend_ini_directives.val.i
-  store ptr %storemerge.i, ptr @zend_unregister_ini_entries_ex.ini_directives, align 8
   call void @zend_hash_apply_with_argument(ptr noundef %storemerge.i, ptr noundef nonnull @zend_remove_ini_entries, ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.loopexit
@@ -582,7 +580,6 @@ define void @zend_unregister_ini_entries_ex(i32 noundef %0, i32 noundef %1) loca
   %.val = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 46), align 8
   %registered_zend_ini_directives.val = load ptr, ptr @registered_zend_ini_directives, align 8
   %storemerge = select i1 %4, ptr %.val, ptr %registered_zend_ini_directives.val
-  store ptr %storemerge, ptr @zend_unregister_ini_entries_ex.ini_directives, align 8
   call void @zend_hash_apply_with_argument(ptr noundef %storemerge, ptr noundef nonnull @zend_remove_ini_entries, ptr noundef nonnull %3) #20
   ret void
 }
@@ -701,7 +698,6 @@ define void @zend_unregister_ini_entries(i32 noundef %0) local_unnamed_addr #0 {
   %.val.i = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 46), align 8
   %registered_zend_ini_directives.val.i = load ptr, ptr @registered_zend_ini_directives, align 8
   %storemerge.i = select i1 %27, ptr %.val.i, ptr %registered_zend_ini_directives.val.i
-  store ptr %storemerge.i, ptr @zend_unregister_ini_entries_ex.ini_directives, align 8
   call void @zend_hash_apply_with_argument(ptr noundef %storemerge.i, ptr noundef nonnull @zend_remove_ini_entries, ptr noundef nonnull %2) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %.loopexit

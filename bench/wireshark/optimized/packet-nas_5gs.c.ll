@@ -2185,7 +2185,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1281 = private unnamed_addr constant [8 x i8] c"nas-eps\00", align 1
 @nas_eps_handle = internal unnamed_addr global ptr null, align 8
 @.str.1282 = private unnamed_addr constant [14 x i8] c"nas-eps_plain\00", align 1
-@nas_eps_plain_handle = internal unnamed_addr global ptr null, align 8
 @.str.1283 = private unnamed_addr constant [4 x i8] c"lpp\00", align 1
 @lpp_handle = internal unnamed_addr global ptr null, align 8
 @.str.1284 = private unnamed_addr constant [11 x i8] c"gsm_a_dtap\00", align 1
@@ -8063,7 +8062,6 @@ define hidden void @proto_reg_handoff_nas_5gs() #0 {
   %4 = tail call ptr @find_dissector(ptr noundef nonnull @.str.1281) #12
   store ptr %4, ptr @nas_eps_handle, align 8
   %5 = tail call ptr @find_dissector(ptr noundef nonnull @.str.1282) #12
-  store ptr %5, ptr @nas_eps_plain_handle, align 8
   %6 = tail call ptr @find_dissector(ptr noundef nonnull @.str.1283) #12
   store ptr %6, ptr @lpp_handle, align 8
   %7 = tail call ptr @find_dissector(ptr noundef nonnull @.str.1284) #12

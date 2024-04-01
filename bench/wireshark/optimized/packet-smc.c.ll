@@ -527,7 +527,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.300 = private unnamed_addr constant [4 x i8] c"SMC\00", align 1
 @.str.301 = private unnamed_addr constant [4 x i8] c"smc\00", align 1
 @proto_smc = internal unnamed_addr global i32 0, align 4
-@smc_tcp_handle = internal unnamed_addr global ptr null, align 8
 @.str.302 = private unnamed_addr constant [15 x i8] c"smc.infiniband\00", align 1
 @smc_infiniband_handle = internal unnamed_addr global ptr null, align 8
 @.str.303 = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
@@ -606,7 +605,6 @@ define hidden void @proto_register_smcr() local_unnamed_addr #0 {
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_smcr.ett, i32 noundef 28) #3
   %2 = load i32, ptr @proto_smc, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.301, ptr noundef nonnull @dissect_smc_tcp, i32 noundef %2) #3
-  store ptr %3, ptr @smc_tcp_handle, align 8
   %4 = load i32, ptr @proto_smc, align 4
   %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.302, ptr noundef nonnull @dissect_smcr_infiniband, i32 noundef %4) #3
   store ptr %5, ptr @smc_infiniband_handle, align 8

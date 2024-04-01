@@ -581,7 +581,6 @@ target triple = "x86_64-pc-linux-gnu"
 @sub_selected = internal global i32 0, align 4
 @pn532_handle = internal unnamed_addr global ptr null, align 8
 @.str.348 = private unnamed_addr constant [21 x i8] c"usbccid.subdissector\00", align 1
-@sub_handles.0 = internal unnamed_addr global ptr null, align 16
 @sub_handles.1 = internal unnamed_addr global ptr null, align 16
 @sub_handles.2 = internal unnamed_addr global ptr null, align 16
 @sub_handles.3 = internal unnamed_addr global ptr null, align 16
@@ -2333,7 +2332,6 @@ define hidden void @proto_reg_handoff_pn532() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pn532_handle, align 8
   tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.348, ptr noundef %1) #5
   %2 = tail call ptr @find_dissector(ptr noundef nonnull @.str.331) #5
-  store ptr %2, ptr @sub_handles.0, align 16
   %3 = load i32, ptr @proto_pn532, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.333, i32 noundef %3) #5
   store ptr %4, ptr @sub_handles.1, align 16

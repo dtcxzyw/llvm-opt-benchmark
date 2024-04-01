@@ -3694,7 +3694,6 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_search_attributes.flags = internal constant [7 x ptr] [ptr @hf_smb_search_attribute_read_only, ptr @hf_smb_search_attribute_hidden, ptr @hf_smb_search_attribute_system, ptr @hf_smb_search_attribute_volume, ptr @hf_smb_search_attribute_directory, ptr @hf_smb_search_attribute_archive, ptr null], align 16
 @dissect_file_attributes.flags = internal constant [7 x ptr] [ptr @hf_smb_file_attr_archive_16bit, ptr @hf_smb_file_attr_directory_16bit, ptr @hf_smb_file_attr_volume_16bit, ptr @hf_smb_file_attr_system_16bit, ptr @hf_smb_file_attr_hidden_16bit, ptr @hf_smb_file_attr_read_only_16bit, ptr null], align 16
 @.str.2606 = private unnamed_addr constant [31 x i8] c"No time specified (0xffffffff)\00", align 1
-@TimeZoneFaster.tdt = internal unnamed_addr global ptr null, align 8
 @TimeZoneFaster.dst_table = internal unnamed_addr global ptr null, align 8
 @TimeZoneFaster.table_size = internal unnamed_addr global i32 0, align 4
 @.str.2607 = private unnamed_addr constant [15 x i8] c", Old Name: %s\00", align 1
@@ -22382,7 +22381,6 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef %0) unnamed_addr #0 {
 
 30:                                               ; preds = %28, %26
   %storemerge = phi ptr [ %29, %28 ], [ %27, %26 ]
-  store ptr %storemerge, ptr @TimeZoneFaster.tdt, align 8
   %31 = icmp eq ptr %storemerge, null
   br i1 %31, label %32, label %34
 

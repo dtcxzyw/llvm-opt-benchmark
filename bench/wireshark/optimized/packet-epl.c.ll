@@ -778,7 +778,6 @@ target triple = "x86_64-pc-linux-gnu"
 @device_profile_list_uats = internal global ptr null, align 8
 @ndevice_profile_uat = internal global i32 0, align 4
 @device_profile_list_uats_flds = internal global [5 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.1101, ptr @.str.181, i32 1, %struct.anon.1 { ptr @epl_uat_fld_uint16dec_check_cb, ptr @device_profile_list_uats_device_type_set_cb, ptr @device_profile_list_uats_device_type_tostr_cb }, %struct.anon.2 zeroinitializer, ptr null, ptr @.str.1102, ptr null }, %struct._uat_field_t { ptr @.str.1103, ptr @.str.187, i32 1, %struct.anon.1 { ptr @epl_uat_fld_uint32hex_check_cb, ptr @device_profile_list_uats_vendor_id_set_cb, ptr @device_profile_list_uats_vendor_id_tostr_cb }, %struct.anon.2 zeroinitializer, ptr null, ptr @.str.1104, ptr null }, %struct._uat_field_t { ptr @.str.1105, ptr @.str.189, i32 1, %struct.anon.1 { ptr @epl_uat_fld_uint32hex_check_cb, ptr @device_profile_list_uats_product_code_set_cb, ptr @device_profile_list_uats_product_code_tostr_cb }, %struct.anon.2 zeroinitializer, ptr null, ptr @.str.1106, ptr null }, %struct._uat_field_t { ptr @.str.1107, ptr @.str.185, i32 6, %struct.anon.1 { ptr @epl_profile_uat_fld_fileopen_check_cb, ptr @device_profile_list_uats_path_set_cb, ptr @device_profile_list_uats_path_tostr_cb }, %struct.anon.2 zeroinitializer, ptr null, ptr @.str.1108, ptr null }, %struct._uat_field_t zeroinitializer], align 16
-@device_profile_uat = internal unnamed_addr global ptr null, align 8
 @.str.447 = private unnamed_addr constant [16 x i8] c"device_profiles\00", align 1
 @.str.448 = private unnamed_addr constant [42 x i8] c"Add vendor-provided EDS/XDD profiles here\00", align 1
 @.str.449 = private unnamed_addr constant [25 x i8] c"NodeID-Specific Profiles\00", align 1
@@ -786,7 +785,6 @@ target triple = "x86_64-pc-linux-gnu"
 @nodeid_profile_list_uats = internal global ptr null, align 8
 @nnodeid_profile_uat = internal global i32 0, align 4
 @nodeid_profile_list_uats_flds = internal global [3 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.1113, ptr @.str.1114, i32 1, %struct.anon.1 { ptr @epl_uat_fld_cn_check_cb, ptr @nodeid_profile_list_uats_nodeid_set_cb, ptr @nodeid_profile_list_uats_nodeid_tostr_cb }, %struct.anon.2 zeroinitializer, ptr null, ptr @.str.1115, ptr null }, %struct._uat_field_t { ptr @.str.1107, ptr @.str.185, i32 6, %struct.anon.1 { ptr @epl_profile_uat_fld_fileopen_check_cb, ptr @nodeid_profile_list_uats_path_set_cb, ptr @nodeid_profile_list_uats_path_tostr_cb }, %struct.anon.2 zeroinitializer, ptr null, ptr @.str.1108, ptr null }, %struct._uat_field_t zeroinitializer], align 16
-@nodeid_profile_uat = internal unnamed_addr global ptr null, align 8
 @.str.451 = private unnamed_addr constant [16 x i8] c"nodeid_profiles\00", align 1
 @.str.452 = private unnamed_addr constant [23 x i8] c"Node-Specific Profiles\00", align 1
 @.str.453 = private unnamed_addr constant [55 x i8] c"Assign vendor-provided EDS/XDD profiles to CN IDs here\00", align 1
@@ -2017,10 +2015,8 @@ define hidden void @proto_register_epl() local_unnamed_addr #2 {
   tail call void @epl_eds_init() #18
   tail call void @prefs_register_filename_preference(ptr noundef %15, ptr noundef nonnull @.str.442, ptr noundef nonnull @.str.443, ptr noundef nonnull @.str.444, ptr noundef nonnull @epl_default_profile_path, i32 noundef 0) #18
   %22 = tail call ptr @uat_new(ptr noundef nonnull @.str.445, i64 noundef 24, ptr noundef nonnull @.str.446, i1 noundef zeroext true, ptr noundef nonnull @device_profile_list_uats, ptr noundef nonnull @ndevice_profile_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @device_profile_uat_copy_cb, ptr noundef nonnull @device_profile_uat_update_record, ptr noundef nonnull @device_profile_uat_free_cb, ptr noundef nonnull @device_profile_parse_uat, ptr noundef null, ptr noundef nonnull @device_profile_list_uats_flds) #18
-  store ptr %22, ptr @device_profile_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %15, ptr noundef nonnull @.str.447, ptr noundef nonnull @.str.445, ptr noundef nonnull @.str.448, ptr noundef %22) #18
   %23 = tail call ptr @uat_new(ptr noundef nonnull @.str.449, i64 noundef 48, ptr noundef nonnull @.str.450, i1 noundef zeroext true, ptr noundef nonnull @nodeid_profile_list_uats, ptr noundef nonnull @nnodeid_profile_uat, i32 noundef 1, ptr noundef null, ptr noundef nonnull @nodeid_profile_uat_copy_cb, ptr noundef nonnull @nodeid_profile_uat_update_record, ptr noundef nonnull @nodeid_profile_uat_free_cb, ptr noundef nonnull @nodeid_profile_parse_uat, ptr noundef null, ptr noundef nonnull @nodeid_profile_list_uats_flds) #18
-  store ptr %23, ptr @nodeid_profile_uat, align 8
   tail call void @prefs_register_uat_preference(ptr noundef %15, ptr noundef nonnull @.str.451, ptr noundef nonnull @.str.452, ptr noundef nonnull @.str.453, ptr noundef %23) #18
   ret void
 }
