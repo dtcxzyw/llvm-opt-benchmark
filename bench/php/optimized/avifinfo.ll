@@ -1836,7 +1836,7 @@ define internal fastcc noundef i32 @AvifInfoInternalGetItemFeatures(ptr nocaptur
 .lr.ph80:                                         ; preds = %.preheader
   %21 = getelementptr inbounds i8, ptr %0, i64 22
   %22 = add nuw nsw i32 %2, 1
-  br label %67
+  br label %64
 
 23:                                               ; preds = %.lr.ph78, %.loopexit70
   %indvars.iv97 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next98, %.loopexit70 ]
@@ -1931,57 +1931,53 @@ define internal fastcc noundef i32 @AvifInfoInternalGetItemFeatures(ptr nocaptur
 
 57:                                               ; preds = %.lr.ph76
   %58 = getelementptr inbounds i8, ptr %55, i64 1
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  store i32 %60, ptr %12, align 4
-  %61 = getelementptr inbounds i8, ptr %55, i64 2
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  store i32 %63, ptr %13, align 4
-  %64 = load i32, ptr %8, align 4
-  %.not68 = icmp eq i32 %64, 0
-  br i1 %.not68, label %.loopexit70, label %65
+  %59 = load <2 x i8>, ptr %58, align 1
+  %60 = zext <2 x i8> %59 to <2 x i32>
+  store <2 x i32> %60, ptr %12, align 4
+  %61 = load i32, ptr %8, align 4
+  %.not68 = icmp eq i32 %61, 0
+  br i1 %.not68, label %.loopexit70, label %62
 
-65:                                               ; preds = %57
-  %66 = load i32, ptr %9, align 4
-  %.not69 = icmp eq i32 %66, 0
+62:                                               ; preds = %57
+  %63 = load i32, ptr %9, align 4
+  %.not69 = icmp eq i32 %63, 0
   br i1 %.not69, label %.loopexit70, label %.loopexit
 
-.loopexit70:                                      ; preds = %54, %.loopexit71.thread, %51, %57, %65, %23
+.loopexit70:                                      ; preds = %54, %.loopexit71.thread, %51, %57, %62, %23
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %.preheader, label %23
 
-67:                                               ; preds = %.lr.ph80, %77
-  %68 = phi i8 [ %18, %.lr.ph80 ], [ %78, %77 ]
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next103, %77 ]
-  %69 = getelementptr inbounds [16 x %struct.AvifInfoInternalTile], ptr %21, i64 0, i64 %indvars.iv102
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %.not = icmp eq i32 %72, %1
-  br i1 %.not, label %73, label %77
+64:                                               ; preds = %.lr.ph80, %74
+  %65 = phi i8 [ %18, %.lr.ph80 ], [ %75, %74 ]
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next103, %74 ]
+  %66 = getelementptr inbounds [16 x %struct.AvifInfoInternalTile], ptr %21, i64 0, i64 %indvars.iv102
+  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %.not = icmp eq i32 %69, %1
+  br i1 %.not, label %70, label %74
 
-73:                                               ; preds = %67
-  %74 = load i8, ptr %69, align 2
-  %75 = zext i8 %74 to i32
-  %76 = tail call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull %0, i32 noundef %75, i32 noundef %22), !range !6
-  %.not62 = icmp eq i32 %76, 0
+70:                                               ; preds = %64
+  %71 = load i8, ptr %66, align 2
+  %72 = zext i8 %71 to i32
+  %73 = tail call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull %0, i32 noundef %72, i32 noundef %22), !range !6
+  %.not62 = icmp eq i32 %73, 0
   br i1 %.not62, label %.loopexit, label %._crit_edge
 
-._crit_edge:                                      ; preds = %73
+._crit_edge:                                      ; preds = %70
   %.pre = load i8, ptr %16, align 1
-  br label %77
+  br label %74
 
-77:                                               ; preds = %._crit_edge, %67
-  %78 = phi i8 [ %.pre, %._crit_edge ], [ %68, %67 ]
+74:                                               ; preds = %._crit_edge, %64
+  %75 = phi i8 [ %.pre, %._crit_edge ], [ %65, %64 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %79 = zext i8 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next103, %79
-  br i1 %80, label %67, label %.loopexit
+  %76 = zext i8 %75 to i64
+  %77 = icmp ult i64 %indvars.iv.next103, %76
+  br i1 %77, label %64, label %.loopexit
 
-.loopexit:                                        ; preds = %65, %48, %73, %77, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 0, %73 ], [ 1, %77 ], [ 0, %48 ], [ 0, %65 ]
+.loopexit:                                        ; preds = %62, %48, %70, %74, %.preheader
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %70 ], [ 1, %74 ], [ 0, %48 ], [ 0, %62 ]
   ret i32 %.0
 }
 

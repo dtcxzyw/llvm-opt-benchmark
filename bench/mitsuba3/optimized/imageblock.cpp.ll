@@ -705,9 +705,9 @@ define weak_odr void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %29 = insertelement <4 x i1> %28, i1 %6, i64 1
   %30 = insertelement <4 x i1> %29, i1 %7, i64 2
   %31 = insertelement <4 x i1> %30, i1 %8, i64 3
-  %32 = zext <4 x i1> %31 to <4 x i8>
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
-  store <4 x i8> %32, ptr %33, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = zext <4 x i1> %31 to <4 x i8>
+  store <4 x i8> %33, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 148
   store i8 %27, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %1, i64 32

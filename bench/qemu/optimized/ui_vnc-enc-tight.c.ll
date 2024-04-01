@@ -936,19 +936,19 @@ declare double @vnc_update_freq(ptr noundef, i32 noundef, i32 noundef, i32 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @send_sub_rect(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) unnamed_addr #0 {
 entry:
-  %max.i57.i.i = alloca [3 x i32], align 4
-  %shift.i58.i.i = alloca [3 x i32], align 4
+  %max.i57.i.i = alloca [3 x i32], align 8
+  %shift.i58.i.i = alloca [3 x i32], align 8
   %here.i59.i.i = alloca [3 x i32], align 4
   %upper.i60.i.i = alloca [3 x i32], align 4
   %left.i61.i.i = alloca [3 x i32], align 4
   %upperleft.i62.i.i = alloca [3 x i32], align 4
-  %max.i.i.i = alloca [3 x i32], align 4
-  %shift.i30.i.i = alloca [3 x i32], align 4
+  %max.i.i.i = alloca [3 x i32], align 8
+  %shift.i30.i.i = alloca [3 x i32], align 8
   %here.i31.i.i = alloca [3 x i32], align 4
   %upper.i32.i.i = alloca [3 x i32], align 4
   %left.i33.i.i = alloca [3 x i32], align 4
   %upperleft.i34.i.i = alloca [3 x i32], align 4
-  %shift.i.i.i = alloca [3 x i32], align 4
+  %shift.i.i.i = alloca [3 x i32], align 8
   %here.i.i.i = alloca [3 x i32], align 4
   %upper.i.i.i = alloca [3 x i32], align 4
   %left.i.i.i = alloca [3 x i32], align 4
@@ -1547,19 +1547,14 @@ if.then8.i.i:                                     ; preds = %if.end.i.i78
   %61 = load ptr, ptr %buffer.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %61, i8 0, i64 %mul5.i.i, i1 false)
   %rshift.i.i.i = getelementptr inbounds i8, ptr %vs, i64 49436
-  %62 = load i8, ptr %rshift.i.i.i, align 4
-  %conv2.i.i.i = zext i8 %62 to i32
-  store i32 %conv2.i.i.i, ptr %shift.i.i.i, align 4
-  %gshift.i.i.i = getelementptr inbounds i8, ptr %vs, i64 49437
-  %63 = load i8, ptr %gshift.i.i.i, align 1
-  %conv4.i.i.i81 = zext i8 %63 to i32
-  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %shift.i.i.i, i64 4
-  store i32 %conv4.i.i.i81, ptr %arrayidx5.i.i.i, align 4
+  %62 = load <2 x i8>, ptr %rshift.i.i.i, align 4
+  %63 = zext <2 x i8> %62 to <2 x i32>
+  store <2 x i32> %63, ptr %shift.i.i.i, align 8
   %bshift.i.i.i = getelementptr inbounds i8, ptr %vs, i64 49438
   %64 = load i8, ptr %bshift.i.i.i, align 2
   %conv7.i.i.i82 = zext i8 %64 to i32
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %shift.i.i.i, i64 8
-  store i32 %conv7.i.i.i82, ptr %arrayidx8.i.i.i, align 4
+  store i32 %conv7.i.i.i82, ptr %arrayidx8.i.i.i, align 8
   %cmp39.i.i.i = icmp sgt i32 %h, 0
   %cmp2133.i.i.i = icmp sgt i32 %w, 0
   %or.cond.i.i = and i1 %cmp2133.i.i.i, %cmp39.i.i.i
@@ -1647,7 +1642,6 @@ if.else.i.i86:                                    ; preds = %if.end.i.i78
   %77 = load ptr, ptr %buffer19.i.i, align 8
   %buffer.i36.i.i = getelementptr inbounds i8, ptr %58, i64 160
   %rmax.i.i.i = getelementptr inbounds i8, ptr %vs, i64 49440
-  %gmax.i.i.i = getelementptr inbounds i8, ptr %vs, i64 49441
   %bmax.i.i.i = getelementptr inbounds i8, ptr %vs, i64 49442
   %rshift.i45.i.i = getelementptr inbounds i8, ptr %vs, i64 49436
   br i1 %cmp14.i.i, label %if.then16.i.i, label %if.else20.i.i
@@ -1661,30 +1655,21 @@ if.then16.i.i:                                    ; preds = %if.else.i.i86
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %upperleft.i34.i.i)
   %78 = load ptr, ptr %buffer.i36.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %78, i8 0, i64 %mul5.i.i, i1 false)
-  %79 = load i8, ptr %rmax.i.i.i, align 8
-  %conv2.i40.i.i = zext i8 %79 to i32
-  store i32 %conv2.i40.i.i, ptr %max.i.i.i, align 4
-  %80 = load i8, ptr %gmax.i.i.i, align 1
-  %conv4.i41.i.i = zext i8 %80 to i32
-  %arrayidx5.i42.i.i = getelementptr inbounds i8, ptr %max.i.i.i, i64 4
-  store i32 %conv4.i41.i.i, ptr %arrayidx5.i42.i.i, align 4
+  %79 = load <2 x i8>, ptr %rmax.i.i.i, align 8
+  %80 = zext <2 x i8> %79 to <2 x i32>
+  store <2 x i32> %80, ptr %max.i.i.i, align 8
   %81 = load i8, ptr %bmax.i.i.i, align 2
   %conv7.i43.i.i = zext i8 %81 to i32
   %arrayidx8.i44.i.i = getelementptr inbounds i8, ptr %max.i.i.i, i64 8
-  store i32 %conv7.i43.i.i, ptr %arrayidx8.i44.i.i, align 4
-  %82 = load i8, ptr %rshift.i45.i.i, align 4
-  %conv10.i.i.i = zext i8 %82 to i32
-  store i32 %conv10.i.i.i, ptr %shift.i30.i.i, align 4
-  %gshift.i46.i.i = getelementptr inbounds i8, ptr %vs, i64 49437
-  %83 = load i8, ptr %gshift.i46.i.i, align 1
-  %conv13.i.i.i = zext i8 %83 to i32
-  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %shift.i30.i.i, i64 4
-  store i32 %conv13.i.i.i, ptr %arrayidx14.i.i.i, align 4
+  store i32 %conv7.i43.i.i, ptr %arrayidx8.i44.i.i, align 8
+  %82 = load <2 x i8>, ptr %rshift.i45.i.i, align 4
+  %83 = zext <2 x i8> %82 to <2 x i32>
+  store <2 x i32> %83, ptr %shift.i30.i.i, align 8
   %bshift.i47.i.i = getelementptr inbounds i8, ptr %vs, i64 49438
   %84 = load i8, ptr %bshift.i47.i.i, align 2
   %conv16.i.i.i = zext i8 %84 to i32
   %arrayidx17.i.i.i = getelementptr inbounds i8, ptr %shift.i30.i.i, i64 8
-  store i32 %conv16.i.i.i, ptr %arrayidx17.i.i.i, align 4
+  store i32 %conv16.i.i.i, ptr %arrayidx17.i.i.i, align 8
   %cmp49.i.i.i = icmp sgt i32 %h, 0
   %cmp3045.i.i.i = icmp sgt i32 %w, 0
   %or.cond127.i.i = and i1 %cmp3045.i.i.i, %cmp49.i.i.i
@@ -1779,30 +1764,21 @@ if.else20.i.i:                                    ; preds = %if.else.i.i86
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %upperleft.i62.i.i)
   %98 = load ptr, ptr %buffer.i36.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %98, i8 0, i64 %mul5.i.i, i1 false)
-  %99 = load i8, ptr %rmax.i.i.i, align 8
-  %conv2.i69.i.i = zext i8 %99 to i32
-  store i32 %conv2.i69.i.i, ptr %max.i57.i.i, align 4
-  %100 = load i8, ptr %gmax.i.i.i, align 1
-  %conv4.i71.i.i = zext i8 %100 to i32
-  %arrayidx5.i72.i.i = getelementptr inbounds i8, ptr %max.i57.i.i, i64 4
-  store i32 %conv4.i71.i.i, ptr %arrayidx5.i72.i.i, align 4
+  %99 = load <2 x i8>, ptr %rmax.i.i.i, align 8
+  %100 = zext <2 x i8> %99 to <2 x i32>
+  store <2 x i32> %100, ptr %max.i57.i.i, align 8
   %101 = load i8, ptr %bmax.i.i.i, align 2
   %conv7.i74.i.i = zext i8 %101 to i32
   %arrayidx8.i75.i.i = getelementptr inbounds i8, ptr %max.i57.i.i, i64 8
-  store i32 %conv7.i74.i.i, ptr %arrayidx8.i75.i.i, align 4
-  %102 = load i8, ptr %rshift.i45.i.i, align 4
-  %conv10.i77.i.i = zext i8 %102 to i32
-  store i32 %conv10.i77.i.i, ptr %shift.i58.i.i, align 4
-  %gshift.i78.i.i = getelementptr inbounds i8, ptr %vs, i64 49437
-  %103 = load i8, ptr %gshift.i78.i.i, align 1
-  %conv13.i79.i.i = zext i8 %103 to i32
-  %arrayidx14.i80.i.i = getelementptr inbounds i8, ptr %shift.i58.i.i, i64 4
-  store i32 %conv13.i79.i.i, ptr %arrayidx14.i80.i.i, align 4
+  store i32 %conv7.i74.i.i, ptr %arrayidx8.i75.i.i, align 8
+  %102 = load <2 x i8>, ptr %rshift.i45.i.i, align 4
+  %103 = zext <2 x i8> %102 to <2 x i32>
+  store <2 x i32> %103, ptr %shift.i58.i.i, align 8
   %bshift.i81.i.i = getelementptr inbounds i8, ptr %vs, i64 49438
   %104 = load i8, ptr %bshift.i81.i.i, align 2
   %conv16.i82.i.i = zext i8 %104 to i32
   %arrayidx17.i83.i.i = getelementptr inbounds i8, ptr %shift.i58.i.i, i64 8
-  store i32 %conv16.i82.i.i, ptr %arrayidx17.i83.i.i, align 4
+  store i32 %conv16.i82.i.i, ptr %arrayidx17.i83.i.i, align 8
   %cmp49.i84.i.i = icmp sgt i32 %h, 0
   %cmp3045.i86.i.i = icmp sgt i32 %w, 0
   %or.cond128.i.i = and i1 %cmp3045.i86.i.i, %cmp49.i84.i.i
@@ -2019,8 +1995,8 @@ declare i64 @palette_size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @tight_detect_smooth_image(ptr nocapture noundef readonly %vs, i32 noundef %w, i32 noundef %h) unnamed_addr #0 {
 entry:
-  %max.i = alloca [3 x i32], align 4
-  %shift.i = alloca [3 x i32], align 4
+  %max.i = alloca [3 x i32], align 8
+  %shift.i = alloca [3 x i32], align 8
   %stats.i = alloca [256 x i32], align 16
   %left.i = alloca [3 x i32], align 4
   %tight = getelementptr inbounds i8, ptr %vs, i64 49600
@@ -2125,33 +2101,23 @@ if.else62:                                        ; preds = %if.end33
   %buffer.i = getelementptr inbounds i8, ptr %7, i64 40
   %15 = load ptr, ptr %buffer.i, align 8
   %rmax.i = getelementptr inbounds i8, ptr %vs, i64 49440
-  %16 = load i8, ptr %rmax.i, align 8
-  %conv.i = zext i8 %16 to i32
-  store i32 %conv.i, ptr %max.i, align 4
-  %gmax.i = getelementptr inbounds i8, ptr %vs, i64 49441
-  %17 = load i8, ptr %gmax.i, align 1
-  %conv3.i = zext i8 %17 to i32
-  %arrayidx4.i = getelementptr inbounds i8, ptr %max.i, i64 4
-  store i32 %conv3.i, ptr %arrayidx4.i, align 4
+  %16 = load <2 x i8>, ptr %rmax.i, align 8
+  %17 = zext <2 x i8> %16 to <2 x i32>
+  store <2 x i32> %17, ptr %max.i, align 8
   %bmax.i = getelementptr inbounds i8, ptr %vs, i64 49442
   %18 = load i8, ptr %bmax.i, align 2
   %conv6.i = zext i8 %18 to i32
   %arrayidx7.i = getelementptr inbounds i8, ptr %max.i, i64 8
-  store i32 %conv6.i, ptr %arrayidx7.i, align 4
+  store i32 %conv6.i, ptr %arrayidx7.i, align 8
   %rshift.i = getelementptr inbounds i8, ptr %vs, i64 49436
-  %19 = load i8, ptr %rshift.i, align 4
-  %conv9.i = zext i8 %19 to i32
-  store i32 %conv9.i, ptr %shift.i, align 4
-  %gshift.i = getelementptr inbounds i8, ptr %vs, i64 49437
-  %20 = load i8, ptr %gshift.i, align 1
-  %conv12.i = zext i8 %20 to i32
-  %arrayidx13.i = getelementptr inbounds i8, ptr %shift.i, i64 4
-  store i32 %conv12.i, ptr %arrayidx13.i, align 4
+  %19 = load <2 x i8>, ptr %rshift.i, align 4
+  %20 = zext <2 x i8> %19 to <2 x i32>
+  store <2 x i32> %20, ptr %shift.i, align 8
   %bshift.i = getelementptr inbounds i8, ptr %vs, i64 49438
   %21 = load i8, ptr %bshift.i, align 2
   %conv15.i = zext i8 %21 to i32
   %arrayidx16.i = getelementptr inbounds i8, ptr %shift.i, i64 8
-  store i32 %conv15.i, ptr %arrayidx16.i, align 4
+  store i32 %conv15.i, ptr %arrayidx16.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %stats.i, i8 0, i64 1024, i1 false)
   %sub23.i = add nsw i32 %w, -7
   %cmp90.i = icmp ugt i32 %w, %h
@@ -3658,8 +3624,8 @@ return:                                           ; preds = %for.body83, %lor.lh
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @tight_detect_smooth_image32(ptr nocapture noundef readonly %vs, i32 noundef %w, i32 noundef %h) unnamed_addr #6 {
 entry:
-  %max = alloca [3 x i32], align 4
-  %shift = alloca [3 x i32], align 4
+  %max = alloca [3 x i32], align 8
+  %shift = alloca [3 x i32], align 8
   %stats = alloca [256 x i32], align 16
   %left = alloca [3 x i32], align 4
   %tight = getelementptr inbounds i8, ptr %vs, i64 49600
@@ -3667,33 +3633,23 @@ entry:
   %buffer = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %buffer, align 8
   %rmax = getelementptr inbounds i8, ptr %vs, i64 49440
-  %2 = load i8, ptr %rmax, align 8
-  %conv = zext i8 %2 to i32
-  store i32 %conv, ptr %max, align 4
-  %gmax = getelementptr inbounds i8, ptr %vs, i64 49441
-  %3 = load i8, ptr %gmax, align 1
-  %conv3 = zext i8 %3 to i32
-  %arrayidx4 = getelementptr inbounds i8, ptr %max, i64 4
-  store i32 %conv3, ptr %arrayidx4, align 4
+  %2 = load <2 x i8>, ptr %rmax, align 8
+  %3 = zext <2 x i8> %2 to <2 x i32>
+  store <2 x i32> %3, ptr %max, align 8
   %bmax = getelementptr inbounds i8, ptr %vs, i64 49442
   %4 = load i8, ptr %bmax, align 2
   %conv6 = zext i8 %4 to i32
   %arrayidx7 = getelementptr inbounds i8, ptr %max, i64 8
-  store i32 %conv6, ptr %arrayidx7, align 4
+  store i32 %conv6, ptr %arrayidx7, align 8
   %rshift = getelementptr inbounds i8, ptr %vs, i64 49436
-  %5 = load i8, ptr %rshift, align 4
-  %conv9 = zext i8 %5 to i32
-  store i32 %conv9, ptr %shift, align 4
-  %gshift = getelementptr inbounds i8, ptr %vs, i64 49437
-  %6 = load i8, ptr %gshift, align 1
-  %conv12 = zext i8 %6 to i32
-  %arrayidx13 = getelementptr inbounds i8, ptr %shift, i64 4
-  store i32 %conv12, ptr %arrayidx13, align 4
+  %5 = load <2 x i8>, ptr %rshift, align 4
+  %6 = zext <2 x i8> %5 to <2 x i32>
+  store <2 x i32> %6, ptr %shift, align 8
   %bshift = getelementptr inbounds i8, ptr %vs, i64 49438
   %7 = load i8, ptr %bshift, align 2
   %conv15 = zext i8 %7 to i32
   %arrayidx16 = getelementptr inbounds i8, ptr %shift, i64 8
-  store i32 %conv15, ptr %arrayidx16, align 4
+  store i32 %conv15, ptr %arrayidx16, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %stats, i8 0, i64 1024, i1 false)
   %cmp78 = icmp sgt i32 %h, 0
   %cmp1879 = icmp sgt i32 %w, 0

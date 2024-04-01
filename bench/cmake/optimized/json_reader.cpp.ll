@@ -12763,16 +12763,16 @@ define dso_local noundef nonnull ptr @_ZNK4Json17CharReaderBuilder13newCharReade
   %41 = insertelement <8 x i1> %40, i1 %16, i64 5
   %42 = insertelement <8 x i1> %41, i1 %20, i64 6
   %43 = insertelement <8 x i1> %42, i1 %22, i64 7
-  %44 = zext <8 x i1> %43 to <8 x i8>
-  %45 = zext i32 %18 to i64
-  %46 = getelementptr inbounds i8, ptr %27, i64 176
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #25
-  %47 = getelementptr inbounds i8, ptr %27, i64 208
-  %48 = getelementptr inbounds i8, ptr %27, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %47, i8 0, i64 41, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
-  %49 = getelementptr inbounds i8, ptr %27, i64 288
-  store <8 x i8> %44, ptr %49, align 8
+  %44 = zext i32 %18 to i64
+  %45 = getelementptr inbounds i8, ptr %27, i64 176
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #25
+  %46 = getelementptr inbounds i8, ptr %27, i64 208
+  %47 = getelementptr inbounds i8, ptr %27, i64 256
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %46, i8 0, i64 41, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #25
+  %48 = getelementptr inbounds i8, ptr %27, i64 288
+  %49 = zext <8 x i1> %43 to <8 x i8>
+  store <8 x i8> %49, ptr %48, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 296
   store i8 %35, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 297
@@ -12780,7 +12780,7 @@ define dso_local noundef nonnull ptr @_ZNK4Json17CharReaderBuilder13newCharReade
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 298
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.12.0..sroa_idx, i8 0, i64 6, i1 false)
   %.sroa.123.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 304
-  store i64 %45, ptr %.sroa.123.0..sroa_idx, align 8
+  store i64 %44, ptr %.sroa.123.0..sroa_idx, align 8
   %50 = getelementptr inbounds i8, ptr %27, i64 312
   store i8 0, ptr %50, align 8
   ret ptr %27

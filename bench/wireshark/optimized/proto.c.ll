@@ -4448,15 +4448,10 @@ define internal fastcc noalias noundef ptr @new_field_info(ptr nocapture noundef
   %49 = getelementptr inbounds i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 376
-  %52 = load i8, ptr %51, align 8
-  %53 = zext i8 %52 to i32
-  %54 = getelementptr inbounds i8, ptr %12, i64 56
-  store i32 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 377
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %12, i64 60
-  store i32 %57, ptr %58, align 4
+  %52 = getelementptr inbounds i8, ptr %12, i64 56
+  %53 = load <2 x i8>, ptr %51, align 8
+  %54 = zext <2 x i8> %53 to <2 x i32>
+  store <2 x i32> %54, ptr %52, align 8
   ret ptr %12
 }
 

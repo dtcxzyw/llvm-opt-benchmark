@@ -32236,12 +32236,11 @@ declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_9hugein
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIsEEbT_RNS_9hugeint_tE(i16 noundef signext %value, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %result) local_unnamed_addr #15 align 2 {
 entry:
-  %conv.i = sext i16 %value to i64
   %0 = ashr i16 %value, 15
-  %conv3.i = sext i16 %0 to i64
-  store i64 %conv.i, ptr %result, align 8, !tbaa !87
-  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 %conv3.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8, !tbaa !87
+  %1 = insertelement <2 x i16> poison, i16 %value, i64 0
+  %2 = insertelement <2 x i16> %1, i16 %0, i64 1
+  %3 = sext <2 x i16> %2 to <2 x i64>
+  store <2 x i64> %3, ptr %result, align 8, !tbaa !87
   ret i1 true
 }
 

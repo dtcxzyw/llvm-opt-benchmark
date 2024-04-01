@@ -32,19 +32,19 @@ define hidden i32 @aethra_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %9 = load i32, ptr %1, align 4
   %.not17 = icmp ne i32 %9, -12
   %. = sext i1 %.not17 to i32
-  br label %47
+  br label %43
 
 10:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %4, ptr noundef nonnull dereferenceable(5) @aethra_magic, i64 5)
   %.not18 = icmp eq i32 %bcmp, 0
-  br i1 %.not18, label %11, label %47
+  br i1 %.not18, label %11, label %43
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 5
   %14 = call i32 @wtap_read_bytes(ptr noundef %12, ptr noundef nonnull %13, i32 noundef 5407, ptr noundef %1, ptr noundef %2) #5
   %.not19 = icmp eq i32 %14, 0
-  br i1 %.not19, label %47, label %15
+  br i1 %.not19, label %43, label %15
 
 15:                                               ; preds = %11
   %16 = load i32, ptr @aethra_file_type_subtype, align 4
@@ -74,29 +74,24 @@ define hidden i32 @aethra_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %33 = zext i8 %32 to i32
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 223
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %4, i64 222
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  store i32 %41, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 32
-  store i32 -1, ptr %42, align 8
-  %43 = call i64 @mktime(ptr noundef nonnull %5) #5
-  store i64 %43, ptr %18, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 17, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 3, ptr %46, align 4
+  %35 = getelementptr inbounds i8, ptr %4, i64 222
+  %36 = load <2 x i8>, ptr %35, align 1
+  %37 = zext <2 x i8> %36 to <2 x i32>
+  store <2 x i32> %37, ptr %5, align 8
+  %38 = getelementptr inbounds i8, ptr %5, i64 32
+  store i32 -1, ptr %38, align 8
+  %39 = call i64 @mktime(ptr noundef nonnull %5) #5
+  store i64 %39, ptr %18, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 17, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 3, ptr %42, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
-  br label %47
+  br label %43
 
-47:                                               ; preds = %11, %10, %8, %15
+43:                                               ; preds = %11, %10, %8, %15
   %.0 = phi i32 [ 1, %15 ], [ %., %8 ], [ 0, %10 ], [ -1, %11 ]
   ret i32 %.0
 }

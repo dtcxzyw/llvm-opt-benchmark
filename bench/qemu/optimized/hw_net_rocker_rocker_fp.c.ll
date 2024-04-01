@@ -61,15 +61,10 @@ entry:
   %speed6 = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %4, ptr %speed6, align 4
   %duplex = getelementptr inbounds i8, ptr %port, i64 44
-  %5 = load i8, ptr %duplex, align 4
-  %conv = zext i8 %5 to i32
   %duplex7 = getelementptr inbounds i8, ptr %call, i64 16
-  store i32 %conv, ptr %duplex7, align 8
-  %autoneg = getelementptr inbounds i8, ptr %port, i64 45
-  %6 = load i8, ptr %autoneg, align 1
-  %conv8 = zext i8 %6 to i32
-  %autoneg9 = getelementptr inbounds i8, ptr %call, i64 20
-  store i32 %conv8, ptr %autoneg9, align 4
+  %5 = load <2 x i8>, ptr %duplex, align 4
+  %6 = zext <2 x i8> %5 to <2 x i32>
+  store <2 x i32> %6, ptr %duplex7, align 8
   ret ptr %call
 }
 

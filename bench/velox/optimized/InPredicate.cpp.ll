@@ -48367,7 +48367,6 @@ entry:
   %1 = insertelement <4 x i1> %0, i1 %lowerExclusive, i64 1
   %2 = insertelement <4 x i1> %1, i1 %upperUnbounded, i64 2
   %3 = insertelement <4 x i1> %2, i1 %upperExclusive, i64 3
-  %4 = zext <4 x i1> %3 to <4 x i8>
   %frombool1.i.i = zext i1 %nullAllowed to i8
   %nullAllowed_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %frombool1.i.i, ptr %nullAllowed_.i.i, align 8
@@ -48380,6 +48379,7 @@ entry:
   %lowerExclusive_.i = getelementptr inbounds i8, ptr %this, i64 17
   %upperUnbounded_.i = getelementptr inbounds i8, ptr %this, i64 18
   %upperExclusive_.i = getelementptr inbounds i8, ptr %this, i64 19
+  %4 = zext <4 x i1> %3 to <4 x i8>
   store <4 x i8> %4, ptr %lowerUnbounded_.i, align 8
   %lnot18.i = and i1 %lowerUnbounded, %upperUnbounded
   br i1 %lnot18.i, label %if.then.i, label %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit

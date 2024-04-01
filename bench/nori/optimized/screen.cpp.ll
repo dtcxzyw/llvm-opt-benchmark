@@ -2655,12 +2655,12 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
   %28 = insertelement <4 x i1> %27, i1 %5, i64 1
   %29 = insertelement <4 x i1> %28, i1 %6, i64 2
   %30 = insertelement <4 x i1> %29, i1 %7, i64 3
-  %31 = zext <4 x i1> %30 to <4 x i8>
-  %32 = getelementptr inbounds i8, ptr %0, i64 344
-  store i8 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 345
-  %34 = getelementptr inbounds i8, ptr %0, i64 348
-  store <4 x i8> %31, ptr %33, align 1
+  %31 = getelementptr inbounds i8, ptr %0, i64 344
+  store i8 0, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 345
+  %33 = getelementptr inbounds i8, ptr %0, i64 348
+  %34 = zext <4 x i1> %30 to <4 x i8>
+  store <4 x i8> %34, ptr %32, align 1
   %35 = getelementptr inbounds i8, ptr %0, i64 349
   store i8 0, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %0, i64 352
@@ -2725,7 +2725,7 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
   %spec.select = select i1 %5, i32 32, i32 0
   %.148 = select i1 %6, i32 24, i32 %spec.select
   %.046 = select i1 %6, i32 8, i32 0
-  %51 = load i8, ptr %34, align 4
+  %51 = load i8, ptr %33, align 4
   %52 = trunc i8 %51 to i1
   %.049 = select i1 %52, i32 16, i32 8
   invoke void @glfwWindowHint(i32 noundef 135169, i32 noundef %.049)
@@ -2752,7 +2752,7 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %57
-  %59 = load i8, ptr %34, align 4
+  %59 = load i8, ptr %33, align 4
   %60 = and i8 %59, 1
   %61 = zext nneg i8 %60 to i32
   invoke void @glfwWindowHint(i32 noundef 135185, i32 noundef %61)
@@ -2798,12 +2798,12 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
   br i1 %78, label %79, label %.thread62
 
 79:                                               ; preds = %77
-  %80 = load i8, ptr %34, align 4
+  %80 = load i8, ptr %33, align 4
   %81 = trunc i8 %80 to i1
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %79
-  store i8 0, ptr %34, align 4
+  store i8 0, ptr %33, align 4
   invoke void @glfwWindowHint(i32 noundef 135185, i32 noundef 0)
           to label %83 unwind label %.loopexit.split.us
 
@@ -2831,12 +2831,12 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
   br i1 %92, label %93, label %.thread62
 
 93:                                               ; preds = %91
-  %94 = load i8, ptr %34, align 4
+  %94 = load i8, ptr %33, align 4
   %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %.thread
 
 96:                                               ; preds = %93
-  store i8 0, ptr %34, align 4
+  store i8 0, ptr %33, align 4
   invoke void @glfwWindowHint(i32 noundef 135185, i32 noundef 0)
           to label %97 unwind label %.loopexit.split
 
@@ -2944,7 +2944,7 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
           to label %125 unwind label %.loopexit.split-lp
 
 125:                                              ; preds = %123
-  %126 = load i8, ptr %34, align 4
+  %126 = load i8, ptr %33, align 4
   %127 = trunc i8 %126 to i1
   br i1 %127, label %128, label %134
 
@@ -2960,7 +2960,7 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
 131:                                              ; preds = %129
   %132 = load ptr, ptr @stderr, align 8
   %133 = call i64 @fwrite(ptr nonnull @.str.6, i64 47, i64 1, ptr %132) #34
-  store i8 0, ptr %34, align 4
+  store i8 0, ptr %33, align 4
   br label %134
 
 134:                                              ; preds = %129, %131, %125

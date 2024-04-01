@@ -509,50 +509,44 @@ entry:
 define noundef i32 @myprintf(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #12 {
 entry:
   %argptr = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %argptr)
+  call void @llvm.va_start.p0(ptr nonnull %argptr)
   %call = call i32 @vprintf(ptr noundef %fmt, ptr noundef nonnull %argptr)
-  call void @llvm.va_end(ptr nonnull %argptr)
+  call void @llvm.va_end.p0(ptr nonnull %argptr)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
-
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define ptr @my_strtok(ptr noundef %token, ptr nocapture noundef readonly %delim) local_unnamed_addr #15 {
+define ptr @my_strtok(ptr noundef %token, ptr nocapture noundef readonly %delim) local_unnamed_addr #14 {
 entry:
   %call = tail call ptr @strtok(ptr noundef %token, ptr noundef %delim) #33
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @my_strchr(ptr noundef readonly %s, i32 noundef %c) local_unnamed_addr #17 {
+define ptr @my_strchr(ptr noundef readonly %s, i32 noundef %c) local_unnamed_addr #16 {
 entry:
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %s, i32 noundef %c) #34
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) #18
+declare ptr @strchr(ptr noundef, i32 noundef) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define double @my_sqrt(double noundef %a) local_unnamed_addr #19 {
+define double @my_sqrt(double noundef %a) local_unnamed_addr #18 {
 entry:
   %call = tail call double @sqrt(double noundef %a) #33
   ret double %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #20
+declare double @sqrt(double noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind uwtable
 define void @my_qsort(ptr noundef %base, i64 noundef %num, i64 noundef %width, ptr nocapture noundef %compare) local_unnamed_addr #12 {
@@ -562,7 +556,7 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_testfunc_ai8(ptr noundef readnone returned %a) local_unnamed_addr #9 {
@@ -571,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_testfunc_v(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly %presult) local_unnamed_addr #22 {
+define void @_testfunc_v(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly %presult) local_unnamed_addr #21 {
 entry:
   %add = add i32 %b, %a
   store i32 %add, ptr %presult, align 4
@@ -668,7 +662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @my_strdup(ptr nocapture noundef readonly %src) local_unnamed_addr #15 {
+define noundef ptr @my_strdup(ptr nocapture noundef readonly %src) local_unnamed_addr #14 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #34
   %add = add i64 %call, 1
@@ -685,26 +679,26 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #24
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @my_free(ptr nocapture noundef %ptr) local_unnamed_addr #25 {
+define void @my_free(ptr nocapture noundef %ptr) local_unnamed_addr #24 {
 entry:
   tail call void @free(ptr noundef %ptr) #33
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #26
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @my_wcsdup(ptr nocapture noundef readonly %src) local_unnamed_addr #15 {
+define noalias noundef ptr @my_wcsdup(ptr nocapture noundef readonly %src) local_unnamed_addr #14 {
 entry:
   %call = tail call i64 @wcslen(ptr noundef %src) #34
   %add = shl i64 %call, 2
@@ -722,10 +716,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i64 @my_wcslen(ptr nocapture noundef readonly %src) local_unnamed_addr #17 {
+define i64 @my_wcslen(ptr nocapture noundef readonly %src) local_unnamed_addr #16 {
 entry:
   %call = tail call i64 @wcslen(ptr noundef %src) #34
   ret i64 %call
@@ -837,14 +831,14 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @getSPAMANDEGGS(ptr nocapture noundef writeonly %eggs) local_unnamed_addr #22 {
+define noundef i32 @getSPAMANDEGGS(ptr nocapture noundef writeonly %eggs) local_unnamed_addr #21 {
 entry:
   store ptr @my_eggs, ptr %eggs, align 8
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @_testfunc_byval(i64 %in.coerce, ptr noundef writeonly %pout) local_unnamed_addr #22 {
+define i32 @_testfunc_byval(i64 %in.coerce, ptr noundef writeonly %pout) local_unnamed_addr #21 {
 entry:
   %in.sroa.0.0.extract.trunc = trunc i64 %in.coerce to i32
   %in.sroa.3.0.extract.shift = lshr i64 %in.coerce, 32
@@ -864,7 +858,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @get_an_integer() local_unnamed_addr #27 {
+define i32 @get_an_integer() local_unnamed_addr #26 {
 entry:
   %0 = load i32, ptr @an_integer, align 4
   ret i32 %0
@@ -902,7 +896,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #28
+declare double @llvm.fmuladd.f64(double, double, double) #27
 
 ; Function Attrs: nounwind uwtable
 define internal void @_xxx_init(ptr noundef %Xalloc, ptr noundef %Xfree) #0 {
@@ -932,7 +926,7 @@ entry:
   ret ptr %._Py_NoneStruct
 }
 
-declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #29
+declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @_py_func_si(ptr nocapture noundef readnone %s, i32 noundef %i) local_unnamed_addr #9 {
@@ -1094,7 +1088,7 @@ return:                                           ; preds = %entry, %sw.bb70, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i8 @tf_b(i8 noundef signext %c) local_unnamed_addr #30 {
+define noundef signext i8 @tf_b(i8 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1103,7 +1097,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @tf_B(i8 noundef zeroext %c) local_unnamed_addr #30 {
+define noundef zeroext i8 @tf_B(i8 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1112,7 +1106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i16 @tf_h(i16 noundef signext %c) local_unnamed_addr #30 {
+define noundef signext i16 @tf_h(i16 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1121,7 +1115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @tf_H(i16 noundef zeroext %c) local_unnamed_addr #30 {
+define noundef zeroext i16 @tf_H(i16 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1130,7 +1124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_i(i32 noundef %c) local_unnamed_addr #30 {
+define noundef i32 @tf_i(i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1139,7 +1133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_I(i32 noundef %c) local_unnamed_addr #30 {
+define noundef i32 @tf_I(i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1148,7 +1142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_l(i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_l(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1156,7 +1150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_L(i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_L(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1164,7 +1158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_q(i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_q(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1172,7 +1166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_Q(i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_Q(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1180,7 +1174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef float @tf_f(float noundef %c) local_unnamed_addr #30 {
+define noundef float @tf_f(float noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = fptosi float %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1189,7 +1183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef double @tf_d(double noundef %c) local_unnamed_addr #30 {
+define noundef double @tf_d(double noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = fptosi double %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1198,7 +1192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef x86_fp80 @tf_D(x86_fp80 noundef %c) local_unnamed_addr #30 {
+define noundef x86_fp80 @tf_D(x86_fp80 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = fptosi x86_fp80 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1207,7 +1201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i8 @tf_bb(i8 noundef signext %x, i8 noundef signext %c) local_unnamed_addr #30 {
+define noundef signext i8 @tf_bb(i8 noundef signext %x, i8 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1216,7 +1210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @tf_bB(i8 noundef signext %x, i8 noundef zeroext %c) local_unnamed_addr #30 {
+define noundef zeroext i8 @tf_bB(i8 noundef signext %x, i8 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1225,7 +1219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i16 @tf_bh(i8 noundef signext %x, i16 noundef signext %c) local_unnamed_addr #30 {
+define noundef signext i16 @tf_bh(i8 noundef signext %x, i16 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1234,7 +1228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @tf_bH(i8 noundef signext %x, i16 noundef zeroext %c) local_unnamed_addr #30 {
+define noundef zeroext i16 @tf_bH(i8 noundef signext %x, i16 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1243,7 +1237,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_bi(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #30 {
+define noundef i32 @tf_bi(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1252,7 +1246,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_bI(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #30 {
+define noundef i32 @tf_bI(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1261,7 +1255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bl(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_bl(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1269,7 +1263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bL(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_bL(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1277,7 +1271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bq(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_bq(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1285,7 +1279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bQ(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #30 {
+define noundef i64 @tf_bQ(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1293,7 +1287,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef float @tf_bf(i8 noundef signext %x, float noundef %c) local_unnamed_addr #30 {
+define noundef float @tf_bf(i8 noundef signext %x, float noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = fptosi float %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1302,7 +1296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef double @tf_bd(i8 noundef signext %x, double noundef %c) local_unnamed_addr #30 {
+define noundef double @tf_bd(i8 noundef signext %x, double noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = fptosi double %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1311,7 +1305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef x86_fp80 @tf_bD(i8 noundef signext %x, x86_fp80 noundef %c) local_unnamed_addr #30 {
+define noundef x86_fp80 @tf_bD(i8 noundef signext %x, x86_fp80 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = fptosi x86_fp80 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1320,7 +1314,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @tv_i(i32 noundef %c) local_unnamed_addr #30 {
+define void @tv_i(i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1359,7 +1353,7 @@ return:                                           ; preds = %if.end7, %if.end4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @ReturnRect(ptr noalias nocapture writeonly sret(%struct.RECT) align 8 %agg.result, i32 noundef %i, ptr nocapture noundef byval(%struct.RECT) align 8 %ar, ptr nocapture noundef readonly %br, i64 %cp.coerce0, i64 %cp.coerce1, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %dr, ptr nocapture noundef readonly %er, ptr nocapture noundef readonly byval(%struct.POINT) align 8 %fp, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %gr) local_unnamed_addr #31 {
+define void @ReturnRect(ptr noalias nocapture writeonly sret(%struct.RECT) align 8 %agg.result, i32 noundef %i, ptr nocapture noundef byval(%struct.RECT) align 8 %ar, ptr nocapture noundef readonly %br, i64 %cp.coerce0, i64 %cp.coerce1, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %dr, ptr nocapture noundef readonly %er, ptr nocapture noundef readonly byval(%struct.POINT) align 8 %fp, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %gr) local_unnamed_addr #30 {
 entry:
   %0 = load i64, ptr %ar, align 8
   %1 = load i64, ptr %br, align 8
@@ -1490,7 +1484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @GetRectangle(i32 noundef %flag, ptr nocapture noundef writeonly %prect) local_unnamed_addr #22 {
+define noundef i32 @GetRectangle(i32 noundef %flag, ptr nocapture noundef writeonly %prect) local_unnamed_addr #21 {
 entry:
   %cmp = icmp eq i32 %flag, 0
   br i1 %cmp, label %return, label %if.end
@@ -1498,14 +1492,12 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = sext i32 %flag to i64
   store i64 %conv, ptr %prect, align 8
-  %add = add i32 %flag, 1
-  %conv1 = sext i32 %add to i64
+  %0 = insertelement <2 x i32> poison, i32 %flag, i64 0
+  %1 = shufflevector <2 x i32> %0, <2 x i32> poison, <2 x i32> zeroinitializer
+  %2 = add <2 x i32> %1, <i32 1, i32 2>
   %top = getelementptr inbounds i8, ptr %prect, i64 8
-  store i64 %conv1, ptr %top, align 8
-  %add2 = add i32 %flag, 2
-  %conv3 = sext i32 %add2 to i64
-  %right = getelementptr inbounds i8, ptr %prect, i64 16
-  store i64 %conv3, ptr %right, align 8
+  %3 = sext <2 x i32> %2 to <2 x i64>
+  store <2 x i64> %3, ptr %top, align 8
   %add4 = add i32 %flag, 3
   %conv5 = sext i32 %add4 to i64
   %bottom = getelementptr inbounds i8, ptr %prect, i64 24
@@ -1536,7 +1528,7 @@ entry:
   ret i32 %call
 }
 
-declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #29
+declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #28
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit__ctypes_test() local_unnamed_addr #0 {
@@ -1545,7 +1537,13 @@ entry:
   ret ptr %call
 }
 
-declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #29
+declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #28
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #31
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #31
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #32
@@ -1564,24 +1562,24 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #32 = { nofree nounwind }
 attributes #33 = { nounwind }
 attributes #34 = { nounwind willreturn memory(read) }

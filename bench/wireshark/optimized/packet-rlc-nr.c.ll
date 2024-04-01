@@ -2042,9 +2042,9 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 ; Function Attrs: nounwind uwtable
 define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = call i32 @vsnprintf(ptr noundef nonnull @write_pdu_label_and_info.info_buffer, i64 noundef 256, ptr noundef %3, ptr noundef nonnull %5) #9
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @write_pdu_label_and_info.info_buffer) #9
@@ -2261,14 +2261,8 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2281,12 +2275,12 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #6
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #5
 
 declare void @except_free(ptr noundef) local_unnamed_addr #1
 
@@ -2321,87 +2315,82 @@ define internal fastcc i32 @get_reassembly_start_frame(ptr nocapture noundef rea
   store i32 %13, ptr %10, align 4
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = getelementptr inbounds i8, ptr %2, i64 3
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  store i32 %17, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 12
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
-  %20 = load i8, ptr %19, align 2
-  %21 = zext i8 %20 to i32
-  store i32 %21, ptr %18, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 %3, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %5, i64 20
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr %23, align 4
+  %16 = load <2 x i8>, ptr %15, align 1
+  %17 = zext <2 x i8> %16 to <2 x i32>
+  store <2 x i32> %17, ptr %14, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %3, ptr %18, align 16
+  %19 = getelementptr inbounds i8, ptr %5, i64 20
+  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = load i32, ptr %20, align 4
+  store i32 %21, ptr %19, align 4
   store i32 5, ptr %6, align 16
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %5, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 0, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 50
-  %32 = load i16, ptr %31, align 2
-  %33 = and i16 %32, 8
-  %.not = icmp eq i16 %33, 0
-  br i1 %.not, label %34, label %54
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %5, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 0, ptr %23, align 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 50
+  %28 = load i16, ptr %27, align 2
+  %29 = and i16 %28, 8
+  %.not = icmp eq i16 %29, 0
+  br i1 %.not, label %30, label %50
 
-34:                                               ; preds = %4
-  %35 = and i32 %1, 2
-  %36 = icmp eq i32 %35, 0
-  %37 = load ptr, ptr @reassembly_start_table, align 8
-  %38 = call ptr @wmem_tree_lookup32_array(ptr noundef %37, ptr noundef nonnull %6) #9
-  br i1 %36, label %39, label %45
+30:                                               ; preds = %4
+  %31 = and i32 %1, 2
+  %32 = icmp eq i32 %31, 0
+  %33 = load ptr, ptr @reassembly_start_table, align 8
+  %34 = call ptr @wmem_tree_lookup32_array(ptr noundef %33, ptr noundef nonnull %6) #9
+  br i1 %32, label %35, label %41
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr @reassembly_start_table, align 8
-  %41 = load i32, ptr %24, align 4
-  %42 = zext i32 %41 to i64
-  %43 = inttoptr i64 %42 to ptr
-  call void @wmem_tree_insert32_array(ptr noundef %40, ptr noundef nonnull %6, ptr noundef %43) #9
-  %44 = load i32, ptr %24, align 4
-  br label %49
+35:                                               ; preds = %30
+  %36 = load ptr, ptr @reassembly_start_table, align 8
+  %37 = load i32, ptr %20, align 4
+  %38 = zext i32 %37 to i64
+  %39 = inttoptr i64 %38 to ptr
+  call void @wmem_tree_insert32_array(ptr noundef %36, ptr noundef nonnull %6, ptr noundef %39) #9
+  %40 = load i32, ptr %20, align 4
+  br label %45
 
-45:                                               ; preds = %34
-  %.not19 = icmp eq ptr %38, null
-  br i1 %.not19, label %.thread, label %46
+41:                                               ; preds = %30
+  %.not19 = icmp eq ptr %34, null
+  br i1 %.not19, label %.thread, label %42
+
+42:                                               ; preds = %41
+  %43 = ptrtoint ptr %34 to i64
+  %44 = trunc i64 %43 to i32
+  br label %45
+
+45:                                               ; preds = %42, %35
+  %.0 = phi i32 [ %40, %35 ], [ %44, %42 ]
+  %.not20 = icmp eq i32 %.0, 0
+  br i1 %.not20, label %.thread, label %46
 
 46:                                               ; preds = %45
-  %47 = ptrtoint ptr %38 to i64
-  %48 = trunc i64 %47 to i32
-  br label %49
+  store i32 6, ptr %6, align 16
+  %47 = load ptr, ptr @reassembly_start_table_stored, align 8
+  %48 = zext i32 %.0 to i64
+  %49 = inttoptr i64 %48 to ptr
+  call void @wmem_tree_insert32_array(ptr noundef %47, ptr noundef nonnull %6, ptr noundef nonnull %49) #9
+  br label %.thread
 
-49:                                               ; preds = %46, %39
-  %.0 = phi i32 [ %44, %39 ], [ %48, %46 ]
-  %.not20 = icmp eq i32 %.0, 0
-  br i1 %.not20, label %.thread, label %50
-
-50:                                               ; preds = %49
+50:                                               ; preds = %4
   store i32 6, ptr %6, align 16
   %51 = load ptr, ptr @reassembly_start_table_stored, align 8
-  %52 = zext i32 %.0 to i64
-  %53 = inttoptr i64 %52 to ptr
-  call void @wmem_tree_insert32_array(ptr noundef %51, ptr noundef nonnull %6, ptr noundef nonnull %53) #9
+  %52 = call ptr @wmem_tree_lookup32_array(ptr noundef %51, ptr noundef nonnull %6) #9
+  %.not21 = icmp eq ptr %52, null
+  br i1 %.not21, label %.thread, label %53
+
+53:                                               ; preds = %50
+  %54 = ptrtoint ptr %52 to i64
+  %55 = trunc i64 %54 to i32
   br label %.thread
 
-54:                                               ; preds = %4
-  store i32 6, ptr %6, align 16
-  %55 = load ptr, ptr @reassembly_start_table_stored, align 8
-  %56 = call ptr @wmem_tree_lookup32_array(ptr noundef %55, ptr noundef nonnull %6) #9
-  %.not21 = icmp eq ptr %56, null
-  br i1 %.not21, label %.thread, label %57
-
-57:                                               ; preds = %54
-  %58 = ptrtoint ptr %56 to i64
-  %59 = trunc i64 %58 to i32
-  br label %.thread
-
-.thread:                                          ; preds = %45, %54, %57, %49, %50
-  %.1 = phi i32 [ %59, %57 ], [ 0, %54 ], [ %.0, %50 ], [ 0, %49 ], [ 0, %45 ]
+.thread:                                          ; preds = %41, %50, %53, %45, %46
+  %.1 = phi i32 [ %55, %53 ], [ 0, %50 ], [ %.0, %46 ], [ 0, %45 ], [ 0, %41 ]
   ret i32 %.1
 }
 
@@ -2708,36 +2697,36 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pdu_hash(ptr noundef %0) #7 {
+define internal noundef i32 @pdu_hash(ptr noundef %0) #6 {
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pdu_equal(ptr noundef readnone %0, ptr noundef readnone %1) #7 {
+define internal noundef i32 @pdu_equal(ptr noundef readnone %0, ptr noundef readnone %1) #6 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @pdu_temporary_key(ptr nocapture readnone %0, i32 %1, ptr noundef readnone returned %2) #7 {
+define internal noundef ptr @pdu_temporary_key(ptr nocapture readnone %0, i32 %1, ptr noundef readnone returned %2) #6 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @pdu_persistent_key(ptr nocapture readnone %0, i32 %1, ptr noundef readnone returned %2) #7 {
+define internal noundef ptr @pdu_persistent_key(ptr nocapture readnone %0, i32 %1, ptr noundef readnone returned %2) #6 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pdu_free_temporary_key(ptr nocapture readnone %0) #7 {
+define internal void @pdu_free_temporary_key(ptr nocapture readnone %0) #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pdu_free_persistent_key(ptr nocapture readnone %0) #7 {
+define internal void @pdu_free_persistent_key(ptr nocapture readnone %0) #6 {
   ret void
 }
 
@@ -2749,6 +2738,12 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
@@ -2758,11 +2753,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind returns_twice }
