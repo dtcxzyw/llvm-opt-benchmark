@@ -19778,20 +19778,19 @@ define dso_local void @nvgScale(ptr nocapture noundef %0, float noundef %1, floa
   %12 = load <2 x float>, ptr %9, align 4
   %13 = load <2 x float>, ptr %10, align 4
   %14 = fmul <2 x float> %13, zeroinitializer
-  %15 = insertelement <2 x float> poison, float %2, i64 0
-  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
-  %17 = fmul <2 x float> %13, %16
-  %18 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> zeroinitializer, <2 x float> %14)
-  %19 = load <2 x float>, ptr %11, align 4
-  %20 = fadd <2 x float> %19, %18
-  %21 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %22 = insertelement <4 x float> %21, float %1, i64 0
+  %15 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %16 = insertelement <2 x float> poison, float %2, i64 0
+  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
+  %18 = fmul <2 x float> %13, %17
+  %19 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> zeroinitializer, <2 x float> %14)
+  %20 = load <2 x float>, ptr %11, align 4
+  %21 = fadd <2 x float> %20, %19
+  %22 = insertelement <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, float %1, i64 0
   %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 3>
-  %24 = shufflevector <4 x float> %21, <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %25 = shufflevector <2 x float> %14, <2 x float> %17, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %26 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %23, <4 x float> %24, <4 x float> %25)
-  store <4 x float> %26, ptr %9, align 4
-  store <2 x float> %20, ptr %11, align 4
+  %24 = shufflevector <2 x float> %14, <2 x float> %18, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %25 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %23, <4 x float> %15, <4 x float> %24)
+  store <4 x float> %25, ptr %9, align 4
+  store <2 x float> %21, ptr %11, align 4
   ret void
 }
 

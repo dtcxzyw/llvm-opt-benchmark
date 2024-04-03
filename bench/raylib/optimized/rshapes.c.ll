@@ -243,10 +243,10 @@ define void @DrawLineBezier(<2 x float> %0, <2 x float> %1, float noundef %2, i3
   %14 = fmul float %9, 5.000000e-01
   br label %15
 
-15:                                               ; preds = %4, %51
-  %indvars.iv = phi i64 [ 1, %4 ], [ %indvars.iv.next, %51 ]
-  %16 = phi <4 x float> [ zeroinitializer, %4 ], [ %52, %51 ]
-  %17 = phi <2 x float> [ %0, %4 ], [ %66, %51 ]
+15:                                               ; preds = %4, %52
+  %indvars.iv = phi i64 [ 1, %4 ], [ %indvars.iv.next, %52 ]
+  %16 = phi <4 x float> [ zeroinitializer, %4 ], [ %53, %52 ]
+  %17 = phi <2 x float> [ %0, %4 ], [ %67, %52 ]
   %18 = shufflevector <2 x float> %17, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %19 = trunc i64 %indvars.iv to i32
   %20 = sitofp i32 %19 to float
@@ -273,54 +273,55 @@ EaseCubicInOut.exit:                              ; preds = %23, %27
   %33 = fadd float %12, %32
   %34 = extractelement <2 x float> %17, i64 1
   %35 = fsub float %.0.i, %34
-  %36 = fsub float %33, %32
-  %37 = fmul float %35, %35
-  %38 = tail call float @llvm.fmuladd.f32(float %36, float %36, float %37)
+  %36 = fmul float %35, %35
+  %37 = fsub float %33, %32
+  %38 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %36)
   %sqrt = tail call float @llvm.sqrt.f32(float %38)
   %39 = fdiv float %13, %sqrt
   %40 = icmp eq i64 %indvars.iv, 1
-  %41 = fneg float %36
+  %41 = fneg float %37
   br i1 %40, label %42, label %EaseCubicInOut.exit._crit_edge
 
 EaseCubicInOut.exit._crit_edge:                   ; preds = %EaseCubicInOut.exit
   %.pre = fneg float %35
-  br label %51
+  br label %52
 
 42:                                               ; preds = %EaseCubicInOut.exit
   %43 = fneg float %35
-  %44 = insertelement <4 x float> poison, float %35, i64 0
-  %45 = insertelement <4 x float> %44, float %41, i64 1
-  %46 = insertelement <4 x float> %45, float %43, i64 2
-  %47 = insertelement <4 x float> %46, float %36, i64 3
-  %48 = insertelement <4 x float> poison, float %39, i64 0
-  %49 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> zeroinitializer
-  %50 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %47, <4 x float> %49, <4 x float> %18)
-  br label %51
+  %44 = insertelement <4 x float> poison, float %39, i64 0
+  %45 = insertelement <4 x float> %44, float %37, i64 1
+  %46 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %47 = insertelement <4 x float> poison, float %35, i64 0
+  %48 = insertelement <4 x float> %47, float %41, i64 1
+  %49 = insertelement <4 x float> %48, float %43, i64 2
+  %50 = insertelement <4 x float> %49, float %39, i64 3
+  %51 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %46, <4 x float> %50, <4 x float> %18)
+  br label %52
 
-51:                                               ; preds = %EaseCubicInOut.exit._crit_edge, %42
+52:                                               ; preds = %EaseCubicInOut.exit._crit_edge, %42
   %.pre-phi = phi float [ %.pre, %EaseCubicInOut.exit._crit_edge ], [ %43, %42 ]
-  %52 = phi <4 x float> [ %16, %EaseCubicInOut.exit._crit_edge ], [ %50, %42 ]
-  %53 = insertelement <4 x float> poison, float %35, i64 0
-  %54 = insertelement <4 x float> %53, float %41, i64 1
-  %55 = insertelement <4 x float> %54, float %.pre-phi, i64 2
-  %56 = insertelement <4 x float> %55, float %36, i64 3
-  %57 = insertelement <4 x float> poison, float %39, i64 0
-  %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> zeroinitializer
-  %59 = insertelement <4 x float> poison, float %33, i64 0
-  %60 = insertelement <4 x float> %59, float %.0.i, i64 1
-  %61 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %62 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %56, <4 x float> %58, <4 x float> %61)
-  %63 = shl nuw nsw i64 %indvars.iv, 1
-  %64 = getelementptr inbounds [50 x %struct.Vector2], ptr %6, i64 0, i64 %63
-  store <4 x float> %62, ptr %64, align 16
+  %53 = phi <4 x float> [ %16, %EaseCubicInOut.exit._crit_edge ], [ %51, %42 ]
+  %54 = insertelement <4 x float> poison, float %35, i64 0
+  %55 = insertelement <4 x float> %54, float %41, i64 1
+  %56 = insertelement <4 x float> %55, float %.pre-phi, i64 2
+  %57 = insertelement <4 x float> %56, float %37, i64 3
+  %58 = insertelement <4 x float> poison, float %39, i64 0
+  %59 = shufflevector <4 x float> %58, <4 x float> poison, <4 x i32> zeroinitializer
+  %60 = insertelement <4 x float> poison, float %33, i64 0
+  %61 = insertelement <4 x float> %60, float %.0.i, i64 1
+  %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %63 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %57, <4 x float> %59, <4 x float> %62)
+  %64 = shl nuw nsw i64 %indvars.iv, 1
+  %65 = getelementptr inbounds [50 x %struct.Vector2], ptr %6, i64 0, i64 %64
+  store <4 x float> %63, ptr %65, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  %65 = insertelement <2 x float> poison, float %33, i64 0
-  %66 = insertelement <2 x float> %65, float %.0.i, i64 1
-  br i1 %exitcond.not, label %67, label %15
+  %66 = insertelement <2 x float> poison, float %33, i64 0
+  %67 = insertelement <2 x float> %66, float %.0.i, i64 1
+  br i1 %exitcond.not, label %68, label %15
 
-67:                                               ; preds = %51
-  store <4 x float> %52, ptr %6, align 16
+68:                                               ; preds = %52
+  store <4 x float> %53, ptr %6, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %6, i32 noundef 50, i32 %3)
   ret void
 }
@@ -2910,7 +2911,7 @@ define void @DrawSplineLinear(ptr nocapture noundef readonly %0, i32 noundef %1,
 define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, i32 %3) local_unnamed_addr #4 {
   %5 = alloca [50 x %struct.Vector2], align 16
   %6 = icmp slt i32 %1, 4
-  br i1 %6, label %112, label %.lr.ph
+  br i1 %6, label %115, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2923,8 +2924,8 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
 10:                                               ; preds = %.lr.ph, %.split137.us
   %indvars.iv170 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next171, %.split137.us ]
   %.0122151 = phi float [ 0.000000e+00, %.lr.ph ], [ %.us-phi143, %.split137.us ]
-  %11 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %110, %.split137.us ]
-  %12 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %111, %.split137.us ]
+  %11 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %113, %.split137.us ]
+  %12 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %114, %.split137.us ]
   %13 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv170
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %14 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv.next171
@@ -2954,15 +2955,14 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 .split.us.preheader:                              ; preds = %10
   %37 = shufflevector <2 x float> %35, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %38 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %39 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %40 = fneg <4 x float> %39
-  %41 = shufflevector <4 x float> %38, <4 x float> %40, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %42 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %43 = shufflevector <4 x float> %41, <4 x float> %42, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %44 = insertelement <4 x float> poison, float %.0122151, i64 0
-  %45 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> zeroinitializer
-  %46 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %43, <4 x float> %45, <4 x float> %37)
+  %38 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
+  %39 = insertelement <4 x float> %38, float %.0122151, i64 1
+  %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
+  %41 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 1>
+  %42 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %43 = fneg <4 x float> %42
+  %44 = shufflevector <4 x float> %41, <4 x float> %43, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
+  %45 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %40, <4 x float> %44, <4 x float> %37)
   br label %.split.us
 
 .split.preheader:                                 ; preds = %10
@@ -2971,43 +2971,44 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
   %indvars.iv = phi i64 [ 1, %.split.us.preheader ], [ %indvars.iv.next, %.split.us ]
-  %.sroa.048.1128.us = phi <2 x float> [ %35, %.split.us.preheader ], [ %56, %.split.us ]
-  %47 = trunc i64 %indvars.iv to i32
-  %48 = sitofp i32 %47 to float
-  %49 = fdiv float %48, 2.400000e+01
-  %50 = shl nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %50
-  %52 = insertelement <2 x float> poison, float %49, i64 0
-  %53 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> zeroinitializer
-  %54 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %30, <2 x float> %31)
-  %55 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %54, <2 x float> %32)
-  %56 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %55, <2 x float> %35)
-  %57 = shufflevector <2 x float> %56, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %58 = fsub <2 x float> %56, %.sroa.048.1128.us
-  %59 = fmul <2 x float> %58, %58
-  %60 = extractelement <2 x float> %59, i64 1
-  %61 = extractelement <2 x float> %58, i64 0
-  %62 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %60)
-  %sqrt.us = tail call float @llvm.sqrt.f32(float %62)
-  %63 = fdiv float %9, %sqrt.us
-  %64 = shufflevector <2 x float> %58, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %65 = shufflevector <2 x float> %58, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %66 = fneg <4 x float> %65
-  %67 = shufflevector <4 x float> %64, <4 x float> %66, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %68 = shufflevector <2 x float> %58, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %69 = shufflevector <4 x float> %67, <4 x float> %68, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %70 = insertelement <4 x float> poison, float %63, i64 0
-  %71 = shufflevector <4 x float> %70, <4 x float> poison, <4 x i32> zeroinitializer
-  %72 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %69, <4 x float> %71, <4 x float> %57)
-  store <4 x float> %72, ptr %51, align 16
+  %.sroa.048.1128.us = phi <2 x float> [ %35, %.split.us.preheader ], [ %55, %.split.us ]
+  %46 = trunc i64 %indvars.iv to i32
+  %47 = sitofp i32 %46 to float
+  %48 = fdiv float %47, 2.400000e+01
+  %49 = shl nuw nsw i64 %indvars.iv, 1
+  %50 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %49
+  %51 = insertelement <2 x float> poison, float %48, i64 0
+  %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
+  %53 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %52, <2 x float> %30, <2 x float> %31)
+  %54 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %52, <2 x float> %53, <2 x float> %32)
+  %55 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %52, <2 x float> %54, <2 x float> %35)
+  %56 = shufflevector <2 x float> %55, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %57 = fsub <2 x float> %55, %.sroa.048.1128.us
+  %58 = fmul <2 x float> %57, %57
+  %59 = extractelement <2 x float> %58, i64 1
+  %60 = extractelement <2 x float> %57, i64 0
+  %61 = tail call float @llvm.fmuladd.f32(float %60, float %60, float %59)
+  %sqrt.us = tail call float @llvm.sqrt.f32(float %61)
+  %62 = fdiv float %9, %sqrt.us
+  %63 = insertelement <4 x float> poison, float %62, i64 0
+  %64 = shufflevector <2 x float> %57, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %65 = shufflevector <4 x float> %63, <4 x float> %64, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %66 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %67 = shufflevector <2 x float> %57, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %68 = shufflevector <2 x float> %57, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %69 = fneg <4 x float> %68
+  %70 = shufflevector <4 x float> %67, <4 x float> %69, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %71 = insertelement <4 x float> %70, float %62, i64 3
+  %72 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %66, <4 x float> %71, <4 x float> %56)
+  store <4 x float> %72, ptr %50, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %.split137.us, label %.split.us
 
-.split:                                           ; preds = %.split.preheader, %100
-  %indvars.iv166 = phi i64 [ 1, %.split.preheader ], [ %indvars.iv.next167, %100 ]
-  %.sroa.048.1128 = phi <2 x float> [ %35, %.split.preheader ], [ %81, %100 ]
-  %73 = phi <4 x float> [ %11, %.split.preheader ], [ %101, %100 ]
+.split:                                           ; preds = %.split.preheader, %103
+  %indvars.iv166 = phi i64 [ 1, %.split.preheader ], [ %indvars.iv.next167, %103 ]
+  %.sroa.048.1128 = phi <2 x float> [ %35, %.split.preheader ], [ %81, %103 ]
+  %73 = phi <4 x float> [ %11, %.split.preheader ], [ %104, %103 ]
   %74 = trunc i64 %indvars.iv166 to i32
   %75 = sitofp i32 %74 to float
   %76 = fdiv float %75, 2.400000e+01
@@ -3030,50 +3031,53 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 .split._crit_edge:                                ; preds = %.split
   %.pre174 = fneg float %84
-  br label %100
+  br label %103
 
 91:                                               ; preds = %.split
   %92 = shufflevector <2 x float> %.sroa.048.1128, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %93 = fneg float %84
-  %94 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
-  %95 = insertelement <4 x float> %94, float %90, i64 1
-  %96 = insertelement <4 x float> %95, float %93, i64 2
-  %97 = insertelement <4 x float> poison, float %88, i64 0
-  %98 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> zeroinitializer
-  %99 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %96, <4 x float> %98, <4 x float> %92)
-  br label %100
+  %94 = insertelement <4 x float> poison, float %88, i64 0
+  %95 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %96 = shufflevector <4 x float> %94, <4 x float> %95, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %97 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %98 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %99 = insertelement <4 x float> %98, float %90, i64 1
+  %100 = insertelement <4 x float> %99, float %93, i64 2
+  %101 = insertelement <4 x float> %100, float %88, i64 3
+  %102 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %97, <4 x float> %101, <4 x float> %92)
+  br label %103
 
-100:                                              ; preds = %.split._crit_edge, %91
+103:                                              ; preds = %.split._crit_edge, %91
   %.pre-phi175 = phi float [ %.pre174, %.split._crit_edge ], [ %93, %91 ]
-  %101 = phi <4 x float> [ %73, %.split._crit_edge ], [ %99, %91 ]
-  %102 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
-  %103 = insertelement <4 x float> %102, float %90, i64 1
-  %104 = insertelement <4 x float> %103, float %.pre-phi175, i64 2
-  %105 = insertelement <4 x float> poison, float %88, i64 0
-  %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> zeroinitializer
-  %107 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %104, <4 x float> %106, <4 x float> %82)
-  %108 = shl nuw nsw i64 %indvars.iv166, 1
-  %109 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %108
-  store <4 x float> %107, ptr %109, align 16
+  %104 = phi <4 x float> [ %73, %.split._crit_edge ], [ %102, %91 ]
+  %105 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
+  %106 = insertelement <4 x float> %105, float %90, i64 1
+  %107 = insertelement <4 x float> %106, float %.pre-phi175, i64 2
+  %108 = insertelement <4 x float> poison, float %88, i64 0
+  %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> zeroinitializer
+  %110 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %107, <4 x float> %109, <4 x float> %82)
+  %111 = shl nuw nsw i64 %indvars.iv166, 1
+  %112 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %111
+  store <4 x float> %110, ptr %112, align 16
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 25
   br i1 %exitcond169.not, label %.split137.us, label %.split
 
-.split137.us:                                     ; preds = %.split.us, %100
-  %.us-phi143 = phi float [ %88, %100 ], [ %63, %.split.us ]
-  %.us-phi144 = phi <2 x float> [ %81, %100 ], [ %56, %.split.us ]
-  %110 = phi <4 x float> [ %101, %100 ], [ %46, %.split.us ]
-  %111 = phi <2 x float> [ %83, %100 ], [ %58, %.split.us ]
-  store <4 x float> %110, ptr %5, align 16
+.split137.us:                                     ; preds = %.split.us, %103
+  %.us-phi143 = phi float [ %88, %103 ], [ %62, %.split.us ]
+  %.us-phi144 = phi <2 x float> [ %81, %103 ], [ %55, %.split.us ]
+  %113 = phi <4 x float> [ %104, %103 ], [ %45, %.split.us ]
+  %114 = phi <2 x float> [ %83, %103 ], [ %57, %.split.us ]
+  store <4 x float> %113, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   %exitcond173.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count
   br i1 %exitcond173.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %.split137.us
   tail call void @DrawCircleSector(<2 x float> %.us-phi144, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
-  br label %112
+  br label %115
 
-112:                                              ; preds = %4, %._crit_edge
+115:                                              ; preds = %4, %._crit_edge
   ret void
 }
 
@@ -3081,7 +3085,7 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
 define void @DrawSplineCatmullRom(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, i32 %3) local_unnamed_addr #4 {
   %5 = alloca [50 x %struct.Vector2], align 16
   %6 = icmp slt i32 %1, 4
-  br i1 %6, label %101, label %.lr.ph
+  br i1 %6, label %103, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3094,12 +3098,12 @@ define void @DrawSplineCatmullRom(ptr nocapture noundef readonly %0, i32 noundef
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph, %100
-  %indvars.iv152 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next153, %100 ]
-  %.0121140 = phi float [ 0.000000e+00, %.lr.ph ], [ %78, %100 ]
-  %.sroa.057.0139 = phi <2 x float> [ %.sroa.057.0.copyload, %.lr.ph ], [ %71, %100 ]
-  %12 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %91, %100 ]
-  %13 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %73, %100 ]
+11:                                               ; preds = %.lr.ph, %102
+  %indvars.iv152 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next153, %102 ]
+  %.0121140 = phi float [ 0.000000e+00, %.lr.ph ], [ %77, %102 ]
+  %.sroa.057.0139 = phi <2 x float> [ %.sroa.057.0.copyload, %.lr.ph ], [ %70, %102 ]
+  %12 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %93, %102 ]
+  %13 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %72, %102 ]
   %14 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv152
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %15 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv.next153
@@ -3114,117 +3118,119 @@ define void @DrawSplineCatmullRom(ptr nocapture noundef readonly %0, i32 noundef
 
 22:                                               ; preds = %11
   %23 = shufflevector <2 x float> %.sroa.057.0139, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %24 = shufflevector <2 x float> %13, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %25 = shufflevector <2 x float> %13, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %26 = fneg <4 x float> %25
-  %27 = shufflevector <4 x float> %24, <4 x float> %26, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %28 = shufflevector <2 x float> %13, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %29 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %30 = insertelement <4 x float> poison, float %.0121140, i64 0
-  %31 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> zeroinitializer
-  %32 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %29, <4 x float> %31, <4 x float> %23)
+  %24 = shufflevector <2 x float> %13, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
+  %25 = insertelement <4 x float> %24, float %.0121140, i64 1
+  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
+  %27 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 1>
+  %28 = shufflevector <2 x float> %13, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %29 = fneg <4 x float> %28
+  %30 = shufflevector <4 x float> %27, <4 x float> %29, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
+  %31 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %26, <4 x float> %30, <4 x float> %23)
   br label %.preheader
 
 .preheader:                                       ; preds = %22, %11
-  %.ph = phi <4 x float> [ %12, %11 ], [ %32, %22 ]
-  br label %33
+  %.ph = phi <4 x float> [ %12, %11 ], [ %31, %22 ]
+  br label %32
 
-33:                                               ; preds = %.preheader, %90
-  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 1, %.preheader ]
-  %.sroa.057.1127 = phi <2 x float> [ %71, %90 ], [ %.sroa.057.0139, %.preheader ]
-  %34 = phi <4 x float> [ %91, %90 ], [ %.ph, %.preheader ]
-  %35 = trunc i64 %indvars.iv to i32
-  %36 = sitofp i32 %35 to float
-  %37 = fdiv float %36, 2.400000e+01
-  %38 = fneg float %37
-  %39 = fmul float %37, %38
-  %40 = fmul float %37, 2.000000e+00
-  %41 = fmul float %37, %40
-  %42 = tail call float @llvm.fmuladd.f32(float %39, float %37, float %41)
-  %43 = tail call float @llvm.fmuladd.f32(float %37, float -1.000000e+00, float %42)
-  %44 = fmul float %37, 3.000000e+00
-  %45 = fmul float %37, %44
-  %46 = fmul float %37, -5.000000e+00
-  %47 = fmul float %37, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %45, float %37, float %47)
-  %49 = fadd float %48, 2.000000e+00
-  %50 = fmul float %37, -3.000000e+00
-  %51 = fmul float %37, %50
-  %52 = fmul float %37, 4.000000e+00
-  %53 = fmul float %37, %52
-  %54 = tail call float @llvm.fmuladd.f32(float %51, float %37, float %53)
-  %55 = fadd float %37, %54
-  %56 = fmul float %37, %37
-  %57 = fneg float %56
-  %58 = tail call float @llvm.fmuladd.f32(float %56, float %37, float %57)
-  %59 = insertelement <2 x float> poison, float %49, i64 0
-  %60 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> zeroinitializer
-  %61 = fmul <2 x float> %19, %60
-  %62 = insertelement <2 x float> poison, float %43, i64 0
-  %63 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> zeroinitializer
-  %64 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %18, <2 x float> %63, <2 x float> %61)
-  %65 = insertelement <2 x float> poison, float %55, i64 0
-  %66 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> zeroinitializer
-  %67 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %20, <2 x float> %66, <2 x float> %64)
-  %68 = insertelement <2 x float> poison, float %58, i64 0
-  %69 = shufflevector <2 x float> %68, <2 x float> poison, <2 x i32> zeroinitializer
-  %70 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %21, <2 x float> %69, <2 x float> %67)
-  %71 = fmul <2 x float> %70, <float 5.000000e-01, float 5.000000e-01>
-  %72 = shufflevector <2 x float> %71, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %73 = fsub <2 x float> %71, %.sroa.057.1127
-  %74 = extractelement <2 x float> %73, i64 1
-  %75 = fmul float %74, %74
-  %76 = extractelement <2 x float> %73, i64 0
-  %77 = tail call float @llvm.fmuladd.f32(float %76, float %76, float %75)
-  %sqrt = tail call float @llvm.sqrt.f32(float %77)
-  %78 = fdiv float %9, %sqrt
-  %79 = icmp eq i64 %indvars.iv, 1
-  %or.cond = and i1 %.not, %79
-  %80 = fneg float %76
-  br i1 %or.cond, label %81, label %._crit_edge156
+32:                                               ; preds = %.preheader, %92
+  %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ 1, %.preheader ]
+  %.sroa.057.1127 = phi <2 x float> [ %70, %92 ], [ %.sroa.057.0139, %.preheader ]
+  %33 = phi <4 x float> [ %93, %92 ], [ %.ph, %.preheader ]
+  %34 = trunc i64 %indvars.iv to i32
+  %35 = sitofp i32 %34 to float
+  %36 = fdiv float %35, 2.400000e+01
+  %37 = fneg float %36
+  %38 = fmul float %36, %37
+  %39 = fmul float %36, 2.000000e+00
+  %40 = fmul float %36, %39
+  %41 = tail call float @llvm.fmuladd.f32(float %38, float %36, float %40)
+  %42 = tail call float @llvm.fmuladd.f32(float %36, float -1.000000e+00, float %41)
+  %43 = fmul float %36, 3.000000e+00
+  %44 = fmul float %36, %43
+  %45 = fmul float %36, -5.000000e+00
+  %46 = fmul float %36, %45
+  %47 = tail call float @llvm.fmuladd.f32(float %44, float %36, float %46)
+  %48 = fadd float %47, 2.000000e+00
+  %49 = fmul float %36, -3.000000e+00
+  %50 = fmul float %36, %49
+  %51 = fmul float %36, 4.000000e+00
+  %52 = fmul float %36, %51
+  %53 = tail call float @llvm.fmuladd.f32(float %50, float %36, float %52)
+  %54 = fadd float %36, %53
+  %55 = fmul float %36, %36
+  %56 = fneg float %55
+  %57 = tail call float @llvm.fmuladd.f32(float %55, float %36, float %56)
+  %58 = insertelement <2 x float> poison, float %48, i64 0
+  %59 = shufflevector <2 x float> %58, <2 x float> poison, <2 x i32> zeroinitializer
+  %60 = fmul <2 x float> %19, %59
+  %61 = insertelement <2 x float> poison, float %42, i64 0
+  %62 = shufflevector <2 x float> %61, <2 x float> poison, <2 x i32> zeroinitializer
+  %63 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %18, <2 x float> %62, <2 x float> %60)
+  %64 = insertelement <2 x float> poison, float %54, i64 0
+  %65 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> zeroinitializer
+  %66 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %20, <2 x float> %65, <2 x float> %63)
+  %67 = insertelement <2 x float> poison, float %57, i64 0
+  %68 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> zeroinitializer
+  %69 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %21, <2 x float> %68, <2 x float> %66)
+  %70 = fmul <2 x float> %69, <float 5.000000e-01, float 5.000000e-01>
+  %71 = shufflevector <2 x float> %70, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %72 = fsub <2 x float> %70, %.sroa.057.1127
+  %73 = extractelement <2 x float> %72, i64 1
+  %74 = fmul float %73, %73
+  %75 = extractelement <2 x float> %72, i64 0
+  %76 = tail call float @llvm.fmuladd.f32(float %75, float %75, float %74)
+  %sqrt = tail call float @llvm.sqrt.f32(float %76)
+  %77 = fdiv float %9, %sqrt
+  %78 = icmp eq i64 %indvars.iv, 1
+  %or.cond = and i1 %.not, %78
+  %79 = fneg float %75
+  br i1 %or.cond, label %80, label %._crit_edge156
 
-._crit_edge156:                                   ; preds = %33
-  %.pre = fneg float %74
-  br label %90
+._crit_edge156:                                   ; preds = %32
+  %.pre = fneg float %73
+  br label %92
 
-81:                                               ; preds = %33
-  %82 = shufflevector <2 x float> %.sroa.057.1127, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %83 = fneg float %74
-  %84 = shufflevector <2 x float> %73, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
-  %85 = insertelement <4 x float> %84, float %80, i64 1
-  %86 = insertelement <4 x float> %85, float %83, i64 2
-  %87 = insertelement <4 x float> poison, float %78, i64 0
-  %88 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> zeroinitializer
-  %89 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %86, <4 x float> %88, <4 x float> %82)
-  br label %90
+80:                                               ; preds = %32
+  %81 = shufflevector <2 x float> %.sroa.057.1127, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %82 = fneg float %73
+  %83 = insertelement <4 x float> poison, float %77, i64 0
+  %84 = shufflevector <2 x float> %72, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %85 = shufflevector <4 x float> %83, <4 x float> %84, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %87 = shufflevector <2 x float> %72, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %88 = insertelement <4 x float> %87, float %79, i64 1
+  %89 = insertelement <4 x float> %88, float %82, i64 2
+  %90 = insertelement <4 x float> %89, float %77, i64 3
+  %91 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %86, <4 x float> %90, <4 x float> %81)
+  br label %92
 
-90:                                               ; preds = %._crit_edge156, %81
-  %.pre-phi = phi float [ %.pre, %._crit_edge156 ], [ %83, %81 ]
-  %91 = phi <4 x float> [ %34, %._crit_edge156 ], [ %89, %81 ]
-  %92 = shufflevector <2 x float> %73, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
-  %93 = insertelement <4 x float> %92, float %80, i64 1
-  %94 = insertelement <4 x float> %93, float %.pre-phi, i64 2
-  %95 = insertelement <4 x float> poison, float %78, i64 0
-  %96 = shufflevector <4 x float> %95, <4 x float> poison, <4 x i32> zeroinitializer
-  %97 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %94, <4 x float> %96, <4 x float> %72)
-  %98 = shl nuw nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %98
-  store <4 x float> %97, ptr %99, align 16
+92:                                               ; preds = %._crit_edge156, %80
+  %.pre-phi = phi float [ %.pre, %._crit_edge156 ], [ %82, %80 ]
+  %93 = phi <4 x float> [ %33, %._crit_edge156 ], [ %91, %80 ]
+  %94 = shufflevector <2 x float> %72, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
+  %95 = insertelement <4 x float> %94, float %79, i64 1
+  %96 = insertelement <4 x float> %95, float %.pre-phi, i64 2
+  %97 = insertelement <4 x float> poison, float %77, i64 0
+  %98 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> zeroinitializer
+  %99 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %96, <4 x float> %98, <4 x float> %71)
+  %100 = shl nuw nsw i64 %indvars.iv, 1
+  %101 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %100
+  store <4 x float> %99, ptr %101, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %100, label %33
+  br i1 %exitcond.not, label %102, label %32
 
-100:                                              ; preds = %90
-  store <4 x float> %91, ptr %5, align 16
+102:                                              ; preds = %92
+  store <4 x float> %93, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
   br i1 %exitcond155.not, label %._crit_edge, label %11
 
-._crit_edge:                                      ; preds = %100
-  tail call void @DrawCircleSector(<2 x float> %71, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
-  br label %101
+._crit_edge:                                      ; preds = %102
+  tail call void @DrawCircleSector(<2 x float> %70, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
+  br label %103
 
-101:                                              ; preds = %4, %._crit_edge
+103:                                              ; preds = %4, %._crit_edge
   ret void
 }
 
@@ -3254,10 +3260,10 @@ define void @DrawSplineBezierQuadratic(ptr nocapture noundef readonly %0, i32 no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %8, i8 0, i64 384, i1 false)
   br label %17
 
-17:                                               ; preds = %56, %10
-  %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %56 ]
-  %18 = phi <4 x float> [ zeroinitializer, %10 ], [ %57, %56 ]
-  %19 = phi <2 x float> [ %14, %10 ], [ %34, %56 ]
+17:                                               ; preds = %57, %10
+  %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %57 ]
+  %18 = phi <4 x float> [ zeroinitializer, %10 ], [ %58, %57 ]
+  %19 = phi <2 x float> [ %14, %10 ], [ %34, %57 ]
   %20 = trunc i64 %indvars.iv.i to i32
   %21 = sitofp i32 %20 to float
   %22 = fmul float %21, 0x3FA5555560000000
@@ -3291,40 +3297,41 @@ define void @DrawSplineBezierQuadratic(ptr nocapture noundef readonly %0, i32 no
 
 ._crit_edge.i:                                    ; preds = %17
   %.pre.i = fneg float %37
-  br label %56
+  br label %57
 
 46:                                               ; preds = %17
   %47 = shufflevector <2 x float> %19, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %48 = fneg float %37
-  %49 = insertelement <4 x float> poison, float %37, i64 0
-  %50 = insertelement <4 x float> %49, float %45, i64 1
-  %51 = insertelement <4 x float> %50, float %48, i64 2
-  %52 = insertelement <4 x float> %51, float %40, i64 3
-  %53 = insertelement <4 x float> poison, float %43, i64 0
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> zeroinitializer
-  %55 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %52, <4 x float> %54, <4 x float> %47)
-  br label %56
+  %49 = insertelement <4 x float> poison, float %43, i64 0
+  %50 = insertelement <4 x float> %49, float %40, i64 1
+  %51 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %52 = insertelement <4 x float> poison, float %37, i64 0
+  %53 = insertelement <4 x float> %52, float %45, i64 1
+  %54 = insertelement <4 x float> %53, float %48, i64 2
+  %55 = insertelement <4 x float> %54, float %43, i64 3
+  %56 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %51, <4 x float> %55, <4 x float> %47)
+  br label %57
 
-56:                                               ; preds = %46, %._crit_edge.i
+57:                                               ; preds = %46, %._crit_edge.i
   %.pre-phi.i = phi float [ %.pre.i, %._crit_edge.i ], [ %48, %46 ]
-  %57 = phi <4 x float> [ %18, %._crit_edge.i ], [ %55, %46 ]
-  %58 = shufflevector <2 x float> %34, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %59 = shl nuw nsw i64 %indvars.iv.i, 1
-  %60 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %59
-  %61 = insertelement <4 x float> poison, float %37, i64 0
-  %62 = insertelement <4 x float> %61, float %45, i64 1
-  %63 = insertelement <4 x float> %62, float %.pre-phi.i, i64 2
-  %64 = insertelement <4 x float> %63, float %40, i64 3
-  %65 = insertelement <4 x float> poison, float %43, i64 0
-  %66 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> zeroinitializer
-  %67 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %64, <4 x float> %66, <4 x float> %58)
-  store <4 x float> %67, ptr %60, align 16
+  %58 = phi <4 x float> [ %18, %._crit_edge.i ], [ %56, %46 ]
+  %59 = shufflevector <2 x float> %34, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %60 = shl nuw nsw i64 %indvars.iv.i, 1
+  %61 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %60
+  %62 = insertelement <4 x float> poison, float %37, i64 0
+  %63 = insertelement <4 x float> %62, float %45, i64 1
+  %64 = insertelement <4 x float> %63, float %.pre-phi.i, i64 2
+  %65 = insertelement <4 x float> %64, float %40, i64 3
+  %66 = insertelement <4 x float> poison, float %43, i64 0
+  %67 = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> zeroinitializer
+  %68 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %65, <4 x float> %67, <4 x float> %59)
+  store <4 x float> %68, ptr %61, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
   br i1 %exitcond.not.i, label %DrawSplineSegmentBezierQuadratic.exit, label %17
 
-DrawSplineSegmentBezierQuadratic.exit:            ; preds = %56
-  store <4 x float> %57, ptr %5, align 16
+DrawSplineSegmentBezierQuadratic.exit:            ; preds = %57
+  store <4 x float> %58, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3342,10 +3349,10 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   %8 = fmul float %3, 5.000000e-01
   br label %9
 
-9:                                                ; preds = %5, %48
-  %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %48 ]
-  %10 = phi <4 x float> [ zeroinitializer, %5 ], [ %49, %48 ]
-  %11 = phi <2 x float> [ %0, %5 ], [ %26, %48 ]
+9:                                                ; preds = %5, %49
+  %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %49 ]
+  %10 = phi <4 x float> [ zeroinitializer, %5 ], [ %50, %49 ]
+  %11 = phi <2 x float> [ %0, %5 ], [ %26, %49 ]
   %12 = trunc i64 %indvars.iv to i32
   %13 = sitofp i32 %12 to float
   %14 = fmul float %13, 0x3FA5555560000000
@@ -3379,40 +3386,41 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
 
 ._crit_edge:                                      ; preds = %9
   %.pre = fneg float %29
-  br label %48
+  br label %49
 
 38:                                               ; preds = %9
   %39 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %40 = fneg float %29
-  %41 = insertelement <4 x float> poison, float %29, i64 0
-  %42 = insertelement <4 x float> %41, float %37, i64 1
-  %43 = insertelement <4 x float> %42, float %40, i64 2
-  %44 = insertelement <4 x float> %43, float %32, i64 3
-  %45 = insertelement <4 x float> poison, float %35, i64 0
-  %46 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> zeroinitializer
-  %47 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %44, <4 x float> %46, <4 x float> %39)
-  br label %48
+  %41 = insertelement <4 x float> poison, float %35, i64 0
+  %42 = insertelement <4 x float> %41, float %32, i64 1
+  %43 = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %44 = insertelement <4 x float> poison, float %29, i64 0
+  %45 = insertelement <4 x float> %44, float %37, i64 1
+  %46 = insertelement <4 x float> %45, float %40, i64 2
+  %47 = insertelement <4 x float> %46, float %35, i64 3
+  %48 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %43, <4 x float> %47, <4 x float> %39)
+  br label %49
 
-48:                                               ; preds = %._crit_edge, %38
+49:                                               ; preds = %._crit_edge, %38
   %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %40, %38 ]
-  %49 = phi <4 x float> [ %10, %._crit_edge ], [ %47, %38 ]
-  %50 = shufflevector <2 x float> %26, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %51 = shl nuw nsw i64 %indvars.iv, 1
-  %52 = getelementptr inbounds [50 x %struct.Vector2], ptr %6, i64 0, i64 %51
-  %53 = insertelement <4 x float> poison, float %29, i64 0
-  %54 = insertelement <4 x float> %53, float %37, i64 1
-  %55 = insertelement <4 x float> %54, float %.pre-phi, i64 2
-  %56 = insertelement <4 x float> %55, float %32, i64 3
-  %57 = insertelement <4 x float> poison, float %35, i64 0
-  %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> zeroinitializer
-  %59 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %56, <4 x float> %58, <4 x float> %50)
-  store <4 x float> %59, ptr %52, align 16
+  %50 = phi <4 x float> [ %10, %._crit_edge ], [ %48, %38 ]
+  %51 = shufflevector <2 x float> %26, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %52 = shl nuw nsw i64 %indvars.iv, 1
+  %53 = getelementptr inbounds [50 x %struct.Vector2], ptr %6, i64 0, i64 %52
+  %54 = insertelement <4 x float> poison, float %29, i64 0
+  %55 = insertelement <4 x float> %54, float %37, i64 1
+  %56 = insertelement <4 x float> %55, float %.pre-phi, i64 2
+  %57 = insertelement <4 x float> %56, float %32, i64 3
+  %58 = insertelement <4 x float> poison, float %35, i64 0
+  %59 = shufflevector <4 x float> %58, <4 x float> poison, <4 x i32> zeroinitializer
+  %60 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %57, <4 x float> %59, <4 x float> %51)
+  store <4 x float> %60, ptr %53, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %60, label %9
+  br i1 %exitcond.not, label %61, label %9
 
-60:                                               ; preds = %48
-  store <4 x float> %49, ptr %6, align 16
+61:                                               ; preds = %49
+  store <4 x float> %50, ptr %6, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %6, i32 noundef 50, i32 %4)
   ret void
 }
@@ -3454,10 +3462,10 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   %9 = fmul float %4, 5.000000e-01
   br label %10
 
-10:                                               ; preds = %6, %56
-  %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %56 ]
-  %11 = phi <4 x float> [ zeroinitializer, %6 ], [ %57, %56 ]
-  %12 = phi <2 x float> [ %0, %6 ], [ %34, %56 ]
+10:                                               ; preds = %6, %57
+  %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %57 ]
+  %11 = phi <4 x float> [ zeroinitializer, %6 ], [ %58, %57 ]
+  %12 = phi <2 x float> [ %0, %6 ], [ %34, %57 ]
   %13 = trunc i64 %indvars.iv to i32
   %14 = sitofp i32 %13 to float
   %15 = fmul float %14, 0x3FA5555560000000
@@ -3498,40 +3506,41 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
 
 ._crit_edge:                                      ; preds = %10
   %.pre = fneg float %37
-  br label %56
+  br label %57
 
 46:                                               ; preds = %10
   %47 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %48 = fneg float %37
-  %49 = insertelement <4 x float> poison, float %37, i64 0
-  %50 = insertelement <4 x float> %49, float %45, i64 1
-  %51 = insertelement <4 x float> %50, float %48, i64 2
-  %52 = insertelement <4 x float> %51, float %40, i64 3
-  %53 = insertelement <4 x float> poison, float %43, i64 0
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> zeroinitializer
-  %55 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %52, <4 x float> %54, <4 x float> %47)
-  br label %56
+  %49 = insertelement <4 x float> poison, float %43, i64 0
+  %50 = insertelement <4 x float> %49, float %40, i64 1
+  %51 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %52 = insertelement <4 x float> poison, float %37, i64 0
+  %53 = insertelement <4 x float> %52, float %45, i64 1
+  %54 = insertelement <4 x float> %53, float %48, i64 2
+  %55 = insertelement <4 x float> %54, float %43, i64 3
+  %56 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %51, <4 x float> %55, <4 x float> %47)
+  br label %57
 
-56:                                               ; preds = %._crit_edge, %46
+57:                                               ; preds = %._crit_edge, %46
   %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %48, %46 ]
-  %57 = phi <4 x float> [ %11, %._crit_edge ], [ %55, %46 ]
-  %58 = shufflevector <2 x float> %34, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %59 = shl nuw nsw i64 %indvars.iv, 1
-  %60 = getelementptr inbounds [50 x %struct.Vector2], ptr %7, i64 0, i64 %59
-  %61 = insertelement <4 x float> poison, float %37, i64 0
-  %62 = insertelement <4 x float> %61, float %45, i64 1
-  %63 = insertelement <4 x float> %62, float %.pre-phi, i64 2
-  %64 = insertelement <4 x float> %63, float %40, i64 3
-  %65 = insertelement <4 x float> poison, float %43, i64 0
-  %66 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> zeroinitializer
-  %67 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %64, <4 x float> %66, <4 x float> %58)
-  store <4 x float> %67, ptr %60, align 16
+  %58 = phi <4 x float> [ %11, %._crit_edge ], [ %56, %46 ]
+  %59 = shufflevector <2 x float> %34, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %60 = shl nuw nsw i64 %indvars.iv, 1
+  %61 = getelementptr inbounds [50 x %struct.Vector2], ptr %7, i64 0, i64 %60
+  %62 = insertelement <4 x float> poison, float %37, i64 0
+  %63 = insertelement <4 x float> %62, float %45, i64 1
+  %64 = insertelement <4 x float> %63, float %.pre-phi, i64 2
+  %65 = insertelement <4 x float> %64, float %40, i64 3
+  %66 = insertelement <4 x float> poison, float %43, i64 0
+  %67 = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> zeroinitializer
+  %68 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %65, <4 x float> %67, <4 x float> %59)
+  store <4 x float> %68, ptr %61, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %68, label %10
+  br i1 %exitcond.not, label %69, label %10
 
-68:                                               ; preds = %56
-  store <4 x float> %57, ptr %7, align 16
+69:                                               ; preds = %57
+  store <4 x float> %58, ptr %7, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
   ret void
 }
@@ -3636,18 +3645,21 @@ define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> 
 
 50:                                               ; preds = %._crit_edge, %43
   %51 = phi <2 x float> [ %42, %._crit_edge ], [ %45, %43 ]
-  %52 = shufflevector <2 x float> %51, <2 x float> %35, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %53 = insertelement <4 x float> poison, float %40, i64 0
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> zeroinitializer
-  %55 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %52, <4 x float> %54, <4 x float> %34)
-  %56 = shl nuw nsw i64 %indvars.iv, 1
-  %57 = getelementptr inbounds [50 x %struct.Vector2], ptr %7, i64 0, i64 %56
-  store <4 x float> %55, ptr %57, align 16
+  %52 = insertelement <4 x float> poison, float %40, i64 0
+  %53 = shufflevector <2 x float> %35, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %54 = shufflevector <4 x float> %52, <4 x float> %53, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %55 = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %56 = shufflevector <2 x float> %51, <2 x float> %35, <4 x i32> <i32 3, i32 0, i32 1, i32 poison>
+  %57 = insertelement <4 x float> %56, float %40, i64 3
+  %58 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %55, <4 x float> %57, <4 x float> %34)
+  %59 = shl nuw nsw i64 %indvars.iv, 1
+  %60 = getelementptr inbounds [50 x %struct.Vector2], ptr %7, i64 0, i64 %59
+  store <4 x float> %58, ptr %60, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %58, label %24
+  br i1 %exitcond.not, label %61, label %24
 
-58:                                               ; preds = %50
+61:                                               ; preds = %50
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
   ret void
 }
@@ -3726,18 +3738,21 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
 
 64:                                               ; preds = %._crit_edge, %57
   %65 = phi <2 x float> [ %56, %._crit_edge ], [ %59, %57 ]
-  %66 = shufflevector <2 x float> %65, <2 x float> %49, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  %67 = insertelement <4 x float> poison, float %54, i64 0
-  %68 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> zeroinitializer
-  %69 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %66, <4 x float> %68, <4 x float> %48)
-  %70 = shl nuw nsw i64 %indvars.iv, 1
-  %71 = getelementptr inbounds [50 x %struct.Vector2], ptr %7, i64 0, i64 %70
-  store <4 x float> %69, ptr %71, align 16
+  %66 = insertelement <4 x float> poison, float %54, i64 0
+  %67 = shufflevector <2 x float> %49, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %68 = shufflevector <4 x float> %66, <4 x float> %67, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %69 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %70 = shufflevector <2 x float> %65, <2 x float> %49, <4 x i32> <i32 3, i32 0, i32 1, i32 poison>
+  %71 = insertelement <4 x float> %70, float %54, i64 3
+  %72 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %69, <4 x float> %71, <4 x float> %48)
+  %73 = shl nuw nsw i64 %indvars.iv, 1
+  %74 = getelementptr inbounds [50 x %struct.Vector2], ptr %7, i64 0, i64 %73
+  store <4 x float> %72, ptr %74, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %72, label %9
+  br i1 %exitcond.not, label %75, label %9
 
-72:                                               ; preds = %64
+75:                                               ; preds = %64
   call void @DrawTriangleStrip(ptr noundef nonnull %7, i32 noundef 50, i32 %5)
   ret void
 }
@@ -3919,37 +3934,38 @@ define zeroext i1 @CheckCollisionCircles(<2 x float> %0, float noundef %1, <2 x 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i1 @CheckCollisionPointTriangle(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #10 {
-  %5 = fsub <2 x float> %0, %3
-  %6 = fsub <2 x float> %3, %2
-  %7 = fsub <2 x float> %1, %3
-  %shift = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %8 = fmul <2 x float> %6, %shift
-  %9 = extractelement <2 x float> %8, i64 0
-  %10 = shufflevector <2 x float> %1, <2 x float> %0, <2 x i32> <i32 0, i32 3>
-  %11 = fsub <2 x float> %10, %3
-  %12 = shufflevector <2 x float> %3, <2 x float> %2, <2 x i32> <i32 1, i32 3>
-  %13 = shufflevector <2 x float> %1, <2 x float> %3, <2 x i32> <i32 1, i32 3>
-  %14 = fsub <2 x float> %12, %13
-  %15 = extractelement <2 x float> %14, i64 1
-  %16 = extractelement <2 x float> %11, i64 0
-  %17 = tail call float @llvm.fmuladd.f32(float %15, float %16, float %9)
-  %18 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = shufflevector <2 x float> %18, <2 x float> %6, <2 x i32> <i32 0, i32 2>
-  %20 = fmul <2 x float> %11, %19
-  %21 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %22 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %14, <2 x float> %21, <2 x float> %20)
-  %23 = insertelement <2 x float> poison, float %17, i64 0
-  %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
-  %25 = fdiv <2 x float> %22, %24
-  %26 = extractelement <2 x float> %25, i64 1
-  %27 = fsub float 1.000000e+00, %26
-  %28 = extractelement <2 x float> %25, i64 0
-  %29 = fsub float %27, %28
-  %30 = fcmp ogt float %26, 0.000000e+00
-  %31 = fcmp ogt float %28, 0.000000e+00
-  %or.cond = select i1 %30, i1 %31, i1 false
+  %5 = fsub <2 x float> %2, %3
+  %6 = extractelement <2 x float> %5, i64 1
+  %7 = fsub <2 x float> %3, %2
+  %8 = fsub <2 x float> %1, %3
+  %shift = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %9 = fmul <2 x float> %7, %shift
+  %10 = extractelement <2 x float> %9, i64 0
+  %11 = shufflevector <2 x float> %1, <2 x float> %0, <2 x i32> <i32 0, i32 3>
+  %12 = fsub <2 x float> %11, %3
+  %13 = extractelement <2 x float> %12, i64 0
+  %14 = tail call float @llvm.fmuladd.f32(float %6, float %13, float %10)
+  %15 = shufflevector <2 x float> %3, <2 x float> %0, <2 x i32> <i32 1, i32 2>
+  %16 = shufflevector <2 x float> %1, <2 x float> %3, <2 x i32> <i32 1, i32 2>
+  %17 = fsub <2 x float> %15, %16
+  %18 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %19 = shufflevector <2 x float> %18, <2 x float> %7, <2 x i32> <i32 0, i32 2>
+  %20 = fmul <2 x float> %12, %19
+  %21 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %22 = shufflevector <2 x float> %21, <2 x float> %5, <2 x i32> <i32 0, i32 3>
+  %23 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %22, <2 x float> %20)
+  %24 = insertelement <2 x float> poison, float %14, i64 0
+  %25 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> zeroinitializer
+  %26 = fdiv <2 x float> %23, %25
+  %27 = extractelement <2 x float> %26, i64 1
+  %28 = fsub float 1.000000e+00, %27
+  %29 = extractelement <2 x float> %26, i64 0
+  %30 = fsub float %28, %29
+  %31 = fcmp ogt float %27, 0.000000e+00
   %32 = fcmp ogt float %29, 0.000000e+00
-  %or.cond3 = select i1 %or.cond, i1 %32, i1 false
+  %or.cond = select i1 %31, i1 %32, i1 false
+  %33 = fcmp ogt float %30, 0.000000e+00
+  %or.cond3 = select i1 %or.cond, i1 %33, i1 false
   ret i1 %or.cond3
 }
 

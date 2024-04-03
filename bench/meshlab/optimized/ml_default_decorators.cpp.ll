@@ -9827,77 +9827,72 @@ define void @_ZN23MLDefaultMeshDecorators7chooseXERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %39 = getelementptr inbounds i8, ptr %5, i64 16
   br label %40
 
-40:                                               ; preds = %6, %87
-  %.086 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %87 ]
-  %.04285 = phi i32 [ 0, %6 ], [ %88, %87 ]
-  %41 = load float, ptr %10, align 4
+40:                                               ; preds = %6, %82
+  %.086 = phi float [ 0xC7EFFFFFE0000000, %6 ], [ %.1, %82 ]
+  %.04285 = phi i32 [ 0, %6 ], [ %83, %82 ]
   %.zext78 = lshr exact i32 %.04285, 1
   %.urem = add nsw i32 %.zext78, -2
   %.cmp = icmp ult i32 %.04285, 4
-  %42 = select i1 %.cmp, i32 %.zext78, i32 %.urem
-  %43 = sitofp i32 %42 to float
-  %44 = load float, ptr %16, align 4
-  %45 = load float, ptr %19, align 4
-  %46 = icmp ugt i32 %.04285, 3
-  %47 = uitofp i1 %46 to float
-  %48 = load float, ptr %21, align 4
-  %49 = fsub float %48, %45
-  %50 = call float @llvm.fmuladd.f32(float %47, float %49, float %45)
-  %51 = load <2 x float>, ptr %0, align 4
-  %52 = extractelement <2 x float> %51, i64 0
-  %53 = fsub float %41, %52
-  %54 = extractelement <2 x float> %51, i64 1
-  %55 = fsub float %44, %54
-  %56 = insertelement <2 x float> poison, float %53, i64 0
-  %57 = insertelement <2 x float> %56, float %43, i64 1
-  %58 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %55, i64 1
-  %59 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %57, <2 x float> %58, <2 x float> %51)
-  %60 = fadd float %52, %53
-  %61 = fpext <2 x float> %59 to <2 x double>
-  %62 = fpext float %50 to double
-  %63 = extractelement <2 x double> %61, i64 0
-  %64 = extractelement <2 x double> %61, i64 1
-  %65 = call i32 @gluProject(double noundef %63, double noundef %64, double noundef %62, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %33, ptr noundef nonnull %34)
-  %66 = fpext float %60 to double
-  %67 = call i32 @gluProject(double noundef %66, double noundef %64, double noundef %62, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %35, ptr noundef nonnull %36)
+  %41 = select i1 %.cmp, i32 %.zext78, i32 %.urem
+  %42 = sitofp i32 %41 to float
+  %43 = load float, ptr %19, align 4
+  %44 = icmp ugt i32 %.04285, 3
+  %45 = uitofp i1 %44 to float
+  %46 = load float, ptr %21, align 4
+  %47 = fsub float %46, %43
+  %48 = call float @llvm.fmuladd.f32(float %45, float %47, float %43)
+  %49 = load <2 x float>, ptr %0, align 4
+  %50 = load <2 x float>, ptr %10, align 4
+  %51 = fsub <2 x float> %50, %49
+  %52 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %42, i64 1
+  %53 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %52, <2 x float> %51, <2 x float> %49)
+  %54 = fadd <2 x float> %49, %51
+  %55 = extractelement <2 x float> %54, i64 0
+  %56 = fpext <2 x float> %53 to <2 x double>
+  %57 = fpext float %48 to double
+  %58 = extractelement <2 x double> %56, i64 0
+  %59 = extractelement <2 x double> %56, i64 1
+  %60 = call i32 @gluProject(double noundef %58, double noundef %59, double noundef %57, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %33, ptr noundef nonnull %34)
+  %61 = fpext float %55 to double
+  %62 = call i32 @gluProject(double noundef %61, double noundef %59, double noundef %57, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %35, ptr noundef nonnull %36)
   store double 0.000000e+00, ptr %36, align 8
   store double 0.000000e+00, ptr %34, align 8
-  %68 = load double, ptr %8, align 8, !noalias !139
-  %69 = load double, ptr %9, align 8, !noalias !139
-  %70 = fadd double %68, %69
-  %71 = load double, ptr %33, align 8, !noalias !139
-  %72 = load double, ptr %35, align 8, !noalias !139
-  %73 = fadd double %71, %72
-  %74 = fmul double %70, 5.000000e-01
-  %75 = fmul double %73, 5.000000e-01
-  %76 = load double, ptr %7, align 8, !noalias !142
-  %77 = fsub double %76, %74
-  %78 = load double, ptr %30, align 8, !noalias !142
-  %79 = fsub double %78, %75
-  %80 = load double, ptr %31, align 8, !noalias !142
-  %81 = fmul double %79, %79
-  %82 = call double @llvm.fmuladd.f64(double %77, double %77, double %81)
-  %83 = call double @llvm.fmuladd.f64(double %80, double %80, double %82)
-  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %83)
-  %84 = fptrunc double %sqrt.i.i to float
-  %85 = fcmp olt float %.086, %84
-  br i1 %85, label %86, label %87
+  %63 = load double, ptr %8, align 8, !noalias !139
+  %64 = load double, ptr %9, align 8, !noalias !139
+  %65 = fadd double %63, %64
+  %66 = load double, ptr %33, align 8, !noalias !139
+  %67 = load double, ptr %35, align 8, !noalias !139
+  %68 = fadd double %66, %67
+  %69 = fmul double %65, 5.000000e-01
+  %70 = fmul double %68, 5.000000e-01
+  %71 = load double, ptr %7, align 8, !noalias !142
+  %72 = fsub double %71, %69
+  %73 = load double, ptr %30, align 8, !noalias !142
+  %74 = fsub double %73, %70
+  %75 = load double, ptr %31, align 8, !noalias !142
+  %76 = fmul double %74, %74
+  %77 = call double @llvm.fmuladd.f64(double %72, double %72, double %76)
+  %78 = call double @llvm.fmuladd.f64(double %75, double %75, double %77)
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %78)
+  %79 = fptrunc double %sqrt.i.i to float
+  %80 = fcmp olt float %.086, %79
+  br i1 %80, label %81, label %82
 
-86:                                               ; preds = %40
-  store <2 x double> %61, ptr %4, align 8
-  store double %62, ptr %37, align 8
-  store double %66, ptr %5, align 8
-  store double %64, ptr %38, align 8
-  store double %62, ptr %39, align 8
-  br label %87
+81:                                               ; preds = %40
+  store <2 x double> %56, ptr %4, align 8
+  store double %57, ptr %37, align 8
+  store double %61, ptr %5, align 8
+  store double %59, ptr %38, align 8
+  store double %57, ptr %39, align 8
+  br label %82
 
-87:                                               ; preds = %40, %86
-  %.1 = phi float [ %84, %86 ], [ %.086, %40 ]
-  %88 = add nuw nsw i32 %.04285, 2
-  %89 = icmp ult i32 %.04285, 6
-  br i1 %89, label %40, label %90, !llvm.loop !145
+82:                                               ; preds = %40, %81
+  %.1 = phi float [ %79, %81 ], [ %.086, %40 ]
+  %83 = add nuw nsw i32 %.04285, 2
+  %84 = icmp ult i32 %.04285, 6
+  br i1 %84, label %40, label %85, !llvm.loop !145
 
-90:                                               ; preds = %87
+85:                                               ; preds = %82
   ret void
 }
 

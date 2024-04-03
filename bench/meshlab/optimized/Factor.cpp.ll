@@ -158,135 +158,138 @@ define noundef i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, do
   br label %_Z6FactordddPA2_dd.exit
 
 45:                                               ; preds = %6
-  %46 = fdiv double %1, %0
-  %47 = fdiv double %2, %0
-  %48 = fdiv double %3, %0
-  %49 = fneg double %46
-  %50 = fmul double %46, %49
-  %51 = fmul double %46, 9.000000e+00
-  %52 = fmul double %48, -2.700000e+01
-  %53 = tail call double @llvm.fmuladd.f64(double %51, double %47, double %52)
-  %54 = fmul double %46, -2.000000e+00
-  %55 = fmul double %46, %54
-  %56 = insertelement <2 x double> poison, double %55, i64 0
-  %57 = insertelement <2 x double> %56, double %47, i64 1
-  %58 = insertelement <2 x double> <double poison, double 3.000000e+00>, double %46, i64 0
-  %59 = insertelement <2 x double> poison, double %53, i64 0
-  %60 = insertelement <2 x double> %59, double %50, i64 1
-  %61 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %57, <2 x double> %58, <2 x double> %60)
-  %62 = fdiv <2 x double> %61, <double -5.400000e+01, double -9.000000e+00>
-  %63 = extractelement <2 x double> %62, i64 1
-  %64 = fmul double %63, %63
-  %65 = insertelement <2 x double> %62, double %64, i64 1
-  %66 = fmul <2 x double> %62, %65
-  %67 = extractelement <2 x double> %66, i64 0
-  %68 = extractelement <2 x double> %66, i64 1
-  %69 = fcmp olt double %67, %68
-  br i1 %69, label %70, label %95
+  %46 = insertelement <2 x double> poison, double %1, i64 0
+  %47 = insertelement <2 x double> %46, double %2, i64 1
+  %48 = insertelement <2 x double> poison, double %0, i64 0
+  %49 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> zeroinitializer
+  %50 = fdiv <2 x double> %47, %49
+  %51 = fdiv double %3, %0
+  %52 = extractelement <2 x double> %50, i64 0
+  %53 = fneg double %52
+  %54 = fmul double %52, %53
+  %55 = fmul double %52, 9.000000e+00
+  %56 = fmul double %51, -2.700000e+01
+  %57 = extractelement <2 x double> %50, i64 1
+  %58 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %56)
+  %59 = fmul double %52, -2.000000e+00
+  %60 = fmul double %52, %59
+  %61 = insertelement <2 x double> <double poison, double 3.000000e+00>, double %60, i64 0
+  %62 = insertelement <2 x double> poison, double %58, i64 0
+  %63 = insertelement <2 x double> %62, double %54, i64 1
+  %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %50, <2 x double> %61, <2 x double> %63)
+  %65 = fdiv <2 x double> %64, <double -5.400000e+01, double -9.000000e+00>
+  %66 = extractelement <2 x double> %65, i64 1
+  %67 = fmul double %66, %66
+  %68 = insertelement <2 x double> %65, double %67, i64 1
+  %69 = fmul <2 x double> %65, %68
+  %70 = extractelement <2 x double> %69, i64 0
+  %71 = extractelement <2 x double> %69, i64 1
+  %72 = fcmp olt double %70, %71
+  br i1 %72, label %73, label %98
 
-70:                                               ; preds = %45
-  %71 = tail call double @sqrt(double noundef %63) #12
-  %72 = fmul double %63, %71
-  %73 = extractelement <2 x double> %62, i64 0
-  %74 = fdiv double %73, %72
-  %75 = tail call double @acos(double noundef %74) #12
-  %76 = fdiv double %75, 3.000000e+00
-  %77 = tail call double @cos(double noundef %76) #12
-  %78 = fmul double %71, %77
-  %79 = tail call double @sin(double noundef %76) #12
-  %80 = fmul double %71, %79
-  %81 = fmul double %80, 0x3FFBB67AE8584CAA
-  %82 = fmul double %81, 5.000000e-01
-  %83 = getelementptr inbounds i8, ptr %4, i64 40
-  store double 0.000000e+00, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %4, i64 24
-  store double 0.000000e+00, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %4, i64 8
-  store double 0.000000e+00, ptr %85, align 8
-  %86 = fmul double %78, -2.000000e+00
-  %87 = fneg double %78
-  %88 = fneg double %82
-  %89 = insertelement <2 x double> poison, double %87, i64 0
-  %90 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> zeroinitializer
-  %91 = insertelement <2 x double> poison, double %82, i64 0
-  %92 = insertelement <2 x double> %91, double %88, i64 1
-  %93 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %90, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %92)
-  %94 = fmul <2 x double> %93, <double -2.000000e+00, double -2.000000e+00>
-  br label %131
+73:                                               ; preds = %45
+  %74 = tail call double @sqrt(double noundef %66) #12
+  %75 = fmul double %66, %74
+  %76 = extractelement <2 x double> %65, i64 0
+  %77 = fdiv double %76, %75
+  %78 = tail call double @acos(double noundef %77) #12
+  %79 = fdiv double %78, 3.000000e+00
+  %80 = tail call double @cos(double noundef %79) #12
+  %81 = fmul double %74, %80
+  %82 = tail call double @sin(double noundef %79) #12
+  %83 = fmul double %74, %82
+  %84 = fmul double %83, 0x3FFBB67AE8584CAA
+  %85 = fmul double %84, 5.000000e-01
+  %86 = getelementptr inbounds i8, ptr %4, i64 40
+  store double 0.000000e+00, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %4, i64 24
+  store double 0.000000e+00, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %4, i64 8
+  store double 0.000000e+00, ptr %88, align 8
+  %89 = fmul double %81, -2.000000e+00
+  %90 = fneg double %81
+  %91 = fneg double %85
+  %92 = insertelement <2 x double> poison, double %90, i64 0
+  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> zeroinitializer
+  %94 = insertelement <2 x double> poison, double %85, i64 0
+  %95 = insertelement <2 x double> %94, double %91, i64 1
+  %96 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %93, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %95)
+  %97 = fmul <2 x double> %96, <double -2.000000e+00, double -2.000000e+00>
+  br label %134
 
-95:                                               ; preds = %45
-  %96 = fsub double %67, %68
-  %97 = tail call double @sqrt(double noundef %96) #12
-  %98 = extractelement <2 x double> %62, i64 0
-  %99 = fneg double %98
-  %100 = fsub double %97, %98
-  %101 = fcmp olt double %100, 0.000000e+00
-  br i1 %101, label %102, label %106
+98:                                               ; preds = %45
+  %99 = fsub double %70, %71
+  %100 = tail call double @sqrt(double noundef %99) #12
+  %101 = extractelement <2 x double> %65, i64 0
+  %102 = fneg double %101
+  %103 = fsub double %100, %101
+  %104 = fcmp olt double %103, 0.000000e+00
+  br i1 %104, label %105, label %109
 
-102:                                              ; preds = %95
-  %103 = fneg double %100
-  %104 = tail call double @pow(double noundef %103, double noundef 0x3FD5555555555555) #12
-  %105 = fneg double %104
-  br label %108
+105:                                              ; preds = %98
+  %106 = fneg double %103
+  %107 = tail call double @pow(double noundef %106, double noundef 0x3FD5555555555555) #12
+  %108 = fneg double %107
+  br label %111
 
-106:                                              ; preds = %95
-  %107 = tail call double @pow(double noundef %100, double noundef 0x3FD5555555555555) #12
-  br label %108
+109:                                              ; preds = %98
+  %110 = tail call double @pow(double noundef %103, double noundef 0x3FD5555555555555) #12
+  br label %111
 
-108:                                              ; preds = %106, %102
-  %.082 = phi double [ %105, %102 ], [ %107, %106 ]
-  %109 = fsub double %99, %97
-  %110 = fcmp olt double %109, 0.000000e+00
-  br i1 %110, label %111, label %115
+111:                                              ; preds = %109, %105
+  %.082 = phi double [ %108, %105 ], [ %110, %109 ]
+  %112 = fsub double %102, %100
+  %113 = fcmp olt double %112, 0.000000e+00
+  br i1 %113, label %114, label %118
 
-111:                                              ; preds = %108
-  %112 = fneg double %109
-  %113 = tail call double @pow(double noundef %112, double noundef 0x3FD5555555555555) #12
-  %114 = fneg double %113
-  br label %117
+114:                                              ; preds = %111
+  %115 = fneg double %112
+  %116 = tail call double @pow(double noundef %115, double noundef 0x3FD5555555555555) #12
+  %117 = fneg double %116
+  br label %120
 
-115:                                              ; preds = %108
-  %116 = tail call double @pow(double noundef %109, double noundef 0x3FD5555555555555) #12
-  br label %117
+118:                                              ; preds = %111
+  %119 = tail call double @pow(double noundef %112, double noundef 0x3FD5555555555555) #12
+  br label %120
 
-117:                                              ; preds = %115, %111
-  %.081 = phi double [ %114, %111 ], [ %116, %115 ]
-  %118 = getelementptr inbounds i8, ptr %4, i64 8
-  store double 0.000000e+00, ptr %118, align 8
-  %119 = fadd double %.082, %.081
-  %120 = fmul double %.082, 5.000000e-01
-  %121 = fmul double %.081, 5.000000e-01
-  %122 = fneg double %120
-  %123 = fsub double %122, %121
-  %124 = fsub double %120, %121
-  %125 = fmul double %124, 0x3FFBB67AE8584CAA
-  %126 = getelementptr inbounds i8, ptr %4, i64 24
-  store double %125, ptr %126, align 8
-  %127 = fneg double %125
-  %128 = getelementptr inbounds i8, ptr %4, i64 40
-  store double %127, ptr %128, align 8
-  %129 = insertelement <2 x double> poison, double %123, i64 0
-  %130 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %131
+120:                                              ; preds = %118, %114
+  %.081 = phi double [ %117, %114 ], [ %119, %118 ]
+  %121 = getelementptr inbounds i8, ptr %4, i64 8
+  store double 0.000000e+00, ptr %121, align 8
+  %122 = fadd double %.082, %.081
+  %123 = fmul double %.082, 5.000000e-01
+  %124 = fmul double %.081, 5.000000e-01
+  %125 = fneg double %123
+  %126 = fsub double %125, %124
+  %127 = fsub double %123, %124
+  %128 = fmul double %127, 0x3FFBB67AE8584CAA
+  %129 = getelementptr inbounds i8, ptr %4, i64 24
+  store double %128, ptr %129, align 8
+  %130 = fneg double %128
+  %131 = getelementptr inbounds i8, ptr %4, i64 40
+  store double %130, ptr %131, align 8
+  %132 = insertelement <2 x double> poison, double %126, i64 0
+  %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> zeroinitializer
+  br label %134
 
-131:                                              ; preds = %117, %70
-  %132 = phi double [ %119, %117 ], [ %86, %70 ]
-  %133 = phi <2 x double> [ %130, %117 ], [ %94, %70 ]
-  %134 = fdiv double %46, 3.000000e+00
-  %135 = fsub double %132, %134
-  store double %135, ptr %4, align 8
-  %136 = getelementptr inbounds i8, ptr %4, i64 16
-  %137 = extractelement <2 x double> %133, i64 1
-  %138 = fsub double %137, %134
-  store double %138, ptr %136, align 8
-  %139 = getelementptr inbounds i8, ptr %4, i64 32
-  %140 = extractelement <2 x double> %133, i64 0
-  %141 = fsub double %140, %134
+134:                                              ; preds = %120, %73
+  %135 = phi double [ %122, %120 ], [ %89, %73 ]
+  %136 = phi <2 x double> [ %133, %120 ], [ %97, %73 ]
+  %137 = fdiv double %52, 3.000000e+00
+  %138 = fsub double %135, %137
+  store double %138, ptr %4, align 8
+  %139 = getelementptr inbounds i8, ptr %4, i64 16
+  %140 = extractelement <2 x double> %136, i64 1
+  %141 = fsub double %140, %137
   store double %141, ptr %139, align 8
+  %142 = getelementptr inbounds i8, ptr %4, i64 32
+  %143 = extractelement <2 x double> %136, i64 0
+  %144 = fsub double %143, %137
+  store double %144, ptr %142, align 8
   br label %_Z6FactordddPA2_dd.exit
 
-_Z6FactordddPA2_dd.exit:                          ; preds = %36, %26, %15, %12, %131
-  %.0 = phi i32 [ 3, %131 ], [ 2, %36 ], [ 2, %26 ], [ 1, %15 ], [ 0, %12 ]
+_Z6FactordddPA2_dd.exit:                          ; preds = %36, %26, %15, %12, %134
+  %.0 = phi i32 [ 3, %134 ], [ 2, %36 ], [ 2, %26 ], [ 1, %15 ], [ 0, %12 ]
   ret i32 %.0
 }
 

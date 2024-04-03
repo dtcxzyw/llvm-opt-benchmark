@@ -4269,7 +4269,7 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller19specular_reflectionIffEEN5
   %33 = call contract <2 x float> @llvm.fma.v2f32(<2 x float> %32, <2 x float> %32, <2 x float> %30)
   %34 = insertelement <2 x float> %31, float %7, i64 1
   %35 = fmul contract <2 x float> %11, %34
-  %36 = call contract <2 x float> @llvm.fma.v2f32(<2 x float> %32, <2 x float> %24, <2 x float> %35)
+  %36 = call contract <2 x float> @llvm.fma.v2f32(<2 x float> %11, <2 x float> %34, <2 x float> %35)
   %37 = fmul contract <2 x float> %33, %33
   %38 = fmul contract <2 x float> %36, %36
   %39 = fadd contract <2 x float> %37, %38

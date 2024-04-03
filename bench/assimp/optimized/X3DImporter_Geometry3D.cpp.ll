@@ -5900,7 +5900,7 @@ invoke.cont284.preheader:                         ; preds = %for.body219
   %sub.ptr.sub.i882 = sub i64 %sub.ptr.lhs.cast.i880, %sub.ptr.rhs.cast.i881
   %sub.ptr.div.i883 = ashr exact i64 %sub.ptr.sub.i882, 3
   %umax2153 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i883, i64 1)
-  %348 = insertelement <2 x float> poison, float %347, i64 0
+  %348 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %347, i64 0
   br label %invoke.cont284
 
 invoke.cont284:                                   ; preds = %invoke.cont284.preheader, %invoke.cont284
@@ -5910,9 +5910,9 @@ invoke.cont284:                                   ; preds = %invoke.cont284.preh
   %350 = load float, ptr %add.ptr.i890, align 4
   %y234 = getelementptr inbounds i8, ptr %add.ptr.i890, i64 4
   %351 = load float, ptr %y234, align 4
-  %352 = insertelement <2 x float> %348, float %350, i64 1
-  %353 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %350, i64 0
-  %354 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %352, <2 x float> %353, <2 x float> zeroinitializer)
+  %352 = insertelement <2 x float> poison, float %350, i64 0
+  %353 = shufflevector <2 x float> %352, <2 x float> poison, <2 x i32> zeroinitializer
+  %354 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %348, <2 x float> %353, <2 x float> zeroinitializer)
   %355 = insertelement <2 x float> poison, float %351, i64 0
   %356 = shufflevector <2 x float> %355, <2 x float> poison, <2 x i32> zeroinitializer
   %357 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %356, <2 x float> zeroinitializer, <2 x float> %354)

@@ -524,8 +524,6 @@ _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %for.inc9
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt6LookAtENS_6Point3IfEES1_NS_7Vector3IfEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 %agg.result, <2 x float> %pos.coerce0, float %pos.coerce1, <2 x float> %look.coerce0, float %look.coerce1, <2 x float> %up.coerce0, float %up.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = extractelement <2 x float> %pos.coerce0, i64 1
-  %1 = extractelement <2 x float> %pos.coerce0, i64 0
   %inv.i = alloca %"class.pstd::optional", align 4
   %up = alloca %"class.pbrt::Vector3", align 8
   %worldFromCamera = alloca %"class.pbrt::SquareMatrix.0", align 4
@@ -535,76 +533,74 @@ entry:
   %coerce2.sroa.2.0.up.sroa_idx = getelementptr inbounds i8, ptr %up, i64 8
   store float %up.coerce1, ptr %coerce2.sroa.2.0.up.sroa_idx, align 8
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera)
+  %pos.sroa.0.0.vec.extract = extractelement <2 x float> %pos.coerce0, i64 0
   %call = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 0)
-  %2 = extractvalue { ptr, i64 } %call, 0
-  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 12
-  store float %1, ptr %arrayidx.i, align 4
+  %0 = extractvalue { ptr, i64 } %call, 0
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 12
+  store float %pos.sroa.0.0.vec.extract, ptr %arrayidx.i, align 4
+  %pos.sroa.0.4.vec.extract = extractelement <2 x float> %pos.coerce0, i64 1
   %call5 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 1)
-  %3 = extractvalue { ptr, i64 } %call5, 0
-  %arrayidx.i3 = getelementptr inbounds i8, ptr %3, i64 12
-  store float %0, ptr %arrayidx.i3, align 4
+  %1 = extractvalue { ptr, i64 } %call5, 0
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %1, i64 12
+  store float %pos.sroa.0.4.vec.extract, ptr %arrayidx.i3, align 4
   %call8 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 2)
-  %4 = extractvalue { ptr, i64 } %call8, 0
-  %arrayidx.i4 = getelementptr inbounds i8, ptr %4, i64 12
+  %2 = extractvalue { ptr, i64 } %call8, 0
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %2, i64 12
   store float %pos.coerce1, ptr %arrayidx.i4, align 4
   %call11 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 3)
-  %5 = extractvalue { ptr, i64 } %call11, 0
-  %arrayidx.i5 = getelementptr inbounds i8, ptr %5, i64 12
+  %3 = extractvalue { ptr, i64 } %call11, 0
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %3, i64 12
   store float 1.000000e+00, ptr %arrayidx.i5, align 4
+  %4 = fsub <2 x float> %look.coerce0, %pos.coerce0
+  %5 = fsub <2 x float> %look.coerce0, %pos.coerce0
   %sub6.i = fsub float %look.coerce1, %pos.coerce1
-  %mul.i2.i.i.i = fmul float %sub6.i, %sub6.i
   %tmp.coerce17.sroa.2.0.coerce.dive16.sroa_idx = getelementptr inbounds i8, ptr %dir, i64 8
-  %6 = fmul <2 x float> %up.coerce0, %up.coerce0
-  %mul.i.i.i.i7 = extractelement <2 x float> %6, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i8 = extractelement <2 x float> %up.coerce0, i64 1
-  %mul.i1.i.i.i9 = fmul float %v.sroa.0.4.vec.extract.i.i.i8, %v.sroa.0.4.vec.extract.i.i.i8
-  %add.i.i.i10 = fadd float %mul.i.i.i.i7, %mul.i1.i.i.i9
-  %mul.i2.i.i.i11 = fmul float %up.coerce1, %up.coerce1
-  %add3.i.i.i12 = fadd float %mul.i2.i.i.i11, %add.i.i.i10
-  %sqrt.i.i13 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i12)
-  %div2.i.i15 = fdiv float %v.sroa.0.4.vec.extract.i.i.i8, %sqrt.i.i13
-  %7 = fsub <2 x float> %look.coerce0, %pos.coerce0
+  %6 = shufflevector <2 x float> %up.coerce0, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
+  %7 = shufflevector <2 x float> %4, <2 x float> %6, <2 x i32> <i32 0, i32 3>
   %8 = fmul <2 x float> %7, %7
-  %shift = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = fadd <2 x float> %8, %shift
-  %add.i.i.i = extractelement <2 x float> %9, i64 0
-  %add3.i.i.i = fadd float %mul.i2.i.i.i, %add.i.i.i
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i)
-  %10 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fdiv <2 x float> %7, %11
-  %div3.i.i = fdiv float %sub6.i, %sqrt.i.i
-  store <2 x float> %12, ptr %dir, align 8
+  %9 = shufflevector <2 x float> %up.coerce0, <2 x float> %5, <2 x i32> <i32 3, i32 1>
+  %10 = fmul <2 x float> %9, %9
+  %11 = fadd <2 x float> %8, %10
+  %12 = insertelement <2 x float> poison, float %sub6.i, i64 0
+  %13 = insertelement <2 x float> %12, float %up.coerce1, i64 1
+  %14 = fmul <2 x float> %13, %13
+  %15 = fadd <2 x float> %14, %11
+  %16 = call <2 x float> @llvm.sqrt.v2f32(<2 x float> %15)
+  %17 = extractelement <2 x float> %16, i64 0
+  %div3.i.i = fdiv float %sub6.i, %17
+  %18 = shufflevector <2 x float> %up.coerce0, <2 x float> %4, <2 x i32> <i32 0, i32 2>
+  %19 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %20 = fdiv <2 x float> %18, %19
+  %21 = insertelement <2 x float> %9, float %up.coerce1, i64 1
+  %22 = fdiv <2 x float> %21, %16
+  %23 = shufflevector <2 x float> %22, <2 x float> %20, <2 x i32> <i32 3, i32 0>
+  store <2 x float> %23, ptr %dir, align 8
   store float %div3.i.i, ptr %tmp.coerce17.sroa.2.0.coerce.dive16.sroa_idx, align 8
-  %13 = shufflevector <2 x float> %up.coerce0, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %14 = insertelement <2 x float> %13, float %up.coerce1, i64 0
-  %15 = insertelement <2 x float> poison, float %sqrt.i.i13, i64 0
-  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
-  %17 = fdiv <2 x float> %14, %16
-  %18 = extractelement <2 x float> %17, i64 0
-  %19 = extractelement <2 x float> %12, i64 1
-  %mul.i.i = fmul float %19, %18
+  %24 = fdiv <2 x float> %up.coerce0, %16
+  %div2.i.i15 = extractelement <2 x float> %24, i64 1
+  %25 = extractelement <2 x float> %22, i64 0
+  %26 = extractelement <2 x float> %22, i64 1
+  %mul.i.i = fmul float %25, %26
   %fneg.i.i = fneg float %mul.i.i
-  %20 = call noundef float @llvm.fma.f32(float %div2.i.i15, float %div3.i.i, float %fneg.i.i)
-  %fneg1.i.i = fneg float %18
-  %21 = call noundef float @llvm.fma.f32(float %fneg1.i.i, float %19, float %mul.i.i)
-  %add.i.i = fadd float %20, %21
-  %22 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %23 = insertelement <2 x float> %22, float %div3.i.i, i64 0
-  %24 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %25 = insertelement <2 x float> %24, float %div2.i.i15, i64 1
-  %26 = fmul <2 x float> %23, %25
-  %27 = fneg <2 x float> %26
-  %28 = call <2 x float> @llvm.fma.v2f32(<2 x float> %17, <2 x float> %12, <2 x float> %27)
-  %29 = fneg <2 x float> %25
-  %30 = call <2 x float> @llvm.fma.v2f32(<2 x float> %29, <2 x float> %23, <2 x float> %26)
-  %31 = fadd <2 x float> %28, %30
+  %27 = call noundef float @llvm.fma.f32(float %div2.i.i15, float %div3.i.i, float %fneg.i.i)
+  %fneg1.i.i = fneg float %26
+  %28 = call noundef float @llvm.fma.f32(float %fneg1.i.i, float %25, float %mul.i.i)
+  %add.i.i = fadd float %27, %28
+  %29 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %30 = insertelement <2 x float> %29, float %div3.i.i, i64 1
+  %31 = shufflevector <2 x float> %29, <2 x float> %24, <2 x i32> <i32 3, i32 1>
+  %32 = fmul <2 x float> %30, %31
+  %33 = fneg <2 x float> %32
+  %34 = call <2 x float> @llvm.fma.v2f32(<2 x float> %22, <2 x float> %20, <2 x float> %33)
+  %35 = fneg <2 x float> %31
+  %36 = call <2 x float> @llvm.fma.v2f32(<2 x float> %35, <2 x float> %30, <2 x float> %32)
+  %37 = fadd <2 x float> %34, %36
   %mul.i.i.i = fmul float %add.i.i, %add.i.i
-  %32 = fmul <2 x float> %31, %31
-  %33 = extractelement <2 x float> %32, i64 0
-  %add.i.i25 = fadd float %mul.i.i.i, %33
-  %34 = extractelement <2 x float> %32, i64 1
-  %add3.i.i = fadd float %34, %add.i.i25
+  %38 = fmul <2 x float> %37, %37
+  %39 = extractelement <2 x float> %38, i64 1
+  %add.i.i25 = fadd float %mul.i.i.i, %39
+  %40 = extractelement <2 x float> %38, i64 0
+  %add3.i.i = fadd float %40, %add.i.i25
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %add3.i.i)
   %cmp = fcmp oeq float %sqrt.i, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
@@ -617,87 +613,87 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %div.i.i69 = fdiv float %add.i.i, %sqrt.i
-  %35 = insertelement <2 x float> poison, float %sqrt.i, i64 0
-  %36 = shufflevector <2 x float> %35, <2 x float> poison, <2 x i32> zeroinitializer
-  %37 = fdiv <2 x float> %31, %36
-  %38 = extractelement <2 x float> %37, i64 0
-  %mul.i.i78 = fmul float %div3.i.i, %38
+  %41 = insertelement <2 x float> poison, float %sqrt.i, i64 0
+  %42 = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> zeroinitializer
+  %43 = fdiv <2 x float> %37, %42
+  %44 = extractelement <2 x float> %43, i64 1
+  %mul.i.i78 = fmul float %div3.i.i, %44
   %fneg.i.i79 = fneg float %mul.i.i78
   %fneg1.i.i80 = fneg float %div3.i.i
-  %39 = insertelement <2 x float> %12, float %fneg1.i.i80, i64 0
-  %40 = insertelement <2 x float> poison, float %mul.i.i78, i64 0
-  %41 = insertelement <2 x float> %40, float %fneg.i.i79, i64 1
-  %42 = call <2 x float> @llvm.fma.v2f32(<2 x float> %39, <2 x float> %37, <2 x float> %41)
-  %shift104 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %43 = fadd <2 x float> %shift104, %42
-  %add.i.i81 = extractelement <2 x float> %43, i64 0
-  %44 = extractelement <2 x float> %37, i64 1
-  %45 = extractelement <2 x float> %12, i64 0
-  %mul.i11.i84 = fmul float %45, %44
+  %45 = insertelement <2 x float> %22, float %fneg1.i.i80, i64 1
+  %46 = insertelement <2 x float> poison, float %fneg.i.i79, i64 0
+  %47 = insertelement <2 x float> %46, float %mul.i.i78, i64 1
+  %48 = call <2 x float> @llvm.fma.v2f32(<2 x float> %45, <2 x float> %43, <2 x float> %47)
+  %shift = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %49 = fadd <2 x float> %48, %shift
+  %add.i.i81 = extractelement <2 x float> %49, i64 0
+  %50 = extractelement <2 x float> %43, i64 0
+  %51 = extractelement <2 x float> %20, i64 1
+  %mul.i11.i84 = fmul float %51, %50
   %fneg.i12.i85 = fneg float %mul.i11.i84
-  %46 = call noundef float @llvm.fma.f32(float %div3.i.i, float %div.i.i69, float %fneg.i12.i85)
-  %fneg1.i13.i86 = fneg float %45
-  %47 = call noundef float @llvm.fma.f32(float %fneg1.i13.i86, float %44, float %mul.i11.i84)
-  %add.i14.i87 = fadd float %46, %47
-  %mul.i15.i88 = fmul float %19, %div.i.i69
+  %52 = call noundef float @llvm.fma.f32(float %div3.i.i, float %div.i.i69, float %fneg.i12.i85)
+  %fneg1.i13.i86 = fneg float %51
+  %53 = call noundef float @llvm.fma.f32(float %fneg1.i13.i86, float %50, float %mul.i11.i84)
+  %add.i14.i87 = fadd float %52, %53
+  %mul.i15.i88 = fmul float %25, %div.i.i69
   %fneg.i16.i89 = fneg float %mul.i15.i88
-  %48 = call noundef float @llvm.fma.f32(float %45, float %38, float %fneg.i16.i89)
-  %fneg1.i17.i90 = fneg float %19
-  %49 = call noundef float @llvm.fma.f32(float %fneg1.i17.i90, float %div.i.i69, float %mul.i15.i88)
-  %add.i18.i91 = fadd float %48, %49
+  %54 = call noundef float @llvm.fma.f32(float %51, float %44, float %fneg.i16.i89)
+  %fneg1.i17.i90 = fneg float %25
+  %55 = call noundef float @llvm.fma.f32(float %fneg1.i17.i90, float %div.i.i69, float %mul.i15.i88)
+  %add.i18.i91 = fadd float %54, %55
   %call55 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 0)
-  %50 = extractvalue { ptr, i64 } %call55, 0
-  store float %div.i.i69, ptr %50, align 4
+  %56 = extractvalue { ptr, i64 } %call55, 0
+  store float %div.i.i69, ptr %56, align 4
   %call59 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 1)
-  %51 = extractvalue { ptr, i64 } %call59, 0
-  store float %38, ptr %51, align 4
+  %57 = extractvalue { ptr, i64 } %call59, 0
+  store float %44, ptr %57, align 4
   %call63 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 2)
-  %52 = extractvalue { ptr, i64 } %call63, 0
-  store float %44, ptr %52, align 4
+  %58 = extractvalue { ptr, i64 } %call63, 0
+  store float %50, ptr %58, align 4
   %call66 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 3)
-  %53 = extractvalue { ptr, i64 } %call66, 0
-  store float 0.000000e+00, ptr %53, align 4
+  %59 = extractvalue { ptr, i64 } %call66, 0
+  store float 0.000000e+00, ptr %59, align 4
   %call70 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 0)
-  %54 = extractvalue { ptr, i64 } %call70, 0
-  %arrayidx.i96 = getelementptr inbounds i8, ptr %54, i64 4
+  %60 = extractvalue { ptr, i64 } %call70, 0
+  %arrayidx.i96 = getelementptr inbounds i8, ptr %60, i64 4
   store float %add.i.i81, ptr %arrayidx.i96, align 4
   %call74 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 1)
-  %55 = extractvalue { ptr, i64 } %call74, 0
-  %arrayidx.i97 = getelementptr inbounds i8, ptr %55, i64 4
+  %61 = extractvalue { ptr, i64 } %call74, 0
+  %arrayidx.i97 = getelementptr inbounds i8, ptr %61, i64 4
   store float %add.i14.i87, ptr %arrayidx.i97, align 4
   %call78 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 2)
-  %56 = extractvalue { ptr, i64 } %call78, 0
-  %arrayidx.i98 = getelementptr inbounds i8, ptr %56, i64 4
+  %62 = extractvalue { ptr, i64 } %call78, 0
+  %arrayidx.i98 = getelementptr inbounds i8, ptr %62, i64 4
   store float %add.i18.i91, ptr %arrayidx.i98, align 4
   %call81 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 3)
-  %57 = extractvalue { ptr, i64 } %call81, 0
-  %arrayidx.i99 = getelementptr inbounds i8, ptr %57, i64 4
+  %63 = extractvalue { ptr, i64 } %call81, 0
+  %arrayidx.i99 = getelementptr inbounds i8, ptr %63, i64 4
   store float 0.000000e+00, ptr %arrayidx.i99, align 4
-  %58 = load float, ptr %dir, align 8
+  %64 = load float, ptr %dir, align 8
   %call85 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 0)
-  %59 = extractvalue { ptr, i64 } %call85, 0
-  %arrayidx.i100 = getelementptr inbounds i8, ptr %59, i64 8
-  store float %58, ptr %arrayidx.i100, align 4
+  %65 = extractvalue { ptr, i64 } %call85, 0
+  %arrayidx.i100 = getelementptr inbounds i8, ptr %65, i64 8
+  store float %64, ptr %arrayidx.i100, align 4
   %y87 = getelementptr inbounds i8, ptr %dir, i64 4
-  %60 = load float, ptr %y87, align 4
+  %66 = load float, ptr %y87, align 4
   %call89 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 1)
-  %61 = extractvalue { ptr, i64 } %call89, 0
-  %arrayidx.i101 = getelementptr inbounds i8, ptr %61, i64 8
-  store float %60, ptr %arrayidx.i101, align 4
-  %62 = load float, ptr %tmp.coerce17.sroa.2.0.coerce.dive16.sroa_idx, align 8
+  %67 = extractvalue { ptr, i64 } %call89, 0
+  %arrayidx.i101 = getelementptr inbounds i8, ptr %67, i64 8
+  store float %66, ptr %arrayidx.i101, align 4
+  %68 = load float, ptr %tmp.coerce17.sroa.2.0.coerce.dive16.sroa_idx, align 8
   %call93 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 2)
-  %63 = extractvalue { ptr, i64 } %call93, 0
-  %arrayidx.i102 = getelementptr inbounds i8, ptr %63, i64 8
-  store float %62, ptr %arrayidx.i102, align 4
+  %69 = extractvalue { ptr, i64 } %call93, 0
+  %arrayidx.i102 = getelementptr inbounds i8, ptr %69, i64 8
+  store float %68, ptr %arrayidx.i102, align 4
   %call96 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 3)
-  %64 = extractvalue { ptr, i64 } %call96, 0
-  %arrayidx.i103 = getelementptr inbounds i8, ptr %64, i64 8
+  %70 = extractvalue { ptr, i64 } %call96, 0
+  %arrayidx.i103 = getelementptr inbounds i8, ptr %70, i64 8
   store float 0.000000e+00, ptr %arrayidx.i103, align 4
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i)
   call void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional") align 4 %inv.i, ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera), !noalias !8
   %set.i.i = getelementptr inbounds i8, ptr %inv.i, i64 64
-  %65 = load i8, ptr %set.i.i, align 4, !noalias !8
-  %tobool.i.i = trunc i8 %65 to i1
+  %71 = load i8, ptr %set.i.i, align 4, !noalias !8
+  %tobool.i.i = trunc i8 %71 to i1
   br i1 %tobool.i.i, label %_ZN4pbrt12InvertOrExitILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
@@ -16627,10 +16623,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fma.v2f32(<2 x float>, <2 x float>, <2 x float>) #14
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #14
+declare <2 x float> @llvm.fma.v2f32(<2 x float>, <2 x float>, <2 x float>) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #14

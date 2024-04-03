@@ -11823,15 +11823,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeINS1
   br i1 %42, label %.preheader, label %.loopexit340
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %43 = phi i64 [ %233, %._crit_edge ], [ %36, %.preheader.lr.ph ]
-  %44 = phi i64 [ %234, %._crit_edge ], [ %41, %.preheader.lr.ph ]
-  %45 = phi i64 [ %236, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.032343 = phi i32 [ %235, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %43 = phi i64 [ %237, %._crit_edge ], [ %36, %.preheader.lr.ph ]
+  %44 = phi i64 [ %238, %._crit_edge ], [ %41, %.preheader.lr.ph ]
+  %45 = phi i64 [ %240, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.032343 = phi i32 [ %239, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %46 = icmp sgt i64 %44, 0
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %_ZZN3igl15internal_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EEENKUlRKNS1_5BlockIKS3_Li1ELin1ELb0EEESN_SN_E_clESN_SN_SN_.exit
-  %47 = phi i64 [ %231, %_ZZN3igl15internal_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EEENKUlRKNS1_5BlockIKS3_Li1ELin1ELb0EEESN_SN_E_clESN_SN_SN_.exit ], [ %44, %.preheader ]
+  %47 = phi i64 [ %235, %_ZZN3igl15internal_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EEENKUlRKNS1_5BlockIKS3_Li1ELin1ELb0EEESN_SN_E_clESN_SN_SN_.exit ], [ %44, %.preheader ]
   %48 = phi i64 [ %71, %_ZZN3igl15internal_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EEENKUlRKNS1_5BlockIKS3_Li1ELin1ELb0EEESN_SN_E_clESN_SN_SN_.exit ], [ 0, %.preheader ]
   %.0342 = phi i32 [ %70, %_ZZN3igl15internal_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EEENKUlRKNS1_5BlockIKS3_Li1ELin1ELb0EEESN_SN_E_clESN_SN_SN_.exit ], [ 0, %.preheader ]
   %49 = add i32 %.0342, -1
@@ -12142,56 +12142,58 @@ _ZZN3igl15internal_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1EL
   tail call void @free(ptr noundef nonnull %.sroa.0173.12) #14
   %.sroa.033.8.vec.extract.i = extractelement <2 x double> %141, i64 1
   %.sroa.029.8.vec.extract.i = extractelement <2 x double> %200, i64 1
-  %203 = fneg double %143
-  %204 = fmul double %.sroa.029.8.vec.extract.i, %203
-  %205 = tail call double @llvm.fmuladd.f64(double %.sroa.033.8.vec.extract.i, double %202, double %204)
   %.sroa.029.0.vec.extract.i = extractelement <2 x double> %200, i64 0
   %.sroa.033.0.vec.extract.i = extractelement <2 x double> %141, i64 0
-  %206 = fneg double %.sroa.033.0.vec.extract.i
-  %207 = fmul double %202, %206
-  %208 = tail call double @llvm.fmuladd.f64(double %143, double %.sroa.029.0.vec.extract.i, double %207)
-  %209 = fneg double %.sroa.033.8.vec.extract.i
-  %210 = fmul double %.sroa.029.0.vec.extract.i, %209
-  %211 = tail call double @llvm.fmuladd.f64(double %.sroa.033.0.vec.extract.i, double %.sroa.029.8.vec.extract.i, double %210)
-  %.sroa.0.0.vec.insert.i = insertelement <2 x double> poison, double %205, i64 0
-  %.sroa.0.8.vec.insert.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i, double %208, i64 1
-  %212 = fmul <2 x double> %.sroa.0.8.vec.insert.i, %.sroa.0.8.vec.insert.i
-  %shift = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %213 = fadd <2 x double> %212, %shift
-  %214 = extractelement <2 x double> %213, i64 0
-  %215 = fmul double %211, %211
-  %216 = fadd double %215, %214
-  %217 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %216, i64 0
-  %218 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %217)
-  %219 = extractelement <2 x double> %218, i64 0
-  %220 = fmul <2 x double> %141, %200
-  %shift356 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %221 = fadd <2 x double> %220, %shift356
-  %222 = extractelement <2 x double> %221, i64 0
-  %223 = fmul double %143, %202
-  %224 = fadd double %223, %222
-  %225 = tail call noundef double @atan2(double noundef %219, double noundef %224) #14
-  %226 = load ptr, ptr %2, align 8
-  %227 = load i64, ptr %40, align 8
-  %228 = mul nsw i64 %227, %48
-  %229 = getelementptr double, ptr %226, i64 %228
-  %230 = getelementptr double, ptr %229, i64 %45
-  store double %225, ptr %230, align 8
-  %231 = load i64, ptr %8, align 8
-  %232 = icmp sgt i64 %231, %71
-  br i1 %232, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !270
+  %203 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %204 = insertelement <2 x double> %203, double %143, i64 0
+  %205 = fneg <2 x double> %204
+  %206 = shufflevector <2 x double> %200, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %207 = insertelement <2 x double> %206, double %202, i64 1
+  %208 = fmul <2 x double> %207, %205
+  %209 = shufflevector <2 x double> %141, <2 x double> %200, <2 x i32> <i32 1, i32 2>
+  %210 = insertelement <2 x double> poison, double %202, i64 0
+  %211 = insertelement <2 x double> %210, double %143, i64 1
+  %212 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %209, <2 x double> %211, <2 x double> %208)
+  %213 = fneg double %.sroa.033.8.vec.extract.i
+  %214 = fmul double %.sroa.029.0.vec.extract.i, %213
+  %215 = tail call double @llvm.fmuladd.f64(double %.sroa.033.0.vec.extract.i, double %.sroa.029.8.vec.extract.i, double %214)
+  %216 = fmul <2 x double> %212, %212
+  %shift = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %217 = fadd <2 x double> %216, %shift
+  %218 = extractelement <2 x double> %217, i64 0
+  %219 = fmul double %215, %215
+  %220 = fadd double %219, %218
+  %221 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %220, i64 0
+  %222 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %221)
+  %223 = extractelement <2 x double> %222, i64 0
+  %224 = fmul <2 x double> %141, %200
+  %shift356 = shufflevector <2 x double> %224, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %225 = fadd <2 x double> %224, %shift356
+  %226 = extractelement <2 x double> %225, i64 0
+  %227 = fmul double %143, %202
+  %228 = fadd double %227, %226
+  %229 = tail call noundef double @atan2(double noundef %223, double noundef %228) #14
+  %230 = load ptr, ptr %2, align 8
+  %231 = load i64, ptr %40, align 8
+  %232 = mul nsw i64 %231, %48
+  %233 = getelementptr double, ptr %230, i64 %232
+  %234 = getelementptr double, ptr %233, i64 %45
+  store double %229, ptr %234, align 8
+  %235 = load i64, ptr %8, align 8
+  %236 = icmp sgt i64 %235, %71
+  br i1 %236, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !270
 
 ._crit_edge.loopexit:                             ; preds = %_ZZN3igl15internal_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EEENKUlRKNS1_5BlockIKS3_Li1ELin1ELb0EEESN_SN_E_clESN_SN_SN_.exit
   %.pre = load i64, ptr %26, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %233 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %43, %.preheader ]
-  %234 = phi i64 [ %231, %._crit_edge.loopexit ], [ %44, %.preheader ]
-  %235 = add i32 %.032343, 1
-  %236 = zext i32 %235 to i64
-  %237 = icmp sgt i64 %233, %236
-  br i1 %237, label %.preheader, label %.loopexit340, !llvm.loop !271
+  %237 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %43, %.preheader ]
+  %238 = phi i64 [ %235, %._crit_edge.loopexit ], [ %44, %.preheader ]
+  %239 = add i32 %.032343, 1
+  %240 = zext i32 %239 to i64
+  %241 = icmp sgt i64 %237, %240
+  br i1 %241, label %.preheader, label %.loopexit340, !llvm.loop !271
 
 .loopexit340:                                     ; preds = %._crit_edge, %.preheader.lr.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeINS1_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS_9EigenBaseIT_EE.exit, %21
   ret void

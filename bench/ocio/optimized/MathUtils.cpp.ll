@@ -1085,42 +1085,43 @@ if.end:                                           ; preds = %for.end, %_ZN19Open
   %120 = insertelement <2 x double> %119, double %23, i64 1
   %121 = insertelement <2 x double> %58, double %15, i64 1
   %122 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %120, <2 x double> %121, <2 x double> %118)
-  %123 = insertelement <2 x double> %36, double %8, i64 0
-  %124 = insertelement <2 x double> %89, double %6, i64 1
-  %125 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %123, <2 x double> %124, <2 x double> %122)
-  %126 = insertelement <4 x double> poison, double %div, i64 0
-  %127 = shufflevector <4 x double> %126, <4 x double> poison, <4 x i32> zeroinitializer
-  %128 = insertelement <4 x double> poison, double %29, i64 0
-  %129 = shufflevector <2 x double> %95, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %130 = shufflevector <4 x double> %128, <4 x double> %129, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %131 = insertelement <4 x double> %130, double %109, i64 3
-  %132 = fmul <4 x double> %127, %131
-  %133 = fptrunc <4 x double> %132 to <4 x float>
-  store <4 x float> %133, ptr %inverse_out, align 4
+  %123 = insertelement <2 x double> poison, double %8, i64 0
+  %124 = insertelement <2 x double> %123, double %6, i64 1
+  %125 = shufflevector <2 x double> %89, <2 x double> %36, <2 x i32> <i32 0, i32 3>
+  %126 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %124, <2 x double> %125, <2 x double> %122)
+  %127 = insertelement <4 x double> poison, double %div, i64 0
+  %128 = shufflevector <4 x double> %127, <4 x double> poison, <4 x i32> zeroinitializer
+  %129 = insertelement <4 x double> poison, double %29, i64 0
+  %130 = shufflevector <2 x double> %95, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %131 = shufflevector <4 x double> %129, <4 x double> %130, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %132 = insertelement <4 x double> %131, double %109, i64 3
+  %133 = fmul <4 x double> %128, %132
+  %134 = fptrunc <4 x double> %133 to <4 x float>
+  store <4 x float> %134, ptr %inverse_out, align 4
   %arrayidx181 = getelementptr inbounds i8, ptr %inverse_out, i64 16
-  %134 = insertelement <4 x double> poison, double %32, i64 0
-  %135 = shufflevector <2 x double> %83, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %136 = shufflevector <4 x double> %134, <4 x double> %135, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %137 = insertelement <4 x double> %136, double %112, i64 3
-  %138 = fmul <4 x double> %127, %137
-  %139 = fptrunc <4 x double> %138 to <4 x float>
-  store <4 x float> %139, ptr %arrayidx181, align 4
+  %135 = insertelement <4 x double> poison, double %32, i64 0
+  %136 = shufflevector <2 x double> %83, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %137 = shufflevector <4 x double> %135, <4 x double> %136, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %138 = insertelement <4 x double> %137, double %112, i64 3
+  %139 = fmul <4 x double> %128, %138
+  %140 = fptrunc <4 x double> %139 to <4 x float>
+  store <4 x float> %140, ptr %arrayidx181, align 4
   %arrayidx193 = getelementptr inbounds i8, ptr %inverse_out, i64 32
-  %140 = insertelement <4 x double> poison, double %33, i64 0
-  %141 = shufflevector <2 x double> %107, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %142 = shufflevector <4 x double> %140, <4 x double> %141, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %143 = insertelement <4 x double> %142, double %114, i64 3
-  %144 = fmul <4 x double> %127, %143
-  %145 = fptrunc <4 x double> %144 to <4 x float>
-  store <4 x float> %145, ptr %arrayidx193, align 4
+  %141 = insertelement <4 x double> poison, double %33, i64 0
+  %142 = shufflevector <2 x double> %107, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %143 = shufflevector <4 x double> %141, <4 x double> %142, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %144 = insertelement <4 x double> %143, double %114, i64 3
+  %145 = fmul <4 x double> %128, %144
+  %146 = fptrunc <4 x double> %145 to <4 x float>
+  store <4 x float> %146, ptr %arrayidx193, align 4
   %arrayidx205 = getelementptr inbounds i8, ptr %inverse_out, i64 48
-  %146 = insertelement <4 x double> poison, double %35, i64 0
-  %147 = insertelement <4 x double> %146, double %97, i64 1
-  %148 = shufflevector <2 x double> %125, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %149 = shufflevector <4 x double> %147, <4 x double> %148, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %150 = fmul <4 x double> %127, %149
-  %151 = fptrunc <4 x double> %150 to <4 x float>
-  store <4 x float> %151, ptr %arrayidx205, align 4
+  %147 = insertelement <4 x double> poison, double %35, i64 0
+  %148 = insertelement <4 x double> %147, double %97, i64 1
+  %149 = shufflevector <2 x double> %126, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %150 = shufflevector <4 x double> %148, <4 x double> %149, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %151 = fmul <4 x double> %128, %150
+  %152 = fptrunc <4 x double> %151 to <4 x float>
+  store <4 x float> %152, ptr %arrayidx205, align 4
   br label %return
 
 return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit, %if.end

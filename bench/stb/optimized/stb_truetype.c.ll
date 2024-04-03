@@ -16631,20 +16631,20 @@ if.else:                                          ; preds = %entry
   %conv46 = fptrunc double %call45 to float
   %mul47 = fmul float %conv46, 0x3FFBB67AE0000000
   %mul48 = fmul float %sqrtf, 2.000000e+00
+  %2 = tail call float @llvm.fmuladd.f32(float %mul48, float %conv42, float %div)
+  store float %2, ptr %r, align 4
   %add51 = fadd float %mul47, %conv42
   %neg53 = fneg float %sqrtf
-  %2 = insertelement <2 x float> poison, float %mul48, i64 0
-  %3 = insertelement <2 x float> %2, float %neg53, i64 1
-  %4 = insertelement <2 x float> poison, float %conv42, i64 0
-  %5 = insertelement <2 x float> %4, float %add51, i64 1
-  %6 = insertelement <2 x float> poison, float %div, i64 0
-  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
-  %8 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %5, <2 x float> %7)
-  store <2 x float> %8, ptr %r, align 4
+  %arrayidx54 = getelementptr inbounds i8, ptr %r, i64 4
   %sub55 = fsub float %conv42, %mul47
-  %9 = tail call float @llvm.fmuladd.f32(float %neg53, float %sub55, float %div)
-  %arrayidx58 = getelementptr inbounds i8, ptr %r, i64 8
-  store float %9, ptr %arrayidx58, align 4
+  %3 = insertelement <2 x float> poison, float %neg53, i64 0
+  %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
+  %5 = insertelement <2 x float> poison, float %add51, i64 0
+  %6 = insertelement <2 x float> %5, float %sub55, i64 1
+  %7 = insertelement <2 x float> poison, float %div, i64 0
+  %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
+  %9 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %4, <2 x float> %6, <2 x float> %8)
+  store <2 x float> %9, ptr %arrayidx54, align 4
   br label %return
 
 return:                                           ; preds = %if.else, %stbtt__cuberoot.exit44

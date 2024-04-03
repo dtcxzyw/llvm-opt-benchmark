@@ -158,56 +158,57 @@ define noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr nocapt
   %90 = getelementptr inbounds i8, ptr %.pn98, i64 16
   %91 = load double, ptr %90, align 8
   %92 = fcmp oge double %80, 0.000000e+00
-  %93 = insertelement <2 x double> poison, double %84, i64 0
+  %93 = insertelement <2 x double> poison, double %86, i64 0
   %94 = insertelement <2 x double> %93, double %89, i64 1
-  %95 = insertelement <2 x double> poison, double %86, i64 0
+  %95 = insertelement <2 x double> poison, double %84, i64 0
   %96 = insertelement <2 x double> %95, double %91, i64 1
   %97 = insertelement <2 x double> poison, double %83, i64 0
   %98 = insertelement <2 x double> %97, double %88, i64 1
   %99 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %94, <2 x double> %96, <2 x double> %98)
   %100 = fsub <2 x double> %99, %69
-  %101 = fneg <2 x double> %94
-  %102 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %101, <2 x double> %67, <2 x double> %100)
-  %103 = fcmp ole <2 x double> %102, zeroinitializer
-  %104 = extractelement <2 x i1> %103, i64 1
-  %or.cond = select i1 %104, i1 %92, i1 false
-  %105 = extractelement <2 x i1> %103, i64 0
-  %or.cond3 = select i1 %or.cond, i1 %105, i1 false
+  %101 = insertelement <2 x double> %95, double %89, i64 1
+  %102 = fneg <2 x double> %101
+  %103 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> %67, <2 x double> %100)
+  %104 = fcmp ole <2 x double> %103, zeroinitializer
+  %105 = extractelement <2 x i1> %104, i64 1
+  %or.cond = select i1 %105, i1 %92, i1 false
+  %106 = extractelement <2 x i1> %104, i64 0
+  %or.cond3 = select i1 %or.cond, i1 %106, i1 false
   br i1 %or.cond3, label %.thread, label %70
 
 .loopexit:                                        ; preds = %70, %65, %3
   %.not94100 = icmp eq ptr %7, %6
   br i1 %.not94100, label %._crit_edge, label %.lr.ph102
 
-106:                                              ; preds = %.lr.ph102
-  %107 = getelementptr inbounds i8, ptr %.sroa.047.1101, i64 24
-  %.not94 = icmp eq ptr %107, %6
+107:                                              ; preds = %.lr.ph102
+  %108 = getelementptr inbounds i8, ptr %.sroa.047.1101, i64 24
+  %.not94 = icmp eq ptr %108, %6
   br i1 %.not94, label %._crit_edge, label %.lr.ph102, !llvm.loop !6
 
-.lr.ph102:                                        ; preds = %.loopexit, %106
-  %.sroa.047.1101 = phi ptr [ %107, %106 ], [ %7, %.loopexit ]
-  %108 = load double, ptr %.sroa.047.1101, align 8
-  %109 = getelementptr inbounds i8, ptr %.sroa.047.1101, i64 16
-  %110 = load double, ptr %109, align 8
-  %111 = fsub double %2, %110
-  %112 = tail call double @llvm.fmuladd.f64(double %108, double %111, double %1)
-  %113 = getelementptr inbounds i8, ptr %.sroa.047.1101, i64 8
-  %114 = load double, ptr %113, align 8
-  %115 = fsub double %112, %114
-  %116 = fcmp olt double %115, 0.000000e+00
-  br i1 %116, label %.thread, label %106
+.lr.ph102:                                        ; preds = %.loopexit, %107
+  %.sroa.047.1101 = phi ptr [ %108, %107 ], [ %7, %.loopexit ]
+  %109 = load double, ptr %.sroa.047.1101, align 8
+  %110 = getelementptr inbounds i8, ptr %.sroa.047.1101, i64 16
+  %111 = load double, ptr %110, align 8
+  %112 = fsub double %2, %111
+  %113 = tail call double @llvm.fmuladd.f64(double %109, double %112, double %1)
+  %114 = getelementptr inbounds i8, ptr %.sroa.047.1101, i64 8
+  %115 = load double, ptr %114, align 8
+  %116 = fsub double %113, %115
+  %117 = fcmp olt double %116, 0.000000e+00
+  br i1 %117, label %.thread, label %107
 
-._crit_edge:                                      ; preds = %106, %.loopexit
-  %117 = getelementptr inbounds i8, ptr %6, i64 -8
-  %118 = load double, ptr %117, align 8
-  %119 = fcmp ogt double %118, %2
-  br i1 %119, label %120, label %.thread
+._crit_edge:                                      ; preds = %107, %.loopexit
+  %118 = getelementptr inbounds i8, ptr %6, i64 -8
+  %119 = load double, ptr %118, align 8
+  %120 = fcmp ogt double %119, %2
+  br i1 %120, label %121, label %.thread
 
-120:                                              ; preds = %._crit_edge
+121:                                              ; preds = %._crit_edge
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph102, %._crit_edge, %120, %38, %53, %26
-  %.0 = phi i1 [ false, %26 ], [ false, %53 ], [ false, %38 ], [ true, %120 ], [ false, %._crit_edge ], [ true, %.lr.ph102 ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.lr.ph102, %._crit_edge, %121, %38, %53, %26
+  %.0 = phi i1 [ false, %26 ], [ false, %53 ], [ false, %38 ], [ true, %121 ], [ false, %._crit_edge ], [ true, %.lr.ph102 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
