@@ -3940,45 +3940,42 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %15 = load float, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 52
   %17 = load float, ptr %16, align 4
-  %18 = insertelement <2 x float> poison, float %17, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
-  %20 = insertelement <2 x float> poison, float %15, i64 0
-  %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
-  br label %22
+  br label %18
 
-22:                                               ; preds = %22, %.lr.ph.i
-  %.031.i = phi i64 [ 0, %.lr.ph.i ], [ %46, %22 ]
-  %.sroa.3.030.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %45, %22 ]
-  %23 = trunc i64 %.031.i to i32
-  %24 = sdiv i32 %23, 2
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %9, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %28 = shl i32 %23, 2
-  %29 = and i32 %28, 4
-  %30 = getelementptr inbounds i8, ptr %11, i64 %25
-  %31 = load i8, ptr %30, align 1
-  %32 = insertelement <2 x i8> poison, i8 %27, i64 0
-  %33 = insertelement <2 x i8> %32, i8 %31, i64 1
-  %34 = zext <2 x i8> %33 to <2 x i32>
-  %35 = insertelement <2 x i32> poison, i32 %29, i64 0
-  %36 = shufflevector <2 x i32> %35, <2 x i32> poison, <2 x i32> zeroinitializer
-  %37 = lshr <2 x i32> %34, %36
-  %38 = and <2 x i32> %37, <i32 15, i32 15>
-  %39 = sitofp <2 x i32> %38 to <2 x float>
-  %40 = fadd <2 x float> %39, <float 5.000000e-01, float 5.000000e-01>
-  %41 = fdiv <2 x float> %40, <float 1.500000e+01, float 1.500000e+01>
-  %42 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %41, <2 x float> %19, <2 x float> %21)
-  %shift = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %43 = fsub <2 x float> %42, %shift
-  %44 = extractelement <2 x float> %43, i64 0
-  %45 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %.sroa.3.030.i)
-  %46 = add nuw i64 %.031.i, 1
-  %exitcond.not.i = icmp eq i64 %46, %13
-  br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %22, !llvm.loop !46
+18:                                               ; preds = %18, %.lr.ph.i
+  %.031.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %18 ]
+  %.sroa.3.030.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %43, %18 ]
+  %19 = trunc i64 %.031.i to i32
+  %20 = sdiv i32 %19, 2
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %9, i64 %21
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = shl i32 %19, 2
+  %26 = and i32 %25, 4
+  %27 = lshr i32 %24, %26
+  %28 = and i32 %27, 15
+  %29 = sitofp i32 %28 to float
+  %30 = fadd float %29, 5.000000e-01
+  %31 = fdiv float %30, 1.500000e+01
+  %32 = tail call noundef float @llvm.fmuladd.f32(float %31, float %17, float %15)
+  %33 = getelementptr inbounds i8, ptr %11, i64 %21
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = lshr i32 %35, %26
+  %37 = and i32 %36, 15
+  %38 = sitofp i32 %37 to float
+  %39 = fadd float %38, 5.000000e-01
+  %40 = fdiv float %39, 1.500000e+01
+  %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %17, float %15)
+  %42 = fsub float %32, %41
+  %43 = tail call float @llvm.fmuladd.f32(float %42, float %42, float %.sroa.3.030.i)
+  %44 = add nuw i64 %.031.i, 1
+  %exitcond.not.i = icmp eq i64 %44, %13
+  br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %18, !llvm.loop !46
 
-_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit: ; preds = %22, %3
-  %.sroa.3.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %45, %22 ]
+_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit: ; preds = %18, %3
+  %.sroa.3.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %43, %18 ]
   ret float %.sroa.3.0.lcssa.i
 }
 
@@ -4459,48 +4456,45 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i
-  %.035.i = phi i64 [ 0, %.lr.ph.i ], [ %51, %18 ]
-  %.sroa.3.034.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %50, %18 ]
+  %.035.i = phi i64 [ 0, %.lr.ph.i ], [ %49, %18 ]
+  %.sroa.3.034.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %48, %18 ]
   %19 = trunc i64 %.035.i to i32
   %20 = sdiv i32 %19, 2
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %9, i64 %21
   %23 = load i8, ptr %22, align 1
-  %24 = shl i32 %19, 2
-  %25 = and i32 %24, 4
+  %24 = zext i8 %23 to i32
+  %25 = shl i32 %19, 2
+  %26 = and i32 %25, 4
+  %27 = lshr i32 %24, %26
+  %28 = and i32 %27, 15
+  %29 = sitofp i32 %28 to float
+  %30 = fadd float %29, 5.000000e-01
+  %31 = fdiv float %30, 1.500000e+01
   %sext.i = shl i64 %.035.i, 32
-  %26 = ashr exact i64 %sext.i, 32
-  %27 = getelementptr inbounds float, ptr %15, i64 %26
-  %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds float, ptr %17, i64 %26
-  %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %11, i64 %21
-  %32 = load i8, ptr %31, align 1
-  %33 = insertelement <2 x i8> poison, i8 %23, i64 0
-  %34 = insertelement <2 x i8> %33, i8 %32, i64 1
-  %35 = zext <2 x i8> %34 to <2 x i32>
-  %36 = insertelement <2 x i32> poison, i32 %25, i64 0
-  %37 = shufflevector <2 x i32> %36, <2 x i32> poison, <2 x i32> zeroinitializer
-  %38 = lshr <2 x i32> %35, %37
-  %39 = and <2 x i32> %38, <i32 15, i32 15>
-  %40 = sitofp <2 x i32> %39 to <2 x float>
-  %41 = fadd <2 x float> %40, <float 5.000000e-01, float 5.000000e-01>
-  %42 = fdiv <2 x float> %41, <float 1.500000e+01, float 1.500000e+01>
-  %43 = insertelement <2 x float> poison, float %30, i64 0
-  %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
-  %45 = insertelement <2 x float> poison, float %28, i64 0
-  %46 = shufflevector <2 x float> %45, <2 x float> poison, <2 x i32> zeroinitializer
-  %47 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %42, <2 x float> %44, <2 x float> %46)
-  %shift = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %48 = fsub <2 x float> %47, %shift
-  %49 = extractelement <2 x float> %48, i64 0
-  %50 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %.sroa.3.034.i)
-  %51 = add nuw i64 %.035.i, 1
-  %exitcond.not.i = icmp eq i64 %51, %13
+  %32 = ashr exact i64 %sext.i, 32
+  %33 = getelementptr inbounds float, ptr %15, i64 %32
+  %34 = load float, ptr %33, align 4
+  %35 = getelementptr inbounds float, ptr %17, i64 %32
+  %36 = load float, ptr %35, align 4
+  %37 = tail call noundef float @llvm.fmuladd.f32(float %31, float %36, float %34)
+  %38 = getelementptr inbounds i8, ptr %11, i64 %21
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = lshr i32 %40, %26
+  %42 = and i32 %41, 15
+  %43 = sitofp i32 %42 to float
+  %44 = fadd float %43, 5.000000e-01
+  %45 = fdiv float %44, 1.500000e+01
+  %46 = tail call noundef float @llvm.fmuladd.f32(float %45, float %36, float %34)
+  %47 = fsub float %37, %46
+  %48 = tail call float @llvm.fmuladd.f32(float %47, float %47, float %.sroa.3.034.i)
+  %49 = add nuw i64 %.035.i, 1
+  %exitcond.not.i = icmp eq i64 %49, %13
   br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %18, !llvm.loop !52
 
 _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit: ; preds = %18, %3
-  %.sroa.3.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %50, %18 ]
+  %.sroa.3.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %48, %18 ]
   ret float %.sroa.3.0.lcssa.i
 }
 

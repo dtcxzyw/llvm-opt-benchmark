@@ -22929,7 +22929,7 @@ define void @ImageDrawRectangleLines(ptr nocapture noundef readonly %0, <2 x flo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #21 {
-  switch i32 %1, label %219 [
+  switch i32 %1, label %220 [
     i32 1, label %3
     i32 2, label %7
     i32 3, label %10
@@ -22949,12 +22949,12 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %4 = load i8, ptr %0, align 1
   %5 = insertelement <4 x i8> <i8 poison, i8 -1, i8 poison, i8 poison>, i8 %4, i64 0
   %6 = shufflevector <4 x i8> %5, <4 x i8> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  br label %219
+  br label %220
 
 7:                                                ; preds = %2
   %8 = load <2 x i8>, ptr %0, align 1
   %9 = shufflevector <2 x i8> %8, <2 x i8> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  br label %219
+  br label %220
 
 10:                                               ; preds = %2
   %11 = load i16, ptr %0, align 2
@@ -22974,7 +22974,7 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %24 = insertelement <4 x i8> <i8 poison, i8 poison, i8 poison, i8 -1>, i8 %15, i64 0
   %25 = insertelement <4 x i8> %24, i8 %20, i64 1
   %26 = insertelement <4 x i8> %25, i8 %23, i64 2
-  br label %219
+  br label %220
 
 27:                                               ; preds = %2
   %28 = load i16, ptr %0, align 2
@@ -22998,7 +22998,7 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %46 = insertelement <4 x i8> %45, i8 %37, i64 1
   %47 = insertelement <4 x i8> %46, i8 %41, i64 2
   %48 = insertelement <4 x i8> %47, i8 %44, i64 3
-  br label %219
+  br label %220
 
 49:                                               ; preds = %2
   %50 = load i16, ptr %0, align 2
@@ -23015,11 +23015,11 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %61 = insertelement <4 x i8> %60, i8 %57, i64 2
   %62 = insertelement <4 x i8> %61, i8 %58, i64 3
   %63 = mul nuw <4 x i8> %62, <i8 17, i8 17, i8 17, i8 17>
-  br label %219
+  br label %220
 
 64:                                               ; preds = %2
   %65 = load <4 x i8>, ptr %0, align 1
-  br label %219
+  br label %220
 
 66:                                               ; preds = %2
   %67 = load i8, ptr %0, align 1
@@ -23028,7 +23028,7 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %70 = insertelement <4 x i8> <i8 poison, i8 poison, i8 poison, i8 -1>, i8 %67, i64 0
   %71 = shufflevector <2 x i8> %69, <2 x i8> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %72 = shufflevector <4 x i8> %70, <4 x i8> %71, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  br label %219
+  br label %220
 
 73:                                               ; preds = %2
   %74 = load float, ptr %0, align 4
@@ -23036,7 +23036,7 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %76 = fptoui float %75 to i8
   %77 = insertelement <4 x i8> <i8 poison, i8 -1, i8 poison, i8 poison>, i8 %76, i64 0
   %78 = shufflevector <4 x i8> %77, <4 x i8> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  br label %219
+  br label %220
 
 79:                                               ; preds = %2
   %80 = load float, ptr %0, align 4
@@ -23049,13 +23049,13 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %87 = insertelement <4 x i8> <i8 poison, i8 poison, i8 poison, i8 -1>, i8 %82, i64 0
   %88 = shufflevector <2 x i8> %86, <2 x i8> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %89 = shufflevector <4 x i8> %87, <4 x i8> %88, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  br label %219
+  br label %220
 
 90:                                               ; preds = %2
   %91 = load <4 x float>, ptr %0, align 4
   %92 = fmul <4 x float> %91, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %93 = fptoui <4 x float> %92 to <4 x i8>
-  br label %219
+  br label %220
 
 94:                                               ; preds = %2
   %95 = load i16, ptr %0, align 2
@@ -23090,7 +23090,7 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %122 = fptoui float %121 to i8
   %123 = insertelement <4 x i8> <i8 poison, i8 -1, i8 poison, i8 poison>, i8 %122, i64 0
   %124 = shufflevector <4 x i8> %123, <4 x i8> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  br label %219
+  br label %220
 
 125:                                              ; preds = %2
   %126 = load i16, ptr %0, align 2
@@ -23157,56 +23157,57 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %185 = insertelement <4 x i8> <i8 poison, i8 poison, i8 poison, i8 -1>, i8 %153, i64 0
   %186 = shufflevector <2 x i8> %184, <2 x i8> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %187 = shufflevector <4 x i8> %185, <4 x i8> %186, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  br label %219
+  br label %220
 
 188:                                              ; preds = %2
   %189 = load <4 x i16>, ptr %0, align 2
   %190 = zext <4 x i16> %189 to <4 x i32>
   %191 = shl nuw nsw <4 x i32> %190, <i32 13, i32 13, i32 13, i32 13>
   %192 = and <4 x i32> %191, <i32 8380416, i32 8380416, i32 8380416, i32 8380416>
-  %193 = lshr <4 x i32> %190, <i32 10, i32 10, i32 10, i32 10>
-  %194 = and <4 x i32> %193, <i32 31, i32 31, i32 31, i32 31>
+  %193 = lshr <4 x i16> %189, <i16 10, i16 10, i16 10, i16 10>
+  %194 = and <4 x i16> %193, <i16 31, i16 31, i16 31, i16 31>
   %195 = uitofp <4 x i32> %192 to <4 x float>
   %196 = bitcast <4 x float> %195 to <4 x i32>
   %197 = lshr <4 x i32> %196, <i32 23, i32 23, i32 23, i32 23>
   %198 = sext <4 x i16> %189 to <4 x i32>
   %199 = and <4 x i32> %198, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %200 = icmp eq <4 x i32> %194, zeroinitializer
-  %201 = shl nuw nsw <4 x i32> %194, <i32 23, i32 23, i32 23, i32 23>
-  %202 = add nuw nsw <4 x i32> %201, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
-  %203 = or disjoint <4 x i32> %202, %192
-  %204 = select <4 x i1> %200, <4 x i32> zeroinitializer, <4 x i32> %203
-  %205 = or disjoint <4 x i32> %204, %199
-  %206 = icmp ne <4 x i32> %192, zeroinitializer
-  %207 = and <4 x i1> %200, %206
-  %208 = and <4 x i32> %196, <i32 -8388608, i32 -8388608, i32 -8388608, i32 -8388608>
-  %209 = add <4 x i32> %208, <i32 -310378496, i32 -310378496, i32 -310378496, i32 -310378496>
-  %210 = sub nsw <4 x i32> <i32 150, i32 150, i32 150, i32 150>, %197
-  %211 = shl <4 x i32> %191, %210
-  %212 = and <4 x i32> %211, <i32 8380416, i32 8380416, i32 8380416, i32 8380416>
-  %213 = or disjoint <4 x i32> %212, %209
-  %214 = select <4 x i1> %207, <4 x i32> %213, <4 x i32> zeroinitializer
-  %215 = or <4 x i32> %205, %214
-  %216 = bitcast <4 x i32> %215 to <4 x float>
-  %217 = fmul <4 x float> %216, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %218 = fptoui <4 x float> %217 to <4 x i8>
-  br label %219
+  %200 = icmp eq <4 x i16> %194, zeroinitializer
+  %201 = zext nneg <4 x i16> %194 to <4 x i32>
+  %202 = shl nuw nsw <4 x i32> %201, <i32 23, i32 23, i32 23, i32 23>
+  %203 = add nuw nsw <4 x i32> %202, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
+  %204 = or disjoint <4 x i32> %203, %192
+  %205 = select <4 x i1> %200, <4 x i32> zeroinitializer, <4 x i32> %204
+  %206 = or disjoint <4 x i32> %205, %199
+  %207 = icmp ne <4 x i32> %192, zeroinitializer
+  %208 = and <4 x i1> %200, %207
+  %209 = and <4 x i32> %196, <i32 -8388608, i32 -8388608, i32 -8388608, i32 -8388608>
+  %210 = add <4 x i32> %209, <i32 -310378496, i32 -310378496, i32 -310378496, i32 -310378496>
+  %211 = sub nsw <4 x i32> <i32 150, i32 150, i32 150, i32 150>, %197
+  %212 = shl <4 x i32> %191, %211
+  %213 = and <4 x i32> %212, <i32 8380416, i32 8380416, i32 8380416, i32 8380416>
+  %214 = or disjoint <4 x i32> %213, %210
+  %215 = select <4 x i1> %208, <4 x i32> %214, <4 x i32> zeroinitializer
+  %216 = or <4 x i32> %206, %215
+  %217 = bitcast <4 x i32> %216 to <4 x float>
+  %218 = fmul <4 x float> %217, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %219 = fptoui <4 x float> %218 to <4 x i8>
+  br label %220
 
-219:                                              ; preds = %2, %188, %125, %94, %90, %79, %73, %66, %64, %49, %27, %10, %7, %3
-  %220 = phi <4 x i8> [ zeroinitializer, %2 ], [ %218, %188 ], [ %187, %125 ], [ %124, %94 ], [ %93, %90 ], [ %89, %79 ], [ %78, %73 ], [ %72, %66 ], [ %65, %64 ], [ %63, %49 ], [ %48, %27 ], [ %26, %10 ], [ %9, %7 ], [ %6, %3 ]
-  %221 = extractelement <4 x i8> %220, i64 3
-  %.sroa.41.0.insert.ext = zext i8 %221 to i32
+220:                                              ; preds = %2, %188, %125, %94, %90, %79, %73, %66, %64, %49, %27, %10, %7, %3
+  %221 = phi <4 x i8> [ zeroinitializer, %2 ], [ %219, %188 ], [ %187, %125 ], [ %124, %94 ], [ %93, %90 ], [ %89, %79 ], [ %78, %73 ], [ %72, %66 ], [ %65, %64 ], [ %63, %49 ], [ %48, %27 ], [ %26, %10 ], [ %9, %7 ], [ %6, %3 ]
+  %222 = extractelement <4 x i8> %221, i64 3
+  %.sroa.41.0.insert.ext = zext i8 %222 to i32
   %.sroa.41.0.insert.shift = shl nuw i32 %.sroa.41.0.insert.ext, 24
-  %222 = extractelement <4 x i8> %220, i64 2
-  %.sroa.28.0.insert.ext = zext i8 %222 to i32
+  %223 = extractelement <4 x i8> %221, i64 2
+  %.sroa.28.0.insert.ext = zext i8 %223 to i32
   %.sroa.28.0.insert.shift = shl nuw nsw i32 %.sroa.28.0.insert.ext, 16
   %.sroa.28.0.insert.insert = or disjoint i32 %.sroa.28.0.insert.shift, %.sroa.41.0.insert.shift
-  %223 = extractelement <4 x i8> %220, i64 1
-  %.sroa.15.0.insert.ext = zext i8 %223 to i32
+  %224 = extractelement <4 x i8> %221, i64 1
+  %.sroa.15.0.insert.ext = zext i8 %224 to i32
   %.sroa.15.0.insert.shift = shl nuw nsw i32 %.sroa.15.0.insert.ext, 8
   %.sroa.15.0.insert.insert = or disjoint i32 %.sroa.28.0.insert.insert, %.sroa.15.0.insert.shift
-  %224 = extractelement <4 x i8> %220, i64 0
-  %.sroa.057.0.insert.ext = zext i8 %224 to i32
+  %225 = extractelement <4 x i8> %221, i64 0
+  %.sroa.057.0.insert.ext = zext i8 %225 to i32
   %.sroa.057.0.insert.insert = or disjoint i32 %.sroa.15.0.insert.insert, %.sroa.057.0.insert.ext
   ret i32 %.sroa.057.0.insert.insert
 }

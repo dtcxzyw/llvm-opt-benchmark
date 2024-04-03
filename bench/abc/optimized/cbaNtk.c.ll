@@ -5542,117 +5542,115 @@ define void @Cba_NtkPrintStatsFull(ptr noundef %0, i32 noundef %1, i32 noundef %
   %69 = insertelement <16 x i32> %68, i32 %51, i64 13
   %70 = insertelement <16 x i32> %69, i32 %53, i64 14
   %71 = insertelement <16 x i32> %70, i32 %55, i64 15
-  %72 = sext <16 x i32> %71 to <16 x i64>
-  %73 = uitofp <16 x i64> %72 to <16 x double>
-  %74 = call <16 x double> @llvm.fmuladd.v16f64(<16 x double> %73, <16 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <16 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
-  %75 = fptosi <16 x double> %74 to <16 x i32>
-  %76 = getelementptr inbounds i8, ptr %0, i64 296
-  %77 = load i32, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 312
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 328
-  %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 344
-  %83 = load i32, ptr %82, align 8
-  %84 = insertelement <4 x i32> poison, i32 %77, i64 0
-  %85 = insertelement <4 x i32> %84, i32 %79, i64 1
-  %86 = insertelement <4 x i32> %85, i32 %81, i64 2
-  %87 = insertelement <4 x i32> %86, i32 %83, i64 3
-  %88 = sext <4 x i32> %87 to <4 x i64>
-  %89 = uitofp <4 x i64> %88 to <4 x double>
-  %90 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %89, <4 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <4 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
-  %91 = fptosi <4 x double> %90 to <4 x i32>
-  %92 = getelementptr inbounds i8, ptr %0, i64 360
-  %93 = load i32, ptr %92, align 8
-  %94 = sext i32 %93 to i64
-  %95 = uitofp i64 %94 to double
-  %96 = call double @llvm.fmuladd.f64(double %95, double 4.000000e+00, double 1.600000e+01)
-  %97 = fptosi double %96 to i32
-  %98 = getelementptr inbounds i8, ptr %0, i64 376
-  %99 = load i32, ptr %98, align 8
-  %100 = sext i32 %99 to i64
-  %101 = uitofp i64 %100 to double
-  %102 = call double @llvm.fmuladd.f64(double %101, double 4.000000e+00, double 1.600000e+01)
-  %103 = fptosi double %102 to i32
-  %104 = getelementptr inbounds i8, ptr %0, i64 416
-  %105 = load i32, ptr %104, align 8
-  %106 = sext i32 %105 to i64
-  %107 = uitofp i64 %106 to double
-  %108 = call double @llvm.fmuladd.f64(double %107, double 4.000000e+00, double 1.600000e+01)
-  %109 = fptosi double %108 to i32
-  %reass.add.i = shl i32 %109, 1
-  %110 = call i32 @llvm.vector.reduce.add.v16i32(<16 x i32> %75)
-  %111 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %91)
-  %op.rdx = add i32 %110, %111
-  %op.rdx41 = add i32 %op.rdx, %97
-  %op.rdx42 = add i32 %reass.add.i, %103
+  %72 = uitofp <16 x i32> %71 to <16 x double>
+  %73 = call <16 x double> @llvm.fmuladd.v16f64(<16 x double> %72, <16 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <16 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
+  %74 = fptosi <16 x double> %73 to <16 x i32>
+  %75 = getelementptr inbounds i8, ptr %0, i64 296
+  %76 = load i32, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 312
+  %78 = load i32, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %0, i64 328
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 344
+  %82 = load i32, ptr %81, align 8
+  %83 = insertelement <4 x i32> poison, i32 %76, i64 0
+  %84 = insertelement <4 x i32> %83, i32 %78, i64 1
+  %85 = insertelement <4 x i32> %84, i32 %80, i64 2
+  %86 = insertelement <4 x i32> %85, i32 %82, i64 3
+  %87 = uitofp <4 x i32> %86 to <4 x double>
+  %88 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %87, <4 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <4 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
+  %89 = fptosi <4 x double> %88 to <4 x i32>
+  %90 = getelementptr inbounds i8, ptr %0, i64 360
+  %91 = load i32, ptr %90, align 8
+  %92 = sext i32 %91 to i64
+  %93 = uitofp i64 %92 to double
+  %94 = call double @llvm.fmuladd.f64(double %93, double 4.000000e+00, double 1.600000e+01)
+  %95 = fptosi double %94 to i32
+  %96 = getelementptr inbounds i8, ptr %0, i64 376
+  %97 = load i32, ptr %96, align 8
+  %98 = sext i32 %97 to i64
+  %99 = uitofp i64 %98 to double
+  %100 = call double @llvm.fmuladd.f64(double %99, double 4.000000e+00, double 1.600000e+01)
+  %101 = fptosi double %100 to i32
+  %102 = getelementptr inbounds i8, ptr %0, i64 416
+  %103 = load i32, ptr %102, align 8
+  %104 = sext i32 %103 to i64
+  %105 = uitofp i64 %104 to double
+  %106 = call double @llvm.fmuladd.f64(double %105, double 4.000000e+00, double 1.600000e+01)
+  %107 = fptosi double %106 to i32
+  %reass.add.i = shl i32 %107, 1
+  %108 = call i32 @llvm.vector.reduce.add.v16i32(<16 x i32> %74)
+  %109 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %89)
+  %op.rdx = add i32 %108, %109
+  %op.rdx41 = add i32 %op.rdx, %95
+  %op.rdx42 = add i32 %reass.add.i, %101
   %op.rdx43 = add i32 %31, 432
   %op.rdx44 = add i32 %op.rdx41, %op.rdx42
   %op.rdx45 = add i32 %op.rdx44, %op.rdx43
-  %112 = sitofp i32 %op.rdx45 to double
-  %113 = fmul double %112, 0x3EB0000000000000
-  %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, double noundef %113)
+  %110 = sitofp i32 %op.rdx45 to double
+  %111 = fmul double %110, 0x3EB0000000000000
+  %112 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, double noundef %111)
   %putchar = call i32 @putchar(i32 10)
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %116, label %115
+  br i1 %.not, label %114, label %113
 
-115:                                              ; preds = %3
+113:                                              ; preds = %3
   call void @Cba_NtkPrintDistrib(ptr noundef nonnull %0, i32 poison)
   br label %.loopexit
 
-116:                                              ; preds = %3
+114:                                              ; preds = %3
   %.not30 = icmp eq i32 %2, 0
-  br i1 %.not30, label %.loopexit, label %117
+  br i1 %.not30, label %.loopexit, label %115
 
-117:                                              ; preds = %116
+115:                                              ; preds = %114
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %118
+  br label %116
 
-118:                                              ; preds = %117, %143
-  %indvars.iv = phi i64 [ 1, %117 ], [ %indvars.iv.next, %143 ]
-  %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 832
-  %121 = getelementptr inbounds [90 x i32], ptr %120, i64 0, i64 %indvars.iv
-  %122 = load i32, ptr %121, align 4
-  %.not31 = icmp eq i32 %122, 0
-  br i1 %.not31, label %143, label %123
+116:                                              ; preds = %115, %141
+  %indvars.iv = phi i64 [ 1, %115 ], [ %indvars.iv.next, %141 ]
+  %117 = load ptr, ptr %0, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 832
+  %119 = getelementptr inbounds [90 x i32], ptr %118, i64 0, i64 %indvars.iv
+  %120 = load i32, ptr %119, align 4
+  %.not31 = icmp eq i32 %120, 0
+  br i1 %.not31, label %141, label %121
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %119, i64 1192
-  %125 = load i32, ptr %124, align 8
-  %.not32 = icmp eq i32 %125, 0
-  br i1 %.not32, label %138, label %126
+121:                                              ; preds = %116
+  %122 = getelementptr inbounds i8, ptr %117, i64 1192
+  %123 = load i32, ptr %122, align 8
+  %.not32 = icmp eq i32 %123, 0
+  br i1 %.not32, label %136, label %124
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds [90 x i32], ptr %124, i64 0, i64 %indvars.iv
-  %128 = load i32, ptr %127, align 4
-  %.not33 = icmp eq i32 %128, 0
-  br i1 %.not33, label %138, label %129
+124:                                              ; preds = %121
+  %125 = getelementptr inbounds [90 x i32], ptr %122, i64 0, i64 %indvars.iv
+  %126 = load i32, ptr %125, align 4
+  %.not33 = icmp eq i32 %126, 0
+  br i1 %.not33, label %136, label %127
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %131 = load ptr, ptr %130, align 8
-  %132 = sitofp i32 %128 to double
-  %133 = fmul double %132, 1.000000e+02
-  %134 = sitofp i32 %125 to double
-  %135 = fdiv double %133, %134
-  %136 = trunc i64 %indvars.iv to i32
-  %137 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %136, ptr noundef %131, i32 noundef %122, double noundef %135)
-  br label %143
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %129 = load ptr, ptr %128, align 8
+  %130 = sitofp i32 %126 to double
+  %131 = fmul double %130, 1.000000e+02
+  %132 = sitofp i32 %123 to double
+  %133 = fdiv double %131, %132
+  %134 = trunc i64 %indvars.iv to i32
+  %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %134, ptr noundef %129, i32 noundef %120, double noundef %133)
+  br label %141
 
-138:                                              ; preds = %126, %123
-  %139 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %140 = load ptr, ptr %139, align 8
-  %141 = trunc i64 %indvars.iv to i32
-  %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %141, ptr noundef %140, i32 noundef %122)
-  br label %143
+136:                                              ; preds = %124, %121
+  %137 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %138 = load ptr, ptr %137, align 8
+  %139 = trunc i64 %indvars.iv to i32
+  %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %139, ptr noundef %138, i32 noundef %120)
+  br label %141
 
-143:                                              ; preds = %129, %138, %118
+141:                                              ; preds = %127, %136, %116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 90
-  br i1 %exitcond.not, label %.loopexit, label %118, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %116, !llvm.loop !17
 
-.loopexit:                                        ; preds = %143, %116, %115
+.loopexit:                                        ; preds = %141, %114, %113
   ret void
 }
 
@@ -14718,7 +14716,7 @@ define internal i32 @Cba_NtkNewStrId(ptr nocapture noundef readonly %0, ptr noca
   %4 = getelementptr i8, ptr %.val21, i64 16
   %.val21.val = load ptr, ptr %4, align 8
   %5 = tail call ptr @Abc_NamBuffer(ptr noundef %.val21.val) #26
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %6 = getelementptr i8, ptr %5, i64 4
   %.val20 = load i32, ptr %6, align 4
   %7 = add nsw i32 %.val20, 1000
@@ -14799,7 +14797,7 @@ Vec_StrGrow.exit32:                               ; preds = %24, %34
   br label %40
 
 40:                                               ; preds = %Vec_StrGrow.exit32, %Vec_StrGrow.exit
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %.val26 = load i32, ptr %6, align 4
   %.val27 = load ptr, ptr %19, align 8
   %41 = sext i32 %.val26 to i64
@@ -17321,16 +17319,16 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 declare ptr @Abc_NamBuffer(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #20
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #20
-
 declare i32 @Abc_NamStrFindOrAddLim(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #21

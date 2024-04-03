@@ -1009,43 +1009,41 @@ Vec_IntMemory.exit29:                             ; preds = %Vec_IntMemory.exit,
   %51 = insertelement <4 x i32> %50, i32 %5, i64 1
   %52 = insertelement <4 x i32> %51, i32 %7, i64 2
   %53 = insertelement <4 x i32> %52, i32 %27, i64 3
-  %54 = sext <4 x i32> %53 to <4 x i64>
-  %55 = fptosi double %.010.i to i32
-  %56 = sext i32 %23 to i64
-  %57 = uitofp i64 %56 to double
-  %58 = fadd double %57, 1.600000e+01
-  %59 = fptosi double %58 to i32
-  %60 = sext i32 %25 to i64
-  %61 = uitofp i64 %60 to double
-  %62 = fadd double %61, 1.600000e+01
-  %63 = fptosi double %62 to i32
-  %64 = uitofp <4 x i64> %54 to <4 x double>
-  %65 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %64, <4 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <4 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
-  %66 = fptosi <4 x double> %65 to <4 x i32>
-  %67 = insertelement <2 x i32> poison, i32 %29, i64 0
-  %68 = insertelement <2 x i32> %67, i32 %31, i64 1
-  %69 = sext <2 x i32> %68 to <2 x i64>
-  %70 = getelementptr inbounds i8, ptr %0, i64 96
+  %54 = fptosi double %.010.i to i32
+  %55 = sext i32 %23 to i64
+  %56 = uitofp i64 %55 to double
+  %57 = fadd double %56, 1.600000e+01
+  %58 = fptosi double %57 to i32
+  %59 = sext i32 %25 to i64
+  %60 = uitofp i64 %59 to double
+  %61 = fadd double %60, 1.600000e+01
+  %62 = fptosi double %61 to i32
+  %63 = uitofp <4 x i32> %53 to <4 x double>
+  %64 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %63, <4 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <4 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
+  %65 = fptosi <4 x double> %64 to <4 x i32>
+  %66 = insertelement <2 x i32> poison, i32 %29, i64 0
+  %67 = insertelement <2 x i32> %66, i32 %31, i64 1
+  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %69 = load i32, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 48
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds i8, ptr %0, i64 72
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 72
-  %75 = load i32, ptr %74, align 8
-  %reass.add = add i32 %73, %71
-  %reass.add30 = add i32 %reass.add, %75
+  %reass.add = add i32 %71, %69
+  %reass.add30 = add i32 %reass.add, %73
   %reass.mul = shl i32 %reass.add30, 2
-  %76 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %66)
-  %77 = uitofp <2 x i64> %69 to <2 x double>
-  %78 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %77, <2 x double> <double 4.000000e+00, double 4.000000e+00>, <2 x double> <double 1.600000e+01, double 1.600000e+01>)
-  %79 = fptosi <2 x double> %78 to <2 x i32>
-  %80 = insertelement <2 x i32> poison, i32 %76, i64 0
-  %81 = insertelement <2 x i32> %80, i32 %59, i64 1
-  %82 = add <2 x i32> %81, %79
-  %op.rdx32 = add i32 %reass.mul, %63
-  %op.rdx33 = add i32 %49, %55
-  %shift = shufflevector <2 x i32> %82, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %83 = add <2 x i32> %82, %shift
-  %op.rdx35 = extractelement <2 x i32> %83, i64 0
+  %74 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %65)
+  %75 = uitofp <2 x i32> %67 to <2 x double>
+  %76 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %75, <2 x double> <double 4.000000e+00, double 4.000000e+00>, <2 x double> <double 1.600000e+01, double 1.600000e+01>)
+  %77 = fptosi <2 x double> %76 to <2 x i32>
+  %78 = insertelement <2 x i32> poison, i32 %74, i64 0
+  %79 = insertelement <2 x i32> %78, i32 %58, i64 1
+  %80 = add <2 x i32> %79, %77
+  %op.rdx32 = add i32 %reass.mul, %62
+  %op.rdx33 = add i32 %49, %54
+  %shift = shufflevector <2 x i32> %80, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %81 = add <2 x i32> %80, %shift
+  %op.rdx35 = extractelement <2 x i32> %81, i64 0
   %op.rdx36 = add i32 %op.rdx32, %op.rdx33
   %op.rdx37 = add i32 %op.rdx35, %op.rdx36
   %op.rdx38 = add i32 %op.rdx37, %op.rdx34
@@ -3191,7 +3189,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #23
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #23
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3210,7 +3208,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -5065,22 +5063,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #11
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
-
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
 
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #11
 
@@ -5309,6 +5301,12 @@ Vec_IntPush.exit14:                               ; preds = %.Vec_IntGrow.exit10
   ret i32 %79
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
 
@@ -5344,9 +5342,9 @@ attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
