@@ -4734,15 +4734,15 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   %44 = load i32, ptr @hf_btavdtp_length_of_service_category, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0) #6
   %46 = add i32 %.0249279, 2
-  switch i8 %31, label %625 [
+  switch i8 %31, label %629 [
     i8 1, label %.thread273
     i8 2, label %.thread273
     i8 8, label %.thread273
     i8 3, label %47
     i8 7, label %73
-    i8 4, label %536
-    i8 5, label %553
-    i8 6, label %564
+    i8 4, label %540
+    i8 5, label %557
+    i8 6, label %568
   ]
 
 47:                                               ; preds = %30
@@ -4850,7 +4850,7 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.511, ptr noundef %102) #6
   %103 = add i32 %.0249279, 4
   %104 = add nsw i32 %35, -2
-  br label %494
+  br label %498
 
 105:                                              ; preds = %96
   %106 = load i32, ptr @hf_btavdtp_media_codec_unknown_type, align 4
@@ -4863,13 +4863,13 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
 109:                                              ; preds = %105, %90
   %110 = add i32 %.0249279, 4
   %111 = add nsw i32 %35, -2
-  switch i8 %79, label %530 [
+  switch i8 %79, label %534 [
     i8 0, label %112
-    i8 1, label %494
+    i8 1, label %498
   ]
 
 112:                                              ; preds = %109
-  switch i8 %85, label %491 [
+  switch i8 %85, label %495 [
     i8 0, label %113
     i8 1, label %215
     i8 2, label %254
@@ -5153,10 +5153,10 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
 
 340:                                              ; preds = %337, %336
   %341 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %110) #6
-  switch i32 %341, label %483 [
+  switch i32 %341, label %487 [
     i32 79, label %342
     i32 215, label %342
-    i32 301, label %417
+    i32 301, label %421
   ]
 
 342:                                              ; preds = %340, %340
@@ -5166,7 +5166,7 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   %346 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %344) #6
   %.sroa.0.0.insert.insert512.i = zext i16 %346 to i32
   %347 = add i32 %.0249279, 10
-  switch i16 %346, label %413 [
+  switch i16 %346, label %417 [
     i16 1, label %348
     i16 36, label %365
   ]
@@ -5220,362 +5220,358 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.535, ptr noundef %388) #6
   %389 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %347) #6
   %.not1451.i = icmp eq i8 %389, 0
-  br i1 %.not1451.i, label %411, label %390
+  br i1 %.not1451.i, label %415, label %390
 
 390:                                              ; preds = %385
   %391 = zext i8 %389 to i32
   %392 = load ptr, ptr %29, align 8
   %.not1452.i = icmp sgt i8 %389, -1
   %393 = select i1 %.not1452.i, ptr @.str.519, ptr @.str.537
-  %394 = and i32 %391, 64
-  %.not1453.i = icmp eq i32 %394, 0
-  %395 = select i1 %.not1453.i, ptr @.str.519, ptr @.str.538
-  %396 = and i32 %391, 32
-  %.not1454.i = icmp eq i32 %396, 0
-  %397 = select i1 %.not1454.i, ptr @.str.519, ptr @.str.539
-  %398 = and i32 %391, 16
-  %.not1455.i = icmp eq i32 %398, 0
-  %399 = select i1 %.not1455.i, ptr @.str.519, ptr @.str.540
   %.not1456.i = icmp ult i8 %389, 16
-  %400 = select i1 %.not1456.i, ptr @.str.523, ptr @.str.519
-  %401 = and i32 %391, 8
-  %.not1457.i = icmp eq i32 %401, 0
-  %402 = select i1 %.not1457.i, ptr @.str.519, ptr @.str.541
-  %403 = and i32 %391, 4
-  %.not1458.i = icmp eq i32 %403, 0
-  %404 = select i1 %.not1458.i, ptr @.str.519, ptr @.str.542
-  %405 = and i32 %391, 2
-  %.not1459.i = icmp eq i32 %405, 0
-  %406 = select i1 %.not1459.i, ptr @.str.519, ptr @.str.543
-  %407 = and i32 %391, 1
-  %.not1460.i = icmp eq i32 %407, 0
-  %408 = select i1 %.not1460.i, ptr @.str.519, ptr @.str.544
-  %409 = and i32 %391, 15
-  %.not1461.i = icmp eq i32 %409, 0
-  %410 = select i1 %.not1461.i, ptr @.str.523, ptr @.str.519
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %392, i32 noundef 25, ptr noundef nonnull @.str.536, ptr noundef nonnull %393, ptr noundef nonnull %395, ptr noundef nonnull %397, ptr noundef nonnull %399, ptr noundef nonnull %400, ptr noundef nonnull %402, ptr noundef nonnull %404, ptr noundef nonnull %406, ptr noundef nonnull %408, ptr noundef nonnull %410) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.536, ptr noundef nonnull %393, ptr noundef nonnull %395, ptr noundef nonnull %397, ptr noundef nonnull %399, ptr noundef nonnull %400, ptr noundef nonnull %402, ptr noundef nonnull %404, ptr noundef nonnull %406, ptr noundef nonnull %408, ptr noundef nonnull %410) #6
+  %394 = select i1 %.not1456.i, ptr @.str.523, ptr @.str.519
+  %395 = insertelement <8 x i32> poison, i32 %391, i64 0
+  %396 = shufflevector <8 x i32> %395, <8 x i32> poison, <8 x i32> zeroinitializer
+  %397 = and <8 x i32> %396, <i32 15, i32 1, i32 2, i32 4, i32 8, i32 16, i32 32, i32 64>
+  %398 = icmp eq <8 x i32> %397, zeroinitializer
+  %399 = extractelement <8 x i1> %398, i64 7
+  %400 = select i1 %399, ptr @.str.519, ptr @.str.538
+  %401 = extractelement <8 x i1> %398, i64 6
+  %402 = select i1 %401, ptr @.str.519, ptr @.str.539
+  %403 = extractelement <8 x i1> %398, i64 5
+  %404 = select i1 %403, ptr @.str.519, ptr @.str.540
+  %405 = extractelement <8 x i1> %398, i64 4
+  %406 = select i1 %405, ptr @.str.519, ptr @.str.541
+  %407 = extractelement <8 x i1> %398, i64 3
+  %408 = select i1 %407, ptr @.str.519, ptr @.str.542
+  %409 = extractelement <8 x i1> %398, i64 2
+  %410 = select i1 %409, ptr @.str.519, ptr @.str.543
+  %411 = extractelement <8 x i1> %398, i64 1
+  %412 = select i1 %411, ptr @.str.519, ptr @.str.544
+  %413 = extractelement <8 x i1> %398, i64 0
+  %414 = select i1 %413, ptr @.str.523, ptr @.str.519
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %392, i32 noundef 25, ptr noundef nonnull @.str.536, ptr noundef nonnull %393, ptr noundef nonnull %400, ptr noundef nonnull %402, ptr noundef nonnull %404, ptr noundef nonnull %394, ptr noundef nonnull %406, ptr noundef nonnull %408, ptr noundef nonnull %410, ptr noundef nonnull %412, ptr noundef nonnull %414) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.536, ptr noundef nonnull %393, ptr noundef nonnull %400, ptr noundef nonnull %402, ptr noundef nonnull %404, ptr noundef nonnull %394, ptr noundef nonnull %406, ptr noundef nonnull %408, ptr noundef nonnull %410, ptr noundef nonnull %412, ptr noundef nonnull %414) #6
   br label %dissect_codec.exit
 
-411:                                              ; preds = %385
-  %412 = load ptr, ptr %29, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %412, i32 noundef 25, ptr noundef nonnull @.str.545) #6
+415:                                              ; preds = %385
+  %416 = load ptr, ptr %29, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %416, i32 noundef 25, ptr noundef nonnull @.str.545) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.545) #6
   br label %dissect_codec.exit
 
-413:                                              ; preds = %342
-  %414 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
-  %415 = add nsw i32 %35, -8
-  %416 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %414, ptr noundef %0, i32 noundef %347, i32 noundef %415, i32 noundef 0) #6
+417:                                              ; preds = %342
+  %418 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
+  %419 = add nsw i32 %35, -8
+  %420 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %418, ptr noundef %0, i32 noundef %347, i32 noundef %419, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-417:                                              ; preds = %340
-  %418 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_codec_id, align 4
-  %419 = add i32 %.0249279, 8
-  %420 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %418, ptr noundef %0, i32 noundef %419, i32 noundef 2, i32 noundef -2147483648) #6
-  %421 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %419) #6
-  %422 = icmp eq i16 %421, 170
-  %423 = add i32 %.0249279, 10
-  br i1 %422, label %424, label %479
+421:                                              ; preds = %340
+  %422 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_codec_id, align 4
+  %423 = add i32 %.0249279, 8
+  %424 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %422, ptr noundef %0, i32 noundef %423, i32 noundef 2, i32 noundef -2147483648) #6
+  %425 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %423) #6
+  %426 = icmp eq i16 %425, 170
+  %427 = add i32 %.0249279, 10
+  br i1 %426, label %428, label %483
 
-424:                                              ; preds = %417
-  %425 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_rfa1, align 4
-  %426 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %425, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0) #6
-  %427 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_44100, align 4
-  %428 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %427, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0) #6
-  %429 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_48000, align 4
-  %430 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %429, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0) #6
-  %431 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_88200, align 4
-  %432 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %431, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0) #6
-  %433 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_96000, align 4
-  %434 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %433, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0) #6
-  %435 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_176400, align 4
-  %436 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %435, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0) #6
-  %437 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_192000, align 4
-  %438 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %437, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0) #6
-  %439 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_rfa2, align 4
-  %440 = add i32 %.0249279, 11
-  %441 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %439, ptr noundef %0, i32 noundef %440, i32 noundef 1, i32 noundef 0) #6
-  %442 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_channel_mode_mono, align 4
-  %443 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %442, ptr noundef %0, i32 noundef %440, i32 noundef 1, i32 noundef 0) #6
-  %444 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_channel_mode_dual_channel, align 4
-  %445 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %444, ptr noundef %0, i32 noundef %440, i32 noundef 1, i32 noundef 0) #6
-  %446 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_channel_mode_stereo, align 4
-  %447 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %446, ptr noundef %0, i32 noundef %440, i32 noundef 1, i32 noundef 0) #6
-  %448 = load ptr, ptr %29, align 8
-  %449 = tail call ptr @val_to_str_const(i32 noundef 170, ptr noundef nonnull @vendor_ldac_codec_vals, ptr noundef nonnull @.str.510) #6
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %448, i32 noundef 25, ptr noundef nonnull @.str.535, ptr noundef %449) #6
-  %450 = tail call ptr @val_to_str_const(i32 noundef 170, ptr noundef nonnull @vendor_ldac_codec_vals, ptr noundef nonnull @.str.510) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.535, ptr noundef %450) #6
-  %451 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %423) #6
-  %452 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %440) #6
-  %453 = icmp ne i8 %451, 0
-  %454 = icmp ne i8 %452, 0
-  %or.cond7.i = select i1 %453, i1 %454, i1 false
-  br i1 %or.cond7.i, label %455, label %477
+428:                                              ; preds = %421
+  %429 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_rfa1, align 4
+  %430 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %429, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #6
+  %431 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_44100, align 4
+  %432 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %431, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #6
+  %433 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_48000, align 4
+  %434 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %433, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #6
+  %435 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_88200, align 4
+  %436 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %435, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #6
+  %437 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_96000, align 4
+  %438 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %437, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #6
+  %439 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_176400, align 4
+  %440 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %439, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #6
+  %441 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_sampling_frequency_192000, align 4
+  %442 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %441, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #6
+  %443 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_rfa2, align 4
+  %444 = add i32 %.0249279, 11
+  %445 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %443, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #6
+  %446 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_channel_mode_mono, align 4
+  %447 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %446, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #6
+  %448 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_channel_mode_dual_channel, align 4
+  %449 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %448, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #6
+  %450 = load i32, ptr @hf_btavdtp_vendor_specific_ldac_channel_mode_stereo, align 4
+  %451 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %450, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #6
+  %452 = load ptr, ptr %29, align 8
+  %453 = tail call ptr @val_to_str_const(i32 noundef 170, ptr noundef nonnull @vendor_ldac_codec_vals, ptr noundef nonnull @.str.510) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %452, i32 noundef 25, ptr noundef nonnull @.str.535, ptr noundef %453) #6
+  %454 = tail call ptr @val_to_str_const(i32 noundef 170, ptr noundef nonnull @vendor_ldac_codec_vals, ptr noundef nonnull @.str.510) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.535, ptr noundef %454) #6
+  %455 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %427) #6
+  %456 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %444) #6
+  %457 = icmp ne i8 %455, 0
+  %458 = icmp ne i8 %456, 0
+  %or.cond7.i = select i1 %457, i1 %458, i1 false
+  br i1 %or.cond7.i, label %459, label %481
 
-455:                                              ; preds = %424
-  %456 = zext i8 %452 to i32
-  %457 = zext i8 %451 to i32
-  %458 = load ptr, ptr %29, align 8
-  %459 = and i32 %457, 32
-  %.not1441.i = icmp eq i32 %459, 0
-  %460 = select i1 %.not1441.i, ptr @.str.519, ptr @.str.539
-  %461 = and i32 %457, 16
-  %.not1442.i = icmp eq i32 %461, 0
-  %462 = select i1 %.not1442.i, ptr @.str.519, ptr @.str.540
-  %463 = and i32 %457, 8
-  %.not1443.i = icmp eq i32 %463, 0
-  %464 = select i1 %.not1443.i, ptr @.str.519, ptr @.str.547
-  %465 = and i32 %457, 4
-  %.not1444.i = icmp eq i32 %465, 0
-  %466 = select i1 %.not1444.i, ptr @.str.519, ptr @.str.548
-  %467 = and i32 %457, 2
-  %.not1445.i = icmp eq i32 %467, 0
-  %468 = select i1 %.not1445.i, ptr @.str.519, ptr @.str.549
-  %469 = and i32 %457, 1
-  %.not1446.i = icmp eq i32 %469, 0
-  %470 = select i1 %.not1446.i, ptr @.str.519, ptr @.str.550
-  %471 = and i32 %456, 4
-  %.not1447.i = icmp eq i32 %471, 0
-  %472 = select i1 %.not1447.i, ptr @.str.519, ptr @.str.541
-  %473 = and i32 %456, 2
-  %.not1448.i = icmp eq i32 %473, 0
-  %474 = select i1 %.not1448.i, ptr @.str.519, ptr @.str.542
-  %475 = and i32 %456, 1
-  %.not1449.i = icmp eq i32 %475, 0
-  %476 = select i1 %.not1449.i, ptr @.str.519, ptr @.str.543
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %458, i32 noundef 25, ptr noundef nonnull @.str.546, ptr noundef nonnull %460, ptr noundef nonnull %462, ptr noundef nonnull %464, ptr noundef nonnull %466, ptr noundef nonnull %468, ptr noundef nonnull %470, ptr noundef nonnull %472, ptr noundef nonnull %474, ptr noundef nonnull %476) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.546, ptr noundef nonnull %460, ptr noundef nonnull %462, ptr noundef nonnull %464, ptr noundef nonnull %466, ptr noundef nonnull %468, ptr noundef nonnull %470, ptr noundef nonnull %472, ptr noundef nonnull %474, ptr noundef nonnull %476) #6
+459:                                              ; preds = %428
+  %460 = zext i8 %456 to i32
+  %461 = zext i8 %455 to i32
+  %462 = load ptr, ptr %29, align 8
+  %463 = and i32 %461, 32
+  %.not1441.i = icmp eq i32 %463, 0
+  %464 = select i1 %.not1441.i, ptr @.str.519, ptr @.str.539
+  %465 = and i32 %461, 16
+  %.not1442.i = icmp eq i32 %465, 0
+  %466 = select i1 %.not1442.i, ptr @.str.519, ptr @.str.540
+  %467 = and i32 %461, 8
+  %.not1443.i = icmp eq i32 %467, 0
+  %468 = select i1 %.not1443.i, ptr @.str.519, ptr @.str.547
+  %469 = and i32 %461, 4
+  %.not1444.i = icmp eq i32 %469, 0
+  %470 = select i1 %.not1444.i, ptr @.str.519, ptr @.str.548
+  %471 = and i32 %461, 2
+  %.not1445.i = icmp eq i32 %471, 0
+  %472 = select i1 %.not1445.i, ptr @.str.519, ptr @.str.549
+  %473 = and i32 %461, 1
+  %.not1446.i = icmp eq i32 %473, 0
+  %474 = select i1 %.not1446.i, ptr @.str.519, ptr @.str.550
+  %475 = and i32 %460, 4
+  %.not1447.i = icmp eq i32 %475, 0
+  %476 = select i1 %.not1447.i, ptr @.str.519, ptr @.str.541
+  %477 = and i32 %460, 2
+  %.not1448.i = icmp eq i32 %477, 0
+  %478 = select i1 %.not1448.i, ptr @.str.519, ptr @.str.542
+  %479 = and i32 %460, 1
+  %.not1449.i = icmp eq i32 %479, 0
+  %480 = select i1 %.not1449.i, ptr @.str.519, ptr @.str.543
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %462, i32 noundef 25, ptr noundef nonnull @.str.546, ptr noundef nonnull %464, ptr noundef nonnull %466, ptr noundef nonnull %468, ptr noundef nonnull %470, ptr noundef nonnull %472, ptr noundef nonnull %474, ptr noundef nonnull %476, ptr noundef nonnull %478, ptr noundef nonnull %480) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.546, ptr noundef nonnull %464, ptr noundef nonnull %466, ptr noundef nonnull %468, ptr noundef nonnull %470, ptr noundef nonnull %472, ptr noundef nonnull %474, ptr noundef nonnull %476, ptr noundef nonnull %478, ptr noundef nonnull %480) #6
   br label %dissect_codec.exit
 
-477:                                              ; preds = %424
-  %478 = load ptr, ptr %29, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %478, i32 noundef 25, ptr noundef nonnull @.str.545) #6
+481:                                              ; preds = %428
+  %482 = load ptr, ptr %29, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %482, i32 noundef 25, ptr noundef nonnull @.str.545) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.545) #6
   br label %dissect_codec.exit
 
-479:                                              ; preds = %417
-  %480 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
-  %481 = add nsw i32 %35, -8
-  %482 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %480, ptr noundef %0, i32 noundef %423, i32 noundef %481, i32 noundef 0) #6
+483:                                              ; preds = %421
+  %484 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
+  %485 = add nsw i32 %35, -8
+  %486 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %484, ptr noundef %0, i32 noundef %427, i32 noundef %485, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-483:                                              ; preds = %340
-  %484 = load i32, ptr @hf_btavdtp_vendor_specific_codec_id, align 4
-  %485 = add i32 %.0249279, 8
-  %486 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %484, ptr noundef %0, i32 noundef %485, i32 noundef 2, i32 noundef -2147483648) #6
-  %487 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
-  %488 = add i32 %.0249279, 10
-  %489 = add nsw i32 %35, -8
-  %490 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %487, ptr noundef %0, i32 noundef %488, i32 noundef %489, i32 noundef 0) #6
+487:                                              ; preds = %340
+  %488 = load i32, ptr @hf_btavdtp_vendor_specific_codec_id, align 4
+  %489 = add i32 %.0249279, 8
+  %490 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %488, ptr noundef %0, i32 noundef %489, i32 noundef 2, i32 noundef -2147483648) #6
+  %491 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
+  %492 = add i32 %.0249279, 10
+  %493 = add nsw i32 %35, -8
+  %494 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %491, ptr noundef %0, i32 noundef %492, i32 noundef %493, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-491:                                              ; preds = %112
-  %492 = load i32, ptr @hf_btavdtp_data, align 4
-  %493 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %492, ptr noundef %0, i32 noundef %110, i32 noundef %111, i32 noundef 0) #6
+495:                                              ; preds = %112
+  %496 = load i32, ptr @hf_btavdtp_data, align 4
+  %497 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %496, ptr noundef %0, i32 noundef %110, i32 noundef %111, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-494:                                              ; preds = %.thread, %109
-  %495 = phi i32 [ %104, %.thread ], [ %111, %109 ]
-  %496 = phi i32 [ %103, %.thread ], [ %110, %109 ]
-  switch i8 %85, label %527 [
-    i8 1, label %497
-    i8 3, label %497
-    i8 4, label %497
-    i8 2, label %506
-    i8 -1, label %517
+498:                                              ; preds = %.thread, %109
+  %499 = phi i32 [ %104, %.thread ], [ %111, %109 ]
+  %500 = phi i32 [ %103, %.thread ], [ %110, %109 ]
+  switch i8 %85, label %531 [
+    i8 1, label %501
+    i8 3, label %501
+    i8 4, label %501
+    i8 2, label %510
+    i8 -1, label %521
   ]
 
-497:                                              ; preds = %494, %494, %494
-  %498 = load i32, ptr @hf_btavdtp_h263_level_10, align 4
-  %499 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %498, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
-  %500 = load i32, ptr @hf_btavdtp_h263_level_20, align 4
-  %501 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %500, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
-  %502 = load i32, ptr @hf_btavdtp_h263_level_30, align 4
-  %503 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %502, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
-  %504 = load i32, ptr @hf_btavdtp_h263_level_rfa, align 4
-  %505 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %504, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
+501:                                              ; preds = %498, %498, %498
+  %502 = load i32, ptr @hf_btavdtp_h263_level_10, align 4
+  %503 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %502, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
+  %504 = load i32, ptr @hf_btavdtp_h263_level_20, align 4
+  %505 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %504, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
+  %506 = load i32, ptr @hf_btavdtp_h263_level_30, align 4
+  %507 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %506, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
+  %508 = load i32, ptr @hf_btavdtp_h263_level_rfa, align 4
+  %509 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %508, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-506:                                              ; preds = %494
-  %507 = load i32, ptr @hf_btavdtp_mpeg4_level_0, align 4
-  %508 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %507, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
-  %509 = load i32, ptr @hf_btavdtp_mpeg4_level_1, align 4
-  %510 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %509, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
-  %511 = load i32, ptr @hf_btavdtp_mpeg4_level_2, align 4
-  %512 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %511, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
-  %513 = load i32, ptr @hf_btavdtp_mpeg4_level_3, align 4
-  %514 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %513, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
-  %515 = load i32, ptr @hf_btavdtp_mpeg4_level_rfa, align 4
-  %516 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %515, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0) #6
+510:                                              ; preds = %498
+  %511 = load i32, ptr @hf_btavdtp_mpeg4_level_0, align 4
+  %512 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %511, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
+  %513 = load i32, ptr @hf_btavdtp_mpeg4_level_1, align 4
+  %514 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %513, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
+  %515 = load i32, ptr @hf_btavdtp_mpeg4_level_2, align 4
+  %516 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %515, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
+  %517 = load i32, ptr @hf_btavdtp_mpeg4_level_3, align 4
+  %518 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %517, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
+  %519 = load i32, ptr @hf_btavdtp_mpeg4_level_rfa, align 4
+  %520 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %519, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-517:                                              ; preds = %494
-  %518 = load i32, ptr @hf_btavdtp_vendor_id, align 4
-  %519 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %518, ptr noundef %0, i32 noundef %496, i32 noundef 4, i32 noundef -2147483648) #6
-  %520 = load i32, ptr @hf_btavdtp_vendor_specific_codec_id, align 4
-  %521 = add i32 %496, 4
-  %522 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %520, ptr noundef %0, i32 noundef %521, i32 noundef 2, i32 noundef -2147483648) #6
-  %523 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
-  %524 = add i32 %496, 6
-  %525 = add nsw i32 %495, -6
-  %526 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %523, ptr noundef %0, i32 noundef %524, i32 noundef %525, i32 noundef 0) #6
+521:                                              ; preds = %498
+  %522 = load i32, ptr @hf_btavdtp_vendor_id, align 4
+  %523 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %522, ptr noundef %0, i32 noundef %500, i32 noundef 4, i32 noundef -2147483648) #6
+  %524 = load i32, ptr @hf_btavdtp_vendor_specific_codec_id, align 4
+  %525 = add i32 %500, 4
+  %526 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %524, ptr noundef %0, i32 noundef %525, i32 noundef 2, i32 noundef -2147483648) #6
+  %527 = load i32, ptr @hf_btavdtp_vendor_specific_value, align 4
+  %528 = add i32 %500, 6
+  %529 = add nsw i32 %499, -6
+  %530 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %527, ptr noundef %0, i32 noundef %528, i32 noundef %529, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-527:                                              ; preds = %494
-  %528 = load i32, ptr @hf_btavdtp_data, align 4
-  %529 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %528, ptr noundef %0, i32 noundef %496, i32 noundef %495, i32 noundef 0) #6
+531:                                              ; preds = %498
+  %532 = load i32, ptr @hf_btavdtp_data, align 4
+  %533 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %532, ptr noundef %0, i32 noundef %500, i32 noundef %499, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-530:                                              ; preds = %109
-  %531 = load i32, ptr @hf_btavdtp_data, align 4
-  %532 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %531, ptr noundef %0, i32 noundef %110, i32 noundef %111, i32 noundef 0) #6
+534:                                              ; preds = %109
+  %535 = load i32, ptr @hf_btavdtp_data, align 4
+  %536 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %535, ptr noundef %0, i32 noundef %110, i32 noundef %111, i32 noundef 0) #6
   br label %dissect_codec.exit
 
-dissect_codec.exit:                               ; preds = %165, %213, %215, %254, %302, %390, %411, %413, %455, %477, %479, %483, %491, %497, %506, %517, %527, %530
-  %533 = phi i32 [ %111, %165 ], [ %111, %213 ], [ %111, %215 ], [ %111, %254 ], [ %111, %302 ], [ %111, %390 ], [ %111, %411 ], [ %111, %413 ], [ %111, %455 ], [ %111, %477 ], [ %111, %479 ], [ %111, %483 ], [ %111, %491 ], [ %495, %497 ], [ %495, %506 ], [ %495, %517 ], [ %495, %527 ], [ %111, %530 ]
-  %534 = phi i32 [ %110, %165 ], [ %110, %213 ], [ %110, %215 ], [ %110, %254 ], [ %110, %302 ], [ %110, %390 ], [ %110, %411 ], [ %110, %413 ], [ %110, %455 ], [ %110, %477 ], [ %110, %479 ], [ %110, %483 ], [ %110, %491 ], [ %496, %497 ], [ %496, %506 ], [ %496, %517 ], [ %496, %527 ], [ %110, %530 ]
-  %535 = add i32 %534, %533
+dissect_codec.exit:                               ; preds = %165, %213, %215, %254, %302, %390, %415, %417, %459, %481, %483, %487, %495, %501, %510, %521, %531, %534
+  %537 = phi i32 [ %111, %165 ], [ %111, %213 ], [ %111, %215 ], [ %111, %254 ], [ %111, %302 ], [ %111, %390 ], [ %111, %415 ], [ %111, %417 ], [ %111, %459 ], [ %111, %481 ], [ %111, %483 ], [ %111, %487 ], [ %111, %495 ], [ %499, %501 ], [ %499, %510 ], [ %499, %521 ], [ %499, %531 ], [ %111, %534 ]
+  %538 = phi i32 [ %110, %165 ], [ %110, %213 ], [ %110, %215 ], [ %110, %254 ], [ %110, %302 ], [ %110, %390 ], [ %110, %415 ], [ %110, %417 ], [ %110, %459 ], [ %110, %481 ], [ %110, %483 ], [ %110, %487 ], [ %110, %495 ], [ %500, %501 ], [ %500, %510 ], [ %500, %521 ], [ %500, %531 ], [ %110, %534 ]
+  %539 = add i32 %538, %537
   br label %.thread276
 
-536:                                              ; preds = %30
-  %537 = load i32, ptr @hf_btavdtp_content_protection_type, align 4
-  %538 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %537, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef -2147483648) #6
-  br i1 %.not272, label %542, label %539
+540:                                              ; preds = %30
+  %541 = load i32, ptr @hf_btavdtp_content_protection_type, align 4
+  %542 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %541, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef -2147483648) #6
+  br i1 %.not272, label %546, label %543
 
-539:                                              ; preds = %536
-  %540 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %46) #6
-  %541 = zext i16 %540 to i32
-  store i32 %541, ptr %5, align 4
-  br label %542
+543:                                              ; preds = %540
+  %544 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %46) #6
+  %545 = zext i16 %544 to i32
+  store i32 %545, ptr %5, align 4
+  br label %546
 
-542:                                              ; preds = %539, %536
-  %543 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %46) #6
-  %544 = zext i16 %543 to i32
-  %545 = tail call ptr @val_to_str_const(i32 noundef %544, ptr noundef nonnull @content_protection_type_vals, ptr noundef nonnull @.str.497) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.513, ptr noundef %545) #6
-  %546 = add i32 %.0249279, 4
-  %547 = add nsw i32 %35, -2
-  %548 = icmp ugt i8 %34, 2
-  br i1 %548, label %549, label %.thread273
+546:                                              ; preds = %543, %540
+  %547 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %46) #6
+  %548 = zext i16 %547 to i32
+  %549 = tail call ptr @val_to_str_const(i32 noundef %548, ptr noundef nonnull @content_protection_type_vals, ptr noundef nonnull @.str.497) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.513, ptr noundef %549) #6
+  %550 = add i32 %.0249279, 4
+  %551 = add nsw i32 %35, -2
+  %552 = icmp ugt i8 %34, 2
+  br i1 %552, label %553, label %.thread273
 
-549:                                              ; preds = %542
-  %550 = load i32, ptr @hf_btavdtp_data, align 4
-  %551 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %550, ptr noundef %0, i32 noundef %546, i32 noundef %547, i32 noundef 0) #6
-  %552 = add i32 %547, %546
+553:                                              ; preds = %546
+  %554 = load i32, ptr @hf_btavdtp_data, align 4
+  %555 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %554, ptr noundef %0, i32 noundef %550, i32 noundef %551, i32 noundef 0) #6
+  %556 = add i32 %551, %550
   br label %.thread276
 
-553:                                              ; preds = %30
-  %554 = load i32, ptr @hf_btavdtp_header_compression_backch, align 4
-  %555 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %554, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
-  %556 = load i32, ptr @hf_btavdtp_header_compression_media, align 4
-  %557 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %556, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
-  %558 = load i32, ptr @hf_btavdtp_header_compression_recovery, align 4
+557:                                              ; preds = %30
+  %558 = load i32, ptr @hf_btavdtp_header_compression_backch, align 4
   %559 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %558, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
-  %560 = load i32, ptr @hf_btavdtp_header_compression_rfa, align 4
+  %560 = load i32, ptr @hf_btavdtp_header_compression_media, align 4
   %561 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %560, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
-  %562 = add i32 %.0249279, 3
-  %563 = add nsw i32 %35, -1
+  %562 = load i32, ptr @hf_btavdtp_header_compression_recovery, align 4
+  %563 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %562, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
+  %564 = load i32, ptr @hf_btavdtp_header_compression_rfa, align 4
+  %565 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %564, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
+  %566 = add i32 %.0249279, 3
+  %567 = add nsw i32 %35, -1
   br label %.thread273
 
-564:                                              ; preds = %30
-  %565 = load i32, ptr @hf_btavdtp_multiplexing_fragmentation, align 4
-  %566 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %565, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
-  %567 = load i32, ptr @hf_btavdtp_multiplexing_rfa, align 4
-  %568 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %567, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
-  %569 = add i32 %.0249279, 3
-  %570 = add nsw i32 %35, -1
-  %571 = icmp ugt i8 %34, 2
-  br i1 %571, label %572, label %588
+568:                                              ; preds = %30
+  %569 = load i32, ptr @hf_btavdtp_multiplexing_fragmentation, align 4
+  %570 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %569, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
+  %571 = load i32, ptr @hf_btavdtp_multiplexing_rfa, align 4
+  %572 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %571, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0) #6
+  %573 = add i32 %.0249279, 3
+  %574 = add nsw i32 %35, -1
+  %575 = icmp ugt i8 %34, 2
+  br i1 %575, label %576, label %592
 
-572:                                              ; preds = %564
-  %573 = load i32, ptr @hf_btavdtp_service_multiplexing_entry, align 4
-  %574 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %41, i32 noundef %573, ptr noundef %0, i32 noundef %569, i32 noundef %35, ptr noundef nonnull @.str.514) #6
-  %575 = load i32, ptr @ett_btavdtp_service, align 4
-  %576 = tail call ptr @proto_item_add_subtree(ptr noundef %574, i32 noundef %575) #6
-  %577 = load i32, ptr @hf_btavdtp_multiplexing_tsid, align 4
-  %578 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %577, ptr noundef %0, i32 noundef %569, i32 noundef 1, i32 noundef 0) #6
-  %579 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
-  %580 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %579, ptr noundef %0, i32 noundef %569, i32 noundef 1, i32 noundef 0) #6
-  %581 = add i32 %.0249279, 4
-  %582 = load i32, ptr @hf_btavdtp_multiplexing_tcid, align 4
-  %583 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %582, ptr noundef %0, i32 noundef %581, i32 noundef 1, i32 noundef 0) #6
-  %584 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
-  %585 = tail call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %584, ptr noundef %0, i32 noundef %581, i32 noundef 1, i32 noundef 0) #6
-  %586 = add i32 %.0249279, 5
-  %587 = add nsw i32 %35, -3
-  br label %588
+576:                                              ; preds = %568
+  %577 = load i32, ptr @hf_btavdtp_service_multiplexing_entry, align 4
+  %578 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %41, i32 noundef %577, ptr noundef %0, i32 noundef %573, i32 noundef %35, ptr noundef nonnull @.str.514) #6
+  %579 = load i32, ptr @ett_btavdtp_service, align 4
+  %580 = tail call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %579) #6
+  %581 = load i32, ptr @hf_btavdtp_multiplexing_tsid, align 4
+  %582 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %581, ptr noundef %0, i32 noundef %573, i32 noundef 1, i32 noundef 0) #6
+  %583 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
+  %584 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %583, ptr noundef %0, i32 noundef %573, i32 noundef 1, i32 noundef 0) #6
+  %585 = add i32 %.0249279, 4
+  %586 = load i32, ptr @hf_btavdtp_multiplexing_tcid, align 4
+  %587 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %586, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #6
+  %588 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
+  %589 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %588, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #6
+  %590 = add i32 %.0249279, 5
+  %591 = add nsw i32 %35, -3
+  br label %592
 
-588:                                              ; preds = %572, %564
-  %.1250 = phi i32 [ %586, %572 ], [ %569, %564 ]
-  %.0 = phi i32 [ %587, %572 ], [ %570, %564 ]
-  %589 = icmp sgt i32 %.0, 1
-  br i1 %589, label %590, label %.thread273
+592:                                              ; preds = %576, %568
+  %.1250 = phi i32 [ %590, %576 ], [ %573, %568 ]
+  %.0 = phi i32 [ %591, %576 ], [ %574, %568 ]
+  %593 = icmp sgt i32 %.0, 1
+  br i1 %593, label %594, label %.thread273
 
-590:                                              ; preds = %588
-  %591 = load i32, ptr @hf_btavdtp_service_multiplexing_entry, align 4
-  %592 = add nuw nsw i32 %.0, 1
-  %593 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %41, i32 noundef %591, ptr noundef %0, i32 noundef %.1250, i32 noundef %592, ptr noundef nonnull @.str.515) #6
-  %594 = load i32, ptr @ett_btavdtp_service, align 4
-  %595 = tail call ptr @proto_item_add_subtree(ptr noundef %593, i32 noundef %594) #6
-  %596 = load i32, ptr @hf_btavdtp_multiplexing_tsid, align 4
-  %597 = tail call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %596, ptr noundef %0, i32 noundef %.1250, i32 noundef 1, i32 noundef 0) #6
-  %598 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
-  %599 = tail call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %598, ptr noundef %0, i32 noundef %.1250, i32 noundef 1, i32 noundef 0) #6
-  %600 = add i32 %.1250, 1
-  %601 = load i32, ptr @hf_btavdtp_multiplexing_tcid, align 4
-  %602 = tail call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %601, ptr noundef %0, i32 noundef %600, i32 noundef 1, i32 noundef 0) #6
-  %603 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
-  %604 = tail call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %603, ptr noundef %0, i32 noundef %600, i32 noundef 1, i32 noundef 0) #6
-  %605 = add i32 %.1250, 2
-  %606 = add nsw i32 %.0, -2
-  %607 = icmp ugt i32 %606, 1
-  br i1 %607, label %608, label %.thread273
+594:                                              ; preds = %592
+  %595 = load i32, ptr @hf_btavdtp_service_multiplexing_entry, align 4
+  %596 = add nuw nsw i32 %.0, 1
+  %597 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %41, i32 noundef %595, ptr noundef %0, i32 noundef %.1250, i32 noundef %596, ptr noundef nonnull @.str.515) #6
+  %598 = load i32, ptr @ett_btavdtp_service, align 4
+  %599 = tail call ptr @proto_item_add_subtree(ptr noundef %597, i32 noundef %598) #6
+  %600 = load i32, ptr @hf_btavdtp_multiplexing_tsid, align 4
+  %601 = tail call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %600, ptr noundef %0, i32 noundef %.1250, i32 noundef 1, i32 noundef 0) #6
+  %602 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
+  %603 = tail call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %602, ptr noundef %0, i32 noundef %.1250, i32 noundef 1, i32 noundef 0) #6
+  %604 = add i32 %.1250, 1
+  %605 = load i32, ptr @hf_btavdtp_multiplexing_tcid, align 4
+  %606 = tail call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %605, ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef 0) #6
+  %607 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
+  %608 = tail call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %607, ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef 0) #6
+  %609 = add i32 %.1250, 2
+  %610 = add nsw i32 %.0, -2
+  %611 = icmp ugt i32 %610, 1
+  br i1 %611, label %612, label %.thread273
 
-608:                                              ; preds = %590
-  %609 = load i32, ptr @hf_btavdtp_service_multiplexing_entry, align 4
-  %610 = add nsw i32 %.0, -1
-  %611 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %41, i32 noundef %609, ptr noundef %0, i32 noundef %605, i32 noundef %610, ptr noundef nonnull @.str.516) #6
-  %612 = load i32, ptr @ett_btavdtp_service, align 4
-  %613 = tail call ptr @proto_item_add_subtree(ptr noundef %611, i32 noundef %612) #6
-  %614 = load i32, ptr @hf_btavdtp_multiplexing_tsid, align 4
-  %615 = tail call ptr @proto_tree_add_item(ptr noundef %613, i32 noundef %614, ptr noundef %0, i32 noundef %605, i32 noundef 1, i32 noundef 0) #6
-  %616 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
-  %617 = tail call ptr @proto_tree_add_item(ptr noundef %613, i32 noundef %616, ptr noundef %0, i32 noundef %605, i32 noundef 1, i32 noundef 0) #6
-  %618 = add i32 %.1250, 3
-  %619 = load i32, ptr @hf_btavdtp_multiplexing_tcid, align 4
-  %620 = tail call ptr @proto_tree_add_item(ptr noundef %613, i32 noundef %619, ptr noundef %0, i32 noundef %618, i32 noundef 1, i32 noundef 0) #6
-  %621 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
-  %622 = tail call ptr @proto_tree_add_item(ptr noundef %613, i32 noundef %621, ptr noundef %0, i32 noundef %618, i32 noundef 1, i32 noundef 0) #6
-  %623 = add i32 %.1250, 4
-  %624 = add nsw i32 %.0, -4
+612:                                              ; preds = %594
+  %613 = load i32, ptr @hf_btavdtp_service_multiplexing_entry, align 4
+  %614 = add nsw i32 %.0, -1
+  %615 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %41, i32 noundef %613, ptr noundef %0, i32 noundef %609, i32 noundef %614, ptr noundef nonnull @.str.516) #6
+  %616 = load i32, ptr @ett_btavdtp_service, align 4
+  %617 = tail call ptr @proto_item_add_subtree(ptr noundef %615, i32 noundef %616) #6
+  %618 = load i32, ptr @hf_btavdtp_multiplexing_tsid, align 4
+  %619 = tail call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %618, ptr noundef %0, i32 noundef %609, i32 noundef 1, i32 noundef 0) #6
+  %620 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
+  %621 = tail call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %620, ptr noundef %0, i32 noundef %609, i32 noundef 1, i32 noundef 0) #6
+  %622 = add i32 %.1250, 3
+  %623 = load i32, ptr @hf_btavdtp_multiplexing_tcid, align 4
+  %624 = tail call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %623, ptr noundef %0, i32 noundef %622, i32 noundef 1, i32 noundef 0) #6
+  %625 = load i32, ptr @hf_btavdtp_multiplexing_entry_rfa, align 4
+  %626 = tail call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %625, ptr noundef %0, i32 noundef %622, i32 noundef 1, i32 noundef 0) #6
+  %627 = add i32 %.1250, 4
+  %628 = add nsw i32 %.0, -4
   br label %.thread273
 
-625:                                              ; preds = %30
-  %626 = load i32, ptr @hf_btavdtp_data, align 4
-  %627 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %626, ptr noundef %0, i32 noundef %46, i32 noundef %35, i32 noundef 0) #6
-  %628 = add i32 %46, %35
+629:                                              ; preds = %30
+  %630 = load i32, ptr @hf_btavdtp_data, align 4
+  %631 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %630, ptr noundef %0, i32 noundef %46, i32 noundef %35, i32 noundef 0) #6
+  %632 = add i32 %46, %35
   br label %.thread276
 
-.thread273:                                       ; preds = %588, %590, %608, %542, %30, %30, %30, %553, %70
-  %.3 = phi i32 [ %623, %608 ], [ %605, %590 ], [ %562, %553 ], [ %546, %542 ], [ %71, %70 ], [ %46, %30 ], [ %46, %30 ], [ %46, %30 ], [ %.1250, %588 ]
-  %.2 = phi i32 [ %624, %608 ], [ %606, %590 ], [ %563, %553 ], [ %547, %542 ], [ %72, %70 ], [ %35, %30 ], [ %35, %30 ], [ %35, %30 ], [ %.0, %588 ]
-  %629 = icmp sgt i32 %.2, 0
-  br i1 %629, label %630, label %.thread276
+.thread273:                                       ; preds = %592, %594, %612, %546, %30, %30, %30, %557, %70
+  %.3 = phi i32 [ %627, %612 ], [ %609, %594 ], [ %566, %557 ], [ %550, %546 ], [ %71, %70 ], [ %46, %30 ], [ %46, %30 ], [ %46, %30 ], [ %.1250, %592 ]
+  %.2 = phi i32 [ %628, %612 ], [ %610, %594 ], [ %567, %557 ], [ %551, %546 ], [ %72, %70 ], [ %35, %30 ], [ %35, %30 ], [ %35, %30 ], [ %.0, %592 ]
+  %633 = icmp sgt i32 %.2, 0
+  br i1 %633, label %634, label %.thread276
 
-630:                                              ; preds = %.thread273
-  %631 = load i32, ptr @hf_btavdtp_data, align 4
-  %632 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %631, ptr noundef %0, i32 noundef %.3, i32 noundef %.2, i32 noundef 0) #6
-  %633 = add i32 %.2, %.3
-  %634 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %632, ptr noundef nonnull @ei_btavdtp_unexpected_losc_data) #6
+634:                                              ; preds = %.thread273
+  %635 = load i32, ptr @hf_btavdtp_data, align 4
+  %636 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %635, ptr noundef %0, i32 noundef %.3, i32 noundef %.2, i32 noundef 0) #6
+  %637 = add i32 %.2, %.3
+  %638 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %636, ptr noundef nonnull @ei_btavdtp_unexpected_losc_data) #6
   br label %.thread276
 
-.thread276:                                       ; preds = %dissect_codec.exit, %549, %625, %630, %.thread273
-  %.4 = phi i32 [ %633, %630 ], [ %.3, %.thread273 ], [ %535, %dissect_codec.exit ], [ %552, %549 ], [ %628, %625 ]
-  %635 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #6
-  %636 = icmp sgt i32 %635, 0
-  br i1 %636, label %30, label %._crit_edge, !llvm.loop !9
+.thread276:                                       ; preds = %dissect_codec.exit, %553, %629, %634, %.thread273
+  %.4 = phi i32 [ %637, %634 ], [ %.3, %.thread273 ], [ %539, %dissect_codec.exit ], [ %556, %553 ], [ %632, %629 ]
+  %639 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #6
+  %640 = icmp sgt i32 %639, 0
+  br i1 %640, label %30, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.thread276, %26
   %.0249.lcssa = phi i32 [ %3, %26 ], [ %.4, %.thread276 ]

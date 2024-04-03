@@ -2842,12 +2842,12 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 define hidden double @dt_atof(ptr noundef readonly %0) local_unnamed_addr #13 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.27, i64 noundef 3) #33
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %203, label %4
+  br i1 %3, label %197, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.28, i64 noundef 3) #33
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %203, label %7
+  br i1 %6, label %197, label %7
 
 7:                                                ; preds = %4
   %8 = load i8, ptr %0, align 1, !tbaa !57
@@ -2878,7 +2878,7 @@ define hidden double @dt_atof(ptr noundef readonly %0) local_unnamed_addr #13 {
 
 21:                                               ; preds = %18, %13
   %22 = fmul reassoc nsz arcp contract afn double %14, 0x7FF0000000000000
-  br label %203
+  br label %197
 
 .preheader23:                                     ; preds = %18, %.preheader23
   %indvars.iv = phi i3 [ %indvars.iv.next, %.preheader23 ], [ 0, %18 ]
@@ -2937,9 +2937,9 @@ define hidden double @dt_atof(ptr noundef readonly %0) local_unnamed_addr #13 {
   br i1 %56, label %.loopexit20, label %.preheader19
 
 .preheader19:                                     ; preds = %.loopexit22, %.preheader19
-  %57 = phi double [ %90, %.preheader19 ], [ %53, %.loopexit22 ]
-  %58 = phi ptr [ %83, %.preheader19 ], [ %54, %.loopexit22 ]
-  %59 = phi double [ %89, %.preheader19 ], [ %55, %.loopexit22 ]
+  %57 = phi double [ %89, %.preheader19 ], [ %53, %.loopexit22 ]
+  %58 = phi ptr [ %72, %.preheader19 ], [ %54, %.loopexit22 ]
+  %59 = phi double [ %88, %.preheader19 ], [ %55, %.loopexit22 ]
   %60 = getelementptr inbounds i8, ptr %58, i64 -1
   %61 = load i8, ptr %60, align 1, !tbaa !57
   %62 = sext i8 %61 to i32
@@ -2947,208 +2947,201 @@ define hidden double @dt_atof(ptr noundef readonly %0) local_unnamed_addr #13 {
   %64 = sitofp i32 %63 to double
   %65 = getelementptr inbounds i8, ptr %58, i64 -5
   %66 = load <4 x i8>, ptr %65, align 1, !tbaa !57
-  %67 = sext <4 x i8> %66 to <4 x i16>
-  %68 = add nsw <4 x i16> %67, <i16 -48, i16 -48, i16 -48, i16 -48>
-  %69 = sitofp <4 x i16> %68 to <4 x double>
+  %67 = sext <4 x i8> %66 to <4 x i32>
+  %68 = add nsw <4 x i32> %67, <i32 -48, i32 -48, i32 -48, i32 -48>
+  %69 = sitofp <4 x i32> %68 to <4 x double>
   %70 = fmul reassoc nsz arcp contract afn <4 x double> %69, <double 1.000000e+04, double 1.000000e+03, double 1.000000e+02, double 1.000000e+01>
-  %71 = getelementptr inbounds i8, ptr %58, i64 -6
-  %72 = load i8, ptr %71, align 1, !tbaa !57
-  %73 = sext i8 %72 to i32
-  %74 = add nsw i32 %73, -48
-  %75 = sitofp i32 %74 to double
-  %76 = fmul reassoc nsz arcp contract afn double %75, 1.000000e+05
-  %77 = getelementptr inbounds i8, ptr %58, i64 -7
-  %78 = load i8, ptr %77, align 1, !tbaa !57
-  %79 = sext i8 %78 to i32
-  %80 = add nsw i32 %79, -48
-  %81 = sitofp i32 %80 to double
-  %82 = fmul reassoc nsz arcp contract afn double %81, 1.000000e+06
-  %83 = getelementptr inbounds i8, ptr %58, i64 -8
-  %84 = load i8, ptr %83, align 1, !tbaa !57
-  %85 = sext i8 %84 to i32
-  %86 = add nsw i32 %85, -48
-  %87 = sitofp i32 %86 to double
-  %88 = fmul reassoc nsz arcp contract afn double %87, 1.000000e+07
-  %op.rdx = tail call reassoc nsz arcp contract afn double @llvm.vector.reduce.fadd.v4f64(double %76, <4 x double> %70)
-  %op.rdx88 = fadd reassoc nsz arcp contract afn double %82, %88
-  %op.rdx89 = fadd reassoc nsz arcp contract afn double %op.rdx, %op.rdx88
+  %71 = getelementptr inbounds i8, ptr %58, i64 -7
+  %72 = getelementptr inbounds i8, ptr %58, i64 -8
+  %73 = load i8, ptr %72, align 1, !tbaa !57
+  %74 = sext i8 %73 to i32
+  %75 = add nsw i32 %74, -48
+  %76 = sitofp i32 %75 to double
+  %77 = fmul reassoc nsz arcp contract afn double %76, 1.000000e+07
+  %78 = tail call reassoc nsz arcp contract afn double @llvm.vector.reduce.fadd.v4f64(double -0.000000e+00, <4 x double> %70)
+  %79 = load <2 x i8>, ptr %71, align 1, !tbaa !57
+  %80 = sext <2 x i8> %79 to <2 x i32>
+  %81 = add nsw <2 x i32> %80, <i32 -48, i32 -48>
+  %82 = sitofp <2 x i32> %81 to <2 x double>
+  %83 = fmul reassoc nsz arcp contract afn <2 x double> %82, <double 1.000000e+06, double 1.000000e+05>
+  %84 = insertelement <2 x double> poison, double %77, i64 0
+  %85 = insertelement <2 x double> %84, double %78, i64 1
+  %86 = fadd reassoc nsz arcp contract afn <2 x double> %85, %83
+  %shift = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %87 = fadd reassoc nsz arcp contract afn <2 x double> %shift, %86
+  %op.rdx89 = extractelement <2 x double> %87, i64 0
   %op.rdx90 = fadd reassoc nsz arcp contract afn double %op.rdx89, %64
   %reass.mul = fmul reassoc nsz arcp contract afn double %op.rdx90, %57
-  %89 = fadd reassoc nsz arcp contract afn double %reass.mul, %59
-  %90 = fmul reassoc nsz arcp contract afn double %57, 1.000000e+08
-  %91 = icmp eq ptr %83, %15
-  br i1 %91, label %.loopexit20, label %.preheader19
+  %88 = fadd reassoc nsz arcp contract afn double %reass.mul, %59
+  %89 = fmul reassoc nsz arcp contract afn double %57, 1.000000e+08
+  %90 = icmp eq ptr %72, %15
+  br i1 %90, label %.loopexit20, label %.preheader19
 
 .loopexit20:                                      ; preds = %.preheader19, %.loopexit22, %30
-  %92 = phi double [ 0.000000e+00, %30 ], [ %52, %.loopexit22 ], [ %89, %.preheader19 ]
-  %93 = icmp eq i8 %25, 46
-  br i1 %93, label %.preheader18, label %168
+  %91 = phi double [ 0.000000e+00, %30 ], [ %52, %.loopexit22 ], [ %88, %.preheader19 ]
+  %92 = icmp eq i8 %25, 46
+  br i1 %92, label %.preheader18, label %162
 
 .preheader18:                                     ; preds = %.loopexit20, %.preheader18
   %indvars.iv58 = phi i2 [ %indvars.iv.next59, %.preheader18 ], [ 0, %.loopexit20 ]
-  %94 = phi i64 [ %101, %.preheader18 ], [ 0, %.loopexit20 ]
-  %95 = phi i64 [ %100, %.preheader18 ], [ 1, %.loopexit20 ]
-  %96 = getelementptr inbounds i8, ptr %24, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !57
-  %98 = add i8 %97, -48
-  %99 = icmp ult i8 %98, 10
-  %100 = add nuw nsw i64 %95, 1
-  %101 = add nuw i64 %94, 1
+  %93 = phi i64 [ %100, %.preheader18 ], [ 0, %.loopexit20 ]
+  %94 = phi i64 [ %99, %.preheader18 ], [ 1, %.loopexit20 ]
+  %95 = getelementptr inbounds i8, ptr %24, i64 %94
+  %96 = load i8, ptr %95, align 1, !tbaa !57
+  %97 = add i8 %96, -48
+  %98 = icmp ult i8 %97, 10
+  %99 = add nuw nsw i64 %94, 1
+  %100 = add nuw i64 %93, 1
   %indvars.iv.next59 = add i2 %indvars.iv58, 1
-  br i1 %99, label %.preheader18, label %102
+  br i1 %98, label %.preheader18, label %101
 
-102:                                              ; preds = %.preheader18
-  %103 = getelementptr inbounds i8, ptr %24, i64 %95
-  %104 = icmp eq i64 %95, 1
-  br i1 %104, label %168, label %105
+101:                                              ; preds = %.preheader18
+  %102 = getelementptr inbounds i8, ptr %24, i64 %94
+  %103 = icmp eq i64 %94, 1
+  br i1 %103, label %162, label %104
 
-105:                                              ; preds = %102
-  %106 = add i64 %94, -1
-  %107 = and i64 %94, 3
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %.loopexit17, label %.preheader16.preheader
+104:                                              ; preds = %101
+  %105 = add i64 %93, -1
+  %106 = and i64 %93, 3
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %.loopexit17, label %.preheader16.preheader
 
-.preheader16.preheader:                           ; preds = %105
-  %109 = zext i2 %indvars.iv58 to i64
+.preheader16.preheader:                           ; preds = %104
+  %108 = zext i2 %indvars.iv58 to i64
   br label %.preheader16
 
 .preheader16:                                     ; preds = %.preheader16.preheader, %.preheader16
-  %110 = phi double [ %122, %.preheader16 ], [ 1.000000e+00, %.preheader16.preheader ]
-  %111 = phi i64 [ %114, %.preheader16 ], [ %95, %.preheader16.preheader ]
-  %112 = phi double [ %121, %.preheader16 ], [ 0.000000e+00, %.preheader16.preheader ]
-  %113 = phi i64 [ %123, %.preheader16 ], [ 0, %.preheader16.preheader ]
-  %114 = add nsw i64 %111, -1
-  %115 = getelementptr inbounds i8, ptr %24, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !57
-  %117 = sext i8 %116 to i32
-  %118 = add nsw i32 %117, -48
-  %119 = sitofp i32 %118 to double
-  %120 = fmul reassoc nsz arcp contract afn double %110, %119
-  %121 = fadd reassoc nsz arcp contract afn double %120, %112
-  %122 = fmul reassoc nsz arcp contract afn double %110, 1.000000e+01
-  %123 = add nuw nsw i64 %113, 1
-  %124 = icmp eq i64 %123, %107
-  br i1 %124, label %.loopexit17.loopexit, label %.preheader16, !llvm.loop !76
+  %109 = phi double [ %121, %.preheader16 ], [ 1.000000e+00, %.preheader16.preheader ]
+  %110 = phi i64 [ %113, %.preheader16 ], [ %94, %.preheader16.preheader ]
+  %111 = phi double [ %120, %.preheader16 ], [ 0.000000e+00, %.preheader16.preheader ]
+  %112 = phi i64 [ %122, %.preheader16 ], [ 0, %.preheader16.preheader ]
+  %113 = add nsw i64 %110, -1
+  %114 = getelementptr inbounds i8, ptr %24, i64 %113
+  %115 = load i8, ptr %114, align 1, !tbaa !57
+  %116 = sext i8 %115 to i32
+  %117 = add nsw i32 %116, -48
+  %118 = sitofp i32 %117 to double
+  %119 = fmul reassoc nsz arcp contract afn double %109, %118
+  %120 = fadd reassoc nsz arcp contract afn double %119, %111
+  %121 = fmul reassoc nsz arcp contract afn double %109, 1.000000e+01
+  %122 = add nuw nsw i64 %112, 1
+  %123 = icmp eq i64 %122, %106
+  br i1 %123, label %.loopexit17.loopexit, label %.preheader16, !llvm.loop !76
 
 .loopexit17.loopexit:                             ; preds = %.preheader16
-  %125 = sub nsw i64 %95, %109
+  %124 = sub nsw i64 %94, %108
   br label %.loopexit17
 
-.loopexit17:                                      ; preds = %.loopexit17.loopexit, %105
-  %126 = phi double [ undef, %105 ], [ %121, %.loopexit17.loopexit ]
-  %127 = phi double [ undef, %105 ], [ %122, %.loopexit17.loopexit ]
-  %128 = phi double [ 1.000000e+00, %105 ], [ %122, %.loopexit17.loopexit ]
-  %129 = phi i64 [ %95, %105 ], [ %125, %.loopexit17.loopexit ]
-  %130 = phi double [ 0.000000e+00, %105 ], [ %121, %.loopexit17.loopexit ]
-  %131 = icmp ult i64 %106, 3
-  br i1 %131, label %.loopexit15, label %.preheader14
+.loopexit17:                                      ; preds = %.loopexit17.loopexit, %104
+  %125 = phi double [ undef, %104 ], [ %120, %.loopexit17.loopexit ]
+  %126 = phi double [ undef, %104 ], [ %121, %.loopexit17.loopexit ]
+  %127 = phi double [ 1.000000e+00, %104 ], [ %121, %.loopexit17.loopexit ]
+  %128 = phi i64 [ %94, %104 ], [ %124, %.loopexit17.loopexit ]
+  %129 = phi double [ 0.000000e+00, %104 ], [ %120, %.loopexit17.loopexit ]
+  %130 = icmp ult i64 %105, 3
+  br i1 %130, label %.loopexit15, label %.preheader14
 
 .preheader14:                                     ; preds = %.loopexit17, %.preheader14
-  %132 = phi double [ %163, %.preheader14 ], [ %128, %.loopexit17 ]
-  %133 = phi i64 [ %155, %.preheader14 ], [ %129, %.loopexit17 ]
-  %134 = phi double [ %162, %.preheader14 ], [ %130, %.loopexit17 ]
-  %135 = add nsw i64 %133, -1
-  %136 = getelementptr inbounds i8, ptr %24, i64 %135
-  %137 = load i8, ptr %136, align 1, !tbaa !57
-  %138 = sext i8 %137 to i32
-  %139 = add nsw i32 %138, -48
-  %140 = sitofp i32 %139 to double
-  %141 = add nsw i64 %133, -2
-  %142 = getelementptr inbounds i8, ptr %24, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !57
-  %144 = sext i8 %143 to i32
-  %145 = add nsw i32 %144, -48
-  %146 = sitofp i32 %145 to double
-  %147 = fmul reassoc nsz arcp contract afn double %146, 1.000000e+01
-  %148 = add nsw i64 %133, -3
-  %149 = getelementptr inbounds i8, ptr %24, i64 %148
-  %150 = load i8, ptr %149, align 1, !tbaa !57
-  %151 = sext i8 %150 to i32
-  %152 = add nsw i32 %151, -48
-  %153 = sitofp i32 %152 to double
-  %154 = fmul reassoc nsz arcp contract afn double %153, 1.000000e+02
-  %155 = add nsw i64 %133, -4
-  %156 = getelementptr inbounds i8, ptr %24, i64 %155
-  %157 = load i8, ptr %156, align 1, !tbaa !57
-  %158 = sext i8 %157 to i32
-  %159 = add nsw i32 %158, -48
-  %160 = sitofp i32 %159 to double
-  %161 = fmul reassoc nsz arcp contract afn double %160, 1.000000e+03
-  %reass.add10 = fadd reassoc nsz arcp contract afn double %147, %140
+  %131 = phi double [ %157, %.preheader14 ], [ %127, %.loopexit17 ]
+  %132 = phi i64 [ %147, %.preheader14 ], [ %128, %.loopexit17 ]
+  %133 = phi double [ %156, %.preheader14 ], [ %129, %.loopexit17 ]
+  %134 = add nsw i64 %132, -1
+  %135 = getelementptr inbounds i8, ptr %24, i64 %134
+  %136 = load i8, ptr %135, align 1, !tbaa !57
+  %137 = sext i8 %136 to i32
+  %138 = add nsw i32 %137, -48
+  %139 = sitofp i32 %138 to double
+  %140 = add nsw i64 %132, -2
+  %141 = getelementptr inbounds i8, ptr %24, i64 %140
+  %142 = load i8, ptr %141, align 1, !tbaa !57
+  %143 = sext i8 %142 to i32
+  %144 = add nsw i32 %143, -48
+  %145 = sitofp i32 %144 to double
+  %146 = fmul reassoc nsz arcp contract afn double %145, 1.000000e+01
+  %147 = add nsw i64 %132, -4
+  %148 = getelementptr inbounds i8, ptr %24, i64 %147
+  %149 = load <2 x i8>, ptr %148, align 1, !tbaa !57
+  %150 = sext <2 x i8> %149 to <2 x i32>
+  %151 = add nsw <2 x i32> %150, <i32 -48, i32 -48>
+  %152 = sitofp <2 x i32> %151 to <2 x double>
+  %153 = fmul reassoc nsz arcp contract afn <2 x double> %152, <double 1.000000e+03, double 1.000000e+02>
+  %reass.add10 = fadd reassoc nsz arcp contract afn double %146, %139
+  %154 = extractelement <2 x double> %153, i64 1
   %reass.add11 = fadd reassoc nsz arcp contract afn double %reass.add10, %154
-  %reass.add12 = fadd reassoc nsz arcp contract afn double %reass.add11, %161
-  %reass.mul13 = fmul reassoc nsz arcp contract afn double %reass.add12, %132
-  %162 = fadd reassoc nsz arcp contract afn double %reass.mul13, %134
-  %163 = fmul reassoc nsz arcp contract afn double %132, 1.000000e+04
-  %164 = icmp eq i64 %155, 1
-  br i1 %164, label %.loopexit15, label %.preheader14
+  %155 = extractelement <2 x double> %153, i64 0
+  %reass.add12 = fadd reassoc nsz arcp contract afn double %reass.add11, %155
+  %reass.mul13 = fmul reassoc nsz arcp contract afn double %reass.add12, %131
+  %156 = fadd reassoc nsz arcp contract afn double %reass.mul13, %133
+  %157 = fmul reassoc nsz arcp contract afn double %131, 1.000000e+04
+  %158 = icmp eq i64 %147, 1
+  br i1 %158, label %.loopexit15, label %.preheader14
 
 .loopexit15:                                      ; preds = %.preheader14, %.loopexit17
-  %165 = phi double [ %126, %.loopexit17 ], [ %162, %.preheader14 ]
-  %166 = phi double [ %127, %.loopexit17 ], [ %163, %.preheader14 ]
-  %167 = fdiv reassoc nsz arcp contract afn double %165, %166
-  br label %168
+  %159 = phi double [ %125, %.loopexit17 ], [ %156, %.preheader14 ]
+  %160 = phi double [ %126, %.loopexit17 ], [ %157, %.preheader14 ]
+  %161 = fdiv reassoc nsz arcp contract afn double %159, %160
+  br label %162
 
-168:                                              ; preds = %.loopexit15, %102, %.loopexit20
-  %169 = phi i8 [ %25, %.loopexit20 ], [ %97, %.loopexit15 ], [ %97, %102 ]
-  %170 = phi double [ 0.000000e+00, %.loopexit20 ], [ %167, %.loopexit15 ], [ 0.000000e+00, %102 ]
-  %171 = phi ptr [ %24, %.loopexit20 ], [ %103, %.loopexit15 ], [ %103, %102 ]
-  %172 = fadd reassoc nsz arcp contract afn double %170, %92
-  %173 = fmul reassoc nsz arcp contract afn double %172, %14
-  switch i8 %169, label %203 [
-    i8 101, label %174
-    i8 69, label %174
+162:                                              ; preds = %.loopexit15, %101, %.loopexit20
+  %163 = phi i8 [ %25, %.loopexit20 ], [ %96, %.loopexit15 ], [ %96, %101 ]
+  %164 = phi double [ 0.000000e+00, %.loopexit20 ], [ %161, %.loopexit15 ], [ 0.000000e+00, %101 ]
+  %165 = phi ptr [ %24, %.loopexit20 ], [ %102, %.loopexit15 ], [ %102, %101 ]
+  %166 = fadd reassoc nsz arcp contract afn double %164, %91
+  %167 = fmul reassoc nsz arcp contract afn double %166, %14
+  switch i8 %163, label %197 [
+    i8 101, label %168
+    i8 69, label %168
   ]
 
-174:                                              ; preds = %168, %168
-  %175 = getelementptr inbounds i8, ptr %171, i64 1
-  %176 = load i8, ptr %175, align 1, !tbaa !57
-  switch i8 %176, label %181 [
-    i8 43, label %177
-    i8 45, label %179
+168:                                              ; preds = %162, %162
+  %169 = getelementptr inbounds i8, ptr %165, i64 1
+  %170 = load i8, ptr %169, align 1, !tbaa !57
+  switch i8 %170, label %175 [
+    i8 43, label %171
+    i8 45, label %173
   ]
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %171, i64 2
-  br label %181
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds i8, ptr %165, i64 2
+  br label %175
 
-179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %171, i64 2
-  br label %181
+173:                                              ; preds = %168
+  %174 = getelementptr inbounds i8, ptr %165, i64 2
+  br label %175
 
-181:                                              ; preds = %179, %177, %174
-  %182 = phi ptr [ %178, %177 ], [ %180, %179 ], [ %175, %174 ]
-  %183 = phi i1 [ true, %177 ], [ false, %179 ], [ true, %174 ]
-  %184 = load i8, ptr %182, align 1, !tbaa !57
-  %185 = add i8 %184, -48
-  %186 = icmp ult i8 %185, 10
-  br i1 %186, label %.preheader, label %.loopexit
+175:                                              ; preds = %173, %171, %168
+  %176 = phi ptr [ %172, %171 ], [ %174, %173 ], [ %169, %168 ]
+  %177 = phi i1 [ true, %171 ], [ false, %173 ], [ true, %168 ]
+  %178 = load i8, ptr %176, align 1, !tbaa !57
+  %179 = add i8 %178, -48
+  %180 = icmp ult i8 %179, 10
+  br i1 %180, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %181, %.preheader
-  %187 = phi i8 [ %195, %.preheader ], [ %184, %181 ]
-  %188 = phi double [ %193, %.preheader ], [ 0.000000e+00, %181 ]
-  %189 = phi ptr [ %194, %.preheader ], [ %182, %181 ]
-  %190 = fmul reassoc nsz arcp contract afn double %188, 1.000000e+01
-  %191 = add nsw i8 %187, -48
-  %192 = sitofp i8 %191 to double
-  %193 = fadd reassoc nsz arcp contract afn double %190, %192
-  %194 = getelementptr inbounds i8, ptr %189, i64 1
-  %195 = load i8, ptr %194, align 1, !tbaa !57
-  %196 = add i8 %195, -48
-  %197 = icmp ult i8 %196, 10
-  br i1 %197, label %.preheader, label %.loopexit
+.preheader:                                       ; preds = %175, %.preheader
+  %181 = phi i8 [ %189, %.preheader ], [ %178, %175 ]
+  %182 = phi double [ %187, %.preheader ], [ 0.000000e+00, %175 ]
+  %183 = phi ptr [ %188, %.preheader ], [ %176, %175 ]
+  %184 = fmul reassoc nsz arcp contract afn double %182, 1.000000e+01
+  %185 = add nsw i8 %181, -48
+  %186 = sitofp i8 %185 to double
+  %187 = fadd reassoc nsz arcp contract afn double %184, %186
+  %188 = getelementptr inbounds i8, ptr %183, i64 1
+  %189 = load i8, ptr %188, align 1, !tbaa !57
+  %190 = add i8 %189, -48
+  %191 = icmp ult i8 %190, 10
+  br i1 %191, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %181
-  %198 = phi double [ 0.000000e+00, %181 ], [ %193, %.preheader ]
-  %199 = fneg reassoc nsz arcp contract afn double %198
-  %200 = select i1 %183, double %198, double %199
-  %201 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %200)
-  %202 = fmul reassoc nsz arcp contract afn double %201, %173
-  br label %203
+.loopexit:                                        ; preds = %.preheader, %175
+  %192 = phi double [ 0.000000e+00, %175 ], [ %187, %.preheader ]
+  %193 = fneg reassoc nsz arcp contract afn double %192
+  %194 = select i1 %177, double %192, double %193
+  %195 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %194)
+  %196 = fmul reassoc nsz arcp contract afn double %195, %167
+  br label %197
 
-203:                                              ; preds = %.loopexit, %168, %21, %4, %1
-  %204 = phi double [ 0x7FF8000000000000, %4 ], [ 0x7FF8000000000000, %1 ], [ %22, %21 ], [ %202, %.loopexit ], [ %173, %168 ]
-  ret double %204
+197:                                              ; preds = %.loopexit, %162, %21, %4, %1
+  %198 = phi double [ 0x7FF8000000000000, %4 ], [ 0x7FF8000000000000, %1 ], [ %22, %21 ], [ %196, %.loopexit ], [ %167, %162 ]
+  ret double %198
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

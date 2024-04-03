@@ -52,125 +52,119 @@ define void @dgemm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store ptr %10, ptr %37, align 8, !tbaa !20
   %38 = load i8, ptr %0, align 1, !tbaa !21
   %39 = load i8, ptr %1, align 1, !tbaa !21
-  %40 = icmp sgt i8 %38, 96
-  %41 = add nsw i8 %38, -32
-  %42 = select i1 %40, i8 %41, i8 %38
-  %43 = icmp sgt i8 %39, 96
-  %44 = add nsw i8 %39, -32
-  %45 = select i1 %43, i8 %44, i8 %39
-  %46 = icmp ne i8 %42, 78
-  %47 = sext i1 %46 to i32
-  %48 = icmp eq i8 %42, 84
-  %49 = select i1 %48, i32 1, i32 %47
-  %50 = icmp eq i8 %42, 82
-  %51 = select i1 %50, i32 0, i32 %49
-  %52 = icmp eq i8 %42, 67
-  %53 = select i1 %52, i32 1, i32 %51
-  %54 = icmp ne i8 %45, 78
-  %55 = sext i1 %54 to i32
-  %56 = icmp eq i8 %45, 84
-  %57 = select i1 %56, i32 1, i32 %55
-  %58 = icmp eq i8 %45, 82
-  %59 = select i1 %58, i32 0, i32 %57
-  %60 = icmp eq i8 %45, 67
-  %61 = select i1 %60, i32 1, i32 %59
-  %62 = and i32 %53, 1
-  %63 = icmp eq i32 %62, 0
-  %64 = select i1 %63, i64 %17, i64 %23
-  %65 = and i32 %61, 1
-  %66 = icmp eq i32 %65, 0
-  %67 = select i1 %66, i64 %23, i64 %20
-  %68 = icmp slt i32 %33, %16
-  %69 = select i1 %68, i32 13, i32 0
-  %70 = icmp sgt i64 %67, %31
-  %71 = select i1 %70, i32 10, i32 %69
-  %72 = icmp sgt i64 %64, %28
-  %73 = select i1 %72, i32 8, i32 %71
-  %74 = icmp slt i32 %22, 0
-  %75 = select i1 %74, i32 5, i32 %73
-  %76 = icmp slt i32 %19, 0
-  %77 = select i1 %76, i32 4, i32 %75
-  %78 = icmp slt i32 %16, 0
-  %79 = select i1 %78, i32 3, i32 %77
-  %80 = icmp slt i32 %61, 0
-  %81 = select i1 %80, i32 2, i32 %79
-  %82 = icmp slt i32 %53, 0
-  %83 = select i1 %82, i32 1, i32 %81
-  store i32 %83, ptr %15, align 4
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %87, label %85
+  %40 = insertelement <2 x i8> poison, i8 %39, i64 0
+  %41 = insertelement <2 x i8> %40, i8 %38, i64 1
+  %42 = icmp sgt <2 x i8> %41, <i8 96, i8 96>
+  %43 = add nsw <2 x i8> %41, <i8 -32, i8 -32>
+  %44 = select <2 x i1> %42, <2 x i8> %43, <2 x i8> %41
+  %45 = icmp ne <2 x i8> %44, <i8 78, i8 78>
+  %46 = sext <2 x i1> %45 to <2 x i32>
+  %47 = icmp eq <2 x i8> %44, <i8 84, i8 84>
+  %48 = select <2 x i1> %47, <2 x i32> <i32 1, i32 1>, <2 x i32> %46
+  %49 = icmp eq <2 x i8> %44, <i8 82, i8 82>
+  %50 = select <2 x i1> %49, <2 x i32> zeroinitializer, <2 x i32> %48
+  %51 = icmp eq <2 x i8> %44, <i8 67, i8 67>
+  %52 = select <2 x i1> %51, <2 x i32> <i32 1, i32 1>, <2 x i32> %50
+  %53 = and <2 x i32> %52, <i32 1, i32 1>
+  %54 = icmp eq <2 x i32> %53, zeroinitializer
+  %55 = extractelement <2 x i1> %54, i64 1
+  %56 = select i1 %55, i64 %17, i64 %23
+  %57 = extractelement <2 x i1> %54, i64 0
+  %58 = select i1 %57, i64 %23, i64 %20
+  %59 = icmp slt i32 %33, %16
+  %60 = select i1 %59, i32 13, i32 0
+  %61 = icmp sgt i64 %58, %31
+  %62 = select i1 %61, i32 10, i32 %60
+  %63 = icmp sgt i64 %56, %28
+  %64 = select i1 %63, i32 8, i32 %62
+  %65 = icmp slt i32 %22, 0
+  %66 = select i1 %65, i32 5, i32 %64
+  %67 = icmp slt i32 %19, 0
+  %68 = select i1 %67, i32 4, i32 %66
+  %69 = icmp slt i32 %16, 0
+  %70 = select i1 %69, i32 3, i32 %68
+  %71 = icmp slt <2 x i32> %52, zeroinitializer
+  %72 = extractelement <2 x i1> %71, i64 0
+  %73 = select i1 %72, i32 2, i32 %70
+  %74 = extractelement <2 x i1> %71, i64 1
+  %75 = select i1 %74, i32 1, i32 %73
+  store i32 %75, ptr %15, align 4
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %79, label %77
 
-85:                                               ; preds = %13
-  %86 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %15, i32 noundef 7) #3
-  br label %138
+77:                                               ; preds = %13
+  %78 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %15, i32 noundef 7) #3
+  br label %132
 
-87:                                               ; preds = %13
-  %88 = icmp eq i32 %16, 0
-  %89 = icmp eq i32 %19, 0
-  %90 = select i1 %88, i1 true, i1 %89
-  br i1 %90, label %138, label %91
+79:                                               ; preds = %13
+  %80 = icmp eq i32 %16, 0
+  %81 = icmp eq i32 %19, 0
+  %82 = select i1 %80, i1 true, i1 %81
+  br i1 %82, label %132, label %83
 
-91:                                               ; preds = %87
-  %92 = load double, ptr %5, align 8, !tbaa !22
-  %93 = load double, ptr %10, align 8, !tbaa !22
-  %94 = tail call i32 @dgemm_small_matrix_permit(i32 noundef %53, i32 noundef %61, i64 noundef %17, i64 noundef %20, i64 noundef %23, double noundef %92, double noundef %93) #3
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %113, label %96
+83:                                               ; preds = %79
+  %84 = load double, ptr %5, align 8, !tbaa !22
+  %85 = load double, ptr %10, align 8, !tbaa !22
+  %86 = extractelement <2 x i32> %52, i64 0
+  %87 = extractelement <2 x i32> %52, i64 1
+  %88 = tail call i32 @dgemm_small_matrix_permit(i32 noundef %87, i32 noundef %86, i64 noundef %17, i64 noundef %20, i64 noundef %23, double noundef %84, double noundef %85) #3
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %107, label %90
 
-96:                                               ; preds = %91
-  %97 = load double, ptr %10, align 8, !tbaa !22
-  %98 = fcmp oeq double %97, 0.000000e+00
-  %99 = shl nsw i32 %61, 2
-  %100 = or i32 %99, %53
-  %101 = sext i32 %100 to i64
-  %102 = load double, ptr %5, align 8, !tbaa !22
-  br i1 %98, label %103, label %108
+90:                                               ; preds = %83
+  %91 = load double, ptr %10, align 8, !tbaa !22
+  %92 = fcmp oeq double %91, 0.000000e+00
+  %93 = shl nsw i32 %86, 2
+  %94 = or i32 %93, %87
+  %95 = sext i32 %94 to i64
+  %96 = load double, ptr %5, align 8, !tbaa !22
+  br i1 %92, label %97, label %102
 
-103:                                              ; preds = %96
-  %104 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %101
-  %105 = load i64, ptr %104, align 8, !tbaa !24
-  %106 = inttoptr i64 %105 to ptr
-  %107 = tail call i32 %106(i64 noundef %17, i64 noundef %20, i64 noundef %23, ptr noundef %6, i64 noundef %28, double noundef %102, ptr noundef %8, i64 noundef %31, ptr noundef %11, i64 noundef %34) #3
-  br label %138
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %95
+  %99 = load i64, ptr %98, align 8, !tbaa !24
+  %100 = inttoptr i64 %99 to ptr
+  %101 = tail call i32 %100(i64 noundef %17, i64 noundef %20, i64 noundef %23, ptr noundef %6, i64 noundef %28, double noundef %96, ptr noundef %8, i64 noundef %31, ptr noundef %11, i64 noundef %34) #3
+  br label %132
 
-108:                                              ; preds = %96
-  %109 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %101
-  %110 = load i64, ptr %109, align 8, !tbaa !24
+102:                                              ; preds = %90
+  %103 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %95
+  %104 = load i64, ptr %103, align 8, !tbaa !24
+  %105 = inttoptr i64 %104 to ptr
+  %106 = tail call i32 %105(i64 noundef %17, i64 noundef %20, i64 noundef %23, ptr noundef %6, i64 noundef %28, double noundef %96, ptr noundef %8, i64 noundef %31, double noundef %91, ptr noundef %11, i64 noundef %34) #3
+  br label %132
+
+107:                                              ; preds = %83
+  %108 = tail call ptr @blas_memory_alloc(i32 noundef 0) #3
+  %109 = ptrtoint ptr %108 to i64
+  %110 = add nsw i64 %109, 589824
   %111 = inttoptr i64 %110 to ptr
-  %112 = tail call i32 %111(i64 noundef %17, i64 noundef %20, i64 noundef %23, ptr noundef %6, i64 noundef %28, double noundef %102, ptr noundef %8, i64 noundef %31, double noundef %97, ptr noundef %11, i64 noundef %34) #3
-  br label %138
+  %112 = sitofp i32 %16 to double
+  %113 = sitofp i32 %19 to double
+  %114 = fmul double %112, %113
+  %115 = sitofp i32 %22 to double
+  %116 = fmul double %114, %115
+  %117 = fcmp ugt double %116, 2.621440e+05
+  %118 = load i32, ptr @blas_cpu_number, align 4
+  %119 = sext i32 %118 to i64
+  %120 = select i1 %117, i64 %119, i64 1
+  %121 = getelementptr inbounds i8, ptr %14, i64 112
+  store i64 %120, ptr %121, align 8, !tbaa !25
+  %122 = getelementptr inbounds i8, ptr %14, i64 104
+  store ptr null, ptr %122, align 8, !tbaa !26
+  %123 = icmp eq i64 %120, 1
+  %124 = shl nsw i32 %86, 2
+  %125 = or i32 %124, %87
+  %126 = or i32 %125, 16
+  %127 = select i1 %123, i32 %125, i32 %126
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %128
+  %130 = load ptr, ptr %129, align 8, !tbaa !27
+  %131 = call i32 %130(ptr noundef nonnull %14, ptr noundef null, ptr noundef null, ptr noundef %108, ptr noundef %111, i64 noundef 0) #3
+  call void @blas_memory_free(ptr noundef %108) #3
+  br label %132
 
-113:                                              ; preds = %91
-  %114 = tail call ptr @blas_memory_alloc(i32 noundef 0) #3
-  %115 = ptrtoint ptr %114 to i64
-  %116 = add nsw i64 %115, 589824
-  %117 = inttoptr i64 %116 to ptr
-  %118 = sitofp i32 %16 to double
-  %119 = sitofp i32 %19 to double
-  %120 = fmul double %118, %119
-  %121 = sitofp i32 %22 to double
-  %122 = fmul double %120, %121
-  %123 = fcmp ugt double %122, 2.621440e+05
-  %124 = load i32, ptr @blas_cpu_number, align 4
-  %125 = sext i32 %124 to i64
-  %126 = select i1 %123, i64 %125, i64 1
-  %127 = getelementptr inbounds i8, ptr %14, i64 112
-  store i64 %126, ptr %127, align 8, !tbaa !25
-  %128 = getelementptr inbounds i8, ptr %14, i64 104
-  store ptr null, ptr %128, align 8, !tbaa !26
-  %129 = icmp eq i64 %126, 1
-  %130 = shl nsw i32 %61, 2
-  %131 = or i32 %130, %53
-  %132 = or i32 %131, 16
-  %133 = select i1 %129, i32 %131, i32 %132
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %134
-  %136 = load ptr, ptr %135, align 8, !tbaa !27
-  %137 = call i32 %136(ptr noundef nonnull %14, ptr noundef null, ptr noundef null, ptr noundef %114, ptr noundef %117, i64 noundef 0) #3
-  call void @blas_memory_free(ptr noundef %114) #3
-  br label %138
-
-138:                                              ; preds = %113, %108, %103, %87, %85
+132:                                              ; preds = %107, %102, %97, %79, %77
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %14) #3
   ret void
