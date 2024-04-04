@@ -1681,7 +1681,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   br label %104
 
 104:                                              ; preds = %.loopexit, %64
-  %105 = phi i64 [ 0, %64 ], [ %331, %.loopexit ]
+  %105 = phi i64 [ 0, %64 ], [ %326, %.loopexit ]
   %106 = mul nuw nsw i64 %105, %65
   %107 = trunc i64 %106 to i32
   %108 = add i32 %7, %107
@@ -1915,127 +1915,117 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   br i1 %102, label %.loopexit7, label %.preheader6
 
 .preheader6:                                      ; preds = %240, %.preheader6
-  %242 = phi i64 [ %259, %.preheader6 ], [ %241, %240 ]
-  %243 = phi i64 [ %260, %.preheader6 ], [ 0, %240 ]
+  %242 = phi i64 [ %258, %.preheader6 ], [ %241, %240 ]
+  %243 = phi i64 [ %259, %.preheader6 ], [ 0, %240 ]
   %244 = shl nuw nsw i64 %242, 1
-  %245 = icmp ult i64 %244, %65
-  tail call void @llvm.assume(i1 %245)
-  %246 = getelementptr inbounds i8, ptr %110, i64 %244
-  %247 = load i8, ptr %246, align 1, !tbaa !98
-  %248 = zext i8 %247 to i16
-  %249 = or disjoint i64 %244, 1
-  %250 = icmp ult i64 %249, %65
-  tail call void @llvm.assume(i1 %250)
-  %251 = getelementptr inbounds i8, ptr %110, i64 %249
-  %252 = load i8, ptr %251, align 1, !tbaa !98
-  %253 = zext i8 %252 to i16
-  %254 = shl nuw i16 %248, 8
-  %255 = or disjoint i16 %254, %253
-  %256 = lshr i16 %255, 4
-  %257 = icmp ult i64 %242, %66
-  tail call void @llvm.assume(i1 %257)
-  %258 = getelementptr inbounds i16, ptr %115, i64 %242
-  store i16 %256, ptr %258, align 2, !tbaa !108
-  %259 = add nuw nsw i64 %242, 1
-  %260 = add nuw nsw i64 %243, 1
-  %261 = icmp eq i64 %260, %101
-  br i1 %261, label %.loopexit7, label %.preheader6, !llvm.loop !150
+  %245 = getelementptr inbounds i8, ptr %110, i64 %244
+  %246 = load i8, ptr %245, align 1, !tbaa !98
+  %247 = zext i8 %246 to i16
+  %248 = or disjoint i64 %244, 1
+  %249 = icmp ult i64 %248, %65
+  tail call void @llvm.assume(i1 %249)
+  %250 = getelementptr inbounds i8, ptr %110, i64 %248
+  %251 = load i8, ptr %250, align 1, !tbaa !98
+  %252 = zext i8 %251 to i16
+  %253 = shl nuw i16 %247, 8
+  %254 = or disjoint i16 %253, %252
+  %255 = lshr i16 %254, 4
+  %256 = icmp ult i64 %242, %66
+  tail call void @llvm.assume(i1 %256)
+  %257 = getelementptr inbounds i16, ptr %115, i64 %242
+  store i16 %255, ptr %257, align 2, !tbaa !108
+  %258 = add nuw nsw i64 %242, 1
+  %259 = add nuw nsw i64 %243, 1
+  %260 = icmp eq i64 %259, %101
+  br i1 %260, label %.loopexit7, label %.preheader6, !llvm.loop !150
 
 .loopexit7:                                       ; preds = %.preheader6, %240
-  %262 = phi i64 [ %241, %240 ], [ %259, %.preheader6 ]
-  %263 = sub nsw i64 %241, %71
-  %264 = icmp ugt i64 %263, -4
-  br i1 %264, label %.loopexit, label %.preheader
+  %261 = phi i64 [ %241, %240 ], [ %258, %.preheader6 ]
+  %262 = sub nsw i64 %241, %71
+  %263 = icmp ugt i64 %262, -4
+  br i1 %263, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit7, %.preheader
-  %265 = phi i64 [ %329, %.preheader ], [ %262, %.loopexit7 ]
-  %266 = shl nuw nsw i64 %265, 1
-  %267 = icmp ult i64 %266, %65
-  tail call void @llvm.assume(i1 %267)
-  %268 = getelementptr inbounds i8, ptr %110, i64 %266
-  %269 = load i8, ptr %268, align 1, !tbaa !98
-  %270 = zext i8 %269 to i16
-  %271 = or disjoint i64 %266, 1
-  %272 = icmp ult i64 %271, %65
-  tail call void @llvm.assume(i1 %272)
-  %273 = getelementptr inbounds i8, ptr %110, i64 %271
-  %274 = load i8, ptr %273, align 1, !tbaa !98
-  %275 = zext i8 %274 to i16
-  %276 = shl nuw i16 %270, 8
-  %277 = or disjoint i16 %276, %275
-  %278 = lshr i16 %277, 4
-  %279 = icmp ult i64 %265, %66
-  tail call void @llvm.assume(i1 %279)
-  %280 = getelementptr inbounds i16, ptr %115, i64 %265
-  store i16 %278, ptr %280, align 2, !tbaa !108
-  %281 = add nuw nsw i64 %265, 1
-  %282 = shl nuw nsw i64 %281, 1
-  %283 = icmp ult i64 %282, %65
-  tail call void @llvm.assume(i1 %283)
-  %284 = getelementptr inbounds i8, ptr %110, i64 %282
-  %285 = load i8, ptr %284, align 1, !tbaa !98
-  %286 = zext i8 %285 to i16
-  %287 = or disjoint i64 %282, 1
-  %288 = icmp ult i64 %287, %65
-  tail call void @llvm.assume(i1 %288)
-  %289 = getelementptr inbounds i8, ptr %110, i64 %287
-  %290 = load i8, ptr %289, align 1, !tbaa !98
-  %291 = zext i8 %290 to i16
-  %292 = shl nuw i16 %286, 8
-  %293 = or disjoint i16 %292, %291
-  %294 = lshr i16 %293, 4
-  %295 = icmp ult i64 %281, %66
-  tail call void @llvm.assume(i1 %295)
-  %296 = getelementptr inbounds i16, ptr %115, i64 %281
-  store i16 %294, ptr %296, align 2, !tbaa !108
-  %297 = add nuw nsw i64 %265, 2
-  %298 = shl nuw nsw i64 %297, 1
-  %299 = icmp ult i64 %298, %65
-  tail call void @llvm.assume(i1 %299)
-  %300 = getelementptr inbounds i8, ptr %110, i64 %298
-  %301 = load i8, ptr %300, align 1, !tbaa !98
-  %302 = zext i8 %301 to i16
-  %303 = or disjoint i64 %298, 1
-  %304 = icmp ult i64 %303, %65
-  tail call void @llvm.assume(i1 %304)
-  %305 = getelementptr inbounds i8, ptr %110, i64 %303
-  %306 = load i8, ptr %305, align 1, !tbaa !98
-  %307 = zext i8 %306 to i16
-  %308 = shl nuw i16 %302, 8
-  %309 = or disjoint i16 %308, %307
-  %310 = lshr i16 %309, 4
-  %311 = icmp ult i64 %297, %66
-  tail call void @llvm.assume(i1 %311)
-  %312 = getelementptr inbounds i16, ptr %115, i64 %297
-  store i16 %310, ptr %312, align 2, !tbaa !108
-  %313 = add nuw nsw i64 %265, 3
-  %314 = shl nuw nsw i64 %313, 1
+  %264 = phi i64 [ %324, %.preheader ], [ %261, %.loopexit7 ]
+  %265 = shl nuw nsw i64 %264, 1
+  %266 = getelementptr inbounds i8, ptr %110, i64 %265
+  %267 = load i8, ptr %266, align 1, !tbaa !98
+  %268 = zext i8 %267 to i16
+  %269 = or disjoint i64 %265, 1
+  %270 = icmp ult i64 %269, %65
+  tail call void @llvm.assume(i1 %270)
+  %271 = getelementptr inbounds i8, ptr %110, i64 %269
+  %272 = load i8, ptr %271, align 1, !tbaa !98
+  %273 = zext i8 %272 to i16
+  %274 = shl nuw i16 %268, 8
+  %275 = or disjoint i16 %274, %273
+  %276 = lshr i16 %275, 4
+  %277 = icmp ult i64 %264, %66
+  tail call void @llvm.assume(i1 %277)
+  %278 = getelementptr inbounds i16, ptr %115, i64 %264
+  store i16 %276, ptr %278, align 2, !tbaa !108
+  %279 = add nuw nsw i64 %264, 1
+  %280 = shl nuw nsw i64 %279, 1
+  %281 = getelementptr inbounds i8, ptr %110, i64 %280
+  %282 = load i8, ptr %281, align 1, !tbaa !98
+  %283 = zext i8 %282 to i16
+  %284 = or disjoint i64 %280, 1
+  %285 = icmp ult i64 %284, %65
+  tail call void @llvm.assume(i1 %285)
+  %286 = getelementptr inbounds i8, ptr %110, i64 %284
+  %287 = load i8, ptr %286, align 1, !tbaa !98
+  %288 = zext i8 %287 to i16
+  %289 = shl nuw i16 %283, 8
+  %290 = or disjoint i16 %289, %288
+  %291 = lshr i16 %290, 4
+  %292 = icmp ult i64 %279, %66
+  tail call void @llvm.assume(i1 %292)
+  %293 = getelementptr inbounds i16, ptr %115, i64 %279
+  store i16 %291, ptr %293, align 2, !tbaa !108
+  %294 = add nuw nsw i64 %264, 2
+  %295 = shl nuw nsw i64 %294, 1
+  %296 = getelementptr inbounds i8, ptr %110, i64 %295
+  %297 = load i8, ptr %296, align 1, !tbaa !98
+  %298 = zext i8 %297 to i16
+  %299 = or disjoint i64 %295, 1
+  %300 = icmp ult i64 %299, %65
+  tail call void @llvm.assume(i1 %300)
+  %301 = getelementptr inbounds i8, ptr %110, i64 %299
+  %302 = load i8, ptr %301, align 1, !tbaa !98
+  %303 = zext i8 %302 to i16
+  %304 = shl nuw i16 %298, 8
+  %305 = or disjoint i16 %304, %303
+  %306 = lshr i16 %305, 4
+  %307 = icmp ult i64 %294, %66
+  tail call void @llvm.assume(i1 %307)
+  %308 = getelementptr inbounds i16, ptr %115, i64 %294
+  store i16 %306, ptr %308, align 2, !tbaa !108
+  %309 = add nuw nsw i64 %264, 3
+  %310 = shl nuw nsw i64 %309, 1
+  %311 = getelementptr inbounds i8, ptr %110, i64 %310
+  %312 = load i8, ptr %311, align 1, !tbaa !98
+  %313 = zext i8 %312 to i16
+  %314 = or disjoint i64 %310, 1
   %315 = icmp ult i64 %314, %65
   tail call void @llvm.assume(i1 %315)
   %316 = getelementptr inbounds i8, ptr %110, i64 %314
   %317 = load i8, ptr %316, align 1, !tbaa !98
   %318 = zext i8 %317 to i16
-  %319 = or disjoint i64 %314, 1
-  %320 = icmp ult i64 %319, %65
-  tail call void @llvm.assume(i1 %320)
-  %321 = getelementptr inbounds i8, ptr %110, i64 %319
-  %322 = load i8, ptr %321, align 1, !tbaa !98
-  %323 = zext i8 %322 to i16
-  %324 = shl nuw i16 %318, 8
-  %325 = or disjoint i16 %324, %323
-  %326 = lshr i16 %325, 4
-  %327 = icmp ult i64 %313, %66
-  tail call void @llvm.assume(i1 %327)
-  %328 = getelementptr inbounds i16, ptr %115, i64 %313
-  store i16 %326, ptr %328, align 2, !tbaa !108
-  %329 = add nuw nsw i64 %265, 4
-  %330 = icmp eq i64 %329, %71
-  br i1 %330, label %.loopexit, label %.preheader, !llvm.loop !151
+  %319 = shl nuw i16 %313, 8
+  %320 = or disjoint i16 %319, %318
+  %321 = lshr i16 %320, 4
+  %322 = icmp ult i64 %309, %66
+  tail call void @llvm.assume(i1 %322)
+  %323 = getelementptr inbounds i16, ptr %115, i64 %309
+  store i16 %321, ptr %323, align 2, !tbaa !108
+  %324 = add nuw nsw i64 %264, 4
+  %325 = icmp eq i64 %324, %71
+  br i1 %325, label %.loopexit, label %.preheader, !llvm.loop !151
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit7, %239, %186
-  %331 = add nuw nsw i64 %105, 1
-  %332 = icmp eq i64 %331, %70
-  br i1 %332, label %.loopexit9, label %104, !llvm.loop !152
+  %326 = add nuw nsw i64 %105, 1
+  %327 = icmp eq i64 %326, %70
+  br i1 %327, label %.loopexit9, label %104, !llvm.loop !152
 
 .loopexit9:                                       ; preds = %.loopexit, %56
   ret void
@@ -2182,7 +2172,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   br label %104
 
 104:                                              ; preds = %.loopexit, %64
-  %105 = phi i64 [ 0, %64 ], [ %331, %.loopexit ]
+  %105 = phi i64 [ 0, %64 ], [ %326, %.loopexit ]
   %106 = mul nuw nsw i64 %105, %65
   %107 = trunc i64 %106 to i32
   %108 = add i32 %7, %107
@@ -2416,127 +2406,117 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   br i1 %102, label %.loopexit7, label %.preheader6
 
 .preheader6:                                      ; preds = %240, %.preheader6
-  %242 = phi i64 [ %259, %.preheader6 ], [ %241, %240 ]
-  %243 = phi i64 [ %260, %.preheader6 ], [ 0, %240 ]
+  %242 = phi i64 [ %258, %.preheader6 ], [ %241, %240 ]
+  %243 = phi i64 [ %259, %.preheader6 ], [ 0, %240 ]
   %244 = shl nuw nsw i64 %242, 1
-  %245 = icmp ult i64 %244, %65
-  tail call void @llvm.assume(i1 %245)
-  %246 = getelementptr inbounds i8, ptr %110, i64 %244
-  %247 = load i8, ptr %246, align 1, !tbaa !98
-  %248 = zext i8 %247 to i16
-  %249 = or disjoint i64 %244, 1
-  %250 = icmp ult i64 %249, %65
-  tail call void @llvm.assume(i1 %250)
-  %251 = getelementptr inbounds i8, ptr %110, i64 %249
-  %252 = load i8, ptr %251, align 1, !tbaa !98
-  %253 = zext i8 %252 to i16
-  %254 = shl nuw i16 %253, 8
-  %255 = or disjoint i16 %254, %248
-  %256 = lshr i16 %255, 4
-  %257 = icmp ult i64 %242, %66
-  tail call void @llvm.assume(i1 %257)
-  %258 = getelementptr inbounds i16, ptr %115, i64 %242
-  store i16 %256, ptr %258, align 2, !tbaa !108
-  %259 = add nuw nsw i64 %242, 1
-  %260 = add nuw nsw i64 %243, 1
-  %261 = icmp eq i64 %260, %101
-  br i1 %261, label %.loopexit7, label %.preheader6, !llvm.loop !168
+  %245 = getelementptr inbounds i8, ptr %110, i64 %244
+  %246 = load i8, ptr %245, align 1, !tbaa !98
+  %247 = zext i8 %246 to i16
+  %248 = or disjoint i64 %244, 1
+  %249 = icmp ult i64 %248, %65
+  tail call void @llvm.assume(i1 %249)
+  %250 = getelementptr inbounds i8, ptr %110, i64 %248
+  %251 = load i8, ptr %250, align 1, !tbaa !98
+  %252 = zext i8 %251 to i16
+  %253 = shl nuw i16 %252, 8
+  %254 = or disjoint i16 %253, %247
+  %255 = lshr i16 %254, 4
+  %256 = icmp ult i64 %242, %66
+  tail call void @llvm.assume(i1 %256)
+  %257 = getelementptr inbounds i16, ptr %115, i64 %242
+  store i16 %255, ptr %257, align 2, !tbaa !108
+  %258 = add nuw nsw i64 %242, 1
+  %259 = add nuw nsw i64 %243, 1
+  %260 = icmp eq i64 %259, %101
+  br i1 %260, label %.loopexit7, label %.preheader6, !llvm.loop !168
 
 .loopexit7:                                       ; preds = %.preheader6, %240
-  %262 = phi i64 [ %241, %240 ], [ %259, %.preheader6 ]
-  %263 = sub nsw i64 %241, %71
-  %264 = icmp ugt i64 %263, -4
-  br i1 %264, label %.loopexit, label %.preheader
+  %261 = phi i64 [ %241, %240 ], [ %258, %.preheader6 ]
+  %262 = sub nsw i64 %241, %71
+  %263 = icmp ugt i64 %262, -4
+  br i1 %263, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit7, %.preheader
-  %265 = phi i64 [ %329, %.preheader ], [ %262, %.loopexit7 ]
-  %266 = shl nuw nsw i64 %265, 1
-  %267 = icmp ult i64 %266, %65
-  tail call void @llvm.assume(i1 %267)
-  %268 = getelementptr inbounds i8, ptr %110, i64 %266
-  %269 = load i8, ptr %268, align 1, !tbaa !98
-  %270 = zext i8 %269 to i16
-  %271 = or disjoint i64 %266, 1
-  %272 = icmp ult i64 %271, %65
-  tail call void @llvm.assume(i1 %272)
-  %273 = getelementptr inbounds i8, ptr %110, i64 %271
-  %274 = load i8, ptr %273, align 1, !tbaa !98
-  %275 = zext i8 %274 to i16
-  %276 = shl nuw i16 %275, 8
-  %277 = or disjoint i16 %276, %270
-  %278 = lshr i16 %277, 4
-  %279 = icmp ult i64 %265, %66
-  tail call void @llvm.assume(i1 %279)
-  %280 = getelementptr inbounds i16, ptr %115, i64 %265
-  store i16 %278, ptr %280, align 2, !tbaa !108
-  %281 = add nuw nsw i64 %265, 1
-  %282 = shl nuw nsw i64 %281, 1
-  %283 = icmp ult i64 %282, %65
-  tail call void @llvm.assume(i1 %283)
-  %284 = getelementptr inbounds i8, ptr %110, i64 %282
-  %285 = load i8, ptr %284, align 1, !tbaa !98
-  %286 = zext i8 %285 to i16
-  %287 = or disjoint i64 %282, 1
-  %288 = icmp ult i64 %287, %65
-  tail call void @llvm.assume(i1 %288)
-  %289 = getelementptr inbounds i8, ptr %110, i64 %287
-  %290 = load i8, ptr %289, align 1, !tbaa !98
-  %291 = zext i8 %290 to i16
-  %292 = shl nuw i16 %291, 8
-  %293 = or disjoint i16 %292, %286
-  %294 = lshr i16 %293, 4
-  %295 = icmp ult i64 %281, %66
-  tail call void @llvm.assume(i1 %295)
-  %296 = getelementptr inbounds i16, ptr %115, i64 %281
-  store i16 %294, ptr %296, align 2, !tbaa !108
-  %297 = add nuw nsw i64 %265, 2
-  %298 = shl nuw nsw i64 %297, 1
-  %299 = icmp ult i64 %298, %65
-  tail call void @llvm.assume(i1 %299)
-  %300 = getelementptr inbounds i8, ptr %110, i64 %298
-  %301 = load i8, ptr %300, align 1, !tbaa !98
-  %302 = zext i8 %301 to i16
-  %303 = or disjoint i64 %298, 1
-  %304 = icmp ult i64 %303, %65
-  tail call void @llvm.assume(i1 %304)
-  %305 = getelementptr inbounds i8, ptr %110, i64 %303
-  %306 = load i8, ptr %305, align 1, !tbaa !98
-  %307 = zext i8 %306 to i16
-  %308 = shl nuw i16 %307, 8
-  %309 = or disjoint i16 %308, %302
-  %310 = lshr i16 %309, 4
-  %311 = icmp ult i64 %297, %66
-  tail call void @llvm.assume(i1 %311)
-  %312 = getelementptr inbounds i16, ptr %115, i64 %297
-  store i16 %310, ptr %312, align 2, !tbaa !108
-  %313 = add nuw nsw i64 %265, 3
-  %314 = shl nuw nsw i64 %313, 1
+  %264 = phi i64 [ %324, %.preheader ], [ %261, %.loopexit7 ]
+  %265 = shl nuw nsw i64 %264, 1
+  %266 = getelementptr inbounds i8, ptr %110, i64 %265
+  %267 = load i8, ptr %266, align 1, !tbaa !98
+  %268 = zext i8 %267 to i16
+  %269 = or disjoint i64 %265, 1
+  %270 = icmp ult i64 %269, %65
+  tail call void @llvm.assume(i1 %270)
+  %271 = getelementptr inbounds i8, ptr %110, i64 %269
+  %272 = load i8, ptr %271, align 1, !tbaa !98
+  %273 = zext i8 %272 to i16
+  %274 = shl nuw i16 %273, 8
+  %275 = or disjoint i16 %274, %268
+  %276 = lshr i16 %275, 4
+  %277 = icmp ult i64 %264, %66
+  tail call void @llvm.assume(i1 %277)
+  %278 = getelementptr inbounds i16, ptr %115, i64 %264
+  store i16 %276, ptr %278, align 2, !tbaa !108
+  %279 = add nuw nsw i64 %264, 1
+  %280 = shl nuw nsw i64 %279, 1
+  %281 = getelementptr inbounds i8, ptr %110, i64 %280
+  %282 = load i8, ptr %281, align 1, !tbaa !98
+  %283 = zext i8 %282 to i16
+  %284 = or disjoint i64 %280, 1
+  %285 = icmp ult i64 %284, %65
+  tail call void @llvm.assume(i1 %285)
+  %286 = getelementptr inbounds i8, ptr %110, i64 %284
+  %287 = load i8, ptr %286, align 1, !tbaa !98
+  %288 = zext i8 %287 to i16
+  %289 = shl nuw i16 %288, 8
+  %290 = or disjoint i16 %289, %283
+  %291 = lshr i16 %290, 4
+  %292 = icmp ult i64 %279, %66
+  tail call void @llvm.assume(i1 %292)
+  %293 = getelementptr inbounds i16, ptr %115, i64 %279
+  store i16 %291, ptr %293, align 2, !tbaa !108
+  %294 = add nuw nsw i64 %264, 2
+  %295 = shl nuw nsw i64 %294, 1
+  %296 = getelementptr inbounds i8, ptr %110, i64 %295
+  %297 = load i8, ptr %296, align 1, !tbaa !98
+  %298 = zext i8 %297 to i16
+  %299 = or disjoint i64 %295, 1
+  %300 = icmp ult i64 %299, %65
+  tail call void @llvm.assume(i1 %300)
+  %301 = getelementptr inbounds i8, ptr %110, i64 %299
+  %302 = load i8, ptr %301, align 1, !tbaa !98
+  %303 = zext i8 %302 to i16
+  %304 = shl nuw i16 %303, 8
+  %305 = or disjoint i16 %304, %298
+  %306 = lshr i16 %305, 4
+  %307 = icmp ult i64 %294, %66
+  tail call void @llvm.assume(i1 %307)
+  %308 = getelementptr inbounds i16, ptr %115, i64 %294
+  store i16 %306, ptr %308, align 2, !tbaa !108
+  %309 = add nuw nsw i64 %264, 3
+  %310 = shl nuw nsw i64 %309, 1
+  %311 = getelementptr inbounds i8, ptr %110, i64 %310
+  %312 = load i8, ptr %311, align 1, !tbaa !98
+  %313 = zext i8 %312 to i16
+  %314 = or disjoint i64 %310, 1
   %315 = icmp ult i64 %314, %65
   tail call void @llvm.assume(i1 %315)
   %316 = getelementptr inbounds i8, ptr %110, i64 %314
   %317 = load i8, ptr %316, align 1, !tbaa !98
   %318 = zext i8 %317 to i16
-  %319 = or disjoint i64 %314, 1
-  %320 = icmp ult i64 %319, %65
-  tail call void @llvm.assume(i1 %320)
-  %321 = getelementptr inbounds i8, ptr %110, i64 %319
-  %322 = load i8, ptr %321, align 1, !tbaa !98
-  %323 = zext i8 %322 to i16
-  %324 = shl nuw i16 %323, 8
-  %325 = or disjoint i16 %324, %318
-  %326 = lshr i16 %325, 4
-  %327 = icmp ult i64 %313, %66
-  tail call void @llvm.assume(i1 %327)
-  %328 = getelementptr inbounds i16, ptr %115, i64 %313
-  store i16 %326, ptr %328, align 2, !tbaa !108
-  %329 = add nuw nsw i64 %265, 4
-  %330 = icmp eq i64 %329, %71
-  br i1 %330, label %.loopexit, label %.preheader, !llvm.loop !169
+  %319 = shl nuw i16 %318, 8
+  %320 = or disjoint i16 %319, %313
+  %321 = lshr i16 %320, 4
+  %322 = icmp ult i64 %309, %66
+  tail call void @llvm.assume(i1 %322)
+  %323 = getelementptr inbounds i16, ptr %115, i64 %309
+  store i16 %321, ptr %323, align 2, !tbaa !108
+  %324 = add nuw nsw i64 %264, 4
+  %325 = icmp eq i64 %324, %71
+  br i1 %325, label %.loopexit, label %.preheader, !llvm.loop !169
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit7, %239, %186
-  %331 = add nuw nsw i64 %105, 1
-  %332 = icmp eq i64 %331, %70
-  br i1 %332, label %.loopexit9, label %104, !llvm.loop !170
+  %326 = add nuw nsw i64 %105, 1
+  %327 = icmp eq i64 %326, %70
+  br i1 %327, label %.loopexit9, label %104, !llvm.loop !170
 
 .loopexit9:                                       ; preds = %.loopexit, %56
   ret void

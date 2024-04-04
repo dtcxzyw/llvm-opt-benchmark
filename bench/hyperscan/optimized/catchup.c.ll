@@ -859,8 +859,8 @@ if.then3.i744:                                    ; preds = %for.body.i
   br label %get_flat_masks.exit757
 
 get_flat_masks.exit757:                           ; preds = %for.body.i, %if.then3.i744
-  %retval.i727.0 = phi i64 [ %and.i750, %if.then3.i744 ], [ %cond.i741, %for.body.i ]
-  %and19.i = and i64 %retval.i727.0, %18
+  %mask.i732.0 = phi i64 [ %and.i750, %if.then3.i744 ], [ %cond.i741, %for.body.i ]
+  %and19.i = and i64 %mask.i732.0, %18
   %tobool20.i.not = icmp eq i64 %and19.i, 0
   br i1 %tobool20.i.not, label %if.end23.i, label %if.then21.i
 
@@ -1003,7 +1003,7 @@ for.cond.i392:                                    ; preds = %if.end40.i, %if.els
   %notmask = shl nsw i64 -1, %shr.i947
   %cond.i954 = select i1 %cmp.i951, i64 %notmask, i64 0
   %cmp5.i955 = icmp ult i64 %shr4.i950, 63
-  %shl.i.i.i963 = shl i64 2, %shr4.i950
+  %shl.i.i.i963 = shl nuw i64 2, %shr4.i950
   %sub.i.i964 = add i64 %shl.i.i.i963, -1
   %cond12.i957 = select i1 %cmp5.i955, i64 %sub.i.i964, i64 -1
   %and.i958 = and i64 %cond.i954, %30
@@ -1622,8 +1622,8 @@ if.then3.i651:                                    ; preds = %for.body.i351
   br label %get_flat_masks.exit664
 
 get_flat_masks.exit664:                           ; preds = %for.body.i351, %if.then3.i651
-  %retval.i634.0 = phi i64 [ %and.i657, %if.then3.i651 ], [ %cond.i648, %for.body.i351 ]
-  %and19.i356 = and i64 %retval.i634.0, %129
+  %mask.i639.0 = phi i64 [ %and.i657, %if.then3.i651 ], [ %cond.i648, %for.body.i351 ]
+  %and19.i356 = and i64 %mask.i639.0, %129
   %tobool20.i357.not = icmp eq i64 %and19.i356, 0
   br i1 %tobool20.i357.not, label %if.end23.i358, label %if.then21.i362
 
@@ -1746,7 +1746,7 @@ for.cond.i443:                                    ; preds = %if.end40.i482, %if.
   %notmask404 = shl nsw i64 -1, %shr.i915
   %cond.i919 = select i1 %cmp.i916, i64 %notmask404, i64 0
   %cmp5.i920 = icmp ult i64 %shr4.i, 63
-  %shl.i.i.i = shl i64 2, %shr4.i
+  %shl.i.i.i = shl nuw i64 2, %shr4.i
   %sub.i.i925 = add i64 %shl.i.i.i, -1
   %cond12.i = select i1 %cmp5.i920, i64 %sub.i.i925, i64 -1
   %and.i921 = and i64 %cond.i919, %138
@@ -2960,10 +2960,6 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %14 = lshr exact i64 %indvars.iv, 3
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %14
   %15 = load i64, ptr %add.ptr.i, align 1
-  %cmp.i174.not = icmp ult i64 %indvars.iv, %conv.i58
-  br i1 %cmp.i174.not, label %if.end.i175, label %get_flat_masks.exit196
-
-if.end.i175:                                      ; preds = %for.body.i
   %16 = trunc i64 %indvars.iv to i32
   %sub.i176 = sub nsw i32 %3, %16
   %cmp1.i177 = icmp ult i32 %sub.i176, 64
@@ -2974,7 +2970,7 @@ if.end.i175:                                      ; preds = %for.body.i
   %cmp2.i181.not = icmp ugt i64 %indvars.iv, %11
   br i1 %cmp2.i181.not, label %get_flat_masks.exit196, label %if.then3.i183
 
-if.then3.i183:                                    ; preds = %if.end.i175
+if.then3.i183:                                    ; preds = %for.body.i
   %sub4.i184 = sub i32 %4, %16
   %cmp5.i185 = icmp ult i32 %sub4.i184, 64
   %sh_prom.i.i250 = zext nneg i32 %sub4.i184 to i64
@@ -2983,9 +2979,9 @@ if.then3.i183:                                    ; preds = %if.end.i175
   %and.i189 = and i64 %cond.i180, %cond10.i188
   br label %get_flat_masks.exit196
 
-get_flat_masks.exit196:                           ; preds = %if.end.i175, %if.then3.i183, %for.body.i
-  %retval.i166.0 = phi i64 [ 0, %for.body.i ], [ %and.i189, %if.then3.i183 ], [ %cond.i180, %if.end.i175 ]
-  %and19.i = and i64 %retval.i166.0, %15
+get_flat_masks.exit196:                           ; preds = %for.body.i, %if.then3.i183
+  %mask.i171.0 = phi i64 [ %and.i189, %if.then3.i183 ], [ %cond.i180, %for.body.i ]
+  %and19.i = and i64 %mask.i171.0, %15
   %tobool20.i.not = icmp eq i64 %and19.i, 0
   br i1 %tobool20.i.not, label %if.end23.i, label %if.then21.i
 
@@ -3123,7 +3119,7 @@ for.cond.i83:                                     ; preds = %if.end40.i, %if.els
   %notmask = shl nsw i64 -1, %shr.i281
   %cond.i285 = select i1 %cmp.i282, i64 %notmask, i64 0
   %cmp5.i286 = icmp ult i64 %shr4.i, 63
-  %shl.i.i.i = shl i64 2, %shr4.i
+  %shl.i.i.i = shl nuw i64 2, %shr4.i
   %sub.i.i = add i64 %shl.i.i.i, -1
   %cond12.i = select i1 %cmp5.i286, i64 %sub.i.i, i64 -1
   %and.i287 = and i64 %cond.i285, %27
@@ -3343,8 +3339,8 @@ if.then4.i668:                                    ; preds = %sw.bb.i155.i, %sw.b
   %cmp.i731 = icmp eq i32 %inc.i669, 64
   %conv.i730 = zext nneg i32 %inc.i669 to i64
   %notmask870 = shl nsw i64 -1, %conv.i730
-  %retval.i728.0 = select i1 %cmp.i731, i64 0, i64 %notmask870
-  %and.i672 = and i64 %retval.i133.i.0, %retval.i728.0
+  %not.i671 = select i1 %cmp.i731, i64 0, i64 %notmask870
+  %and.i672 = and i64 %retval.i133.i.0, %not.i671
   %tobool.i666.not = icmp eq i64 %and.i672, 0
   br i1 %tobool.i666.not, label %mmbit_iterate.exit, label %if.then6.i
 
@@ -3412,8 +3408,8 @@ mmbit_get_flat_block.exit132.i:                   ; preds = %sw.default.i124.i, 
   %cmp.i741 = icmp eq i32 %sub33.i, 64
   %conv.i740 = zext nneg i32 %sub33.i to i64
   %notmask867 = shl nsw i64 -1, %conv.i740
-  %retval.i738.0 = select i1 %cmp.i741, i64 0, i64 %notmask867
-  %and36.i = and i64 %retval.i100.i.0, %retval.i738.0
+  %not35.i = select i1 %cmp.i741, i64 0, i64 %notmask867
+  %and36.i = and i64 %retval.i100.i.0, %not35.i
   %tobool37.i.not = icmp eq i64 %and36.i, 0
   br i1 %tobool37.i.not, label %if.else.i659, label %if.then38.i660
 
@@ -5591,7 +5587,7 @@ while.body.i638:                                  ; preds = %if.then4.i585, %if.
   %add.i701635 = phi i32 [ %add.i701, %if.then18.i ], [ 1, %if.then4.i585 ]
   %shl.i700634 = phi i32 [ %shl.i700, %if.then18.i ], [ 0, %if.then4.i585 ]
   %j.i.0633 = phi i32 [ %max_child.i.0, %if.then18.i ], [ 0, %if.then4.i585 ]
-  %add.i719 = add i32 %shl.i700634, 2
+  %add.i719 = add nuw i32 %shl.i700634, 2
   %cmp2.i = icmp ult i32 %add.i719, %36
   br i1 %cmp2.i, label %land.lhs.true.i642, label %while.body.i638.if.else.i639_crit_edge
 
@@ -5882,7 +5878,7 @@ while.body.i.i925:                                ; preds = %while.body.i.i925.p
   %add.i7.i921645 = phi i32 [ %add.i7.i921, %if.then18.i.i937 ], [ 1, %while.body.i.i925.preheader ]
   %shl.i6.i920644 = phi i32 [ %shl.i6.i920, %if.then18.i.i937 ], [ 0, %while.body.i.i925.preheader ]
   %j.i.i909.0643 = phi i32 [ %max_child.i.i911.0, %if.then18.i.i937 ], [ 0, %while.body.i.i925.preheader ]
-  %add.i16.i927 = add i32 %shl.i6.i920644, 2
+  %add.i16.i927 = add nuw i32 %shl.i6.i920644, 2
   %cmp2.i.i928 = icmp ult i32 %add.i16.i927, %dec.i914
   br i1 %cmp2.i.i928, label %land.lhs.true.i.i942, label %while.body.i.i925.if.else.i.i929_crit_edge
 
@@ -6141,7 +6137,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %add.i7.i599 = phi i32 [ %add.i7.i, %if.then18.i.i ], [ 1, %while.body.i.i.preheader ]
   %shl.i6.i598 = phi i32 [ %shl.i6.i, %if.then18.i.i ], [ 0, %while.body.i.i.preheader ]
   %j.i.i.0597 = phi i32 [ %max_child.i.i.0, %if.then18.i.i ], [ 0, %while.body.i.i.preheader ]
-  %add.i16.i = add i32 %shl.i6.i598, 2
+  %add.i16.i = add nuw i32 %shl.i6.i598, 2
   %cmp2.i.i = icmp ult i32 %add.i16.i, %dec.i722
   br i1 %cmp2.i.i, label %land.lhs.true.i.i, label %while.body.i.i.if.else.i.i727_crit_edge
 
@@ -6224,7 +6220,7 @@ while.body.i.i757:                                ; preds = %while.body.i.i757.p
   %add.i7.i753563 = phi i32 [ %add.i7.i753, %if.then18.i.i769 ], [ 1, %while.body.i.i757.preheader ]
   %shl.i6.i752562 = phi i32 [ %shl.i6.i752, %if.then18.i.i769 ], [ 0, %while.body.i.i757.preheader ]
   %j.i.i741.0561 = phi i32 [ %max_child.i.i743.0, %if.then18.i.i769 ], [ 0, %while.body.i.i757.preheader ]
-  %add.i16.i759 = add i32 %shl.i6.i752562, 2
+  %add.i16.i759 = add nuw i32 %shl.i6.i752562, 2
   %cmp2.i.i760 = icmp ult i32 %add.i16.i759, %dec.i746
   br i1 %cmp2.i.i760, label %land.lhs.true.i.i774, label %while.body.i.i757.if.else.i.i761_crit_edge
 
@@ -6297,7 +6293,7 @@ while.body.i.i813:                                ; preds = %while.body.i.i813.p
   %add.i7.i809652 = phi i32 [ %add.i7.i809, %if.then18.i.i825 ], [ 1, %while.body.i.i813.preheader ]
   %shl.i6.i808651 = phi i32 [ %shl.i6.i808, %if.then18.i.i825 ], [ 0, %while.body.i.i813.preheader ]
   %j.i.i797.0650 = phi i32 [ %max_child.i.i799.0, %if.then18.i.i825 ], [ 0, %while.body.i.i813.preheader ]
-  %add.i16.i815 = add i32 %shl.i6.i808651, 2
+  %add.i16.i815 = add nuw i32 %shl.i6.i808651, 2
   %cmp2.i.i816 = icmp ult i32 %add.i16.i815, %dec.i802
   br i1 %cmp2.i.i816, label %land.lhs.true.i.i830, label %while.body.i.i813.if.else.i.i817_crit_edge
 
@@ -6377,7 +6373,7 @@ while.body.i659:                                  ; preds = %if.then4.i288, %if.
   %add.i692549 = phi i32 [ %add.i692, %if.then18.i669 ], [ 1, %if.then4.i288 ]
   %shl.i691548 = phi i32 [ %shl.i691, %if.then18.i669 ], [ 0, %if.then4.i288 ]
   %j.i648.0547 = phi i32 [ %max_child.i650.0, %if.then18.i669 ], [ 0, %if.then4.i288 ]
-  %add.i710 = add i32 %shl.i691548, 2
+  %add.i710 = add nuw i32 %shl.i691548, 2
   %cmp2.i661 = icmp ult i32 %add.i710, %174
   br i1 %cmp2.i661, label %land.lhs.true.i674, label %while.body.i659.if.else.i662_crit_edge
 
@@ -6661,7 +6657,7 @@ while.body.i.i869:                                ; preds = %while.body.i.i869.p
   %add.i7.i865557 = phi i32 [ %add.i7.i865, %if.then18.i.i881 ], [ 1, %while.body.i.i869.preheader ]
   %shl.i6.i864556 = phi i32 [ %shl.i6.i864, %if.then18.i.i881 ], [ 0, %while.body.i.i869.preheader ]
   %j.i.i853.0555 = phi i32 [ %max_child.i.i855.0, %if.then18.i.i881 ], [ 0, %while.body.i.i869.preheader ]
-  %add.i16.i871 = add i32 %shl.i6.i864556, 2
+  %add.i16.i871 = add nuw i32 %shl.i6.i864556, 2
   %cmp2.i.i872 = icmp ult i32 %add.i16.i871, %dec.i858
   br i1 %cmp2.i.i872, label %land.lhs.true.i.i886, label %while.body.i.i869.if.else.i.i873_crit_edge
 
@@ -6844,10 +6840,6 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %14 = lshr exact i64 %indvars.iv, 3
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %14
   %15 = load i64, ptr %add.ptr.i, align 1
-  %cmp.i136.not = icmp ult i64 %indvars.iv, %conv.i20
-  br i1 %cmp.i136.not, label %if.end.i137, label %get_flat_masks.exit158
-
-if.end.i137:                                      ; preds = %for.body.i
   %16 = trunc i64 %indvars.iv to i32
   %sub.i138 = sub nsw i32 %3, %16
   %cmp1.i139 = icmp ult i32 %sub.i138, 64
@@ -6858,7 +6850,7 @@ if.end.i137:                                      ; preds = %for.body.i
   %cmp2.i143.not = icmp ugt i64 %indvars.iv, %11
   br i1 %cmp2.i143.not, label %get_flat_masks.exit158, label %if.then3.i145
 
-if.then3.i145:                                    ; preds = %if.end.i137
+if.then3.i145:                                    ; preds = %for.body.i
   %sub4.i146 = sub i32 %4, %16
   %cmp5.i147 = icmp ult i32 %sub4.i146, 64
   %sh_prom.i.i212 = zext nneg i32 %sub4.i146 to i64
@@ -6867,9 +6859,9 @@ if.then3.i145:                                    ; preds = %if.end.i137
   %and.i151 = and i64 %cond.i142, %cond10.i150
   br label %get_flat_masks.exit158
 
-get_flat_masks.exit158:                           ; preds = %if.end.i137, %if.then3.i145, %for.body.i
-  %retval.i128.0 = phi i64 [ 0, %for.body.i ], [ %and.i151, %if.then3.i145 ], [ %cond.i142, %if.end.i137 ]
-  %and19.i = and i64 %retval.i128.0, %15
+get_flat_masks.exit158:                           ; preds = %for.body.i, %if.then3.i145
+  %mask.i133.0 = phi i64 [ %and.i151, %if.then3.i145 ], [ %cond.i142, %for.body.i ]
+  %and19.i = and i64 %mask.i133.0, %15
   %tobool20.i.not = icmp eq i64 %and19.i, 0
   br i1 %tobool20.i.not, label %if.end23.i, label %if.then21.i
 
@@ -7007,7 +6999,7 @@ for.cond.i45:                                     ; preds = %if.end40.i, %if.els
   %notmask = shl nsw i64 -1, %shr.i243
   %cond.i247 = select i1 %cmp.i244, i64 %notmask, i64 0
   %cmp5.i248 = icmp ult i64 %shr4.i, 63
-  %shl.i.i.i = shl i64 2, %shr4.i
+  %shl.i.i.i = shl nuw i64 2, %shr4.i
   %sub.i.i = add i64 %shl.i.i.i, -1
   %cond12.i = select i1 %cmp5.i248, i64 %sub.i.i, i64 -1
   %and.i249 = and i64 %cond.i247, %27
@@ -7227,8 +7219,8 @@ if.then4.i630:                                    ; preds = %sw.bb.i155.i, %sw.b
   %cmp.i693 = icmp eq i32 %inc.i631, 64
   %conv.i692 = zext nneg i32 %inc.i631 to i64
   %notmask833 = shl nsw i64 -1, %conv.i692
-  %retval.i690.0 = select i1 %cmp.i693, i64 0, i64 %notmask833
-  %and.i634 = and i64 %retval.i133.i.0, %retval.i690.0
+  %not.i633 = select i1 %cmp.i693, i64 0, i64 %notmask833
+  %and.i634 = and i64 %retval.i133.i.0, %not.i633
   %tobool.i628.not = icmp eq i64 %and.i634, 0
   br i1 %tobool.i628.not, label %mmbit_iterate.exit, label %if.then6.i
 
@@ -7296,8 +7288,8 @@ mmbit_get_flat_block.exit132.i:                   ; preds = %sw.default.i124.i, 
   %cmp.i703 = icmp eq i32 %sub33.i, 64
   %conv.i702 = zext nneg i32 %sub33.i to i64
   %notmask830 = shl nsw i64 -1, %conv.i702
-  %retval.i700.0 = select i1 %cmp.i703, i64 0, i64 %notmask830
-  %and36.i = and i64 %retval.i100.i.0, %retval.i700.0
+  %not35.i = select i1 %cmp.i703, i64 0, i64 %notmask830
+  %and36.i = and i64 %retval.i100.i.0, %not35.i
   %tobool37.i.not = icmp eq i64 %and36.i, 0
   br i1 %tobool37.i.not, label %if.else.i621, label %if.then38.i622
 

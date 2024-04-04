@@ -235,7 +235,7 @@ define dso_local ptr @pte_offset_map_nolock(ptr nocapture noundef readnone %0, p
 
 .thread:                                          ; preds = %4, %15
   tail call void @__rcu_read_unlock() #5
-  br label %34
+  br label %31
 
 16:                                               ; preds = %9
   %17 = select i1 %11, i64 4503599627366400, i64 4503599625273344
@@ -247,23 +247,19 @@ define dso_local ptr @pte_offset_map_nolock(ptr nocapture noundef readnone %0, p
   %23 = and i64 %22, 511
   %24 = getelementptr %struct.pte_t, ptr %21, i64 %23
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %34, label %26, !prof !9
+  br i1 %25, label %31, label %26, !prof !9
 
 26:                                               ; preds = %16
   %27 = load i64, ptr @vmemmap_base, align 8
   %28 = inttoptr i64 %27 to ptr
-  %29 = and i64 %6, 1
-  %sext = add nuw nsw i64 %29, 4503599627370495
-  %30 = xor i64 %sext, %6
-  %31 = and i64 %30, %17
-  %32 = lshr exact i64 %31, 12
-  %33 = getelementptr %struct.page, ptr %28, i64 %32, i32 1, i32 0, i32 3
-  store ptr %33, ptr %3, align 8
-  br label %34
+  %29 = lshr exact i64 %18, 12
+  %30 = getelementptr %struct.page, ptr %28, i64 %29, i32 1, i32 0, i32 3
+  store ptr %30, ptr %3, align 8
+  br label %31
 
-34:                                               ; preds = %.thread, %26, %16
-  %35 = phi ptr [ null, %.thread ], [ %24, %26 ], [ null, %16 ]
-  ret ptr %35
+31:                                               ; preds = %.thread, %26, %16
+  %32 = phi ptr [ null, %.thread ], [ %24, %26 ], [ null, %16 ]
+  ret ptr %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -281,8 +277,8 @@ define dso_local ptr @__pte_offset_map_lock(ptr nocapture noundef readnone %0, p
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.thread, label %.lr.ph, !prof !10
 
-.lr.ph:                                           ; preds = %4, %38
-  %12 = phi i64 [ %39, %38 ], [ %9, %4 ]
+.lr.ph:                                           ; preds = %4, %35
+  %12 = phi i64 [ %36, %35 ], [ %9, %4 ]
   %13 = and i64 %12, 128
   %14 = icmp eq i64 %13, 0
   %15 = select i1 %14, i64 -4503599627366437, i64 -4503599625273381
@@ -294,7 +290,7 @@ define dso_local ptr @__pte_offset_map_lock(ptr nocapture noundef readnone %0, p
   tail call void @pmd_clear_bad(ptr noundef %1)
   br label %.thread
 
-.thread:                                          ; preds = %38, %4, %18
+.thread:                                          ; preds = %35, %4, %18
   tail call void @__rcu_read_unlock() #5
   br label %.loopexit
 
@@ -311,39 +307,35 @@ define dso_local ptr @__pte_offset_map_lock(ptr nocapture noundef readnone %0, p
 27:                                               ; preds = %19
   %28 = load i64, ptr @vmemmap_base, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = and i64 %12, 1
-  %sext = add nuw nsw i64 %30, 4503599627370495
-  %31 = xor i64 %sext, %12
-  %32 = and i64 %31, %20
-  %33 = lshr exact i64 %32, 12
-  %34 = getelementptr %struct.page, ptr %29, i64 %33, i32 1, i32 0, i32 3
-  tail call void @_raw_spin_lock(ptr noundef %34) #5
+  %30 = lshr exact i64 %21, 12
+  %31 = getelementptr %struct.page, ptr %29, i64 %30, i32 1, i32 0, i32 3
+  tail call void @_raw_spin_lock(ptr noundef %31) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %35 = load volatile i64, ptr %1, align 8
-  store volatile i64 %35, ptr %5, align 8
+  %32 = load volatile i64, ptr %1, align 8
+  store volatile i64 %32, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %36 = icmp eq i64 %12, %35
-  br i1 %36, label %37, label %38, !prof !8
+  %33 = icmp eq i64 %12, %32
+  br i1 %33, label %34, label %35, !prof !8
 
-37:                                               ; preds = %27
-  store ptr %34, ptr %3, align 8
+34:                                               ; preds = %27
+  store ptr %31, ptr %3, align 8
   br label %.loopexit
 
-38:                                               ; preds = %27
-  tail call void @_raw_spin_unlock(ptr noundef %34) #5
+35:                                               ; preds = %27
+  tail call void @_raw_spin_unlock(ptr noundef %31) #5
   tail call void @__rcu_read_unlock() #5
   tail call void @__rcu_read_lock() #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %39 = load volatile i64, ptr %1, align 8
-  store volatile i64 %39, ptr %6, align 8
+  %36 = load volatile i64, ptr %1, align 8
+  store volatile i64 %36, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %40 = and i64 %39, -97
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %.thread, label %.lr.ph, !prof !11
+  %37 = and i64 %36, -97
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %.thread, label %.lr.ph, !prof !11
 
-.loopexit:                                        ; preds = %19, %.thread, %37
-  %42 = phi ptr [ null, %.thread ], [ %25, %37 ], [ null, %19 ]
-  ret ptr %42
+.loopexit:                                        ; preds = %19, %.thread, %34
+  %39 = phi ptr [ null, %.thread ], [ %25, %34 ], [ null, %19 ]
+  ret ptr %39
 }
 
 ; Function Attrs: null_pointer_is_valid

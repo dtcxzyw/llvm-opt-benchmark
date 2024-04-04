@@ -1578,7 +1578,7 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr nocapture noundef readonly 
   %6 = and i32 %.fr7, 512
   %7 = or i32 %2, %1
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %92, label %9
+  br i1 %8, label %89, label %9
 
 9:                                                ; preds = %3
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
@@ -1658,7 +1658,7 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr nocapture noundef readonly 
   br i1 %59, label %.loopexit, label %.split.us, !llvm.loop !40
 
 .split:                                           ; preds = %14, %79
-  %60 = phi i32 [ %90, %79 ], [ %12, %14 ]
+  %60 = phi i32 [ %87, %79 ], [ %12, %14 ]
   %61 = phi ptr [ %77, %79 ], [ %0, %14 ]
   %62 = and i32 %60, -65536
   %63 = icmp ugt i32 %60, -65537
@@ -1700,26 +1700,22 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr nocapture noundef readonly 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds i8, ptr %77, i64 168
   %81 = load i32, ptr %80, align 8
-  %82 = sub i32 %81, %1
+  %82 = sub nuw nsw i32 %81, %1
   store i32 %82, ptr %80, align 8
   %83 = getelementptr inbounds i8, ptr %77, i64 196
   %84 = load i32, ptr %83, align 4
   %85 = sub i32 %84, %2
   store i32 %85, ptr %83, align 4
-  %86 = getelementptr inbounds i8, ptr %77, i64 200
-  %87 = load i32, ptr %86, align 8
-  %88 = add i32 %87, %10
-  store i32 %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %77, i64 60
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %.loopexit, label %.split, !llvm.loop !40
+  %86 = getelementptr inbounds i8, ptr %77, i64 60
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %.loopexit, label %.split, !llvm.loop !40
 
 .loopexit:                                        ; preds = %47, %20, %.split.us, %.split, %64, %79, %.split5.us, %9
   tail call void @__rcu_read_unlock() #19
-  br label %92
+  br label %89
 
-92:                                               ; preds = %.loopexit, %3
+89:                                               ; preds = %.loopexit, %3
   ret void
 }
 

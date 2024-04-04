@@ -2428,20 +2428,14 @@ entry:
   %tempDivisor.sroa.8.0 = select i1 %cmp.i22, i64 %not.i2.i26, i64 %2
   %8 = or i64 %tempDivisor.sroa.8.0, %tempDivisor.sroa.0.0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %if.then6, label %if.else
-
-if.then6:                                         ; preds = %entry
-  %10 = load i64, ptr %quotient, align 8
-  %div = udiv i64 %10, %tempDivisor.sroa.0.0
-  store i64 %div, ptr %quotient, align 8
-  br label %if.end29
+  br i1 %9, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %entry
   %cmp.i40 = icmp eq i64 %tempDividend.sroa.0.0, 0
   %cmp2.i42 = icmp eq i64 %tempDividend.sroa.6.0, 0
-  %11 = select i1 %cmp.i40, i1 %cmp2.i42, i1 false
+  %10 = select i1 %cmp.i40, i1 %cmp2.i42, i1 false
   %mPart12.i.i48 = getelementptr inbounds i8, ptr %remainder, i64 8
-  br i1 %11, label %if.then9, label %if.else13
+  br i1 %10, label %if.then9, label %if.else13
 
 if.then9:                                         ; preds = %if.else
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient, i8 0, i64 16, i1 false)
@@ -2462,19 +2456,19 @@ for.body:                                         ; preds = %for.inc, %if.else13
   %sh_prom.i = zext nneg i32 %rem.i104 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %retval.0.shrunk.i.v.v = select i1 %rem.i104.cmp, i64 %tempDividend.sroa.0.0, i64 %tempDividend.sroa.6.0
-  %12 = lshr i64 %retval.0.shrunk.i.v.v, %sh_prom.i
-  %conv.i.i = and i64 %12, 1
-  %13 = load i64, ptr %remainder, align 8
-  %add.i.i = add i64 %13, %conv.i.i
-  %cmp.i.i55 = icmp ult i64 %add.i.i, %13
+  %11 = lshr i64 %retval.0.shrunk.i.v.v, %sh_prom.i
+  %conv.i.i = and i64 %11, 1
+  %12 = load i64, ptr %remainder, align 8
+  %add.i.i = add i64 %12, %conv.i.i
+  %cmp.i.i55 = icmp ult i64 %add.i.i, %12
   %conv.i.i56 = zext i1 %cmp.i.i55 to i64
   store i64 %add.i.i, ptr %remainder, align 8
-  %14 = load i64, ptr %mPart12.i.i48, align 8
-  %add8.i.i = add i64 %14, %conv.i.i56
+  %13 = load i64, ptr %mPart12.i.i48, align 8
+  %add8.i.i = add i64 %13, %conv.i.i56
   store i64 %add8.i.i, ptr %mPart12.i.i48, align 8
-  %15 = xor i64 %add8.i.i, %tempDivisor.sroa.8.0
-  %16 = icmp slt i64 %15, 0
-  br i1 %16, label %if.then.i.i, label %if.end.i.i
+  %14 = xor i64 %add8.i.i, %tempDivisor.sroa.8.0
+  %15 = icmp slt i64 %14, 0
+  br i1 %15, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %cmp.i.i.i58 = icmp sgt i64 %add8.i.i, -1
@@ -2500,48 +2494,48 @@ _ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread:    ; preds = %if.then8.i.i, %if.e
   br i1 %rem.i104.cmp, label %if.then.i63.thread, label %if.then8.i.thread
 
 if.then8.i.thread:                                ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread
-  %17 = load i64, ptr %mPart114.i, align 8
+  %16 = load i64, ptr %mPart114.i, align 8
   br label %if.else13.i
 
 if.then.i63.thread:                               ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread
-  %18 = load i64, ptr %quotient, align 8
+  %17 = load i64, ptr %quotient, align 8
   br label %if.else.i65
 
 if.then.i63:                                      ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit
-  %19 = load i64, ptr %quotient, align 8
+  %18 = load i64, ptr %quotient, align 8
   br i1 %retval.0.i.i, label %if.then20, label %if.else.i65
 
 if.else.i65:                                      ; preds = %if.then.i63.thread, %if.then.i63
-  %20 = phi i64 [ %18, %if.then.i63.thread ], [ %19, %if.then.i63 ]
+  %19 = phi i64 [ %17, %if.then.i63.thread ], [ %18, %if.then.i63 ]
   %not.i = xor i64 %shl.i, -1
-  %and.i66 = and i64 %20, %not.i
+  %and.i66 = and i64 %19, %not.i
   store i64 %and.i66, ptr %quotient, align 8
   br label %if.end22
 
 if.then8.i:                                       ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit
-  %21 = load i64, ptr %mPart114.i, align 8
+  %20 = load i64, ptr %mPart114.i, align 8
   br i1 %retval.0.i.i, label %if.then20, label %if.else13.i
 
 if.else13.i:                                      ; preds = %if.then8.i.thread, %if.then8.i
-  %22 = phi i64 [ %17, %if.then8.i.thread ], [ %21, %if.then8.i ]
+  %21 = phi i64 [ %16, %if.then8.i.thread ], [ %20, %if.then8.i ]
   %not15.i = xor i64 %shl.i, -1
-  %and16.i = and i64 %22, %not15.i
+  %and16.i = and i64 %21, %not15.i
   store i64 %and16.i, ptr %mPart114.i, align 8
   br label %if.end22
 
 if.then20:                                        ; preds = %if.then8.i, %if.then.i63
-  %.sink = phi i64 [ %19, %if.then.i63 ], [ %21, %if.then8.i ]
+  %.sink = phi i64 [ %18, %if.then.i63 ], [ %20, %if.then8.i ]
   %quotient.sink = phi ptr [ %quotient, %if.then.i63 ], [ %mPart114.i, %if.then8.i ]
   %or.i = or i64 %.sink, %shl.i
   store i64 %or.i, ptr %quotient.sink, align 8
-  %23 = load i64, ptr %remainder, align 8
-  %sub.i.i = sub i64 %23, %tempDivisor.sroa.0.0
-  %cmp.i.i67 = icmp ult i64 %23, %tempDivisor.sroa.0.0
+  %22 = load i64, ptr %remainder, align 8
+  %sub.i.i = sub i64 %22, %tempDivisor.sroa.0.0
+  %cmp.i.i67 = icmp ult i64 %22, %tempDivisor.sroa.0.0
   %conv.neg.i.i = sext i1 %cmp.i.i67 to i64
   store i64 %sub.i.i, ptr %remainder, align 8
-  %24 = load i64, ptr %mPart12.i.i48, align 8
+  %23 = load i64, ptr %mPart12.i.i48, align 8
   %sub6.i.i = sub i64 %conv.neg.i.i, %tempDivisor.sroa.8.0
-  %sub7.i.i = add i64 %sub6.i.i, %24
+  %sub7.i.i = add i64 %sub6.i.i, %23
   store i64 %sub7.i.i, ptr %mPart12.i.i48, align 8
   br label %if.end22
 
@@ -2550,16 +2544,16 @@ if.end22:                                         ; preds = %if.else13.i, %if.el
   br i1 %cmp23.not, label %if.end29, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end22
-  %25 = load i64, ptr %remainder, align 8
-  %cmp.i69 = icmp eq i64 %25, 0
-  %26 = load i64, ptr %mPart12.i.i48, align 8
-  %cmp2.i71 = icmp eq i64 %26, 0
-  %27 = select i1 %cmp.i69, i1 %cmp2.i71, i1 false
-  br i1 %27, label %for.inc, label %if.then25
+  %24 = load i64, ptr %remainder, align 8
+  %cmp.i69 = icmp eq i64 %24, 0
+  %25 = load i64, ptr %mPart12.i.i48, align 8
+  %cmp2.i71 = icmp eq i64 %25, 0
+  %26 = select i1 %cmp.i69, i1 %cmp2.i71, i1 false
+  br i1 %26, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true
-  %shl.i.i = shl i64 %25, 1
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %26, i64 %25, i64 1)
+  %shl.i.i = shl i64 %24, 1
+  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %25, i64 %24, i64 1)
   store i64 %or.i.i, ptr %mPart12.i.i48, align 8
   store i64 %shl.i.i, ptr %remainder, align 8
   br label %for.inc
@@ -2568,32 +2562,32 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
   %inc = add nuw nsw i32 %i.0105, 1
   br label %for.body
 
-if.end29:                                         ; preds = %if.end22, %if.then9, %if.then6
-  %28 = xor i1 %cmp.i, %cmp.i22
-  br i1 %28, label %if.then36, label %if.end37
+if.end29:                                         ; preds = %if.end22, %entry, %if.then9
+  %27 = xor i1 %cmp.i, %cmp.i22
+  br i1 %27, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.end29
   %mPart1.i.i74 = getelementptr inbounds i8, ptr %quotient, i64 8
-  %29 = load i64, ptr %mPart1.i.i74, align 8
-  %cmp.i.i75 = icmp sgt i64 %29, -1
+  %28 = load i64, ptr %mPart1.i.i74, align 8
+  %cmp.i.i75 = icmp sgt i64 %28, -1
   br i1 %cmp.i.i75, label %if.then.i81, label %if.else.i76
 
 if.then.i81:                                      ; preds = %if.then36
-  %not.i.i82 = xor i64 %29, -1
-  %30 = load i64, ptr %quotient, align 8
-  %not3.i.i83 = xor i64 %30, -1
-  %add.i.i.i84 = sub i64 0, %30
+  %not.i.i82 = xor i64 %28, -1
+  %29 = load i64, ptr %quotient, align 8
+  %not3.i.i83 = xor i64 %29, -1
+  %add.i.i.i84 = sub i64 0, %29
   %cmp.i.i.i85 = icmp ult i64 %add.i.i.i84, %not3.i.i83
   %conv.i.i.i86 = zext i1 %cmp.i.i.i85 to i64
   %add8.i.i.i87 = add nsw i64 %conv.i.i.i86, %not.i.i82
   br label %_ZN2EA4StdC8int128_t6NegateEv.exit88
 
 if.else.i76:                                      ; preds = %if.then36
-  %31 = load i64, ptr %quotient, align 8
-  %32 = icmp ne i64 %31, 0
-  %33 = sext i1 %32 to i64
-  %not.i2.i77 = sub i64 %33, %29
-  %not3.i3.i78 = sub i64 0, %31
+  %30 = load i64, ptr %quotient, align 8
+  %31 = icmp ne i64 %30, 0
+  %32 = sext i1 %31 to i64
+  %not.i2.i77 = sub i64 %32, %28
+  %not3.i3.i78 = sub i64 0, %30
   br label %_ZN2EA4StdC8int128_t6NegateEv.exit88
 
 _ZN2EA4StdC8int128_t6NegateEv.exit88:             ; preds = %if.then.i81, %if.else.i76
