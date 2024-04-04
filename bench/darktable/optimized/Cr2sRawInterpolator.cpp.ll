@@ -977,8 +977,8 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   br label %104
 
 104:                                              ; preds = %104, %86
-  %105 = phi i64 [ 0, %86 ], [ %239, %104 ]
-  %106 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %86 ], [ %240, %104 ]
+  %105 = phi i64 [ 0, %86 ], [ %237, %104 ]
+  %106 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %86 ], [ %238, %104 ]
   %107 = icmp ult <8 x i64> %106, %92
   %108 = extractelement <8 x i1> %107, i64 0
   tail call void @llvm.assume(i1 %108)
@@ -1094,233 +1094,231 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %187 = ashr <8 x i32> %178, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %188 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %187, <8 x i32> zeroinitializer)
   %189 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %188, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %190 = trunc <8 x i32> %189 to <8 x i16>
-  %191 = ashr <8 x i32> %184, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %192 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %191, <8 x i32> zeroinitializer)
-  %193 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %192, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %194 = trunc <8 x i32> %193 to <8 x i16>
-  %195 = ashr <8 x i32> %186, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %196 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %195, <8 x i32> zeroinitializer)
-  %197 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %196, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %198 = trunc <8 x i32> %197 to <8 x i16>
-  %199 = add nuw nsw <8 x i64> %165, <i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6>
-  %200 = icmp ule <8 x i64> %199, %98
-  %201 = extractelement <8 x i1> %200, i64 0
+  %190 = ashr <8 x i32> %184, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %191 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %190, <8 x i32> zeroinitializer)
+  %192 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %191, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %193 = ashr <8 x i32> %186, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %194 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %193, <8 x i32> zeroinitializer)
+  %195 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %194, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %196 = add nuw nsw <8 x i64> %165, <i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6>
+  %197 = icmp ule <8 x i64> %196, %98
+  %198 = extractelement <8 x i1> %197, i64 0
+  tail call void @llvm.assume(i1 %198)
+  %199 = extractelement <8 x i1> %197, i64 1
+  tail call void @llvm.assume(i1 %199)
+  %200 = extractelement <8 x i1> %197, i64 2
+  tail call void @llvm.assume(i1 %200)
+  %201 = extractelement <8 x i1> %197, i64 3
   tail call void @llvm.assume(i1 %201)
-  %202 = extractelement <8 x i1> %200, i64 1
+  %202 = extractelement <8 x i1> %197, i64 4
   tail call void @llvm.assume(i1 %202)
-  %203 = extractelement <8 x i1> %200, i64 2
+  %203 = extractelement <8 x i1> %197, i64 5
   tail call void @llvm.assume(i1 %203)
-  %204 = extractelement <8 x i1> %200, i64 3
+  %204 = extractelement <8 x i1> %197, i64 6
   tail call void @llvm.assume(i1 %204)
-  %205 = extractelement <8 x i1> %200, i64 4
+  %205 = extractelement <8 x i1> %197, i64 7
   tail call void @llvm.assume(i1 %205)
-  %206 = extractelement <8 x i1> %200, i64 5
-  tail call void @llvm.assume(i1 %206)
-  %207 = extractelement <8 x i1> %200, i64 6
-  tail call void @llvm.assume(i1 %207)
-  %208 = extractelement <8 x i1> %200, i64 7
-  tail call void @llvm.assume(i1 %208)
-  %209 = add nsw <8 x i32> %124, <i32 -512, i32 -512, i32 -512, i32 -512, i32 -512, i32 -512, i32 -512, i32 -512>
-  %210 = add nsw <8 x i32> %164, %209
-  %211 = mul nsw <8 x i32> %210, %100
-  %212 = mul nsw <8 x i32> %161, <i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778>
-  %213 = shl nsw <8 x i32> %164, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
-  %214 = sub nsw <8 x i32> %212, %213
-  %215 = ashr <8 x i32> %214, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
-  %216 = add nsw <8 x i32> %215, %209
-  %217 = mul nsw <8 x i32> %216, %101
-  %218 = add nsw <8 x i32> %161, %209
-  %219 = mul nsw <8 x i32> %218, %102
-  %220 = ashr <8 x i32> %211, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %221 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %220, <8 x i32> zeroinitializer)
-  %222 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %221, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %223 = trunc <8 x i32> %222 to <8 x i16>
-  %224 = extractelement <8 x i64> %166, i64 0
-  %225 = ashr <8 x i32> %217, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %206 = add nsw <8 x i32> %124, <i32 -512, i32 -512, i32 -512, i32 -512, i32 -512, i32 -512, i32 -512, i32 -512>
+  %207 = add nsw <8 x i32> %164, %206
+  %208 = mul nsw <8 x i32> %207, %100
+  %209 = mul nsw <8 x i32> %161, <i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778>
+  %210 = shl nsw <8 x i32> %164, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
+  %211 = sub nsw <8 x i32> %209, %210
+  %212 = ashr <8 x i32> %211, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
+  %213 = add nsw <8 x i32> %212, %206
+  %214 = mul nsw <8 x i32> %213, %101
+  %215 = add nsw <8 x i32> %161, %206
+  %216 = mul nsw <8 x i32> %215, %102
+  %217 = ashr <8 x i32> %208, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %218 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %217, <8 x i32> zeroinitializer)
+  %219 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %218, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %220 = extractelement <8 x i64> %166, i64 0
+  %221 = ashr <8 x i32> %214, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %222 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %221, <8 x i32> zeroinitializer)
+  %223 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %222, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %224 = trunc <8 x i32> %223 to <8 x i16>
+  %225 = ashr <8 x i32> %216, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %226 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %225, <8 x i32> zeroinitializer)
   %227 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %226, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
   %228 = trunc <8 x i32> %227 to <8 x i16>
-  %229 = ashr <8 x i32> %219, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %230 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %229, <8 x i32> zeroinitializer)
-  %231 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %230, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %232 = trunc <8 x i32> %231 to <8 x i16>
-  %233 = getelementptr i16, ptr %103, i64 %224
-  %234 = shufflevector <8 x i16> %190, <8 x i16> %194, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %235 = shufflevector <8 x i16> %198, <8 x i16> %223, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %236 = shufflevector <16 x i16> %234, <16 x i16> %235, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %237 = shufflevector <8 x i16> %228, <8 x i16> %232, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %238 = shufflevector <32 x i16> %236, <32 x i16> %237, <48 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47>
-  store <48 x i16> %238, ptr %233, align 2, !tbaa !105
-  %239 = add nuw i64 %105, 8
-  %240 = add <8 x i64> %106, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %241 = icmp eq i64 %239, %90
-  br i1 %241, label %.loopexit, label %104, !llvm.loop !128
+  %229 = getelementptr i16, ptr %103, i64 %220
+  %230 = shufflevector <8 x i32> %189, <8 x i32> %192, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %231 = trunc <16 x i32> %230 to <16 x i16>
+  %232 = shufflevector <8 x i32> %195, <8 x i32> %219, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %233 = trunc <16 x i32> %232 to <16 x i16>
+  %234 = shufflevector <16 x i16> %231, <16 x i16> %233, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %235 = shufflevector <8 x i16> %224, <8 x i16> %228, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %236 = shufflevector <32 x i16> %234, <32 x i16> %235, <48 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47>
+  store <48 x i16> %236, ptr %229, align 2, !tbaa !105
+  %237 = add nuw i64 %105, 8
+  %238 = add <8 x i64> %106, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %239 = icmp eq i64 %237, %90
+  br i1 %239, label %.loopexit, label %104, !llvm.loop !128
 
 .loopexit:                                        ; preds = %104, %73, %2
-  %242 = phi i64 [ 0, %73 ], [ 0, %2 ], [ %90, %104 ]
-  %243 = insertelement <4 x i32> poison, i32 %66, i64 0
-  %244 = shufflevector <2 x i32> %68, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %245 = shufflevector <4 x i32> %243, <4 x i32> %244, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %246 = shufflevector <4 x i32> %245, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %247 = getelementptr i8, ptr %64, i64 8
-  br label %248
+  %240 = phi i64 [ 0, %73 ], [ 0, %2 ], [ %90, %104 ]
+  %241 = insertelement <4 x i32> poison, i32 %66, i64 0
+  %242 = shufflevector <2 x i32> %68, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %243 = shufflevector <4 x i32> %241, <4 x i32> %242, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %244 = shufflevector <4 x i32> %243, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %245 = getelementptr i8, ptr %64, i64 8
+  br label %246
 
-248:                                              ; preds = %248, %.loopexit
-  %249 = phi i64 [ %266, %248 ], [ %242, %.loopexit ]
-  %250 = icmp ult i64 %249, %70
-  tail call void @llvm.assume(i1 %250)
-  %251 = shl nuw nsw i64 %249, 2
-  %252 = getelementptr inbounds i16, ptr %53, i64 %251
-  %253 = load i16, ptr %252, align 2, !tbaa !105, !noalias !125
-  %254 = zext i16 %253 to i32
-  %255 = or disjoint i64 %251, 1
-  %256 = getelementptr inbounds i16, ptr %53, i64 %255
-  %257 = load i16, ptr %256, align 2, !tbaa !105, !noalias !125
-  %258 = zext i16 %257 to i32
-  %259 = or disjoint i64 %251, 2
-  %260 = getelementptr i16, ptr %53, i64 %259
-  %261 = load i16, ptr %260, align 2, !tbaa !105, !noalias !125
-  %262 = zext i16 %261 to i32
-  %263 = getelementptr i8, ptr %260, i64 2
-  %264 = load i16, ptr %263, align 2, !tbaa !105, !noalias !125
-  %265 = zext i16 %264 to i32
-  %266 = add nuw nsw i64 %249, 1
-  %267 = shl nuw nsw i64 %266, 2
-  %268 = or disjoint i64 %267, 1
-  %269 = icmp ult i64 %268, %54
-  tail call void @llvm.assume(i1 %269)
-  %270 = or disjoint i64 %267, 2
-  %271 = add nuw nsw i64 %267, 4
-  %272 = icmp ule i64 %271, %54
-  tail call void @llvm.assume(i1 %272)
-  %273 = getelementptr i16, ptr %53, i64 %270
-  %274 = load i16, ptr %273, align 2, !tbaa !105, !noalias !125
-  %275 = zext i16 %274 to i32
-  %276 = getelementptr i8, ptr %273, i64 2
-  %277 = load i16, ptr %276, align 2, !tbaa !105, !noalias !125
-  %278 = zext i16 %277 to i32
-  %279 = mul nuw nsw i64 %249, 6
-  %280 = getelementptr i16, ptr %64, i64 %279
-  %281 = add nuw nsw i64 %279, 6
-  %282 = icmp ule i64 %281, %69
-  tail call void @llvm.assume(i1 %282)
-  %283 = add nsw i32 %258, -512
-  %284 = add i32 %57, %262
-  %285 = add i32 %57, %265
-  %286 = add i32 %284, %57
-  %287 = add i32 %286, %275
-  %288 = add i32 %285, %57
-  %289 = add i32 %288, %278
-  %290 = ashr i32 %289, 1
-  %291 = add nsw i32 %254, -512
-  %292 = mul nsw i32 %284, -778
-  %293 = shl nsw i32 %285, 11
-  %294 = sub nsw i32 %292, %293
-  %295 = ashr i32 %294, 12
-  %296 = insertelement <4 x i32> poison, i32 %291, i64 0
-  %297 = insertelement <4 x i32> %296, i32 %295, i64 1
-  %298 = insertelement <4 x i32> %297, i32 %283, i64 3
-  %299 = shufflevector <4 x i32> %298, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %300 = insertelement <4 x i32> poison, i32 %285, i64 0
-  %301 = insertelement <4 x i32> %300, i32 %291, i64 1
-  %302 = insertelement <4 x i32> %301, i32 %284, i64 2
-  %303 = insertelement <4 x i32> %302, i32 %290, i64 3
-  %304 = add <4 x i32> %303, %299
-  %305 = mul nsw <4 x i32> %304, %246
-  %306 = shl nsw i32 %290, 11
-  %307 = ashr <4 x i32> %305, <i32 8, i32 8, i32 8, i32 8>
-  %308 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %307, <4 x i32> zeroinitializer)
-  %309 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %308, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
-  %310 = trunc <4 x i32> %309 to <4 x i16>
-  store <4 x i16> %310, ptr %280, align 2, !tbaa !105
-  %311 = getelementptr i16, ptr %247, i64 %279
-  %312 = ashr i32 %287, 1
-  %313 = mul nsw i32 %312, -778
-  %314 = sub nsw i32 %313, %306
-  %315 = ashr i32 %314, 12
-  %316 = insertelement <2 x i32> poison, i32 %315, i64 0
-  %317 = insertelement <2 x i32> %316, i32 %312, i64 1
-  %318 = insertelement <2 x i32> poison, i32 %283, i64 0
-  %319 = shufflevector <2 x i32> %318, <2 x i32> poison, <2 x i32> zeroinitializer
-  %320 = add nsw <2 x i32> %317, %319
-  %321 = mul nsw <2 x i32> %320, %68
-  %322 = ashr <2 x i32> %321, <i32 8, i32 8>
-  %323 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %322, <2 x i32> zeroinitializer)
-  %324 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %323, <2 x i32> <i32 65535, i32 65535>)
-  %325 = trunc <2 x i32> %324 to <2 x i16>
-  store <2 x i16> %325, ptr %311, align 2, !tbaa !105
-  %326 = icmp eq i64 %266, %71
-  br i1 %326, label %327, label %248, !llvm.loop !131
+246:                                              ; preds = %246, %.loopexit
+  %247 = phi i64 [ %264, %246 ], [ %240, %.loopexit ]
+  %248 = icmp ult i64 %247, %70
+  tail call void @llvm.assume(i1 %248)
+  %249 = shl nuw nsw i64 %247, 2
+  %250 = getelementptr inbounds i16, ptr %53, i64 %249
+  %251 = load i16, ptr %250, align 2, !tbaa !105, !noalias !125
+  %252 = zext i16 %251 to i32
+  %253 = or disjoint i64 %249, 1
+  %254 = getelementptr inbounds i16, ptr %53, i64 %253
+  %255 = load i16, ptr %254, align 2, !tbaa !105, !noalias !125
+  %256 = zext i16 %255 to i32
+  %257 = or disjoint i64 %249, 2
+  %258 = getelementptr i16, ptr %53, i64 %257
+  %259 = load i16, ptr %258, align 2, !tbaa !105, !noalias !125
+  %260 = zext i16 %259 to i32
+  %261 = getelementptr i8, ptr %258, i64 2
+  %262 = load i16, ptr %261, align 2, !tbaa !105, !noalias !125
+  %263 = zext i16 %262 to i32
+  %264 = add nuw nsw i64 %247, 1
+  %265 = shl nuw nsw i64 %264, 2
+  %266 = or disjoint i64 %265, 1
+  %267 = icmp ult i64 %266, %54
+  tail call void @llvm.assume(i1 %267)
+  %268 = or disjoint i64 %265, 2
+  %269 = add nuw nsw i64 %265, 4
+  %270 = icmp ule i64 %269, %54
+  tail call void @llvm.assume(i1 %270)
+  %271 = getelementptr i16, ptr %53, i64 %268
+  %272 = load i16, ptr %271, align 2, !tbaa !105, !noalias !125
+  %273 = zext i16 %272 to i32
+  %274 = getelementptr i8, ptr %271, i64 2
+  %275 = load i16, ptr %274, align 2, !tbaa !105, !noalias !125
+  %276 = zext i16 %275 to i32
+  %277 = mul nuw nsw i64 %247, 6
+  %278 = getelementptr i16, ptr %64, i64 %277
+  %279 = add nuw nsw i64 %277, 6
+  %280 = icmp ule i64 %279, %69
+  tail call void @llvm.assume(i1 %280)
+  %281 = add nsw i32 %256, -512
+  %282 = add i32 %57, %260
+  %283 = add i32 %57, %263
+  %284 = add i32 %282, %57
+  %285 = add i32 %284, %273
+  %286 = add i32 %283, %57
+  %287 = add i32 %286, %276
+  %288 = ashr i32 %287, 1
+  %289 = add nsw i32 %252, -512
+  %290 = mul nsw i32 %282, -778
+  %291 = shl nsw i32 %283, 11
+  %292 = sub nsw i32 %290, %291
+  %293 = ashr i32 %292, 12
+  %294 = insertelement <4 x i32> poison, i32 %289, i64 0
+  %295 = insertelement <4 x i32> %294, i32 %293, i64 1
+  %296 = insertelement <4 x i32> %295, i32 %281, i64 3
+  %297 = shufflevector <4 x i32> %296, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %298 = insertelement <4 x i32> poison, i32 %283, i64 0
+  %299 = insertelement <4 x i32> %298, i32 %289, i64 1
+  %300 = insertelement <4 x i32> %299, i32 %282, i64 2
+  %301 = insertelement <4 x i32> %300, i32 %288, i64 3
+  %302 = add <4 x i32> %301, %297
+  %303 = mul nsw <4 x i32> %302, %244
+  %304 = shl nsw i32 %288, 11
+  %305 = ashr <4 x i32> %303, <i32 8, i32 8, i32 8, i32 8>
+  %306 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %305, <4 x i32> zeroinitializer)
+  %307 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %306, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %308 = trunc <4 x i32> %307 to <4 x i16>
+  store <4 x i16> %308, ptr %278, align 2, !tbaa !105
+  %309 = getelementptr i16, ptr %245, i64 %277
+  %310 = ashr i32 %285, 1
+  %311 = mul nsw i32 %310, -778
+  %312 = sub nsw i32 %311, %304
+  %313 = ashr i32 %312, 12
+  %314 = insertelement <2 x i32> poison, i32 %313, i64 0
+  %315 = insertelement <2 x i32> %314, i32 %310, i64 1
+  %316 = insertelement <2 x i32> poison, i32 %281, i64 0
+  %317 = shufflevector <2 x i32> %316, <2 x i32> poison, <2 x i32> zeroinitializer
+  %318 = add nsw <2 x i32> %315, %317
+  %319 = mul nsw <2 x i32> %318, %68
+  %320 = ashr <2 x i32> %319, <i32 8, i32 8>
+  %321 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %320, <2 x i32> zeroinitializer)
+  %322 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %321, <2 x i32> <i32 65535, i32 65535>)
+  %323 = trunc <2 x i32> %322 to <2 x i16>
+  store <2 x i16> %323, ptr %309, align 2, !tbaa !105
+  %324 = icmp eq i64 %264, %71
+  br i1 %324, label %325, label %246, !llvm.loop !131
 
-327:                                              ; preds = %248
-  %328 = shl nsw i32 %45, 2
-  %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr inbounds i16, ptr %53, i64 %329
-  %331 = load i16, ptr %330, align 2, !tbaa !105, !noalias !132
-  %332 = zext i16 %331 to i32
-  %333 = or disjoint i64 %329, 1
-  %334 = icmp ult i64 %333, %54
-  tail call void @llvm.assume(i1 %334)
-  %335 = getelementptr inbounds i16, ptr %53, i64 %333
-  %336 = load i16, ptr %335, align 2, !tbaa !105, !noalias !132
-  %337 = zext i16 %336 to i32
-  %338 = or disjoint i32 %328, 2
-  %339 = add nuw i32 %328, 4
-  %340 = icmp ule i32 %339, %28
-  tail call void @llvm.assume(i1 %340)
-  %341 = zext nneg i32 %338 to i64
-  %342 = getelementptr i16, ptr %53, i64 %341
-  %343 = load i16, ptr %342, align 2, !tbaa !105, !noalias !132
-  %344 = zext i16 %343 to i32
-  %345 = getelementptr i8, ptr %342, i64 2
-  %346 = load i16, ptr %345, align 2, !tbaa !105, !noalias !132
-  %347 = zext i16 %346 to i32
-  %348 = add i32 %57, %344
-  %349 = add i32 %57, %347
-  %350 = mul nsw i32 %45, 6
-  %351 = load <4 x i32>, ptr %65, align 8
-  %352 = zext nneg i32 %350 to i64
-  %353 = add nsw i32 %332, -512
-  %354 = mul nsw i32 %348, -778
-  %355 = shl nsw i32 %349, 11
-  %356 = sub nsw i32 %354, %355
-  %357 = getelementptr i16, ptr %64, i64 %352
-  %358 = add nuw nsw i64 %352, 6
-  %359 = icmp ule i64 %358, %69
-  tail call void @llvm.assume(i1 %359)
-  %360 = insertelement <4 x i32> poison, i32 %353, i64 0
-  %361 = insertelement <4 x i32> poison, i32 %349, i64 0
-  %362 = insertelement <4 x i32> %361, i32 %353, i64 1
-  %363 = insertelement <4 x i32> %362, i32 %348, i64 2
-  %364 = shufflevector <4 x i32> %363, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %365 = getelementptr i8, ptr %357, i64 8
-  %366 = insertelement <2 x i32> poison, i32 %356, i64 0
-  %367 = insertelement <2 x i32> %366, i32 %337, i64 1
-  %368 = ashr <2 x i32> %367, <i32 12, i32 -512>
-  %369 = add nsw <2 x i32> %367, <i32 poison, i32 -512>
-  %370 = shufflevector <2 x i32> %368, <2 x i32> %369, <2 x i32> <i32 0, i32 3>
-  %371 = shufflevector <2 x i32> %369, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %372 = insertelement <2 x i32> %371, i32 %348, i64 1
-  %373 = add <2 x i32> %372, %370
-  %374 = mul nsw <2 x i32> %373, %68
-  %375 = shufflevector <2 x i32> %370, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %376 = shufflevector <4 x i32> %360, <4 x i32> %375, <4 x i32> <i32 0, i32 4, i32 poison, i32 5>
-  %377 = shufflevector <4 x i32> %376, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %378 = add <4 x i32> %377, %364
-  %379 = shufflevector <4 x i32> %351, <4 x i32> %244, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %380 = shufflevector <4 x i32> %379, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %381 = mul nsw <4 x i32> %378, %380
-  %382 = ashr <4 x i32> %381, <i32 8, i32 8, i32 8, i32 8>
-  %383 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %382, <4 x i32> zeroinitializer)
-  %384 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %383, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
-  %385 = trunc <4 x i32> %384 to <4 x i16>
-  store <4 x i16> %385, ptr %357, align 2, !tbaa !105
-  %386 = ashr <2 x i32> %374, <i32 8, i32 8>
-  %387 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %386, <2 x i32> zeroinitializer)
-  %388 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %387, <2 x i32> <i32 65535, i32 65535>)
-  %389 = trunc <2 x i32> %388 to <2 x i16>
-  store <2 x i16> %389, ptr %365, align 2, !tbaa !105
+325:                                              ; preds = %246
+  %326 = shl nsw i32 %45, 2
+  %327 = zext nneg i32 %326 to i64
+  %328 = getelementptr inbounds i16, ptr %53, i64 %327
+  %329 = load i16, ptr %328, align 2, !tbaa !105, !noalias !132
+  %330 = zext i16 %329 to i32
+  %331 = or disjoint i64 %327, 1
+  %332 = icmp ult i64 %331, %54
+  tail call void @llvm.assume(i1 %332)
+  %333 = getelementptr inbounds i16, ptr %53, i64 %331
+  %334 = load i16, ptr %333, align 2, !tbaa !105, !noalias !132
+  %335 = zext i16 %334 to i32
+  %336 = or disjoint i32 %326, 2
+  %337 = add nuw i32 %326, 4
+  %338 = icmp ule i32 %337, %28
+  tail call void @llvm.assume(i1 %338)
+  %339 = zext nneg i32 %336 to i64
+  %340 = getelementptr i16, ptr %53, i64 %339
+  %341 = load i16, ptr %340, align 2, !tbaa !105, !noalias !132
+  %342 = zext i16 %341 to i32
+  %343 = getelementptr i8, ptr %340, i64 2
+  %344 = load i16, ptr %343, align 2, !tbaa !105, !noalias !132
+  %345 = zext i16 %344 to i32
+  %346 = add i32 %57, %342
+  %347 = add i32 %57, %345
+  %348 = mul nsw i32 %45, 6
+  %349 = load <4 x i32>, ptr %65, align 8
+  %350 = zext nneg i32 %348 to i64
+  %351 = add nsw i32 %330, -512
+  %352 = mul nsw i32 %346, -778
+  %353 = shl nsw i32 %347, 11
+  %354 = sub nsw i32 %352, %353
+  %355 = getelementptr i16, ptr %64, i64 %350
+  %356 = add nuw nsw i64 %350, 6
+  %357 = icmp ule i64 %356, %69
+  tail call void @llvm.assume(i1 %357)
+  %358 = insertelement <4 x i32> poison, i32 %351, i64 0
+  %359 = insertelement <4 x i32> poison, i32 %347, i64 0
+  %360 = insertelement <4 x i32> %359, i32 %351, i64 1
+  %361 = insertelement <4 x i32> %360, i32 %346, i64 2
+  %362 = shufflevector <4 x i32> %361, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %363 = getelementptr i8, ptr %355, i64 8
+  %364 = insertelement <2 x i32> poison, i32 %354, i64 0
+  %365 = insertelement <2 x i32> %364, i32 %335, i64 1
+  %366 = ashr <2 x i32> %365, <i32 12, i32 -512>
+  %367 = add nsw <2 x i32> %365, <i32 poison, i32 -512>
+  %368 = shufflevector <2 x i32> %366, <2 x i32> %367, <2 x i32> <i32 0, i32 3>
+  %369 = shufflevector <2 x i32> %367, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %370 = insertelement <2 x i32> %369, i32 %346, i64 1
+  %371 = add <2 x i32> %370, %368
+  %372 = mul nsw <2 x i32> %371, %68
+  %373 = shufflevector <2 x i32> %368, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %374 = shufflevector <4 x i32> %358, <4 x i32> %373, <4 x i32> <i32 0, i32 4, i32 poison, i32 5>
+  %375 = shufflevector <4 x i32> %374, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %376 = add <4 x i32> %375, %362
+  %377 = shufflevector <4 x i32> %349, <4 x i32> %242, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %378 = shufflevector <4 x i32> %377, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %379 = mul nsw <4 x i32> %376, %378
+  %380 = ashr <4 x i32> %379, <i32 8, i32 8, i32 8, i32 8>
+  %381 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %380, <4 x i32> zeroinitializer)
+  %382 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %381, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %383 = trunc <4 x i32> %382 to <4 x i16>
+  store <4 x i16> %383, ptr %355, align 2, !tbaa !105
+  %384 = ashr <2 x i32> %372, <i32 8, i32 8>
+  %385 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %384, <2 x i32> zeroinitializer)
+  %386 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %385, <2 x i32> <i32 65535, i32 65535>)
+  %387 = trunc <2 x i32> %386 to <2 x i16>
+  store <2 x i16> %387, ptr %363, align 2, !tbaa !105
   ret void
 }
 
@@ -1457,8 +1455,8 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   br label %104
 
 104:                                              ; preds = %104, %86
-  %105 = phi i64 [ 0, %86 ], [ %253, %104 ]
-  %106 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %86 ], [ %254, %104 ]
+  %105 = phi i64 [ 0, %86 ], [ %251, %104 ]
+  %106 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %86 ], [ %252, %104 ]
   %107 = icmp ult <8 x i64> %106, %92
   %108 = extractelement <8 x i1> %107, i64 0
   tail call void @llvm.assume(i1 %108)
@@ -1581,214 +1579,212 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %194 = ashr <8 x i32> %181, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %195 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %194, <8 x i32> zeroinitializer)
   %196 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %195, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %197 = trunc <8 x i32> %196 to <8 x i16>
-  %198 = ashr <8 x i32> %187, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %199 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %198, <8 x i32> zeroinitializer)
-  %200 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %199, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %201 = trunc <8 x i32> %200 to <8 x i16>
-  %202 = ashr <8 x i32> %193, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %203 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %202, <8 x i32> zeroinitializer)
-  %204 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %203, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %205 = trunc <8 x i32> %204 to <8 x i16>
-  %206 = add nuw nsw <8 x i64> %165, <i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6>
-  %207 = icmp ule <8 x i64> %206, %98
-  %208 = extractelement <8 x i1> %207, i64 0
+  %197 = ashr <8 x i32> %187, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %198 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %197, <8 x i32> zeroinitializer)
+  %199 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %198, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %200 = ashr <8 x i32> %193, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %201 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %200, <8 x i32> zeroinitializer)
+  %202 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %201, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %203 = add nuw nsw <8 x i64> %165, <i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6>
+  %204 = icmp ule <8 x i64> %203, %98
+  %205 = extractelement <8 x i1> %204, i64 0
+  tail call void @llvm.assume(i1 %205)
+  %206 = extractelement <8 x i1> %204, i64 1
+  tail call void @llvm.assume(i1 %206)
+  %207 = extractelement <8 x i1> %204, i64 2
+  tail call void @llvm.assume(i1 %207)
+  %208 = extractelement <8 x i1> %204, i64 3
   tail call void @llvm.assume(i1 %208)
-  %209 = extractelement <8 x i1> %207, i64 1
+  %209 = extractelement <8 x i1> %204, i64 4
   tail call void @llvm.assume(i1 %209)
-  %210 = extractelement <8 x i1> %207, i64 2
+  %210 = extractelement <8 x i1> %204, i64 5
   tail call void @llvm.assume(i1 %210)
-  %211 = extractelement <8 x i1> %207, i64 3
+  %211 = extractelement <8 x i1> %204, i64 6
   tail call void @llvm.assume(i1 %211)
-  %212 = extractelement <8 x i1> %207, i64 4
+  %212 = extractelement <8 x i1> %204, i64 7
   tail call void @llvm.assume(i1 %212)
-  %213 = extractelement <8 x i1> %207, i64 5
-  tail call void @llvm.assume(i1 %213)
-  %214 = extractelement <8 x i1> %207, i64 6
-  tail call void @llvm.assume(i1 %214)
-  %215 = extractelement <8 x i1> %207, i64 7
-  tail call void @llvm.assume(i1 %215)
-  %216 = mul nsw <8 x i32> %161, <i32 50, i32 50, i32 50, i32 50, i32 50, i32 50, i32 50, i32 50>
-  %217 = mul nsw <8 x i32> %164, <i32 22929, i32 22929, i32 22929, i32 22929, i32 22929, i32 22929, i32 22929, i32 22929>
-  %218 = add nsw <8 x i32> %217, %216
-  %219 = ashr <8 x i32> %218, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
-  %220 = add nsw <8 x i32> %219, %124
-  %221 = mul nsw <8 x i32> %220, %100
-  %222 = mul nsw <8 x i32> %161, <i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640>
-  %223 = mul <8 x i32> %164, <i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751>
-  %224 = add <8 x i32> %223, %222
-  %225 = ashr <8 x i32> %224, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
-  %226 = add nsw <8 x i32> %225, %124
-  %227 = mul nsw <8 x i32> %226, %101
-  %228 = mul nsw <8 x i32> %161, <i32 29040, i32 29040, i32 29040, i32 29040, i32 29040, i32 29040, i32 29040, i32 29040>
-  %229 = mul <8 x i32> %164, <i32 -101, i32 -101, i32 -101, i32 -101, i32 -101, i32 -101, i32 -101, i32 -101>
-  %230 = add <8 x i32> %229, %228
-  %231 = ashr <8 x i32> %230, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
-  %232 = add nsw <8 x i32> %231, %124
-  %233 = mul nsw <8 x i32> %232, %102
-  %234 = ashr <8 x i32> %221, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %235 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %234, <8 x i32> zeroinitializer)
-  %236 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %235, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %237 = trunc <8 x i32> %236 to <8 x i16>
-  %238 = extractelement <8 x i64> %166, i64 0
-  %239 = ashr <8 x i32> %227, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %213 = mul nsw <8 x i32> %161, <i32 50, i32 50, i32 50, i32 50, i32 50, i32 50, i32 50, i32 50>
+  %214 = mul nsw <8 x i32> %164, <i32 22929, i32 22929, i32 22929, i32 22929, i32 22929, i32 22929, i32 22929, i32 22929>
+  %215 = add nsw <8 x i32> %214, %213
+  %216 = ashr <8 x i32> %215, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
+  %217 = add nsw <8 x i32> %216, %124
+  %218 = mul nsw <8 x i32> %217, %100
+  %219 = mul nsw <8 x i32> %161, <i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640, i32 -5640>
+  %220 = mul <8 x i32> %164, <i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751, i32 -11751>
+  %221 = add <8 x i32> %220, %219
+  %222 = ashr <8 x i32> %221, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
+  %223 = add nsw <8 x i32> %222, %124
+  %224 = mul nsw <8 x i32> %223, %101
+  %225 = mul nsw <8 x i32> %161, <i32 29040, i32 29040, i32 29040, i32 29040, i32 29040, i32 29040, i32 29040, i32 29040>
+  %226 = mul <8 x i32> %164, <i32 -101, i32 -101, i32 -101, i32 -101, i32 -101, i32 -101, i32 -101, i32 -101>
+  %227 = add <8 x i32> %226, %225
+  %228 = ashr <8 x i32> %227, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
+  %229 = add nsw <8 x i32> %228, %124
+  %230 = mul nsw <8 x i32> %229, %102
+  %231 = ashr <8 x i32> %218, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %232 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %231, <8 x i32> zeroinitializer)
+  %233 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %232, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %234 = extractelement <8 x i64> %166, i64 0
+  %235 = ashr <8 x i32> %224, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %236 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %235, <8 x i32> zeroinitializer)
+  %237 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %236, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %238 = trunc <8 x i32> %237 to <8 x i16>
+  %239 = ashr <8 x i32> %230, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %240 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %239, <8 x i32> zeroinitializer)
   %241 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %240, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
   %242 = trunc <8 x i32> %241 to <8 x i16>
-  %243 = ashr <8 x i32> %233, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %244 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %243, <8 x i32> zeroinitializer)
-  %245 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %244, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %246 = trunc <8 x i32> %245 to <8 x i16>
-  %247 = getelementptr i16, ptr %103, i64 %238
-  %248 = shufflevector <8 x i16> %197, <8 x i16> %201, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %249 = shufflevector <8 x i16> %205, <8 x i16> %237, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %250 = shufflevector <16 x i16> %248, <16 x i16> %249, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %251 = shufflevector <8 x i16> %242, <8 x i16> %246, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %252 = shufflevector <32 x i16> %250, <32 x i16> %251, <48 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47>
-  store <48 x i16> %252, ptr %247, align 2, !tbaa !105
-  %253 = add nuw i64 %105, 8
-  %254 = add <8 x i64> %106, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %255 = icmp eq i64 %253, %90
-  br i1 %255, label %.loopexit, label %104, !llvm.loop !141
+  %243 = getelementptr i16, ptr %103, i64 %234
+  %244 = shufflevector <8 x i32> %196, <8 x i32> %199, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %245 = trunc <16 x i32> %244 to <16 x i16>
+  %246 = shufflevector <8 x i32> %202, <8 x i32> %233, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %247 = trunc <16 x i32> %246 to <16 x i16>
+  %248 = shufflevector <16 x i16> %245, <16 x i16> %247, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %249 = shufflevector <8 x i16> %238, <8 x i16> %242, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %250 = shufflevector <32 x i16> %248, <32 x i16> %249, <48 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47>
+  store <48 x i16> %250, ptr %243, align 2, !tbaa !105
+  %251 = add nuw i64 %105, 8
+  %252 = add <8 x i64> %106, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %253 = icmp eq i64 %251, %90
+  br i1 %253, label %.loopexit, label %104, !llvm.loop !141
 
 .loopexit:                                        ; preds = %104, %73, %2
-  %256 = phi i64 [ 0, %73 ], [ 0, %2 ], [ %90, %104 ]
-  %257 = insertelement <2 x i32> poison, i32 %57, i64 0
-  %258 = shufflevector <2 x i32> %257, <2 x i32> poison, <2 x i32> zeroinitializer
-  %259 = insertelement <4 x i32> poison, i32 %66, i64 0
-  %260 = shufflevector <2 x i32> %68, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %261 = shufflevector <4 x i32> %259, <4 x i32> %260, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %262 = shufflevector <4 x i32> %261, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %263 = getelementptr i8, ptr %64, i64 8
-  br label %264
+  %254 = phi i64 [ 0, %73 ], [ 0, %2 ], [ %90, %104 ]
+  %255 = insertelement <2 x i32> poison, i32 %57, i64 0
+  %256 = shufflevector <2 x i32> %255, <2 x i32> poison, <2 x i32> zeroinitializer
+  %257 = insertelement <4 x i32> poison, i32 %66, i64 0
+  %258 = shufflevector <2 x i32> %68, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %259 = shufflevector <4 x i32> %257, <4 x i32> %258, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %260 = shufflevector <4 x i32> %259, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %261 = getelementptr i8, ptr %64, i64 8
+  br label %262
 
-264:                                              ; preds = %264, %.loopexit
-  %265 = phi i64 [ %271, %264 ], [ %256, %.loopexit ]
-  %266 = icmp ult i64 %265, %70
-  tail call void @llvm.assume(i1 %266)
-  %267 = shl nuw nsw i64 %265, 2
-  %268 = getelementptr inbounds i16, ptr %53, i64 %267
-  %269 = or disjoint i64 %267, 2
-  %270 = getelementptr i16, ptr %53, i64 %269
-  %271 = add nuw nsw i64 %265, 1
-  %272 = shl nuw nsw i64 %271, 2
-  %273 = or disjoint i64 %272, 1
-  %274 = icmp ult i64 %273, %54
-  tail call void @llvm.assume(i1 %274)
-  %275 = or disjoint i64 %272, 2
-  %276 = add nuw nsw i64 %272, 4
-  %277 = icmp ule i64 %276, %54
-  tail call void @llvm.assume(i1 %277)
-  %278 = getelementptr i16, ptr %53, i64 %275
-  %279 = load <2 x i16>, ptr %270, align 2, !tbaa !105, !noalias !138
-  %280 = zext <2 x i16> %279 to <2 x i32>
-  %281 = add <2 x i32> %258, %280
-  %282 = load <2 x i16>, ptr %278, align 2, !tbaa !105, !noalias !138
-  %283 = zext <2 x i16> %282 to <2 x i32>
-  %284 = add <2 x i32> %258, %283
-  %285 = mul nuw nsw i64 %265, 6
-  %286 = getelementptr i16, ptr %64, i64 %285
-  %287 = add nuw nsw i64 %285, 6
-  %288 = icmp ule i64 %287, %69
-  tail call void @llvm.assume(i1 %288)
-  %289 = load <2 x i16>, ptr %268, align 2, !tbaa !105, !noalias !138
-  %290 = zext <2 x i16> %289 to <2 x i32>
-  %291 = shufflevector <2 x i32> %290, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %292 = shufflevector <2 x i32> %281, <2 x i32> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %293 = getelementptr i16, ptr %263, i64 %285
-  %294 = add nsw <2 x i32> %284, %281
-  %295 = ashr <2 x i32> %294, <i32 1, i32 1>
-  %296 = mul <2 x i32> %295, <i32 29040, i32 -11751>
-  %297 = shufflevector <2 x i32> %296, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %298 = mul <2 x i32> %295, <i32 -5640, i32 -101>
-  %299 = add <2 x i32> %297, %298
-  %300 = ashr <2 x i32> %299, <i32 12, i32 12>
-  %301 = shufflevector <2 x i32> %295, <2 x i32> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %302 = shufflevector <2 x i32> %281, <2 x i32> %295, <4 x i32> <i32 0, i32 1, i32 poison, i32 2>
-  %303 = shufflevector <4 x i32> %302, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %304 = mul <4 x i32> %303, <i32 50, i32 -11751, i32 29040, i32 50>
-  %305 = shufflevector <2 x i32> %281, <2 x i32> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
-  %306 = shufflevector <4 x i32> %305, <4 x i32> %292, <4 x i32> <i32 0, i32 1, i32 5, i32 poison>
-  %307 = shufflevector <4 x i32> %306, <4 x i32> %301, <4 x i32> <i32 0, i32 1, i32 2, i32 5>
-  %308 = mul <4 x i32> %307, <i32 22929, i32 -5640, i32 -101, i32 22929>
-  %309 = add <4 x i32> %308, %304
-  %310 = ashr <4 x i32> %309, <i32 12, i32 12, i32 12, i32 12>
-  %311 = add nsw <4 x i32> %310, %291
-  %312 = mul nsw <4 x i32> %311, %262
-  %313 = shufflevector <2 x i32> %290, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
-  %314 = add nsw <2 x i32> %300, %313
-  %315 = mul nsw <2 x i32> %314, %68
-  %316 = ashr <4 x i32> %312, <i32 8, i32 8, i32 8, i32 8>
-  %317 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %316, <4 x i32> zeroinitializer)
-  %318 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %317, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
-  %319 = trunc <4 x i32> %318 to <4 x i16>
-  store <4 x i16> %319, ptr %286, align 2, !tbaa !105
-  %320 = ashr <2 x i32> %315, <i32 8, i32 8>
-  %321 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %320, <2 x i32> zeroinitializer)
-  %322 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %321, <2 x i32> <i32 65535, i32 65535>)
-  %323 = trunc <2 x i32> %322 to <2 x i16>
-  store <2 x i16> %323, ptr %293, align 2, !tbaa !105
-  %324 = icmp eq i64 %271, %71
-  br i1 %324, label %325, label %264, !llvm.loop !142
+262:                                              ; preds = %262, %.loopexit
+  %263 = phi i64 [ %269, %262 ], [ %254, %.loopexit ]
+  %264 = icmp ult i64 %263, %70
+  tail call void @llvm.assume(i1 %264)
+  %265 = shl nuw nsw i64 %263, 2
+  %266 = getelementptr inbounds i16, ptr %53, i64 %265
+  %267 = or disjoint i64 %265, 2
+  %268 = getelementptr i16, ptr %53, i64 %267
+  %269 = add nuw nsw i64 %263, 1
+  %270 = shl nuw nsw i64 %269, 2
+  %271 = or disjoint i64 %270, 1
+  %272 = icmp ult i64 %271, %54
+  tail call void @llvm.assume(i1 %272)
+  %273 = or disjoint i64 %270, 2
+  %274 = add nuw nsw i64 %270, 4
+  %275 = icmp ule i64 %274, %54
+  tail call void @llvm.assume(i1 %275)
+  %276 = getelementptr i16, ptr %53, i64 %273
+  %277 = load <2 x i16>, ptr %268, align 2, !tbaa !105, !noalias !138
+  %278 = zext <2 x i16> %277 to <2 x i32>
+  %279 = add <2 x i32> %256, %278
+  %280 = load <2 x i16>, ptr %276, align 2, !tbaa !105, !noalias !138
+  %281 = zext <2 x i16> %280 to <2 x i32>
+  %282 = add <2 x i32> %256, %281
+  %283 = mul nuw nsw i64 %263, 6
+  %284 = getelementptr i16, ptr %64, i64 %283
+  %285 = add nuw nsw i64 %283, 6
+  %286 = icmp ule i64 %285, %69
+  tail call void @llvm.assume(i1 %286)
+  %287 = load <2 x i16>, ptr %266, align 2, !tbaa !105, !noalias !138
+  %288 = zext <2 x i16> %287 to <2 x i32>
+  %289 = shufflevector <2 x i32> %288, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %290 = shufflevector <2 x i32> %279, <2 x i32> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
+  %291 = getelementptr i16, ptr %261, i64 %283
+  %292 = add nsw <2 x i32> %282, %279
+  %293 = ashr <2 x i32> %292, <i32 1, i32 1>
+  %294 = mul <2 x i32> %293, <i32 29040, i32 -11751>
+  %295 = shufflevector <2 x i32> %294, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %296 = mul <2 x i32> %293, <i32 -5640, i32 -101>
+  %297 = add <2 x i32> %295, %296
+  %298 = ashr <2 x i32> %297, <i32 12, i32 12>
+  %299 = shufflevector <2 x i32> %293, <2 x i32> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
+  %300 = shufflevector <2 x i32> %279, <2 x i32> %293, <4 x i32> <i32 0, i32 1, i32 poison, i32 2>
+  %301 = shufflevector <4 x i32> %300, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %302 = mul <4 x i32> %301, <i32 50, i32 -11751, i32 29040, i32 50>
+  %303 = shufflevector <2 x i32> %279, <2 x i32> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %304 = shufflevector <4 x i32> %303, <4 x i32> %290, <4 x i32> <i32 0, i32 1, i32 5, i32 poison>
+  %305 = shufflevector <4 x i32> %304, <4 x i32> %299, <4 x i32> <i32 0, i32 1, i32 2, i32 5>
+  %306 = mul <4 x i32> %305, <i32 22929, i32 -5640, i32 -101, i32 22929>
+  %307 = add <4 x i32> %306, %302
+  %308 = ashr <4 x i32> %307, <i32 12, i32 12, i32 12, i32 12>
+  %309 = add nsw <4 x i32> %308, %289
+  %310 = mul nsw <4 x i32> %309, %260
+  %311 = shufflevector <2 x i32> %288, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
+  %312 = add nsw <2 x i32> %298, %311
+  %313 = mul nsw <2 x i32> %312, %68
+  %314 = ashr <4 x i32> %310, <i32 8, i32 8, i32 8, i32 8>
+  %315 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %314, <4 x i32> zeroinitializer)
+  %316 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %315, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %317 = trunc <4 x i32> %316 to <4 x i16>
+  store <4 x i16> %317, ptr %284, align 2, !tbaa !105
+  %318 = ashr <2 x i32> %313, <i32 8, i32 8>
+  %319 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %318, <2 x i32> zeroinitializer)
+  %320 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %319, <2 x i32> <i32 65535, i32 65535>)
+  %321 = trunc <2 x i32> %320 to <2 x i16>
+  store <2 x i16> %321, ptr %291, align 2, !tbaa !105
+  %322 = icmp eq i64 %269, %71
+  br i1 %322, label %323, label %262, !llvm.loop !142
 
-325:                                              ; preds = %264
-  %326 = shl nsw i32 %45, 2
-  %327 = zext nneg i32 %326 to i64
-  %328 = getelementptr inbounds i16, ptr %53, i64 %327
-  %329 = or disjoint i64 %327, 1
-  %330 = icmp ult i64 %329, %54
-  tail call void @llvm.assume(i1 %330)
-  %331 = or disjoint i32 %326, 2
-  %332 = add nuw i32 %326, 4
-  %333 = icmp ule i32 %332, %28
-  tail call void @llvm.assume(i1 %333)
-  %334 = zext nneg i32 %331 to i64
-  %335 = getelementptr i16, ptr %53, i64 %334
-  %336 = load <2 x i16>, ptr %335, align 2, !tbaa !105, !noalias !143
-  %337 = mul nsw i32 %45, 6
-  %338 = load <4 x i32>, ptr %65, align 8
-  %339 = zext nneg i32 %337 to i64
-  %340 = getelementptr i16, ptr %64, i64 %339
-  %341 = add nuw nsw i64 %339, 6
-  %342 = icmp ule i64 %341, %69
-  tail call void @llvm.assume(i1 %342)
-  %343 = load <2 x i16>, ptr %328, align 2, !tbaa !105, !noalias !143
-  %344 = zext <2 x i16> %343 to <2 x i32>
-  %345 = shufflevector <2 x i32> %344, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %346 = getelementptr i8, ptr %340, i64 8
-  %347 = zext <2 x i16> %336 to <2 x i32>
-  %348 = add <2 x i32> %258, %347
-  %349 = mul nsw <2 x i32> %348, <i32 50, i32 22929>
-  %350 = shufflevector <2 x i32> %349, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %351 = add nsw <2 x i32> %350, %349
-  %352 = extractelement <2 x i32> %351, i64 0
-  %353 = ashr i32 %352, 12
-  %354 = mul <2 x i32> %348, <i32 29040, i32 -11751>
-  %355 = shufflevector <2 x i32> %354, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %356 = mul <2 x i32> %348, <i32 -5640, i32 -101>
-  %357 = add <2 x i32> %355, %356
-  %358 = ashr <2 x i32> %357, <i32 12, i32 12>
-  %359 = insertelement <4 x i32> poison, i32 %353, i64 0
-  %360 = shufflevector <2 x i32> %358, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %361 = shufflevector <4 x i32> %359, <4 x i32> %360, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %362 = shufflevector <4 x i32> %361, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %363 = add nsw <4 x i32> %362, %345
-  %364 = shufflevector <4 x i32> %338, <4 x i32> %260, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %365 = shufflevector <4 x i32> %364, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %366 = mul nsw <4 x i32> %363, %365
-  %367 = shufflevector <2 x i32> %344, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
-  %368 = add nsw <2 x i32> %358, %367
-  %369 = mul nsw <2 x i32> %368, %68
-  %370 = ashr <4 x i32> %366, <i32 8, i32 8, i32 8, i32 8>
-  %371 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %370, <4 x i32> zeroinitializer)
-  %372 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %371, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
-  %373 = trunc <4 x i32> %372 to <4 x i16>
-  store <4 x i16> %373, ptr %340, align 2, !tbaa !105
-  %374 = ashr <2 x i32> %369, <i32 8, i32 8>
-  %375 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %374, <2 x i32> zeroinitializer)
-  %376 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %375, <2 x i32> <i32 65535, i32 65535>)
-  %377 = trunc <2 x i32> %376 to <2 x i16>
-  store <2 x i16> %377, ptr %346, align 2, !tbaa !105
+323:                                              ; preds = %262
+  %324 = shl nsw i32 %45, 2
+  %325 = zext nneg i32 %324 to i64
+  %326 = getelementptr inbounds i16, ptr %53, i64 %325
+  %327 = or disjoint i64 %325, 1
+  %328 = icmp ult i64 %327, %54
+  tail call void @llvm.assume(i1 %328)
+  %329 = or disjoint i32 %324, 2
+  %330 = add nuw i32 %324, 4
+  %331 = icmp ule i32 %330, %28
+  tail call void @llvm.assume(i1 %331)
+  %332 = zext nneg i32 %329 to i64
+  %333 = getelementptr i16, ptr %53, i64 %332
+  %334 = load <2 x i16>, ptr %333, align 2, !tbaa !105, !noalias !143
+  %335 = mul nsw i32 %45, 6
+  %336 = load <4 x i32>, ptr %65, align 8
+  %337 = zext nneg i32 %335 to i64
+  %338 = getelementptr i16, ptr %64, i64 %337
+  %339 = add nuw nsw i64 %337, 6
+  %340 = icmp ule i64 %339, %69
+  tail call void @llvm.assume(i1 %340)
+  %341 = load <2 x i16>, ptr %326, align 2, !tbaa !105, !noalias !143
+  %342 = zext <2 x i16> %341 to <2 x i32>
+  %343 = shufflevector <2 x i32> %342, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %344 = getelementptr i8, ptr %338, i64 8
+  %345 = zext <2 x i16> %334 to <2 x i32>
+  %346 = add <2 x i32> %256, %345
+  %347 = mul nsw <2 x i32> %346, <i32 50, i32 22929>
+  %348 = shufflevector <2 x i32> %347, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %349 = add nsw <2 x i32> %348, %347
+  %350 = extractelement <2 x i32> %349, i64 0
+  %351 = ashr i32 %350, 12
+  %352 = mul <2 x i32> %346, <i32 29040, i32 -11751>
+  %353 = shufflevector <2 x i32> %352, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %354 = mul <2 x i32> %346, <i32 -5640, i32 -101>
+  %355 = add <2 x i32> %353, %354
+  %356 = ashr <2 x i32> %355, <i32 12, i32 12>
+  %357 = insertelement <4 x i32> poison, i32 %351, i64 0
+  %358 = shufflevector <2 x i32> %356, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %359 = shufflevector <4 x i32> %357, <4 x i32> %358, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %360 = shufflevector <4 x i32> %359, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %361 = add nsw <4 x i32> %360, %343
+  %362 = shufflevector <4 x i32> %336, <4 x i32> %258, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %363 = shufflevector <4 x i32> %362, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %364 = mul nsw <4 x i32> %361, %363
+  %365 = shufflevector <2 x i32> %342, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
+  %366 = add nsw <2 x i32> %356, %365
+  %367 = mul nsw <2 x i32> %366, %68
+  %368 = ashr <4 x i32> %364, <i32 8, i32 8, i32 8, i32 8>
+  %369 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %368, <4 x i32> zeroinitializer)
+  %370 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %369, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %371 = trunc <4 x i32> %370 to <4 x i16>
+  store <4 x i16> %371, ptr %338, align 2, !tbaa !105
+  %372 = ashr <2 x i32> %367, <i32 8, i32 8>
+  %373 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %372, <2 x i32> zeroinitializer)
+  %374 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %373, <2 x i32> <i32 65535, i32 65535>)
+  %375 = trunc <2 x i32> %374 to <2 x i16>
+  store <2 x i16> %375, ptr %344, align 2, !tbaa !105
   ret void
 }
 
@@ -1923,8 +1919,8 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   br label %104
 
 104:                                              ; preds = %104, %86
-  %105 = phi i64 [ 0, %86 ], [ %237, %104 ]
-  %106 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %86 ], [ %238, %104 ]
+  %105 = phi i64 [ 0, %86 ], [ %235, %104 ]
+  %106 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %86 ], [ %236, %104 ]
   %107 = icmp ult <8 x i64> %106, %92
   %108 = extractelement <8 x i1> %107, i64 0
   tail call void @llvm.assume(i1 %108)
@@ -2039,212 +2035,210 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %186 = ashr <8 x i32> %177, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %187 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %186, <8 x i32> zeroinitializer)
   %188 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %187, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %189 = trunc <8 x i32> %188 to <8 x i16>
-  %190 = ashr <8 x i32> %183, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %191 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %190, <8 x i32> zeroinitializer)
-  %192 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %191, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %193 = trunc <8 x i32> %192 to <8 x i16>
-  %194 = ashr <8 x i32> %185, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %195 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %194, <8 x i32> zeroinitializer)
-  %196 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %195, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %197 = trunc <8 x i32> %196 to <8 x i16>
-  %198 = add nuw nsw <8 x i64> %165, <i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6>
-  %199 = icmp ule <8 x i64> %198, %98
-  %200 = extractelement <8 x i1> %199, i64 0
+  %189 = ashr <8 x i32> %183, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %190 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %189, <8 x i32> zeroinitializer)
+  %191 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %190, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %192 = ashr <8 x i32> %185, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %193 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %192, <8 x i32> zeroinitializer)
+  %194 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %193, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %195 = add nuw nsw <8 x i64> %165, <i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6>
+  %196 = icmp ule <8 x i64> %195, %98
+  %197 = extractelement <8 x i1> %196, i64 0
+  tail call void @llvm.assume(i1 %197)
+  %198 = extractelement <8 x i1> %196, i64 1
+  tail call void @llvm.assume(i1 %198)
+  %199 = extractelement <8 x i1> %196, i64 2
+  tail call void @llvm.assume(i1 %199)
+  %200 = extractelement <8 x i1> %196, i64 3
   tail call void @llvm.assume(i1 %200)
-  %201 = extractelement <8 x i1> %199, i64 1
+  %201 = extractelement <8 x i1> %196, i64 4
   tail call void @llvm.assume(i1 %201)
-  %202 = extractelement <8 x i1> %199, i64 2
+  %202 = extractelement <8 x i1> %196, i64 5
   tail call void @llvm.assume(i1 %202)
-  %203 = extractelement <8 x i1> %199, i64 3
+  %203 = extractelement <8 x i1> %196, i64 6
   tail call void @llvm.assume(i1 %203)
-  %204 = extractelement <8 x i1> %199, i64 4
+  %204 = extractelement <8 x i1> %196, i64 7
   tail call void @llvm.assume(i1 %204)
-  %205 = extractelement <8 x i1> %199, i64 5
-  tail call void @llvm.assume(i1 %205)
-  %206 = extractelement <8 x i1> %199, i64 6
-  tail call void @llvm.assume(i1 %206)
-  %207 = extractelement <8 x i1> %199, i64 7
-  tail call void @llvm.assume(i1 %207)
-  %208 = add nsw <8 x i32> %164, %124
-  %209 = mul nsw <8 x i32> %208, %100
-  %210 = mul nsw <8 x i32> %161, <i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778>
-  %211 = shl nsw <8 x i32> %164, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
-  %212 = sub nsw <8 x i32> %210, %211
-  %213 = ashr <8 x i32> %212, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
-  %214 = add nsw <8 x i32> %213, %124
-  %215 = mul nsw <8 x i32> %214, %101
-  %216 = add nsw <8 x i32> %161, %124
-  %217 = mul nsw <8 x i32> %216, %102
-  %218 = ashr <8 x i32> %209, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %219 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %218, <8 x i32> zeroinitializer)
-  %220 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %219, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %221 = trunc <8 x i32> %220 to <8 x i16>
-  %222 = extractelement <8 x i64> %166, i64 0
-  %223 = ashr <8 x i32> %215, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %205 = add nsw <8 x i32> %164, %124
+  %206 = mul nsw <8 x i32> %205, %100
+  %207 = mul nsw <8 x i32> %161, <i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778, i32 -778>
+  %208 = shl nsw <8 x i32> %164, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
+  %209 = sub nsw <8 x i32> %207, %208
+  %210 = ashr <8 x i32> %209, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
+  %211 = add nsw <8 x i32> %210, %124
+  %212 = mul nsw <8 x i32> %211, %101
+  %213 = add nsw <8 x i32> %161, %124
+  %214 = mul nsw <8 x i32> %213, %102
+  %215 = ashr <8 x i32> %206, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %216 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %215, <8 x i32> zeroinitializer)
+  %217 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %216, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %218 = extractelement <8 x i64> %166, i64 0
+  %219 = ashr <8 x i32> %212, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %220 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %219, <8 x i32> zeroinitializer)
+  %221 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %220, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %222 = trunc <8 x i32> %221 to <8 x i16>
+  %223 = ashr <8 x i32> %214, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %224 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %223, <8 x i32> zeroinitializer)
   %225 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %224, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
   %226 = trunc <8 x i32> %225 to <8 x i16>
-  %227 = ashr <8 x i32> %217, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %228 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %227, <8 x i32> zeroinitializer)
-  %229 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %228, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
-  %230 = trunc <8 x i32> %229 to <8 x i16>
-  %231 = getelementptr i16, ptr %103, i64 %222
-  %232 = shufflevector <8 x i16> %189, <8 x i16> %193, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %233 = shufflevector <8 x i16> %197, <8 x i16> %221, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %234 = shufflevector <16 x i16> %232, <16 x i16> %233, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %235 = shufflevector <8 x i16> %226, <8 x i16> %230, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %236 = shufflevector <32 x i16> %234, <32 x i16> %235, <48 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47>
-  store <48 x i16> %236, ptr %231, align 2, !tbaa !105
-  %237 = add nuw i64 %105, 8
-  %238 = add <8 x i64> %106, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %239 = icmp eq i64 %237, %90
-  br i1 %239, label %.loopexit, label %104, !llvm.loop !152
+  %227 = getelementptr i16, ptr %103, i64 %218
+  %228 = shufflevector <8 x i32> %188, <8 x i32> %191, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %229 = trunc <16 x i32> %228 to <16 x i16>
+  %230 = shufflevector <8 x i32> %194, <8 x i32> %217, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %231 = trunc <16 x i32> %230 to <16 x i16>
+  %232 = shufflevector <16 x i16> %229, <16 x i16> %231, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %233 = shufflevector <8 x i16> %222, <8 x i16> %226, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %234 = shufflevector <32 x i16> %232, <32 x i16> %233, <48 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47>
+  store <48 x i16> %234, ptr %227, align 2, !tbaa !105
+  %235 = add nuw i64 %105, 8
+  %236 = add <8 x i64> %106, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %237 = icmp eq i64 %235, %90
+  br i1 %237, label %.loopexit, label %104, !llvm.loop !152
 
 .loopexit:                                        ; preds = %104, %73, %2
-  %240 = phi i64 [ 0, %73 ], [ 0, %2 ], [ %90, %104 ]
-  %241 = insertelement <4 x i32> poison, i32 %66, i64 0
-  %242 = shufflevector <2 x i32> %68, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %243 = shufflevector <4 x i32> %241, <4 x i32> %242, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %244 = shufflevector <4 x i32> %243, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %245 = getelementptr i8, ptr %64, i64 8
-  br label %246
+  %238 = phi i64 [ 0, %73 ], [ 0, %2 ], [ %90, %104 ]
+  %239 = insertelement <4 x i32> poison, i32 %66, i64 0
+  %240 = shufflevector <2 x i32> %68, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %241 = shufflevector <4 x i32> %239, <4 x i32> %240, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %242 = shufflevector <4 x i32> %241, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %243 = getelementptr i8, ptr %64, i64 8
+  br label %244
 
-246:                                              ; preds = %246, %.loopexit
-  %247 = phi i64 [ %258, %246 ], [ %240, %.loopexit ]
-  %248 = icmp ult i64 %247, %70
-  tail call void @llvm.assume(i1 %248)
-  %249 = shl nuw nsw i64 %247, 2
-  %250 = getelementptr inbounds i16, ptr %53, i64 %249
-  %251 = or disjoint i64 %249, 2
-  %252 = getelementptr i16, ptr %53, i64 %251
-  %253 = load i16, ptr %252, align 2, !tbaa !105, !noalias !149
-  %254 = zext i16 %253 to i32
-  %255 = getelementptr i8, ptr %252, i64 2
-  %256 = load i16, ptr %255, align 2, !tbaa !105, !noalias !149
-  %257 = zext i16 %256 to i32
-  %258 = add nuw nsw i64 %247, 1
-  %259 = shl nuw nsw i64 %258, 2
-  %260 = or disjoint i64 %259, 1
-  %261 = icmp ult i64 %260, %54
-  tail call void @llvm.assume(i1 %261)
-  %262 = or disjoint i64 %259, 2
-  %263 = add nuw nsw i64 %259, 4
-  %264 = icmp ule i64 %263, %54
-  tail call void @llvm.assume(i1 %264)
-  %265 = getelementptr i16, ptr %53, i64 %262
-  %266 = load i16, ptr %265, align 2, !tbaa !105, !noalias !149
-  %267 = zext i16 %266 to i32
-  %268 = getelementptr i8, ptr %265, i64 2
-  %269 = load i16, ptr %268, align 2, !tbaa !105, !noalias !149
-  %270 = zext i16 %269 to i32
-  %271 = mul nuw nsw i64 %247, 6
-  %272 = getelementptr i16, ptr %64, i64 %271
-  %273 = add nuw nsw i64 %271, 6
-  %274 = icmp ule i64 %273, %69
-  tail call void @llvm.assume(i1 %274)
-  %275 = load <2 x i16>, ptr %250, align 2, !tbaa !105, !noalias !149
-  %276 = zext <2 x i16> %275 to <2 x i32>
-  %277 = shufflevector <2 x i32> %276, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %278 = add i32 %57, %254
-  %279 = add i32 %57, %257
-  %280 = add i32 %278, %57
-  %281 = add i32 %280, %267
-  %282 = add i32 %279, %57
-  %283 = add i32 %282, %270
-  %284 = ashr i32 %283, 1
-  %285 = mul nsw i32 %278, -778
-  %286 = shl nsw i32 %279, 11
-  %287 = sub nsw i32 %285, %286
-  %288 = ashr i32 %287, 12
-  %289 = insertelement <4 x i32> poison, i32 %279, i64 0
-  %290 = insertelement <4 x i32> %289, i32 %288, i64 1
-  %291 = insertelement <4 x i32> %290, i32 %278, i64 2
-  %292 = insertelement <4 x i32> %291, i32 %284, i64 3
-  %293 = add nsw <4 x i32> %292, %277
-  %294 = mul nsw <4 x i32> %293, %244
-  %295 = shl nsw i32 %284, 11
-  %296 = ashr <4 x i32> %294, <i32 8, i32 8, i32 8, i32 8>
-  %297 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %296, <4 x i32> zeroinitializer)
-  %298 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %297, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
-  %299 = trunc <4 x i32> %298 to <4 x i16>
-  store <4 x i16> %299, ptr %272, align 2, !tbaa !105
-  %300 = getelementptr i16, ptr %245, i64 %271
-  %301 = ashr i32 %281, 1
-  %302 = mul nsw i32 %301, -778
-  %303 = sub nsw i32 %302, %295
-  %304 = ashr i32 %303, 12
-  %305 = insertelement <2 x i32> poison, i32 %304, i64 0
-  %306 = insertelement <2 x i32> %305, i32 %301, i64 1
-  %307 = shufflevector <2 x i32> %276, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
-  %308 = add nsw <2 x i32> %306, %307
-  %309 = mul nsw <2 x i32> %308, %68
-  %310 = ashr <2 x i32> %309, <i32 8, i32 8>
-  %311 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %310, <2 x i32> zeroinitializer)
-  %312 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %311, <2 x i32> <i32 65535, i32 65535>)
-  %313 = trunc <2 x i32> %312 to <2 x i16>
-  store <2 x i16> %313, ptr %300, align 2, !tbaa !105
-  %314 = icmp eq i64 %258, %71
-  br i1 %314, label %315, label %246, !llvm.loop !153
+244:                                              ; preds = %244, %.loopexit
+  %245 = phi i64 [ %256, %244 ], [ %238, %.loopexit ]
+  %246 = icmp ult i64 %245, %70
+  tail call void @llvm.assume(i1 %246)
+  %247 = shl nuw nsw i64 %245, 2
+  %248 = getelementptr inbounds i16, ptr %53, i64 %247
+  %249 = or disjoint i64 %247, 2
+  %250 = getelementptr i16, ptr %53, i64 %249
+  %251 = load i16, ptr %250, align 2, !tbaa !105, !noalias !149
+  %252 = zext i16 %251 to i32
+  %253 = getelementptr i8, ptr %250, i64 2
+  %254 = load i16, ptr %253, align 2, !tbaa !105, !noalias !149
+  %255 = zext i16 %254 to i32
+  %256 = add nuw nsw i64 %245, 1
+  %257 = shl nuw nsw i64 %256, 2
+  %258 = or disjoint i64 %257, 1
+  %259 = icmp ult i64 %258, %54
+  tail call void @llvm.assume(i1 %259)
+  %260 = or disjoint i64 %257, 2
+  %261 = add nuw nsw i64 %257, 4
+  %262 = icmp ule i64 %261, %54
+  tail call void @llvm.assume(i1 %262)
+  %263 = getelementptr i16, ptr %53, i64 %260
+  %264 = load i16, ptr %263, align 2, !tbaa !105, !noalias !149
+  %265 = zext i16 %264 to i32
+  %266 = getelementptr i8, ptr %263, i64 2
+  %267 = load i16, ptr %266, align 2, !tbaa !105, !noalias !149
+  %268 = zext i16 %267 to i32
+  %269 = mul nuw nsw i64 %245, 6
+  %270 = getelementptr i16, ptr %64, i64 %269
+  %271 = add nuw nsw i64 %269, 6
+  %272 = icmp ule i64 %271, %69
+  tail call void @llvm.assume(i1 %272)
+  %273 = load <2 x i16>, ptr %248, align 2, !tbaa !105, !noalias !149
+  %274 = zext <2 x i16> %273 to <2 x i32>
+  %275 = shufflevector <2 x i32> %274, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %276 = add i32 %57, %252
+  %277 = add i32 %57, %255
+  %278 = add i32 %276, %57
+  %279 = add i32 %278, %265
+  %280 = add i32 %277, %57
+  %281 = add i32 %280, %268
+  %282 = ashr i32 %281, 1
+  %283 = mul nsw i32 %276, -778
+  %284 = shl nsw i32 %277, 11
+  %285 = sub nsw i32 %283, %284
+  %286 = ashr i32 %285, 12
+  %287 = insertelement <4 x i32> poison, i32 %277, i64 0
+  %288 = insertelement <4 x i32> %287, i32 %286, i64 1
+  %289 = insertelement <4 x i32> %288, i32 %276, i64 2
+  %290 = insertelement <4 x i32> %289, i32 %282, i64 3
+  %291 = add nsw <4 x i32> %290, %275
+  %292 = mul nsw <4 x i32> %291, %242
+  %293 = shl nsw i32 %282, 11
+  %294 = ashr <4 x i32> %292, <i32 8, i32 8, i32 8, i32 8>
+  %295 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %294, <4 x i32> zeroinitializer)
+  %296 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %295, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %297 = trunc <4 x i32> %296 to <4 x i16>
+  store <4 x i16> %297, ptr %270, align 2, !tbaa !105
+  %298 = getelementptr i16, ptr %243, i64 %269
+  %299 = ashr i32 %279, 1
+  %300 = mul nsw i32 %299, -778
+  %301 = sub nsw i32 %300, %293
+  %302 = ashr i32 %301, 12
+  %303 = insertelement <2 x i32> poison, i32 %302, i64 0
+  %304 = insertelement <2 x i32> %303, i32 %299, i64 1
+  %305 = shufflevector <2 x i32> %274, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
+  %306 = add nsw <2 x i32> %304, %305
+  %307 = mul nsw <2 x i32> %306, %68
+  %308 = ashr <2 x i32> %307, <i32 8, i32 8>
+  %309 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %308, <2 x i32> zeroinitializer)
+  %310 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %309, <2 x i32> <i32 65535, i32 65535>)
+  %311 = trunc <2 x i32> %310 to <2 x i16>
+  store <2 x i16> %311, ptr %298, align 2, !tbaa !105
+  %312 = icmp eq i64 %256, %71
+  br i1 %312, label %313, label %244, !llvm.loop !153
 
-315:                                              ; preds = %246
-  %316 = shl nsw i32 %45, 2
-  %317 = zext nneg i32 %316 to i64
-  %318 = getelementptr inbounds i16, ptr %53, i64 %317
-  %319 = or disjoint i64 %317, 1
-  %320 = icmp ult i64 %319, %54
-  tail call void @llvm.assume(i1 %320)
-  %321 = or disjoint i32 %316, 2
-  %322 = add nuw i32 %316, 4
-  %323 = icmp ule i32 %322, %28
-  tail call void @llvm.assume(i1 %323)
-  %324 = zext nneg i32 %321 to i64
-  %325 = getelementptr i16, ptr %53, i64 %324
-  %326 = load i16, ptr %325, align 2, !tbaa !105, !noalias !154
-  %327 = zext i16 %326 to i32
-  %328 = getelementptr i8, ptr %325, i64 2
-  %329 = load i16, ptr %328, align 2, !tbaa !105, !noalias !154
-  %330 = zext i16 %329 to i32
-  %331 = add i32 %57, %327
-  %332 = add i32 %57, %330
-  %333 = mul nsw i32 %45, 6
-  %334 = load <4 x i32>, ptr %65, align 8
-  %335 = zext nneg i32 %333 to i64
-  %336 = mul nsw i32 %331, -778
-  %337 = shl nsw i32 %332, 11
-  %338 = sub nsw i32 %336, %337
-  %339 = ashr i32 %338, 12
-  %340 = getelementptr i16, ptr %64, i64 %335
-  %341 = add nuw nsw i64 %335, 6
-  %342 = icmp ule i64 %341, %69
-  tail call void @llvm.assume(i1 %342)
-  %343 = load <2 x i16>, ptr %318, align 2, !tbaa !105, !noalias !154
-  %344 = zext <2 x i16> %343 to <2 x i32>
-  %345 = shufflevector <2 x i32> %344, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %346 = insertelement <4 x i32> poison, i32 %332, i64 0
-  %347 = insertelement <4 x i32> %346, i32 %339, i64 1
-  %348 = insertelement <4 x i32> %347, i32 %331, i64 2
-  %349 = shufflevector <4 x i32> %348, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %350 = add nsw <4 x i32> %349, %345
-  %351 = getelementptr i8, ptr %340, i64 8
-  %352 = shufflevector <4 x i32> %334, <4 x i32> %242, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %353 = shufflevector <4 x i32> %352, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %354 = mul nsw <4 x i32> %350, %353
-  %355 = insertelement <2 x i32> poison, i32 %339, i64 0
-  %356 = insertelement <2 x i32> %355, i32 %331, i64 1
-  %357 = shufflevector <2 x i32> %344, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
-  %358 = add nsw <2 x i32> %356, %357
-  %359 = mul nsw <2 x i32> %358, %68
-  %360 = ashr <4 x i32> %354, <i32 8, i32 8, i32 8, i32 8>
-  %361 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %360, <4 x i32> zeroinitializer)
-  %362 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %361, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
-  %363 = trunc <4 x i32> %362 to <4 x i16>
-  store <4 x i16> %363, ptr %340, align 2, !tbaa !105
-  %364 = ashr <2 x i32> %359, <i32 8, i32 8>
-  %365 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %364, <2 x i32> zeroinitializer)
-  %366 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %365, <2 x i32> <i32 65535, i32 65535>)
-  %367 = trunc <2 x i32> %366 to <2 x i16>
-  store <2 x i16> %367, ptr %351, align 2, !tbaa !105
+313:                                              ; preds = %244
+  %314 = shl nsw i32 %45, 2
+  %315 = zext nneg i32 %314 to i64
+  %316 = getelementptr inbounds i16, ptr %53, i64 %315
+  %317 = or disjoint i64 %315, 1
+  %318 = icmp ult i64 %317, %54
+  tail call void @llvm.assume(i1 %318)
+  %319 = or disjoint i32 %314, 2
+  %320 = add nuw i32 %314, 4
+  %321 = icmp ule i32 %320, %28
+  tail call void @llvm.assume(i1 %321)
+  %322 = zext nneg i32 %319 to i64
+  %323 = getelementptr i16, ptr %53, i64 %322
+  %324 = load i16, ptr %323, align 2, !tbaa !105, !noalias !154
+  %325 = zext i16 %324 to i32
+  %326 = getelementptr i8, ptr %323, i64 2
+  %327 = load i16, ptr %326, align 2, !tbaa !105, !noalias !154
+  %328 = zext i16 %327 to i32
+  %329 = add i32 %57, %325
+  %330 = add i32 %57, %328
+  %331 = mul nsw i32 %45, 6
+  %332 = load <4 x i32>, ptr %65, align 8
+  %333 = zext nneg i32 %331 to i64
+  %334 = mul nsw i32 %329, -778
+  %335 = shl nsw i32 %330, 11
+  %336 = sub nsw i32 %334, %335
+  %337 = ashr i32 %336, 12
+  %338 = getelementptr i16, ptr %64, i64 %333
+  %339 = add nuw nsw i64 %333, 6
+  %340 = icmp ule i64 %339, %69
+  tail call void @llvm.assume(i1 %340)
+  %341 = load <2 x i16>, ptr %316, align 2, !tbaa !105, !noalias !154
+  %342 = zext <2 x i16> %341 to <2 x i32>
+  %343 = shufflevector <2 x i32> %342, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %344 = insertelement <4 x i32> poison, i32 %330, i64 0
+  %345 = insertelement <4 x i32> %344, i32 %337, i64 1
+  %346 = insertelement <4 x i32> %345, i32 %329, i64 2
+  %347 = shufflevector <4 x i32> %346, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %348 = add nsw <4 x i32> %347, %343
+  %349 = getelementptr i8, ptr %338, i64 8
+  %350 = shufflevector <4 x i32> %332, <4 x i32> %240, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %351 = shufflevector <4 x i32> %350, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %352 = mul nsw <4 x i32> %348, %351
+  %353 = insertelement <2 x i32> poison, i32 %337, i64 0
+  %354 = insertelement <2 x i32> %353, i32 %329, i64 1
+  %355 = shufflevector <2 x i32> %342, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
+  %356 = add nsw <2 x i32> %354, %355
+  %357 = mul nsw <2 x i32> %356, %68
+  %358 = ashr <4 x i32> %352, <i32 8, i32 8, i32 8, i32 8>
+  %359 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %358, <4 x i32> zeroinitializer)
+  %360 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %359, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %361 = trunc <4 x i32> %360 to <4 x i16>
+  store <4 x i16> %361, ptr %338, align 2, !tbaa !105
+  %362 = ashr <2 x i32> %357, <i32 8, i32 8>
+  %363 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %362, <2 x i32> zeroinitializer)
+  %364 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %363, <2 x i32> <i32 65535, i32 65535>)
+  %365 = trunc <2 x i32> %364 to <2 x i16>
+  store <2 x i16> %365, ptr %349, align 2, !tbaa !105
   ret void
 }
 
