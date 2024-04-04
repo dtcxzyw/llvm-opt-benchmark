@@ -3249,17 +3249,18 @@ for.end85:                                        ; preds = %for.end85.loopexit,
   %add.ptr91 = getelementptr inbounds %union.TValue, ptr %110, i64 %idx.ext90
   store ptr %add.ptr91, ptr %base, align 8
   %112 = load i32, ptr %16, align 4
-  %and92 = and i32 %112, 255
-  %113 = add nsw i32 %and92, -63
-  %114 = call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 31)
-  switch i32 %114, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb
-    i32 5, label %sw.bb
-    i32 0, label %sw.bb
+  %trunc = trunc i32 %112 to i8
+  %113 = sub i8 %trunc, 63
+  %114 = call i8 @llvm.fshl.i8(i8 %113, i8 %113, i8 7)
+  switch i8 %114, label %sw.default [
+    i8 1, label %sw.bb
+    i8 2, label %sw.bb
+    i8 5, label %sw.bb
+    i8 0, label %sw.bb
   ]
 
 sw.default:                                       ; preds = %for.end85
+  %and92 = and i32 %112, 255
   %cmp94 = icmp ult i32 %and92, 89
   br i1 %cmp94, label %if.then96, label %sw.bb
 
@@ -3687,9 +3688,6 @@ declare hidden void @lj_ir_kvalue(ptr noundef, ptr noundef, ptr noundef) local_u
 declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3700,6 +3698,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

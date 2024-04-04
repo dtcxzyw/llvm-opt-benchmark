@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZGVZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize = internal global i64 0, align 8
 @_ZZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize = internal unnamed_addr global i64 0, align 8
 @_ZGVZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize = internal global i64 0, align 8
-@switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 1, i32 7], align 4
+@switch.table._ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 1, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i64 } @_ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(i64 noundef %NumBytes, ptr noundef readonly %NearBlock, i32 noundef %PFlags, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %EC) local_unnamed_addr #0 align 2 {
@@ -51,7 +51,7 @@ init.end:                                         ; preds = %init, %init.check, 
   %switch.lobit = trunc i8 %switch.shifted to i1
   tail call void @llvm.assume(i1 %switch.lobit)
   %5 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %tobool2.not = icmp eq ptr %NearBlock, null
   br i1 %tobool2.not, label %if.end12.thread, label %cond.end
@@ -188,56 +188,48 @@ if.then:                                          ; preds = %lor.lhs.false, %ini
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %tobool2.not = icmp eq i32 %Flags, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end5
+  %switch = icmp eq i32 %Flags, 0
+  br i1 %switch, label %if.then3, label %_ZN12_GLOBAL__N_123getPosixProtectionFlagsEj.exit
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #8
   br label %return
 
-if.end5:                                          ; preds = %if.end
-  %4 = add i32 %Flags, -16777216
-  %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 8)
-  %switch.maskindex = trunc i32 %5 to i8
-  %switch.shifted = lshr i8 95, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  tail call void @llvm.assume(i1 %switch.lobit)
-  %6 = sext i32 %5 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %6
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %7 = load i64, ptr @_ZZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 8
-  %idx.neg = sub nsw i64 0, %7
+_ZN12_GLOBAL__N_123getPosixProtectionFlagsEj.exit: ; preds = %if.end
+  %4 = tail call i32 @llvm.fshl.i32(i32 %Flags, i32 %Flags, i32 8)
+  %5 = load i64, ptr @_ZZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 8
+  %idx.neg = sub nsw i64 0, %5
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.neg
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  %8 = ptrtoint ptr %add.ptr8 to i64
-  %add.i = add i64 %7, -1
-  %sub.i = add i64 %add.i, %8
+  %6 = ptrtoint ptr %add.ptr8 to i64
+  %add.i = add i64 %5, -1
+  %sub.i = add i64 %add.i, %6
   %and.i = and i64 %sub.i, %idx.neg
   %add.ptr12 = getelementptr inbounds i8, ptr %2, i64 %3
-  %9 = ptrtoint ptr %add.ptr12 to i64
-  %sub.i12 = add i64 %add.i, %9
+  %7 = ptrtoint ptr %add.ptr12 to i64
+  %sub.i12 = add i64 %add.i, %7
   %and.i14 = and i64 %sub.i12, %idx.neg
-  %10 = inttoptr i64 %and.i to ptr
+  %8 = inttoptr i64 %and.i to ptr
   %sub = sub i64 %and.i14, %and.i
-  %call15 = tail call i32 @mprotect(ptr noundef %10, i64 noundef %sub, i32 noundef %switch.load) #9
+  %call15 = tail call i32 @mprotect(ptr noundef %8, i64 noundef %sub, i32 noundef %4) #9
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end20, label %if.then17
 
-if.then17:                                        ; preds = %if.end5
+if.then17:                                        ; preds = %_ZN12_GLOBAL__N_123getPosixProtectionFlagsEj.exit
   %call18 = tail call ptr @__errno_location() #8
-  %11 = load i32, ptr %call18, align 4
+  %9 = load i32, ptr %call18, align 4
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #8
   br label %return
 
-if.end20:                                         ; preds = %if.end5
+if.end20:                                         ; preds = %_ZN12_GLOBAL__N_123getPosixProtectionFlagsEj.exit
   %and = and i32 %Flags, 67108864
   %tobool14.not = icmp eq i32 %and, 0
   br i1 %tobool14.not, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %12 = load ptr, ptr %M, align 8
-  %13 = load i64, ptr %Size, align 8
-  tail call void @_ZN4llvh3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %12, i64 noundef %13) #9
+  %10 = load ptr, ptr %M, align 8
+  %11 = load i64, ptr %Size, align 8
+  tail call void @_ZN4llvh3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef %10, i64 noundef %11) #9
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %if.end20
@@ -246,7 +238,7 @@ if.end25:                                         ; preds = %if.then22, %if.end2
 
 return:                                           ; preds = %if.end25, %if.then17, %if.then3, %if.then
   %retval.sroa.5.0 = phi ptr [ %call.i, %if.then ], [ %call4, %if.then3 ], [ %call.i17, %if.end25 ], [ %call19, %if.then17 ]
-  %retval.sroa.0.0 = phi i32 [ 0, %if.then ], [ 22, %if.then3 ], [ 0, %if.end25 ], [ %11, %if.then17 ]
+  %retval.sroa.0.0 = phi i32 [ 0, %if.then ], [ 22, %if.then3 ], [ 0, %if.end25 ], [ %9, %if.then17 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -311,11 +303,11 @@ declare void @_ZN4llvh3sys27ValgrindDiscardTranslationsEPKvm(ptr noundef, i64 no
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
@@ -325,8 +317,8 @@ attributes #1 = { nofree nounwind }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nounwind willreturn memory(none) }
 attributes #9 = { nounwind }

@@ -121,8 +121,8 @@ define internal noundef i32 @archive_write_shar_header(ptr noundef %0, ptr nound
   store ptr %14, ptr %12, align 8
   %15 = tail call ptr @archive_entry_pathname(ptr noundef %1) #8
   %16 = tail call i32 @archive_entry_filetype(ptr noundef %1) #8
-  %17 = add i32 %16, -4096
-  %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 20)
+  %17 = sub i32 %16, 4096
+  %18 = call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 20)
   switch i32 %18, label %26 [
     i32 7, label %33
     i32 3, label %19
@@ -445,8 +445,8 @@ shar_quote.exit148:                               ; preds = %156, %141
 
 160:                                              ; preds = %139
   %161 = tail call i32 @archive_entry_filetype(ptr noundef %1) #8
-  %162 = add i32 %161, -4096
-  %163 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 20)
+  %162 = sub i32 %161, 4096
+  %163 = call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 20)
   switch i32 %163, label %202 [
     i32 7, label %164
     i32 3, label %181
@@ -1476,10 +1476,10 @@ declare i32 @archive_write_set_bytes_in_last_block(ptr noundef, i32 noundef) loc
 declare void @archive_string_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

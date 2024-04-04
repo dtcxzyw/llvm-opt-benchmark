@@ -702,8 +702,9 @@ e100_read_reg2.exit.i:                            ; preds = %if.then.i25
 
 if.end.i6:                                        ; preds = %e100_read_reg2.exit.i, %sw.bb2
   %val.0.i7 = phi i16 [ %arrayidx.val.i.i, %e100_read_reg2.exit.i ], [ 0, %sw.bb2 ]
-  %9 = tail call i32 @llvm.fshl.i32(i32 %conv3, i32 %conv3, i32 31)
-  switch i32 %9, label %sw.default.i24 [
+  %9 = sub i32 %conv3, 0
+  %10 = call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 31)
+  switch i32 %10, label %sw.default.i24 [
     i32 0, label %eepro100_read2.exit
     i32 1, label %eepro100_read2.exit
     i32 7, label %sw.bb2.i
@@ -713,8 +714,8 @@ if.end.i6:                                        ; preds = %e100_read_reg2.exit
 
 sw.bb2.i:                                         ; preds = %if.end.i6
   %arrayidx.i.i.i14 = getelementptr i8, ptr %opaque, i64 11902
-  %10 = ptrtoint ptr %arrayidx.i.i.i14 to i64
-  %and.i.i.i15 = and i64 %10, 1
+  %11 = ptrtoint ptr %arrayidx.i.i.i14 to i64
+  %and.i.i.i15 = and i64 %11, 1
   %tobool.not.i.i.i16 = icmp eq i64 %and.i.i.i15, 0
   br i1 %tobool.not.i.i.i16, label %eepro100_read_eeprom.exit.i18, label %if.else.i.i.i17
 
@@ -725,18 +726,18 @@ if.else.i.i.i17:                                  ; preds = %sw.bb2.i
 eepro100_read_eeprom.exit.i18:                    ; preds = %sw.bb2.i
   %arrayidx.val.i.i.i19 = load i16, ptr %arrayidx.i.i.i14, align 1
   %eeprom.i.i20 = getelementptr inbounds i8, ptr %opaque, i64 11736
-  %11 = load ptr, ptr %eeprom.i.i20, align 8
-  %call1.i.i21 = tail call zeroext i16 @eeprom93xx_read(ptr noundef %11) #11
+  %12 = load ptr, ptr %eeprom.i.i20, align 8
+  %call1.i.i21 = tail call zeroext i16 @eeprom93xx_read(ptr noundef %12) #11
   %tobool.not.i6.i = icmp eq i16 %call1.i.i21, 0
-  %12 = and i16 %arrayidx.val.i.i.i19, -9
+  %13 = and i16 %arrayidx.val.i.i.i19, -9
   %masksel.i.i22 = select i1 %tobool.not.i6.i, i16 0, i16 8
-  %val.0.i.i23 = or disjoint i16 %masksel.i.i22, %12
+  %val.0.i.i23 = or disjoint i16 %masksel.i.i22, %13
   br label %eepro100_read2.exit
 
 sw.bb4.i:                                         ; preds = %if.end.i6, %if.end.i6
   %arrayidx.i.i7.i = getelementptr i8, ptr %opaque, i64 11904
-  %13 = ptrtoint ptr %arrayidx.i.i7.i to i64
-  %and.i.i8.i = and i64 %13, 3
+  %14 = ptrtoint ptr %arrayidx.i.i7.i to i64
+  %and.i.i8.i = and i64 %14, 3
   %tobool.not.i.i9.i = icmp eq i64 %and.i.i8.i, 0
   br i1 %tobool.not.i.i9.i, label %eepro100_read_mdi.exit.i8, label %if.else.i.i10.i
 
@@ -746,16 +747,16 @@ if.else.i.i10.i:                                  ; preds = %sw.bb4.i
 
 eepro100_read_mdi.exit.i8:                        ; preds = %sw.bb4.i
   %arrayidx.val.i.i11.i = load i32, ptr %arrayidx.i.i7.i, align 1
-  %14 = or i32 %arrayidx.val.i.i11.i, 268435456
-  %and.i9 = shl i32 %conv3, 3
+  %15 = or i32 %arrayidx.val.i.i11.i, 268435456
+  %and.i9 = shl nuw nsw i32 %conv3, 3
   %mul.i10 = and i32 %and.i9, 24
-  %shr.i11 = lshr i32 %14, %mul.i10
+  %shr.i11 = lshr i32 %15, %mul.i10
   %conv6.i12 = trunc i32 %shr.i11 to i16
   br label %eepro100_read2.exit
 
 sw.default.i24:                                   ; preds = %if.end.i6
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 66, i64 1, ptr %15) #15
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 66, i64 1, ptr %16) #15
   br label %eepro100_read2.exit
 
 eepro100_read2.exit:                              ; preds = %if.end.i6, %if.end.i6, %eepro100_read_eeprom.exit.i18, %eepro100_read_mdi.exit.i8, %sw.default.i24
@@ -772,8 +773,8 @@ if.then.i50:                                      ; preds = %sw.bb6
   %mem.i.i51 = getelementptr inbounds i8, ptr %opaque, i64 11888
   %idxprom.i.i52 = and i64 %addr, 4095
   %arrayidx.i.i53 = getelementptr [4096 x i8], ptr %mem.i.i51, i64 0, i64 %idxprom.i.i52
-  %17 = ptrtoint ptr %arrayidx.i.i53 to i64
-  %and.i.i54 = and i64 %17, 3
+  %18 = ptrtoint ptr %arrayidx.i.i53 to i64
+  %and.i.i54 = and i64 %18, 3
   %tobool.not.i.i55 = icmp eq i64 %and.i.i54, 0
   br i1 %tobool.not.i.i55, label %e100_read_reg4.exit.i, label %if.else.i.i56
 
@@ -787,8 +788,9 @@ e100_read_reg4.exit.i:                            ; preds = %if.then.i50
 
 if.end.i28:                                       ; preds = %e100_read_reg4.exit.i, %sw.bb6
   %val.0.i29 = phi i32 [ %arrayidx.val.i.i57, %e100_read_reg4.exit.i ], [ 0, %sw.bb6 ]
-  %18 = tail call i32 @llvm.fshl.i32(i32 %conv7, i32 %conv7, i32 30)
-  switch i32 %18, label %sw.default.i49 [
+  %19 = sub i32 %conv7, 0
+  %20 = call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 30)
+  switch i32 %20, label %sw.default.i49 [
     i32 0, label %eepro100_read4.exit
     i32 1, label %eepro100_read4.exit
     i32 2, label %sw.bb3.i
@@ -801,8 +803,8 @@ sw.bb3.i:                                         ; preds = %if.end.i28
 
 sw.bb5.i37:                                       ; preds = %if.end.i28
   %arrayidx.i.i.i38 = getelementptr i8, ptr %opaque, i64 11902
-  %19 = ptrtoint ptr %arrayidx.i.i.i38 to i64
-  %and.i.i.i39 = and i64 %19, 1
+  %21 = ptrtoint ptr %arrayidx.i.i.i38 to i64
+  %and.i.i.i39 = and i64 %21, 1
   %tobool.not.i.i.i40 = icmp eq i64 %and.i.i.i39, 0
   br i1 %tobool.not.i.i.i40, label %eepro100_read_eeprom.exit.i42, label %if.else.i.i.i41
 
@@ -813,19 +815,19 @@ if.else.i.i.i41:                                  ; preds = %sw.bb5.i37
 eepro100_read_eeprom.exit.i42:                    ; preds = %sw.bb5.i37
   %arrayidx.val.i.i.i43 = load i16, ptr %arrayidx.i.i.i38, align 1
   %eeprom.i.i44 = getelementptr inbounds i8, ptr %opaque, i64 11736
-  %20 = load ptr, ptr %eeprom.i.i44, align 8
-  %call1.i.i45 = tail call zeroext i16 @eeprom93xx_read(ptr noundef %20) #11
+  %22 = load ptr, ptr %eeprom.i.i44, align 8
+  %call1.i.i45 = tail call zeroext i16 @eeprom93xx_read(ptr noundef %22) #11
   %tobool.not.i6.i46 = icmp eq i16 %call1.i.i45, 0
-  %21 = and i16 %arrayidx.val.i.i.i43, -9
+  %23 = and i16 %arrayidx.val.i.i.i43, -9
   %masksel.i.i47 = select i1 %tobool.not.i6.i46, i16 0, i16 8
-  %val.0.i.i48 = or disjoint i16 %masksel.i.i47, %21
+  %val.0.i.i48 = or disjoint i16 %masksel.i.i47, %23
   %conv7.i = zext i16 %val.0.i.i48 to i32
   br label %eepro100_read4.exit
 
 sw.bb8.i:                                         ; preds = %if.end.i28
   %arrayidx.i.i7.i30 = getelementptr i8, ptr %opaque, i64 11904
-  %22 = ptrtoint ptr %arrayidx.i.i7.i30 to i64
-  %and.i.i8.i31 = and i64 %22, 3
+  %24 = ptrtoint ptr %arrayidx.i.i7.i30 to i64
+  %and.i.i8.i31 = and i64 %24, 3
   %tobool.not.i.i9.i32 = icmp eq i64 %and.i.i8.i31, 0
   br i1 %tobool.not.i.i9.i32, label %eepro100_read_mdi.exit.i34, label %if.else.i.i10.i33
 
@@ -835,16 +837,16 @@ if.else.i.i10.i33:                                ; preds = %sw.bb8.i
 
 eepro100_read_mdi.exit.i34:                       ; preds = %sw.bb8.i
   %arrayidx.val.i.i11.i35 = load i32, ptr %arrayidx.i.i7.i30, align 1
-  %23 = or i32 %arrayidx.val.i.i11.i35, 268435456
+  %25 = or i32 %arrayidx.val.i.i11.i35, 268435456
   br label %eepro100_read4.exit
 
 sw.default.i49:                                   ; preds = %if.end.i28
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 70, i64 1, ptr %24) #15
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 70, i64 1, ptr %26) #15
   br label %eepro100_read4.exit
 
 eepro100_read4.exit:                              ; preds = %if.end.i28, %if.end.i28, %sw.bb3.i, %eepro100_read_eeprom.exit.i42, %eepro100_read_mdi.exit.i34, %sw.default.i49
-  %val.1.i36 = phi i32 [ %val.0.i29, %sw.default.i49 ], [ %23, %eepro100_read_mdi.exit.i34 ], [ %conv7.i, %eepro100_read_eeprom.exit.i42 ], [ 0, %sw.bb3.i ], [ %val.0.i29, %if.end.i28 ], [ %val.0.i29, %if.end.i28 ]
+  %val.1.i36 = phi i32 [ %val.0.i29, %sw.default.i49 ], [ %25, %eepro100_read_mdi.exit.i34 ], [ %conv7.i, %eepro100_read_eeprom.exit.i42 ], [ 0, %sw.bb3.i ], [ %val.0.i29, %if.end.i28 ], [ %val.0.i29, %if.end.i28 ]
   %conv9 = zext i32 %val.1.i36 to i64
   br label %return
 
@@ -1213,8 +1215,8 @@ e100_write_reg4.exit.i:                           ; preds = %if.then.i48
   br label %if.end.i39
 
 if.end.i39:                                       ; preds = %e100_write_reg4.exit.i, %sw.bb5
-  %36 = add i32 %conv6, -4
-  %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 30)
+  %36 = sub i32 %conv6, 4
+  %37 = call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 30)
   switch i32 %37, label %sw.default.i47 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2.i
@@ -1379,27 +1381,28 @@ sw.default.i:                                     ; preds = %entry
   br label %eepro100_ru_command.exit
 
 eepro100_ru_command.exit:                         ; preds = %entry, %e100_read_reg4.exit.i, %sw.bb5.i, %if.end16.i, %e100_read_reg4.exit26.i, %sw.default.i
-  %17 = lshr i8 %val, 4
-  switch i8 %17, label %sw.default.i16 [
-    i8 0, label %eepro100_cu_command.exit
-    i8 1, label %sw.bb1.i7
-    i8 2, label %sw.bb6.i
-    i8 4, label %sw.bb17.i5
-    i8 5, label %sw.bb24.i
-    i8 6, label %sw.bb29.i
-    i8 7, label %sw.bb31.i
-    i8 10, label %sw.bb40.i
+  %17 = add i8 %val, 96
+  %18 = lshr i8 %17, 4
+  switch i8 %18, label %sw.default.i16 [
+    i8 6, label %eepro100_cu_command.exit
+    i8 7, label %sw.bb1.i7
+    i8 8, label %sw.bb6.i
+    i8 10, label %sw.bb17.i5
+    i8 11, label %sw.bb24.i
+    i8 12, label %sw.bb29.i
+    i8 13, label %sw.bb31.i
+    i8 0, label %sw.bb40.i
   ]
 
 sw.bb1.i7:                                        ; preds = %eepro100_ru_command.exit
-  %18 = getelementptr i8, ptr %s, i64 11888
-  %s.val.i8 = load i8, ptr %18, align 16
-  %19 = and i8 %s.val.i8, 63
-  %conv1.i.i9 = or disjoint i8 %19, -128
-  store i8 %conv1.i.i9, ptr %18, align 16
+  %19 = getelementptr i8, ptr %s, i64 11888
+  %s.val.i8 = load i8, ptr %19, align 16
+  %20 = and i8 %s.val.i8, 63
+  %conv1.i.i9 = or disjoint i8 %20, -128
+  store i8 %conv1.i.i9, ptr %19, align 16
   %arrayidx.i.i10 = getelementptr i8, ptr %s, i64 11892
-  %20 = ptrtoint ptr %arrayidx.i.i10 to i64
-  %and.i.i11 = and i64 %20, 3
+  %21 = ptrtoint ptr %arrayidx.i.i10 to i64
+  %and.i.i11 = and i64 %21, 3
   %tobool.not.i.i12 = icmp eq i64 %and.i.i11, 0
   br i1 %tobool.not.i.i12, label %e100_read_reg4.exit.i14, label %if.else.i.i13
 
@@ -1415,18 +1418,18 @@ e100_read_reg4.exit.i14:                          ; preds = %sw.bb1.i7
   br label %eepro100_cu_command.exit
 
 sw.bb6.i:                                         ; preds = %eepro100_ru_command.exit
-  %21 = getelementptr i8, ptr %s, i64 11888
-  %s.val27.i = load i8, ptr %21, align 16
-  %22 = and i8 %s.val27.i, 63
-  %conv1.i35.i = or disjoint i8 %22, -128
-  store i8 %conv1.i35.i, ptr %21, align 16
+  %22 = getelementptr i8, ptr %s, i64 11888
+  %s.val27.i = load i8, ptr %22, align 16
+  %23 = and i8 %s.val27.i, 63
+  %conv1.i35.i = or disjoint i8 %23, -128
+  store i8 %conv1.i35.i, ptr %22, align 16
   tail call fastcc void @action_command(ptr noundef nonnull %s)
   br label %eepro100_cu_command.exit
 
 sw.bb17.i5:                                       ; preds = %eepro100_ru_command.exit
   %arrayidx.i37.i = getelementptr i8, ptr %s, i64 11892
-  %23 = ptrtoint ptr %arrayidx.i37.i to i64
-  %and.i38.i = and i64 %23, 3
+  %24 = ptrtoint ptr %arrayidx.i37.i to i64
+  %and.i38.i = and i64 %24, 3
   %tobool.not.i39.i = icmp eq i64 %and.i38.i, 0
   br i1 %tobool.not.i39.i, label %e100_read_reg4.exit42.i, label %if.else.i40.i
 
@@ -1450,11 +1453,11 @@ if.then20.i:                                      ; preds = %e100_read_reg4.exit
 sw.bb24.i:                                        ; preds = %eepro100_ru_command.exit
   tail call fastcc void @dump_statistics(ptr noundef %s)
   %statsaddr25.i = getelementptr inbounds i8, ptr %s, i64 11764
-  %24 = load i32, ptr %statsaddr25.i, align 4
+  %25 = load i32, ptr %statsaddr25.i, align 4
   %stats_size.i = getelementptr inbounds i8, ptr %s, i64 16016
-  %25 = load i16, ptr %stats_size.i, align 16
-  %conv26.i = zext i16 %25 to i32
-  %add.i = add i32 %24, %conv26.i
+  %26 = load i16, ptr %stats_size.i, align 16
+  %conv26.i = zext i16 %26 to i32
+  %add.i = add i32 %25, %conv26.i
   %conv27.i = zext i32 %add.i to i64
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
@@ -1467,8 +1470,8 @@ sw.bb24.i:                                        ; preds = %eepro100_ru_command
 
 sw.bb29.i:                                        ; preds = %eepro100_ru_command.exit
   %arrayidx.i44.i = getelementptr i8, ptr %s, i64 11892
-  %26 = ptrtoint ptr %arrayidx.i44.i to i64
-  %and.i45.i = and i64 %26, 3
+  %27 = ptrtoint ptr %arrayidx.i44.i to i64
+  %and.i45.i = and i64 %27, 3
   %tobool.not.i46.i = icmp eq i64 %and.i45.i, 0
   br i1 %tobool.not.i46.i, label %e100_read_reg4.exit49.i, label %if.else.i47.i
 
@@ -1485,11 +1488,11 @@ e100_read_reg4.exit49.i:                          ; preds = %sw.bb29.i
 sw.bb31.i:                                        ; preds = %eepro100_ru_command.exit
   tail call fastcc void @dump_statistics(ptr noundef %s)
   %statsaddr33.i = getelementptr inbounds i8, ptr %s, i64 11764
-  %27 = load i32, ptr %statsaddr33.i, align 4
+  %28 = load i32, ptr %statsaddr33.i, align 4
   %stats_size34.i = getelementptr inbounds i8, ptr %s, i64 16016
-  %28 = load i16, ptr %stats_size34.i, align 16
-  %conv35.i = zext i16 %28 to i32
-  %add36.i = add i32 %27, %conv35.i
+  %29 = load i16, ptr %stats_size34.i, align 16
+  %conv35.i = zext i16 %29 to i32
+  %add36.i = add i32 %28, %conv35.i
   %conv37.i = zext i32 %add36.i to i64
   %bus_master_as.i.i51.i = getelementptr inbounds i8, ptr %s, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i50.i)
@@ -1503,13 +1506,13 @@ sw.bb31.i:                                        ; preds = %eepro100_ru_command
   br label %eepro100_cu_command.exit
 
 sw.bb40.i:                                        ; preds = %eepro100_ru_command.exit
-  %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 65, i64 1, ptr %29) #15
+  %30 = load ptr, ptr @stderr, align 8
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 65, i64 1, ptr %30) #15
   br label %eepro100_cu_command.exit
 
 sw.default.i16:                                   ; preds = %eepro100_ru_command.exit
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 69, i64 1, ptr %31) #15
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 69, i64 1, ptr %32) #15
   br label %eepro100_cu_command.exit
 
 eepro100_cu_command.exit:                         ; preds = %eepro100_ru_command.exit, %e100_read_reg4.exit.i14, %sw.bb6.i, %e100_read_reg4.exit42.i, %if.then20.i, %sw.bb24.i, %e100_read_reg4.exit49.i, %sw.bb31.i, %sw.bb40.i, %sw.default.i16
@@ -2677,17 +2680,14 @@ declare void @qemu_del_nic(ptr noundef) local_unnamed_addr #1
 
 declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
-
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #7
+declare i16 @llvm.umin.i16(i16, i16) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
@@ -2698,6 +2698,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -2705,8 +2708,8 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }

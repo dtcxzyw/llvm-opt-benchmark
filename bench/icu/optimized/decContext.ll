@@ -40,8 +40,9 @@ entry:
   store i32 0, ptr %status, align 4
   %clamp = getelementptr inbounds i8, ptr %context, i64 24
   store i8 0, ptr %clamp, align 4
-  %0 = tail call i32 @llvm.fshl.i32(i32 %kind, i32 %kind, i32 27)
-  switch i32 %0, label %sw.default [
+  %0 = sub i32 %kind, 0
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 27)
+  switch i32 %1, label %sw.default [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb1
     i32 2, label %sw.bb8

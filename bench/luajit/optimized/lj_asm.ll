@@ -1724,14 +1724,14 @@ emit_loadu64.exit:                                ; preds = %if.then.i.i698, %if
   %170 = xor i32 %retval.0.i.i, -1
   %sub25.i = add nsw i32 %conv23.i, %170
   %171 = load i32, ptr %pc.0.i, align 4
-  %and26.i = and i32 %171, 255
-  %172 = add nsw i32 %and26.i, -63
-  %173 = call i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 31)
-  switch i32 %173, label %sw.default.i [
-    i32 1, label %sw.bb.i202
-    i32 2, label %sw.bb.i202
-    i32 5, label %sw.bb34.i
-    i32 0, label %sw.bb40.i
+  %trunc.i = trunc i32 %171 to i8
+  %172 = sub i8 %trunc.i, 63
+  %173 = call i8 @llvm.fshl.i8(i8 %172, i8 %172, i8 7)
+  switch i8 %173, label %sw.default.i [
+    i8 1, label %sw.bb.i202
+    i8 2, label %sw.bb.i202
+    i8 5, label %sw.bb34.i
+    i8 0, label %sw.bb40.i
   ]
 
 sw.bb.i202:                                       ; preds = %emit_loadu64.exit, %emit_loadu64.exit
@@ -1759,6 +1759,7 @@ sw.bb40.i:                                        ; preds = %emit_loadu64.exit
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %emit_loadu64.exit
+  %and26.i = and i32 %171, 255
   %cmp45.i = icmp ult i32 %and26.i, 89
   br i1 %cmp45.i, label %land.lhs.true.i.i, label %sw.epilog.i
 
@@ -33153,6 +33154,9 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.vector.reduce.umin.v8i32(<8 x i32>) #13

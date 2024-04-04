@@ -1963,10 +1963,10 @@ proto_item_set_url.exit:                          ; preds = %6, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_x509ce_T_iPAddress(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_x509ce_T_iPAddress(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, i32 %5) #0 {
   %7 = tail call i32 @tvb_reported_length(ptr noundef %1) #3
-  %8 = add i32 %7, -4
-  %9 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 30)
+  %8 = sub i32 %7, 4
+  %9 = call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 30)
   switch i32 %9, label %32 [
     i32 0, label %10
     i32 1, label %14

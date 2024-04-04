@@ -269,8 +269,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145
@@ -790,8 +790,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145
@@ -1280,8 +1280,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145
@@ -1772,8 +1772,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145
@@ -2262,8 +2262,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145
@@ -2754,8 +2754,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145
@@ -3244,8 +3244,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145
@@ -3736,8 +3736,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 101:                                              ; preds = %89
   %102 = getelementptr inbounds i8, ptr %0, i64 659808
   %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, -8
-  %105 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
+  %104 = sub i64 %103, 8
+  %105 = call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 61)
   switch i64 %105, label %269 [
     i64 0, label %106
     i64 1, label %145

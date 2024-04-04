@@ -915,8 +915,9 @@ declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #1
 define internal i64 @erst_reg_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %sw.epilog [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %sw.epilog [
     i64 0, label %sw.bb
     i64 1, label %sw.bb
     i64 2, label %sw.bb1
@@ -925,56 +926,56 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry
   %reg_action = getelementptr inbounds i8, ptr %opaque, i64 3192
-  %1 = load i64, ptr %reg_action, align 8
+  %2 = load i64, ptr %reg_action, align 8
   %cmp.i = icmp eq i32 %size, 8
-  %2 = shl i64 %addr, 3
-  %cond.i = and i64 %2, 32
+  %3 = shl nuw nsw i64 %addr, 3
+  %cond.i = and i64 %3, 32
   %mask.0.i = select i1 %cmp.i, i64 -1, i64 4294967295
   %shift.0.i = select i1 %cmp.i, i64 0, i64 %cond.i
-  %shr.i = lshr i64 %1, %shift.0.i
+  %shr.i = lshr i64 %2, %shift.0.i
   %and4.i = and i64 %shr.i, %mask.0.i
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry, %entry
   %reg_value = getelementptr inbounds i8, ptr %opaque, i64 3200
-  %3 = load i64, ptr %reg_value, align 16
+  %4 = load i64, ptr %reg_value, align 16
   %cmp.i8 = icmp eq i32 %size, 8
-  %4 = shl i64 %addr, 3
-  %cond.i9 = and i64 %4, 32
+  %5 = shl nuw nsw i64 %addr, 3
+  %cond.i9 = and i64 %5, 32
   %mask.0.i10 = select i1 %cmp.i8, i64 -1, i64 4294967295
   %shift.0.i11 = select i1 %cmp.i8, i64 0, i64 %cond.i9
-  %shr.i12 = lshr i64 %3, %shift.0.i11
+  %shr.i12 = lshr i64 %4, %shift.0.i11
   %and4.i13 = and i64 %shr.i12, %mask.0.i10
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb1, %sw.bb
   %val.0 = phi i64 [ 0, %entry ], [ %and4.i13, %sw.bb1 ], [ %and4.i, %sw.bb ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %5 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %5, 0
-  %6 = load i16, ptr @_TRACE_ACPI_ERST_REG_READ_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %6, 0
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %6, 0
+  %7 = load i16, ptr @_TRACE_ACPI_ERST_REG_READ_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %7, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_acpi_erst_reg_read.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
-  %7 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %7, 32768
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %8, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_acpi_erst_reg_read.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %8 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %8 to i1
+  %9 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %9 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %9 = load i64, ptr %_now.i.i, align 8
+  %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %addr, i64 noundef %val.0, i32 noundef %size) #10
+  %11 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %addr, i64 noundef %val.0, i32 noundef %size) #10
   br label %trace_acpi_erst_reg_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1824,9 +1825,6 @@ trace_acpi_erst_post_load.exit:                   ; preds = %get_nvram_ptr_by_in
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1834,6 +1832,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

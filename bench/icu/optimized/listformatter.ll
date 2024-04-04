@@ -3642,8 +3642,8 @@ land.lhs.true15:                                  ; preds = %_ZNK6icu_7513Unicod
 _ZNK6icu_7513UnicodeStringixEi.exit68:            ; preds = %land.lhs.true15
   %arrayidx.i.i67 = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 4
   %7 = load i16, ptr %arrayidx.i.i67, align 2
-  %8 = add i16 %7, -65
-  %9 = tail call i16 @llvm.fshl.i16(i16 %8, i16 %8, i16 14)
+  %8 = sub i16 %7, 65
+  %9 = call i16 @llvm.fshl.i16(i16 %8, i16 %8, i16 14)
   switch i16 %9, label %return [
     i16 8, label %_ZNK6icu_7513UnicodeStringixEi.exit136
     i16 0, label %_ZNK6icu_7513UnicodeStringixEi.exit136

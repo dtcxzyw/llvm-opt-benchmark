@@ -4464,9 +4464,9 @@ define internal i32 @snd_pcm_mmap(ptr nocapture noundef readonly %0, ptr noundef
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 128
   %16 = load i64, ptr %15, align 8
-  %17 = shl i64 %16, 12
-  %18 = add i64 %17, -2147483648
-  %19 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 40)
+  %17 = and i64 %16, 4503599627370495
+  %18 = sub i64 %17, 524288
+  %19 = call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 52)
   switch i64 %19, label %103 [
     i64 0, label %20
     i64 2, label %24
@@ -4532,11 +4532,11 @@ define internal i32 @snd_pcm_mmap(ptr nocapture noundef readonly %0, ptr noundef
   store volatile i32 %53, ptr %54, align 8
   %60 = load ptr, ptr %58, align 8
   tail call void @up_write(ptr noundef %60) #18
-  %.pre6 = load i64, ptr %37, align 8
+  %.pre5 = load i64, ptr %37, align 8
   br label %61
 
 61:                                               ; preds = %57, %47
-  %62 = phi i64 [ %.pre6, %57 ], [ %38, %47 ]
+  %62 = phi i64 [ %.pre5, %57 ], [ %38, %47 ]
   %63 = and i64 %62, -67371043
   %64 = or disjoint i64 %63, 67371008
   store i64 %64, ptr %37, align 8
@@ -4597,11 +4597,11 @@ define internal i32 @snd_pcm_mmap(ptr nocapture noundef readonly %0, ptr noundef
   store volatile i32 %92, ptr %93, align 8
   %99 = load ptr, ptr %97, align 8
   tail call void @up_write(ptr noundef %99) #18
-  %.pre5 = load i64, ptr %76, align 8
+  %.pre4 = load i64, ptr %76, align 8
   br label %100
 
 100:                                              ; preds = %96, %86
-  %101 = phi i64 [ %.pre5, %96 ], [ %77, %86 ]
+  %101 = phi i64 [ %.pre4, %96 ], [ %77, %86 ]
   %102 = or i64 %101, 67371008
   store i64 %102, ptr %76, align 8
   br label %snd_pcm_mmap_data.exit
@@ -4652,40 +4652,43 @@ define internal i32 @snd_pcm_mmap(ptr nocapture noundef readonly %0, ptr noundef
   %134 = add i64 %133, 4095
   %135 = and i64 %134, -4096
   %136 = icmp ugt i64 %131, %135
-  %137 = sub i64 %135, %131
-  %138 = icmp ugt i64 %17, %137
-  %or.cond = select i1 %136, i1 true, i1 %138
-  br i1 %or.cond, label %snd_pcm_mmap_data.exit, label %139
+  br i1 %136, label %snd_pcm_mmap_data.exit, label %137
 
-139:                                              ; preds = %127
-  %140 = getelementptr inbounds i8, ptr %1, i64 120
-  store ptr @snd_pcm_vm_ops_data, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %1, i64 144
-  store ptr %5, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %5, i64 184
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 104
+137:                                              ; preds = %127
+  %138 = shl i64 %16, 12
+  %139 = sub i64 %135, %131
+  %140 = icmp ugt i64 %138, %139
+  br i1 %140, label %snd_pcm_mmap_data.exit, label %141
+
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds i8, ptr %1, i64 120
+  store ptr @snd_pcm_vm_ops_data, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %1, i64 144
+  store ptr %5, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %5, i64 184
   %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %.thread.i, label %148
+  %146 = getelementptr inbounds i8, ptr %145, i64 104
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %.thread.i, label %150
 
-.thread.i:                                        ; preds = %139
-  %147 = tail call i32 @snd_pcm_lib_default_mmap(ptr noundef nonnull %5, ptr noundef %1)
-  br label %151
+.thread.i:                                        ; preds = %141
+  %149 = tail call i32 @snd_pcm_lib_default_mmap(ptr noundef nonnull %5, ptr noundef %1)
+  br label %153
 
-148:                                              ; preds = %139
-  %149 = tail call i32 %145(ptr noundef nonnull %5, ptr noundef %1) #18
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %snd_pcm_mmap_data.exit
+150:                                              ; preds = %141
+  %151 = tail call i32 %147(ptr noundef nonnull %5, ptr noundef %1) #18
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %153, label %snd_pcm_mmap_data.exit
 
-151:                                              ; preds = %148, %.thread.i
-  %152 = getelementptr inbounds i8, ptr %5, i64 324
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %152, ptr elementtype(i32) %152) #18, !srcloc !39
+153:                                              ; preds = %150, %.thread.i
+  %154 = getelementptr inbounds i8, ptr %5, i64 324
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %154, ptr elementtype(i32) %154) #18, !srcloc !39
   br label %snd_pcm_mmap_data.exit
 
-snd_pcm_mmap_data.exit:                           ; preds = %151, %148, %127, %122, %117, %115, %112, %109, %100, %80, %75, %.thread, %69, %65, %61, %41, %36, %29, %24, %20, %11, %7, %2
-  %153 = phi i32 [ -6, %7 ], [ -77, %11 ], [ -6, %20 ], [ -6, %29 ], [ -6, %65 ], [ -6, %2 ], [ 0, %61 ], [ -22, %36 ], [ -22, %41 ], [ 0, %100 ], [ -22, %75 ], [ -22, %80 ], [ -6, %24 ], [ -6, %.thread ], [ -6, %69 ], [ -22, %109 ], [ -22, %112 ], [ -77, %115 ], [ -6, %117 ], [ -22, %122 ], [ -22, %127 ], [ 0, %151 ], [ %149, %148 ]
-  ret i32 %153
+snd_pcm_mmap_data.exit:                           ; preds = %153, %150, %137, %127, %122, %117, %115, %112, %109, %100, %80, %75, %.thread, %69, %65, %61, %41, %36, %29, %24, %20, %11, %7, %2
+  %155 = phi i32 [ -6, %7 ], [ -77, %11 ], [ -6, %20 ], [ -6, %29 ], [ -6, %65 ], [ -6, %2 ], [ 0, %61 ], [ -22, %36 ], [ -22, %41 ], [ 0, %100 ], [ -22, %75 ], [ -22, %80 ], [ -6, %24 ], [ -6, %.thread ], [ -6, %69 ], [ -22, %109 ], [ -22, %112 ], [ -77, %115 ], [ -6, %117 ], [ -22, %122 ], [ -22, %127 ], [ -22, %137 ], [ 0, %153 ], [ %151, %150 ]
+  ret i32 %155
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -11686,9 +11689,6 @@ define internal void @pcm_release_private(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @snd_fasync_helper(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -11711,6 +11711,9 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

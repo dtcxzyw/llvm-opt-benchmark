@@ -1227,8 +1227,8 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %39 = getelementptr inbounds i8, ptr %.0389, i64 448
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 255
-  %trunc = trunc i32 %40 to i8
-  switch i8 %trunc, label %43 [
+  %trunc477 = trunc i32 %40 to i8
+  switch i8 %trunc477, label %43 [
     i8 2, label %528
     i8 0, label %42
   ]
@@ -1376,12 +1376,12 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %121 = bitcast <8 x i1> %120 to i8
   %122 = icmp eq i8 %121, 0
   %op.rdx = and i1 %122, %114
-  %op.rdx497 = and i1 %115, %116
-  %op.rdx498 = and i1 %117, %or.cond13
-  %op.rdx499 = and i1 %op.rdx, %op.rdx497
-  %op.rdx500 = and i1 %op.rdx498, %119
-  %op.rdx501 = and i1 %op.rdx499, %op.rdx500
-  br i1 %op.rdx501, label %528, label %123
+  %op.rdx498 = and i1 %115, %116
+  %op.rdx499 = and i1 %117, %or.cond13
+  %op.rdx500 = and i1 %op.rdx, %op.rdx498
+  %op.rdx501 = and i1 %op.rdx499, %119
+  %op.rdx502 = and i1 %op.rdx500, %op.rdx501
+  br i1 %op.rdx502, label %528, label %123
 
 123:                                              ; preds = %107
   %124 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1551,12 +1551,12 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
 .sink.split:                                      ; preds = %208
   %213 = load i32, ptr %165, align 8
   %.not444 = icmp eq i32 %213, -2
-  %.496 = select i1 %.not444, i32 %210, i32 %213
-  store i32 %.496, ptr %175, align 8
+  %.497 = select i1 %.not444, i32 %210, i32 %213
+  store i32 %.497, ptr %175, align 8
   br label %214
 
 214:                                              ; preds = %.sink.split, %208
-  %215 = phi i32 [ %211, %208 ], [ %.496, %.sink.split ]
+  %215 = phi i32 [ %211, %208 ], [ %.497, %.sink.split ]
   %216 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 98), align 8
   %217 = zext i16 %216 to i32
   %218 = mul i32 %210, %217
@@ -1738,13 +1738,14 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %299 = getelementptr inbounds i8, ptr %230, i64 312
   store ptr %298, ptr %299, align 8
   %300 = load i32, ptr %96, align 8
-  %301 = and i32 %300, 61695
-  %302 = add nsw i32 %301, -1
-  %303 = call i32 @llvm.fshl.i32(i32 %302, i32 %302, i32 28)
-  %switch = icmp ult i32 %303, 4
-  %spec.select486 = zext i1 %switch to i16
+  %301 = trunc i32 %300 to i16
+  %trunc = and i16 %301, -3841
+  %302 = add i16 %trunc, -1
+  %303 = call i16 @llvm.fshl.i16(i16 %302, i16 %302, i16 12)
+  %switch = icmp ult i16 %303, 4
+  %spec.select487 = zext i1 %switch to i16
   %304 = getelementptr inbounds i8, ptr %230, i64 88
-  store i16 %spec.select486, ptr %304, align 8
+  store i16 %spec.select487, ptr %304, align 8
   %305 = load ptr, ptr %0, align 8
   %306 = call ptr @xstrdup(ptr noundef %305) #13
   %307 = getelementptr inbounds i8, ptr %230, i64 8
@@ -1844,8 +1845,8 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %369
 
 369:                                              ; preds = %363, %352
-  %.sink489 = phi ptr [ %368, %363 ], [ %362, %352 ]
-  %370 = load i32, ptr %.sink489, align 4
+  %.sink490 = phi ptr [ %368, %363 ], [ %362, %352 ]
+  %370 = load i32, ptr %.sink490, align 4
   %371 = getelementptr inbounds i8, ptr %230, i64 68
   store i32 %370, ptr %371, align 4
   %372 = trunc i32 %179 to i16
@@ -1869,9 +1870,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %384
 
 384:                                              ; preds = %369, %382
-  %.sink481 = phi i32 [ %383, %382 ], [ %166, %369 ]
+  %.sink482 = phi i32 [ %383, %382 ], [ %166, %369 ]
   %385 = getelementptr inbounds i8, ptr %230, i64 56
-  store i32 %.sink481, ptr %385, align 8
+  store i32 %.sink482, ptr %385, align 8
   %386 = getelementptr inbounds i8, ptr %230, i64 92
   store i32 -2, ptr %386, align 4
   %387 = load i32, ptr %69, align 8
@@ -1941,9 +1942,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %431
 
 431:                                              ; preds = %427, %425
-  %.sink490 = phi ptr [ %430, %427 ], [ %426, %425 ]
+  %.sink491 = phi ptr [ %430, %427 ], [ %426, %425 ]
   %432 = getelementptr inbounds i8, ptr %230, i64 176
-  store ptr %.sink490, ptr %432, align 8
+  store ptr %.sink491, ptr %432, align 8
   %433 = getelementptr inbounds i8, ptr %0, i64 104
   %434 = load ptr, ptr %433, align 8
   %.not457 = icmp eq ptr %434, null
@@ -1965,9 +1966,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %443
 
 443:                                              ; preds = %439, %437
-  %.sink492 = phi ptr [ %442, %439 ], [ %438, %437 ]
+  %.sink493 = phi ptr [ %442, %439 ], [ %438, %437 ]
   %444 = getelementptr inbounds i8, ptr %230, i64 184
-  store ptr %.sink492, ptr %444, align 8
+  store ptr %.sink493, ptr %444, align 8
   %445 = getelementptr inbounds i8, ptr %230, i64 272
   store ptr %197, ptr %445, align 8
   %446 = getelementptr inbounds i8, ptr %0, i64 196
@@ -2005,9 +2006,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %528
 
 switch.lookup:                                    ; preds = %443, %449
-  %.sink494 = phi i32 [ %447, %449 ], [ -1, %443 ]
+  %.sink495 = phi i32 [ %447, %449 ], [ -1, %443 ]
   %465 = getelementptr inbounds i8, ptr %230, i64 264
-  store i32 %.sink494, ptr %465, align 8
+  store i32 %.sink495, ptr %465, align 8
   %466 = load i32, ptr %175, align 8
   %467 = load i32, ptr %96, align 8
   %468 = getelementptr inbounds i8, ptr %0, i64 140
@@ -2041,8 +2042,8 @@ switch.lookup:                                    ; preds = %443, %449
   %482 = load ptr, ptr %471, align 8
   %483 = getelementptr inbounds i8, ptr %482, i64 40
   %484 = load i32, ptr %483, align 8
-  %.not478 = icmp eq i32 %484, 0
-  br i1 %.not478, label %._crit_edge, label %.lr.ph
+  %.not479 = icmp eq i32 %484, 0
+  br i1 %.not479, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %481, %.lr.ph
   %485 = phi i16 [ %.476, %.lr.ph ], [ 0, %481 ]
@@ -13690,7 +13691,7 @@ declare void @gres_ctld_step_state_rebase(ptr noundef, ptr noundef, ptr noundef)
 declare i64 @bit_fls(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+declare i16 @llvm.fshl.i16(i16, i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

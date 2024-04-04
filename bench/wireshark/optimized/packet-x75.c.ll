@@ -96,8 +96,8 @@ define internal i32 @dissect_x75(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @col_set_str(ptr noundef %7, i32 noundef 26, ptr noundef nonnull @.str.24) #3
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %9 = zext i8 %8 to i32
-  %10 = add i8 %8, -1
-  %11 = tail call i8 @llvm.fshl.i8(i8 %10, i8 %10, i8 7)
+  %10 = sub i8 %8, 1
+  %11 = call i8 @llvm.fshl.i8(i8 %10, i8 %10, i8 7)
   switch i8 %11, label %12 [
     i8 7, label %17
     i8 3, label %17

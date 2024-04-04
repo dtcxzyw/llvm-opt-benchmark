@@ -874,8 +874,8 @@ define internal fastcc void @dissect_x25_common(ptr noundef %0, ptr noundef %1, 
   %.not461 = icmp slt i16 %14, 0
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4
   %20 = zext i8 %19 to i32
-  %21 = add i8 %19, 15
-  %22 = tail call i8 @llvm.fshl.i8(i8 %21, i8 %21, i8 7)
+  %21 = sub i8 %19, -15
+  %22 = call i8 @llvm.fshl.i8(i8 %21, i8 %21, i8 7)
   switch i8 %22, label %111 [
     i8 13, label %23
     i8 15, label %42
@@ -1134,8 +1134,8 @@ get_x25_pkt_len.exit.thread:                      ; preds = %124, %121, %118, %1
 
 165:                                              ; preds = %162, %137
   %.0 = phi ptr [ %142, %162 ], [ null, %137 ]
-  %166 = add i8 %133, 15
-  %167 = tail call i8 @llvm.fshl.i8(i8 %166, i8 %166, i8 7)
+  %166 = sub i8 %133, -15
+  %167 = call i8 @llvm.fshl.i8(i8 %166, i8 %166, i8 7)
   switch i8 %167, label %460 [
     i8 13, label %switch.lookup
     i8 15, label %switch.lookup540

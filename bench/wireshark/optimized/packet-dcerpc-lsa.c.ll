@@ -8358,7 +8358,7 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
   %9 = getelementptr inbounds i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %33
+  br i1 %.not, label %11, label %30
 
 11:                                               ; preds = %6
   %12 = load i32, ptr @hf_lsarpc_sec_desc_buf_len, align 4
@@ -8366,44 +8366,40 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
   %14 = getelementptr inbounds i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not25 = icmp eq ptr %15, null
-  br i1 %.not25, label %.thread, label %16
+  br i1 %.not25, label %.thread.thread, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %15, i64 88
   %18 = load ptr, ptr %17, align 8
   %.not26 = icmp eq ptr %18, null
-  br i1 %.not26, label %.thread, label %19
+  br i1 %.not26, label %.thread.thread, label %.thread
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %2, i64 20
-  %21 = load i32, ptr %20, align 4
-  %22 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %18, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef %21) #5
+.thread:                                          ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %2, i64 20
+  %20 = load i32, ptr %19, align 4
+  %21 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %18, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef %20) #5
   %.pre = load i32, ptr %8, align 4
-  %23 = add i32 %.pre, -393216
-  br label %.thread
-
-.thread:                                          ; preds = %11, %19, %16
-  %24 = phi i32 [ -393216, %11 ], [ %23, %19 ], [ -393216, %16 ]
-  %25 = call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 16)
-  %26 = icmp ult i32 %25, 4
-  br i1 %26, label %switch.lookup, label %28
+  %22 = add i32 %.pre, -393216
+  %23 = call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 16)
+  %24 = icmp ult i32 %23, 4
+  br i1 %24, label %switch.lookup, label %.thread.thread
 
 switch.lookup:                                    ; preds = %.thread
-  %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 0, i64 %27
+  %25 = zext nneg i32 %23 to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %28
+  br label %.thread.thread
 
-28:                                               ; preds = %switch.lookup, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ %switch.load, %switch.lookup ]
-  %29 = load i32, ptr %7, align 4
-  %30 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef 1, i32 noundef %29, ptr noundef %.0) #5
-  %31 = load i32, ptr %7, align 4
-  %32 = add i32 %31, %13
-  br label %33
+.thread.thread:                                   ; preds = %switch.lookup, %.thread, %16, %11
+  %.0 = phi ptr [ null, %.thread ], [ null, %11 ], [ null, %16 ], [ %switch.load, %switch.lookup ]
+  %26 = load i32, ptr %7, align 4
+  %27 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef 1, i32 noundef %26, ptr noundef %.0) #5
+  %28 = load i32, ptr %7, align 4
+  %29 = add i32 %28, %13
+  br label %30
 
-33:                                               ; preds = %6, %28
-  %.023 = phi i32 [ %32, %28 ], [ %1, %6 ]
+30:                                               ; preds = %6, %.thread.thread
+  %.023 = phi i32 [ %29, %.thread.thread ], [ %1, %6 ]
   ret i32 %.023
 }
 
@@ -15095,20 +15091,20 @@ define internal i32 @lsarpc_dissect_element_lsa_lsaRSetForestTrustInformation2_c
   ret i32 %8
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -10699,117 +10699,115 @@ define internal fastcc void @dissect_nvmeof_fabric_prop_data(ptr noundef %0, ptr
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef 0) #10
   %8 = load i32, ptr @ett_data, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #10
-  %10 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 30)
-  switch i32 %10, label %47 [
-    i32 0, label %11
-    i32 2, label %19
-    i32 5, label %27
-    i32 7, label %35
+  %10 = sub i32 %3, 0
+  %11 = call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 30)
+  switch i32 %11, label %48 [
+    i32 0, label %12
+    i32 2, label %20
+    i32 5, label %28
+    i32 7, label %36
     i32 8, label %.lr.ph.i45
   ]
 
-11:                                               ; preds = %5
-  %12 = load i32, ptr @hf_nvmeof_prop_get_ccap, align 16
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %12, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #10
-  %14 = load i32, ptr @ett_data, align 4
-  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #10
+12:                                               ; preds = %5
+  %13 = load i32, ptr @hf_nvmeof_prop_get_ccap, align 16
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %13, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #10
+  %15 = load i32, ptr @ett_data, align 4
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #10
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %11
-  %indvars.iv.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %16 = getelementptr i32, ptr @hf_nvmeof_prop_get_ccap, i64 %indvars.iv.i
-  %17 = load i32, ptr %16, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %17, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #10
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %12
+  %indvars.iv.i = phi i64 [ 1, %12 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %17 = getelementptr i32, ptr @hf_nvmeof_prop_get_ccap, i64 %indvars.iv.i
+  %18 = load i32, ptr %17, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %18, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 17
   br i1 %exitcond.not.i, label %add_group_mask_entry.exit, label %.lr.ph.i, !llvm.loop !6
 
-19:                                               ; preds = %5
-  %20 = load i32, ptr @hf_nvmeof_prop_get_vs, align 16
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
-  %22 = load i32, ptr @ett_data, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #10
+20:                                               ; preds = %5
+  %21 = load i32, ptr @hf_nvmeof_prop_get_vs, align 16
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %21, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+  %23 = load i32, ptr @ett_data, align 4
+  %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #10
   br label %.lr.ph.i30
 
-.lr.ph.i30:                                       ; preds = %.lr.ph.i30, %19
-  %indvars.iv.i31 = phi i64 [ 1, %19 ], [ %indvars.iv.next.i32, %.lr.ph.i30 ]
-  %24 = getelementptr i32, ptr @hf_nvmeof_prop_get_vs, i64 %indvars.iv.i31
-  %25 = load i32, ptr %24, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %25, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+.lr.ph.i30:                                       ; preds = %.lr.ph.i30, %20
+  %indvars.iv.i31 = phi i64 [ 1, %20 ], [ %indvars.iv.next.i32, %.lr.ph.i30 ]
+  %25 = getelementptr i32, ptr @hf_nvmeof_prop_get_vs, i64 %indvars.iv.i31
+  %26 = load i32, ptr %25, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %26, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 4
   br i1 %exitcond.not.i33, label %.critedge, label %.lr.ph.i30, !llvm.loop !6
 
-27:                                               ; preds = %5
-  %28 = load i32, ptr @hf_nvmeof_prop_get_set_cc, align 16
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %28, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
-  %30 = load i32, ptr @ett_data, align 4
-  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #10
+28:                                               ; preds = %5
+  %29 = load i32, ptr @hf_nvmeof_prop_get_set_cc, align 16
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %29, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+  %31 = load i32, ptr @ett_data, align 4
+  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #10
   br label %.lr.ph.i35
 
-.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %27
-  %indvars.iv.i36 = phi i64 [ 1, %27 ], [ %indvars.iv.next.i37, %.lr.ph.i35 ]
-  %32 = getelementptr i32, ptr @hf_nvmeof_prop_get_set_cc, i64 %indvars.iv.i36
-  %33 = load i32, ptr %32, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %33, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %28
+  %indvars.iv.i36 = phi i64 [ 1, %28 ], [ %indvars.iv.next.i37, %.lr.ph.i35 ]
+  %33 = getelementptr i32, ptr @hf_nvmeof_prop_get_set_cc, i64 %indvars.iv.i36
+  %34 = load i32, ptr %33, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %34, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 10
   br i1 %exitcond.not.i38, label %.critedge, label %.lr.ph.i35, !llvm.loop !6
 
-35:                                               ; preds = %5
-  %36 = load i32, ptr @hf_nvmeof_prop_get_set_csts, align 16
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %36, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
-  %38 = load i32, ptr @ett_data, align 4
-  %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #10
+36:                                               ; preds = %5
+  %37 = load i32, ptr @hf_nvmeof_prop_get_set_csts, align 16
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %37, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+  %39 = load i32, ptr @ett_data, align 4
+  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #10
   br label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %.lr.ph.i40, %35
-  %indvars.iv.i41 = phi i64 [ 1, %35 ], [ %indvars.iv.next.i42, %.lr.ph.i40 ]
-  %40 = getelementptr i32, ptr @hf_nvmeof_prop_get_set_csts, i64 %indvars.iv.i41
-  %41 = load i32, ptr %40, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %41, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+.lr.ph.i40:                                       ; preds = %.lr.ph.i40, %36
+  %indvars.iv.i41 = phi i64 [ 1, %36 ], [ %indvars.iv.next.i42, %.lr.ph.i40 ]
+  %41 = getelementptr i32, ptr @hf_nvmeof_prop_get_set_csts, i64 %indvars.iv.i41
+  %42 = load i32, ptr %41, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %42, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 7
   br i1 %exitcond.not.i43, label %.critedge, label %.lr.ph.i40, !llvm.loop !6
 
 .lr.ph.i45:                                       ; preds = %5
-  %43 = load i32, ptr @hf_nvmeof_prop_get_set_nssr, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %43, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
-  %45 = load i32, ptr @ett_data, align 4
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #10
+  %44 = load i32, ptr @hf_nvmeof_prop_get_set_nssr, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %44, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+  %46 = load i32, ptr @ett_data, align 4
+  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #10
   br label %.critedge.sink.split
 
-47:                                               ; preds = %5
-  %48 = icmp eq i8 %4, 0
-  br i1 %48, label %.critedge.sink.split, label %49
+48:                                               ; preds = %5
+  %49 = icmp eq i8 %4, 0
+  br i1 %49, label %.critedge.sink.split, label %50
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr @hf_nvmeof_prop_get_set_data_8B, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %50, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #10
+50:                                               ; preds = %48
+  %51 = load i32, ptr @hf_nvmeof_prop_get_set_data_8B, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %51, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef -2147483648) #10
   br label %add_group_mask_entry.exit
 
-.critedge.sink.split:                             ; preds = %47, %.lr.ph.i45
-  %.sink59 = phi ptr [ getelementptr inbounds ([2 x i32], ptr @hf_nvmeof_prop_get_set_nssr, i64 0, i64 1), %.lr.ph.i45 ], [ @hf_nvmeof_prop_get_set_data_4B, %47 ]
-  %.sink = phi ptr [ %46, %.lr.ph.i45 ], [ %9, %47 ]
-  %52 = load i32, ptr %.sink59, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %52, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
+.critedge.sink.split:                             ; preds = %48, %.lr.ph.i45
+  %.sink59 = phi ptr [ getelementptr inbounds ([2 x i32], ptr @hf_nvmeof_prop_get_set_nssr, i64 0, i64 1), %.lr.ph.i45 ], [ @hf_nvmeof_prop_get_set_data_4B, %48 ]
+  %.sink = phi ptr [ %47, %.lr.ph.i45 ], [ %9, %48 ]
+  %53 = load i32, ptr %.sink59, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %53, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i40, %.lr.ph.i35, %.lr.ph.i30, %.critedge.sink.split
-  %54 = load i32, ptr @hf_nvmeof_prop_get_set_data_4B_rsvd, align 4
-  %55 = add i32 %2, 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %54, ptr noundef %1, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648) #10
+  %55 = load i32, ptr @hf_nvmeof_prop_get_set_data_4B_rsvd, align 4
+  %56 = add i32 %2, 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %55, ptr noundef %1, i32 noundef %56, i32 noundef 4, i32 noundef -2147483648) #10
   br label %add_group_mask_entry.exit
 
-add_group_mask_entry.exit:                        ; preds = %.lr.ph.i, %49, %.critedge
+add_group_mask_entry.exit:                        ; preds = %.lr.ph.i, %50, %.critedge
   ret void
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #8
@@ -10828,6 +10826,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -23557,8 +23557,8 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = add i64 %5, -8
-  %10 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 61)
+  %9 = sub i64 %5, 8
+  %10 = call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 61)
   switch i64 %10, label %66 [
     i64 0, label %11
     i64 1, label %23
@@ -23782,8 +23782,8 @@ _ZN5faiss19hamming_count_thresILm64EEEvPKmS2_mmiPm.exit: ; preds = %._crit_edge.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %7 = add i64 %3, -8
-  %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 61)
+  %7 = sub i64 %3, 8
+  %8 = call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 61)
   switch i64 %8, label %75 [
     i64 0, label %9
     i64 1, label %24
@@ -24014,8 +24014,8 @@ _ZN5faiss24crosshamming_count_thresILm64EEEvPKmmiPm.exit: ; preds = %._crit_edge
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %10 = add i64 %5, -8
-  %11 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 61)
+  %10 = sub i64 %5, 8
+  %11 = call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 61)
   switch i64 %11, label %87 [
     i64 0, label %12
     i64 1, label %29
@@ -25998,9 +25998,6 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %42, %._crit_edge.i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind
@@ -26047,6 +26044,9 @@ declare <8 x i64> @llvm.ctpop.v8i64(<8 x i64>) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

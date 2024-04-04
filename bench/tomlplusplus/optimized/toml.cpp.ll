@@ -28000,8 +28000,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb6
@@ -33267,8 +33267,8 @@ if.then6:                                         ; preds = %if.else
 if.end8:                                          ; preds = %if.else, %if.then6
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then6 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i64 [ %add, %if.then6 ], [ %__value, %if.else ]
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb9
@@ -38348,8 +38348,8 @@ if.then8:                                         ; preds = %if.else
 if.end11:                                         ; preds = %if.else, %if.then8
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i32 [ %add, %if.then8 ], [ %conv, %if.else ]
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb12
@@ -38752,8 +38752,8 @@ if.then8:                                         ; preds = %if.else
 if.end11:                                         ; preds = %if.else, %if.then8
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i32 [ %add, %if.then8 ], [ %conv, %if.else ]
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb12
@@ -39152,8 +39152,8 @@ if.then6:                                         ; preds = %if.else
 if.end8:                                          ; preds = %if.else, %if.then6
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then6 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i32 [ %add, %if.then6 ], [ %__value, %if.else ]
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb9
@@ -39552,8 +39552,8 @@ if.then6:                                         ; preds = %if.else
 if.end8:                                          ; preds = %if.else, %if.then6
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then6 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i64 [ %add, %if.then6 ], [ %__value, %if.else ]
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb9
@@ -39936,8 +39936,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return.sink.split, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb7
@@ -40225,8 +40225,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return.sink.split, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb7
@@ -40572,8 +40572,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb6
@@ -40945,8 +40945,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %__base, 2
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb6
@@ -44458,9 +44458,6 @@ declare noundef i32 @_ZNSi4peekEv(ptr noundef nonnull align 8 dereferenceable(16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #36
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -44489,6 +44486,9 @@ declare i64 @llvm.smax.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #36
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

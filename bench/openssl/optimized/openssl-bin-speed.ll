@@ -7875,7 +7875,7 @@ sstrsep.exit123:                                  ; preds = %while.end8.i111, %i
 
 if.else83:                                        ; preds = %if.end56
   %lhsv = load i32, ptr %buf, align 16
-  %33 = add i32 %lhsv, -976373291
+  %33 = sub i32 %lhsv, 976373291
   %34 = call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 16)
   switch i32 %34, label %if.else298 [
     i32 0, label %cond.true87

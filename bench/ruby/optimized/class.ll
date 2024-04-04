@@ -5049,8 +5049,9 @@ define internal fastcc i64 @singleton_class_of(i64 noundef %0) unnamed_addr #0 {
   br i1 %5, label %6, label %rb_type.exit
 
 6:                                                ; preds = %1
-  %7 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
-  switch i64 %7, label %rb_type.exit.thread [
+  %7 = sub i64 %0, 0
+  %8 = call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 62)
+  switch i64 %8, label %rb_type.exit.thread [
     i64 0, label %rb_type.exit.thread22
     i64 1, label %rb_type.exit.thread22
     i64 5, label %rb_type.exit.thread22
@@ -5062,11 +5063,11 @@ define internal fastcc i64 @singleton_class_of(i64 noundef %0) unnamed_addr #0 {
   br label %rb_type.exit.thread24
 
 rb_type.exit:                                     ; preds = %1
-  %8 = inttoptr i64 %0 to ptr
-  %9 = load i64, ptr %8, align 8
-  %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, 31
-  switch i32 %11, label %rb_type.exit.thread24 [
+  %9 = inttoptr i64 %0 to ptr
+  %10 = load i64, ptr %9, align 8
+  %11 = trunc i64 %10 to i32
+  %12 = and i32 %11, 31
+  switch i32 %12, label %rb_type.exit.thread24 [
     i32 21, label %rb_type.exit.thread
     i32 10, label %rb_type.exit.thread
     i32 4, label %rb_type.exit.thread
@@ -5074,92 +5075,92 @@ rb_type.exit:                                     ; preds = %1
     i32 19, label %rb_type.exit.thread22
     i32 18, label %rb_type.exit.thread22
     i32 17, label %rb_type.exit.thread22
-    i32 5, label %17
+    i32 5, label %18
   ]
 
 rb_type.exit.thread:                              ; preds = %6, %rb_type.exit, %rb_type.exit, %rb_type.exit, %rb_type.exit
-  %12 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %12, ptr noundef nonnull @.str.40) #20
+  %13 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.40) #20
   unreachable
 
 rb_type.exit.thread22:                            ; preds = %6, %6, %6, %rb_type.exit, %rb_type.exit, %rb_type.exit
   switch i64 %0, label %special_singleton_class_of.exit.thread [
     i64 4, label %special_singleton_class_of.exit
-    i64 0, label %13
-    i64 20, label %14
+    i64 0, label %14
+    i64 20, label %15
   ]
-
-13:                                               ; preds = %rb_type.exit.thread22
-  br label %special_singleton_class_of.exit
 
 14:                                               ; preds = %rb_type.exit.thread22
   br label %special_singleton_class_of.exit
 
-special_singleton_class_of.exit:                  ; preds = %rb_type.exit.thread22, %13, %14
-  %.0.i18.in = phi ptr [ @rb_cTrueClass, %14 ], [ @rb_cFalseClass, %13 ], [ @rb_cNilClass, %rb_type.exit.thread22 ]
+15:                                               ; preds = %rb_type.exit.thread22
+  br label %special_singleton_class_of.exit
+
+special_singleton_class_of.exit:                  ; preds = %rb_type.exit.thread22, %14, %15
+  %.0.i18.in = phi ptr [ @rb_cTrueClass, %15 ], [ @rb_cFalseClass, %14 ], [ @rb_cNilClass, %rb_type.exit.thread22 ]
   %.0.i18 = load i64, ptr %.0.i18.in, align 8
-  %15 = icmp eq i64 %.0.i18, 4
-  br i1 %15, label %special_singleton_class_of.exit.thread, label %43
+  %16 = icmp eq i64 %.0.i18, 4
+  br i1 %16, label %special_singleton_class_of.exit.thread, label %44
 
 special_singleton_class_of.exit.thread:           ; preds = %rb_type.exit.thread22, %special_singleton_class_of.exit
-  %16 = inttoptr i64 %0 to ptr
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.41, ptr noundef %16) #21
+  %17 = inttoptr i64 %0 to ptr
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.41, ptr noundef %17) #21
   unreachable
 
-17:                                               ; preds = %rb_type.exit
-  %18 = and i64 %9, 536870912
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %rb_type.exit.thread24, label %19
+18:                                               ; preds = %rb_type.exit
+  %19 = and i64 %10, 536870912
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %rb_type.exit.thread24, label %20
 
-19:                                               ; preds = %17
-  %20 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.40) #20
+20:                                               ; preds = %18
+  %21 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.40) #20
   unreachable
 
-rb_type.exit.thread24:                            ; preds = %.rb_type.exit.thread24_crit_edge, %17, %rb_type.exit
-  %.pre-phi31 = phi ptr [ %.pre30, %.rb_type.exit.thread24_crit_edge ], [ %8, %17 ], [ %8, %rb_type.exit ]
-  %21 = getelementptr inbounds i8, ptr %.pre-phi31, i64 8
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, 7
-  %24 = icmp ne i64 %23, 0
-  %25 = icmp eq i64 %22, 0
-  %26 = or i1 %25, %24
-  br i1 %26, label %RB_FL_TEST.exit.thread, label %27
+rb_type.exit.thread24:                            ; preds = %.rb_type.exit.thread24_crit_edge, %18, %rb_type.exit
+  %.pre-phi31 = phi ptr [ %.pre30, %.rb_type.exit.thread24_crit_edge ], [ %9, %18 ], [ %9, %rb_type.exit ]
+  %22 = getelementptr inbounds i8, ptr %.pre-phi31, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, 7
+  %25 = icmp ne i64 %24, 0
+  %26 = icmp eq i64 %23, 0
+  %27 = or i1 %26, %25
+  br i1 %27, label %RB_FL_TEST.exit.thread, label %28
 
-27:                                               ; preds = %rb_type.exit.thread24
-  %28 = inttoptr i64 %22 to ptr
-  %29 = load i64, ptr %28, align 8
-  %30 = and i64 %29, 31
-  %31 = icmp eq i64 %30, 27
-  %32 = and i64 %29, 4096
-  %.not17 = icmp eq i64 %32, 0
-  %or.cond = or i1 %31, %.not17
-  br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %33
+28:                                               ; preds = %rb_type.exit.thread24
+  %29 = inttoptr i64 %23 to ptr
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, 31
+  %32 = icmp eq i64 %31, 27
+  %33 = and i64 %30, 4096
+  %.not17 = icmp eq i64 %33, 0
+  %or.cond = or i1 %32, %.not17
+  br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %34
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %28, i64 128
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp eq i64 %35, %0
-  br i1 %36, label %38, label %RB_FL_TEST.exit.thread
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds i8, ptr %29, i64 128
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp eq i64 %36, %0
+  br i1 %37, label %39, label %RB_FL_TEST.exit.thread
 
-RB_FL_TEST.exit.thread:                           ; preds = %27, %rb_type.exit.thread24, %33
-  %37 = tail call i64 @rb_make_metaclass(i64 noundef %0, i64 poison)
-  %.phi.trans.insert = inttoptr i64 %37 to ptr
+RB_FL_TEST.exit.thread:                           ; preds = %28, %rb_type.exit.thread24, %34
+  %38 = tail call i64 @rb_make_metaclass(i64 noundef %0, i64 poison)
+  %.phi.trans.insert = inttoptr i64 %38 to ptr
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %RB_FL_TEST.exit.thread, %33
-  %.pre-phi = phi ptr [ %.phi.trans.insert, %RB_FL_TEST.exit.thread ], [ %28, %33 ]
-  %39 = phi i64 [ %.pre, %RB_FL_TEST.exit.thread ], [ %29, %33 ]
-  %.0 = phi i64 [ %37, %RB_FL_TEST.exit.thread ], [ %22, %33 ]
-  %40 = load i64, ptr %.pre-phi31, align 8
-  %41 = and i64 %40, 2048
-  %42 = or i64 %39, %41
-  store i64 %42, ptr %.pre-phi, align 8
-  br label %43
+39:                                               ; preds = %RB_FL_TEST.exit.thread, %34
+  %.pre-phi = phi ptr [ %.phi.trans.insert, %RB_FL_TEST.exit.thread ], [ %29, %34 ]
+  %40 = phi i64 [ %.pre, %RB_FL_TEST.exit.thread ], [ %30, %34 ]
+  %.0 = phi i64 [ %38, %RB_FL_TEST.exit.thread ], [ %23, %34 ]
+  %41 = load i64, ptr %.pre-phi31, align 8
+  %42 = and i64 %41, 2048
+  %43 = or i64 %40, %42
+  store i64 %43, ptr %.pre-phi, align 8
+  br label %44
 
-43:                                               ; preds = %special_singleton_class_of.exit, %38
-  %.016 = phi i64 [ %.0, %38 ], [ %.0.i18, %special_singleton_class_of.exit ]
+44:                                               ; preds = %special_singleton_class_of.exit, %39
+  %.016 = phi i64 [ %.0, %39 ], [ %.0.i18, %special_singleton_class_of.exit ]
   ret i64 %.016
 }
 
@@ -6581,14 +6582,14 @@ declare void @llvm.va_start.p0(ptr) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #14
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #15
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare i64 @llvm.fshl.i64(i64, i64, i64) #16
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6605,8 +6606,8 @@ attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #12 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind allocsize(0,1) }
 attributes #18 = { nounwind }
 attributes #19 = { nounwind allocsize(0) }

@@ -296,8 +296,9 @@ if.end:                                           ; preds = %sw.bb
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %1 = tail call i32 @llvm.fshl.i32(i32 %p1, i32 %p1, i32 27)
-  switch i32 %1, label %return [
+  %1 = sub i32 %p1, 0
+  %2 = call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 27)
+  switch i32 %2, label %return [
     i32 8, label %if.end8
     i32 7, label %if.end8
     i32 5, label %if.end8
@@ -403,8 +404,8 @@ if.end53:                                         ; preds = %land.lhs.true49, %l
 
 sw.bb54:                                          ; preds = %entry
   %md55 = getelementptr inbounds i8, ptr %0, i64 24
-  %2 = load ptr, ptr %md55, align 8
-  store ptr %2, ptr %p2, align 8
+  %3 = load ptr, ptr %md55, align 8
+  store ptr %3, ptr %p2, align 8
   br label %return
 
 sw.bb57:                                          ; preds = %entry

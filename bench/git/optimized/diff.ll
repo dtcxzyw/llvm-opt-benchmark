@@ -15622,17 +15622,17 @@ if.end48:                                         ; preds = %if.end48.sink.split
 
 sw.bb49:                                          ; preds = %entry
   %and50 = and i32 %3, 917504
-  %19 = add nsw i32 %and50, -131072
-  %20 = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 14)
   %use_color63 = getelementptr inbounds i8, ptr %o, i64 252
-  %21 = load i32, ptr %use_color63, align 4
-  %call.i200 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %21) #31
+  %19 = load i32, ptr %use_color63, align 4
+  %call.i200 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %19) #31
   %tobool.not.i201 = icmp eq i32 %call.i200, 0
-  %22 = icmp ult i32 %20, 4
+  %20 = add nsw i32 %and50, -131072
+  %21 = tail call i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 14)
+  %22 = icmp ult i32 %21, 4
   br i1 %22, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %sw.bb49
-  %23 = zext nneg i32 %20 to i64
+  %23 = zext nneg i32 %21 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.emit_diff_symbol_from_struct, i64 0, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
@@ -15691,17 +15691,17 @@ if.end108:                                        ; preds = %sw.epilog, %if.end1
 
 sw.bb111:                                         ; preds = %entry
   %and112 = and i32 %3, 917504
-  %28 = add nsw i32 %and112, -131072
-  %29 = tail call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 14)
   %use_color126 = getelementptr inbounds i8, ptr %o, i64 252
-  %30 = load i32, ptr %use_color126, align 4
-  %call.i230 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %30) #31
+  %28 = load i32, ptr %use_color126, align 4
+  %call.i230 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %28) #31
   %tobool.not.i231 = icmp eq i32 %call.i230, 0
-  %31 = icmp ult i32 %29, 4
+  %29 = add nsw i32 %and112, -131072
+  %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 14)
+  %31 = icmp ult i32 %30, 4
   br i1 %31, label %switch.lookup364, label %sw.epilog128
 
 switch.lookup364:                                 ; preds = %sw.bb111
-  %32 = zext nneg i32 %29 to i64
+  %32 = zext nneg i32 %30 to i64
   %switch.gep365 = getelementptr inbounds [4 x ptr], ptr @switch.table.emit_diff_symbol_from_struct.20, i64 0, i64 %32
   %switch.load366 = load ptr, ptr %switch.gep365, align 8
   br label %sw.epilog128
@@ -22462,9 +22462,6 @@ declare i64 @strbuf_read(ptr noundef, i32 noundef, i64 noundef) local_unnamed_ad
 declare i32 @finish_command(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -22490,6 +22487,9 @@ declare i32 @llvm.smin.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #28
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

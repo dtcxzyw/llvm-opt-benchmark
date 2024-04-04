@@ -1685,26 +1685,26 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %rBracket, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %rBracket, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.23, i64 0, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
-  %conv = zext i8 %tag to i32
-  %0 = call i32 @llvm.fshl.i32(i32 %conv, i32 %conv, i32 28)
-  switch i32 %0, label %sw.epilog [
-    i32 6, label %sw.bb
-    i32 5, label %sw.bb6
-    i32 4, label %sw.bb17
-    i32 3, label %sw.bb27
-    i32 7, label %sw.bb37
-    i32 0, label %sw.bb47
-    i32 1, label %sw.bb49
-    i32 2, label %sw.bb51
+  %0 = sub i8 %tag, 0
+  %1 = call i8 @llvm.fshl.i8(i8 %0, i8 %0, i8 4)
+  switch i8 %1, label %sw.epilog [
+    i8 6, label %sw.bb
+    i8 5, label %sw.bb6
+    i8 4, label %sw.bb17
+    i8 3, label %sw.bb27
+    i8 7, label %sw.bb37
+    i8 0, label %sw.bb47
+    i8 1, label %sw.bb49
+    i8 2, label %sw.bb51
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = load i32, ptr %ind, align 4
-  %idx.ext = sext i32 %1 to i64
+  %2 = load i32, ptr %ind, align 4
+  %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buff, i64 %idx.ext
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr, i64 1) ]
   %ret.0.copyload.i = load i8, ptr %add.ptr, align 1
-  %add = add nsw i32 %1, 1
+  %add = add nsw i32 %2, 1
   store i32 %add, ptr %ind, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #17
   %call.i14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
@@ -1743,12 +1743,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   br label %cleanup
 
 sw.bb6:                                           ; preds = %entry
-  %2 = load i32, ptr %ind, align 4
-  %idx.ext8 = sext i32 %2 to i64
+  %3 = load i32, ptr %ind, align 4
+  %idx.ext8 = sext i32 %3 to i64
   %add.ptr9 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext8
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr9, i64 1) ]
   %ret.0.copyload.i19 = load i16, ptr %add.ptr9, align 1
-  %add11 = add nsw i32 %2, 2
+  %add11 = add nsw i32 %3, 2
   store i32 %add11, ptr %ind, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #17
   %call.i20 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17
@@ -1787,12 +1787,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   br label %cleanup
 
 sw.bb17:                                          ; preds = %entry
-  %3 = load i32, ptr %ind, align 4
-  %idx.ext19 = sext i32 %3 to i64
+  %4 = load i32, ptr %ind, align 4
+  %idx.ext19 = sext i32 %4 to i64
   %add.ptr20 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext19
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr20, i64 1) ]
   %ret.0.copyload.i38 = load i32, ptr %add.ptr20, align 1
-  %add22 = add nsw i32 %3, 4
+  %add22 = add nsw i32 %4, 4
   store i32 %add22, ptr %ind, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #17
   %call.i39 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #17
@@ -1830,12 +1830,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   br label %cleanup
 
 sw.bb27:                                          ; preds = %entry
-  %4 = load i32, ptr %ind, align 4
-  %idx.ext29 = sext i32 %4 to i64
+  %5 = load i32, ptr %ind, align 4
+  %idx.ext29 = sext i32 %5 to i64
   %add.ptr30 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext29
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr30, i64 1) ]
   %ret.0.copyload.i57 = load double, ptr %add.ptr30, align 1
-  %add32 = add nsw i32 %4, 8
+  %add32 = add nsw i32 %5, 8
   store i32 %add32, ptr %ind, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #17
   %call.i58 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34) #17
@@ -1873,12 +1873,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   br label %cleanup
 
 sw.bb37:                                          ; preds = %entry
-  %5 = load i32, ptr %ind, align 4
-  %idx.ext39 = sext i32 %5 to i64
+  %6 = load i32, ptr %ind, align 4
+  %idx.ext39 = sext i32 %6 to i64
   %add.ptr40 = getelementptr inbounds i8, ptr %buff, i64 %idx.ext39
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr40, i64 1) ]
   %ret.0.copyload.i76 = load i32, ptr %add.ptr40, align 1
-  %add42 = add nsw i32 %5, 4
+  %add42 = add nsw i32 %6, 4
   store i32 %add42, ptr %ind, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45) #17
   %call.i77 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #17
@@ -17079,9 +17079,6 @@ declare void @llvm.va_start.p0(ptr) #13
 declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -17098,6 +17095,9 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

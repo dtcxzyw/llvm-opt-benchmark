@@ -16681,7 +16681,7 @@ _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1662: ; preds = %if.end73.i1
 if.end:                                           ; preds = %if.end104.i1541, %if.end73.i1625, %if.end64.i1617, %if.end55.i1609, %if.end46.i1601, %if.end37.i1593, %if.end28.i1585, %if.end19.i1577, %if.end12.i1569, %if.then5.i1563, %if.then.i1658, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1662
   %pos.promoted1337 = phi i64 [ %inc83.i1634, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1662 ], [ %inc96.i1551, %if.end104.i1541 ], [ %inc74.i1626, %if.end73.i1625 ], [ %inc65.i1618, %if.end64.i1617 ], [ %inc56.i1610, %if.end55.i1609 ], [ %inc47.i1602, %if.end46.i1601 ], [ %inc38.i1594, %if.end37.i1593 ], [ %inc29.i1586, %if.end28.i1585 ], [ %inc20.i1578, %if.end19.i1577 ], [ %inc13.i1570, %if.end12.i1569 ], [ %inc6.i1564, %if.then5.i1563 ], [ %inc.i1661, %if.then.i1658 ]
   %tag.01137 = phi i64 [ %or88.i1639, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1662 ], [ %or110.i1547, %if.end104.i1541 ], [ %or79.i1631, %if.end73.i1625 ], [ %or70.i1623, %if.end64.i1617 ], [ %or61.i1615, %if.end55.i1609 ], [ %or52.i1607, %if.end46.i1601 ], [ %or43.i1599, %if.end37.i1593 ], [ %or34.i1591, %if.end28.i1585 ], [ %or25.i1583, %if.end19.i1577 ], [ %or.i1575, %if.end12.i1569 ], [ %and9.i1567, %if.then5.i1563 ], [ %conv.i1655, %if.then.i1658 ]
-  %16 = add i64 %tag.01137, -10
+  %16 = sub i64 %tag.01137, 10
   %17 = call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 61)
   switch i64 %17, label %sw.default [
     i64 0, label %sw.bb
@@ -26395,7 +26395,7 @@ _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit837: ; preds = %if.end73.i80
 if.end:                                           ; preds = %if.end104.i716, %if.end73.i800, %if.end64.i792, %if.end55.i784, %if.end46.i776, %if.end37.i768, %if.end28.i760, %if.end19.i752, %if.end12.i744, %if.then5.i738, %if.then.i833, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit837
   %pos.promoted696 = phi i64 [ %inc83.i809, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit837 ], [ %inc96.i726, %if.end104.i716 ], [ %inc74.i801, %if.end73.i800 ], [ %inc65.i793, %if.end64.i792 ], [ %inc56.i785, %if.end55.i784 ], [ %inc47.i777, %if.end46.i776 ], [ %inc38.i769, %if.end37.i768 ], [ %inc29.i761, %if.end28.i760 ], [ %inc20.i753, %if.end19.i752 ], [ %inc13.i745, %if.end12.i744 ], [ %inc6.i739, %if.then5.i738 ], [ %inc.i836, %if.then.i833 ]
   %tag.0596 = phi i64 [ %or88.i814, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit837 ], [ %or110.i722, %if.end104.i716 ], [ %or79.i806, %if.end73.i800 ], [ %or70.i798, %if.end64.i792 ], [ %or61.i790, %if.end55.i784 ], [ %or52.i782, %if.end46.i776 ], [ %or43.i774, %if.end37.i768 ], [ %or34.i766, %if.end28.i760 ], [ %or25.i758, %if.end19.i752 ], [ %or.i750, %if.end12.i744 ], [ %and9.i742, %if.then5.i738 ], [ %conv.i830, %if.then.i833 ]
-  %16 = add i64 %tag.0596, -10
+  %16 = sub i64 %tag.0596, 10
   %17 = call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 61)
   switch i64 %17, label %sw.default [
     i64 0, label %sw.bb
@@ -59421,26 +59421,26 @@ _ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE7d
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
 attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -59454,9 +59454,9 @@ attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { noreturn }
 attributes #17 = { builtin nounwind }

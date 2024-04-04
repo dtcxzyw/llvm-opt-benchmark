@@ -3556,8 +3556,9 @@ virtio_bus_get_device.exit:                       ; preds = %entry
   br i1 %cmp, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %virtio_bus_get_device.exit
-  %2 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 63)
-  switch i64 %2, label %sw.epilog [
+  %2 = sub i64 %addr, 0
+  %3 = call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 63)
+  switch i64 %3, label %sw.epilog [
     i64 0, label %sw.bb
     i64 4, label %sw.bb1
     i64 6, label %sw.bb3
@@ -3590,46 +3591,46 @@ sw.bb1:                                           ; preds = %if.end
 
 sw.bb3:                                           ; preds = %if.end
   %gfselect4 = getelementptr inbounds i8, ptr %opaque, i64 4912
-  %3 = load i32, ptr %gfselect4, align 16
-  %cmp6 = icmp ult i32 %3, 2
+  %4 = load i32, ptr %gfselect4, align 16
+  %cmp6 = icmp ult i32 %4, 2
   br i1 %cmp6, label %if.then8, label %sw.epilog
 
 if.then8:                                         ; preds = %sw.bb3
-  %conv5 = zext nneg i32 %3 to i64
+  %conv5 = zext nneg i32 %4 to i64
   %conv9 = trunc i64 %val to i32
   %guest_features = getelementptr inbounds i8, ptr %opaque, i64 4916
   %arrayidx = getelementptr [2 x i32], ptr %guest_features, i64 0, i64 %conv5
   store i32 %conv9, ptr %arrayidx, align 4
-  %4 = load i64, ptr %guest_features, align 4
-  %call17 = tail call i32 @virtio_set_features(ptr noundef nonnull %1, i64 noundef %4) #13
+  %5 = load i64, ptr %guest_features, align 4
+  %call17 = tail call i32 @virtio_set_features(ptr noundef nonnull %1, i64 noundef %5) #13
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end
   %config_vector = getelementptr inbounds i8, ptr %1, i64 216
-  %5 = load i16, ptr %config_vector, align 8
-  %cmp21.not = icmp eq i16 %5, -1
+  %6 = load i16, ptr %config_vector, align 8
+  %cmp21.not = icmp eq i16 %6, -1
   br i1 %cmp21.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %sw.bb19
-  %conv20 = zext i16 %5 to i32
+  %conv20 = zext i16 %6 to i32
   tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv20) #13
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %sw.bb19
   %nvectors = getelementptr inbounds i8, ptr %opaque, i64 4904
-  %6 = load i32, ptr %nvectors, align 8
-  %conv27 = zext i32 %6 to i64
+  %7 = load i32, ptr %nvectors, align 8
+  %conv27 = zext i32 %7 to i64
   %cmp28 = icmp ugt i64 %conv27, %val
   br i1 %cmp28, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %if.end26
   %conv32 = trunc i64 %val to i32
   tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv32) #13
-  %7 = trunc i64 %val to i16
+  %8 = trunc i64 %val to i16
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end26, %if.then30
-  %val.addr.0 = phi i16 [ %7, %if.then30 ], [ -1, %if.end26 ]
+  %val.addr.0 = phi i16 [ %8, %if.then30 ], [ -1, %if.end26 ]
   store i16 %val.addr.0, ptr %config_vector, align 8
   br label %sw.epilog
 
@@ -3652,8 +3653,8 @@ if.then44.critedge:                               ; preds = %sw.bb36
 
 if.end45:                                         ; preds = %if.then37, %if.then44.critedge
   %status = getelementptr inbounds i8, ptr %1, i64 168
-  %8 = load i8, ptr %status, align 8
-  %cmp47 = icmp eq i8 %8, 0
+  %9 = load i8, ptr %status, align 8
+  %cmp47 = icmp eq i8 %9, 0
   br i1 %cmp47, label %if.then49, label %sw.epilog
 
 if.then49:                                        ; preds = %if.end45
@@ -3675,26 +3676,26 @@ sw.bb58:                                          ; preds = %if.end
   %conv59 = trunc i64 %val to i16
   %vqs = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel60 = getelementptr inbounds i8, ptr %1, i64 170
-  %9 = load i16, ptr %queue_sel60, align 2
-  %idxprom61 = zext i16 %9 to i64
+  %10 = load i16, ptr %queue_sel60, align 2
+  %idxprom61 = zext i16 %10 to i64
   %arrayidx62 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs, i64 0, i64 %idxprom61
   store i16 %conv59, ptr %arrayidx62, align 4
-  %10 = load i16, ptr %queue_sel60, align 2
-  %conv64 = zext i16 %10 to i32
-  %idxprom67 = zext i16 %10 to i64
+  %11 = load i16, ptr %queue_sel60, align 2
+  %conv64 = zext i16 %11 to i32
+  %idxprom67 = zext i16 %11 to i64
   %arrayidx68 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs, i64 0, i64 %idxprom67
-  %11 = load i16, ptr %arrayidx68, align 4
-  %conv70 = zext i16 %11 to i32
+  %12 = load i16, ptr %arrayidx68, align 4
+  %conv70 = zext i16 %12 to i32
   tail call void @virtio_queue_set_num(ptr noundef nonnull %1, i32 noundef %conv64, i32 noundef %conv70) #13
-  %12 = load i16, ptr %queue_sel60, align 2
-  %conv72 = zext i16 %12 to i32
+  %13 = load i16, ptr %queue_sel60, align 2
+  %conv72 = zext i16 %13 to i32
   tail call void @virtio_init_region_cache(ptr noundef nonnull %1, i32 noundef %conv72) #13
   br label %sw.epilog
 
 sw.bb73:                                          ; preds = %if.end
   %queue_sel74 = getelementptr inbounds i8, ptr %1, i64 170
-  %13 = load i16, ptr %queue_sel74, align 2
-  %conv75 = zext i16 %13 to i32
+  %14 = load i16, ptr %queue_sel74, align 2
+  %conv75 = zext i16 %14 to i32
   %call76 = tail call zeroext i16 @virtio_queue_vector(ptr noundef nonnull %1, i32 noundef %conv75) #13
   %cmp78.not = icmp eq i16 %call76, -1
   br i1 %cmp78.not, label %if.end83, label %if.then80
@@ -3706,21 +3707,21 @@ if.then80:                                        ; preds = %sw.bb73
 
 if.end83:                                         ; preds = %if.then80, %sw.bb73
   %nvectors84 = getelementptr inbounds i8, ptr %opaque, i64 4904
-  %14 = load i32, ptr %nvectors84, align 8
-  %conv85 = zext i32 %14 to i64
+  %15 = load i32, ptr %nvectors84, align 8
+  %conv85 = zext i32 %15 to i64
   %cmp86 = icmp ugt i64 %conv85, %val
   br i1 %cmp86, label %if.then88, label %if.end92
 
 if.then88:                                        ; preds = %if.end83
   %conv90 = trunc i64 %val to i32
   tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv90) #13
-  %15 = trunc i64 %val to i16
+  %16 = trunc i64 %val to i16
   br label %if.end92
 
 if.end92:                                         ; preds = %if.end83, %if.then88
-  %val.addr.1 = phi i16 [ %15, %if.then88 ], [ -1, %if.end83 ]
-  %16 = load i16, ptr %queue_sel74, align 2
-  %conv94 = zext i16 %16 to i32
+  %val.addr.1 = phi i16 [ %16, %if.then88 ], [ -1, %if.end83 ]
+  %17 = load i16, ptr %queue_sel74, align 2
+  %conv94 = zext i16 %17 to i32
   tail call void @virtio_queue_set_vector(ptr noundef nonnull %1, i32 noundef %conv94, i16 noundef zeroext %val.addr.1) #13
   br label %sw.epilog
 
@@ -3730,35 +3731,35 @@ sw.bb96:                                          ; preds = %if.end
 
 if.then99:                                        ; preds = %sw.bb96
   %queue_sel100 = getelementptr inbounds i8, ptr %1, i64 170
-  %17 = load i16, ptr %queue_sel100, align 2
-  %conv101 = zext i16 %17 to i32
+  %18 = load i16, ptr %queue_sel100, align 2
+  %conv101 = zext i16 %18 to i32
   %vqs102 = getelementptr inbounds i8, ptr %opaque, i64 4924
-  %idxprom104 = zext i16 %17 to i64
+  %idxprom104 = zext i16 %18 to i64
   %arrayidx105 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs102, i64 0, i64 %idxprom104
-  %18 = load i16, ptr %arrayidx105, align 4
-  %conv107 = zext i16 %18 to i32
+  %19 = load i16, ptr %arrayidx105, align 4
+  %conv107 = zext i16 %19 to i32
   tail call void @virtio_queue_set_num(ptr noundef nonnull %1, i32 noundef %conv101, i32 noundef %conv107) #13
-  %19 = load i16, ptr %queue_sel100, align 2
-  %conv109 = zext i16 %19 to i32
-  %idxprom112 = zext i16 %19 to i64
+  %20 = load i16, ptr %queue_sel100, align 2
+  %conv109 = zext i16 %20 to i32
+  %idxprom112 = zext i16 %20 to i64
   %arrayidx113 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs102, i64 0, i64 %idxprom112
   %desc = getelementptr inbounds i8, ptr %arrayidx113, i64 4
-  %20 = load i64, ptr %desc, align 4
+  %21 = load i64, ptr %desc, align 4
   %avail = getelementptr inbounds i8, ptr %arrayidx113, i64 12
-  %21 = load i64, ptr %avail, align 4
+  %22 = load i64, ptr %avail, align 4
   %used = getelementptr inbounds i8, ptr %arrayidx113, i64 20
-  %22 = load i64, ptr %used, align 4
-  tail call void @virtio_queue_set_rings(ptr noundef nonnull %1, i32 noundef %conv109, i64 noundef %20, i64 noundef %21, i64 noundef %22) #13
-  %23 = load i16, ptr %queue_sel100, align 2
-  %idxprom157 = zext i16 %23 to i64
+  %23 = load i64, ptr %used, align 4
+  tail call void @virtio_queue_set_rings(ptr noundef nonnull %1, i32 noundef %conv109, i64 noundef %21, i64 noundef %22, i64 noundef %23) #13
+  %24 = load i16, ptr %queue_sel100, align 2
+  %idxprom157 = zext i16 %24 to i64
   %enabled = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs102, i64 0, i64 %idxprom157, i32 1
   store i8 1, ptr %enabled, align 2
-  %24 = load i16, ptr %queue_sel100, align 2
-  %idxprom161 = zext i16 %24 to i64
+  %25 = load i16, ptr %queue_sel100, align 2
+  %idxprom161 = zext i16 %25 to i64
   %reset = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs102, i64 0, i64 %idxprom161, i32 2
   store i8 0, ptr %reset, align 1
-  %25 = load i16, ptr %queue_sel100, align 2
-  %conv164 = zext i16 %25 to i32
+  %26 = load i16, ptr %queue_sel100, align 2
+  %conv164 = zext i16 %26 to i32
   tail call void @virtio_queue_enable(ptr noundef nonnull %1, i32 noundef %conv164) #13
   br label %sw.epilog
 
@@ -3770,8 +3771,8 @@ sw.bb167:                                         ; preds = %if.end
   %conv168 = trunc i64 %val to i32
   %vqs169 = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel170 = getelementptr inbounds i8, ptr %1, i64 170
-  %26 = load i16, ptr %queue_sel170, align 2
-  %idxprom171 = zext i16 %26 to i64
+  %27 = load i16, ptr %queue_sel170, align 2
+  %idxprom171 = zext i16 %27 to i64
   %desc173 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs169, i64 0, i64 %idxprom171, i32 3
   store i32 %conv168, ptr %desc173, align 4
   br label %sw.epilog
@@ -3780,8 +3781,8 @@ sw.bb175:                                         ; preds = %if.end
   %conv176 = trunc i64 %val to i32
   %vqs177 = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel178 = getelementptr inbounds i8, ptr %1, i64 170
-  %27 = load i16, ptr %queue_sel178, align 2
-  %idxprom179 = zext i16 %27 to i64
+  %28 = load i16, ptr %queue_sel178, align 2
+  %idxprom179 = zext i16 %28 to i64
   %arrayidx182 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs177, i64 0, i64 %idxprom179, i32 3, i64 1
   store i32 %conv176, ptr %arrayidx182, align 4
   br label %sw.epilog
@@ -3790,8 +3791,8 @@ sw.bb183:                                         ; preds = %if.end
   %conv184 = trunc i64 %val to i32
   %vqs185 = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel186 = getelementptr inbounds i8, ptr %1, i64 170
-  %28 = load i16, ptr %queue_sel186, align 2
-  %idxprom187 = zext i16 %28 to i64
+  %29 = load i16, ptr %queue_sel186, align 2
+  %idxprom187 = zext i16 %29 to i64
   %avail189 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs185, i64 0, i64 %idxprom187, i32 4
   store i32 %conv184, ptr %avail189, align 4
   br label %sw.epilog
@@ -3800,8 +3801,8 @@ sw.bb191:                                         ; preds = %if.end
   %conv192 = trunc i64 %val to i32
   %vqs193 = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel194 = getelementptr inbounds i8, ptr %1, i64 170
-  %29 = load i16, ptr %queue_sel194, align 2
-  %idxprom195 = zext i16 %29 to i64
+  %30 = load i16, ptr %queue_sel194, align 2
+  %idxprom195 = zext i16 %30 to i64
   %arrayidx198 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs193, i64 0, i64 %idxprom195, i32 4, i64 1
   store i32 %conv192, ptr %arrayidx198, align 4
   br label %sw.epilog
@@ -3810,8 +3811,8 @@ sw.bb199:                                         ; preds = %if.end
   %conv200 = trunc i64 %val to i32
   %vqs201 = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel202 = getelementptr inbounds i8, ptr %1, i64 170
-  %30 = load i16, ptr %queue_sel202, align 2
-  %idxprom203 = zext i16 %30 to i64
+  %31 = load i16, ptr %queue_sel202, align 2
+  %idxprom203 = zext i16 %31 to i64
   %used205 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs201, i64 0, i64 %idxprom203, i32 5
   store i32 %conv200, ptr %used205, align 4
   br label %sw.epilog
@@ -3820,8 +3821,8 @@ sw.bb207:                                         ; preds = %if.end
   %conv208 = trunc i64 %val to i32
   %vqs209 = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel210 = getelementptr inbounds i8, ptr %1, i64 170
-  %31 = load i16, ptr %queue_sel210, align 2
-  %idxprom211 = zext i16 %31 to i64
+  %32 = load i16, ptr %queue_sel210, align 2
+  %idxprom211 = zext i16 %32 to i64
   %arrayidx214 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs209, i64 0, i64 %idxprom211, i32 5, i64 1
   store i32 %conv208, ptr %arrayidx214, align 4
   br label %sw.epilog
@@ -3833,19 +3834,19 @@ sw.bb215:                                         ; preds = %if.end
 if.then218:                                       ; preds = %sw.bb215
   %vqs219 = getelementptr inbounds i8, ptr %opaque, i64 4924
   %queue_sel220 = getelementptr inbounds i8, ptr %1, i64 170
-  %32 = load i16, ptr %queue_sel220, align 2
-  %idxprom221 = zext i16 %32 to i64
+  %33 = load i16, ptr %queue_sel220, align 2
+  %idxprom221 = zext i16 %33 to i64
   %reset223 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs219, i64 0, i64 %idxprom221, i32 2
   store i8 1, ptr %reset223, align 1
-  %33 = load i16, ptr %queue_sel220, align 2
-  %conv225 = zext i16 %33 to i32
-  tail call void @virtio_queue_reset(ptr noundef nonnull %1, i32 noundef %conv225) #13
   %34 = load i16, ptr %queue_sel220, align 2
-  %idxprom228 = zext i16 %34 to i64
+  %conv225 = zext i16 %34 to i32
+  tail call void @virtio_queue_reset(ptr noundef nonnull %1, i32 noundef %conv225) #13
+  %35 = load i16, ptr %queue_sel220, align 2
+  %idxprom228 = zext i16 %35 to i64
   %reset230 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs219, i64 0, i64 %idxprom228, i32 2
   store i8 0, ptr %reset230, align 1
-  %35 = load i16, ptr %queue_sel220, align 2
-  %idxprom233 = zext i16 %35 to i64
+  %36 = load i16, ptr %queue_sel220, align 2
+  %idxprom233 = zext i16 %36 to i64
   %enabled235 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs219, i64 0, i64 %idxprom233, i32 1
   store i8 0, ptr %enabled235, align 2
   br label %sw.epilog
@@ -4416,8 +4417,8 @@ if.end:                                           ; preds = %virtio_bus_get_devi
 virtio_bus_get_device.exit.i:                     ; preds = %if.end
   %conv5 = trunc i64 %addr to i32
   %conv6 = trunc i64 %val to i32
-  %2 = add nsw i32 %conv5, -4
-  %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
+  %2 = sub i32 %conv5, 4
+  %3 = call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
   switch i32 %3, label %do.body.i [
     i32 0, label %sw.bb.i
     i32 2, label %sw.bb4.i
@@ -5118,12 +5119,6 @@ declare void @pcie_cap_deverr_reset(ptr noundef) local_unnamed_addr #1
 declare void @pcie_cap_lnkctl_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5134,6 +5129,12 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

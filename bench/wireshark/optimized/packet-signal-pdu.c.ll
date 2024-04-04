@@ -2601,7 +2601,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
 105:                                              ; preds = %101
   %106 = getelementptr inbounds i8, ptr %0, i64 44
   %107 = load i32, ptr %106, align 4
-  %108 = add i32 %107, -8
+  %108 = sub i32 %107, 8
   %109 = call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 29)
   switch i32 %109, label %110 [
     i32 0, label %113
@@ -2635,7 +2635,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 125:                                              ; preds = %117
-  %126 = add i32 %119, -8
+  %126 = sub i32 %119, 8
   %127 = call i32 @llvm.fshl.i32(i32 %126, i32 %126, i32 29)
   switch i32 %127, label %128 [
     i32 0, label %131
@@ -2857,7 +2857,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
 255:                                              ; preds = %251, %247
   %256 = getelementptr inbounds i8, ptr %0, i64 48
   %257 = load i32, ptr %256, align 8
-  %258 = add i32 %257, -8
+  %258 = sub i32 %257, 8
   %259 = call i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 29)
   switch i32 %259, label %260 [
     i32 0, label %263
@@ -6574,17 +6574,17 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6596,9 +6596,9 @@ attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { nounwind allocsize(0,1) }

@@ -903,8 +903,8 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
 
 22:                                               ; preds = %17
   %23 = load i32, ptr %12, align 4
-  %24 = add i32 %23, -787200
-  %25 = tail call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 28)
+  %24 = sub i32 %23, 787200
+  %25 = call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 28)
   switch i32 %25, label %.thread [
     i32 0, label %26
     i32 1, label %50

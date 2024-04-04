@@ -2155,8 +2155,8 @@ if.end42:                                         ; preds = %while.body.i65, %if
   %39 = phi ptr [ %27, %if.end19 ], [ %add.ptr.i13.i67, %while.body.i65 ]
   %end_index.1 = phi i32 [ %25, %if.end19 ], [ %inc.i.i69, %while.body.i65 ]
   %call45 = tail call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %this), !range !8
-  %40 = add nsw i32 %call45, -1
-  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
+  %40 = sub i32 %call45, 1
+  %41 = call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
   switch i32 %41, label %sw.default [
     i32 0, label %sw.epilog
     i32 1, label %sw.epilog
@@ -4023,9 +4023,6 @@ declare void @_ZN4base16FundamentalValueC1Ed(ptr noundef nonnull align 8 derefer
 declare void @_ZN4base16FundamentalValueC1Eb(ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -4033,6 +4030,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

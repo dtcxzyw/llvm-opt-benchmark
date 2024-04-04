@@ -34,8 +34,9 @@ while.body:                                       ; preds = %land.rhs
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
   %str.addr.0.lcssa = phi ptr [ %str, %entry ], [ %incdec.ptr, %while.body ], [ %str.addr.094, %land.rhs ]
   %.lcssa = phi i8 [ 0, %entry ], [ 0, %while.body ], [ %1, %land.rhs ]
-  %4 = tail call i32 @llvm.fshl.i32(i32 %base, i32 %base, i32 31)
-  switch i32 %4, label %sw.epilog [
+  %4 = sub i32 %base, 0
+  %5 = call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 31)
+  switch i32 %5, label %sw.epilog [
     i32 0, label %sw.bb
     i32 8, label %sw.bb103
     i32 4, label %sw.bb134
@@ -48,8 +49,8 @@ sw.bb:                                            ; preds = %while.end
 
 if.then:                                          ; preds = %sw.bb
   %incdec.ptr7 = getelementptr i8, ptr %str.addr.0.lcssa, i64 1
-  %5 = load i8, ptr %incdec.ptr7, align 1
-  switch i8 %5, label %while.cond84.preheader [
+  %6 = load i8, ptr %incdec.ptr7, align 1
+  switch i8 %6, label %while.cond84.preheader [
     i8 120, label %if.then14
     i8 88, label %if.then14
     i8 111, label %if.then36
@@ -61,11 +62,11 @@ if.then:                                          ; preds = %sw.bb
 
 if.then14:                                        ; preds = %if.then, %if.then
   %arrayidx15 = getelementptr i8, ptr %str.addr.0.lcssa, i64 2
-  %6 = load i8, ptr %arrayidx15, align 1
-  %idxprom19 = zext i8 %6 to i64
+  %7 = load i8, ptr %arrayidx15, align 1
+  %idxprom19 = zext i8 %7 to i64
   %arrayidx20 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom19
-  %7 = load i8, ptr %arrayidx20, align 1
-  %cmp22 = icmp ugt i8 %7, 15
+  %8 = load i8, ptr %arrayidx20, align 1
+  %cmp22 = icmp ugt i8 %8, 15
   br i1 %cmp22, label %if.then24, label %while.cond206.preheader
 
 if.then24:                                        ; preds = %if.then14
@@ -78,11 +79,11 @@ if.then26:                                        ; preds = %if.then24
 
 if.then36:                                        ; preds = %if.then, %if.then
   %arrayidx37 = getelementptr i8, ptr %str.addr.0.lcssa, i64 2
-  %8 = load i8, ptr %arrayidx37, align 1
-  %idxprom41 = zext i8 %8 to i64
+  %9 = load i8, ptr %arrayidx37, align 1
+  %idxprom41 = zext i8 %9 to i64
   %arrayidx42 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom41
-  %9 = load i8, ptr %arrayidx42, align 1
-  %cmp44 = icmp ugt i8 %9, 7
+  %10 = load i8, ptr %arrayidx42, align 1
+  %cmp44 = icmp ugt i8 %10, 7
   br i1 %cmp44, label %if.then46, label %while.cond206.preheader
 
 if.then46:                                        ; preds = %if.then36
@@ -95,11 +96,11 @@ if.then48:                                        ; preds = %if.then46
 
 if.then60:                                        ; preds = %if.then, %if.then
   %arrayidx61 = getelementptr i8, ptr %str.addr.0.lcssa, i64 2
-  %10 = load i8, ptr %arrayidx61, align 1
-  %idxprom65 = zext i8 %10 to i64
+  %11 = load i8, ptr %arrayidx61, align 1
+  %idxprom65 = zext i8 %11 to i64
   %arrayidx66 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom65
-  %11 = load i8, ptr %arrayidx66, align 1
-  %cmp68 = icmp ugt i8 %11, 1
+  %12 = load i8, ptr %arrayidx66, align 1
+  %cmp68 = icmp ugt i8 %12, 1
   br i1 %cmp68, label %if.then70, label %while.cond206.preheader
 
 if.then70:                                        ; preds = %if.then60
@@ -123,11 +124,11 @@ while.cond84.preheader:                           ; preds = %while.body81, %if.t
 
 while.cond84:                                     ; preds = %while.cond84.preheader, %while.cond84
   %str.addr.2 = phi ptr [ %incdec.ptr93, %while.cond84 ], [ %str.addr.2.ph, %while.cond84.preheader ]
-  %12 = load i8, ptr %str.addr.2, align 1
-  %idxprom88 = zext i8 %12 to i64
+  %13 = load i8, ptr %str.addr.2, align 1
+  %idxprom88 = zext i8 %13 to i64
   %arrayidx89 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom88
-  %13 = load i32, ptr %arrayidx89, align 4
-  %and90 = and i32 %13, 8
+  %14 = load i32, ptr %arrayidx89, align 4
+  %and90 = and i32 %14, 8
   %tobool91.not = icmp eq i32 %and90, 0
   %incdec.ptr93 = getelementptr i8, ptr %str.addr.2, i64 1
   br i1 %tobool91.not, label %while.end94, label %while.cond84, !llvm.loop !8
@@ -142,24 +143,24 @@ if.then96:                                        ; preds = %while.end94
 
 sw.bb103:                                         ; preds = %while.end
   %cmp105 = icmp eq i8 %.lcssa, 48
-  br i1 %cmp105, label %if.then107, label %sw.epilog
+  br i1 %cmp105, label %if.then107, label %while.cond206.preheader
 
 if.then107:                                       ; preds = %sw.bb103
   %incdec.ptr108 = getelementptr i8, ptr %str.addr.0.lcssa, i64 1
-  %14 = load i8, ptr %incdec.ptr108, align 1
-  switch i8 %14, label %sw.epilog [
+  %15 = load i8, ptr %incdec.ptr108, align 1
+  switch i8 %15, label %while.cond206.preheader [
     i8 120, label %if.then116
     i8 88, label %if.then116
   ]
 
 if.then116:                                       ; preds = %if.then107, %if.then107
   %arrayidx117 = getelementptr i8, ptr %str.addr.0.lcssa, i64 2
-  %15 = load i8, ptr %arrayidx117, align 1
-  %idxprom121 = zext i8 %15 to i64
+  %16 = load i8, ptr %arrayidx117, align 1
+  %idxprom121 = zext i8 %16 to i64
   %arrayidx122 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom121
-  %16 = load i8, ptr %arrayidx122, align 1
-  %cmp124 = icmp ugt i8 %16, 15
-  br i1 %cmp124, label %if.then126, label %sw.epilog
+  %17 = load i8, ptr %arrayidx122, align 1
+  %cmp124 = icmp ugt i8 %17, 15
+  br i1 %cmp124, label %if.then126, label %while.cond206.preheader
 
 if.then126:                                       ; preds = %if.then116
   %tobool127.not = icmp eq ptr %ptr, null
@@ -171,24 +172,24 @@ if.then128:                                       ; preds = %if.then126
 
 sw.bb134:                                         ; preds = %while.end
   %cmp136 = icmp eq i8 %.lcssa, 48
-  br i1 %cmp136, label %if.then138, label %sw.epilog
+  br i1 %cmp136, label %if.then138, label %while.cond206.preheader
 
 if.then138:                                       ; preds = %sw.bb134
   %incdec.ptr139 = getelementptr i8, ptr %str.addr.0.lcssa, i64 1
-  %17 = load i8, ptr %incdec.ptr139, align 1
-  switch i8 %17, label %sw.epilog [
+  %18 = load i8, ptr %incdec.ptr139, align 1
+  switch i8 %18, label %while.cond206.preheader [
     i8 111, label %if.then147
     i8 79, label %if.then147
   ]
 
 if.then147:                                       ; preds = %if.then138, %if.then138
   %arrayidx148 = getelementptr i8, ptr %str.addr.0.lcssa, i64 2
-  %18 = load i8, ptr %arrayidx148, align 1
-  %idxprom152 = zext i8 %18 to i64
+  %19 = load i8, ptr %arrayidx148, align 1
+  %idxprom152 = zext i8 %19 to i64
   %arrayidx153 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom152
-  %19 = load i8, ptr %arrayidx153, align 1
-  %cmp155 = icmp ugt i8 %19, 7
-  br i1 %cmp155, label %if.then157, label %sw.epilog
+  %20 = load i8, ptr %arrayidx153, align 1
+  %cmp155 = icmp ugt i8 %20, 7
+  br i1 %cmp155, label %if.then157, label %while.cond206.preheader
 
 if.then157:                                       ; preds = %if.then147
   %tobool158.not = icmp eq ptr %ptr, null
@@ -200,24 +201,24 @@ if.then159:                                       ; preds = %if.then157
 
 sw.bb165:                                         ; preds = %while.end
   %cmp167 = icmp eq i8 %.lcssa, 48
-  br i1 %cmp167, label %if.then169, label %sw.epilog
+  br i1 %cmp167, label %if.then169, label %while.cond206.preheader
 
 if.then169:                                       ; preds = %sw.bb165
   %incdec.ptr170 = getelementptr i8, ptr %str.addr.0.lcssa, i64 1
-  %20 = load i8, ptr %incdec.ptr170, align 1
-  switch i8 %20, label %sw.epilog [
+  %21 = load i8, ptr %incdec.ptr170, align 1
+  switch i8 %21, label %while.cond206.preheader [
     i8 98, label %if.then178
     i8 66, label %if.then178
   ]
 
 if.then178:                                       ; preds = %if.then169, %if.then169
   %arrayidx179 = getelementptr i8, ptr %str.addr.0.lcssa, i64 2
-  %21 = load i8, ptr %arrayidx179, align 1
-  %idxprom183 = zext i8 %21 to i64
+  %22 = load i8, ptr %arrayidx179, align 1
+  %idxprom183 = zext i8 %22 to i64
   %arrayidx184 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom183
-  %22 = load i8, ptr %arrayidx184, align 1
-  %cmp186 = icmp ugt i8 %22, 1
-  br i1 %cmp186, label %if.then188, label %sw.epilog
+  %23 = load i8, ptr %arrayidx184, align 1
+  %cmp186 = icmp ugt i8 %23, 1
+  br i1 %cmp186, label %if.then188, label %while.cond206.preheader
 
 if.then188:                                       ; preds = %if.then178
   %tobool189.not = icmp eq ptr %ptr, null
@@ -227,15 +228,14 @@ if.then190:                                       ; preds = %if.then188
   store ptr %incdec.ptr170, ptr %ptr, align 8
   br label %return
 
-sw.epilog:                                        ; preds = %if.then178, %if.then169, %if.then147, %if.then138, %if.then116, %if.then107, %sw.bb165, %sw.bb134, %sw.bb103, %while.end
-  %str.addr.3 = phi ptr [ %str.addr.0.lcssa, %while.end ], [ %str.addr.0.lcssa, %sw.bb165 ], [ %str.addr.0.lcssa, %sw.bb134 ], [ %str.addr.0.lcssa, %sw.bb103 ], [ %incdec.ptr108, %if.then107 ], [ %arrayidx117, %if.then116 ], [ %incdec.ptr139, %if.then138 ], [ %arrayidx148, %if.then147 ], [ %incdec.ptr170, %if.then169 ], [ %arrayidx179, %if.then178 ]
-  %23 = add i32 %base, -37
-  %or.cond = icmp ult i32 %23, -35
+sw.epilog:                                        ; preds = %while.end
+  %24 = add i32 %base, -37
+  %or.cond = icmp ult i32 %24, -35
   br i1 %or.cond, label %if.then201, label %while.cond206.preheader
 
-while.cond206.preheader:                          ; preds = %sw.bb, %if.then60, %if.then36, %if.then14, %sw.epilog
-  %str.addr.3115 = phi ptr [ %str.addr.3, %sw.epilog ], [ %str.addr.0.lcssa, %sw.bb ], [ %arrayidx61, %if.then60 ], [ %arrayidx37, %if.then36 ], [ %arrayidx15, %if.then14 ]
-  %base.addr.0114 = phi i32 [ %base, %sw.epilog ], [ 10, %sw.bb ], [ 2, %if.then60 ], [ 8, %if.then36 ], [ 16, %if.then14 ]
+while.cond206.preheader:                          ; preds = %if.then178, %if.then169, %if.then147, %if.then138, %if.then116, %if.then107, %sw.bb, %if.then60, %if.then36, %if.then14, %sw.bb103, %sw.bb134, %sw.bb165, %sw.epilog
+  %str.addr.3115 = phi ptr [ %str.addr.0.lcssa, %sw.epilog ], [ %arrayidx179, %if.then178 ], [ %incdec.ptr170, %if.then169 ], [ %arrayidx148, %if.then147 ], [ %incdec.ptr139, %if.then138 ], [ %arrayidx117, %if.then116 ], [ %incdec.ptr108, %if.then107 ], [ %str.addr.0.lcssa, %sw.bb ], [ %arrayidx61, %if.then60 ], [ %arrayidx37, %if.then36 ], [ %arrayidx15, %if.then14 ], [ %str.addr.0.lcssa, %sw.bb103 ], [ %str.addr.0.lcssa, %sw.bb134 ], [ %str.addr.0.lcssa, %sw.bb165 ]
+  %base.addr.0114 = phi i32 [ %base, %sw.epilog ], [ 2, %if.then178 ], [ 2, %if.then169 ], [ 8, %if.then147 ], [ 8, %if.then138 ], [ 16, %if.then116 ], [ 16, %if.then107 ], [ 10, %sw.bb ], [ 2, %if.then60 ], [ 8, %if.then36 ], [ 16, %if.then14 ], [ 16, %sw.bb103 ], [ 8, %sw.bb134 ], [ 2, %sw.bb165 ]
   br label %while.cond206
 
 if.then201:                                       ; preds = %sw.epilog
@@ -243,34 +243,34 @@ if.then201:                                       ; preds = %sw.epilog
   br i1 %tobool202.not, label %return, label %if.then203
 
 if.then203:                                       ; preds = %if.then201
-  store ptr %str.addr.3, ptr %ptr, align 8
+  store ptr %str.addr.0.lcssa, ptr %ptr, align 8
   br label %return
 
 while.cond206:                                    ; preds = %while.cond206.preheader, %while.cond206
   %str.addr.4 = phi ptr [ %incdec.ptr211, %while.cond206 ], [ %str.addr.3115, %while.cond206.preheader ]
-  %24 = load i8, ptr %str.addr.4, align 1
-  %cmp208 = icmp eq i8 %24, 48
+  %25 = load i8, ptr %str.addr.4, align 1
+  %cmp208 = icmp eq i8 %25, 48
   %incdec.ptr211 = getelementptr i8, ptr %str.addr.4, i64 1
   br i1 %cmp208, label %while.cond206, label %while.end212, !llvm.loop !9
 
 while.end212:                                     ; preds = %while.cond206
   %idxprom213 = zext nneg i32 %base.addr.0114 to i64
-  %idxprom219101 = zext i8 %24 to i64
+  %idxprom219101 = zext i8 %25 to i64
   %arrayidx220102 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom219101
-  %25 = load i8, ptr %arrayidx220102, align 1
-  %conv221103 = zext i8 %25 to i32
+  %26 = load i8, ptr %arrayidx220102, align 1
+  %conv221103 = zext i8 %26 to i32
   %cmp222104 = icmp sgt i32 %base.addr.0114, %conv221103
   br i1 %cmp222104, label %while.body224.lr.ph, label %while.end251
 
 while.body224.lr.ph:                              ; preds = %while.end212
   %arrayidx214 = getelementptr [37 x i32], ptr @digitlimit, i64 0, i64 %idxprom213
-  %26 = load i32, ptr %arrayidx214, align 4
+  %27 = load i32, ptr %arrayidx214, align 4
   %arrayidx236 = getelementptr [37 x i64], ptr @smallmax, i64 0, i64 %idxprom213
   br label %while.body224
 
 while.body224:                                    ; preds = %while.body224.lr.ph, %if.end249
-  %27 = phi i8 [ %25, %while.body224.lr.ph ], [ %30, %if.end249 ]
-  %ovlimit.0107 = phi i32 [ %26, %while.body224.lr.ph ], [ %dec, %if.end249 ]
+  %28 = phi i8 [ %26, %while.body224.lr.ph ], [ %31, %if.end249 ]
+  %ovlimit.0107 = phi i32 [ %27, %while.body224.lr.ph ], [ %dec, %if.end249 ]
   %str.addr.5106 = phi ptr [ %str.addr.4, %while.body224.lr.ph ], [ %incdec.ptr250, %if.end249 ]
   %result.0105 = phi i64 [ 0, %while.body224.lr.ph ], [ %result.1, %if.end249 ]
   %cmp225 = icmp sgt i32 %ovlimit.0107, 0
@@ -278,7 +278,7 @@ while.body224:                                    ; preds = %while.body224.lr.ph
 
 if.then227:                                       ; preds = %while.body224
   %mul = mul i64 %result.0105, %idxprom213
-  %conv229 = zext i8 %27 to i64
+  %conv229 = zext i8 %28 to i64
   %add = add i64 %mul, %conv229
   br label %if.end249
 
@@ -287,13 +287,13 @@ if.else230:                                       ; preds = %while.body224
   br i1 %cmp231, label %overflowed, label %if.end234
 
 if.end234:                                        ; preds = %if.else230
-  %28 = load i64, ptr %arrayidx236, align 8
-  %cmp237 = icmp ugt i64 %result.0105, %28
+  %29 = load i64, ptr %arrayidx236, align 8
+  %cmp237 = icmp ugt i64 %result.0105, %29
   br i1 %cmp237, label %overflowed, label %if.end240
 
 if.end240:                                        ; preds = %if.end234
   %mul242 = mul i64 %result.0105, %idxprom213
-  %conv243 = zext i8 %27 to i64
+  %conv243 = zext i8 %28 to i64
   %add244 = add i64 %mul242, %conv243
   %cmp245 = icmp ult i64 %add244, %mul242
   br i1 %cmp245, label %overflowed, label %if.end249
@@ -302,11 +302,11 @@ if.end249:                                        ; preds = %if.end240, %if.then
   %result.1 = phi i64 [ %add, %if.then227 ], [ %add244, %if.end240 ]
   %incdec.ptr250 = getelementptr i8, ptr %str.addr.5106, i64 1
   %dec = add nsw i32 %ovlimit.0107, -1
-  %29 = load i8, ptr %incdec.ptr250, align 1
-  %idxprom219 = zext i8 %29 to i64
+  %30 = load i8, ptr %incdec.ptr250, align 1
+  %idxprom219 = zext i8 %30 to i64
   %arrayidx220 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom219
-  %30 = load i8, ptr %arrayidx220, align 1
-  %conv221 = zext i8 %30 to i32
+  %31 = load i8, ptr %arrayidx220, align 1
+  %conv221 = zext i8 %31 to i32
   %cmp222 = icmp ugt i32 %base.addr.0114, %conv221
   br i1 %cmp222, label %while.body224, label %while.end251, !llvm.loop !10
 
@@ -326,11 +326,11 @@ overflowed:                                       ; preds = %if.end240, %if.end2
 
 while.cond257:                                    ; preds = %overflowed, %while.cond257
   %str.addr.6 = phi ptr [ %incdec.ptr267, %while.cond257 ], [ %str.addr.5106, %overflowed ]
-  %31 = load i8, ptr %str.addr.6, align 1
-  %idxprom261 = zext i8 %31 to i64
+  %32 = load i8, ptr %str.addr.6, align 1
+  %idxprom261 = zext i8 %32 to i64
   %arrayidx262 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %idxprom261
-  %32 = load i8, ptr %arrayidx262, align 1
-  %conv263 = zext i8 %32 to i32
+  %33 = load i8, ptr %arrayidx262, align 1
+  %conv263 = zext i8 %33 to i32
   %cmp264 = icmp ugt i32 %base.addr.0114, %conv263
   %incdec.ptr267 = getelementptr i8, ptr %str.addr.6, i64 1
   br i1 %cmp264, label %while.cond257, label %while.end268, !llvm.loop !11

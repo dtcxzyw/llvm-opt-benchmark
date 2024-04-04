@@ -2804,8 +2804,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and1 = and i32 %addr, 15
-  %2 = tail call i32 @llvm.fshl.i32(i32 %and1, i32 %and1, i32 30)
-  switch i32 %2, label %if.end [
+  %2 = sub i32 %and1, 0
+  %3 = call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 30)
+  switch i32 %3, label %if.end [
     i32 0, label %sw.bb
     i32 1, label %sw.bb2
     i32 2, label %sw.bb4
@@ -2814,8 +2815,8 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   %rap = getelementptr inbounds i8, ptr %opaque, i64 8232
-  %3 = load i32, ptr %rap, align 8
-  switch i32 %3, label %sw.default.i [
+  %4 = load i32, ptr %rap, align 8
+  switch i32 %4, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 16, label %sw.bb1.i
     i32 17, label %sw.bb2.i
@@ -2826,8 +2827,8 @@ sw.bb:                                            ; preds = %if.then
 sw.bb.i:                                          ; preds = %sw.bb
   tail call fastcc void @pcnet_update_irq(ptr noundef nonnull %opaque)
   %csr.i = getelementptr inbounds i8, ptr %opaque, i64 8268
-  %4 = load i16, ptr %csr.i, align 4
-  %conv.i = zext i16 %4 to i32
+  %5 = load i16, ptr %csr.i, align 4
+  %conv.i = zext i16 %5 to i32
   %and.i = and i32 %conv.i, 30720
   %tobool.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool.not.i, i32 0, i32 32768
@@ -2836,38 +2837,38 @@ sw.bb.i:                                          ; preds = %sw.bb
 
 sw.bb1.i:                                         ; preds = %sw.bb
   %arrayidx15.i.i = getelementptr i8, ptr %opaque, i64 8270
-  %5 = load i16, ptr %arrayidx15.i.i, align 2
-  %conv16.i.i = zext i16 %5 to i32
+  %6 = load i16, ptr %arrayidx15.i.i, align 2
+  %conv16.i.i = zext i16 %6 to i32
   br label %if.end
 
 sw.bb2.i:                                         ; preds = %sw.bb
   %arrayidx15.i14.i = getelementptr i8, ptr %opaque, i64 8272
-  %6 = load i16, ptr %arrayidx15.i14.i, align 2
-  %conv16.i15.i = zext i16 %6 to i32
+  %7 = load i16, ptr %arrayidx15.i14.i, align 2
+  %conv16.i15.i = zext i16 %7 to i32
   br label %if.end
 
 sw.bb4.i:                                         ; preds = %sw.bb
   %arrayidx7.i.i = getelementptr i8, ptr %opaque, i64 8564
-  %7 = load i16, ptr %arrayidx7.i.i, align 2
-  %conv8.i.i = zext i16 %7 to i32
+  %8 = load i16, ptr %arrayidx7.i.i, align 2
+  %conv8.i.i = zext i16 %8 to i32
   br label %if.end
 
 sw.bb6.i:                                         ; preds = %sw.bb
-  %8 = getelementptr i8, ptr %opaque, i64 8444
-  %9 = load i32, ptr %8, align 4
+  %9 = getelementptr i8, ptr %opaque, i64 8444
+  %10 = load i32, ptr %9, align 4
   br label %if.end
 
 sw.default.i:                                     ; preds = %sw.bb
   %csr14.i = getelementptr inbounds i8, ptr %opaque, i64 8268
-  %idxprom.i = zext i32 %3 to i64
+  %idxprom.i = zext i32 %4 to i64
   %arrayidx15.i = getelementptr [128 x i16], ptr %csr14.i, i64 0, i64 %idxprom.i
-  %10 = load i16, ptr %arrayidx15.i, align 2
-  %conv16.i = zext i16 %10 to i32
+  %11 = load i16, ptr %arrayidx15.i, align 2
+  %conv16.i = zext i16 %11 to i32
   br label %if.end
 
 sw.bb2:                                           ; preds = %if.then
   %rap3 = getelementptr inbounds i8, ptr %opaque, i64 8232
-  %11 = load i32, ptr %rap3, align 8
+  %12 = load i32, ptr %rap3, align 8
   br label %if.end
 
 sw.bb4:                                           ; preds = %if.then
@@ -2876,22 +2877,22 @@ sw.bb4:                                           ; preds = %if.then
 
 sw.bb5:                                           ; preds = %if.then
   %rap6 = getelementptr inbounds i8, ptr %opaque, i64 8232
-  %12 = load i32, ptr %rap6, align 8
-  %and.i9 = and i32 %12, 127
-  %13 = and i32 %12, 124
-  %switch.i = icmp eq i32 %13, 4
+  %13 = load i32, ptr %rap6, align 8
+  %and.i9 = and i32 %13, 127
+  %14 = and i32 %13, 124
+  %switch.i = icmp eq i32 %14, 4
   br i1 %switch.i, label %sw.bb.i11, label %sw.default.i10
 
 sw.bb.i11:                                        ; preds = %sw.bb5
   %bcr.i = getelementptr inbounds i8, ptr %opaque, i64 8524
   %idxprom.i12 = zext nneg i32 %and.i9 to i64
   %arrayidx.i = getelementptr [32 x i16], ptr %bcr.i, i64 0, i64 %idxprom.i12
-  %14 = load i16, ptr %arrayidx.i, align 2
-  %15 = and i16 %14, 32767
-  %and1.i = zext nneg i16 %15 to i32
+  %15 = load i16, ptr %arrayidx.i, align 2
+  %16 = and i16 %15, 32767
+  %and1.i = zext nneg i16 %16 to i32
   %lnkst.i = getelementptr inbounds i8, ptr %opaque, i64 8240
-  %16 = load i32, ptr %lnkst.i, align 16
-  %and2.i = and i32 %16, 383
+  %17 = load i32, ptr %lnkst.i, align 16
+  %and2.i = and i32 %17, 383
   %and3.i = and i32 %and2.i, %and1.i
   %tobool.not.i13 = icmp eq i32 %and3.i, 0
   %cond.i14 = select i1 %tobool.not.i13, i32 0, i32 32768
@@ -2906,12 +2907,12 @@ cond.true.i:                                      ; preds = %sw.default.i10
   %bcr5.i = getelementptr inbounds i8, ptr %opaque, i64 8524
   %idxprom6.i = zext nneg i32 %and.i9 to i64
   %arrayidx7.i = getelementptr [32 x i16], ptr %bcr5.i, i64 0, i64 %idxprom6.i
-  %17 = load i16, ptr %arrayidx7.i, align 2
-  %conv8.i = zext i16 %17 to i32
+  %18 = load i16, ptr %arrayidx7.i, align 2
+  %conv8.i = zext i16 %18 to i32
   br label %if.end
 
 if.end:                                           ; preds = %cond.true.i, %sw.default.i10, %sw.bb.i11, %sw.default.i, %sw.bb6.i, %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i, %if.then, %sw.bb2, %sw.bb4, %entry
-  %val.0 = phi i32 [ -1, %if.then ], [ 0, %sw.bb4 ], [ %11, %sw.bb2 ], [ -1, %entry ], [ %conv8.i.i, %sw.bb4.i ], [ %conv16.i15.i, %sw.bb2.i ], [ %conv16.i.i, %sw.bb1.i ], [ %conv16.i, %sw.default.i ], [ %9, %sw.bb6.i ], [ %or.i, %sw.bb.i ], [ %or.i15, %sw.bb.i11 ], [ %conv8.i, %cond.true.i ], [ 0, %sw.default.i10 ]
+  %val.0 = phi i32 [ -1, %if.then ], [ 0, %sw.bb4 ], [ %12, %sw.bb2 ], [ -1, %entry ], [ %conv8.i.i, %sw.bb4.i ], [ %conv16.i15.i, %sw.bb2.i ], [ %conv16.i.i, %sw.bb1.i ], [ %conv16.i, %sw.default.i ], [ %10, %sw.bb6.i ], [ %or.i, %sw.bb.i ], [ %or.i15, %sw.bb.i11 ], [ %conv8.i, %cond.true.i ], [ 0, %sw.default.i10 ]
   tail call fastcc void @pcnet_update_irq(ptr noundef nonnull %opaque)
   ret i32 %val.0
 }
@@ -4036,9 +4037,6 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4061,6 +4059,9 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

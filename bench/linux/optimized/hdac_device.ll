@@ -1332,8 +1332,8 @@ define dso_local i32 @snd_hdac_stream_format(i32 noundef %0, i32 noundef %1, i32
 27:                                               ; preds = %21
   %28 = add nsw i32 %0, -1
   %29 = or i32 %23, %28
-  %30 = add i32 %1, -8
-  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 30)
+  %30 = sub i32 %1, 8
+  %31 = call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 30)
   switch i32 %31, label %41 [
     i32 0, label %40
     i32 2, label %32
@@ -1410,8 +1410,8 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %29 = add nsw i32 %0, -1
   %30 = or i32 %24, %29
   %.fr = freeze i32 %30
-  %31 = add i32 %1, -8
-  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
+  %31 = sub i32 %1, 8
+  %32 = call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
   switch i32 %32, label %.thread4 [
     i32 0, label %41
     i32 2, label %.thread
@@ -1430,7 +1430,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %28, %35, %34, %33
-  %.sink = phi i32 [ 64, %35 ], [ 48, %34 ], [ 32, %33 ], [ 16, %28 ]
+  %.sink = phi i32 [ 64, %35 ], [ 48, %34 ], [ 32, %33 ], [ %1, %28 ]
   %36 = shl i16 %3, 10
   %37 = and i16 %36, -32768
   %38 = zext i16 %37 to i32
@@ -2129,13 +2129,13 @@ declare dso_local i64 @ktime_get_mono_fast_ns() local_unnamed_addr #2
 declare dso_local i32 @__pm_runtime_suspend(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

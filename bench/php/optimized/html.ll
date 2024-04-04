@@ -6254,86 +6254,87 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc i32 @unicode_cp_is_allowed(i32 noundef %0, i32 noundef %1) unnamed_addr #5 {
-  %3 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 28)
-  switch i32 %3, label %29 [
-    i32 0, label %4
-    i32 3, label %11
-    i32 2, label %23
-    i32 1, label %23
+  %3 = sub i32 %1, 0
+  %4 = call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 28)
+  switch i32 %4, label %30 [
+    i32 0, label %5
+    i32 3, label %12
+    i32 2, label %24
+    i32 1, label %24
   ]
 
-4:                                                ; preds = %2
-  %5 = add i32 %0, -32
-  %or.cond = icmp ult i32 %5, 95
-  br i1 %or.cond, label %29, label %switch.early.test
+5:                                                ; preds = %2
+  %6 = add i32 %0, -32
+  %or.cond = icmp ult i32 %6, 95
+  br i1 %or.cond, label %30, label %switch.early.test
 
-switch.early.test:                                ; preds = %4
-  switch i32 %0, label %6 [
-    i32 13, label %29
-    i32 10, label %29
-    i32 9, label %29
+switch.early.test:                                ; preds = %5
+  switch i32 %0, label %7 [
+    i32 13, label %30
+    i32 10, label %30
+    i32 9, label %30
   ]
 
-6:                                                ; preds = %switch.early.test
-  %7 = add i32 %0, -160
-  %or.cond9 = icmp ult i32 %7, 55136
-  br i1 %or.cond9, label %29, label %8
+7:                                                ; preds = %switch.early.test
+  %8 = add i32 %0, -160
+  %or.cond9 = icmp ult i32 %8, 55136
+  br i1 %or.cond9, label %30, label %9
 
-8:                                                ; preds = %6
-  %9 = add i32 %0, -57344
-  %10 = icmp ult i32 %9, 1056768
-  br label %29
+9:                                                ; preds = %7
+  %10 = add i32 %0, -57344
+  %11 = icmp ult i32 %10, 1056768
+  br label %30
 
-11:                                               ; preds = %2
-  %12 = add i32 %0, -32
-  %or.cond11 = icmp ult i32 %12, 95
-  br i1 %or.cond11, label %29, label %13
+12:                                               ; preds = %2
+  %13 = add i32 %0, -32
+  %or.cond11 = icmp ult i32 %13, 95
+  br i1 %or.cond11, label %30, label %14
 
-13:                                               ; preds = %11
-  %14 = add i32 %0, -9
-  %or.cond13 = icmp ult i32 %14, 5
-  %15 = icmp ne i32 %0, 11
-  %or.cond15 = and i1 %15, %or.cond13
-  %16 = add i32 %0, -160
-  %or.cond17 = icmp ult i32 %16, 55136
+14:                                               ; preds = %12
+  %15 = add i32 %0, -9
+  %or.cond13 = icmp ult i32 %15, 5
+  %16 = icmp ne i32 %0, 11
+  %or.cond15 = and i1 %16, %or.cond13
+  %17 = add i32 %0, -160
+  %or.cond17 = icmp ult i32 %17, 55136
   %or.cond64 = or i1 %or.cond17, %or.cond15
-  br i1 %or.cond64, label %29, label %17
+  br i1 %or.cond64, label %30, label %18
 
-17:                                               ; preds = %13
-  %18 = add i32 %0, -1114112
-  %or.cond19 = icmp ult i32 %18, -1056768
-  %19 = and i32 %0, 65534
-  %.not = icmp eq i32 %19, 65534
+18:                                               ; preds = %14
+  %19 = add i32 %0, -1114112
+  %or.cond19 = icmp ult i32 %19, -1056768
+  %20 = and i32 %0, 65534
+  %.not = icmp eq i32 %20, 65534
   %or.cond65 = or i1 %or.cond19, %.not
-  br i1 %or.cond65, label %29, label %20
+  br i1 %or.cond65, label %30, label %21
 
-20:                                               ; preds = %17
-  %21 = add nsw i32 %0, -65008
-  %22 = icmp ult i32 %21, -32
-  br label %29
+21:                                               ; preds = %18
+  %22 = add nsw i32 %0, -65008
+  %23 = icmp ult i32 %22, -32
+  br label %30
 
-23:                                               ; preds = %2, %2
-  %24 = add i32 %0, -32
-  %or.cond21 = icmp ult i32 %24, 55264
-  br i1 %or.cond21, label %29, label %switch.early.test66
+24:                                               ; preds = %2, %2
+  %25 = add i32 %0, -32
+  %or.cond21 = icmp ult i32 %25, 55264
+  br i1 %or.cond21, label %30, label %switch.early.test66
 
-switch.early.test66:                              ; preds = %23
-  switch i32 %0, label %25 [
-    i32 13, label %29
-    i32 10, label %29
-    i32 9, label %29
+switch.early.test66:                              ; preds = %24
+  switch i32 %0, label %26 [
+    i32 13, label %30
+    i32 10, label %30
+    i32 9, label %30
   ]
 
-25:                                               ; preds = %switch.early.test66
-  %26 = add i32 %0, -57344
-  %or.cond29 = icmp ult i32 %26, 1056768
-  %27 = add i32 %0, -65536
-  %28 = icmp ult i32 %27, -2
-  %spec.select = and i1 %28, %or.cond29
-  br label %29
+26:                                               ; preds = %switch.early.test66
+  %27 = add i32 %0, -57344
+  %or.cond29 = icmp ult i32 %27, 1056768
+  %28 = add i32 %0, -65536
+  %29 = icmp ult i32 %28, -2
+  %spec.select = and i1 %29, %or.cond29
+  br label %30
 
-29:                                               ; preds = %25, %2, %23, %switch.early.test66, %switch.early.test66, %switch.early.test66, %11, %13, %20, %17, %8, %6, %4, %switch.early.test, %switch.early.test, %switch.early.test
-  %.0.shrunk = phi i1 [ %10, %8 ], [ true, %switch.early.test ], [ true, %6 ], [ true, %4 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %11 ], [ true, %13 ], [ false, %17 ], [ %22, %20 ], [ true, %switch.early.test66 ], [ true, %23 ], [ true, %switch.early.test66 ], [ true, %switch.early.test66 ], [ true, %2 ], [ %spec.select, %25 ]
+30:                                               ; preds = %26, %2, %24, %switch.early.test66, %switch.early.test66, %switch.early.test66, %12, %14, %21, %18, %9, %7, %5, %switch.early.test, %switch.early.test, %switch.early.test
+  %.0.shrunk = phi i1 [ %11, %9 ], [ true, %switch.early.test ], [ true, %7 ], [ true, %5 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %12 ], [ true, %14 ], [ false, %18 ], [ %23, %21 ], [ true, %switch.early.test66 ], [ true, %24 ], [ true, %switch.early.test66 ], [ true, %switch.early.test66 ], [ true, %2 ], [ %spec.select, %26 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -7947,20 +7948,20 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 
 declare void @add_assoc_stringl_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #16
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7978,9 +7979,9 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind willreturn memory(read) }
 attributes #20 = { nounwind }
 attributes #21 = { nounwind allocsize(0) }

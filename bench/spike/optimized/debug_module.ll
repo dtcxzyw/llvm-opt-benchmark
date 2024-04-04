@@ -755,8 +755,8 @@ define noundef zeroext i1 @_ZN14debug_module_t5storeEmmPKh(ptr nocapture noundef
   br label %132
 
 32:                                               ; preds = %21, %17
-  %33 = add i64 %1, -256
-  %34 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 62)
+  %33 = sub i64 %1, 256
+  %34 = call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 62)
   switch i64 %34, label %132 [
     i64 0, label %35
     i64 1, label %112
@@ -4397,9 +4397,6 @@ define internal void @_GLOBAL__sub_I_debug_module.cc() #19 section ".text.startu
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4407,6 +4404,9 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.vector.reduce.or.v8i32(<8 x i32>) #20

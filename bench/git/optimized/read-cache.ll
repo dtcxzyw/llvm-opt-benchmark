@@ -1202,25 +1202,27 @@ entry:
   tail call void @fake_lstat_data(ptr noundef nonnull %ce_stat_data, ptr noundef %st) #28
   %0 = getelementptr i8, ptr %ce, i64 52
   %ce.val = load i32, ptr %0, align 4
-  %and.i = and i32 %ce.val, 61440
-  %1 = add nsw i32 %and.i, -16384
-  %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 19)
-  switch i32 %2, label %sw.default.i [
-    i32 3, label %sw.bb.i
-    i32 2, label %sw.bb1.i
-    i32 5, label %st_mode_from_ce.exit
-    i32 0, label %sw.bb7.i
+  %1 = trunc i32 %ce.val to i16
+  %trunc.i = and i16 %1, -4096
+  %2 = xor i16 %trunc.i, -32768
+  %3 = sub i16 %2, -16384
+  %4 = call i16 @llvm.fshl.i16(i16 %3, i16 %3, i16 3)
+  switch i16 %4, label %sw.default.i [
+    i16 3, label %sw.bb.i
+    i16 2, label %sw.bb1.i
+    i16 5, label %st_mode_from_ce.exit
+    i16 0, label %sw.bb7.i
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %3 = load i32, ptr @has_symlinks, align 4
-  %tobool.not.i = icmp eq i32 %3, 0
+  %5 = load i32, ptr @has_symlinks, align 4
+  %tobool.not.i = icmp eq i32 %5, 0
   %cond.i = select i1 %tobool.not.i, i32 33188, i32 40960
   br label %st_mode_from_ce.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %4 = load i32, ptr @trust_executable_bit, align 4
-  %tobool3.not.i = icmp eq i32 %4, 0
+  %6 = load i32, ptr @trust_executable_bit, align 4
+  %tobool3.not.i = icmp eq i32 %6, 0
   %cond4.i = select i1 %tobool3.not.i, i32 420, i32 493
   %and5.i = and i32 %cond4.i, %ce.val
   %or.i = or disjoint i32 %and5.i, 32768
@@ -10017,29 +10019,29 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 declare i32 @path_in_sparse_checkout(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #23
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #25
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
+declare i32 @llvm.umax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #23
+declare i32 @llvm.umin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #23
+declare i32 @llvm.smin.i32(i32, i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshl.i16(i16, i16, i16) #26
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10064,10 +10066,10 @@ attributes #19 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trappi
 attributes #20 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #25 = { nofree nounwind }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #24 = { nofree nounwind }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { nounwind willreturn memory(read) }
 attributes #28 = { nounwind }
 attributes #29 = { noreturn nounwind }

@@ -1788,42 +1788,41 @@ ruby_signal.exit.i:                               ; preds = %101
   %118 = sext i32 %.0.i to i64
   %119 = getelementptr [65 x i64], ptr %117, i64 0, i64 %118
   %120 = load i64, ptr %119, align 8
-  %121 = call i64 @llvm.fshl.i64(i64 %120, i64 %120, i64 62)
-  switch i64 %121, label %trap.exit [
-    i64 0, label %122
-    i64 5, label %122
-    i64 9, label %131
+  switch i64 %120, label %trap.exit [
+    i64 0, label %121
+    i64 20, label %121
+    i64 36, label %130
   ]
 
-122:                                              ; preds = %116, %116
+121:                                              ; preds = %116, %116
   %magicptr.i = ptrtoint ptr %.0.i20 to i64
-  switch i64 %magicptr.i, label %127 [
-    i64 1, label %123
-    i64 0, label %125
+  switch i64 %magicptr.i, label %126 [
+    i64 1, label %122
+    i64 0, label %124
   ]
 
-123:                                              ; preds = %122
-  %124 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.33, i64 noundef 6) #16
+122:                                              ; preds = %121
+  %123 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.33, i64 noundef 6) #16
   br label %trap.exit
 
-125:                                              ; preds = %122
-  %126 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.29, i64 noundef 14) #16
+124:                                              ; preds = %121
+  %125 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.29, i64 noundef 14) #16
   br label %trap.exit
 
-127:                                              ; preds = %122
-  %128 = icmp eq ptr %.0.i20, @sighandler
-  br i1 %128, label %129, label %trap.exit
+126:                                              ; preds = %121
+  %127 = icmp eq ptr %.0.i20, @sighandler
+  br i1 %127, label %128, label %trap.exit
 
-129:                                              ; preds = %127
-  %130 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.32, i64 noundef 7) #16
+128:                                              ; preds = %126
+  %129 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.32, i64 noundef 7) #16
   br label %trap.exit
 
-131:                                              ; preds = %116
-  %132 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.34, i64 noundef 4) #16
+130:                                              ; preds = %116
+  %131 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.34, i64 noundef 4) #16
   br label %trap.exit
 
-trap.exit:                                        ; preds = %116, %123, %125, %127, %129, %131
-  %.015.i = phi i64 [ %120, %116 ], [ %132, %131 ], [ %124, %123 ], [ %126, %125 ], [ %130, %129 ], [ 4, %127 ]
+trap.exit:                                        ; preds = %116, %122, %124, %126, %128, %130
+  %.015.i = phi i64 [ %120, %116 ], [ %131, %130 ], [ %123, %122 ], [ %125, %124 ], [ %129, %128 ], [ 4, %126 ]
   store volatile i64 %.2, ptr %119, align 8
   ret i64 %.015.i
 }
@@ -2542,20 +2541,17 @@ declare void @abort() local_unnamed_addr #18
 ; Function Attrs: noreturn
 declare void @rb_ec_stack_overflow(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #19
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2576,9 +2572,9 @@ attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nounwind willreturn memory(read) }
 attributes #23 = { nounwind allocsize(0) }
 attributes #24 = { cold noreturn nounwind }

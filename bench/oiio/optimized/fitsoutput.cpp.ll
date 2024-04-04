@@ -1832,10 +1832,10 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %call22 = call i32 @fseek(ptr noundef %9, i64 noundef %mul, i32 noundef 1)
   %m_bitpix = getelementptr inbounds i8, ptr %this, i64 224
   %10 = load i32, ptr %m_bitpix, align 8
-  %11 = add i32 %10, 64
-  %12 = call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 28)
   %.pre = ptrtoint ptr %data_tmp.sroa.0.0 to i64
   %.pre75 = sub i64 %retval.0.i.i.i.i.i.i.i, %.pre
+  %11 = sub i32 %10, -64
+  %12 = call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 28)
   switch i32 %12, label %if.end58 [
     i32 5, label %if.then24
     i32 6, label %if.then31
@@ -37476,9 +37476,6 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
@@ -37525,6 +37522,9 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smax.i8(i8, i8) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

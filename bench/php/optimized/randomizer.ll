@@ -435,7 +435,7 @@ thread-pre-split:                                 ; preds = %41
   %.0131.ph = phi i32 [ 9, %43 ], [ 9, %26 ], [ 9, %18 ], [ 3, %45 ], [ 1, %11 ]
   %.0130.ph = phi i32 [ 3, %43 ], [ 2, %26 ], [ 1, %18 ], [ 3, %45 ], [ 0, %11 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0131.ph, i32 noundef %.0130.ph, ptr noundef %.0132.ph, i32 noundef %.0133.ph, ptr noundef %.0134.ph) #7
-  br label %133
+  br label %131
 
 50:                                               ; preds = %36, %37, %._crit_edge, %28
   %.2 = phi ptr [ null, %28 ], [ %.pre, %._crit_edge ], [ %.pre174, %37 ], [ %.pre174, %36 ]
@@ -449,7 +449,7 @@ thread-pre-split:                                 ; preds = %41
   %55 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
-  br label %133
+  br label %131
 
 57:                                               ; preds = %50
   %58 = load double, ptr %4, align 8
@@ -462,11 +462,11 @@ thread-pre-split:                                 ; preds = %41
   %62 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %63 = icmp ne ptr %62, null
   call void @llvm.assume(i1 %63)
-  br label %133
+  br label %131
 
 64:                                               ; preds = %57
   %.not153 = icmp eq ptr %.2, null
-  br i1 %.not153, label %82, label %65
+  br i1 %.not153, label %.thread, label %65
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds i8, ptr %.2, i64 16
@@ -485,115 +485,111 @@ thread-pre-split:                                 ; preds = %41
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, %76
   %80 = trunc i64 %79 to i32
-  %81 = add i32 %80, -77
-  br label %82
-
-82:                                               ; preds = %65, %64
-  %.0129 = phi i32 [ %81, %65 ], [ 0, %64 ]
-  %83 = call i32 @llvm.fshl.i32(i32 %.0129, i32 %.0129, i32 31)
-  switch i32 %83, label %132 [
-    i32 0, label %84
-    i32 1, label %95
-    i32 6, label %106
-    i32 5, label %117
+  %81 = sub i32 %80, 77
+  %82 = call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 31)
+  switch i32 %82, label %130 [
+    i32 0, label %.thread
+    i32 1, label %93
+    i32 6, label %104
+    i32 5, label %115
   ]
 
-84:                                               ; preds = %82
-  %85 = fcmp ugt double %58, %51
-  br i1 %85, label %89, label %86
+.thread:                                          ; preds = %64, %65
+  %83 = fcmp ugt double %58, %51
+  br i1 %83, label %87, label %84
 
-86:                                               ; preds = %84
+84:                                               ; preds = %.thread
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #7
-  %87 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %88 = icmp ne ptr %87, null
-  call void @llvm.assume(i1 %88)
-  br label %133
+  %85 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %86 = icmp ne ptr %85, null
+  call void @llvm.assume(i1 %86)
+  br label %131
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 -16
-  %92 = load ptr, ptr %91, align 8
-  %93 = call double @php_random_gammasection_closed_open(ptr %90, ptr %92, double noundef %51, double noundef %58) #7
-  store double %93, ptr %1, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %94, align 8
-  br label %133
+87:                                               ; preds = %.thread
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds i8, ptr %6, i64 -16
+  %90 = load ptr, ptr %89, align 8
+  %91 = call double @php_random_gammasection_closed_open(ptr %88, ptr %90, double noundef %51, double noundef %58) #7
+  store double %91, ptr %1, align 8
+  %92 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %92, align 8
+  br label %131
 
-95:                                               ; preds = %82
-  %96 = fcmp olt double %58, %51
-  br i1 %96, label %97, label %100
+93:                                               ; preds = %65
+  %94 = fcmp olt double %58, %51
+  br i1 %94, label %95, label %98
 
-97:                                               ; preds = %95
+95:                                               ; preds = %93
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.3) #7
-  %98 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %99 = icmp ne ptr %98, null
-  call void @llvm.assume(i1 %99)
-  br label %133
+  %96 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %97 = icmp ne ptr %96, null
+  call void @llvm.assume(i1 %97)
+  br label %131
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds i8, ptr %6, i64 -16
-  %103 = load ptr, ptr %102, align 8
-  %104 = call double @php_random_gammasection_closed_closed(ptr %101, ptr %103, double noundef %51, double noundef %58) #7
-  store double %104, ptr %1, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %105, align 8
-  br label %133
+98:                                               ; preds = %93
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds i8, ptr %6, i64 -16
+  %101 = load ptr, ptr %100, align 8
+  %102 = call double @php_random_gammasection_closed_closed(ptr %99, ptr %101, double noundef %51, double noundef %58) #7
+  store double %102, ptr %1, align 8
+  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %103, align 8
+  br label %131
 
-106:                                              ; preds = %82
-  %107 = fcmp ugt double %58, %51
-  br i1 %107, label %111, label %108
+104:                                              ; preds = %65
+  %105 = fcmp ugt double %58, %51
+  br i1 %105, label %109, label %106
 
-108:                                              ; preds = %106
+106:                                              ; preds = %104
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #7
-  %109 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %110 = icmp ne ptr %109, null
-  call void @llvm.assume(i1 %110)
-  br label %133
+  %107 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %108 = icmp ne ptr %107, null
+  call void @llvm.assume(i1 %108)
+  br label %131
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr %7, align 8
-  %113 = getelementptr inbounds i8, ptr %6, i64 -16
-  %114 = load ptr, ptr %113, align 8
-  %115 = call double @php_random_gammasection_open_closed(ptr %112, ptr %114, double noundef %51, double noundef %58) #7
-  store double %115, ptr %1, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %116, align 8
-  br label %133
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %7, align 8
+  %111 = getelementptr inbounds i8, ptr %6, i64 -16
+  %112 = load ptr, ptr %111, align 8
+  %113 = call double @php_random_gammasection_open_closed(ptr %110, ptr %112, double noundef %51, double noundef %58) #7
+  store double %113, ptr %1, align 8
+  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %114, align 8
+  br label %131
 
-117:                                              ; preds = %82
-  %118 = fcmp ugt double %58, %51
-  br i1 %118, label %122, label %119
+115:                                              ; preds = %65
+  %116 = fcmp ugt double %58, %51
+  br i1 %116, label %120, label %117
 
-119:                                              ; preds = %117
+117:                                              ; preds = %115
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #7
-  %120 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %121 = icmp ne ptr %120, null
-  call void @llvm.assume(i1 %121)
-  br label %133
+  %118 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %119 = icmp ne ptr %118, null
+  call void @llvm.assume(i1 %119)
+  br label %131
 
-122:                                              ; preds = %117
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds i8, ptr %6, i64 -16
-  %125 = load ptr, ptr %124, align 8
-  %126 = call double @php_random_gammasection_open_open(ptr %123, ptr %125, double noundef %51, double noundef %58) #7
-  store double %126, ptr %1, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %127, align 8
-  %128 = fcmp uno double %126, 0.000000e+00
-  br i1 %128, label %129, label %133
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds i8, ptr %6, i64 -16
+  %123 = load ptr, ptr %122, align 8
+  %124 = call double @php_random_gammasection_open_open(ptr %121, ptr %123, double noundef %51, double noundef %58) #7
+  store double %124, ptr %1, align 8
+  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %125, align 8
+  %126 = fcmp uno double %124, 0.000000e+00
+  br i1 %126, label %127, label %131
 
-129:                                              ; preds = %122
+127:                                              ; preds = %120
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4) #7
-  %130 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %131 = icmp ne ptr %130, null
-  call void @llvm.assume(i1 %131)
-  br label %133
+  %128 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %129 = icmp ne ptr %128, null
+  call void @llvm.assume(i1 %129)
+  br label %131
 
-132:                                              ; preds = %82
+130:                                              ; preds = %65
   unreachable
 
-133:                                              ; preds = %122, %129, %119, %111, %108, %100, %97, %89, %86, %61, %54, %49
+131:                                              ; preds = %120, %127, %117, %109, %106, %98, %95, %87, %84, %61, %54, %49
   ret void
 }
 
@@ -1713,10 +1709,10 @@ declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 nounde
 declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

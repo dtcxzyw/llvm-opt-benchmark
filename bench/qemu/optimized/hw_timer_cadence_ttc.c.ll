@@ -101,8 +101,9 @@ entry:
   %arrayidx.i.i = getelementptr [3 x %struct.CadenceTimerState], ptr %timer.i.i, i64 0, i64 %rem.i.i
   tail call fastcc void @cadence_timer_sync(ptr noundef %arrayidx.i.i)
   tail call fastcc void @cadence_timer_run(ptr noundef %arrayidx.i.i)
-  %0 = tail call i64 @llvm.fshl.i64(i64 %offset, i64 %offset, i64 62)
-  switch i64 %0, label %cadence_ttc_read_imp.exit [
+  %0 = sub i64 %offset, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %cadence_ttc_read_imp.exit [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb.i
     i64 2, label %sw.bb.i
@@ -140,70 +141,70 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry, %entry, %entry
   %reg_clock.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
-  %1 = load i32, ptr %reg_clock.i, align 4
+  %2 = load i32, ptr %reg_clock.i, align 4
   br label %cadence_ttc_read_imp.exit
 
 sw.bb1.i:                                         ; preds = %entry, %entry, %entry
   %reg_count.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %2 = load i32, ptr %reg_count.i, align 8
+  %3 = load i32, ptr %reg_count.i, align 8
   br label %cadence_ttc_read_imp.exit
 
 sw.bb2.i:                                         ; preds = %entry, %entry, %entry
   %reg_value.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 20
-  %3 = load i32, ptr %reg_value.i, align 4
-  %shr.i = lshr i32 %3, 16
+  %4 = load i32, ptr %reg_value.i, align 4
+  %shr.i = lshr i32 %4, 16
   br label %cadence_ttc_read_imp.exit
 
 sw.bb4.i:                                         ; preds = %entry, %entry, %entry
   %reg_interval.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
-  %4 = load i16, ptr %reg_interval.i, align 8
-  %conv5.i = zext i16 %4 to i32
+  %5 = load i16, ptr %reg_interval.i, align 8
+  %conv5.i = zext i16 %5 to i32
   br label %cadence_ttc_read_imp.exit
 
 sw.bb6.i:                                         ; preds = %entry, %entry, %entry
   %reg_match.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 26
-  %5 = load i16, ptr %reg_match.i, align 2
-  %conv7.i = zext i16 %5 to i32
+  %6 = load i16, ptr %reg_match.i, align 2
+  %conv7.i = zext i16 %6 to i32
   br label %cadence_ttc_read_imp.exit
 
 sw.bb8.i:                                         ; preds = %entry, %entry, %entry
   %arrayidx10.i = getelementptr i8, ptr %arrayidx.i.i, i64 28
-  %6 = load i16, ptr %arrayidx10.i, align 2
-  %conv11.i = zext i16 %6 to i32
+  %7 = load i16, ptr %arrayidx10.i, align 2
+  %conv11.i = zext i16 %7 to i32
   br label %cadence_ttc_read_imp.exit
 
 sw.bb12.i:                                        ; preds = %entry, %entry, %entry
   %arrayidx14.i = getelementptr i8, ptr %arrayidx.i.i, i64 30
-  %7 = load i16, ptr %arrayidx14.i, align 2
-  %conv15.i = zext i16 %7 to i32
+  %8 = load i16, ptr %arrayidx14.i, align 2
+  %conv15.i = zext i16 %8 to i32
   br label %cadence_ttc_read_imp.exit
 
 sw.bb16.i:                                        ; preds = %entry, %entry, %entry
   %reg_intr.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
-  %8 = load i32, ptr %reg_intr.i, align 8
+  %9 = load i32, ptr %reg_intr.i, align 8
   store i32 0, ptr %reg_intr.i, align 8
   %irq.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 64
-  %9 = load ptr, ptr %irq.i.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %9, i32 noundef 0) #6
+  %10 = load ptr, ptr %irq.i.i, align 8
+  tail call void @qemu_set_irq(ptr noundef %10, i32 noundef 0) #6
   br label %cadence_ttc_read_imp.exit
 
 sw.bb18.i:                                        ; preds = %entry, %entry, %entry
   %reg_intr_en.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 36
-  %10 = load i32, ptr %reg_intr_en.i, align 4
+  %11 = load i32, ptr %reg_intr_en.i, align 4
   br label %cadence_ttc_read_imp.exit
 
 sw.bb19.i:                                        ; preds = %entry, %entry, %entry
   %reg_event_ctrl.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
-  %11 = load i32, ptr %reg_event_ctrl.i, align 8
+  %12 = load i32, ptr %reg_event_ctrl.i, align 8
   br label %cadence_ttc_read_imp.exit
 
 sw.bb20.i:                                        ; preds = %entry, %entry, %entry
   %reg_event.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 44
-  %12 = load i32, ptr %reg_event.i, align 4
+  %13 = load i32, ptr %reg_event.i, align 4
   br label %cadence_ttc_read_imp.exit
 
 cadence_ttc_read_imp.exit:                        ; preds = %entry, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %sw.bb12.i, %sw.bb16.i, %sw.bb18.i, %sw.bb19.i, %sw.bb20.i
-  %retval.0.i = phi i32 [ %12, %sw.bb20.i ], [ %11, %sw.bb19.i ], [ %10, %sw.bb18.i ], [ %8, %sw.bb16.i ], [ %conv15.i, %sw.bb12.i ], [ %conv11.i, %sw.bb8.i ], [ %conv7.i, %sw.bb6.i ], [ %conv5.i, %sw.bb4.i ], [ %shr.i, %sw.bb2.i ], [ %2, %sw.bb1.i ], [ %1, %sw.bb.i ], [ 0, %entry ]
+  %retval.0.i = phi i32 [ %13, %sw.bb20.i ], [ %12, %sw.bb19.i ], [ %11, %sw.bb18.i ], [ %9, %sw.bb16.i ], [ %conv15.i, %sw.bb12.i ], [ %conv11.i, %sw.bb8.i ], [ %conv7.i, %sw.bb6.i ], [ %conv5.i, %sw.bb4.i ], [ %shr.i, %sw.bb2.i ], [ %3, %sw.bb1.i ], [ %2, %sw.bb.i ], [ 0, %entry ]
   %conv = zext i32 %retval.0.i to i64
   ret i64 %conv
 }
@@ -216,8 +217,9 @@ entry:
   %timer.i = getelementptr inbounds i8, ptr %opaque, i64 1088
   %arrayidx.i = getelementptr [3 x %struct.CadenceTimerState], ptr %timer.i, i64 0, i64 %rem.i
   tail call fastcc void @cadence_timer_sync(ptr noundef %arrayidx.i)
-  %0 = tail call i64 @llvm.fshl.i64(i64 %offset, i64 %offset, i64 62)
-  switch i64 %0, label %return [
+  %0 = sub i64 %offset, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %return [
     i64 0, label %sw.bb
     i64 1, label %sw.bb
     i64 2, label %sw.bb
@@ -248,8 +250,8 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry
-  %1 = trunc i64 %value to i32
-  %conv = and i32 %1, 63
+  %2 = trunc i64 %value to i32
+  %conv = and i32 %2, 63
   %reg_clock = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store i32 %conv, ptr %reg_clock, align 4
   br label %sw.epilog
@@ -265,8 +267,8 @@ if.then:                                          ; preds = %sw.bb1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.bb1
-  %2 = trunc i64 %value to i32
-  %conv5 = and i32 %2, 47
+  %3 = trunc i64 %value to i32
+  %conv5 = and i32 %3, 47
   %reg_count = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store i32 %conv5, ptr %reg_count, align 8
   br label %sw.epilog
@@ -296,15 +298,15 @@ sw.bb17:                                          ; preds = %entry, %entry, %ent
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry, %entry, %entry
-  %3 = trunc i64 %value to i32
-  %conv25 = and i32 %3, 63
+  %4 = trunc i64 %value to i32
+  %conv25 = and i32 %4, 63
   %reg_intr_en = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
   store i32 %conv25, ptr %reg_intr_en, align 4
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry, %entry, %entry
-  %4 = trunc i64 %value to i32
-  %conv28 = and i32 %4, 7
+  %5 = trunc i64 %value to i32
+  %conv28 = and i32 %5, 7
   %reg_event_ctrl = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   store i32 %conv28, ptr %reg_event_ctrl, align 8
   br label %sw.epilog
@@ -312,15 +314,15 @@ sw.bb26:                                          ; preds = %entry, %entry, %ent
 sw.epilog:                                        ; preds = %entry, %entry, %entry, %sw.bb26, %sw.bb23, %sw.bb17, %sw.bb12, %sw.bb9, %sw.bb6, %if.end, %sw.bb
   tail call fastcc void @cadence_timer_run(ptr noundef %arrayidx.i)
   %irq.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
-  %5 = load ptr, ptr %irq.i, align 8
+  %6 = load ptr, ptr %irq.i, align 8
   %reg_intr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  %6 = load i32, ptr %reg_intr.i, align 8
+  %7 = load i32, ptr %reg_intr.i, align 8
   %reg_intr_en.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
-  %7 = load i32, ptr %reg_intr_en.i, align 4
-  %and.i = and i32 %7, %6
+  %8 = load i32, ptr %reg_intr_en.i, align 4
+  %and.i = and i32 %8, %7
   %tobool.i = icmp ne i32 %and.i, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  tail call void @qemu_set_irq(ptr noundef %5, i32 noundef %lnot.ext.i) #6
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %lnot.ext.i) #6
   br label %return
 
 return:                                           ; preds = %entry, %sw.epilog
@@ -746,13 +748,13 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

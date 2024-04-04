@@ -108,8 +108,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 26, ptr noundef nonnull @__func__.SIFIVE_E_AON) #4
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body.i [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body.i [
     i64 0, label %sw.bb.i
     i64 2, label %sw.bb1.i
     i64 4, label %sw.bb3.i
@@ -120,15 +121,15 @@ if.then:                                          ; preds = %entry
 
 sw.bb.i:                                          ; preds = %if.then
   %wdogcfg.i = getelementptr inbounds i8, ptr %call.i.i, i64 1120
-  %1 = load i32, ptr %wdogcfg.i, align 16
-  %conv.i = zext i32 %1 to i64
+  %2 = load i32, ptr %wdogcfg.i, align 16
+  %conv.i = zext i32 %2 to i64
   br label %return
 
 sw.bb1.i:                                         ; preds = %if.then
   %wdogcfg.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1120
-  %2 = load i32, ptr %wdogcfg.i.i, align 16
-  %3 = and i32 %2, 12288
-  %or.cond.i.i = icmp eq i32 %3, 0
+  %3 = load i32, ptr %wdogcfg.i.i, align 16
+  %4 = and i32 %3, 12288
+  %or.cond.i.i = icmp eq i32 %4, 0
   br i1 %or.cond.i.i, label %sw.bb1.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge.i, label %if.end.i.i
 
 sw.bb1.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge.i: ; preds = %sw.bb1.i
@@ -139,34 +140,34 @@ sw.bb1.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge.i: ; preds = %sw.bb1.i
 if.end.i.i:                                       ; preds = %sw.bb1.i
   %call4.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #4
   %wdog_restart_time.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1104
-  %4 = load i64, ptr %wdog_restart_time.i.i, align 16
-  %sub.i.i = sub i64 %call4.i.i, %4
+  %5 = load i64, ptr %wdog_restart_time.i.i, align 16
+  %sub.i.i = sub i64 %call4.i.i, %5
   %wdogclk_freq.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1112
-  %5 = load i64, ptr %wdogclk_freq.i.i, align 8
+  %6 = load i64, ptr %wdogclk_freq.i.i, align 8
   %conv.i.i.i = zext i64 %sub.i.i to i128
-  %conv.mask.i.i = and i64 %5, 4294967295
+  %conv.mask.i.i = and i64 %6, 4294967295
   %conv1.i.i.i = zext nneg i64 %conv.mask.i.i to i128
   %mul.i.i.i = mul nuw nsw i128 %conv1.i.i.i, %conv.i.i.i
   %div.i.i.i = udiv i128 %mul.i.i.i, 1000000000
   %wdogcount.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1128
-  %6 = load i32, ptr %wdogcount.i.i, align 8
-  %7 = trunc i128 %div.i.i.i to i32
-  %conv7.i.i = add i32 %6, %7
+  %7 = load i32, ptr %wdogcount.i.i, align 8
+  %8 = trunc i128 %div.i.i.i to i32
+  %conv7.i.i = add i32 %7, %8
   %and.i.i = and i32 %conv7.i.i, 2147483647
   store i32 %and.i.i, ptr %wdogcount.i.i, align 8
   store i64 %call4.i.i, ptr %wdog_restart_time.i.i, align 16
   br label %sifive_e_aon_wdt_update_wdogcount.exit.i
 
 sifive_e_aon_wdt_update_wdogcount.exit.i:         ; preds = %if.end.i.i, %sw.bb1.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge.i
-  %8 = phi i32 [ %.pre28.i, %sw.bb1.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge.i ], [ %and.i.i, %if.end.i.i ]
-  %conv2.i = zext i32 %8 to i64
+  %9 = phi i32 [ %.pre28.i, %sw.bb1.sifive_e_aon_wdt_update_wdogcount.exit_crit_edge.i ], [ %and.i.i, %if.end.i.i ]
+  %conv2.i = zext i32 %9 to i64
   br label %return
 
 sw.bb3.i:                                         ; preds = %if.then
   %wdogcfg.i9.i = getelementptr inbounds i8, ptr %call.i.i, i64 1120
-  %9 = load i32, ptr %wdogcfg.i9.i, align 16
-  %10 = and i32 %9, 12288
-  %or.cond.i10.i = icmp eq i32 %10, 0
+  %10 = load i32, ptr %wdogcfg.i9.i, align 16
+  %11 = and i32 %10, 12288
+  %or.cond.i10.i = icmp eq i32 %11, 0
   br i1 %or.cond.i10.i, label %sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i, label %if.end.i11.i
 
 sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i: ; preds = %sw.bb3.i
@@ -177,19 +178,19 @@ sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i: ; preds = %sw.bb3.i
 if.end.i11.i:                                     ; preds = %sw.bb3.i
   %call4.i12.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #4
   %wdog_restart_time.i13.i = getelementptr inbounds i8, ptr %call.i.i, i64 1104
-  %11 = load i64, ptr %wdog_restart_time.i13.i, align 16
-  %sub.i14.i = sub i64 %call4.i12.i, %11
+  %12 = load i64, ptr %wdog_restart_time.i13.i, align 16
+  %sub.i14.i = sub i64 %call4.i12.i, %12
   %wdogclk_freq.i15.i = getelementptr inbounds i8, ptr %call.i.i, i64 1112
-  %12 = load i64, ptr %wdogclk_freq.i15.i, align 8
+  %13 = load i64, ptr %wdogclk_freq.i15.i, align 8
   %conv.i.i16.i = zext i64 %sub.i14.i to i128
-  %conv.mask.i17.i = and i64 %12, 4294967295
+  %conv.mask.i17.i = and i64 %13, 4294967295
   %conv1.i.i18.i = zext nneg i64 %conv.mask.i17.i to i128
   %mul.i.i19.i = mul nuw nsw i128 %conv1.i.i18.i, %conv.i.i16.i
   %div.i.i20.i = udiv i128 %mul.i.i19.i, 1000000000
   %wdogcount.i21.i = getelementptr inbounds i8, ptr %call.i.i, i64 1128
-  %13 = load i32, ptr %wdogcount.i21.i, align 8
-  %14 = trunc i128 %div.i.i20.i to i32
-  %conv7.i22.i = add i32 %13, %14
+  %14 = load i32, ptr %wdogcount.i21.i, align 8
+  %15 = trunc i128 %div.i.i20.i to i32
+  %conv7.i22.i = add i32 %14, %15
   %and.i23.i = and i32 %conv7.i22.i, 2147483647
   store i32 %and.i23.i, ptr %wdogcount.i21.i, align 8
   store i64 %call4.i12.i, ptr %wdog_restart_time.i13.i, align 16
@@ -197,28 +198,28 @@ if.end.i11.i:                                     ; preds = %sw.bb3.i
   br label %sifive_e_aon_wdt_update_wdogcount.exit24.i
 
 sifive_e_aon_wdt_update_wdogcount.exit24.i:       ; preds = %if.end.i11.i, %sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i
-  %15 = phi i32 [ %9, %sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i ], [ %.pre27.i, %if.end.i11.i ]
-  %16 = phi i32 [ %.pre.i, %sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i ], [ %and.i23.i, %if.end.i11.i ]
-  %and.i25.i = and i32 %15, 15
-  %shr.i = lshr i32 %16, %and.i25.i
+  %16 = phi i32 [ %10, %sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i ], [ %.pre27.i, %if.end.i11.i ]
+  %17 = phi i32 [ %.pre.i, %sw.bb3.sifive_e_aon_wdt_update_wdogcount.exit24_crit_edge.i ], [ %and.i23.i, %if.end.i11.i ]
+  %and.i25.i = and i32 %16, 15
+  %shr.i = lshr i32 %17, %and.i25.i
   %conv7.i = zext i32 %shr.i to i64
   br label %return
 
 sw.bb9.i:                                         ; preds = %if.then
   %wdogunlock.i = getelementptr inbounds i8, ptr %call.i.i, i64 1132
-  %17 = load i8, ptr %wdogunlock.i, align 4
-  %conv10.i = zext i8 %17 to i64
+  %18 = load i8, ptr %wdogunlock.i, align 4
+  %conv10.i = zext i8 %18 to i64
   br label %return
 
 sw.bb11.i:                                        ; preds = %if.then
   %wdogcmp0.i = getelementptr inbounds i8, ptr %call.i.i, i64 1124
-  %18 = load i16, ptr %wdogcmp0.i, align 4
-  %conv12.i = zext i16 %18 to i64
+  %19 = load i16, ptr %wdogcmp0.i, align 4
+  %conv12.i = zext i16 %19 to i64
   br label %return
 
 do.body.i:                                        ; preds = %if.then
-  %19 = load i32, ptr @qemu_loglevel, align 4
-  %and.i26.i = and i32 %19, 2048
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %and.i26.i = and i32 %20, 2048
   %cmp.i.not.i = icmp eq i32 %and.i26.i, 0
   br i1 %cmp.i.not.i, label %return, label %if.then.i
 
@@ -229,11 +230,11 @@ if.then.i:                                        ; preds = %do.body.i
 
 if.else:                                          ; preds = %entry
   %cmp1 = icmp ult i64 %addr, 336
-  %20 = load i32, ptr @qemu_loglevel, align 4
+  %21 = load i32, ptr @qemu_loglevel, align 4
   br i1 %cmp1, label %do.body, label %do.body8
 
 do.body:                                          ; preds = %if.else
-  %and.i = and i32 %20, 1024
+  %and.i = and i32 %21, 1024
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.then5
 
@@ -243,7 +244,7 @@ if.then5:                                         ; preds = %do.body
   br label %return
 
 do.body8:                                         ; preds = %if.else
-  %and.i5 = and i32 %20, 2048
+  %and.i5 = and i32 %21, 2048
   %cmp.i6.not = icmp eq i32 %and.i5, 0
   br i1 %cmp.i6.not, label %return, label %if.then16
 
@@ -266,8 +267,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 26, ptr noundef nonnull @__func__.SIFIVE_E_AON) #4
   %conv.i = trunc i64 %val64 to i32
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body.i [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body.i [
     i64 0, label %sw.bb.i
     i64 2, label %sw.bb52.i
     i64 4, label %if.end20
@@ -278,17 +280,17 @@ if.then:                                          ; preds = %entry
 
 sw.bb.i:                                          ; preds = %if.then
   %wdogunlock.i = getelementptr inbounds i8, ptr %call.i.i, i64 1132
-  %1 = load i8, ptr %wdogunlock.i, align 4
-  %cmp.i = icmp eq i8 %1, 0
+  %2 = load i8, ptr %wdogunlock.i, align 4
+  %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb.i
   %wdogcfg.i = getelementptr inbounds i8, ptr %call.i.i, i64 1120
-  %2 = load i32, ptr %wdogcfg.i, align 16
-  %3 = and i32 %2, 12288
-  %.not32.i = icmp eq i32 %3, 0
-  %4 = and i32 %conv.i, 12288
-  %.not41.i = icmp eq i32 %4, 0
+  %3 = load i32, ptr %wdogcfg.i, align 16
+  %4 = and i32 %3, 12288
+  %.not32.i = icmp eq i32 %4, 0
+  %5 = and i32 %conv.i, 12288
+  %.not41.i = icmp eq i32 %5, 0
   br i1 %.not32.i, label %land.lhs.true36.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -297,19 +299,19 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.end.i.i:                                       ; preds = %land.lhs.true.i
   %call4.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #4
   %wdog_restart_time.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1104
-  %5 = load i64, ptr %wdog_restart_time.i.i, align 16
-  %sub.i.i = sub i64 %call4.i.i, %5
+  %6 = load i64, ptr %wdog_restart_time.i.i, align 16
+  %sub.i.i = sub i64 %call4.i.i, %6
   %wdogclk_freq.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1112
-  %6 = load i64, ptr %wdogclk_freq.i.i, align 8
+  %7 = load i64, ptr %wdogclk_freq.i.i, align 8
   %conv.i.i.i = zext i64 %sub.i.i to i128
-  %conv.mask.i.i = and i64 %6, 4294967295
+  %conv.mask.i.i = and i64 %7, 4294967295
   %conv1.i.i.i = zext nneg i64 %conv.mask.i.i to i128
   %mul.i.i.i = mul nuw nsw i128 %conv1.i.i.i, %conv.i.i.i
   %div.i.i.i = udiv i128 %mul.i.i.i, 1000000000
   %wdogcount.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1128
-  %7 = load i32, ptr %wdogcount.i.i, align 8
-  %8 = trunc i128 %div.i.i.i to i32
-  %conv7.i.i = add i32 %7, %8
+  %8 = load i32, ptr %wdogcount.i.i, align 8
+  %9 = trunc i128 %div.i.i.i to i32
+  %conv7.i.i = add i32 %8, %9
   %and.i39.i = and i32 %conv7.i.i, 2147483647
   store i32 %and.i39.i, ptr %wdogcount.i.i, align 8
   store i64 %call4.i.i, ptr %wdog_restart_time.i.i, align 16
@@ -331,8 +333,8 @@ if.end49.i:                                       ; preds = %if.then46.i, %land.
 
 sw.bb52.i:                                        ; preds = %if.then
   %wdogunlock53.i = getelementptr inbounds i8, ptr %call.i.i, i64 1132
-  %9 = load i8, ptr %wdogunlock53.i, align 4
-  %cmp55.i = icmp eq i8 %9, 0
+  %10 = load i8, ptr %wdogunlock53.i, align 4
+  %cmp55.i = icmp eq i8 %10, 0
   br i1 %cmp55.i, label %if.end20, label %if.end58.i
 
 if.end58.i:                                       ; preds = %sw.bb52.i
@@ -347,8 +349,8 @@ if.end58.i:                                       ; preds = %sw.bb52.i
 
 sw.bb63.i:                                        ; preds = %if.then
   %wdogunlock64.i = getelementptr inbounds i8, ptr %call.i.i, i64 1132
-  %10 = load i8, ptr %wdogunlock64.i, align 4
-  %cmp66.i = icmp eq i8 %10, 0
+  %11 = load i8, ptr %wdogunlock64.i, align 4
+  %cmp66.i = icmp eq i8 %11, 0
   br i1 %cmp66.i, label %if.end20, label %if.end69.i
 
 if.end69.i:                                       ; preds = %sw.bb63.i
@@ -378,8 +380,8 @@ if.then81.i:                                      ; preds = %sw.bb78.i
 
 sw.bb84.i:                                        ; preds = %if.then
   %wdogunlock85.i = getelementptr inbounds i8, ptr %call.i.i, i64 1132
-  %11 = load i8, ptr %wdogunlock85.i, align 4
-  %cmp87.i = icmp eq i8 %11, 0
+  %12 = load i8, ptr %wdogunlock85.i, align 4
+  %cmp87.i = icmp eq i8 %12, 0
   br i1 %cmp87.i, label %if.end20, label %if.end90.i
 
 if.end90.i:                                       ; preds = %sw.bb84.i
@@ -390,8 +392,8 @@ if.end90.i:                                       ; preds = %sw.bb84.i
   br label %sw.epilog.i
 
 do.body.i:                                        ; preds = %if.then
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i40.i = and i32 %12, 2048
+  %13 = load i32, ptr @qemu_loglevel, align 4
+  %and.i40.i = and i32 %13, 2048
   %cmp.i.not.i = icmp eq i32 %and.i40.i, 0
   br i1 %cmp.i.not.i, label %sw.epilog.i, label %if.then97.i
 
@@ -406,11 +408,11 @@ sw.epilog.i:                                      ; preds = %if.then97.i, %do.bo
 
 if.else:                                          ; preds = %entry
   %cmp1 = icmp ult i64 %addr, 336
-  %13 = load i32, ptr @qemu_loglevel, align 4
+  %14 = load i32, ptr @qemu_loglevel, align 4
   br i1 %cmp1, label %do.body, label %do.body7
 
 do.body:                                          ; preds = %if.else
-  %and.i5 = and i32 %13, 1024
+  %and.i5 = and i32 %14, 1024
   %cmp.i6.not = icmp eq i32 %and.i5, 0
   br i1 %cmp.i6.not, label %if.end20, label %if.then4
 
@@ -420,7 +422,7 @@ if.then4:                                         ; preds = %do.body
   br label %if.end20
 
 do.body7:                                         ; preds = %if.else
-  %and.i7 = and i32 %13, 2048
+  %and.i7 = and i32 %14, 2048
   %cmp.i8.not = icmp eq i32 %and.i7, 0
   br i1 %cmp.i8.not, label %if.end20, label %if.then15
 

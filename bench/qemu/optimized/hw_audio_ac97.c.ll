@@ -291,10 +291,11 @@ sw.bb4:                                           ; preds = %if.end
   %conv6 = trunc i64 %val to i32
   %cas.i9 = getelementptr inbounds i8, ptr %opaque, i64 2648
   store i32 0, ptr %cas.i9, align 8
-  %0 = tail call i32 @llvm.fshl.i32(i32 %conv5, i32 %conv5, i32 31)
-  switch i32 %0, label %sw.default.i [
+  %0 = sub i32 %conv5, 0
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  switch i32 %1, label %sw.default.i [
     i32 0, label %sw.bb.i
-    i32 19, label %sw.bb1.i
+    i32 19, label %if.end.i.i
     i32 12, label %sw.bb4.i
     i32 1, label %sw.bb4.i
     i32 14, label %sw.bb4.i
@@ -327,15 +328,8 @@ sw.bb.i:                                          ; preds = %sw.bb4
   tail call fastcc void @mixer_reset(ptr noundef nonnull %opaque)
   br label %sw.epilog
 
-sw.bb1.i:                                         ; preds = %sw.bb4
-  %1 = add i32 %conv5, -255
-  %cmp.i.i = icmp ult i32 %1, -257
-  br i1 %cmp.i.i, label %sw.epilog, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %sw.bb1.i
-  %mixer_data.i.i = getelementptr inbounds i8, ptr %opaque, i64 2728
-  %idxprom.i.i = and i64 %addr, 4294967295
-  %arrayidx.i.i = getelementptr [256 x i8], ptr %mixer_data.i.i, i64 0, i64 %idxprom.i.i
+if.end.i.i:                                       ; preds = %sw.bb4
+  %arrayidx.i.i = getelementptr i8, ptr %opaque, i64 2766
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %3 = and i8 %2, 15
   %4 = trunc i64 %val to i16
@@ -345,9 +339,7 @@ if.end.i.i:                                       ; preds = %sw.bb1.i
   store i8 %conv3.i45.i, ptr %arrayidx.i.i, align 1
   %7 = lshr i16 %5, 8
   %conv6.i.i = trunc i16 %7 to i8
-  %add8.i.i = add i64 %addr, 1
-  %idxprom9.i.i = and i64 %add8.i.i, 4294967295
-  %arrayidx10.i.i = getelementptr [256 x i8], ptr %mixer_data.i.i, i64 0, i64 %idxprom9.i.i
+  %arrayidx10.i.i = getelementptr i8, ptr %opaque, i64 2767
   store i8 %conv6.i.i, ptr %arrayidx10.i.i, align 1
   br label %sw.epilog
 
@@ -524,98 +516,62 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.en
   br label %sw.epilog
 
 sw.bb15.i:                                        ; preds = %sw.bb4
-  %mixer_data.i74.i = getelementptr inbounds i8, ptr %opaque, i64 2728
   %arrayidx.i75.i = getelementptr i8, ptr %opaque, i64 2770
   %29 = load i8, ptr %arrayidx.i75.i, align 1
   %30 = and i8 %29, 1
   %tobool19.not.i = icmp eq i8 %30, 0
-  br i1 %tobool19.not.i, label %sw.epilog, label %if.then20.i
+  br i1 %tobool19.not.i, label %sw.epilog, label %mixer_store.exit93.i
 
-if.then20.i:                                      ; preds = %sw.bb15.i
-  %31 = add i32 %conv5, -255
-  %cmp.i83.i = icmp ult i32 %31, -257
-  br i1 %cmp.i83.i, label %mixer_store.exit93.i, label %if.end.i84.i
-
-if.end.i84.i:                                     ; preds = %if.then20.i
+mixer_store.exit93.i:                             ; preds = %sw.bb15.i
   %conv3.i85.i = trunc i64 %val to i8
-  %idxprom.i87.i = and i64 %addr, 4294967295
-  %arrayidx.i88.i = getelementptr [256 x i8], ptr %mixer_data.i74.i, i64 0, i64 %idxprom.i87.i
+  %arrayidx.i88.i = getelementptr i8, ptr %opaque, i64 2772
   store i8 %conv3.i85.i, ptr %arrayidx.i88.i, align 1
-  %32 = lshr i64 %val, 8
-  %conv6.i89.i = trunc i64 %32 to i8
-  %add8.i90.i = add i64 %addr, 1
-  %idxprom9.i91.i = and i64 %add8.i90.i, 4294967295
-  %arrayidx10.i92.i = getelementptr [256 x i8], ptr %mixer_data.i74.i, i64 0, i64 %idxprom9.i91.i
+  %31 = lshr i64 %val, 8
+  %conv6.i89.i = trunc i64 %31 to i8
+  %arrayidx10.i92.i = getelementptr i8, ptr %opaque, i64 2773
   store i8 %conv6.i89.i, ptr %arrayidx10.i92.i, align 1
-  br label %mixer_store.exit93.i
-
-mixer_store.exit93.i:                             ; preds = %if.end.i84.i, %if.then20.i
   tail call fastcc void @open_voice(ptr noundef nonnull %opaque, i32 noundef 1, i32 noundef %conv6)
   br label %sw.epilog
 
 sw.bb23.i:                                        ; preds = %sw.bb4
-  %mixer_data.i95.i = getelementptr inbounds i8, ptr %opaque, i64 2728
   %arrayidx.i96.i = getelementptr i8, ptr %opaque, i64 2770
-  %33 = load i8, ptr %arrayidx.i96.i, align 1
-  %34 = and i8 %33, 8
-  %tobool27.not.i = icmp eq i8 %34, 0
-  br i1 %tobool27.not.i, label %sw.epilog, label %if.then28.i
+  %32 = load i8, ptr %arrayidx.i96.i, align 1
+  %33 = and i8 %32, 8
+  %tobool27.not.i = icmp eq i8 %33, 0
+  br i1 %tobool27.not.i, label %sw.epilog, label %mixer_store.exit114.i
 
-if.then28.i:                                      ; preds = %sw.bb23.i
-  %35 = add i32 %conv5, -255
-  %cmp.i104.i = icmp ult i32 %35, -257
-  br i1 %cmp.i104.i, label %mixer_store.exit114.i, label %if.end.i105.i
-
-if.end.i105.i:                                    ; preds = %if.then28.i
+mixer_store.exit114.i:                            ; preds = %sw.bb23.i
   %conv3.i106.i = trunc i64 %val to i8
-  %idxprom.i108.i = and i64 %addr, 4294967295
-  %arrayidx.i109.i = getelementptr [256 x i8], ptr %mixer_data.i95.i, i64 0, i64 %idxprom.i108.i
+  %arrayidx.i109.i = getelementptr i8, ptr %opaque, i64 2780
   store i8 %conv3.i106.i, ptr %arrayidx.i109.i, align 1
-  %36 = lshr i64 %val, 8
-  %conv6.i110.i = trunc i64 %36 to i8
-  %add8.i111.i = add i64 %addr, 1
-  %idxprom9.i112.i = and i64 %add8.i111.i, 4294967295
-  %arrayidx10.i113.i = getelementptr [256 x i8], ptr %mixer_data.i95.i, i64 0, i64 %idxprom9.i112.i
+  %34 = lshr i64 %val, 8
+  %conv6.i110.i = trunc i64 %34 to i8
+  %arrayidx10.i113.i = getelementptr i8, ptr %opaque, i64 2781
   store i8 %conv6.i110.i, ptr %arrayidx10.i113.i, align 1
-  br label %mixer_store.exit114.i
-
-mixer_store.exit114.i:                            ; preds = %if.end.i105.i, %if.then28.i
   tail call fastcc void @open_voice(ptr noundef nonnull %opaque, i32 noundef 2, i32 noundef %conv6)
   br label %sw.epilog
 
 sw.bb32.i:                                        ; preds = %sw.bb4
-  %mixer_data.i116.i = getelementptr inbounds i8, ptr %opaque, i64 2728
   %arrayidx.i117.i = getelementptr i8, ptr %opaque, i64 2770
-  %37 = load i8, ptr %arrayidx.i117.i, align 1
-  %38 = and i8 %37, 1
-  %tobool36.not.i = icmp eq i8 %38, 0
-  br i1 %tobool36.not.i, label %sw.epilog, label %if.then37.i
+  %35 = load i8, ptr %arrayidx.i117.i, align 1
+  %36 = and i8 %35, 1
+  %tobool36.not.i = icmp eq i8 %36, 0
+  br i1 %tobool36.not.i, label %sw.epilog, label %mixer_store.exit135.i
 
-if.then37.i:                                      ; preds = %sw.bb32.i
-  %39 = add i32 %conv5, -255
-  %cmp.i125.i = icmp ult i32 %39, -257
-  br i1 %cmp.i125.i, label %mixer_store.exit135.i, label %if.end.i126.i
-
-if.end.i126.i:                                    ; preds = %if.then37.i
+mixer_store.exit135.i:                            ; preds = %sw.bb32.i
   %conv3.i127.i = trunc i64 %val to i8
-  %idxprom.i129.i = and i64 %addr, 4294967295
-  %arrayidx.i130.i = getelementptr [256 x i8], ptr %mixer_data.i116.i, i64 0, i64 %idxprom.i129.i
+  %arrayidx.i130.i = getelementptr i8, ptr %opaque, i64 2778
   store i8 %conv3.i127.i, ptr %arrayidx.i130.i, align 1
-  %40 = lshr i64 %val, 8
-  %conv6.i131.i = trunc i64 %40 to i8
-  %add8.i132.i = add i64 %addr, 1
-  %idxprom9.i133.i = and i64 %add8.i132.i, 4294967295
-  %arrayidx10.i134.i = getelementptr [256 x i8], ptr %mixer_data.i116.i, i64 0, i64 %idxprom9.i133.i
+  %37 = lshr i64 %val, 8
+  %conv6.i131.i = trunc i64 %37 to i8
+  %arrayidx10.i134.i = getelementptr i8, ptr %opaque, i64 2779
   store i8 %conv6.i131.i, ptr %arrayidx10.i134.i, align 1
-  br label %mixer_store.exit135.i
-
-mixer_store.exit135.i:                            ; preds = %if.end.i126.i, %if.then37.i
   tail call fastcc void @open_voice(ptr noundef nonnull %opaque, i32 noundef 0, i32 noundef %conv6)
   br label %sw.epilog
 
 sw.default.i:                                     ; preds = %sw.bb4
-  %41 = add i32 %conv5, -255
-  %cmp.i136.i = icmp ult i32 %41, -257
+  %38 = add i32 %conv5, -255
+  %cmp.i136.i = icmp ult i32 %38, -257
   br i1 %cmp.i136.i, label %sw.epilog, label %if.end.i137.i
 
 if.end.i137.i:                                    ; preds = %sw.default.i
@@ -624,8 +580,8 @@ if.end.i137.i:                                    ; preds = %sw.default.i
   %idxprom.i140.i = and i64 %addr, 4294967295
   %arrayidx.i141.i = getelementptr [256 x i8], ptr %mixer_data.i139.i, i64 0, i64 %idxprom.i140.i
   store i8 %conv3.i138.i, ptr %arrayidx.i141.i, align 1
-  %42 = lshr i64 %val, 8
-  %conv6.i142.i = trunc i64 %42 to i8
+  %39 = lshr i64 %val, 8
+  %conv6.i142.i = trunc i64 %39 to i8
   %add8.i143.i = add i64 %addr, 1
   %idxprom9.i144.i = and i64 %add8.i143.i, 4294967295
   %arrayidx10.i145.i = getelementptr [256 x i8], ptr %mixer_data.i139.i, i64 0, i64 %idxprom9.i144.i
@@ -637,7 +593,7 @@ sw.bb7:                                           ; preds = %if.end
   store i32 0, ptr %cas.i10, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end.i137.i, %sw.default.i, %mixer_store.exit135.i, %sw.bb32.i, %mixer_store.exit114.i, %sw.bb23.i, %mixer_store.exit93.i, %sw.bb15.i, %if.end13.i, %sw.bb5.i, %sw.bb4.i.i, %sw.bb1.i.i, %sw.bb.i.i, %sw.bb4.i, %if.end.i.i, %sw.bb1.i, %sw.bb.i, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %entry, %sw.bb7, %sw.bb, %if.end
+sw.epilog:                                        ; preds = %if.end.i137.i, %sw.default.i, %mixer_store.exit135.i, %sw.bb32.i, %mixer_store.exit114.i, %sw.bb23.i, %mixer_store.exit93.i, %sw.bb15.i, %if.end13.i, %sw.bb5.i, %sw.bb4.i.i, %sw.bb1.i.i, %sw.bb.i.i, %sw.bb4.i, %if.end.i.i, %sw.bb.i, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %sw.bb4, %entry, %sw.bb7, %sw.bb, %if.end
   ret void
 }
 
@@ -1575,8 +1531,9 @@ sw.bb1.i:                                         ; preds = %sw.bb4, %sw.bb4, %s
 
 sw.bb8:                                           ; preds = %if.end
   %conv9 = trunc i64 %addr to i32
-  %9 = tail call i32 @llvm.fshl.i32(i32 %conv9, i32 %conv9, i32 30)
-  switch i32 %9, label %nabm_readl.exit [
+  %9 = sub i32 %conv9, 0
+  %10 = call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 30)
+  switch i32 %10, label %nabm_readl.exit [
     i32 0, label %sw.bb.i25
     i32 4, label %sw.bb.i25
     i32 8, label %sw.bb.i25
@@ -1593,52 +1550,52 @@ sw.bb8:                                           ; preds = %if.end
 sw.bb.i25:                                        ; preds = %sw.bb8, %sw.bb8, %sw.bb8
   %bm_regs.i26 = getelementptr inbounds i8, ptr %opaque, i64 2656
   %shr.i27 = lshr i64 %addr, 4
-  %and.i = and i64 %shr.i27, 3
-  %arrayidx.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i26, i64 0, i64 %and.i
-  %10 = load i32, ptr %arrayidx.i, align 4
+  %idxprom.i28 = and i64 %shr.i27, 268435455
+  %arrayidx.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i26, i64 0, i64 %idxprom.i28
+  %11 = load i32, ptr %arrayidx.i, align 4
   br label %nabm_readl.exit
 
 sw.bb1.i19:                                       ; preds = %sw.bb8, %sw.bb8, %sw.bb8
   %bm_regs2.i20 = getelementptr inbounds i8, ptr %opaque, i64 2656
   %shr3.i21 = lshr i64 %addr, 4
-  %and4.i = and i64 %shr3.i21, 3
-  %civ.i23 = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs2.i20, i64 0, i64 %and4.i, i32 1
-  %11 = load i32, ptr %civ.i23, align 4
+  %idxprom5.i22 = and i64 %shr3.i21, 268435455
+  %civ.i23 = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs2.i20, i64 0, i64 %idxprom5.i22, i32 1
+  %12 = load i32, ptr %civ.i23, align 4
   br label %nabm_readl.exit
 
 sw.bb11.i:                                        ; preds = %sw.bb8, %sw.bb8, %sw.bb8
   %bm_regs12.i = getelementptr inbounds i8, ptr %opaque, i64 2656
   %shr13.i = lshr i64 %addr, 4
-  %and14.i = and i64 %shr13.i, 3
-  %arrayidx16.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs12.i, i64 0, i64 %and14.i
+  %idxprom15.i = and i64 %shr13.i, 268435455
+  %arrayidx16.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs12.i, i64 0, i64 %idxprom15.i
   %picb.i16 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 8
-  %12 = load i16, ptr %picb.i16, align 4
-  %conv17.i = zext i16 %12 to i32
+  %13 = load i16, ptr %picb.i16, align 4
+  %conv17.i = zext i16 %13 to i32
   %piv.i17 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 10
-  %13 = load i8, ptr %piv.i17, align 2
-  %conv18.i = zext i8 %13 to i32
+  %14 = load i8, ptr %piv.i17, align 2
+  %conv18.i = zext i8 %14 to i32
   %shl19.i = shl nuw nsw i32 %conv18.i, 16
   %or20.i = or disjoint i32 %shl19.i, %conv17.i
   %cr.i18 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 11
-  %14 = load i8, ptr %cr.i18, align 1
-  %conv21.i = zext i8 %14 to i32
+  %15 = load i8, ptr %cr.i18, align 1
+  %conv21.i = zext i8 %15 to i32
   %shl22.i = shl nuw i32 %conv21.i, 24
   %or23.i = or disjoint i32 %or20.i, %shl22.i
   br label %nabm_readl.exit
 
 sw.bb24.i15:                                      ; preds = %sw.bb8
   %glob_cnt.i = getelementptr inbounds i8, ptr %opaque, i64 2640
-  %15 = load i32, ptr %glob_cnt.i, align 16
+  %16 = load i32, ptr %glob_cnt.i, align 16
   br label %nabm_readl.exit
 
 sw.bb25.i:                                        ; preds = %sw.bb8
   %glob_sta.i = getelementptr inbounds i8, ptr %opaque, i64 2644
-  %16 = load i32, ptr %glob_sta.i, align 4
-  %or26.i = or i32 %16, 256
+  %17 = load i32, ptr %glob_sta.i, align 4
+  %or26.i = or i32 %17, 256
   br label %nabm_readl.exit
 
 nabm_readl.exit:                                  ; preds = %sw.bb8, %sw.bb.i25, %sw.bb1.i19, %sw.bb11.i, %sw.bb24.i15, %sw.bb25.i
-  %val.0.i14 = phi i32 [ -1, %sw.bb8 ], [ %or26.i, %sw.bb25.i ], [ %15, %sw.bb24.i15 ], [ %or23.i, %sw.bb11.i ], [ %11, %sw.bb1.i19 ], [ %10, %sw.bb.i25 ]
+  %val.0.i14 = phi i32 [ -1, %sw.bb8 ], [ %or26.i, %sw.bb25.i ], [ %16, %sw.bb24.i15 ], [ %or23.i, %sw.bb11.i ], [ %12, %sw.bb1.i19 ], [ %11, %sw.bb.i25 ]
   %conv11 = zext i32 %val.0.i14 to i64
   br label %return
 
@@ -2330,9 +2287,6 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2340,6 +2294,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

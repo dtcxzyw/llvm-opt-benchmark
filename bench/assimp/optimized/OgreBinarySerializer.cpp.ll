@@ -1376,38 +1376,26 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %mCurrent.i.i39101 = phi ptr [ %mCurrent.i.i3994, %land.rhs.lr.ph ], [ %mCurrent.i.i39, %if.end ]
   %13 = phi ptr [ %9, %land.rhs.lr.ph ], [ %30, %if.end ]
   %id.0100 = phi i16 [ %call6, %land.rhs.lr.ph ], [ %id.1, %if.end ]
-  %14 = xor i16 %id.0100, -32768
+  %14 = add i16 %id.0100, -16384
   %15 = call i16 @llvm.fshl.i16(i16 %14, i16 %14, i16 4)
-  switch i16 %15, label %if.then54 [
-    i16 6, label %while.body
-    i16 5, label %while.body
-    i16 4, label %while.body
-    i16 3, label %while.body
-    i16 2, label %while.body
-    i16 1, label %while.body
-    i16 0, label %while.body
-    i16 15, label %while.body
-    i16 14, label %while.body
-    i16 13, label %while.body
-    i16 12, label %while.body
-  ]
+  %switch = icmp ult i16 %15, 11
+  br i1 %switch, label %while.body, label %if.then54
 
-while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
-  %conv = zext i16 %id.0100 to i32
-  %16 = add nsw i32 %conv, -16384
-  %17 = call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 20)
-  switch i32 %17, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 0, label %sw.bb39
-    i32 2, label %sw.bb40
-    i32 3, label %sw.bb41
-    i32 4, label %sw.bb43
-    i32 5, label %sw.bb44
-    i32 6, label %sw.bb45
-    i32 7, label %sw.bb46
-    i32 8, label %sw.bb47
-    i32 9, label %sw.bb48
-    i32 10, label %sw.bb49
+while.body:                                       ; preds = %land.rhs
+  %16 = sub i16 %id.0100, -32768
+  %17 = call i16 @llvm.fshl.i16(i16 %16, i16 %16, i16 4)
+  switch i16 %17, label %sw.epilog [
+    i16 13, label %sw.bb
+    i16 12, label %sw.bb39
+    i16 14, label %sw.bb40
+    i16 15, label %sw.bb41
+    i16 0, label %sw.bb43
+    i16 1, label %sw.bb44
+    i16 2, label %sw.bb45
+    i16 3, label %sw.bb46
+    i16 4, label %sw.bb47
+    i16 5, label %sw.bb48
+    i16 6, label %sw.bb49
   ]
 
 sw.bb:                                            ; preds = %while.body
@@ -15480,9 +15468,6 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pugi14xpath_node_setD2Ev, ptr nonnull @_ZN4pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #19
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshl.i16(i16, i16, i16) #15

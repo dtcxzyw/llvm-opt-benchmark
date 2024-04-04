@@ -2467,8 +2467,9 @@ if.then.i:                                        ; preds = %sw.bb
   %3 = lshr i32 %2, 5
   %conv.i = and i32 %3, 127
   %conv2.i = and i32 %2, 31
-  %4 = tail call i32 @llvm.fshl.i32(i32 %conv2.i, i32 %conv2.i, i32 30)
-  switch i32 %4, label %rocker_io_readl.exit [
+  %4 = sub i32 %conv2.i, 0
+  %5 = call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 30)
+  switch i32 %5, label %rocker_io_readl.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb5.i
     i32 2, label %sw.bb12.i
@@ -2479,59 +2480,59 @@ if.then.i:                                        ; preds = %sw.bb
 
 sw.bb.i:                                          ; preds = %if.then.i
   %rings.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %5 = load ptr, ptr %rings.i, align 8
+  %6 = load ptr, ptr %rings.i, align 8
   %idxprom.i = zext nneg i32 %conv.i to i64
-  %arrayidx.i = getelementptr ptr, ptr %5, i64 %idxprom.i
-  %6 = load ptr, ptr %arrayidx.i, align 8
-  %call3.i = tail call i64 @desc_ring_get_base_addr(ptr noundef %6) #13
+  %arrayidx.i = getelementptr ptr, ptr %6, i64 %idxprom.i
+  %7 = load ptr, ptr %arrayidx.i, align 8
+  %call3.i = tail call i64 @desc_ring_get_base_addr(ptr noundef %7) #13
   %conv4.i = trunc i64 %call3.i to i32
   br label %rocker_io_readl.exit
 
 sw.bb5.i:                                         ; preds = %if.then.i
   %rings6.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %7 = load ptr, ptr %rings6.i, align 8
+  %8 = load ptr, ptr %rings6.i, align 8
   %idxprom7.i = zext nneg i32 %conv.i to i64
-  %arrayidx8.i = getelementptr ptr, ptr %7, i64 %idxprom7.i
-  %8 = load ptr, ptr %arrayidx8.i, align 8
-  %call9.i = tail call i64 @desc_ring_get_base_addr(ptr noundef %8) #13
+  %arrayidx8.i = getelementptr ptr, ptr %8, i64 %idxprom7.i
+  %9 = load ptr, ptr %arrayidx8.i, align 8
+  %call9.i = tail call i64 @desc_ring_get_base_addr(ptr noundef %9) #13
   %shr10.i = lshr i64 %call9.i, 32
   %conv11.i = trunc i64 %shr10.i to i32
   br label %rocker_io_readl.exit
 
 sw.bb12.i:                                        ; preds = %if.then.i
   %rings13.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %9 = load ptr, ptr %rings13.i, align 8
+  %10 = load ptr, ptr %rings13.i, align 8
   %idxprom14.i = zext nneg i32 %conv.i to i64
-  %arrayidx15.i = getelementptr ptr, ptr %9, i64 %idxprom14.i
-  %10 = load ptr, ptr %arrayidx15.i, align 8
-  %call16.i = tail call i32 @desc_ring_get_size(ptr noundef %10) #13
+  %arrayidx15.i = getelementptr ptr, ptr %10, i64 %idxprom14.i
+  %11 = load ptr, ptr %arrayidx15.i, align 8
+  %call16.i = tail call i32 @desc_ring_get_size(ptr noundef %11) #13
   br label %rocker_io_readl.exit
 
 sw.bb17.i:                                        ; preds = %if.then.i
   %rings18.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %11 = load ptr, ptr %rings18.i, align 8
+  %12 = load ptr, ptr %rings18.i, align 8
   %idxprom19.i = zext nneg i32 %conv.i to i64
-  %arrayidx20.i = getelementptr ptr, ptr %11, i64 %idxprom19.i
-  %12 = load ptr, ptr %arrayidx20.i, align 8
-  %call21.i = tail call i32 @desc_ring_get_head(ptr noundef %12) #13
+  %arrayidx20.i = getelementptr ptr, ptr %12, i64 %idxprom19.i
+  %13 = load ptr, ptr %arrayidx20.i, align 8
+  %call21.i = tail call i32 @desc_ring_get_head(ptr noundef %13) #13
   br label %rocker_io_readl.exit
 
 sw.bb22.i:                                        ; preds = %if.then.i
   %rings23.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %13 = load ptr, ptr %rings23.i, align 8
+  %14 = load ptr, ptr %rings23.i, align 8
   %idxprom24.i = zext nneg i32 %conv.i to i64
-  %arrayidx25.i = getelementptr ptr, ptr %13, i64 %idxprom24.i
-  %14 = load ptr, ptr %arrayidx25.i, align 8
-  %call26.i = tail call i32 @desc_ring_get_tail(ptr noundef %14) #13
+  %arrayidx25.i = getelementptr ptr, ptr %14, i64 %idxprom24.i
+  %15 = load ptr, ptr %arrayidx25.i, align 8
+  %call26.i = tail call i32 @desc_ring_get_tail(ptr noundef %15) #13
   br label %rocker_io_readl.exit
 
 sw.bb27.i:                                        ; preds = %if.then.i
   %rings28.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %15 = load ptr, ptr %rings28.i, align 8
+  %16 = load ptr, ptr %rings28.i, align 8
   %idxprom29.i = zext nneg i32 %conv.i to i64
-  %arrayidx30.i = getelementptr ptr, ptr %15, i64 %idxprom29.i
-  %16 = load ptr, ptr %arrayidx30.i, align 8
-  %call31.i = tail call i32 @desc_ring_get_credits(ptr noundef %16) #13
+  %arrayidx30.i = getelementptr ptr, ptr %16, i64 %idxprom29.i
+  %17 = load ptr, ptr %arrayidx30.i, align 8
+  %call31.i = tail call i32 @desc_ring_get_credits(ptr noundef %17) #13
   br label %rocker_io_readl.exit
 
 if.end.i:                                         ; preds = %sw.bb
@@ -2557,39 +2558,39 @@ if.end.i:                                         ; preds = %sw.bb
 
 sw.bb34.i:                                        ; preds = %if.end.i
   %test_reg.i = getelementptr inbounds i8, ptr %opaque, i64 3696
-  %17 = load i32, ptr %test_reg.i, align 16
-  %mul.i = shl i32 %17, 1
+  %18 = load i32, ptr %test_reg.i, align 16
+  %mul.i = shl i32 %18, 1
   br label %rocker_io_readl.exit
 
 sw.bb35.i:                                        ; preds = %if.end.i
   %test_reg64.i = getelementptr inbounds i8, ptr %opaque, i64 3704
-  %18 = load i64, ptr %test_reg64.i, align 8
-  %.tr.i = trunc i64 %18 to i32
+  %19 = load i64, ptr %test_reg64.i, align 8
+  %.tr.i = trunc i64 %19 to i32
   %conv37.i = shl i32 %.tr.i, 1
   br label %rocker_io_readl.exit
 
 sw.bb38.i:                                        ; preds = %if.end.i
   %test_reg6439.i = getelementptr inbounds i8, ptr %opaque, i64 3704
-  %19 = load i64, ptr %test_reg6439.i, align 8
-  %20 = lshr i64 %19, 31
-  %conv42.i = trunc i64 %20 to i32
+  %20 = load i64, ptr %test_reg6439.i, align 8
+  %21 = lshr i64 %20, 31
+  %conv42.i = trunc i64 %21 to i32
   br label %rocker_io_readl.exit
 
 sw.bb43.i:                                        ; preds = %if.end.i
   %test_dma_size.i = getelementptr inbounds i8, ptr %opaque, i64 3720
-  %21 = load i32, ptr %test_dma_size.i, align 8
+  %22 = load i32, ptr %test_dma_size.i, align 8
   br label %rocker_io_readl.exit
 
 sw.bb44.i:                                        ; preds = %if.end.i
   %test_dma_addr.i = getelementptr inbounds i8, ptr %opaque, i64 3712
-  %22 = load i64, ptr %test_dma_addr.i, align 16
-  %conv45.i = trunc i64 %22 to i32
+  %23 = load i64, ptr %test_dma_addr.i, align 16
+  %conv45.i = trunc i64 %23 to i32
   br label %rocker_io_readl.exit
 
 sw.bb46.i:                                        ; preds = %if.end.i
   %test_dma_addr47.i = getelementptr inbounds i8, ptr %opaque, i64 3712
-  %23 = load i64, ptr %test_dma_addr47.i, align 16
-  %shr48.i = lshr i64 %23, 32
+  %24 = load i64, ptr %test_dma_addr47.i, align 16
+  %shr48.i = lshr i64 %24, 32
   %conv49.i = trunc i64 %shr48.i to i32
   br label %rocker_io_readl.exit
 
@@ -2609,19 +2610,19 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %status.07.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %status.1.i.i, %for.body.i.i ]
   %idxprom.i.i = sext i32 %i.08.i.i to i64
   %arrayidx.i.i = getelementptr [62 x ptr], ptr %fp_port.i.i, i64 0, i64 %idxprom.i.i
-  %24 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call zeroext i1 @fp_port_get_link_up(ptr noundef %24) #13
+  %25 = load ptr, ptr %arrayidx.i.i, align 8
+  %call.i.i = tail call zeroext i1 @fp_port_get_link_up(ptr noundef %25) #13
   %add.i33.i = add nuw i32 %i.08.i.i, 1
   %sh_prom.i.i = zext nneg i32 %add.i33.i to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i.i = select i1 %call.i.i, i64 %shl.i.i, i64 0
   %status.1.i.i = or i64 %or.i.i, %status.07.i.i
-  %25 = load i32, ptr %0, align 16
-  %cmp.i34.i = icmp ult i32 %add.i33.i, %25
+  %26 = load i32, ptr %0, align 16
+  %cmp.i34.i = icmp ult i32 %add.i33.i, %26
   br i1 %cmp.i34.i, label %for.body.i.i, label %rocker_port_phys_link_status.exit.loopexit.i, !llvm.loop !20
 
 rocker_port_phys_link_status.exit.loopexit.i:     ; preds = %for.body.i.i
-  %26 = trunc i64 %status.1.i.i to i32
+  %27 = trunc i64 %status.1.i.i to i32
   br label %rocker_io_readl.exit
 
 sw.bb54.i:                                        ; preds = %if.end.i
@@ -2637,20 +2638,20 @@ for.body.i39.i:                                   ; preds = %for.body.i39.i, %fo
   %status.07.i41.i = phi i64 [ 0, %for.body.lr.ph.i37.i ], [ %status.1.i49.i, %for.body.i39.i ]
   %idxprom.i42.i = sext i32 %i.08.i40.i to i64
   %arrayidx.i43.i = getelementptr [62 x ptr], ptr %fp_port.i38.i, i64 0, i64 %idxprom.i42.i
-  %27 = load ptr, ptr %arrayidx.i43.i, align 8
-  %call.i44.i = tail call zeroext i1 @fp_port_get_link_up(ptr noundef %27) #13
+  %28 = load ptr, ptr %arrayidx.i43.i, align 8
+  %call.i44.i = tail call zeroext i1 @fp_port_get_link_up(ptr noundef %28) #13
   %add.i45.i = add nuw i32 %i.08.i40.i, 1
   %sh_prom.i46.i = zext nneg i32 %add.i45.i to i64
   %shl.i47.i = shl nuw i64 1, %sh_prom.i46.i
   %or.i48.i = select i1 %call.i44.i, i64 %shl.i47.i, i64 0
   %status.1.i49.i = or i64 %or.i48.i, %status.07.i41.i
-  %28 = load i32, ptr %0, align 16
-  %cmp.i50.i = icmp ult i32 %add.i45.i, %28
+  %29 = load i32, ptr %0, align 16
+  %cmp.i50.i = icmp ult i32 %add.i45.i, %29
   br i1 %cmp.i50.i, label %for.body.i39.i, label %rocker_port_phys_link_status.exit52.loopexit.i, !llvm.loop !20
 
 rocker_port_phys_link_status.exit52.loopexit.i:   ; preds = %for.body.i39.i
-  %29 = lshr i64 %status.1.i49.i, 32
-  %30 = trunc i64 %29 to i32
+  %30 = lshr i64 %status.1.i49.i, 32
+  %31 = trunc i64 %30 to i32
   br label %rocker_io_readl.exit
 
 sw.bb58.i:                                        ; preds = %if.end.i
@@ -2666,19 +2667,19 @@ for.body.i57.i:                                   ; preds = %for.body.i57.i, %fo
   %ret.07.i.i = phi i64 [ 0, %for.body.lr.ph.i55.i ], [ %ret.1.i.i, %for.body.i57.i ]
   %idxprom.i59.i = sext i32 %i.08.i58.i to i64
   %arrayidx.i60.i = getelementptr [62 x ptr], ptr %fp_port.i56.i, i64 0, i64 %idxprom.i59.i
-  %31 = load ptr, ptr %arrayidx.i60.i, align 8
-  %call.i61.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %31) #13
+  %32 = load ptr, ptr %arrayidx.i60.i, align 8
+  %call.i61.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %32) #13
   %add.i62.i = add nuw i32 %i.08.i58.i, 1
   %sh_prom.i63.i = zext nneg i32 %add.i62.i to i64
   %shl.i64.i = shl nuw i64 1, %sh_prom.i63.i
   %or.i65.i = select i1 %call.i61.i, i64 %shl.i64.i, i64 0
   %ret.1.i.i = or i64 %or.i65.i, %ret.07.i.i
-  %32 = load i32, ptr %0, align 16
-  %cmp.i66.i = icmp ult i32 %add.i62.i, %32
+  %33 = load i32, ptr %0, align 16
+  %cmp.i66.i = icmp ult i32 %add.i62.i, %33
   br i1 %cmp.i66.i, label %for.body.i57.i, label %rocker_port_phys_enable_read.exit.loopexit.i, !llvm.loop !21
 
 rocker_port_phys_enable_read.exit.loopexit.i:     ; preds = %for.body.i57.i
-  %33 = trunc i64 %ret.1.i.i to i32
+  %34 = trunc i64 %ret.1.i.i to i32
   br label %rocker_io_readl.exit
 
 sw.bb61.i:                                        ; preds = %if.end.i
@@ -2694,32 +2695,32 @@ for.body.i71.i:                                   ; preds = %for.body.i71.i, %fo
   %ret.07.i73.i = phi i64 [ 0, %for.body.lr.ph.i69.i ], [ %ret.1.i81.i, %for.body.i71.i ]
   %idxprom.i74.i = sext i32 %i.08.i72.i to i64
   %arrayidx.i75.i = getelementptr [62 x ptr], ptr %fp_port.i70.i, i64 0, i64 %idxprom.i74.i
-  %34 = load ptr, ptr %arrayidx.i75.i, align 8
-  %call.i76.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %34) #13
+  %35 = load ptr, ptr %arrayidx.i75.i, align 8
+  %call.i76.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %35) #13
   %add.i77.i = add nuw i32 %i.08.i72.i, 1
   %sh_prom.i78.i = zext nneg i32 %add.i77.i to i64
   %shl.i79.i = shl nuw i64 1, %sh_prom.i78.i
   %or.i80.i = select i1 %call.i76.i, i64 %shl.i79.i, i64 0
   %ret.1.i81.i = or i64 %or.i80.i, %ret.07.i73.i
-  %35 = load i32, ptr %0, align 16
-  %cmp.i82.i = icmp ult i32 %add.i77.i, %35
+  %36 = load i32, ptr %0, align 16
+  %cmp.i82.i = icmp ult i32 %add.i77.i, %36
   br i1 %cmp.i82.i, label %for.body.i71.i, label %rocker_port_phys_enable_read.exit84.loopexit.i, !llvm.loop !21
 
 rocker_port_phys_enable_read.exit84.loopexit.i:   ; preds = %for.body.i71.i
-  %36 = lshr i64 %ret.1.i81.i, 32
-  %37 = trunc i64 %36 to i32
+  %37 = lshr i64 %ret.1.i81.i, 32
+  %38 = trunc i64 %37 to i32
   br label %rocker_io_readl.exit
 
 sw.bb65.i:                                        ; preds = %if.end.i
   %switch_id.i = getelementptr inbounds i8, ptr %opaque, i64 3192
-  %38 = load i64, ptr %switch_id.i, align 8
-  %conv66.i = trunc i64 %38 to i32
+  %39 = load i64, ptr %switch_id.i, align 8
+  %conv66.i = trunc i64 %39 to i32
   br label %rocker_io_readl.exit
 
 sw.bb67.i:                                        ; preds = %if.end.i
   %switch_id68.i = getelementptr inbounds i8, ptr %opaque, i64 3192
-  %39 = load i64, ptr %switch_id68.i, align 8
-  %shr69.i = lshr i64 %39, 32
+  %40 = load i64, ptr %switch_id68.i, align 8
+  %shr69.i = lshr i64 %40, 32
   %conv70.i = trunc i64 %shr69.i to i32
   br label %rocker_io_readl.exit
 
@@ -2727,21 +2728,21 @@ sw.default71.i:                                   ; preds = %if.end.i
   br label %rocker_io_readl.exit
 
 rocker_io_readl.exit:                             ; preds = %if.then.i, %sw.bb.i, %sw.bb5.i, %sw.bb12.i, %sw.bb17.i, %sw.bb22.i, %sw.bb27.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %sw.bb34.i, %sw.bb35.i, %sw.bb38.i, %sw.bb43.i, %sw.bb44.i, %sw.bb46.i, %sw.bb50.i, %sw.bb51.i, %rocker_port_phys_link_status.exit.loopexit.i, %sw.bb54.i, %rocker_port_phys_link_status.exit52.loopexit.i, %sw.bb58.i, %rocker_port_phys_enable_read.exit.loopexit.i, %sw.bb61.i, %rocker_port_phys_enable_read.exit84.loopexit.i, %sw.bb65.i, %sw.bb67.i, %sw.default71.i
-  %retval.0.i = phi i32 [ %call31.i, %sw.bb27.i ], [ %call26.i, %sw.bb22.i ], [ %call21.i, %sw.bb17.i ], [ %call16.i, %sw.bb12.i ], [ %conv11.i, %sw.bb5.i ], [ %conv4.i, %sw.bb.i ], [ 0, %sw.default71.i ], [ %conv70.i, %sw.bb67.i ], [ %conv66.i, %sw.bb65.i ], [ %opaque.val.i, %sw.bb50.i ], [ %conv49.i, %sw.bb46.i ], [ %conv45.i, %sw.bb44.i ], [ %21, %sw.bb43.i ], [ %conv42.i, %sw.bb38.i ], [ %conv37.i, %sw.bb35.i ], [ %mul.i, %sw.bb34.i ], [ -559039810, %if.end.i ], [ -559039810, %if.end.i ], [ -559039810, %if.end.i ], [ -559039810, %if.end.i ], [ 0, %if.then.i ], [ 0, %sw.bb51.i ], [ %26, %rocker_port_phys_link_status.exit.loopexit.i ], [ 0, %sw.bb54.i ], [ %30, %rocker_port_phys_link_status.exit52.loopexit.i ], [ 0, %sw.bb58.i ], [ %33, %rocker_port_phys_enable_read.exit.loopexit.i ], [ 0, %sw.bb61.i ], [ %37, %rocker_port_phys_enable_read.exit84.loopexit.i ]
+  %retval.0.i = phi i32 [ %call31.i, %sw.bb27.i ], [ %call26.i, %sw.bb22.i ], [ %call21.i, %sw.bb17.i ], [ %call16.i, %sw.bb12.i ], [ %conv11.i, %sw.bb5.i ], [ %conv4.i, %sw.bb.i ], [ 0, %sw.default71.i ], [ %conv70.i, %sw.bb67.i ], [ %conv66.i, %sw.bb65.i ], [ %opaque.val.i, %sw.bb50.i ], [ %conv49.i, %sw.bb46.i ], [ %conv45.i, %sw.bb44.i ], [ %22, %sw.bb43.i ], [ %conv42.i, %sw.bb38.i ], [ %conv37.i, %sw.bb35.i ], [ %mul.i, %sw.bb34.i ], [ -559039810, %if.end.i ], [ -559039810, %if.end.i ], [ -559039810, %if.end.i ], [ -559039810, %if.end.i ], [ 0, %if.then.i ], [ 0, %sw.bb51.i ], [ %27, %rocker_port_phys_link_status.exit.loopexit.i ], [ 0, %sw.bb54.i ], [ %31, %rocker_port_phys_link_status.exit52.loopexit.i ], [ 0, %sw.bb58.i ], [ %34, %rocker_port_phys_enable_read.exit.loopexit.i ], [ 0, %sw.bb61.i ], [ %38, %rocker_port_phys_enable_read.exit84.loopexit.i ]
   %conv = zext i32 %retval.0.i to i64
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %40 = getelementptr i8, ptr %opaque, i64 3168
-  %opaque.val.i7 = load i32, ptr %40, align 16
+  %41 = getelementptr i8, ptr %opaque, i64 3168
+  %opaque.val.i7 = load i32, ptr %41, align 16
   %mul.i.i.i8 = shl i32 %opaque.val.i7, 6
   %mul.i.i9 = add i32 %mul.i.i.i8, 64
   %conv.i.i10 = sext i32 %mul.i.i9 to i64
   %add.i.i11 = add nsw i64 %conv.i.i10, 4096
   %cmp.i.i12 = icmp ugt i64 %addr, 4095
   %cmp2.i.i13 = icmp ugt i64 %add.i.i11, %addr
-  %41 = select i1 %cmp.i.i12, i1 %cmp2.i.i13, i1 false
-  br i1 %41, label %if.then.i35, label %if.end.i14
+  %42 = select i1 %cmp.i.i12, i1 %cmp2.i.i13, i1 false
+  br i1 %42, label %if.then.i35, label %if.end.i14
 
 if.then.i35:                                      ; preds = %sw.bb3
   %and1.i = and i64 %addr, 31
@@ -2749,13 +2750,13 @@ if.then.i35:                                      ; preds = %sw.bb3
   br i1 %cond.i, label %sw.bb.i36, label %return
 
 sw.bb.i36:                                        ; preds = %if.then.i35
-  %42 = lshr exact i64 %addr, 5
-  %conv.i37 = and i64 %42, 127
+  %43 = lshr exact i64 %addr, 5
+  %conv.i37 = and i64 %43, 127
   %rings.i38 = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %43 = load ptr, ptr %rings.i38, align 8
-  %arrayidx.i39 = getelementptr ptr, ptr %43, i64 %conv.i37
-  %44 = load ptr, ptr %arrayidx.i39, align 8
-  %call4.i = tail call i64 @desc_ring_get_base_addr(ptr noundef %44) #13
+  %44 = load ptr, ptr %rings.i38, align 8
+  %arrayidx.i39 = getelementptr ptr, ptr %44, i64 %conv.i37
+  %45 = load ptr, ptr %arrayidx.i39, align 8
+  %call4.i = tail call i64 @desc_ring_get_base_addr(ptr noundef %45) #13
   br label %return
 
 if.end.i14:                                       ; preds = %sw.bb3
@@ -2771,13 +2772,13 @@ if.end.i14:                                       ; preds = %sw.bb3
 
 sw.bb7.i:                                         ; preds = %if.end.i14
   %test_reg64.i33 = getelementptr inbounds i8, ptr %opaque, i64 3704
-  %45 = load i64, ptr %test_reg64.i33, align 8
-  %mul.i34 = shl i64 %45, 1
+  %46 = load i64, ptr %test_reg64.i33, align 8
+  %mul.i34 = shl i64 %46, 1
   br label %return
 
 sw.bb8.i:                                         ; preds = %if.end.i14
   %test_dma_addr.i32 = getelementptr inbounds i8, ptr %opaque, i64 3712
-  %46 = load i64, ptr %test_dma_addr.i32, align 16
+  %47 = load i64, ptr %test_dma_addr.i32, align 16
   br label %return
 
 sw.bb9.i:                                         ; preds = %if.end.i14
@@ -2793,15 +2794,15 @@ for.body.i.i22:                                   ; preds = %for.body.i.i22, %fo
   %status.07.i.i24 = phi i64 [ 0, %for.body.lr.ph.i.i20 ], [ %status.1.i.i31, %for.body.i.i22 ]
   %idxprom.i.i25 = sext i32 %i.08.i.i23 to i64
   %arrayidx.i.i26 = getelementptr [62 x ptr], ptr %fp_port.i.i21, i64 0, i64 %idxprom.i.i25
-  %47 = load ptr, ptr %arrayidx.i.i26, align 8
-  %call.i.i27 = tail call zeroext i1 @fp_port_get_link_up(ptr noundef %47) #13
+  %48 = load ptr, ptr %arrayidx.i.i26, align 8
+  %call.i.i27 = tail call zeroext i1 @fp_port_get_link_up(ptr noundef %48) #13
   %add.i15.i = add nuw i32 %i.08.i.i23, 1
   %sh_prom.i.i28 = zext nneg i32 %add.i15.i to i64
   %shl.i.i29 = shl nuw i64 1, %sh_prom.i.i28
   %or.i.i30 = select i1 %call.i.i27, i64 %shl.i.i29, i64 0
   %status.1.i.i31 = or i64 %or.i.i30, %status.07.i.i24
-  %48 = load i32, ptr %40, align 16
-  %cmp.i16.i = icmp ult i32 %add.i15.i, %48
+  %49 = load i32, ptr %41, align 16
+  %cmp.i16.i = icmp ult i32 %add.i15.i, %49
   br i1 %cmp.i16.i, label %for.body.i.i22, label %return, !llvm.loop !20
 
 sw.bb11.i:                                        ; preds = %if.end.i14
@@ -2817,27 +2818,27 @@ for.body.i21.i:                                   ; preds = %for.body.i21.i, %fo
   %ret.07.i.i17 = phi i64 [ 0, %for.body.lr.ph.i19.i ], [ %ret.1.i.i18, %for.body.i21.i ]
   %idxprom.i23.i = sext i32 %i.08.i22.i to i64
   %arrayidx.i24.i = getelementptr [62 x ptr], ptr %fp_port.i20.i, i64 0, i64 %idxprom.i23.i
-  %49 = load ptr, ptr %arrayidx.i24.i, align 8
-  %call.i25.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %49) #13
+  %50 = load ptr, ptr %arrayidx.i24.i, align 8
+  %call.i25.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %50) #13
   %add.i26.i = add nuw i32 %i.08.i22.i, 1
   %sh_prom.i27.i = zext nneg i32 %add.i26.i to i64
   %shl.i28.i = shl nuw i64 1, %sh_prom.i27.i
   %or.i29.i = select i1 %call.i25.i, i64 %shl.i28.i, i64 0
   %ret.1.i.i18 = or i64 %or.i29.i, %ret.07.i.i17
-  %50 = load i32, ptr %40, align 16
-  %cmp.i30.i = icmp ult i32 %add.i26.i, %50
+  %51 = load i32, ptr %41, align 16
+  %cmp.i30.i = icmp ult i32 %add.i26.i, %51
   br i1 %cmp.i30.i, label %for.body.i21.i, label %return, !llvm.loop !21
 
 sw.bb13.i:                                        ; preds = %if.end.i14
   %switch_id.i15 = getelementptr inbounds i8, ptr %opaque, i64 3192
-  %51 = load i64, ptr %switch_id.i15, align 8
+  %52 = load i64, ptr %switch_id.i15, align 8
   br label %return
 
 sw.default14.i:                                   ; preds = %if.end.i14
   br label %return
 
 return:                                           ; preds = %for.body.i21.i, %for.body.i.i22, %sw.default14.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %if.end.i14, %if.end.i14, %sw.bb.i36, %if.then.i35, %entry, %rocker_io_readl.exit
-  %retval.0 = phi i64 [ %conv, %rocker_io_readl.exit ], [ -1, %entry ], [ %call4.i, %sw.bb.i36 ], [ 0, %sw.default14.i ], [ %51, %sw.bb13.i ], [ %46, %sw.bb8.i ], [ %mul.i34, %sw.bb7.i ], [ -2401057697376126274, %if.end.i14 ], [ -2401057697376126274, %if.end.i14 ], [ 0, %if.then.i35 ], [ 0, %sw.bb9.i ], [ 0, %sw.bb11.i ], [ %status.1.i.i31, %for.body.i.i22 ], [ %ret.1.i.i18, %for.body.i21.i ]
+  %retval.0 = phi i64 [ %conv, %rocker_io_readl.exit ], [ -1, %entry ], [ %call4.i, %sw.bb.i36 ], [ 0, %sw.default14.i ], [ %52, %sw.bb13.i ], [ %47, %sw.bb8.i ], [ %mul.i34, %sw.bb7.i ], [ -2401057697376126274, %if.end.i14 ], [ -2401057697376126274, %if.end.i14 ], [ 0, %if.then.i35 ], [ 0, %sw.bb9.i ], [ 0, %sw.bb11.i ], [ %status.1.i.i31, %for.body.i.i22 ], [ %ret.1.i.i18, %for.body.i21.i ]
   ret i64 %retval.0
 }
 
@@ -2867,8 +2868,9 @@ if.then.i:                                        ; preds = %sw.bb
   %3 = lshr i32 %2, 5
   %conv.i = and i32 %3, 127
   %conv2.i = and i32 %2, 31
-  %4 = tail call i32 @llvm.fshl.i32(i32 %conv2.i, i32 %conv2.i, i32 30)
-  switch i32 %4, label %sw.epilog [
+  %4 = sub i32 %conv2.i, 0
+  %5 = call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 30)
+  switch i32 %5, label %sw.epilog [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb4.i
     i32 2, label %sw.bb9.i
@@ -2885,44 +2887,44 @@ sw.bb.i:                                          ; preds = %if.then.i
 
 sw.bb4.i:                                         ; preds = %if.then.i
   %rings.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %5 = load ptr, ptr %rings.i, align 8
+  %6 = load ptr, ptr %rings.i, align 8
   %idxprom.i = zext nneg i32 %conv.i to i64
-  %arrayidx.i = getelementptr ptr, ptr %5, i64 %idxprom.i
-  %6 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr ptr, ptr %6, i64 %idxprom.i
+  %7 = load ptr, ptr %arrayidx.i, align 8
   %conv5.i = shl i64 %val, 32
   %lower326.i = getelementptr inbounds i8, ptr %opaque, i64 3728
-  %7 = load i64, ptr %lower326.i, align 16
-  %or.i = or i64 %7, %conv5.i
-  %call7.i = tail call zeroext i1 @desc_ring_set_base_addr(ptr noundef %6, i64 noundef %or.i) #13
+  %8 = load i64, ptr %lower326.i, align 16
+  %or.i = or i64 %8, %conv5.i
+  %call7.i = tail call zeroext i1 @desc_ring_set_base_addr(ptr noundef %7, i64 noundef %or.i) #13
   store i64 0, ptr %lower326.i, align 16
   br label %sw.epilog
 
 sw.bb9.i:                                         ; preds = %if.then.i
   %rings10.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %8 = load ptr, ptr %rings10.i, align 8
+  %9 = load ptr, ptr %rings10.i, align 8
   %idxprom11.i = zext nneg i32 %conv.i to i64
-  %arrayidx12.i = getelementptr ptr, ptr %8, i64 %idxprom11.i
-  %9 = load ptr, ptr %arrayidx12.i, align 8
-  %call13.i = tail call zeroext i1 @desc_ring_set_size(ptr noundef %9, i32 noundef %conv) #13
+  %arrayidx12.i = getelementptr ptr, ptr %9, i64 %idxprom11.i
+  %10 = load ptr, ptr %arrayidx12.i, align 8
+  %call13.i = tail call zeroext i1 @desc_ring_set_size(ptr noundef %10, i32 noundef %conv) #13
   br label %sw.epilog
 
 sw.bb14.i:                                        ; preds = %if.then.i
   %rings15.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %10 = load ptr, ptr %rings15.i, align 8
+  %11 = load ptr, ptr %rings15.i, align 8
   %idxprom16.i = zext nneg i32 %conv.i to i64
-  %arrayidx17.i = getelementptr ptr, ptr %10, i64 %idxprom16.i
-  %11 = load ptr, ptr %arrayidx17.i, align 8
-  %call18.i = tail call zeroext i1 @desc_ring_set_head(ptr noundef %11, i32 noundef %conv) #13
+  %arrayidx17.i = getelementptr ptr, ptr %11, i64 %idxprom16.i
+  %12 = load ptr, ptr %arrayidx17.i, align 8
+  %call18.i = tail call zeroext i1 @desc_ring_set_head(ptr noundef %12, i32 noundef %conv) #13
   br i1 %call18.i, label %if.then19.i, label %sw.epilog
 
 if.then19.i:                                      ; preds = %sw.bb14.i
-  %12 = load ptr, ptr %rings15.i, align 8
-  %arrayidx22.i = getelementptr ptr, ptr %12, i64 %idxprom16.i
-  %13 = load ptr, ptr %arrayidx22.i, align 8
-  %call23.i = tail call i32 @desc_ring_get_msix_vector(ptr noundef %13) #13
+  %13 = load ptr, ptr %rings15.i, align 8
+  %arrayidx22.i = getelementptr ptr, ptr %13, i64 %idxprom16.i
+  %14 = load ptr, ptr %arrayidx22.i, align 8
+  %call23.i = tail call i32 @desc_ring_get_msix_vector(ptr noundef %14) #13
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
-  %14 = load i32, ptr %0, align 16
-  %sub.i.i = shl i32 %14, 1
+  %15 = load i32, ptr %0, align 16
+  %sub.i.i = shl i32 %15, 1
   %add2.i.i = add i32 %sub.i.i, 4
   %cmp.not.i.i = icmp ugt i32 %add2.i.i, %call23.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %sw.epilog
@@ -2933,30 +2935,30 @@ if.end.i.i:                                       ; preds = %if.then19.i
 
 sw.bb24.i:                                        ; preds = %if.then.i
   %rings25.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %15 = load ptr, ptr %rings25.i, align 8
+  %16 = load ptr, ptr %rings25.i, align 8
   %idxprom26.i = zext nneg i32 %conv.i to i64
-  %arrayidx27.i = getelementptr ptr, ptr %15, i64 %idxprom26.i
-  %16 = load ptr, ptr %arrayidx27.i, align 8
-  tail call void @desc_ring_set_ctrl(ptr noundef %16, i32 noundef %conv) #13
+  %arrayidx27.i = getelementptr ptr, ptr %16, i64 %idxprom26.i
+  %17 = load ptr, ptr %arrayidx27.i, align 8
+  tail call void @desc_ring_set_ctrl(ptr noundef %17, i32 noundef %conv) #13
   br label %sw.epilog
 
 sw.bb28.i:                                        ; preds = %if.then.i
   %rings29.i = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %17 = load ptr, ptr %rings29.i, align 8
+  %18 = load ptr, ptr %rings29.i, align 8
   %idxprom30.i = zext nneg i32 %conv.i to i64
-  %arrayidx31.i = getelementptr ptr, ptr %17, i64 %idxprom30.i
-  %18 = load ptr, ptr %arrayidx31.i, align 8
-  %call32.i = tail call zeroext i1 @desc_ring_ret_credits(ptr noundef %18, i32 noundef %conv) #13
+  %arrayidx31.i = getelementptr ptr, ptr %18, i64 %idxprom30.i
+  %19 = load ptr, ptr %arrayidx31.i, align 8
+  %call32.i = tail call zeroext i1 @desc_ring_ret_credits(ptr noundef %19, i32 noundef %conv) #13
   br i1 %call32.i, label %if.then33.i, label %sw.epilog
 
 if.then33.i:                                      ; preds = %sw.bb28.i
-  %19 = load ptr, ptr %rings29.i, align 8
-  %arrayidx36.i = getelementptr ptr, ptr %19, i64 %idxprom30.i
-  %20 = load ptr, ptr %arrayidx36.i, align 8
-  %call37.i = tail call i32 @desc_ring_get_msix_vector(ptr noundef %20) #13
+  %20 = load ptr, ptr %rings29.i, align 8
+  %arrayidx36.i = getelementptr ptr, ptr %20, i64 %idxprom30.i
+  %21 = load ptr, ptr %arrayidx36.i, align 8
+  %call37.i = tail call i32 @desc_ring_get_msix_vector(ptr noundef %21) #13
   %call.i.i57.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
-  %21 = load i32, ptr %0, align 16
-  %sub.i59.i = shl i32 %21, 1
+  %22 = load i32, ptr %0, align 16
+  %sub.i59.i = shl i32 %22, 1
   %add2.i60.i = add i32 %sub.i59.i, 4
   %cmp.not.i61.i = icmp ugt i32 %add2.i60.i, %call37.i
   br i1 %cmp.not.i61.i, label %if.end.i62.i, label %sw.epilog
@@ -2994,8 +2996,8 @@ sw.bb42.i:                                        ; preds = %if.end40.i, %if.end
 sw.bb45.i:                                        ; preds = %if.end40.i
   %conv46.i = shl i64 %val, 32
   %lower3248.i = getelementptr inbounds i8, ptr %opaque, i64 3728
-  %22 = load i64, ptr %lower3248.i, align 16
-  %or49.i = or i64 %22, %conv46.i
+  %23 = load i64, ptr %lower3248.i, align 16
+  %or49.i = or i64 %23, %conv46.i
   %test_reg64.i = getelementptr inbounds i8, ptr %opaque, i64 3704
   store i64 %or49.i, ptr %test_reg64.i, align 8
   store i64 0, ptr %lower3248.i, align 16
@@ -3003,8 +3005,8 @@ sw.bb45.i:                                        ; preds = %if.end40.i
 
 sw.bb51.i:                                        ; preds = %if.end40.i
   %call.i.i64.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
-  %23 = load i32, ptr %0, align 16
-  %sub.i66.i = shl i32 %23, 1
+  %24 = load i32, ptr %0, align 16
+  %sub.i66.i = shl i32 %24, 1
   %add2.i67.i = add i32 %sub.i66.i, 4
   %cmp.not.i68.i = icmp ugt i32 %add2.i67.i, %conv
   br i1 %cmp.not.i68.i, label %if.end.i69.i, label %sw.epilog
@@ -3022,8 +3024,8 @@ sw.bb52.i:                                        ; preds = %if.end40.i
 sw.bb54.i:                                        ; preds = %if.end40.i
   %conv55.i = shl i64 %val, 32
   %lower3257.i = getelementptr inbounds i8, ptr %opaque, i64 3728
-  %24 = load i64, ptr %lower3257.i, align 16
-  %or58.i = or i64 %24, %conv55.i
+  %25 = load i64, ptr %lower3257.i, align 16
+  %or58.i = or i64 %25, %conv55.i
   %test_dma_addr.i = getelementptr inbounds i8, ptr %opaque, i64 3712
   store i64 %or58.i, ptr %test_dma_addr.i, align 16
   store i64 0, ptr %lower3257.i, align 16
@@ -3032,8 +3034,8 @@ sw.bb54.i:                                        ; preds = %if.end40.i
 sw.bb60.i:                                        ; preds = %if.end40.i
   %call.i.i71.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   %test_dma_size.i.i = getelementptr inbounds i8, ptr %opaque, i64 3720
-  %25 = load i32, ptr %test_dma_size.i.i, align 8
-  %conv.i72.i = zext i32 %25 to i64
+  %26 = load i32, ptr %test_dma_size.i.i, align 8
+  %conv.i72.i = zext i32 %26 to i64
   %call1.i.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i72.i) #15
   switch i32 %conv, label %rocker_test_dma_ctrl.exit.i [
     i32 1, label %sw.bb.i.i
@@ -3042,55 +3044,55 @@ sw.bb60.i:                                        ; preds = %if.end40.i
   ]
 
 sw.bb.i.i:                                        ; preds = %sw.bb60.i
-  %26 = load i32, ptr %test_dma_size.i.i, align 8
-  %conv3.i.i = zext i32 %26 to i64
+  %27 = load i32, ptr %test_dma_size.i.i, align 8
+  %conv3.i.i = zext i32 %27 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %call1.i.i, i8 0, i64 %conv3.i.i, i1 false)
   br label %sw.epilog.i.i
 
 sw.bb4.i.i:                                       ; preds = %sw.bb60.i
-  %27 = load i32, ptr %test_dma_size.i.i, align 8
-  %conv6.i.i = zext i32 %27 to i64
+  %28 = load i32, ptr %test_dma_size.i.i, align 8
+  %conv6.i.i = zext i32 %28 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %call1.i.i, i8 -106, i64 %conv6.i.i, i1 false)
   br label %sw.epilog.i.i
 
 sw.bb7.i.i:                                       ; preds = %sw.bb60.i
   %test_dma_addr.i.i = getelementptr inbounds i8, ptr %opaque, i64 3712
-  %28 = load i64, ptr %test_dma_addr.i.i, align 16
-  %29 = load i32, ptr %test_dma_size.i.i, align 8
-  %conv9.i.i = zext i32 %29 to i64
+  %29 = load i64, ptr %test_dma_addr.i.i, align 16
+  %30 = load i32, ptr %test_dma_size.i.i, align 8
+  %conv9.i.i = zext i32 %30 to i64
   %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i71.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %28, i32 1, ptr noundef %call1.i.i, i64 noundef %conv9.i.i, i1 noundef zeroext false) #13
-  %30 = load i32, ptr %test_dma_size.i.i, align 8
-  %cmp23.not.i.i = icmp eq i32 %30, 0
+  %call.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %29, i32 1, ptr noundef %call1.i.i, i64 noundef %conv9.i.i, i1 noundef zeroext false) #13
+  %31 = load i32, ptr %test_dma_size.i.i, align 8
+  %cmp23.not.i.i = icmp eq i32 %31, 0
   br i1 %cmp23.not.i.i, label %sw.epilog.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %sw.bb7.i.i, %for.body.i.i
   %i.024.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %sw.bb7.i.i ]
   %idxprom.i.i = sext i32 %i.024.i.i to i64
   %arrayidx.i.i = getelementptr i8, ptr %call1.i.i, i64 %idxprom.i.i
-  %31 = load i8, ptr %arrayidx.i.i, align 1
-  %32 = xor i8 %31, -1
-  store i8 %32, ptr %arrayidx.i.i, align 1
+  %32 = load i8, ptr %arrayidx.i.i, align 1
+  %33 = xor i8 %32, -1
+  store i8 %33, ptr %arrayidx.i.i, align 1
   %inc.i.i = add nuw i32 %i.024.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %30
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %31
   br i1 %exitcond.not.i.i, label %sw.epilog.i.i, label %for.body.i.i, !llvm.loop !22
 
 sw.epilog.i.i:                                    ; preds = %for.body.i.i, %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i
-  %33 = phi i32 [ 0, %sw.bb7.i.i ], [ %27, %sw.bb4.i.i ], [ %26, %sw.bb.i.i ], [ %30, %for.body.i.i ]
+  %34 = phi i32 [ 0, %sw.bb7.i.i ], [ %28, %sw.bb4.i.i ], [ %27, %sw.bb.i.i ], [ %31, %for.body.i.i ]
   %test_dma_addr18.i.i = getelementptr inbounds i8, ptr %opaque, i64 3712
-  %34 = load i64, ptr %test_dma_addr18.i.i, align 16
-  %conv20.i.i = zext i32 %33 to i64
+  %35 = load i64, ptr %test_dma_addr18.i.i, align 16
+  %conv20.i.i = zext i32 %34 to i64
   %bus_master_as.i.i.i21.i.i = getelementptr inbounds i8, ptr %call.i.i71.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i22.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i21.i.i, i64 noundef %34, i32 1, ptr noundef %call1.i.i, i64 noundef %conv20.i.i, i1 noundef zeroext true) #13
+  %call.i.i.i.i22.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i21.i.i, i64 noundef %35, i32 1, ptr noundef %call1.i.i, i64 noundef %conv20.i.i, i1 noundef zeroext true) #13
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
-  %35 = load i32, ptr %0, align 16
-  %sub.i.i.i = shl i32 %35, 1
-  %36 = or disjoint i32 %sub.i.i.i, 1
-  %cmp.not.i.i.i = icmp ult i32 %36, -3
+  %36 = load i32, ptr %0, align 16
+  %sub.i.i.i = shl i32 %36, 1
+  %37 = or disjoint i32 %sub.i.i.i, 1
+  %cmp.not.i.i.i = icmp ult i32 %37, -3
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %rocker_test_dma_ctrl.exit.i
 
 if.end.i.i.i:                                     ; preds = %sw.epilog.i.i
@@ -3114,8 +3116,8 @@ if.then.i.i:                                      ; preds = %sw.bb61.i
 sw.bb62.i:                                        ; preds = %if.end40.i
   %conv63.i = shl i64 %val, 32
   %lower3265.i = getelementptr inbounds i8, ptr %opaque, i64 3728
-  %37 = load i64, ptr %lower3265.i, align 16
-  %or66.i = or i64 %37, %conv63.i
+  %38 = load i64, ptr %lower3265.i, align 16
+  %or66.i = or i64 %38, %conv63.i
   %cmp10.not.i.i = icmp eq i32 %opaque.val.i, 0
   br i1 %cmp10.not.i.i, label %rocker_port_phys_enable_write.exit.i, label %for.body.lr.ph.i.i
 
@@ -3127,31 +3129,31 @@ for.body.i76.i:                                   ; preds = %for.inc.i.i, %for.b
   %i.011.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i79.i, %for.inc.i.i ]
   %idxprom.i77.i = sext i32 %i.011.i.i to i64
   %arrayidx.i78.i = getelementptr [62 x ptr], ptr %fp_port1.i.i, i64 0, i64 %idxprom.i77.i
-  %38 = load ptr, ptr %arrayidx.i78.i, align 8
-  %call.i.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %38) #13
+  %39 = load ptr, ptr %arrayidx.i78.i, align 8
+  %call.i.i = tail call zeroext i1 @fp_port_enabled(ptr noundef %39) #13
   %add.i79.i = add nuw i32 %i.011.i.i, 1
   %sh_prom.i.i = zext nneg i32 %add.i79.i to i64
-  %39 = shl nuw i64 1, %sh_prom.i.i
-  %40 = and i64 %39, %or66.i
-  %tobool.i.i = icmp ne i64 %40, 0
-  %41 = xor i1 %call.i.i, %tobool.i.i
-  br i1 %41, label %if.end.i81.i, label %for.inc.i.i
+  %40 = shl nuw i64 1, %sh_prom.i.i
+  %41 = and i64 %40, %or66.i
+  %tobool.i.i = icmp ne i64 %41, 0
+  %42 = xor i1 %call.i.i, %tobool.i.i
+  br i1 %42, label %if.end.i81.i, label %for.inc.i.i
 
 if.end.i81.i:                                     ; preds = %for.body.i76.i
-  %42 = load ptr, ptr %arrayidx.i78.i, align 8
+  %43 = load ptr, ptr %arrayidx.i78.i, align 8
   br i1 %tobool.i.i, label %if.then9.i.i, label %if.else.i.i
 
 if.then9.i.i:                                     ; preds = %if.end.i81.i
-  tail call void @fp_port_enable(ptr noundef %42) #13
+  tail call void @fp_port_enable(ptr noundef %43) #13
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i81.i
-  tail call void @fp_port_disable(ptr noundef %42) #13
+  tail call void @fp_port_disable(ptr noundef %43) #13
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then9.i.i, %for.body.i76.i
-  %43 = load i32, ptr %0, align 16
-  %cmp.i80.i = icmp ult i32 %add.i79.i, %43
+  %44 = load i32, ptr %0, align 16
+  %cmp.i80.i = icmp ult i32 %add.i79.i, %44
   br i1 %cmp.i80.i, label %for.body.i76.i, label %rocker_port_phys_enable_write.exit.i, !llvm.loop !23
 
 rocker_port_phys_enable_write.exit.i:             ; preds = %for.inc.i.i, %sw.bb62.i
@@ -3159,16 +3161,16 @@ rocker_port_phys_enable_write.exit.i:             ; preds = %for.inc.i.i, %sw.bb
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %44 = getelementptr i8, ptr %opaque, i64 3168
-  %opaque.val.i9 = load i32, ptr %44, align 16
+  %45 = getelementptr i8, ptr %opaque, i64 3168
+  %opaque.val.i9 = load i32, ptr %45, align 16
   %mul.i.i.i10 = shl i32 %opaque.val.i9, 6
   %mul.i.i11 = add i32 %mul.i.i.i10, 64
   %conv.i.i12 = sext i32 %mul.i.i11 to i64
   %add.i.i13 = add nsw i64 %conv.i.i12, 4096
   %cmp.i.i14 = icmp ugt i64 %addr, 4095
   %cmp2.i.i15 = icmp ugt i64 %add.i.i13, %addr
-  %45 = select i1 %cmp.i.i14, i1 %cmp2.i.i15, i1 false
-  br i1 %45, label %if.then.i32, label %if.end.i
+  %46 = select i1 %cmp.i.i14, i1 %cmp2.i.i15, i1 false
+  br i1 %46, label %if.then.i32, label %if.end.i
 
 if.then.i32:                                      ; preds = %sw.bb2
   %conv219.i = and i64 %addr, 31
@@ -3176,13 +3178,13 @@ if.then.i32:                                      ; preds = %sw.bb2
   br i1 %cond.i, label %sw.bb.i33, label %sw.epilog
 
 sw.bb.i33:                                        ; preds = %if.then.i32
-  %46 = lshr exact i64 %addr, 5
-  %conv.i34 = and i64 %46, 127
+  %47 = lshr exact i64 %addr, 5
+  %conv.i34 = and i64 %47, 127
   %rings.i35 = getelementptr inbounds i8, ptr %opaque, i64 3736
-  %47 = load ptr, ptr %rings.i35, align 8
-  %arrayidx.i36 = getelementptr ptr, ptr %47, i64 %conv.i34
-  %48 = load ptr, ptr %arrayidx.i36, align 8
-  %call3.i = tail call zeroext i1 @desc_ring_set_base_addr(ptr noundef %48, i64 noundef %val) #13
+  %48 = load ptr, ptr %rings.i35, align 8
+  %arrayidx.i36 = getelementptr ptr, ptr %48, i64 %conv.i34
+  %49 = load ptr, ptr %arrayidx.i36, align 8
+  %call3.i = tail call zeroext i1 @desc_ring_set_base_addr(ptr noundef %49, i64 noundef %val) #13
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %sw.bb2
@@ -3214,31 +3216,31 @@ for.body.i.i19:                                   ; preds = %for.inc.i.i26, %for
   %i.011.i.i20 = phi i32 [ 0, %for.body.lr.ph.i.i17 ], [ %add.i17.i, %for.inc.i.i26 ]
   %idxprom.i.i21 = sext i32 %i.011.i.i20 to i64
   %arrayidx.i.i22 = getelementptr [62 x ptr], ptr %fp_port1.i.i18, i64 0, i64 %idxprom.i.i21
-  %49 = load ptr, ptr %arrayidx.i.i22, align 8
-  %call.i.i23 = tail call zeroext i1 @fp_port_enabled(ptr noundef %49) #13
+  %50 = load ptr, ptr %arrayidx.i.i22, align 8
+  %call.i.i23 = tail call zeroext i1 @fp_port_enabled(ptr noundef %50) #13
   %add.i17.i = add nuw i32 %i.011.i.i20, 1
   %sh_prom.i.i24 = zext nneg i32 %add.i17.i to i64
-  %50 = shl nuw i64 1, %sh_prom.i.i24
-  %51 = and i64 %50, %val
-  %tobool.i.i25 = icmp ne i64 %51, 0
-  %52 = xor i1 %call.i.i23, %tobool.i.i25
-  br i1 %52, label %if.end.i.i27, label %for.inc.i.i26
+  %51 = shl nuw i64 1, %sh_prom.i.i24
+  %52 = and i64 %51, %val
+  %tobool.i.i25 = icmp ne i64 %52, 0
+  %53 = xor i1 %call.i.i23, %tobool.i.i25
+  br i1 %53, label %if.end.i.i27, label %for.inc.i.i26
 
 if.end.i.i27:                                     ; preds = %for.body.i.i19
-  %53 = load ptr, ptr %arrayidx.i.i22, align 8
+  %54 = load ptr, ptr %arrayidx.i.i22, align 8
   br i1 %tobool.i.i25, label %if.then9.i.i29, label %if.else.i.i28
 
 if.then9.i.i29:                                   ; preds = %if.end.i.i27
-  tail call void @fp_port_enable(ptr noundef %53) #13
+  tail call void @fp_port_enable(ptr noundef %54) #13
   br label %for.inc.i.i26
 
 if.else.i.i28:                                    ; preds = %if.end.i.i27
-  tail call void @fp_port_disable(ptr noundef %53) #13
+  tail call void @fp_port_disable(ptr noundef %54) #13
   br label %for.inc.i.i26
 
 for.inc.i.i26:                                    ; preds = %if.else.i.i28, %if.then9.i.i29, %for.body.i.i19
-  %54 = load i32, ptr %44, align 16
-  %cmp.i18.i = icmp ult i32 %add.i17.i, %54
+  %55 = load i32, ptr %45, align 16
+  %cmp.i18.i = icmp ult i32 %add.i17.i, %55
   br i1 %cmp.i18.i, label %for.body.i.i19, label %sw.epilog, !llvm.loop !23
 
 sw.epilog:                                        ; preds = %for.inc.i.i26, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %if.end.i, %sw.bb.i33, %if.then.i32, %rocker_port_phys_enable_write.exit.i, %if.then.i.i, %sw.bb61.i, %rocker_test_dma_ctrl.exit.i, %sw.bb54.i, %sw.bb52.i, %if.end.i69.i, %sw.bb51.i, %sw.bb45.i, %sw.bb42.i, %sw.bb41.i, %if.end40.i, %if.end.i62.i, %if.then33.i, %sw.bb28.i, %sw.bb24.i, %if.end.i.i, %if.then19.i, %sw.bb14.i, %sw.bb9.i, %sw.bb4.i, %sw.bb.i, %if.then.i, %entry
@@ -3319,17 +3321,17 @@ declare void @fp_port_reset(ptr noundef) local_unnamed_addr #4
 
 declare void @desc_ring_reset(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #9
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 attributes #0 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3340,9 +3342,9 @@ attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0,1) }

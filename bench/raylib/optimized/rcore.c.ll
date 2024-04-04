@@ -27763,8 +27763,8 @@ define hidden void @UpdateGestures() local_unnamed_addr #0 {
 
 7:                                                ; preds = %0, %5
   %8 = phi i32 [ %1, %0 ], [ %.pre, %5 ]
-  %9 = add i32 %8, -16
-  %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 28)
+  %9 = sub i32 %8, 16
+  %10 = call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 28)
   switch i32 %10, label %12 [
     i32 7, label %11
     i32 3, label %11
@@ -37502,8 +37502,8 @@ define void @PollInputEvents() local_unnamed_addr #0 {
 
 8:                                                ; preds = %6, %0
   %9 = phi i32 [ %2, %0 ], [ %.pre.i, %6 ]
-  %10 = add i32 %9, -16
-  %11 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 28)
+  %10 = sub i32 %9, 16
+  %11 = call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 28)
   switch i32 %11, label %UpdateGestures.exit [
     i32 7, label %12
     i32 3, label %12

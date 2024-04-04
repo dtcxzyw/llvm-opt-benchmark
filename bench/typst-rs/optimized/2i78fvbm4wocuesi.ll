@@ -23496,8 +23496,8 @@ define hidden noundef i8 @_ZN4core4iter6traits12double_ended19DoubleEndedIterato
   %25 = load ptr, ptr %20, align 8, !noalias !4857, !nonnull !4, !align !5, !noundef !4
   %26 = getelementptr inbounds [0 x i8], ptr %25, i64 0, i64 %16
   %27 = load i8, ptr %26, align 1, !range !4861, !noalias !4857, !noundef !4
-  %28 = add nsw i8 %27, -1
-  %29 = tail call i8 @llvm.fshl.i8(i8 %28, i8 %28, i8 6)
+  %28 = sub i8 %27, 1
+  %29 = call i8 @llvm.fshl.i8(i8 %28, i8 %28, i8 6)
   switch i8 %29, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c24b1c8bf39cfabE.exit.i.i.i.i" [
     i8 2, label %.loopexit10.sink.split
     i8 4, label %.loopexit10.sink.split
@@ -23547,8 +23547,8 @@ define hidden noundef i8 @_ZN4core4iter6traits12double_ended19DoubleEndedIterato
   %15 = load ptr, ptr %10, align 8, !noalias !4880, !nonnull !4, !align !5, !noundef !4
   %16 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %9
   %17 = load i8, ptr %16, align 1, !range !4861, !noalias !4880, !noundef !4
-  %18 = add nsw i8 %17, -1
-  %19 = tail call i8 @llvm.fshl.i8(i8 %18, i8 %18, i8 6)
+  %18 = sub i8 %17, 1
+  %19 = call i8 @llvm.fshl.i8(i8 %18, i8 %18, i8 6)
   switch i8 %19, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c24b1c8bf39cfabE.exit" [
     i8 2, label %20
     i8 4, label %20
@@ -24713,8 +24713,8 @@ define hidden noundef i8 @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$
   %18 = load ptr, ptr %13, align 8, !noalias !5317, !nonnull !4, !align !5, !noundef !4
   %19 = getelementptr inbounds [0 x i8], ptr %18, i64 0, i64 %9
   %20 = load i8, ptr %19, align 1, !range !4861, !noalias !5317, !noundef !4
-  %21 = add nsw i8 %20, -1
-  %22 = tail call i8 @llvm.fshl.i8(i8 %21, i8 %21, i8 6)
+  %21 = sub i8 %20, 1
+  %22 = call i8 @llvm.fshl.i8(i8 %21, i8 %21, i8 6)
   switch i8 %22, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c24b1c8bf39cfabE.exit.i.i.i" [
     i8 2, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h429229a300f972dbE.llvm.16978709814855407318.exit"
     i8 4, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h429229a300f972dbE.llvm.16978709814855407318.exit"
@@ -24765,8 +24765,8 @@ define hidden noundef i8 @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$
   %16 = load ptr, ptr %11, align 8, !noalias !5347, !nonnull !4, !align !5, !noundef !4
   %17 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 %7
   %18 = load i8, ptr %17, align 1, !range !4861, !noalias !5347, !noundef !4
-  %19 = add nsw i8 %18, -1
-  %20 = tail call i8 @llvm.fshl.i8(i8 %19, i8 %19, i8 6)
+  %19 = sub i8 %18, 1
+  %20 = call i8 @llvm.fshl.i8(i8 %19, i8 %19, i8 6)
   switch i8 %20, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c24b1c8bf39cfabE.exit.i.i" [
     i8 2, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd17bf23cf516fee5E.exit"
     i8 4, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd17bf23cf516fee5E.exit"
@@ -72041,8 +72041,8 @@ define hidden noundef i8 @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20
   %15 = load ptr, ptr %10, align 8, !noalias !14165, !nonnull !4, !align !5, !noundef !4
   %16 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %9
   %17 = load i8, ptr %16, align 1, !range !4861, !noalias !14165, !noundef !4
-  %18 = add nsw i8 %17, -1
-  %19 = tail call i8 @llvm.fshl.i8(i8 %18, i8 %18, i8 6)
+  %18 = sub i8 %17, 1
+  %19 = call i8 @llvm.fshl.i8(i8 %18, i8 %18, i8 6)
   switch i8 %19, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c24b1c8bf39cfabE.exit.i" [
     i8 2, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hbff469a84be9251aE.llvm.16978709814855407318.exit
     i8 4, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hbff469a84be9251aE.llvm.16978709814855407318.exit
@@ -72179,8 +72179,8 @@ define hidden noundef i8 @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20
   %25 = load ptr, ptr %20, align 8, !noalias !14260, !nonnull !4, !align !5, !noundef !4
   %26 = getelementptr inbounds [0 x i8], ptr %25, i64 0, i64 %16
   %27 = load i8, ptr %26, align 1, !range !4861, !noalias !14260, !noundef !4
-  %28 = add nsw i8 %27, -1
-  %29 = tail call i8 @llvm.fshl.i8(i8 %28, i8 %28, i8 6)
+  %28 = sub i8 %27, 1
+  %29 = call i8 @llvm.fshl.i8(i8 %28, i8 %28, i8 6)
   switch i8 %29, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c24b1c8bf39cfabE.exit.i.i.i.i.i" [
     i8 2, label %.loopexit10.sink.split.i
     i8 4, label %.loopexit10.sink.split.i
@@ -137413,9 +137413,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #75
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #74
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #74
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #76
 
@@ -137427,6 +137424,9 @@ declare i32 @llvm.umax.i32(i32, i32) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #74
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.xor.v4i64(<4 x i64>) #74

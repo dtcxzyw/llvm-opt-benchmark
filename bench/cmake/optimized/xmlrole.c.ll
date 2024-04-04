@@ -288,8 +288,8 @@ define internal noundef i32 @internalSubset(ptr nocapture noundef writeonly %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @prolog2(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = add i32 %1, -11
-  %7 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 31)
+  %6 = sub i32 %1, 11
+  %7 = call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 31)
   switch i32 %7, label %11 [
     i32 2, label %12
     i32 0, label %8

@@ -14410,7 +14410,7 @@ mptcp_alloc_analysis.exit:                        ; preds = %69
 
 110:                                              ; preds = %108, %107
   %111 = icmp eq i32 %6, 24
-  %112 = add i32 %6, -12
+  %112 = sub i32 %6, 12
   %113 = call i32 @llvm.fshl.i32(i32 %112, i32 %112, i32 31)
   switch i32 %113, label %.loopexit [
     i32 6, label %114
@@ -14484,7 +14484,7 @@ proto_item_set_generated.exit:                    ; preds = %114, %134, %137
   br label %proto_item_set_generated.exit447
 
 proto_item_set_generated.exit447:                 ; preds = %proto_item_set_generated.exit, %150, %153
-  %157 = icmp sgt i32 %6, 19
+  %157 = icmp ugt i32 %6, 19
   br i1 %157, label %158, label %.thread486
 
 158:                                              ; preds = %proto_item_set_generated.exit447
@@ -15039,8 +15039,8 @@ analyze_mapping.exit464:                          ; preds = %mptcp_convert_dsn.e
   %496 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %495, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #20
   %497 = load i32, ptr @hf_tcp_option_mptcp_address_id, align 4
   %498 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %497, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #20
-  %499 = add i32 %6, -8
-  %500 = tail call i32 @llvm.fshl.i32(i32 %499, i32 %499, i32 31)
+  %499 = sub i32 %6, 8
+  %500 = call i32 @llvm.fshl.i32(i32 %499, i32 %499, i32 31)
   switch i32 %500, label %504 [
     i32 5, label %501
     i32 4, label %501
@@ -15055,8 +15055,8 @@ analyze_mapping.exit464:                          ; preds = %mptcp_convert_dsn.e
 
 504:                                              ; preds = %491, %501
   %.4 = phi i32 [ 8, %501 ], [ 4, %491 ]
-  %505 = add i32 %6, -20
-  %506 = tail call i32 @llvm.fshl.i32(i32 %505, i32 %505, i32 31)
+  %505 = sub i32 %6, 20
+  %506 = call i32 @llvm.fshl.i32(i32 %505, i32 %505, i32 31)
   switch i32 %506, label %511 [
     i32 5, label %507
     i32 4, label %507
@@ -15072,8 +15072,8 @@ analyze_mapping.exit464:                          ; preds = %mptcp_convert_dsn.e
 
 511:                                              ; preds = %504, %507
   %.5 = phi i32 [ %510, %507 ], [ %.4, %504 ]
-  %512 = add i32 %6, -10
-  %513 = tail call i32 @llvm.fshl.i32(i32 %512, i32 %512, i32 30)
+  %512 = sub i32 %6, 10
+  %513 = call i32 @llvm.fshl.i32(i32 %512, i32 %512, i32 30)
   switch i32 %513, label %518 [
     i32 5, label %514
     i32 3, label %514
@@ -15089,8 +15089,8 @@ analyze_mapping.exit464:                          ; preds = %mptcp_convert_dsn.e
 
 518:                                              ; preds = %511, %514
   %.6 = phi i32 [ %517, %514 ], [ %.5, %511 ]
-  %519 = add i32 %6, -16
-  %520 = tail call i32 @llvm.fshl.i32(i32 %519, i32 %519, i32 31)
+  %519 = sub i32 %6, 16
+  %520 = call i32 @llvm.fshl.i32(i32 %519, i32 %519, i32 31)
   switch i32 %520, label %.loopexit [
     i32 7, label %521
     i32 6, label %521
@@ -16737,9 +16737,6 @@ declare i16 @llvm.bswap.i16(i16) #17
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
 
@@ -16769,6 +16766,9 @@ declare i16 @llvm.umin.i16(i16, i16) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

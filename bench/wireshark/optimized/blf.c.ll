@@ -791,13 +791,13 @@ define internal fastcc noundef i32 @blf_read_block(ptr nocapture noundef readonl
   %29 = getelementptr inbounds i8, ptr %5, i64 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %321
-  %.0223530 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.3, %321 ]
-  %.0224529 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.4, %321 ]
-  %.0231528 = phi i64 [ %1, %.lr.ph.lr.ph ], [ %77, %321 ]
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %320
+  %.0223530 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.3, %320 ]
+  %.0224529 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.4, %320 ]
+  %.0231528 = phi i64 [ %1, %.lr.ph.lr.ph ], [ %77, %320 ]
   br label %34
 
-._crit_edge:                                      ; preds = %321, %35, %4
+._crit_edge:                                      ; preds = %320, %35, %4
   %30 = load i32, ptr %2, align 4
   %31 = icmp eq i32 %30, -12
   br i1 %31, label %32, label %blf_read_log_object_header2.exit.thread
@@ -922,7 +922,7 @@ blf_read_log_object_header3.exit:                 ; preds = %59
   %or.cond = and i1 %80, %82
   %.1225 = select i1 %or.cond, i64 0, i64 %.0224529
   %.1 = select i1 %82, i64 0, i64 %.0223530
-  switch i32 %81, label %320 [
+  switch i32 %81, label %319 [
     i32 10, label %83
     i32 71, label %85
     i32 120, label %90
@@ -946,15 +946,15 @@ blf_read_log_object_header3.exit:                 ; preds = %59
     i32 60, label %180
     i32 58, label %185
     i32 65, label %190
-    i32 103, label %310
-    i32 133, label %315
-    i32 6, label %321
-    i32 7, label %321
-    i32 8, label %321
-    i32 9, label %321
-    i32 72, label %321
-    i32 115, label %321
-    i32 118, label %321
+    i32 103, label %309
+    i32 133, label %314
+    i32 6, label %320
+    i32 7, label %320
+    i32 8, label %320
+    i32 9, label %320
+    i32 72, label %320
+    i32 115, label %320
+    i32 118, label %320
   ]
 
 83:                                               ; preds = %70
@@ -1170,12 +1170,12 @@ blf_read_bytes.exit.i:                            ; preds = %198
 blf_read_bytes.exit89.i:                          ; preds = %blf_read_bytes.exit.i
   %218 = getelementptr i8, ptr %210, i64 %208
   store i8 0, ptr %218, align 1
-  switch i32 %205, label %302 [
+  switch i32 %205, label %301 [
     i32 1, label %219
-    i32 2, label %242
-    i32 0, label %275
-    i32 3, label %275
-    i32 4, label %275
+    i32 2, label %241
+    i32 0, label %274
+    i32 3, label %274
+    i32 4, label %274
   ]
 
 219:                                              ; preds = %blf_read_bytes.exit89.i
@@ -1207,169 +1207,169 @@ blf_read_bytes.exit89.i:                          ; preds = %blf_read_bytes.exit
   %232 = trunc i32 %231 to i16
   %233 = lshr i16 %232, 8
   %234 = lshr i32 %231, 16
-  %235 = and i32 %234, 255
-  %236 = add nsw i32 %235, -1
-  %237 = tail call i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 31)
-  %238 = icmp ult i32 %237, 7
-  br i1 %238, label %switch.lookup, label %240
+  %trunc.i = trunc i32 %234 to i8
+  %235 = add i8 %trunc.i, -1
+  %236 = tail call i8 @llvm.fshl.i8(i8 %235, i8 %235, i8 7)
+  %237 = icmp ult i8 %236, 7
+  br i1 %237, label %switch.lookup, label %239
 
 switch.lookup:                                    ; preds = %230
-  %239 = zext nneg i32 %237 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.blf_read_block, i64 0, i64 %239
+  %238 = zext nneg i8 %236 to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.blf_read_block, i64 0, i64 %238
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %240
+  br label %239
 
-240:                                              ; preds = %230, %switch.lookup
+239:                                              ; preds = %230, %switch.lookup
   %.080.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %230 ]
-  %241 = tail call fastcc i32 @blf_prepare_interface_name(ptr noundef nonnull %0, i32 noundef %.080.i, i16 noundef zeroext %233, i16 noundef zeroext -1, ptr noundef nonnull %226, i32 noundef 0), !range !6
+  %240 = tail call fastcc i32 @blf_prepare_interface_name(ptr noundef nonnull %0, i32 noundef %.080.i, i16 noundef zeroext %233, i16 noundef zeroext -1, ptr noundef nonnull %226, i32 noundef 0), !range !6
   tail call void @g_strfreev(ptr noundef nonnull %220) #14
   tail call void @g_free(ptr noundef nonnull %210) #14
   br label %.thread
 
-242:                                              ; preds = %blf_read_bytes.exit89.i
+241:                                              ; preds = %blf_read_bytes.exit89.i
   %.not85.i = icmp eq i64 %spec.store.select.i, 0
-  %243 = load ptr, ptr %10, align 8
-  br i1 %.not85.i, label %246, label %244
+  %242 = load ptr, ptr %10, align 8
+  br i1 %.not85.i, label %245, label %243
 
-244:                                              ; preds = %242
-  %245 = getelementptr inbounds i8, ptr %243, i64 24
-  store i64 %spec.store.select.i, ptr %245, align 8
-  br label %251
+243:                                              ; preds = %241
+  %244 = getelementptr inbounds i8, ptr %242, i64 24
+  store i64 %spec.store.select.i, ptr %244, align 8
+  br label %250
 
-246:                                              ; preds = %242
-  tail call void @wtap_buffer_append_epdu_string(ptr noundef %243, i16 noundef zeroext 12, ptr noundef nonnull @.str.72) #14
+245:                                              ; preds = %241
+  tail call void @wtap_buffer_append_epdu_string(ptr noundef %242, i16 noundef zeroext 12, ptr noundef nonnull @.str.72) #14
+  %246 = load ptr, ptr %10, align 8
+  tail call void @wtap_buffer_append_epdu_string(ptr noundef %246, i16 noundef zeroext 33, ptr noundef nonnull @.str.73) #14
   %247 = load ptr, ptr %10, align 8
-  tail call void @wtap_buffer_append_epdu_string(ptr noundef %247, i16 noundef zeroext 33, ptr noundef nonnull @.str.73) #14
+  tail call void @wtap_buffer_append_epdu_string(ptr noundef %247, i16 noundef zeroext 36, ptr noundef nonnull @.str.74) #14
   %248 = load ptr, ptr %10, align 8
-  tail call void @wtap_buffer_append_epdu_string(ptr noundef %248, i16 noundef zeroext 36, ptr noundef nonnull @.str.74) #14
-  %249 = load ptr, ptr %10, align 8
-  %250 = tail call i32 @wtap_buffer_append_epdu_end(ptr noundef %249) #14
-  br label %251
+  %249 = tail call i32 @wtap_buffer_append_epdu_end(ptr noundef %248) #14
+  br label %250
 
-251:                                              ; preds = %246, %244
+250:                                              ; preds = %245, %243
+  %251 = load ptr, ptr %10, align 8
+  tail call void @ws_buffer_assure_space(ptr noundef %251, i64 noundef %208) #14
   %252 = load ptr, ptr %10, align 8
-  tail call void @ws_buffer_assure_space(ptr noundef %252, i64 noundef %208) #14
-  %253 = load ptr, ptr %10, align 8
-  tail call void @ws_buffer_append(ptr noundef %253, ptr noundef nonnull %210, i64 noundef %208) #14
+  tail call void @ws_buffer_append(ptr noundef %252, ptr noundef nonnull %210, i64 noundef %208) #14
   tail call void @g_free(ptr noundef nonnull %210) #14
-  %254 = load i32, ptr %29, align 4
-  %255 = and i32 %254, 16777215
-  %256 = icmp ugt i32 %255, %207
-  br i1 %256, label %.thread265, label %257
+  %253 = load i32, ptr %29, align 4
+  %254 = and i32 %253, 16777215
+  %255 = icmp ugt i32 %254, %207
+  br i1 %255, label %.thread265, label %256
 
-257:                                              ; preds = %251
-  %.mask.i = and i32 %254, -16777216
-  %258 = icmp eq i32 %.mask.i, 33554432
-  br i1 %258, label %259, label %267
+256:                                              ; preds = %250
+  %.mask.i = and i32 %253, -16777216
+  %257 = icmp eq i32 %.mask.i, 33554432
+  br i1 %257, label %258, label %266
 
-259:                                              ; preds = %257
-  %260 = load ptr, ptr %10, align 8
-  %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %260, i64 24
-  %263 = load i64, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %260, i64 16
-  %265 = load i64, ptr %264, align 8
-  %266 = sub i64 %263, %265
-  tail call fastcc void @blf_set_xml_channels(ptr noundef nonnull %0, ptr noundef %261, i64 noundef %266)
-  br label %267
+258:                                              ; preds = %256
+  %259 = load ptr, ptr %10, align 8
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds i8, ptr %259, i64 24
+  %262 = load i64, ptr %261, align 8
+  %263 = getelementptr inbounds i8, ptr %259, i64 16
+  %264 = load i64, ptr %263, align 8
+  %265 = sub i64 %262, %264
+  tail call fastcc void @blf_set_xml_channels(ptr noundef nonnull %0, ptr noundef %260, i64 noundef %265)
+  br label %266
 
-267:                                              ; preds = %259, %257
-  %268 = load ptr, ptr %10, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 24
-  %270 = load i64, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %268, i64 16
-  %272 = load i64, ptr %271, align 8
-  %273 = sub i64 %270, %272
-  %274 = trunc i64 %273 to i32
-  tail call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %274, i32 noundef %274)
-  br label %306
+266:                                              ; preds = %258, %256
+  %267 = load ptr, ptr %10, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 24
+  %269 = load i64, ptr %268, align 8
+  %270 = getelementptr inbounds i8, ptr %267, i64 16
+  %271 = load i64, ptr %270, align 8
+  %272 = sub i64 %269, %271
+  %273 = trunc i64 %272 to i32
+  tail call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %273, i32 noundef %273)
+  br label %305
 
-275:                                              ; preds = %blf_read_bytes.exit89.i, %blf_read_bytes.exit89.i, %blf_read_bytes.exit89.i
+274:                                              ; preds = %blf_read_bytes.exit89.i, %blf_read_bytes.exit89.i, %blf_read_bytes.exit89.i
+  %275 = load ptr, ptr %10, align 8
+  tail call void @wtap_buffer_append_epdu_string(ptr noundef %275, i16 noundef zeroext 12, ptr noundef nonnull @.str.72) #14
   %276 = load ptr, ptr %10, align 8
-  tail call void @wtap_buffer_append_epdu_string(ptr noundef %276, i16 noundef zeroext 12, ptr noundef nonnull @.str.72) #14
-  %277 = load ptr, ptr %10, align 8
-  tail call void @wtap_buffer_append_epdu_string(ptr noundef %277, i16 noundef zeroext 33, ptr noundef nonnull @.str.73) #14
-  switch i32 %205, label %287 [
-    i32 0, label %278
-    i32 3, label %280
-    i32 4, label %282
+  tail call void @wtap_buffer_append_epdu_string(ptr noundef %276, i16 noundef zeroext 33, ptr noundef nonnull @.str.73) #14
+  switch i32 %205, label %286 [
+    i32 0, label %277
+    i32 3, label %279
+    i32 4, label %281
   ]
 
-278:                                              ; preds = %275
-  %279 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef nonnull %210) #14
-  br label %287
+277:                                              ; preds = %274
+  %278 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef nonnull %210) #14
+  br label %286
 
-280:                                              ; preds = %275
-  %281 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.76, ptr noundef nonnull %210) #14
-  br label %287
+279:                                              ; preds = %274
+  %280 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.76, ptr noundef nonnull %210) #14
+  br label %286
 
-282:                                              ; preds = %275
-  %283 = load i32, ptr %29, align 4
-  %284 = and i32 %283, 16
-  %.not83.i = icmp eq i32 %284, 0
-  %285 = select i1 %.not83.i, ptr @.str.79, ptr @.str.78
-  %286 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.77, ptr noundef nonnull %285, ptr noundef nonnull %210) #14
-  br label %287
+281:                                              ; preds = %274
+  %282 = load i32, ptr %29, align 4
+  %283 = and i32 %282, 16
+  %.not83.i = icmp eq i32 %283, 0
+  %284 = select i1 %.not83.i, ptr @.str.79, ptr @.str.78
+  %285 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.77, ptr noundef nonnull %284, ptr noundef nonnull %210) #14
+  br label %286
 
-287:                                              ; preds = %282, %280, %278, %275
-  %.079.i = phi ptr [ null, %275 ], [ %286, %282 ], [ %281, %280 ], [ %279, %278 ]
+286:                                              ; preds = %281, %279, %277, %274
+  %.079.i = phi ptr [ null, %274 ], [ %285, %281 ], [ %280, %279 ], [ %278, %277 ]
+  %287 = load ptr, ptr %10, align 8
+  tail call void @wtap_buffer_append_epdu_string(ptr noundef %287, i16 noundef zeroext 36, ptr noundef %.079.i) #14
   %288 = load ptr, ptr %10, align 8
-  tail call void @wtap_buffer_append_epdu_string(ptr noundef %288, i16 noundef zeroext 36, ptr noundef %.079.i) #14
-  %289 = load ptr, ptr %10, align 8
-  %290 = tail call i32 @wtap_buffer_append_epdu_end(ptr noundef %289) #14
-  %291 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %210) #15
+  %289 = tail call i32 @wtap_buffer_append_epdu_end(ptr noundef %288) #14
+  %290 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %210) #15
+  %291 = load ptr, ptr %10, align 8
+  tail call void @ws_buffer_assure_space(ptr noundef %291, i64 noundef %290) #14
   %292 = load ptr, ptr %10, align 8
-  tail call void @ws_buffer_assure_space(ptr noundef %292, i64 noundef %291) #14
+  tail call void @ws_buffer_append(ptr noundef %292, ptr noundef nonnull %210, i64 noundef %290) #14
   %293 = load ptr, ptr %10, align 8
-  tail call void @ws_buffer_append(ptr noundef %293, ptr noundef nonnull %210, i64 noundef %291) #14
-  %294 = load ptr, ptr %10, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 24
-  %296 = load i64, ptr %295, align 8
-  %297 = getelementptr inbounds i8, ptr %294, i64 16
-  %298 = load i64, ptr %297, align 8
-  %299 = sub i64 %296, %298
-  %300 = trunc i64 %299 to i32
-  tail call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %300, i32 noundef %300)
+  %294 = getelementptr inbounds i8, ptr %293, i64 24
+  %295 = load i64, ptr %294, align 8
+  %296 = getelementptr inbounds i8, ptr %293, i64 16
+  %297 = load i64, ptr %296, align 8
+  %298 = sub i64 %295, %297
+  %299 = trunc i64 %298 to i32
+  tail call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 155, i16 noundef zeroext 0, i16 noundef zeroext -1, i32 noundef %299, i32 noundef %299)
   tail call void @g_free(ptr noundef nonnull %210) #14
   %.not84.i = icmp eq ptr %.079.i, null
-  br i1 %.not84.i, label %306, label %301
+  br i1 %.not84.i, label %305, label %300
 
-301:                                              ; preds = %287
+300:                                              ; preds = %286
   tail call void @g_free(ptr noundef nonnull %.079.i) #14
-  br label %306
+  br label %305
 
-302:                                              ; preds = %blf_read_bytes.exit89.i
+301:                                              ; preds = %blf_read_bytes.exit89.i
   tail call void @g_free(ptr noundef nonnull %210) #14
   br label %.thread
 
-.thread265:                                       ; preds = %251
+.thread265:                                       ; preds = %250
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not247 = icmp eq i64 %.0223530, 0
   %spec.select = select i1 %.not247, i64 %.1232525, i64 %.1225
-  %303 = load ptr, ptr %10, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 24
-  %305 = load i64, ptr %304, align 8
-  br label %321
+  %302 = load ptr, ptr %10, align 8
+  %303 = getelementptr inbounds i8, ptr %302, i64 24
+  %304 = load i64, ptr %303, align 8
+  br label %320
 
-.thread:                                          ; preds = %200, %203, %217, %240, %229, %302, %196
-  %.0.i253.ph.ph = phi i32 [ 255, %196 ], [ 1, %302 ], [ 1, %229 ], [ 1, %240 ], [ 255, %217 ], [ 255, %203 ], [ 255, %200 ]
+.thread:                                          ; preds = %200, %203, %217, %239, %229, %301, %196
+  %.0.i253.ph.ph = phi i32 [ 255, %196 ], [ 1, %301 ], [ 1, %229 ], [ 1, %239 ], [ 255, %217 ], [ 255, %203 ], [ 255, %200 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %309
+  br label %308
 
-306:                                              ; preds = %267, %301, %287
+305:                                              ; preds = %266, %300, %286
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %307 = icmp eq i32 %205, 2
-  %or.cond4 = select i1 %307, i1 %204, i1 false
-  br i1 %or.cond4, label %.thread271, label %309
+  %306 = icmp eq i32 %205, 2
+  %or.cond4 = select i1 %306, i1 %204, i1 false
+  br i1 %or.cond4, label %.thread271, label %308
 
-.thread271:                                       ; preds = %306
-  %308 = load ptr, ptr %16, align 8
-  store i64 %.1225, ptr %308, align 8
+.thread271:                                       ; preds = %305
+  %307 = load ptr, ptr %16, align 8
+  store i64 %.1225, ptr %307, align 8
   br label %blf_read_log_object_header2.exit.thread
 
-309:                                              ; preds = %.thread, %306
-  %.0.i253262 = phi i32 [ %205, %306 ], [ %.0.i253.ph.ph, %.thread ]
-  switch i32 %.0.i253262, label %321 [
+308:                                              ; preds = %.thread, %305
+  %.0.i253262 = phi i32 [ %205, %305 ], [ %.0.i253.ph.ph, %.thread ]
+  switch i32 %.0.i253262, label %320 [
     i32 255, label %blf_read_log_object_header2.exit.thread.loopexit
     i32 0, label %blf_read_log_object_header2.exit.thread
     i32 2, label %blf_read_log_object_header2.exit.thread
@@ -1377,41 +1377,41 @@ switch.lookup:                                    ; preds = %230
     i32 4, label %blf_read_log_object_header2.exit.thread
   ]
 
-310:                                              ; preds = %70
-  %311 = zext i16 %71 to i64
-  %312 = add i64 %.1232525, %311
-  %313 = zext i32 %73 to i64
-  %314 = tail call fastcc i32 @blf_read_ethernet_status(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %312, i64 noundef %313, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72), !range !6
+309:                                              ; preds = %70
+  %310 = zext i16 %71 to i64
+  %311 = add i64 %.1232525, %310
+  %312 = zext i32 %73 to i64
+  %313 = tail call fastcc i32 @blf_read_ethernet_status(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %311, i64 noundef %312, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72), !range !6
   br label %blf_read_log_object_header2.exit.thread
 
-315:                                              ; preds = %70
-  %316 = zext i16 %71 to i64
-  %317 = add i64 %.1232525, %316
-  %318 = zext i32 %73 to i64
-  %319 = tail call fastcc i32 @blf_read_ethernet_phystate(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %317, i64 noundef %318, i32 noundef %.0230, i64 noundef %.0229), !range !6
+314:                                              ; preds = %70
+  %315 = zext i16 %71 to i64
+  %316 = add i64 %.1232525, %315
+  %317 = zext i32 %73 to i64
+  %318 = tail call fastcc i32 @blf_read_ethernet_phystate(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %316, i64 noundef %317, i32 noundef %.0230, i64 noundef %.0229), !range !6
   br label %blf_read_log_object_header2.exit.thread
 
-320:                                              ; preds = %70
+319:                                              ; preds = %70
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.10, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %81) #14
-  br label %321
+  br label %320
 
-321:                                              ; preds = %309, %.thread265, %70, %70, %70, %70, %70, %70, %70, %320
-  %.4 = phi i64 [ %.1225, %320 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %spec.select, %.thread265 ], [ 0, %309 ]
-  %.3 = phi i64 [ %.1, %320 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %305, %.thread265 ], [ 0, %309 ]
-  %322 = load ptr, ptr %10, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 16
-  %324 = load i64, ptr %323, align 8
-  %325 = getelementptr inbounds i8, ptr %322, i64 24
-  store i64 %324, ptr %325, align 8
-  %326 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %77, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3), !range !6
-  %.not524 = icmp eq i32 %326, 0
+320:                                              ; preds = %308, %.thread265, %70, %70, %70, %70, %70, %70, %70, %319
+  %.4 = phi i64 [ %.1225, %319 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %.1225, %70 ], [ %spec.select, %.thread265 ], [ 0, %308 ]
+  %.3 = phi i64 [ %.1, %319 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %.1, %70 ], [ %304, %.thread265 ], [ 0, %308 ]
+  %321 = load ptr, ptr %10, align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 16
+  %323 = load i64, ptr %322, align 8
+  %324 = getelementptr inbounds i8, ptr %321, i64 24
+  store i64 %323, ptr %324, align 8
+  %325 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %77, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3), !range !6
+  %.not524 = icmp eq i32 %325, 0
   br i1 %.not524, label %._crit_edge, label %.lr.ph
 
-blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object_header.exit, %blf_read_log_object_header3.exit, %309, %54
+blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object_header.exit, %blf_read_log_object_header3.exit, %308, %54
   br label %blf_read_log_object_header2.exit.thread
 
-blf_read_log_object_header2.exit.thread:          ; preds = %309, %309, %309, %309, %blf_read_log_object_header2.exit.thread.loopexit, %.thread271, %52, %blf_read_log_object_header3.exit.thread, %blf_read_log_object_header.exit.thread, %._crit_edge, %32, %315, %310, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %83, %67
-  %.0 = phi i32 [ 0, %67 ], [ %319, %315 ], [ %314, %310 ], [ %189, %185 ], [ %184, %180 ], [ %179, %175 ], [ %174, %170 ], [ %169, %165 ], [ %164, %160 ], [ %159, %155 ], [ %154, %150 ], [ %149, %145 ], [ %144, %140 ], [ %139, %135 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %119, %115 ], [ %114, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ], [ %89, %85 ], [ 0, %83 ], [ 0, %32 ], [ 0, %._crit_edge ], [ 0, %blf_read_log_object_header.exit.thread ], [ 0, %blf_read_log_object_header3.exit.thread ], [ 0, %52 ], [ 1, %.thread271 ], [ 0, %blf_read_log_object_header2.exit.thread.loopexit ], [ 1, %309 ], [ 1, %309 ], [ 1, %309 ], [ 1, %309 ]
+blf_read_log_object_header2.exit.thread:          ; preds = %308, %308, %308, %308, %blf_read_log_object_header2.exit.thread.loopexit, %.thread271, %52, %blf_read_log_object_header3.exit.thread, %blf_read_log_object_header.exit.thread, %._crit_edge, %32, %314, %309, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %83, %67
+  %.0 = phi i32 [ 0, %67 ], [ %318, %314 ], [ %313, %309 ], [ %189, %185 ], [ %184, %180 ], [ %179, %175 ], [ %174, %170 ], [ %169, %165 ], [ %164, %160 ], [ %159, %155 ], [ %154, %150 ], [ %149, %145 ], [ %144, %140 ], [ %139, %135 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %119, %115 ], [ %114, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ], [ %89, %85 ], [ 0, %83 ], [ 0, %32 ], [ 0, %._crit_edge ], [ 0, %blf_read_log_object_header.exit.thread ], [ 0, %blf_read_log_object_header3.exit.thread ], [ 0, %52 ], [ 1, %.thread271 ], [ 0, %blf_read_log_object_header2.exit.thread.loopexit ], [ 1, %308 ], [ 1, %308 ], [ 1, %308 ], [ 1, %308 ]
   ret i32 %.0
 }
 
@@ -4898,30 +4898,30 @@ blf_strmem.exit173:                               ; preds = %14
   %21 = tail call ptr @ws_memmem(ptr noundef nonnull %15, i64 noundef %19, ptr noundef nonnull @blf_set_xml_channels.channels_end_magic, i64 noundef 11) #14
   %22 = icmp ne ptr %20, null
   %23 = icmp ne ptr %21, null
-  %or.cond3.not264 = select i1 %22, i1 %23, i1 false
+  %or.cond3.not265 = select i1 %22, i1 %23, i1 false
   %24 = getelementptr i8, ptr %20, i64 10
   %.not = icmp ugt ptr %21, %24
-  %or.cond163 = select i1 %or.cond3.not264, i1 %.not, i1 false
-  br i1 %or.cond163, label %.preheader270, label %blf_strmem.exit.thread
+  %or.cond163 = select i1 %or.cond3.not265, i1 %.not, i1 false
+  br i1 %or.cond163, label %.preheader271, label %blf_strmem.exit.thread
 
-.preheader270:                                    ; preds = %blf_strmem.exit173
+.preheader271:                                    ; preds = %blf_strmem.exit173
   %25 = ptrtoint ptr %21 to i64
   br label %26
 
-26:                                               ; preds = %.preheader270, %.backedge271
-  %.0130273 = phi ptr [ %24, %.preheader270 ], [ %.0130.be, %.backedge271 ]
-  %.not265 = icmp eq ptr %.0130273, null
-  br i1 %.not265, label %blf_strmem.exit178, label %27
+26:                                               ; preds = %.preheader271, %.backedge272
+  %.0130274 = phi ptr [ %24, %.preheader271 ], [ %.0130.be, %.backedge272 ]
+  %.not266 = icmp eq ptr %.0130274, null
+  br i1 %.not266, label %blf_strmem.exit178, label %27
 
 27:                                               ; preds = %26
-  %28 = ptrtoint ptr %.0130273 to i64
+  %28 = ptrtoint ptr %.0130274 to i64
   %29 = sub i64 %25, %28
-  %30 = call ptr @ws_memmem(ptr noundef nonnull %.0130273, i64 noundef %29, ptr noundef nonnull @blf_set_xml_channels.channel_start_magic, i64 noundef 9) #14
+  %30 = call ptr @ws_memmem(ptr noundef nonnull %.0130274, i64 noundef %29, ptr noundef nonnull @blf_set_xml_channels.channel_start_magic, i64 noundef 9) #14
   br label %blf_strmem.exit178
 
 blf_strmem.exit178:                               ; preds = %26, %27
   %.0.i177 = phi ptr [ %30, %27 ], [ null, %26 ]
-  %31 = getelementptr i8, ptr %.0130273, i64 9
+  %31 = getelementptr i8, ptr %.0130274, i64 9
   %32 = icmp ne ptr %31, null
   %.not.i180 = icmp ugt ptr %21, %31
   %or.cond17.i181 = and i1 %.not.i180, %32
@@ -4933,15 +4933,15 @@ blf_strmem.exit183:                               ; preds = %blf_strmem.exit178
   %35 = call ptr @ws_memmem(ptr noundef nonnull %31, i64 noundef %34, ptr noundef nonnull @blf_set_xml_channels.channel_end_magic, i64 noundef 10) #14
   %36 = icmp ne ptr %.0.i177, null
   %37 = icmp ne ptr %35, null
-  %or.cond5.not268 = select i1 %36, i1 %37, i1 false
+  %or.cond5.not269 = select i1 %36, i1 %37, i1 false
   %38 = getelementptr i8, ptr %.0.i177, i64 9
   %.not157 = icmp ugt ptr %35, %38
-  %or.cond162 = select i1 %or.cond5.not268, i1 %.not157, i1 false
+  %or.cond162 = select i1 %or.cond5.not269, i1 %.not157, i1 false
   br i1 %or.cond162, label %39, label %blf_strmem.exit.thread
 
 39:                                               ; preds = %blf_strmem.exit183
   %.not.i185 = icmp ugt ptr %35, %.0.i177
-  br i1 %.not.i185, label %blf_strmem.exit188, label %.backedge271
+  br i1 %.not.i185, label %blf_strmem.exit188, label %.backedge272
 
 blf_strmem.exit188:                               ; preds = %39
   %40 = ptrtoint ptr %35 to i64
@@ -4949,9 +4949,9 @@ blf_strmem.exit188:                               ; preds = %39
   %42 = sub i64 %40, %41
   %43 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %42, ptr noundef nonnull @blf_set_xml_channels.number_start_magic, i64 noundef 8) #14
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.backedge271, label %46
+  br i1 %44, label %.backedge272, label %46
 
-.backedge271:                                     ; preds = %84, %93, %blf_strmem.exit215, %78, %blf_strmem.exit210, %blf_strmem.exit205, %68, %blf_strmem.exit200, %blf_get_xml_channel_number.exit, %blf_get_xml_channel_number.exit.thread, %blf_strmem.exit193, %46, %blf_strmem.exit188, %39, %blf_strmem.exit222.thread, %blf_strmem.exit227.thread, %._crit_edge
+.backedge272:                                     ; preds = %84, %93, %blf_strmem.exit215, %78, %blf_strmem.exit210, %blf_strmem.exit205, %68, %blf_strmem.exit200, %blf_get_xml_channel_number.exit, %blf_get_xml_channel_number.exit.thread, %blf_strmem.exit193, %46, %blf_strmem.exit188, %39, %blf_strmem.exit222.thread, %blf_strmem.exit227.thread, %._crit_edge
   %.0130.be = getelementptr i8, ptr %35, i64 10
   %45 = icmp ult ptr %.0130.be, %21
   br i1 %45, label %26, label %blf_strmem.exit.thread, !llvm.loop !13
@@ -4961,14 +4961,14 @@ blf_strmem.exit188:                               ; preds = %39
   %48 = icmp ne ptr %47, null
   %.not.i190 = icmp ugt ptr %35, %47
   %or.cond17.i191 = and i1 %.not.i190, %48
-  br i1 %or.cond17.i191, label %blf_strmem.exit193, label %.backedge271
+  br i1 %or.cond17.i191, label %blf_strmem.exit193, label %.backedge272
 
 blf_strmem.exit193:                               ; preds = %46
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %40, %49
   %51 = call ptr @ws_memmem(ptr noundef nonnull %47, i64 noundef %50, ptr noundef nonnull @blf_set_xml_channels.number_end_magic, i64 noundef 1) #14
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.backedge271, label %53
+  br i1 %52, label %.backedge272, label %53
 
 53:                                               ; preds = %blf_strmem.exit193
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -4996,53 +4996,53 @@ blf_strmem.exit193:                               ; preds = %46
 
 blf_get_xml_channel_number.exit.thread:           ; preds = %53, %54
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  br label %.backedge271
+  br label %.backedge272
 
 blf_get_xml_channel_number.exit:                  ; preds = %60, %63
   call void @g_free(ptr noundef nonnull %58) #14
   %64 = load i16, ptr %4, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   %65 = icmp eq i16 %64, -1
-  br i1 %65, label %.backedge271, label %blf_strmem.exit200
+  br i1 %65, label %.backedge272, label %blf_strmem.exit200
 
 blf_strmem.exit200:                               ; preds = %blf_get_xml_channel_number.exit
   %66 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %42, ptr noundef nonnull @blf_set_xml_channels.type_start_magic, i64 noundef 6) #14
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.backedge271, label %68
+  br i1 %67, label %.backedge272, label %68
 
 68:                                               ; preds = %blf_strmem.exit200
   %69 = getelementptr i8, ptr %66, i64 6
   %70 = icmp ne ptr %69, null
   %.not.i202 = icmp ugt ptr %35, %69
   %or.cond17.i203 = and i1 %.not.i202, %70
-  br i1 %or.cond17.i203, label %blf_strmem.exit205, label %.backedge271
+  br i1 %or.cond17.i203, label %blf_strmem.exit205, label %.backedge272
 
 blf_strmem.exit205:                               ; preds = %68
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %40, %71
   %73 = call ptr @ws_memmem(ptr noundef nonnull %69, i64 noundef %72, ptr noundef nonnull @blf_set_xml_channels.type_end_magic, i64 noundef 1) #14
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.backedge271, label %blf_strmem.exit210
+  br i1 %74, label %.backedge272, label %blf_strmem.exit210
 
 blf_strmem.exit210:                               ; preds = %blf_strmem.exit205
   %75 = call i32 @blf_get_xml_pkt_encap(ptr noundef nonnull %69, ptr noundef nonnull %73), !range !14
   %76 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %42, ptr noundef nonnull @blf_set_xml_channels.network_start_magic, i64 noundef 9) #14
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.backedge271, label %78
+  br i1 %77, label %.backedge272, label %78
 
 78:                                               ; preds = %blf_strmem.exit210
   %79 = getelementptr i8, ptr %76, i64 9
   %80 = icmp ne ptr %79, null
   %.not.i212 = icmp ugt ptr %35, %79
   %or.cond17.i213 = and i1 %.not.i212, %80
-  br i1 %or.cond17.i213, label %blf_strmem.exit215, label %.backedge271
+  br i1 %or.cond17.i213, label %blf_strmem.exit215, label %.backedge272
 
 blf_strmem.exit215:                               ; preds = %78
   %81 = ptrtoint ptr %79 to i64
   %82 = sub i64 %40, %81
   %83 = call ptr @ws_memmem(ptr noundef nonnull %79, i64 noundef %82, ptr noundef nonnull @blf_set_xml_channels.network_end_magic, i64 noundef 1) #14
   %.not.i216 = icmp ugt ptr %83, %79
-  br i1 %.not.i216, label %84, label %.backedge271
+  br i1 %.not.i216, label %84, label %.backedge272
 
 84:                                               ; preds = %blf_strmem.exit215
   %85 = ptrtoint ptr %83 to i64
@@ -5050,7 +5050,7 @@ blf_strmem.exit215:                               ; preds = %78
   %87 = add i64 %86, 1
   %88 = call noalias ptr @g_try_malloc(i64 noundef %87) #13
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.backedge271, label %90
+  br i1 %89, label %.backedge272, label %90
 
 90:                                               ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %79, i64 %86, i1 false)
@@ -5062,7 +5062,7 @@ blf_strmem.exit215:                               ; preds = %78
 
 93:                                               ; preds = %90
   call void @g_free(ptr noundef nonnull %88) #14
-  br label %.backedge271
+  br label %.backedge272
 
 94:                                               ; preds = %90
   %95 = call fastcc i32 @blf_prepare_interface_name(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %64, i16 noundef zeroext -1, ptr noundef nonnull %88, i32 noundef 1), !range !6
@@ -5087,7 +5087,7 @@ blf_strmem.exit222:                               ; preds = %94
 
 blf_strmem.exit222.thread:                        ; preds = %94, %blf_strmem.exit222
   call void @g_free(ptr noundef nonnull %88) #14
-  br label %.backedge271
+  br label %.backedge272
 
 107:                                              ; preds = %blf_strmem.exit222
   %108 = getelementptr i8, ptr %105, i64 20
@@ -5114,22 +5114,22 @@ blf_strmem.exit227:                               ; preds = %107
 
 blf_strmem.exit227.thread:                        ; preds = %107, %blf_strmem.exit227
   call void @g_free(ptr noundef nonnull %88) #14
-  br label %.backedge271
+  br label %.backedge272
 
 117:                                              ; preds = %.lr.ph, %.backedge
-  %.1272 = phi ptr [ %108, %.lr.ph ], [ %.1.be, %.backedge ]
-  %.not269 = icmp eq ptr %.1272, null
-  br i1 %.not269, label %blf_strmem.exit232, label %118
+  %.1273 = phi ptr [ %108, %.lr.ph ], [ %.1.be, %.backedge ]
+  %.not270 = icmp eq ptr %.1273, null
+  br i1 %.not270, label %blf_strmem.exit232, label %118
 
 118:                                              ; preds = %117
-  %119 = ptrtoint ptr %.1272 to i64
+  %119 = ptrtoint ptr %.1273 to i64
   %120 = sub i64 %115, %119
-  %121 = call ptr @ws_memmem(ptr noundef nonnull %.1272, i64 noundef %120, ptr noundef nonnull @blf_set_xml_channels.port_start_magic, i64 noundef 17) #14
+  %121 = call ptr @ws_memmem(ptr noundef nonnull %.1273, i64 noundef %120, ptr noundef nonnull @blf_set_xml_channels.port_start_magic, i64 noundef 17) #14
   br label %blf_strmem.exit232
 
 blf_strmem.exit232:                               ; preds = %117, %118
   %.0.i231 = phi ptr [ %121, %118 ], [ null, %117 ]
-  %122 = getelementptr i8, ptr %.1272, i64 17
+  %122 = getelementptr i8, ptr %.1273, i64 17
   %123 = icmp ne ptr %122, null
   %.not.i234 = icmp ugt ptr %112, %122
   %or.cond17.i235 = and i1 %.not.i234, %123
@@ -5197,18 +5197,15 @@ blf_strmem.exit237:                               ; preds = %blf_strmem.exit232
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   call void @g_free(ptr noundef nonnull %88) #14
-  br label %.backedge271
+  br label %.backedge272
 
-blf_strmem.exit.thread:                           ; preds = %blf_strmem.exit178, %.backedge271, %blf_strmem.exit183, %14, %10, %blf_strmem.exit173, %blf_strmem.exit, %3
+blf_strmem.exit.thread:                           ; preds = %blf_strmem.exit178, %.backedge272, %blf_strmem.exit183, %14, %10, %blf_strmem.exit173, %blf_strmem.exit, %3
   ret void
 }
 
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
@@ -5224,6 +5221,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

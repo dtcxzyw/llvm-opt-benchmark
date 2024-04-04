@@ -157,8 +157,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind ssp uwtable
 define void @sodium_increment(ptr noundef %n, i64 noundef %nlen) local_unnamed_addr #0 {
 entry:
-  %0 = tail call i64 @llvm.fshl.i64(i64 %nlen, i64 %nlen, i64 62)
-  switch i64 %0, label %for.body [
+  %0 = sub i64 %nlen, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %for.body [
     i64 3, label %if.then
     i64 6, label %if.then3
     i64 2, label %if.then8
@@ -166,11 +167,11 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %1 = tail call { i64, i32 } asm sideeffect "xorq $0, $0 \0Axorl $1, $1 \0Astc \0Aadcq $0, ($2) \0Aadcl $1, 8($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %n) #13, !srcloc !8
+  %2 = tail call { i64, i32 } asm sideeffect "xorq $0, $0 \0Axorl $1, $1 \0Astc \0Aadcq $0, ($2) \0Aadcl $1, 8($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %n) #13, !srcloc !8
   br label %for.end
 
 if.then3:                                         ; preds = %entry
-  %2 = tail call { i64, i64 } asm sideeffect "movq $$1, $0 \0Axorq $1, $1 \0Aaddq $0, ($2) \0Aadcq $1, 8($2) \0Aadcq $1, 16($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %n) #13, !srcloc !9
+  %3 = tail call { i64, i64 } asm sideeffect "movq $$1, $0 \0Axorq $1, $1 \0Aaddq $0, ($2) \0Aadcq $1, 8($2) \0Aadcq $1, 16($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %n) #13, !srcloc !9
   br label %for.end
 
 if.then8:                                         ; preds = %entry
@@ -181,8 +182,8 @@ for.body:                                         ; preds = %entry, %for.body
   %i.015 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %c.014 = phi i64 [ %shr, %for.body ], [ 1, %entry ]
   %arrayidx = getelementptr i8, ptr %n, i64 %i.015
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %3 to i64
+  %4 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %4 to i64
   %add = add nuw nsw i64 %c.014, %conv
   %conv12 = trunc i64 %add to i8
   store i8 %conv12, ptr %arrayidx, align 1
@@ -198,8 +199,9 @@ for.end:                                          ; preds = %for.body, %entry, %
 ; Function Attrs: nounwind ssp uwtable
 define void @sodium_add(ptr noundef %a, ptr noundef %b, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %0 = tail call i64 @llvm.fshl.i64(i64 %len, i64 %len, i64 62)
-  switch i64 %0, label %for.body [
+  %0 = sub i64 %len, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %for.body [
     i64 3, label %if.then
     i64 6, label %if.then3
     i64 2, label %if.then9
@@ -207,26 +209,26 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %1 = tail call { i64, i32 } asm sideeffect "movq ($2), $0 \0Amovl 8($2), $1 \0Aaddq $0, ($3) \0Aadcl $1, 8($3) \0A", "=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %b, ptr %a) #13, !srcloc !12
+  %2 = tail call { i64, i32 } asm sideeffect "movq ($2), $0 \0Amovl 8($2), $1 \0Aaddq $0, ($3) \0Aadcl $1, 8($3) \0A", "=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %b, ptr %a) #13, !srcloc !12
   br label %for.end
 
 if.then3:                                         ; preds = %entry
-  %2 = tail call { i64, i64, i64 } asm sideeffect "movq ($3), $0 \0Amovq 8($3), $1 \0Amovq 16($3), $2 \0Aaddq $0, ($4) \0Aadcq $1, 8($4) \0Aadcq $2, 16($4) \0A", "=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %b, ptr %a) #13, !srcloc !13
+  %3 = tail call { i64, i64, i64 } asm sideeffect "movq ($3), $0 \0Amovq 8($3), $1 \0Amovq 16($3), $2 \0Aaddq $0, ($4) \0Aadcq $1, 8($4) \0Aadcq $2, 16($4) \0A", "=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %b, ptr %a) #13, !srcloc !13
   br label %for.end
 
 if.then9:                                         ; preds = %entry
-  %3 = tail call i64 asm sideeffect "movq ($1), $0 \0Aaddq $0, ($2) \0A", "=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %b, ptr %a) #13, !srcloc !14
+  %4 = tail call i64 asm sideeffect "movq ($1), $0 \0Aaddq $0, ($2) \0A", "=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %b, ptr %a) #13, !srcloc !14
   br label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
   %i.019 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %c.018 = phi i64 [ %shr, %for.body ], [ 0, %entry ]
   %arrayidx = getelementptr i8, ptr %a, i64 %i.019
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %4 to i64
+  %5 = load i8, ptr %arrayidx, align 1
+  %conv = zext i8 %5 to i64
   %arrayidx13 = getelementptr i8, ptr %b, i64 %i.019
-  %5 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %5 to i64
+  %6 = load i8, ptr %arrayidx13, align 1
+  %conv14 = zext i8 %6 to i64
   %add = add nuw nsw i64 %c.018, %conv
   %add15 = add nuw nsw i64 %add, %conv14
   %conv16 = trunc i64 %add15 to i8
@@ -752,14 +754,14 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #11
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

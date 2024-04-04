@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pnp_is_activ
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #9
+  %2 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
 
@@ -46,7 +46,7 @@ define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
   br i1 %6, label %7, label %47
 
 7:                                                ; preds = %4, %1
-  %8 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #9
+  %8 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %18, label %10
 
@@ -66,7 +66,7 @@ define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
   br i1 %17, label %18, label %47
 
 18:                                               ; preds = %10, %._crit_edge, %7
-  %19 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef 0) #9
+  %19 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef 0) #10
   %20 = icmp eq ptr %19, null
   br i1 %20, label %24, label %21
 
@@ -76,7 +76,7 @@ define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
   br i1 %23, label %24, label %47
 
 24:                                               ; preds = %21, %18
-  %25 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef 0) #9
+  %25 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef 0) #10
   %26 = icmp eq ptr %25, null
   br i1 %26, label %35, label %27
 
@@ -96,7 +96,7 @@ define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %27, %._crit_edge8, %24
-  %36 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef 0) #9
+  %36 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef 0) #10
   %37 = icmp eq ptr %36, null
   br i1 %37, label %41, label %38
 
@@ -106,7 +106,7 @@ define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %38, %35
-  %42 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 2048, i32 noundef 0) #9
+  %42 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 2048, i32 noundef 0) #10
   %43 = icmp eq ptr %42, null
   br i1 %43, label %48, label %44
 
@@ -179,7 +179,7 @@ declare i32 @llvm.bswap.i32(i32) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef nonnull ptr @pnp_resource_type_name(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = tail call i64 @pnp_resource_type(ptr noundef %0) #9
+  %2 = tail call i64 @pnp_resource_type(ptr noundef %0) #10
   switch i64 %2, label %7 [
     i64 256, label %8
     i64 512, label %3
@@ -224,14 +224,14 @@ define dso_local void @dbg_pnp_show_resources(ptr noundef %0, ptr noundef %1) lo
   br i1 %7, label %.loopexit, label %9
 
 9:                                                ; preds = %8
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1) #10
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1) #11
   br label %.loopexit
 
 10:                                               ; preds = %2
   br i1 %7, label %12, label %11
 
 11:                                               ; preds = %10
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1) #10
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1) #11
   %.pre = load ptr, ptr %3, align 8
   br label %12
 
@@ -251,7 +251,7 @@ define dso_local void @dbg_pnp_show_resources(ptr noundef %0, ptr noundef %1) lo
 
 20:                                               ; preds = %.preheader.split
   %21 = getelementptr inbounds i8, ptr %18, i64 16
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %21) #10
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %21) #11
   %.pre4 = load i32, ptr @pnp_debug, align 4
   br label %22
 
@@ -302,7 +302,7 @@ define dso_local noundef nonnull ptr @pnp_option_priority_name(ptr nocapture nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false), !annotation !9
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -330,18 +330,18 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
 
 14:                                               ; preds = %13, %12, %11, %7
   %15 = phi ptr [ @.str.13, %13 ], [ @.str.12, %12 ], [ @.str.11, %11 ], [ @.str.10, %7 ]
-  %16 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.14, i32 noundef %9, ptr noundef nonnull %15) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.14, i32 noundef %9, ptr noundef nonnull %15) #10
   br label %19
 
 17:                                               ; preds = %2
-  %18 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.15) #9
+  %18 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.15) #10
   br label %19
 
 19:                                               ; preds = %17, %14
   %20 = phi i32 [ %16, %14 ], [ %18, %17 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = add i64 %22, -256
+  %23 = sub i64 %22, 256
   %24 = call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 56)
   switch i64 %24, label %147 [
     i64 0, label %25
@@ -365,7 +365,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %37 = getelementptr inbounds i8, ptr %1, i64 64
   %38 = load i8, ptr %37, align 8
   %39 = zext i8 %38 to i32
-  %40 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str.16, i64 noundef %30, i64 noundef %32, i64 noundef %34, i64 noundef %36, i32 noundef %39) #9
+  %40 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str.16, i64 noundef %30, i64 noundef %32, i64 noundef %34, i64 noundef %36, i32 noundef %39) #10
   br label %147
 
 41:                                               ; preds = %19
@@ -383,7 +383,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %53 = getelementptr inbounds i8, ptr %1, i64 64
   %54 = load i8, ptr %53, align 8
   %55 = zext i8 %54 to i32
-  %56 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %44, i64 noundef %45, ptr noundef nonnull @.str.17, i64 noundef %46, i64 noundef %48, i64 noundef %50, i64 noundef %52, i32 noundef %55) #9
+  %56 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %44, i64 noundef %45, ptr noundef nonnull @.str.17, i64 noundef %46, i64 noundef %48, i64 noundef %50, i64 noundef %52, i32 noundef %55) #10
   br label %147
 
 57:                                               ; preds = %19
@@ -391,9 +391,9 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %59 = sext i32 %20 to i64
   %60 = getelementptr i8, ptr %3, i64 %59
   %61 = sub nsw i64 128, %59
-  %62 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.2) #9
+  %62 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.2) #10
   %63 = add i32 %62, %20
-  %64 = call i64 @_find_first_bit(ptr noundef %58, i64 noundef 256) #9
+  %64 = call i64 @_find_first_bit(ptr noundef %58, i64 noundef 256) #10
   %65 = icmp eq i64 %64, 256
   br i1 %65, label %66, label %.preheader
 
@@ -401,14 +401,14 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %67 = sext i32 %63 to i64
   %68 = getelementptr i8, ptr %3, i64 %67
   %69 = sub nsw i64 128, %67
-  %70 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %68, i64 noundef %69, ptr noundef nonnull @.str.18) #9
+  %70 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %68, i64 noundef %69, ptr noundef nonnull @.str.18) #10
   %71 = add i32 %70, %63
   br label %.loopexit
 
 .preheader:                                       ; preds = %57, %84
   %72 = phi i64 [ %86, %84 ], [ 0, %57 ]
   %73 = phi i32 [ %85, %84 ], [ %63, %57 ]
-  %74 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %72) #9, !srcloc !10
+  %74 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %72) #10, !srcloc !10
   %75 = icmp ult i8 %74, 2
   call void @llvm.assume(i1 %75)
   %76 = icmp eq i8 %74, 0
@@ -419,7 +419,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %79 = getelementptr i8, ptr %3, i64 %78
   %80 = sub nsw i64 128, %78
   %81 = trunc i64 %72 to i32
-  %82 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %79, i64 noundef %80, ptr noundef nonnull @.str.19, i32 noundef %81) #9
+  %82 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %79, i64 noundef %80, ptr noundef nonnull @.str.19, i32 noundef %81) #10
   %83 = add i32 %82, %73
   br label %84
 
@@ -437,7 +437,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %92 = getelementptr inbounds i8, ptr %1, i64 64
   %93 = load i8, ptr %92, align 8
   %94 = zext i8 %93 to i32
-  %95 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %90, i64 noundef %91, ptr noundef nonnull @.str.20, i32 noundef %94) #9
+  %95 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %90, i64 noundef %91, ptr noundef nonnull @.str.20, i32 noundef %94) #10
   %96 = load i8, ptr %92, align 8
   %97 = and i8 %96, 32
   %98 = icmp eq i8 %97, 0
@@ -448,7 +448,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %101 = sext i32 %100 to i64
   %102 = getelementptr i8, ptr %3, i64 %101
   %103 = sub nsw i64 128, %101
-  %104 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %102, i64 noundef %103, ptr noundef nonnull @.str.21) #9
+  %104 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %102, i64 noundef %103, ptr noundef nonnull @.str.21) #10
   br label %147
 
 105:                                              ; preds = %19
@@ -456,7 +456,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %107 = sext i32 %20 to i64
   %108 = getelementptr i8, ptr %3, i64 %107
   %109 = sub nsw i64 128, %107
-  %110 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %108, i64 noundef %109, ptr noundef nonnull @.str.3) #9
+  %110 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %108, i64 noundef %109, ptr noundef nonnull @.str.3) #10
   %111 = add i32 %110, %20
   %112 = load i8, ptr %106, align 1
   %113 = icmp eq i8 %112, 0
@@ -466,7 +466,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %115 = sext i32 %111 to i64
   %116 = getelementptr i8, ptr %3, i64 %115
   %117 = sub nsw i64 128, %115
-  %118 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %116, i64 noundef %117, ptr noundef nonnull @.str.18) #9
+  %118 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %116, i64 noundef %117, ptr noundef nonnull @.str.18) #10
   %119 = add i32 %118, %111
   br label %.loopexit4
 
@@ -484,7 +484,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %128 = sext i32 %120 to i64
   %129 = getelementptr i8, ptr %3, i64 %128
   %130 = sub nsw i64 128, %128
-  %131 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %129, i64 noundef %130, ptr noundef nonnull @.str.19, i32 noundef %121) #9
+  %131 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %129, i64 noundef %130, ptr noundef nonnull @.str.19, i32 noundef %121) #10
   %132 = add i32 %131, %120
   br label %133
 
@@ -504,7 +504,7 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   %143 = getelementptr inbounds i8, ptr %1, i64 33
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
-  %146 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %139, i64 noundef %140, ptr noundef nonnull @.str.22, i32 noundef %142, i32 noundef %145) #9
+  %146 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %139, i64 noundef %140, ptr noundef nonnull @.str.22, i32 noundef %142, i32 noundef %145) #10
   br label %147
 
 147:                                              ; preds = %.loopexit4, %99, %.loopexit, %41, %25, %19
@@ -513,11 +513,11 @@ define dso_local void @dbg_pnp_show_option(ptr noundef %0, ptr noundef %1) local
   br i1 %149, label %151, label %150
 
 150:                                              ; preds = %147
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull %3) #10
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull %3) #11
   br label %151
 
 151:                                              ; preds = %150, %147
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
   ret void
 }
 
@@ -536,8 +536,8 @@ declare dso_local i64 @_find_first_bit(ptr noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #2
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -548,8 +548,9 @@ attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-pr
 attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

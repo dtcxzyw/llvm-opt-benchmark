@@ -14,8 +14,8 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = add i32 %2, -8
-  %11 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 29)
+  %10 = sub i32 %2, 8
+  %11 = call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 29)
   switch i32 %11, label %15 [
     i32 0, label %16
     i32 1, label %12
@@ -33,8 +33,8 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   br label %16
 
 15:                                               ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 79, ptr noundef nonnull @.str, i32 noundef %2) #8
-  br label %119
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 79, ptr noundef nonnull @.str, i32 noundef %2) #9
+  br label %123
 
 16:                                               ; preds = %14, %13, %12, %6
   %17 = phi i32 [ 8, %14 ], [ 4, %13 ], [ 2, %12 ], [ 1, %6 ]
@@ -90,16 +90,16 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   br i1 %50, label %.loopexit9, label %36, !llvm.loop !5
 
 .loopexit9:                                       ; preds = %47, %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   store i64 0, ptr %7, align 8, !annotation !8
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #8, !srcloc !9
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #9, !srcloc !9
   %51 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   %52 = and i64 %51, 512
   %53 = icmp eq i64 %52, 0
   %54 = select i1 %53, i32 2336, i32 3520
   %55 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %56 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %55, i32 noundef %54, i64 noundef 32) #9
+  %56 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %55, i32 noundef %54, i64 noundef 32) #10
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %62
 
@@ -107,8 +107,8 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %59 = lshr i64 %1, 32
   %60 = trunc i64 %59 to i32
   %61 = trunc i64 %1 to i32
-  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %60, i32 noundef %61, i32 noundef %17) #8
-  br label %119
+  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 127, ptr noundef nonnull @.str.1, i32 noundef %60, i32 noundef %61, i32 noundef %17) #9
+  br label %123
 
 62:                                               ; preds = %.loopexit9
   %63 = getelementptr inbounds i8, ptr %5, i64 8
@@ -123,7 +123,7 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %72 = icmp eq i64 %70, %1
   %73 = select i1 %72, i64 4096, i64 %71
   %74 = call i64 @llvm.umin.i64(i64 %68, i64 %73)
-  %75 = call ptr @acpi_os_map_memory(i64 noundef %1, i64 noundef %74) #8
+  %75 = call ptr @acpi_os_map_memory(i64 noundef %1, i64 noundef %74) #9
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %82
 
@@ -132,9 +132,9 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %79 = trunc i64 %78 to i32
   %80 = trunc i64 %1 to i32
   %81 = trunc i64 %74 to i32
-  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 166, ptr noundef nonnull @.str.2, i32 noundef %79, i32 noundef %80, i32 noundef %81) #8
-  call void @kfree(ptr noundef nonnull %56) #8
-  br label %119
+  call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 166, ptr noundef nonnull @.str.2, i32 noundef %79, i32 noundef %80, i32 noundef %81) #9
+  call void @kfree(ptr noundef nonnull %56) #9
+  br label %123
 
 82:                                               ; preds = %62
   %83 = getelementptr inbounds i8, ptr %56, i64 8
@@ -161,77 +161,81 @@ define dso_local noundef i32 @acpi_ex_system_memory_space_handler(i32 noundef %0
   %92 = load ptr, ptr %91, align 8
   %93 = sub i64 %1, %89
   %94 = getelementptr i8, ptr %92, i64 %93
-  switch i32 %0, label %119 [
+  switch i32 %0, label %123 [
     i32 0, label %95
-    i32 1, label %107
+    i32 1, label %109
   ]
 
 95:                                               ; preds = %88
   store i64 0, ptr %3, align 8
-  switch i32 %11, label %119 [
-    i32 0, label %96
-    i32 1, label %99
-    i32 3, label %102
-    i32 7, label %105
+  %96 = sub i32 %2, 8
+  %97 = call i32 @llvm.fshl.i32(i32 %96, i32 %96, i32 29)
+  switch i32 %97, label %123 [
+    i32 0, label %98
+    i32 1, label %101
+    i32 3, label %104
+    i32 7, label %107
   ]
 
-96:                                               ; preds = %95
-  %97 = load i8, ptr %94, align 1
-  %98 = zext i8 %97 to i64
-  store i64 %98, ptr %3, align 8
-  br label %119
+98:                                               ; preds = %95
+  %99 = load i8, ptr %94, align 1
+  %100 = zext i8 %99 to i64
+  store i64 %100, ptr %3, align 8
+  br label %123
 
-99:                                               ; preds = %95
-  %100 = load i16, ptr %94, align 2
-  %101 = zext i16 %100 to i64
-  store i64 %101, ptr %3, align 8
-  br label %119
+101:                                              ; preds = %95
+  %102 = load i16, ptr %94, align 2
+  %103 = zext i16 %102 to i64
+  store i64 %103, ptr %3, align 8
+  br label %123
 
-102:                                              ; preds = %95
-  %103 = load i32, ptr %94, align 4
-  %104 = zext i32 %103 to i64
-  store i64 %104, ptr %3, align 8
-  br label %119
-
-105:                                              ; preds = %95
-  %106 = load i64, ptr %94, align 8
+104:                                              ; preds = %95
+  %105 = load i32, ptr %94, align 4
+  %106 = zext i32 %105 to i64
   store i64 %106, ptr %3, align 8
-  br label %119
+  br label %123
 
-107:                                              ; preds = %88
-  switch i32 %11, label %119 [
-    i32 0, label %108
-    i32 1, label %111
-    i32 3, label %114
-    i32 7, label %117
+107:                                              ; preds = %95
+  %108 = load i64, ptr %94, align 8
+  store i64 %108, ptr %3, align 8
+  br label %123
+
+109:                                              ; preds = %88
+  %110 = sub i32 %2, 8
+  %111 = call i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 29)
+  switch i32 %111, label %123 [
+    i32 0, label %112
+    i32 1, label %115
+    i32 3, label %118
+    i32 7, label %121
   ]
 
-108:                                              ; preds = %107
-  %109 = load i64, ptr %3, align 8
-  %110 = trunc i64 %109 to i8
-  store i8 %110, ptr %94, align 1
-  br label %119
+112:                                              ; preds = %109
+  %113 = load i64, ptr %3, align 8
+  %114 = trunc i64 %113 to i8
+  store i8 %114, ptr %94, align 1
+  br label %123
 
-111:                                              ; preds = %107
-  %112 = load i64, ptr %3, align 8
-  %113 = trunc i64 %112 to i16
-  store i16 %113, ptr %94, align 2
-  br label %119
+115:                                              ; preds = %109
+  %116 = load i64, ptr %3, align 8
+  %117 = trunc i64 %116 to i16
+  store i16 %117, ptr %94, align 2
+  br label %123
 
-114:                                              ; preds = %107
-  %115 = load i64, ptr %3, align 8
-  %116 = trunc i64 %115 to i32
-  store i32 %116, ptr %94, align 4
-  br label %119
+118:                                              ; preds = %109
+  %119 = load i64, ptr %3, align 8
+  %120 = trunc i64 %119 to i32
+  store i32 %120, ptr %94, align 4
+  br label %123
 
-117:                                              ; preds = %107
-  %118 = load i64, ptr %3, align 8
-  store i64 %118, ptr %94, align 8
-  br label %119
+121:                                              ; preds = %109
+  %122 = load i64, ptr %3, align 8
+  store i64 %122, ptr %94, align 8
+  br label %123
 
-119:                                              ; preds = %117, %114, %111, %108, %107, %105, %102, %99, %96, %95, %88, %77, %58, %15
-  %120 = phi i32 [ 12292, %15 ], [ 4, %77 ], [ 4, %58 ], [ 0, %107 ], [ 0, %117 ], [ 0, %114 ], [ 0, %111 ], [ 0, %108 ], [ 0, %95 ], [ 0, %105 ], [ 0, %102 ], [ 0, %99 ], [ 0, %96 ], [ 4097, %88 ]
-  ret i32 %120
+123:                                              ; preds = %121, %118, %115, %112, %109, %107, %104, %101, %98, %95, %88, %77, %58, %15
+  %124 = phi i32 [ 12292, %15 ], [ 4, %77 ], [ 4, %58 ], [ 0, %109 ], [ 0, %121 ], [ 0, %118 ], [ 0, %115 ], [ 0, %112 ], [ 0, %95 ], [ 0, %107 ], [ 0, %104 ], [ 0, %101 ], [ 0, %98 ], [ 4097, %88 ]
+  ret i32 %124
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -249,7 +253,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ex_system_io_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   switch i32 %0, label %16 [
     i32 0, label %8
     i32 1, label %12
@@ -257,7 +261,7 @@ define dso_local i32 @acpi_ex_system_io_space_handler(i32 noundef %0, i64 nounde
 
 8:                                                ; preds = %6
   store i32 0, ptr %7, align 4, !annotation !8
-  %9 = call i32 @acpi_hw_read_port(i64 noundef %1, ptr noundef nonnull %7, i32 noundef %2) #8
+  %9 = call i32 @acpi_hw_read_port(i64 noundef %1, ptr noundef nonnull %7, i32 noundef %2) #9
   %10 = load i32, ptr %7, align 4
   %11 = zext i32 %10 to i64
   store i64 %11, ptr %3, align 8
@@ -266,12 +270,12 @@ define dso_local i32 @acpi_ex_system_io_space_handler(i32 noundef %0, i64 nounde
 12:                                               ; preds = %6
   %13 = load i64, ptr %3, align 8
   %14 = trunc i64 %13 to i32
-  %15 = tail call i32 @acpi_hw_write_port(i64 noundef %1, i32 noundef %14, i32 noundef %2) #8
+  %15 = tail call i32 @acpi_hw_write_port(i64 noundef %1, i32 noundef %14, i32 noundef %2) #9
   br label %16
 
 16:                                               ; preds = %12, %8, %6
   %17 = phi i32 [ %15, %12 ], [ %9, %8 ], [ 4097, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   ret i32 %17
 }
 
@@ -292,14 +296,14 @@ define dso_local i32 @acpi_ex_pci_config_space_handler(i32 noundef %0, i64 nound
   %8 = trunc i64 %1 to i32
   store i64 0, ptr %3, align 8
   %9 = and i32 %8, 65535
-  %10 = tail call i32 @acpi_os_read_pci_configuration(ptr noundef %5, i32 noundef %9, ptr noundef %3, i32 noundef %2) #8
+  %10 = tail call i32 @acpi_os_read_pci_configuration(ptr noundef %5, i32 noundef %9, ptr noundef %3, i32 noundef %2) #9
   br label %16
 
 11:                                               ; preds = %6
   %12 = trunc i64 %1 to i32
   %13 = and i32 %12, 65535
   %14 = load i64, ptr %3, align 8
-  %15 = tail call i32 @acpi_os_write_pci_configuration(ptr noundef %5, i32 noundef %13, i64 noundef %14, i32 noundef %2) #8
+  %15 = tail call i32 @acpi_os_write_pci_configuration(ptr noundef %5, i32 noundef %13, i64 noundef %14, i32 noundef %2) #9
   br label %16
 
 16:                                               ; preds = %11, %7, %6
@@ -361,10 +365,10 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -374,8 +378,9 @@ attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounw
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(2) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

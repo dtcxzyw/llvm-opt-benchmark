@@ -2867,8 +2867,8 @@ if.else.i.i16:                                    ; preds = %if.then.i.i14
 trace_ufs_mmio_write.exit:                        ; preds = %if.end, %land.lhs.true5.i.i11, %if.then8.i.i17, %if.else.i.i16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i7)
   %conv3 = trunc i64 %data to i32
-  %12 = add i64 %addr, -32
-  %13 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 62)
+  %12 = sub i64 %addr, 32
+  %13 = call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 62)
   switch i64 %13, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb1.i
@@ -3384,9 +3384,6 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -3400,6 +3397,9 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -782,8 +782,8 @@ declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @usrc_writeArray(ptr nocapture noundef %f, ptr noundef readonly %prefix, ptr nocapture noundef readonly %p, i32 noundef %width, i32 noundef %length, ptr nocapture noundef readonly %indent, ptr noundef readonly %postfix) local_unnamed_addr #9 {
 entry:
-  %0 = add i32 %width, -8
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 29)
+  %0 = sub i32 %width, 8
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 29)
   switch i32 %1, label %sw.default [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb1
@@ -821,15 +821,15 @@ if.then:                                          ; preds = %sw.epilog
 
 if.end:                                           ; preds = %if.then, %sw.epilog
   %cmp626 = icmp sgt i32 %length, 0
-  br i1 %cmp626, label %for.body.preheader, label %for.end
+  br i1 %cmp626, label %for.body.lr.ph, label %for.end
 
-for.body.preheader:                               ; preds = %if.end
+for.body.lr.ph:                                   ; preds = %if.end
   %wide.trip.count = zext nneg i32 %length to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %sw.epilog30.thread
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %sw.epilog30.thread ]
-  %col.029 = phi i32 [ 0, %for.body.preheader ], [ %inc33, %sw.epilog30.thread ]
+for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog30.thread
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %sw.epilog30.thread ]
+  %col.029 = phi i32 [ 0, %for.body.lr.ph ], [ %inc33, %sw.epilog30.thread ]
   %cmp7.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp7.not, label %if.end15, label %if.then8
 
@@ -848,7 +848,9 @@ if.else:                                          ; preds = %if.then8
 
 if.end15:                                         ; preds = %if.then10, %if.else, %for.body
   %col.1 = phi i32 [ %col.029, %if.then10 ], [ 0, %if.else ], [ %col.029, %for.body ]
-  switch i32 %1, label %sw.epilog30.thread [
+  %4 = sub i32 %width, 8
+  %5 = call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 29)
+  switch i32 %5, label %sw.epilog30.thread [
     i32 0, label %sw.bb16
     i32 1, label %sw.bb18
     i32 3, label %sw.bb22
@@ -857,37 +859,37 @@ if.end15:                                         ; preds = %if.then10, %if.else
 
 sw.bb16:                                          ; preds = %if.end15
   %arrayidx = getelementptr inbounds i8, ptr %p8.0, i64 %indvars.iv
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv17 = zext i8 %4 to i64
+  %6 = load i8, ptr %arrayidx, align 1
+  %conv17 = zext i8 %6 to i64
   br label %sw.epilog30
 
 sw.bb18:                                          ; preds = %if.end15
   %arrayidx20 = getelementptr inbounds i16, ptr %p16.0, i64 %indvars.iv
-  %5 = load i16, ptr %arrayidx20, align 2
-  %conv21 = zext i16 %5 to i64
+  %7 = load i16, ptr %arrayidx20, align 2
+  %conv21 = zext i16 %7 to i64
   br label %sw.epilog30
 
 sw.bb22:                                          ; preds = %if.end15
   %arrayidx24 = getelementptr inbounds i32, ptr %p32.0, i64 %indvars.iv
-  %6 = load i32, ptr %arrayidx24, align 4
-  %conv25 = zext i32 %6 to i64
+  %8 = load i32, ptr %arrayidx24, align 4
+  %conv25 = zext i32 %8 to i64
   br label %sw.epilog30
 
 sw.bb26:                                          ; preds = %if.end15
   %arrayidx28 = getelementptr inbounds i64, ptr %p64.0, i64 %indvars.iv
-  %7 = load i64, ptr %arrayidx28, align 8
+  %9 = load i64, ptr %arrayidx28, align 8
   br label %sw.epilog30
 
 sw.epilog30:                                      ; preds = %sw.bb26, %sw.bb22, %sw.bb18, %sw.bb16
-  %value.0 = phi i64 [ %7, %sw.bb26 ], [ %conv25, %sw.bb22 ], [ %conv21, %sw.bb18 ], [ %conv17, %sw.bb16 ]
+  %value.0 = phi i64 [ %9, %sw.bb26 ], [ %conv25, %sw.bb22 ], [ %conv21, %sw.bb18 ], [ %conv17, %sw.bb16 ]
   %cmp31 = icmp slt i64 %value.0, 10
   %spec.select = select i1 %cmp31, ptr @.str.8, ptr @.str.9
   br label %sw.epilog30.thread
 
 sw.epilog30.thread:                               ; preds = %sw.epilog30, %if.end15
   %value.024 = phi i64 [ 0, %if.end15 ], [ %value.0, %sw.epilog30 ]
-  %8 = phi ptr [ @.str.8, %if.end15 ], [ %spec.select, %sw.epilog30 ]
-  %call32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull %8, i64 noundef %value.024)
+  %10 = phi ptr [ @.str.8, %if.end15 ], [ %spec.select, %sw.epilog30 ]
+  %call32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull %10, i64 noundef %value.024)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc33 = add nsw i32 %col.1, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1717,20 +1719,20 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #15
-
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1747,8 +1749,8 @@ attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nofree nounwind }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }
 attributes #19 = { allocsize(0) }

@@ -4952,7 +4952,7 @@ if.else44:                                        ; preds = %if.else26, %invoke.
   br i1 %tobool2264, label %cleanup, label %switch.early.test
 
 switch.early.test:                                ; preds = %if.else44
-  %35 = add i16 %retval.0.i.i66, -86
+  %35 = sub i16 %retval.0.i.i66, 86
   %36 = call i16 @llvm.fshl.i16(i16 %35, i16 %35, i16 14)
   switch i16 %36, label %for.inc [
     i16 9, label %cleanup
@@ -6631,7 +6631,7 @@ if.end.i28:                                       ; preds = %cond.end.i
   br i1 %cmp8.i, label %if.then9.i, label %if.else.i29
 
 if.then9.i:                                       ; preds = %if.end.i28, %cond.end.thread.i
-  %add.i = add nsw i32 %result.029.i, 65536
+  %add.i = add nuw nsw i32 %result.029.i, 65536
   %or.i.i = or i32 %23, %shl.i
   br label %for.inc.i
 
@@ -6640,14 +6640,14 @@ if.else.i29:                                      ; preds = %if.end.i28
   br i1 %cmp10.i, label %if.then11.i, label %if.else13.i
 
 if.then11.i:                                      ; preds = %if.else.i29
-  %add12.i = add nsw i32 %result.029.i, 4096
+  %add12.i = add nuw nsw i32 %result.029.i, 4096
   %or.i19.i = or i32 %22, %shl.i
   br label %for.inc.i
 
 if.else13.i:                                      ; preds = %if.else.i29
   %sub.i = sub nsw i32 %25, %26
   %28 = call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
-  %add14.i = add nsw i32 %28, %result.029.i
+  %add14.i = add nuw nsw i32 %28, %result.029.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else13.i, %if.then11.i, %if.then9.i, %cond.end.thread.i, %cond.end.i
@@ -9258,7 +9258,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %cond.end.thread, %if.end
-  %add = add nsw i32 %result.029, 65536
+  %add = add nuw nsw i32 %result.029, 65536
   %or.i = or i32 %1, %shl
   store i32 %or.i, ptr %extraFieldMask.i, align 4
   br label %for.inc
@@ -9268,7 +9268,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then11, label %if.else13
 
 if.then11:                                        ; preds = %if.else
-  %add12 = add nsw i32 %result.029, 4096
+  %add12 = add nuw nsw i32 %result.029, 4096
   %or.i19 = or i32 %0, %shl
   store i32 %or.i19, ptr %missingFieldMask.i, align 8
   br label %for.inc
@@ -9276,7 +9276,7 @@ if.then11:                                        ; preds = %if.else
 if.else13:                                        ; preds = %if.else
   %sub = sub nsw i32 %3, %4
   %6 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %add14 = add nsw i32 %6, %result.029
+  %add14 = add nuw nsw i32 %6, %result.029
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end.thread, %if.then9, %if.else13, %if.then11, %cond.end
@@ -13141,9 +13141,6 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonn
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshl.i16(i16, i16, i16) #29
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -13160,6 +13157,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshl.i16(i16, i16, i16) #29
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

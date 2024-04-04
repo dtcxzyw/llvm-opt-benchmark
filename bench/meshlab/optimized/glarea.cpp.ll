@@ -21693,8 +21693,8 @@ _ZN6GLArea2mmEv.exit:                             ; preds = %7
   %.025 = select i1 %26, float %27, float %23
   %28 = getelementptr inbounds i8, ptr %1, i64 20
   %.sroa.0.0.copyload.i33 = load i32, ptr %28, align 4
-  %29 = add i32 %.sroa.0.0.copyload.i33, -33554432
-  %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 7)
+  %29 = sub i32 %.sroa.0.0.copyload.i33, 33554432
+  %30 = call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 7)
   switch i32 %30, label %208 [
     i32 1, label %31
     i32 2, label %_ZN3vcg4math5ClampIfEET_RKS2_S4_S4_.exit37
@@ -41843,9 +41843,6 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -41871,6 +41868,9 @@ declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #27

@@ -240,8 +240,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91
@@ -498,8 +498,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91
@@ -725,8 +725,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91
@@ -1010,8 +1010,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91
@@ -1286,8 +1286,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91
@@ -1528,8 +1528,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91
@@ -1771,8 +1771,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91
@@ -2072,8 +2072,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %1, 20
   %84 = and i64 %83, 31
-  %85 = add i64 %82, -8
-  %86 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
+  %85 = sub i64 %82, 8
+  %86 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 61)
   switch i64 %86, label %102 [
     i64 0, label %87
     i64 1, label %91

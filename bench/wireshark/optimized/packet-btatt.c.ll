@@ -13935,7 +13935,7 @@ is_readable_request.exit5932:                     ; preds = %1977
   br i1 %or.cond6825, label %is_readable_request.exit.thread, label %1979
 
 1979:                                             ; preds = %is_readable_request.exit5932
-  %1980 = add i8 %.pre8685, -9
+  %1980 = sub i8 %.pre8685, 9
   %1981 = call i8 @llvm.fshl.i8(i8 %1980, i8 %1980, i8 7)
   switch i8 %1981, label %1982 [
     i8 2, label %is_readable_response.exit5933.thread
@@ -22230,10 +22230,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #9
+declare i16 @llvm.umin.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #9
+declare i8 @llvm.fshl.i8(i8, i8, i8) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1013,11 +1013,11 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = and i32 %10, 255
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  %13 = load i32, ptr %12, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = load i32, ptr %11, align 8
+  %13 = xor i32 %12, %10
   %14 = and i32 %13, 255
-  %.not = icmp eq i32 %11, %14
+  %.not = icmp eq i32 %14, 0
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %8
@@ -1025,13 +1025,14 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit
 
 16:                                               ; preds = %8
-  %17 = add nsw i32 %11, -8
-  %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 29)
-  switch i32 %18, label %.loopexit [
-    i32 0, label %19
-    i32 1, label %37
-    i32 3, label %44
-    i32 7, label %sort_object.exit112
+  %trunc = trunc i32 %10 to i8
+  %17 = sub i8 %trunc, 8
+  %18 = call i8 @llvm.fshl.i8(i8 %17, i8 %17, i8 5)
+  switch i8 %18, label %.loopexit [
+    i8 0, label %19
+    i8 1, label %37
+    i8 3, label %44
+    i8 7, label %sort_object.exit112
   ]
 
 19:                                               ; preds = %16
@@ -1720,21 +1721,22 @@ define internal fastcc i32 @compare_json(ptr noundef %0, ptr noundef %1, i32 nou
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = and i32 %8, 255
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = load i32, ptr %9, align 8
+  %11 = xor i32 %10, %8
   %12 = and i32 %11, 255
-  %.not = icmp eq i32 %9, %12
+  %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %compare_strings.exit.thread64
 
 13:                                               ; preds = %6
-  %14 = add nsw i32 %9, -8
-  %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 29)
-  switch i32 %15, label %compare_strings.exit.thread64 [
-    i32 0, label %16
-    i32 1, label %33
-    i32 3, label %39
-    i32 7, label %sort_object.exit61
+  %trunc = trunc i32 %8 to i8
+  %14 = sub i8 %trunc, 8
+  %15 = call i8 @llvm.fshl.i8(i8 %14, i8 %14, i8 5)
+  switch i8 %15, label %compare_strings.exit.thread64 [
+    i8 0, label %16
+    i8 1, label %33
+    i8 3, label %39
+    i8 7, label %sort_object.exit61
   ]
 
 16:                                               ; preds = %13
@@ -2507,11 +2509,11 @@ declare ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef, ptr noundef) l
 
 declare ptr @cJSON_CreateNull() local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2523,8 +2525,8 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 

@@ -15404,9 +15404,9 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   %13 = icmp slt i32 %3, 0
   br label %14
 
-14:                                               ; preds = %.preheader, %94
-  %.0110 = phi i32 [ %.1111, %94 ], [ 0, %.preheader ]
-  %.0109 = phi ptr [ %.us-phi37, %94 ], [ %9, %.preheader ]
+14:                                               ; preds = %.preheader, %95
+  %.0110 = phi i32 [ %.1111, %95 ], [ 0, %.preheader ]
+  %.0109 = phi ptr [ %.us-phi37, %95 ], [ %9, %.preheader ]
   %15 = icmp ult ptr %.0109, %2
   br i1 %15, label %.lr.ph, label %.loopexit
 
@@ -15523,7 +15523,7 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   %.us-phi40 = phi ptr [ %.133.us, %25 ], [ %.133.us, %25 ], [ %.133, %44 ], [ %.133, %44 ]
   %.us-phi41 = phi ptr [ %.0113.ptr34.us, %25 ], [ %.0113.ptr34.us, %25 ], [ %7, %44 ], [ %7, %44 ]
   %.not133 = icmp eq i32 %.us-phi38, 0
-  br i1 %.not133, label %94, label %49
+  br i1 %.not133, label %95, label %49
 
 49:                                               ; preds = %.split.us
   %.not134 = icmp slt i32 %.0110, %3
@@ -15531,7 +15531,7 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   br i1 %or.cond, label %50, label %.loopexit
 
 50:                                               ; preds = %49
-  br i1 %12, label %51, label %92
+  br i1 %12, label %51, label %93
 
 51:                                               ; preds = %50
   %52 = sext i32 %.0110 to i64
@@ -15549,18 +15549,18 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   %59 = call fastcc i64 @prs_long(ptr noundef nonnull %.8.val, ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41, ptr noundef nonnull %8)
   %60 = and i64 %59, 4294967295
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %.critedge, label %._crit_edge
+  br i1 %61, label %.thread75, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %58
   %.pre = load i32, ptr %53, align 4
   br label %64
 
-.critedge:                                        ; preds = %58
+.thread75:                                        ; preds = %58
   %62 = load i64, ptr %8, align 8
   %63 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
   store i64 %62, ptr %63, align 8
   store i32 1, ptr %53, align 4
-  br label %68
+  br label %93
 
 64:                                               ; preds = %._crit_edge, %56
   %65 = phi i32 [ %.pre, %._crit_edge ], [ %54, %56 ]
@@ -15569,118 +15569,119 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.thread, label %68
 
-68:                                               ; preds = %.critedge, %64, %51
-  %69 = phi i32 [ 1, %.critedge ], [ %66, %64 ], [ %54, %51 ]
-  %70 = call i32 @llvm.fshl.i32(i32 %69, i32 %69, i32 31)
-  switch i32 %70, label %92 [
+68:                                               ; preds = %64, %51
+  %69 = phi i32 [ %66, %64 ], [ %54, %51 ]
+  %70 = sub i32 %69, 0
+  %71 = call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 31)
+  switch i32 %71, label %93 [
     i32 4, label %.thread
-    i32 1, label %71
-    i32 2, label %76
-    i32 8, label %86
+    i32 1, label %72
+    i32 2, label %77
+    i32 8, label %87
     i32 0, label %.thread
   ]
 
-71:                                               ; preds = %68
+72:                                               ; preds = %68
   %.not138 = icmp eq i32 %.us-phi38, 1
-  br i1 %.not138, label %72, label %.thread
+  br i1 %.not138, label %73, label %.thread
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %11, align 8
-  %74 = call i32 %73(ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #24
-  %75 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
-  store i32 %74, ptr %75, align 8
-  br label %92
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %11, align 8
+  %75 = call i32 %74(ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #24
+  %76 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
+  store i32 %75, ptr %76, align 8
+  br label %93
 
-76:                                               ; preds = %68
-  %77 = call ptr @onigenc_strdup(ptr noundef nonnull %.8.val, ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #24
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %.thread, label %79
+77:                                               ; preds = %68
+  %78 = call ptr @onigenc_strdup(ptr noundef nonnull %.8.val, ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #24
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %.thread, label %80
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
-  store ptr %77, ptr %80, align 8
-  %81 = ptrtoint ptr %.us-phi40 to i64
-  %82 = ptrtoint ptr %.0109 to i64
-  %83 = sub i64 %81, %82
-  %84 = getelementptr inbounds i8, ptr %77, i64 %83
-  %85 = getelementptr inbounds i8, ptr %80, i64 8
-  store ptr %84, ptr %85, align 8
-  br label %92
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
+  store ptr %78, ptr %81, align 8
+  %82 = ptrtoint ptr %.us-phi40 to i64
+  %83 = ptrtoint ptr %.0109 to i64
+  %84 = sub i64 %82, %83
+  %85 = getelementptr inbounds i8, ptr %78, i64 %84
+  %86 = getelementptr inbounds i8, ptr %81, i64 8
+  store ptr %85, ptr %86, align 8
+  br label %93
 
-86:                                               ; preds = %68
+87:                                               ; preds = %68
   %.not136 = icmp eq ptr %.us-phi39, null
-  br i1 %.not136, label %87, label %.thread
+  br i1 %.not136, label %88, label %.thread
 
-87:                                               ; preds = %86
-  %88 = call fastcc i32 @is_allowed_callout_tag_name(ptr noundef nonnull %.8.val, ptr noundef %.0109, ptr noundef %.us-phi40), !range !13
-  %.not137 = icmp eq i32 %88, 0
-  br i1 %.not137, label %.thread, label %89
+88:                                               ; preds = %87
+  %89 = call fastcc i32 @is_allowed_callout_tag_name(ptr noundef nonnull %.8.val, ptr noundef %.0109, ptr noundef %.us-phi40), !range !13
+  %.not137 = icmp eq i32 %89, 0
+  br i1 %.not137, label %.thread, label %90
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
-  store ptr %.0109, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
-  store ptr %.us-phi40, ptr %91, align 8
-  br label %92
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
+  store ptr %.0109, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  store ptr %.us-phi40, ptr %92, align 8
+  br label %93
 
-92:                                               ; preds = %68, %72, %79, %89, %50
-  %93 = add nsw i32 %.0110, 1
-  br label %94
+93:                                               ; preds = %.thread75, %68, %73, %80, %90, %50
+  %94 = add nsw i32 %.0110, 1
+  br label %95
 
-94:                                               ; preds = %92, %.split.us
-  %.1111 = phi i32 [ %93, %92 ], [ %.0110, %.split.us ]
-  %95 = icmp ne i32 %.us-phi, 125
-  %96 = icmp slt i32 %.1111, 4
-  %or.cond5 = select i1 %95, i1 %96, i1 false
-  br i1 %or.cond5, label %14, label %97, !llvm.loop !109
+95:                                               ; preds = %93, %.split.us
+  %.1111 = phi i32 [ %94, %93 ], [ %.0110, %.split.us ]
+  %96 = icmp ne i32 %.us-phi, 125
+  %97 = icmp slt i32 %.1111, 4
+  %or.cond5 = select i1 %96, i1 %97, i1 false
+  br i1 %or.cond5, label %14, label %98, !llvm.loop !109
 
-97:                                               ; preds = %94
+98:                                               ; preds = %95
   %.not139 = icmp eq i32 %.us-phi, 125
-  br i1 %.not139, label %98, label %.loopexit
+  br i1 %.not139, label %99, label %.loopexit
 
-98:                                               ; preds = %97
+99:                                               ; preds = %98
   store ptr %.us-phi37, ptr %1, align 8
   br label %clear_callout_args.exit
 
-.loopexit:                                        ; preds = %49, %14, %47, %33, %97
-  %.3 = phi i32 [ %.1111, %97 ], [ %.0110, %33 ], [ %.0110, %47 ], [ %.0110, %14 ], [ %.0110, %49 ]
-  %.0108 = phi i32 [ -227, %97 ], [ -227, %33 ], [ -227, %47 ], [ -232, %49 ], [ -227, %14 ]
+.loopexit:                                        ; preds = %49, %14, %47, %33, %98
+  %.3 = phi i32 [ %.1111, %98 ], [ %.0110, %33 ], [ %.0110, %47 ], [ %.0110, %14 ], [ %.0110, %49 ]
+  %.0108 = phi i32 [ -227, %98 ], [ -227, %33 ], [ -227, %47 ], [ -232, %49 ], [ -227, %14 ]
   br i1 %12, label %.thread, label %clear_callout_args.exit
 
-.thread:                                          ; preds = %64, %71, %76, %87, %86, %68, %68, %26, %.loopexit
-  %.01084 = phi i32 [ %.0108, %.loopexit ], [ -232, %26 ], [ -232, %64 ], [ -232, %71 ], [ -5, %76 ], [ -231, %87 ], [ -231, %86 ], [ -11, %68 ], [ -11, %68 ]
-  %.33 = phi i32 [ %.3, %.loopexit ], [ %.0110, %26 ], [ %.0110, %68 ], [ %.0110, %68 ], [ %.0110, %86 ], [ %.0110, %87 ], [ %.0110, %76 ], [ %.0110, %71 ], [ %.0110, %64 ]
-  %99 = icmp sgt i32 %.33, 0
-  br i1 %99, label %.lr.ph.preheader.i, label %clear_callout_args.exit
+.thread:                                          ; preds = %64, %72, %77, %88, %87, %68, %68, %26, %.loopexit
+  %.01084 = phi i32 [ %.0108, %.loopexit ], [ -232, %26 ], [ -232, %64 ], [ -232, %72 ], [ -5, %77 ], [ -231, %88 ], [ -231, %87 ], [ -11, %68 ], [ -11, %68 ]
+  %.33 = phi i32 [ %.3, %.loopexit ], [ %.0110, %26 ], [ %.0110, %68 ], [ %.0110, %68 ], [ %.0110, %87 ], [ %.0110, %88 ], [ %.0110, %77 ], [ %.0110, %72 ], [ %.0110, %64 ]
+  %100 = icmp sgt i32 %.33, 0
+  br i1 %100, label %.lr.ph.preheader.i, label %clear_callout_args.exit
 
 .lr.ph.preheader.i:                               ; preds = %.thread
   %wide.trip.count.i = zext nneg i32 %.33 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %106, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %106 ]
-  %100 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
-  %101 = load i32, ptr %100, align 4
-  %cond.i = icmp eq i32 %101, 4
-  br i1 %cond.i, label %102, label %106
+.lr.ph.i:                                         ; preds = %107, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %107 ]
+  %101 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %102 = load i32, ptr %101, align 4
+  %cond.i = icmp eq i32 %102, 4
+  br i1 %cond.i, label %103, label %107
 
-102:                                              ; preds = %.lr.ph.i
-  %103 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %indvars.iv.i
-  %104 = load ptr, ptr %103, align 8
-  %.not.i = icmp eq ptr %104, null
-  br i1 %.not.i, label %106, label %105
+103:                                              ; preds = %.lr.ph.i
+  %104 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %indvars.iv.i
+  %105 = load ptr, ptr %104, align 8
+  %.not.i = icmp eq ptr %105, null
+  br i1 %.not.i, label %107, label %106
 
-105:                                              ; preds = %102
-  call void @free(ptr noundef nonnull %104) #24
-  br label %106
+106:                                              ; preds = %103
+  call void @free(ptr noundef nonnull %105) #24
+  br label %107
 
-106:                                              ; preds = %105, %102, %.lr.ph.i
+107:                                              ; preds = %106, %103, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %clear_callout_args.exit, label %.lr.ph.i, !llvm.loop !112
 
-clear_callout_args.exit:                          ; preds = %106, %.thread, %.loopexit, %6, %98
-  %.0 = phi i32 [ %.1111, %98 ], [ -227, %6 ], [ %.0108, %.loopexit ], [ %.01084, %.thread ], [ %.01084, %106 ]
+clear_callout_args.exit:                          ; preds = %107, %.thread, %.loopexit, %6, %99
+  %.0 = phi i32 [ %.1111, %99 ], [ -227, %6 ], [ %.0108, %.loopexit ], [ %.01084, %.thread ], [ %.01084, %107 ]
   ret i32 %.0
 }
 
@@ -17738,9 +17739,6 @@ define internal noundef i32 @i_callout_callout_list_set(ptr nocapture readnone %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -17757,6 +17755,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

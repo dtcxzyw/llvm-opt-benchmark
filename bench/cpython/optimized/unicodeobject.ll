@@ -4975,7 +4975,7 @@ entry:
   store i64 %add, ptr %min_length, align 8
   %overallocate = getelementptr inbounds i8, ptr %writer, i64 52
   store i8 1, ptr %overallocate, align 4
-  call void @llvm.va_copy(ptr nonnull %vargs2, ptr %vargs)
+  call void @llvm.va_copy.p0(ptr nonnull %vargs2, ptr %vargs)
   %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %vargs2, i64 8
   %0 = getelementptr inbounds i8, ptr %vargs2, i64 16
   %arrayidx571.i = getelementptr inbounds i8, ptr %number.i, i64 1
@@ -5248,7 +5248,7 @@ if.end121.i:                                      ; preds = %if.end111.i, %if.th
   %37 = phi i8 [ %.pre270.i, %vaarg.end73.i ], [ %25, %if.else81.i ], [ %24, %if.end53.i ], [ %31, %if.then89.i ], [ %35, %if.end111.i ]
   %precision.1.i = phi i64 [ %spec.store.select.i, %vaarg.end73.i ], [ -1, %if.else81.i ], [ -1, %if.end53.i ], [ %sub91.i, %if.then89.i ], [ %add116.i, %if.end111.i ]
   %f.addr.4.i = phi ptr [ %incdec.ptr80.i, %vaarg.end73.i ], [ %incdec.ptr58.i, %if.else81.i ], [ %f.addr.2.i, %if.end53.i ], [ %incdec.ptr93.i, %if.then89.i ], [ %incdec.ptr117.i, %if.end111.i ]
-  %38 = add i8 %37, -106
+  %38 = sub i8 %37, 106
   %39 = call i8 @llvm.fshl.i8(i8 %38, i8 %38, i8 7)
   switch i8 %39, label %if.end155.i [
     i8 1, label %if.then125.i
@@ -6468,12 +6468,12 @@ for.cond.backedge:                                ; preds = %if.end24, %unicode_
   br label %for.cond, !llvm.loop !47
 
 for.end:                                          ; preds = %for.cond
-  call void @llvm.va_end(ptr nonnull %vargs2)
+  call void @llvm.va_end.p0(ptr nonnull %vargs2)
   %call32 = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %writer)
   br label %return
 
 fail:                                             ; preds = %if.end24, %unicode_fromformat_arg.exit, %unicode_fromformat_arg.exit.thread, %if.then9
-  call void @llvm.va_end(ptr nonnull %vargs2)
+  call void @llvm.va_end.p0(ptr nonnull %vargs2)
   %178 = load ptr, ptr %writer, align 8
   %cmp.not.i = icmp eq ptr %178, null
   br i1 %cmp.not.i, label %return, label %if.then.i15
@@ -6507,9 +6507,6 @@ entry:
   store i32 127, ptr %min_char, align 8
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @_PyUnicodeWriter_WriteASCIIString(ptr nocapture noundef %writer, ptr noundef readonly %ascii, i64 noundef %len) local_unnamed_addr #0 {
@@ -6790,9 +6787,6 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyUnicodeWriter_Finish(ptr nocapture noundef %writer) local_unnamed_addr #0 {
 entry:
@@ -6970,14 +6964,11 @@ do.end:                                           ; preds = %entry, %if.then, %i
 define dso_local ptr @PyUnicode_FromFormat(ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @PyUnicode_AsWideChar(ptr noundef readonly %unicode, ptr noundef writeonly %w, i64 noundef %size) local_unnamed_addr #0 {
@@ -8229,7 +8220,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Py_normalize_encoding(ptr nocapture noundef readonly %encoding, ptr noundef writeonly %lower, i64 noundef %lower_len) local_unnamed_addr #12 {
+define hidden noundef i32 @_Py_normalize_encoding(ptr nocapture noundef readonly %encoding, ptr noundef writeonly %lower, i64 noundef %lower_len) local_unnamed_addr #11 {
 entry:
   %0 = getelementptr i8, ptr %lower, i64 %lower_len
   %arrayidx = getelementptr i8, ptr %0, i64 -1
@@ -9938,7 +9929,7 @@ return:                                           ; preds = %if.end7.i, %PyUnico
 declare ptr @_PyInterpreterState_GetConfig(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @get_error_handler_wide(ptr noundef readonly %errors) unnamed_addr #13 {
+define internal fastcc i32 @get_error_handler_wide(ptr noundef readonly %errors) unnamed_addr #12 {
 entry:
   %cmp = icmp eq ptr %errors, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -14185,7 +14176,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i64 @findchar(ptr noundef %s, i32 noundef %kind, i64 noundef %size, i32 noundef %ch, i32 noundef %direction) unnamed_addr #14 {
+define internal fastcc i64 @findchar(ptr noundef %s, i32 noundef %kind, i64 noundef %size, i32 noundef %ch, i32 noundef %direction) unnamed_addr #13 {
 entry:
   switch i32 %kind, label %sw.default [
     i32 1, label %sw.bb
@@ -16818,7 +16809,7 @@ return:                                           ; preds = %if.end62, %if.then6
 declare ptr @PyMem_RawMalloc(i64 noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ucs4lib_utf8_decode(ptr nocapture noundef %inptr, ptr noundef %end, ptr noundef %dest, ptr nocapture noundef %outpos) unnamed_addr #12 {
+define internal fastcc i32 @ucs4lib_utf8_decode(ptr nocapture noundef %inptr, ptr noundef %end, ptr noundef %dest, ptr nocapture noundef %outpos) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %inptr, align 8
   %1 = load i64, ptr %outpos, align 8
@@ -23833,9 +23824,9 @@ for.end:                                          ; preds = %for.inc, %PyUnicode
   %count2.0.lcssa = phi i32 [ 0, %PyUnicode_READ.exit ], [ %count2.2, %for.inc ]
   %cmp48 = icmp sgt i32 %count2.0.lcssa, 254
   %cmp51 = icmp sgt i32 %count3.0.lcssa, 254
-  %or.cond1.not.not = select i1 %cmp48, i1 true, i1 %cmp51
-  %16 = select i1 %or.cond1.not.not, i1 true, i1 %cmp9.not
-  br i1 %16, label %if.then56, label %if.end89
+  %or.cond1.not.not143 = select i1 %cmp48, i1 true, i1 %cmp51
+  %tobool55.not.not = select i1 %or.cond1.not.not143, i1 true, i1 %cmp9.not
+  br i1 %tobool55.not.not, label %if.then56, label %if.end89
 
 if.then56:                                        ; preds = %PyUnicode_READ.exit95, %for.end
   %call58 = tail call ptr @PyDict_New() #33
@@ -23862,36 +23853,36 @@ for.body66:                                       ; preds = %for.cond62.preheade
 
 if.then.i100:                                     ; preds = %for.body66
   %arrayidx.i101 = getelementptr i8, ptr %retval.0.i, i64 %conv63138
-  %17 = load i8, ptr %arrayidx.i101, align 1
-  %conv.i102 = zext i8 %17 to i32
+  %16 = load i8, ptr %arrayidx.i101, align 1
+  %conv.i102 = zext i8 %16 to i32
   br label %PyUnicode_READ.exit105
 
 if.then3.i96:                                     ; preds = %for.body66
   %arrayidx4.i97 = getelementptr i16, ptr %retval.0.i, i64 %conv63138
-  %18 = load i16, ptr %arrayidx4.i97, align 2
-  %conv5.i98 = zext i16 %18 to i32
+  %17 = load i16, ptr %arrayidx4.i97, align 2
+  %conv5.i98 = zext i16 %17 to i32
   br label %PyUnicode_READ.exit105
 
 if.end6.i103:                                     ; preds = %for.body66
   %arrayidx7.i104 = getelementptr i32, ptr %retval.0.i, i64 %conv63138
-  %19 = load i32, ptr %arrayidx7.i104, align 4
+  %18 = load i32, ptr %arrayidx7.i104, align 4
   br label %PyUnicode_READ.exit105
 
 PyUnicode_READ.exit105:                           ; preds = %if.then.i100, %if.then3.i96, %if.end6.i103
-  %retval.0.i99 = phi i32 [ %conv.i102, %if.then.i100 ], [ %conv5.i98, %if.then3.i96 ], [ %19, %if.end6.i103 ]
+  %retval.0.i99 = phi i32 [ %conv.i102, %if.then.i100 ], [ %conv5.i98, %if.then3.i96 ], [ %18, %if.end6.i103 ]
   %conv69 = zext i32 %retval.0.i99 to i64
   %call70 = tail call ptr @PyLong_FromLong(i64 noundef %conv69) #33
   %cmp71 = icmp eq ptr %call70, null
   br i1 %cmp71, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %PyUnicode_READ.exit105
-  %20 = load i64, ptr %call58, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i200.not = icmp eq i64 %21, 0
+  %19 = load i64, ptr %call58, align 8
+  %20 = and i64 %19, 2147483648
+  %cmp.i200.not = icmp eq i64 %20, 0
   br i1 %cmp.i200.not, label %if.end.i193, label %return
 
 if.end.i193:                                      ; preds = %if.then73
-  %dec.i194 = add i64 %20, -1
+  %dec.i194 = add i64 %19, -1
   store i64 %dec.i194, ptr %call58, align 8
   %cmp.i195 = icmp eq i64 %dec.i194, 0
   br i1 %cmp.i195, label %if.then1.i196, label %return
@@ -23906,13 +23897,13 @@ if.end74:                                         ; preds = %PyUnicode_READ.exit
   br i1 %cmp77, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.end74
-  %22 = load i64, ptr %call70, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i203.not = icmp eq i64 %23, 0
+  %21 = load i64, ptr %call70, align 8
+  %22 = and i64 %21, 2147483648
+  %cmp.i203.not = icmp eq i64 %22, 0
   br i1 %cmp.i203.not, label %if.end.i184, label %Py_DECREF.exit189
 
 if.end.i184:                                      ; preds = %if.then79
-  %dec.i185 = add i64 %22, -1
+  %dec.i185 = add i64 %21, -1
   store i64 %dec.i185, ptr %call70, align 8
   %cmp.i186 = icmp eq i64 %dec.i185, 0
   br i1 %cmp.i186, label %if.then1.i187, label %Py_DECREF.exit189
@@ -23922,13 +23913,13 @@ if.then1.i187:                                    ; preds = %if.end.i184
   br label %Py_DECREF.exit189
 
 Py_DECREF.exit189:                                ; preds = %if.then79, %if.then1.i187, %if.end.i184
-  %24 = load i64, ptr %call58, align 8
-  %25 = and i64 %24, 2147483648
-  %cmp.i207.not = icmp eq i64 %25, 0
+  %23 = load i64, ptr %call58, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i207.not = icmp eq i64 %24, 0
   br i1 %cmp.i207.not, label %if.end.i175, label %return
 
 if.end.i175:                                      ; preds = %Py_DECREF.exit189
-  %dec.i176 = add i64 %24, -1
+  %dec.i176 = add i64 %23, -1
   store i64 %dec.i176, ptr %call58, align 8
   %cmp.i177 = icmp eq i64 %dec.i176, 0
   br i1 %cmp.i177, label %if.then1.i178, label %return
@@ -23939,13 +23930,13 @@ if.then1.i178:                                    ; preds = %if.end.i175
 
 if.end80:                                         ; preds = %if.end74
   %call81 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call58, ptr noundef nonnull %call70, ptr noundef nonnull %call76) #33
-  %26 = load i64, ptr %call70, align 8
-  %27 = and i64 %26, 2147483648
-  %cmp.i211.not = icmp eq i64 %27, 0
+  %25 = load i64, ptr %call70, align 8
+  %26 = and i64 %25, 2147483648
+  %cmp.i211.not = icmp eq i64 %26, 0
   br i1 %cmp.i211.not, label %if.end.i166, label %Py_DECREF.exit171
 
 if.end.i166:                                      ; preds = %if.end80
-  %dec.i167 = add i64 %26, -1
+  %dec.i167 = add i64 %25, -1
   store i64 %dec.i167, ptr %call70, align 8
   %cmp.i168 = icmp eq i64 %dec.i167, 0
   br i1 %cmp.i168, label %if.then1.i169, label %Py_DECREF.exit171
@@ -23955,13 +23946,13 @@ if.then1.i169:                                    ; preds = %if.end.i166
   br label %Py_DECREF.exit171
 
 Py_DECREF.exit171:                                ; preds = %if.end80, %if.then1.i169, %if.end.i166
-  %28 = load i64, ptr %call76, align 8
-  %29 = and i64 %28, 2147483648
-  %cmp.i215.not = icmp eq i64 %29, 0
+  %27 = load i64, ptr %call76, align 8
+  %28 = and i64 %27, 2147483648
+  %cmp.i215.not = icmp eq i64 %28, 0
   br i1 %cmp.i215.not, label %if.end.i157, label %Py_DECREF.exit162
 
 if.end.i157:                                      ; preds = %Py_DECREF.exit171
-  %dec.i158 = add i64 %28, -1
+  %dec.i158 = add i64 %27, -1
   store i64 %dec.i158, ptr %call76, align 8
   %cmp.i159 = icmp eq i64 %dec.i158, 0
   br i1 %cmp.i159, label %if.then1.i160, label %Py_DECREF.exit162
@@ -23975,13 +23966,13 @@ Py_DECREF.exit162:                                ; preds = %Py_DECREF.exit171, 
   br i1 %cmp82, label %if.then84, label %for.cond62
 
 if.then84:                                        ; preds = %Py_DECREF.exit162
-  %30 = load i64, ptr %call58, align 8
-  %31 = and i64 %30, 2147483648
-  %cmp.i219.not = icmp eq i64 %31, 0
+  %29 = load i64, ptr %call58, align 8
+  %30 = and i64 %29, 2147483648
+  %cmp.i219.not = icmp eq i64 %30, 0
   br i1 %cmp.i219.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then84
-  %dec.i = add i64 %30, -1
+  %dec.i = add i64 %29, -1
   store i64 %dec.i, ptr %call58, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -24009,13 +24000,13 @@ if.end98:                                         ; preds = %if.end89
   %ob_type.i.i = getelementptr inbounds i8, ptr %call94, i64 8
   store ptr @EncodingMapType, ptr %ob_type.i.i, align 8
   %typeobj.val.i = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @EncodingMapType, i64 0, i32 19), align 8
-  %32 = and i64 %typeobj.val.i, 512
-  %tobool.not.i106 = icmp eq i64 %32, 0
+  %31 = and i64 %typeobj.val.i, 512
+  %tobool.not.i106 = icmp eq i64 %31, 0
   br i1 %tobool.not.i106, label %_PyObject_Init.exit, label %if.then.i107
 
 if.then.i107:                                     ; preds = %if.end98
-  %33 = load i32, ptr @EncodingMapType, align 8
-  %add.i.i = add i32 %33, 1
+  %32 = load i32, ptr @EncodingMapType, align 8
+  %add.i.i = add i32 %32, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_PyObject_Init.exit, label %if.end.i.i
 
@@ -24048,23 +24039,23 @@ for.body116:                                      ; preds = %_PyObject_Init.exit
 
 PyUnicode_READ.exit118.thread:                    ; preds = %for.body116
   %arrayidx.i114 = getelementptr i8, ptr %retval.0.i, i64 %conv113142
-  %34 = load i8, ptr %arrayidx.i114, align 1
-  %conv.i115 = zext i8 %34 to i32
+  %33 = load i8, ptr %arrayidx.i114, align 1
+  %conv.i115 = zext i8 %33 to i32
   br label %if.end123
 
 if.then3.i109:                                    ; preds = %for.body116
   %arrayidx4.i110 = getelementptr i16, ptr %retval.0.i, i64 %conv113142
-  %35 = load i16, ptr %arrayidx4.i110, align 2
-  %conv5.i111 = zext i16 %35 to i32
+  %34 = load i16, ptr %arrayidx4.i110, align 2
+  %conv5.i111 = zext i16 %34 to i32
   br label %PyUnicode_READ.exit118
 
 if.end6.i116:                                     ; preds = %for.body116
   %arrayidx7.i117 = getelementptr i32, ptr %retval.0.i, i64 %conv113142
-  %36 = load i32, ptr %arrayidx7.i117, align 4
+  %35 = load i32, ptr %arrayidx7.i117, align 4
   br label %PyUnicode_READ.exit118
 
 PyUnicode_READ.exit118:                           ; preds = %if.then3.i109, %if.end6.i116
-  %retval.0.i112 = phi i32 [ %conv5.i111, %if.then3.i109 ], [ %36, %if.end6.i116 ]
+  %retval.0.i112 = phi i32 [ %conv5.i111, %if.then3.i109 ], [ %35, %if.end6.i116 ]
   %cmp120 = icmp eq i32 %retval.0.i112, 65534
   br i1 %cmp120, label %for.inc151, label %if.end123
 
@@ -24075,14 +24066,14 @@ if.end123:                                        ; preds = %PyUnicode_READ.exit
   %and = and i32 %shr125, 15
   %idxprom126 = zext nneg i32 %shr124 to i64
   %arrayidx127 = getelementptr i8, ptr %level1101, i64 %idxprom126
-  %37 = load i8, ptr %arrayidx127, align 1
-  %conv128 = zext i8 %37 to i32
+  %36 = load i8, ptr %arrayidx127, align 1
+  %conv128 = zext i8 %36 to i32
   %mul129 = shl nuw nsw i32 %conv128, 4
   %add130 = or disjoint i32 %mul129, %and
   %idxprom131 = zext nneg i32 %add130 to i64
   %arrayidx132 = getelementptr i8, ptr %level23, i64 %idxprom131
-  %38 = load i8, ptr %arrayidx132, align 1
-  %cmp134 = icmp eq i8 %38, -1
+  %37 = load i8, ptr %arrayidx132, align 1
+  %cmp134 = icmp eq i8 %37, -1
   br i1 %cmp134, label %if.then136, label %if.end141
 
 if.then136:                                       ; preds = %if.end123
@@ -24091,10 +24082,10 @@ if.then136:                                       ; preds = %if.end123
   br label %if.end141
 
 if.end141:                                        ; preds = %if.then136, %if.end123
-  %39 = phi i8 [ %count3.2140, %if.then136 ], [ %38, %if.end123 ]
+  %38 = phi i8 [ %count3.2140, %if.then136 ], [ %37, %if.end123 ]
   %count3.3 = phi i8 [ %inc137, %if.then136 ], [ %count3.2140, %if.end123 ]
   %and142 = and i32 %retval.0.i112121, 127
-  %conv145 = zext i8 %39 to i32
+  %conv145 = zext i8 %38 to i32
   %mul146 = shl nuw nsw i32 %conv145, 7
   %add147 = or disjoint i32 %mul146, %and142
   %conv148 = trunc i32 %i.2141 to i8
@@ -27273,7 +27264,7 @@ return:                                           ; preds = %PyUnicode_READ.exit
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i64 @PyUnicode_FindChar(ptr noundef %str, i32 noundef %ch, i64 noundef %start, i64 noundef %end, i32 noundef %direction) local_unnamed_addr #14 {
+define dso_local i64 @PyUnicode_FindChar(ptr noundef %str, i32 noundef %ch, i64 noundef %start, i64 noundef %end, i32 noundef %direction) local_unnamed_addr #13 {
 entry:
   %0 = getelementptr i8, ptr %str, i64 16
   %str.val = load i64, ptr %0, align 8
@@ -27381,7 +27372,7 @@ return:                                           ; preds = %ensure_unicode.exit
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @tailmatch(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %substring, i64 noundef %start, i64 noundef %end, i32 noundef %direction) unnamed_addr #15 {
+define internal fastcc i32 @tailmatch(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %substring, i64 noundef %start, i64 noundef %end, i32 noundef %direction) unnamed_addr #14 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val49 = load i64, ptr %0, align 8
@@ -28244,7 +28235,7 @@ return:                                           ; preds = %if.then1.i.i146, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyUnicode_FastFill(ptr noundef %unicode, i64 noundef %start, i64 noundef %length, i32 noundef %fill_char) local_unnamed_addr #16 {
+define hidden void @_PyUnicode_FastFill(ptr noundef %unicode, i64 noundef %start, i64 noundef %length, i32 noundef %fill_char) local_unnamed_addr #15 {
 entry:
   %state = getelementptr inbounds i8, ptr %unicode, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -29342,7 +29333,7 @@ return:                                           ; preds = %if.end60.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @_PyUnicode_Equal(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #17 {
+define dso_local i32 @_PyUnicode_Equal(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %str1, %str2
   br i1 %cmp, label %return, label %if.end
@@ -29459,7 +29450,7 @@ return:                                           ; preds = %if.then, %if.end7, 
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i32 @unicode_compare(ptr noundef readonly %str1, ptr noundef readonly %str2) unnamed_addr #14 {
+define internal fastcc i32 @unicode_compare(ptr noundef readonly %str1, ptr noundef readonly %str2) unnamed_addr #13 {
 entry:
   %state = getelementptr inbounds i8, ptr %str1, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -29757,7 +29748,7 @@ return:                                           ; preds = %if.end200, %sw.epil
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyUnicode_CompareWithASCIIString(ptr nocapture noundef readonly %uni, ptr nocapture noundef readonly %str) local_unnamed_addr #15 {
+define dso_local i32 @PyUnicode_CompareWithASCIIString(ptr nocapture noundef readonly %uni, ptr nocapture noundef readonly %str) local_unnamed_addr #14 {
 entry:
   %state = getelementptr inbounds i8, ptr %uni, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -29939,7 +29930,7 @@ return:                                           ; preds = %land.rhs.us56, %lan
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyUnicode_EqualToUTF8(ptr nocapture noundef readonly %unicode, ptr noundef readonly %str) local_unnamed_addr #15 {
+define dso_local i32 @PyUnicode_EqualToUTF8(ptr nocapture noundef readonly %unicode, ptr noundef readonly %str) local_unnamed_addr #14 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #34
   %call1 = tail call i32 @PyUnicode_EqualToUTF8AndSize(ptr noundef %unicode, ptr noundef %str, i64 noundef %call), !range !158
@@ -29947,7 +29938,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyUnicode_EqualToUTF8AndSize(ptr nocapture noundef readonly %unicode, ptr noundef %str, i64 noundef %size) local_unnamed_addr #15 {
+define dso_local i32 @PyUnicode_EqualToUTF8AndSize(ptr nocapture noundef readonly %unicode, ptr noundef %str, i64 noundef %size) local_unnamed_addr #14 {
 entry:
   %0 = getelementptr i8, ptr %unicode, i64 32
   %unicode.val = load i32, ptr %0, align 8
@@ -30198,7 +30189,7 @@ return:                                           ; preds = %if.else106, %lor.lh
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @_PyUnicode_EqualToASCIIString(ptr nocapture noundef readonly %unicode, ptr nocapture noundef readonly %str) local_unnamed_addr #17 {
+define dso_local i32 @_PyUnicode_EqualToASCIIString(ptr nocapture noundef readonly %unicode, ptr nocapture noundef readonly %str) local_unnamed_addr #16 {
 entry:
   %0 = getelementptr i8, ptr %unicode, i64 32
   %unicode.val = load i32, ptr %0, align 8
@@ -30534,7 +30525,7 @@ if.end50:                                         ; preds = %switch.lookup, %sw.
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_PyUnicode_EQ(ptr nocapture noundef readonly %aa, ptr nocapture noundef readonly %bb) local_unnamed_addr #17 {
+define hidden i32 @_PyUnicode_EQ(ptr nocapture noundef readonly %aa, ptr nocapture noundef readonly %bb) local_unnamed_addr #16 {
 entry:
   %0 = getelementptr i8, ptr %aa, i64 16
   %a.val11.i = load i64, ptr %0, align 8
@@ -46728,7 +46719,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 declare void @PyObject_Free(ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_PyUnicode_InitState(ptr noundef readnone %interp) local_unnamed_addr #18 {
+define hidden void @_PyUnicode_InitState(ptr noundef readnone %interp) local_unnamed_addr #17 {
 entry:
   %linebreak.i = alloca [8 x i16], align 16
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
@@ -49028,7 +49019,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #18
 
 declare void @_Py_NewReference(ptr noundef) local_unnamed_addr #1
 
@@ -49039,7 +49030,7 @@ declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #1
 declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
@@ -49300,7 +49291,7 @@ declare ptr @PyCodec_StrictErrors(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBytes_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #21
+declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #20
 
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -49313,7 +49304,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @wmemchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #21
+declare ptr @wmemchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #20
 
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -50684,7 +50675,7 @@ declare ptr @_PyBytesWriter_Prepare(ptr noundef, ptr noundef, i64 noundef) local
 declare ptr @_PyBytesWriter_WriteBytes(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #19
+declare i32 @llvm.bswap.i32(i32) #18
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @make_encode_exception(ptr nocapture noundef %exceptionObject, ptr noundef %encoding, ptr noundef %unicode, i64 noundef %startpos, i64 noundef %endpos, ptr noundef %reason) unnamed_addr #0 {
@@ -51007,7 +50998,7 @@ declare i32 @PyUnicodeTranslateError_SetReason(ptr noundef, ptr noundef) local_u
 declare i32 @_PyUnicode_IsWhitespace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %if.end
@@ -51361,7 +51352,7 @@ return:                                           ; preds = %if.end48.us.i, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs1lib__pre, align 8
   call fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -51370,7 +51361,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs1lib__pre, align 8
   call fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -51401,7 +51392,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %p.i69 = alloca %struct.ucs1lib__pre, align 8
   %p.i = alloca %struct.ucs1lib__pre, align 8
@@ -51669,7 +51660,7 @@ return:                                           ; preds = %for.body20.us92, %f
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #22 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -52288,7 +52279,7 @@ return:                                           ; preds = %periodicwindowloop.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -52768,7 +52759,7 @@ return:                                           ; preds = %if.end48.us.i, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs2lib__pre, align 8
   call fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -52777,7 +52768,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs2lib__pre, align 8
   call fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -52808,7 +52799,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %p.i69 = alloca %struct.ucs2lib__pre, align 8
   %p.i = alloca %struct.ucs2lib__pre, align 8
@@ -53076,7 +53067,7 @@ return:                                           ; preds = %for.body20.us92, %f
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #22 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -53698,7 +53689,7 @@ return:                                           ; preds = %periodicwindowloop.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc i64 @ucs4lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #24 {
+define internal fastcc i64 @ucs4lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #23 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %if.end
@@ -54110,7 +54101,7 @@ return:                                           ; preds = %if.end34.us.i, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs4lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #22 {
+define internal fastcc i64 @ucs4lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs4lib__pre, align 8
   call fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -54119,7 +54110,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs4lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #22 {
+define internal fastcc i64 @ucs4lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs4lib__pre, align 8
   call fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -54150,7 +54141,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %p.i69 = alloca %struct.ucs4lib__pre, align 8
   %p.i = alloca %struct.ucs4lib__pre, align 8
@@ -54431,7 +54422,7 @@ return:                                           ; preds = %for.body15.us92, %f
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #22 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -55053,7 +55044,7 @@ return:                                           ; preds = %periodicwindowloop.
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @asciilib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef readonly %p, i64 noundef %m, i32 noundef %mode) unnamed_addr #15 {
+define internal fastcc i64 @asciilib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef readonly %p, i64 noundef %m, i32 noundef %mode) unnamed_addr #14 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %if.end
@@ -55350,7 +55341,7 @@ return:                                           ; preds = %for.inc80.us.i, %fo
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @asciilib__two_way_find(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #15 {
+define internal fastcc i64 @asciilib__two_way_find(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #14 {
 entry:
   %p = alloca %struct.asciilib__pre, align 8
   store ptr %needle, ptr %p, align 8
@@ -55952,7 +55943,7 @@ asciilib__two_way.exit:                           ; preds = %if.end109.i, %if.th
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m) unnamed_addr #15 {
+define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m) unnamed_addr #14 {
 entry:
   %sub = sub nsw i64 %n, %m
   %sub1 = add i64 %m, -1
@@ -56140,10 +56131,10 @@ declare i32 @_PyUnicode_IsLinebreak(i32 noundef) local_unnamed_addr #1
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wmemcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #21
+declare i32 @wmemcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @replace_1char_inplace(ptr noundef %u, i64 noundef %pos, i32 noundef %u1, i32 noundef %u2, i64 noundef %maxcount) unnamed_addr #25 {
+define internal fastcc void @replace_1char_inplace(ptr noundef %u, i64 noundef %pos, i32 noundef %u1, i32 noundef %u2, i64 noundef %maxcount) unnamed_addr #24 {
 entry:
   %state = getelementptr inbounds i8, ptr %u, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -56518,7 +56509,7 @@ if.end10:                                         ; preds = %if.end26.i, %ucs2li
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc i64 @anylib_find(i32 noundef %kind, ptr nocapture noundef readonly %str1, ptr noundef %buf1, i64 noundef %len1, ptr nocapture noundef readonly %str2, ptr noundef %buf2, i64 noundef %len2, i64 noundef %offset) unnamed_addr #24 {
+define internal fastcc i64 @anylib_find(i32 noundef %kind, ptr nocapture noundef readonly %str1, ptr noundef %buf1, i64 noundef %len1, ptr nocapture noundef readonly %str2, ptr noundef %buf2, i64 noundef %len2, i64 noundef %offset) unnamed_addr #23 {
 entry:
   switch i32 %kind, label %sw.epilog [
     i32 1, label %sw.bb
@@ -57045,7 +57036,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @unicode_length(ptr nocapture noundef readonly %self) #26 {
+define internal i64 @unicode_length(ptr nocapture noundef readonly %self) #25 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %0, align 8
@@ -63179,7 +63170,7 @@ return:                                           ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #27
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #26
 
 declare i32 @_PyEval_SliceIndex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -66151,7 +66142,7 @@ unicode_hash.exit:                                ; preds = %entry, %PyUnicode_D
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @hashtable_unicode_compare(ptr noundef readonly %key1, ptr noundef readonly %key2) #17 {
+define internal i32 @hashtable_unicode_compare(ptr noundef readonly %key1, ptr noundef readonly %key2) #16 {
 entry:
   %cmp = icmp ne ptr %key1, null
   %cmp1 = icmp ne ptr %key2, null
@@ -67023,14 +67014,20 @@ return:                                           ; preds = %if.end, %_Py_NewRef
 
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #27
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #27
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #27
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #29
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #29
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
@@ -67066,6 +67063,9 @@ declare i16 @llvm.vector.reduce.or.v4i16(<4 x i16>) #29
 declare i32 @llvm.vector.reduce.or.v4i32(<4 x i32>) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.vector.reduce.and.v4i16(<4 x i16>) #29
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -67079,23 +67079,23 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #30 = { nofree nounwind willreturn memory(argmem: read) }

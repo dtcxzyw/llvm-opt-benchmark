@@ -2566,59 +2566,60 @@ define i64 @rsock_io_socket_addrinfo(i64 noundef %0, ptr nocapture noundef reado
   br i1 %7, label %8, label %rb_type.exit
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
-  switch i64 %9, label %10 [
+  %9 = sub i64 %0, 0
+  %10 = call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 62)
+  switch i64 %10, label %11 [
     i64 0, label %rb_type.exit.thread
     i64 1, label %rb_type.exit.thread
     i64 5, label %rb_type.exit.thread
     i64 9, label %rb_type.exit.thread
   ]
 
-10:                                               ; preds = %8
-  %11 = and i64 %0, 1
-  %.not.i = icmp eq i64 %11, 0
+11:                                               ; preds = %8
+  %12 = and i64 %0, 1
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %rb_type.exit.thread, label %rb_type.exit.thread14
 
 rb_type.exit:                                     ; preds = %3
-  %12 = inttoptr i64 %0 to ptr
-  %13 = load i64, ptr %12, align 8
-  %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, 31
-  switch i32 %15, label %rb_type.exit.thread [
+  %13 = inttoptr i64 %0 to ptr
+  %14 = load i64, ptr %13, align 8
+  %15 = trunc i64 %14 to i32
+  %16 = and i32 %15, 31
+  switch i32 %16, label %rb_type.exit.thread [
     i32 21, label %rb_type.exit.thread14
     i32 10, label %rb_num2int_inline.exit
-    i32 11, label %20
+    i32 11, label %21
   ]
 
-rb_type.exit.thread14:                            ; preds = %10, %rb_type.exit
-  %16 = tail call i64 @rb_fix2int(i64 noundef %0) #19
-  %17 = trunc i64 %16 to i32
-  br label %28
+rb_type.exit.thread14:                            ; preds = %11, %rb_type.exit
+  %17 = tail call i64 @rb_fix2int(i64 noundef %0) #19
+  %18 = trunc i64 %17 to i32
+  br label %29
 
 rb_num2int_inline.exit:                           ; preds = %rb_type.exit
-  %18 = tail call i64 @rb_num2int(i64 noundef %0) #19
-  %19 = trunc i64 %18 to i32
-  br label %28
+  %19 = tail call i64 @rb_num2int(i64 noundef %0) #19
+  %20 = trunc i64 %19 to i32
+  br label %29
 
-20:                                               ; preds = %rb_type.exit
-  %21 = tail call i64 @rb_io_taint_check(i64 noundef %0) #19
-  %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8
-  tail call void @rb_io_check_closed(ptr noundef %24) #19
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load i32, ptr %25, align 8
-  br label %28
+21:                                               ; preds = %rb_type.exit
+  %22 = tail call i64 @rb_io_taint_check(i64 noundef %0) #19
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  tail call void @rb_io_check_closed(ptr noundef %25) #19
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load i32, ptr %26, align 8
+  br label %29
 
-rb_type.exit.thread:                              ; preds = %10, %8, %8, %8, %8, %rb_type.exit
-  %27 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.48) #21
+rb_type.exit.thread:                              ; preds = %11, %8, %8, %8, %8, %rb_type.exit
+  %28 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.48) #21
   unreachable
 
-28:                                               ; preds = %20, %rb_num2int_inline.exit, %rb_type.exit.thread14
-  %.sink = phi i32 [ %26, %20 ], [ %19, %rb_num2int_inline.exit ], [ %17, %rb_type.exit.thread14 ]
-  %29 = tail call i64 @rsock_fd_socket_addrinfo(i32 noundef %.sink, ptr noundef %1, i32 noundef %2)
-  ret i64 %29
+29:                                               ; preds = %21, %rb_num2int_inline.exit, %rb_type.exit.thread14
+  %.sink = phi i32 [ %27, %21 ], [ %20, %rb_num2int_inline.exit ], [ %18, %rb_type.exit.thread14 ]
+  %30 = tail call i64 @rsock_fd_socket_addrinfo(i32 noundef %.sink, ptr noundef %1, i32 noundef %2)
+  ret i64 %30
 }
 
 declare void @rb_io_check_closed(ptr noundef) local_unnamed_addr #2
@@ -6097,17 +6098,17 @@ declare i32 @rsock_ipproto_to_int(ptr noundef, i64 noundef, ptr noundef) local_u
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #17
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6126,8 +6127,8 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwr
 attributes #14 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind allocsize(0) }
 attributes #21 = { noreturn nounwind }

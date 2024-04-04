@@ -2266,8 +2266,8 @@ define internal noundef i32 @sidesfn(ptr nocapture noundef %0, ptr nocapture nou
   %5 = getelementptr inbounds i8, ptr %.pn, i64 1
   %6 = sext i8 %4 to i32
   %7 = tail call i32 @tolower(i32 noundef %6) #20
-  %8 = add i32 %7, -98
-  %9 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 31)
+  %8 = sub i32 %7, 98
+  %9 = call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 31)
   switch i32 %9, label %18 [
     i32 5, label %10
     i32 9, label %12
@@ -2930,9 +2930,6 @@ agxbput.exit:                                     ; preds = %gv_strdup.exit, %18
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2940,6 +2937,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

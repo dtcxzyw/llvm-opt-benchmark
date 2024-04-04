@@ -561,7 +561,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %198, label %switch.early.test, label %207
 
 switch.early.test:                                ; preds = %199
-  %200 = add i32 %.fr, -12
+  %200 = sub i32 %.fr, 12
   %201 = call i32 @llvm.fshl.i32(i32 %200, i32 %200, i32 30)
   switch i32 %201, label %.sink.split330 [
     i32 13, label %207

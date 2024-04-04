@@ -138,12 +138,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.88 = private unnamed_addr constant [23 x i8] c"../qemu/hw/net/tulip.h\00", align 1
 @__func__.TULIP = private unnamed_addr constant [6 x i8] c"TULIP\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_tulip_register_types, ptr null }]
-@switch.table.tulip_write = private unnamed_addr constant [16 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34], align 8
+@switch.table.tulip_reg_name = private unnamed_addr constant [16 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_tulip_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @tulip_register_types, i32 noundef 3) #8
+  tail call void @register_module_init(ptr noundef nonnull @tulip_register_types, i32 noundef 3) #9
   ret void
 }
 
@@ -152,7 +152,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tulip_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @tulip_info) #8
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @tulip_info) #9
   ret void
 }
 
@@ -161,17 +161,17 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tulip_instance_init(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %bootindex = getelementptr inbounds i8, ptr %call.i, i64 11360
-  tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %call.i) #8
+  tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %call.i) #9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tulip_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
-  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #8
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
+  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #9
   %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
   store ptr @pci_tulip_realize, ptr %realize, align 8
   %exit = getelementptr inbounds i8, ptr %call.i11, i64 184
@@ -188,7 +188,7 @@ entry:
   store i16 512, ptr %class_id, align 2
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_pci_tulip, ptr %vmsd, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @tulip_properties) #8
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @tulip_properties) #9
   %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @tulip_qdev_reset, ptr %reset, align 8
   %categories = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -210,11 +210,11 @@ entry:
   %arrayidx = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx, align 1
   %c = getelementptr inbounds i8, ptr %pci_dev, i64 3152
-  tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %c) #8
-  %call = tail call ptr @eeprom93xx_new(ptr noundef %pci_dev, i16 noundef zeroext 64) #8
+  tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %c) #9
+  %call = tail call ptr @eeprom93xx_new(ptr noundef %pci_dev, i16 noundef zeroext 64) #9
   %eeprom = getelementptr inbounds i8, ptr %pci_dev, i64 11384
   store ptr %call, ptr %eeprom, align 8
-  %call.i = tail call ptr @eeprom93xx_data(ptr noundef %call) #8
+  %call.i = tail call ptr @eeprom93xx_data(ptr noundef %call) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %call.i, ptr noundef nonnull align 16 dereferenceable(128) @eeprom_default, i64 128, i1 false)
   %1 = load i16, ptr %c, align 16
   %arrayidx9.i = getelementptr i8, ptr %call.i, i64 20
@@ -328,23 +328,23 @@ tulip_fill_eeprom.exit:                           ; preds = %for.body19.i.i
   %arrayidx42.i = getelementptr i8, ptr %call.i, i64 126
   store i16 %conv30.i.i, ptr %arrayidx42.i, align 2
   %io = getelementptr inbounds i8, ptr %pci_dev, i64 2608
-  tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef %pci_dev, ptr noundef nonnull @tulip_ops, ptr noundef %pci_dev, ptr noundef nonnull @.str.8, i64 noundef 128) #8
+  tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef %pci_dev, ptr noundef nonnull @tulip_ops, ptr noundef %pci_dev, ptr noundef nonnull @.str.8, i64 noundef 128) #9
   %memory = getelementptr inbounds i8, ptr %pci_dev, i64 2880
-  tail call void @memory_region_init_io(ptr noundef nonnull %memory, ptr noundef %pci_dev, ptr noundef nonnull @tulip_ops, ptr noundef %pci_dev, ptr noundef nonnull @.str.9, i64 noundef 128) #8
-  tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io) #8
-  tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %memory) #8
-  %call9 = tail call ptr @pci_allocate_irq(ptr noundef %pci_dev) #8
+  tail call void @memory_region_init_io(ptr noundef nonnull %memory, ptr noundef %pci_dev, ptr noundef nonnull @tulip_ops, ptr noundef %pci_dev, ptr noundef nonnull @.str.9, i64 noundef 128) #9
+  tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io) #9
+  tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %memory) #9
+  %call9 = tail call ptr @pci_allocate_irq(ptr noundef %pci_dev) #9
   %irq = getelementptr inbounds i8, ptr %pci_dev, i64 11368
   store ptr %call9, ptr %irq, align 8
-  %call11 = tail call ptr @object_get_typename(ptr noundef %pci_dev) #8
+  %call11 = tail call ptr @object_get_typename(ptr noundef %pci_dev) #9
   %id = getelementptr inbounds i8, ptr %pci_dev, i64 40
   %16 = load ptr, ptr %id, align 8
   %mem_reentrancy_guard = getelementptr inbounds i8, ptr %pci_dev, i64 152
-  %call14 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_tulip_info, ptr noundef nonnull %c, ptr noundef %call11, ptr noundef %16, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %pci_dev) #8
+  %call14 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_tulip_info, ptr noundef nonnull %c, ptr noundef %call11, ptr noundef %16, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %pci_dev) #9
   %nic = getelementptr inbounds i8, ptr %pci_dev, i64 11376
   store ptr %call14, ptr %nic, align 16
-  %call16 = tail call ptr @qemu_get_queue(ptr noundef %call14) #8
-  tail call void @qemu_format_nic_info_str(ptr noundef %call16, ptr noundef nonnull %c) #8
+  %call16 = tail call ptr @qemu_get_queue(ptr noundef %call14) #9
+  tail call void @qemu_format_nic_info_str(ptr noundef %call16, ptr noundef nonnull %c) #9
   ret void
 }
 
@@ -353,13 +353,13 @@ define internal void @pci_tulip_exit(ptr noundef %pci_dev) #0 {
 entry:
   %nic = getelementptr inbounds i8, ptr %pci_dev, i64 11376
   %0 = load ptr, ptr %nic, align 16
-  tail call void @qemu_del_nic(ptr noundef %0) #8
+  tail call void @qemu_del_nic(ptr noundef %0) #9
   %irq = getelementptr inbounds i8, ptr %pci_dev, i64 11368
   %1 = load ptr, ptr %irq, align 8
-  tail call void @qemu_free_irq(ptr noundef %1) #8
+  tail call void @qemu_free_irq(ptr noundef %1) #9
   %eeprom = getelementptr inbounds i8, ptr %pci_dev, i64 11384
   %2 = load ptr, ptr %eeprom, align 8
-  tail call void @eeprom93xx_free(ptr noundef %pci_dev, ptr noundef %2) #8
+  tail call void @eeprom93xx_free(ptr noundef %pci_dev, ptr noundef %2) #9
   ret void
 }
 
@@ -368,8 +368,8 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tulip_qdev_reset(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
-  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.88, i32 noundef 9, ptr noundef nonnull @__func__.TULIP) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
+  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.88, i32 noundef 9, ptr noundef nonnull @__func__.TULIP) #9
   tail call fastcc void @tulip_reset(ptr noundef %call.i1)
   ret void
 }
@@ -418,7 +418,7 @@ sw.bb:                                            ; preds = %entry
 if.then.i:                                        ; preds = %sw.bb
   %eeprom.i = getelementptr inbounds i8, ptr %opaque, i64 11384
   %2 = load ptr, ptr %eeprom.i, align 8
-  %call.i = tail call zeroext i16 @eeprom93xx_read(ptr noundef %2) #8
+  %call.i = tail call zeroext i16 @eeprom93xx_read(ptr noundef %2) #9
   %tobool1.not.i = icmp eq i16 %call.i, 0
   %3 = load i32, ptr %arrayidx.i, align 4
   %4 = and i32 %3, -9
@@ -444,7 +444,7 @@ do.body:                                          ; preds = %sw.default
   br i1 %cmp.i.not, label %sw.epilog, label %if.then6
 
 if.then6:                                         ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.tulip_read, i64 noundef %addr) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.tulip_read, i64 noundef %addr) #9
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.default
@@ -457,50 +457,40 @@ if.else:                                          ; preds = %sw.default
 sw.epilog:                                        ; preds = %entry, %if.else, %do.body, %if.then6, %tulip_csr9_read.exit
   %data.0.shrunk = phi i32 [ 0, %if.then6 ], [ 0, %do.body ], [ %7, %if.else ], [ %5, %tulip_csr9_read.exit ], [ 20480, %entry ]
   %data.0 = zext i32 %data.0.shrunk to i64
-  %8 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 61)
-  %9 = icmp ult i64 %8, 16
-  br i1 %9, label %switch.lookup, label %tulip_reg_name.exit
-
-switch.lookup:                                    ; preds = %sw.epilog
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.tulip_write, i64 0, i64 %8
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %tulip_reg_name.exit
-
-tulip_reg_name.exit:                              ; preds = %sw.epilog, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.35, %sw.epilog ]
+  %call9 = tail call fastcc ptr @tulip_reg_name(i64 noundef %addr)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %10, 0
-  %11 = load i16, ptr @_TRACE_TULIP_REG_READ_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %11, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_TULIP_REG_READ_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %9, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_tulip_reg_read.exit
 
-land.lhs.true5.i.i:                               ; preds = %tulip_reg_name.exit
-  %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %12, 32768
+land.lhs.true5.i.i:                               ; preds = %sw.epilog
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %10, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_tulip_reg_read.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %13 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %13 to i1
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %11 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
-  %14 = load i64, ptr %_now.i.i, align 8
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
+  %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %addr, ptr noundef nonnull %retval.0.i, i32 noundef %size, i64 noundef %data.0) #8
+  %13 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i64 noundef %addr, ptr noundef nonnull %call9, i32 noundef %size, i64 noundef %data.0) #9
   br label %trace_tulip_reg_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %addr, ptr noundef nonnull %retval.0.i, i32 noundef %size, i64 noundef %data.0) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %addr, ptr noundef nonnull %call9, i32 noundef %size, i64 noundef %data.0) #9
   br label %trace_tulip_reg_read.exit
 
-trace_tulip_reg_read.exit:                        ; preds = %tulip_reg_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_tulip_reg_read.exit:                        ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   ret i64 %data.0
 }
@@ -513,52 +503,44 @@ entry:
   %_now.i.i.i59 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 61)
-  %1 = icmp ult i64 %0, 16
-  br i1 %1, label %switch.lookup, label %tulip_reg_name.exit
-
-switch.lookup:                                    ; preds = %entry
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.tulip_write, i64 0, i64 %0
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %tulip_reg_name.exit
-
-tulip_reg_name.exit:                              ; preds = %entry, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.35, %entry ]
+  %call = tail call fastcc ptr @tulip_reg_name(i64 noundef %addr)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_TULIP_REG_WRITE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %3, 0
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %0, 0
+  %1 = load i16, ptr @_TRACE_TULIP_REG_WRITE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %1, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_tulip_reg_write.exit
 
-land.lhs.true5.i.i:                               ; preds = %tulip_reg_name.exit
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %4, 32768
+land.lhs.true5.i.i:                               ; preds = %entry
+  %2 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %2, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_tulip_reg_write.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %5 to i1
+  %3 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %3 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
-  %6 = load i64, ptr %_now.i.i, align 8
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
+  %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %addr, ptr noundef nonnull %retval.0.i, i32 noundef %size, i64 noundef %data) #8
+  %5 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, ptr noundef nonnull %call, i32 noundef %size, i64 noundef %data) #9
   br label %trace_tulip_reg_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i64 noundef %addr, ptr noundef nonnull %retval.0.i, i32 noundef %size, i64 noundef %data) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i64 noundef %addr, ptr noundef nonnull %call, i32 noundef %size, i64 noundef %data) #9
   br label %trace_tulip_reg_write.exit
 
-trace_tulip_reg_write.exit:                       ; preds = %tulip_reg_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_tulip_reg_write.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  switch i64 %0, label %do.body [
+  %6 = sub i64 %addr, 0
+  %7 = call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 61)
+  switch i64 %7, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb1
     i64 2, label %sw.bb2
@@ -597,8 +579,8 @@ sw.bb1:                                           ; preds = %trace_tulip_reg_wri
 sw.bb2:                                           ; preds = %trace_tulip_reg_write.exit
   %nic = getelementptr inbounds i8, ptr %opaque, i64 11376
   %8 = load ptr, ptr %nic, align 16
-  %call3 = tail call ptr @qemu_get_queue(ptr noundef %8) #8
-  tail call void @qemu_flush_queued_packets(ptr noundef %call3) #8
+  %call3 = tail call ptr @qemu_get_queue(ptr noundef %8) #9
+  tail call void @qemu_flush_queued_packets(ptr noundef %call3) #9
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %trace_tulip_reg_write.exit
@@ -611,8 +593,8 @@ sw.bb4:                                           ; preds = %trace_tulip_reg_wri
   store i64 %conv11, ptr %current_rx_desc, align 16
   %nic12 = getelementptr inbounds i8, ptr %opaque, i64 11376
   %10 = load ptr, ptr %nic12, align 16
-  %call13 = tail call ptr @qemu_get_queue(ptr noundef %10) #8
-  tail call void @qemu_flush_queued_packets(ptr noundef %call13) #8
+  %call13 = tail call ptr @qemu_get_queue(ptr noundef %10) #9
+  tail call void @qemu_flush_queued_packets(ptr noundef %call13) #9
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %trace_tulip_reg_write.exit
@@ -671,24 +653,24 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
   %21 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.61) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.61) #9
   br label %tulip_update_rs.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.61) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.61) #9
   br label %tulip_update_rs.exit
 
 tulip_update_rs.exit:                             ; preds = %if.then38, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %nic39 = getelementptr inbounds i8, ptr %opaque, i64 11376
   %23 = load ptr, ptr %nic39, align 16
-  %call40 = tail call ptr @qemu_get_queue(ptr noundef %23) #8
-  tail call void @qemu_flush_queued_packets(ptr noundef %call40) #8
+  %call40 = tail call ptr @qemu_get_queue(ptr noundef %23) #9
+  tail call void @qemu_flush_queued_packets(ptr noundef %call40) #9
   br label %if.end41
 
 if.else:                                          ; preds = %sw.bb29
@@ -713,16 +695,16 @@ if.then.i.i.i68:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i69, label %if.then8.i.i.i71, label %if.else.i.i.i70
 
 if.then8.i.i.i71:                                 ; preds = %if.then.i.i.i68
-  %call9.i.i.i72 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i59, ptr noundef null) #8
-  %call10.i.i.i73 = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i72 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i59, ptr noundef null) #9
+  %call10.i.i.i73 = tail call i32 @qemu_get_thread_id() #9
   %28 = load i64, ptr %_now.i.i.i59, align 8
   %tv_usec.i.i.i74 = getelementptr inbounds i8, ptr %_now.i.i.i59, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i74, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i73, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.58) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i73, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.58) #9
   br label %tulip_update_rs.exit75
 
 if.else.i.i.i70:                                  ; preds = %if.then.i.i.i68
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58) #9
   br label %tulip_update_rs.exit75
 
 tulip_update_rs.exit75:                           ; preds = %if.else, %land.lhs.true5.i.i.i65, %if.then8.i.i.i71, %if.else.i.i.i70
@@ -761,16 +743,16 @@ if.then.i.i.i86:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i87, label %if.then8.i.i.i89, label %if.else.i.i.i88
 
 if.then8.i.i.i89:                                 ; preds = %if.then.i.i.i86
-  %call9.i.i.i90 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i76, ptr noundef null) #8
-  %call10.i.i.i91 = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i90 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i76, ptr noundef null) #9
+  %call10.i.i.i91 = tail call i32 @qemu_get_thread_id() #9
   %37 = load i64, ptr %_now.i.i.i76, align 8
   %tv_usec.i.i.i92 = getelementptr inbounds i8, ptr %_now.i.i.i76, i64 8
   %38 = load i64, ptr %tv_usec.i.i.i92, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i91, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.62) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i91, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.62) #9
   br label %tulip_update_ts.exit
 
 if.else.i.i.i88:                                  ; preds = %if.then.i.i.i86
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.62) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.62) #9
   br label %tulip_update_ts.exit
 
 tulip_update_ts.exit:                             ; preds = %if.then47, %land.lhs.true5.i.i.i83, %if.then8.i.i.i89, %if.else.i.i.i88
@@ -800,16 +782,16 @@ if.then.i.i.i102:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i103, label %if.then8.i.i.i105, label %if.else.i.i.i104
 
 if.then8.i.i.i105:                                ; preds = %if.then.i.i.i102
-  %call9.i.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i93, ptr noundef null) #8
-  %call10.i.i.i107 = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i93, ptr noundef null) #9
+  %call10.i.i.i107 = tail call i32 @qemu_get_thread_id() #9
   %43 = load i64, ptr %_now.i.i.i93, align 8
   %tv_usec.i.i.i108 = getelementptr inbounds i8, ptr %_now.i.i.i93, i64 8
   %44 = load i64, ptr %tv_usec.i.i.i108, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i107, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.58) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i107, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.58) #9
   br label %tulip_update_ts.exit109
 
 if.else.i.i.i104:                                 ; preds = %if.then.i.i.i102
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.58) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.58) #9
   br label %tulip_update_ts.exit109
 
 tulip_update_ts.exit109:                          ; preds = %if.else48, %land.lhs.true5.i.i.i99, %if.then8.i.i.i105, %if.else.i.i.i104
@@ -844,7 +826,7 @@ if.then.i:                                        ; preds = %sw.bb58
   %and6.lobit.i = and i32 %and6.i, 1
   %and13.i = lshr i32 %conv61, 2
   %and13.lobit.i = and i32 %and13.i, 1
-  tail call void @eeprom93xx_write(ptr noundef %46, i32 noundef %and2.i, i32 noundef %and6.lobit.i, i32 noundef %and13.lobit.i) #8
+  tail call void @eeprom93xx_write(ptr noundef %46, i32 noundef %and2.i, i32 noundef %and6.lobit.i, i32 noundef %and13.lobit.i) #9
   br label %tulip_csr9_write.exit
 
 tulip_csr9_write.exit:                            ; preds = %sw.bb58, %if.then.i
@@ -906,7 +888,7 @@ do.body:                                          ; preds = %trace_tulip_reg_wri
   br i1 %cmp.i.not, label %sw.epilog, label %if.then106
 
 if.then106:                                       ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.tulip_write, i64 noundef %addr) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.tulip_write, i64 noundef %addr) #9
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then106, %do.body, %tulip_update_ts.exit, %tulip_update_ts.exit109, %sw.bb, %if.then, %sw.bb98, %sw.bb94, %sw.bb90, %sw.bb82, %sw.bb78, %sw.bb74, %tulip_csr9_write.exit, %sw.bb54, %sw.bb50, %sw.bb22, %sw.bb14, %sw.bb4, %sw.bb2, %sw.bb1
@@ -914,6 +896,23 @@ sw.epilog:                                        ; preds = %if.then106, %do.bod
 }
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define internal fastcc noundef nonnull ptr @tulip_reg_name(i64 noundef %addr) unnamed_addr #3 {
+entry:
+  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 61)
+  %1 = icmp ult i64 %0, 16
+  br i1 %1, label %switch.lookup, label %return
+
+switch.lookup:                                    ; preds = %entry
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.tulip_reg_name, i64 0, i64 %0
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %return
+
+return:                                           ; preds = %entry, %switch.lookup
+  %retval.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.35, %entry ]
+  ret ptr %retval.0
+}
 
 declare zeroext i16 @eeprom93xx_read(ptr noundef) local_unnamed_addr #1
 
@@ -1038,16 +1037,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
   %17 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %and63, i32 noundef %and66, i32 noundef 0) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %and63, i32 noundef %and66, i32 noundef 0) #9
   br label %trace_tulip_mii_read.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %and63, i32 noundef %and66, i32 noundef 0) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %and63, i32 noundef %and66, i32 noundef 0) #9
   br label %trace_tulip_mii_read.exit.i
 
 trace_tulip_mii_read.exit.i:                      ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry.split.i
@@ -1078,18 +1077,18 @@ if.then.i.i11.i:                                  ; preds = %land.lhs.true5.i.i8
   br i1 %tobool7.i.i12.i, label %if.then8.i.i14.i, label %if.else.i.i13.i
 
 if.then8.i.i14.i:                                 ; preds = %if.then.i.i11.i
-  %call9.i.i15.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4.i, ptr noundef null) #8
-  %call10.i.i16.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i15.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4.i, ptr noundef null) #9
+  %call10.i.i16.i = tail call i32 @qemu_get_thread_id() #9
   %24 = load i64, ptr %_now.i.i4.i, align 8
   %tv_usec.i.i17.i = getelementptr inbounds i8, ptr %_now.i.i4.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i17.i, align 8
   %conv11.i.i.i = zext i16 %19 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i16.i, i64 noundef %24, i64 noundef %25, i32 noundef 1, i32 noundef %and66, i32 noundef %conv11.i.i.i) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i16.i, i64 noundef %24, i64 noundef %25, i32 noundef 1, i32 noundef %and66, i32 noundef %conv11.i.i.i) #9
   br label %trace_tulip_mii_read.exit18.i
 
 if.else.i.i13.i:                                  ; preds = %if.then.i.i11.i
   %conv12.i.i.i = zext i16 %19 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef 1, i32 noundef %and66, i32 noundef %conv12.i.i.i) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef 1, i32 noundef %and66, i32 noundef %conv12.i.i.i) #9
   br label %trace_tulip_mii_read.exit18.i
 
 trace_tulip_mii_read.exit18.i:                    ; preds = %if.else.i.i13.i, %if.then8.i.i14.i, %land.lhs.true5.i.i8.i, %if.then.split.i
@@ -1133,18 +1132,18 @@ if.then.i.i.i42:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i43, label %if.then8.i.i.i46, label %if.else.i.i.i44
 
 if.then8.i.i.i46:                                 ; preds = %if.then.i.i.i42
-  %call9.i.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i33, ptr noundef null) #8
-  %call10.i.i.i48 = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i33, ptr noundef null) #9
+  %call10.i.i.i48 = tail call i32 @qemu_get_thread_id() #9
   %31 = load i64, ptr %_now.i.i.i33, align 8
   %tv_usec.i.i.i49 = getelementptr inbounds i8, ptr %_now.i.i.i33, i64 8
   %32 = load i64, ptr %tv_usec.i.i.i49, align 8
   %conv11.i.i.i50 = and i32 %11, 65535
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i48, i64 noundef %31, i64 noundef %32, i32 noundef %and83, i32 noundef %and86, i32 noundef %conv11.i.i.i50) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i48, i64 noundef %31, i64 noundef %32, i32 noundef %and83, i32 noundef %and86, i32 noundef %conv11.i.i.i50) #9
   br label %trace_tulip_mii_write.exit.i
 
 if.else.i.i.i44:                                  ; preds = %if.then.i.i.i42
   %conv12.i.i.i45 = and i32 %11, 65535
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %and83, i32 noundef %and86, i32 noundef %conv12.i.i.i45) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %and83, i32 noundef %and86, i32 noundef %conv12.i.i.i45) #9
   br label %trace_tulip_mii_write.exit.i
 
 trace_tulip_mii_write.exit.i:                     ; preds = %if.else.i.i.i44, %if.then8.i.i.i46, %land.lhs.true5.i.i.i39, %if.then92
@@ -1170,7 +1169,7 @@ if.end96:                                         ; preds = %if.end.i, %trace_tu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
@@ -1198,16 +1197,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #9
   br label %trace_tulip_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40) #9
   br label %trace_tulip_reset.exit
 
 trace_tulip_reset.exit:                           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1273,16 +1272,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %spec.select12, i32 noundef %1, ptr noundef nonnull %cond) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %spec.select12, i32 noundef %1, ptr noundef nonnull %cond) #9
   br label %trace_tulip_irq.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %spec.select12, i32 noundef %1, ptr noundef nonnull %cond) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %spec.select12, i32 noundef %1, ptr noundef nonnull %cond) #9
   br label %trace_tulip_irq.exit
 
 trace_tulip_irq.exit:                             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1290,7 +1289,7 @@ trace_tulip_irq.exit:                             ; preds = %entry, %land.lhs.tr
   %irq = getelementptr inbounds i8, ptr %s, i64 11368
   %12 = load ptr, ptr %irq, align 8
   %conv38 = zext i1 %tobool30 to i32
-  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef %conv38) #8
+  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef %conv38) #9
   ret void
 }
 
@@ -1366,15 +1365,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #9
   %11 = load i64, ptr %_now.i.i.i, align 8
   %12 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.45, i32 noundef %conv.i, i32 noundef %3, i32 noundef %shr.i17, i32 noundef %and.i18, i32 noundef %and4.i, i32 noundef %5, i32 noundef %6) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.45, i32 noundef %conv.i, i32 noundef %3, i32 noundef %shr.i17, i32 noundef %and.i18, i32 noundef %and4.i, i32 noundef %5, i32 noundef %6) #9
   br label %tulip_dump_tx_descriptor.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, i32 noundef %conv.i, i32 noundef %3, i32 noundef %shr.i17, i32 noundef %and.i18, i32 noundef %and4.i, i32 noundef %5, i32 noundef %6) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, i32 noundef %conv.i, i32 noundef %3, i32 noundef %shr.i17, i32 noundef %and.i18, i32 noundef %and4.i, i32 noundef %5, i32 noundef %6) #9
   br label %tulip_dump_tx_descriptor.exit
 
 tulip_dump_tx_descriptor.exit:                    ; preds = %for.body, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -1408,16 +1407,16 @@ if.then.i.i.i27:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i28, label %if.then8.i.i.i30, label %if.else.i.i.i29
 
 if.then8.i.i.i30:                                 ; preds = %if.then.i.i.i27
-  %call9.i.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i19, ptr noundef null) #8
-  %call10.i.i.i32 = call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i19, ptr noundef null) #9
+  %call10.i.i.i32 = call i32 @qemu_get_thread_id() #9
   %19 = load i64, ptr %_now.i.i.i19, align 8
   %tv_usec.i.i.i33 = getelementptr inbounds i8, ptr %_now.i.i.i19, i64 8
   %20 = load i64, ptr %tv_usec.i.i.i33, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i32, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.62) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i32, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.62) #9
   br label %tulip_update_ts.exit
 
 if.else.i.i.i29:                                  ; preds = %if.then.i.i.i27
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.62) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.62) #9
   br label %tulip_update_ts.exit
 
 tulip_update_ts.exit:                             ; preds = %if.then4, %land.lhs.true5.i.i.i24, %if.then8.i.i.i30, %if.else.i.i.i29
@@ -1458,15 +1457,15 @@ if.then.i.i.i46:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i47, label %if.then8.i.i.i49, label %if.else.i.i.i48
 
 if.then8.i.i.i49:                                 ; preds = %if.then.i.i.i46
-  %call9.i.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i34, ptr noundef null) #8
-  %call10.i.i.i51 = call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i34, ptr noundef null) #9
+  %call10.i.i.i51 = call i32 @qemu_get_thread_id() #9
   %28 = load i64, ptr %_now.i.i.i34, align 8
   %29 = load i64, ptr %tv_usec.i.i.i52, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i.i51, i64 noundef %28, i64 noundef %29) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i.i51, i64 noundef %28, i64 noundef %29) #9
   br label %trace_tulip_setup_frame.exit.i
 
 if.else.i.i.i48:                                  ; preds = %if.then.i.i.i46
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49) #9
   br label %trace_tulip_setup_frame.exit.i
 
 trace_tulip_setup_frame.exit.i:                   ; preds = %if.else.i.i.i48, %if.then8.i.i.i49, %land.lhs.true5.i.i.i43, %if.then11
@@ -1477,9 +1476,9 @@ trace_tulip_setup_frame.exit.i:                   ; preds = %if.else.i.i.i48, %i
 if.then.i:                                        ; preds = %trace_tulip_setup_frame.exit.i
   %30 = load i32, ptr %buf_addr1.i, align 4
   %conv.i42 = zext i32 %30 to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv.i42, i32 1, ptr noundef nonnull %buf.i, i64 noundef 192, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv.i42, i32 1, ptr noundef nonnull %buf.i, i64 noundef 192, i1 noundef zeroext false) #9
   br label %for.body.i
 
 for.body.i:                                       ; preds = %tulip_setup_filter_addr.exit.i, %if.then.i
@@ -1530,8 +1529,8 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #8
-  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #9
+  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #9
   %43 = load i64, ptr %_now.i.i.i.i, align 8
   %44 = load i64, ptr %tv_usec.i.i.i.i, align 8
   %conv11.i.i.i.i = zext i8 %38 to i32
@@ -1541,7 +1540,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %conv15.i.i.i.i = zext i8 %34 to i32
   %conv16.i.i.i.i = zext i8 %32 to i32
   %45 = trunc i64 %indvars.iv.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i.i.i, i64 noundef %43, i64 noundef %44, i32 noundef %45, i32 noundef %conv11.i.i.i.i, i32 noundef %conv12.i.i.i.i, i32 noundef %conv13.i.i.i.i, i32 noundef %conv14.i.i.i.i, i32 noundef %conv15.i.i.i.i, i32 noundef %conv16.i.i.i.i) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i.i.i, i64 noundef %43, i64 noundef %44, i32 noundef %45, i32 noundef %conv11.i.i.i.i, i32 noundef %conv12.i.i.i.i, i32 noundef %conv13.i.i.i.i, i32 noundef %conv14.i.i.i.i, i32 noundef %conv15.i.i.i.i, i32 noundef %conv16.i.i.i.i) #9
   br label %tulip_setup_filter_addr.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
@@ -1552,7 +1551,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %conv21.i.i.i.i = zext i8 %34 to i32
   %conv22.i.i.i.i = zext i8 %32 to i32
   %46 = trunc i64 %indvars.iv.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %46, i32 noundef %conv17.i.i.i.i, i32 noundef %conv18.i.i.i.i, i32 noundef %conv19.i.i.i.i, i32 noundef %conv20.i.i.i.i, i32 noundef %conv21.i.i.i.i, i32 noundef %conv22.i.i.i.i) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %46, i32 noundef %conv17.i.i.i.i, i32 noundef %conv18.i.i.i.i, i32 noundef %conv19.i.i.i.i, i32 noundef %conv20.i.i.i.i, i32 noundef %conv21.i.i.i.i, i32 noundef %conv22.i.i.i.i) #9
   br label %tulip_setup_filter_addr.exit.i
 
 tulip_setup_filter_addr.exit.i:                   ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %for.body.i
@@ -1608,7 +1607,7 @@ do.body.i:                                        ; preds = %if.end17
   br i1 %cmp.i.not.i, label %if.end28, label %if.then8.i61
 
 if.then8.i61:                                     ; preds = %do.body.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__.tulip_copy_tx_buffers, i32 noundef %conv.i55, i32 noundef %and.i54, i64 noundef 2048) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__.tulip_copy_tx_buffers, i32 noundef %conv.i55, i32 noundef %and.i54, i64 noundef 2048) #9
   br label %if.end28
 
 if.end11.i:                                       ; preds = %if.end17
@@ -1621,9 +1620,9 @@ if.then13.i:                                      ; preds = %if.end11.i
   %idx.ext.i = zext i16 %50 to i64
   %add.ptr.i = getelementptr i8, ptr %tx_frame.i, i64 %idx.ext.i
   %conv17.i = zext nneg i32 %and.i54 to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i59 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv14.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv17.i, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i59 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv14.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv17.i, i1 noundef zeroext false) #9
   %53 = load i16, ptr %tx_frame_len, align 16
   %54 = trunc i32 %and.i54 to i16
   %conv22.i = add i16 %53, %54
@@ -1645,7 +1644,7 @@ do.body31.i:                                      ; preds = %if.end23.i
   br i1 %cmp.i27.not.i, label %if.end28, label %if.then39.i
 
 if.then39.i:                                      ; preds = %do.body31.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__.tulip_copy_tx_buffers, i32 noundef %conv25.pre-phi.i, i32 noundef %and3.i, i64 noundef 2048) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__.tulip_copy_tx_buffers, i32 noundef %conv25.pre-phi.i, i32 noundef %and3.i, i64 noundef 2048) #9
   br label %if.end28
 
 if.end44.i:                                       ; preds = %if.end23.i
@@ -1658,9 +1657,9 @@ if.then46.i:                                      ; preds = %if.end44.i
   %idx.ext53.i = zext i16 %55 to i64
   %add.ptr54.i = getelementptr i8, ptr %tx_frame.i, i64 %idx.ext53.i
   %conv55.i = zext nneg i32 %and3.i to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i29.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv48.i, i32 1, ptr noundef %add.ptr54.i, i64 noundef %conv55.i, i1 noundef zeroext false) #8
+  %call.i.i.i.i29.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv48.i, i32 1, ptr noundef %add.ptr54.i, i64 noundef %conv55.i, i1 noundef zeroext false) #9
   %58 = load i16, ptr %tx_frame_len, align 16
   %59 = trunc i32 %and3.i to i16
   %conv60.i = add i16 %58, %59
@@ -1699,10 +1698,10 @@ if.else.i:                                        ; preds = %if.then.i64
 
 if.then7.i:                                       ; preds = %if.else.i
   %65 = load ptr, ptr %nic.i, align 16
-  %call8.i = call ptr @qemu_get_queue(ptr noundef %65) #8
+  %call8.i = call ptr @qemu_get_queue(ptr noundef %65) #9
   %66 = load i16, ptr %tx_frame_len, align 16
   %conv12.i = zext i16 %66 to i32
-  %call13.i = call i64 @qemu_send_packet(ptr noundef %call8.i, ptr noundef nonnull %tx_frame.i, i32 noundef %conv12.i) #8
+  %call13.i = call i64 @qemu_send_packet(ptr noundef %call8.i, ptr noundef nonnull %tx_frame.i, i32 noundef %conv12.i) #9
   br label %if.end15.ithread-pre-split
 
 if.end15.ithread-pre-split:                       ; preds = %if.then2.i, %if.else.i, %if.then7.i
@@ -1778,9 +1777,9 @@ entry:
   %and = and i32 %0, 1048576
   %tobool.not = icmp eq i32 %and, 0
   %bus_master_as.i.i36 = getelementptr inbounds i8, ptr %s, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9
   fence seq_cst
-  %call.i.i.i.i.i37 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %p, i32 32, ptr noundef %desc, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i37 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %p, i32 32, ptr noundef %desc, i64 noundef 4, i1 noundef zeroext false) #9
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1789,25 +1788,25 @@ if.then:                                          ; preds = %entry
   store i32 %2, ptr %desc, align 4
   %add = add i64 %p, 4
   %control = getelementptr inbounds i8, ptr %desc, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i31 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add, i32 32, ptr noundef nonnull %control, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i31 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add, i32 32, ptr noundef nonnull %control, i64 noundef 4, i1 noundef zeroext false) #9
   %3 = load i32, ptr %control, align 4
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   store i32 %4, ptr %control, align 4
   %add5 = add i64 %p, 8
   %buf_addr1 = getelementptr inbounds i8, ptr %desc, i64 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i33 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add5, i32 32, ptr noundef nonnull %buf_addr1, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i33 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add5, i32 32, ptr noundef nonnull %buf_addr1, i64 noundef 4, i1 noundef zeroext false) #9
   %5 = load i32, ptr %buf_addr1, align 4
   %6 = tail call i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %buf_addr1, align 4
   %add9 = add i64 %p, 12
   %buf_addr2 = getelementptr inbounds i8, ptr %desc, i64 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i35 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add9, i32 32, ptr noundef nonnull %buf_addr2, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i35 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add9, i32 32, ptr noundef nonnull %buf_addr2, i64 noundef 4, i1 noundef zeroext false) #9
   %7 = load i32, ptr %buf_addr2, align 4
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   store i32 %8, ptr %buf_addr2, align 4
@@ -1816,19 +1815,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %add17 = add i64 %p, 4
   %control18 = getelementptr inbounds i8, ptr %desc, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i39 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add17, i32 32, ptr noundef nonnull %control18, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i39 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add17, i32 32, ptr noundef nonnull %control18, i64 noundef 4, i1 noundef zeroext false) #9
   %add22 = add i64 %p, 8
   %buf_addr123 = getelementptr inbounds i8, ptr %desc, i64 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i41 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add22, i32 32, ptr noundef nonnull %buf_addr123, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i41 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add22, i32 32, ptr noundef nonnull %buf_addr123, i64 noundef 4, i1 noundef zeroext false) #9
   %add27 = add i64 %p, 12
   %buf_addr228 = getelementptr inbounds i8, ptr %desc, i64 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i43 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add27, i32 32, ptr noundef nonnull %buf_addr228, i64 noundef 4, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i43 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i36, i64 noundef %add27, i32 32, ptr noundef nonnull %buf_addr228, i64 noundef 4, i1 noundef zeroext false) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1858,9 +1857,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i)
   %2 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %2, ptr %val.addr.i.i, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %p, i32 32, ptr noundef nonnull %val.addr.i.i, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %p, i32 32, ptr noundef nonnull %val.addr.i.i, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i)
   %add = add i64 %p, 4
   %control = getelementptr inbounds i8, ptr %desc, i64 4
@@ -1868,9 +1867,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i30)
   %4 = call noundef i32 @llvm.bswap.i32(i32 %3)
   store i32 %4, ptr %val.addr.i.i30, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i32 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add, i32 32, ptr noundef nonnull %val.addr.i.i30, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i32 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add, i32 32, ptr noundef nonnull %val.addr.i.i30, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i30)
   %add5 = add i64 %p, 8
   %buf_addr1 = getelementptr inbounds i8, ptr %desc, i64 8
@@ -1878,9 +1877,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i33)
   %6 = call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %val.addr.i.i33, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i35 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add5, i32 32, ptr noundef nonnull %val.addr.i.i33, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i35 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add5, i32 32, ptr noundef nonnull %val.addr.i.i33, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i33)
   %add9 = add i64 %p, 12
   %buf_addr2 = getelementptr inbounds i8, ptr %desc, i64 12
@@ -1888,45 +1887,45 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i36)
   %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
   store i32 %8, ptr %val.addr.i.i36, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i38 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add9, i32 32, ptr noundef nonnull %val.addr.i.i36, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i38 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add9, i32 32, ptr noundef nonnull %val.addr.i.i36, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i36)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i39)
   store i32 %1, ptr %val.addr.i.i39, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i41 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %p, i32 32, ptr noundef nonnull %val.addr.i.i39, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i41 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %p, i32 32, ptr noundef nonnull %val.addr.i.i39, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i39)
   %add17 = add i64 %p, 4
   %control18 = getelementptr inbounds i8, ptr %desc, i64 4
   %9 = load i32, ptr %control18, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i42)
   store i32 %9, ptr %val.addr.i.i42, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i44 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add17, i32 32, ptr noundef nonnull %val.addr.i.i42, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i44 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add17, i32 32, ptr noundef nonnull %val.addr.i.i42, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i42)
   %add22 = add i64 %p, 8
   %buf_addr123 = getelementptr inbounds i8, ptr %desc, i64 8
   %10 = load i32, ptr %buf_addr123, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i45)
   store i32 %10, ptr %val.addr.i.i45, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i47 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add22, i32 32, ptr noundef nonnull %val.addr.i.i45, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i47 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add22, i32 32, ptr noundef nonnull %val.addr.i.i45, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i45)
   %add27 = add i64 %p, 12
   %buf_addr228 = getelementptr inbounds i8, ptr %desc, i64 12
   %11 = load i32, ptr %buf_addr228, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i48)
   store i32 %11, ptr %val.addr.i.i48, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i50 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add27, i32 32, ptr noundef nonnull %val.addr.i.i48, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i50 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i40, i64 noundef %add27, i32 32, ptr noundef nonnull %val.addr.i.i48, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i48)
   br label %if.end
 
@@ -1937,7 +1936,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #4
+declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @tulip_receive(ptr noundef %s, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
@@ -1964,16 +1963,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %buf, i64 noundef %size) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %buf, i64 noundef %size) #9
   br label %trace_tulip_receive.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef %buf, i64 noundef %size) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef %buf, i64 noundef %size) #9
   br label %trace_tulip_receive.exit
 
 trace_tulip_receive.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2129,9 +2128,9 @@ if.then.i:                                        ; preds = %if.end36
   %sub.i = sub nsw i64 %conv12.i, %conv14.i
   %add.ptr.i = getelementptr i8, ptr %rx_frame, i64 %sub.i
   %conv15.i = zext nneg i32 %and.conv.i to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv11.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv15.i, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv11.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv15.i, i1 noundef zeroext true) #9
   %32 = load i16, ptr %rx_frame_len, align 2
   %33 = trunc i32 %and.conv.i to i16
   %conv19.i = sub i16 %32, %33
@@ -2156,9 +2155,9 @@ if.then26.i:                                      ; preds = %if.end20.i
   %sub44.i = sub nsw i64 %conv41.i, %conv43.i
   %add.ptr46.i = getelementptr i8, ptr %rx_frame, i64 %sub44.i
   %conv47.i = zext nneg i32 %and3.conv22.i to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i28.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv37.i, i32 1, ptr noundef %add.ptr46.i, i64 noundef %conv47.i, i1 noundef zeroext true) #8
+  %call.i.i.i.i28.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv37.i, i32 1, ptr noundef %add.ptr46.i, i64 noundef %conv47.i, i1 noundef zeroext true) #9
   %36 = load i16, ptr %rx_frame_len, align 2
   %37 = trunc i32 %and3.conv22.i to i16
   %conv52.i = sub i16 %36, %37
@@ -2267,16 +2266,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.55, i32 noundef %conv, i32 noundef %0, i32 noundef %shr, i32 noundef %and, i32 noundef %and4, i32 noundef %2, i32 noundef %3) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.55, i32 noundef %conv, i32 noundef %0, i32 noundef %shr, i32 noundef %and, i32 noundef %and4, i32 noundef %2, i32 noundef %3) #9
   br label %trace_tulip_descriptor.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.55, i32 noundef %conv, i32 noundef %0, i32 noundef %shr, i32 noundef %and, i32 noundef %and4, i32 noundef %2, i32 noundef %3) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.55, i32 noundef %conv, i32 noundef %0, i32 noundef %shr, i32 noundef %and, i32 noundef %and4, i32 noundef %2, i32 noundef %3) #9
   br label %trace_tulip_descriptor.exit
 
 trace_tulip_descriptor.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2289,7 +2288,7 @@ declare void @eeprom93xx_write(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @tulip_receive_nc(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
-  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #8
+  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %call1 = tail call fastcc i64 @tulip_receive(ptr noundef %call, ptr noundef %buf, i64 noundef %size), !range !13
   ret i64 %call1
 }
@@ -2302,9 +2301,6 @@ declare void @qemu_free_irq(ptr noundef) local_unnamed_addr #1
 
 declare void @eeprom93xx_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #5
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
@@ -2315,17 +2311,21 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -2315,8 +2315,8 @@ define dso_local i64 @rb_econv_append(ptr noundef %0, ptr noundef %1, i64 nounde
 
 31:                                               ; preds = %rb_econv_check_error.exit, %27
   %.1 = phi i32 [ %.048, %27 ], [ %.2, %rb_econv_check_error.exit ]
-  %.046 = phi i64 [ %2, %27 ], [ %73, %rb_econv_check_error.exit ]
-  %.0 = phi ptr [ %1, %27 ], [ %62, %rb_econv_check_error.exit ]
+  %.046 = phi i64 [ %2, %27 ], [ %72, %rb_econv_check_error.exit ]
+  %.0 = phi ptr [ %1, %27 ], [ %61, %rb_econv_check_error.exit ]
   %32 = load i64, ptr %29, align 8
   %33 = call i64 @rb_str_capacity(i64 noundef %.050) #24
   %34 = sub i64 %33, %32
@@ -2357,49 +2357,49 @@ RSTRING_PTR.exit:                                 ; preds = %43, %47
   %50 = getelementptr i8, ptr %.sroa.2.0.i, i64 %32
   store ptr %50, ptr %7, align 8
   %51 = call i32 @rb_econv_convert(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %44, ptr noundef nonnull %7, ptr noundef %49, i32 noundef %4)
-  %52 = call i32 @llvm.fshl.i32(i32 %.1, i32 %.1, i32 12)
-  %.off = add i32 %52, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %53, label %61
+  switch i32 %.1, label %60 [
+    i32 1048576, label %52
+    i32 2097152, label %52
+  ]
 
-53:                                               ; preds = %RSTRING_PTR.exit
+52:                                               ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit
   store i32 %.1, ptr %8, align 4
-  %54 = load ptr, ptr %7, align 8
-  %55 = call i64 @rb_str_coderange_scan_restartable(ptr noundef %50, ptr noundef %54, ptr noundef %.047, ptr noundef nonnull %8) #21
-  %56 = load i32, ptr %8, align 4
-  %57 = load i64, ptr %28, align 8
-  %58 = and i64 %57, -3145729
-  %59 = zext i32 %56 to i64
-  %60 = or i64 %58, %59
-  store i64 %60, ptr %28, align 8
-  br label %61
+  %53 = load ptr, ptr %7, align 8
+  %54 = call i64 @rb_str_coderange_scan_restartable(ptr noundef %50, ptr noundef %53, ptr noundef %.047, ptr noundef nonnull %8) #21
+  %55 = load i32, ptr %8, align 4
+  %56 = load i64, ptr %28, align 8
+  %57 = and i64 %56, -3145729
+  %58 = zext i32 %55 to i64
+  %59 = or i64 %57, %58
+  store i64 %59, ptr %28, align 8
+  br label %60
 
-61:                                               ; preds = %RSTRING_PTR.exit, %53
-  %.2 = phi i32 [ %.1, %RSTRING_PTR.exit ], [ %56, %53 ]
-  %62 = load ptr, ptr %6, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = ptrtoint ptr %50 to i64
-  %66 = sub i64 %32, %65
-  %67 = add i64 %66, %64
-  call void @rb_str_set_len(i64 noundef %.050, i64 noundef %67) #21
-  %68 = call fastcc i64 @make_econv_exception(ptr noundef %0)
-  %69 = icmp eq i64 %68, 4
-  br i1 %69, label %rb_econv_check_error.exit, label %70
+60:                                               ; preds = %52, %RSTRING_PTR.exit
+  %.2 = phi i32 [ %.1, %RSTRING_PTR.exit ], [ %55, %52 ]
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = ptrtoint ptr %62 to i64
+  %64 = ptrtoint ptr %50 to i64
+  %65 = sub i64 %32, %64
+  %66 = add i64 %65, %63
+  call void @rb_str_set_len(i64 noundef %.050, i64 noundef %66) #21
+  %67 = call fastcc i64 @make_econv_exception(ptr noundef %0)
+  %68 = icmp eq i64 %67, 4
+  br i1 %68, label %rb_econv_check_error.exit, label %69
 
-70:                                               ; preds = %61
-  call void @rb_exc_raise(i64 noundef %68) #22
+69:                                               ; preds = %60
+  call void @rb_exc_raise(i64 noundef %67) #22
   unreachable
 
-rb_econv_check_error.exit:                        ; preds = %61
-  %71 = ptrtoint ptr %.0 to i64
-  %72 = ptrtoint ptr %62 to i64
-  %.neg = add i64 %.046, %71
-  %73 = sub i64 %.neg, %72
-  %74 = icmp eq i32 %51, 2
-  br i1 %74, label %31, label %75, !llvm.loop !39
+rb_econv_check_error.exit:                        ; preds = %60
+  %70 = ptrtoint ptr %.0 to i64
+  %71 = ptrtoint ptr %61 to i64
+  %.neg = add i64 %.046, %70
+  %72 = sub i64 %.neg, %71
+  %73 = icmp eq i32 %51, 2
+  br i1 %73, label %31, label %74, !llvm.loop !39
 
-75:                                               ; preds = %rb_econv_check_error.exit
+74:                                               ; preds = %rb_econv_check_error.exit
   ret i64 %.050
 }
 
@@ -11146,14 +11146,11 @@ declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_add
 
 declare i64 @rb_attr_get(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
@@ -11162,19 +11159,19 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #17
+declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #17
+declare i64 @llvm.smax.i64(i64, i64) #18
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11193,8 +11190,8 @@ attributes #13 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nounwind }

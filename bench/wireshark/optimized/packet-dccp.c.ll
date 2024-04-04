@@ -2480,58 +2480,58 @@ dissect_feature_options.exit:                     ; preds = %.lr.ph44.i, %.lr.ph
   %257 = load i32, ptr @ett_dccp_options_item, align 4
   %258 = call ptr @proto_item_add_subtree(ptr noundef %256, i32 noundef %257) #10
   %259 = add i32 %.1, 1
-  %260 = zext i8 %155 to i32
-  %261 = add nsw i32 %260, -5
-  %262 = call i32 @llvm.fshl.i32(i32 %261, i32 %261, i32 31)
-  switch i32 %262, label %293 [
-    i32 0, label %263
-    i32 1, label %269
-    i32 6, label %278
-    i32 7, label %284
+  %260 = sub i8 %.0371, 6
+  %261 = call i8 @llvm.fshl.i8(i8 %260, i8 %260, i8 7)
+  switch i8 %261, label %292 [
+    i8 0, label %262
+    i8 1, label %268
+    i8 6, label %277
+    i8 7, label %283
   ]
 
-263:                                              ; preds = %254
-  %264 = load i32, ptr @hf_mpdccp_addrid, align 4
-  %265 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %264, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
-  %266 = load i32, ptr @hf_mpdccp_addr_dec, align 4
-  %267 = add i32 %.1, 2
-  %268 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %266, ptr noundef %0, i32 noundef %267, i32 noundef 4, i32 noundef -2147483648) #10
+262:                                              ; preds = %254
+  %263 = load i32, ptr @hf_mpdccp_addrid, align 4
+  %264 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %263, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
+  %265 = load i32, ptr @hf_mpdccp_addr_dec, align 4
+  %266 = add i32 %.1, 2
+  %267 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %265, ptr noundef %0, i32 noundef %266, i32 noundef 4, i32 noundef -2147483648) #10
   br label %385
 
-269:                                              ; preds = %254
-  %270 = load i32, ptr @hf_mpdccp_addrid, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %270, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
-  %272 = load i32, ptr @hf_mpdccp_addr_dec, align 4
-  %273 = add i32 %.1, 2
-  %274 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %272, ptr noundef %0, i32 noundef %273, i32 noundef 4, i32 noundef -2147483648) #10
-  %275 = load i32, ptr @hf_mpdccp_addrport, align 4
-  %276 = add i32 %.1, 6
-  %277 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %275, ptr noundef %0, i32 noundef %276, i32 noundef 2, i32 noundef 0) #10
+268:                                              ; preds = %254
+  %269 = load i32, ptr @hf_mpdccp_addrid, align 4
+  %270 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %269, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
+  %271 = load i32, ptr @hf_mpdccp_addr_dec, align 4
+  %272 = add i32 %.1, 2
+  %273 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %271, ptr noundef %0, i32 noundef %272, i32 noundef 4, i32 noundef -2147483648) #10
+  %274 = load i32, ptr @hf_mpdccp_addrport, align 4
+  %275 = add i32 %.1, 6
+  %276 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %274, ptr noundef %0, i32 noundef %275, i32 noundef 2, i32 noundef 0) #10
   br label %385
 
-278:                                              ; preds = %254
-  %279 = load i32, ptr @hf_mpdccp_addrid, align 4
-  %280 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %279, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
-  %281 = load i32, ptr @hf_mpdccp_addr_hex, align 4
-  %282 = add i32 %.1, 2
-  %283 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %281, ptr noundef %0, i32 noundef %282, i32 noundef 16, i32 noundef 0) #10
+277:                                              ; preds = %254
+  %278 = load i32, ptr @hf_mpdccp_addrid, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %278, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
+  %280 = load i32, ptr @hf_mpdccp_addr_hex, align 4
+  %281 = add i32 %.1, 2
+  %282 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %280, ptr noundef %0, i32 noundef %281, i32 noundef 16, i32 noundef 0) #10
   br label %385
 
-284:                                              ; preds = %254
-  %285 = load i32, ptr @hf_mpdccp_addrid, align 4
-  %286 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %285, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
-  %287 = load i32, ptr @hf_mpdccp_addr_hex, align 4
-  %288 = add i32 %.1, 2
-  %289 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %287, ptr noundef %0, i32 noundef %288, i32 noundef 16, i32 noundef 0) #10
-  %290 = load i32, ptr @hf_mpdccp_addrport, align 4
-  %291 = add i32 %.1, 18
-  %292 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %290, ptr noundef %0, i32 noundef %291, i32 noundef 2, i32 noundef 0) #10
+283:                                              ; preds = %254
+  %284 = load i32, ptr @hf_mpdccp_addrid, align 4
+  %285 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %284, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #10
+  %286 = load i32, ptr @hf_mpdccp_addr_hex, align 4
+  %287 = add i32 %.1, 2
+  %288 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %286, ptr noundef %0, i32 noundef %287, i32 noundef 16, i32 noundef 0) #10
+  %289 = load i32, ptr @hf_mpdccp_addrport, align 4
+  %290 = add i32 %.1, 18
+  %291 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %289, ptr noundef %0, i32 noundef %290, i32 noundef 2, i32 noundef 0) #10
   br label %385
 
-293:                                              ; preds = %254
+292:                                              ; preds = %254
+  %293 = zext i8 %155 to i32
   %294 = load i32, ptr @hf_dccp_option_data, align 4
-  %295 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %294, ptr noundef %0, i32 noundef %259, i32 noundef %260, i32 noundef 0) #10
-  %296 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %295, ptr noundef nonnull @ei_dccp_option_len_bad, ptr noundef nonnull @.str.253, i32 noundef %260) #10
+  %295 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %294, ptr noundef %0, i32 noundef %259, i32 noundef %293, i32 noundef 0) #10
+  %296 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %295, ptr noundef nonnull @ei_dccp_option_len_bad, ptr noundef nonnull @.str.253, i32 noundef %293) #10
   br label %385
 
 297:                                              ; preds = %153
@@ -2671,9 +2671,9 @@ dissect_feature_options.exit:                     ; preds = %.lr.ph44.i, %.lr.ph
   %384 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %383, ptr noundef %0, i32 noundef %.1, i32 noundef %373, i32 noundef 0) #10
   br label %385
 
-385:                                              ; preds = %364, %369, %356, %354, %352, %156, %185, %327, %336, %340, %180, %171, %204, %197, %214, %211, %228, %220, %249, %240, %293, %284, %278, %269, %263, %307, %299, %322, %319, %148, %151, %138, %144, %141, %120, %129, %135, %123, %113, %116, %93, %95, %382, %379, %374, %358, %107, %103, %99, %87, %dissect_feature_options.exit, %34, %30, %26
-  %.1372 = phi i8 [ %.0371, %374 ], [ %.0371, %379 ], [ %.0371, %382 ], [ 4, %364 ], [ %.0371, %369 ], [ %.0371, %358 ], [ 4, %352 ], [ 4, %354 ], [ %.0371, %356 ], [ %155, %340 ], [ %155, %336 ], [ %155, %327 ], [ 1, %319 ], [ %155, %322 ], [ 1, %299 ], [ %155, %307 ], [ %155, %293 ], [ %155, %284 ], [ %155, %278 ], [ %155, %269 ], [ %155, %263 ], [ 9, %240 ], [ %155, %249 ], [ 20, %220 ], [ %155, %228 ], [ 6, %211 ], [ %155, %214 ], [ %155, %197 ], [ %155, %204 ], [ %155, %185 ], [ 9, %171 ], [ %155, %180 ], [ %155, %156 ], [ 4, %148 ], [ %.0371, %151 ], [ 2, %138 ], [ 4, %141 ], [ %.0371, %144 ], [ 4, %120 ], [ 6, %123 ], [ 8, %129 ], [ %.0371, %135 ], [ 4, %113 ], [ %.0371, %116 ], [ %.0371, %107 ], [ %.0371, %103 ], [ %.0371, %99 ], [ %.0371, %93 ], [ %.0371, %95 ], [ %.0371, %87 ], [ %.0371, %dissect_feature_options.exit ], [ %.0371, %34 ], [ %.0371, %30 ], [ %.0371, %26 ]
-  %.2 = phi i32 [ %.1, %374 ], [ %.1, %379 ], [ %.1, %382 ], [ %.1, %364 ], [ %.1, %369 ], [ %.1, %358 ], [ %.1, %352 ], [ %.1, %354 ], [ %.1, %356 ], [ %.1, %340 ], [ %.1, %336 ], [ %332, %327 ], [ %317, %319 ], [ %317, %322 ], [ %304, %299 ], [ %.1, %307 ], [ %259, %293 ], [ %259, %284 ], [ %259, %278 ], [ %259, %269 ], [ %259, %263 ], [ %238, %240 ], [ %238, %249 ], [ %225, %220 ], [ %.1, %228 ], [ %212, %211 ], [ %.1, %214 ], [ %194, %197 ], [ %194, %204 ], [ %.1, %185 ], [ %169, %171 ], [ %169, %180 ], [ %161, %156 ], [ %.1, %148 ], [ %.1, %151 ], [ %.1, %138 ], [ %.1, %141 ], [ %.1, %144 ], [ %.1, %120 ], [ %.1, %123 ], [ %.1, %129 ], [ %.1, %135 ], [ %.1, %113 ], [ %.1, %116 ], [ %.1, %107 ], [ %.1, %103 ], [ %.1, %99 ], [ %.1, %93 ], [ %.1, %95 ], [ %.1, %87 ], [ %.1, %dissect_feature_options.exit ], [ %.1, %34 ], [ %.1, %30 ], [ %.1, %26 ]
+385:                                              ; preds = %364, %369, %356, %354, %352, %156, %185, %327, %336, %340, %180, %171, %204, %197, %214, %211, %228, %220, %249, %240, %292, %283, %277, %268, %262, %307, %299, %322, %319, %148, %151, %138, %144, %141, %120, %129, %135, %123, %113, %116, %93, %95, %382, %379, %374, %358, %107, %103, %99, %87, %dissect_feature_options.exit, %34, %30, %26
+  %.1372 = phi i8 [ %.0371, %374 ], [ %.0371, %379 ], [ %.0371, %382 ], [ 4, %364 ], [ %.0371, %369 ], [ %.0371, %358 ], [ 4, %352 ], [ 4, %354 ], [ %.0371, %356 ], [ %155, %340 ], [ %155, %336 ], [ %155, %327 ], [ 1, %319 ], [ %155, %322 ], [ 1, %299 ], [ %155, %307 ], [ %155, %292 ], [ 19, %283 ], [ 17, %277 ], [ 7, %268 ], [ 5, %262 ], [ 9, %240 ], [ %155, %249 ], [ 20, %220 ], [ %155, %228 ], [ 6, %211 ], [ %155, %214 ], [ %155, %197 ], [ %155, %204 ], [ %155, %185 ], [ 9, %171 ], [ %155, %180 ], [ %155, %156 ], [ 4, %148 ], [ %.0371, %151 ], [ 2, %138 ], [ 4, %141 ], [ %.0371, %144 ], [ 4, %120 ], [ 6, %123 ], [ 8, %129 ], [ %.0371, %135 ], [ 4, %113 ], [ %.0371, %116 ], [ %.0371, %107 ], [ %.0371, %103 ], [ %.0371, %99 ], [ %.0371, %93 ], [ %.0371, %95 ], [ %.0371, %87 ], [ %.0371, %dissect_feature_options.exit ], [ %.0371, %34 ], [ %.0371, %30 ], [ %.0371, %26 ]
+  %.2 = phi i32 [ %.1, %374 ], [ %.1, %379 ], [ %.1, %382 ], [ %.1, %364 ], [ %.1, %369 ], [ %.1, %358 ], [ %.1, %352 ], [ %.1, %354 ], [ %.1, %356 ], [ %.1, %340 ], [ %.1, %336 ], [ %332, %327 ], [ %317, %319 ], [ %317, %322 ], [ %304, %299 ], [ %.1, %307 ], [ %259, %292 ], [ %259, %283 ], [ %259, %277 ], [ %259, %268 ], [ %259, %262 ], [ %238, %240 ], [ %238, %249 ], [ %225, %220 ], [ %.1, %228 ], [ %212, %211 ], [ %.1, %214 ], [ %194, %197 ], [ %194, %204 ], [ %.1, %185 ], [ %169, %171 ], [ %169, %180 ], [ %161, %156 ], [ %.1, %148 ], [ %.1, %151 ], [ %.1, %138 ], [ %.1, %141 ], [ %.1, %144 ], [ %.1, %120 ], [ %.1, %123 ], [ %.1, %129 ], [ %.1, %135 ], [ %.1, %113 ], [ %.1, %116 ], [ %.1, %107 ], [ %.1, %103 ], [ %.1, %99 ], [ %.1, %93 ], [ %.1, %95 ], [ %.1, %87 ], [ %.1, %dissect_feature_options.exit ], [ %.1, %34 ], [ %.1, %30 ], [ %.1, %26 ]
   %386 = zext i8 %.1372 to i32
   %387 = add i32 %.2, %386
   %388 = icmp slt i32 %387, %4
@@ -2850,9 +2850,6 @@ declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 nounde
 declare void @address_to_str_buf(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2866,6 +2863,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

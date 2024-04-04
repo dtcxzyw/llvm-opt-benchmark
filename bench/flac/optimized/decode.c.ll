@@ -1474,9 +1474,9 @@ if.else273:                                       ; preds = %if.end256
   %add282 = add i32 %cond, %1
   %cmp283 = icmp eq i32 %add282, 16
   %or.cond355 = select i1 %or.cond1.not.not, i1 %cmp283, i1 false
-  br i1 %or.cond355, label %if.end295, label %if.else310
+  br i1 %or.cond355, label %if.else291, label %if.else310
 
-if.end295:                                        ; preds = %if.else273
+if.else291:                                       ; preds = %if.else273
   %65 = load ptr, ptr %buffer, align 8
   %mul294 = shl nuw nsw i64 %conv212, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 @write_callback.ubuf, ptr align 4 %65, i64 %mul294, i1 false)
@@ -1485,9 +1485,9 @@ if.end295:                                        ; preds = %if.else273
   %wide.trip.count634 = zext i32 %umax633 to i64
   br label %for.body299
 
-for.body299:                                      ; preds = %if.end295, %for.body299
-  %indvars.iv630 = phi i64 [ 0, %if.end295 ], [ %indvars.iv.next631, %for.body299 ]
-  %buf1_.0446 = phi ptr [ getelementptr inbounds (i16, ptr @write_callback.ubuf, i64 1), %if.end295 ], [ %add.ptr306, %for.body299 ]
+for.body299:                                      ; preds = %if.else291, %for.body299
+  %indvars.iv630 = phi i64 [ 0, %if.else291 ], [ %indvars.iv.next631, %for.body299 ]
+  %buf1_.0446 = phi ptr [ getelementptr inbounds (i16, ptr @write_callback.ubuf, i64 1), %if.else291 ], [ %add.ptr306, %for.body299 ]
   %66 = load ptr, ptr %arrayidx300, align 8
   %arrayidx302 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv630
   %67 = load i32, ptr %arrayidx302, align 4
@@ -1534,7 +1534,7 @@ for.end334:                                       ; preds = %for.body327
   br label %if.end814
 
 if.else337:                                       ; preds = %if.else310
-  %70 = add i32 %add282, -8
+  %70 = sub i32 %add282, 8
   %71 = call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 29)
   switch i32 %71, label %if.else803 [
     i32 1, label %if.then341
@@ -3785,20 +3785,20 @@ declare i32 @flac__foreign_metadata_compare_with_iff(ptr noundef, ptr noundef, p
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3810,8 +3810,8 @@ attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }

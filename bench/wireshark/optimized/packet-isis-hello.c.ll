@@ -997,8 +997,8 @@ define internal void @dissect_hello_restart_clv(ptr noundef %0, ptr nocapture re
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_hello_ptp_adj_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
-  %7 = add i32 %5, -1
-  %8 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 31)
+  %7 = sub i32 %5, 1
+  %8 = call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 31)
   switch i32 %8, label %47 [
     i32 0, label %9
     i32 2, label %12

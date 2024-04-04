@@ -3507,232 +3507,228 @@ define internal noundef i32 @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_object
   %11 = load i8, ptr %10, align 4
   switch i8 %11, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split [
     i8 0, label %12
-    i8 1, label %19
-    i8 2, label %26
-    i8 5, label %31
-    i8 6, label %37
+    i8 1, label %18
+    i8 2, label %24
+    i8 5, label %29
+    i8 6, label %35
   ]
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %6, i64 21
   %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %15, -8
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 29)
-  %18 = icmp ult i32 %17, 8
-  br i1 %18, label %switch.hole_check, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
+  %15 = add i8 %14, -8
+  %16 = tail call i8 @llvm.fshl.i8(i8 %15, i8 %15, i8 5)
+  %17 = icmp ult i8 %16, 8
+  br i1 %17, label %switch.hole_check, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
 
-19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %6, i64 21
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = add nsw i32 %22, -8
-  %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 29)
-  %25 = icmp ult i32 %24, 8
-  br i1 %25, label %switch.hole_check77, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds i8, ptr %6, i64 21
+  %20 = load i8, ptr %19, align 1
+  %21 = add i8 %20, -8
+  %22 = tail call i8 @llvm.fshl.i8(i8 %21, i8 %21, i8 5)
+  %23 = icmp ult i8 %22, 8
+  br i1 %23, label %switch.hole_check77, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
 
-26:                                               ; preds = %9
-  %27 = getelementptr inbounds i8, ptr %6, i64 21
-  %28 = load i8, ptr %27, align 1
-  switch i8 %28, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split [
-    i8 16, label %37
-    i8 32, label %29
-    i8 64, label %30
+24:                                               ; preds = %9
+  %25 = getelementptr inbounds i8, ptr %6, i64 21
+  %26 = load i8, ptr %25, align 1
+  switch i8 %26, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split [
+    i8 16, label %35
+    i8 32, label %27
+    i8 64, label %28
   ]
 
-29:                                               ; preds = %26
-  br label %37
+27:                                               ; preds = %24
+  br label %35
 
-30:                                               ; preds = %26
-  br label %37
+28:                                               ; preds = %24
+  br label %35
 
-31:                                               ; preds = %9
-  %32 = getelementptr inbounds i8, ptr %6, i64 21
-  %33 = load i8, ptr %32, align 1
-  switch i8 %33, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split [
-    i8 64, label %37
-    i8 -128, label %34
+29:                                               ; preds = %9
+  %30 = getelementptr inbounds i8, ptr %6, i64 21
+  %31 = load i8, ptr %30, align 1
+  switch i8 %31, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split [
+    i8 64, label %35
+    i8 -128, label %32
   ]
 
-34:                                               ; preds = %31
-  br label %37
+32:                                               ; preds = %29
+  br label %35
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i32 %17 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.shifted = lshr i8 -117, %16
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %35 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi, i64 0, i64 %35
+  %33 = zext nneg i8 %16 to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi, i64 0, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %37
+  br label %35
 
-switch.hole_check77:                              ; preds = %19
-  %switch.maskindex79 = trunc i32 %24 to i8
-  %switch.shifted80 = lshr i8 -117, %switch.maskindex79
-  %switch.lobit81 = trunc i8 %switch.shifted80 to i1
-  br i1 %switch.lobit81, label %switch.lookup78, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
+switch.hole_check77:                              ; preds = %18
+  %switch.shifted79 = lshr i8 -117, %22
+  %switch.lobit80 = trunc i8 %switch.shifted79 to i1
+  br i1 %switch.lobit80, label %switch.lookup78, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
 
 switch.lookup78:                                  ; preds = %switch.hole_check77
-  %36 = zext nneg i32 %24 to i64
-  %switch.gep82 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 0, i64 %36
-  %switch.load83 = load ptr, ptr %switch.gep82, align 8
-  br label %37
+  %34 = zext nneg i8 %22 to i64
+  %switch.gep81 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 0, i64 %34
+  %switch.load82 = load ptr, ptr %switch.gep81, align 8
+  br label %35
 
-37:                                               ; preds = %switch.lookup78, %switch.lookup, %9, %31, %26, %34, %30, %29
-  %.049.ph = phi ptr [ @.str.47, %29 ], [ @.str.48, %30 ], [ @.str.50, %34 ], [ @.str.46, %26 ], [ @.str.49, %31 ], [ @.str.51, %9 ], [ %switch.load, %switch.lookup ], [ %switch.load83, %switch.lookup78 ]
-  %38 = getelementptr inbounds i8, ptr %6, i64 22
-  %39 = load i16, ptr %38, align 2
-  %.not52 = icmp eq i16 %39, 1
-  br i1 %.not52, label %40, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
+35:                                               ; preds = %switch.lookup78, %switch.lookup, %9, %29, %24, %32, %28, %27
+  %.049.ph = phi ptr [ @.str.47, %27 ], [ @.str.48, %28 ], [ @.str.50, %32 ], [ @.str.46, %24 ], [ @.str.49, %29 ], [ @.str.51, %9 ], [ %switch.load, %switch.lookup ], [ %switch.load82, %switch.lookup78 ]
+  %36 = getelementptr inbounds i8, ptr %6, i64 22
+  %37 = load i16, ptr %36, align 2
+  %.not52 = icmp eq i16 %37, 1
+  br i1 %.not52, label %38, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
-  store ptr %.049.ph, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 21
-  %43 = load i8, ptr %42, align 1
-  %44 = lshr i8 %43, 3
-  %45 = zext nneg i8 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 %45, ptr %46, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = getelementptr inbounds i8, ptr %6, i64 40
-  %50 = load i64, ptr %49, align 8
-  %51 = add i64 %50, %48
-  %52 = inttoptr i64 %51 to ptr
-  store ptr %52, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %0, ptr %53, align 8
-  %54 = load i64, ptr %0, align 8
-  %55 = add nsw i64 %54, 1
-  store i64 %55, ptr %0, align 8
-  %56 = load i64, ptr %46, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 16
-  %58 = load i32, ptr %57, align 8
-  %59 = sext i32 %58 to i64
-  %60 = shl nsw i64 %59, 3
-  %61 = tail call ptr @PyMem_Malloc(i64 noundef %60)
-  %.not.i = icmp eq ptr %61, null
-  br i1 %.not.i, label %62, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  store ptr %.049.ph, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %6, i64 21
+  %41 = load i8, ptr %40, align 1
+  %42 = lshr i8 %41, 3
+  %43 = zext nneg i8 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 %43, ptr %44, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = getelementptr inbounds i8, ptr %6, i64 40
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, %46
+  %50 = inttoptr i64 %49 to ptr
+  store ptr %50, ptr %1, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %0, ptr %51, align 8
+  %52 = load i64, ptr %0, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr %0, align 8
+  %54 = load i64, ptr %44, align 8
+  %55 = getelementptr inbounds i8, ptr %6, i64 16
+  %56 = load i32, ptr %55, align 8
+  %57 = sext i32 %56 to i64
+  %58 = shl nsw i64 %57, 3
+  %59 = tail call ptr @PyMem_Malloc(i64 noundef %58)
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %60, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
 
-62:                                               ; preds = %40
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.35, i64 noundef %59) #17
+60:                                               ; preds = %38
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.35, i64 noundef %57) #17
   unreachable
 
-_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %40
-  %63 = load i32, ptr %57, align 8
-  %64 = sext i32 %63 to i64
-  %65 = shl nsw i64 %64, 3
-  %66 = invoke ptr @PyMem_Malloc(i64 noundef %65)
-          to label %.noexc unwind label %89
+_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %38
+  %61 = load i32, ptr %55, align 8
+  %62 = sext i32 %61 to i64
+  %63 = shl nsw i64 %62, 3
+  %64 = invoke ptr @PyMem_Malloc(i64 noundef %63)
+          to label %.noexc unwind label %87
 
 .noexc:                                           ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
-  %.not.i53 = icmp eq ptr %66, null
-  br i1 %.not.i53, label %70, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader
+  %.not.i53 = icmp eq ptr %64, null
+  br i1 %.not.i53, label %68, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader: ; preds = %.noexc
-  %67 = load i32, ptr %57, align 8
-  %.not69 = icmp eq i32 %67, 0
+  %65 = load i32, ptr %55, align 8
+  %.not69 = icmp eq i32 %65, 0
   br i1 %.not69, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader
-  %68 = getelementptr inbounds i8, ptr %6, i64 24
-  %69 = getelementptr inbounds i8, ptr %6, i64 32
+  %66 = getelementptr inbounds i8, ptr %6, i64 24
+  %67 = getelementptr inbounds i8, ptr %6, i64 32
   br label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54
 
-70:                                               ; preds = %.noexc
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.35, i64 noundef %64) #17
+68:                                               ; preds = %.noexc
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.35, i64 noundef %62) #17
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54: ; preds = %.lr.ph, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54
-  %.067 = phi i64 [ 0, %.lr.ph ], [ %85, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
-  %.05066 = phi i64 [ %56, %.lr.ph ], [ %74, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
-  %71 = load ptr, ptr %68, align 8
-  %72 = getelementptr inbounds i64, ptr %71, i64 %.067
-  %73 = load i64, ptr %72, align 8
-  %74 = mul nsw i64 %73, %.05066
-  %75 = load ptr, ptr %69, align 8
-  %76 = getelementptr inbounds i64, ptr %75, i64 %.067
-  %77 = load i64, ptr %76, align 8
-  %78 = load i64, ptr %46, align 8
-  %79 = mul nsw i64 %78, %77
-  %80 = getelementptr inbounds i64, ptr %61, i64 %.067
-  store i64 %79, ptr %80, align 8
-  %81 = load ptr, ptr %68, align 8
-  %82 = getelementptr inbounds i64, ptr %81, i64 %.067
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i64, ptr %66, i64 %.067
-  store i64 %83, ptr %84, align 8
-  %85 = add nuw i64 %.067, 1
-  %86 = load i32, ptr %57, align 8
-  %87 = sext i32 %86 to i64
-  %88 = icmp ult i64 %85, %87
-  br i1 %88, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54._crit_edge, !llvm.loop !67
+  %.067 = phi i64 [ 0, %.lr.ph ], [ %83, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
+  %.05066 = phi i64 [ %54, %.lr.ph ], [ %72, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
+  %69 = load ptr, ptr %66, align 8
+  %70 = getelementptr inbounds i64, ptr %69, i64 %.067
+  %71 = load i64, ptr %70, align 8
+  %72 = mul nsw i64 %71, %.05066
+  %73 = load ptr, ptr %67, align 8
+  %74 = getelementptr inbounds i64, ptr %73, i64 %.067
+  %75 = load i64, ptr %74, align 8
+  %76 = load i64, ptr %44, align 8
+  %77 = mul nsw i64 %76, %75
+  %78 = getelementptr inbounds i64, ptr %59, i64 %.067
+  store i64 %77, ptr %78, align 8
+  %79 = load ptr, ptr %66, align 8
+  %80 = getelementptr inbounds i64, ptr %79, i64 %.067
+  %81 = load i64, ptr %80, align 8
+  %82 = getelementptr inbounds i64, ptr %64, i64 %.067
+  store i64 %81, ptr %82, align 8
+  %83 = add nuw i64 %.067, 1
+  %84 = load i32, ptr %55, align 8
+  %85 = sext i32 %84 to i64
+  %86 = icmp ult i64 %83, %85
+  br i1 %86, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54._crit_edge, !llvm.loop !67
 
-89:                                               ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
-  %90 = landingpad { ptr, i32 }
+87:                                               ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
+  %88 = landingpad { ptr, i32 }
           cleanup
-  invoke void @PyMem_Free(ptr noundef nonnull %61)
-          to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit unwind label %91
+  invoke void @PyMem_Free(ptr noundef nonnull %59)
+          to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit unwind label %89
 
-91:                                               ; preds = %89
-  %92 = landingpad { ptr, i32 }
+89:                                               ; preds = %87
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  tail call void @__clang_call_terminate(ptr %93) #17
+  %91 = extractvalue { ptr, i32 } %90, 0
+  tail call void @__clang_call_terminate(ptr %91) #17
   unreachable
 
-_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %89
-  resume { ptr, i32 } %90
+_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %87
+  resume { ptr, i32 } %88
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54._crit_edge: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader
-  %.050.lcssa = phi i64 [ %56, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader ], [ %74, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
-  %.lcssa = phi i32 [ 0, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader ], [ %86, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
-  %94 = getelementptr inbounds i8, ptr %1, i64 36
-  store i32 %.lcssa, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 %.050.lcssa, ptr %95, align 8
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 35
-  %98 = load i8, ptr %97, align 1
-  %99 = and i8 %98, 1
-  %100 = zext nneg i8 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %1, i64 32
-  store i32 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 64
-  %103 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
-  store ptr %61, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr %66, ptr %104, align 8
+  %.050.lcssa = phi i64 [ %54, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader ], [ %72, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
+  %.lcssa = phi i32 [ 0, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54.preheader ], [ %84, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54 ]
+  %92 = getelementptr inbounds i8, ptr %1, i64 36
+  store i32 %.lcssa, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 %.050.lcssa, ptr %93, align 8
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 35
+  %96 = load i8, ptr %95, align 1
+  %97 = and i8 %96, 1
+  %98 = zext nneg i8 %97 to i32
+  %99 = getelementptr inbounds i8, ptr %1, i64 32
+  store i32 %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %1, i64 64
+  %101 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
+  store ptr %59, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %64, ptr %102, align 8
   invoke void @PyMem_Free(ptr noundef null)
-          to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55 unwind label %105
+          to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55 unwind label %103
 
-105:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54._crit_edge
-  %106 = landingpad { ptr, i32 }
+103:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54._crit_edge
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %107 = extractvalue { ptr, i32 } %106, 0
-  tail call void @__clang_call_terminate(ptr %107) #17
+  %105 = extractvalue { ptr, i32 } %104, 0
+  tail call void @__clang_call_terminate(ptr %105) #17
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit54._crit_edge
   invoke void @PyMem_Free(ptr noundef null)
-          to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56 unwind label %108
+          to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56 unwind label %106
 
-108:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  tail call void @__clang_call_terminate(ptr %110) #17
+  %108 = extractvalue { ptr, i32 } %107, 0
+  tail call void @__clang_call_terminate(ptr %108) #17
   unreachable
 
-_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split: ; preds = %switch.hole_check77, %19, %switch.hole_check, %12, %37, %9, %31, %26, %3
-  %.str.52.sink = phi ptr [ @.str.37, %3 ], [ @.str.52, %12 ], [ @.str.52, %19 ], [ @.str.52, %26 ], [ @.str.52, %31 ], [ @.str.52, %9 ], [ @.str.52, %37 ], [ @.str.52, %switch.hole_check ], [ @.str.52, %switch.hole_check77 ]
-  %111 = load ptr, ptr @PyExc_BufferError, align 8
-  tail call void @PyErr_SetString(ptr noundef %111, ptr noundef nonnull %.str.52.sink)
+_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split: ; preds = %switch.hole_check77, %18, %switch.hole_check, %12, %35, %9, %29, %24, %3
+  %.str.52.sink = phi ptr [ @.str.37, %3 ], [ @.str.52, %12 ], [ @.str.52, %18 ], [ @.str.52, %24 ], [ @.str.52, %29 ], [ @.str.52, %9 ], [ @.str.52, %35 ], [ @.str.52, %switch.hole_check ], [ @.str.52, %switch.hole_check77 ]
+  %109 = load ptr, ptr @PyExc_BufferError, align 8
+  tail call void @PyErr_SetString(ptr noundef %109, ptr noundef nonnull %.str.52.sink)
   br label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split, %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55
@@ -3806,17 +3802,17 @@ declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3831,9 +3827,9 @@ attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argme
 attributes #10 = { nofree nosync nounwind memory(none) }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { nounwind willreturn memory(read) }

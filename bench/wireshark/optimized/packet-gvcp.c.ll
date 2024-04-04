@@ -1033,6 +1033,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.758 = private unnamed_addr constant [32 x i8] c"[Cannot find requesting packet]\00", align 1
 @.str.759 = private unnamed_addr constant [27 x i8] c"Payload Data: WRITEMEM_ACK\00", align 1
 @.str.760 = private unnamed_addr constant [26 x i8] c"Payload Data: PENDING_ACK\00", align 1
+@switch.table.dissect_writereg_cmd = private unnamed_addr constant [12 x ptr] [ptr @gvcp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle, ptr @gvsp_handle], align 8
 @switch.table.dissect_readmem_ack = private unnamed_addr constant [4 x ptr] [ptr @hf_gvcp_sc_gendc_descriptor_address_v2_2, ptr @hf_gvcp_sc_gendc_descriptor_size_v2_2, ptr @hf_gvcp_sc_gendc_flow_mapping_table_address_v2_2, ptr @hf_gvcp_sc_gendc_flow_mapping_table_size_v2_2], align 8
 
 ; Function Attrs: nounwind uwtable
@@ -1928,125 +1929,123 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
   %.1.i = phi ptr [ %16, %11 ], [ %27, %25 ], [ %28, %.thread.i ]
   %29 = add i32 %12, -2816
   %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 26)
-  switch i32 %30, label %36 [
-    i32 11, label %31
-    i32 10, label %31
-    i32 9, label %31
-    i32 8, label %31
-    i32 0, label %34
-  ]
+  %31 = icmp ult i32 %30, 12
+  br i1 %31, label %switch.hole_check, label %34
 
-31:                                               ; preds = %get_register_name_from_address.exit, %get_register_name_from_address.exit, %get_register_name_from_address.exit, %get_register_name_from_address.exit
-  %32 = load ptr, ptr @gvsp_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.463, i32 noundef %13, ptr noundef %32) #5
-  %33 = icmp eq i32 %12, 2816
-  br i1 %33, label %34, label %36
+switch.hole_check:                                ; preds = %get_register_name_from_address.exit
+  %switch.maskindex = trunc i32 %30 to i16
+  %switch.shifted = lshr i16 3841, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %34
 
-34:                                               ; preds = %get_register_name_from_address.exit, %31
-  %35 = load ptr, ptr @gvcp_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.463, i32 noundef %13, ptr noundef %35) #5
-  br label %36
+switch.lookup:                                    ; preds = %switch.hole_check
+  %32 = zext nneg i32 %30 to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_writereg_cmd, i64 0, i64 %32
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %33 = load ptr, ptr %switch.load, align 8
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.463, i32 noundef %13, ptr noundef %33) #5
+  br label %34
 
-36:                                               ; preds = %get_register_name_from_address.exit, %34, %31
-  %37 = icmp ugt i32 %3, 15
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
-  %39 = load ptr, ptr %38, align 8
+34:                                               ; preds = %switch.hole_check, %get_register_name_from_address.exit, %switch.lookup
+  %35 = icmp ugt i32 %3, 15
+  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = load ptr, ptr %36, align 8
   %.not70 = icmp eq ptr %0, null
-  br i1 %37, label %40, label %.thread
+  br i1 %35, label %38, label %.thread
 
-40:                                               ; preds = %36
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.739) #5
+38:                                               ; preds = %34
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.739) #5
   br i1 %.not70, label %.loopexit, label %.thread75.thread
 
-.thread:                                          ; preds = %36
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.740, ptr noundef %.1.i, i32 noundef %13) #5
+.thread:                                          ; preds = %34
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.740, ptr noundef %.1.i, i32 noundef %13) #5
   %.not84 = icmp ult i32 %3, 8
   %or.cond = or i1 %.not70, %.not84
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
-.thread75.thread:                                 ; preds = %40
-  %41 = load i32, ptr @ett_gvcp_payload_cmd, align 4
-  %42 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 8, i32 noundef %3, i32 noundef %41, ptr noundef nonnull %7, ptr noundef nonnull @.str.741) #5
+.thread75.thread:                                 ; preds = %38
+  %39 = load i32, ptr @ett_gvcp_payload_cmd, align 4
+  %40 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 8, i32 noundef %3, i32 noundef %39, ptr noundef nonnull %7, ptr noundef nonnull @.str.741) #5
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %.thread75.thread
-  %.090 = phi ptr [ %42, %.thread75.thread ], [ %0, %.thread ]
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %44
+  %.090 = phi ptr [ %40, %.thread75.thread ], [ %0, %.thread ]
+  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %42
 
-44:                                               ; preds = %.lr.ph, %dissect_extended_bootstrap_register.exit
-  %.06683 = phi i32 [ 8, %.lr.ph ], [ %77, %dissect_extended_bootstrap_register.exit ]
-  %.06782 = phi i32 [ 0, %.lr.ph ], [ %78, %dissect_extended_bootstrap_register.exit ]
-  %45 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.06683) #5
-  %46 = call ptr @try_val_to_str(i32 noundef %45, ptr noundef nonnull @bootstrapregisternames) #5
-  %.not71 = icmp eq ptr %46, null
-  br i1 %.not71, label %.preheader, label %47
+42:                                               ; preds = %.lr.ph, %dissect_extended_bootstrap_register.exit
+  %.06683 = phi i32 [ 8, %.lr.ph ], [ %75, %dissect_extended_bootstrap_register.exit ]
+  %.06782 = phi i32 [ 0, %.lr.ph ], [ %76, %dissect_extended_bootstrap_register.exit ]
+  %43 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.06683) #5
+  %44 = call ptr @try_val_to_str(i32 noundef %43, ptr noundef nonnull @bootstrapregisternames) #5
+  %.not71 = icmp eq ptr %44, null
+  br i1 %.not71, label %.preheader, label %45
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr @hf_gvcp_writeregcmd_bootstrap_register, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %48, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
-  store ptr %49, ptr %7, align 8
-  %50 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
-  %51 = call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #5
-  %52 = add i32 %.06683, 4
-  call fastcc void @dissect_register(i32 noundef %45, ptr noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 4)
+45:                                               ; preds = %42
+  %46 = load i32, ptr @hf_gvcp_writeregcmd_bootstrap_register, align 4
+  %47 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %46, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
+  store ptr %47, ptr %7, align 8
+  %48 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
+  %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #5
+  %50 = add i32 %.06683, 4
+  call fastcc void @dissect_register(i32 noundef %43, ptr noundef %49, ptr noundef %1, i32 noundef %50, i32 noundef 4)
   br label %dissect_extended_bootstrap_register.exit
 
-53:                                               ; preds = %.preheader
+51:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %69, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not.i, label %67, label %.preheader, !llvm.loop !7
 
-.preheader:                                       ; preds = %44, %53
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %44 ]
-  %54 = getelementptr [512 x i32], ptr %43, i64 0, i64 %indvars.iv.i
-  %55 = load i32, ptr %54, align 4
-  %56 = add i32 %55, -1
-  %or.cond.i = icmp uge i32 %56, %45
-  %57 = add i32 %55, 12
-  %.not19.i = icmp ult i32 %57, %45
+.preheader:                                       ; preds = %42, %51
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %42 ]
+  %52 = getelementptr [512 x i32], ptr %41, i64 0, i64 %indvars.iv.i
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, -1
+  %or.cond.i = icmp uge i32 %54, %43
+  %55 = add i32 %53, 12
+  %.not19.i = icmp ult i32 %55, %43
   %or.cond21.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.i, label %53, label %is_extended_bootstrap_address.exit
+  br i1 %or.cond21.i, label %51, label %is_extended_bootstrap_address.exit
 
 is_extended_bootstrap_address.exit:               ; preds = %.preheader
-  %58 = load i32, ptr @hf_gvcp_writeregcmd_extended_bootstrap_register, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %58, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
-  store ptr %59, ptr %7, align 8
-  %60 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
-  %61 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #5
-  %62 = add i32 %.06683, 4
-  %63 = sub i32 %45, %55
-  %64 = call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 30)
-  %65 = icmp ult i32 %64, 4
-  br i1 %65, label %switch.lookup, label %dissect_extended_bootstrap_register.exit
+  %56 = load i32, ptr @hf_gvcp_writeregcmd_extended_bootstrap_register, align 4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %56, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
+  store ptr %57, ptr %7, align 8
+  %58 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
+  %59 = call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #5
+  %60 = add i32 %.06683, 4
+  %61 = sub i32 %43, %53
+  %62 = call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 30)
+  %63 = icmp ult i32 %62, 4
+  br i1 %63, label %switch.lookup4, label %dissect_extended_bootstrap_register.exit
 
-switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
-  %66 = zext nneg i32 %64 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %66
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %67 = load i32, ptr %switch.load, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %67, ptr noundef %1, i32 noundef %62, i32 noundef 4, i32 noundef 0) #5
+switch.lookup4:                                   ; preds = %is_extended_bootstrap_address.exit
+  %64 = zext nneg i32 %62 to i64
+  %switch.gep5 = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %64
+  %switch.load6 = load ptr, ptr %switch.gep5, align 8
+  %65 = load i32, ptr %switch.load6, align 4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %65, ptr noundef %1, i32 noundef %60, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_extended_bootstrap_register.exit
 
-69:                                               ; preds = %53
-  %70 = load i32, ptr @hf_gvcp_custom_register_addr, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %70, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
-  store ptr %71, ptr %7, align 8
-  %72 = add i32 %.06683, 4
-  %73 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
-  %74 = call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %73) #5
-  %75 = load i32, ptr @hf_gvcp_custom_register_value, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %1, i32 noundef %72, i32 noundef 4, i32 noundef 0) #5
+67:                                               ; preds = %51
+  %68 = load i32, ptr @hf_gvcp_custom_register_addr, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %68, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
+  store ptr %69, ptr %7, align 8
+  %70 = add i32 %.06683, 4
+  %71 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
+  %72 = call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %71) #5
+  %73 = load i32, ptr @hf_gvcp_custom_register_value, align 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %1, i32 noundef %70, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_extended_bootstrap_register.exit
 
-dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %69, %47
-  %.1 = phi i32 [ %52, %47 ], [ %72, %69 ], [ %62, %is_extended_bootstrap_address.exit ], [ %62, %switch.lookup ]
-  %77 = add i32 %.1, 4
-  %78 = add nuw nsw i32 %.06782, 1
-  %exitcond.not = icmp eq i32 %78, %8
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !9
+dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup4, %67, %45
+  %.1 = phi i32 [ %50, %45 ], [ %70, %67 ], [ %60, %is_extended_bootstrap_address.exit ], [ %60, %switch.lookup4 ]
+  %75 = add i32 %.1, 4
+  %76 = add nuw nsw i32 %.06782, 1
+  %exitcond.not = icmp eq i32 %76, %8
+  br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !9
 
-.loopexit:                                        ; preds = %dissect_extended_bootstrap_register.exit, %.thread, %40
+.loopexit:                                        ; preds = %dissect_extended_bootstrap_register.exit, %.thread, %38
   ret void
 }
 
@@ -3960,17 +3959,17 @@ declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr nou
 
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #3
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

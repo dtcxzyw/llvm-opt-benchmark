@@ -3452,7 +3452,7 @@ mtree_quote.exit167:                              ; preds = %82, %._crit_edge.i1
   %.3.i = phi i32 [ %.2.i, %157 ], [ %spec.select38.i, %159 ]
   %167 = getelementptr inbounds i8, ptr %1, i64 228
   %168 = load i32, ptr %167, align 4
-  %169 = add i32 %168, -4096
+  %169 = sub i32 %168, 4096
   %170 = call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 20)
   switch i32 %170, label %173 [
     i32 9, label %get_global_set_keys.exit
@@ -3854,11 +3854,11 @@ mtree_quote.exit205:                              ; preds = %278, %._crit_edge.i
 358:                                              ; preds = %353, %351
   %359 = getelementptr inbounds i8, ptr %1, i64 228
   %360 = load i32, ptr %359, align 4
-  %361 = add i32 %360, -4096
-  %362 = call i32 @llvm.fshl.i32(i32 %361, i32 %361, i32 20)
-  %363 = and i32 %.029.i, 524288
-  %.not151 = icmp eq i32 %363, 0
-  switch i32 %362, label %436 [
+  %361 = and i32 %.029.i, 524288
+  %.not151 = icmp eq i32 %361, 0
+  %362 = sub i32 %360, 4096
+  %363 = call i32 @llvm.fshl.i32(i32 %362, i32 %362, i32 20)
+  switch i32 %363, label %436 [
     i32 9, label %364
     i32 11, label %407
     i32 1, label %410
@@ -5229,9 +5229,6 @@ define internal fastcc void @mtree_indent(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -5242,6 +5239,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

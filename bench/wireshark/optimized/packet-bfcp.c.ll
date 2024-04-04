@@ -310,8 +310,8 @@ define internal i32 @dissect_bfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 8:                                                ; preds = %4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %10 = add i8 %9, -32
-  %11 = tail call i8 @llvm.fshl.i8(i8 %10, i8 %10, i8 5)
+  %10 = sub i8 %9, 32
+  %11 = call i8 @llvm.fshl.i8(i8 %10, i8 %10, i8 5)
   switch i8 %11, label %dissect_bfcp_heur_check.exit.thread [
     i8 7, label %12
     i8 6, label %12
@@ -532,8 +532,8 @@ define internal noundef i32 @dissect_bfcp_heur(ptr noundef %0, ptr noundef %1, p
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %9 = add i8 %8, -32
-  %10 = tail call i8 @llvm.fshl.i8(i8 %9, i8 %9, i8 5)
+  %9 = sub i8 %8, 32
+  %10 = call i8 @llvm.fshl.i8(i8 %9, i8 %9, i8 5)
   switch i8 %10, label %dissect_bfcp_heur_check.exit.thread [
     i8 7, label %11
     i8 6, label %11
@@ -972,16 +972,16 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #2
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

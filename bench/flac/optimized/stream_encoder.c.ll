@@ -1838,8 +1838,8 @@ if.end202:                                        ; preds = %if.end196
   %29 = load ptr, ptr %encoder, align 8
   %bits_per_sample204 = getelementptr inbounds i8, ptr %29, i64 28
   %30 = load i32, ptr %bits_per_sample204, align 4
-  %31 = add i32 %30, -8
-  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
+  %31 = sub i32 %30, 8
+  %32 = call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
   switch i32 %32, label %return [
     i32 0, label %if.end227
     i32 1, label %if.end227
@@ -10655,9 +10655,6 @@ declare i32 @FLAC__subframe_add_lpc(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare i32 @FLAC__subframe_add_verbatim(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -10677,6 +10674,9 @@ declare i32 @llvm.uadd.sat.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #20
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

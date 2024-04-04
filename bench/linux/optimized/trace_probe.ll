@@ -169,7 +169,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @print_type_u8(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u8, i32 noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u8, i32 noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -196,7 +196,7 @@ declare dso_local void @trace_seq_printf(ptr noundef, ptr noundef, ...) local_un
 define dso_local i32 @print_type_u16(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i16, ptr %1, align 2
   %5 = zext i16 %4 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u8, i32 noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u8, i32 noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -219,7 +219,7 @@ define dso_local i32 @print_type_u16(ptr noundef %0, ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @print_type_u32(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u8, i32 noundef %4) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u8, i32 noundef %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 8192
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -242,7 +242,7 @@ define dso_local i32 @print_type_u32(ptr noundef %0, ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @print_type_u64(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i64, ptr %1, align 8
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u64, i64 noundef %4) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_u64, i64 noundef %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 8192
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -266,7 +266,7 @@ define dso_local i32 @print_type_u64(ptr noundef %0, ptr nocapture noundef reado
 define dso_local i32 @print_type_s8(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = sext i8 %4 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s8, i32 noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s8, i32 noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -290,7 +290,7 @@ define dso_local i32 @print_type_s8(ptr noundef %0, ptr nocapture noundef readon
 define dso_local i32 @print_type_s16(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i16, ptr %1, align 2
   %5 = sext i16 %4 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s8, i32 noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s8, i32 noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -313,7 +313,7 @@ define dso_local i32 @print_type_s16(ptr noundef %0, ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @print_type_s32(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s8, i32 noundef %4) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s8, i32 noundef %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 8192
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -336,7 +336,7 @@ define dso_local i32 @print_type_s32(ptr noundef %0, ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @print_type_s64(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i64, ptr %1, align 8
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s64, i64 noundef %4) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_s64, i64 noundef %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 8192
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -360,7 +360,7 @@ define dso_local i32 @print_type_s64(ptr noundef %0, ptr nocapture noundef reado
 define dso_local i32 @print_type_x8(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x8, i32 noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x8, i32 noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -384,7 +384,7 @@ define dso_local i32 @print_type_x8(ptr noundef %0, ptr nocapture noundef readon
 define dso_local i32 @print_type_x16(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i16, ptr %1, align 2
   %5 = zext i16 %4 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x8, i32 noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x8, i32 noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -407,7 +407,7 @@ define dso_local i32 @print_type_x16(ptr noundef %0, ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @print_type_x32(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x8, i32 noundef %4) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x8, i32 noundef %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 8192
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -430,7 +430,7 @@ define dso_local i32 @print_type_x32(ptr noundef %0, ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @print_type_x64(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i64, ptr %1, align 8
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x64, i64 noundef %4) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_x64, i64 noundef %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 8192
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -454,7 +454,7 @@ define dso_local i32 @print_type_x64(ptr noundef %0, ptr nocapture noundef reado
 define dso_local i32 @print_type_char(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_char, i32 noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_char, i32 noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -478,7 +478,7 @@ define dso_local i32 @print_type_char(ptr noundef %0, ptr nocapture noundef read
 define dso_local i32 @print_type_symbol(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = inttoptr i64 %4 to ptr
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_symbol, ptr noundef %5) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @print_type_format_symbol, ptr noundef %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8192
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -505,14 +505,14 @@ define dso_local i32 @print_type_string(ptr noundef %0, ptr nocapture noundef re
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @trace_seq_puts(ptr noundef %0, ptr noundef nonnull @.str.8) #16
+  tail call void @trace_seq_puts(ptr noundef %0, ptr noundef nonnull @.str.8) #17
   br label %11
 
 7:                                                ; preds = %3
   %8 = and i32 %4, 65535
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr i8, ptr %2, i64 %9
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %10) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %10) #17
   br label %11
 
 11:                                               ; preds = %7, %6
@@ -593,7 +593,7 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
   %17 = select i1 %16, i32 %15, i32 %14
   %18 = getelementptr ptr, ptr %3, i64 %13
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @strlen(ptr noundef %19) #16
+  %20 = tail call i64 @strlen(ptr noundef %19) #17
   %21 = trunc i64 %20 to i32
   %22 = add i32 %15, 1
   %23 = add i32 %22, %21
@@ -605,7 +605,7 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
   %26 = phi i32 [ 0, %5 ], [ %23, %12 ]
   %27 = phi i32 [ 0, %5 ], [ %17, %12 ]
   %28 = sext i32 %26 to i64
-  %29 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %28, i32 noundef 3520) #17
+  %29 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %28, i32 noundef 3520) #18
   %30 = icmp eq ptr %29, null
   br i1 %30, label %61, label %31
 
@@ -626,8 +626,8 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
   %41 = phi ptr [ %29, %36 ], [ %51, %39 ]
   %42 = getelementptr ptr, ptr %37, i64 %40
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i64 @strlen(ptr noundef %43) #16
-  %45 = tail call ptr @strcpy(ptr noundef %41, ptr noundef %43) #16
+  %44 = tail call i64 @strlen(ptr noundef %43) #17
+  %45 = tail call ptr @strcpy(ptr noundef %41, ptr noundef %43) #17
   %46 = shl i64 %44, 32
   %47 = ashr exact i64 %46, 32
   %48 = getelementptr i8, ptr %41, i64 %47
@@ -648,8 +648,8 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
   %58 = add i32 %27, %0
   %59 = select i1 %34, i32 %58, i32 %26
   %60 = trunc i32 %59 to i16
-  tail call void @tracing_log_err(ptr noundef null, ptr noundef %56, ptr noundef nonnull %29, ptr noundef nonnull @trace_probe_err_text, i8 noundef zeroext %57, i16 noundef zeroext %60) #16
-  tail call void @kfree(ptr noundef nonnull %29) #16
+  tail call void @tracing_log_err(ptr noundef null, ptr noundef %56, ptr noundef nonnull %29, ptr noundef nonnull @trace_probe_err_text, i8 noundef zeroext %57, i16 noundef zeroext %60) #17
+  tail call void @kfree(ptr noundef nonnull %29) #17
   br label %61
 
 61:                                               ; preds = %.loopexit, %.loopexit4, %2
@@ -674,12 +674,12 @@ define dso_local i32 @traceprobe_split_symbol_offset(ptr noundef %0, ptr noundef
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @strpbrk(ptr noundef %0, ptr noundef nonnull @.str.10) #16
+  %5 = tail call ptr @strpbrk(ptr noundef %0, ptr noundef nonnull @.str.10) #17
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @kstrtoll(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %1) #16
+  %8 = tail call i32 @kstrtoll(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %1) #17
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
@@ -702,12 +702,12 @@ declare dso_local ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @traceprobe_parse_event_name(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call ptr @strchr(ptr noundef %5, i32 noundef 47) #16
+  %6 = tail call ptr @strchr(ptr noundef %5, i32 noundef 47) #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @strchr(ptr noundef %5, i32 noundef 46) #16
+  %9 = tail call ptr @strchr(ptr noundef %5, i32 noundef 46) #17
   %10 = icmp eq ptr %9, null
   br i1 %10, label %51, label %.thread
 
@@ -733,7 +733,7 @@ define dso_local noundef i32 @traceprobe_parse_event_name(ptr nocapture noundef 
   br label %.loopexit9
 
 21:                                               ; preds = %14
-  %22 = tail call i64 @strscpy(ptr noundef %2, ptr noundef %5, i64 noundef %18) #16
+  %22 = tail call i64 @strscpy(ptr noundef %2, ptr noundef %5, i64 noundef %18) #17
   %23 = load i8, ptr %2, align 1
   %24 = zext i8 %23 to i64
   %25 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %24
@@ -786,7 +786,7 @@ define dso_local noundef i32 @traceprobe_parse_event_name(ptr nocapture noundef 
   br label %.loopexit9
 
 51:                                               ; preds = %8
-  %52 = tail call i64 @strlen(ptr noundef %5) #16
+  %52 = tail call i64 @strlen(ptr noundef %5) #17
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %62, label %63
@@ -797,7 +797,7 @@ define dso_local noundef i32 @traceprobe_parse_event_name(ptr nocapture noundef 
   store ptr %55, ptr %0, align 8
   %56 = trunc i64 %18 to i32
   %57 = add i32 %56, %3
-  %58 = tail call i64 @strlen(ptr noundef %55) #16
+  %58 = tail call i64 @strlen(ptr noundef %55) #17
   %59 = trunc i64 %58 to i32
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %63
@@ -885,7 +885,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr %9, align 8
-  %12 = tail call ptr @strchr(ptr noundef %2, i32 noundef 61) #16
+  %12 = tail call ptr @strchr(ptr noundef %2, i32 noundef 61) #17
   %13 = icmp eq ptr %12, null
   br i1 %13, label %27, label %14
 
@@ -909,7 +909,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   br label %414
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @kmemdup_nul(ptr noundef %2, i64 noundef %17, i32 noundef 3264) #16
+  %24 = tail call ptr @kmemdup_nul(ptr noundef %2, i64 noundef %17, i32 noundef 3264) #17
   %25 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %24, ptr %25, align 8
   %26 = getelementptr i8, ptr %12, i64 1
@@ -917,7 +917,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 27:                                               ; preds = %4
   %28 = add i32 %1, 1
-  %29 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.92, i32 noundef %28) #16
+  %29 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.92, i32 noundef %28) #17
   %30 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %29, ptr %30, align 8
   br label %31
@@ -991,7 +991,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %72 = phi i64 [ %66, %65 ], [ 0, %.loopexit32.preheader ]
   %73 = getelementptr [8 x ptr], ptr @reserved_field_names, i64 0, i64 %72
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @strcmp(ptr noundef %74, ptr noundef nonnull dereferenceable(1) %32) #16
+  %75 = tail call i32 @strcmp(ptr noundef %74, ptr noundef nonnull dereferenceable(1) %32) #17
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %.loopexit27, label %65
 
@@ -1004,7 +1004,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %81 = phi i64 [ 0, %70 ], [ %78, %77 ]
   %82 = getelementptr %struct.probe_arg, ptr %6, i64 %81, i32 4
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 @strcmp(ptr noundef %83, ptr noundef nonnull dereferenceable(1) %32) #16
+  %84 = tail call i32 @strcmp(ptr noundef %83, ptr noundef nonnull dereferenceable(1) %32) #17
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.loopexit27, label %77
 
@@ -1020,13 +1020,13 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %90 = getelementptr inbounds i8, ptr %3, i64 68
   store i32 %89, ptr %90, align 4
   %91 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %92 = tail call noalias ptr @kstrdup(ptr noundef %33, i32 noundef 3264) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  %92 = tail call noalias ptr @kstrdup(ptr noundef %33, i32 noundef 3264) #17
   %93 = icmp eq ptr %92, null
   br i1 %93, label %412, label %94
 
 94:                                               ; preds = %.loopexit28
-  %95 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #16
+  %95 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #17
   %96 = trunc i64 %95 to i32
   %97 = icmp sgt i32 %96, 63
   br i1 %97, label %98, label %100
@@ -1046,33 +1046,33 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   br label %410
 
 104:                                              ; preds = %100
-  %105 = tail call noalias ptr @kstrdup(ptr noundef nonnull %92, i32 noundef 3264) #16
+  %105 = tail call noalias ptr @kstrdup(ptr noundef nonnull %92, i32 noundef 3264) #17
   %106 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %105, ptr %106, align 8
   %107 = icmp eq ptr %105, null
   br i1 %107, label %410, label %108
 
 108:                                              ; preds = %104
-  %109 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %92, i32 noundef 58) #16
+  %109 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %92, i32 noundef 58) #17
   %110 = icmp eq ptr %109, null
   br i1 %110, label %166, label %111
 
 111:                                              ; preds = %108
   store i8 0, ptr %109, align 1
   %112 = getelementptr i8, ptr %109, i64 1
-  %113 = tail call ptr @strchr(ptr noundef %112, i32 noundef 91) #16
+  %113 = tail call ptr @strchr(ptr noundef %112, i32 noundef 91) #17
   %114 = icmp eq ptr %113, null
   br i1 %114, label %166, label %115
 
 115:                                              ; preds = %111
   %116 = getelementptr i8, ptr %113, i64 1
   store i8 0, ptr %113, align 1
-  %117 = tail call ptr @strchr(ptr noundef %116, i32 noundef 93) #16
+  %117 = tail call ptr @strchr(ptr noundef %116, i32 noundef 93) #17
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %128
 
 119:                                              ; preds = %115
-  %120 = tail call i64 @strlen(ptr noundef %116) #16
+  %120 = tail call i64 @strlen(ptr noundef %116) #17
   %121 = getelementptr i8, ptr %116, i64 %120
   %122 = ptrtoint ptr %121 to i64
   %123 = ptrtoint ptr %92 to i64
@@ -1104,7 +1104,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 141:                                              ; preds = %128
   store i8 0, ptr %117, align 1
   %142 = getelementptr inbounds i8, ptr %8, i64 16
-  %143 = tail call i32 @kstrtouint(ptr noundef %116, i32 noundef 0, ptr noundef %142) #16
+  %143 = tail call i32 @kstrtouint(ptr noundef %116, i32 noundef 0, ptr noundef %142) #17
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %148
 
@@ -1148,17 +1148,17 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   br i1 %171, label %172, label %202
 
 172:                                              ; preds = %166
-  %173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(6) @.str.101) #16
+  %173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(6) @.str.101) #17
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %181, label %175
 
 175:                                              ; preds = %172
-  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(6) @.str.102) #16
+  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(6) @.str.102) #17
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %181, label %178
 
 178:                                              ; preds = %175
-  %179 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(3) @.str.103, i64 noundef 2) #16
+  %179 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(3) @.str.103, i64 noundef 2) #17
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %181, label %202
 
@@ -1173,7 +1173,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   br i1 %186, label %199, label %187
 
 187:                                              ; preds = %185
-  %188 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(7) @.str.104) #16
+  %188 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(7) @.str.104) #17
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %199, label %190
 
@@ -1220,7 +1220,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 218:                                              ; preds = %205
   %219 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %220 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %219, i32 noundef 3520, i64 noundef 256) #18
+  %220 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %219, i32 noundef 3520, i64 noundef 256) #19
   store ptr %220, ptr %5, align 8
   %221 = icmp eq ptr %220, null
   br i1 %221, label %410, label %222
@@ -1258,11 +1258,11 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %244 = load ptr, ptr %207, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 40
   %246 = load ptr, ptr %245, align 8
-  %247 = tail call i64 @strlen(ptr noundef %246) #16
+  %247 = tail call i64 @strlen(ptr noundef %246) #17
   %248 = shl i64 %247, 32
   %249 = add i64 %248, 25769803776
   %250 = ashr exact i64 %249, 32
-  %251 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %250, i32 noundef 3264) #17
+  %251 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %250, i32 noundef 3264) #18
   %252 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %251, ptr %252, align 8
   %253 = icmp eq ptr %251, null
@@ -1273,7 +1273,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %256 = getelementptr inbounds i8, ptr %255, i64 40
   %257 = load ptr, ptr %256, align 8
   %258 = load i32, ptr %234, align 8
-  %259 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %251, i64 noundef %250, ptr noundef nonnull @.str.105, ptr noundef %257, i32 noundef %258) #16
+  %259 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %251, i64 noundef %250, ptr noundef nonnull @.str.105, ptr noundef %257, i32 noundef %258) #17
   br label %260
 
 260:                                              ; preds = %254, %227
@@ -1285,7 +1285,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 265:                                              ; preds = %260
   %266 = load ptr, ptr %261, align 8
-  %267 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(7) @.str.106) #16
+  %267 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(7) @.str.106) #17
   %268 = icmp eq i32 %267, 0
   %269 = load ptr, ptr %5, align 8
   %270 = load i32, ptr %269, align 8
@@ -1353,14 +1353,14 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   br label %398
 
 299:                                              ; preds = %291
-  %300 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(8) @.str.107) #16
+  %300 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(8) @.str.107) #17
   %301 = icmp eq i32 %300, 0
   %302 = icmp eq i32 %270, 11
   %or.cond = select i1 %301, i1 true, i1 %302
   br i1 %or.cond, label %305, label %.thread36
 
 .thread34:                                        ; preds = %.thread
-  %303 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(8) @.str.107) #16
+  %303 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(8) @.str.107) #17
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %305, label %307
 
@@ -1530,7 +1530,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 392:                                              ; preds = %383
   %393 = shl nuw i64 %390, 4
-  %394 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %393, i32 noundef 3520) #17
+  %394 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %393, i32 noundef 3520) #18
   store ptr %394, ptr %8, align 8
   %395 = icmp eq ptr %394, null
   br i1 %395, label %398, label %396
@@ -1557,7 +1557,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 403:                                              ; preds = %.preheader, %.preheader
   %404 = getelementptr inbounds i8, ptr %401, i64 8
   %405 = load ptr, ptr %404, align 8
-  tail call void @kfree(ptr noundef %405) #16
+  tail call void @kfree(ptr noundef %405) #17
   br label %406
 
 406:                                              ; preds = %403, %.preheader
@@ -1567,17 +1567,17 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 .loopexit:                                        ; preds = %406, %398, %396
   %409 = phi i32 [ 0, %396 ], [ %.ph, %398 ], [ %.ph, %406 ]
-  tail call void @kfree(ptr noundef nonnull %220) #16
+  tail call void @kfree(ptr noundef nonnull %220) #17
   br label %410
 
 410:                                              ; preds = %.loopexit, %243, %218, %209, %190, %158, %148, %132, %119, %104, %102, %98
   %411 = phi i32 [ -22, %98 ], [ -22, %102 ], [ -22, %132 ], [ -22, %148 ], [ -22, %158 ], [ %409, %.loopexit ], [ -22, %218 ], [ -22, %209 ], [ -22, %190 ], [ -22, %119 ], [ -12, %104 ], [ -12, %243 ]
-  tail call void @kfree(ptr noundef nonnull %92) #16
+  tail call void @kfree(ptr noundef nonnull %92) #17
   br label %412
 
 412:                                              ; preds = %410, %.loopexit28
   %413 = phi i32 [ %411, %410 ], [ -12, %.loopexit28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   br label %414
 
 414:                                              ; preds = %412, %.loopexit27, %.loopexit31, %31, %22, %19
@@ -1606,7 +1606,7 @@ define dso_local void @traceprobe_free_probe_arg(ptr nocapture noundef readonly 
 6:                                                ; preds = %.preheader, %.preheader
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @kfree(ptr noundef %8) #16
+  tail call void @kfree(ptr noundef %8) #17
   br label %9
 
 9:                                                ; preds = %6, %.preheader
@@ -1620,16 +1620,16 @@ define dso_local void @traceprobe_free_probe_arg(ptr nocapture noundef readonly 
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1
   %12 = phi ptr [ %.pre, %.loopexit.loopexit ], [ null, %1 ]
-  tail call void @kfree(ptr noundef %12) #16
+  tail call void @kfree(ptr noundef %12) #17
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  tail call void @kfree(ptr noundef %14) #16
+  tail call void @kfree(ptr noundef %14) #17
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  tail call void @kfree(ptr noundef %16) #16
+  tail call void @kfree(ptr noundef %16) #17
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
-  tail call void @kfree(ptr noundef %18) #16
+  tail call void @kfree(ptr noundef %18) #17
   ret void
 }
 
@@ -1649,7 +1649,7 @@ define dso_local noundef ptr @traceprobe_expand_meta_args(i32 noundef %0, ptr no
   %14 = phi i32 [ 0, %8 ], [ %37, %35 ]
   %15 = getelementptr ptr, ptr %1, i64 %13
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #16
+  %17 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #17
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %35
 
@@ -1729,7 +1729,7 @@ define dso_local void @traceprobe_finish_parse(ptr nocapture noundef writeonly %
 define dso_local i32 @traceprobe_update_arg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader.preheader
 
@@ -1754,19 +1754,19 @@ define dso_local i32 @traceprobe_update_arg(ptr nocapture noundef readonly %0) l
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @strpbrk(ptr noundef %13, ptr noundef nonnull @.str.10) #16
+  %14 = call ptr @strpbrk(ptr noundef %13, ptr noundef nonnull @.str.10) #17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread7, label %16
 
 16:                                               ; preds = %11
   %17 = load i8, ptr %14, align 1
-  %18 = call i32 @kstrtoll(ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %2) #16
+  %18 = call i32 @kstrtoll(ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %2) #17
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.loopexit
 
 .thread7:                                         ; preds = %11
   store i64 0, ptr %2, align 8
-  %20 = call i64 @kallsyms_lookup_name(ptr noundef %13) #16
+  %20 = call i64 @kallsyms_lookup_name(ptr noundef %13) #17
   %21 = getelementptr i8, ptr %5, i64 24
   store i64 %20, ptr %21, align 8
   br label %26
@@ -1774,7 +1774,7 @@ define dso_local i32 @traceprobe_update_arg(ptr nocapture noundef readonly %0) l
 22:                                               ; preds = %16
   store i8 0, ptr %14, align 1
   %23 = load ptr, ptr %12, align 8
-  %24 = call i64 @kallsyms_lookup_name(ptr noundef %23) #16
+  %24 = call i64 @kallsyms_lookup_name(ptr noundef %23) #17
   %25 = getelementptr i8, ptr %5, i64 24
   store i64 %24, ptr %25, align 8
   store i8 %17, ptr %14, align 1
@@ -1800,7 +1800,7 @@ define dso_local i32 @traceprobe_update_arg(ptr nocapture noundef readonly %0) l
 
 .loopexit:                                        ; preds = %16, %33, %26, %7, %.preheader, %1
   %36 = phi i32 [ 0, %1 ], [ %18, %16 ], [ 0, %33 ], [ 0, %.preheader ], [ -2, %26 ], [ -22, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   ret i32 %36
 }
 
@@ -1814,7 +1814,7 @@ define dso_local noundef i32 @traceprobe_set_print_fmt(ptr nocapture noundef rea
   %5 = tail call fastcc i32 @__set_print_fmt(ptr noundef %0, ptr noundef null, i32 noundef 0, i32 noundef %1)
   %6 = add i32 %5, 1
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3264) #17
+  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3264) #18
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
 
@@ -1844,9 +1844,9 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   br label %8
 
 7:                                                ; preds = %4
-  tail call void asm sideeffect "453: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 453b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 453) #16, !srcloc !21
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.133, i32 1635, i32 2307, i64 12) #16, !srcloc !22
-  tail call void asm sideeffect "454: nop\0A\09.pushsection .discard.instr_end\0A\09.long 454b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 454) #16, !srcloc !23
+  tail call void asm sideeffect "453: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 453b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 453) #17, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.133, i32 1635, i32 2307, i64 12) #17, !srcloc !22
+  tail call void asm sideeffect "454: nop\0A\09.pushsection .discard.instr_end\0A\09.long 454b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 454) #17, !srcloc !23
   br label %.loopexit2
 
 8:                                                ; preds = %6, %5, %4
@@ -1854,7 +1854,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %10 = phi ptr [ @.str.11, %6 ], [ @.str.132, %5 ], [ @.str.130, %4 ]
   %11 = icmp eq i32 %2, 0
   %12 = sext i32 %2 to i64
-  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %12, ptr noundef nonnull @.str.134, ptr noundef nonnull %9) #16
+  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %12, ptr noundef nonnull @.str.134, ptr noundef nonnull %9) #17
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
@@ -1876,7 +1876,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %23, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %25, i64 noundef %28, ptr noundef nonnull @.str.14, ptr noundef %30) #16
+  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %25, i64 noundef %28, ptr noundef nonnull @.str.14, ptr noundef %30) #17
   %32 = add i32 %31, %20
   %33 = getelementptr inbounds i8, ptr %23, i64 16
   %34 = load i32, ptr %33, align 8
@@ -1893,7 +1893,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   br i1 %35, label %84, label %45
 
 45:                                               ; preds = %19
-  %46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %40, ptr noundef nonnull @.str.135, ptr noundef %44) #16
+  %46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %40, ptr noundef nonnull @.str.135, ptr noundef %44) #17
   %47 = add i32 %46, %32
   %48 = load i32, ptr %33, align 8
   %49 = icmp ugt i32 %48, 1
@@ -1910,7 +1910,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %54 = load ptr, ptr %41, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef 0, ptr noundef nonnull @.str.136, ptr noundef %56) #16
+  %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef 0, ptr noundef nonnull @.str.136, ptr noundef %56) #17
   %58 = add i32 %57, %50
   %59 = add nuw i32 %51, 1
   %60 = load i32, ptr %33, align 8
@@ -1927,7 +1927,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %68 = load ptr, ptr %41, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 32
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %65, i64 noundef %67, ptr noundef nonnull @.str.136, ptr noundef %70) #16
+  %71 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %65, i64 noundef %67, ptr noundef nonnull @.str.136, ptr noundef %70) #17
   %72 = add i32 %71, %62
   %73 = add nuw i32 %63, 1
   %74 = load i32, ptr %33, align 8
@@ -1941,12 +1941,12 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %79 = sub i32 %2, %76
   %80 = select i1 %11, i32 0, i32 %79
   %81 = sext i32 %80 to i64
-  %82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef %81, ptr noundef nonnull @.str.137) #16
+  %82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef %81, ptr noundef nonnull @.str.137) #17
   %83 = add i32 %82, %76
   br label %87
 
 84:                                               ; preds = %19
-  %85 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %40, ptr noundef nonnull @.str.138, ptr noundef %44) #16
+  %85 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %40, ptr noundef nonnull @.str.138, ptr noundef %44) #17
   %86 = add i32 %85, %32
   br label %87
 
@@ -1964,7 +1964,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %95 = sub i32 %2, %92
   %96 = select i1 %11, i32 0, i32 %95
   %97 = sext i32 %96 to i64
-  %98 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %94, i64 noundef %97, ptr noundef nonnull @.str.134, ptr noundef nonnull %10) #16
+  %98 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %94, i64 noundef %97, ptr noundef nonnull @.str.134, ptr noundef nonnull %10) #17
   %99 = add i32 %98, %92
   %100 = load i32, ptr %14, align 8
   %101 = icmp eq i32 %100, 0
@@ -2000,7 +2000,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %121 = getelementptr i8, ptr %1, i64 %120
   %122 = getelementptr inbounds i8, ptr %107, i64 24
   %123 = load ptr, ptr %122, align 8
-  %124 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %121, i64 noundef 0, ptr noundef nonnull %119, ptr noundef %123) #16
+  %124 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %121, i64 noundef 0, ptr noundef nonnull %119, ptr noundef %123) #17
   %125 = add i32 %124, %104
   br label %.loopexit.split.us.us
 
@@ -2017,7 +2017,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %133 = sext i32 %131 to i64
   %134 = getelementptr i8, ptr %1, i64 %133
   %135 = load ptr, ptr %117, align 8
-  %136 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %134, i64 noundef 0, ptr noundef nonnull %116, ptr noundef %135, i32 noundef %132) #16
+  %136 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %134, i64 noundef 0, ptr noundef nonnull %116, ptr noundef %135, i32 noundef %132) #17
   %137 = add i32 %136, %131
   %138 = add nuw i32 %132, 1
   %139 = load i32, ptr %108, align 8
@@ -2052,7 +2052,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %160 = sub i32 %2, %156
   %161 = sext i32 %160 to i64
   %162 = load ptr, ptr %154, align 8
-  %163 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %159, i64 noundef %161, ptr noundef nonnull %153, ptr noundef %162, i32 noundef %157) #16
+  %163 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %159, i64 noundef %161, ptr noundef nonnull %153, ptr noundef %162, i32 noundef %157) #17
   %164 = add i32 %163, %156
   %165 = add nuw i32 %157, 1
   %166 = load i32, ptr %145, align 8
@@ -2067,7 +2067,7 @@ define internal fastcc i32 @__set_print_fmt(ptr nocapture noundef readonly %0, p
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %144, i64 24
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %171, i64 noundef %173, ptr noundef nonnull %169, ptr noundef %175) #16
+  %176 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %171, i64 noundef %173, ptr noundef nonnull %169, ptr noundef %175) #17
   %177 = add i32 %176, %141
   br label %.loopexit.split
 
@@ -2128,7 +2128,7 @@ define dso_local i32 @traceprobe_define_arg_fields(ptr noundef %0, i64 noundef %
   %38 = getelementptr inbounds i8, ptr %19, i64 16
   %39 = load i8, ptr %38, align 8, !range !12, !noundef !13
   %40 = zext nneg i8 %39 to i32
-  %41 = tail call i32 @trace_define_field(ptr noundef %0, ptr noundef %28, ptr noundef %34, i32 noundef %37, i32 noundef %32, i32 noundef %40, i32 noundef 0) #16
+  %41 = tail call i32 @trace_define_field(ptr noundef %0, ptr noundef %28, ptr noundef %34, i32 noundef %37, i32 noundef %32, i32 noundef %40, i32 noundef 0) #17
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %10, label %.loopexit
 
@@ -2172,14 +2172,14 @@ define dso_local noundef i32 @trace_probe_append(ptr noundef %0, ptr nocapture n
   %20 = load ptr, ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  tail call void @kfree(ptr noundef %22) #16
+  tail call void @kfree(ptr noundef %22) #17
   %23 = getelementptr inbounds i8, ptr %20, i64 104
   %24 = load ptr, ptr %23, align 8
-  tail call void @kfree(ptr noundef %24) #16
+  tail call void @kfree(ptr noundef %24) #17
   %25 = getelementptr inbounds i8, ptr %20, i64 144
   %26 = load ptr, ptr %25, align 8
-  tail call void @kfree(ptr noundef %26) #16
-  tail call void @kfree(ptr noundef %20) #16
+  tail call void @kfree(ptr noundef %26) #17
+  tail call void @kfree(ptr noundef %20) #17
   %27 = getelementptr inbounds i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %3, align 8
@@ -2217,14 +2217,14 @@ define dso_local void @trace_probe_unlink(ptr noundef %0) local_unnamed_addr #0 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @kfree(ptr noundef %13) #16
+  tail call void @kfree(ptr noundef %13) #17
   %14 = getelementptr inbounds i8, ptr %7, i64 104
   %15 = load ptr, ptr %14, align 8
-  tail call void @kfree(ptr noundef %15) #16
+  tail call void @kfree(ptr noundef %15) #17
   %16 = getelementptr inbounds i8, ptr %7, i64 144
   %17 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %17) #16
-  tail call void @kfree(ptr noundef %7) #16
+  tail call void @kfree(ptr noundef %17) #17
+  tail call void @kfree(ptr noundef %7) #17
   br label %18
 
 18:                                               ; preds = %11, %1
@@ -2263,7 +2263,7 @@ define dso_local void @trace_probe_cleanup(ptr noundef %0) local_unnamed_addr #0
 15:                                               ; preds = %.preheader.i, %.preheader.i
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %17) #16
+  tail call void @kfree(ptr noundef %17) #17
   br label %18
 
 18:                                               ; preds = %15, %.preheader.i
@@ -2277,16 +2277,16 @@ define dso_local void @trace_probe_cleanup(ptr noundef %0) local_unnamed_addr #0
 
 traceprobe_free_probe_arg.exit:                   ; preds = %7, %.loopexit.loopexit.i
   %21 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ null, %7 ]
-  tail call void @kfree(ptr noundef %21) #16
+  tail call void @kfree(ptr noundef %21) #17
   %22 = getelementptr inbounds i8, ptr %10, i64 24
   %23 = load ptr, ptr %22, align 8
-  tail call void @kfree(ptr noundef %23) #16
+  tail call void @kfree(ptr noundef %23) #17
   %24 = getelementptr inbounds i8, ptr %10, i64 32
   %25 = load ptr, ptr %24, align 8
-  tail call void @kfree(ptr noundef %25) #16
+  tail call void @kfree(ptr noundef %25) #17
   %26 = getelementptr inbounds i8, ptr %10, i64 40
   %27 = load ptr, ptr %26, align 8
-  tail call void @kfree(ptr noundef %27) #16
+  tail call void @kfree(ptr noundef %27) #17
   %28 = add nuw i32 %8, 1
   %29 = load i32, ptr %2, align 8
   %30 = icmp ult i32 %28, %29
@@ -2316,14 +2316,14 @@ traceprobe_free_probe_arg.exit:                   ; preds = %7, %.loopexit.loope
 43:                                               ; preds = %34
   %44 = getelementptr inbounds i8, ptr %39, i64 8
   %45 = load ptr, ptr %44, align 8
-  tail call void @kfree(ptr noundef %45) #16
+  tail call void @kfree(ptr noundef %45) #17
   %46 = getelementptr inbounds i8, ptr %39, i64 104
   %47 = load ptr, ptr %46, align 8
-  tail call void @kfree(ptr noundef %47) #16
+  tail call void @kfree(ptr noundef %47) #17
   %48 = getelementptr inbounds i8, ptr %39, i64 144
   %49 = load ptr, ptr %48, align 8
-  tail call void @kfree(ptr noundef %49) #16
-  tail call void @kfree(ptr noundef %39) #16
+  tail call void @kfree(ptr noundef %49) #17
+  tail call void @kfree(ptr noundef %39) #17
   br label %50
 
 50:                                               ; preds = %43, %34
@@ -2343,7 +2343,7 @@ define dso_local noundef i32 @trace_probe_init(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %4
   %9 = select i1 %3, i64 272, i64 240
-  %10 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %9, i32 noundef 3520) #17
+  %10 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %9, i32 noundef 3520) #18
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
@@ -2372,14 +2372,14 @@ define dso_local noundef i32 @trace_probe_init(ptr noundef %0, ptr noundef %1, p
   %21 = getelementptr inbounds i8, ptr %10, i64 8
   %22 = getelementptr inbounds i8, ptr %10, i64 96
   store ptr %21, ptr %22, align 8
-  %23 = tail call noalias ptr @kstrdup(ptr noundef nonnull %1, i32 noundef 3264) #16
+  %23 = tail call noalias ptr @kstrdup(ptr noundef nonnull %1, i32 noundef 3264) #17
   %24 = getelementptr inbounds i8, ptr %10, i64 104
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, null
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %13
-  %27 = tail call noalias ptr @kstrdup(ptr noundef nonnull %2, i32 noundef 3264) #16
+  %27 = tail call noalias ptr @kstrdup(ptr noundef nonnull %2, i32 noundef 3264) #17
   %28 = load ptr, ptr %11, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %27, ptr %29, align 8
@@ -2450,7 +2450,7 @@ define dso_local i32 @trace_probe_register_event_call(ptr nocapture noundef read
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %.preheader
-  %34 = tail call i32 @strcmp(ptr noundef %7, ptr noundef nonnull dereferenceable(1) %31) #16
+  %34 = tail call i32 @strcmp(ptr noundef %7, ptr noundef nonnull dereferenceable(1) %31) #17
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.thread
 
@@ -2487,7 +2487,7 @@ define dso_local i32 @trace_probe_register_event_call(ptr nocapture noundef read
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %53
-  %57 = tail call i32 @strcmp(ptr noundef %25, ptr noundef nonnull dereferenceable(1) %54) #16
+  %57 = tail call i32 @strcmp(ptr noundef %25, ptr noundef nonnull dereferenceable(1) %54) #17
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %61, label %.thread
 
@@ -2502,17 +2502,17 @@ define dso_local i32 @trace_probe_register_event_call(ptr nocapture noundef read
 
 .thread7:                                         ; preds = %.thread, %61, %24
   %63 = getelementptr inbounds i8, ptr %3, i64 112
-  %64 = tail call i32 @register_trace_event(ptr noundef %63) #16
+  %64 = tail call i32 @register_trace_event(ptr noundef %63) #17
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %.thread7
-  %67 = tail call i32 @trace_add_event_call(ptr noundef %4) #16
+  %67 = tail call i32 @trace_add_event_call(ptr noundef %4) #17
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %66
-  %70 = tail call i32 @unregister_trace_event(ptr noundef %63) #16
+  %70 = tail call i32 @unregister_trace_event(ptr noundef %63) #17
   br label %71
 
 71:                                               ; preds = %69, %66, %.thread7, %61
@@ -2532,7 +2532,7 @@ declare dso_local i32 @unregister_trace_event(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @trace_probe_add_file(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %4 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 24) #18
+  %4 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 24) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
 
@@ -2549,7 +2549,7 @@ define dso_local noundef i32 @trace_probe_add_file(ptr nocapture noundef readonl
   %13 = load ptr, ptr %12, align 8
   store ptr %11, ptr %7, align 8
   store ptr %13, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !31
   store volatile ptr %7, ptr %13, align 8
   store ptr %7, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
@@ -2623,7 +2623,7 @@ define dso_local noundef i32 @trace_probe_remove_file(ptr nocapture noundef read
   store ptr %19, ptr %21, align 8
   store volatile ptr %20, ptr %19, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %18, align 8
-  tail call void @kvfree_call_rcu(ptr noundef null, ptr noundef nonnull %15) #16
+  tail call void @kvfree_call_rcu(ptr noundef null, ptr noundef nonnull %15) #17
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 208
   %24 = load volatile ptr, ptr %23, align 8
@@ -2703,7 +2703,7 @@ define dso_local i32 @trace_probe_compare_arg_type(ptr nocapture noundef readonl
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %27, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 @strcmp(ptr noundef %39, ptr noundef %41) #16
+  %42 = tail call i32 @strcmp(ptr noundef %39, ptr noundef %41) #17
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %47, label %44
 
@@ -2728,7 +2728,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define dso_local zeroext i1 @trace_probe_match_command_args(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 align 16 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %6, %1
@@ -2751,10 +2751,10 @@ define dso_local zeroext i1 @trace_probe_match_command_args(ptr nocapture nounde
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.13, ptr noundef %17, ptr noundef %19) #16
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.13, ptr noundef %17, ptr noundef %19) #17
   %21 = getelementptr ptr, ptr %2, i64 %14
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %22) #16
+  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %22) #17
   %24 = icmp eq i32 %23, 0
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp ne i64 %25, %12
@@ -2763,7 +2763,7 @@ define dso_local zeroext i1 @trace_probe_match_command_args(ptr nocapture nounde
 
 .loopexit:                                        ; preds = %13, %8, %3
   %28 = phi i1 [ false, %3 ], [ true, %8 ], [ %24, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
   ret i1 %28
 }
 
@@ -2773,9 +2773,9 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @trace_probe_create(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
   store i32 0, ptr %3, align 4
-  %4 = call ptr @argv_split(i32 noundef 3264, ptr noundef %0, ptr noundef nonnull %3) #16
+  %4 = call ptr @argv_split(i32 noundef 3264, ptr noundef %0, ptr noundef nonnull %3) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
 
@@ -2785,17 +2785,17 @@ define dso_local i32 @trace_probe_create(ptr noundef %0, ptr nocapture noundef r
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = call i32 %1(i32 noundef %7, ptr noundef nonnull %4) #16
+  %10 = call i32 %1(i32 noundef %7, ptr noundef nonnull %4) #17
   br label %11
 
 11:                                               ; preds = %9, %6
   %12 = phi i32 [ %10, %9 ], [ 0, %6 ]
-  call void @argv_free(ptr noundef nonnull %4) #16
+  call void @argv_free(ptr noundef nonnull %4) #17
   br label %13
 
 13:                                               ; preds = %11, %2
   %14 = phi i32 [ %12, %11 ], [ -12, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   ret i32 %14
 }
 
@@ -2819,7 +2819,7 @@ define dso_local noundef i32 @trace_probe_print_args(ptr noundef %0, ptr nocaptu
   %11 = getelementptr %struct.probe_arg, ptr %1, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %13) #16
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %13) #17
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
@@ -2834,12 +2834,12 @@ define dso_local noundef i32 @trace_probe_print_args(ptr noundef %0, ptr nocaptu
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = getelementptr i8, ptr %3, i64 %24
-  %26 = tail call i32 %21(ptr noundef %0, ptr noundef %25, ptr noundef %4) #16
+  %26 = tail call i32 %21(ptr noundef %0, ptr noundef %25, ptr noundef %4) #17
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %select.unfold, label %.loopexit
 
 28:                                               ; preds = %9
-  tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 123) #16
+  tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 123) #17
   %29 = getelementptr inbounds i8, ptr %11, i64 48
   %30 = load i32, ptr %14, align 8
   %31 = icmp eq i32 %30, 0
@@ -2859,7 +2859,7 @@ define dso_local noundef i32 @trace_probe_print_args(ptr noundef %0, ptr nocaptu
   %40 = phi ptr [ %53, %45 ], [ %36, %32 ]
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 %42(ptr noundef %0, ptr noundef %40, ptr noundef %4) #16
+  %43 = tail call i32 %42(ptr noundef %0, ptr noundef %40, ptr noundef %4) #17
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %select.unfold, label %45
 
@@ -2868,7 +2868,7 @@ define dso_local noundef i32 @trace_probe_print_args(ptr noundef %0, ptr nocaptu
   %47 = add i32 %46, -1
   %48 = icmp eq i32 %39, %47
   %49 = select i1 %48, i8 125, i8 44
-  tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext %49) #16
+  tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext %49) #17
   %50 = load ptr, ptr %29, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
@@ -2915,12 +2915,12 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.108) #16
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.108) #17
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.106) #16
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.106) #17
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit, label %14
 
@@ -2931,26 +2931,26 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.104) #16
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.104) #17
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit, label %.preheader
 
 21:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 0, ptr %3, align 8, !annotation !19
-  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 47) #16
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 47) #17
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %22, i64 1
-  %26 = call i32 @kstrtoull(ptr noundef %25, i32 noundef 0, ptr noundef nonnull %3) #16
+  %26 = call i32 @kstrtoull(ptr noundef %25, i32 noundef 0, ptr noundef nonnull %3) #17
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %3, align 8
-  %30 = add i64 %29, -8
+  %30 = sub i64 %29, 8
   %31 = call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 61)
   switch i64 %31, label %.thread [
     i64 0, label %35
@@ -2969,13 +2969,13 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
   br label %35
 
 .thread:                                          ; preds = %21, %24, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   br label %.loopexit
 
 35:                                               ; preds = %28, %32, %33, %34
   %36 = phi ptr [ @.str.113, %34 ], [ @.str.112, %33 ], [ @.str.111, %32 ], [ @.str.110, %28 ]
   %37 = call fastcc ptr @find_fetch_type(ptr noundef nonnull %36, i64 noundef %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   br label %.loopexit
 
 .preheader:                                       ; preds = %18, %41
@@ -2987,7 +2987,7 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
 41:                                               ; preds = %.preheader
   %42 = getelementptr [18 x %struct.fetch_type], ptr @probe_fetch_types, i64 0, i64 %39
   %43 = load ptr, ptr %42, align 16
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %43) #16
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %43) #17
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !38
 
@@ -3002,12 +3002,12 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
   store i64 0, ptr %7, align 8, !annotation !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   store i64 0, ptr %8, align 8
   %10 = load i8, ptr %0, align 1
   switch i8 %10, label %302 [
@@ -3021,7 +3021,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %0, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store i64 0, ptr %5, align 8, !annotation !19
   %13 = getelementptr inbounds i8, ptr %3, i64 64
   %14 = load i32, ptr %13, align 8
@@ -3049,7 +3049,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %32
 
 30:                                               ; preds = %21
-  %31 = tail call ptr %26(ptr noundef %22) #16
+  %31 = tail call ptr %26(ptr noundef %22) #17
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -3065,7 +3065,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %36, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 @strcmp(ptr noundef %12, ptr noundef %40) #16
+  %41 = tail call i32 @strcmp(ptr noundef %12, ptr noundef %40) #17
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %34, !llvm.loop !39
 
@@ -3075,12 +3075,12 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %.thread26
 
 44:                                               ; preds = %34
-  %45 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.123) #16
+  %45 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.123) #17
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.124) #16
+  %48 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.124) #17
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %51
 
@@ -3094,7 +3094,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %114
 
 53:                                               ; preds = %11
-  %54 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull dereferenceable(7) @.str.125, i64 noundef 6) #16
+  %54 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull dereferenceable(7) @.str.125, i64 noundef 6) #17
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %60
 
@@ -3108,7 +3108,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %.thread26
 
 60:                                               ; preds = %53
-  %61 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull dereferenceable(6) @.str.126, i64 noundef 5) #16
+  %61 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull dereferenceable(6) @.str.126, i64 noundef 5) #17
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %85
 
@@ -3129,7 +3129,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br i1 %71, label %114, label %72
 
 72:                                               ; preds = %68
-  %73 = call i32 @kstrtoull(ptr noundef %64, i32 noundef 10, ptr noundef nonnull %5) #16
+  %73 = call i32 @kstrtoull(ptr noundef %64, i32 noundef 10, ptr noundef nonnull %5) #17
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %114
 
@@ -3150,12 +3150,12 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %.thread26
 
 85:                                               ; preds = %60
-  %86 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.123) #16
+  %86 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.123) #17
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %91, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.124) #16
+  %89 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.124) #17
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %92
 
@@ -3164,7 +3164,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %.thread26
 
 92:                                               ; preds = %88
-  %93 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull dereferenceable(4) @.str.127, i64 noundef 3) #16
+  %93 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull dereferenceable(4) @.str.127, i64 noundef 3) #17
   %94 = icmp eq i32 %93, 0
   %95 = and i32 %14, 23
   %96 = icmp eq i32 %95, 6
@@ -3173,7 +3173,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 98:                                               ; preds = %92
   %99 = getelementptr i8, ptr %0, i64 4
-  %100 = call i32 @kstrtoull(ptr noundef %99, i32 noundef 10, ptr noundef nonnull %5) #16
+  %100 = call i32 @kstrtoull(ptr noundef %99, i32 noundef 10, ptr noundef nonnull %5) #17
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %114
 
@@ -3218,7 +3218,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 126:                                              ; preds = %118
   %127 = getelementptr i8, ptr %0, i64 1
-  %128 = tail call i32 @regs_query_register_offset(ptr noundef %127) #16
+  %128 = tail call i32 @regs_query_register_offset(ptr noundef %127) #17
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %130, label %132
 
@@ -3243,7 +3243,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br i1 %140, label %149, label %141
 
 141:                                              ; preds = %135
-  %142 = call i32 @kstrtoull(ptr noundef %136, i32 noundef 0, ptr noundef nonnull %7) #16
+  %142 = call i32 @kstrtoull(ptr noundef %136, i32 noundef 0, ptr noundef nonnull %7) #17
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %147, label %144
 
@@ -3277,7 +3277,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 159:                                              ; preds = %155
   %160 = getelementptr i8, ptr %0, i64 2
-  %161 = call i32 @kstrtoll(ptr noundef %160, i32 noundef 0, ptr noundef nonnull %8) #16
+  %161 = call i32 @kstrtoll(ptr noundef %160, i32 noundef 0, ptr noundef nonnull %8) #17
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %166, label %163
 
@@ -3303,7 +3303,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 172:                                              ; preds = %168
   store i32 22, ptr %9, align 8
-  %173 = tail call noalias ptr @kstrdup(ptr noundef %136, i32 noundef 3264) #16
+  %173 = tail call noalias ptr @kstrdup(ptr noundef %136, i32 noundef 3264) #17
   %174 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %173, ptr %174, align 8
   %175 = icmp eq ptr %173, null
@@ -3365,7 +3365,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   %205 = icmp eq i8 %10, 43
   %206 = zext i1 %205 to i64
   %207 = getelementptr i8, ptr %203, i64 %206
-  %208 = tail call ptr @strchr(ptr noundef %207, i32 noundef 40) #16
+  %208 = tail call ptr @strchr(ptr noundef %207, i32 noundef 40) #17
   %209 = icmp eq ptr %208, null
   br i1 %209, label %210, label %213
 
@@ -3377,7 +3377,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 213:                                              ; preds = %202
   store i8 0, ptr %208, align 1
-  %214 = call i32 @kstrtoll(ptr noundef %207, i32 noundef 0, ptr noundef nonnull %8) #16
+  %214 = call i32 @kstrtoll(ptr noundef %207, i32 noundef 0, ptr noundef nonnull %8) #17
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %219, label %216
 
@@ -3401,12 +3401,12 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   %230 = trunc i64 %227 to i32
   %231 = add i32 %229, %230
   store i32 %231, ptr %228, align 4
-  %232 = call ptr @strrchr(ptr noundef %220, i32 noundef 41) #16
+  %232 = call ptr @strrchr(ptr noundef %220, i32 noundef 41) #17
   %233 = icmp eq ptr %232, null
   br i1 %233, label %234, label %238
 
 234:                                              ; preds = %219
-  %235 = call i64 @strlen(ptr noundef %220) #16
+  %235 = call i64 @strlen(ptr noundef %220) #17
   %236 = trunc i64 %235 to i32
   %237 = add i32 %231, %236
   call void @__trace_probe_log_err(i32 noundef %237, i32 noundef 36)
@@ -3464,7 +3464,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 263:                                              ; preds = %259
   %264 = getelementptr i8, ptr %0, i64 2
-  %265 = tail call i64 @strlen(ptr noundef %264) #16
+  %265 = tail call i64 @strlen(ptr noundef %264) #17
   %266 = add i64 %265, -1
   %267 = getelementptr i8, ptr %264, i64 %266
   %268 = load i8, ptr %267, align 1
@@ -3481,7 +3481,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %.thread
 
 276:                                              ; preds = %263
-  %277 = tail call ptr @kstrndup(ptr noundef %264, i64 noundef %266, i32 noundef 3264) #16
+  %277 = tail call ptr @kstrndup(ptr noundef %264, i64 noundef %266, i32 noundef 3264) #17
   %278 = icmp eq ptr %277, null
   br i1 %278, label %.thread, label %279
 
@@ -3499,7 +3499,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br i1 %285, label %288, label %286
 
 286:                                              ; preds = %281
-  %287 = tail call i32 @kstrtoull(ptr noundef %260, i32 noundef 0, ptr noundef %282) #16
+  %287 = tail call i32 @kstrtoull(ptr noundef %260, i32 noundef 0, ptr noundef %282) #17
   br label %294
 
 288:                                              ; preds = %281
@@ -3509,12 +3509,12 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   ]
 
 289:                                              ; preds = %288
-  %290 = tail call i32 @kstrtoll(ptr noundef %260, i32 noundef 0, ptr noundef %282) #16
+  %290 = tail call i32 @kstrtoll(ptr noundef %260, i32 noundef 0, ptr noundef %282) #17
   br label %294
 
 291:                                              ; preds = %288
   %292 = getelementptr i8, ptr %0, i64 2
-  %293 = tail call i32 @kstrtoll(ptr noundef %292, i32 noundef 0, ptr noundef %282) #16
+  %293 = tail call i32 @kstrtoll(ptr noundef %292, i32 noundef 0, ptr noundef %282) #17
   br label %294
 
 294:                                              ; preds = %291, %289, %286
@@ -3556,12 +3556,12 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
   br label %.thread
 
 .thread26:                                        ; preds = %50, %59, %67, %82, %91, %106, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   br label %.thread24
 
 317:                                              ; preds = %17, %114
   %318 = phi i32 [ -22, %114 ], [ -14, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   br label %.thread
 
 .thread24:                                        ; preds = %254, %302, %123, %.thread26
@@ -3578,9 +3578,9 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 
 .thread:                                          ; preds = %279, %301, %193, %130, %310, %276, %270, %238, %132, %163, %144, %216, %.thread19, %253, %249, %317, %320, %.thread24, %234, %210, %190, %179, %172, %169, %156
   %323 = phi i32 [ -22, %234 ], [ -22, %210 ], [ -22, %190 ], [ -22, %156 ], [ -22, %179 ], [ -22, %169 ], [ -12, %172 ], [ %318, %317 ], [ -22, %320 ], [ 0, %.thread24 ], [ -22, %249 ], [ -22, %253 ], [ %244, %238 ], [ %128, %132 ], [ %161, %163 ], [ %142, %144 ], [ %214, %216 ], [ %297, %.thread19 ], [ -22, %270 ], [ -12, %276 ], [ %spec.select, %310 ], [ 0, %130 ], [ 0, %193 ], [ 0, %301 ], [ 0, %279 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   ret i32 %323
 }
 
@@ -3588,7 +3588,7 @@ define internal fastcc i32 @parse_probe_arg(ptr noundef %0, ptr nocapture nounde
 define internal fastcc i32 @__parse_bitfield_probe_arg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 98
   br i1 %7, label %8, label %49
@@ -3596,7 +3596,7 @@ define internal fastcc i32 @__parse_bitfield_probe_arg(ptr noundef %0, ptr nocap
 8:                                                ; preds = %3
   store ptr null, ptr %4, align 8, !annotation !19
   %9 = getelementptr i8, ptr %0, i64 1
-  %10 = call i64 @simple_strtoul(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 0) #16
+  %10 = call i64 @simple_strtoul(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 0) #17
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %49, label %12
 
@@ -3608,7 +3608,7 @@ define internal fastcc i32 @__parse_bitfield_probe_arg(ptr noundef %0, ptr nocap
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %13, i64 1
-  %18 = call i64 @simple_strtoul(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 0) #16
+  %18 = call i64 @simple_strtoul(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 0) #17
   %19 = load ptr, ptr %4, align 8
   %20 = icmp eq ptr %19, %17
   br i1 %20, label %49, label %21
@@ -3654,7 +3654,7 @@ define internal fastcc i32 @__parse_bitfield_probe_arg(ptr noundef %0, ptr nocap
 
 49:                                               ; preds = %28, %24, %21, %16, %12, %8, %3
   %50 = phi i32 [ %48, %28 ], [ 0, %3 ], [ -22, %12 ], [ -22, %8 ], [ -22, %21 ], [ -22, %16 ], [ -22, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret i32 %50
 }
 
@@ -3680,10 +3680,10 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #16
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -3701,9 +3701,10 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #14 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind allocsize(2) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

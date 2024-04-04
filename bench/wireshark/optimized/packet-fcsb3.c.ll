@@ -436,7 +436,7 @@ dissect_fc_sbccs_sb3_iu_hdr.exit:                 ; preds = %30, %40
 
 67:                                               ; preds = %29, %dissect_fc_sbccs_sb3_iu_hdr.exit
   %.064 = phi ptr [ %66, %dissect_fc_sbccs_sb3_iu_hdr.exit ], [ null, %29 ]
-  switch i8 %8, label %266 [
+  switch i8 %8, label %265 [
     i8 0, label %68
     i8 1, label %76
     i8 4, label %76
@@ -707,107 +707,106 @@ dissect_status.exit.i:                            ; preds = %147, %145
   %218 = load i32, ptr @hf_sbccs_dib_linkctlfn, align 4
   %219 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %218, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
   %220 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 18) #3
-  %221 = zext i8 %217 to i32
-  %222 = add nsw i32 %221, -1
-  %223 = tail call i32 @llvm.fshl.i32(i32 %222, i32 %222, i32 29)
-  switch i32 %223, label %241 [
-    i32 8, label %224
-    i32 10, label %224
-    i32 11, label %229
-    i32 1, label %232
-    i32 0, label %235
-    i32 2, label %238
+  %221 = sub i8 %217, 1
+  %222 = call i8 @llvm.fshl.i8(i8 %221, i8 %221, i8 5)
+  switch i8 %222, label %240 [
+    i8 8, label %223
+    i8 10, label %223
+    i8 11, label %228
+    i8 1, label %231
+    i8 0, label %234
+    i8 2, label %237
   ]
 
-224:                                              ; preds = %216, %216
-  %225 = load i32, ptr @hf_sbccs_dib_linkctlinfo, align 4
-  %226 = load i32, ptr @ett_sbccs_dib_linkctlinfo, align 4
-  %227 = zext i16 %220 to i64
-  %228 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef nonnull %.064, ptr noundef %0, i32 noundef 18, i32 noundef %225, i32 noundef %226, ptr noundef nonnull @dissect_linkctlinfo.linkctlinfo_flags, i64 noundef %227, i32 noundef 12) #3
-  br label %241
+223:                                              ; preds = %216, %216
+  %224 = load i32, ptr @hf_sbccs_dib_linkctlinfo, align 4
+  %225 = load i32, ptr @ett_sbccs_dib_linkctlinfo, align 4
+  %226 = zext i16 %220 to i64
+  %227 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef nonnull %.064, ptr noundef %0, i32 noundef 18, i32 noundef %224, i32 noundef %225, ptr noundef nonnull @dissect_linkctlinfo.linkctlinfo_flags, i64 noundef %226, i32 noundef 12) #3
+  br label %240
 
-229:                                              ; preds = %216
-  %230 = load i32, ptr @hf_sbccs_dib_lprcode, align 4
-  %231 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %230, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #3
-  br label %241
+228:                                              ; preds = %216
+  %229 = load i32, ptr @hf_sbccs_dib_lprcode, align 4
+  %230 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %229, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #3
+  br label %240
 
-232:                                              ; preds = %216
-  %233 = load i32, ptr @hf_sbccs_dib_tin_imgid_cnt, align 4
-  %234 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %233, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #3
-  br label %241
+231:                                              ; preds = %216
+  %232 = load i32, ptr @hf_sbccs_dib_tin_imgid_cnt, align 4
+  %233 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %232, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #3
+  br label %240
 
-235:                                              ; preds = %216
-  %236 = load i32, ptr @hf_sbccs_dib_tin_imgid_cnt, align 4
-  %237 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %236, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #3
-  br label %241
+234:                                              ; preds = %216
+  %235 = load i32, ptr @hf_sbccs_dib_tin_imgid_cnt, align 4
+  %236 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %235, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #3
+  br label %240
 
-238:                                              ; preds = %216
-  %239 = load i32, ptr @hf_sbccs_dib_lrjcode, align 4
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %239, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #3
-  br label %241
+237:                                              ; preds = %216
+  %238 = load i32, ptr @hf_sbccs_dib_lrjcode, align 4
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %238, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #3
+  br label %240
 
-241:                                              ; preds = %238, %235, %232, %229, %224, %216
-  %242 = load i32, ptr @hf_sbccs_dib_ctccntr, align 4
-  %243 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %242, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0) #3
-  %244 = load i32, ptr @hf_sbccs_dib_iucnt, align 4
-  %245 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %244, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #3
-  %246 = load i32, ptr @hf_sbccs_dib_datacnt, align 4
-  %247 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %246, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
-  %248 = load i32, ptr @hf_sbccs_lrc, align 4
-  %249 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %248, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %250 = icmp eq i8 %217, 1
-  br i1 %250, label %251, label %dissect_fc_sbccs_dib_data_hdr.exit
+240:                                              ; preds = %237, %234, %231, %228, %223, %216
+  %241 = load i32, ptr @hf_sbccs_dib_ctccntr, align 4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %241, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0) #3
+  %243 = load i32, ptr @hf_sbccs_dib_iucnt, align 4
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %243, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #3
+  %245 = load i32, ptr @hf_sbccs_dib_datacnt, align 4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %245, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
+  %247 = load i32, ptr @hf_sbccs_lrc, align 4
+  %248 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %247, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
+  %249 = icmp eq i8 %217, 1
+  br i1 %249, label %250, label %dissect_fc_sbccs_dib_data_hdr.exit
 
-251:                                              ; preds = %241
-  %252 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 26) #3
-  %253 = zext i16 %252 to i32
-  %.not59.i = icmp eq i16 %252, 0
+250:                                              ; preds = %240
+  %251 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 26) #3
+  %252 = zext i16 %251 to i32
+  %.not59.i = icmp eq i16 %251, 0
   br i1 %.not59.i, label %dissect_fc_sbccs_dib_data_hdr.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %251
-  %254 = getelementptr inbounds i8, ptr %1, i64 408
-  br label %255
+.lr.ph.i:                                         ; preds = %250
+  %253 = getelementptr inbounds i8, ptr %1, i64 408
+  br label %254
 
-255:                                              ; preds = %255, %.lr.ph.i
-  %.058.i = phi i32 [ 0, %.lr.ph.i ], [ %258, %255 ]
-  %.05557.i = phi i32 [ 32, %.lr.ph.i ], [ %264, %255 ]
-  %256 = load i32, ptr @hf_sbccs_logical_path, align 4
-  %257 = shl nuw nsw i32 %.058.i, 3
-  %258 = add nuw nsw i32 %.058.i, 4
-  %259 = shl nuw nsw i32 %258, 3
-  %260 = add nsw i32 %259, -1
-  %261 = load ptr, ptr %254, align 8
-  %262 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %261, ptr noundef %0, i32 noundef %.05557.i, i32 noundef 4, i8 noundef signext 58) #3
-  %263 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %.064, i32 noundef %256, ptr noundef %0, i32 noundef %.05557.i, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %257, i32 noundef %260, ptr noundef %262) #3
-  %264 = add nuw nsw i32 %.05557.i, 4
-  %265 = icmp ult i32 %258, %253
-  br i1 %265, label %255, label %dissect_fc_sbccs_dib_data_hdr.exit, !llvm.loop !4
+254:                                              ; preds = %254, %.lr.ph.i
+  %.058.i = phi i32 [ 0, %.lr.ph.i ], [ %257, %254 ]
+  %.05557.i = phi i32 [ 32, %.lr.ph.i ], [ %263, %254 ]
+  %255 = load i32, ptr @hf_sbccs_logical_path, align 4
+  %256 = shl nuw nsw i32 %.058.i, 3
+  %257 = add nuw nsw i32 %.058.i, 4
+  %258 = shl nuw nsw i32 %257, 3
+  %259 = add nsw i32 %258, -1
+  %260 = load ptr, ptr %253, align 8
+  %261 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %260, ptr noundef %0, i32 noundef %.05557.i, i32 noundef 4, i8 noundef signext 58) #3
+  %262 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %.064, i32 noundef %255, ptr noundef %0, i32 noundef %.05557.i, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %256, i32 noundef %259, ptr noundef %261) #3
+  %263 = add nuw nsw i32 %.05557.i, 4
+  %264 = icmp ult i32 %257, %252
+  br i1 %264, label %254, label %dissect_fc_sbccs_dib_data_hdr.exit, !llvm.loop !4
 
-266:                                              ; preds = %67
-  %267 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 16) #3
-  %268 = tail call i32 @call_data_dissector(ptr noundef %267, ptr noundef nonnull %1, ptr noundef %.064) #3
+265:                                              ; preds = %67
+  %266 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 16) #3
+  %267 = tail call i32 @call_data_dissector(ptr noundef %266, ptr noundef nonnull %1, ptr noundef %.064) #3
   br label %dissect_fc_sbccs_dib_data_hdr.exit
 
-dissect_fc_sbccs_dib_data_hdr.exit:               ; preds = %255, %251, %241, %211, %208, %200, %177, %174, %172, %80, %76, %69, %68, %266
-  %269 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
-  %270 = and i8 %269, 7
-  %.not68 = icmp eq i8 %270, 3
-  br i1 %.not68, label %277, label %271
+dissect_fc_sbccs_dib_data_hdr.exit:               ; preds = %254, %250, %240, %211, %208, %200, %177, %174, %172, %80, %76, %69, %68, %265
+  %268 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
+  %269 = and i8 %268, 7
+  %.not68 = icmp eq i8 %269, 3
+  br i1 %.not68, label %276, label %270
 
-271:                                              ; preds = %dissect_fc_sbccs_dib_data_hdr.exit
-  %272 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
-  %273 = and i8 %272, 7
-  %.not69 = icmp eq i8 %273, 5
-  br i1 %.not69, label %277, label %274
+270:                                              ; preds = %dissect_fc_sbccs_dib_data_hdr.exit
+  %271 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
+  %272 = and i8 %271, 7
+  %.not69 = icmp eq i8 %272, 5
+  br i1 %.not69, label %276, label %273
 
-274:                                              ; preds = %271
-  %275 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 32) #3
-  %276 = tail call i32 @call_data_dissector(ptr noundef %275, ptr noundef nonnull %1, ptr noundef %2) #3
-  br label %277
+273:                                              ; preds = %270
+  %274 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 32) #3
+  %275 = tail call i32 @call_data_dissector(ptr noundef %274, ptr noundef nonnull %1, ptr noundef %2) #3
+  br label %276
 
-277:                                              ; preds = %274, %271, %dissect_fc_sbccs_dib_data_hdr.exit
-  %278 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %278
+276:                                              ; preds = %273, %270, %dissect_fc_sbccs_dib_data_hdr.exit
+  %277 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %277
 }
 
 ; Function Attrs: nounwind uwtable
@@ -860,7 +859,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #2
+declare i8 @llvm.fshl.i8(i8, i8, i8) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

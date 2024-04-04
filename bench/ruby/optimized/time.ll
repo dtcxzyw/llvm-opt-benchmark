@@ -9435,25 +9435,26 @@ define internal fastcc i64 @num_exact(i64 noundef %0) unnamed_addr #1 {
   br i1 %5, label %6, label %rb_type.exit.i
 
 6:                                                ; preds = %1
-  %7 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
-  switch i64 %7, label %8 [
+  %7 = sub i64 %0, 0
+  %8 = call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 62)
+  switch i64 %8, label %9 [
     i64 0, label %rb_type.exit.thread.i
     i64 1, label %num_exact_check.exit
     i64 5, label %rb_type.exit.thread.i
     i64 9, label %rb_type.exit.thread.i
   ]
 
-8:                                                ; preds = %6
-  %9 = and i64 %0, 1
-  %.not.i.i = icmp eq i64 %9, 0
+9:                                                ; preds = %6
+  %10 = and i64 %0, 1
+  %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %rb_type.exit.thread.i, label %rb_type.exit.thread35.i
 
 rb_type.exit.i:                                   ; preds = %1
-  %10 = inttoptr i64 %0 to ptr
-  %11 = load i64, ptr %10, align 8
-  %12 = trunc i64 %11 to i32
-  %13 = and i32 %12, 31
-  switch i32 %13, label %rb_type.exit.thread.i [
+  %11 = inttoptr i64 %0 to ptr
+  %12 = load i64, ptr %11, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = and i32 %13, 31
+  switch i32 %14, label %rb_type.exit.thread.i [
     i32 21, label %rb_type.exit.thread35.i
     i32 10, label %rb_type.exit.thread35.i
     i32 15, label %rb_type.exit.thread35.sink.split.i
@@ -9461,59 +9462,59 @@ rb_type.exit.i:                                   ; preds = %1
     i32 5, label %num_exact_check.exit
   ]
 
-rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %8, %6, %6, %6
-  %14 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3377, i32 noundef 0, ptr noundef null) #18
-  %15 = icmp eq i64 %14, 36
-  br i1 %15, label %28, label %16
+rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %9, %6, %6, %6
+  %15 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef 3377, i32 noundef 0, ptr noundef null) #18
+  %16 = icmp eq i64 %15, 36
+  br i1 %16, label %29, label %17
 
-16:                                               ; preds = %rb_type.exit.thread.i
-  %17 = tail call i32 @rb_respond_to(i64 noundef %0, i64 noundef 3201) #18
-  %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %num_exact_check.exit, label %18
+17:                                               ; preds = %rb_type.exit.thread.i
+  %18 = tail call i32 @rb_respond_to(i64 noundef %0, i64 noundef 3201) #18
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %num_exact_check.exit, label %19
 
-18:                                               ; preds = %16
-  %19 = and i64 %14, 1
-  %.not.i32.i = icmp eq i64 %19, 0
-  br i1 %.not.i32.i, label %20, label %rb_type.exit.thread35.i
+19:                                               ; preds = %17
+  %20 = and i64 %15, 1
+  %.not.i32.i = icmp eq i64 %20, 0
+  br i1 %.not.i32.i, label %21, label %rb_type.exit.thread35.i
 
-20:                                               ; preds = %18
-  %21 = and i64 %14, 6
-  %22 = icmp ne i64 %21, 0
-  %23 = icmp eq i64 %14, 0
-  %24 = or i1 %23, %22
-  br i1 %24, label %num_exact_check.exit, label %rb_integer_type_p.exit.i
+21:                                               ; preds = %19
+  %22 = and i64 %15, 6
+  %23 = icmp ne i64 %22, 0
+  %24 = icmp eq i64 %15, 0
+  %25 = or i1 %24, %23
+  br i1 %25, label %num_exact_check.exit, label %rb_integer_type_p.exit.i
 
-rb_integer_type_p.exit.i:                         ; preds = %20
-  %25 = inttoptr i64 %14 to ptr
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 31
-  switch i64 %27, label %num_exact_check.exit [
+rb_integer_type_p.exit.i:                         ; preds = %21
+  %26 = inttoptr i64 %15 to ptr
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 31
+  switch i64 %28, label %num_exact_check.exit [
     i64 10, label %rb_type.exit.thread35.i
     i64 15, label %rb_type.exit.thread35.sink.split.i
   ]
 
-28:                                               ; preds = %rb_type.exit.thread.i
-  %29 = tail call i64 @rb_check_to_int(i64 noundef %0) #18
-  %30 = icmp eq i64 %29, 4
-  br i1 %30, label %num_exact_check.exit, label %33
+29:                                               ; preds = %rb_type.exit.thread.i
+  %30 = tail call i64 @rb_check_to_int(i64 noundef %0) #18
+  %31 = icmp eq i64 %30, 4
+  br i1 %31, label %num_exact_check.exit, label %34
 
 rb_type.exit.thread35.sink.split.i:               ; preds = %rb_integer_type_p.exit.i, %rb_type.exit.i
-  %.sink.i = phi i64 [ %0, %rb_type.exit.i ], [ %14, %rb_integer_type_p.exit.i ]
-  %31 = tail call i64 @rb_rational_canonicalize(i64 noundef %.sink.i) #18
+  %.sink.i = phi i64 [ %0, %rb_type.exit.i ], [ %15, %rb_integer_type_p.exit.i ]
+  %32 = tail call i64 @rb_rational_canonicalize(i64 noundef %.sink.i) #18
   br label %rb_type.exit.thread35.i
 
-rb_type.exit.thread35.i:                          ; preds = %rb_integer_type_p.exit.i, %rb_type.exit.thread35.sink.split.i, %18, %rb_type.exit.i, %rb_type.exit.i, %8
-  %.0.i = phi i64 [ %14, %rb_integer_type_p.exit.i ], [ %0, %rb_type.exit.i ], [ %0, %rb_type.exit.i ], [ %0, %8 ], [ %14, %18 ], [ %31, %rb_type.exit.thread35.sink.split.i ]
-  %32 = icmp ne i64 %.0.i, 4
-  tail call void @llvm.assume(i1 %32)
-  br label %33
+rb_type.exit.thread35.i:                          ; preds = %rb_integer_type_p.exit.i, %rb_type.exit.thread35.sink.split.i, %19, %rb_type.exit.i, %rb_type.exit.i, %9
+  %.0.i = phi i64 [ %15, %rb_integer_type_p.exit.i ], [ %0, %rb_type.exit.i ], [ %0, %rb_type.exit.i ], [ %0, %9 ], [ %15, %19 ], [ %32, %rb_type.exit.thread35.sink.split.i ]
+  %33 = icmp ne i64 %.0.i, 4
+  tail call void @llvm.assume(i1 %33)
+  br label %34
 
-num_exact_check.exit:                             ; preds = %rb_integer_type_p.exit.i, %28, %20, %16, %rb_type.exit.i, %rb_type.exit.i, %6
+num_exact_check.exit:                             ; preds = %rb_integer_type_p.exit.i, %29, %21, %17, %rb_type.exit.i, %rb_type.exit.i, %6
   tail call fastcc void @num_exact_fail(i64 noundef %0) #20
   unreachable
 
-33:                                               ; preds = %rb_type.exit.thread35.i, %28
-  %.031.i.ph = phi i64 [ %29, %28 ], [ %.0.i, %rb_type.exit.thread35.i ]
+34:                                               ; preds = %rb_type.exit.thread35.i, %29
+  %.031.i.ph = phi i64 [ %30, %29 ], [ %.0.i, %rb_type.exit.thread35.i ]
   ret i64 %.031.i.ph
 }
 

@@ -166,8 +166,8 @@ entry:
   %idxprom6 = zext nneg i32 %shr to i64
   %isr = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom6, i32 1
   %0 = load i8, ptr %isr, align 1
-  %1 = add nsw i32 %xor, -1
-  %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 31)
+  %1 = sub i32 %xor, 1
+  %2 = call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 31)
   switch i32 %2, label %if.end74 [
     i32 0, label %sw.bb
     i32 8, label %sw.bb
@@ -319,8 +319,8 @@ entry:
   %isr = getelementptr inbounds i8, ptr %arrayidx9, i64 1
   %0 = load i8, ptr %isr, align 1
   %1 = load i8, ptr %arrayidx9, align 1
-  %2 = add nsw i32 %xor, -1
-  %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
+  %2 = sub i32 %xor, 1
+  %3 = call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
   switch i32 %3, label %sw.epilog [
     i32 0, label %sw.bb
     i32 8, label %sw.bb

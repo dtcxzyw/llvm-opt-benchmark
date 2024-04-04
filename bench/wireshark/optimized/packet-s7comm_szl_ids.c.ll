@@ -2845,10 +2845,10 @@ define hidden i32 @s7comm_decode_ud_cpu_szl_subfunc(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader
   %84 = icmp eq i16 %50, 0
-  %85 = add nsw i32 %57, -148
-  %86 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 24)
-  %87 = icmp ult i32 %86, 8
-  %88 = zext nneg i32 %86 to i64
+  %85 = add nsw i16 %45, -148
+  %86 = tail call i16 @llvm.bswap.i16(i16 %85)
+  %87 = icmp ult i16 %86, 8
+  %88 = zext nneg i16 %86 to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.s7comm_decode_ud_cpu_szl_subfunc, i64 0, i64 %88
   br label %89
 
@@ -5240,19 +5240,19 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare i16 @llvm.bswap.i16(i16) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -607,7 +607,7 @@ _ZNK11QModelIndex7isValidEv.exit39.thread:        ; preds = %_ZNK11QModelIndex6p
   %49 = inttoptr i64 %44 to ptr
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
-  %52 = add i32 %51, -1048576
+  %52 = sub i32 %51, 1048576
   %53 = call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 12)
   switch i32 %53, label %223 [
     i32 0, label %54
@@ -742,7 +742,7 @@ _ZNK11QModelIndex7isValidEv.exit45.thread:        ; preds = %_ZNK11QModelIndex6p
   %97 = inttoptr i64 %92 to ptr
   %98 = getelementptr inbounds i8, ptr %97, i64 16
   %99 = load i32, ptr %98, align 8
-  %100 = add i32 %99, -1048576
+  %100 = sub i32 %99, 1048576
   %101 = call i32 @llvm.fshl.i32(i32 %100, i32 %100, i32 12)
   switch i32 %101, label %223 [
     i32 0, label %102
@@ -2537,9 +2537,6 @@ _ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread: ; preds = %._c
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2556,6 +2553,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

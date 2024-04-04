@@ -138,8 +138,9 @@ declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @sifive_uart_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 1, label %sw.bb
     i64 0, label %return
     i64 4, label %sw.bb9
@@ -151,37 +152,37 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %rx_fifo_len = getelementptr inbounds i8, ptr %opaque, i64 1168
-  %1 = load i8, ptr %rx_fifo_len, align 16
-  %tobool.not = icmp eq i8 %1, 0
+  %2 = load i8, ptr %rx_fifo_len, align 16
+  %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %sw.bb
   %rx_fifo = getelementptr inbounds i8, ptr %opaque, i64 1160
-  %2 = load i8, ptr %rx_fifo, align 8
+  %3 = load i8, ptr %rx_fifo, align 8
   %add.ptr = getelementptr i8, ptr %opaque, i64 1161
-  %conv = zext i8 %1 to i64
+  %conv = zext i8 %2 to i64
   %sub = add nuw nsw i64 %conv, 4294967295
   %conv5 = and i64 %sub, 4294967295
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %rx_fifo, ptr align 1 %add.ptr, i64 %conv5, i1 false)
-  %3 = load i8, ptr %rx_fifo_len, align 16
-  %dec = add i8 %3, -1
+  %4 = load i8, ptr %rx_fifo_len, align 16
+  %dec = add i8 %4, -1
   store i8 %dec, ptr %rx_fifo_len, align 16
   %chr = getelementptr inbounds i8, ptr %opaque, i64 1104
   tail call void @qemu_chr_fe_accept_input(ptr noundef nonnull %chr) #8
   %ie.i = getelementptr inbounds i8, ptr %opaque, i64 1172
-  %4 = load i32, ptr %ie.i, align 4
-  %and.i = and i32 %4, 1
+  %5 = load i32, ptr %ie.i, align 4
+  %and.i = and i32 %5, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %sifive_uart_update_irq.exit
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %and2.i = and i32 %4, 2
+  %and2.i = and i32 %5, 2
   %tobool3.not.i = icmp eq i32 %and2.i, 0
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %5 = load i8, ptr %rx_fifo_len, align 16
-  %tobool4.not.i = icmp eq i8 %5, 0
+  %6 = load i8, ptr %rx_fifo_len, align 16
+  %tobool4.not.i = icmp eq i8 %6, 0
   br i1 %tobool4.not.i, label %if.else.i, label %sifive_uart_update_irq.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
@@ -190,56 +191,56 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %l
 sifive_uart_update_irq.exit:                      ; preds = %if.then, %land.lhs.true.i, %if.else.i
   %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %if.then ]
   %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
-  %6 = load ptr, ptr %irq7.i, align 16
-  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %.sink5.i) #8
-  %conv7 = zext i8 %2 to i64
+  %7 = load ptr, ptr %irq7.i, align 16
+  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef %.sink5.i) #8
+  %conv7 = zext i8 %3 to i64
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %ie = getelementptr inbounds i8, ptr %opaque, i64 1172
-  %7 = load i32, ptr %ie, align 4
-  %conv10 = zext i32 %7 to i64
+  %8 = load i32, ptr %ie, align 4
+  %conv10 = zext i32 %8 to i64
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   %txctrl.i = getelementptr inbounds i8, ptr %opaque, i64 1180
-  %8 = load i32, ptr %txctrl.i, align 4
+  %9 = load i32, ptr %txctrl.i, align 4
   %rxctrl.i = getelementptr inbounds i8, ptr %opaque, i64 1184
-  %9 = load i32, ptr %rxctrl.i, align 16
-  %shr1.i = lshr i32 %9, 16
+  %10 = load i32, ptr %rxctrl.i, align 16
+  %shr1.i = lshr i32 %10, 16
   %and2.i14 = and i32 %shr1.i, 7
-  %10 = and i32 %8, 458752
-  %cmp.not.i = icmp ne i32 %10, 0
+  %11 = and i32 %9, 458752
+  %cmp.not.i = icmp ne i32 %11, 0
   %spec.select.i = zext i1 %cmp.not.i to i64
   %rx_fifo_len.i15 = getelementptr inbounds i8, ptr %opaque, i64 1168
-  %11 = load i8, ptr %rx_fifo_len.i15, align 16
-  %12 = zext i8 %11 to i32
-  %cmp6.i = icmp ult i32 %and2.i14, %12
+  %12 = load i8, ptr %rx_fifo_len.i15, align 16
+  %13 = zext i8 %12 to i32
+  %cmp6.i = icmp ult i32 %and2.i14, %13
   %or9.i = or disjoint i64 %spec.select.i, 2
   %ret.1.i = select i1 %cmp6.i, i64 %or9.i, i64 %spec.select.i
   br label %return
 
 sw.bb12:                                          ; preds = %entry
   %txctrl = getelementptr inbounds i8, ptr %opaque, i64 1180
-  %13 = load i32, ptr %txctrl, align 4
-  %conv13 = zext i32 %13 to i64
+  %14 = load i32, ptr %txctrl, align 4
+  %conv13 = zext i32 %14 to i64
   br label %return
 
 sw.bb14:                                          ; preds = %entry
   %rxctrl = getelementptr inbounds i8, ptr %opaque, i64 1184
-  %14 = load i32, ptr %rxctrl, align 16
-  %conv15 = zext i32 %14 to i64
+  %15 = load i32, ptr %rxctrl, align 16
+  %conv15 = zext i32 %15 to i64
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   %div = getelementptr inbounds i8, ptr %opaque, i64 1188
-  %15 = load i32, ptr %div, align 4
-  %conv17 = zext i32 %15 to i64
+  %16 = load i32, ptr %div, align 4
+  %conv17 = zext i32 %16 to i64
   br label %return
 
 do.body:                                          ; preds = %entry
-  %16 = load i32, ptr @qemu_loglevel, align 4
-  %and.i16 = and i32 %16, 2048
+  %17 = load i32, ptr @qemu_loglevel, align 4
+  %and.i16 = and i32 %17, 2048
   %cmp.i.not = icmp eq i32 %and.i16, 0
   br i1 %cmp.i.not, label %return, label %if.then22
 
@@ -249,7 +250,7 @@ if.then22:                                        ; preds = %do.body
   br label %return
 
 return:                                           ; preds = %if.then22, %do.body, %entry, %sw.bb, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11, %sw.bb9, %sifive_uart_update_irq.exit
-  %retval.0 = phi i64 [ %conv17, %sw.bb16 ], [ %conv15, %sw.bb14 ], [ %conv13, %sw.bb12 ], [ %ret.1.i, %sw.bb11 ], [ %conv10, %sw.bb9 ], [ %conv7, %sifive_uart_update_irq.exit ], [ 2147483648, %sw.bb ], [ %0, %entry ], [ 0, %do.body ], [ 0, %if.then22 ]
+  %retval.0 = phi i64 [ %conv17, %sw.bb16 ], [ %conv15, %sw.bb14 ], [ %conv13, %sw.bb12 ], [ %ret.1.i, %sw.bb11 ], [ %conv10, %sw.bb9 ], [ %conv7, %sifive_uart_update_irq.exit ], [ 2147483648, %sw.bb ], [ %addr, %entry ], [ 0, %do.body ], [ 0, %if.then22 ]
   ret i64 %retval.0
 }
 
@@ -260,8 +261,9 @@ entry:
   %conv = trunc i64 %val64 to i32
   %conv1 = trunc i64 %val64 to i8
   store i8 %conv1, ptr %ch, align 1
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 4, label %sw.bb2
     i64 2, label %sw.bb4
@@ -273,20 +275,20 @@ sw.bb:                                            ; preds = %entry
   %chr = getelementptr inbounds i8, ptr %opaque, i64 1104
   %call = call i32 @qemu_chr_fe_write(ptr noundef nonnull %chr, ptr noundef nonnull %ch, i32 noundef 1) #8
   %ie.i = getelementptr inbounds i8, ptr %opaque, i64 1172
-  %1 = load i32, ptr %ie.i, align 4
-  %and.i = and i32 %1, 1
+  %2 = load i32, ptr %ie.i, align 4
+  %and.i = and i32 %2, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %sifive_uart_update_irq.exit
 
 lor.lhs.false.i:                                  ; preds = %sw.bb
-  %and2.i = and i32 %1, 2
+  %and2.i = and i32 %2, 2
   %tobool3.not.i = icmp eq i32 %and2.i, 0
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %rx_fifo_len.i = getelementptr inbounds i8, ptr %opaque, i64 1168
-  %2 = load i8, ptr %rx_fifo_len.i, align 16
-  %tobool4.not.i = icmp eq i8 %2, 0
+  %3 = load i8, ptr %rx_fifo_len.i, align 16
+  %tobool4.not.i = icmp eq i8 %3, 0
   br i1 %tobool4.not.i, label %if.else.i, label %sifive_uart_update_irq.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
@@ -295,8 +297,8 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %l
 sifive_uart_update_irq.exit:                      ; preds = %sw.bb, %land.lhs.true.i, %if.else.i
   %.sink5.i = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %sw.bb ]
   %irq7.i = getelementptr inbounds i8, ptr %opaque, i64 816
-  %3 = load ptr, ptr %irq7.i, align 16
-  call void @qemu_set_irq(ptr noundef %3, i32 noundef %.sink5.i) #8
+  %4 = load ptr, ptr %irq7.i, align 16
+  call void @qemu_set_irq(ptr noundef %4, i32 noundef %.sink5.i) #8
   br label %do.end
 
 sw.bb2:                                           ; preds = %entry
@@ -313,8 +315,8 @@ lor.lhs.false.i18:                                ; preds = %sw.bb2
 
 land.lhs.true.i21:                                ; preds = %lor.lhs.false.i18
   %rx_fifo_len.i22 = getelementptr inbounds i8, ptr %opaque, i64 1168
-  %4 = load i8, ptr %rx_fifo_len.i22, align 16
-  %tobool4.not.i23 = icmp eq i8 %4, 0
+  %5 = load i8, ptr %rx_fifo_len.i22, align 16
+  %tobool4.not.i23 = icmp eq i8 %5, 0
   br i1 %tobool4.not.i23, label %if.else.i24, label %sifive_uart_update_irq.exit25
 
 if.else.i24:                                      ; preds = %land.lhs.true.i21, %lor.lhs.false.i18
@@ -323,8 +325,8 @@ if.else.i24:                                      ; preds = %land.lhs.true.i21, 
 sifive_uart_update_irq.exit25:                    ; preds = %sw.bb2, %land.lhs.true.i21, %if.else.i24
   %.sink5.i16 = phi i32 [ 0, %if.else.i24 ], [ 1, %land.lhs.true.i21 ], [ 1, %sw.bb2 ]
   %irq7.i17 = getelementptr inbounds i8, ptr %opaque, i64 816
-  %5 = load ptr, ptr %irq7.i17, align 16
-  tail call void @qemu_set_irq(ptr noundef %5, i32 noundef %.sink5.i16) #8
+  %6 = load ptr, ptr %irq7.i17, align 16
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %.sink5.i16) #8
   br label %do.end
 
 sw.bb4:                                           ; preds = %entry
@@ -343,8 +345,8 @@ sw.bb8:                                           ; preds = %entry
   br label %do.end
 
 do.body:                                          ; preds = %entry
-  %6 = load i32, ptr @qemu_loglevel, align 4
-  %and.i26 = and i32 %6, 2048
+  %7 = load i32, ptr @qemu_loglevel, align 4
+  %and.i26 = and i32 %7, 2048
   %cmp.i.not = icmp eq i32 %and.i26, 0
   br i1 %cmp.i.not, label %do.end, label %if.then
 
@@ -480,23 +482,23 @@ entry:
 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #5
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree nounwind }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

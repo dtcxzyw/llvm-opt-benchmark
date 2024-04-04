@@ -165,8 +165,9 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal i64 @goldfish_rtc_read(ptr nocapture noundef %opaque, i64 noundef %offset, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = tail call i64 @llvm.fshl.i64(i64 %offset, i64 %offset, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %offset, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb1
     i64 2, label %sw.bb4
@@ -176,10 +177,10 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = getelementptr i8, ptr %opaque, i64 1104
-  %opaque.val = load i64, ptr %1, align 16
-  %2 = load i32, ptr @rtc_clock, align 4
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %2) #7
+  %2 = getelementptr i8, ptr %opaque, i64 1104
+  %opaque.val = load i64, ptr %2, align 16
+  %3 = load i32, ptr @rtc_clock, align 4
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %3) #7
   %add.i = add i64 %call.i, %opaque.val
   %shr = lshr i64 %add.i, 32
   %conv = trunc i64 %shr to i32
@@ -190,37 +191,37 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb1:                                           ; preds = %entry
   %time_high2 = getelementptr inbounds i8, ptr %opaque, i64 1140
-  %3 = load i32, ptr %time_high2, align 4
-  %conv3 = zext i32 %3 to i64
+  %4 = load i32, ptr %time_high2, align 4
+  %conv3 = zext i32 %4 to i64
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
   %alarm_next = getelementptr inbounds i8, ptr %opaque, i64 1120
-  %4 = load i64, ptr %alarm_next, align 16
-  %and5 = and i64 %4, 4294967295
+  %5 = load i64, ptr %alarm_next, align 16
+  %and5 = and i64 %5, 4294967295
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
   %alarm_next7 = getelementptr inbounds i8, ptr %opaque, i64 1120
-  %5 = load i64, ptr %alarm_next7, align 16
-  %shr8 = lshr i64 %5, 32
+  %6 = load i64, ptr %alarm_next7, align 16
+  %shr8 = lshr i64 %6, 32
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
   %irq_enabled = getelementptr inbounds i8, ptr %opaque, i64 1136
-  %6 = load i32, ptr %irq_enabled, align 16
-  %conv10 = zext i32 %6 to i64
+  %7 = load i32, ptr %irq_enabled, align 16
+  %conv10 = zext i32 %7 to i64
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
   %alarm_running = getelementptr inbounds i8, ptr %opaque, i64 1128
-  %7 = load i32, ptr %alarm_running, align 8
-  %conv12 = zext i32 %7 to i64
+  %8 = load i32, ptr %alarm_running, align 8
+  %conv12 = zext i32 %8 to i64
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %8, 2048
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %9, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 
@@ -232,31 +233,31 @@ if.then:                                          ; preds = %do.body
 sw.epilog:                                        ; preds = %if.then, %do.body, %sw.bb11, %sw.bb9, %sw.bb6, %sw.bb4, %sw.bb1, %sw.bb
   %r.0 = phi i64 [ 0, %if.then ], [ 0, %do.body ], [ %conv12, %sw.bb11 ], [ %conv10, %sw.bb9 ], [ %shr8, %sw.bb6 ], [ %and5, %sw.bb4 ], [ %conv3, %sw.bb1 ], [ %and, %sw.bb ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_GOLDFISH_RTC_READ_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %10, 0
+  %10 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %10, 0
+  %11 = load i16, ptr @_TRACE_GOLDFISH_RTC_READ_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %11, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_goldfish_rtc_read.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %11, 32768
+  %12 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %12, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_goldfish_rtc_read.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %12 to i1
+  %13 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %13 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %13 = load i64, ptr %_now.i.i, align 8
+  %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i64 noundef %offset, i64 noundef %r.0) #7
+  %15 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %offset, i64 noundef %r.0) #7
   br label %trace_goldfish_rtc_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -272,8 +273,9 @@ trace_goldfish_rtc_read.exit:                     ; preds = %sw.epilog, %land.lh
 define internal void @goldfish_rtc_write(ptr nocapture noundef %opaque, i64 noundef %offset, i64 noundef %value, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = tail call i64 @llvm.fshl.i64(i64 %offset, i64 %offset, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %offset, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb2
     i64 2, label %sw.bb8
@@ -284,101 +286,101 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = getelementptr i8, ptr %opaque, i64 1104
-  %opaque.val = load i64, ptr %1, align 16
-  %2 = load i32, ptr @rtc_clock, align 4
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %2) #7
+  %2 = getelementptr i8, ptr %opaque, i64 1104
+  %opaque.val = load i64, ptr %2, align 16
+  %3 = load i32, ptr @rtc_clock, align 4
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %3) #7
   %add.i = add i64 %call.i, %opaque.val
   %and.i = and i64 %add.i, -4294967296
   %shl77.i = and i64 %value, 4294967295
-  %3 = load i64, ptr %1, align 16
+  %4 = load i64, ptr %2, align 16
   %or.i = sub i64 %shl77.i, %add.i
-  %sub = add i64 %or.i, %3
+  %sub = add i64 %or.i, %4
   %add = add i64 %sub, %and.i
-  store i64 %add, ptr %1, align 16
+  store i64 %add, ptr %2, align 16
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %4 = getelementptr i8, ptr %opaque, i64 1104
-  %opaque.val25 = load i64, ptr %4, align 16
-  %5 = load i32, ptr @rtc_clock, align 4
-  %call.i26 = tail call i64 @qemu_clock_get_ns(i32 noundef %5) #7
+  %5 = getelementptr i8, ptr %opaque, i64 1104
+  %opaque.val25 = load i64, ptr %5, align 16
+  %6 = load i32, ptr @rtc_clock, align 4
+  %call.i26 = tail call i64 @qemu_clock_get_ns(i32 noundef %6) #7
   %add.i27 = add i64 %call.i26, %opaque.val25
   %and.i28 = and i64 %add.i27, 4294967295
   %shl77.i29 = shl i64 %value, 32
-  %6 = load i64, ptr %4, align 16
+  %7 = load i64, ptr %5, align 16
   %or.i30 = sub i64 %shl77.i29, %add.i27
-  %sub5 = add i64 %or.i30, %6
+  %sub5 = add i64 %or.i30, %7
   %add7 = add i64 %sub5, %and.i28
-  store i64 %add7, ptr %4, align 16
+  store i64 %add7, ptr %5, align 16
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
   %alarm_next = getelementptr inbounds i8, ptr %opaque, i64 1120
-  %7 = load i64, ptr %alarm_next, align 16
-  %and.i31 = and i64 %7, -4294967296
+  %8 = load i64, ptr %alarm_next, align 16
+  %and.i31 = and i64 %8, -4294967296
   %shl77.i32 = and i64 %value, 4294967295
   %or.i33 = or disjoint i64 %and.i31, %shl77.i32
   store i64 %or.i33, ptr %alarm_next, align 16
-  %8 = getelementptr i8, ptr %opaque, i64 1104
-  %s.val.i = load i64, ptr %8, align 16
-  %9 = load i32, ptr @rtc_clock, align 4
-  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef %9) #7
+  %9 = getelementptr i8, ptr %opaque, i64 1104
+  %s.val.i = load i64, ptr %9, align 16
+  %10 = load i32, ptr @rtc_clock, align 4
+  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef %10) #7
   %add.i.i = add i64 %call.i.i, %s.val.i
-  %10 = load i64, ptr %alarm_next, align 16
-  %cmp.not.i = icmp ugt i64 %10, %add.i.i
+  %11 = load i64, ptr %alarm_next, align 16
+  %cmp.not.i = icmp ugt i64 %11, %add.i.i
   %timer.i = getelementptr inbounds i8, ptr %opaque, i64 1088
-  %11 = load ptr, ptr %timer.i, align 16
+  %12 = load ptr, ptr %timer.i, align 16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb8
-  tail call void @timer_del(ptr noundef %11) #7
+  tail call void @timer_del(ptr noundef %12) #7
   %alarm_running.i.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 0, ptr %alarm_running.i.i, align 8
   %irq_pending.i.i = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 1, ptr %irq_pending.i.i, align 4
   %irq.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %12 = load ptr, ptr %irq.i.i.i, align 8
+  %13 = load ptr, ptr %irq.i.i.i, align 8
   %irq_enabled.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1136
-  %13 = load i32, ptr %irq_enabled.i.i.i, align 16
-  %and.i.i.i = and i32 %13, 1
-  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef %and.i.i.i) #7
+  %14 = load i32, ptr %irq_enabled.i.i.i, align 16
+  %and.i.i.i = and i32 %14, 1
+  tail call void @qemu_set_irq(ptr noundef %13, i32 noundef %and.i.i.i) #7
   br label %sw.epilog
 
 if.else.i:                                        ; preds = %sw.bb8
-  %14 = load i64, ptr %8, align 16
-  %sub.i = sub i64 %10, %14
-  tail call void @timer_mod(ptr noundef %11, i64 noundef %sub.i) #7
+  %15 = load i64, ptr %9, align 16
+  %sub.i = sub i64 %11, %15
+  tail call void @timer_mod(ptr noundef %12, i64 noundef %sub.i) #7
   %alarm_running.i = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 1, ptr %alarm_running.i, align 8
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
   %alarm_next12 = getelementptr inbounds i8, ptr %opaque, i64 1120
-  %15 = load i64, ptr %alarm_next12, align 16
-  %and.i34 = and i64 %15, 4294967295
+  %16 = load i64, ptr %alarm_next12, align 16
+  %and.i34 = and i64 %16, 4294967295
   %shl77.i35 = shl i64 %value, 32
   %or.i37 = or disjoint i64 %and.i34, %shl77.i35
   store i64 %or.i37, ptr %alarm_next12, align 16
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %16 = trunc i64 %value to i32
-  %conv = and i32 %16, 1
+  %17 = trunc i64 %value to i32
+  %conv = and i32 %17, 1
   %irq_enabled = getelementptr inbounds i8, ptr %opaque, i64 1136
   store i32 %conv, ptr %irq_enabled, align 16
   %irq.i = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %17 = load ptr, ptr %irq.i, align 8
+  %18 = load ptr, ptr %irq.i, align 8
   %irq_pending.i = getelementptr inbounds i8, ptr %opaque, i64 1132
-  %18 = load i32, ptr %irq_pending.i, align 4
-  %and.i38 = and i32 %18, %conv
-  tail call void @qemu_set_irq(ptr noundef %17, i32 noundef %and.i38) #7
+  %19 = load i32, ptr %irq_pending.i, align 4
+  %and.i38 = and i32 %19, %conv
+  tail call void @qemu_set_irq(ptr noundef %18, i32 noundef %and.i38) #7
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
   %timer.i39 = getelementptr inbounds i8, ptr %opaque, i64 1088
-  %19 = load ptr, ptr %timer.i39, align 16
-  tail call void @timer_del(ptr noundef %19) #7
+  %20 = load ptr, ptr %timer.i39, align 16
+  tail call void @timer_del(ptr noundef %20) #7
   %alarm_running.i40 = getelementptr inbounds i8, ptr %opaque, i64 1128
   store i32 0, ptr %alarm_running.i40, align 8
   br label %sw.epilog
@@ -387,13 +389,13 @@ sw.bb17:                                          ; preds = %entry
   %irq_pending = getelementptr inbounds i8, ptr %opaque, i64 1132
   store i32 0, ptr %irq_pending, align 4
   %irq.i41 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %20 = load ptr, ptr %irq.i41, align 8
-  tail call void @qemu_set_irq(ptr noundef %20, i32 noundef 0) #7
+  %21 = load ptr, ptr %irq.i41, align 8
+  tail call void @qemu_set_irq(ptr noundef %21, i32 noundef 0) #7
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  %21 = load i32, ptr @qemu_loglevel, align 4
-  %and.i47 = and i32 %21, 2048
+  %22 = load i32, ptr @qemu_loglevel, align 4
+  %and.i47 = and i32 %22, 2048
   %cmp.i.not = icmp eq i32 %and.i47, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 
@@ -404,31 +406,31 @@ if.then:                                          ; preds = %do.body
 
 sw.epilog:                                        ; preds = %if.else.i, %if.then.i, %if.then, %do.body, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb11, %sw.bb2, %sw.bb
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %22 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %22, 0
-  %23 = load i16, ptr @_TRACE_GOLDFISH_RTC_WRITE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %23, 0
+  %23 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %23, 0
+  %24 = load i16, ptr @_TRACE_GOLDFISH_RTC_WRITE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %24, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_goldfish_rtc_write.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
-  %24 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i48 = and i32 %24, 32768
+  %25 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i48 = and i32 %25, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i48, 0
   br i1 %cmp.i.not.i.i, label %trace_goldfish_rtc_write.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %25 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %25 to i1
+  %26 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %26 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %26 = load i64, ptr %_now.i.i, align 8
+  %27 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %27 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %26, i64 noundef %27, i64 noundef %offset, i64 noundef %value) #7
+  %28 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %offset, i64 noundef %value) #7
   br label %trace_goldfish_rtc_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -527,25 +529,25 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #4
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0,1) }
 

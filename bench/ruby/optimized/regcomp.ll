@@ -1533,8 +1533,8 @@ tailrecurse:                                      ; preds = %28, %1
 23:                                               ; preds = %tailrecurse
   %24 = getelementptr inbounds i8, ptr %.tr, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = add i32 %25, -1024
-  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 22)
+  %26 = sub i32 %25, 1024
+  %27 = call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 22)
   switch i32 %27, label %common.ret12 [
     i32 0, label %28
     i32 1, label %28
@@ -2776,8 +2776,8 @@ tailrecurse.backedge:                             ; preds = %504, %510, %431
 510:                                              ; preds = %tailrecurse
   %511 = getelementptr inbounds i8, ptr %.tr, i64 4
   %512 = load i32, ptr %511, align 4
-  %513 = add i32 %512, -1024
-  %514 = tail call i32 @llvm.fshl.i32(i32 %513, i32 %513, i32 22)
+  %513 = sub i32 %512, 1024
+  %514 = call i32 @llvm.fshl.i32(i32 %513, i32 %513, i32 22)
   switch i32 %514, label %common.ret760 [
     i32 0, label %tailrecurse.backedge
     i32 1, label %515
@@ -6706,8 +6706,8 @@ tailrecurse.backedge:                             ; preds = %10, %10, %10, %10, 
 10:                                               ; preds = %tailrecurse
   %11 = getelementptr inbounds i8, ptr %.tr, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = add i32 %12, -1024
-  %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 22)
+  %13 = sub i32 %12, 1024
+  %14 = call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 22)
   switch i32 %14, label %common.ret47 [
     i32 0, label %tailrecurse.backedge
     i32 1, label %tailrecurse.backedge
@@ -11941,8 +11941,8 @@ common.ret146:                                    ; preds = %363, %361, %359, %3
   %.0.i71 = phi i32 [ %350, %349 ], [ 0, %346 ]
   %353 = getelementptr inbounds i8, ptr %0, i64 4
   %354 = load i32, ptr %353, align 4
-  %355 = add i32 %354, -1024
-  %356 = tail call i32 @llvm.fshl.i32(i32 %355, i32 %355, i32 22)
+  %355 = sub i32 %354, 1024
+  %356 = call i32 @llvm.fshl.i32(i32 %355, i32 %355, i32 22)
   switch i32 %356, label %common.ret146 [
     i32 0, label %357
     i32 1, label %359
@@ -13012,9 +13012,6 @@ add_opcode.exit:                                  ; preds = %.thread, %146, %139
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -13028,6 +13025,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

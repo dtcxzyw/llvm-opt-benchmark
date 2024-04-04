@@ -12258,7 +12258,7 @@ define internal void @dissect_hi_dci0_mdpcch_dci_ul_rel13_value(ptr noundef %0, 
   %48 = load i32, ptr @hf_nfapi_aggregation_level, align 4
   %49 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #7
   %50 = load i32, ptr %3, align 4
-  %51 = add i32 %50, -2
+  %51 = sub i32 %50, 2
   %52 = call i32 @llvm.fshl.i32(i32 %51, i32 %51, i32 31)
   switch i32 %52, label %53 [
     i32 11, label %55
@@ -13328,7 +13328,7 @@ define internal void @dissect_dl_config_request_mpdpcch_pdu_rel13_value(ptr noun
   %47 = load i32, ptr @hf_nfapi_aggregation_level, align 4
   %48 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #7
   %49 = load i32, ptr %3, align 4
-  %50 = add i32 %49, -2
+  %50 = sub i32 %49, 2
   %51 = call i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 31)
   switch i32 %51, label %52 [
     i32 11, label %54
@@ -14719,22 +14719,22 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 
 declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

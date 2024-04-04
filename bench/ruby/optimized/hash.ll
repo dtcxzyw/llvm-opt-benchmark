@@ -338,99 +338,100 @@ define internal fastcc i64 @any_hash(i64 noundef %0, ptr nocapture noundef reado
   br i1 %6, label %7, label %rb_type.exit
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
-  switch i64 %8, label %9 [
+  %8 = sub i64 %0, 0
+  %9 = call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 62)
+  switch i64 %9, label %10 [
     i64 0, label %rb_type.exit.thread
     i64 1, label %rb_type.exit.thread
     i64 5, label %rb_type.exit.thread
     i64 9, label %rb_type.exit.thread17
   ]
 
-9:                                                ; preds = %7
-  %10 = and i64 %0, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %11, label %rb_type.exit.thread
+10:                                               ; preds = %7
+  %11 = and i64 %0, 1
+  %.not.i = icmp eq i64 %11, 0
+  br i1 %.not.i, label %12, label %rb_type.exit.thread
 
-11:                                               ; preds = %9
-  %12 = and i64 %0, 254
-  %13 = icmp eq i64 %12, 12
-  br i1 %13, label %rb_type.exit.thread19, label %rb_type.exit.thread21
+12:                                               ; preds = %10
+  %13 = and i64 %0, 254
+  %14 = icmp eq i64 %13, 12
+  br i1 %14, label %rb_type.exit.thread19, label %rb_type.exit.thread21
 
 rb_type.exit:                                     ; preds = %2
-  %14 = inttoptr i64 %0 to ptr
-  %15 = load i64, ptr %14, align 8
-  %16 = trunc i64 %15 to i32
-  %17 = and i32 %16, 31
-  switch i32 %17, label %rb_type.exit.thread17 [
+  %15 = inttoptr i64 %0 to ptr
+  %16 = load i64, ptr %15, align 8
+  %17 = trunc i64 %16 to i32
+  %18 = and i32 %17, 31
+  switch i32 %18, label %rb_type.exit.thread17 [
     i32 20, label %rb_type.exit.thread19
     i32 21, label %rb_type.exit.thread
     i32 18, label %rb_type.exit.thread
     i32 19, label %rb_type.exit.thread
     i32 17, label %rb_type.exit.thread
-    i32 5, label %34
-    i32 10, label %36
+    i32 5, label %35
+    i32 10, label %37
     i32 4, label %rb_type.exit.thread21
   ]
 
-rb_type.exit.thread19:                            ; preds = %11, %rb_type.exit
-  %18 = and i64 %0, 255
-  %19 = icmp eq i64 %18, 12
-  br i1 %19, label %20, label %23
+rb_type.exit.thread19:                            ; preds = %12, %rb_type.exit
+  %19 = and i64 %0, 255
+  %20 = icmp eq i64 %19, 12
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %rb_type.exit.thread19
-  %21 = lshr i64 %0, 12
-  %22 = tail call i64 @rb_hash_start(i64 noundef %21) #24
-  br label %50
+21:                                               ; preds = %rb_type.exit.thread19
+  %22 = lshr i64 %0, 12
+  %23 = tail call i64 @rb_hash_start(i64 noundef %22) #24
+  br label %51
 
-23:                                               ; preds = %rb_type.exit.thread19
-  %24 = inttoptr i64 %0 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load i64, ptr %25, align 8
-  br label %50
+24:                                               ; preds = %rb_type.exit.thread19
+  %25 = inttoptr i64 %0 to ptr
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load i64, ptr %26, align 8
+  br label %51
 
-rb_type.exit.thread:                              ; preds = %7, %7, %9, %7, %rb_type.exit, %rb_type.exit, %rb_type.exit, %rb_type.exit
-  %27 = tail call i64 @rb_hash_start(i64 noundef %0) #24
-  %28 = add i64 %27, 2198850233
-  %29 = zext i64 %28 to i128
-  %30 = mul nuw nsw i128 %29, 3317948294049201653
-  %31 = lshr i128 %30, 64
-  %32 = xor i128 %31, %30
-  %33 = trunc i128 %32 to i64
-  br label %50
+rb_type.exit.thread:                              ; preds = %7, %7, %10, %7, %rb_type.exit, %rb_type.exit, %rb_type.exit, %rb_type.exit
+  %28 = tail call i64 @rb_hash_start(i64 noundef %0) #24
+  %29 = add i64 %28, 2198850233
+  %30 = zext i64 %29 to i128
+  %31 = mul nuw nsw i128 %30, 3317948294049201653
+  %32 = lshr i128 %31, 64
+  %33 = xor i128 %32, %31
+  %34 = trunc i128 %33 to i64
+  br label %51
 
-34:                                               ; preds = %rb_type.exit
-  %35 = tail call i64 @rb_str_hash(i64 noundef %0) #24
-  br label %50
+35:                                               ; preds = %rb_type.exit
+  %36 = tail call i64 @rb_str_hash(i64 noundef %0) #24
+  br label %51
 
-36:                                               ; preds = %rb_type.exit
-  %37 = tail call i64 @rb_big_hash(i64 noundef %0) #24
-  %38 = ashr i64 %37, 1
-  br label %50
+37:                                               ; preds = %rb_type.exit
+  %38 = tail call i64 @rb_big_hash(i64 noundef %0) #24
+  %39 = ashr i64 %38, 1
+  br label %51
 
-rb_type.exit.thread21:                            ; preds = %11, %rb_type.exit
-  %39 = tail call double @rb_float_value(i64 noundef %0) #25
-  %40 = fcmp oeq double %39, 0.000000e+00
-  %.0.i15 = select i1 %40, double 0.000000e+00, double %39
-  %41 = bitcast double %.0.i15 to i64
-  %42 = tail call i64 @rb_hash_start(i64 noundef %41) #24
-  %43 = add i64 %42, 2198850233
-  %44 = zext i64 %43 to i128
-  %45 = mul nuw nsw i128 %44, 3317948294049201653
-  %46 = lshr i128 %45, 64
-  %47 = xor i128 %46, %45
-  %48 = trunc i128 %47 to i64
-  br label %50
+rb_type.exit.thread21:                            ; preds = %12, %rb_type.exit
+  %40 = tail call double @rb_float_value(i64 noundef %0) #25
+  %41 = fcmp oeq double %40, 0.000000e+00
+  %.0.i15 = select i1 %41, double 0.000000e+00, double %40
+  %42 = bitcast double %.0.i15 to i64
+  %43 = tail call i64 @rb_hash_start(i64 noundef %42) #24
+  %44 = add i64 %43, 2198850233
+  %45 = zext i64 %44 to i128
+  %46 = mul nuw nsw i128 %45, 3317948294049201653
+  %47 = lshr i128 %46, 64
+  %48 = xor i128 %47, %46
+  %49 = trunc i128 %48 to i64
+  br label %51
 
 rb_type.exit.thread17:                            ; preds = %7, %rb_type.exit
-  %49 = tail call i64 %1(i64 noundef %0) #24, !callees !8
-  br label %50
+  %50 = tail call i64 %1(i64 noundef %0) #24, !callees !8
+  br label %51
 
-50:                                               ; preds = %20, %23, %rb_type.exit.thread17, %rb_type.exit.thread21, %36, %34, %rb_type.exit.thread
-  %.0 = phi i64 [ %49, %rb_type.exit.thread17 ], [ %48, %rb_type.exit.thread21 ], [ %38, %36 ], [ %35, %34 ], [ %33, %rb_type.exit.thread ], [ %22, %20 ], [ %26, %23 ]
-  %51 = icmp sgt i64 %.0, 0
-  %52 = and i64 %.0, 4611686018427387903
-  %masksel = select i1 %51, i64 0, i64 -4611686018427387904
-  %.1 = or disjoint i64 %masksel, %52
+51:                                               ; preds = %21, %24, %rb_type.exit.thread17, %rb_type.exit.thread21, %37, %35, %rb_type.exit.thread
+  %.0 = phi i64 [ %50, %rb_type.exit.thread17 ], [ %49, %rb_type.exit.thread21 ], [ %39, %37 ], [ %36, %35 ], [ %34, %rb_type.exit.thread ], [ %23, %21 ], [ %27, %24 ]
+  %52 = icmp sgt i64 %.0, 0
+  %53 = and i64 %.0, 4611686018427387903
+  %masksel = select i1 %52, i64 0, i64 -4611686018427387904
+  %.1 = or disjoint i64 %masksel, %53
   ret i64 %.1
 }
 
@@ -12466,17 +12467,17 @@ declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i64 @rb_get_freeze_opt(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #21
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #23
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12499,9 +12500,9 @@ attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #18 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nounwind }
 attributes #25 = { nounwind willreturn memory(read) }
 attributes #26 = { noreturn nounwind }

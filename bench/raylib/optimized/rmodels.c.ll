@@ -49330,7 +49330,7 @@ cgltf_fill_float_array.exit264.i.i:               ; preds = %.lr.ph.i260.i.i
   br label %2461
 
 cgltf_parse_json_string.exit.thread.i.i461:       ; preds = %2792, %cgltf_parse_json_string.exit.i.i459
-  %.3478.i.i = phi i32 [ %.3.i.i460, %cgltf_parse_json_string.exit.i.i459 ], [ %.2.i.i466, %2792 ]
+  %.3478.i.i = phi i32 [ %.3.i.i460, %cgltf_parse_json_string.exit.i.i459 ], [ %.2.i.i465, %2792 ]
   %2460 = add nuw nsw i32 %.0242430.i.i, 1
   %exitcond475.not.i.i = icmp eq i32 %2460, %2407
   br i1 %exitcond475.not.i.i, label %cgltf_parse_json_material.exit.thread209.i, label %2461
@@ -49997,12 +49997,12 @@ cgltf_calloc.exit.thread.i.i479:                  ; preds = %2784, %2781
 
 2792:                                             ; preds = %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
   %2793 = add nuw nsw i32 %.0428.i.i, 1
-  %exitcond.not.i.i467 = icmp eq i32 %2793, %2783
-  br i1 %exitcond.not.i.i467, label %cgltf_parse_json_string.exit.thread.i.i461, label %.lr.ph.i.i463
+  %exitcond.not.i.i466 = icmp eq i32 %2793, %2783
+  br i1 %exitcond.not.i.i466, label %cgltf_parse_json_string.exit.thread.i.i461, label %.lr.ph.i.i463
 
 .lr.ph.i.i463:                                    ; preds = %2790, %2792
   %.0428.i.i = phi i32 [ %2793, %2792 ], [ 0, %2790 ]
-  %.1427.i.i = phi i32 [ %.2.i.i466, %2792 ], [ %2791, %2790 ]
+  %.1427.i.i = phi i32 [ %.2.i.i465, %2792 ], [ %2791, %2790 ]
   %2794 = zext nneg i32 %.1427.i.i to i64
   %2795 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %2794
   %2796 = load i32, ptr %2795, align 8
@@ -50021,7 +50021,7 @@ cgltf_calloc.exit.thread.i.i479:                  ; preds = %2784, %2781
   %2804 = getelementptr inbounds i8, ptr %2795, i64 8
   %2805 = load i64, ptr %2804, align 8
   %2806 = sub nsw i64 %2803, %2805
-  %2807 = add i64 %2806, -17
+  %2807 = sub i64 %2806, 17
   %2808 = call i64 @llvm.fshl.i64(i64 %2807, i64 %2807, i64 63)
   switch i64 %2808, label %cgltf_json_strcmp.exit366.thread.i.i [
     i64 9, label %cgltf_json_strcmp.exit330.i.i
@@ -50034,7 +50034,7 @@ cgltf_json_strcmp.exit330.i.i:                    ; preds = %2801
   %2809 = getelementptr inbounds i8, ptr %2, i64 %2805
   %2810 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2809, ptr noundef nonnull dereferenceable(36) @.str.209, i64 noundef 35) #50
   %2811 = icmp eq i32 %2810, 0
-  br i1 %2811, label %2812, label %cgltf_json_strcmp.exit366.thread.i.i
+  br i1 %2811, label %2812, label %cgltf_json_strcmp.exit.thread.i464
 
 2812:                                             ; preds = %cgltf_json_strcmp.exit330.i.i
   store i32 1, ptr %2430, align 4
@@ -50302,7 +50302,7 @@ cgltf_json_strcmp.exit357.i.i:                    ; preds = %2801
   %2937 = getelementptr inbounds i8, ptr %2, i64 %2805
   %2938 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2937, ptr noundef nonnull dereferenceable(20) @.str.210, i64 noundef 19) #50
   %2939 = icmp eq i32 %2938, 0
-  br i1 %2939, label %2940, label %cgltf_json_strcmp.exit366.thread.i.i
+  br i1 %2939, label %2940, label %cgltf_json_strcmp.exit85.i
 
 2940:                                             ; preds = %cgltf_json_strcmp.exit357.i.i
   store i32 1, ptr %2429, align 8
@@ -50313,7 +50313,7 @@ cgltf_json_strcmp.exit357.i.i:                    ; preds = %2801
 
 2944:                                             ; preds = %2956, %2940
   %indvars.iv.i358.i.i = phi i64 [ %2943, %2940 ], [ %indvars.iv.next.i360.i.i, %2956 ]
-  %.016.i.i.i477 = phi i32 [ %2942, %2940 ], [ %.1.i359.i.i, %2956 ]
+  %.016.i.i.i471 = phi i32 [ %2942, %2940 ], [ %.1.i359.i.i, %2956 ]
   %2945 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i358.i.i
   %2946 = load i32, ptr %2945, align 8
   switch i32 %2946, label %cgltf_parse_json_asset.exit.thread [
@@ -50327,23 +50327,23 @@ cgltf_json_strcmp.exit357.i.i:                    ; preds = %2801
   %2948 = getelementptr inbounds i8, ptr %2945, i64 24
   %2949 = load i32, ptr %2948, align 8
   %2950 = shl nsw i32 %2949, 1
-  %2951 = add nsw i32 %2950, %.016.i.i.i477
+  %2951 = add nsw i32 %2950, %.016.i.i.i471
   br label %2956
 
 2952:                                             ; preds = %2944
   %2953 = getelementptr inbounds i8, ptr %2945, i64 24
   %2954 = load i32, ptr %2953, align 8
-  %2955 = add nsw i32 %2954, %.016.i.i.i477
+  %2955 = add nsw i32 %2954, %.016.i.i.i471
   br label %2956
 
 2956:                                             ; preds = %2952, %2947, %2944, %2944
-  %.1.i359.i.i = phi i32 [ %.016.i.i.i477, %2944 ], [ %.016.i.i.i477, %2944 ], [ %2955, %2952 ], [ %2951, %2947 ]
+  %.1.i359.i.i = phi i32 [ %.016.i.i.i471, %2944 ], [ %.016.i.i.i471, %2944 ], [ %2955, %2952 ], [ %2951, %2947 ]
   %indvars.iv.next.i360.i.i = add nsw i64 %indvars.iv.i358.i.i, 1
   %2957 = sext i32 %.1.i359.i.i to i64
   %2958 = icmp slt i64 %indvars.iv.next.i360.i.i, %2957
-  br i1 %2958, label %2944, label %.split.loop.exit.i.i.i478
+  br i1 %2958, label %2944, label %.split.loop.exit.i.i.i472
 
-.split.loop.exit.i.i.i478:                        ; preds = %2956
+.split.loop.exit.i.i.i472:                        ; preds = %2956
   %2959 = trunc i64 %indvars.iv.next.i360.i.i to i32
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
@@ -50351,7 +50351,7 @@ cgltf_json_strcmp.exit363.i.i:                    ; preds = %2801
   %2960 = getelementptr inbounds i8, ptr %2, i64 %2805
   %2961 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2960, ptr noundef nonnull dereferenceable(24) @.str.211, i64 noundef 23) #50
   %2962 = icmp eq i32 %2961, 0
-  br i1 %2962, label %2963, label %cgltf_json_strcmp.exit366.thread.i.i
+  br i1 %2962, label %2963, label %cgltf_json_strcmp.exit.thread.i464
 
 2963:                                             ; preds = %cgltf_json_strcmp.exit363.i.i
   store i32 1, ptr %2427, align 8
@@ -50375,8 +50375,8 @@ cgltf_json_strcmp.exit363.i.i:                    ; preds = %2801
   %2973 = zext nneg i32 %.0608.i.i to i64
   %2974 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %2973
   %2975 = load i32, ptr %2974, align 8
-  %.not61.i.i473 = icmp eq i32 %2975, 3
-  br i1 %.not61.i.i473, label %2976, label %cgltf_parse_json_asset.exit.thread
+  %.not61.i.i467 = icmp eq i32 %2975, 3
+  br i1 %.not61.i.i467, label %2976, label %cgltf_parse_json_asset.exit.thread
 
 2976:                                             ; preds = %.lr.ph.i183.i
   %2977 = getelementptr inbounds i8, ptr %2974, i64 24
@@ -50410,8 +50410,8 @@ cgltf_json_strcmp.exit.i196.i:                    ; preds = %2980
   %2992 = getelementptr i8, ptr %2991, i64 32
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17)
   %2993 = load i32, ptr %2992, align 8
-  %.not.i62.i.i476 = icmp eq i32 %2993, 4
-  br i1 %.not.i62.i.i476, label %2994, label %cgltf_json_to_float.exit.i197.i
+  %.not.i62.i.i470 = icmp eq i32 %2993, 4
+  br i1 %.not.i62.i.i470, label %2994, label %cgltf_json_to_float.exit.i197.i
 
 2994:                                             ; preds = %2989
   %2995 = getelementptr i8, ptr %2991, i64 48
@@ -50447,8 +50447,8 @@ cgltf_json_strcmp.exit66.i195.i:                  ; preds = %2980
   %3012 = getelementptr i8, ptr %3011, i64 32
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16)
   %3013 = load i32, ptr %3012, align 8
-  %.not.i67.i.i474 = icmp eq i32 %3013, 4
-  br i1 %.not.i67.i.i474, label %3014, label %cgltf_json_to_float.exit70.i.i
+  %.not.i67.i.i468 = icmp eq i32 %3013, 4
+  br i1 %.not.i67.i.i468, label %3014, label %cgltf_json_to_float.exit70.i.i
 
 3014:                                             ; preds = %3009
   %3015 = getelementptr i8, ptr %3011, i64 48
@@ -50466,9 +50466,9 @@ cgltf_json_strcmp.exit66.i195.i:                  ; preds = %2980
   br label %cgltf_json_to_float.exit70.i.i
 
 cgltf_json_to_float.exit70.i.i:                   ; preds = %3014, %3009
-  %.0.i68.i.i475 = phi float [ %3024, %3014 ], [ -1.000000e+00, %3009 ]
+  %.0.i68.i.i469 = phi float [ %3024, %3014 ], [ -1.000000e+00, %3009 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16)
-  store float %.0.i68.i.i475, ptr %2445, align 4
+  store float %.0.i68.i.i469, ptr %2445, align 4
   %3025 = add nuw nsw i32 %.0608.i.i, 2
   br label %cgltf_skip_json.exit.i191.i
 
@@ -50559,7 +50559,7 @@ cgltf_json_strcmp.exit366.i.i:                    ; preds = %2801
   %3065 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3066 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3065, ptr noundef nonnull dereferenceable(18) @.str.212, i64 noundef 17) #50
   %3067 = icmp eq i32 %3066, 0
-  br i1 %3067, label %3068, label %cgltf_json_strcmp.exit366.thread.i.i
+  br i1 %3067, label %3068, label %cgltf_json_strcmp.exit.thread.i464
 
 3068:                                             ; preds = %cgltf_json_strcmp.exit366.i.i
   store i32 1, ptr %2425, align 4
@@ -50689,22 +50689,22 @@ cgltf_skip_json.exit.i173.i:                      ; preds = %.split.loop.exit.i.
   %or.cond.i176.i = select i1 %3131, i1 true, i1 %exitcond.not.i175.i
   br i1 %or.cond.i176.i, label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i, label %.lr.ph.i163.i
 
-cgltf_json_strcmp.exit366.thread.i.i:             ; preds = %cgltf_json_strcmp.exit366.i.i, %cgltf_json_strcmp.exit363.i.i, %cgltf_json_strcmp.exit357.i.i, %cgltf_json_strcmp.exit330.i.i, %2801
-  switch i64 %2806, label %cgltf_json_strcmp.exit.thread.i465 [
+cgltf_json_strcmp.exit366.thread.i.i:             ; preds = %2801
+  switch i64 %2806, label %cgltf_json_strcmp.exit.thread.i464 [
     i64 22, label %cgltf_json_strcmp.exit160.i
     i64 26, label %cgltf_json_strcmp.exit130.i
     i64 20, label %cgltf_json_strcmp.exit113.i
     i64 19, label %cgltf_json_strcmp.exit85.i
     i64 31, label %cgltf_json_strcmp.exit59.i
-    i64 25, label %cgltf_json_strcmp.exit42.i468
-    i64 24, label %cgltf_json_strcmp.exit.i464
+    i64 25, label %cgltf_json_strcmp.exit42.i474
+    i64 24, label %cgltf_json_strcmp.exit.i473
   ]
 
 cgltf_json_strcmp.exit160.i:                      ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3133 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3134 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3133, ptr noundef nonnull dereferenceable(23) @.str.213, i64 noundef 22) #50
   %3135 = icmp eq i32 %3134, 0
-  br i1 %3135, label %3136, label %cgltf_json_strcmp.exit.thread.i465
+  br i1 %3135, label %3136, label %cgltf_json_strcmp.exit.thread.i464
 
 3136:                                             ; preds = %cgltf_json_strcmp.exit160.i
   store i32 1, ptr %2423, align 8
@@ -50758,7 +50758,7 @@ cgltf_fill_float_array.exit.preheader.i.i:        ; preds = %.lr.ph.i.i132.i
   switch i64 %3159, label %cgltf_json_strcmp.exit69.thread.i.i [
     i64 14, label %cgltf_json_strcmp.exit.i155.i
     i64 19, label %cgltf_json_strcmp.exit58.i145.i
-    i64 15, label %cgltf_json_strcmp.exit66.i.i472
+    i64 15, label %cgltf_json_strcmp.exit66.i.i478
     i64 20, label %cgltf_json_strcmp.exit69.i.i
   ]
 
@@ -50854,13 +50854,13 @@ cgltf_json_to_float.exit.i.i152.i:                ; preds = %.lr.ph.i60.i.i
   %exitcond.not.i63.i.i = icmp eq i64 %indvars.iv.next.i62.i.i, 3
   br i1 %exitcond.not.i63.i.i, label %cgltf_parse_json_float_array.exit.i141.i, label %.lr.ph.i60.i.i
 
-cgltf_json_strcmp.exit66.i.i472:                  ; preds = %3154
+cgltf_json_strcmp.exit66.i.i478:                  ; preds = %3154
   %3205 = getelementptr inbounds i8, ptr %2, i64 %3158
   %3206 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3205, ptr noundef nonnull dereferenceable(16) @.str.244, i64 noundef 15) #50
   %3207 = icmp eq i32 %3206, 0
   br i1 %3207, label %3208, label %cgltf_json_strcmp.exit69.thread.i.i
 
-3208:                                             ; preds = %cgltf_json_strcmp.exit66.i.i472
+3208:                                             ; preds = %cgltf_json_strcmp.exit66.i.i478
   %3209 = add nuw nsw i32 %.0528.i.i, 1
   %3210 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3209, ptr noundef %2, ptr noundef nonnull %2424)
   br label %cgltf_parse_json_float_array.exit.i141.i
@@ -50876,7 +50876,7 @@ cgltf_json_strcmp.exit69.i.i:                     ; preds = %3154
   %3216 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3215, ptr noundef %2, ptr noundef nonnull %2459)
   br label %cgltf_parse_json_float_array.exit.i141.i
 
-cgltf_json_strcmp.exit69.thread.i.i:              ; preds = %cgltf_json_strcmp.exit69.i.i, %cgltf_json_strcmp.exit66.i.i472, %cgltf_json_strcmp.exit58.i145.i, %cgltf_json_strcmp.exit.i155.i, %3154
+cgltf_json_strcmp.exit69.thread.i.i:              ; preds = %cgltf_json_strcmp.exit69.i.i, %cgltf_json_strcmp.exit66.i.i478, %cgltf_json_strcmp.exit58.i145.i, %cgltf_json_strcmp.exit.i155.i, %3154
   %3217 = add nuw nsw i32 %.0528.i.i, 1
   %3218 = add nuw nsw i32 %.0528.i.i, 2
   %3219 = sext i32 %3217 to i64
@@ -50930,7 +50930,7 @@ cgltf_json_strcmp.exit130.i:                      ; preds = %cgltf_json_strcmp.e
   %3238 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3239 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3238, ptr noundef nonnull dereferenceable(27) @.str.214, i64 noundef 26) #50
   %3240 = icmp eq i32 %3239, 0
-  br i1 %3240, label %3241, label %cgltf_json_strcmp.exit.thread.i465
+  br i1 %3240, label %3241, label %cgltf_json_strcmp.exit.thread.i464
 
 3241:                                             ; preds = %cgltf_json_strcmp.exit130.i
   store i32 1, ptr %2421, align 4
@@ -51076,7 +51076,7 @@ cgltf_json_strcmp.exit113.i:                      ; preds = %cgltf_json_strcmp.e
   %3311 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3312 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3311, ptr noundef nonnull dereferenceable(21) @.str.215, i64 noundef 20) #50
   %3313 = icmp eq i32 %3312, 0
-  br i1 %3313, label %3314, label %cgltf_json_strcmp.exit.thread.i465
+  br i1 %3313, label %3314, label %cgltf_json_strcmp.exit.thread.i464
 
 3314:                                             ; preds = %cgltf_json_strcmp.exit113.i
   store i32 1, ptr %2420, align 8
@@ -51310,11 +51310,11 @@ cgltf_parse_json_float_array.exit.i92.i:          ; preds = %cgltf_json_to_float
   %or.cond.i95.i = select i1 %3426, i1 true, i1 %exitcond.not.i94.i
   br i1 %or.cond.i95.i, label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i, label %.lr.ph.i87.i
 
-cgltf_json_strcmp.exit85.i:                       ; preds = %cgltf_json_strcmp.exit366.thread.i.i
+cgltf_json_strcmp.exit85.i:                       ; preds = %cgltf_json_strcmp.exit366.thread.i.i, %cgltf_json_strcmp.exit357.i.i
   %3428 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3429 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3428, ptr noundef nonnull dereferenceable(20) @.str.216, i64 noundef 19) #50
   %3430 = icmp eq i32 %3429, 0
-  br i1 %3430, label %3431, label %cgltf_json_strcmp.exit.thread.i465
+  br i1 %3430, label %3431, label %cgltf_json_strcmp.exit.thread.i464
 
 3431:                                             ; preds = %cgltf_json_strcmp.exit85.i
   store i32 1, ptr %2418, align 4
@@ -51528,7 +51528,7 @@ cgltf_json_strcmp.exit59.i:                       ; preds = %cgltf_json_strcmp.e
   %3532 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3533 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3532, ptr noundef nonnull dereferenceable(32) @.str.217, i64 noundef 31) #50
   %3534 = icmp eq i32 %3533, 0
-  br i1 %3534, label %3535, label %cgltf_json_strcmp.exit.thread.i465
+  br i1 %3534, label %3535, label %cgltf_json_strcmp.exit.thread.i464
 
 3535:                                             ; preds = %cgltf_json_strcmp.exit59.i
   store i32 1, ptr %2416, align 8
@@ -51658,13 +51658,13 @@ cgltf_skip_json.exit.i50.i:                       ; preds = %.split.loop.exit.i.
   %or.cond.i53.i = select i1 %3598, i1 true, i1 %exitcond.not.i52.i
   br i1 %or.cond.i53.i, label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i, label %.lr.ph.i44.i
 
-cgltf_json_strcmp.exit42.i468:                    ; preds = %cgltf_json_strcmp.exit366.thread.i.i
+cgltf_json_strcmp.exit42.i474:                    ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3600 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3601 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3600, ptr noundef nonnull dereferenceable(26) @.str.218, i64 noundef 25) #50
   %3602 = icmp eq i32 %3601, 0
-  br i1 %3602, label %3603, label %cgltf_json_strcmp.exit.thread.i465
+  br i1 %3602, label %3603, label %cgltf_json_strcmp.exit.thread.i464
 
-3603:                                             ; preds = %cgltf_json_strcmp.exit42.i468
+3603:                                             ; preds = %cgltf_json_strcmp.exit42.i474
   store i32 1, ptr %2414, align 4
   %3604 = sext i32 %.1427.i.i to i64
   %3605 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3604
@@ -51682,9 +51682,9 @@ cgltf_json_strcmp.exit42.i468:                    ; preds = %cgltf_json_strcmp.e
   %3612 = icmp sgt i32 %3610, 0
   br i1 %3612, label %.lr.ph.i30.i, label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
-.lr.ph.i30.i:                                     ; preds = %3608, %cgltf_skip_json.exit.i.i469
-  %.010.i.i = phi i32 [ %3736, %cgltf_skip_json.exit.i.i469 ], [ 0, %3608 ]
-  %.0739.i.i = phi i32 [ %.1.i.i470, %cgltf_skip_json.exit.i.i469 ], [ %3611, %3608 ]
+.lr.ph.i30.i:                                     ; preds = %3608, %cgltf_skip_json.exit.i.i475
+  %.010.i.i = phi i32 [ %3736, %cgltf_skip_json.exit.i.i475 ], [ 0, %3608 ]
+  %.0739.i.i = phi i32 [ %.1.i.i476, %cgltf_skip_json.exit.i.i475 ], [ %3611, %3608 ]
   %3613 = zext nneg i32 %.0739.i.i to i64
   %3614 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %3613
   %3615 = load i32, ptr %3614, align 8
@@ -51745,7 +51745,7 @@ cgltf_json_to_float.exit.i38.i:                   ; preds = %3634, %3629
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %31)
   store float %.0.i76.i.i, ptr %2415, align 8
   %3645 = add nuw nsw i32 %.0739.i.i, 2
-  br label %cgltf_skip_json.exit.i.i469
+  br label %cgltf_skip_json.exit.i.i475
 
 cgltf_json_strcmp.exit79.i.i:                     ; preds = %3620
   %3646 = getelementptr inbounds i8, ptr %2, i64 %3624
@@ -51756,7 +51756,7 @@ cgltf_json_strcmp.exit79.i.i:                     ; preds = %3620
 3649:                                             ; preds = %cgltf_json_strcmp.exit79.i.i
   %3650 = add nuw nsw i32 %.0739.i.i, 1
   %3651 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3650, ptr noundef %2, ptr noundef nonnull %2451)
-  br label %cgltf_skip_json.exit.i.i469
+  br label %cgltf_skip_json.exit.i.i475
 
 cgltf_json_strcmp.exit82.i.i:                     ; preds = %3620
   %3652 = getelementptr inbounds i8, ptr %2, i64 %3624
@@ -51793,7 +51793,7 @@ cgltf_json_to_float.exit86.i.i:                   ; preds = %3660, %3655
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %30)
   store float %.0.i84.i.i, ptr %2447, align 8
   %3671 = add nuw nsw i32 %.0739.i.i, 2
-  br label %cgltf_skip_json.exit.i.i469
+  br label %cgltf_skip_json.exit.i.i475
 
 cgltf_json_strcmp.exit89.i.i:                     ; preds = %3620
   %3672 = getelementptr inbounds i8, ptr %2, i64 %3624
@@ -51830,7 +51830,7 @@ cgltf_json_to_float.exit93.i.i:                   ; preds = %3680, %3675
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %29)
   store float %.0.i91.i.i, ptr %2448, align 4
   %3691 = add nuw nsw i32 %.0739.i.i, 2
-  br label %cgltf_skip_json.exit.i.i469
+  br label %cgltf_skip_json.exit.i.i475
 
 cgltf_json_strcmp.exit96.i.i:                     ; preds = %cgltf_json_strcmp.exit89.i.i
   %3692 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3672, ptr noundef nonnull dereferenceable(28) @.str.261, i64 noundef 27) #50
@@ -51866,7 +51866,7 @@ cgltf_json_to_float.exit100.i.i:                  ; preds = %3699, %3694
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %28)
   store float %.0.i98.i.i, ptr %2449, align 8
   %3710 = add nuw nsw i32 %.0739.i.i, 2
-  br label %cgltf_skip_json.exit.i.i469
+  br label %cgltf_skip_json.exit.i.i475
 
 cgltf_json_strcmp.exit103.i.i:                    ; preds = %cgltf_json_strcmp.exit96.i.i
   %3711 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3672, ptr noundef nonnull dereferenceable(28) @.str.262, i64 noundef 27) #50
@@ -51876,7 +51876,7 @@ cgltf_json_strcmp.exit103.i.i:                    ; preds = %cgltf_json_strcmp.e
 3713:                                             ; preds = %cgltf_json_strcmp.exit103.i.i
   %3714 = add nuw nsw i32 %.0739.i.i, 1
   %3715 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3714, ptr noundef %2, ptr noundef nonnull %2450)
-  br label %cgltf_skip_json.exit.i.i469
+  br label %cgltf_skip_json.exit.i.i475
 
 cgltf_json_strcmp.exit103.thread.i.i:             ; preds = %cgltf_json_strcmp.exit103.i.i, %cgltf_json_strcmp.exit82.i.i, %cgltf_json_strcmp.exit79.i.i, %cgltf_json_strcmp.exit.i37.i, %3620
   %3716 = add nuw nsw i32 %.0739.i.i, 1
@@ -51918,29 +51918,29 @@ cgltf_json_strcmp.exit103.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 
 .split.loop.exit.i.i35.i:                         ; preds = %3731
   %3734 = trunc i64 %indvars.iv.next.i.i34.i to i32
-  br label %cgltf_skip_json.exit.i.i469
+  br label %cgltf_skip_json.exit.i.i475
 
-cgltf_skip_json.exit.i.i469:                      ; preds = %.split.loop.exit.i.i35.i, %3713, %cgltf_json_to_float.exit100.i.i, %cgltf_json_to_float.exit93.i.i, %cgltf_json_to_float.exit86.i.i, %3649, %cgltf_json_to_float.exit.i38.i
-  %.1.i.i470 = phi i32 [ %3645, %cgltf_json_to_float.exit.i38.i ], [ %3651, %3649 ], [ %3671, %cgltf_json_to_float.exit86.i.i ], [ %3691, %cgltf_json_to_float.exit93.i.i ], [ %3710, %cgltf_json_to_float.exit100.i.i ], [ %3715, %3713 ], [ %3734, %.split.loop.exit.i.i35.i ]
-  %3735 = icmp slt i32 %.1.i.i470, 0
+cgltf_skip_json.exit.i.i475:                      ; preds = %.split.loop.exit.i.i35.i, %3713, %cgltf_json_to_float.exit100.i.i, %cgltf_json_to_float.exit93.i.i, %cgltf_json_to_float.exit86.i.i, %3649, %cgltf_json_to_float.exit.i38.i
+  %.1.i.i476 = phi i32 [ %3645, %cgltf_json_to_float.exit.i38.i ], [ %3651, %3649 ], [ %3671, %cgltf_json_to_float.exit86.i.i ], [ %3691, %cgltf_json_to_float.exit93.i.i ], [ %3710, %cgltf_json_to_float.exit100.i.i ], [ %3715, %3713 ], [ %3734, %.split.loop.exit.i.i35.i ]
+  %3735 = icmp slt i32 %.1.i.i476, 0
   %3736 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i36.i = icmp eq i32 %3736, %3610
-  %or.cond.i.i471 = select i1 %3735, i1 true, i1 %exitcond.not.i36.i
-  br i1 %or.cond.i.i471, label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i, label %.lr.ph.i30.i
+  %or.cond.i.i477 = select i1 %3735, i1 true, i1 %exitcond.not.i36.i
+  br i1 %or.cond.i.i477, label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i, label %.lr.ph.i30.i
 
-cgltf_json_strcmp.exit.i464:                      ; preds = %cgltf_json_strcmp.exit366.thread.i.i
+cgltf_json_strcmp.exit.i473:                      ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3737 = getelementptr inbounds i8, ptr %2, i64 %2805
   %3738 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3737, ptr noundef nonnull dereferenceable(25) @.str.219, i64 noundef 24) #50
   %3739 = icmp eq i32 %3738, 0
-  br i1 %3739, label %3740, label %cgltf_json_strcmp.exit.thread.i465
+  br i1 %3739, label %3740, label %cgltf_json_strcmp.exit.thread.i464
 
-3740:                                             ; preds = %cgltf_json_strcmp.exit.i464
+3740:                                             ; preds = %cgltf_json_strcmp.exit.i473
   store i32 1, ptr %2412, align 8
   %3741 = add nuw nsw i32 %.1427.i.i, 1
   %3742 = call fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %1, i32 noundef %3741, ptr noundef %2, ptr noundef nonnull %2413)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
-cgltf_json_strcmp.exit.thread.i465:               ; preds = %cgltf_json_strcmp.exit.i464, %cgltf_json_strcmp.exit42.i468, %cgltf_json_strcmp.exit59.i, %cgltf_json_strcmp.exit85.i, %cgltf_json_strcmp.exit113.i, %cgltf_json_strcmp.exit130.i, %cgltf_json_strcmp.exit160.i, %cgltf_json_strcmp.exit366.thread.i.i
+cgltf_json_strcmp.exit.thread.i464:               ; preds = %cgltf_json_strcmp.exit.i473, %cgltf_json_strcmp.exit42.i474, %cgltf_json_strcmp.exit59.i, %cgltf_json_strcmp.exit85.i, %cgltf_json_strcmp.exit113.i, %cgltf_json_strcmp.exit130.i, %cgltf_json_strcmp.exit160.i, %cgltf_json_strcmp.exit366.thread.i.i, %cgltf_json_strcmp.exit366.i.i, %cgltf_json_strcmp.exit363.i.i, %cgltf_json_strcmp.exit330.i.i
   %3743 = load ptr, ptr %2410, align 8
   %3744 = load i64, ptr %2411, align 8
   %3745 = add i64 %3744, 1
@@ -51949,9 +51949,9 @@ cgltf_json_strcmp.exit.thread.i465:               ; preds = %cgltf_json_strcmp.e
   %3747 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1427.i.i, ptr noundef %2, ptr noundef %3746)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
-cgltf_parse_json_pbr_specular_glossiness.exit.i.i: ; preds = %cgltf_skip_json.exit.i173.i, %cgltf_skip_json.exit.i191.i, %cgltf_parse_json_float_array.exit.i336.i.i, %cgltf_skip_json.exit.i.i469, %cgltf_skip_json.exit.i50.i, %cgltf_parse_json_float_array.exit.i.i, %cgltf_parse_json_float_array.exit.i92.i, %cgltf_skip_json.exit.i121.i, %cgltf_parse_json_float_array.exit.i141.i, %cgltf_json_strcmp.exit.thread.i465, %3740, %3608, %3540, %3436, %3319, %3246, %cgltf_fill_float_array.exit.preheader.i.i, %3073, %2968, %.split.loop.exit.i.i.i478, %2817
-  %.2.i.i466 = phi i32 [ %3742, %3740 ], [ %3747, %cgltf_json_strcmp.exit.thread.i465 ], [ %2820, %2817 ], [ %2959, %.split.loop.exit.i.i.i478 ], [ %2971, %2968 ], [ %3076, %3073 ], [ %3145, %cgltf_fill_float_array.exit.preheader.i.i ], [ %3249, %3246 ], [ %3322, %3319 ], [ %3439, %3436 ], [ %3543, %3540 ], [ %3611, %3608 ], [ %.1.i142.i, %cgltf_parse_json_float_array.exit.i141.i ], [ %.1.i122.i, %cgltf_skip_json.exit.i121.i ], [ %.1.i93.i, %cgltf_parse_json_float_array.exit.i92.i ], [ %.1.i65.i, %cgltf_parse_json_float_array.exit.i.i ], [ %.1.i51.i, %cgltf_skip_json.exit.i50.i ], [ %.1.i.i470, %cgltf_skip_json.exit.i.i469 ], [ %.1.i337.i.i, %cgltf_parse_json_float_array.exit.i336.i.i ], [ %.1.i192.i, %cgltf_skip_json.exit.i191.i ], [ %.1.i174.i, %cgltf_skip_json.exit.i173.i ]
-  %3748 = icmp slt i32 %.2.i.i466, 0
+cgltf_parse_json_pbr_specular_glossiness.exit.i.i: ; preds = %cgltf_skip_json.exit.i173.i, %cgltf_skip_json.exit.i191.i, %cgltf_parse_json_float_array.exit.i336.i.i, %cgltf_skip_json.exit.i.i475, %cgltf_skip_json.exit.i50.i, %cgltf_parse_json_float_array.exit.i.i, %cgltf_parse_json_float_array.exit.i92.i, %cgltf_skip_json.exit.i121.i, %cgltf_parse_json_float_array.exit.i141.i, %cgltf_json_strcmp.exit.thread.i464, %3740, %3608, %3540, %3436, %3319, %3246, %cgltf_fill_float_array.exit.preheader.i.i, %3073, %2968, %.split.loop.exit.i.i.i472, %2817
+  %.2.i.i465 = phi i32 [ %3742, %3740 ], [ %3747, %cgltf_json_strcmp.exit.thread.i464 ], [ %2820, %2817 ], [ %2959, %.split.loop.exit.i.i.i472 ], [ %2971, %2968 ], [ %3076, %3073 ], [ %3145, %cgltf_fill_float_array.exit.preheader.i.i ], [ %3249, %3246 ], [ %3322, %3319 ], [ %3439, %3436 ], [ %3543, %3540 ], [ %3611, %3608 ], [ %.1.i142.i, %cgltf_parse_json_float_array.exit.i141.i ], [ %.1.i122.i, %cgltf_skip_json.exit.i121.i ], [ %.1.i93.i, %cgltf_parse_json_float_array.exit.i92.i ], [ %.1.i65.i, %cgltf_parse_json_float_array.exit.i.i ], [ %.1.i51.i, %cgltf_skip_json.exit.i50.i ], [ %.1.i.i476, %cgltf_skip_json.exit.i.i475 ], [ %.1.i337.i.i, %cgltf_parse_json_float_array.exit.i336.i.i ], [ %.1.i192.i, %cgltf_skip_json.exit.i191.i ], [ %.1.i174.i, %cgltf_skip_json.exit.i173.i ]
+  %3748 = icmp slt i32 %.2.i.i465, 0
   br i1 %3748, label %cgltf_parse_json_asset.exit.thread, label %2792
 
 cgltf_json_strcmp.exit325.thread.i.i:             ; preds = %cgltf_json_strcmp.exit325.i.i, %cgltf_json_strcmp.exit315.i.i, %cgltf_json_strcmp.exit312.i.i, %cgltf_json_strcmp.exit295.i.i, %cgltf_json_strcmp.exit292.i.i, %cgltf_json_strcmp.exit289.i.i, %cgltf_json_strcmp.exit286.i.i, %cgltf_json_strcmp.exit275.i.i, %cgltf_json_strcmp.exit269.i.i, %cgltf_json_strcmp.exit.i.i504, %2469
@@ -54397,7 +54397,7 @@ cgltf_parse_json_asset.exit.thread732:            ; preds = %.thread, %4900, %cg
   br i1 %exitcond1665.not, label %cgltf_parse_json_asset.exit.thread, label %111
 
 cgltf_parse_json_asset.exit.thread:               ; preds = %115, %111, %4884, %4889, %cgltf_parse_json_asset.exit, %cgltf_parse_json_asset.exit.thread732, %129, %351, %371, %367, %365, %1059, %1055, %1053, %1685, %1681, %1679, %2156, %2152, %2150, %2378, %2374, %2372, %3790, %3786, %3784, %4042, %4038, %4036, %4343, %4339, %4337, %4590, %4586, %4584, %.lr.ph.i610, %cgltf_parse_json_sampler.exit.i, %.lr.ph.i571, %.lr.ph.i406, %cgltf_parse_json_buffer.exit.i, %.lr.ph.i349, %.lr.ph.i453, %cgltf_parse_json_material.exit.i, %.lr.ph.i290, %.lr.ph.i519, %cgltf_parse_json_image.exit.i, %.lr.ph.i271, %cgltf_parse_json_mesh.exit.i, %4973, %4944, %4912, %.lr.ph1173, %4905, %.lr.ph.i659, %cgltf_parse_json_skin.exit.i, %143, %.lr.ph.i, %cgltf_parse_json_string.exit.i, %302, %299, %261, %259, %238, %236, %233, %212, %210, %207, %186, %184, %181, %161, %159, %156, %4521, %4518, %4479, %4477, %4390, %4388, %4385, %4368, %4372, %4160, %4157, %4093, %4091, %4086, %cgltf_parse_json_string.exit.i.i573, %4202, %4199, %4069, %4073, %2309, %2306, %2268, %2266, %2245, %2243, %2240, %2202, %2200, %2197, %2180, %2184, %1864, %1861, %1745, %1743, %1738, %cgltf_parse_json_string.exit.i.i355, %1905, %1902, %1721, %1725, %2735, %2732, %2634, %2629, %2506, %2485, %2483, %2478, %cgltf_parse_json_string.exit.i.i459, %2779, %2774, %2461, %2465, %1318, %1293, %1269, %1122, %1120, %1115, %cgltf_parse_json_string.exit.i.i297, %1098, %1102, %1616, %1611, %1573, %1570, %3973, %3970, %3932, %3930, %3909, %3907, %3904, %3883, %3881, %3878, %3837, %3835, %3832, %3815, %3819, %989, %984, %882, %880, %422, %420, %415, %873, %869, %867, %457, %453, %451, %cgltf_parse_json_string.exit.i.i, %cgltf_parse_json_array.exit142.i.i, %cgltf_parse_json_array.exit.i.i, %398, %402, %4971, %.lr.ph, %4959, %4939, %.lr.ph1169, %4927, %4789, %4786, %4747, %4744, %4640, %4638, %4633, %4673, %4669, %4667, %4724, %4703, %4616, %4620, %281, %.lr.ph.i.i, %318, %333, %.lr.ph.i.i.i628, %4537, %4499, %4552, %4219, %.lr.ph193.i.i, %4233, %.loopexit.i.i, %4180, %4306, %2288, %.lr.ph.i.i.i429, %2325, %2340, %1922, %.lr.ph.i.i358, %cgltf_parse_json_meshopt_compression.exit.i.i, %1936, %1884, %2119, %2797, %.lr.ph.i.i463, %cgltf_parse_json_pbr_specular_glossiness.exit.i.i, %2812, %2963, %3068, %3136, %3241, %3314, %3431, %3535, %3603, %2755, %.lr.ph.i277.i.i, %2576, %2571, %.lr.ph.i271.i.i, %2519, %3752, %1593, %cgltf_skip_json.exit172.i.i.i, %1462, %1363, %.lr.ph204.i.i.i, %1330, %.lr.ph.i221.i.i, %.lr.ph.i.i.i316, %.lr.ph.i32.i, %1632, %1647, %3952, %.lr.ph.i.i.i545, %3989, %4004, %966, %921, %.lr.ph.i.i272, %cgltf_skip_json.exit.i.i, %.lr.ph.i145.i.i, %.lr.ph.i171.i.i, %1005, %cgltf_parse_json_primitive.exit.i.i, %.lr.ph263.i.i, %1020, %.lr.ph.i.i.i674, %4805, %4767, %4820, %4246, %.lr.ph.i.i577, %cgltf_skip_json.exit.i.i583, %.lr.ph.i.i.i360, %1947, %.lr.ph.i163.i, %3081, %.lr.ph.i183.i, %2976, %2944, %2868, %2863, %2843, %2838, %.lr.ph.i332.i.i, %2825, %.lr.ph.i30.i, %3616, %.lr.ph.i44.i, %3548, %3462, %3457, %.lr.ph.i61.i, %3444, %3370, %3365, %.lr.ph.i87.i, %3327, %.lr.ph.i115.i, %3254, %3188, %3183, %.lr.ph.i136.i, %3150, %.lr.ph.i.i.i.i496, %2608, %1477, %.lr.ph.i235.i.i, %cgltf_skip_json.exit165.i.i.i, %1375, %.lr.ph200.i.i.i, %cgltf_skip_json.exit.i.i.i, %1551, %946, %616, %613, %594, %590, %588, %cgltf_parse_json_extras.exit.i.i.i, %659, %654, %cgltf_parse_json_array.exit.i.i.i, %495, %499, %4280, %2092, %3115, %3047, %.lr.ph.i68.i.i.i, %.lr.ph.i.i346.i.i, %2919, %3719, %3582, %.lr.ph.i.i74.i, %3514, %.lr.ph.i.i99.i, %3410, %3293, %.lr.ph.i60.i.i, %3220, %1531, %1442, %636, %677, %.lr.ph.i.i.i, %cgltf_parse_json_draco_mesh_compression.exit.i.i.i, %690, %.lr.ph249.i.i.i, %837, %.lr.ph.i.i.i.i, %703, %744, %70, %4664, %cgltf_calloc.exit.thread.i.i.i680, %4581, %cgltf_calloc.exit.thread.i.i.i634, %4334, %cgltf_calloc.exit.thread.i.i586, %4033, %cgltf_calloc.exit.thread.i.i.i551, %3781, %cgltf_calloc.exit.thread.i.i479, %2369, %cgltf_calloc.exit.thread.i.i.i435, %2147, %cgltf_calloc.exit.thread.i.i377, %1676, %cgltf_calloc.exit.thread.i.i332, %1050, %448, %585, %cgltf_calloc.exit.thread.i.i.i, %864, %cgltf_calloc.exit.thread.i173.i.i, %362, %cgltf_calloc.exit.thread.i.i, %cgltf_calloc.exit.thread, %4
-  %.0250 = phi i32 [ -1, %4 ], [ -2, %cgltf_calloc.exit.thread ], [ %4666, %4664 ], [ -2, %cgltf_calloc.exit.thread.i.i.i680 ], [ %4583, %4581 ], [ -2, %cgltf_calloc.exit.thread.i.i.i634 ], [ %4336, %4334 ], [ -2, %cgltf_calloc.exit.thread.i.i586 ], [ %4035, %4033 ], [ -2, %cgltf_calloc.exit.thread.i.i.i551 ], [ %3783, %3781 ], [ -2, %cgltf_calloc.exit.thread.i.i479 ], [ %2371, %2369 ], [ -2, %cgltf_calloc.exit.thread.i.i.i435 ], [ %2149, %2147 ], [ -2, %cgltf_calloc.exit.thread.i.i377 ], [ %1678, %1676 ], [ -2, %cgltf_calloc.exit.thread.i.i332 ], [ %1052, %1050 ], [ %450, %448 ], [ %587, %585 ], [ -2, %cgltf_calloc.exit.thread.i.i.i ], [ %866, %864 ], [ -2, %cgltf_calloc.exit.thread.i173.i.i ], [ %364, %362 ], [ -2, %cgltf_calloc.exit.thread.i.i ], [ 1, %70 ], [ -1, %744 ], [ -1, %703 ], [ -1, %.lr.ph.i.i.i.i ], [ -1, %837 ], [ %608, %.lr.ph249.i.i.i ], [ -1, %690 ], [ %.3.i.i.i, %cgltf_parse_json_draco_mesh_compression.exit.i.i.i ], [ -1, %.lr.ph.i.i.i ], [ -1, %677 ], [ -1, %636 ], [ -1, %1442 ], [ -1, %1531 ], [ -1, %3220 ], [ -1, %.lr.ph.i60.i.i ], [ -1, %3293 ], [ -1, %3410 ], [ -1, %.lr.ph.i.i99.i ], [ -1, %3514 ], [ -1, %.lr.ph.i.i74.i ], [ -1, %3582 ], [ -1, %3719 ], [ -1, %2919 ], [ -1, %.lr.ph.i.i346.i.i ], [ -1, %.lr.ph.i68.i.i.i ], [ -1, %3047 ], [ -1, %3115 ], [ -1, %2092 ], [ -1, %4280 ], [ -1, %499 ], [ -1, %495 ], [ %599, %cgltf_parse_json_array.exit.i.i.i ], [ -1, %654 ], [ -1, %659 ], [ %.4.i.i.i, %cgltf_parse_json_extras.exit.i.i.i ], [ -1, %588 ], [ -2, %590 ], [ -2, %594 ], [ -1, %613 ], [ -2, %616 ], [ -1, %946 ], [ -1, %1551 ], [ %1457, %cgltf_skip_json.exit.i.i.i ], [ -1, %.lr.ph200.i.i.i ], [ -1, %1375 ], [ %.4.i.i.i305, %cgltf_skip_json.exit165.i.i.i ], [ -1, %.lr.ph.i235.i.i ], [ -1, %1477 ], [ -1, %2608 ], [ -1, %.lr.ph.i.i.i.i496 ], [ -1, %3150 ], [ -1, %.lr.ph.i136.i ], [ -1, %3183 ], [ -1, %3188 ], [ -1, %3254 ], [ -1, %.lr.ph.i115.i ], [ -1, %3327 ], [ -1, %.lr.ph.i87.i ], [ -1, %3365 ], [ -1, %3370 ], [ -1, %3444 ], [ -1, %.lr.ph.i61.i ], [ -1, %3457 ], [ -1, %3462 ], [ -1, %3548 ], [ -1, %.lr.ph.i44.i ], [ -1, %3616 ], [ -1, %.lr.ph.i30.i ], [ -1, %2825 ], [ -1, %.lr.ph.i332.i.i ], [ -1, %2838 ], [ -1, %2843 ], [ -1, %2863 ], [ -1, %2868 ], [ -1, %2944 ], [ -1, %2976 ], [ -1, %.lr.ph.i183.i ], [ -1, %3081 ], [ -1, %.lr.ph.i163.i ], [ -1, %1947 ], [ -1, %.lr.ph.i.i.i360 ], [ %4295, %cgltf_skip_json.exit.i.i583 ], [ -1, %.lr.ph.i.i577 ], [ -1, %4246 ], [ -1, %4820 ], [ -1, %4767 ], [ -1, %4805 ], [ -1, %.lr.ph.i.i.i674 ], [ -1, %1020 ], [ -1, %.lr.ph263.i.i ], [ %.0133.i.i.i, %cgltf_parse_json_primitive.exit.i.i ], [ -1, %1005 ], [ -1, %.lr.ph.i171.i.i ], [ -1, %.lr.ph.i145.i.i ], [ %.3.i.i, %cgltf_skip_json.exit.i.i ], [ -1, %.lr.ph.i.i272 ], [ -1, %921 ], [ -1, %966 ], [ -1, %4004 ], [ -1, %3989 ], [ -1, %.lr.ph.i.i.i545 ], [ -1, %3952 ], [ -1, %1647 ], [ -1, %1632 ], [ -1, %.lr.ph.i32.i ], [ -1, %.lr.ph.i.i.i316 ], [ -1, %.lr.ph.i221.i.i ], [ -1, %1330 ], [ -1, %.lr.ph204.i.i.i ], [ -1, %1363 ], [ -1, %1462 ], [ %.5.i.i.i, %cgltf_skip_json.exit172.i.i.i ], [ -1, %1593 ], [ -1, %3752 ], [ -1, %2519 ], [ -1, %.lr.ph.i271.i.i ], [ -1, %2571 ], [ -1, %2576 ], [ -1, %.lr.ph.i277.i.i ], [ -1, %2755 ], [ -1, %3603 ], [ -1, %3535 ], [ -1, %3431 ], [ -1, %3314 ], [ -1, %3241 ], [ -1, %3136 ], [ -1, %3068 ], [ -1, %2963 ], [ -1, %2812 ], [ %.2.i.i466, %cgltf_parse_json_pbr_specular_glossiness.exit.i.i ], [ -1, %.lr.ph.i.i463 ], [ -1, %2797 ], [ -1, %2119 ], [ -1, %1884 ], [ -1, %1936 ], [ %.2.i.i, %cgltf_parse_json_meshopt_compression.exit.i.i ], [ -1, %.lr.ph.i.i358 ], [ -1, %1922 ], [ -1, %2340 ], [ -1, %2325 ], [ -1, %.lr.ph.i.i.i429 ], [ -1, %2288 ], [ -1, %4306 ], [ -1, %4180 ], [ %4301, %.loopexit.i.i ], [ -1, %4233 ], [ -1, %.lr.ph193.i.i ], [ -1, %4219 ], [ -1, %4552 ], [ -1, %4499 ], [ -1, %4537 ], [ -1, %.lr.ph.i.i.i628 ], [ -1, %333 ], [ -1, %318 ], [ -1, %.lr.ph.i.i ], [ -1, %281 ], [ -1, %4620 ], [ -1, %4616 ], [ -1, %4703 ], [ -1, %4724 ], [ -1, %4667 ], [ -2, %4669 ], [ -2, %4673 ], [ -1, %4633 ], [ -1, %4638 ], [ -2, %4640 ], [ -1, %4744 ], [ -2, %4747 ], [ -1, %4786 ], [ -1, %4789 ], [ %.3, %4939 ], [ -1, %.lr.ph1169 ], [ -1, %4927 ], [ %.5, %4971 ], [ -1, %.lr.ph ], [ -1, %4959 ], [ -1, %402 ], [ -1, %398 ], [ %462, %cgltf_parse_json_array.exit.i.i ], [ %878, %cgltf_parse_json_array.exit142.i.i ], [ %.4.i.i, %cgltf_parse_json_string.exit.i.i ], [ -1, %451 ], [ -2, %453 ], [ -2, %457 ], [ -1, %867 ], [ -2, %869 ], [ -2, %873 ], [ -1, %415 ], [ -1, %420 ], [ -2, %422 ], [ -1, %880 ], [ -1, %882 ], [ -1, %984 ], [ -1, %989 ], [ -1, %3819 ], [ -1, %3815 ], [ -1, %3832 ], [ -1, %3835 ], [ -2, %3837 ], [ -1, %3878 ], [ -1, %3881 ], [ -2, %3883 ], [ -1, %3904 ], [ -1, %3907 ], [ -2, %3909 ], [ -1, %3930 ], [ -2, %3932 ], [ -1, %3970 ], [ -1, %3973 ], [ -1, %1570 ], [ -2, %1573 ], [ -1, %1611 ], [ -1, %1616 ], [ -1, %1102 ], [ -1, %1098 ], [ %.1.i.i298, %cgltf_parse_json_string.exit.i.i297 ], [ -1, %1115 ], [ -1, %1120 ], [ -2, %1122 ], [ -1, %1269 ], [ -1, %1293 ], [ -1, %1318 ], [ -1, %2465 ], [ -1, %2461 ], [ -1, %2774 ], [ -1, %2779 ], [ %.3.i.i460, %cgltf_parse_json_string.exit.i.i459 ], [ -1, %2478 ], [ -1, %2483 ], [ -2, %2485 ], [ -1, %2506 ], [ -1, %2629 ], [ -1, %2634 ], [ -1, %2732 ], [ -2, %2735 ], [ -1, %1725 ], [ -1, %1721 ], [ -1, %1902 ], [ -1, %1905 ], [ %.3.i.i356, %cgltf_parse_json_string.exit.i.i355 ], [ -1, %1738 ], [ -1, %1743 ], [ -2, %1745 ], [ -1, %1861 ], [ -2, %1864 ], [ -1, %2184 ], [ -1, %2180 ], [ -1, %2197 ], [ -1, %2200 ], [ -2, %2202 ], [ -1, %2240 ], [ -1, %2243 ], [ -2, %2245 ], [ -1, %2266 ], [ -2, %2268 ], [ -1, %2306 ], [ -1, %2309 ], [ -1, %4073 ], [ -1, %4069 ], [ -1, %4199 ], [ -1, %4202 ], [ %.5.i.i, %cgltf_parse_json_string.exit.i.i573 ], [ -1, %4086 ], [ -1, %4091 ], [ -2, %4093 ], [ -1, %4157 ], [ -2, %4160 ], [ -1, %4372 ], [ -1, %4368 ], [ -1, %4385 ], [ -1, %4388 ], [ -2, %4390 ], [ -1, %4477 ], [ -2, %4479 ], [ -1, %4518 ], [ -1, %4521 ], [ -1, %156 ], [ -1, %159 ], [ -2, %161 ], [ -1, %181 ], [ -1, %184 ], [ -2, %186 ], [ -1, %207 ], [ -1, %210 ], [ -2, %212 ], [ -1, %233 ], [ -1, %236 ], [ -2, %238 ], [ -1, %259 ], [ -2, %261 ], [ -1, %299 ], [ -1, %302 ], [ %.1.i, %cgltf_parse_json_string.exit.i ], [ -1, %.lr.ph.i ], [ -1, %143 ], [ %.2.i.i667, %cgltf_parse_json_skin.exit.i ], [ -1, %.lr.ph.i659 ], [ %4978, %4973 ], [ -1, %4944 ], [ -1, %4912 ], [ -1, %.lr.ph1173 ], [ -1, %4905 ], [ %.4196.i.i, %cgltf_parse_json_mesh.exit.i ], [ -1, %.lr.ph.i271 ], [ %.1.i.i530, %cgltf_parse_json_image.exit.i ], [ -1, %.lr.ph.i519 ], [ -1, %.lr.ph.i290 ], [ %2408, %cgltf_parse_json_material.exit.i ], [ -1, %.lr.ph.i453 ], [ -1, %.lr.ph.i349 ], [ %.1.i.i415, %cgltf_parse_json_buffer.exit.i ], [ -1, %.lr.ph.i406 ], [ -1, %.lr.ph.i571 ], [ %.1.i.i621, %cgltf_parse_json_sampler.exit.i ], [ -1, %.lr.ph.i610 ], [ -1, %115 ], [ -1, %111 ], [ -1, %4884 ], [ -1, %4889 ], [ %.7, %cgltf_parse_json_asset.exit ], [ %.7734, %cgltf_parse_json_asset.exit.thread732 ], [ -1, %129 ], [ -3, %351 ], [ -2, %371 ], [ -2, %367 ], [ -1, %365 ], [ -2, %1059 ], [ -2, %1055 ], [ -1, %1053 ], [ -2, %1685 ], [ -2, %1681 ], [ -1, %1679 ], [ -2, %2156 ], [ -2, %2152 ], [ -1, %2150 ], [ -2, %2378 ], [ -2, %2374 ], [ -1, %2372 ], [ -2, %3790 ], [ -2, %3786 ], [ -1, %3784 ], [ -2, %4042 ], [ -2, %4038 ], [ -1, %4036 ], [ -2, %4343 ], [ -2, %4339 ], [ -1, %4337 ], [ -2, %4590 ], [ -2, %4586 ], [ -1, %4584 ]
+  %.0250 = phi i32 [ -1, %4 ], [ -2, %cgltf_calloc.exit.thread ], [ %4666, %4664 ], [ -2, %cgltf_calloc.exit.thread.i.i.i680 ], [ %4583, %4581 ], [ -2, %cgltf_calloc.exit.thread.i.i.i634 ], [ %4336, %4334 ], [ -2, %cgltf_calloc.exit.thread.i.i586 ], [ %4035, %4033 ], [ -2, %cgltf_calloc.exit.thread.i.i.i551 ], [ %3783, %3781 ], [ -2, %cgltf_calloc.exit.thread.i.i479 ], [ %2371, %2369 ], [ -2, %cgltf_calloc.exit.thread.i.i.i435 ], [ %2149, %2147 ], [ -2, %cgltf_calloc.exit.thread.i.i377 ], [ %1678, %1676 ], [ -2, %cgltf_calloc.exit.thread.i.i332 ], [ %1052, %1050 ], [ %450, %448 ], [ %587, %585 ], [ -2, %cgltf_calloc.exit.thread.i.i.i ], [ %866, %864 ], [ -2, %cgltf_calloc.exit.thread.i173.i.i ], [ %364, %362 ], [ -2, %cgltf_calloc.exit.thread.i.i ], [ 1, %70 ], [ -1, %744 ], [ -1, %703 ], [ -1, %.lr.ph.i.i.i.i ], [ -1, %837 ], [ %608, %.lr.ph249.i.i.i ], [ -1, %690 ], [ %.3.i.i.i, %cgltf_parse_json_draco_mesh_compression.exit.i.i.i ], [ -1, %.lr.ph.i.i.i ], [ -1, %677 ], [ -1, %636 ], [ -1, %1442 ], [ -1, %1531 ], [ -1, %3220 ], [ -1, %.lr.ph.i60.i.i ], [ -1, %3293 ], [ -1, %3410 ], [ -1, %.lr.ph.i.i99.i ], [ -1, %3514 ], [ -1, %.lr.ph.i.i74.i ], [ -1, %3582 ], [ -1, %3719 ], [ -1, %2919 ], [ -1, %.lr.ph.i.i346.i.i ], [ -1, %.lr.ph.i68.i.i.i ], [ -1, %3047 ], [ -1, %3115 ], [ -1, %2092 ], [ -1, %4280 ], [ -1, %499 ], [ -1, %495 ], [ %599, %cgltf_parse_json_array.exit.i.i.i ], [ -1, %654 ], [ -1, %659 ], [ %.4.i.i.i, %cgltf_parse_json_extras.exit.i.i.i ], [ -1, %588 ], [ -2, %590 ], [ -2, %594 ], [ -1, %613 ], [ -2, %616 ], [ -1, %946 ], [ -1, %1551 ], [ %1457, %cgltf_skip_json.exit.i.i.i ], [ -1, %.lr.ph200.i.i.i ], [ -1, %1375 ], [ %.4.i.i.i305, %cgltf_skip_json.exit165.i.i.i ], [ -1, %.lr.ph.i235.i.i ], [ -1, %1477 ], [ -1, %2608 ], [ -1, %.lr.ph.i.i.i.i496 ], [ -1, %3150 ], [ -1, %.lr.ph.i136.i ], [ -1, %3183 ], [ -1, %3188 ], [ -1, %3254 ], [ -1, %.lr.ph.i115.i ], [ -1, %3327 ], [ -1, %.lr.ph.i87.i ], [ -1, %3365 ], [ -1, %3370 ], [ -1, %3444 ], [ -1, %.lr.ph.i61.i ], [ -1, %3457 ], [ -1, %3462 ], [ -1, %3548 ], [ -1, %.lr.ph.i44.i ], [ -1, %3616 ], [ -1, %.lr.ph.i30.i ], [ -1, %2825 ], [ -1, %.lr.ph.i332.i.i ], [ -1, %2838 ], [ -1, %2843 ], [ -1, %2863 ], [ -1, %2868 ], [ -1, %2944 ], [ -1, %2976 ], [ -1, %.lr.ph.i183.i ], [ -1, %3081 ], [ -1, %.lr.ph.i163.i ], [ -1, %1947 ], [ -1, %.lr.ph.i.i.i360 ], [ %4295, %cgltf_skip_json.exit.i.i583 ], [ -1, %.lr.ph.i.i577 ], [ -1, %4246 ], [ -1, %4820 ], [ -1, %4767 ], [ -1, %4805 ], [ -1, %.lr.ph.i.i.i674 ], [ -1, %1020 ], [ -1, %.lr.ph263.i.i ], [ %.0133.i.i.i, %cgltf_parse_json_primitive.exit.i.i ], [ -1, %1005 ], [ -1, %.lr.ph.i171.i.i ], [ -1, %.lr.ph.i145.i.i ], [ %.3.i.i, %cgltf_skip_json.exit.i.i ], [ -1, %.lr.ph.i.i272 ], [ -1, %921 ], [ -1, %966 ], [ -1, %4004 ], [ -1, %3989 ], [ -1, %.lr.ph.i.i.i545 ], [ -1, %3952 ], [ -1, %1647 ], [ -1, %1632 ], [ -1, %.lr.ph.i32.i ], [ -1, %.lr.ph.i.i.i316 ], [ -1, %.lr.ph.i221.i.i ], [ -1, %1330 ], [ -1, %.lr.ph204.i.i.i ], [ -1, %1363 ], [ -1, %1462 ], [ %.5.i.i.i, %cgltf_skip_json.exit172.i.i.i ], [ -1, %1593 ], [ -1, %3752 ], [ -1, %2519 ], [ -1, %.lr.ph.i271.i.i ], [ -1, %2571 ], [ -1, %2576 ], [ -1, %.lr.ph.i277.i.i ], [ -1, %2755 ], [ -1, %3603 ], [ -1, %3535 ], [ -1, %3431 ], [ -1, %3314 ], [ -1, %3241 ], [ -1, %3136 ], [ -1, %3068 ], [ -1, %2963 ], [ -1, %2812 ], [ %.2.i.i465, %cgltf_parse_json_pbr_specular_glossiness.exit.i.i ], [ -1, %.lr.ph.i.i463 ], [ -1, %2797 ], [ -1, %2119 ], [ -1, %1884 ], [ -1, %1936 ], [ %.2.i.i, %cgltf_parse_json_meshopt_compression.exit.i.i ], [ -1, %.lr.ph.i.i358 ], [ -1, %1922 ], [ -1, %2340 ], [ -1, %2325 ], [ -1, %.lr.ph.i.i.i429 ], [ -1, %2288 ], [ -1, %4306 ], [ -1, %4180 ], [ %4301, %.loopexit.i.i ], [ -1, %4233 ], [ -1, %.lr.ph193.i.i ], [ -1, %4219 ], [ -1, %4552 ], [ -1, %4499 ], [ -1, %4537 ], [ -1, %.lr.ph.i.i.i628 ], [ -1, %333 ], [ -1, %318 ], [ -1, %.lr.ph.i.i ], [ -1, %281 ], [ -1, %4620 ], [ -1, %4616 ], [ -1, %4703 ], [ -1, %4724 ], [ -1, %4667 ], [ -2, %4669 ], [ -2, %4673 ], [ -1, %4633 ], [ -1, %4638 ], [ -2, %4640 ], [ -1, %4744 ], [ -2, %4747 ], [ -1, %4786 ], [ -1, %4789 ], [ %.3, %4939 ], [ -1, %.lr.ph1169 ], [ -1, %4927 ], [ %.5, %4971 ], [ -1, %.lr.ph ], [ -1, %4959 ], [ -1, %402 ], [ -1, %398 ], [ %462, %cgltf_parse_json_array.exit.i.i ], [ %878, %cgltf_parse_json_array.exit142.i.i ], [ %.4.i.i, %cgltf_parse_json_string.exit.i.i ], [ -1, %451 ], [ -2, %453 ], [ -2, %457 ], [ -1, %867 ], [ -2, %869 ], [ -2, %873 ], [ -1, %415 ], [ -1, %420 ], [ -2, %422 ], [ -1, %880 ], [ -1, %882 ], [ -1, %984 ], [ -1, %989 ], [ -1, %3819 ], [ -1, %3815 ], [ -1, %3832 ], [ -1, %3835 ], [ -2, %3837 ], [ -1, %3878 ], [ -1, %3881 ], [ -2, %3883 ], [ -1, %3904 ], [ -1, %3907 ], [ -2, %3909 ], [ -1, %3930 ], [ -2, %3932 ], [ -1, %3970 ], [ -1, %3973 ], [ -1, %1570 ], [ -2, %1573 ], [ -1, %1611 ], [ -1, %1616 ], [ -1, %1102 ], [ -1, %1098 ], [ %.1.i.i298, %cgltf_parse_json_string.exit.i.i297 ], [ -1, %1115 ], [ -1, %1120 ], [ -2, %1122 ], [ -1, %1269 ], [ -1, %1293 ], [ -1, %1318 ], [ -1, %2465 ], [ -1, %2461 ], [ -1, %2774 ], [ -1, %2779 ], [ %.3.i.i460, %cgltf_parse_json_string.exit.i.i459 ], [ -1, %2478 ], [ -1, %2483 ], [ -2, %2485 ], [ -1, %2506 ], [ -1, %2629 ], [ -1, %2634 ], [ -1, %2732 ], [ -2, %2735 ], [ -1, %1725 ], [ -1, %1721 ], [ -1, %1902 ], [ -1, %1905 ], [ %.3.i.i356, %cgltf_parse_json_string.exit.i.i355 ], [ -1, %1738 ], [ -1, %1743 ], [ -2, %1745 ], [ -1, %1861 ], [ -2, %1864 ], [ -1, %2184 ], [ -1, %2180 ], [ -1, %2197 ], [ -1, %2200 ], [ -2, %2202 ], [ -1, %2240 ], [ -1, %2243 ], [ -2, %2245 ], [ -1, %2266 ], [ -2, %2268 ], [ -1, %2306 ], [ -1, %2309 ], [ -1, %4073 ], [ -1, %4069 ], [ -1, %4199 ], [ -1, %4202 ], [ %.5.i.i, %cgltf_parse_json_string.exit.i.i573 ], [ -1, %4086 ], [ -1, %4091 ], [ -2, %4093 ], [ -1, %4157 ], [ -2, %4160 ], [ -1, %4372 ], [ -1, %4368 ], [ -1, %4385 ], [ -1, %4388 ], [ -2, %4390 ], [ -1, %4477 ], [ -2, %4479 ], [ -1, %4518 ], [ -1, %4521 ], [ -1, %156 ], [ -1, %159 ], [ -2, %161 ], [ -1, %181 ], [ -1, %184 ], [ -2, %186 ], [ -1, %207 ], [ -1, %210 ], [ -2, %212 ], [ -1, %233 ], [ -1, %236 ], [ -2, %238 ], [ -1, %259 ], [ -2, %261 ], [ -1, %299 ], [ -1, %302 ], [ %.1.i, %cgltf_parse_json_string.exit.i ], [ -1, %.lr.ph.i ], [ -1, %143 ], [ %.2.i.i667, %cgltf_parse_json_skin.exit.i ], [ -1, %.lr.ph.i659 ], [ %4978, %4973 ], [ -1, %4944 ], [ -1, %4912 ], [ -1, %.lr.ph1173 ], [ -1, %4905 ], [ %.4196.i.i, %cgltf_parse_json_mesh.exit.i ], [ -1, %.lr.ph.i271 ], [ %.1.i.i530, %cgltf_parse_json_image.exit.i ], [ -1, %.lr.ph.i519 ], [ -1, %.lr.ph.i290 ], [ %2408, %cgltf_parse_json_material.exit.i ], [ -1, %.lr.ph.i453 ], [ -1, %.lr.ph.i349 ], [ %.1.i.i415, %cgltf_parse_json_buffer.exit.i ], [ -1, %.lr.ph.i406 ], [ -1, %.lr.ph.i571 ], [ %.1.i.i621, %cgltf_parse_json_sampler.exit.i ], [ -1, %.lr.ph.i610 ], [ -1, %115 ], [ -1, %111 ], [ -1, %4884 ], [ -1, %4889 ], [ %.7, %cgltf_parse_json_asset.exit ], [ %.7734, %cgltf_parse_json_asset.exit.thread732 ], [ -1, %129 ], [ -3, %351 ], [ -2, %371 ], [ -2, %367 ], [ -1, %365 ], [ -2, %1059 ], [ -2, %1055 ], [ -1, %1053 ], [ -2, %1685 ], [ -2, %1681 ], [ -1, %1679 ], [ -2, %2156 ], [ -2, %2152 ], [ -1, %2150 ], [ -2, %2378 ], [ -2, %2374 ], [ -1, %2372 ], [ -2, %3790 ], [ -2, %3786 ], [ -1, %3784 ], [ -2, %4042 ], [ -2, %4038 ], [ -1, %4036 ], [ -2, %4343 ], [ -2, %4339 ], [ -1, %4337 ], [ -2, %4590 ], [ -2, %4586 ], [ -1, %4584 ]
   ret i32 %.0250
 }
 
@@ -63768,9 +63768,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #48
 declare i32 @llvm.smin.i32(i32, i32) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #46
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -63784,6 +63781,9 @@ declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #46
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #46
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

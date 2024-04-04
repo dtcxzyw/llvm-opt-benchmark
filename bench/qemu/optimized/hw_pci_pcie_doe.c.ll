@@ -365,14 +365,15 @@ deposit32.exit:                                   ; preds = %if.end
   %and6.i = shl i32 %shl57.i, %mul
   %or.i = or i32 %and.i, %and6.i
   %2 = and i32 %addr, -4
-  %sub = add i32 %2, -4
+  %sub = add i32 %2, -8
   %3 = sub i32 %sub, %conv
-  %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 30)
-  switch i32 %4, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb24
-    i32 4, label %sw.bb30
-    i32 3, label %sw.bb47
+  %4 = sub i32 %3, 0
+  %5 = call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 30)
+  switch i32 %5, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb24
+    i32 3, label %sw.bb30
+    i32 2, label %sw.bb47
   ]
 
 sw.bb:                                            ; preds = %deposit32.exit
@@ -392,11 +393,11 @@ if.then9:                                         ; preds = %sw.bb
   %write_mbox_len.i = getelementptr inbounds i8, ptr %doe_cap, i64 48
   store i32 0, ptr %write_mbox_len.i, align 8
   %read_mbox.i = getelementptr inbounds i8, ptr %doe_cap, i64 32
-  %5 = load ptr, ptr %read_mbox.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %5, i8 0, i64 1048576, i1 false)
-  %write_mbox.i = getelementptr inbounds i8, ptr %doe_cap, i64 24
-  %6 = load ptr, ptr %write_mbox.i, align 8
+  %6 = load ptr, ptr %read_mbox.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %6, i8 0, i64 1048576, i1 false)
+  %write_mbox.i = getelementptr inbounds i8, ptr %doe_cap, i64 24
+  %7 = load ptr, ptr %write_mbox.i, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %7, i8 0, i64 1048576, i1 false)
   br label %sw.epilog
 
 if.end10:                                         ; preds = %sw.bb
@@ -405,28 +406,28 @@ if.end10:                                         ; preds = %sw.bb
 
 if.then13:                                        ; preds = %if.end10
   %error.i36 = getelementptr inbounds i8, ptr %doe_cap, i64 19
-  %7 = load i8, ptr %error.i36, align 1
-  %tobool.i = trunc i8 %7 to i1
+  %8 = load i8, ptr %error.i36, align 1
+  %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.end14, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then13
   %write_mbox.i37 = getelementptr inbounds i8, ptr %doe_cap, i64 24
-  %8 = load ptr, ptr %write_mbox.i37, align 8
-  %9 = load i32, ptr %8, align 4
-  %cmp.i = icmp eq i32 %9, 1
+  %9 = load ptr, ptr %write_mbox.i37, align 8
+  %10 = load i32, ptr %9, align 4
+  %cmp.i = icmp eq i32 %10, 1
   br i1 %cmp.i, label %pcie_doe_get_obj_len.exit.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
   %protocol_num.i = getelementptr inbounds i8, ptr %doe_cap, i64 64
-  %10 = load i16, ptr %protocol_num.i, align 8
-  %cmp223.i = icmp ugt i16 %10, 1
+  %11 = load i16, ptr %protocol_num.i, align 8
+  %cmp223.i = icmp ugt i16 %11, 1
   br i1 %cmp223.i, label %for.body.lr.ph.i, label %if.else26.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %conv.i = zext i16 %10 to i64
+  %conv.i = zext i16 %11 to i64
   %sub.i38 = add nuw nsw i64 %conv.i, 4294967295
   %protocols.i = getelementptr inbounds i8, ptr %doe_cap, i64 56
-  %11 = load ptr, ptr %protocols.i, align 8
+  %12 = load ptr, ptr %protocols.i, align 8
   %wide.trip.count.i = and i64 %sub.i38, 4294967295
   br label %for.body.i
 
@@ -437,33 +438,33 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx6.i = getelementptr %struct.DOEProtocol, ptr %11, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr %struct.DOEProtocol, ptr %12, i64 %indvars.iv.i
   %data_obj_type.i.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 2
-  %12 = load i8, ptr %data_obj_type.i.i, align 2
-  %conv.i.i = zext i8 %12 to i32
+  %13 = load i8, ptr %data_obj_type.i.i, align 2
+  %conv.i.i = zext i8 %13 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 16
-  %13 = load i16, ptr %arrayidx6.i, align 8
-  %conv1.i.i = zext i16 %13 to i32
+  %14 = load i16, ptr %arrayidx6.i, align 8
+  %conv1.i.i = zext i16 %14 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv1.i.i
-  %cmp7.i = icmp eq i32 %9, %or.i.i
+  %cmp7.i = icmp eq i32 %10, %or.i.i
   br i1 %cmp7.i, label %if.end15.i, label %for.cond.i
 
 if.end15.i:                                       ; preds = %for.body.i
-  %handle_request13.i = getelementptr %struct.DOEProtocol, ptr %11, i64 %indvars.iv.i, i32 2
-  %14 = load ptr, ptr %handle_request13.i, align 8
-  %tobool16.not.i = icmp eq ptr %14, null
+  %handle_request13.i = getelementptr %struct.DOEProtocol, ptr %12, i64 %indvars.iv.i, i32 2
+  %15 = load ptr, ptr %handle_request13.i, align 8
+  %tobool16.not.i = icmp eq ptr %15, null
   br i1 %tobool16.not.i, label %if.else26.i, label %pcie_doe_get_obj_len.exit.i
 
 pcie_doe_get_obj_len.exit.i:                      ; preds = %if.end15.i, %if.end.i
-  %handle_request.022.i = phi ptr [ %14, %if.end15.i ], [ @pcie_doe_discovery, %if.end.i ]
+  %handle_request.022.i = phi ptr [ %15, %if.end15.i ], [ @pcie_doe_discovery, %if.end.i ]
   %write_mbox_len.i39 = getelementptr inbounds i8, ptr %doe_cap, i64 48
-  %15 = load i32, ptr %write_mbox_len.i39, align 8
-  %length.i.i = getelementptr inbounds i8, ptr %8, i64 4
-  %16 = load i32, ptr %length.i.i, align 1
-  %and.i.i = and i32 %16, 262143
+  %16 = load i32, ptr %write_mbox_len.i39, align 8
+  %length.i.i = getelementptr inbounds i8, ptr %9, i64 4
+  %17 = load i32, ptr %length.i.i, align 1
+  %and.i.i = and i32 %17, 262143
   %tobool1.not.i.i = icmp eq i32 %and.i.i, 0
   %cond.i.i = select i1 %tobool1.not.i.i, i32 262144, i32 %and.i.i
-  %cmp19.i = icmp eq i32 %15, %cond.i.i
+  %cmp19.i = icmp eq i32 %16, %cond.i.i
   br i1 %cmp19.i, label %if.then21.i, label %if.else26.i
 
 if.then21.i:                                      ; preds = %pcie_doe_get_obj_len.exit.i
@@ -473,46 +474,46 @@ if.then21.i:                                      ; preds = %pcie_doe_get_obj_le
 if.then25.i:                                      ; preds = %if.then21.i
   %ready.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 20
   store i8 1, ptr %ready.i.i, align 1
-  %17 = load ptr, ptr %doe_cap, align 8
+  %18 = load ptr, ptr %doe_cap, align 8
   %cap.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 10
-  %18 = load i8, ptr %cap.i.i.i, align 2
-  %tobool.i.i.i = trunc i8 %18 to i1
+  %19 = load i8, ptr %cap.i.i.i, align 2
+  %tobool.i.i.i = trunc i8 %19 to i1
   br i1 %tobool.i.i.i, label %land.lhs.true.i.i.i, label %if.end14
 
 land.lhs.true.i.i.i:                              ; preds = %if.then25.i
   %intr1.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 15
-  %19 = load i8, ptr %intr1.i.i.i, align 1
-  %tobool2.i.i.i = trunc i8 %19 to i1
+  %20 = load i8, ptr %intr1.i.i.i, align 1
+  %tobool2.i.i.i = trunc i8 %20 to i1
   br i1 %tobool2.i.i.i, label %if.then.i.i.i, label %if.end14
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %intr3.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 18
-  %20 = load i8, ptr %intr3.i.i.i, align 1
-  %tobool4.i.i.i = trunc i8 %20 to i1
+  %21 = load i8, ptr %intr3.i.i.i, align 1
+  %tobool4.i.i.i = trunc i8 %21 to i1
   br i1 %tobool4.i.i.i, label %if.end14, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   store i8 1, ptr %intr3.i.i.i, align 1
-  %call.i.i.i = tail call i32 @msix_enabled(ptr noundef %17) #9
+  %call.i.i.i = tail call i32 @msix_enabled(ptr noundef %18) #9
   %tobool8.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool8.not.i.i.i, label %if.else.i.i.i, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vec.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 12
-  %21 = load i16, ptr %vec.i.i.i, align 2
-  %conv.i.i.i = zext i16 %21 to i32
-  tail call void @msix_notify(ptr noundef %17, i32 noundef %conv.i.i.i) #9
+  %22 = load i16, ptr %vec.i.i.i, align 2
+  %conv.i.i.i = zext i16 %22 to i32
+  tail call void @msix_notify(ptr noundef %18, i32 noundef %conv.i.i.i) #9
   br label %if.end14
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call11.i.i.i = tail call zeroext i1 @msi_enabled(ptr noundef %17) #9
+  %call11.i.i.i = tail call zeroext i1 @msi_enabled(ptr noundef %18) #9
   br i1 %call11.i.i.i, label %if.then12.i.i.i, label %if.end14
 
 if.then12.i.i.i:                                  ; preds = %if.else.i.i.i
   %vec14.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 12
-  %22 = load i16, ptr %vec14.i.i.i, align 2
-  %conv15.i.i.i = zext i16 %22 to i32
-  tail call void @msi_notify(ptr noundef %17, i32 noundef %conv15.i.i.i) #9
+  %23 = load i16, ptr %vec14.i.i.i, align 2
+  %conv15.i.i.i = zext i16 %23 to i32
+  tail call void @msi_notify(ptr noundef %18, i32 noundef %conv15.i.i.i) #9
   br label %if.end14
 
 if.else26.i:                                      ; preds = %for.cond.i, %if.then21.i, %pcie_doe_get_obj_len.exit.i, %if.end15.i, %for.cond.preheader.i
@@ -523,15 +524,15 @@ if.else26.i:                                      ; preds = %for.cond.i, %if.the
   %write_mbox_len.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 48
   store i32 0, ptr %write_mbox_len.i.i, align 8
   %read_mbox.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 32
-  %23 = load ptr, ptr %read_mbox.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %23, i8 0, i64 1048576, i1 false)
-  %24 = load ptr, ptr %write_mbox.i37, align 8
+  %24 = load ptr, ptr %read_mbox.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %24, i8 0, i64 1048576, i1 false)
+  %25 = load ptr, ptr %write_mbox.i37, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %25, i8 0, i64 1048576, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else26.i, %if.then12.i.i.i, %if.else.i.i.i, %if.then9.i.i.i, %if.then.i.i.i, %land.lhs.true.i.i.i, %if.then25.i, %if.then13, %if.end10
-  %25 = and i32 %or.i, 2
-  %tobool16.not = icmp eq i32 %25, 0
+  %26 = and i32 %or.i, 2
+  %tobool16.not = icmp eq i32 %26, 0
   br i1 %tobool16.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
@@ -549,8 +550,8 @@ if.then19:                                        ; preds = %if.else
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %deposit32.exit
-  %26 = and i32 %or.i, 2
-  %tobool26.not = icmp eq i32 %26, 0
+  %27 = and i32 %or.i, 2
+  %tobool26.not = icmp eq i32 %27, 0
   br i1 %tobool26.not, label %sw.epilog, label %if.then27
 
 if.then27:                                        ; preds = %sw.bb24
@@ -564,12 +565,12 @@ sw.bb30:                                          ; preds = %deposit32.exit
 
 if.end34:                                         ; preds = %sw.bb30
   %read_mbox_idx = getelementptr inbounds i8, ptr %doe_cap, i64 40
-  %27 = load i32, ptr %read_mbox_idx, align 8
-  %inc = add i32 %27, 1
+  %28 = load i32, ptr %read_mbox_idx, align 8
+  %inc = add i32 %28, 1
   store i32 %inc, ptr %read_mbox_idx, align 8
   %read_mbox_len = getelementptr inbounds i8, ptr %doe_cap, i64 44
-  %28 = load i32, ptr %read_mbox_len, align 4
-  %cmp36 = icmp eq i32 %inc, %28
+  %29 = load i32, ptr %read_mbox_len, align 4
+  %cmp36 = icmp eq i32 %inc, %29
   br i1 %cmp36, label %if.then38, label %if.else39
 
 if.then38:                                        ; preds = %if.end34
@@ -578,17 +579,17 @@ if.then38:                                        ; preds = %if.end34
   %write_mbox_len.i48 = getelementptr inbounds i8, ptr %doe_cap, i64 48
   store i32 0, ptr %write_mbox_len.i48, align 8
   %read_mbox.i49 = getelementptr inbounds i8, ptr %doe_cap, i64 32
-  %29 = load ptr, ptr %read_mbox.i49, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %29, i8 0, i64 1048576, i1 false)
-  %write_mbox.i50 = getelementptr inbounds i8, ptr %doe_cap, i64 24
-  %30 = load ptr, ptr %write_mbox.i50, align 8
+  %30 = load ptr, ptr %read_mbox.i49, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %30, i8 0, i64 1048576, i1 false)
+  %write_mbox.i50 = getelementptr inbounds i8, ptr %doe_cap, i64 24
+  %31 = load ptr, ptr %write_mbox.i50, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %31, i8 0, i64 1048576, i1 false)
   %ready.i51 = getelementptr inbounds i8, ptr %doe_cap, i64 20
   store i8 0, ptr %ready.i51, align 1
   br label %sw.epilog
 
 if.else39:                                        ; preds = %if.end34
-  %cmp42 = icmp ugt i32 %inc, %28
+  %cmp42 = icmp ugt i32 %inc, %29
   br i1 %cmp42, label %if.then44, label %sw.epilog
 
 if.then44:                                        ; preds = %if.else39
@@ -601,14 +602,14 @@ sw.bb47:                                          ; preds = %deposit32.exit
 
 if.end51:                                         ; preds = %sw.bb47
   %write_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 24
-  %31 = load ptr, ptr %write_mbox, align 8
+  %32 = load ptr, ptr %write_mbox, align 8
   %write_mbox_len = getelementptr inbounds i8, ptr %doe_cap, i64 48
-  %32 = load i32, ptr %write_mbox_len, align 8
-  %idxprom = zext i32 %32 to i64
-  %arrayidx = getelementptr i32, ptr %31, i64 %idxprom
-  store i32 %or.i, ptr %arrayidx, align 4
   %33 = load i32, ptr %write_mbox_len, align 8
-  %inc53 = add i32 %33, 1
+  %idxprom = zext i32 %33 to i64
+  %arrayidx = getelementptr i32, ptr %32, i64 %idxprom
+  store i32 %or.i, ptr %arrayidx, align 4
+  %34 = load i32, ptr %write_mbox_len, align 8
+  %inc53 = add i32 %34, 1
   store i32 %inc53, ptr %write_mbox_len, align 8
   br label %sw.epilog
 

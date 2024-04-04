@@ -5851,8 +5851,8 @@ define hidden i32 @zend_jit_trace_exit(i32 noundef %0, ptr nocapture noundef rea
   %37 = getelementptr inbounds %struct._zend_jit_trace_stack, ptr %20, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 3
   %39 = load i8, ptr %38, align 1
-  %40 = add i8 %39, -16
-  %41 = tail call i8 @llvm.fshl.i8(i8 %40, i8 %40, i8 4)
+  %40 = sub i8 %39, 16
+  %41 = call i8 @llvm.fshl.i8(i8 %40, i8 %40, i8 4)
   switch i8 %41, label %112 [
     i8 0, label %42
     i8 2, label %68
@@ -50522,8 +50522,8 @@ define internal fastcc void @zend_jit_dump_exit_info(ptr nocapture noundef reado
 129:                                              ; preds = %127, %125
   %130 = getelementptr inbounds i8, ptr %112, i64 3
   %131 = load i8, ptr %130, align 1
-  %132 = add i8 %131, -16
-  %133 = tail call i8 @llvm.fshl.i8(i8 %132, i8 %132, i8 4)
+  %132 = sub i8 %131, 16
+  %133 = call i8 @llvm.fshl.i8(i8 %132, i8 %132, i8 4)
   switch i8 %133, label %173 [
     i8 0, label %134
     i8 2, label %155
@@ -59634,8 +59634,8 @@ define internal fastcc void @zend_jit_trace_deoptimization(ptr noundef %0, i32 n
   %20 = load i8, ptr %19, align 2
   %21 = getelementptr inbounds i8, ptr %18, i64 3
   %22 = load i8, ptr %21, align 1
-  %23 = add i8 %22, -16
-  %24 = tail call i8 @llvm.fshl.i8(i8 %23, i8 %23, i8 4)
+  %23 = sub i8 %22, 16
+  %24 = call i8 @llvm.fshl.i8(i8 %23, i8 %23, i8 4)
   switch i8 %24, label %155 [
     i8 0, label %25
     i8 2, label %105
@@ -152965,29 +152965,26 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #28
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #28
+declare i32 @llvm.ctpop.i32(i32) #29
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #28
+declare i64 @llvm.smin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #28
+declare i64 @llvm.smax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #28
+declare i64 @llvm.ctpop.i64(i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #28
+declare double @llvm.fabs.f64(double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
@@ -152996,19 +152993,22 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
+declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #28
+declare i32 @llvm.umin.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #28
+declare i32 @llvm.usub.sat.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #28
+declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #28
+declare i8 @llvm.umax.i8(i8, i8) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #29
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -153038,8 +153038,8 @@ attributes #24 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { nofree nounwind }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #28 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #30 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #31 = { nounwind allocsize(1) }
 attributes #32 = { nounwind }

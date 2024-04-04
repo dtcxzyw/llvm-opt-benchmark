@@ -25788,16 +25788,15 @@ sw.default:                                       ; preds = %if.end
   br i1 %tobool134.not, label %if.end177, label %if.then135
 
 if.then135:                                       ; preds = %sw.default
-  %conv137 = sext i8 %4 to i32
-  %102 = add nsw i32 %conv137, -67
-  %103 = tail call i32 @llvm.fshl.i32(i32 %102, i32 %102, i32 30)
-  switch i32 %103, label %if.end177 [
-    i32 13, label %sw.bb138
-    i32 5, label %if.then141.critedge
-    i32 12, label %sw.bb158
-    i32 4, label %sw.bb159
-    i32 8, label %sw.bb162
-    i32 0, label %sw.bb162
+  %102 = sub i8 %4, 67
+  %103 = call i8 @llvm.fshl.i8(i8 %102, i8 %102, i8 6)
+  switch i8 %103, label %if.end177 [
+    i8 13, label %sw.bb138
+    i8 5, label %if.then141.critedge
+    i8 12, label %sw.bb158
+    i8 4, label %sw.bb159
+    i8 8, label %sw.bb162
+    i8 0, label %sw.bb162
   ]
 
 sw.bb138:                                         ; preds = %if.then135
@@ -42272,9 +42271,6 @@ _ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEED2Ev.exit19: ; preds = %_ZN5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -42300,6 +42296,9 @@ declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

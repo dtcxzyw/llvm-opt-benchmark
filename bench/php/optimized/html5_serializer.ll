@@ -64,8 +64,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef i32 @dom_html5_serialize(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = add i32 %4, -1
-  %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 31)
+  %5 = sub i32 %4, 1
+  %6 = call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 31)
   switch i32 %6, label %dom_html5_serialize_node.exit [
     i32 0, label %7
     i32 5, label %7

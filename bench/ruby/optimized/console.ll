@@ -1707,7 +1707,7 @@ rb_check_arity.exit:                              ; preds = %9
   %12 = load i64, ptr %4, align 8
   %13 = call i32 @rb_get_kwargs(i64 noundef %12, ptr noundef nonnull @rawmode_opt_ids, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %43, label %14
+  br i1 %.not, label %44, label %14
 
 14:                                               ; preds = %rb_check_arity.exit
   %15 = load i64, ptr %5, align 16
@@ -1774,28 +1774,29 @@ rb_num2int_inline.exit34:                         ; preds = %33, %35
 
 38:                                               ; preds = %29, %29, %rb_num2int_inline.exit34
   %.1 = phi ptr [ %.0, %29 ], [ %2, %rb_num2int_inline.exit34 ], [ %.0, %29 ]
-  %39 = call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 62)
-  switch i64 %39, label %41 [
+  %39 = sub i64 %19, 0
+  %40 = call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 62)
+  switch i64 %40, label %42 [
     i64 5, label %.sink.split
-    i64 0, label %40
-    i64 9, label %43
-    i64 1, label %43
+    i64 0, label %41
+    i64 9, label %44
+    i64 1, label %44
   ]
 
-40:                                               ; preds = %38
+41:                                               ; preds = %38
   br label %.sink.split
 
-41:                                               ; preds = %38
-  %42 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.49, i64 noundef %19) #11
+42:                                               ; preds = %38
+  %43 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.49, i64 noundef %19) #11
   unreachable
 
-.sink.split:                                      ; preds = %38, %40
-  %.sink = phi i32 [ 0, %40 ], [ 1, %38 ]
+.sink.split:                                      ; preds = %38, %41
+  %.sink = phi i32 [ 0, %41 ], [ 1, %38 ]
   store i32 %.sink, ptr %21, align 4
-  br label %43
+  br label %44
 
-43:                                               ; preds = %.sink.split, %38, %38, %rb_check_arity.exit
+44:                                               ; preds = %.sink.split, %38, %38, %rb_check_arity.exit
   %.2 = phi ptr [ %.1, %38 ], [ %.1, %38 ], [ null, %rb_check_arity.exit ], [ %2, %.sink.split ]
   ret ptr %.2
 }
@@ -2364,9 +2365,6 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2374,6 +2372,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

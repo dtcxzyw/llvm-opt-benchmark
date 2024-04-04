@@ -5376,8 +5376,8 @@ define internal noundef zeroext i1 @update_someip_parameter_base_type_list(ptr n
   %13 = load i32, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, -8
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 29)
+  %16 = sub i32 %15, 8
+  %17 = call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 29)
   switch i32 %17, label %18 [
     i32 0, label %20
     i32 1, label %20
@@ -5568,25 +5568,24 @@ define internal noundef zeroext i1 @update_someip_parameter_string_list(ptr noca
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
-  %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 29)
-  %16 = icmp ult i32 %15, 5
-  br i1 %16, label %switch.hole_check, label %17
+  %15 = icmp ult i32 %14, 33
+  br i1 %15, label %switch.hole_check, label %16
 
-17:                                               ; preds = %switch.hole_check, %12
-  %18 = load i32, ptr %0, align 8
-  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.408, i32 noundef %14, i32 noundef %18, ptr noundef nonnull %4) #14
+16:                                               ; preds = %switch.hole_check, %12
+  %17 = load i32, ptr %0, align 8
+  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.408, i32 noundef %14, i32 noundef %17, ptr noundef nonnull %4) #14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %9, %17
-  %.sink = phi ptr [ %19, %17 ], [ %11, %9 ]
+.sink.split:                                      ; preds = %9, %16
+  %.sink = phi ptr [ %18, %16 ], [ %11, %9 ]
   store ptr %.sink, ptr %1, align 8
   br label %switch.lookup
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i32 %15 to i8
-  %switch.shifted = lshr i8 23, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %17
+  %switch.maskindex = zext nneg i32 %14 to i64
+  %switch.shifted = lshr i64 4295033089, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %16
 
 switch.lookup:                                    ; preds = %switch.hole_check, %.sink.split
   %.0 = phi i1 [ false, %.sink.split ], [ true, %switch.hole_check ]
@@ -9665,17 +9664,17 @@ define internal void @update_dynamic_union_hf_entry(ptr nocapture readnone %0, p
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9688,9 +9687,9 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { noreturn nounwind }

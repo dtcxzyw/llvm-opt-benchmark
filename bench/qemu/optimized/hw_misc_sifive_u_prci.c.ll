@@ -94,8 +94,9 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @sifive_u_prci_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb1
     i64 3, label %sw.bb3
@@ -109,52 +110,52 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %hfxosccfg = getelementptr inbounds i8, ptr %opaque, i64 1088
-  %1 = load i32, ptr %hfxosccfg, align 16
+  %2 = load i32, ptr %hfxosccfg, align 16
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   %corepllcfg0 = getelementptr inbounds i8, ptr %opaque, i64 1092
-  %2 = load i32, ptr %corepllcfg0, align 4
+  %3 = load i32, ptr %corepllcfg0, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %ddrpllcfg0 = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %3 = load i32, ptr %ddrpllcfg0, align 8
+  %4 = load i32, ptr %ddrpllcfg0, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %ddrpllcfg1 = getelementptr inbounds i8, ptr %opaque, i64 1100
-  %4 = load i32, ptr %ddrpllcfg1, align 4
+  %5 = load i32, ptr %ddrpllcfg1, align 4
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   %gemgxlpllcfg0 = getelementptr inbounds i8, ptr %opaque, i64 1104
-  %5 = load i32, ptr %gemgxlpllcfg0, align 16
+  %6 = load i32, ptr %gemgxlpllcfg0, align 16
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %gemgxlpllcfg1 = getelementptr inbounds i8, ptr %opaque, i64 1108
-  %6 = load i32, ptr %gemgxlpllcfg1, align 4
+  %7 = load i32, ptr %gemgxlpllcfg1, align 4
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   %coreclksel = getelementptr inbounds i8, ptr %opaque, i64 1112
-  %7 = load i32, ptr %coreclksel, align 8
+  %8 = load i32, ptr %coreclksel, align 8
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   %devicesreset = getelementptr inbounds i8, ptr %opaque, i64 1116
-  %8 = load i32, ptr %devicesreset, align 4
+  %9 = load i32, ptr %devicesreset, align 4
   br label %return
 
 sw.bb15:                                          ; preds = %entry
   %clkmuxstatus = getelementptr inbounds i8, ptr %opaque, i64 1120
-  %9 = load i32, ptr %clkmuxstatus, align 16
+  %10 = load i32, ptr %clkmuxstatus, align 16
   br label %return
 
 do.body:                                          ; preds = %entry
-  %10 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %10, 2048
+  %11 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %11, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.then
 
@@ -163,7 +164,7 @@ if.then:                                          ; preds = %do.body
   br label %return
 
 return:                                           ; preds = %if.then, %do.body, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %retval.0.shrunk = phi i32 [ %9, %sw.bb15 ], [ %8, %sw.bb13 ], [ %7, %sw.bb11 ], [ %6, %sw.bb9 ], [ %5, %sw.bb7 ], [ %4, %sw.bb5 ], [ %3, %sw.bb3 ], [ %2, %sw.bb1 ], [ %1, %sw.bb ], [ 0, %do.body ], [ 0, %if.then ]
+  %retval.0.shrunk = phi i32 [ %10, %sw.bb15 ], [ %9, %sw.bb13 ], [ %8, %sw.bb11 ], [ %7, %sw.bb9 ], [ %6, %sw.bb7 ], [ %5, %sw.bb5 ], [ %4, %sw.bb3 ], [ %3, %sw.bb1 ], [ %2, %sw.bb ], [ 0, %do.body ], [ 0, %if.then ]
   %retval.0 = zext i32 %retval.0.shrunk to i64
   ret i64 %retval.0
 }
@@ -172,8 +173,9 @@ return:                                           ; preds = %if.then, %do.body, 
 define internal void @sifive_u_prci_write(ptr nocapture noundef writeonly %opaque, i64 noundef %addr, i64 noundef %val64, i32 %size) #0 {
 entry:
   %conv = trunc i64 %val64 to i32
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb2
     i64 3, label %sw.bb7
@@ -235,8 +237,8 @@ sw.bb21:                                          ; preds = %entry
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  %1 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %1, 2048
+  %2 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %2, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 

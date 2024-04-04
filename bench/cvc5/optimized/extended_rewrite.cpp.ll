@@ -4946,14 +4946,13 @@ invoke.cont360:                                   ; preds = %invoke.cont.i.i1577
   %d_kind.i1583 = getelementptr inbounds i8, ptr %335, i64 8
   %bf.load.i1584 = load i16, ptr %d_kind.i1583, align 8
   %bf.clear.i1585 = and i16 %bf.load.i1584, 1023
-  %bf.cast.i1586 = zext nneg i16 %bf.clear.i1585 to i32
-  %336 = add nsw i32 %bf.cast.i1586, -5
-  %337 = call i32 @llvm.fshl.i32(i32 %336, i32 %336, i32 31)
-  switch i32 %337, label %if.end421 [
-    i32 9, label %if.then365
-    i32 7, label %if.then384
-    i32 8, label %if.then384
-    i32 0, label %if.then399
+  %336 = sub i16 %bf.clear.i1585, 5
+  %337 = call i16 @llvm.fshl.i16(i16 %336, i16 %336, i16 15)
+  switch i16 %337, label %if.end421 [
+    i16 9, label %if.then365
+    i16 7, label %if.then384
+    i16 8, label %if.then384
+    i16 0, label %if.then399
   ]
 
 if.then365:                                       ; preds = %invoke.cont360
@@ -57041,7 +57040,7 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #19
+declare i16 @llvm.fshl.i16(i16, i16, i16) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

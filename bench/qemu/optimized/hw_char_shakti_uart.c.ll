@@ -87,8 +87,9 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @shakti_uart_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 2, label %sw.bb1
     i64 3, label %sw.bb3
@@ -101,53 +102,53 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %uart_baud = getelementptr inbounds i8, ptr %opaque, i64 1088
-  %1 = load i32, ptr %uart_baud, align 16
+  %2 = load i32, ptr %uart_baud, align 16
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   %chr = getelementptr inbounds i8, ptr %opaque, i64 1128
   tail call void @qemu_chr_fe_accept_input(ptr noundef nonnull %chr) #6
   %uart_status = getelementptr inbounds i8, ptr %opaque, i64 1100
-  %2 = load i32, ptr %uart_status, align 4
-  %and = and i32 %2, -5
+  %3 = load i32, ptr %uart_status, align 4
+  %and = and i32 %3, -5
   store i32 %and, ptr %uart_status, align 4
   %uart_rx = getelementptr inbounds i8, ptr %opaque, i64 1096
-  %3 = load i32, ptr %uart_rx, align 8
+  %4 = load i32, ptr %uart_rx, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %uart_status4 = getelementptr inbounds i8, ptr %opaque, i64 1100
-  %4 = load i32, ptr %uart_status4, align 4
+  %5 = load i32, ptr %uart_status4, align 4
   br label %return
 
 sw.bb6:                                           ; preds = %entry
   %uart_delay = getelementptr inbounds i8, ptr %opaque, i64 1104
-  %5 = load i32, ptr %uart_delay, align 16
+  %6 = load i32, ptr %uart_delay, align 16
   br label %return
 
 sw.bb8:                                           ; preds = %entry
   %uart_control = getelementptr inbounds i8, ptr %opaque, i64 1108
-  %6 = load i32, ptr %uart_control, align 4
+  %7 = load i32, ptr %uart_control, align 4
   br label %return
 
 sw.bb10:                                          ; preds = %entry
   %uart_interrupt = getelementptr inbounds i8, ptr %opaque, i64 1112
-  %7 = load i32, ptr %uart_interrupt, align 8
+  %8 = load i32, ptr %uart_interrupt, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %entry
   %uart_iq_cycles = getelementptr inbounds i8, ptr %opaque, i64 1116
-  %8 = load i32, ptr %uart_iq_cycles, align 4
+  %9 = load i32, ptr %uart_iq_cycles, align 4
   br label %return
 
 sw.bb14:                                          ; preds = %entry
   %uart_rx_threshold = getelementptr inbounds i8, ptr %opaque, i64 1120
-  %9 = load i32, ptr %uart_rx_threshold, align 16
+  %10 = load i32, ptr %uart_rx_threshold, align 16
   br label %return
 
 do.body:                                          ; preds = %entry
-  %10 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %10, 2048
+  %11 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %11, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.then
 
@@ -156,7 +157,7 @@ if.then:                                          ; preds = %do.body
   br label %return
 
 return:                                           ; preds = %do.body, %if.then, %sw.bb14, %sw.bb12, %sw.bb10, %sw.bb8, %sw.bb6, %sw.bb3, %sw.bb1, %sw.bb
-  %retval.0.shrunk = phi i32 [ %9, %sw.bb14 ], [ %8, %sw.bb12 ], [ %7, %sw.bb10 ], [ %6, %sw.bb8 ], [ %5, %sw.bb6 ], [ %4, %sw.bb3 ], [ %3, %sw.bb1 ], [ %1, %sw.bb ], [ 0, %if.then ], [ 0, %do.body ]
+  %retval.0.shrunk = phi i32 [ %10, %sw.bb14 ], [ %9, %sw.bb12 ], [ %8, %sw.bb10 ], [ %7, %sw.bb8 ], [ %6, %sw.bb6 ], [ %5, %sw.bb3 ], [ %4, %sw.bb1 ], [ %2, %sw.bb ], [ 0, %if.then ], [ 0, %do.body ]
   %retval.0 = zext i32 %retval.0.shrunk to i64
   ret i64 %retval.0
 }
@@ -166,8 +167,9 @@ define internal void @shakti_uart_write(ptr noundef %opaque, i64 noundef %addr, 
 entry:
   %ch = alloca i8, align 1
   %conv = trunc i64 %data to i32
-  %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %addr, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb1
     i64 3, label %sw.bb3
@@ -189,8 +191,8 @@ sw.bb1:                                           ; preds = %entry
   %chr = getelementptr inbounds i8, ptr %opaque, i64 1128
   %call = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %chr, ptr noundef nonnull %ch, i32 noundef 1) #6
   %uart_status = getelementptr inbounds i8, ptr %opaque, i64 1100
-  %1 = load i32, ptr %uart_status, align 4
-  %and = and i32 %1, -3
+  %2 = load i32, ptr %uart_status, align 4
+  %and = and i32 %2, -3
   store i32 %and, ptr %uart_status, align 4
   br label %sw.epilog
 
@@ -225,8 +227,8 @@ sw.bb9:                                           ; preds = %entry
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  %2 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %2, 2048
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %3, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 
@@ -297,18 +299,18 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #4
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

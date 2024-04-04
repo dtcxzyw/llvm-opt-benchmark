@@ -815,10 +815,9 @@ invoke.cont8:                                     ; preds = %if.then5
 
 if.then12:                                        ; preds = %invoke.cont8
   %6 = load i16, ptr %call9, align 2
-  %conv = zext i16 %6 to i32
-  %7 = add nsw i32 %conv, -98
-  %8 = call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 31)
-  %9 = icmp ult i32 %8, 10
+  %7 = add i16 %6, -98
+  %8 = call i16 @llvm.fshl.i16(i16 %7, i16 %7, i16 15)
+  %9 = icmp ult i16 %8, 10
   br i1 %9, label %switch.hole_check, label %sw.default
 
 lpad:                                             ; preds = %if.then5, %if.then
@@ -837,13 +836,12 @@ sw.default:                                       ; preds = %switch.hole_check, 
   br label %if.end16
 
 switch.hole_check:                                ; preds = %if.then12
-  %switch.maskindex = trunc i32 %8 to i16
-  %switch.shifted = lshr i16 801, %switch.maskindex
+  %switch.shifted = lshr i16 801, %8
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %12 = zext nneg i32 %8 to i64
+  %12 = zext nneg i16 %8 to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end16
@@ -880,10 +878,10 @@ declare void @ulocimp_canonicalize_75(ptr noundef, ptr noundef nonnull align 8 d
 declare void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i16 @llvm.fshl.i16(i16, i16, i16) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

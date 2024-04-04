@@ -40,38 +40,39 @@ define noundef ptr @decContextDefault(ptr noundef returned writeonly %0, i32 nou
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %5, align 4
-  %6 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 27)
-  switch i32 %6, label %decContextSetStatus.exit [
-    i32 0, label %11
-    i32 1, label %7
-    i32 2, label %8
-    i32 4, label %9
+  %6 = sub i32 %1, 0
+  %7 = call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 27)
+  switch i32 %7, label %decContextSetStatus.exit [
+    i32 0, label %12
+    i32 1, label %8
+    i32 2, label %9
+    i32 4, label %10
   ]
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   store <4 x i32> <i32 7, i32 96, i32 -95, i32 3>, ptr %0, align 4
   store i32 0, ptr %3, align 4
   store i8 1, ptr %5, align 4
-  br label %11
+  br label %12
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   store <4 x i32> <i32 16, i32 384, i32 -383, i32 3>, ptr %0, align 4
   store i32 0, ptr %3, align 4
   store i8 1, ptr %5, align 4
-  br label %11
+  br label %12
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   store <4 x i32> <i32 34, i32 6144, i32 -6143, i32 3>, ptr %0, align 4
   store i32 0, ptr %3, align 4
   store i8 1, ptr %5, align 4
-  br label %11
+  br label %12
 
 decContextSetStatus.exit:                         ; preds = %2
   store i32 128, ptr %4, align 4
-  %10 = tail call i32 @raise(i32 noundef 8) #9
-  br label %11
+  %11 = tail call i32 @raise(i32 noundef 8) #9
+  br label %12
 
-11:                                               ; preds = %2, %decContextSetStatus.exit, %9, %8, %7
+12:                                               ; preds = %2, %decContextSetStatus.exit, %10, %9, %8
   ret ptr %0
 }
 

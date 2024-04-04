@@ -15843,16 +15843,12 @@ define hidden noundef i8 @"_ZN12unicode_bidi8implicit12resolve_weak28_$u7b$$u7b$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN12unicode_bidi8implicit15resolve_neutral28_$u7b$$u7b$closure$u7d$$u7d$17h4b9cf1b3c0f6d639E.llvm.14728845296163125433"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #28 {
-switch.edge:
+switch.lookup:
   %2 = load i8, ptr %1, align 1, !range !1813, !noundef !4
-  %3 = add nsw i8 %2, -1
-  %4 = tail call i8 @llvm.fshl.i8(i8 %3, i8 %3, i8 6)
-  %5 = icmp ult i8 %4, 5
-  %switch.cast = trunc i8 %4 to i5
-  %switch.downshift = lshr i5 -9, %switch.cast
-  %switch.masked = trunc i5 %switch.downshift to i1
-  %.0 = select i1 %5, i1 %switch.masked, i1 false
-  ret i1 %.0
+  %switch.cast = zext nneg i8 %2 to i23
+  %switch.downshift = lshr i23 131618, %switch.cast
+  %switch.masked = trunc i23 %switch.downshift to i1
+  ret i1 %switch.masked
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -19930,8 +19926,8 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops.
   %10 = load ptr, ptr %5, align 8, !noalias !5227, !nonnull !4, !align !1812, !noundef !4
   %11 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %1
   %12 = load i8, ptr %11, align 1, !range !1813, !noalias !5227, !noundef !4
-  %13 = add nsw i8 %12, -1
-  %14 = tail call i8 @llvm.fshl.i8(i8 %13, i8 %13, i8 6)
+  %13 = sub i8 %12, 1
+  %14 = call i8 @llvm.fshl.i8(i8 %13, i8 %13, i8 6)
   switch i8 %14, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc3004c1477527521E.llvm.14728845296163125433.exit" [
     i8 2, label %15
     i8 4, label %15
@@ -39176,8 +39172,8 @@ switch.lookup:                                    ; preds = %10
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h64a8c4f8fd8d4e13E.llvm.14728845296163125433"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i8 noundef %1) unnamed_addr #23 personality ptr @rust_eh_personality {
-  %3 = add nsw i8 %1, -1
-  %4 = tail call i8 @llvm.fshl.i8(i8 %3, i8 %3, i8 6)
+  %3 = sub i8 %1, 1
+  %4 = call i8 @llvm.fshl.i8(i8 %3, i8 %3, i8 6)
   switch i8 %4, label %"_ZN12unicode_bidi8implicit15resolve_neutral28_$u7b$$u7b$closure$u7d$$u7d$17h4b9cf1b3c0f6d639E.llvm.14728845296163125433.exit" [
     i8 2, label %5
     i8 4, label %5
@@ -48493,8 +48489,8 @@ define hidden noundef i8 @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$
   %9 = load ptr, ptr %4, align 8, !noalias !13293, !nonnull !4, !align !1812, !noundef !4
   %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %1
   %11 = load i8, ptr %10, align 1, !range !1813, !noalias !13293, !noundef !4
-  %12 = add nsw i8 %11, -1
-  %13 = tail call i8 @llvm.fshl.i8(i8 %12, i8 %12, i8 6)
+  %12 = sub i8 %11, 1
+  %13 = call i8 @llvm.fshl.i8(i8 %12, i8 %12, i8 6)
   switch i8 %13, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h64a8c4f8fd8d4e13E.llvm.14728845296163125433.exit" [
     i8 2, label %14
     i8 4, label %14
@@ -155914,9 +155910,6 @@ declare void @_ZN5typst9visualize5color5Color7to_vec417h99168599ebc2d1f4E(ptr no
 declare void @_ZN5typst9visualize5color5Color6to_rgb17h96bb6d12b1e40365E(ptr noalias nocapture noundef sret({ i32, [4 x i32] }) align 4 dereferenceable(20), ptr noalias nocapture noundef align 4 dereferenceable(20)) unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #75
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #75
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -155948,6 +155941,9 @@ declare <2 x float> @llvm.minnum.v2f32(<2 x float>, <2 x float>) #75
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x i16> @llvm.bswap.v2i16(<2 x i16>) #75
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #75
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.xor.v4i64(<4 x i64>) #75

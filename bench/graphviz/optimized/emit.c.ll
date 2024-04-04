@@ -9813,14 +9813,14 @@ define noundef i32 @gvRenderJobs(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %23 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.36) #27
   %24 = load i8, ptr @Verbose, align 1
   %.not71 = icmp eq i8 %24, 0
-  br i1 %.not71, label %847, label %25
+  br i1 %.not71, label %845, label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8
   %27 = tail call ptr @agnameof(ptr noundef %1) #27
   %28 = tail call double @elapsed_sec() #27
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.37, ptr noundef %27, double noundef %28) #29
-  br label %847
+  br label %845
 
 30:                                               ; preds = %17
   %31 = tail call ptr @agfstnode(ptr noundef nonnull %1) #27
@@ -10518,8 +10518,8 @@ gv_fixLocale.exit:                                ; preds = %init_layering.exit,
   %378 = getelementptr inbounds i8, ptr %1, i64 120
   br label %379
 
-379:                                              ; preds = %.lr.ph, %830
-  %.064112 = phi ptr [ %373, %.lr.ph ], [ %831, %830 ]
+379:                                              ; preds = %.lr.ph, %828
+  %.064112 = phi ptr [ %373, %.lr.ph ], [ %829, %828 ]
   %380 = load ptr, ptr %374, align 8
   %.not74 = icmp eq ptr %380, null
   br i1 %.not74, label %388, label %381
@@ -10581,14 +10581,14 @@ gv_fixLocale.exit:                                ; preds = %init_layering.exit,
 gv_fixLocale.exit89:                              ; preds = %401, %405, %408
   %412 = load i8, ptr @Verbose, align 1
   %.not76 = icmp eq i8 %412, 0
-  br i1 %.not76, label %847, label %413
+  br i1 %.not76, label %845, label %413
 
 413:                                              ; preds = %gv_fixLocale.exit89
   %414 = load ptr, ptr @stderr, align 8
   %415 = call ptr @agnameof(ptr noundef nonnull %1) #27
   %416 = call double @elapsed_sec() #27
   %417 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %414, ptr noundef nonnull @.str.37, ptr noundef %415, double noundef %416) #29
-  br label %847
+  br label %845
 
 418:                                              ; preds = %390
   %419 = getelementptr inbounds i8, ptr %.064112, i64 96
@@ -10624,14 +10624,14 @@ gv_fixLocale.exit89:                              ; preds = %401, %405, %408
 gv_fixLocale.exit90:                              ; preds = %423, %428, %431
   %435 = load i8, ptr @Verbose, align 1
   %.not83 = icmp eq i8 %435, 0
-  br i1 %.not83, label %847, label %436
+  br i1 %.not83, label %845, label %436
 
 436:                                              ; preds = %gv_fixLocale.exit90
   %437 = load ptr, ptr @stderr, align 8
   %438 = call ptr @agnameof(ptr noundef nonnull %1) #27
   %439 = call double @elapsed_sec() #27
   %440 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %437, ptr noundef nonnull @.str.37, ptr noundef %438, double noundef %439) #29
-  br label %847
+  br label %845
 
 441:                                              ; preds = %418
   %442 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.119) #27
@@ -10703,7 +10703,7 @@ chkOrder.exit:                                    ; preds = %447, %445, %443, %4
 .thread:                                          ; preds = %.thread.sink.split, %462
   %468 = call i32 @gvrender_begin_job(ptr noundef nonnull %.064112) #27
   %.not81 = icmp eq i32 %468, 0
-  br i1 %.not81, label %469, label %830
+  br i1 %.not81, label %469, label %828
 
 469:                                              ; preds = %.thread
   store ptr %.064112, ptr %376, align 8
@@ -11154,235 +11154,233 @@ init_job_viewport.exit:                           ; preds = %573, %624
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %726, i8 0, i64 24, i1 false)
   %729 = load ptr, ptr %728, align 8
   %730 = load i8, ptr %729, align 1
-  %731 = sext i8 %730 to i32
-  %732 = add nsw i32 %731, -66
-  %733 = call i32 @llvm.fshl.i32(i32 %732, i32 %732, i32 31)
-  switch i32 %733, label %pagecode.exit.i [
-    i32 9, label %734
-    i32 0, label %735
-    i32 5, label %736
-    i32 8, label %737
+  %731 = sub i8 %730, 66
+  %732 = call i8 @llvm.fshl.i8(i8 %731, i8 %731, i8 7)
+  switch i8 %732, label %pagecode.exit.i [
+    i8 9, label %733
+    i8 0, label %734
+    i8 5, label %735
+    i8 8, label %736
   ]
 
-734:                                              ; preds = %709
+733:                                              ; preds = %709
   store i32 %710, ptr %727, align 4
+  br label %pagecode.exit.i
+
+734:                                              ; preds = %709
   br label %pagecode.exit.i
 
 735:                                              ; preds = %709
   br label %pagecode.exit.i
 
 736:                                              ; preds = %709
-  br label %pagecode.exit.i
-
-737:                                              ; preds = %709
   store i32 %711, ptr %726, align 4
   br label %pagecode.exit.i
 
-pagecode.exit.i:                                  ; preds = %737, %736, %735, %734, %709
-  %.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %709 ], [ 4294967295, %737 ], [ 1, %736 ], [ 4294967296, %735 ], [ -4294967296, %734 ]
+pagecode.exit.i:                                  ; preds = %736, %735, %734, %733, %709
+  %.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %709 ], [ 4294967295, %736 ], [ 1, %735 ], [ 4294967296, %734 ], [ -4294967296, %733 ]
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %725, align 4
-  %738 = load ptr, ptr %728, align 8
-  %739 = getelementptr inbounds i8, ptr %738, i64 1
-  %740 = load i8, ptr %739, align 1
-  %741 = sext i8 %740 to i32
-  %742 = add nsw i32 %741, -66
-  %743 = call i32 @llvm.fshl.i32(i32 %742, i32 %742, i32 31)
-  %744 = trunc i64 %.sroa.0.0.insert.insert.i.i to i32
-  %745 = lshr i64 %.sroa.0.0.insert.insert.i.i, 32
-  %746 = trunc i64 %745 to i32
-  switch i32 %743, label %pagecode.exit209.i [
-    i32 9, label %747
-    i32 0, label %748
-    i32 5, label %749
-    i32 8, label %750
+  %737 = load ptr, ptr %728, align 8
+  %738 = getelementptr inbounds i8, ptr %737, i64 1
+  %739 = load i8, ptr %738, align 1
+  %740 = trunc i64 %.sroa.0.0.insert.insert.i.i to i32
+  %741 = lshr i64 %.sroa.0.0.insert.insert.i.i, 32
+  %742 = trunc i64 %741 to i32
+  %743 = sub i8 %739, 66
+  %744 = call i8 @llvm.fshl.i8(i8 %743, i8 %743, i8 7)
+  switch i8 %744, label %pagecode.exit209.i [
+    i8 9, label %745
+    i8 0, label %746
+    i8 5, label %747
+    i8 8, label %748
   ]
 
-747:                                              ; preds = %pagecode.exit.i
+745:                                              ; preds = %pagecode.exit.i
   store i32 %710, ptr %727, align 4
   br label %pagecode.exit209.i
 
+746:                                              ; preds = %pagecode.exit.i
+  br label %pagecode.exit209.i
+
+747:                                              ; preds = %pagecode.exit.i
+  br label %pagecode.exit209.i
+
 748:                                              ; preds = %pagecode.exit.i
-  br label %pagecode.exit209.i
-
-749:                                              ; preds = %pagecode.exit.i
-  br label %pagecode.exit209.i
-
-750:                                              ; preds = %pagecode.exit.i
   store i32 %711, ptr %726, align 4
   br label %pagecode.exit209.i
 
-pagecode.exit209.i:                               ; preds = %750, %749, %748, %747, %pagecode.exit.i
-  %.sroa.0.0.insert.insert.i208.i = phi i64 [ 0, %pagecode.exit.i ], [ 4294967295, %750 ], [ 1, %749 ], [ 4294967296, %748 ], [ -4294967296, %747 ]
+pagecode.exit209.i:                               ; preds = %748, %747, %746, %745, %pagecode.exit.i
+  %.sroa.0.0.insert.insert.i208.i = phi i64 [ 0, %pagecode.exit.i ], [ 4294967295, %748 ], [ 1, %747 ], [ 4294967296, %746 ], [ -4294967296, %745 ]
   store i64 %.sroa.0.0.insert.insert.i208.i, ptr %724, align 4
-  %751 = trunc i64 %.sroa.0.0.insert.insert.i208.i to i32
-  %752 = add nsw i32 %751, %744
-  %753 = call i32 @llvm.abs.i32(i32 %752, i1 true)
-  %.not200.i = icmp eq i32 %753, 1
-  br i1 %.not200.i, label %754, label %759
+  %749 = trunc i64 %.sroa.0.0.insert.insert.i208.i to i32
+  %750 = add nsw i32 %749, %740
+  %751 = call i32 @llvm.abs.i32(i32 %750, i1 true)
+  %.not200.i = icmp eq i32 %751, 1
+  br i1 %.not200.i, label %752, label %757
 
-754:                                              ; preds = %pagecode.exit209.i
-  %755 = lshr i64 %.sroa.0.0.insert.insert.i208.i, 32
-  %756 = trunc i64 %755 to i32
-  %757 = add nsw i32 %756, %746
-  %758 = call i32 @llvm.abs.i32(i32 %757, i1 true)
-  %.not201.i = icmp eq i32 %758, 1
-  br i1 %.not201.i, label %762, label %759
+752:                                              ; preds = %pagecode.exit209.i
+  %753 = lshr i64 %.sroa.0.0.insert.insert.i208.i, 32
+  %754 = trunc i64 %753 to i32
+  %755 = add nsw i32 %754, %742
+  %756 = call i32 @llvm.abs.i32(i32 %755, i1 true)
+  %.not201.i = icmp eq i32 %756, 1
+  br i1 %.not201.i, label %760, label %757
 
-759:                                              ; preds = %754, %pagecode.exit209.i
+757:                                              ; preds = %752, %pagecode.exit209.i
   store i64 4294967296, ptr %725, align 4
   store i64 1, ptr %724, align 4
-  %760 = load ptr, ptr %728, align 8
-  %761 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.126, ptr noundef %760) #27
-  br label %762
+  %758 = load ptr, ptr %728, align 8
+  %759 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.126, ptr noundef %758) #27
+  br label %760
 
-762:                                              ; preds = %759, %754
-  %763 = load ptr, ptr %18, align 8
-  %764 = getelementptr inbounds i8, ptr %763, i64 16
-  %765 = load ptr, ptr %764, align 8
-  %766 = getelementptr inbounds i8, ptr %765, i64 82
-  %767 = load i8, ptr %766, align 2
-  %768 = trunc i8 %767 to i1
-  br i1 %768, label %769, label %780
+760:                                              ; preds = %757, %752
+  %761 = load ptr, ptr %18, align 8
+  %762 = getelementptr inbounds i8, ptr %761, i64 16
+  %763 = load ptr, ptr %762, align 8
+  %764 = getelementptr inbounds i8, ptr %763, i64 82
+  %765 = load i8, ptr %764, align 2
+  %766 = trunc i8 %765 to i1
+  br i1 %766, label %767, label %778
 
-769:                                              ; preds = %762
-  %770 = fsub <2 x double> %713, %712
-  %771 = extractelement <2 x double> %770, i64 0
-  %772 = fmul double %771, 5.000000e-01
-  %773 = fcmp ogt <2 x double> %713, %712
-  %774 = extractelement <2 x i1> %773, i64 0
-  %.sroa.019.0.i = select i1 %774, double %772, double 0.000000e+00
-  %775 = extractelement <2 x i1> %773, i64 1
-  br i1 %775, label %776, label %780
+767:                                              ; preds = %760
+  %768 = fsub <2 x double> %713, %712
+  %769 = extractelement <2 x double> %768, i64 0
+  %770 = fmul double %769, 5.000000e-01
+  %771 = fcmp ogt <2 x double> %713, %712
+  %772 = extractelement <2 x i1> %771, i64 0
+  %.sroa.019.0.i = select i1 %772, double %770, double 0.000000e+00
+  %773 = extractelement <2 x i1> %771, i64 1
+  br i1 %773, label %774, label %778
 
-776:                                              ; preds = %769
-  %777 = fsub <2 x double> %713, %712
-  %778 = extractelement <2 x double> %777, i64 1
-  %779 = fmul double %778, 5.000000e-01
-  br label %780
+774:                                              ; preds = %767
+  %775 = fsub <2 x double> %713, %712
+  %776 = extractelement <2 x double> %775, i64 1
+  %777 = fmul double %776, 5.000000e-01
+  br label %778
 
-780:                                              ; preds = %776, %769, %762
-  %.sroa.6.0.i = phi double [ %779, %776 ], [ 0.000000e+00, %769 ], [ 0.000000e+00, %762 ]
-  %.sroa.019.1.i = phi double [ %.sroa.019.0.i, %776 ], [ %.sroa.019.0.i, %769 ], [ 0.000000e+00, %762 ]
-  %781 = load i32, ptr %582, align 8
-  %.not202.i = icmp eq i32 %781, 0
-  %782 = shufflevector <2 x double> %712, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  br i1 %.not202.i, label %785, label %783
+778:                                              ; preds = %774, %767, %760
+  %.sroa.6.0.i = phi double [ %777, %774 ], [ 0.000000e+00, %767 ], [ 0.000000e+00, %760 ]
+  %.sroa.019.1.i = phi double [ %.sroa.019.0.i, %774 ], [ %.sroa.019.0.i, %767 ], [ 0.000000e+00, %760 ]
+  %779 = load i32, ptr %582, align 8
+  %.not202.i = icmp eq i32 %779, 0
+  %780 = shufflevector <2 x double> %712, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  br i1 %.not202.i, label %783, label %781
 
-783:                                              ; preds = %780
-  %784 = shufflevector <2 x double> %641, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  br label %785
+781:                                              ; preds = %778
+  %782 = shufflevector <2 x double> %641, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  br label %783
 
-785:                                              ; preds = %783, %780
-  %.sroa.6.1.i = phi double [ %.sroa.019.1.i, %783 ], [ %.sroa.6.0.i, %780 ]
-  %.sroa.019.2.i = phi double [ %.sroa.6.0.i, %783 ], [ %.sroa.019.1.i, %780 ]
-  %786 = phi <2 x double> [ %712, %783 ], [ %782, %780 ]
-  %787 = phi <2 x double> [ %784, %783 ], [ %641, %780 ]
-  %788 = extractelement <2 x double> %787, i64 0
-  %789 = fadd double %.sroa.019.2.i, %788
-  %790 = getelementptr inbounds i8, ptr %.064112, i64 504
-  store double %789, ptr %790, align 8
-  %791 = getelementptr inbounds i8, ptr %.064112, i64 512
-  %792 = insertelement <2 x double> poison, double %.sroa.6.1.i, i64 0
-  %793 = insertelement <2 x double> %792, double %789, i64 1
-  %794 = shufflevector <2 x double> %786, <2 x double> %787, <2 x i32> <i32 3, i32 1>
-  %795 = fadd <2 x double> %793, %794
-  store <2 x double> %795, ptr %791, align 8
-  %796 = fadd <2 x double> %795, %786
-  %797 = shufflevector <2 x double> %796, <2 x double> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %798 = extractelement <2 x double> %796, i64 0
-  %799 = getelementptr inbounds i8, ptr %.064112, i64 528
-  store double %798, ptr %799, align 8
-  %800 = load double, ptr %632, align 8
-  %801 = getelementptr inbounds i8, ptr %.064112, i64 440
-  %802 = insertelement <2 x double> poison, double %800, i64 0
-  %803 = shufflevector <2 x double> %802, <2 x double> poison, <2 x i32> zeroinitializer
-  %804 = fdiv <2 x double> %786, %803
-  %805 = shufflevector <2 x double> %804, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %805, ptr %801, align 8
-  %806 = getelementptr inbounds i8, ptr %.064112, i64 576
-  %807 = load <2 x double>, ptr %714, align 8
-  %808 = shufflevector <2 x double> %807, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %809 = shufflevector <2 x double> %795, <2 x double> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 poison>
-  %810 = insertelement <4 x double> %809, double %789, i64 0
-  %811 = shufflevector <4 x double> %810, <4 x double> %797, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %812 = fmul <4 x double> %811, %808
-  %813 = fdiv <4 x double> %812, <double 7.200000e+01, double 7.200000e+01, double 7.200000e+01, double 7.200000e+01>
-  %814 = fcmp ult <4 x double> %813, zeroinitializer
-  %815 = select <4 x i1> %814, <4 x double> <double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01>, <4 x double> <double 5.000000e-01, double 5.000000e-01, double 5.000000e-01, double 5.000000e-01>
-  %816 = fadd <4 x double> %813, %815
-  %817 = fptosi <4 x double> %816 to <4 x i32>
-  store <4 x i32> %817, ptr %806, align 8
-  br i1 %.not202.i, label %init_job_pagination.exit, label %818
+783:                                              ; preds = %781, %778
+  %.sroa.6.1.i = phi double [ %.sroa.019.1.i, %781 ], [ %.sroa.6.0.i, %778 ]
+  %.sroa.019.2.i = phi double [ %.sroa.6.0.i, %781 ], [ %.sroa.019.1.i, %778 ]
+  %784 = phi <2 x double> [ %712, %781 ], [ %780, %778 ]
+  %785 = phi <2 x double> [ %782, %781 ], [ %641, %778 ]
+  %786 = extractelement <2 x double> %785, i64 0
+  %787 = fadd double %.sroa.019.2.i, %786
+  %788 = getelementptr inbounds i8, ptr %.064112, i64 504
+  store double %787, ptr %788, align 8
+  %789 = getelementptr inbounds i8, ptr %.064112, i64 512
+  %790 = insertelement <2 x double> poison, double %.sroa.6.1.i, i64 0
+  %791 = insertelement <2 x double> %790, double %787, i64 1
+  %792 = shufflevector <2 x double> %784, <2 x double> %785, <2 x i32> <i32 3, i32 1>
+  %793 = fadd <2 x double> %791, %792
+  store <2 x double> %793, ptr %789, align 8
+  %794 = fadd <2 x double> %793, %784
+  %795 = shufflevector <2 x double> %794, <2 x double> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %796 = extractelement <2 x double> %794, i64 0
+  %797 = getelementptr inbounds i8, ptr %.064112, i64 528
+  store double %796, ptr %797, align 8
+  %798 = load double, ptr %632, align 8
+  %799 = getelementptr inbounds i8, ptr %.064112, i64 440
+  %800 = insertelement <2 x double> poison, double %798, i64 0
+  %801 = shufflevector <2 x double> %800, <2 x double> poison, <2 x i32> zeroinitializer
+  %802 = fdiv <2 x double> %784, %801
+  %803 = shufflevector <2 x double> %802, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %803, ptr %799, align 8
+  %804 = getelementptr inbounds i8, ptr %.064112, i64 576
+  %805 = load <2 x double>, ptr %714, align 8
+  %806 = shufflevector <2 x double> %805, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %807 = shufflevector <2 x double> %793, <2 x double> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 poison>
+  %808 = insertelement <4 x double> %807, double %787, i64 0
+  %809 = shufflevector <4 x double> %808, <4 x double> %795, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
+  %810 = fmul <4 x double> %809, %806
+  %811 = fdiv <4 x double> %810, <double 7.200000e+01, double 7.200000e+01, double 7.200000e+01, double 7.200000e+01>
+  %812 = fcmp ult <4 x double> %811, zeroinitializer
+  %813 = select <4 x i1> %812, <4 x double> <double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01>, <4 x double> <double 5.000000e-01, double 5.000000e-01, double 5.000000e-01, double 5.000000e-01>
+  %814 = fadd <4 x double> %811, %813
+  %815 = fptosi <4 x double> %814 to <4 x i32>
+  store <4 x i32> %815, ptr %804, align 8
+  br i1 %.not202.i, label %init_job_pagination.exit, label %816
 
-818:                                              ; preds = %785
-  %819 = getelementptr inbounds i8, ptr %.064112, i64 584
-  %820 = extractelement <2 x double> %795, i64 0
-  %821 = getelementptr inbounds i8, ptr %.064112, i64 520
-  %822 = load i64, ptr %806, align 8
-  %.sroa.01.0.insert.insert.i.i = call i64 @llvm.fshl.i64(i64 %822, i64 %822, i64 32)
-  store i64 %.sroa.01.0.insert.insert.i.i, ptr %806, align 8
-  %823 = load i64, ptr %819, align 8
-  %.sroa.01.0.insert.insert.i220.i = call i64 @llvm.fshl.i64(i64 %823, i64 %823, i64 32)
-  store i64 %.sroa.01.0.insert.insert.i220.i, ptr %819, align 8
-  store double %820, ptr %790, align 8
-  store double %789, ptr %791, align 8
-  store double %798, ptr %821, align 8
-  %824 = extractelement <2 x double> %795, i64 1
-  store double %824, ptr %799, align 8
+816:                                              ; preds = %783
+  %817 = getelementptr inbounds i8, ptr %.064112, i64 584
+  %818 = extractelement <2 x double> %793, i64 0
+  %819 = getelementptr inbounds i8, ptr %.064112, i64 520
+  %820 = load i64, ptr %804, align 8
+  %.sroa.01.0.insert.insert.i.i = call i64 @llvm.fshl.i64(i64 %820, i64 %820, i64 32)
+  store i64 %.sroa.01.0.insert.insert.i.i, ptr %804, align 8
+  %821 = load i64, ptr %817, align 8
+  %.sroa.01.0.insert.insert.i220.i = call i64 @llvm.fshl.i64(i64 %821, i64 %821, i64 32)
+  store i64 %.sroa.01.0.insert.insert.i220.i, ptr %817, align 8
+  store double %818, ptr %788, align 8
+  store double %787, ptr %789, align 8
+  store double %796, ptr %819, align 8
+  %822 = extractelement <2 x double> %793, i64 1
+  store double %822, ptr %797, align 8
   br label %init_job_pagination.exit
 
-init_job_pagination.exit:                         ; preds = %785, %818
-  %825 = getelementptr inbounds i8, ptr %.064112, i64 272
-  %826 = load i32, ptr %825, align 8
-  %827 = and i32 %826, 128
-  %.not82 = icmp eq i32 %827, 0
-  br i1 %.not82, label %828, label %829
+init_job_pagination.exit:                         ; preds = %783, %816
+  %823 = getelementptr inbounds i8, ptr %.064112, i64 272
+  %824 = load i32, ptr %823, align 8
+  %825 = and i32 %824, 128
+  %.not82 = icmp eq i32 %825, 0
+  br i1 %.not82, label %826, label %827
 
-828:                                              ; preds = %init_job_pagination.exit
+826:                                              ; preds = %init_job_pagination.exit
   call void @emit_graph(ptr noundef nonnull %.064112, ptr noundef nonnull %1)
-  br label %829
+  br label %827
 
-829:                                              ; preds = %828, %init_job_pagination.exit
+827:                                              ; preds = %826, %init_job_pagination.exit
   store ptr %.064112, ptr @gvRenderJobs.prevjob, align 8
-  br label %830
+  br label %828
 
-830:                                              ; preds = %.thread, %829
-  %831 = call ptr @gvjobs_next(ptr noundef nonnull %0) #27
-  %.not72 = icmp eq ptr %831, null
+828:                                              ; preds = %.thread, %827
+  %829 = call ptr @gvjobs_next(ptr noundef nonnull %0) #27
+  %.not72 = icmp eq ptr %829, null
   br i1 %.not72, label %._crit_edge, label %379
 
-._crit_edge:                                      ; preds = %830, %gv_fixLocale.exit
-  %832 = load i32, ptr @gv_fixLocale.cnt, align 4
-  %833 = icmp sgt i32 %832, 0
-  br i1 %833, label %834, label %gv_fixLocale.exit97
+._crit_edge:                                      ; preds = %828, %gv_fixLocale.exit
+  %830 = load i32, ptr @gv_fixLocale.cnt, align 4
+  %831 = icmp sgt i32 %830, 0
+  br i1 %831, label %832, label %gv_fixLocale.exit97
 
-834:                                              ; preds = %._crit_edge
-  %835 = add nsw i32 %832, -1
-  store i32 %835, ptr @gv_fixLocale.cnt, align 4
-  %836 = icmp eq i32 %835, 0
-  br i1 %836, label %837, label %gv_fixLocale.exit97
+832:                                              ; preds = %._crit_edge
+  %833 = add nsw i32 %830, -1
+  store i32 %833, ptr @gv_fixLocale.cnt, align 4
+  %834 = icmp eq i32 %833, 0
+  br i1 %834, label %835, label %gv_fixLocale.exit97
 
-837:                                              ; preds = %834
+835:                                              ; preds = %832
+  %836 = load ptr, ptr @gv_fixLocale.save_locale, align 8
+  %837 = call ptr @setlocale(i32 noundef 1, ptr noundef %836) #27
   %838 = load ptr, ptr @gv_fixLocale.save_locale, align 8
-  %839 = call ptr @setlocale(i32 noundef 1, ptr noundef %838) #27
-  %840 = load ptr, ptr @gv_fixLocale.save_locale, align 8
-  call void @free(ptr noundef %840) #27
+  call void @free(ptr noundef %838) #27
   br label %gv_fixLocale.exit97
 
-gv_fixLocale.exit97:                              ; preds = %._crit_edge, %834, %837
-  %841 = load i8, ptr @Verbose, align 1
-  %.not73 = icmp eq i8 %841, 0
-  br i1 %.not73, label %847, label %842
+gv_fixLocale.exit97:                              ; preds = %._crit_edge, %832, %835
+  %839 = load i8, ptr @Verbose, align 1
+  %.not73 = icmp eq i8 %839, 0
+  br i1 %.not73, label %845, label %840
 
-842:                                              ; preds = %gv_fixLocale.exit97
-  %843 = load ptr, ptr @stderr, align 8
-  %844 = call ptr @agnameof(ptr noundef %1) #27
-  %845 = call double @elapsed_sec() #27
-  %846 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %843, ptr noundef nonnull @.str.37, ptr noundef %844, double noundef %845) #29
-  br label %847
+840:                                              ; preds = %gv_fixLocale.exit97
+  %841 = load ptr, ptr @stderr, align 8
+  %842 = call ptr @agnameof(ptr noundef %1) #27
+  %843 = call double @elapsed_sec() #27
+  %844 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %841, ptr noundef nonnull @.str.37, ptr noundef %842, double noundef %843) #29
+  br label %845
 
-847:                                              ; preds = %gv_fixLocale.exit97, %842, %gv_fixLocale.exit90, %436, %gv_fixLocale.exit89, %413, %22, %25
-  %.0 = phi i32 [ -1, %25 ], [ -1, %22 ], [ -1, %413 ], [ -1, %gv_fixLocale.exit89 ], [ -1, %436 ], [ -1, %gv_fixLocale.exit90 ], [ 0, %842 ], [ 0, %gv_fixLocale.exit97 ]
+845:                                              ; preds = %gv_fixLocale.exit97, %840, %gv_fixLocale.exit90, %436, %gv_fixLocale.exit89, %413, %22, %25
+  %.0 = phi i32 [ -1, %25 ], [ -1, %22 ], [ -1, %413 ], [ -1, %gv_fixLocale.exit89 ], [ -1, %436 ], [ -1, %gv_fixLocale.exit90 ], [ 0, %840 ], [ 0, %gv_fixLocale.exit97 ]
   ret i32 %.0
 }
 
@@ -13022,9 +13020,6 @@ declare void @llvm.va_end.p0(ptr) #21
 declare void @llvm.va_copy.p0(ptr, ptr) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -13077,6 +13072,9 @@ declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #22

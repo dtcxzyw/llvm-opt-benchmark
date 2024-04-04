@@ -3207,8 +3207,8 @@ entry:
   %0 = load ptr, ptr %feature, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %feature, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
-  %2 = add i64 %1, -5
-  %3 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 63)
+  %2 = sub i64 %1, 5
+  %3 = call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 63)
   switch i64 %3, label %lor.end [
     i64 0, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
     i64 2, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15
@@ -3217,45 +3217,28 @@ entry:
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.28, i64 %1)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.28, i64 5)
   %cmp6.not.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp6.not.i.i, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  switch i64 %1, label %lor.end [
-    i64 9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15
-    i64 21, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32
-    i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49
-  ]
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %entry, %lor.lhs.false
-  %bcmp.i16 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.29, i64 %1)
-  %cmp6.not.i.i17 = icmp eq i32 %bcmp.i16, 0
-  br i1 %cmp6.not.i.i17, label %lor.end, label %lor.lhs.false6
-
-lor.lhs.false6:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15
-  switch i64 %1, label %lor.end [
-    i64 21, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32
-    i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49
-  ]
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32: ; preds = %entry, %lor.lhs.false, %lor.lhs.false6
-  %bcmp.i33 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.30, i64 %1)
-  %cmp6.not.i.i34 = icmp eq i32 %bcmp.i33, 0
-  br i1 %cmp6.not.i.i34, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32
-  %cmp.i45 = icmp eq i64 %1, 7
-  br i1 %cmp.i45, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49, label %lor.end
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49: ; preds = %lor.rhs, %lor.lhs.false6, %lor.lhs.false, %entry
-  %bcmp.i50 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.31, i64 %1)
-  %cmp6.not.i.i51 = icmp eq i32 %bcmp.i50, 0
-  %spec.select = zext i1 %cmp6.not.i.i51 to i32
   br label %lor.end
 
-lor.end:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49, %lor.rhs, %lor.lhs.false6, %lor.lhs.false, %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %conv = phi i32 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32 ], [ 0, %lor.rhs ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49 ]
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %entry
+  %bcmp.i16 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.29, i64 %1)
+  %cmp6.not.i.i17 = icmp eq i32 %bcmp.i16, 0
+  br label %lor.end
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32: ; preds = %entry
+  %bcmp.i33 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.30, i64 %1)
+  %cmp6.not.i.i34 = icmp eq i32 %bcmp.i33, 0
+  br label %lor.end
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49: ; preds = %entry
+  %bcmp.i50 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.31, i64 %1)
+  %cmp6.not.i.i51 = icmp eq i32 %bcmp.i50, 0
+  br label %lor.end
+
+lor.end:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49, %entry
+  %conv.shrunk = phi i1 [ false, %entry ], [ %cmp6.not.i.i51, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i49 ], [ %cmp6.not.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %cmp6.not.i.i17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15 ], [ %cmp6.not.i.i34, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i32 ]
+  %conv = zext i1 %conv.shrunk to i32
   ret i32 %conv
 }
 

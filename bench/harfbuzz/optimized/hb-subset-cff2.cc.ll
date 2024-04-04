@@ -1855,8 +1855,9 @@ entry:
 if.end:                                           ; preds = %entry
   %errors.i = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %errors.i, align 4
-  %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 31)
-  switch i32 %2, label %return [
+  %2 = sub i32 %1, 0
+  %3 = call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
+  switch i32 %3, label %return [
     i32 0, label %if.end4
     i32 1, label %if.end4
     i32 4, label %if.end4
@@ -1865,25 +1866,25 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end, %if.end, %if.end, %if.end
   %next = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = load ptr, ptr %next, align 8
-  store ptr %3, ptr %current, align 8
+  %4 = load ptr, ptr %next, align 8
+  store ptr %4, ptr %current, align 8
   %head = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load ptr, ptr %head, align 8
+  %5 = load ptr, ptr %head, align 8
   %tail = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %4, ptr %tail, align 8
+  store ptr %5, ptr %tail, align 8
   store ptr null, ptr %next, align 8
-  %5 = load ptr, ptr %0, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
+  %6 = load ptr, ptr %0, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %zerocopy = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load ptr, ptr %zerocopy, align 8
-  %tobool10.not = icmp eq ptr %6, null
-  %. = select i1 %tobool10.not, ptr %5, ptr %6
+  %7 = load ptr, ptr %zerocopy, align 8
+  %tobool10.not = icmp eq ptr %7, null
+  %. = select i1 %tobool10.not, ptr %6, ptr %7
   store ptr %., ptr %head, align 8
   store ptr null, ptr %zerocopy, align 8
-  %7 = and i64 %sub.ptr.sub, 4294967295
-  %tobool18.not = icmp eq i64 %7, 0
+  %8 = and i64 %sub.ptr.sub, 4294967295
+  %tobool18.not = icmp eq i64 %8, 0
   br i1 %tobool18.not, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end4
@@ -1892,35 +1893,35 @@ if.end20:                                         ; preds = %if.end4
 if.then22:                                        ; preds = %if.end20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp6.i.i.i)
-  %8 = load ptr, ptr %0, align 8
-  %9 = load ptr, ptr %tail, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
+  %9 = load ptr, ptr %0, align 8
+  %10 = load ptr, ptr %tail, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %.conv.i.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i, i64 128)
   %conv.i.i.i = trunc i64 %.conv.i.i.i.i to i32
-  store ptr %8, ptr %ref.tmp.i.i.i, align 8
+  store ptr %9, ptr %ref.tmp.i.i.i, align 8
   %length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   store i32 %conv.i.i.i, ptr %length.i.i.i.i, align 8
   %backwards_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 12
   store i32 0, ptr %backwards_length.i.i.i.i, align 4
   %call5.i.i.i = call noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i)
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load ptr, ptr %arrayZ.i.i.i.i, align 8
+  %11 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %length.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 20
-  %11 = load i32, ptr %length.i.i.i.i.i, align 4
-  %mul.i.i.i.i.i = mul i32 %11, 12
+  %12 = load i32, ptr %length.i.i.i.i.i, align 4
+  %mul.i.i.i.i.i = mul i32 %12, 12
   %retval.sroa.2.8.insert.ext.i.i.i.i = zext i32 %mul.i.i.i.i.i to i64
-  store ptr %10, ptr %ref.tmp6.i.i.i, align 8
-  %12 = getelementptr inbounds i8, ptr %ref.tmp6.i.i.i, i64 8
-  store i64 %retval.sroa.2.8.insert.ext.i.i.i.i, ptr %12, align 8
+  store ptr %11, ptr %ref.tmp6.i.i.i, align 8
+  %13 = getelementptr inbounds i8, ptr %ref.tmp6.i.i.i, i64 8
+  store i64 %retval.sroa.2.8.insert.ext.i.i.i.i, ptr %13, align 8
   %call8.i.i.i = call noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i.i.i)
   %xor.i.i.i = xor i32 %call8.i.i.i, %call5.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i.i.i)
   %items.i = getelementptr inbounds i8, ptr %this, i64 136
-  %13 = load ptr, ptr %items.i, align 8
-  %tobool.not.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %items.i, align 8
+  %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %_ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERKS3_j.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then22
@@ -1928,29 +1929,29 @@ if.end.i:                                         ; preds = %if.then22
   %key.val.i = load ptr, ptr %obj, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp6.i.i.i.i)
-  %14 = load ptr, ptr %key.val.i, align 8
+  %15 = load ptr, ptr %key.val.i, align 8
   %tail.i.i.i.i = getelementptr inbounds i8, ptr %key.val.i, i64 8
-  %15 = load ptr, ptr %tail.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
+  %16 = load ptr, ptr %tail.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %.conv.i.i.i.i.i = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i, i64 128)
   %conv.i.i.i.i = trunc i64 %.conv.i.i.i.i.i to i32
-  store ptr %14, ptr %ref.tmp.i.i.i.i, align 8
+  store ptr %15, ptr %ref.tmp.i.i.i.i, align 8
   %length.i.i.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   store i32 %conv.i.i.i.i, ptr %length.i.i.i.i.i8, align 8
   %backwards_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 12
   store i32 0, ptr %backwards_length.i.i.i.i.i, align 4
   %call5.i.i.i.i = call noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %key.val.i, i64 24
-  %16 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
+  %17 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
   %length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %key.val.i, i64 20
-  %17 = load i32, ptr %length.i.i.i.i.i.i, align 4
-  %mul.i.i.i.i.i.i = mul i32 %17, 12
+  %18 = load i32, ptr %length.i.i.i.i.i.i, align 4
+  %mul.i.i.i.i.i.i = mul i32 %18, 12
   %retval.sroa.2.8.insert.ext.i.i.i.i.i = zext i32 %mul.i.i.i.i.i.i to i64
-  store ptr %16, ptr %ref.tmp6.i.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %ref.tmp6.i.i.i.i, i64 8
-  store i64 %retval.sroa.2.8.insert.ext.i.i.i.i.i, ptr %18, align 8
+  store ptr %17, ptr %ref.tmp6.i.i.i.i, align 8
+  %19 = getelementptr inbounds i8, ptr %ref.tmp6.i.i.i.i, i64 8
+  store i64 %retval.sroa.2.8.insert.ext.i.i.i.i.i, ptr %19, align 8
   %call8.i.i.i.i = call noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i.i.i.i)
   %xor.i.i.i.i = xor i32 %call8.i.i.i.i, %call5.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i)
@@ -1963,66 +1964,66 @@ if.end.i:                                         ; preds = %if.then22
 
 _ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERKS3_j.exit: ; preds = %if.then22, %if.end.i
   %retval.0.i = phi ptr [ @_hb_NullPool, %if.then22 ], [ %spec.select.i, %if.end.i ]
-  %19 = load i32, ptr %retval.0.i, align 4
-  store i32 %19, ptr %objidx, align 4
-  %tobool25.not = icmp eq i32 %19, 0
+  %20 = load i32, ptr %retval.0.i, align 4
+  store i32 %20, ptr %objidx, align 4
+  %tobool25.not = icmp eq i32 %20, 0
   %.pre39.pre = load ptr, ptr %obj, align 8
   br i1 %tobool25.not, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %_ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERKS3_j.exit
   %length.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %20 = load i32, ptr %length.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %20, %19
+  %21 = load i32, ptr %length.i.i, align 4
+  %cmp.not.i.i = icmp ugt i32 %21, %20
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then26
-  %21 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %21, ptr @_hb_CrapPool, align 16
+  %22 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %22, ptr @_hb_CrapPool, align 16
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i
 
 if.end.i.i:                                       ; preds = %if.then26
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %22 = load ptr, ptr %arrayZ.i.i, align 8
-  %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom.i.i
+  %23 = load ptr, ptr %arrayZ.i.i, align 8
+  %idxprom.i.i = zext i32 %20 to i64
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %23, i64 %idxprom.i.i
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i: ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ @_hb_CrapPool, %if.then.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
   %arrayZ.i4.i = getelementptr inbounds i8, ptr %.pre39.pre, i64 40
-  %23 = load ptr, ptr %arrayZ.i4.i, align 8
+  %24 = load ptr, ptr %arrayZ.i4.i, align 8
   %length.i6.i = getelementptr inbounds i8, ptr %.pre39.pre, i64 36
-  %24 = load i32, ptr %length.i6.i, align 4
-  %idx.ext.i.i = zext i32 %24 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.hb_serialize_context_t::object_t::link_t", ptr %23, i64 %idx.ext.i.i
-  %cmp.not15.i = icmp eq i32 %24, 0
+  %25 = load i32, ptr %length.i6.i, align 4
+  %idx.ext.i.i = zext i32 %25 to i64
+  %add.ptr.i.i = getelementptr inbounds %"struct.hb_serialize_context_t::object_t::link_t", ptr %24, i64 %idx.ext.i.i
+  %cmp.not15.i = icmp eq i32 %25, 0
   br i1 %cmp.not15.i, label %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i
-  %25 = load ptr, ptr %retval.0.i.i, align 8
-  %virtual_links4.i = getelementptr inbounds i8, ptr %25, i64 32
-  %length.i7.i = getelementptr inbounds i8, ptr %25, i64 36
-  %arrayZ.i.i.i.i9 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = load ptr, ptr %retval.0.i.i, align 8
+  %virtual_links4.i = getelementptr inbounds i8, ptr %26, i64 32
+  %length.i7.i = getelementptr inbounds i8, ptr %26, i64 36
+  %arrayZ.i.i.i.i9 = getelementptr inbounds i8, ptr %26, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4pushIJRKS2_EEEPS2_DpOT_.exit.i, %for.body.lr.ph.i
-  %__begin1.016.i = phi ptr [ %23, %for.body.lr.ph.i ], [ %incdec.ptr.i, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4pushIJRKS2_EEEPS2_DpOT_.exit.i ]
-  %26 = load i32, ptr %length.i7.i, align 4
-  %27 = load i32, ptr %virtual_links4.i, align 8
-  %cmp.not.i8.i = icmp slt i32 %26, %27
+  %__begin1.016.i = phi ptr [ %24, %for.body.lr.ph.i ], [ %incdec.ptr.i, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4pushIJRKS2_EEEPS2_DpOT_.exit.i ]
+  %27 = load i32, ptr %length.i7.i, align 4
+  %28 = load i32, ptr %virtual_links4.i, align 8
+  %cmp.not.i8.i = icmp slt i32 %27, %28
   br i1 %cmp.not.i8.i, label %if.end.i9.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i
-  %add.i.i = add i32 %26, 1
-  %cmp.i.i.i.i = icmp slt i32 %27, 0
+  %add.i.i = add i32 %27, 1
+  %cmp.i.i.i.i = icmp slt i32 %28, 0
   br i1 %cmp.i.i.i.i, label %if.then.i14.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %27, %add.i.i
+  %cmp9.not.i.i.i = icmp ult i32 %28, %add.i.i
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i9.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
-  %new_allocated.033.i.i.i = phi i32 [ %add15.i.i.i, %while.body.i.i.i ], [ %27, %if.end.i.i.i ]
+  %new_allocated.033.i.i.i = phi i32 [ %add15.i.i.i, %while.body.i.i.i ], [ %28, %if.end.i.i.i ]
   %shr14.i.i.i = lshr i32 %new_allocated.033.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.033.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
@@ -2030,24 +2031,24 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %lor.rhs.i.i.i, !llvm.loop !36
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
-  %28 = icmp ugt i32 %add15.i.i.i, 357913941
-  br i1 %28, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread5.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i.i
+  %29 = icmp ugt i32 %add15.i.i.i, 357913941
+  br i1 %29, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread5.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i.i: ; preds = %lor.rhs.i.i.i
-  %29 = load ptr, ptr %arrayZ.i.i.i.i9, align 8
+  %30 = load ptr, ptr %arrayZ.i.i.i.i9, align 8
   %conv.i.i.i.i10 = zext nneg i32 %add15.i.i.i to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i10, 12
-  %call.i.i.i.i = call ptr @realloc(ptr noundef %29, i64 noundef %mul.i.i.i.i) #14
+  %call.i.i.i.i = call ptr @realloc(ptr noundef %30, i64 noundef %mul.i.i.i.i) #14
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i
 
 if.then28.i.i.i:                                  ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i.i
-  %30 = load i32, ptr %virtual_links4.i, align 8
-  %cmp30.not.i.i.i = icmp ugt i32 %add15.i.i.i, %30
+  %31 = load i32, ptr %virtual_links4.i, align 8
+  %cmp30.not.i.i.i = icmp ugt i32 %add15.i.i.i, %31
   br i1 %cmp30.not.i.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread5.i.i, label %if.end.i9.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread5.i.i: ; preds = %if.then28.i.i.i, %lor.rhs.i.i.i
-  %new_allocated.128.sink.i.ph.in.i.i = phi i32 [ %27, %lor.rhs.i.i.i ], [ %30, %if.then28.i.i.i ]
+  %new_allocated.128.sink.i.ph.in.i.i = phi i32 [ %28, %lor.rhs.i.i.i ], [ %31, %if.then28.i.i.i ]
   %new_allocated.128.sink.i.ph.i.i = xor i32 %new_allocated.128.sink.i.ph.in.i.i, -1
   store i32 %new_allocated.128.sink.i.ph.i.i, ptr %virtual_links4.i, align 8
   br label %if.then.i14.i
@@ -2062,12 +2063,12 @@ if.then.i14.i:                                    ; preds = %_ZN11hb_vector_tIN2
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4pushIJRKS2_EEEPS2_DpOT_.exit.i
 
 if.end.i9.i:                                      ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.i.i, %if.then28.i.i.i, %if.end.i.i.i, %for.body.i
-  %31 = load ptr, ptr %arrayZ.i.i.i.i9, align 8
-  %32 = load i32, ptr %length.i7.i, align 4
-  %inc.i.i = add i32 %32, 1
+  %32 = load ptr, ptr %arrayZ.i.i.i.i9, align 8
+  %33 = load i32, ptr %length.i7.i, align 4
+  %inc.i.i = add i32 %33, 1
   store i32 %inc.i.i, ptr %length.i7.i, align 4
-  %idxprom.i11.i = zext i32 %32 to i64
-  %arrayidx.i12.i = getelementptr inbounds %"struct.hb_serialize_context_t::object_t::link_t", ptr %31, i64 %idxprom.i11.i
+  %idxprom.i11.i = zext i32 %33 to i64
+  %arrayidx.i12.i = getelementptr inbounds %"struct.hb_serialize_context_t::object_t::link_t", ptr %32, i64 %idxprom.i11.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i12.i, ptr noundef nonnull align 4 dereferenceable(12) %__begin1.016.i, i64 12, i1 false)
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4pushIJRKS2_EEEPS2_DpOT_.exit.i
 
@@ -2081,33 +2082,33 @@ _ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit.loopexit:
   br label %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit
 
 _ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit: ; preds = %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit.loopexit, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i
-  %33 = phi ptr [ %.pre, %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit.loopexit ], [ %.pre39.pre, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i ]
-  %real_links.i = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load i32, ptr %real_links.i, align 8
-  %tobool.not.i.i = icmp eq i32 %34, 0
+  %34 = phi ptr [ %.pre, %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit.loopexit ], [ %.pre39.pre, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i ]
+  %real_links.i = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = load i32, ptr %real_links.i, align 8
+  %tobool.not.i.i = icmp eq i32 %35, 0
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit
-  %length.i.i.i = getelementptr inbounds i8, ptr %33, i64 20
+  %length.i.i.i = getelementptr inbounds i8, ptr %34, i64 20
   store i32 0, ptr %length.i.i.i, align 4
-  %arrayZ.i.i12 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = load ptr, ptr %arrayZ.i.i12, align 8
-  call void @free(ptr noundef %35) #13
+  %arrayZ.i.i12 = getelementptr inbounds i8, ptr %34, i64 24
+  %36 = load ptr, ptr %arrayZ.i.i12, align 8
+  call void @free(ptr noundef %36) #13
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: ; preds = %if.then.i.i11, %_ZN22hb_serialize_context_t19merge_virtual_linksEPKNS_8object_tEj.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %real_links.i, i8 0, i64 16, i1 false)
-  %virtual_links.i = getelementptr inbounds i8, ptr %33, i64 32
-  %36 = load i32, ptr %virtual_links.i, align 8
-  %tobool.not.i1.i = icmp eq i32 %36, 0
+  %virtual_links.i = getelementptr inbounds i8, ptr %34, i64 32
+  %37 = load i32, ptr %virtual_links.i, align 8
+  %tobool.not.i1.i = icmp eq i32 %37, 0
   br i1 %tobool.not.i1.i, label %_ZN22hb_serialize_context_t8object_t4finiEv.exit, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
-  %length.i.i3.i = getelementptr inbounds i8, ptr %33, i64 36
+  %length.i.i3.i = getelementptr inbounds i8, ptr %34, i64 36
   store i32 0, ptr %length.i.i3.i, align 4
-  %arrayZ.i4.i13 = getelementptr inbounds i8, ptr %33, i64 40
-  %37 = load ptr, ptr %arrayZ.i4.i13, align 8
-  call void @free(ptr noundef %37) #13
+  %arrayZ.i4.i13 = getelementptr inbounds i8, ptr %34, i64 40
+  %38 = load ptr, ptr %arrayZ.i4.i13, align 8
+  call void @free(ptr noundef %38) #13
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, %if.then.i2.i
@@ -2118,46 +2119,46 @@ if.end28:                                         ; preds = %_ZNK12hb_hashmap_tI
   %.pre39 = phi ptr [ %.pre39.pre, %_ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERKS3_j.exit ], [ %0, %if.end20 ]
   %hash.0 = phi i32 [ %xor.i.i.i, %_ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERKS3_j.exit ], [ 0, %if.end20 ]
   %tail29 = getelementptr inbounds i8, ptr %this, i64 16
-  %38 = load ptr, ptr %tail29, align 8
-  %idx.neg = sub nsw i64 0, %7
-  %add.ptr = getelementptr inbounds i8, ptr %38, i64 %idx.neg
+  %39 = load ptr, ptr %tail29, align 8
+  %idx.neg = sub nsw i64 0, %8
+  %add.ptr = getelementptr inbounds i8, ptr %39, i64 %idx.neg
   store ptr %add.ptr, ptr %tail29, align 8
   br i1 %tobool10.not, label %if.else, label %if.end35
 
 if.else:                                          ; preds = %if.end28
-  %39 = load ptr, ptr %.pre39, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %39, i64 %7, i1 false)
+  %40 = load ptr, ptr %.pre39, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %40, i64 %8, i1 false)
   %.pre37 = load ptr, ptr %tail29, align 8
   %.pre38 = load ptr, ptr %obj, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end28, %if.else
-  %40 = phi ptr [ %.pre39, %if.end28 ], [ %.pre38, %if.else ]
-  %41 = phi ptr [ %add.ptr, %if.end28 ], [ %.pre37, %if.else ]
-  store ptr %41, ptr %40, align 8
-  %42 = load ptr, ptr %tail29, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %42, i64 %7
-  %43 = load ptr, ptr %obj, align 8
-  %tail41 = getelementptr inbounds i8, ptr %43, i64 8
+  %41 = phi ptr [ %.pre39, %if.end28 ], [ %.pre38, %if.else ]
+  %42 = phi ptr [ %add.ptr, %if.end28 ], [ %.pre37, %if.else ]
+  store ptr %42, ptr %41, align 8
+  %43 = load ptr, ptr %tail29, align 8
+  %add.ptr40 = getelementptr inbounds i8, ptr %43, i64 %8
+  %44 = load ptr, ptr %obj, align 8
+  %tail41 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %add.ptr40, ptr %tail41, align 8
   %packed = getelementptr inbounds i8, ptr %this, i64 80
   %length.i = getelementptr inbounds i8, ptr %this, i64 84
-  %44 = load i32, ptr %length.i, align 4
-  %45 = load i32, ptr %packed, align 8
-  %cmp.not.i14 = icmp slt i32 %44, %45
+  %45 = load i32, ptr %length.i, align 4
+  %46 = load i32, ptr %packed, align 8
+  %cmp.not.i14 = icmp slt i32 %45, %46
   br i1 %cmp.not.i14, label %if.end.i16, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end35
-  %add.i = add i32 %44, 1
-  %cmp.i.i.i = icmp slt i32 %45, 0
+  %add.i = add i32 %45, 1
+  %cmp.i.i.i = icmp slt i32 %46, 0
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ult i32 %45, %add.i
+  %cmp9.not.i.i = icmp ult i32 %46, %add.i
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i16
 
 while.body.i.i:                                   ; preds = %if.end.i.i15, %while.body.i.i
-  %new_allocated.033.i.i = phi i32 [ %add15.i.i, %while.body.i.i ], [ %45, %if.end.i.i15 ]
+  %new_allocated.033.i.i = phi i32 [ %add15.i.i, %while.body.i.i ], [ %46, %if.end.i.i15 ]
   %shr14.i.i = lshr i32 %new_allocated.033.i.i, 1
   %add.i.i18 = add i32 %new_allocated.033.i.i, 8
   %add15.i.i = add i32 %add.i.i18, %shr14.i.i
@@ -2165,25 +2166,25 @@ while.body.i.i:                                   ; preds = %if.end.i.i15, %whil
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !37
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
-  %46 = icmp ugt i32 %add15.i.i, 536870911
-  br i1 %46, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i
+  %47 = icmp ugt i32 %add15.i.i, 536870911
+  br i1 %47, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i: ; preds = %lor.rhs.i.i
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %47 = load ptr, ptr %arrayZ.i.i.i, align 8
-  %48 = shl nuw i32 %add15.i.i, 3
-  %mul.i.i.i = zext i32 %48 to i64
-  %call.i.i.i = call ptr @realloc(ptr noundef %47, i64 noundef %mul.i.i.i) #14
+  %48 = load ptr, ptr %arrayZ.i.i.i, align 8
+  %49 = shl nuw i32 %add15.i.i, 3
+  %mul.i.i.i = zext i32 %49 to i64
+  %call.i.i.i = call ptr @realloc(ptr noundef %48, i64 noundef %mul.i.i.i) #14
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i
 
 if.then28.i.i:                                    ; preds = %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i
-  %49 = load i32, ptr %packed, align 8
-  %cmp30.not.i.i = icmp ugt i32 %add15.i.i, %49
+  %50 = load i32, ptr %packed, align 8
+  %cmp30.not.i.i = icmp ugt i32 %add15.i.i, %50
   br i1 %cmp30.not.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i, label %if.end.i16
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i: ; preds = %if.then28.i.i, %lor.rhs.i.i
-  %new_allocated.128.sink.i.ph.in.i = phi i32 [ %45, %lor.rhs.i.i ], [ %49, %if.then28.i.i ]
+  %new_allocated.128.sink.i.ph.in.i = phi i32 [ %46, %lor.rhs.i.i ], [ %50, %if.then28.i.i ]
   %new_allocated.128.sink.i.ph.i = xor i32 %new_allocated.128.sink.i.ph.in.i, -1
   store i32 %new_allocated.128.sink.i.ph.i, ptr %packed, align 8
   br label %if.then.i
@@ -2194,29 +2195,29 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i: ; pr
   br label %if.end.i16
 
 if.then.i:                                        ; preds = %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i, %land.lhs.true.i
-  %50 = phi i32 [ %new_allocated.128.sink.i.ph.i, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i ], [ %45, %land.lhs.true.i ]
-  %51 = load i64, ptr @_hb_NullPool, align 16
-  store i64 %51, ptr @_hb_CrapPool, align 16
+  %51 = phi i32 [ %new_allocated.128.sink.i.ph.i, %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i ], [ %46, %land.lhs.true.i ]
+  %52 = load i64, ptr @_hb_NullPool, align 16
+  store i64 %52, ptr @_hb_CrapPool, align 16
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
 if.end.i16:                                       ; preds = %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.i, %if.then28.i.i, %if.end.i.i15, %if.end35
   %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 88
-  %52 = load ptr, ptr %arrayZ.i, align 8
-  %53 = load i32, ptr %length.i, align 4
-  %inc.i = add i32 %53, 1
+  %53 = load ptr, ptr %arrayZ.i, align 8
+  %54 = load i32, ptr %length.i, align 4
+  %inc.i = add i32 %54, 1
   store i32 %inc.i, ptr %length.i, align 4
-  %idxprom.i = zext i32 %53 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %52, i64 %idxprom.i
-  %54 = load ptr, ptr %obj, align 8
-  store ptr %54, ptr %arrayidx.i, align 8
+  %idxprom.i = zext i32 %54 to i64
+  %arrayidx.i = getelementptr inbounds ptr, ptr %53, i64 %idxprom.i
+  %55 = load ptr, ptr %obj, align 8
+  store ptr %55, ptr %arrayidx.i, align 8
   %.pre40 = load i32, ptr %packed, align 8
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4pushIJRS2_EEEPS2_DpOT_.exit: ; preds = %if.then.i, %if.end.i16
-  %55 = phi i32 [ %50, %if.then.i ], [ %.pre40, %if.end.i16 ]
-  %cmp.i.i = icmp sgt i32 %55, -1
-  %56 = load i32, ptr %errors.i, align 4
-  %tobool.not.i.i.i = icmp ne i32 %56, 0
+  %56 = phi i32 [ %51, %if.then.i ], [ %.pre40, %if.end.i16 ]
+  %cmp.i.i = icmp sgt i32 %56, -1
+  %57 = load i32, ptr %errors.i, align 4
+  %tobool.not.i.i.i = icmp ne i32 %57, 0
   %brmerge.i.i = or i1 %cmp.i.i, %tobool.not.i.i.i
   br i1 %brmerge.i.i, label %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEEEbOT_.exit, label %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEEEbOT_.exit.thread
 
@@ -2228,33 +2229,33 @@ _ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEE
   br i1 %tobool.not.i.i.i, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEEEbOT_.exit.thread, %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEEEbOT_.exit
-  %57 = load ptr, ptr %obj, align 8
-  %real_links.i20 = getelementptr inbounds i8, ptr %57, i64 16
-  %58 = load i32, ptr %real_links.i20, align 8
-  %tobool.not.i.i21 = icmp eq i32 %58, 0
+  %58 = load ptr, ptr %obj, align 8
+  %real_links.i20 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = load i32, ptr %real_links.i20, align 8
+  %tobool.not.i.i21 = icmp eq i32 %59, 0
   br i1 %tobool.not.i.i21, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %if.then45
-  %length.i.i.i23 = getelementptr inbounds i8, ptr %57, i64 20
+  %length.i.i.i23 = getelementptr inbounds i8, ptr %58, i64 20
   store i32 0, ptr %length.i.i.i23, align 4
-  %arrayZ.i.i24 = getelementptr inbounds i8, ptr %57, i64 24
-  %59 = load ptr, ptr %arrayZ.i.i24, align 8
-  call void @free(ptr noundef %59) #13
+  %arrayZ.i.i24 = getelementptr inbounds i8, ptr %58, i64 24
+  %60 = load ptr, ptr %arrayZ.i.i24, align 8
+  call void @free(ptr noundef %60) #13
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25: ; preds = %if.then.i.i22, %if.then45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %real_links.i20, i8 0, i64 16, i1 false)
-  %virtual_links.i26 = getelementptr inbounds i8, ptr %57, i64 32
-  %60 = load i32, ptr %virtual_links.i26, align 8
-  %tobool.not.i1.i27 = icmp eq i32 %60, 0
+  %virtual_links.i26 = getelementptr inbounds i8, ptr %58, i64 32
+  %61 = load i32, ptr %virtual_links.i26, align 8
+  %tobool.not.i1.i27 = icmp eq i32 %61, 0
   br i1 %tobool.not.i1.i27, label %_ZN22hb_serialize_context_t8object_t4finiEv.exit31, label %if.then.i2.i28
 
 if.then.i2.i28:                                   ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25
-  %length.i.i3.i29 = getelementptr inbounds i8, ptr %57, i64 36
+  %length.i.i3.i29 = getelementptr inbounds i8, ptr %58, i64 36
   store i32 0, ptr %length.i.i3.i29, align 4
-  %arrayZ.i4.i30 = getelementptr inbounds i8, ptr %57, i64 40
-  %61 = load ptr, ptr %arrayZ.i4.i30, align 8
-  call void @free(ptr noundef %61) #13
+  %arrayZ.i4.i30 = getelementptr inbounds i8, ptr %58, i64 40
+  %62 = load ptr, ptr %arrayZ.i4.i30, align 8
+  call void @free(ptr noundef %62) #13
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit31
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit31: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i25, %if.then.i2.i28
@@ -2262,8 +2263,8 @@ _ZN22hb_serialize_context_t8object_t4finiEv.exit31: ; preds = %_ZN11hb_vector_tI
   br label %return
 
 if.end46:                                         ; preds = %_ZN22hb_serialize_context_t15propagate_errorIR11hb_vector_tIPNS_8object_tELb0EEEEbOT_.exit
-  %62 = load i32, ptr %length.i, align 4
-  %sub = add i32 %62, -1
+  %63 = load i32, ptr %length.i, align 4
+  %sub = add i32 %63, -1
   store i32 %sub, ptr %objidx, align 4
   br i1 %share, label %if.then49, label %if.end52
 
@@ -2271,14 +2272,14 @@ if.then49:                                        ; preds = %if.end46
   %packed_map50 = getelementptr inbounds i8, ptr %this, i64 96
   %call51 = call noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13set_with_hashIRPS1_RjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %packed_map50, ptr noundef nonnull align 8 dereferenceable(8) %obj, i32 noundef %hash.0, ptr noundef nonnull align 4 dereferenceable(4) %objidx, i1 noundef zeroext true)
   %.pre41 = load i32, ptr %errors.i, align 4
-  %63 = icmp ne i32 %.pre41, 0
+  %64 = icmp ne i32 %.pre41, 0
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then49, %if.end46
-  %tobool.not.i.i.i33 = phi i1 [ %63, %if.then49 ], [ false, %if.end46 ]
+  %tobool.not.i.i.i33 = phi i1 [ %64, %if.then49 ], [ false, %if.end46 ]
   %successful.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %64 = load i8, ptr %successful.i.i, align 8
-  %tobool.i.i = trunc i8 %64 to i1
+  %65 = load i8, ptr %successful.i.i, align 8
+  %tobool.i.i = trunc i8 %65 to i1
   %brmerge.i.i34 = or i1 %tobool.not.i.i.i33, %tobool.i.i
   br i1 %brmerge.i.i34, label %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIPKNS_8object_tEjLb0EEEEbOT_.exit, label %lor.rhs.i.i36
 
@@ -2287,11 +2288,11 @@ lor.rhs.i.i36:                                    ; preds = %if.end52
   br label %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIPKNS_8object_tEjLb0EEEEbOT_.exit
 
 _ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIPKNS_8object_tEjLb0EEEEbOT_.exit: ; preds = %if.end52, %lor.rhs.i.i36
-  %65 = load i32, ptr %objidx, align 4
+  %66 = load i32, ptr %objidx, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %if.end4, %entry, %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIPKNS_8object_tEjLb0EEEEbOT_.exit, %_ZN22hb_serialize_context_t8object_t4finiEv.exit31, %_ZN22hb_serialize_context_t8object_t4finiEv.exit
-  %retval.0 = phi i32 [ %19, %_ZN22hb_serialize_context_t8object_t4finiEv.exit ], [ %65, %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIPKNS_8object_tEjLb0EEEEbOT_.exit ], [ 0, %_ZN22hb_serialize_context_t8object_t4finiEv.exit31 ], [ 0, %entry ], [ 0, %if.end4 ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ %20, %_ZN22hb_serialize_context_t8object_t4finiEv.exit ], [ %66, %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIPKNS_8object_tEjLb0EEEEbOT_.exit ], [ 0, %_ZN22hb_serialize_context_t8object_t4finiEv.exit31 ], [ 0, %entry ], [ 0, %if.end4 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2306,8 +2307,9 @@ entry:
 if.end:                                           ; preds = %entry
   %errors.i = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %errors.i, align 4
-  %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 31)
-  switch i32 %2, label %return [
+  %2 = sub i32 %1, 0
+  %3 = call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
+  switch i32 %3, label %return [
     i32 0, label %if.end4
     i32 1, label %if.end4
     i32 4, label %if.end4
@@ -2316,67 +2318,67 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end, %if.end, %if.end, %if.end
   %next = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = load ptr, ptr %next, align 8
-  store ptr %3, ptr %current, align 8
+  %4 = load ptr, ptr %next, align 8
+  store ptr %4, ptr %current, align 8
   %zerocopy = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %zerocopy, align 8
-  %tobool7.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr %zerocopy, align 8
+  %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end4
-  %5 = load ptr, ptr %0, align 8
+  %6 = load ptr, ptr %0, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end4, %cond.false
-  %cond = phi ptr [ %5, %cond.false ], [ %4, %if.end4 ]
+  %cond = phi ptr [ %6, %cond.false ], [ %5, %if.end4 ]
   %tobool.i.not.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i, label %if.end.i, label %_ZN22hb_serialize_context_t6revertEPcS0_.exit
 
 if.end.i:                                         ; preds = %cond.end
   %tail = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load ptr, ptr %tail, align 8
+  %7 = load ptr, ptr %tail, align 8
   %head.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cond, ptr %head.i, align 8
   %tail.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %6, ptr %tail.i, align 8
+  store ptr %7, ptr %tail.i, align 8
   tail call void @_ZN22hb_serialize_context_t21discard_stale_objectsEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   br label %_ZN22hb_serialize_context_t6revertEPcS0_.exit
 
 _ZN22hb_serialize_context_t6revertEPcS0_.exit:    ; preds = %cond.end, %if.end.i
   store ptr null, ptr %zerocopy, align 8
   %real_links.i = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load i32, ptr %real_links.i, align 8
-  %tobool.not.i.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %real_links.i, align 8
+  %tobool.not.i.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN22hb_serialize_context_t6revertEPcS0_.exit
   %length.i.i.i = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %length.i.i.i, align 4
   %arrayZ.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load ptr, ptr %arrayZ.i.i, align 8
-  tail call void @free(ptr noundef %8) #13
+  %9 = load ptr, ptr %arrayZ.i.i, align 8
+  tail call void @free(ptr noundef %9) #13
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
 
 _ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: ; preds = %if.then.i.i, %_ZN22hb_serialize_context_t6revertEPcS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %real_links.i, i8 0, i64 16, i1 false)
   %virtual_links.i = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load i32, ptr %virtual_links.i, align 8
-  %tobool.not.i1.i = icmp eq i32 %9, 0
+  %10 = load i32, ptr %virtual_links.i, align 8
+  %tobool.not.i1.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i1.i, label %_ZN22hb_serialize_context_t8object_t4finiEv.exit, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
   %length.i.i3.i = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %length.i.i3.i, align 4
   %arrayZ.i4.i = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = load ptr, ptr %arrayZ.i4.i, align 8
-  tail call void @free(ptr noundef %10) #13
+  %11 = load ptr, ptr %arrayZ.i4.i, align 8
+  tail call void @free(ptr noundef %11) #13
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit
 
 _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, %if.then.i2.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %virtual_links.i, i8 0, i64 16, i1 false)
   %object_pool = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load ptr, ptr %object_pool, align 8
-  store ptr %11, ptr %0, align 8
+  %12 = load ptr, ptr %object_pool, align 8
+  store ptr %12, ptr %0, align 8
   store ptr %0, ptr %object_pool, align 8
   br label %return
 
@@ -21835,13 +21837,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

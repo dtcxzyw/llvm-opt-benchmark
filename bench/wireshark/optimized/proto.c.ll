@@ -11276,8 +11276,8 @@ define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 
   ]
 
 8:                                                ; preds = %7
-  %9 = add i32 %3, -4
-  %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 30)
+  %9 = sub i32 %3, 4
+  %10 = call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 30)
   switch i32 %10, label %32 [
     i32 3, label %11
     i32 2, label %17
@@ -11332,8 +11332,8 @@ define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 
   br label %409
 
 36:                                               ; preds = %7
-  %37 = add i32 %3, -4
-  %38 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 30)
+  %37 = sub i32 %3, 4
+  %38 = call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 30)
   switch i32 %38, label %60 [
     i32 3, label %39
     i32 2, label %45
@@ -34384,9 +34384,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #27
 declare i32 @llvm.bswap.i32(i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #28
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
@@ -34412,6 +34409,9 @@ declare i32 @llvm.umax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #28
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

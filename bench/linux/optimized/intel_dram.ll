@@ -118,13 +118,14 @@ define dso_local void @intel_dram_detect(ptr noundef %0) local_unnamed_addr #0 a
   %41 = tail call zeroext i16 %40(ptr noundef %38, i32 76832, i1 noundef zeroext true) #8
   %42 = and i16 %41, 255
   %43 = zext nneg i16 %42 to i32
-  %44 = add nsw i32 %43, -12
-  %45 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 30)
-  switch i32 %45, label %49 [
-    i32 0, label %56
-    i32 1, label %46
-    i32 2, label %47
-    i32 3, label %48
+  %trunc = trunc i16 %41 to i8
+  %44 = sub i8 %trunc, 12
+  %45 = call i8 @llvm.fshl.i8(i8 %44, i8 %44, i8 6)
+  switch i8 %45, label %49 [
+    i8 0, label %56
+    i8 1, label %46
+    i8 2, label %47
+    i8 3, label %48
   ]
 
 46:                                               ; preds = %37
@@ -1341,9 +1342,6 @@ define internal fastcc void @skl_dram_get_dimm_info(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1351,6 +1349,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #7
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

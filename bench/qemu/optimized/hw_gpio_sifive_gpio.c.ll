@@ -260,8 +260,9 @@ define internal i64 @sifive_gpio_read(ptr noundef %opaque, i64 noundef %offset, 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, i32 noundef 23, ptr noundef nonnull @__func__.SIFIVE_GPIO) #7
-  %0 = tail call i64 @llvm.fshl.i64(i64 %offset, i64 %offset, i64 62)
-  switch i64 %0, label %do.body [
+  %0 = sub i64 %offset, 0
+  %1 = call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %1, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb1
     i64 2, label %sw.bb3
@@ -283,92 +284,92 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %value = getelementptr inbounds i8, ptr %call.i, i64 1600
-  %1 = load i32, ptr %value, align 16
+  %2 = load i32, ptr %value, align 16
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %input_en = getelementptr inbounds i8, ptr %call.i, i64 1604
-  %2 = load i32, ptr %input_en, align 4
+  %3 = load i32, ptr %input_en, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
   %output_en = getelementptr inbounds i8, ptr %call.i, i64 1608
-  %3 = load i32, ptr %output_en, align 8
+  %4 = load i32, ptr %output_en, align 8
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
   %port = getelementptr inbounds i8, ptr %call.i, i64 1612
-  %4 = load i32, ptr %port, align 4
+  %5 = load i32, ptr %port, align 4
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
   %pue = getelementptr inbounds i8, ptr %call.i, i64 1616
-  %5 = load i32, ptr %pue, align 16
+  %6 = load i32, ptr %pue, align 16
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
   %ds = getelementptr inbounds i8, ptr %call.i, i64 1620
-  %6 = load i32, ptr %ds, align 4
+  %7 = load i32, ptr %ds, align 4
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
   %rise_ie = getelementptr inbounds i8, ptr %call.i, i64 1624
-  %7 = load i32, ptr %rise_ie, align 8
+  %8 = load i32, ptr %rise_ie, align 8
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
   %rise_ip = getelementptr inbounds i8, ptr %call.i, i64 1628
-  %8 = load i32, ptr %rise_ip, align 4
+  %9 = load i32, ptr %rise_ip, align 4
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
   %fall_ie = getelementptr inbounds i8, ptr %call.i, i64 1632
-  %9 = load i32, ptr %fall_ie, align 16
+  %10 = load i32, ptr %fall_ie, align 16
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
   %fall_ip = getelementptr inbounds i8, ptr %call.i, i64 1636
-  %10 = load i32, ptr %fall_ip, align 4
+  %11 = load i32, ptr %fall_ip, align 4
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
   %high_ie = getelementptr inbounds i8, ptr %call.i, i64 1640
-  %11 = load i32, ptr %high_ie, align 8
+  %12 = load i32, ptr %high_ie, align 8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
   %high_ip = getelementptr inbounds i8, ptr %call.i, i64 1644
-  %12 = load i32, ptr %high_ip, align 4
+  %13 = load i32, ptr %high_ip, align 4
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
   %low_ie = getelementptr inbounds i8, ptr %call.i, i64 1648
-  %13 = load i32, ptr %low_ie, align 16
+  %14 = load i32, ptr %low_ie, align 16
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
   %low_ip = getelementptr inbounds i8, ptr %call.i, i64 1652
-  %14 = load i32, ptr %low_ip, align 4
+  %15 = load i32, ptr %low_ip, align 4
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
   %iof_en = getelementptr inbounds i8, ptr %call.i, i64 1656
-  %15 = load i32, ptr %iof_en, align 8
+  %16 = load i32, ptr %iof_en, align 8
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
   %iof_sel = getelementptr inbounds i8, ptr %call.i, i64 1660
-  %16 = load i32, ptr %iof_sel, align 4
+  %17 = load i32, ptr %iof_sel, align 4
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
   %out_xor = getelementptr inbounds i8, ptr %call.i, i64 1664
-  %17 = load i32, ptr %out_xor, align 16
+  %18 = load i32, ptr %out_xor, align 16
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  %18 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %18, 2048
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %19, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then
 
@@ -377,34 +378,34 @@ if.then:                                          ; preds = %do.body
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then, %do.body, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %r.0.shrunk = phi i32 [ 0, %if.then ], [ 0, %do.body ], [ %17, %sw.bb31 ], [ %16, %sw.bb29 ], [ %15, %sw.bb27 ], [ %14, %sw.bb25 ], [ %13, %sw.bb23 ], [ %12, %sw.bb21 ], [ %11, %sw.bb19 ], [ %10, %sw.bb17 ], [ %9, %sw.bb15 ], [ %8, %sw.bb13 ], [ %7, %sw.bb11 ], [ %6, %sw.bb9 ], [ %5, %sw.bb7 ], [ %4, %sw.bb5 ], [ %3, %sw.bb3 ], [ %2, %sw.bb1 ], [ %1, %sw.bb ]
+  %r.0.shrunk = phi i32 [ 0, %if.then ], [ 0, %do.body ], [ %18, %sw.bb31 ], [ %17, %sw.bb29 ], [ %16, %sw.bb27 ], [ %15, %sw.bb25 ], [ %14, %sw.bb23 ], [ %13, %sw.bb21 ], [ %12, %sw.bb19 ], [ %11, %sw.bb17 ], [ %10, %sw.bb15 ], [ %9, %sw.bb13 ], [ %8, %sw.bb11 ], [ %7, %sw.bb9 ], [ %6, %sw.bb7 ], [ %5, %sw.bb5 ], [ %4, %sw.bb3 ], [ %3, %sw.bb1 ], [ %2, %sw.bb ]
   %r.0 = zext i32 %r.0.shrunk to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %19 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %19, 0
-  %20 = load i16, ptr @_TRACE_SIFIVE_GPIO_READ_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %20, 0
+  %20 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %20, 0
+  %21 = load i16, ptr @_TRACE_SIFIVE_GPIO_READ_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %21, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_sifive_gpio_read.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
-  %21 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %21, 32768
+  %22 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %22, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_sifive_gpio_read.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %22 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %22 to i1
+  %23 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %23 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
-  %23 = load i64, ptr %_now.i.i, align 8
+  %24 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %24 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %23, i64 noundef %24, i64 noundef %offset, i64 noundef %r.0) #7
+  %25 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %24, i64 noundef %25, i64 noundef %offset, i64 noundef %r.0) #7
   br label %trace_sifive_gpio_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -455,8 +456,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_sifive_gpio_write.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %6 = add i64 %offset, -4
-  %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 62)
+  %6 = sub i64 %offset, 4
+  %7 = call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 62)
   switch i64 %7, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb1
@@ -865,25 +866,25 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #4
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }
 

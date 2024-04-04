@@ -3269,14 +3269,13 @@ sw.bb2674:                                        ; preds = %sw.bb2670
 sw.bb2678:                                        ; preds = %sw.bb2674
   %arrayidx2679 = getelementptr inbounds i8, ptr %s, i64 10
   %283 = load i8, ptr %arrayidx2679, align 1
-  %conv2680 = sext i8 %283 to i32
-  %284 = add nsw i32 %conv2680, -97
-  %285 = tail call i32 @llvm.fshl.i32(i32 %284, i32 %284, i32 30)
-  switch i32 %285, label %sw.epilog3087 [
-    i32 0, label %sw.bb2682
-    i32 1, label %sw.bb2705
-    i32 2, label %sw.bb2735
-    i32 3, label %sw.bb2742
+  %284 = sub i8 %283, 97
+  %285 = call i8 @llvm.fshl.i8(i8 %284, i8 %284, i8 6)
+  switch i8 %285, label %sw.epilog3087 [
+    i8 0, label %sw.bb2682
+    i8 1, label %sw.bb2705
+    i8 2, label %sw.bb2735
+    i8 3, label %sw.bb2742
   ]
 
 sw.bb2682:                                        ; preds = %sw.bb2678
@@ -3729,7 +3728,7 @@ return:                                           ; preds = %sw.bb3079, %sw.bb30
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #2
+declare i8 @llvm.fshl.i8(i8, i8, i8) #2
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

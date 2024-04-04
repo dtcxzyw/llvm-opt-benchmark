@@ -13707,7 +13707,7 @@ ecc_test_curve_size.exit:                         ; preds = %if.end406.i, %if.en
   br i1 %or.cond, label %if.end5, label %return.sink.split
 
 if.end5:                                          ; preds = %ecc_test_curve_size.exit
-  %30 = add nsw i32 %keySize, -14
+  %30 = sub i32 %keySize, 14
   %31 = call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
   switch i32 %31, label %return.sink.split [
     i32 0, label %if.end11
@@ -13742,7 +13742,7 @@ sw.epilog.i:                                      ; preds = %sw.bb47.i, %sw.bb33
   %vec.sroa.31.0.i = phi ptr [ @.str.273, %sw.bb47.i ], [ @.str.264, %sw.bb33.i ], [ @.str.255, %sw.bb19.i ], [ @.str.246, %sw.bb5.i ], [ @.str.237, %if.end5 ]
   %vec.sroa.37.0.i = phi ptr [ @.str.274, %sw.bb47.i ], [ @.str.265, %sw.bb33.i ], [ @.str.258, %sw.bb19.i ], [ @.str.247, %sw.bb5.i ], [ @.str.238, %if.end5 ]
   %vec.sroa.50.0.i = phi ptr [ @.str.275, %sw.bb47.i ], [ @.str.266, %sw.bb33.i ], [ @.str.256, %sw.bb19.i ], [ @.str.248, %sw.bb5.i ], [ @.str.239, %if.end5 ]
-  %vec.sroa.57.0.i = phi i32 [ 65, %sw.bb47.i ], [ 48, %sw.bb33.i ], [ 32, %sw.bb19.i ], [ 28, %sw.bb5.i ], [ 24, %if.end5 ]
+  %vec.sroa.57.0.i = phi i32 [ 65, %sw.bb47.i ], [ %keySize, %sw.bb33.i ], [ %keySize, %sw.bb19.i ], [ %keySize, %sw.bb5.i ], [ %keySize, %if.end5 ]
   %vec.sroa.7.0.i = phi ptr [ @.str.269, %sw.bb47.i ], [ @.str.260, %sw.bb33.i ], [ @.str.251, %sw.bb19.i ], [ @.str.242, %sw.bb5.i ], [ @.str.233, %if.end5 ]
   %vec.sroa.645.0.i = phi ptr [ @.str.276, %sw.bb47.i ], [ @.str.267, %sw.bb33.i ], [ @.str.257, %sw.bb19.i ], [ @.str.249, %sw.bb5.i ], [ @.str.240, %if.end5 ]
   %vec.sroa.0.0.i = phi ptr [ @.str.268, %sw.bb47.i ], [ @.str.259, %sw.bb33.i ], [ @.str.250, %sw.bb19.i ], [ @.str.241, %sw.bb5.i ], [ @.str.232, %if.end5 ]
@@ -15080,17 +15080,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #15
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
@@ -15099,7 +15096,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15116,9 +15116,9 @@ attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nofree nounwind }
-attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind willreturn memory(read) }

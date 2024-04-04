@@ -2419,8 +2419,8 @@ wb_get_type.exit284:                              ; preds = %49, %51, %55
   %116 = load ptr, ptr %16, align 8
   %117 = tail call i32 %116(ptr noundef nonnull %115, ptr noundef %4) #10
   %118 = tail call fastcc i32 @wb_get_type(i32 noundef %117)
-  %119 = add i32 %118, -4
-  %120 = tail call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 31)
+  %119 = sub i32 %118, 4
+  %120 = call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 31)
   switch i32 %120, label %.thread289.thread [
     i32 7, label %.backedge
     i32 1, label %.backedge

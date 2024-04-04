@@ -526,91 +526,92 @@ rbimpl_intern_const.exit33:                       ; preds = %.lr.ph.i31, %rbimpl
   br i1 %35, label %36, label %rb_type.exit
 
 36:                                               ; preds = %21
-  %37 = call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 62)
-  switch i64 %37, label %38 [
+  %37 = sub i64 %31, 0
+  %38 = call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 62)
+  switch i64 %38, label %39 [
     i64 0, label %rb_type.exit.thread39
     i64 1, label %rb_type.exit.thread
     i64 5, label %rb_type.exit.thread41
     i64 9, label %rb_type.exit.thread
   ]
 
-38:                                               ; preds = %36
-  %39 = and i64 %31, 1
-  %.not.i34 = icmp eq i64 %39, 0
+39:                                               ; preds = %36
+  %40 = and i64 %31, 1
+  %.not.i34 = icmp eq i64 %40, 0
   br i1 %.not.i34, label %rb_type.exit.thread, label %rb_type.exit.thread37
 
 rb_type.exit:                                     ; preds = %21
-  %40 = inttoptr i64 %31 to ptr
-  %41 = load i64, ptr %40, align 8
-  %42 = trunc i64 %41 to i32
-  %43 = and i32 %42, 31
-  switch i32 %43, label %rb_type.exit.thread [
+  %41 = inttoptr i64 %31 to ptr
+  %42 = load i64, ptr %41, align 8
+  %43 = trunc i64 %42 to i32
+  %44 = and i32 %43, 31
+  switch i32 %44, label %rb_type.exit.thread [
     i32 21, label %rb_type.exit.thread37
     i32 19, label %rb_type.exit.thread39
     i32 18, label %rb_type.exit.thread41
   ]
 
-rb_type.exit.thread37:                            ; preds = %38, %rb_type.exit
-  %44 = call i64 @rb_fix2int(i64 noundef %31) #10
-  %45 = trunc i64 %44 to i32
-  store i32 %45, ptr %7, align 4
-  br label %58
+rb_type.exit.thread37:                            ; preds = %39, %rb_type.exit
+  %45 = call i64 @rb_fix2int(i64 noundef %31) #10
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %7, align 4
+  br label %59
 
 rb_type.exit.thread39:                            ; preds = %36, %rb_type.exit
   store i32 0, ptr %7, align 4
-  br label %58
+  br label %59
 
 rb_type.exit.thread41:                            ; preds = %36, %rb_type.exit
   store i32 1, ptr %7, align 4
-  br label %58
+  br label %59
 
-rb_type.exit.thread:                              ; preds = %38, %36, %36, %rb_type.exit
-  %46 = call i64 @rb_string_value(ptr noundef nonnull %6) #10
-  %47 = load i64, ptr %6, align 8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = load i64, ptr %48, align 8, !noalias !11
-  %50 = and i64 %49, 8192
-  %.not.i.i = icmp eq i64 %50, 0
-  %51 = getelementptr inbounds i8, ptr %48, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %52
+rb_type.exit.thread:                              ; preds = %39, %36, %36, %rb_type.exit
+  %47 = call i64 @rb_string_value(ptr noundef nonnull %6) #10
+  %48 = load i64, ptr %6, align 8
+  %49 = inttoptr i64 %48 to ptr
+  %50 = load i64, ptr %49, align 8, !noalias !11
+  %51 = and i64 %50, 8192
+  %.not.i.i = icmp eq i64 %51, 0
+  %52 = getelementptr inbounds i8, ptr %49, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %53
 
-52:                                               ; preds = %rb_type.exit.thread
-  %.sroa.2.0.copyload.i = load ptr, ptr %51, align 8
+53:                                               ; preds = %rb_type.exit.thread
+  %.sroa.2.0.copyload.i = load ptr, ptr %52, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %rb_type.exit.thread, %52
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %52 ], [ %51, %rb_type.exit.thread ]
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
-  %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, 2147483648
-  %.not.i.i35 = icmp ult i64 %55, 4294967296
-  br i1 %.not.i.i35, label %RSTRING_LENINT.exit, label %56
+RSTRING_PTR.exit:                                 ; preds = %rb_type.exit.thread, %53
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %53 ], [ %52, %rb_type.exit.thread ]
+  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  %55 = load i64, ptr %54, align 8
+  %56 = add i64 %55, 2147483648
+  %.not.i.i35 = icmp ult i64 %56, 4294967296
+  br i1 %.not.i.i35, label %RSTRING_LENINT.exit, label %57
 
-56:                                               ; preds = %RSTRING_PTR.exit
-  call void @rb_out_of_int(i64 noundef %54) #11
+57:                                               ; preds = %RSTRING_PTR.exit
+  call void @rb_out_of_int(i64 noundef %55) #11
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %57 = trunc i64 %54 to i32
-  br label %58
+  %58 = trunc i64 %55 to i32
+  br label %59
 
-58:                                               ; preds = %rb_type.exit.thread37, %rb_type.exit.thread39, %rb_type.exit.thread41, %RSTRING_LENINT.exit
-  %.020 = phi i32 [ %57, %RSTRING_LENINT.exit ], [ 4, %rb_type.exit.thread41 ], [ 4, %rb_type.exit.thread39 ], [ 4, %rb_type.exit.thread37 ]
+59:                                               ; preds = %rb_type.exit.thread37, %rb_type.exit.thread39, %rb_type.exit.thread41, %RSTRING_LENINT.exit
+  %.020 = phi i32 [ %58, %RSTRING_LENINT.exit ], [ 4, %rb_type.exit.thread41 ], [ 4, %rb_type.exit.thread39 ], [ 4, %rb_type.exit.thread37 ]
   %.0 = phi ptr [ %.sroa.2.0.i, %RSTRING_LENINT.exit ], [ %7, %rb_type.exit.thread41 ], [ %7, %rb_type.exit.thread39 ], [ %7, %rb_type.exit.thread37 ]
   call void @rb_io_check_closed(ptr noundef %25) #10
-  %59 = getelementptr inbounds i8, ptr %25, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = call i32 @setsockopt(i32 noundef %60, i32 noundef %28, i32 noundef %30, ptr noundef %.0, i32 noundef %.020) #10
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %66
+  %60 = getelementptr inbounds i8, ptr %25, i64 16
+  %61 = load i32, ptr %60, align 8
+  %62 = call i32 @setsockopt(i32 noundef %61, i32 noundef %28, i32 noundef %30, ptr noundef %.0, i32 noundef %.020) #10
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %25, i64 32
-  %65 = load i64, ptr %64, align 8
-  call void @rsock_sys_fail_path(ptr noundef nonnull @.str.38, i64 noundef %65) #12
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds i8, ptr %25, i64 32
+  %66 = load i64, ptr %65, align 8
+  call void @rsock_sys_fail_path(ptr noundef nonnull @.str.38, i64 noundef %66) #12
   unreachable
 
-66:                                               ; preds = %58
+67:                                               ; preds = %59
   ret i64 1
 }
 
@@ -961,14 +962,14 @@ declare i64 @rsock_s_recvfrom(i64 noundef, i32 noundef, ptr noundef, i32 noundef
 
 declare i64 @rsock_s_recvfrom_nonblock(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -978,8 +979,8 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { cold noreturn nounwind }
 attributes #12 = { noreturn nounwind }

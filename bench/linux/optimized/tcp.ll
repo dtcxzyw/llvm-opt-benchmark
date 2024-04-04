@@ -11109,20 +11109,19 @@ thread-pre-split21:                               ; preds = %465
   br i1 %507, label %511, label %508
 
 508:                                              ; preds = %504
-  %509 = add nsw i32 %506, -12
+  %509 = sub i32 %506, 20
   %510 = call i32 @llvm.fshl.i32(i32 %509, i32 %509, i32 30)
   switch i32 %510, label %532 [
-    i32 12, label %511
-    i32 11, label %517
+    i32 0, label %529
     i32 9, label %517
     i32 7, label %517
-    i32 6, label %517
     i32 5, label %517
+    i32 4, label %517
     i32 3, label %517
-    i32 2, label %529
+    i32 1, label %517
   ]
 
-511:                                              ; preds = %508, %504
+511:                                              ; preds = %504
   %512 = load i32, ptr %500, align 8
   %513 = and i32 %512, 2
   %514 = icmp eq i32 %513, 0
@@ -11157,7 +11156,7 @@ thread-pre-split21:                               ; preds = %465
   store i32 %527, ptr %528, align 4
   br label %529
 
-529:                                              ; preds = %526, %517, %508
+529:                                              ; preds = %508, %526, %517
   %530 = call fastcc i32 @tcp_inq_hint(ptr noundef %0)
   %531 = getelementptr inbounds i8, ptr %15, i64 16
   store i32 %530, ptr %531, align 8

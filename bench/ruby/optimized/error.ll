@@ -2372,72 +2372,31 @@ define dso_local void @rb_check_type(i64 noundef %0, i32 noundef %1) local_unnam
   unreachable
 
 5:                                                ; preds = %2
-  %6 = and i64 %0, 7
-  %7 = icmp ne i64 %6, 0
-  %8 = icmp eq i64 %0, 0
-  %9 = or i1 %8, %7
-  br i1 %9, label %15, label %10
+  %6 = tail call fastcc i32 @rb_type(i64 noundef %0) #29, !range !20
+  %.not = icmp eq i32 %6, %1
+  br i1 %.not, label %7, label %.split
 
-10:                                               ; preds = %5
-  %11 = inttoptr i64 %0 to ptr
-  %12 = load i64, ptr %11, align 8
-  %13 = trunc i64 %12 to i32
-  %14 = and i32 %13, 31
-  br label %rb_type.exit
-
-15:                                               ; preds = %5
-  %16 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
-  %17 = icmp ult i64 %16, 10
-  br i1 %17, label %switch.hole_check, label %18
-
-18:                                               ; preds = %switch.hole_check, %15
-  %19 = and i64 %0, 1
-  %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %20, label %rb_type.exit
-
-20:                                               ; preds = %18
-  %21 = and i64 %0, 254
-  %22 = icmp eq i64 %21, 12
-  %spec.select.i = select i1 %22, i32 20, i32 4
-  br label %rb_type.exit
-
-switch.hole_check:                                ; preds = %15
-  %switch.maskindex = trunc i64 %16 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %18
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.rb_type, i64 0, i64 %16
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %rb_type.exit
-
-rb_type.exit:                                     ; preds = %switch.lookup, %10, %18, %20
-  %.0.i = phi i32 [ %14, %10 ], [ 21, %18 ], [ %spec.select.i, %20 ], [ %switch.load, %switch.lookup ]
-  %.not = icmp eq i32 %.0.i, %1
-  br i1 %.not, label %23, label %.split
-
-.split:                                           ; preds = %rb_type.exit
-  tail call fastcc void @unexpected_type(i64 noundef %0, i32 noundef %.0.i, i32 noundef %1) #30
+.split:                                           ; preds = %5
+  tail call fastcc void @unexpected_type(i64 noundef %0, i32 noundef %6, i32 noundef %1) #30
   unreachable
 
-23:                                               ; preds = %rb_type.exit
-  %24 = icmp eq i32 %1, 12
-  br i1 %24, label %25, label %31
+7:                                                ; preds = %5
+  %8 = icmp eq i32 %1, 12
+  br i1 %8, label %9, label %15
 
-25:                                               ; preds = %23
-  %26 = inttoptr i64 %0 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = load i64, ptr %27, align 8
-  %29 = add i64 %28, -1
-  %30 = icmp ult i64 %29, 3
-  br i1 %30, label %.split9, label %31
+9:                                                ; preds = %7
+  %10 = inttoptr i64 %0 to ptr
+  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = load i64, ptr %11, align 8
+  %13 = add i64 %12, -1
+  %14 = icmp ult i64 %13, 3
+  br i1 %14, label %.split9, label %15
 
-.split9:                                          ; preds = %25
+.split9:                                          ; preds = %9
   tail call fastcc void @unexpected_type(i64 noundef %0, i32 noundef 12, i32 noundef 12) #30
   unreachable
 
-31:                                               ; preds = %25, %23
+15:                                               ; preds = %9, %7
   ret void
 }
 
@@ -10624,17 +10583,17 @@ declare void @llvm.va_start.p0(ptr) #24
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #25
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #25
+declare i64 @llvm.smax.i64(i64, i64) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #26
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10661,8 +10620,8 @@ attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #22 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { nounwind }
 attributes #28 = { noreturn }
 attributes #29 = { nounwind willreturn memory(read) }

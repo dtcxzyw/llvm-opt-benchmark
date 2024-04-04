@@ -818,8 +818,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_dispatch_ins(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #3 {
 entry:
-  %ar.i75 = alloca %struct.lua_Debug, align 8
-  %ar.i45 = alloca %struct.lua_Debug, align 8
+  %ar.i74 = alloca %struct.lua_Debug, align 8
+  %ar.i44 = alloca %struct.lua_Debug, align 8
   %ar.i = alloca %struct.lua_Debug, align 8
   %call = tail call ptr @__errno_location() #13
   %0 = load i32, ptr %call, align 4
@@ -859,19 +859,18 @@ if.then.i:                                        ; preds = %entry
   %16 = getelementptr i32, ptr %pc, i64 %conv.i
   %arrayidx1.i = getelementptr i8, ptr %16, i64 -131072
   %17 = load i32, ptr %arrayidx1.i, align 4
-  %.pre.i = and i32 %17, 255
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %and2.pre-phi.i = phi i32 [ %.pre.i, %if.then.i ], [ %and.i, %entry ]
   %ins.0.i = phi i32 [ %17, %if.then.i ], [ %15, %entry ]
-  %18 = add nsw i32 %and2.pre-phi.i, -63
-  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 31)
-  switch i32 %19, label %sw.default.i [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb.i
-    i32 5, label %sw.bb11.i
-    i32 0, label %sw.bb18.i
+  %trunc.i = trunc i32 %ins.0.i to i8
+  %18 = sub i8 %trunc.i, 63
+  %19 = call i8 @llvm.fshl.i8(i8 %18, i8 %18, i8 7)
+  switch i8 %19, label %sw.default.i [
+    i8 1, label %sw.bb.i
+    i8 2, label %sw.bb.i
+    i8 5, label %sw.bb11.i
+    i8 0, label %sw.bb18.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
@@ -985,11 +984,11 @@ if.then.i43:                                      ; preds = %land.lhs.true.i
 
 if.then.i.i:                                      ; preds = %if.then.i43
   tail call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #12
-  %.pre.i44 = load i8, ptr %hookmask.i, align 1
+  %.pre.i = load i8, ptr %hookmask.i, align 1
   br label %lj_state_checkstack.exit.i
 
 lj_state_checkstack.exit.i:                       ; preds = %if.then.i.i, %if.then.i43
-  %37 = phi i8 [ %.pre.i44, %if.then.i.i ], [ %30, %if.then.i43 ]
+  %37 = phi i8 [ %.pre.i, %if.then.i.i ], [ %30, %if.then.i43 ]
   %38 = or i8 %37, 16
   store i8 %38, ptr %hookmask.i, align 1
   call void %29(ptr noundef nonnull %L, ptr noundef nonnull %ar.i) #12
@@ -1040,73 +1039,73 @@ lor.lhs.false46:                                  ; preds = %lor.lhs.false
   br i1 %cmp48.not, label %if.end56, label %if.then50
 
 if.then50:                                        ; preds = %lor.lhs.false46, %lor.lhs.false, %if.then31
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i45)
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i44)
   %46 = load i64, ptr %glref, align 8
   %47 = inttoptr i64 %46 to ptr
-  %hookf1.i47 = getelementptr inbounds i8, ptr %47, i64 336
-  %48 = load ptr, ptr %hookf1.i47, align 8
-  %tobool.not.i48 = icmp eq ptr %48, null
-  br i1 %tobool.not.i48, label %callhook.exit74, label %land.lhs.true.i49
+  %hookf1.i46 = getelementptr inbounds i8, ptr %47, i64 336
+  %48 = load ptr, ptr %hookf1.i46, align 8
+  %tobool.not.i47 = icmp eq ptr %48, null
+  br i1 %tobool.not.i47, label %callhook.exit73, label %land.lhs.true.i48
 
-land.lhs.true.i49:                                ; preds = %if.then50
-  %hookmask.i50 = getelementptr inbounds i8, ptr %47, i64 145
-  %49 = load i8, ptr %hookmask.i50, align 1
+land.lhs.true.i48:                                ; preds = %if.then50
+  %hookmask.i49 = getelementptr inbounds i8, ptr %47, i64 145
+  %49 = load i8, ptr %hookmask.i49, align 1
   %50 = and i8 %49, 16
-  %tobool2.not.i51 = icmp eq i8 %50, 0
-  br i1 %tobool2.not.i51, label %if.then.i53, label %callhook.exit74
+  %tobool2.not.i50 = icmp eq i8 %50, 0
+  br i1 %tobool2.not.i50, label %if.then.i52, label %callhook.exit73
 
-if.then.i53:                                      ; preds = %land.lhs.true.i49
-  %state.i54 = getelementptr inbounds i8, ptr %47, i64 964
-  %51 = load i32, ptr %state.i54, align 4
-  %and3.i55 = and i32 %51, -17
-  store i32 %and3.i55, ptr %state.i54, align 4
-  store i32 2, ptr %ar.i45, align 8
-  %currentline.i56 = getelementptr inbounds i8, ptr %ar.i45, i64 40
-  store i32 %call41, ptr %currentline.i56, align 8
+if.then.i52:                                      ; preds = %land.lhs.true.i48
+  %state.i53 = getelementptr inbounds i8, ptr %47, i64 964
+  %51 = load i32, ptr %state.i53, align 4
+  %and3.i54 = and i32 %51, -17
+  store i32 %and3.i54, ptr %state.i53, align 4
+  store i32 2, ptr %ar.i44, align 8
+  %currentline.i55 = getelementptr inbounds i8, ptr %ar.i44, i64 40
+  store i32 %call41, ptr %currentline.i55, align 8
   %52 = load ptr, ptr %base, align 8
-  %add.ptr5.i58 = getelementptr inbounds i8, ptr %52, i64 -8
-  %stack.i59 = getelementptr inbounds i8, ptr %L, i64 56
-  %53 = load i64, ptr %stack.i59, align 8
-  %sub.ptr.lhs.cast.i60 = ptrtoint ptr %add.ptr5.i58 to i64
-  %sub.ptr.sub.i61 = sub i64 %sub.ptr.lhs.cast.i60, %53
-  %sub.ptr.div.i62 = lshr exact i64 %sub.ptr.sub.i61, 3
-  %conv7.i63 = trunc i64 %sub.ptr.div.i62 to i32
-  %i_ci.i64 = getelementptr inbounds i8, ptr %ar.i45, i64 116
-  store i32 %conv7.i63, ptr %i_ci.i64, align 4
-  %maxstack.i.i65 = getelementptr inbounds i8, ptr %L, i64 48
-  %54 = load i64, ptr %maxstack.i.i65, align 8
+  %add.ptr5.i57 = getelementptr inbounds i8, ptr %52, i64 -8
+  %stack.i58 = getelementptr inbounds i8, ptr %L, i64 56
+  %53 = load i64, ptr %stack.i58, align 8
+  %sub.ptr.lhs.cast.i59 = ptrtoint ptr %add.ptr5.i57 to i64
+  %sub.ptr.sub.i60 = sub i64 %sub.ptr.lhs.cast.i59, %53
+  %sub.ptr.div.i61 = lshr exact i64 %sub.ptr.sub.i60, 3
+  %conv7.i62 = trunc i64 %sub.ptr.div.i61 to i32
+  %i_ci.i63 = getelementptr inbounds i8, ptr %ar.i44, i64 116
+  store i32 %conv7.i62, ptr %i_ci.i63, align 4
+  %maxstack.i.i64 = getelementptr inbounds i8, ptr %L, i64 48
+  %54 = load i64, ptr %maxstack.i.i64, align 8
   %55 = load ptr, ptr %top, align 8
-  %sub.ptr.rhs.cast.i.i67 = ptrtoint ptr %55 to i64
-  %sub.ptr.sub.i.i68 = sub i64 %54, %sub.ptr.rhs.cast.i.i67
-  %cmp.i.i69 = icmp slt i64 %sub.ptr.sub.i.i68, 169
-  br i1 %cmp.i.i69, label %if.then.i.i72, label %lj_state_checkstack.exit.i70
+  %sub.ptr.rhs.cast.i.i66 = ptrtoint ptr %55 to i64
+  %sub.ptr.sub.i.i67 = sub i64 %54, %sub.ptr.rhs.cast.i.i66
+  %cmp.i.i68 = icmp slt i64 %sub.ptr.sub.i.i67, 169
+  br i1 %cmp.i.i68, label %if.then.i.i71, label %lj_state_checkstack.exit.i69
 
-if.then.i.i72:                                    ; preds = %if.then.i53
+if.then.i.i71:                                    ; preds = %if.then.i52
   call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #12
-  %.pre.i73 = load i8, ptr %hookmask.i50, align 1
-  br label %lj_state_checkstack.exit.i70
+  %.pre.i72 = load i8, ptr %hookmask.i49, align 1
+  br label %lj_state_checkstack.exit.i69
 
-lj_state_checkstack.exit.i70:                     ; preds = %if.then.i.i72, %if.then.i53
-  %56 = phi i8 [ %.pre.i73, %if.then.i.i72 ], [ %49, %if.then.i53 ]
+lj_state_checkstack.exit.i69:                     ; preds = %if.then.i.i71, %if.then.i52
+  %56 = phi i8 [ %.pre.i72, %if.then.i.i71 ], [ %49, %if.then.i52 ]
   %57 = or i8 %56, 16
-  store i8 %57, ptr %hookmask.i50, align 1
-  call void %48(ptr noundef nonnull %L, ptr noundef nonnull %ar.i45) #12
+  store i8 %57, ptr %hookmask.i49, align 1
+  call void %48(ptr noundef nonnull %L, ptr noundef nonnull %ar.i44) #12
   %58 = ptrtoint ptr %L to i64
-  %cur_L.i71 = getelementptr inbounds i8, ptr %47, i64 368
-  store i64 %58, ptr %cur_L.i71, align 8
-  %59 = load i8, ptr %hookmask.i50, align 1
+  %cur_L.i70 = getelementptr inbounds i8, ptr %47, i64 368
+  store i64 %58, ptr %cur_L.i70, align 8
+  %59 = load i8, ptr %hookmask.i49, align 1
   %60 = and i8 %59, -17
-  store i8 %60, ptr %hookmask.i50, align 1
-  br label %callhook.exit74
+  store i8 %60, ptr %hookmask.i49, align 1
+  br label %callhook.exit73
 
-callhook.exit74:                                  ; preds = %if.then50, %land.lhs.true.i49, %lj_state_checkstack.exit.i70
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i45)
+callhook.exit73:                                  ; preds = %if.then50, %land.lhs.true.i48, %lj_state_checkstack.exit.i69
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i44)
   %61 = load ptr, ptr %base, align 8
   %add.ptr53 = getelementptr inbounds %union.TValue, ptr %61, i64 %idx.ext
   store ptr %add.ptr53, ptr %top, align 8
   br label %if.end56
 
-if.end56:                                         ; preds = %lor.lhs.false46, %callhook.exit74, %if.end26
+if.end56:                                         ; preds = %lor.lhs.false46, %callhook.exit73, %if.end26
   %62 = load i8, ptr %hookmask, align 1
   %63 = and i8 %62, 2
   %tobool60.not = icmp eq i8 %63, 0
@@ -1120,70 +1119,70 @@ land.lhs.true61:                                  ; preds = %if.end56
   br i1 %switch, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %land.lhs.true61
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i75)
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i74)
   %65 = load i64, ptr %glref, align 8
   %66 = inttoptr i64 %65 to ptr
-  %hookf1.i77 = getelementptr inbounds i8, ptr %66, i64 336
-  %67 = load ptr, ptr %hookf1.i77, align 8
-  %tobool.not.i78 = icmp eq ptr %67, null
-  br i1 %tobool.not.i78, label %callhook.exit104, label %land.lhs.true.i79
+  %hookf1.i76 = getelementptr inbounds i8, ptr %66, i64 336
+  %67 = load ptr, ptr %hookf1.i76, align 8
+  %tobool.not.i77 = icmp eq ptr %67, null
+  br i1 %tobool.not.i77, label %callhook.exit103, label %land.lhs.true.i78
 
-land.lhs.true.i79:                                ; preds = %if.then65
-  %hookmask.i80 = getelementptr inbounds i8, ptr %66, i64 145
-  %68 = load i8, ptr %hookmask.i80, align 1
+land.lhs.true.i78:                                ; preds = %if.then65
+  %hookmask.i79 = getelementptr inbounds i8, ptr %66, i64 145
+  %68 = load i8, ptr %hookmask.i79, align 1
   %69 = and i8 %68, 16
-  %tobool2.not.i81 = icmp eq i8 %69, 0
-  br i1 %tobool2.not.i81, label %if.then.i83, label %callhook.exit104
+  %tobool2.not.i80 = icmp eq i8 %69, 0
+  br i1 %tobool2.not.i80, label %if.then.i82, label %callhook.exit103
 
-if.then.i83:                                      ; preds = %land.lhs.true.i79
-  %state.i84 = getelementptr inbounds i8, ptr %66, i64 964
-  %70 = load i32, ptr %state.i84, align 4
-  %and3.i85 = and i32 %70, -17
-  store i32 %and3.i85, ptr %state.i84, align 4
-  store i32 1, ptr %ar.i75, align 8
-  %currentline.i86 = getelementptr inbounds i8, ptr %ar.i75, i64 40
-  store i32 -1, ptr %currentline.i86, align 8
+if.then.i82:                                      ; preds = %land.lhs.true.i78
+  %state.i83 = getelementptr inbounds i8, ptr %66, i64 964
+  %70 = load i32, ptr %state.i83, align 4
+  %and3.i84 = and i32 %70, -17
+  store i32 %and3.i84, ptr %state.i83, align 4
+  store i32 1, ptr %ar.i74, align 8
+  %currentline.i85 = getelementptr inbounds i8, ptr %ar.i74, i64 40
+  store i32 -1, ptr %currentline.i85, align 8
   %71 = load ptr, ptr %base, align 8
-  %add.ptr5.i88 = getelementptr inbounds i8, ptr %71, i64 -8
-  %stack.i89 = getelementptr inbounds i8, ptr %L, i64 56
-  %72 = load i64, ptr %stack.i89, align 8
-  %sub.ptr.lhs.cast.i90 = ptrtoint ptr %add.ptr5.i88 to i64
-  %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i90, %72
-  %sub.ptr.div.i92 = lshr exact i64 %sub.ptr.sub.i91, 3
-  %conv7.i93 = trunc i64 %sub.ptr.div.i92 to i32
-  %i_ci.i94 = getelementptr inbounds i8, ptr %ar.i75, i64 116
-  store i32 %conv7.i93, ptr %i_ci.i94, align 4
-  %maxstack.i.i95 = getelementptr inbounds i8, ptr %L, i64 48
-  %73 = load i64, ptr %maxstack.i.i95, align 8
+  %add.ptr5.i87 = getelementptr inbounds i8, ptr %71, i64 -8
+  %stack.i88 = getelementptr inbounds i8, ptr %L, i64 56
+  %72 = load i64, ptr %stack.i88, align 8
+  %sub.ptr.lhs.cast.i89 = ptrtoint ptr %add.ptr5.i87 to i64
+  %sub.ptr.sub.i90 = sub i64 %sub.ptr.lhs.cast.i89, %72
+  %sub.ptr.div.i91 = lshr exact i64 %sub.ptr.sub.i90, 3
+  %conv7.i92 = trunc i64 %sub.ptr.div.i91 to i32
+  %i_ci.i93 = getelementptr inbounds i8, ptr %ar.i74, i64 116
+  store i32 %conv7.i92, ptr %i_ci.i93, align 4
+  %maxstack.i.i94 = getelementptr inbounds i8, ptr %L, i64 48
+  %73 = load i64, ptr %maxstack.i.i94, align 8
   %74 = load ptr, ptr %top, align 8
-  %sub.ptr.rhs.cast.i.i97 = ptrtoint ptr %74 to i64
-  %sub.ptr.sub.i.i98 = sub i64 %73, %sub.ptr.rhs.cast.i.i97
-  %cmp.i.i99 = icmp slt i64 %sub.ptr.sub.i.i98, 169
-  br i1 %cmp.i.i99, label %if.then.i.i102, label %lj_state_checkstack.exit.i100
+  %sub.ptr.rhs.cast.i.i96 = ptrtoint ptr %74 to i64
+  %sub.ptr.sub.i.i97 = sub i64 %73, %sub.ptr.rhs.cast.i.i96
+  %cmp.i.i98 = icmp slt i64 %sub.ptr.sub.i.i97, 169
+  br i1 %cmp.i.i98, label %if.then.i.i101, label %lj_state_checkstack.exit.i99
 
-if.then.i.i102:                                   ; preds = %if.then.i83
+if.then.i.i101:                                   ; preds = %if.then.i82
   call void @lj_state_growstack(ptr noundef nonnull %L, i32 noundef 21) #12
-  %.pre.i103 = load i8, ptr %hookmask.i80, align 1
-  br label %lj_state_checkstack.exit.i100
+  %.pre.i102 = load i8, ptr %hookmask.i79, align 1
+  br label %lj_state_checkstack.exit.i99
 
-lj_state_checkstack.exit.i100:                    ; preds = %if.then.i.i102, %if.then.i83
-  %75 = phi i8 [ %.pre.i103, %if.then.i.i102 ], [ %68, %if.then.i83 ]
+lj_state_checkstack.exit.i99:                     ; preds = %if.then.i.i101, %if.then.i82
+  %75 = phi i8 [ %.pre.i102, %if.then.i.i101 ], [ %68, %if.then.i82 ]
   %76 = or i8 %75, 16
-  store i8 %76, ptr %hookmask.i80, align 1
-  call void %67(ptr noundef nonnull %L, ptr noundef nonnull %ar.i75) #12
+  store i8 %76, ptr %hookmask.i79, align 1
+  call void %67(ptr noundef nonnull %L, ptr noundef nonnull %ar.i74) #12
   %77 = ptrtoint ptr %L to i64
-  %cur_L.i101 = getelementptr inbounds i8, ptr %66, i64 368
-  store i64 %77, ptr %cur_L.i101, align 8
-  %78 = load i8, ptr %hookmask.i80, align 1
+  %cur_L.i100 = getelementptr inbounds i8, ptr %66, i64 368
+  store i64 %77, ptr %cur_L.i100, align 8
+  %78 = load i8, ptr %hookmask.i79, align 1
   %79 = and i8 %78, -17
-  store i8 %79, ptr %hookmask.i80, align 1
-  br label %callhook.exit104
+  store i8 %79, ptr %hookmask.i79, align 1
+  br label %callhook.exit103
 
-callhook.exit104:                                 ; preds = %if.then65, %land.lhs.true.i79, %lj_state_checkstack.exit.i100
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i75)
+callhook.exit103:                                 ; preds = %if.then65, %land.lhs.true.i78, %lj_state_checkstack.exit.i99
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i74)
   br label %if.end66
 
-if.end66:                                         ; preds = %land.lhs.true61, %callhook.exit104, %if.end56
+if.end66:                                         ; preds = %land.lhs.true61, %callhook.exit103, %if.end56
   store i32 %0, ptr %call, align 4
   ret void
 }
@@ -1492,19 +1491,18 @@ if.then.i:                                        ; preds = %entry
   %14 = getelementptr i32, ptr %add.ptr10, i64 %conv.i
   %arrayidx1.i = getelementptr i8, ptr %14, i64 -131072
   %15 = load i32, ptr %arrayidx1.i, align 4
-  %.pre.i = and i32 %15, 255
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %and2.pre-phi.i = phi i32 [ %.pre.i, %if.then.i ], [ %and.i, %entry ]
   %ins.0.i = phi i32 [ %15, %if.then.i ], [ %13, %entry ]
-  %16 = add nsw i32 %and2.pre-phi.i, -63
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 31)
-  switch i32 %17, label %sw.default.i [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb.i
-    i32 5, label %sw.bb11.i
-    i32 0, label %sw.bb18.i
+  %trunc.i = trunc i32 %ins.0.i to i8
+  %16 = sub i8 %trunc.i, 63
+  %17 = call i8 @llvm.fshl.i8(i8 %16, i8 %16, i8 7)
+  switch i8 %17, label %sw.default.i [
+    i8 1, label %sw.bb.i
+    i8 2, label %sw.bb.i
+    i8 5, label %sw.bb11.i
+    i8 0, label %sw.bb18.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
@@ -1591,19 +1589,18 @@ if.then.i:                                        ; preds = %entry
   %14 = getelementptr i32, ptr %pc, i64 %conv.i
   %arrayidx1.i = getelementptr i8, ptr %14, i64 -131072
   %15 = load i32, ptr %arrayidx1.i, align 4
-  %.pre.i = and i32 %15, 255
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %and2.pre-phi.i = phi i32 [ %.pre.i, %if.then.i ], [ %and.i, %entry ]
   %ins.0.i = phi i32 [ %15, %if.then.i ], [ %13, %entry ]
-  %16 = add nsw i32 %and2.pre-phi.i, -63
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 31)
-  switch i32 %17, label %sw.default.i [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb.i
-    i32 5, label %sw.bb11.i
-    i32 0, label %sw.bb18.i
+  %trunc.i = trunc i32 %ins.0.i to i8
+  %16 = sub i8 %trunc.i, 63
+  %17 = call i8 @llvm.fshl.i8(i8 %16, i8 %16, i8 7)
+  switch i8 %17, label %sw.default.i [
+    i8 1, label %sw.bb.i
+    i8 2, label %sw.bb.i
+    i8 5, label %sw.bb11.i
+    i8 0, label %sw.bb18.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
@@ -1667,9 +1664,6 @@ declare hidden void @lj_trace_flushproto(ptr noundef, ptr noundef) local_unnamed
 declare hidden void @lj_state_growstack(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1677,6 +1671,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

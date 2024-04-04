@@ -368,8 +368,8 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @prolog2(ptr nocapture noundef %state, i32 noundef %tok, ptr nocapture readnone %ptr, ptr nocapture readnone %end, ptr nocapture readnone %enc) #2 {
 entry:
-  %0 = add i32 %tok, -11
-  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %0 = sub i32 %tok, 11
+  %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.epilog [
     i32 2, label %return
     i32 0, label %sw.bb1

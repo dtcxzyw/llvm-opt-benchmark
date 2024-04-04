@@ -209,8 +209,8 @@ if.end:                                           ; preds = %if.then, %entry
 if.end66:                                         ; preds = %if.end
   %md_len = getelementptr inbounds i8, ptr %c, i64 212
   %3 = load i32, ptr %md_len, align 4
-  %4 = add i32 %3, -28
-  %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 30)
+  %4 = sub i32 %3, 28
+  %5 = call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 30)
   switch i32 %5, label %return [
     i32 0, label %for.body
     i32 1, label %for.body112

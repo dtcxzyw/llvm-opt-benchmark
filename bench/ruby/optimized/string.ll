@@ -20066,7 +20066,7 @@ rb_num2long_inline.exit37:                        ; preds = %31, %33
 37:                                               ; preds = %rb_num2long_inline.exit37, %18
   %38 = getelementptr i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8
-  br label %77
+  br label %78
 
 40:                                               ; preds = %3
   %41 = add i32 %0, -4
@@ -20090,86 +20090,87 @@ rb_check_arity.exit:                              ; preds = %40
   br i1 %49, label %50, label %rb_type.exit.i
 
 50:                                               ; preds = %rb_check_arity.exit
-  %51 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 62)
-  switch i64 %51, label %52 [
+  %51 = sub i64 %43, 0
+  %52 = call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 62)
+  switch i64 %52, label %53 [
     i64 0, label %rb_type.exit.thread.i
     i64 1, label %rb_type.exit.thread.i
     i64 5, label %rb_type.exit.thread.i
     i64 9, label %rb_type.exit.thread.i
   ]
 
-52:                                               ; preds = %50
-  %53 = and i64 %43, 1
-  %.not.i.i = icmp eq i64 %53, 0
+53:                                               ; preds = %50
+  %54 = and i64 %43, 1
+  %.not.i.i = icmp eq i64 %54, 0
   br i1 %.not.i.i, label %rb_type.exit.thread.i, label %rb_type.exit.thread29.i
 
 rb_type.exit.i:                                   ; preds = %rb_check_arity.exit
-  %54 = inttoptr i64 %43 to ptr
-  %55 = load i64, ptr %54, align 8
-  %56 = trunc i64 %55 to i32
-  %57 = and i32 %56, 31
-  switch i32 %57, label %rb_type.exit.thread.i [
-    i32 6, label %58
-    i32 5, label %59
+  %55 = inttoptr i64 %43 to ptr
+  %56 = load i64, ptr %55, align 8
+  %57 = trunc i64 %56 to i32
+  %58 = and i32 %57, 31
+  switch i32 %58, label %rb_type.exit.thread.i [
+    i32 6, label %59
+    i32 5, label %60
     i32 21, label %rb_type.exit.thread29.i
   ]
 
-58:                                               ; preds = %rb_type.exit.i
+59:                                               ; preds = %rb_type.exit.i
   tail call fastcc void @rb_str_subpat_set(i64 noundef %2, i64 noundef %43, i64 noundef 1, i64 noundef %45)
   br label %rb_str_aset.exit
 
-59:                                               ; preds = %rb_type.exit.i
-  %60 = tail call fastcc i64 @rb_strseq_index(i64 noundef %2, i64 noundef %43, i64 noundef 0, i32 noundef 0)
-  %61 = icmp slt i64 %60, 0
-  br i1 %61, label %62, label %64
+60:                                               ; preds = %rb_type.exit.i
+  %61 = tail call fastcc i64 @rb_strseq_index(i64 noundef %2, i64 noundef %43, i64 noundef 0, i32 noundef 0)
+  %62 = icmp slt i64 %61, 0
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr @rb_eIndexError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %63, ptr noundef nonnull @.str.219) #33
+63:                                               ; preds = %60
+  %64 = load i64, ptr @rb_eIndexError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %64, ptr noundef nonnull @.str.219) #33
   unreachable
 
-64:                                               ; preds = %59
-  %65 = tail call i64 @rb_str_sublen(i64 noundef %2, i64 noundef %60)
-  %66 = tail call fastcc i64 @str_strlen(i64 noundef %43, ptr noundef null)
-  tail call void @rb_str_update(i64 noundef %2, i64 noundef %65, i64 noundef %66, i64 noundef %45)
+65:                                               ; preds = %60
+  %66 = tail call i64 @rb_str_sublen(i64 noundef %2, i64 noundef %61)
+  %67 = tail call fastcc i64 @str_strlen(i64 noundef %43, ptr noundef null)
+  tail call void @rb_str_update(i64 noundef %2, i64 noundef %66, i64 noundef %67, i64 noundef %45)
   br label %rb_str_aset.exit
 
-rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %52, %50, %50, %50, %50
-  %67 = tail call fastcc i64 @str_strlen(i64 noundef %2, ptr noundef null)
-  %68 = call i64 @rb_range_beg_len(i64 noundef %43, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %67, i32 noundef 2) #28
-  %.not.i38 = icmp eq i64 %68, 0
-  br i1 %.not.i38, label %rb_type.exit.thread29.i, label %69
+rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %53, %50, %50, %50, %50
+  %68 = tail call fastcc i64 @str_strlen(i64 noundef %2, ptr noundef null)
+  %69 = call i64 @rb_range_beg_len(i64 noundef %43, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %68, i32 noundef 2) #28
+  %.not.i38 = icmp eq i64 %69, 0
+  br i1 %.not.i38, label %rb_type.exit.thread29.i, label %70
 
-69:                                               ; preds = %rb_type.exit.thread.i
-  %70 = load i64, ptr %4, align 8
-  %71 = load i64, ptr %5, align 8
-  call void @rb_str_update(i64 noundef %2, i64 noundef %70, i64 noundef %71, i64 noundef %45)
+70:                                               ; preds = %rb_type.exit.thread.i
+  %71 = load i64, ptr %4, align 8
+  %72 = load i64, ptr %5, align 8
+  call void @rb_str_update(i64 noundef %2, i64 noundef %71, i64 noundef %72, i64 noundef %45)
   br label %rb_str_aset.exit
 
-rb_type.exit.thread29.i:                          ; preds = %rb_type.exit.thread.i, %rb_type.exit.i, %52
-  %72 = and i64 %43, 1
-  %.not.i26.i = icmp eq i64 %72, 0
-  br i1 %.not.i26.i, label %75, label %73
+rb_type.exit.thread29.i:                          ; preds = %rb_type.exit.thread.i, %rb_type.exit.i, %53
+  %73 = and i64 %43, 1
+  %.not.i26.i = icmp eq i64 %73, 0
+  br i1 %.not.i26.i, label %76, label %74
 
-73:                                               ; preds = %rb_type.exit.thread29.i
-  %74 = ashr i64 %43, 1
+74:                                               ; preds = %rb_type.exit.thread29.i
+  %75 = ashr i64 %43, 1
   br label %rb_num2long_inline.exit.i
 
-75:                                               ; preds = %rb_type.exit.thread29.i
-  %76 = call i64 @rb_num2long(i64 noundef %43) #28
+76:                                               ; preds = %rb_type.exit.thread29.i
+  %77 = call i64 @rb_num2long(i64 noundef %43) #28
   br label %rb_num2long_inline.exit.i
 
-rb_num2long_inline.exit.i:                        ; preds = %75, %73
-  %.0.i27.i = phi i64 [ %74, %73 ], [ %76, %75 ]
+rb_num2long_inline.exit.i:                        ; preds = %76, %74
+  %.0.i27.i = phi i64 [ %75, %74 ], [ %77, %76 ]
   call void @rb_str_update(i64 noundef %2, i64 noundef %.0.i27.i, i64 noundef 1, i64 noundef %45)
   br label %rb_str_aset.exit
 
-rb_str_aset.exit:                                 ; preds = %58, %64, %69, %rb_num2long_inline.exit.i
+rb_str_aset.exit:                                 ; preds = %59, %65, %70, %rb_num2long_inline.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %77
+  br label %78
 
-77:                                               ; preds = %rb_str_aset.exit, %37
+78:                                               ; preds = %rb_str_aset.exit, %37
   %.033 = phi i64 [ %39, %37 ], [ %45, %rb_str_aset.exit ]
   ret i64 %.033
 }

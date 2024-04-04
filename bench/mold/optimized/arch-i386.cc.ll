@@ -1355,14 +1355,14 @@ if.then157:                                       ; preds = %_ZNK4mold3elf6Symbo
   %add.ptr159.val = load i8, ptr %add.ptr159, align 1
   %69 = getelementptr i8, ptr %add.ptr19, i64 -1
   %add.ptr159.val147 = load i8, ptr %69, align 1
-  %conv.i241 = zext i8 %add.ptr159.val to i32
-  %shl.i = shl nuw nsw i32 %conv.i241, 8
-  %conv2.i242 = zext i8 %add.ptr159.val147 to i32
-  %or.i243 = add nuw nsw i32 %conv2.i242, -36227
-  %70 = add nsw i32 %or.i243, %shl.i
-  %71 = call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 29)
-  %72 = icmp ult i32 %71, 8
-  br i1 %72, label %switch.lookup, label %if.then162
+  %conv.i241 = zext i8 %add.ptr159.val to i16
+  %shl.i = shl nuw i16 %conv.i241, 8
+  %conv2.i242 = zext i8 %add.ptr159.val147 to i16
+  %70 = add nuw nsw i16 %conv2.i242, 29309
+  %71 = add i16 %70, %shl.i
+  %72 = call i16 @llvm.fshl.i16(i16 %71, i16 %71, i16 13)
+  %73 = icmp ult i16 %72, 8
+  br i1 %73, label %switch.lookup, label %if.then162
 
 if.then162:                                       ; preds = %if.then157
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_4I386EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(4568) %ctx)
@@ -1372,50 +1372,50 @@ if.then162:                                       ; preds = %if.then157
   unreachable
 
 switch.lookup:                                    ; preds = %if.then157
-  %switch.idx.cast = trunc i32 %71 to i8
+  %switch.idx.cast = trunc i16 %72 to i8
   %switch.idx.mult = shl nuw nsw i8 %switch.idx.cast, 3
   %switch.offset = or disjoint i8 %switch.idx.mult, -125
   store i8 -117, ptr %add.ptr159, align 1
   store i8 %switch.offset, ptr %69, align 1
-  %73 = load ptr, ptr %got, align 8
-  %sh_addr.i247 = getelementptr inbounds i8, ptr %73, i64 36
+  %74 = load ptr, ptr %got, align 8
+  %sh_addr.i247 = getelementptr inbounds i8, ptr %74, i64 36
   %x.0.copyload.i.i248 = load i32, ptr %sh_addr.i247, align 1
-  %74 = load i32, ptr %aux_idx.i, align 8
-  %cmp.i.i250 = icmp eq i32 %74, -1
+  %75 = load i32, ptr %aux_idx.i, align 8
+  %cmp.i.i250 = icmp eq i32 %75, -1
   br i1 %cmp.i.i250, label %_ZNK4mold3elf6SymbolINS0_4I386EE14get_gottp_addrERNS0_7ContextIS2_EE.exit258, label %cond.false.i.i251
 
 cond.false.i.i251:                                ; preds = %switch.lookup
-  %conv.i.i253 = sext i32 %74 to i64
-  %75 = load ptr, ptr %symbol_aux.i, align 8
-  %gottp_idx.i.i254 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %75, i64 %conv.i.i253, i32 1
-  %76 = load i32, ptr %gottp_idx.i.i254, align 4
-  %77 = sext i32 %76 to i64
-  %78 = shl nsw i64 %77, 2
+  %conv.i.i253 = sext i32 %75 to i64
+  %76 = load ptr, ptr %symbol_aux.i, align 8
+  %gottp_idx.i.i254 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %76, i64 %conv.i.i253, i32 1
+  %77 = load i32, ptr %gottp_idx.i.i254, align 4
+  %78 = sext i32 %77 to i64
+  %79 = shl nsw i64 %78, 2
   br label %_ZNK4mold3elf6SymbolINS0_4I386EE14get_gottp_addrERNS0_7ContextIS2_EE.exit258
 
 _ZNK4mold3elf6SymbolINS0_4I386EE14get_gottp_addrERNS0_7ContextIS2_EE.exit258: ; preds = %switch.lookup, %cond.false.i.i251
-  %cond.i.i255 = phi i64 [ %78, %cond.false.i.i251 ], [ -4, %switch.lookup ]
+  %cond.i.i255 = phi i64 [ %79, %cond.false.i.i251 ], [ -4, %switch.lookup ]
   %conv.i256 = zext i32 %x.0.copyload.i.i248 to i64
   %add.i257 = add nuw nsw i64 %retval.0.i.i, %conv.i256
   %add173 = add nsw i64 %add.i257, %cond.i.i255
-  %79 = trunc i64 %add173 to i32
-  %conv175 = sub i32 %79, %x.0.copyload.i159
+  %80 = trunc i64 %add173 to i32
+  %conv175 = sub i32 %80, %x.0.copyload.i159
   store i32 %conv175, ptr %add.ptr19, align 1
   br label %for.inc
 
 if.else177:                                       ; preds = %sw.bb147, %_ZNK4mold3elf6SymbolINS0_4I386EE9has_gottpERNS0_7ContextIS2_EE.exit
   %add.ptr179 = getelementptr inbounds i8, ptr %add.ptr19, i64 -2
   %add.ptr179.val = load i8, ptr %add.ptr179, align 1
-  %80 = getelementptr i8, ptr %add.ptr19, i64 -1
-  %add.ptr179.val148 = load i8, ptr %80, align 1
-  %conv.i259 = zext i8 %add.ptr179.val to i32
-  %shl.i260 = shl nuw nsw i32 %conv.i259, 8
-  %conv2.i261 = zext i8 %add.ptr179.val148 to i32
-  %or.i262 = add nuw nsw i32 %conv2.i261, -36227
-  %81 = add nsw i32 %or.i262, %shl.i260
-  %82 = call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 29)
-  %83 = icmp ult i32 %82, 8
-  br i1 %83, label %switch.lookup301, label %if.then182
+  %81 = getelementptr i8, ptr %add.ptr19, i64 -1
+  %add.ptr179.val148 = load i8, ptr %81, align 1
+  %conv.i259 = zext i8 %add.ptr179.val to i16
+  %shl.i260 = shl nuw i16 %conv.i259, 8
+  %conv2.i261 = zext i8 %add.ptr179.val148 to i16
+  %82 = add nuw nsw i16 %conv2.i261, 29309
+  %83 = add i16 %82, %shl.i260
+  %84 = call i16 @llvm.fshl.i16(i16 %83, i16 %83, i16 13)
+  %85 = icmp ult i16 %84, 8
+  br i1 %85, label %switch.lookup301, label %if.then182
 
 if.then182:                                       ; preds = %if.else177
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_4I386EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp183, ptr noundef nonnull align 8 dereferenceable(4568) %ctx)
@@ -1425,13 +1425,13 @@ if.then182:                                       ; preds = %if.else177
   unreachable
 
 switch.lookup301:                                 ; preds = %if.else177
-  %switch.idx.cast302 = trunc i32 %82 to i8
+  %switch.idx.cast302 = trunc i16 %84 to i8
   %switch.offset303 = or disjoint i8 %switch.idx.cast302, -72
   store i8 -112, ptr %add.ptr179, align 1
-  store i8 %switch.offset303, ptr %80, align 1
+  store i8 %switch.offset303, ptr %81, align 1
   %add192 = add i64 %retval.0.i.i, %call20
-  %84 = load i64, ptr %tp_addr193, align 8
-  %sub194 = sub i64 %add192, %84
+  %86 = load i64, ptr %tp_addr193, align 8
+  %sub194 = sub i64 %add192, %86
   %conv195 = trunc i64 %sub194 to i32
   store i32 %conv195, ptr %add.ptr19, align 1
   br label %for.inc
@@ -1441,10 +1441,10 @@ sw.bb199:                                         ; preds = %_ZNK4mold3elf6Symbo
 
 _ZNK4mold3elf6SymbolINS0_4I386EE11has_tlsdescERNS0_7ContextIS2_EE.exit279: ; preds = %sw.bb199
   %conv.i.i276 = sext i32 %27 to i64
-  %85 = load ptr, ptr %symbol_aux.i, align 8
-  %tlsdesc_idx.i.i277 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %85, i64 %conv.i.i276, i32 3
-  %86 = load i32, ptr %tlsdesc_idx.i.i277, align 4
-  %.not = icmp eq i32 %86, -1
+  %87 = load ptr, ptr %symbol_aux.i, align 8
+  %tlsdesc_idx.i.i277 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %87, i64 %conv.i.i276, i32 3
+  %88 = load i32, ptr %tlsdesc_idx.i.i277, align 4
+  %.not = icmp eq i32 %88, -1
   br i1 %.not, label %if.then201, label %for.inc
 
 if.then201:                                       ; preds = %sw.bb199, %_ZNK4mold3elf6SymbolINS0_4I386EE11has_tlsdescERNS0_7ContextIS2_EE.exit279
@@ -4046,14 +4046,11 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #16
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
@@ -4063,6 +4060,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshl.i16(i16, i16, i16) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4080,8 +4080,8 @@ attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nounwind }

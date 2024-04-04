@@ -14623,10 +14623,10 @@ define internal fastcc zeroext i1 @context_terminator(i32 noundef %0, ptr nocapt
     i32 1, label %42
     i32 28, label %42
     i32 29, label %42
-    i32 26, label %47
-    i32 27, label %47
-    i32 18, label %51
-    i32 24, label %54
+    i32 26, label %45
+    i32 27, label %45
+    i32 18, label %49
+    i32 24, label %52
   ]
 
 3:                                                ; preds = %2, %2
@@ -14703,28 +14703,27 @@ define internal fastcc zeroext i1 @context_terminator(i32 noundef %0, ptr nocapt
 
 42:                                               ; preds = %2, %2, %2
   %43 = load i32, ptr %1, align 8
-  %44 = add i32 %43, -73
-  %45 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 31)
-  %46 = icmp ult i32 %45, 9
-  br i1 %46, label %switch.lookup63, label %switch.edge
+  %switch.tableidx64 = add i32 %43, -73
+  %44 = icmp ult i32 %switch.tableidx64, 17
+  br i1 %44, label %switch.lookup63, label %switch.edge
 
-47:                                               ; preds = %2, %2
-  %48 = load i32, ptr %1, align 8
-  %49 = icmp eq i32 %48, 77
-  %50 = icmp eq i32 %48, 75
-  %spec.select48 = or i1 %49, %50
+45:                                               ; preds = %2, %2
+  %46 = load i32, ptr %1, align 8
+  %47 = icmp eq i32 %46, 77
+  %48 = icmp eq i32 %46, 75
+  %spec.select48 = or i1 %47, %48
   br label %switch.edge
 
-51:                                               ; preds = %2
-  %52 = load i32, ptr %1, align 8
-  %53 = icmp eq i32 %52, 15
+49:                                               ; preds = %2
+  %50 = load i32, ptr %1, align 8
+  %51 = icmp eq i32 %50, 15
   br label %switch.edge
 
-54:                                               ; preds = %2
-  %55 = load i32, ptr %1, align 8
-  %switch.tableidx69 = add i32 %55, -95
-  %56 = icmp ult i32 %switch.tableidx69, 48
-  br i1 %56, label %switch.lookup68, label %switch.edge
+52:                                               ; preds = %2
+  %53 = load i32, ptr %1, align 8
+  %switch.tableidx70 = add i32 %53, -95
+  %54 = icmp ult i32 %switch.tableidx70, 48
+  br i1 %54, label %switch.lookup69, label %switch.edge
 
 switch.lookup:                                    ; preds = %13
   %switch.cast = trunc i32 %switch.tableidx to i15
@@ -14745,19 +14744,19 @@ switch.lookup57:                                  ; preds = %25
   br label %switch.edge
 
 switch.lookup63:                                  ; preds = %42
-  %switch.cast64 = trunc i32 %45 to i9
-  %switch.downshift66 = lshr i9 -249, %switch.cast64
-  %switch.masked67 = trunc i9 %switch.downshift66 to i1
+  %switch.cast65 = trunc i32 %switch.tableidx64 to i17
+  %switch.downshift67 = lshr i17 -65515, %switch.cast65
+  %switch.masked68 = trunc i17 %switch.downshift67 to i1
   br label %switch.edge
 
-switch.lookup68:                                  ; preds = %54
-  %switch.cast70 = zext nneg i32 %switch.tableidx69 to i48
-  %switch.downshift72 = lshr i48 -140737421246463, %switch.cast70
-  %switch.masked73 = trunc i48 %switch.downshift72 to i1
+switch.lookup69:                                  ; preds = %52
+  %switch.cast71 = zext nneg i32 %switch.tableidx70 to i48
+  %switch.downshift73 = lshr i48 -140737421246463, %switch.cast71
+  %switch.masked74 = trunc i48 %switch.downshift73 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %54, %switch.lookup68, %42, %switch.lookup63, %25, %switch.lookup57, %22, %switch.lookup51, %13, %switch.lookup, %28, %2, %51, %47, %39, %36, %33, %30, %19, %16, %10, %6, %3
-  %.0 = phi i1 [ %53, %51 ], [ %spec.select48, %47 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %spec.select46, %30 ], [ %21, %19 ], [ %18, %16 ], [ %12, %10 ], [ %spec.select, %6 ], [ %5, %3 ], [ false, %2 ], [ %switch, %28 ], [ %switch.masked, %switch.lookup ], [ false, %13 ], [ %switch.masked56, %switch.lookup51 ], [ false, %22 ], [ %switch.masked62, %switch.lookup57 ], [ false, %25 ], [ %switch.masked67, %switch.lookup63 ], [ false, %42 ], [ %switch.masked73, %switch.lookup68 ], [ false, %54 ]
+switch.edge:                                      ; preds = %52, %switch.lookup69, %42, %switch.lookup63, %25, %switch.lookup57, %22, %switch.lookup51, %13, %switch.lookup, %28, %2, %49, %45, %39, %36, %33, %30, %19, %16, %10, %6, %3
+  %.0 = phi i1 [ %51, %49 ], [ %spec.select48, %45 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %spec.select46, %30 ], [ %21, %19 ], [ %18, %16 ], [ %12, %10 ], [ %spec.select, %6 ], [ %5, %3 ], [ false, %2 ], [ %switch, %28 ], [ %switch.masked, %switch.lookup ], [ false, %13 ], [ %switch.masked56, %switch.lookup51 ], [ false, %22 ], [ %switch.masked62, %switch.lookup57 ], [ false, %25 ], [ %switch.masked68, %switch.lookup63 ], [ false, %42 ], [ %switch.masked74, %switch.lookup69 ], [ false, %52 ]
   ret i1 %.0
 }
 
@@ -37005,8 +37004,8 @@ accept1.exit.i62:                                 ; preds = %51
   br label %expect1.exit64
 
 57:                                               ; preds = %accept1.exit60
-  %58 = add i32 %.val44, -73
-  %59 = tail call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 31)
+  %58 = sub i32 %.val44, 73
+  %59 = call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 31)
   switch i32 %59, label %60 [
     i32 1, label %accept1.exit.thread.i69
     i32 8, label %62
@@ -44354,9 +44353,6 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #23
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
@@ -44365,6 +44361,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
