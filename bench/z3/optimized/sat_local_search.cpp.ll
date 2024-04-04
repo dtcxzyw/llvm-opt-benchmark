@@ -6411,7 +6411,7 @@ if.then182:                                       ; preds = %if.end176
   %arrayidx.i.i.i153 = getelementptr inbounds %"struct.sat::local_search::var_info", ptr %56, i64 %idxprom.i.i.i152
   %57 = load i8, ptr %arrayidx.i.i.i153, align 8
   %tobool.i.i154 = trunc i8 %57 to i1
-  %tobool.i1.i155 = icmp ne i8 %55, 0
+  %tobool.i1.i155 = icmp eq i8 %54, 0
   %cmp.i156 = xor i1 %tobool.i1.i155, %tobool.i.i154
   br i1 %cmp.i156, label %if.then186, label %if.end187
 

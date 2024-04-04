@@ -405,7 +405,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %masked_ptr = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %masked_ptr, align 8
   %xor.i = xor i64 %5, -1136490970041655429
-  %cmp7.not = icmp eq i64 %xor.i, 0
+  %cmp7.not = icmp eq i64 %5, -1136490970041655429
   br i1 %cmp7.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body

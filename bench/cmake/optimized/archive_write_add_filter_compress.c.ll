@@ -235,7 +235,7 @@ define internal noundef i32 @archive_compressor_compress_write(ptr nocapture nou
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp eq i32 %36, 0
+  %48 = icmp eq i32 %35, %33
   %.neg = add i32 %36, -69001
   %.072.neg = select i1 %48, i32 -1, i32 %.neg
   br label %49

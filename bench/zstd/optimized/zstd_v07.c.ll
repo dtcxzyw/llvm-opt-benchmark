@@ -6493,11 +6493,11 @@ if.then20.i.i:                                    ; preds = %if.end18.i.i, %for.
   %cmp23.i.i = icmp ult i64 %offset.0117.i.i, 2
   %and47.i.i = and i1 %cmp21.i.i, %cmp23.i.i
   %sub.i215.i = zext i1 %and47.i.i to i64
-  %spec.select.i.i = xor i64 %offset.0117.i.i, %sub.i215.i
-  %tobool28.not.i.i = icmp eq i64 %spec.select.i.i, 0
+  %tobool28.not.i.i = icmp eq i64 %offset.0117.i.i, %sub.i215.i
   br i1 %tobool28.not.i.i, label %if.else45.i.i, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %if.then20.i.i
+  %spec.select.i.i = xor i64 %offset.0117.i.i, %sub.i215.i
   %arrayidx30.i.i = getelementptr inbounds [3 x i64], ptr %prevOffset.i, i64 0, i64 %spec.select.i.i
   %66 = load i64, ptr %arrayidx30.i.i, align 8, !noalias !38
   %cmp31.not.i.i = icmp eq i64 %spec.select.i.i, 1

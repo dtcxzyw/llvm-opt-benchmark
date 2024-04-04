@@ -30,8 +30,8 @@ define void @pg_prng_seed(ptr nocapture noundef writeonly %0, i64 noundef %1) lo
   %20 = xor i64 %19, %18
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %20, ptr %21, align 8
-  %22 = icmp eq i64 %11, 0
-  %23 = icmp eq i64 %20, 0
+  %22 = icmp eq i64 %10, %9
+  %23 = icmp eq i64 %19, %18
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %pg_prng_seed_check.exit
 
@@ -90,8 +90,8 @@ define void @pg_prng_fseed(ptr nocapture noundef writeonly %0, double noundef %1
   %22 = xor i64 %21, %20
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = icmp eq i64 %13, 0
-  %25 = icmp eq i64 %22, 0
+  %24 = icmp eq i64 %12, %11
+  %25 = icmp eq i64 %21, %20
   %or.cond.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond.i, label %26, label %pg_prng_seed.exit
 

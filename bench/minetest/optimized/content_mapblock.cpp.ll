@@ -13515,11 +13515,11 @@ if.then.i446:                                     ; preds = %if.else
 if.then.i.i.i.i579:                               ; preds = %if.then.i446
   store float 0.000000e+00, ptr %sections.sroa.18.1724, align 4, !tbaa !49
   %incdec.ptr.i.i.i.i = getelementptr i8, ptr %sections.sroa.18.1724, i64 4
-  %sub.i.i.i.i580 = xor i64 %sub.ptr.div.i.i441, 7
-  %cmp.i.i.i.i.i.i581 = icmp eq i64 %sub.i.i.i.i580, 0
+  %cmp.i.i.i.i.i.i581 = icmp eq i64 %sub.ptr.sub.i.i440, 28
   br i1 %cmp.i.i.i.i.i.i581, label %if.end150, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i579
+  %sub.i.i.i.i580 = xor i64 %sub.ptr.div.i.i441, 7
   %82 = shl nuw nsw i64 %sub.i, 2
   %83 = add nsw i64 %82, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i, i8 0, i64 %83, i1 false), !tbaa !49

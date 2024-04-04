@@ -3592,7 +3592,7 @@ land.end:                                         ; preds = %if.end27
 
 for.cond.preheader:                               ; preds = %land.end
   store i32 0, ptr %i, align 4
-  %cmp153.not = icmp eq i32 %sub.i.i, 0
+  %cmp153.not = icmp eq i32 %17, 31
   br i1 %cmp153.not, label %for.end, label %invoke.cont44.lr.ph
 
 invoke.cont44.lr.ph:                              ; preds = %for.cond.preheader

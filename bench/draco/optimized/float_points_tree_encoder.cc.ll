@@ -8912,7 +8912,7 @@ _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorI
 
 194:                                              ; preds = %193, %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_SD_SD_T0_.exit
   %195 = lshr i32 %101, 1
-  %.not161 = icmp eq i32 %184, 0
+  %.not161 = icmp eq i32 %183, 31
   br i1 %192, label %196, label %204
 
 196:                                              ; preds = %194
@@ -8920,7 +8920,7 @@ _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorI
   br i1 %.not161, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %196
-  %198 = sub nsw i32 30, %183
+  %198 = sub nuw nsw i32 30, %183
   %199 = shl nuw nsw i32 1, %198
   %wide.trip.count.i.i = zext nneg i32 %184 to i64
   br label %.lr.ph.i.i97
@@ -8945,7 +8945,7 @@ _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorI
   br i1 %.not161, label %_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE12EncodeNumberEij.exit, label %.lr.ph.preheader.i.i99
 
 .lr.ph.preheader.i.i99:                           ; preds = %204
-  %206 = sub nsw i32 30, %183
+  %206 = sub nuw nsw i32 30, %183
   %207 = shl nuw nsw i32 1, %206
   %wide.trip.count.i.i100 = zext nneg i32 %184 to i64
   br label %.lr.ph.i.i101

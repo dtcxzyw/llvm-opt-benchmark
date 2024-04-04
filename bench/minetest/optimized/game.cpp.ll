@@ -26377,8 +26377,8 @@ entry:
   %1 = load i8, ptr %range_all, align 4, !tbaa !689, !range !154, !noundef !177
   %frombool = xor i8 %1, 1
   store i8 %frombool, ptr %range_all, align 4, !tbaa !689
-  %tobool6.not = icmp eq i8 %frombool, 0
-  br i1 %tobool6.not, label %if.else11, label %if.then
+  %tobool6.not.not = icmp eq i8 %1, 0
+  br i1 %tobool6.not.not, label %if.then, label %if.else11
 
 if.then:                                          ; preds = %entry
   %sky = getelementptr inbounds i8, ptr %this, i64 304

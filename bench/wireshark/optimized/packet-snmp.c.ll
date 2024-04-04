@@ -865,7 +865,7 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   br label %.thread135
 
 48:                                               ; preds = %30
-  %49 = icmp eq i32 %15, 9
+  %49 = icmp eq i32 %14, -2147483639
   %50 = icmp eq i32 %37, 7
   %or.cond = select i1 %49, i1 %50, i1 false
   br i1 %or.cond, label %.thread, label %54
@@ -906,7 +906,7 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   ]
 
 66:                                               ; preds = %65, %65
-  %67 = icmp eq i32 %15, 2021
+  %67 = icmp eq i32 %14, -2147481627
   %68 = select i1 %67, ptr @.str.2, ptr @.str.3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull %68) #11
   switch i32 %4, label %94 [

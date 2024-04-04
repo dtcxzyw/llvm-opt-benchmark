@@ -621,6 +621,7 @@ for.body20.preheader:                             ; preds = %call30.i.noexc41
   store i8 %28, ptr %call33.i43, align 1
   %mul17 = shl nuw nsw i64 %sub, 2
   %div18 = udiv i64 %mul17, 3
+  %umax = call i64 @llvm.umax.i64(i64 %div18, i64 1)
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.preheader, %invoke.cont23
@@ -633,7 +634,7 @@ for.body20:                                       ; preds = %for.body20.preheade
 invoke.cont23:                                    ; preds = %for.body20
   store i8 61, ptr %call, align 1
   %inc25 = add nuw nsw i64 %i.053, 1
-  %exitcond54.not = icmp eq i64 %inc25, %div18
+  %exitcond54.not = icmp eq i64 %inc25, %umax
   br i1 %exitcond54.not, label %nrvo.skipdtor, label %for.body20, !llvm.loop !7
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont23
@@ -682,6 +683,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2344,7 +2344,7 @@ proto_item_set_generated.exit:                    ; preds = %38, %46, %49
   %106 = load i16, ptr %11, align 4
   %107 = load i16, ptr %61, align 2
   store i16 %60, ptr %26, align 2
-  %.not.i.i = icmp eq i16 %88, 0
+  %.not.i.i = icmp eq i16 %86, %60
   br i1 %.not.i.i, label %opensafety_packet_receiver.exit.i, label %108
 
 108:                                              ; preds = %105
@@ -3244,7 +3244,7 @@ proto_item_set_generated.exit110:                 ; preds = %634, %636, %639
   %775 = or disjoint i16 %774, %764
   %776 = xor i16 %775, %758
   %777 = sub nsw i16 0, %776
-  %.not.i412.i = icmp eq i16 %776, 0
+  %.not.i412.i = icmp eq i16 %758, %775
   br i1 %662, label %783, label %778
 
 778:                                              ; preds = %732

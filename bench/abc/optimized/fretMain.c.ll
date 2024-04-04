@@ -339,13 +339,13 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %121 = getelementptr inbounds i8, ptr %105, i64 20
   %122 = load i32, ptr %121, align 4
   %.mask.i = and i32 %122, 1024
-  %123 = xor i32 %120, %.mask.i
+  %123 = xor i32 %.mask.i, %120
   %124 = and i32 %122, -1025
   %125 = or disjoint i32 %123, %124
   store i32 %125, ptr %121, align 4
   %.val.i = load i32, ptr %99, align 8
   %.not40.i = icmp eq i32 %.val.i, 3
-  %.not23.i = icmp eq i32 %123, 0
+  %.not23.i = icmp eq i32 %.mask.i, %120
   %or.cond.i = select i1 %.not40.i, i1 true, i1 %.not23.i
   br i1 %or.cond.i, label %Abc_FlowRetime_RemoveLatchBubbles.exit, label %126
 

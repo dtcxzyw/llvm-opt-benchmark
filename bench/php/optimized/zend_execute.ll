@@ -149401,7 +149401,7 @@ define internal noundef i32 @ZEND_ISSET_ISEMPTY_PROP_OBJ_SPEC_UNUSED_CONST_HANDL
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %2, i64 31
   %26 = load i8, ptr %25, align 1
-  %.not38 = icmp eq i32 %22, %11
+  %.not38 = icmp eq i32 %11, %22
   switch i8 %26, label %93 [
     i8 18, label %27
     i8 34, label %60

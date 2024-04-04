@@ -262,7 +262,7 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %ascii_data.05.i = getelementptr i8, ptr %data.val, i64 1
   %ascii_len.06.i = add i64 %data.val1, -1
-  %cmp47.not.i = icmp eq i8 %3, 0
+  %cmp47.not.i = icmp eq i8 %2, 32
   br i1 %cmp47.not.i, label %while.cond.preheader.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i

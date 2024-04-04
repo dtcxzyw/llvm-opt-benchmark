@@ -1939,7 +1939,7 @@ Kit_TruthXor.exit:                                ; preds = %Kit_TruthXor.exit.l
   br i1 %160, label %135, label %.critedge4, !llvm.loop !24
 
 .critedge4:                                       ; preds = %Kit_TruthXor.exit
-  %161 = icmp eq i32 %157, 0
+  %161 = icmp eq i32 %.0145, %156
   br i1 %161, label %.critedge2, label %162
 
 162:                                              ; preds = %.critedge4
@@ -3323,7 +3323,7 @@ Kit_TruthXor.exit:                                ; preds = %Kit_TruthXor.exit.l
   br i1 %174, label %149, label %.critedge6, !llvm.loop !36
 
 .critedge6:                                       ; preds = %Kit_TruthXor.exit
-  %175 = icmp eq i32 %155, 0
+  %175 = icmp eq i32 %.0192353, %154
   br i1 %175, label %.critedge4, label %176
 
 176:                                              ; preds = %.critedge6
@@ -3743,7 +3743,7 @@ Kit_TruthXor.exit278:                             ; preds = %select.unfold.i275,
   br i1 %367, label %332, label %.critedge12, !llvm.loop !41
 
 .critedge12:                                      ; preds = %Kit_TruthXor.exit278
-  %368 = icmp eq i32 %337, 0
+  %368 = icmp eq i32 %.1193363, %336
   br i1 %368, label %.critedge4, label %369
 
 369:                                              ; preds = %.critedge12

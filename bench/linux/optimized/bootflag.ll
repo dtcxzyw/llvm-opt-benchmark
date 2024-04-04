@@ -47,7 +47,7 @@ define internal noundef i32 @sbf_init() #0 section ".init.text" align 16 {
   br i1 %15, label %16, label %.preheader, !llvm.loop !5
 
 16:                                               ; preds = %.preheader
-  %17 = icmp eq i32 %12, 0
+  %17 = icmp eq i32 %8, %11
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16, %3
@@ -109,7 +109,7 @@ define internal fastcc void @sbf_write(i8 noundef zeroext %0) unnamed_addr #0 se
   br i1 %15, label %16, label %6, !llvm.loop !5
 
 16:                                               ; preds = %6
-  %17 = icmp eq i32 %12, 0
+  %17 = icmp eq i32 %8, %11
   %18 = select i1 %17, i8 -128, i8 0
   %19 = or disjoint i8 %18, %5
   %20 = zext i8 %19 to i32

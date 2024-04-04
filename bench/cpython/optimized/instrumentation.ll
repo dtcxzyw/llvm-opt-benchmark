@@ -1207,7 +1207,7 @@ if.else22.us:                                     ; preds = %if.else.us
   br label %if.end40.us
 
 if.end40.us:                                      ; preds = %if.else22.us, %most_significant_bit.exit.us
-  %tobool10.not.us = icmp eq i8 %conv13.us, 0
+  %tobool10.not.us = icmp eq i8 %tools.037.us, %7
   br i1 %tobool10.not.us, label %while.end, label %while.body.us, !llvm.loop !7
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end40
@@ -1276,7 +1276,7 @@ if.end40:                                         ; preds = %most_significant_bi
   %shl = shl nuw i32 1, %retval.0.i
   %16 = trunc i32 %shl to i8
   %conv13 = xor i8 %tools.037, %16
-  %tobool10.not = icmp eq i8 %conv13, 0
+  %tobool10.not = icmp eq i8 %tools.037, %16
   br i1 %tobool10.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end40, %if.end40.us, %if.else.us, %get_tools_for_instruction.exit, %if.else, %if.end.i44, %if.then1.i47, %if.then34, %if.then25

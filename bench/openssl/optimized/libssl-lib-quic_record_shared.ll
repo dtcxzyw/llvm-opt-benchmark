@@ -359,7 +359,7 @@ sw.bb9.i.i85:                                     ; preds = %if.end.i13.i83
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i97:      ; preds = %if.end.i13.i83, %if.end.i13.i83
   %cmp5.i.i98 = icmp eq i32 %enc_level, 3
-  %cmp7.i.i99 = icmp eq i64 %lnot.ext120, 0
+  %cmp7.i.i99 = icmp eq i64 %cond, 1
   %11 = or i1 %cmp5.i.i98, %cmp7.i.i99
   br i1 %11, label %if.end.i89, label %if.end122
 

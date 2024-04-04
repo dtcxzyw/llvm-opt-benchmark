@@ -256,9 +256,9 @@ define internal fastcc i32 @btsnoop_read_record(ptr nocapture noundef readonly %
   br i1 %.not43, label %53, label %49
 
 49:                                               ; preds = %44
-  %.not44 = icmp eq i32 %46, 0
+  %.not44.not = icmp eq i32 %45, 0
   %50 = getelementptr inbounds i8, ptr %2, i64 84
-  br i1 %.not44, label %52, label %51
+  br i1 %.not44.not, label %51, label %52
 
 51:                                               ; preds = %49
   store i32 1, ptr %50, align 4

@@ -1699,7 +1699,7 @@ define dso_local i32 @ata_qc_complete_multiple(ptr noundef %0, i64 noundef %1) #
   br label %29
 
 29:                                               ; preds = %28, %22
-  %30 = icmp eq i64 %15, 0
+  %30 = icmp eq i64 %14, %4
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %29

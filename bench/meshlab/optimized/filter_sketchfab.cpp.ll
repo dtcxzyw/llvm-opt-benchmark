@@ -7441,7 +7441,7 @@ define internal fastcc noundef i32 @_ZL17tdefl_flush_blockP16tdefl_compressori(p
   br label %.lr.ph352
 
 .preheader338:                                    ; preds = %._crit_edge353
-  %.not388 = icmp eq i32 %222, 0
+  %.not388 = icmp eq i32 %218, 65535
   br i1 %.not388, label %.loopexit339, label %.lr.ph365
 
 .lr.ph365:                                        ; preds = %.preheader338
@@ -7798,12 +7798,12 @@ define internal fastcc noundef i32 @_ZL17tdefl_flush_blockP16tdefl_compressori(p
 
 .lr.ph371.preheader:                              ; preds = %345, %._crit_edge368
   %.ph = phi i32 [ %.pre423.pre, %._crit_edge368 ], [ %348, %345 ]
-  %.ph507 = phi i32 [ 0, %._crit_edge368 ], [ %349, %345 ]
+  %.ph509 = phi i32 [ 0, %._crit_edge368 ], [ %349, %345 ]
   br label %.lr.ph371
 
 .lr.ph371:                                        ; preds = %.lr.ph371.preheader, %._crit_edge372
   %351 = phi i32 [ %379, %._crit_edge372 ], [ %.ph, %.lr.ph371.preheader ]
-  %352 = phi i32 [ %380, %._crit_edge372 ], [ %.ph507, %.lr.ph371.preheader ]
+  %352 = phi i32 [ %380, %._crit_edge372 ], [ %.ph509, %.lr.ph371.preheader ]
   %.0274378 = phi i32 [ %381, %._crit_edge372 ], [ 2, %.lr.ph371.preheader ]
   %.0275377 = phi i32 [ %382, %._crit_edge372 ], [ 0, %.lr.ph371.preheader ]
   %353 = and i32 %.0275377, 65535

@@ -7198,7 +7198,7 @@ split:                                            ; preds = %129, %._crit_edge
 .loopexit123:                                     ; preds = %686, %630
   %827 = shl nuw i32 1, %619
   %828 = xor i32 %827, %617
-  %829 = icmp eq i32 %828, 0
+  %829 = icmp eq i32 %827, %617
   br i1 %829, label %.loopexit129, label %616
 
 .loopexit129:                                     ; preds = %.loopexit123, %.loopexit124, %597, %574
@@ -7562,7 +7562,7 @@ split:                                            ; preds = %129, %._crit_edge
 .loopexit116:                                     ; preds = %938, %882
   %1079 = shl nuw i32 1, %871
   %1080 = xor i32 %1079, %865
-  %1081 = icmp eq i32 %1080, 0
+  %1081 = icmp eq i32 %1079, %865
   br i1 %1081, label %1082, label %864
 
 1082:                                             ; preds = %.loopexit116

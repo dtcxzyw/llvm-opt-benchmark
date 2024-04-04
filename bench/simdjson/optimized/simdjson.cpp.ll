@@ -2932,7 +2932,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %exitcond.not, label %while.end.loopexit, label %while.body, !llvm.loop !34
 
 while.end.loopexit:                               ; preds = %while.body
-  %5 = icmp eq i8 %conv6, 0
+  %5 = icmp eq i8 %2, %quote.013
   %6 = select i1 %5, i32 0, i32 14
   br label %while.end
 

@@ -1357,7 +1357,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   br i1 %123, label %140, label %124
 
 124:                                              ; preds = %117
-  %125 = icmp eq i16 %122, 527
+  %125 = icmp eq i16 %121, -3569
   %126 = icmp eq i16 %55, 527
   %127 = or i1 %126, %125
   br i1 %127, label %128, label %131

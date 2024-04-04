@@ -191,7 +191,7 @@ BF_set_key.exit:                                  ; preds = %62
 BF_set_key.exit55:                                ; preds = %87
   %93 = xor i32 %77, 65536
   store i32 %93, ptr %7, align 16
-  %94 = icmp eq i32 %93, -610510404
+  %94 = icmp eq i32 %77, -610444868
   %or.cond = select i1 %46, i1 %94, i1 false
   %95 = getelementptr inbounds i8, ptr %8, i64 68
   %96 = load i32, ptr %95, align 4

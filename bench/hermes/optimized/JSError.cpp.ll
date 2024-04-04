@@ -3918,7 +3918,7 @@ _ZN6hermes2vmL16getLeafCodeBlockENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE.exit
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %xor.i.i.i.i = xor i64 %8, %7
   %9 = inttoptr i64 %xor.i.i.i.i to ptr
-  %tobool.not = icmp eq i64 %xor.i.i.i.i, 0
+  %tobool.not = icmp eq i64 %8, %7
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes2vmL16getLeafCodeBlockENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE.exit

@@ -5430,7 +5430,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
-  %95 = icmp eq i64 %31, 1
+  %95 = icmp eq i64 %30, -9223372036854775807
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94
@@ -5585,7 +5585,7 @@ _ZN4core3ops8function6FnOnce9call_once17h002fa4216788c324E.exit: ; preds = %_ZN1
 142:                                              ; preds = %139
   %143 = extractvalue { double, double } %140, 0
   %144 = extractvalue { double, double } %140, 1
-  %.not42.not = icmp eq i64 %31, 0
+  %.not42.not = icmp eq i64 %30, -9223372036854775808
   br i1 %.not42.not, label %154, label %145
 
 145:                                              ; preds = %142

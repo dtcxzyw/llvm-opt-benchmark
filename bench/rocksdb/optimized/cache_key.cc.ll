@@ -65,10 +65,10 @@ invoke.cont3:
   %and12.i.i = lshr i64 %xor11.i.i, 1
   %shr13.i.i = and i64 %and12.i.i, 6148914691236517205
   %or11.i.i = call noundef i64 @llvm.bitreverse.i64(i64 %1)
-  %2 = xor i64 %or11.i.i, %shr13.i.i
+  %2 = xor i64 %shr13.i.i, %or11.i.i
   %xor.i = xor i64 %2, %xor11.i.i
   %or11.i5.i = call noundef i64 @llvm.bitreverse.i64(i64 %spec.select.i)
-  %cmp6.i = icmp eq i64 %xor.i, 0
+  %cmp6.i = icmp eq i64 %2, %xor11.i.i
   %spec.select10.i = select i1 %cmp6.i, i64 %or11.i5.i, i64 %xor.i
   %spec.select11.i = select i1 %cmp6.i, i64 0, i64 %or11.i5.i
   store i64 %spec.select10.i, ptr %this, align 8
@@ -114,10 +114,10 @@ entry:
   %and12.i = lshr i64 %xor11.i, 1
   %shr13.i = and i64 %and12.i, 6148914691236517205
   %or11.i = tail call noundef i64 @llvm.bitreverse.i64(i64 %1)
-  %2 = xor i64 %or11.i, %shr13.i
+  %2 = xor i64 %shr13.i, %or11.i
   %xor = xor i64 %2, %xor11.i
   %or11.i5 = tail call noundef i64 @llvm.bitreverse.i64(i64 %spec.select)
-  %cmp6 = icmp eq i64 %xor, 0
+  %cmp6 = icmp eq i64 %2, %xor11.i
   %spec.select10 = select i1 %cmp6, i64 %or11.i5, i64 %xor
   %spec.select11 = select i1 %cmp6, i64 0, i64 %or11.i5
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %spec.select10, 0

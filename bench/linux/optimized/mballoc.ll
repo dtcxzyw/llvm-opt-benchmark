@@ -14328,7 +14328,7 @@ define internal fastcc i32 @mb_mark_used(ptr nocapture noundef readonly %0, ptr 
   tail call void @llvm.assume(i1 %83)
   %84 = xor i8 %82, 1
   %85 = zext nneg i8 %84 to i32
-  %86 = icmp ne i8 %84, 0
+  %86 = icmp eq i8 %82, 0
   %87 = and i1 %63, %86
   br i1 %87, label %91, label %.thread
 

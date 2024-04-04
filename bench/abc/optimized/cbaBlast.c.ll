@@ -2293,7 +2293,7 @@ define void @Cba_BlastDivider(ptr noundef %0, ptr nocapture noundef readonly %1,
 45:                                               ; preds = %33
   %46 = xor i32 %39, 1
   store i32 %46, ptr %26, align 4
-  %47 = icmp eq i32 %46, 0
+  %47 = icmp eq i32 %39, 1
   br i1 %47, label %.loopexit, label %.lr.ph133
 
 .lr.ph133:                                        ; preds = %45, %56

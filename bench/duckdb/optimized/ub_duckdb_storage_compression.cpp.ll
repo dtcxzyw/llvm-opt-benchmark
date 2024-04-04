@@ -86401,7 +86401,7 @@ _ZN6duckdb5patas16PatasCompressionIjLb1EE15StoreCompressedEjRNS0_21PatasCompress
   %conv17.i.i = xor i32 %value.addr.0, %14
   %15 = tail call noundef i32 @llvm.cttz.i32(i32 %conv17.i.i, i1 false), !range !2039
   %16 = tail call noundef i32 @llvm.ctlz.i32(i32 %conv17.i.i, i1 false), !range !2039
-  %cmp22.i.i = icmp eq i32 %conv17.i.i, 0
+  %cmp22.i.i = icmp eq i32 %value.addr.0, %14
   %17 = add nuw nsw i32 %15, %16
   %18 = trunc i32 %17 to i8
   %19 = sub nsw i8 32, %18
@@ -86980,7 +86980,7 @@ _ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompress
   %conv17.i = xor i32 %11, %value
   %12 = tail call noundef i32 @llvm.cttz.i32(i32 %conv17.i, i1 false), !range !2039
   %13 = tail call noundef i32 @llvm.ctlz.i32(i32 %conv17.i, i1 false), !range !2039
-  %cmp22.i = icmp eq i32 %conv17.i, 0
+  %cmp22.i = icmp eq i32 %11, %value
   %14 = add nuw nsw i32 %12, %13
   %15 = trunc i32 %14 to i8
   %16 = sub nsw i8 32, %15
@@ -88080,7 +88080,7 @@ _ZN6duckdb5patas16PatasCompressionImLb1EE15StoreCompressedEmRNS0_21PatasCompress
   %cast.i.i.i = trunc i64 %14 to i8
   %15 = tail call i64 @llvm.ctlz.i64(i64 %xor.i.i, i1 false), !range !2058
   %cast.i71.i.i = trunc i64 %15 to i8
-  %cmp18.i.i = icmp eq i64 %xor.i.i, 0
+  %cmp18.i.i = icmp eq i64 %13, %value.addr.0
   %16 = add nuw i8 %cast.i.i.i, %cast.i71.i.i
   %17 = sub i8 64, %16
   %conv26.i.i = select i1 %cmp18.i.i, i8 0, i8 %17
@@ -88657,7 +88657,7 @@ _ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompress
   %cast.i.i = trunc i64 %11 to i32
   %12 = tail call i64 @llvm.ctlz.i64(i64 %xor.i, i1 false), !range !2058
   %cast.i71.i = trunc i64 %12 to i32
-  %cmp18.i = icmp eq i64 %xor.i, 0
+  %cmp18.i = icmp eq i64 %10, %value
   %13 = add nuw nsw i32 %cast.i.i, %cast.i71.i
   %14 = trunc i32 %13 to i8
   %15 = sub i8 64, %14

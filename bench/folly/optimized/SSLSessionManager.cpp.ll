@@ -821,7 +821,7 @@ if.else:                                          ; preds = %entry
   %rhs_which_.i.i = getelementptr inbounds i8, ptr %visitor3, i64 8
   store i32 %retval.0.i54, ptr %rhs_which_.i.i, align 8, !tbaa !36
   %storage_.i9 = getelementptr inbounds i8, ptr %rhs, i64 8
-  %switch75 = icmp eq i32 %retval.0.i54, 0
+  %switch75 = icmp eq i32 %.lobit.i53, %1
   br i1 %switch75, label %sw.bb.i32, label %sw.bb3.i31
 
 sw.bb.i32:                                        ; preds = %if.else

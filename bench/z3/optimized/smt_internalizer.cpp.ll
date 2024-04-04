@@ -4171,7 +4171,7 @@ invoke.cont:                                      ; preds = %_ZN6vectorIPN3smt13
   br label %if.end17
 
 if.else:                                          ; preds = %_ZNK3smt7context11get_literalEP4expr.exit
-  %cmp.i11 = icmp eq i32 %accumulator.ret.tr.i, 0
+  %cmp.i11 = icmp eq i32 %retval.sroa.0.0.i, %accumulator.tr.lcssa.i
   br i1 %cmp.i11, label %if.end17, label %if.else7
 
 if.else7:                                         ; preds = %if.else

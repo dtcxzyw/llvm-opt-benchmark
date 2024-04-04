@@ -4719,7 +4719,7 @@ display_access_items.exit84.thread:               ; preds = %14
   br i1 %9, label %.thread103, label %display_access_items.exit84
 
 31:                                               ; preds = %24
-  %.not77 = icmp eq i32 %26, 0
+  %.not77 = icmp eq i32 %25, %.070.ph
   br i1 %.not77, label %.thread103, label %32
 
 32:                                               ; preds = %31
@@ -4787,7 +4787,7 @@ display_access_items.exit84:                      ; preds = %54, %.thread100, %2
   %55 = phi i32 [ %28, %24 ], [ %30, %.thread100 ], [ %42, %54 ]
   %56 = phi i32 [ %27, %24 ], [ %29, %.thread100 ], [ %41, %54 ]
   %.0 = phi i32 [ %1, %24 ], [ %1, %.thread100 ], [ %21, %54 ]
-  %.not78.not = icmp eq i32 %55, 0
+  %.not78.not = icmp eq i32 %.070.ph, %56
   br i1 %.not78.not, label %59, label %57
 
 57:                                               ; preds = %display_access_items.exit84
@@ -4798,7 +4798,7 @@ display_access_items.exit84:                      ; preds = %54, %.thread100, %2
   %.not78109 = phi i64 [ 0, %display_access_items.exit84.thread ], [ 1, %57 ], [ 0, %display_access_items.exit84 ]
   %.0108 = phi i32 [ %1, %display_access_items.exit84.thread ], [ %.0, %57 ], [ %.0, %display_access_items.exit84 ]
   %60 = phi i32 [ %19, %display_access_items.exit84.thread ], [ %.070.ph, %57 ], [ %.070.ph, %display_access_items.exit84 ]
-  %61 = phi i32 [ %19, %display_access_items.exit84.thread ], [ %56, %57 ], [ %56, %display_access_items.exit84 ]
+  %61 = phi i32 [ %19, %display_access_items.exit84.thread ], [ %56, %57 ], [ %.070.ph, %display_access_items.exit84 ]
   %.not79 = icmp eq i32 %61, 0
   br i1 %.not79, label %64, label %62
 

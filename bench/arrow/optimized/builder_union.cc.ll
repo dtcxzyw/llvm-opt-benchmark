@@ -3188,7 +3188,7 @@ if.then.i.i.i.i112:                               ; preds = %if.then.i.i
   br label %_ZNSt6vectorIiSaIiEE17_M_default_appendEm.exit
 
 if.else.i114:                                     ; preds = %if.then.i.i
-  %cmp.i.i115 = icmp eq i64 %sub.i109, 0
+  %cmp.i.i115 = icmp eq i64 %sub.ptr.sub.i4.i, 9223372036854775804
   br i1 %cmp.i.i115, label %if.then.i.i127, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i127:                                   ; preds = %if.else.i114
@@ -3275,7 +3275,7 @@ if.then.i.i.i.i93:                                ; preds = %if.then.i24.i
   br label %_ZN5arrow17BasicUnionBuilder10NextTypeIdEv.exit
 
 if.else.i94:                                      ; preds = %if.then.i24.i
-  %cmp.i.i = icmp eq i64 %sub.i, 0
+  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i86, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i97, label %_ZNKSt6vectorIPN5arrow12ArrayBuilderESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i97:                                    ; preds = %if.else.i94

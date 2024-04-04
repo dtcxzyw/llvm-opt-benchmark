@@ -7873,7 +7873,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   ]
 
 44:                                               ; preds = %43
-  %45 = icmp eq i64 %40, 1
+  %45 = icmp eq i64 %39, -9223372036854775807
   br i1 %45, label %46, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread.i"
 
 46:                                               ; preds = %44
@@ -18322,7 +18322,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037
   ]
 
 51:                                               ; preds = %50
-  %52 = icmp eq i64 %47, 1
+  %52 = icmp eq i64 %46, -9223372036854775807
   br i1 %52, label %53, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread"
 
 53:                                               ; preds = %51
@@ -35120,7 +35120,7 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$tree_sitter_cli..generate.
   ]
 
 24:                                               ; preds = %23
-  %25 = icmp eq i64 %20, 1
+  %25 = icmp eq i64 %19, -9223372036854775807
   br i1 %25, label %26, label %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread"
 
 26:                                               ; preds = %24

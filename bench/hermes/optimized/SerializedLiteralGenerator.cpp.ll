@@ -523,7 +523,7 @@ if.then.i.i.i.i.i301:                             ; preds = %if.then.i292
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit330
 
 if.else.i.i309:                                   ; preds = %if.then.i292
-  %cmp.i.i.i310 = icmp eq i64 %sub.i.i298, 0
+  %cmp.i.i.i310 = icmp eq i64 %reass.sub426, 9223372036854775807
   br i1 %cmp.i.i.i310, label %if.then.i.i.i329, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i311
 
 if.then.i.i.i329:                                 ; preds = %if.else.i.i309

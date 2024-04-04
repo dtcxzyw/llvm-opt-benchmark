@@ -486,7 +486,7 @@ _ZNSt8functionIFv9command_tEED2Ev.exit:           ; preds = %75, %77
   br label %.noexc45
 
 133:                                              ; preds = %122
-  %134 = icmp eq i64 %129, 0
+  %134 = icmp eq i64 %113, 9223372036854775804
   br i1 %134, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %133
@@ -657,7 +657,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   br label %.noexc60
 
 202:                                              ; preds = %191
-  %203 = icmp eq i64 %198, 0
+  %203 = icmp eq i64 %182, 9223372036854775804
   br i1 %203, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i103
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i103: ; preds = %202
@@ -826,7 +826,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit72:         ; preds = %_ZNSt6vectorImSaImE
   br label %.noexc84
 
 269:                                              ; preds = %258
-  %270 = icmp eq i64 %265, 0
+  %270 = icmp eq i64 %249, 9223372036854775804
   br i1 %270, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i112
 
 .invoke:                                          ; preds = %291, %269, %223, %202, %156, %133
@@ -2540,7 +2540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZN5fds_t5allocEi.exit
 
 106:                                              ; preds = %95
-  %107 = icmp eq i64 %102, 0
+  %107 = icmp eq i64 %86, 9223372036854775804
   br i1 %107, label %108, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 108:                                              ; preds = %106

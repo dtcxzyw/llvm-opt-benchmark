@@ -940,7 +940,7 @@ define dso_local void @noist_exc_debug(ptr noundef %0) local_unnamed_addr #2 sec
   %14 = getelementptr inbounds i8, ptr %13, i64 2904
   store i64 %11, ptr %14, align 8
   tail call fastcc void @clear_ti_thread_flag(ptr noundef %13)
-  %15 = icmp eq i64 %4, 0
+  %15 = icmp eq i64 %3, 4294905840
   %16 = call fastcc zeroext i1 @notify_debug(ptr noundef %0, ptr noundef nonnull %2)
   br i1 %16, label %32, label %17
 

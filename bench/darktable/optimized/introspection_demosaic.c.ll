@@ -9397,7 +9397,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %2322 = fsub reassoc nsz arcp contract afn float %2311, %2321
   %2323 = fadd reassoc nsz arcp contract afn float %2322, %2318
   %2324 = fadd reassoc nsz arcp contract afn float %2323, %2320
-  %2325 = icmp ne i8 %2309, 0
+  %2325 = icmp ne i8 %2289, 2
   %2326 = zext i1 %2325 to i64
   %2327 = getelementptr inbounds [2 x [6 x float]], ptr %9, i64 0, i64 %2326, i64 0
   store float %2324, ptr %2327, align 8, !tbaa !24

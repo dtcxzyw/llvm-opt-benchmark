@@ -692,11 +692,11 @@ Abc_Clock.exit174.i:                              ; preds = %285, %Abc_Clock.exi
   store i32 %379, ptr %61, align 8
   store ptr %371, ptr %62, align 8
   store ptr %376, ptr %63, align 8
-  %.not.i.i.i.i = icmp eq i64 %375, 0
+  %.not.i.i.i.i = icmp eq i64 %374, %373
   br i1 %.not.i.i.i.i, label %Ivy_ObjCreateGhost.exit.i.i.i, label %380
 
 380:                                              ; preds = %366
-  %.not.i.i.i.i.i = icmp eq i64 %370, 0
+  %.not.i.i.i.i.i = icmp eq i64 %369, %368
   br i1 %.not.i.i.i.i.i, label %Ivy_ObjFaninId1.exit.i.i.i.i, label %381
 
 381:                                              ; preds = %380

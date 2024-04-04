@@ -1423,7 +1423,7 @@ _ZN6hermes2vmL16getLeafCodeBlockENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE.exit
   %23 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %xor.i.i.i.i = xor i64 %23, %22
   %24 = inttoptr i64 %xor.i.i.i.i to ptr
-  %tobool.not = icmp eq i64 %xor.i.i.i.i, 0
+  %tobool.not = icmp eq i64 %23, %22
   %cond.i = select i1 %tobool.not, ptr @_ZN6hermes2vm15HandleRootOwner10trueValue_E, ptr @_ZN6hermes2vm15HandleRootOwner11falseValue_E
   %call.i = call i32 @_ZN6hermes2vm8JSObject25defineOwnPropertyInternalENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_19DefinePropertyFlagsENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 455, i32 319, ptr nonnull %cond.i, i32 0) #16
   br i1 %tobool.not, label %if.end168, label %if.then39

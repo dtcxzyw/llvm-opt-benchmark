@@ -710,7 +710,7 @@ invoke.cont91:                                    ; preds = %lor.lhs.false90
   br i1 %cmp.i134, label %for.inc, label %if.then94
 
 if.then94:                                        ; preds = %invoke.cont91, %if.then88
-  %cmp95 = icmp eq i32 %xor, 0
+  %cmp95 = icmp eq i32 %45, %46
   br i1 %cmp95, label %if.then96, label %for.inc
 
 if.then96:                                        ; preds = %if.then94

@@ -718,7 +718,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4
-  %58 = icmp eq i64 %37, 0
+  %58 = icmp eq i64 %23, %36
   br i1 %58, label %289, label %83
 
 59:                                               ; preds = %31
@@ -805,7 +805,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %98, 1
   store i32 %99, ptr %97, align 4
-  %100 = icmp eq i64 %40, 0
+  %100 = icmp eq i64 %23, %39
   br i1 %100, label %289, label %101
 
 101:                                              ; preds = %96
