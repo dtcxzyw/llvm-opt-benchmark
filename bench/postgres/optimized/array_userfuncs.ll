@@ -2188,7 +2188,7 @@ define internal fastcc i64 @array_position_common(ptr nocapture noundef %0) unna
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
-  br label %124
+  br label %122
 
 12:                                               ; preds = %1
   %13 = load i64, ptr %6, align 8
@@ -2214,7 +2214,7 @@ define internal fastcc i64 @array_position_common(ptr nocapture noundef %0) unna
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %25, align 4
-  br label %124
+  br label %122
 
 26:                                               ; preds = %23
   %27 = getelementptr i8, ptr %0, i64 56
@@ -2235,7 +2235,7 @@ define internal fastcc i64 @array_position_common(ptr nocapture noundef %0) unna
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %35, align 4
-  br label %124
+  br label %122
 
 36:                                               ; preds = %26
   %37 = getelementptr i8, ptr %0, i64 48
@@ -2282,134 +2282,131 @@ define internal fastcc i64 @array_position_common(ptr nocapture noundef %0) unna
   %64 = getelementptr inbounds i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %._crit_edge93
+  br i1 %66, label %.thread, label %76
 
-._crit_edge93:                                    ; preds = %62
+.thread:                                          ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %63, i64 32
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call ptr @MemoryContextAlloc(ptr noundef %68, i64 noundef 72) #9
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  store ptr %69, ptr %71, align 8
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = xor i32 %42, -1
+  store i32 %75, ptr %74, align 8
+  br label %77
+
+76:                                               ; preds = %62
   %.pre94 = load i32, ptr %65, align 8
-  br label %77
+  %.not70 = icmp eq i32 %.pre94, %42
+  br i1 %.not70, label %95, label %77
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %63, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call ptr @MemoryContextAlloc(ptr noundef %69, i64 noundef 72) #9
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = xor i32 %42, -1
-  store i32 %76, ptr %75, align 8
-  br label %77
+77:                                               ; preds = %.thread, %76
+  %.05997 = phi ptr [ %74, %.thread ], [ %65, %76 ]
+  %78 = getelementptr inbounds i8, ptr %.05997, i64 4
+  %79 = getelementptr inbounds i8, ptr %.05997, i64 6
+  %80 = getelementptr inbounds i8, ptr %.05997, i64 7
+  tail call void @get_typlenbyvalalign(i32 noundef %42, ptr noundef nonnull %78, ptr noundef nonnull %79, ptr noundef nonnull %80) #9
+  %81 = tail call ptr @lookup_type_cache(i32 noundef %42, i32 noundef 32) #9
+  %82 = getelementptr inbounds i8, ptr %81, i64 80
+  %83 = load i32, ptr %82, align 8
+  %.not71 = icmp eq i32 %83, 0
+  br i1 %.not71, label %84, label %89
 
-77:                                               ; preds = %._crit_edge93, %67
-  %78 = phi i32 [ %76, %67 ], [ %.pre94, %._crit_edge93 ]
-  %.059 = phi ptr [ %75, %67 ], [ %65, %._crit_edge93 ]
-  %.not70 = icmp eq i32 %78, %42
-  br i1 %.not70, label %97, label %79
-
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %.059, i64 4
-  %81 = getelementptr inbounds i8, ptr %.059, i64 6
-  %82 = getelementptr inbounds i8, ptr %.059, i64 7
-  tail call void @get_typlenbyvalalign(i32 noundef %42, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull %82) #9
-  %83 = tail call ptr @lookup_type_cache(i32 noundef %42, i32 noundef 32) #9
-  %84 = getelementptr inbounds i8, ptr %83, i64 80
-  %85 = load i32, ptr %84, align 8
-  %.not71 = icmp eq i32 %85, 0
-  br i1 %.not71, label %86, label %91
-
-86:                                               ; preds = %79
-  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %87)
-  %88 = tail call i32 @errcode(i32 noundef 52461700) #9
-  %89 = tail call ptr @format_type_be(i32 noundef %42) #9
-  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %89) #9
+84:                                               ; preds = %77
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %85)
+  %86 = tail call i32 @errcode(i32 noundef 52461700) #9
+  %87 = tail call ptr @format_type_be(i32 noundef %42) #9
+  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %87) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1335, ptr noundef nonnull @__func__.array_position_common) #9
   unreachable
 
-91:                                               ; preds = %79
-  store i32 %42, ptr %.059, align 8
-  %92 = load i32, ptr %84, align 8
-  %93 = getelementptr inbounds i8, ptr %.059, i64 24
-  %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
-  %96 = load ptr, ptr %95, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %92, ptr noundef nonnull %93, ptr noundef %96) #9
-  br label %97
+89:                                               ; preds = %77
+  store i32 %42, ptr %.05997, align 8
+  %90 = load i32, ptr %82, align 8
+  %91 = getelementptr inbounds i8, ptr %.05997, i64 24
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 32
+  %94 = load ptr, ptr %93, align 8
+  tail call void @fmgr_info_cxt(i32 noundef %90, ptr noundef nonnull %91, ptr noundef %94) #9
+  br label %95
 
-97:                                               ; preds = %91, %77
-  %98 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.059) #9
-  %99 = getelementptr inbounds i8, ptr %.059, i64 24
-  %100 = call zeroext i1 @array_iterate(ptr noundef %98, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  br i1 %100, label %.lr.ph, label %._crit_edge
+95:                                               ; preds = %89, %76
+  %.05998 = phi ptr [ %.05997, %89 ], [ %65, %76 ]
+  %96 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.05998) #9
+  %97 = getelementptr inbounds i8, ptr %.05998, i64 24
+  %98 = call zeroext i1 @array_iterate(ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  br i1 %98, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %97
+.lr.ph:                                           ; preds = %95
   br i1 %29, label %.lr.ph.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %.06377.us = phi i32 [ %101, %.backedge.us ], [ %46, %.lr.ph ]
-  %101 = add i32 %.06377.us, 1
-  %102 = icmp slt i32 %101, %.062
-  br i1 %102, label %.backedge.us, label %103
+  %.06377.us = phi i32 [ %99, %.backedge.us ], [ %46, %.lr.ph ]
+  %99 = add i32 %.06377.us, 1
+  %100 = icmp slt i32 %99, %.062
+  br i1 %100, label %.backedge.us, label %101
 
-103:                                              ; preds = %.lr.ph.split.us
-  %104 = load i8, ptr %3, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %._crit_edge, label %.backedge.us
+101:                                              ; preds = %.lr.ph.split.us
+  %102 = load i8, ptr %3, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %._crit_edge, label %.backedge.us
 
-.backedge.us:                                     ; preds = %103, %.lr.ph.split.us
-  %106 = call zeroext i1 @array_iterate(ptr noundef %98, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  br i1 %106, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !56
+.backedge.us:                                     ; preds = %101, %.lr.ph.split.us
+  %104 = call zeroext i1 @array_iterate(ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  br i1 %104, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !56
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.backedge
-  %.06377 = phi i32 [ %107, %.backedge ], [ %46, %.lr.ph ]
-  %107 = add i32 %.06377, 1
-  %108 = icmp slt i32 %107, %.062
-  br i1 %108, label %.backedge, label %110
+  %.06377 = phi i32 [ %105, %.backedge ], [ %46, %.lr.ph ]
+  %105 = add i32 %.06377, 1
+  %106 = icmp slt i32 %105, %.062
+  br i1 %106, label %.backedge, label %108
 
-.backedge:                                        ; preds = %110, %.lr.ph.split.split, %113
-  %109 = call zeroext i1 @array_iterate(ptr noundef %98, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  br i1 %109, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !56
+.backedge:                                        ; preds = %108, %.lr.ph.split.split, %111
+  %107 = call zeroext i1 @array_iterate(ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  br i1 %107, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !56
 
-110:                                              ; preds = %.lr.ph.split.split
-  %111 = load i8, ptr %3, align 1
-  %112 = trunc i8 %111 to i1
-  br i1 %112, label %.backedge, label %113
+108:                                              ; preds = %.lr.ph.split.split
+  %109 = load i8, ptr %3, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %.backedge, label %111
 
-113:                                              ; preds = %110
-  %114 = load i64, ptr %2, align 8
-  %115 = call i64 @FunctionCall2Coll(ptr noundef nonnull %99, i32 noundef %5, i64 noundef %.060, i64 noundef %114) #9
-  %.not76 = icmp eq i64 %115, 0
+111:                                              ; preds = %108
+  %112 = load i64, ptr %2, align 8
+  %113 = call i64 @FunctionCall2Coll(ptr noundef nonnull %97, i32 noundef %5, i64 noundef %.060, i64 noundef %112) #9
+  %.not76 = icmp eq i64 %113, 0
   br i1 %.not76, label %.backedge, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.backedge, %113, %.backedge.us, %103, %97
-  %.lcssa = phi i1 [ false, %97 ], [ true, %103 ], [ false, %.backedge.us ], [ true, %113 ], [ false, %.backedge ]
-  %.1 = phi i32 [ %46, %97 ], [ %101, %103 ], [ %101, %.backedge.us ], [ %107, %113 ], [ %107, %.backedge ]
-  call void @array_free_iterator(ptr noundef %98) #9
-  %116 = load i64, ptr %6, align 8
-  %117 = inttoptr i64 %116 to ptr
-  %.not72 = icmp eq ptr %15, %117
-  br i1 %.not72, label %119, label %118
+._crit_edge:                                      ; preds = %.backedge, %111, %.backedge.us, %101, %95
+  %.lcssa = phi i1 [ false, %95 ], [ true, %101 ], [ false, %.backedge.us ], [ true, %111 ], [ false, %.backedge ]
+  %.1 = phi i32 [ %46, %95 ], [ %99, %101 ], [ %99, %.backedge.us ], [ %105, %111 ], [ %105, %.backedge ]
+  call void @array_free_iterator(ptr noundef %96) #9
+  %114 = load i64, ptr %6, align 8
+  %115 = inttoptr i64 %114 to ptr
+  %.not72 = icmp eq ptr %15, %115
+  br i1 %.not72, label %117, label %116
 
-118:                                              ; preds = %._crit_edge
+116:                                              ; preds = %._crit_edge
   call void @pfree(ptr noundef %15) #9
-  br label %119
+  br label %117
 
-119:                                              ; preds = %._crit_edge, %118
-  br i1 %.lcssa, label %122, label %120
+117:                                              ; preds = %._crit_edge, %116
+  br i1 %.lcssa, label %120, label %118
 
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %121, align 4
-  br label %124
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %119, align 4
+  br label %122
 
-122:                                              ; preds = %119
-  %123 = sext i32 %.1 to i64
-  br label %124
+120:                                              ; preds = %117
+  %121 = sext i32 %.1 to i64
+  br label %122
 
-124:                                              ; preds = %122, %120, %34, %24, %10
-  %.0 = phi i64 [ 0, %10 ], [ 0, %24 ], [ %123, %122 ], [ 0, %120 ], [ 0, %34 ]
+122:                                              ; preds = %120, %118, %34, %24, %10
+  %.0 = phi i64 [ 0, %10 ], [ 0, %24 ], [ %121, %120 ], [ 0, %118 ], [ 0, %34 ]
   ret i64 %.0
 }
 
@@ -2434,7 +2431,7 @@ define dso_local i64 @array_positions(ptr nocapture noundef %0) local_unnamed_ad
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
-  br label %116
+  br label %114
 
 12:                                               ; preds = %1
   %13 = load i64, ptr %6, align 8
@@ -2463,7 +2460,7 @@ define dso_local i64 @array_positions(ptr nocapture noundef %0) local_unnamed_ad
 28:                                               ; preds = %23
   %29 = load ptr, ptr @CurrentMemoryContext, align 8
   %30 = tail call i64 @makeArrayResult(ptr noundef %25, ptr noundef %29) #9
-  br label %116
+  br label %114
 
 31:                                               ; preds = %23
   %32 = getelementptr i8, ptr %0, i64 56
@@ -2482,7 +2479,7 @@ define dso_local i64 @array_positions(ptr nocapture noundef %0) local_unnamed_ad
 37:                                               ; preds = %35
   %38 = load ptr, ptr @CurrentMemoryContext, align 8
   %39 = tail call i64 @makeArrayResult(ptr noundef %25, ptr noundef %38) #9
-  br label %116
+  br label %114
 
 40:                                               ; preds = %31
   %41 = getelementptr i8, ptr %0, i64 48
@@ -2504,134 +2501,131 @@ define dso_local i64 @array_positions(ptr nocapture noundef %0) local_unnamed_ad
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %._crit_edge71
+  br i1 %56, label %.thread, label %66
 
-._crit_edge71:                                    ; preds = %43
+.thread:                                          ; preds = %43
+  %57 = getelementptr inbounds i8, ptr %53, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call ptr @MemoryContextAlloc(ptr noundef %58, i64 noundef 72) #9
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  store ptr %59, ptr %61, align 8
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = xor i32 %46, -1
+  store i32 %65, ptr %64, align 8
+  br label %67
+
+66:                                               ; preds = %43
   %.pre72 = load i32, ptr %55, align 8
-  br label %67
+  %.not = icmp eq i32 %.pre72, %46
+  br i1 %.not, label %85, label %67
 
-57:                                               ; preds = %43
-  %58 = getelementptr inbounds i8, ptr %53, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call ptr @MemoryContextAlloc(ptr noundef %59, i64 noundef 72) #9
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = xor i32 %46, -1
-  store i32 %66, ptr %65, align 8
-  br label %67
+67:                                               ; preds = %.thread, %66
+  %.05575 = phi ptr [ %64, %.thread ], [ %55, %66 ]
+  %68 = getelementptr inbounds i8, ptr %.05575, i64 4
+  %69 = getelementptr inbounds i8, ptr %.05575, i64 6
+  %70 = getelementptr inbounds i8, ptr %.05575, i64 7
+  tail call void @get_typlenbyvalalign(i32 noundef %46, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #9
+  %71 = tail call ptr @lookup_type_cache(i32 noundef %46, i32 noundef 32) #9
+  %72 = getelementptr inbounds i8, ptr %71, i64 80
+  %73 = load i32, ptr %72, align 8
+  %.not61 = icmp eq i32 %73, 0
+  br i1 %.not61, label %74, label %79
 
-67:                                               ; preds = %._crit_edge71, %57
-  %68 = phi i32 [ %66, %57 ], [ %.pre72, %._crit_edge71 ]
-  %.055 = phi ptr [ %65, %57 ], [ %55, %._crit_edge71 ]
-  %.not = icmp eq i32 %68, %46
-  br i1 %.not, label %87, label %69
-
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %.055, i64 4
-  %71 = getelementptr inbounds i8, ptr %.055, i64 6
-  %72 = getelementptr inbounds i8, ptr %.055, i64 7
-  tail call void @get_typlenbyvalalign(i32 noundef %46, ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef nonnull %72) #9
-  %73 = tail call ptr @lookup_type_cache(i32 noundef %46, i32 noundef 32) #9
-  %74 = getelementptr inbounds i8, ptr %73, i64 80
-  %75 = load i32, ptr %74, align 8
-  %.not61 = icmp eq i32 %75, 0
-  br i1 %.not61, label %76, label %81
-
-76:                                               ; preds = %69
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %77)
-  %78 = tail call i32 @errcode(i32 noundef 52461700) #9
-  %79 = tail call ptr @format_type_be(i32 noundef %46) #9
-  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %79) #9
+74:                                               ; preds = %67
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %75)
+  %76 = tail call i32 @errcode(i32 noundef 52461700) #9
+  %77 = tail call ptr @format_type_be(i32 noundef %46) #9
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %77) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1478, ptr noundef nonnull @__func__.array_positions) #9
   unreachable
 
-81:                                               ; preds = %69
-  store i32 %46, ptr %.055, align 8
-  %82 = load i32, ptr %74, align 8
-  %83 = getelementptr inbounds i8, ptr %.055, i64 24
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %82, ptr noundef nonnull %83, ptr noundef %86) #9
-  br label %87
+79:                                               ; preds = %67
+  store i32 %46, ptr %.05575, align 8
+  %80 = load i32, ptr %72, align 8
+  %81 = getelementptr inbounds i8, ptr %.05575, i64 24
+  %82 = load ptr, ptr %0, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = load ptr, ptr %83, align 8
+  tail call void @fmgr_info_cxt(i32 noundef %80, ptr noundef nonnull %81, ptr noundef %84) #9
+  br label %85
 
-87:                                               ; preds = %81, %67
-  %88 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.055) #9
-  %89 = call zeroext i1 @array_iterate(ptr noundef %88, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  br i1 %89, label %.lr.ph, label %._crit_edge
+85:                                               ; preds = %79, %66
+  %.05576 = phi ptr [ %.05575, %79 ], [ %55, %66 ]
+  %86 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.05576) #9
+  %87 = call zeroext i1 @array_iterate(ptr noundef %86, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  br i1 %87, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %.055, i64 24
+.lr.ph:                                           ; preds = %85
+  %88 = getelementptr inbounds i8, ptr %.05576, i64 24
   br i1 %34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
   %.068.us = phi ptr [ %.1.us, %.backedge.us ], [ %25, %.lr.ph ]
-  %.05767.us = phi i32 [ %91, %.backedge.us ], [ %52, %.lr.ph ]
-  %91 = add i32 %.05767.us, 1
-  %92 = load i8, ptr %3, align 1
-  %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %.backedge.us
+  %.05767.us = phi i32 [ %89, %.backedge.us ], [ %52, %.lr.ph ]
+  %89 = add i32 %.05767.us, 1
+  %90 = load i8, ptr %3, align 1
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %92, label %.backedge.us
 
-94:                                               ; preds = %.lr.ph.split.us
-  %95 = sext i32 %91 to i64
-  %96 = load ptr, ptr @CurrentMemoryContext, align 8
-  %97 = call ptr @accumArrayResult(ptr noundef %.068.us, i64 noundef %95, i1 noundef zeroext false, i32 noundef 23, ptr noundef %96) #9
+92:                                               ; preds = %.lr.ph.split.us
+  %93 = sext i32 %89 to i64
+  %94 = load ptr, ptr @CurrentMemoryContext, align 8
+  %95 = call ptr @accumArrayResult(ptr noundef %.068.us, i64 noundef %93, i1 noundef zeroext false, i32 noundef 23, ptr noundef %94) #9
   br label %.backedge.us
 
-.backedge.us:                                     ; preds = %94, %.lr.ph.split.us
-  %.1.us = phi ptr [ %97, %94 ], [ %.068.us, %.lr.ph.split.us ]
-  %98 = call zeroext i1 @array_iterate(ptr noundef %88, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  br i1 %98, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
+.backedge.us:                                     ; preds = %92, %.lr.ph.split.us
+  %.1.us = phi ptr [ %95, %92 ], [ %.068.us, %.lr.ph.split.us ]
+  %96 = call zeroext i1 @array_iterate(ptr noundef %86, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  br i1 %96, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %.068 = phi ptr [ %.0.be, %.backedge ], [ %25, %.lr.ph ]
-  %.05767 = phi i32 [ %99, %.backedge ], [ %52, %.lr.ph ]
-  %99 = add i32 %.05767, 1
-  %100 = load i8, ptr %3, align 1
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %.backedge, label %103
+  %.05767 = phi i32 [ %97, %.backedge ], [ %52, %.lr.ph ]
+  %97 = add i32 %.05767, 1
+  %98 = load i8, ptr %3, align 1
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %.backedge, label %101
 
-.backedge:                                        ; preds = %103, %106, %.lr.ph.split
-  %.0.be = phi ptr [ %.068, %.lr.ph.split ], [ %109, %106 ], [ %.068, %103 ]
-  %102 = call zeroext i1 @array_iterate(ptr noundef %88, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  br i1 %102, label %.lr.ph.split, label %._crit_edge, !llvm.loop !57
+.backedge:                                        ; preds = %101, %104, %.lr.ph.split
+  %.0.be = phi ptr [ %.068, %.lr.ph.split ], [ %107, %104 ], [ %.068, %101 ]
+  %100 = call zeroext i1 @array_iterate(ptr noundef %86, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  br i1 %100, label %.lr.ph.split, label %._crit_edge, !llvm.loop !57
 
-103:                                              ; preds = %.lr.ph.split
-  %104 = load i64, ptr %2, align 8
-  %105 = call i64 @FunctionCall2Coll(ptr noundef nonnull %90, i32 noundef %5, i64 noundef %.056, i64 noundef %104) #9
-  %.not66 = icmp eq i64 %105, 0
-  br i1 %.not66, label %.backedge, label %106
+101:                                              ; preds = %.lr.ph.split
+  %102 = load i64, ptr %2, align 8
+  %103 = call i64 @FunctionCall2Coll(ptr noundef nonnull %88, i32 noundef %5, i64 noundef %.056, i64 noundef %102) #9
+  %.not66 = icmp eq i64 %103, 0
+  br i1 %.not66, label %.backedge, label %104
 
-106:                                              ; preds = %103
-  %107 = sext i32 %99 to i64
-  %108 = load ptr, ptr @CurrentMemoryContext, align 8
-  %109 = call ptr @accumArrayResult(ptr noundef %.068, i64 noundef %107, i1 noundef zeroext false, i32 noundef 23, ptr noundef %108) #9
+104:                                              ; preds = %101
+  %105 = sext i32 %97 to i64
+  %106 = load ptr, ptr @CurrentMemoryContext, align 8
+  %107 = call ptr @accumArrayResult(ptr noundef %.068, i64 noundef %105, i1 noundef zeroext false, i32 noundef 23, ptr noundef %106) #9
   br label %.backedge
 
-._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %87
-  %.0.lcssa = phi ptr [ %25, %87 ], [ %.1.us, %.backedge.us ], [ %.0.be, %.backedge ]
-  call void @array_free_iterator(ptr noundef %88) #9
-  %110 = load i64, ptr %6, align 8
-  %111 = inttoptr i64 %110 to ptr
-  %.not62 = icmp eq ptr %15, %111
-  br i1 %.not62, label %113, label %112
+._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %85
+  %.0.lcssa = phi ptr [ %25, %85 ], [ %.1.us, %.backedge.us ], [ %.0.be, %.backedge ]
+  call void @array_free_iterator(ptr noundef %86) #9
+  %108 = load i64, ptr %6, align 8
+  %109 = inttoptr i64 %108 to ptr
+  %.not62 = icmp eq ptr %15, %109
+  br i1 %.not62, label %111, label %110
 
-112:                                              ; preds = %._crit_edge
+110:                                              ; preds = %._crit_edge
   call void @pfree(ptr noundef %15) #9
-  br label %113
+  br label %111
 
-113:                                              ; preds = %._crit_edge, %112
-  %114 = load ptr, ptr @CurrentMemoryContext, align 8
-  %115 = call i64 @makeArrayResult(ptr noundef %.0.lcssa, ptr noundef %114) #9
-  br label %116
+111:                                              ; preds = %._crit_edge, %110
+  %112 = load ptr, ptr @CurrentMemoryContext, align 8
+  %113 = call i64 @makeArrayResult(ptr noundef %.0.lcssa, ptr noundef %112) #9
+  br label %114
 
-116:                                              ; preds = %113, %37, %28, %10
-  %.053 = phi i64 [ 0, %10 ], [ %30, %28 ], [ %115, %113 ], [ %39, %37 ]
+114:                                              ; preds = %111, %37, %28, %10
+  %.053 = phi i64 [ 0, %10 ], [ %30, %28 ], [ %113, %111 ], [ %39, %37 ]
   ret i64 %.053
 }
 

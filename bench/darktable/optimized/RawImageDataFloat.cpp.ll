@@ -225,7 +225,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   br label %83
 
 .loopexit13:                                      ; preds = %.loopexit11, %1
-  %70 = phi i32 [ 0, %1 ], [ %445, %.loopexit11 ]
+  %70 = phi i32 [ 0, %1 ], [ %441, %.loopexit11 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 100
   %72 = getelementptr inbounds i8, ptr %0, i64 120
   %73 = getelementptr inbounds i8, ptr %0, i64 152
@@ -248,11 +248,11 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %81 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 2, ptr %81, align 8
   %82 = icmp eq i32 %70, 0
-  br i1 %82, label %448, label %451
+  br i1 %82, label %444, label %447
 
 83:                                               ; preds = %.loopexit11, %29
-  %84 = phi i32 [ 0, %29 ], [ %445, %.loopexit11 ]
-  %85 = phi ptr [ %25, %29 ], [ %446, %.loopexit11 ]
+  %84 = phi i32 [ 0, %29 ], [ %441, %.loopexit11 ]
+  %85 = phi ptr [ %25, %29 ], [ %442, %.loopexit11 ]
   %86 = load i32, ptr %85, align 4, !tbaa !99
   %87 = getelementptr inbounds i8, ptr %85, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !99
@@ -496,8 +496,8 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %.pre = sub nsw i64 %228, %241
   br label %248
 
-248:                                              ; preds = %.loopexit9, %226
-  %249 = phi i64 [ %43, %226 ], [ %440, %.loopexit9 ]
+248:                                              ; preds = %435, %226
+  %249 = phi i64 [ %43, %226 ], [ %436, %435 ]
   %250 = icmp ult i64 %249, %44
   tail call void @llvm.assume(i1 %250)
   %251 = trunc i64 %249 to i32
@@ -705,7 +705,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   store <8 x float> %374, ptr %264, align 4, !tbaa !76
   store <8 x float> %375, ptr %265, align 4, !tbaa !76
   store <8 x float> %376, ptr %266, align 4, !tbaa !76
-  br i1 %246, label %.loopexit9, label %._crit_edge
+  br i1 %246, label %435, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %380, %248
   %.pre-phi = phi i64 [ %233, %248 ], [ %.pre, %380 ]
@@ -739,7 +739,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %399 = phi i64 [ %381, %._crit_edge ], [ %396, %.preheader ]
   %400 = sub nsw i64 %381, %228
   %401 = icmp ugt i64 %400, -4
-  br i1 %401, label %.loopexit9, label %402
+  br i1 %401, label %435, label %402
 
 402:                                              ; preds = %.loopexit10
   %403 = and i64 %399, 1
@@ -747,99 +747,97 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %405 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %404
   %406 = xor i64 %404, 1
   %407 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %406
-  br label %408
+  %.promoted = load float, ptr %405, align 4, !tbaa !76
+  %.promoted24 = load float, ptr %407, align 4, !tbaa !76
+  %408 = insertelement <2 x float> poison, float %.promoted, i64 0
+  %409 = insertelement <2 x float> %408, float %.promoted24, i64 1
+  br label %410
 
-408:                                              ; preds = %408, %402
-  %409 = phi i64 [ %399, %402 ], [ %438, %408 ]
-  %410 = and i64 %409, 2147483648
-  %411 = icmp eq i64 %410, 0
-  tail call void @llvm.assume(i1 %411)
-  %412 = getelementptr inbounds float, ptr %256, i64 %409
-  %413 = load float, ptr %412, align 4, !tbaa !76
-  %414 = load float, ptr %405, align 4, !tbaa !76
-  %415 = fadd float %413, %414
-  store float %415, ptr %405, align 4, !tbaa !76
-  %416 = add nuw nsw i64 %409, 1
+410:                                              ; preds = %410, %402
+  %411 = phi i64 [ %399, %402 ], [ %431, %410 ]
+  %412 = phi <2 x float> [ %409, %402 ], [ %430, %410 ]
+  %413 = and i64 %411, 2147483648
+  %414 = icmp eq i64 %413, 0
+  tail call void @llvm.assume(i1 %414)
+  %415 = getelementptr inbounds float, ptr %256, i64 %411
+  %416 = add nuw nsw i64 %411, 1
   %417 = and i64 %416, 2147483648
   %418 = icmp eq i64 %417, 0
   tail call void @llvm.assume(i1 %418)
-  %419 = getelementptr inbounds float, ptr %256, i64 %416
-  %420 = load float, ptr %419, align 4, !tbaa !76
-  %421 = load float, ptr %407, align 4, !tbaa !76
-  %422 = fadd float %420, %421
-  store float %422, ptr %407, align 4, !tbaa !76
-  %423 = add nuw nsw i64 %409, 2
+  %419 = add nuw nsw i64 %411, 2
+  %420 = and i64 %419, 2147483648
+  %421 = icmp eq i64 %420, 0
+  tail call void @llvm.assume(i1 %421)
+  %422 = getelementptr inbounds float, ptr %256, i64 %419
+  %423 = add nuw nsw i64 %411, 3
   %424 = and i64 %423, 2147483648
   %425 = icmp eq i64 %424, 0
   tail call void @llvm.assume(i1 %425)
-  %426 = getelementptr inbounds float, ptr %256, i64 %423
-  %427 = load float, ptr %426, align 4, !tbaa !76
-  %428 = load float, ptr %405, align 4, !tbaa !76
-  %429 = fadd float %427, %428
-  store float %429, ptr %405, align 4, !tbaa !76
-  %430 = add nuw nsw i64 %409, 3
-  %431 = and i64 %430, 2147483648
-  %432 = icmp eq i64 %431, 0
-  tail call void @llvm.assume(i1 %432)
-  %433 = icmp ult i64 %430, %42
-  tail call void @llvm.assume(i1 %433)
-  %434 = getelementptr inbounds float, ptr %256, i64 %430
-  %435 = load float, ptr %434, align 4, !tbaa !76
-  %436 = load float, ptr %407, align 4, !tbaa !76
-  %437 = fadd float %435, %436
-  store float %437, ptr %407, align 4, !tbaa !76
-  %438 = add nuw nsw i64 %409, 4
-  %439 = icmp eq i64 %438, %228
-  br i1 %439, label %.loopexit9, label %408, !llvm.loop !110
+  %426 = icmp ult i64 %423, %42
+  tail call void @llvm.assume(i1 %426)
+  %427 = load <2 x float>, ptr %415, align 4, !tbaa !76
+  %428 = fadd <2 x float> %427, %412
+  %429 = load <2 x float>, ptr %422, align 4, !tbaa !76
+  %430 = fadd <2 x float> %428, %429
+  %431 = add nuw nsw i64 %411, 4
+  %432 = icmp eq i64 %431, %228
+  br i1 %432, label %.loopexit9, label %410, !llvm.loop !110
 
-.loopexit9:                                       ; preds = %408, %.loopexit10, %380
-  %440 = add nuw nsw i64 %249, 1
-  %441 = trunc i64 %440 to i32
-  %442 = icmp sgt i32 %34, %441
-  br i1 %442, label %248, label %.loopexit11, !llvm.loop !111
+.loopexit9:                                       ; preds = %410
+  %433 = extractelement <2 x float> %430, i64 0
+  store float %433, ptr %405, align 4, !tbaa !76
+  %434 = extractelement <2 x float> %430, i64 1
+  store float %434, ptr %407, align 4, !tbaa !76
+  br label %435
 
-.loopexit11:                                      ; preds = %.loopexit9, %216, %.loopexit.us, %223, %97
-  %443 = phi i32 [ %39, %97 ], [ %33, %223 ], [ %39, %.loopexit.us ], [ %39, %216 ], [ %33, %.loopexit9 ]
-  %444 = mul i32 %443, %91
-  %445 = add i32 %444, %84
-  %446 = getelementptr inbounds i8, ptr %85, i64 12
-  %447 = icmp eq ptr %446, %27
-  br i1 %447, label %.loopexit13, label %83
+435:                                              ; preds = %.loopexit9, %.loopexit10, %380
+  %436 = add nuw nsw i64 %249, 1
+  %437 = trunc i64 %436 to i32
+  %438 = icmp sgt i32 %34, %437
+  br i1 %438, label %248, label %.loopexit11, !llvm.loop !111
 
-448:                                              ; preds = %77
-  %449 = getelementptr inbounds i8, ptr %0, i64 96
-  %450 = load i32, ptr %449, align 8, !tbaa !71
+.loopexit11:                                      ; preds = %435, %216, %.loopexit.us, %223, %97
+  %439 = phi i32 [ %39, %97 ], [ %33, %223 ], [ %39, %.loopexit.us ], [ %39, %216 ], [ %33, %435 ]
+  %440 = mul i32 %439, %91
+  %441 = add i32 %440, %84
+  %442 = getelementptr inbounds i8, ptr %85, i64 12
+  %443 = icmp eq ptr %442, %27
+  br i1 %443, label %.loopexit13, label %83
+
+444:                                              ; preds = %77
+  %445 = getelementptr inbounds i8, ptr %0, i64 96
+  %446 = load i32, ptr %445, align 8, !tbaa !71
+  br label %463
+
+447:                                              ; preds = %77
+  %448 = sdiv i32 %70, 4
+  %449 = sitofp i32 %448 to float
+  %450 = load <4 x float>, ptr %2, align 16, !tbaa !76
+  %451 = fmul <4 x float> %450, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
+  %452 = insertelement <4 x float> poison, float %449, i64 0
+  %453 = shufflevector <4 x float> %452, <4 x float> poison, <4 x i32> zeroinitializer
+  %454 = fdiv <4 x float> %451, %453
+  %455 = fptosi <4 x float> %454 to <4 x i32>
+  store <4 x i32> %455, ptr %71, align 4, !tbaa !99
+  %456 = getelementptr inbounds i8, ptr %0, i64 56
+  %457 = load i8, ptr %456, align 8, !tbaa !6, !range !98, !noundef !93
+  %458 = icmp eq i8 %457, 0
+  br i1 %458, label %459, label %467
+
+459:                                              ; preds = %447
+  %460 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %455)
+  %461 = add nsw i32 %460, 2
+  %462 = ashr i32 %461, 2
+  br label %463
+
+463:                                              ; preds = %459, %444
+  %464 = phi i32 [ %462, %459 ], [ %446, %444 ]
+  %465 = insertelement <4 x i32> poison, i32 %464, i64 0
+  %466 = shufflevector <4 x i32> %465, <4 x i32> poison, <4 x i32> zeroinitializer
+  store <4 x i32> %466, ptr %71, align 4, !tbaa !99
   br label %467
 
-451:                                              ; preds = %77
-  %452 = sdiv i32 %70, 4
-  %453 = sitofp i32 %452 to float
-  %454 = load <4 x float>, ptr %2, align 16, !tbaa !76
-  %455 = fmul <4 x float> %454, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
-  %456 = insertelement <4 x float> poison, float %453, i64 0
-  %457 = shufflevector <4 x float> %456, <4 x float> poison, <4 x i32> zeroinitializer
-  %458 = fdiv <4 x float> %455, %457
-  %459 = fptosi <4 x float> %458 to <4 x i32>
-  store <4 x i32> %459, ptr %71, align 4, !tbaa !99
-  %460 = getelementptr inbounds i8, ptr %0, i64 56
-  %461 = load i8, ptr %460, align 8, !tbaa !6, !range !98, !noundef !93
-  %462 = icmp eq i8 %461, 0
-  br i1 %462, label %463, label %471
-
-463:                                              ; preds = %451
-  %464 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %459)
-  %465 = add nsw i32 %464, 2
-  %466 = ashr i32 %465, 2
-  br label %467
-
-467:                                              ; preds = %463, %448
-  %468 = phi i32 [ %466, %463 ], [ %450, %448 ]
-  %469 = insertelement <4 x i32> poison, i32 %468, i64 0
-  %470 = shufflevector <4 x i32> %469, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %470, ptr %71, align 4, !tbaa !99
-  br label %471
-
-471:                                              ; preds = %467, %451
+467:                                              ; preds = %463, %447
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #20
   ret void
 }

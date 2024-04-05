@@ -9732,21 +9732,28 @@ if.end.i54:                                       ; preds = %if.else.i, %if.then
 for.end19.i:                                      ; preds = %for.cond2.i
   %3 = load atomic i32, ptr %this acquire, align 4
   store i32 %3, ptr %state, align 4
-  %and30.i.i = and i32 %3, %preconditionGoalMask
-  %cmp31.i.i = icmp eq i32 %and30.i.i, 0
-  br i1 %cmp31.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %if.end.us.i.i
+  %and34.i.i = and i32 %3, %preconditionGoalMask
+  %cmp35.i.i = icmp eq i32 %and34.i.i, 0
+  br i1 %cmp35.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %if.end.us.i.i
 
 if.end.us.i.i:                                    ; preds = %for.end19.i, %while.body.backedge.us.i.i
   %4 = phi i32 [ %8, %while.body.backedge.us.i.i ], [ %3, %for.end19.i ]
   %and4.us.i.i = and i32 %4, 4
   %cmp5.not.us.i.i = icmp eq i32 %and4.us.i.i, 0
-  %after.0.us.v.i.i = select i1 %cmp5.not.us.i.i, i32 4, i32 8
-  %after.0.us.i.i = or i32 %after.0.us.v.i.i, %4
-  %cmp12.not.us.i.i = icmp eq i32 %after.0.us.i.i, %4
+  br i1 %cmp5.not.us.i.i, label %if.end11.thread.us.i.i, label %if.then6.us.i.i
+
+if.then6.us.i.i:                                  ; preds = %if.end.us.i.i
+  %or.us.i.i = or i32 %4, 8
+  %cmp12.not.us.i.i = icmp eq i32 %or.us.i.i, %4
   br i1 %cmp12.not.us.i.i, label %if.end16.us.i.i, label %seqcst_fail50.i.i.us.i.i
 
-seqcst_fail50.i.i.us.i.i:                         ; preds = %if.end.us.i.i
-  %5 = cmpxchg ptr %this, i32 %4, i32 %after.0.us.i.i seq_cst seq_cst, align 4
+if.end11.thread.us.i.i:                           ; preds = %if.end.us.i.i
+  %or7.us.i.i = or disjoint i32 %4, 4
+  br label %seqcst_fail50.i.i.us.i.i
+
+seqcst_fail50.i.i.us.i.i:                         ; preds = %if.end11.thread.us.i.i, %if.then6.us.i.i
+  %after.031.us.i.i = phi i32 [ %or7.us.i.i, %if.end11.thread.us.i.i ], [ %or.us.i.i, %if.then6.us.i.i ]
+  %5 = cmpxchg ptr %this, i32 %4, i32 %after.031.us.i.i seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 1
   br i1 %6, label %if.end16.us.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.us.i.i
 
@@ -9755,8 +9762,9 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.us.i.i
   store i32 %7, ptr %state, align 4
   br label %while.body.backedge.us.i.i
 
-if.end16.us.i.i:                                  ; preds = %seqcst_fail50.i.i.us.i.i, %if.end.us.i.i
-  %call.i.i.us.i.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %after.0.us.i.i, ptr noundef null, ptr noundef null, i32 noundef 12)
+if.end16.us.i.i:                                  ; preds = %seqcst_fail50.i.i.us.i.i, %if.then6.us.i.i
+  %after.032.us.i.i = phi i32 [ %4, %if.then6.us.i.i ], [ %after.031.us.i.i, %seqcst_fail50.i.i.us.i.i ]
+  %call.i.i.us.i.i = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %after.032.us.i.i, ptr noundef null, ptr noundef null, i32 noundef 12)
   br label %while.body.backedge.us.i.i
 
 while.body.backedge.us.i.i:                       ; preds = %if.end16.us.i.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.us.i.i
@@ -9897,8 +9905,8 @@ if.end.i63:                                       ; preds = %if.else.i78, %if.th
 for.end19.i69:                                    ; preds = %for.cond2.i66
   %22 = load atomic i32, ptr %this acquire, align 4
   store i32 %22, ptr %state, align 4
-  %cmp31.i.i71 = icmp ult i32 %22, 2048
-  br i1 %cmp31.i.i71, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit80, label %if.end.i.i73
+  %cmp35.i.i71 = icmp ult i32 %22, 2048
+  br i1 %cmp35.i.i71, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit80, label %if.end.i.i73
 
 if.end.i.i73:                                     ; preds = %for.end19.i69, %while.body.backedge.i.i
   %23 = phi i32 [ %27, %while.body.backedge.i.i ], [ %22, %for.end19.i69 ]
