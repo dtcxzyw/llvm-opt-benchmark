@@ -536,70 +536,70 @@ define internal i64 @pps_cdev_compat_ioctl(ptr nocapture noundef readonly %0, i3
   %7 = load ptr, ptr %6, align 8
   %8 = inttoptr i64 %2 to ptr
   %9 = and i32 %1, -1073676289
-  %10 = or disjoint i32 %9, 524288
-  %11 = icmp eq i32 %10, -1073188700
-  br i1 %11, label %12, label %42
+  %10 = icmp eq i32 %9, -1073712988
+  br i1 %10, label %11, label %41
 
-12:                                               ; preds = %3
+11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 48, i1 false), !annotation !9
-  %13 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %8, i64 noundef 60) #9
-  %14 = and i64 %13, 4294967295
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %40
+  %12 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %8, i64 noundef 60) #9
+  %13 = and i64 %12, 4294967295
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %39
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %5, i64 48
-  %18 = getelementptr inbounds i8, ptr %4, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %17, ptr noundef align 4 dereferenceable(16) %18, i64 16, i1 false)
-  %19 = call fastcc i32 @pps_cdev_pps_fetch(ptr noundef %7, ptr noundef nonnull %5), !range !11
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %23, label %21
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %5, i64 48
+  %17 = getelementptr inbounds i8, ptr %4, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %16, ptr noundef align 4 dereferenceable(16) %17, i64 16, i1 false)
+  %18 = call fastcc i32 @pps_cdev_pps_fetch(ptr noundef %7, ptr noundef nonnull %5), !range !11
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %22, label %20
 
-21:                                               ; preds = %16
-  %22 = sext i32 %19 to i64
-  br label %40
+20:                                               ; preds = %15
+  %21 = sext i32 %18 to i64
+  br label %39
 
-23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %7, i64 344
-  call void @_raw_spin_lock_irq(ptr noundef %24) #9
-  %25 = getelementptr inbounds i8, ptr %7, i64 136
-  %26 = load i32, ptr %25, align 8
-  store i32 %26, ptr %4, align 4
-  %27 = getelementptr inbounds i8, ptr %7, i64 140
-  %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %7, i64 176
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %33, ptr noundef align 8 dereferenceable(16) %34, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
-  %36 = getelementptr inbounds i8, ptr %7, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %35, ptr noundef align 8 dereferenceable(16) %36, i64 16, i1 false)
-  call void @_raw_spin_unlock_irq(ptr noundef %24) #9
-  %37 = call i64 @_copy_to_user(ptr noundef %8, ptr noundef nonnull %4, i64 noundef 60) #9
-  %38 = icmp eq i64 %37, 0
-  %39 = select i1 %38, i64 0, i64 -14
-  br label %40
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds i8, ptr %7, i64 344
+  call void @_raw_spin_lock_irq(ptr noundef %23) #9
+  %24 = getelementptr inbounds i8, ptr %7, i64 136
+  %25 = load i32, ptr %24, align 8
+  store i32 %25, ptr %4, align 4
+  %26 = getelementptr inbounds i8, ptr %7, i64 140
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %27, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %7, i64 176
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 %30, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds i8, ptr %7, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %32, ptr noundef align 8 dereferenceable(16) %33, i64 16, i1 false)
+  %34 = getelementptr inbounds i8, ptr %4, i64 24
+  %35 = getelementptr inbounds i8, ptr %7, i64 160
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %34, ptr noundef align 8 dereferenceable(16) %35, i64 16, i1 false)
+  call void @_raw_spin_unlock_irq(ptr noundef %23) #9
+  %36 = call i64 @_copy_to_user(ptr noundef %8, ptr noundef nonnull %4, i64 noundef 60) #9
+  %37 = icmp eq i64 %36, 0
+  %38 = select i1 %37, i64 0, i64 -14
+  br label %39
 
-40:                                               ; preds = %23, %21, %12
-  %41 = phi i64 [ %22, %21 ], [ %39, %23 ], [ -14, %12 ]
+39:                                               ; preds = %22, %20, %11
+  %40 = phi i64 [ %21, %20 ], [ %38, %22 ], [ -14, %11 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #9
   br label %44
 
-42:                                               ; preds = %3
-  %43 = tail call i64 @pps_cdev_ioctl(ptr noundef %0, i32 noundef %10, i64 noundef %2), !range !12
+41:                                               ; preds = %3
+  %42 = or disjoint i32 %9, 524288
+  %43 = tail call i64 @pps_cdev_ioctl(ptr noundef %0, i32 noundef %42, i64 noundef %2), !range !12
   br label %44
 
-44:                                               ; preds = %42, %40
-  %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
+44:                                               ; preds = %41, %39
+  %45 = phi i64 [ %40, %39 ], [ %43, %41 ]
   ret i64 %45
 }
 

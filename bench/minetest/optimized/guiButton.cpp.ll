@@ -4500,11 +4500,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us: ; p
   %_M_string_length.i.i.i.i.us.i.i.us = getelementptr inbounds i8, ptr %arrayidx.us.i.i.us, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.us.i.i.us, align 8, !tbaa !72
   store i8 0, ptr %17, align 1, !tbaa !73
-  %inc.us.i.i.us = or disjoint i64 %__i0.07.us.i.i.us, 1
-  %cmp.not.us.i.i.us = icmp eq i64 %inc.us.i.i.us, 25
+  %cmp.not.us.i.i.us = icmp eq i64 %__i0.07.us.i.i.us, 24
   br i1 %cmp.not.us.i.i.us, label %_ZN9StyleSpecaSEOS_.exit.loopexit.us, label %for.body.us.i.i.us.1, !llvm.loop !125
 
 for.body.us.i.i.us.1:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us
+  %inc.us.i.i.us = or disjoint i64 %__i0.07.us.i.i.us, 1
   %arrayidx.us.i.i.us.1 = getelementptr inbounds [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties3.i14, i64 0, i64 %inc.us.i.i.us
   %18 = load ptr, ptr %arrayidx.us.i.i.us.1, align 8, !tbaa !122
   %19 = getelementptr inbounds i8, ptr %arrayidx.us.i.i.us.1, i64 16

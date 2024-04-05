@@ -1812,7 +1812,7 @@ sw.bb21.i.i.i.i:                                  ; preds = %if.end11.i.i.i.i
   ]
 
 _ZN6hermes2vmL11uriReservedEDs.exit:              ; preds = %if.end3.i.i.i.i
-  %cmp.i.not = icmp eq i64 %__first.addr.049.i.i.i.i.add22, 20
+  %cmp.i.not = icmp eq i64 %__first.addr.049.i.i.i.i.idx, 16
   br i1 %cmp.i.not, label %for.body.i.i.i.i3.preheader, label %lor.end
 
 for.body.i.i.i.i3.preheader:                      ; preds = %sw.bb21.i.i.i.i, %_ZN6hermes2vmL11uriReservedEDs.exit
@@ -1858,7 +1858,7 @@ sw.bb26.i.i.i.i15:                                ; preds = %if.end11.i.i.i.i12
   br i1 %cmp.i31.i.i.i.i16, label %_ZN6hermes2vmL12uriUnescapedEDs.exit, label %if.end.i
 
 _ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i:            ; preds = %if.end.i.i.i.i6
-  %cmp.not.i = icmp eq i64 %__first.addr.049.i.i.i.add17.i, 18
+  %cmp.not.i = icmp eq i64 %__first.addr.049.i.i.i.idx.i, 16
   br i1 %cmp.not.i, label %if.end.i, label %_ZN6hermes2vmL12uriUnescapedEDs.exit
 
 if.end.i:                                         ; preds = %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i, %sw.bb26.i.i.i.i15
@@ -1981,7 +1981,7 @@ sw.bb26.i.i.i:                                    ; preds = %if.end11.i.i.i
   br i1 %cmp.i31.i.i.i, label %return, label %if.end
 
 _ZSt4findIPKDsDsET_S2_S2_RKT0_.exit:              ; preds = %if.end.i.i.i
-  %cmp.not = icmp eq i64 %__first.addr.049.i.i.i.add17, 18
+  %cmp.not = icmp eq i64 %__first.addr.049.i.i.i.idx, 16
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %sw.bb26.i.i.i, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit

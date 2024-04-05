@@ -5864,8 +5864,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %109 = getelementptr double, ptr %64, i64 %62
   %110 = getelementptr double, ptr %109, i64 %.03662
   store <2 x double> %.0.i.i.i, ptr %110, align 16
-  %.not68 = icmp eq i64 %49, 3
-  br i1 %.not68, label %._crit_edge, label %111
+  %.not68.not = icmp eq i64 %.03662, 0
+  br i1 %.not68.not, label %111, label %._crit_edge
 
 111:                                              ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEENS2_INS_7ProductINS6_INS3_IdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS_9TransposeIKS7_EELi1EEEEENS0_9assign_opIddEELi1EE24assignPacketByOuterInnerILi16ELi0EDv2_dEEvll.exit
   %112 = mul nuw nsw i64 %.03761, 3
