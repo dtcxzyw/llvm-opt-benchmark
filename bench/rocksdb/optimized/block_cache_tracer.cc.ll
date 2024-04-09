@@ -3307,8 +3307,8 @@ _ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptions
   %shr11.i.i.i.i.i = lshr i64 %mul7.i.i.i.i.i, 32
   %mul15.i.i.i.i.i = mul nuw i64 %shr3.i.i.i.i.i, %shr5.i.i.i.i.i
   %add12.i.i.i.i.i = add nuw i64 %shr11.i.i.i.i.i, %mul15.i.i.i.i.i
-  %add16.i.i.i.i.i = sub nsw i64 0, %shr10.i.i.i.i.i
-  %cmp4.i = icmp eq i64 %add12.i.i.i.i.i, %add16.i.i.i.i.i
+  %2 = or i64 %shr10.i.i.i.i.i, %add12.i.i.i.i.i
+  %cmp4.i = icmp eq i64 %2, 0
   br i1 %cmp4.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit, %entry
@@ -3320,8 +3320,8 @@ if.then:                                          ; preds = %_ZN7rocksdb12_GLOBA
 if.end:                                           ; preds = %lor.lhs.false, %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit
   %trace_writer_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %trace_writer_mutex_)
-  %2 = load atomic i64, ptr %writer_ seq_cst, align 8
-  %tobool5.not = icmp eq i64 %2, 0
+  %3 = load atomic i64, ptr %writer_ seq_cst, align 8
+  %tobool5.not = icmp eq i64 %3, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
@@ -3331,28 +3331,28 @@ if.then6:                                         ; preds = %if.end
   br label %cleanup
 
 lpad:                                             ; preds = %if.end7
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %trace_writer_mutex_)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #22
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #22
   unreachable
 
 _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %lpad
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 
 if.end7:                                          ; preds = %if.end
-  %6 = load atomic i64, ptr %writer_ seq_cst, align 8
-  %atomic-temp.i.0.i5 = inttoptr i64 %6 to ptr
+  %7 = load atomic i64, ptr %writer_ seq_cst, align 8
+  %atomic-temp.i.0.i5 = inttoptr i64 %7 to ptr
   %vtable = load ptr, ptr %atomic-temp.i.0.i5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %7 = load ptr, ptr %vfn, align 8
-  invoke void %7(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %atomic-temp.i.0.i5, ptr noundef nonnull align 8 dereferenceable(185) %record, ptr noundef nonnull align 8 dereferenceable(16) %block_key, ptr noundef nonnull align 8 dereferenceable(16) %cf_name, ptr noundef nonnull align 8 dereferenceable(16) %referenced_key)
+  %8 = load ptr, ptr %vfn, align 8
+  invoke void %8(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %atomic-temp.i.0.i5, ptr noundef nonnull align 8 dereferenceable(185) %record, ptr noundef nonnull align 8 dereferenceable(16) %block_key, ptr noundef nonnull align 8 dereferenceable(16) %cf_name, ptr noundef nonnull align 8 dereferenceable(16) %referenced_key)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.then6, %if.end7
@@ -3360,10 +3360,10 @@ cleanup:                                          ; preds = %if.then6, %if.end7
           to label %return unwind label %terminate.lpad.i6
 
 terminate.lpad.i6:                                ; preds = %cleanup
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #22
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 return:                                           ; preds = %cleanup, %if.then

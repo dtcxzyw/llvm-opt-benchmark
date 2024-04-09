@@ -2698,9 +2698,10 @@ define internal noundef zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeI
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !577, !noundef !7
   %10 = icmp ne ptr %.val.i, null
-  %spec.select.i.i.i.neg = sext i1 %10 to i64
-  %11 = icmp eq i64 %8, %spec.select.i.i.i.neg
-  ret i1 %11
+  %spec.select.i.i.i = zext i1 %10 to i64
+  %11 = or i64 %8, %spec.select.i.i.i
+  %12 = icmp eq i64 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2715,9 +2716,10 @@ define internal noundef zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeI
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !583, !noundef !7
   %10 = icmp ne ptr %.val.i, null
-  %spec.select.i.i.i.neg = sext i1 %10 to i64
-  %11 = icmp eq i64 %8, %spec.select.i.i.i.neg
-  ret i1 %11
+  %spec.select.i.i.i = zext i1 %10 to i64
+  %11 = or i64 %8, %spec.select.i.i.i
+  %12 = icmp eq i64 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2732,9 +2734,10 @@ define internal noundef zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeI
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !589, !noundef !7
   %10 = icmp ne ptr %.val.i, null
-  %spec.select.i.i.i.neg = sext i1 %10 to i64
-  %11 = icmp eq i64 %8, %spec.select.i.i.i.neg
-  ret i1 %11
+  %spec.select.i.i.i = zext i1 %10 to i64
+  %11 = or i64 %8, %spec.select.i.i.i
+  %12 = icmp eq i64 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2749,9 +2752,10 @@ define internal noundef zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeI
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !595, !noundef !7
   %10 = icmp ne ptr %.val.i, null
-  %spec.select.i.i.i.neg = sext i1 %10 to i64
-  %11 = icmp eq i64 %8, %spec.select.i.i.i.neg
-  ret i1 %11
+  %spec.select.i.i.i = zext i1 %10 to i64
+  %11 = or i64 %8, %spec.select.i.i.i
+  %12 = icmp eq i64 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2766,9 +2770,10 @@ define internal noundef zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeI
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !601, !noundef !7
   %10 = icmp ne ptr %.val.i, null
-  %spec.select.i.i.i.neg = sext i1 %10 to i64
-  %11 = icmp eq i64 %8, %spec.select.i.i.i.neg
-  ret i1 %11
+  %spec.select.i.i.i = zext i1 %10 to i64
+  %11 = or i64 %8, %spec.select.i.i.i
+  %12 = icmp eq i64 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2783,9 +2788,10 @@ define internal noundef zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeI
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !607, !noundef !7
   %10 = icmp ne ptr %.val.i, null
-  %spec.select.i.i.i.neg = sext i1 %10 to i64
-  %11 = icmp eq i64 %8, %spec.select.i.i.i.neg
-  ret i1 %11
+  %spec.select.i.i.i = zext i1 %10 to i64
+  %11 = or i64 %8, %spec.select.i.i.i
+  %12 = icmp eq i64 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2800,9 +2806,10 @@ define internal noundef zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeI
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !613, !noundef !7
   %10 = icmp ne ptr %.val.i, null
-  %spec.select.i.i.i.neg = sext i1 %10 to i64
-  %11 = icmp eq i64 %8, %spec.select.i.i.i.neg
-  ret i1 %11
+  %spec.select.i.i.i = zext i1 %10 to i64
+  %11 = or i64 %8, %spec.select.i.i.i
+  %12 = icmp eq i64 %11, 0
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable

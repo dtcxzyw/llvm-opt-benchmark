@@ -2382,7 +2382,7 @@ define dso_local void @timekeeping_init() local_unnamed_addr #7 section ".init.t
   call void @read_persistent_wall_and_boot_offset(ptr noundef nonnull %2, ptr noundef nonnull %3) #13
   %4 = load i64, ptr %2, align 8
   %5 = icmp slt i64 %4, 0
-  br i1 %5, label %14, label %6
+  br i1 %5, label %16, label %6
 
 6:                                                ; preds = %0
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2390,108 +2390,108 @@ define dso_local void @timekeeping_init() local_unnamed_addr #7 section ".init.t
   %9 = icmp ult i64 %8, 1000000000
   %10 = icmp ult i64 %4, 8277292036
   %11 = and i1 %10, %9
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %.neg = mul nsw i64 %4, -1000000000
-  %.not = icmp eq i64 %8, %.neg
-  br i1 %.not, label %.thread, label %13
+  %13 = mul nuw nsw i64 %4, 1000000000
+  %14 = or i64 %8, %13
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %.thread, label %15
 
-13:                                               ; preds = %12
+15:                                               ; preds = %12
   store i1 true, ptr @persistent_clock_exists, align 1
-  br label %21
+  br label %24
 
-14:                                               ; preds = %6, %0
-  %15 = add i64 %4, -9223372036
-  %16 = icmp ult i64 %15, -18446744071
-  br i1 %16, label %19, label %..thread_crit_edge
+16:                                               ; preds = %6, %0
+  %17 = add i64 %4, -9223372036
+  %18 = icmp ult i64 %17, -18446744071
+  br i1 %18, label %22, label %..thread_crit_edge
 
-..thread_crit_edge:                               ; preds = %14
+..thread_crit_edge:                               ; preds = %16
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre7 = mul nsw i64 %4, -1000000000
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %12
-  %.pre-phi = phi i64 [ %.pre7, %..thread_crit_edge ], [ 0, %12 ]
-  %17 = phi i64 [ %.pre, %..thread_crit_edge ], [ 0, %12 ]
-  %18 = icmp eq i64 %17, %.pre-phi
-  br i1 %18, label %21, label %19
+  %19 = phi i64 [ %.pre, %..thread_crit_edge ], [ %8, %12 ]
+  %20 = mul nsw i64 %4, -1000000000
+  %21 = icmp eq i64 %19, %20
+  br i1 %21, label %24, label %22
 
-19:                                               ; preds = %.thread, %14
-  %20 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #14
+22:                                               ; preds = %.thread, %16
+  %23 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  br label %21
+  br label %24
 
-21:                                               ; preds = %19, %.thread, %13
-  %22 = phi i64 [ 0, %19 ], [ %.pre-phi, %.thread ], [ %8, %13 ]
-  %23 = phi i64 [ 0, %19 ], [ %4, %.thread ], [ %4, %13 ]
-  %24 = load i64, ptr %3, align 8
-  %25 = icmp slt i64 %23, %24
-  br i1 %25, label %32, label %26
+24:                                               ; preds = %22, %.thread, %15
+  %25 = phi i64 [ 0, %22 ], [ %19, %.thread ], [ %8, %15 ]
+  %26 = phi i64 [ 0, %22 ], [ %4, %.thread ], [ %4, %15 ]
+  %27 = load i64, ptr %3, align 8
+  %28 = icmp slt i64 %26, %27
+  br i1 %28, label %35, label %29
 
-26:                                               ; preds = %21
-  %27 = icmp sgt i64 %23, %24
+29:                                               ; preds = %24
+  %30 = icmp sgt i64 %26, %27
   %.phi.trans.insert5 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre6 = load i64, ptr %.phi.trans.insert5, align 8
-  br i1 %27, label %._crit_edge, label %28
+  br i1 %30, label %._crit_edge, label %31
 
-28:                                               ; preds = %26
-  %29 = sub i64 %22, %.pre6
-  %30 = and i64 %29, 2147483648
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %._crit_edge, label %32
+31:                                               ; preds = %29
+  %32 = sub i64 %25, %.pre6
+  %33 = and i64 %32, 2147483648
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %._crit_edge, label %35
 
-32:                                               ; preds = %28, %21
+35:                                               ; preds = %31, %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %26, %32, %28
-  %33 = phi i64 [ 0, %32 ], [ %.pre6, %28 ], [ %.pre6, %26 ]
-  %34 = phi i64 [ 0, %32 ], [ %24, %28 ], [ %24, %26 ]
+._crit_edge:                                      ; preds = %29, %35, %31
+  %36 = phi i64 [ 0, %35 ], [ %.pre6, %31 ], [ %.pre6, %29 ]
+  %37 = phi i64 [ 0, %35 ], [ %27, %31 ], [ %27, %29 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !annotation !67
-  %35 = sub i64 %34, %23
-  %36 = sub i64 %33, %22
-  call void @set_normalized_timespec64(ptr noundef nonnull %1, i64 noundef %35, i64 noundef %36) #10
-  %37 = load i64, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  %39 = load i64, ptr %38, align 8
+  %38 = sub i64 %37, %26
+  %39 = sub i64 %36, %25
+  call void @set_normalized_timespec64(ptr noundef nonnull %1, i64 noundef %38, i64 noundef %39) #10
+  %40 = load i64, ptr %1, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = load i64, ptr %41, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %40 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @timekeeper_lock) #10
-  %41 = load i32, ptr @tk_core, align 64
-  %42 = add i32 %41, 1
-  store i32 %42, ptr @tk_core, align 64
+  %43 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @timekeeper_lock) #10
+  %44 = load i32, ptr @tk_core, align 64
+  %45 = add i32 %44, 1
+  store i32 %45, ptr @tk_core, align 64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !73
   call void @ntp_init() #10
-  %43 = call ptr @clocksource_default_clock() #14
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %49, label %47
+  %46 = call ptr @clocksource_default_clock() #14
+  %47 = getelementptr inbounds i8, ptr %46, i64 96
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %52, label %50
 
-47:                                               ; preds = %._crit_edge
-  %48 = call i32 %45(ptr noundef %43) #10
-  br label %49
+50:                                               ; preds = %._crit_edge
+  %51 = call i32 %48(ptr noundef %46) #10
+  br label %52
 
-49:                                               ; preds = %47, %._crit_edge
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
-  call fastcc void @tk_setup_internals(ptr noundef %43)
-  %51 = load i64, ptr %2, align 8
-  store i64 %51, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1, i32 2), align 8
-  %52 = load i64, ptr %50, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1, i32 0, i32 4), align 4
-  %54 = zext nneg i32 %53 to i64
-  %55 = shl i64 %52, %54
-  store i64 %55, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1, i32 0, i32 5), align 8
+52:                                               ; preds = %50, %._crit_edge
+  %53 = getelementptr inbounds i8, ptr %2, i64 8
+  call fastcc void @tk_setup_internals(ptr noundef %46)
+  %54 = load i64, ptr %2, align 8
+  store i64 %54, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1, i32 2), align 8
+  %55 = load i64, ptr %53, align 8
+  %56 = load i32, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1, i32 0, i32 4), align 4
+  %57 = zext nneg i32 %56 to i64
+  %58 = shl i64 %55, %57
+  store i64 %58, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1, i32 0, i32 5), align 8
   store i64 0, ptr getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1, i32 12), align 8
-  call fastcc void @tk_set_wall_to_mono(ptr noundef nonnull getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1), i64 %37, i64 %39)
+  call fastcc void @tk_set_wall_to_mono(ptr noundef nonnull getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1), i64 %40, i64 %42)
   call fastcc void @timekeeping_update(ptr noundef nonnull getelementptr inbounds (%struct.anon.1, ptr @tk_core, i64 0, i32 1), i32 noundef 6)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !80
-  %56 = load i32, ptr @tk_core, align 64
-  %57 = add i32 %56, 1
-  store i32 %57, ptr @tk_core, align 64
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @timekeeper_lock, i64 noundef %40) #10
+  %59 = load i32, ptr @tk_core, align 64
+  %60 = add i32 %59, 1
+  store i32 %60, ptr @tk_core, align 64
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @timekeeper_lock, i64 noundef %43) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   ret void

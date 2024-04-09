@@ -2868,12 +2868,14 @@ entry:
   %41 = load i64, ptr %numReleases172, align 8
   %cmp173.not = icmp ult i64 %40, %41
   %cmp179 = icmp ugt i64 %40, %41
-  %spec.select92.neg = sext i1 %cmp179 to i32
-  %inc175.neg = sext i1 %cmp173.not to i32
-  %cmp187 = icmp ne i32 %op.rdx95, %spec.select92.neg
-  %cmp188 = icmp ne i32 %op.rdx93, %inc175.neg
-  %42 = select i1 %cmp187, i1 %cmp188, i1 false
-  br i1 %42, label %if.then190, label %if.end191
+  %spec.select92 = zext i1 %cmp179 to i32
+  %inc175 = zext i1 %cmp173.not to i32
+  %42 = or i32 %op.rdx95, %spec.select92
+  %cmp187 = icmp ne i32 %42, 0
+  %43 = or i32 %op.rdx93, %inc175
+  %cmp188 = icmp ne i32 %43, 0
+  %44 = select i1 %cmp187, i1 %cmp188, i1 false
+  br i1 %44, label %if.then190, label %if.end191
 
 if.then190:                                       ; preds = %entry
   tail call void @llvm.trap()

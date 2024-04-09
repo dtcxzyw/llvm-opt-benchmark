@@ -9297,8 +9297,8 @@ common.resume:                                    ; preds = %92, %.body, %18
 
 71:                                               ; preds = %61, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4830eeb4fa402cd3E.exit.i.i.i.i.i.i"
   %.sroa.763.0.i.i.i.i.i.i = phi i64 [ %65, %61 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4830eeb4fa402cd3E.exit.i.i.i.i.i.i" ]
-  %72 = sub nsw i64 0, %.sroa.7.0.i.i.i.i.i.i
-  %.not.i.i.i = icmp ne i64 %.sroa.763.0.i.i.i.i.i.i, %72
+  %72 = or i64 %.sroa.763.0.i.i.i.i.i.i, %.sroa.7.0.i.i.i.i.i.i
+  %.not.i.i.i = icmp ne i64 %72, 0
   %73 = load i64, ptr %40, align 8, !alias.scope !1725, !noalias !1726
   %74 = icmp eq i64 %73, 0
   %narrow.i.i.i = select i1 %.not.i.i.i, i1 %74, i1 false
