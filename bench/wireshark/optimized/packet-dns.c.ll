@@ -4032,8 +4032,8 @@ define internal noundef i32 @dissect_dns_heur(ptr noundef %0, ptr noundef %1, pt
 26:                                               ; preds = %22
   %27 = zext nneg i16 %11 to i32
   %28 = zext nneg i16 %12 to i32
-  %29 = sub nsw i32 0, %28
-  %30 = icmp eq i32 %27, %29
+  %29 = or i32 %28, %27
+  %30 = icmp eq i32 %29, 0
   br i1 %30, label %42, label %31
 
 31:                                               ; preds = %26

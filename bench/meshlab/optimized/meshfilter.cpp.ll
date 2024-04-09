@@ -128431,13 +128431,14 @@ cdce.end145:                                      ; preds = %32, %30, %_ZNK3vcg1
   %narrow4.i = zext i1 %narrow4.i142 to i8
   %narrow5.i = add nuw nsw i8 %narrow4.i, %narrow.i
   %narrow6.i143 = and i1 %.not.i25, %.not.i54
-  %narrow6.i.neg = sext i1 %narrow6.i143 to i8
-  %83 = icmp ne i8 %narrow5.i, %narrow6.i.neg
-  %84 = uitofp i1 %83 to double
-  %85 = tail call noundef double @acos(double noundef %84) #25
-  %86 = fsub double 0x400921FB54442D18, %85
-  %87 = fptosi double %86 to i8
-  ret i8 %87
+  %narrow6.i = zext i1 %narrow6.i143 to i8
+  %83 = or i8 %narrow5.i, %narrow6.i
+  %84 = icmp ne i8 %83, 0
+  %85 = uitofp i1 %84 to double
+  %86 = tail call noundef double @acos(double noundef %85) #25
+  %87 = fsub double 0x400921FB54442D18, %86
+  %88 = fptosi double %87 to i8
+  ret i8 %88
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

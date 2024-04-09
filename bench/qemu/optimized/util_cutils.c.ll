@@ -845,8 +845,9 @@ if.else110:                                       ; preds = %if.end102
   %shr = lshr i64 %conv2.i74, 63
   %add115 = add i64 %add, %shr
   %cmp116 = icmp ult i64 %add115, %shr
-  %conv118.neg = sext i1 %cmp116 to i64
-  %cmp120.not = icmp eq i64 %add114, %conv118.neg
+  %conv118 = zext i1 %cmp116 to i64
+  %48 = or i64 %add114, %conv118
+  %cmp120.not = icmp eq i64 %48, 0
   br i1 %cmp120.not, label %if.end124, label %out
 
 if.end124:                                        ; preds = %if.else110, %if.then105
@@ -874,8 +875,8 @@ if.then126:                                       ; preds = %out.thread, %out
   br label %if.end134
 
 land.lhs.true129:                                 ; preds = %out
-  %48 = load i8, ptr %endptr.4, align 1
-  %tobool131.not = icmp eq i8 %48, 0
+  %49 = load i8, ptr %endptr.4, align 1
+  %tobool131.not = icmp eq i8 %49, 0
   br i1 %tobool131.not, label %if.end134, label %if.else138.thread
 
 if.else138.thread:                                ; preds = %out.thread, %land.lhs.true129

@@ -866,8 +866,8 @@ minimalInitialFlip.exit:                          ; preds = %9, %13
   %16 = tail call i32 @minimalFlip(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6), !range !15
   %17 = add nuw nsw i32 %16, %.0.i
   %18 = tail call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6), !range !15
-  %19 = sub nsw i32 0, %18
-  %.not = icmp eq i32 %17, %19
+  %19 = or i32 %17, %18
+  %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %9, !llvm.loop !16
 
 20:                                               ; preds = %minimalInitialFlip.exit
@@ -896,8 +896,8 @@ minimalInitialFlip1.exit:                         ; preds = %7, %11
   %12 = tail call i32 @minimalFlip1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !15
   %13 = add nuw nsw i32 %12, %.0.i
   %14 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !15
-  %15 = sub nsw i32 0, %14
-  %.not = icmp eq i32 %13, %15
+  %15 = or i32 %13, %14
+  %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %7, !llvm.loop !17
 
 16:                                               ; preds = %minimalInitialFlip1.exit
@@ -927,8 +927,8 @@ minimalInitialFlip1.exit.i:                       ; preds = %9, %5
   %10 = tail call i32 @minimalFlip1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !15
   %11 = add nuw nsw i32 %10, %.0.i.i
   %12 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3), !range !15
-  %13 = sub nsw i32 0, %12
-  %.not.i = icmp eq i32 %11, %13
+  %13 = or i32 %11, %12
+  %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %luckyCanonicizer1_simple.exit, label %5, !llvm.loop !17
 
 luckyCanonicizer1_simple.exit:                    ; preds = %minimalInitialFlip1.exit.i
@@ -969,8 +969,8 @@ minimalInitialFlip.exit.i:                        ; preds = %14, %10
   %17 = call i32 @minimalFlip(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %7), !range !15
   %18 = add nuw nsw i32 %17, %.0.i.i
   %19 = call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !15
-  %20 = sub nsw i32 0, %19
-  %.not.i = icmp eq i32 %18, %20
+  %20 = or i32 %18, %19
+  %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %luckyCanonicizer.exit, label %10, !llvm.loop !16
 
 luckyCanonicizer.exit:                            ; preds = %minimalInitialFlip.exit.i

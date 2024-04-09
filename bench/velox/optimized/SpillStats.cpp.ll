@@ -812,12 +812,14 @@ entry:
   %25 = load i64, ptr %spillMaxLevelExceededCount188, align 8
   %cmp189.not = icmp ult i64 %24, %25
   %cmp195 = icmp ugt i64 %24, %25
-  %spec.select100.neg = sext i1 %cmp195 to i32
-  %inc191.neg = sext i1 %cmp189.not to i32
-  %cmp203 = icmp ne i32 %gtCount.11, %spec.select100.neg
-  %cmp204 = icmp ne i32 %ltCount.11, %inc191.neg
-  %26 = select i1 %cmp203, i1 %cmp204, i1 false
-  br i1 %26, label %if.then206, label %if.end207
+  %spec.select100 = zext i1 %cmp195 to i32
+  %inc191 = zext i1 %cmp189.not to i32
+  %26 = or i32 %gtCount.11, %spec.select100
+  %cmp203 = icmp ne i32 %26, 0
+  %27 = or i32 %ltCount.11, %inc191
+  %cmp204 = icmp ne i32 %27, 0
+  %28 = select i1 %cmp203, i1 %cmp204, i1 false
+  br i1 %28, label %if.then206, label %if.end207
 
 if.then206:                                       ; preds = %entry
   tail call void @llvm.trap()

@@ -3560,7 +3560,7 @@ if.end:                                           ; preds = %if.then14.i, %for.e
 ; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %copy.i278 = alloca %"struct.absl::debugging_internal::ParseState", align 4
+  %copy.i274 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy.i = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy.i136 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy.i99 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -3617,7 +3617,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then3.i.i, %if.end.i.i, %if.end.i
-  %retval.0.i.i.neg = phi i32 [ -1, %if.then3.i.i ], [ 0, %if.end.i.i ], [ 0, %if.end.i ]
+  %retval.0.i.i = phi i32 [ 1, %if.then3.i.i ], [ 0, %if.end.i.i ], [ 0, %if.end.i ]
   store i32 %inc.i.i.i, ptr %recursion_depth.i, align 4
   %inc2.i.i16.i = add nsw i32 %1, 4
   store i32 %inc2.i.i16.i, ptr %steps.i, align 8
@@ -3655,20 +3655,22 @@ if.end.i37.i:                                     ; preds = %invoke.cont2.i
   %arrayidx.i.i41.i = getelementptr inbounds i8, ptr %state.val.i38.i, i64 %idxprom.i.i40.i
   %4 = load i8, ptr %arrayidx.i.i41.i, align 1
   %cmp.i42.i = icmp eq i8 %4, 75
-  br i1 %cmp.i42.i, label %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit.thread195, label %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit
+  br i1 %cmp.i42.i, label %if.then3.i44.i, label %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit
 
-_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit.thread195: ; preds = %if.end.i37.i
+if.then3.i44.i:                                   ; preds = %if.end.i37.i
   %inc.i45.i = add nsw i32 %state.val4.i39.i, 1
   store i32 %inc.i45.i, ptr %parse_state, align 4
-  store i32 %inc.i, ptr %recursion_depth.i, align 4
-  br label %if.then2
+  br label %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit
 
-_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit: ; preds = %invoke.cont2.i, %if.end.i37.i
-  %cmp.i38.not = icmp eq i32 %retval.0.i26.i, %retval.0.i.i.neg
+_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit: ; preds = %invoke.cont2.i, %if.end.i37.i, %if.then3.i44.i
+  %retval.0.i43.i = phi i32 [ 1, %if.then3.i44.i ], [ 0, %if.end.i37.i ], [ 0, %invoke.cont2.i ]
+  %add5.i = add nuw nsw i32 %retval.0.i26.i, %retval.0.i.i
+  %5 = or i32 %retval.0.i43.i, %add5.i
+  %cmp.i38.not = icmp eq i32 %5, 0
   store i32 %inc.i, ptr %recursion_depth.i, align 4
   br i1 %cmp.i38.not, label %if.end9, label %if.then2
 
-if.then2:                                         ; preds = %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit.thread195, %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit
+if.then2:                                         ; preds = %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit
   %call4 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont3 unwind label %lpad
 
@@ -3676,26 +3678,26 @@ invoke.cont3:                                     ; preds = %if.then2
   br i1 %call4, label %cleanup, label %cleanup.sink.split
 
 lpad:                                             ; preds = %land.lhs.true66, %lor.lhs.false56, %land.lhs.true37, %land.lhs.true, %if.then13, %if.then2
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %.pre230.pre = load i32, ptr %recursion_depth.i, align 4
+  %.pre226.pre = load i32, ptr %recursion_depth.i, align 4
   br label %lpad.body
 
-lpad.body:                                        ; preds = %lpad.i273, %lpad.i301, %lpad, %lpad.i108, %lpad.i.body
-  %6 = phi i32 [ %dec.i117, %lpad.i.body ], [ %dec.i183, %lpad.i108 ], [ %dec.i.i274, %lpad.i273 ], [ %.pre230.pre, %lpad ], [ %dec.i.i302, %lpad.i301 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body169, %lpad.i.body ], [ %61, %lpad.i108 ], [ %77, %lpad.i273 ], [ %5, %lpad ], [ %89, %lpad.i301 ]
-  %dec.i = add nsw i32 %6, -1
+lpad.body:                                        ; preds = %lpad.i269, %lpad.i297, %lpad, %lpad.i108, %lpad.i.body
+  %7 = phi i32 [ %dec.i117, %lpad.i.body ], [ %dec.i183, %lpad.i108 ], [ %dec.i.i270, %lpad.i269 ], [ %.pre226.pre, %lpad ], [ %dec.i.i298, %lpad.i297 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body169, %lpad.i.body ], [ %62, %lpad.i108 ], [ %78, %lpad.i269 ], [ %6, %lpad ], [ %90, %lpad.i297 ]
+  %dec.i = add nsw i32 %7, -1
   store i32 %dec.i, ptr %recursion_depth.i, align 4
   resume { ptr, i32 } %eh.lpad-body
 
 if.end9:                                          ; preds = %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit.thread, %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit
-  %7 = phi i32 [ %inc2.i.i, %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit.thread ], [ %inc2.i.i33.i, %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit ]
+  %8 = phi i32 [ %inc2.i.i, %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit.thread ], [ %inc2.i.i33.i, %_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i42 = add nsw i32 %7, 1
+  %inc2.i.i42 = add nsw i32 %8, 1
   store i32 %inc2.i.i42, ptr %steps.i, align 8
-  %cmp3.i.i44 = icmp sgt i32 %7, 131071
+  %cmp3.i.i44 = icmp sgt i32 %8, 131071
   %or.cond.i45 = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i44
   br i1 %or.cond.i45, label %if.end23, label %if.end.i46
 
@@ -3704,21 +3706,21 @@ if.end.i46:                                       ; preds = %if.end9
   %state.val9.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i = sext i32 %state.val9.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %state.val8.i, i64 %idxprom.i.i
-  %8 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp.i47 = icmp eq i8 %8, 0
+  %9 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp.i47 = icmp eq i8 %9, 0
   br i1 %cmp.i47, label %if.end23, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %p.016.i.add = add nuw nsw i64 %p.016.i.idx, 1
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr @.str.10, i64 %p.016.i.add
-  %9 = load i8, ptr %incdec.ptr.i.ptr, align 1
+  %10 = load i8, ptr %incdec.ptr.i.ptr, align 1
   %exitcond = icmp eq i64 %p.016.i.add, 5
   br i1 %exitcond, label %if.end23, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.end.i46, %for.cond.i
-  %10 = phi i8 [ %9, %for.cond.i ], [ 79, %if.end.i46 ]
+  %11 = phi i8 [ %10, %for.cond.i ], [ 79, %if.end.i46 ]
   %p.016.i.idx = phi i64 [ %p.016.i.add, %for.cond.i ], [ 0, %if.end.i46 ]
-  %cmp11.i = icmp eq i8 %8, %10
+  %cmp11.i = icmp eq i8 %9, %11
   br i1 %cmp11.i, label %if.then13, label %for.cond.i
 
 if.then13:                                        ; preds = %for.body.i
@@ -3734,9 +3736,9 @@ invoke.cont15:                                    ; preds = %if.then13
 if.end23:                                         ; preds = %for.cond.i, %if.end.i46, %if.end9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy, i64 16, i1 false)
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i53 = add nsw i32 %7, 2
+  %inc2.i.i53 = add nsw i32 %8, 2
   store i32 %inc2.i.i53, ptr %steps.i, align 8
-  %cmp3.i.i55 = icmp sgt i32 %7, 131070
+  %cmp3.i.i55 = icmp sgt i32 %8, 131070
   %or.cond.i56 = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i55
   br i1 %or.cond.i56, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, label %if.end.i57
 
@@ -3745,14 +3747,14 @@ if.end.i57:                                       ; preds = %if.end23
   %state.val8.i58 = load i32, ptr %parse_state, align 4
   %idxprom.i.i59 = sext i32 %state.val8.i58 to i64
   %arrayidx.i.i60 = getelementptr inbounds i8, ptr %state.val7.i, i64 %idxprom.i.i59
-  %11 = load i8, ptr %arrayidx.i.i60, align 1
-  %cmp.i61 = icmp eq i8 %11, 68
+  %12 = load i8, ptr %arrayidx.i.i60, align 1
+  %cmp.i61 = icmp eq i8 %12, 68
   br i1 %cmp.i61, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i57
   %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i60, i64 1
-  %12 = load i8, ptr %arrayidx6.i, align 1
-  %cmp10.i = icmp eq i8 %12, 112
+  %13 = load i8, ptr %arrayidx6.i, align 1
+  %cmp10.i = icmp eq i8 %13, 112
   br i1 %cmp10.i, label %land.lhs.true, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %land.lhs.true.i, %if.end.i57, %if.end23
@@ -3771,19 +3773,19 @@ invoke.cont27:                                    ; preds = %land.lhs.true
 
 invoke.cont27.if.end30_crit_edge:                 ; preds = %invoke.cont27
   %.pre = load i32, ptr %recursion_depth.i, align 4
-  %.pre220 = load i32, ptr %steps.i, align 8
+  %.pre216 = load i32, ptr %steps.i, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %invoke.cont27.if.end30_crit_edge, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
-  %13 = phi i32 [ %.pre220, %invoke.cont27.if.end30_crit_edge ], [ %inc2.i.i53, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  %14 = phi i32 [ %.pre, %invoke.cont27.if.end30_crit_edge ], [ %inc.i, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
+  %14 = phi i32 [ %.pre216, %invoke.cont27.if.end30_crit_edge ], [ %inc2.i.i53, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
+  %15 = phi i32 [ %.pre, %invoke.cont27.if.end30_crit_edge ], [ %inc.i, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy, i64 16, i1 false)
-  %inc.i.i64 = add nsw i32 %14, 1
+  %inc.i.i64 = add nsw i32 %15, 1
   store i32 %inc.i.i64, ptr %recursion_depth.i, align 4
-  %inc2.i.i66 = add nsw i32 %13, 1
+  %inc2.i.i66 = add nsw i32 %14, 1
   store i32 %inc2.i.i66, ptr %steps.i, align 8
-  %cmp.i.i67 = icmp sgt i32 %14, 255
-  %cmp3.i.i68 = icmp sgt i32 %13, 131071
+  %cmp.i.i67 = icmp sgt i32 %15, 255
+  %cmp3.i.i68 = icmp sgt i32 %14, 131071
   %or.cond.i69 = select i1 %cmp.i.i67, i1 true, i1 %cmp3.i.i68
   br i1 %or.cond.i69, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %if.end.i70
 
@@ -3792,18 +3794,18 @@ if.end.i70:                                       ; preds = %if.end30
   %state.val4.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i71 = sext i32 %state.val4.i to i64
   %arrayidx.i.i72 = getelementptr inbounds i8, ptr %state.val.i, i64 %idxprom.i.i71
-  %15 = load i8, ptr %arrayidx.i.i72, align 1
-  %cmp.i73 = icmp eq i8 %15, 85
+  %16 = load i8, ptr %arrayidx.i.i72, align 1
+  %cmp.i73 = icmp eq i8 %16, 85
   br i1 %cmp.i73, label %land.lhs.true34, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; preds = %if.end.i70, %if.end30
-  store i32 %14, ptr %recursion_depth.i, align 4
+  store i32 %15, ptr %recursion_depth.i, align 4
   br label %if.end41
 
 land.lhs.true34:                                  ; preds = %if.end.i70
   %inc.i75 = add nsw i32 %state.val4.i, 1
   store i32 %inc.i75, ptr %parse_state, align 4
-  store i32 %14, ptr %recursion_depth.i, align 4
+  store i32 %15, ptr %recursion_depth.i, align 4
   %call36 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %state)
   br i1 %call36, label %land.lhs.true37, label %if.end41
 
@@ -3816,37 +3818,37 @@ invoke.cont38:                                    ; preds = %land.lhs.true37
 
 if.end41:                                         ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, %invoke.cont38, %land.lhs.true34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy, i64 16, i1 false)
-  %16 = load i32, ptr %recursion_depth.i, align 4
-  %inc.i.i77 = add nsw i32 %16, 1
+  %17 = load i32, ptr %recursion_depth.i, align 4
+  %inc.i.i77 = add nsw i32 %17, 1
   store i32 %inc.i.i77, ptr %recursion_depth.i, align 4
-  %17 = load i32, ptr %steps.i, align 8
-  %inc2.i.i79 = add nsw i32 %17, 1
+  %18 = load i32, ptr %steps.i, align 8
+  %inc2.i.i79 = add nsw i32 %18, 1
   store i32 %inc2.i.i79, ptr %steps.i, align 8
-  %cmp.i.i80 = icmp sgt i32 %16, 255
-  %cmp3.i.i81 = icmp sgt i32 %17, 131071
+  %cmp.i.i80 = icmp sgt i32 %17, 255
+  %cmp3.i.i81 = icmp sgt i32 %18, 131071
   %or.cond.i82 = select i1 %cmp.i.i80, i1 true, i1 %cmp3.i.i81
   br i1 %or.cond.i82, label %lor.lhs.false, label %for.cond.preheader.i83
 
 for.cond.preheader.i83:                           ; preds = %if.end41
-  %inc.i.i26.i = add nsw i32 %16, 2
-  %cmp.i.i29.i = icmp sgt i32 %16, 254
+  %inc.i.i26.i = add nsw i32 %17, 2
+  %cmp.i.i29.i = icmp sgt i32 %17, 254
   br label %for.body.i86
 
 for.body.i86:                                     ; preds = %for.inc.i, %for.cond.preheader.i83
-  %18 = phi i32 [ %inc2.i.i79, %for.cond.preheader.i83 ], [ %34, %for.inc.i ]
-  %19 = phi ptr [ @.str.15, %for.cond.preheader.i83 ], [ %35, %for.inc.i ]
+  %19 = phi i32 [ %inc2.i.i79, %for.cond.preheader.i83 ], [ %35, %for.inc.i ]
+  %20 = phi ptr [ @.str.15, %for.cond.preheader.i83 ], [ %36, %for.inc.i ]
   %p.079.i = phi ptr [ @_ZN4absl18debugging_internalL16kBuiltinTypeListE, %for.cond.preheader.i83 ], [ %incdec.ptr.i87, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %19, i64 1
-  %20 = load i8, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp eq i8 %20, 0
+  %arrayidx.i = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = load i8, ptr %arrayidx.i, align 1
+  %cmp2.i = icmp eq i8 %21, 0
   br i1 %cmp2.i, label %if.then3.i90, label %if.else.i
 
 if.then3.i90:                                     ; preds = %for.body.i86
-  %21 = load i8, ptr %19, align 1
+  %22 = load i8, ptr %20, align 1
   store i32 %inc.i.i26.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i.i91 = add nsw i32 %18, 1
+  %inc2.i.i.i91 = add nsw i32 %19, 1
   store i32 %inc2.i.i.i91, ptr %steps.i, align 8
-  %cmp3.i.i.i92 = icmp sgt i32 %18, 131071
+  %cmp3.i.i.i92 = icmp sgt i32 %19, 131071
   %or.cond.i.i93 = select i1 %cmp.i.i29.i, i1 true, i1 %cmp3.i.i.i92
   br i1 %or.cond.i.i93, label %for.inc.sink.split.i, label %if.end.i.i94
 
@@ -3855,8 +3857,8 @@ if.end.i.i94:                                     ; preds = %if.then3.i90
   %state.val4.i.i96 = load i32, ptr %parse_state, align 4
   %idxprom.i.i.i97 = sext i32 %state.val4.i.i96 to i64
   %arrayidx.i.i.i98 = getelementptr inbounds i8, ptr %state.val.i.i95, i64 %idxprom.i.i.i97
-  %22 = load i8, ptr %arrayidx.i.i.i98, align 1
-  %cmp.i20.i = icmp eq i8 %22, %21
+  %23 = load i8, ptr %arrayidx.i.i.i98, align 1
+  %cmp.i20.i = icmp eq i8 %23, %22
   br i1 %cmp.i20.i, label %if.then7.i, label %for.inc.sink.split.i
 
 if.then7.i:                                       ; preds = %if.end.i.i94
@@ -3864,42 +3866,42 @@ if.then7.i:                                       ; preds = %if.end.i.i94
   store i32 %inc.i21.i, ptr %parse_state, align 4
   store i32 %inc.i.i77, ptr %recursion_depth.i, align 4
   %real_name.i = getelementptr inbounds i8, ptr %p.079.i, i64 8
-  %23 = load ptr, ptr %real_name.i, align 8
+  %24 = load ptr, ptr %real_name.i, align 8
   %append.i.i = getelementptr inbounds i8, ptr %state, i64 40
   %bf.load.i.i = load i32, ptr %append.i.i, align 4
   %tobool.not.i.i = icmp sgt i32 %bf.load.i.i, -1
   br i1 %tobool.not.i.i, label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then7.i
-  %24 = load i8, ptr %23, align 1
-  %cmp.not3.i.i.i = icmp eq i8 %24, 0
+  %25 = load i8, ptr %24, align 1
+  %cmp.not3.i.i.i = icmp eq i8 %25, 0
   br i1 %cmp.not3.i.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i
   %len.05.i.i.i = phi i64 [ %inc.i.i22.i, %while.body.i.i.i ], [ 0, %if.then.i.i ]
-  %str.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %23, %if.then.i.i ]
+  %str.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %24, %if.then.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %str.addr.04.i.i.i, i64 1
   %inc.i.i22.i = add i64 %len.05.i.i.i, 1
-  %25 = load i8, ptr %incdec.ptr.i.i.i, align 1
-  %cmp.not.i.i.i = icmp eq i8 %25, 0
+  %26 = load i8, ptr %incdec.ptr.i.i.i, align 1
+  %cmp.not.i.i.i = icmp eq i8 %26, 0
   br i1 %cmp.not.i.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %while.body.i.i.i, %if.then.i.i
   %len.0.lcssa.i.i.i = phi i64 [ 0, %if.then.i.i ], [ %inc.i.i22.i, %while.body.i.i.i ]
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %23, i64 noundef %len.0.lcssa.i.i.i)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %24, i64 noundef %len.0.lcssa.i.i.i)
   br label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread
 
 if.else.i:                                        ; preds = %for.body.i86
-  %arrayidx12.i = getelementptr inbounds i8, ptr %19, i64 2
-  %26 = load i8, ptr %arrayidx12.i, align 1
-  %cmp14.i = icmp eq i8 %26, 0
+  %arrayidx12.i = getelementptr inbounds i8, ptr %20, i64 2
+  %27 = load i8, ptr %arrayidx12.i, align 1
+  %cmp14.i = icmp eq i8 %27, 0
   br i1 %cmp14.i, label %land.lhs.true.i89, label %for.inc.i
 
 land.lhs.true.i89:                                ; preds = %if.else.i
   store i32 %inc.i.i26.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i28.i = add nsw i32 %18, 1
+  %inc2.i.i28.i = add nsw i32 %19, 1
   store i32 %inc2.i.i28.i, ptr %steps.i, align 8
-  %cmp3.i.i30.i = icmp sgt i32 %18, 131071
+  %cmp3.i.i30.i = icmp sgt i32 %19, 131071
   %or.cond.i31.i = select i1 %cmp.i.i29.i, i1 true, i1 %cmp3.i.i30.i
   br i1 %or.cond.i31.i, label %for.inc.sink.split.i, label %if.end.i32.i
 
@@ -3908,16 +3910,16 @@ if.end.i32.i:                                     ; preds = %land.lhs.true.i89
   %state.val8.i.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i33.i = sext i32 %state.val8.i.i to i64
   %arrayidx.i.i34.i = getelementptr inbounds i8, ptr %state.val7.i.i, i64 %idxprom.i.i33.i
-  %27 = load i8, ptr %arrayidx.i.i34.i, align 1
-  %28 = load i8, ptr %19, align 1
-  %cmp.i35.i = icmp eq i8 %27, %28
+  %28 = load i8, ptr %arrayidx.i.i34.i, align 1
+  %29 = load i8, ptr %20, align 1
+  %cmp.i35.i = icmp eq i8 %28, %29
   br i1 %cmp.i35.i, label %land.lhs.true.i.i, label %for.inc.sink.split.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i32.i
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i34.i, i64 1
-  %29 = load i8, ptr %arrayidx6.i.i, align 1
-  %30 = load i8, ptr %arrayidx.i, align 1
-  %cmp10.i.i = icmp eq i8 %29, %30
+  %30 = load i8, ptr %arrayidx6.i.i, align 1
+  %31 = load i8, ptr %arrayidx.i, align 1
+  %cmp10.i.i = icmp eq i8 %30, %31
   br i1 %cmp10.i.i, label %if.then18.i, label %for.inc.sink.split.i
 
 if.then18.i:                                      ; preds = %land.lhs.true.i.i
@@ -3925,29 +3927,29 @@ if.then18.i:                                      ; preds = %land.lhs.true.i.i
   store i32 %add.i.i, ptr %parse_state, align 4
   store i32 %inc.i.i77, ptr %recursion_depth.i, align 4
   %real_name19.i = getelementptr inbounds i8, ptr %p.079.i, i64 8
-  %31 = load ptr, ptr %real_name19.i, align 8
+  %32 = load ptr, ptr %real_name19.i, align 8
   %append.i37.i = getelementptr inbounds i8, ptr %state, i64 40
   %bf.load.i38.i = load i32, ptr %append.i37.i, align 4
   %tobool.not.i39.i = icmp sgt i32 %bf.load.i38.i, -1
   br i1 %tobool.not.i39.i, label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread, label %if.then.i40.i
 
 if.then.i40.i:                                    ; preds = %if.then18.i
-  %32 = load i8, ptr %31, align 1
-  %cmp.not3.i.i41.i = icmp eq i8 %32, 0
+  %33 = load i8, ptr %32, align 1
+  %cmp.not3.i.i41.i = icmp eq i8 %33, 0
   br i1 %cmp.not3.i.i41.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i48.i, label %while.body.i.i42.i
 
 while.body.i.i42.i:                               ; preds = %if.then.i40.i, %while.body.i.i42.i
   %len.05.i.i43.i = phi i64 [ %inc.i.i46.i, %while.body.i.i42.i ], [ 0, %if.then.i40.i ]
-  %str.addr.04.i.i44.i = phi ptr [ %incdec.ptr.i.i45.i, %while.body.i.i42.i ], [ %31, %if.then.i40.i ]
+  %str.addr.04.i.i44.i = phi ptr [ %incdec.ptr.i.i45.i, %while.body.i.i42.i ], [ %32, %if.then.i40.i ]
   %incdec.ptr.i.i45.i = getelementptr inbounds i8, ptr %str.addr.04.i.i44.i, i64 1
   %inc.i.i46.i = add i64 %len.05.i.i43.i, 1
-  %33 = load i8, ptr %incdec.ptr.i.i45.i, align 1
-  %cmp.not.i.i47.i = icmp eq i8 %33, 0
+  %34 = load i8, ptr %incdec.ptr.i.i45.i, align 1
+  %cmp.not.i.i47.i = icmp eq i8 %34, 0
   br i1 %cmp.not.i.i47.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i48.i, label %while.body.i.i42.i, !llvm.loop !9
 
 _ZN4absl18debugging_internalL6StrLenEPKc.exit.i48.i: ; preds = %while.body.i.i42.i, %if.then.i40.i
   %len.0.lcssa.i.i49.i = phi i64 [ 0, %if.then.i40.i ], [ %inc.i.i46.i, %while.body.i.i42.i ]
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %31, i64 noundef %len.0.lcssa.i.i49.i)
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull %32, i64 noundef %len.0.lcssa.i.i49.i)
   br label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread
 
 for.inc.sink.split.i:                             ; preds = %land.lhs.true.i.i, %if.end.i32.i, %land.lhs.true.i89, %if.end.i.i94, %if.then3.i90
@@ -3956,17 +3958,17 @@ for.inc.sink.split.i:                             ; preds = %land.lhs.true.i.i, 
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.else.i
-  %34 = phi i32 [ %18, %if.else.i ], [ %.ph.i, %for.inc.sink.split.i ]
+  %35 = phi i32 [ %19, %if.else.i ], [ %.ph.i, %for.inc.sink.split.i ]
   %incdec.ptr.i87 = getelementptr inbounds i8, ptr %p.079.i, i64 24
-  %35 = load ptr, ptr %incdec.ptr.i87, align 8
-  %cmp.not.i = icmp eq ptr %35, null
+  %36 = load ptr, ptr %incdec.ptr.i87, align 8
+  %cmp.not.i = icmp eq ptr %36, null
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i86, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.inc.i
   store i32 %inc.i.i26.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i55.i = add nsw i32 %34, 1
+  %inc2.i.i55.i = add nsw i32 %35, 1
   store i32 %inc2.i.i55.i, ptr %steps.i, align 8
-  %cmp3.i.i57.i = icmp sgt i32 %34, 131071
+  %cmp3.i.i57.i = icmp sgt i32 %35, 131071
   %or.cond.i58.i = select i1 %cmp.i.i29.i, i1 true, i1 %cmp3.i.i57.i
   br i1 %or.cond.i58.i, label %invoke.cont24.thread.i, label %if.end.i59.i
 
@@ -3975,8 +3977,8 @@ if.end.i59.i:                                     ; preds = %for.end.i
   %state.val4.i61.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i62.i = sext i32 %state.val4.i61.i to i64
   %arrayidx.i.i63.i = getelementptr inbounds i8, ptr %state.val.i60.i, i64 %idxprom.i.i62.i
-  %36 = load i8, ptr %arrayidx.i.i63.i, align 1
-  %cmp.i64.i = icmp eq i8 %36, 117
+  %37 = load i8, ptr %arrayidx.i.i63.i, align 1
+  %cmp.i64.i = icmp eq i8 %37, 117
   br i1 %cmp.i64.i, label %land.lhs.true26.i, label %invoke.cont24.thread.i
 
 invoke.cont24.thread.i:                           ; preds = %if.end.i59.i, %for.end.i
@@ -3991,53 +3993,53 @@ land.lhs.true26.i:                                ; preds = %if.end.i59.i
   br i1 %call28.i, label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread, label %land.lhs.true26.i.if.end30.i_crit_edge
 
 land.lhs.true26.i.if.end30.i_crit_edge:           ; preds = %land.lhs.true26.i
-  %.pre221.pre = load i32, ptr %recursion_depth.i, align 4
-  %.pre222.pre = load i32, ptr %steps.i, align 8
+  %.pre217.pre = load i32, ptr %recursion_depth.i, align 4
+  %.pre218.pre = load i32, ptr %steps.i, align 8
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %land.lhs.true26.i.if.end30.i_crit_edge, %invoke.cont24.thread.i
-  %.pre222 = phi i32 [ %.pre222.pre, %land.lhs.true26.i.if.end30.i_crit_edge ], [ %inc2.i.i55.i, %invoke.cont24.thread.i ]
-  %.pre221 = phi i32 [ %.pre221.pre, %land.lhs.true26.i.if.end30.i_crit_edge ], [ %inc.i.i77, %invoke.cont24.thread.i ]
+  %.pre218 = phi i32 [ %.pre218.pre, %land.lhs.true26.i.if.end30.i_crit_edge ], [ %inc2.i.i55.i, %invoke.cont24.thread.i ]
+  %.pre217 = phi i32 [ %.pre217.pre, %land.lhs.true26.i.if.end30.i_crit_edge ], [ %inc.i.i77, %invoke.cont24.thread.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy, i64 16, i1 false)
   br label %lor.lhs.false
 
 _ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread: ; preds = %land.lhs.true26.i, %if.then7.i, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i, %if.then18.i, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i48.i
-  %37 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i70.i203 = add nsw i32 %37, -1
-  store i32 %dec.i70.i203, ptr %recursion_depth.i, align 4
+  %38 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i70.i199 = add nsw i32 %38, -1
+  store i32 %dec.i70.i199, ptr %recursion_depth.i, align 4
   br label %cleanup
 
 lor.lhs.false:                                    ; preds = %if.end30.i, %if.end41
-  %38 = phi i32 [ %.pre222, %if.end30.i ], [ %inc2.i.i79, %if.end41 ]
-  %39 = phi i32 [ %.pre221, %if.end30.i ], [ %inc.i.i77, %if.end41 ]
+  %39 = phi i32 [ %.pre218, %if.end30.i ], [ %inc2.i.i79, %if.end41 ]
+  %40 = phi i32 [ %.pre217, %if.end30.i ], [ %inc.i.i77, %if.end41 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %copy.i99)
-  store i32 %39, ptr %recursion_depth.i, align 4
-  %inc2.i179 = add nsw i32 %38, 1
+  store i32 %40, ptr %recursion_depth.i, align 4
+  %inc2.i179 = add nsw i32 %39, 1
   store i32 %inc2.i179, ptr %steps.i, align 8
-  %cmp.i171 = icmp sgt i32 %39, 256
-  %cmp3.i174 = icmp sgt i32 %38, 131071
-  %or.cond240 = select i1 %cmp.i171, i1 true, i1 %cmp3.i174
-  br i1 %or.cond240, label %lor.lhs.false47, label %if.end.i100
+  %cmp.i171 = icmp sgt i32 %40, 256
+  %cmp3.i174 = icmp sgt i32 %39, 131071
+  %or.cond236 = select i1 %cmp.i171, i1 true, i1 %cmp3.i174
+  br i1 %or.cond236, label %lor.lhs.false47, label %if.end.i100
 
 if.end.i100:                                      ; preds = %lor.lhs.false
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy.i99, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %copy.i136)
-  %inc.i.i138 = add nsw i32 %39, 1
+  %inc.i.i138 = add nsw i32 %40, 1
   store i32 %inc.i.i138, ptr %recursion_depth.i, align 4
-  %inc2.i.i140 = add nsw i32 %38, 2
+  %inc2.i.i140 = add nsw i32 %39, 2
   store i32 %inc2.i.i140, ptr %steps.i, align 8
-  %cmp.i.i142 = icmp eq i32 %39, 256
-  %cmp3.i.i143 = icmp eq i32 %38, 131071
-  %or.cond214 = select i1 %cmp.i.i142, i1 true, i1 %cmp3.i.i143
-  br i1 %or.cond214, label %invoke.cont.i101, label %if.end.i144
+  %cmp.i.i142 = icmp eq i32 %40, 256
+  %cmp3.i.i143 = icmp eq i32 %39, 131071
+  %or.cond210 = select i1 %cmp.i.i142, i1 true, i1 %cmp3.i.i143
+  br i1 %or.cond210, label %invoke.cont.i101, label %if.end.i144
 
 if.end.i144:                                      ; preds = %if.end.i100
-  %inc.i.i.i145 = add nsw i32 %39, 2
+  %inc.i.i.i145 = add nsw i32 %40, 2
   store i32 %inc.i.i.i145, ptr %recursion_depth.i, align 4
-  %inc2.i.i.i146 = add nsw i32 %38, 3
+  %inc2.i.i.i146 = add nsw i32 %39, 3
   store i32 %inc2.i.i.i146, ptr %steps.i, align 8
-  %cmp.i.i.i147 = icmp sgt i32 %39, 254
-  %cmp3.i.i.i148 = icmp sgt i32 %38, 131069
+  %cmp.i.i.i147 = icmp sgt i32 %40, 254
+  %cmp3.i.i.i148 = icmp sgt i32 %39, 131069
   %or.cond.i.i149 = select i1 %cmp.i.i.i147, i1 true, i1 %cmp3.i.i.i148
   br i1 %or.cond.i.i149, label %if.end3.i, label %if.end.i.i150
 
@@ -4046,14 +4048,14 @@ if.end.i.i150:                                    ; preds = %if.end.i144
   %state.val8.i.i152 = load i32, ptr %parse_state, align 4
   %idxprom.i.i.i153 = sext i32 %state.val8.i.i152 to i64
   %arrayidx.i.i.i154 = getelementptr inbounds i8, ptr %state.val7.i.i151, i64 %idxprom.i.i.i153
-  %40 = load i8, ptr %arrayidx.i.i.i154, align 1
-  %cmp.i15.i = icmp eq i8 %40, 68
+  %41 = load i8, ptr %arrayidx.i.i.i154, align 1
+  %cmp.i15.i = icmp eq i8 %41, 68
   br i1 %cmp.i15.i, label %land.lhs.true.i.i165, label %if.end3.i
 
 land.lhs.true.i.i165:                             ; preds = %if.end.i.i150
   %arrayidx6.i.i166 = getelementptr inbounds i8, ptr %arrayidx.i.i.i154, i64 1
-  %41 = load i8, ptr %arrayidx6.i.i166, align 1
-  %cmp10.i.i167 = icmp eq i8 %41, 111
+  %42 = load i8, ptr %arrayidx6.i.i166, align 1
+  %cmp10.i.i167 = icmp eq i8 %42, 111
   br i1 %cmp10.i.i167, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i, label %if.end3.i
 
 _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i: ; preds = %land.lhs.true.i.i165
@@ -4074,17 +4076,17 @@ lpad.i159.loopexit.split-lp:                      ; preds = %land.lhs.true.i160,
 
 lpad.i159:                                        ; preds = %lpad.i159.loopexit.split-lp, %lpad.i159.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad.i159.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i159.loopexit.split-lp ]
-  %42 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i.i = add nsw i32 %42, -1
+  %43 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i.i = add nsw i32 %43, -1
   store i32 %dec.i.i, ptr %recursion_depth.i, align 4
   br label %lpad.i.body
 
 if.end3.i:                                        ; preds = %land.lhs.true.i.i165, %if.end.i.i150, %if.end.i144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy.i136, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   store i32 %inc.i.i.i145, ptr %recursion_depth.i, align 4
-  %inc2.i.i20.i = add nsw i32 %38, 4
+  %inc2.i.i20.i = add nsw i32 %39, 4
   store i32 %inc2.i.i20.i, ptr %steps.i, align 8
-  %cmp3.i.i22.i = icmp sgt i32 %38, 131068
+  %cmp3.i.i22.i = icmp sgt i32 %39, 131068
   %or.cond.i23.i = select i1 %cmp.i.i.i147, i1 true, i1 %cmp3.i.i22.i
   br i1 %or.cond.i23.i, label %if.end12.i.sink.split, label %if.end.i24.i
 
@@ -4093,14 +4095,14 @@ if.end.i24.i:                                     ; preds = %if.end3.i
   %state.val8.i26.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i27.i = sext i32 %state.val8.i26.i to i64
   %arrayidx.i.i28.i = getelementptr inbounds i8, ptr %state.val7.i25.i, i64 %idxprom.i.i27.i
-  %43 = load i8, ptr %arrayidx.i.i28.i, align 1
-  %cmp.i29.i = icmp eq i8 %43, 68
+  %44 = load i8, ptr %arrayidx.i.i28.i, align 1
+  %cmp.i29.i = icmp eq i8 %44, 68
   br i1 %cmp.i29.i, label %land.lhs.true.i31.i, label %if.end12.i.sink.split
 
 land.lhs.true.i31.i:                              ; preds = %if.end.i24.i
   %arrayidx6.i32.i = getelementptr inbounds i8, ptr %arrayidx.i.i28.i, i64 1
-  %44 = load i8, ptr %arrayidx6.i32.i, align 1
-  %cmp10.i33.i = icmp eq i8 %44, 79
+  %45 = load i8, ptr %arrayidx6.i32.i, align 1
+  %cmp10.i33.i = icmp eq i8 %45, 79
   br i1 %cmp10.i33.i, label %land.lhs.true.i160, label %if.end12.i.sink.split
 
 land.lhs.true.i160:                               ; preds = %land.lhs.true.i31.i
@@ -4111,17 +4113,17 @@ land.lhs.true.i160:                               ; preds = %land.lhs.true.i31.i
           to label %invoke.cont6.i161 unwind label %lpad.i159.loopexit.split-lp
 
 invoke.cont6.i161:                                ; preds = %land.lhs.true.i160
-  %.pre223 = load i32, ptr %recursion_depth.i, align 4
-  %.pre224 = load i32, ptr %steps.i, align 8
+  %.pre219 = load i32, ptr %recursion_depth.i, align 4
+  %.pre220 = load i32, ptr %steps.i, align 8
   br i1 %call7.i, label %land.lhs.true8.i, label %if.end12.i
 
 land.lhs.true8.i:                                 ; preds = %invoke.cont6.i161
-  %inc.i.i38.i = add nsw i32 %.pre223, 1
+  %inc.i.i38.i = add nsw i32 %.pre219, 1
   store i32 %inc.i.i38.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i40.i = add nsw i32 %.pre224, 1
+  %inc2.i.i40.i = add nsw i32 %.pre220, 1
   store i32 %inc2.i.i40.i, ptr %steps.i, align 8
-  %cmp.i.i41.i = icmp sgt i32 %.pre223, 255
-  %cmp3.i.i42.i = icmp sgt i32 %.pre224, 131071
+  %cmp.i.i41.i = icmp sgt i32 %.pre219, 255
+  %cmp3.i.i42.i = icmp sgt i32 %.pre220, 131071
   %or.cond.i43.i = select i1 %cmp.i.i41.i, i1 true, i1 %cmp3.i.i42.i
   br i1 %or.cond.i43.i, label %if.end12.i.sink.split, label %if.end.i44.i
 
@@ -4130,32 +4132,32 @@ if.end.i44.i:                                     ; preds = %land.lhs.true8.i
   %state.val4.i.i163 = load i32, ptr %parse_state, align 4
   %idxprom.i.i45.i = sext i32 %state.val4.i.i163 to i64
   %arrayidx.i.i46.i = getelementptr inbounds i8, ptr %state.val.i.i162, i64 %idxprom.i.i45.i
-  %45 = load i8, ptr %arrayidx.i.i46.i, align 1
-  %cmp.i47.i = icmp eq i8 %45, 69
+  %46 = load i8, ptr %arrayidx.i.i46.i, align 1
+  %cmp.i47.i = icmp eq i8 %46, 69
   br i1 %cmp.i47.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i, label %if.end12.i.sink.split
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i: ; preds = %if.end.i44.i
   %inc.i49.i = add nsw i32 %state.val4.i.i163, 1
   store i32 %inc.i49.i, ptr %parse_state, align 4
-  store i32 %.pre223, ptr %recursion_depth.i, align 4
+  store i32 %.pre219, ptr %recursion_depth.i, align 4
   br label %invoke.cont.i101
 
 if.end12.i.sink.split:                            ; preds = %land.lhs.true8.i, %if.end.i44.i, %if.end3.i, %if.end.i24.i, %land.lhs.true.i31.i
-  %.pre223.sink = phi i32 [ %inc.i.i138, %land.lhs.true.i31.i ], [ %inc.i.i138, %if.end.i24.i ], [ %inc.i.i138, %if.end3.i ], [ %.pre223, %if.end.i44.i ], [ %.pre223, %land.lhs.true8.i ]
+  %.pre219.sink = phi i32 [ %inc.i.i138, %land.lhs.true.i31.i ], [ %inc.i.i138, %if.end.i24.i ], [ %inc.i.i138, %if.end3.i ], [ %.pre219, %if.end.i44.i ], [ %.pre219, %land.lhs.true8.i ]
   %.ph = phi i32 [ %inc2.i.i20.i, %land.lhs.true.i31.i ], [ %inc2.i.i20.i, %if.end.i24.i ], [ %inc2.i.i20.i, %if.end3.i ], [ %inc2.i.i40.i, %if.end.i44.i ], [ %inc2.i.i40.i, %land.lhs.true8.i ]
-  store i32 %.pre223.sink, ptr %recursion_depth.i, align 4
+  store i32 %.pre219.sink, ptr %recursion_depth.i, align 4
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end12.i.sink.split, %invoke.cont6.i161
-  %46 = phi i32 [ %.pre224, %invoke.cont6.i161 ], [ %.ph, %if.end12.i.sink.split ]
-  %47 = phi i32 [ %.pre223, %invoke.cont6.i161 ], [ %.pre223.sink, %if.end12.i.sink.split ]
+  %47 = phi i32 [ %.pre220, %invoke.cont6.i161 ], [ %.ph, %if.end12.i.sink.split ]
+  %48 = phi i32 [ %.pre219, %invoke.cont6.i161 ], [ %.pre219.sink, %if.end12.i.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy.i136, i64 16, i1 false)
-  %inc.i.i51.i = add nsw i32 %47, 1
+  %inc.i.i51.i = add nsw i32 %48, 1
   store i32 %inc.i.i51.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i53.i = add nsw i32 %46, 1
+  %inc2.i.i53.i = add nsw i32 %47, 1
   store i32 %inc2.i.i53.i, ptr %steps.i, align 8
-  %cmp.i.i54.i = icmp sgt i32 %47, 255
-  %cmp3.i.i55.i = icmp sgt i32 %46, 131071
+  %cmp.i.i54.i = icmp sgt i32 %48, 255
+  %cmp3.i.i55.i = icmp sgt i32 %47, 131071
   %or.cond.i56.i = select i1 %cmp.i.i54.i, i1 true, i1 %cmp3.i.i55.i
   br i1 %or.cond.i56.i, label %if.end23.i157.sink.split, label %if.end.i57.i
 
@@ -4164,20 +4166,20 @@ if.end.i57.i:                                     ; preds = %if.end12.i
   %state.val8.i59.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i60.i = sext i32 %state.val8.i59.i to i64
   %arrayidx.i.i61.i = getelementptr inbounds i8, ptr %state.val7.i58.i, i64 %idxprom.i.i60.i
-  %48 = load i8, ptr %arrayidx.i.i61.i, align 1
-  %cmp.i62.i = icmp eq i8 %48, 68
+  %49 = load i8, ptr %arrayidx.i.i61.i, align 1
+  %cmp.i62.i = icmp eq i8 %49, 68
   br i1 %cmp.i62.i, label %land.lhs.true.i64.i, label %if.end23.i157.sink.split
 
 land.lhs.true.i64.i:                              ; preds = %if.end.i57.i
   %arrayidx6.i65.i = getelementptr inbounds i8, ptr %arrayidx.i.i61.i, i64 1
-  %49 = load i8, ptr %arrayidx6.i65.i, align 1
-  %cmp10.i66.i = icmp eq i8 %49, 119
+  %50 = load i8, ptr %arrayidx6.i65.i, align 1
+  %cmp10.i66.i = icmp eq i8 %50, 119
   br i1 %cmp10.i66.i, label %land.lhs.true16.i, label %if.end23.i157.sink.split
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i64.i
   %add.i68.i = add nsw i32 %state.val8.i59.i, 2
   store i32 %add.i68.i, ptr %parse_state, align 4
-  store i32 %47, ptr %recursion_depth.i, align 4
+  store i32 %48, ptr %recursion_depth.i, align 4
   %call.i70.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %state)
           to label %call.i.noexc.i unwind label %lpad.i159.loopexit.split-lp
 
@@ -4185,8 +4187,8 @@ call.i.noexc.i:                                   ; preds = %land.lhs.true16.i
   br i1 %call.i70.i, label %while.cond.i.i, label %call.i.noexc.i.if.end23.i157_crit_edge
 
 call.i.noexc.i.if.end23.i157_crit_edge:           ; preds = %call.i.noexc.i
-  %.pre225.pre = load i32, ptr %recursion_depth.i, align 4
-  %.pre226.pre = load i32, ptr %steps.i, align 8
+  %.pre221.pre = load i32, ptr %recursion_depth.i, align 4
+  %.pre222.pre = load i32, ptr %steps.i, align 8
   br label %if.end23.i157
 
 while.cond.i.i:                                   ; preds = %call.i.noexc.i, %call1.i.noexc.i
@@ -4197,14 +4199,14 @@ call1.i.noexc.i:                                  ; preds = %while.cond.i.i
   br i1 %call1.i71.i, label %while.cond.i.i, label %land.lhs.true19.i, !llvm.loop !11
 
 land.lhs.true19.i:                                ; preds = %call1.i.noexc.i
-  %50 = load i32, ptr %recursion_depth.i, align 4
-  %inc.i.i73.i = add nsw i32 %50, 1
+  %51 = load i32, ptr %recursion_depth.i, align 4
+  %inc.i.i73.i = add nsw i32 %51, 1
   store i32 %inc.i.i73.i, ptr %recursion_depth.i, align 4
-  %51 = load i32, ptr %steps.i, align 8
-  %inc2.i.i75.i = add nsw i32 %51, 1
+  %52 = load i32, ptr %steps.i, align 8
+  %inc2.i.i75.i = add nsw i32 %52, 1
   store i32 %inc2.i.i75.i, ptr %steps.i, align 8
-  %cmp.i.i76.i = icmp sgt i32 %50, 255
-  %cmp3.i.i77.i = icmp sgt i32 %51, 131071
+  %cmp.i.i76.i = icmp sgt i32 %51, 255
+  %cmp3.i.i77.i = icmp sgt i32 %52, 131071
   %or.cond.i78.i = select i1 %cmp.i.i76.i, i1 true, i1 %cmp3.i.i77.i
   br i1 %or.cond.i78.i, label %if.end23.i157.sink.split, label %if.end.i79.i
 
@@ -4213,38 +4215,38 @@ if.end.i79.i:                                     ; preds = %land.lhs.true19.i
   %state.val4.i81.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i82.i = sext i32 %state.val4.i81.i to i64
   %arrayidx.i.i83.i = getelementptr inbounds i8, ptr %state.val.i80.i, i64 %idxprom.i.i82.i
-  %52 = load i8, ptr %arrayidx.i.i83.i, align 1
-  %cmp.i84.i = icmp eq i8 %52, 69
+  %53 = load i8, ptr %arrayidx.i.i83.i, align 1
+  %cmp.i84.i = icmp eq i8 %53, 69
   br i1 %cmp.i84.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit88.i, label %if.end23.i157.sink.split
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit88.i: ; preds = %if.end.i79.i
   %inc.i87.i = add nsw i32 %state.val4.i81.i, 1
   store i32 %inc.i87.i, ptr %parse_state, align 4
-  store i32 %50, ptr %recursion_depth.i, align 4
+  store i32 %51, ptr %recursion_depth.i, align 4
   br label %invoke.cont.i101
 
 if.end23.i157.sink.split:                         ; preds = %land.lhs.true19.i, %if.end.i79.i, %if.end12.i, %if.end.i57.i, %land.lhs.true.i64.i
-  %.pre226317 = phi i32 [ %inc2.i.i53.i, %land.lhs.true.i64.i ], [ %inc2.i.i53.i, %if.end.i57.i ], [ %inc2.i.i53.i, %if.end12.i ], [ %inc2.i.i75.i, %if.end.i79.i ], [ %inc2.i.i75.i, %land.lhs.true19.i ]
-  %.sink = phi i32 [ %47, %land.lhs.true.i64.i ], [ %47, %if.end.i57.i ], [ %47, %if.end12.i ], [ %50, %if.end.i79.i ], [ %50, %land.lhs.true19.i ]
+  %.pre222313 = phi i32 [ %inc2.i.i53.i, %land.lhs.true.i64.i ], [ %inc2.i.i53.i, %if.end.i57.i ], [ %inc2.i.i53.i, %if.end12.i ], [ %inc2.i.i75.i, %if.end.i79.i ], [ %inc2.i.i75.i, %land.lhs.true19.i ]
+  %.sink = phi i32 [ %48, %land.lhs.true.i64.i ], [ %48, %if.end.i57.i ], [ %48, %if.end12.i ], [ %51, %if.end.i79.i ], [ %51, %land.lhs.true19.i ]
   store i32 %.sink, ptr %recursion_depth.i, align 4
   br label %if.end23.i157
 
 if.end23.i157:                                    ; preds = %call.i.noexc.i.if.end23.i157_crit_edge, %if.end23.i157.sink.split
-  %.pre226 = phi i32 [ %.pre226.pre, %call.i.noexc.i.if.end23.i157_crit_edge ], [ %.pre226317, %if.end23.i157.sink.split ]
-  %.pre225 = phi i32 [ %.pre225.pre, %call.i.noexc.i.if.end23.i157_crit_edge ], [ %.sink, %if.end23.i157.sink.split ]
+  %.pre222 = phi i32 [ %.pre222.pre, %call.i.noexc.i.if.end23.i157_crit_edge ], [ %.pre222313, %if.end23.i157.sink.split ]
+  %.pre221 = phi i32 [ %.pre221.pre, %call.i.noexc.i.if.end23.i157_crit_edge ], [ %.sink, %if.end23.i157.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy.i136, i64 16, i1 false)
   br label %invoke.cont.i101
 
 invoke.cont.i101:                                 ; preds = %if.end.i100, %if.end23.i157, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit88.i
-  %53 = phi i32 [ %inc2.i.i140, %if.end.i100 ], [ %.pre226, %if.end23.i157 ], [ %inc2.i.i.i146, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ], [ %inc2.i.i40.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %inc2.i.i75.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit88.i ]
-  %54 = phi i32 [ %inc.i.i138, %if.end.i100 ], [ %.pre225, %if.end23.i157 ], [ %inc.i.i138, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ], [ %.pre223, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %50, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit88.i ]
-  %dec.i90.i = add nsw i32 %54, -1
+  %54 = phi i32 [ %inc2.i.i140, %if.end.i100 ], [ %.pre222, %if.end23.i157 ], [ %inc2.i.i.i146, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ], [ %inc2.i.i40.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %inc2.i.i75.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit88.i ]
+  %55 = phi i32 [ %inc.i.i138, %if.end.i100 ], [ %.pre221, %if.end23.i157 ], [ %inc.i.i138, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ], [ %.pre219, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %51, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit88.i ]
+  %dec.i90.i = add nsw i32 %55, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i136)
-  store i32 %54, ptr %recursion_depth.i, align 4
-  %inc2.i.i121 = add nsw i32 %53, 1
+  store i32 %55, ptr %recursion_depth.i, align 4
+  %inc2.i.i121 = add nsw i32 %54, 1
   store i32 %inc2.i.i121, ptr %steps.i, align 8
-  %cmp.i.i122 = icmp sgt i32 %54, 256
-  %cmp3.i.i123 = icmp sgt i32 %53, 131071
+  %cmp.i.i122 = icmp sgt i32 %55, 256
+  %cmp3.i.i123 = icmp sgt i32 %54, 131071
   %or.cond.i124 = select i1 %cmp.i.i122, i1 true, i1 %cmp3.i.i123
   br i1 %or.cond.i124, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit134.thread, label %if.end.i125
 
@@ -4253,8 +4255,8 @@ if.end.i125:                                      ; preds = %invoke.cont.i101
   %state.val4.i127 = load i32, ptr %parse_state, align 4
   %idxprom.i.i128 = sext i32 %state.val4.i127 to i64
   %arrayidx.i.i129 = getelementptr inbounds i8, ptr %state.val.i126, i64 %idxprom.i.i128
-  %55 = load i8, ptr %arrayidx.i.i129, align 1
-  %cmp.i130 = icmp eq i8 %55, 70
+  %56 = load i8, ptr %arrayidx.i.i129, align 1
+  %cmp.i130 = icmp eq i8 %56, 70
   br i1 %cmp.i130, label %land.lhs.true6.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit134.thread
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit134.thread: ; preds = %if.end.i125, %invoke.cont.i101
@@ -4264,25 +4266,25 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit134.thread: ;
 land.lhs.true6.i:                                 ; preds = %if.end.i125
   %inc.i133 = add nsw i32 %state.val4.i127, 1
   store i32 %inc.i133, ptr %parse_state, align 4
-  store i32 %54, ptr %recursion_depth.i, align 4
-  %inc2.i.i243 = add nsw i32 %53, 2
-  store i32 %inc2.i.i243, ptr %steps.i, align 8
-  %cmp3.i.i245 = icmp sgt i32 %53, 131070
-  br i1 %cmp3.i.i245, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, label %if.end.i247
+  store i32 %55, ptr %recursion_depth.i, align 4
+  %inc2.i.i239 = add nsw i32 %54, 2
+  store i32 %inc2.i.i239, ptr %steps.i, align 8
+  %cmp3.i.i241 = icmp sgt i32 %54, 131070
+  br i1 %cmp3.i.i241, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, label %if.end.i243
 
-if.end.i247:                                      ; preds = %land.lhs.true6.i
-  %idxprom.i.i250 = sext i32 %inc.i133 to i64
-  %arrayidx.i.i251 = getelementptr inbounds i8, ptr %state.val.i126, i64 %idxprom.i.i250
-  %56 = load i8, ptr %arrayidx.i.i251, align 1
-  %cmp.i252 = icmp eq i8 %56, 89
-  br i1 %cmp.i252, label %if.then3.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
+if.end.i243:                                      ; preds = %land.lhs.true6.i
+  %idxprom.i.i246 = sext i32 %inc.i133 to i64
+  %arrayidx.i.i247 = getelementptr inbounds i8, ptr %state.val.i126, i64 %idxprom.i.i246
+  %57 = load i8, ptr %arrayidx.i.i247, align 1
+  %cmp.i248 = icmp eq i8 %57, 89
+  br i1 %cmp.i248, label %if.then3.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
 
-if.then3.i:                                       ; preds = %if.end.i247
-  %inc.i253 = add nsw i32 %state.val4.i127, 2
-  store i32 %inc.i253, ptr %parse_state, align 4
+if.then3.i:                                       ; preds = %if.end.i243
+  %inc.i249 = add nsw i32 %state.val4.i127, 2
+  store i32 %inc.i249, ptr %parse_state, align 4
   br label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %land.lhs.true6.i, %if.end.i247, %if.then3.i
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %land.lhs.true6.i, %if.end.i243, %if.then3.i
   store i32 %dec.i90.i, ptr %recursion_depth.i, align 4
   %call13.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBareFunctionTypeEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont12.i unwind label %lpad.i
@@ -4297,194 +4299,194 @@ invoke.cont12.i.if.end23.i_crit_edge:             ; preds = %invoke.cont12.i
 land.lhs.true14.i:                                ; preds = %invoke.cont12.i
   %call16.i = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %state, i8 noundef signext 79)
   %call21.i = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %state, i8 noundef signext 69)
-  %.pr.pre.pre233 = load i32, ptr %recursion_depth.i, align 4
+  %.pr.pre.pre229 = load i32, ptr %recursion_depth.i, align 4
   br i1 %call21.i, label %invoke.cont45, label %if.end23.i
 
 lpad.i:                                           ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
-  %57 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %.pre227 = load i32, ptr %recursion_depth.i, align 4
+  %.pre223 = load i32, ptr %recursion_depth.i, align 4
   br label %lpad.i.body
 
 lpad.i.body:                                      ; preds = %lpad.i159, %lpad.i
-  %58 = phi i32 [ %.pre227, %lpad.i ], [ %dec.i.i, %lpad.i159 ]
-  %eh.lpad-body169 = phi { ptr, i32 } [ %57, %lpad.i ], [ %lpad.phi, %lpad.i159 ]
-  %dec.i117 = add nsw i32 %58, -1
+  %59 = phi i32 [ %.pre223, %lpad.i ], [ %dec.i.i, %lpad.i159 ]
+  %eh.lpad-body169 = phi { ptr, i32 } [ %58, %lpad.i ], [ %lpad.phi, %lpad.i159 ]
+  %dec.i117 = add nsw i32 %59, -1
   store i32 %dec.i117, ptr %recursion_depth.i, align 4
   br label %lpad.body
 
 if.end23.i:                                       ; preds = %invoke.cont12.i.if.end23.i_crit_edge, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit134.thread, %land.lhs.true14.i
-  %.pr.pre = phi i32 [ %.pr.pre.pre, %invoke.cont12.i.if.end23.i_crit_edge ], [ %dec.i90.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit134.thread ], [ %.pr.pre.pre233, %land.lhs.true14.i ]
+  %.pr.pre = phi i32 [ %.pr.pre.pre, %invoke.cont12.i.if.end23.i_crit_edge ], [ %dec.i90.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit134.thread ], [ %.pr.pre.pre229, %land.lhs.true14.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy.i99, i64 16, i1 false)
-  %.pre229.pre = load i32, ptr %steps.i, align 8
+  %.pre225.pre = load i32, ptr %steps.i, align 8
   br label %lor.lhs.false47
 
 invoke.cont45:                                    ; preds = %land.lhs.true14.i
-  %dec.i115 = add nsw i32 %.pr.pre.pre233, -1
+  %dec.i115 = add nsw i32 %.pr.pre.pre229, -1
   store i32 %dec.i115, ptr %recursion_depth.i, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i99)
   br label %cleanup
 
 lor.lhs.false47:                                  ; preds = %if.end23.i, %lor.lhs.false
-  %59 = phi i32 [ %inc2.i179, %lor.lhs.false ], [ %.pre229.pre, %if.end23.i ]
-  %60 = phi i32 [ %39, %lor.lhs.false ], [ %.pr.pre, %if.end23.i ]
+  %60 = phi i32 [ %inc2.i179, %lor.lhs.false ], [ %.pre225.pre, %if.end23.i ]
+  %61 = phi i32 [ %40, %lor.lhs.false ], [ %.pr.pre, %if.end23.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i99)
-  store i32 %60, ptr %recursion_depth.i, align 4
-  %inc2.i193 = add nsw i32 %59, 1
+  store i32 %61, ptr %recursion_depth.i, align 4
+  %inc2.i193 = add nsw i32 %60, 1
   store i32 %inc2.i193, ptr %steps.i, align 8
-  %cmp.i185 = icmp sgt i32 %60, 256
-  %cmp3.i188 = icmp sgt i32 %59, 131071
-  %or.cond215 = select i1 %cmp.i185, i1 true, i1 %cmp3.i188
-  br i1 %or.cond215, label %invoke.cont48.thread, label %if.end.i106
+  %cmp.i185 = icmp sgt i32 %61, 256
+  %cmp3.i188 = icmp sgt i32 %60, 131071
+  %or.cond211 = select i1 %cmp.i185, i1 true, i1 %cmp3.i188
+  br i1 %or.cond211, label %invoke.cont48.thread, label %if.end.i106
 
 if.end.i106:                                      ; preds = %lor.lhs.false47
   %call1.i107 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont48 unwind label %lpad.i108
 
 lpad.i108:                                        ; preds = %if.end.i106
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i183 = add nsw i32 %62, -1
+  %63 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i183 = add nsw i32 %63, -1
   store i32 %dec.i183, ptr %recursion_depth.i, align 4
   br label %lpad.body
 
 invoke.cont48.thread:                             ; preds = %lor.lhs.false47
-  %dec.i115211.pre-phi = add nsw i32 %60, -1
-  store i32 %dec.i115211.pre-phi, ptr %recursion_depth.i, align 4
+  %dec.i115207.pre-phi = add nsw i32 %61, -1
+  store i32 %dec.i115207.pre-phi, ptr %recursion_depth.i, align 4
   br label %lor.lhs.false50
 
 invoke.cont48:                                    ; preds = %if.end.i106
-  %63 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i181 = add nsw i32 %63, -1
+  %64 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i181 = add nsw i32 %64, -1
   store i32 %dec.i181, ptr %recursion_depth.i, align 4
   br i1 %call1.i107, label %cleanup, label %invoke.cont48.lor.lhs.false50_crit_edge
 
 invoke.cont48.lor.lhs.false50_crit_edge:          ; preds = %invoke.cont48
-  %.pre318 = load i32, ptr %steps.i, align 8
+  %.pre314 = load i32, ptr %steps.i, align 8
   br label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %invoke.cont48.lor.lhs.false50_crit_edge, %invoke.cont48.thread
-  %64 = phi i32 [ %inc2.i193, %invoke.cont48.thread ], [ %.pre318, %invoke.cont48.lor.lhs.false50_crit_edge ]
-  %65 = phi i32 [ %dec.i115211.pre-phi, %invoke.cont48.thread ], [ %dec.i181, %invoke.cont48.lor.lhs.false50_crit_edge ]
+  %65 = phi i32 [ %inc2.i193, %invoke.cont48.thread ], [ %.pre314, %invoke.cont48.lor.lhs.false50_crit_edge ]
+  %66 = phi i32 [ %dec.i115207.pre-phi, %invoke.cont48.thread ], [ %dec.i181, %invoke.cont48.lor.lhs.false50_crit_edge ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %copy.i)
-  %inc.i.i255 = add nsw i32 %65, 1
-  store i32 %inc.i.i255, ptr %recursion_depth.i, align 4
-  %inc2.i.i257 = add nsw i32 %64, 1
-  store i32 %inc2.i.i257, ptr %steps.i, align 8
-  %cmp.i.i258 = icmp sgt i32 %65, 255
-  %cmp3.i.i259 = icmp sgt i32 %64, 131071
-  %or.cond.i260 = select i1 %cmp.i.i258, i1 true, i1 %cmp3.i.i259
-  br i1 %or.cond.i260, label %lor.lhs.false53, label %if.end.i261
+  %inc.i.i251 = add nsw i32 %66, 1
+  store i32 %inc.i.i251, ptr %recursion_depth.i, align 4
+  %inc2.i.i253 = add nsw i32 %65, 1
+  store i32 %inc2.i.i253, ptr %steps.i, align 8
+  %cmp.i.i254 = icmp sgt i32 %66, 255
+  %cmp3.i.i255 = icmp sgt i32 %65, 131071
+  %or.cond.i256 = select i1 %cmp.i.i254, i1 true, i1 %cmp3.i.i255
+  br i1 %or.cond.i256, label %lor.lhs.false53, label %if.end.i257
 
-if.end.i261:                                      ; preds = %lor.lhs.false50
+if.end.i257:                                      ; preds = %lor.lhs.false50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy.i, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
-  %inc.i.i.i262 = add nsw i32 %65, 2
-  store i32 %inc.i.i.i262, ptr %recursion_depth.i, align 4
-  %inc2.i.i.i263 = add nsw i32 %64, 2
-  store i32 %inc2.i.i.i263, ptr %steps.i, align 8
-  %cmp.i.i.i264 = icmp sgt i32 %65, 254
-  %cmp3.i.i.i265 = icmp sgt i32 %64, 131070
-  %or.cond.i.i266 = select i1 %cmp.i.i.i264, i1 true, i1 %cmp3.i.i.i265
-  br i1 %or.cond.i.i266, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i, label %if.end.i.i267
+  %inc.i.i.i258 = add nsw i32 %66, 2
+  store i32 %inc.i.i.i258, ptr %recursion_depth.i, align 4
+  %inc2.i.i.i259 = add nsw i32 %65, 2
+  store i32 %inc2.i.i.i259, ptr %steps.i, align 8
+  %cmp.i.i.i260 = icmp sgt i32 %66, 254
+  %cmp3.i.i.i261 = icmp sgt i32 %65, 131070
+  %or.cond.i.i262 = select i1 %cmp.i.i.i260, i1 true, i1 %cmp3.i.i.i261
+  br i1 %or.cond.i.i262, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i, label %if.end.i.i263
 
-if.end.i.i267:                                    ; preds = %if.end.i261
-  %state.val.i.i268 = load ptr, ptr %state, align 8
-  %state.val4.i.i269 = load i32, ptr %parse_state, align 4
-  %idxprom.i.i.i270 = sext i32 %state.val4.i.i269 to i64
-  %arrayidx.i.i.i271 = getelementptr inbounds i8, ptr %state.val.i.i268, i64 %idxprom.i.i.i270
-  %66 = load i8, ptr %arrayidx.i.i.i271, align 1
-  %cmp.i16.i = icmp eq i8 %66, 65
-  br i1 %cmp.i16.i, label %land.lhs.true.i275, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
+if.end.i.i263:                                    ; preds = %if.end.i257
+  %state.val.i.i264 = load ptr, ptr %state, align 8
+  %state.val4.i.i265 = load i32, ptr %parse_state, align 4
+  %idxprom.i.i.i266 = sext i32 %state.val4.i.i265 to i64
+  %arrayidx.i.i.i267 = getelementptr inbounds i8, ptr %state.val.i.i264, i64 %idxprom.i.i.i266
+  %67 = load i8, ptr %arrayidx.i.i.i267, align 1
+  %cmp.i16.i = icmp eq i8 %67, 65
+  br i1 %cmp.i16.i, label %land.lhs.true.i271, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; preds = %if.end.i.i267, %if.end.i261
-  store i32 %inc.i.i255, ptr %recursion_depth.i, align 4
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; preds = %if.end.i.i263, %if.end.i257
+  store i32 %inc.i.i251, ptr %recursion_depth.i, align 4
   br label %if.end11.i
 
-land.lhs.true.i275:                               ; preds = %if.end.i.i267
-  %inc.i17.i = add nsw i32 %state.val4.i.i269, 1
+land.lhs.true.i271:                               ; preds = %if.end.i.i263
+  %inc.i17.i = add nsw i32 %state.val4.i.i265, 1
   store i32 %inc.i17.i, ptr %parse_state, align 4
-  store i32 %inc.i.i255, ptr %recursion_depth.i, align 4
-  %inc2.i.i21.i = add nsw i32 %64, 3
+  store i32 %inc.i.i251, ptr %recursion_depth.i, align 4
+  %inc2.i.i21.i = add nsw i32 %65, 3
   store i32 %inc2.i.i21.i, ptr %steps.i, align 8
-  %cmp3.i.i23.i = icmp sgt i32 %64, 131069
+  %cmp3.i.i23.i = icmp sgt i32 %65, 131069
   br i1 %cmp3.i.i23.i, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i, label %if.end.i25.i
 
-if.end.i25.i:                                     ; preds = %land.lhs.true.i275
-  %inc.i.i.i.i = add nsw i32 %65, 3
+if.end.i25.i:                                     ; preds = %land.lhs.true.i271
+  %inc.i.i.i.i = add nsw i32 %66, 3
   store i32 %inc.i.i.i.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i.i.i = add nsw i32 %64, 4
+  %inc2.i.i.i.i = add nsw i32 %65, 4
   store i32 %inc2.i.i.i.i, ptr %steps.i, align 8
-  %cmp.i.i.i.i = icmp sgt i32 %65, 253
-  %cmp3.i.i.i.i = icmp eq i32 %64, 131069
+  %cmp.i.i.i.i = icmp sgt i32 %66, 253
+  %cmp3.i.i.i.i = icmp eq i32 %65, 131069
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
   br i1 %or.cond.i.i.i, label %invoke.cont.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i25.i
   %idxprom.i.i.i.i = sext i32 %inc.i17.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %state.val.i.i268, i64 %idxprom.i.i.i.i
-  %67 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %cmp.i23.i.i = icmp eq i8 %67, 110
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %state.val.i.i264, i64 %idxprom.i.i.i.i
+  %68 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %cmp.i23.i.i = icmp eq i8 %68, 110
   br i1 %cmp.i23.i.i, label %if.then3.i.i.i, label %invoke.cont.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %inc.i24.i.i = add nsw i32 %state.val4.i.i269, 2
+  %inc.i24.i.i = add nsw i32 %state.val4.i.i265, 2
   store i32 %inc.i24.i.i, ptr %parse_state, align 4
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then3.i.i.i, %if.end.i.i.i, %if.end.i25.i
   %state.val20.i.i = phi i32 [ %inc.i24.i.i, %if.then3.i.i.i ], [ %inc.i17.i, %if.end.i.i.i ], [ %inc.i17.i, %if.end.i25.i ]
-  store i32 %inc.i.i.i262, ptr %recursion_depth.i, align 4
+  store i32 %inc.i.i.i258, ptr %recursion_depth.i, align 4
   %idxprom.i.i26.i = sext i32 %state.val20.i.i to i64
-  %arrayidx.i.i27.i = getelementptr inbounds i8, ptr %state.val.i.i268, i64 %idxprom.i.i26.i
-  %68 = load i8, ptr %arrayidx.i.i27.i, align 1
-  %69 = add i8 %68, -48
-  %70 = icmp ult i8 %69, 10
-  br i1 %70, label %if.then8.i.i, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i
+  %arrayidx.i.i27.i = getelementptr inbounds i8, ptr %state.val.i.i264, i64 %idxprom.i.i26.i
+  %69 = load i8, ptr %arrayidx.i.i27.i, align 1
+  %70 = add i8 %69, -48
+  %71 = icmp ult i8 %70, 10
+  br i1 %71, label %if.then8.i.i, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i
 
 if.then8.i.i:                                     ; preds = %invoke.cont.i.i, %if.then8.i.i
   %p.034.i.i = phi ptr [ %incdec.ptr.i.i, %if.then8.i.i ], [ %arrayidx.i.i27.i, %invoke.cont.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.034.i.i, i64 1
-  %71 = load i8, ptr %incdec.ptr.i.i, align 1
-  %72 = add i8 %71, -48
-  %73 = icmp ult i8 %72, 10
-  br i1 %73, label %if.then8.i.i, label %land.lhs.true4.i, !llvm.loop !12
+  %72 = load i8, ptr %incdec.ptr.i.i, align 1
+  %73 = add i8 %72, -48
+  %74 = icmp ult i8 %73, 10
+  br i1 %74, label %if.then8.i.i, label %land.lhs.true4.i, !llvm.loop !12
 
-_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i: ; preds = %invoke.cont.i.i, %land.lhs.true.i275
-  %74 = phi i32 [ 131073, %land.lhs.true.i275 ], [ %inc2.i.i.i.i, %invoke.cont.i.i ]
-  store i32 %inc.i.i255, ptr %recursion_depth.i, align 4
+_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i: ; preds = %invoke.cont.i.i, %land.lhs.true.i271
+  %75 = phi i32 [ 131073, %land.lhs.true.i271 ], [ %inc2.i.i.i.i, %invoke.cont.i.i ]
+  store i32 %inc.i.i251, ptr %recursion_depth.i, align 4
   br label %if.end11.i
 
 land.lhs.true4.i:                                 ; preds = %if.then8.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %incdec.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %arrayidx.i.i27.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %75 = trunc i64 %sub.ptr.sub.i.i to i32
-  %conv23.i.i = add i32 %state.val20.i.i, %75
+  %76 = trunc i64 %sub.ptr.sub.i.i to i32
+  %conv23.i.i = add i32 %state.val20.i.i, %76
   store i32 %conv23.i.i, ptr %parse_state, align 4
-  store i32 %inc.i.i.i262, ptr %recursion_depth.i, align 4
-  %inc2.i.i32.i = add nsw i32 %64, 5
+  store i32 %inc.i.i.i258, ptr %recursion_depth.i, align 4
+  %inc2.i.i32.i = add nsw i32 %65, 5
   store i32 %inc2.i.i32.i, ptr %steps.i, align 8
-  %cmp3.i.i34.i = icmp sgt i32 %64, 131067
+  %cmp3.i.i34.i = icmp sgt i32 %65, 131067
   br i1 %cmp3.i.i34.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i, label %if.end.i36.i
 
 if.end.i36.i:                                     ; preds = %land.lhs.true4.i
   %idxprom.i.i39.i = sext i32 %conv23.i.i to i64
-  %arrayidx.i.i40.i = getelementptr inbounds i8, ptr %state.val.i.i268, i64 %idxprom.i.i39.i
-  %76 = load i8, ptr %arrayidx.i.i40.i, align 1
-  %cmp.i41.i = icmp eq i8 %76, 95
+  %arrayidx.i.i40.i = getelementptr inbounds i8, ptr %state.val.i.i264, i64 %idxprom.i.i39.i
+  %77 = load i8, ptr %arrayidx.i.i40.i, align 1
+  %cmp.i41.i = icmp eq i8 %77, 95
   br i1 %cmp.i41.i, label %land.lhs.true7.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i: ; preds = %if.end.i36.i, %land.lhs.true4.i
-  store i32 %inc.i.i255, ptr %recursion_depth.i, align 4
+  store i32 %inc.i.i251, ptr %recursion_depth.i, align 4
   br label %if.end11.i
 
 land.lhs.true7.i:                                 ; preds = %if.end.i36.i
   %inc.i44.i = add nsw i32 %conv23.i.i, 1
   store i32 %inc.i44.i, ptr %parse_state, align 4
-  store i32 %inc.i.i255, ptr %recursion_depth.i, align 4
+  store i32 %inc.i.i251, ptr %recursion_depth.i, align 4
   %call9.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %state)
-          to label %invoke.cont8.i unwind label %lpad.i273
+          to label %invoke.cont8.i unwind label %lpad.i269
 
 invoke.cont8.i:                                   ; preds = %land.lhs.true7.i
   br i1 %call9.i, label %invoke.cont51.thread, label %invoke.cont8.if.end11_crit_edge.i
@@ -4494,24 +4496,24 @@ invoke.cont8.if.end11_crit_edge.i:                ; preds = %invoke.cont8.i
   %.pre88.i = load i32, ptr %steps.i, align 8
   br label %if.end11.i
 
-lpad.i273:                                        ; preds = %land.lhs.true23.i, %land.lhs.true15.i, %land.lhs.true7.i
-  %77 = landingpad { ptr, i32 }
+lpad.i269:                                        ; preds = %land.lhs.true23.i, %land.lhs.true15.i, %land.lhs.true7.i
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %78 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i.i274 = add nsw i32 %78, -1
-  store i32 %dec.i.i274, ptr %recursion_depth.i, align 4
+  %79 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i.i270 = add nsw i32 %79, -1
+  store i32 %dec.i.i270, ptr %recursion_depth.i, align 4
   br label %lpad.body
 
 if.end11.i:                                       ; preds = %invoke.cont8.if.end11_crit_edge.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
-  %79 = phi i32 [ %.pre88.i, %invoke.cont8.if.end11_crit_edge.i ], [ %inc2.i.i32.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i ], [ %74, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %inc2.i.i.i263, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
-  %80 = phi i32 [ %.pre.i, %invoke.cont8.if.end11_crit_edge.i ], [ %inc.i.i255, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i ], [ %inc.i.i255, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %inc.i.i255, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
+  %80 = phi i32 [ %.pre88.i, %invoke.cont8.if.end11_crit_edge.i ], [ %inc2.i.i32.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i ], [ %75, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %inc2.i.i.i259, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
+  %81 = phi i32 [ %.pre.i, %invoke.cont8.if.end11_crit_edge.i ], [ %inc.i.i251, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45.thread.i ], [ %inc.i.i251, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %inc.i.i251, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy.i, i64 16, i1 false)
-  %inc.i.i48.i = add nsw i32 %80, 1
+  %inc.i.i48.i = add nsw i32 %81, 1
   store i32 %inc.i.i48.i, ptr %recursion_depth.i, align 4
-  %inc2.i.i50.i = add nsw i32 %79, 1
+  %inc2.i.i50.i = add nsw i32 %80, 1
   store i32 %inc2.i.i50.i, ptr %steps.i, align 8
-  %cmp.i.i51.i = icmp sgt i32 %80, 255
-  %cmp3.i.i52.i = icmp sgt i32 %79, 131071
+  %cmp.i.i51.i = icmp sgt i32 %81, 255
+  %cmp3.i.i52.i = icmp sgt i32 %80, 131071
   %or.cond.i53.i = select i1 %cmp.i.i51.i, i1 true, i1 %cmp3.i.i52.i
   br i1 %or.cond.i53.i, label %if.end27.sink.split.i, label %if.end.i54.i
 
@@ -4520,26 +4522,26 @@ if.end.i54.i:                                     ; preds = %if.end11.i
   %state.val4.i56.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i57.i = sext i32 %state.val4.i56.i to i64
   %arrayidx.i.i58.i = getelementptr inbounds i8, ptr %state.val.i55.i, i64 %idxprom.i.i57.i
-  %81 = load i8, ptr %arrayidx.i.i58.i, align 1
-  %cmp.i59.i = icmp eq i8 %81, 65
+  %82 = load i8, ptr %arrayidx.i.i58.i, align 1
+  %cmp.i59.i = icmp eq i8 %82, 65
   br i1 %cmp.i59.i, label %land.lhs.true15.i, label %if.end27.sink.split.i
 
 land.lhs.true15.i:                                ; preds = %if.end.i54.i
   %inc.i62.i = add nsw i32 %state.val4.i56.i, 1
   store i32 %inc.i62.i, ptr %parse_state, align 4
-  store i32 %80, ptr %recursion_depth.i, align 4
+  store i32 %81, ptr %recursion_depth.i, align 4
   %call17.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %state)
-          to label %invoke.cont16.i unwind label %lpad.i273
+          to label %invoke.cont16.i unwind label %lpad.i269
 
 invoke.cont16.i:                                  ; preds = %land.lhs.true15.i
-  %82 = load i32, ptr %recursion_depth.i, align 4
-  %inc.i.i65.i = add nsw i32 %82, 1
+  %83 = load i32, ptr %recursion_depth.i, align 4
+  %inc.i.i65.i = add nsw i32 %83, 1
   store i32 %inc.i.i65.i, ptr %recursion_depth.i, align 4
-  %83 = load i32, ptr %steps.i, align 8
-  %inc2.i.i67.i = add nsw i32 %83, 1
+  %84 = load i32, ptr %steps.i, align 8
+  %inc2.i.i67.i = add nsw i32 %84, 1
   store i32 %inc2.i.i67.i, ptr %steps.i, align 8
-  %cmp.i.i68.i = icmp sgt i32 %82, 255
-  %cmp3.i.i69.i = icmp sgt i32 %83, 131071
+  %cmp.i.i68.i = icmp sgt i32 %83, 255
+  %cmp3.i.i69.i = icmp sgt i32 %84, 131071
   %or.cond.i70.i = select i1 %cmp.i.i68.i, i1 true, i1 %cmp3.i.i69.i
   br i1 %or.cond.i70.i, label %if.end27.sink.split.i, label %if.end.i71.i
 
@@ -4548,127 +4550,127 @@ if.end.i71.i:                                     ; preds = %invoke.cont16.i
   %state.val4.i73.i = load i32, ptr %parse_state, align 4
   %idxprom.i.i74.i = sext i32 %state.val4.i73.i to i64
   %arrayidx.i.i75.i = getelementptr inbounds i8, ptr %state.val.i72.i, i64 %idxprom.i.i74.i
-  %84 = load i8, ptr %arrayidx.i.i75.i, align 1
-  %cmp.i76.i = icmp eq i8 %84, 95
+  %85 = load i8, ptr %arrayidx.i.i75.i, align 1
+  %cmp.i76.i = icmp eq i8 %85, 95
   br i1 %cmp.i76.i, label %land.lhs.true23.i, label %if.end27.sink.split.i
 
 land.lhs.true23.i:                                ; preds = %if.end.i71.i
   %inc.i79.i = add nsw i32 %state.val4.i73.i, 1
   store i32 %inc.i79.i, ptr %parse_state, align 4
-  store i32 %82, ptr %recursion_depth.i, align 4
+  store i32 %83, ptr %recursion_depth.i, align 4
   %call25.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %state)
-          to label %invoke.cont24.i unwind label %lpad.i273
+          to label %invoke.cont24.i unwind label %lpad.i269
 
 invoke.cont24.i:                                  ; preds = %land.lhs.true23.i
   br i1 %call25.i, label %invoke.cont51.thread, label %invoke.cont24.i.if.end27.i_crit_edge
 
 invoke.cont24.i.if.end27.i_crit_edge:             ; preds = %invoke.cont24.i
-  %.pre319.pre = load i32, ptr %recursion_depth.i, align 4
-  %.pre320.pre = load i32, ptr %steps.i, align 8
+  %.pre315.pre = load i32, ptr %recursion_depth.i, align 4
+  %.pre316.pre = load i32, ptr %steps.i, align 8
   br label %if.end27.i
 
 if.end27.sink.split.i:                            ; preds = %if.end.i71.i, %invoke.cont16.i, %if.end.i54.i, %if.end11.i
-  %.pre320325 = phi i32 [ %inc2.i.i50.i, %if.end.i54.i ], [ %inc2.i.i50.i, %if.end11.i ], [ %inc2.i.i67.i, %if.end.i71.i ], [ %inc2.i.i67.i, %invoke.cont16.i ]
-  %.sink.i = phi i32 [ %80, %if.end.i54.i ], [ %80, %if.end11.i ], [ %82, %if.end.i71.i ], [ %82, %invoke.cont16.i ]
+  %.pre316321 = phi i32 [ %inc2.i.i50.i, %if.end.i54.i ], [ %inc2.i.i50.i, %if.end11.i ], [ %inc2.i.i67.i, %if.end.i71.i ], [ %inc2.i.i67.i, %invoke.cont16.i ]
+  %.sink.i = phi i32 [ %81, %if.end.i54.i ], [ %81, %if.end11.i ], [ %83, %if.end.i71.i ], [ %83, %invoke.cont16.i ]
   store i32 %.sink.i, ptr %recursion_depth.i, align 4
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %invoke.cont24.i.if.end27.i_crit_edge, %if.end27.sink.split.i
-  %.pre320 = phi i32 [ %.pre320.pre, %invoke.cont24.i.if.end27.i_crit_edge ], [ %.pre320325, %if.end27.sink.split.i ]
-  %.pre319 = phi i32 [ %.pre319.pre, %invoke.cont24.i.if.end27.i_crit_edge ], [ %.sink.i, %if.end27.sink.split.i ]
+  %.pre316 = phi i32 [ %.pre316.pre, %invoke.cont24.i.if.end27.i_crit_edge ], [ %.pre316321, %if.end27.sink.split.i ]
+  %.pre315 = phi i32 [ %.pre315.pre, %invoke.cont24.i.if.end27.i_crit_edge ], [ %.sink.i, %if.end27.sink.split.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy.i, i64 16, i1 false)
   br label %lor.lhs.false53
 
 invoke.cont51.thread:                             ; preds = %invoke.cont8.i, %invoke.cont24.i
-  %85 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i82.i308 = add nsw i32 %85, -1
-  store i32 %dec.i82.i308, ptr %recursion_depth.i, align 4
+  %86 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i82.i304 = add nsw i32 %86, -1
+  store i32 %dec.i82.i304, ptr %recursion_depth.i, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i)
   br label %cleanup
 
 lor.lhs.false53:                                  ; preds = %lor.lhs.false50, %if.end27.i
-  %86 = phi i32 [ %inc2.i.i257, %lor.lhs.false50 ], [ %.pre320, %if.end27.i ]
-  %87 = phi i32 [ %inc.i.i255, %lor.lhs.false50 ], [ %.pre319, %if.end27.i ]
+  %87 = phi i32 [ %inc2.i.i253, %lor.lhs.false50 ], [ %.pre316, %if.end27.i ]
+  %88 = phi i32 [ %inc.i.i251, %lor.lhs.false50 ], [ %.pre315, %if.end27.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %copy.i278)
-  store i32 %87, ptr %recursion_depth.i, align 4
-  %inc2.i.i282 = add nsw i32 %86, 1
-  store i32 %inc2.i.i282, ptr %steps.i, align 8
-  %cmp.i.i283 = icmp sgt i32 %87, 256
-  %cmp3.i.i284 = icmp sgt i32 %86, 131071
-  %or.cond.i285 = select i1 %cmp.i.i283, i1 true, i1 %cmp3.i.i284
-  br i1 %or.cond.i285, label %lor.lhs.false56, label %if.end.i286
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %copy.i274)
+  store i32 %88, ptr %recursion_depth.i, align 4
+  %inc2.i.i278 = add nsw i32 %87, 1
+  store i32 %inc2.i.i278, ptr %steps.i, align 8
+  %cmp.i.i279 = icmp sgt i32 %88, 256
+  %cmp3.i.i280 = icmp sgt i32 %87, 131071
+  %or.cond.i281 = select i1 %cmp.i.i279, i1 true, i1 %cmp3.i.i280
+  br i1 %or.cond.i281, label %lor.lhs.false56, label %if.end.i282
 
-if.end.i286:                                      ; preds = %lor.lhs.false53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy.i278, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
-  %inc.i.i.i288 = add nsw i32 %87, 1
-  store i32 %inc.i.i.i288, ptr %recursion_depth.i, align 4
-  %inc2.i.i.i289 = add nsw i32 %86, 2
-  store i32 %inc2.i.i.i289, ptr %steps.i, align 8
-  %cmp.i.i.i290 = icmp sgt i32 %87, 255
-  %cmp3.i.i.i291 = icmp sgt i32 %86, 131070
-  %or.cond.i.i292 = select i1 %cmp.i.i.i290, i1 true, i1 %cmp3.i.i.i291
-  br i1 %or.cond.i.i292, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i298, label %if.end.i.i293
+if.end.i282:                                      ; preds = %lor.lhs.false53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy.i274, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
+  %inc.i.i.i284 = add nsw i32 %88, 1
+  store i32 %inc.i.i.i284, ptr %recursion_depth.i, align 4
+  %inc2.i.i.i285 = add nsw i32 %87, 2
+  store i32 %inc2.i.i.i285, ptr %steps.i, align 8
+  %cmp.i.i.i286 = icmp sgt i32 %88, 255
+  %cmp3.i.i.i287 = icmp sgt i32 %87, 131070
+  %or.cond.i.i288 = select i1 %cmp.i.i.i286, i1 true, i1 %cmp3.i.i.i287
+  br i1 %or.cond.i.i288, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i294, label %if.end.i.i289
 
-if.end.i.i293:                                    ; preds = %if.end.i286
-  %state.val.i.i294 = load ptr, ptr %state, align 8
-  %state.val4.i.i295 = load i32, ptr %parse_state, align 4
-  %idxprom.i.i.i296 = sext i32 %state.val4.i.i295 to i64
-  %arrayidx.i.i.i297 = getelementptr inbounds i8, ptr %state.val.i.i294, i64 %idxprom.i.i.i296
-  %88 = load i8, ptr %arrayidx.i.i.i297, align 1
-  %cmp.i10.i = icmp eq i8 %88, 77
-  br i1 %cmp.i10.i, label %land.lhs.true.i300, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i298
+if.end.i.i289:                                    ; preds = %if.end.i282
+  %state.val.i.i290 = load ptr, ptr %state, align 8
+  %state.val4.i.i291 = load i32, ptr %parse_state, align 4
+  %idxprom.i.i.i292 = sext i32 %state.val4.i.i291 to i64
+  %arrayidx.i.i.i293 = getelementptr inbounds i8, ptr %state.val.i.i290, i64 %idxprom.i.i.i292
+  %89 = load i8, ptr %arrayidx.i.i.i293, align 1
+  %cmp.i10.i = icmp eq i8 %89, 77
+  br i1 %cmp.i10.i, label %land.lhs.true.i296, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i294
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i298: ; preds = %if.end.i.i293, %if.end.i286
-  store i32 %87, ptr %recursion_depth.i, align 4
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i294: ; preds = %if.end.i.i289, %if.end.i282
+  store i32 %88, ptr %recursion_depth.i, align 4
   br label %if.end8.i
 
-land.lhs.true.i300:                               ; preds = %if.end.i.i293
-  %inc.i11.i = add nsw i32 %state.val4.i.i295, 1
+land.lhs.true.i296:                               ; preds = %if.end.i.i289
+  %inc.i11.i = add nsw i32 %state.val4.i.i291, 1
   store i32 %inc.i11.i, ptr %parse_state, align 4
-  store i32 %87, ptr %recursion_depth.i, align 4
+  store i32 %88, ptr %recursion_depth.i, align 4
   %call3.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %state)
-          to label %invoke.cont2.i303 unwind label %lpad.i301
+          to label %invoke.cont2.i299 unwind label %lpad.i297
 
-invoke.cont2.i303:                                ; preds = %land.lhs.true.i300
-  br i1 %call3.i, label %land.lhs.true4.i304, label %invoke.cont2.i303.if.end8.i_crit_edge
+invoke.cont2.i299:                                ; preds = %land.lhs.true.i296
+  br i1 %call3.i, label %land.lhs.true4.i300, label %invoke.cont2.i299.if.end8.i_crit_edge
 
-invoke.cont2.i303.if.end8.i_crit_edge:            ; preds = %invoke.cont2.i303
-  %.pre321.pre = load i32, ptr %recursion_depth.i, align 4
+invoke.cont2.i299.if.end8.i_crit_edge:            ; preds = %invoke.cont2.i299
+  %.pre317.pre = load i32, ptr %recursion_depth.i, align 4
   br label %if.end8.i
 
-land.lhs.true4.i304:                              ; preds = %invoke.cont2.i303
+land.lhs.true4.i300:                              ; preds = %invoke.cont2.i299
   %call6.i = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %state)
-          to label %invoke.cont5.i unwind label %lpad.i301
+          to label %invoke.cont5.i unwind label %lpad.i297
 
-invoke.cont5.i:                                   ; preds = %land.lhs.true4.i304
-  %.pre321.pre326 = load i32, ptr %recursion_depth.i, align 4
+invoke.cont5.i:                                   ; preds = %land.lhs.true4.i300
+  %.pre317.pre322 = load i32, ptr %recursion_depth.i, align 4
   br i1 %call6.i, label %invoke.cont54, label %if.end8.i
 
-lpad.i301:                                        ; preds = %land.lhs.true4.i304, %land.lhs.true.i300
-  %89 = landingpad { ptr, i32 }
+lpad.i297:                                        ; preds = %land.lhs.true4.i300, %land.lhs.true.i296
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %90 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i.i302 = add nsw i32 %90, -1
-  store i32 %dec.i.i302, ptr %recursion_depth.i, align 4
+  %91 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i.i298 = add nsw i32 %91, -1
+  store i32 %dec.i.i298, ptr %recursion_depth.i, align 4
   br label %lpad.body
 
-if.end8.i:                                        ; preds = %invoke.cont2.i303.if.end8.i_crit_edge, %invoke.cont5.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i298
-  %.pre321 = phi i32 [ %.pre321.pre, %invoke.cont2.i303.if.end8.i_crit_edge ], [ %.pre321.pre326, %invoke.cont5.i ], [ %87, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i298 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy.i278, i64 16, i1 false)
+if.end8.i:                                        ; preds = %invoke.cont2.i299.if.end8.i_crit_edge, %invoke.cont5.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i294
+  %.pre317 = phi i32 [ %.pre317.pre, %invoke.cont2.i299.if.end8.i_crit_edge ], [ %.pre317.pre322, %invoke.cont5.i ], [ %88, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i294 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy.i274, i64 16, i1 false)
   br label %lor.lhs.false56
 
 invoke.cont54:                                    ; preds = %invoke.cont5.i
-  %dec.i14.i = add nsw i32 %.pre321.pre326, -1
+  %dec.i14.i = add nsw i32 %.pre317.pre322, -1
   store i32 %dec.i14.i, ptr %recursion_depth.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i278)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i274)
   br label %cleanup
 
 lor.lhs.false56:                                  ; preds = %if.end8.i, %lor.lhs.false53
-  %dec.i14.i310.pre-phi.in = phi i32 [ %.pre321, %if.end8.i ], [ %87, %lor.lhs.false53 ]
-  %dec.i14.i310.pre-phi = add nsw i32 %dec.i14.i310.pre-phi.in, -1
-  store i32 %dec.i14.i310.pre-phi, ptr %recursion_depth.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i278)
+  %dec.i14.i306.pre-phi.in = phi i32 [ %.pre317, %if.end8.i ], [ %88, %lor.lhs.false53 ]
+  %dec.i14.i306.pre-phi = add nsw i32 %dec.i14.i306.pre-phi.in, -1
+  store i32 %dec.i14.i306.pre-phi, ptr %recursion_depth.i, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i274)
   %call58 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseDecltypeEPNS0_5StateE(ptr noundef nonnull %state)
           to label %invoke.cont57 unwind label %lpad
 
@@ -4680,37 +4682,37 @@ lor.lhs.false59:                                  ; preds = %invoke.cont57
   br i1 %call61, label %cleanup, label %if.end63
 
 if.end63:                                         ; preds = %lor.lhs.false59
-  %91 = load i32, ptr %recursion_depth.i, align 4
-  %inc.i.i331 = add nsw i32 %91, 1
-  store i32 %inc.i.i331, ptr %recursion_depth.i, align 4
-  %92 = load i32, ptr %steps.i, align 8
-  %inc2.i.i332 = add nsw i32 %92, 1
-  store i32 %inc2.i.i332, ptr %steps.i, align 8
-  %cmp.i.i333 = icmp sgt i32 %91, 255
-  %cmp3.i.i334 = icmp sgt i32 %92, 131071
-  %or.cond.i335 = select i1 %cmp.i.i333, i1 true, i1 %cmp3.i.i334
-  br i1 %or.cond.i335, label %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread340, label %if.end.i336
+  %92 = load i32, ptr %recursion_depth.i, align 4
+  %inc.i.i327 = add nsw i32 %92, 1
+  store i32 %inc.i.i327, ptr %recursion_depth.i, align 4
+  %93 = load i32, ptr %steps.i, align 8
+  %inc2.i.i328 = add nsw i32 %93, 1
+  store i32 %inc2.i.i328, ptr %steps.i, align 8
+  %cmp.i.i329 = icmp sgt i32 %92, 255
+  %cmp3.i.i330 = icmp sgt i32 %93, 131071
+  %or.cond.i331 = select i1 %cmp.i.i329, i1 true, i1 %cmp3.i.i330
+  br i1 %or.cond.i331, label %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread336, label %if.end.i332
 
-_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread340: ; preds = %if.end63
-  store i32 %91, ptr %recursion_depth.i, align 4
+_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread336: ; preds = %if.end63
+  store i32 %92, ptr %recursion_depth.i, align 4
   br label %if.end70
 
-if.end.i336:                                      ; preds = %if.end63
+if.end.i332:                                      ; preds = %if.end63
   %call1.i = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef nonnull %state)
   br i1 %call1.i, label %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread, label %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit
 
-_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread: ; preds = %if.end.i336
-  %93 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i9.i339 = add nsw i32 %93, -1
-  store i32 %dec.i9.i339, ptr %recursion_depth.i, align 4
+_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread: ; preds = %if.end.i332
+  %94 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i9.i335 = add nsw i32 %94, -1
+  store i32 %dec.i9.i335, ptr %recursion_depth.i, align 4
   br label %land.lhs.true66
 
-_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit: ; preds = %if.end.i336
-  %call3.i337 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %state, i1 noundef zeroext false)
-  %94 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i9.i = add nsw i32 %94, -1
+_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit: ; preds = %if.end.i332
+  %call3.i333 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %state, i1 noundef zeroext false)
+  %95 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i9.i = add nsw i32 %95, -1
   store i32 %dec.i9.i, ptr %recursion_depth.i, align 4
-  br i1 %call3.i337, label %land.lhs.true66, label %if.end70
+  br i1 %call3.i333, label %land.lhs.true66, label %if.end70
 
 land.lhs.true66:                                  ; preds = %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread, %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit
   %call68 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef nonnull %state)
@@ -4719,7 +4721,7 @@ land.lhs.true66:                                  ; preds = %_ZN4absl18debugging
 invoke.cont67:                                    ; preds = %land.lhs.true66
   br i1 %call68, label %cleanup, label %if.end70
 
-if.end70:                                         ; preds = %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread340, %invoke.cont67, %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit
+if.end70:                                         ; preds = %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit.thread336, %invoke.cont67, %_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %parse_state, ptr noundef nonnull align 4 dereferenceable(16) %copy, i64 16, i1 false)
   %call73 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef nonnull %state)
   br i1 %call73, label %cleanup, label %if.end75
@@ -4742,8 +4744,8 @@ cleanup.sink.split:                               ; preds = %if.end75, %land.lhs
 
 cleanup:                                          ; preds = %invoke.cont54, %invoke.cont51.thread, %entry, %invoke.cont45, %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread, %cleanup.sink.split, %land.lhs.true81, %if.end70, %invoke.cont67, %invoke.cont48, %invoke.cont57, %lor.lhs.false59, %invoke.cont38, %invoke.cont27, %invoke.cont15, %invoke.cont3
   %retval.0 = phi i1 [ true, %invoke.cont3 ], [ true, %invoke.cont15 ], [ true, %invoke.cont27 ], [ true, %invoke.cont38 ], [ true, %lor.lhs.false59 ], [ true, %invoke.cont57 ], [ true, %invoke.cont54 ], [ true, %invoke.cont48 ], [ true, %invoke.cont45 ], [ true, %invoke.cont67 ], [ true, %if.end70 ], [ true, %land.lhs.true81 ], [ false, %cleanup.sink.split ], [ true, %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread ], [ false, %entry ], [ true, %invoke.cont51.thread ]
-  %95 = load i32, ptr %recursion_depth.i, align 4
-  %dec.i113 = add nsw i32 %95, -1
+  %96 = load i32, ptr %recursion_depth.i, align 4
+  %dec.i113 = add nsw i32 %96, -1
   store i32 %dec.i113, ptr %recursion_depth.i, align 4
   ret i1 %retval.0
 }

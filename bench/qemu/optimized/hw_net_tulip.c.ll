@@ -1669,13 +1669,13 @@ if.then46.i:                                      ; preds = %if.end44.i
 
 if.then20:                                        ; preds = %if.then46.i, %if.end44.i
   %60 = phi i16 [ %conv60.i, %if.then46.i ], [ %55, %if.end44.i ]
-  %add62.i = sub nsw i32 0, %and3.i
-  %tobool63.not.i = icmp eq i32 %and.i54, %add62.i
+  %61 = or i32 %and3.i, %and.i54
+  %tobool63.not.i = icmp eq i32 %61, 0
   %cond.i = select i1 %tobool63.not.i, i32 2147483647, i32 0
   store i32 %cond.i, ptr %desc, align 4
-  %61 = load i32, ptr %control.i, align 4
-  %62 = and i32 %61, 1073741824
-  %tobool24.not = icmp eq i32 %62, 0
+  %62 = load i32, ptr %control.i, align 4
+  %63 = and i32 %62, 1073741824
+  %tobool24.not = icmp eq i32 %63, 0
   br i1 %tobool24.not, label %if.end28, label %if.then25
 
 if.then25:                                        ; preds = %if.then20
@@ -1683,9 +1683,9 @@ if.then25:                                        ; preds = %if.then20
   br i1 %tobool.not.i63, label %if.end15.i, label %if.then.i64
 
 if.then.i64:                                      ; preds = %if.then25
-  %63 = load i32, ptr %arrayidx.i65, align 8
-  %64 = and i32 %63, 3072
-  %tobool1.not.i = icmp eq i32 %64, 0
+  %64 = load i32, ptr %arrayidx.i65, align 8
+  %65 = and i32 %64, 3072
+  %tobool1.not.i = icmp eq i32 %65, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i64
@@ -1698,10 +1698,10 @@ if.else.i:                                        ; preds = %if.then.i64
   br i1 %cmp.i69, label %if.then7.i, label %if.end15.ithread-pre-split
 
 if.then7.i:                                       ; preds = %if.else.i
-  %65 = load ptr, ptr %nic.i, align 16
-  %call8.i = call ptr @qemu_get_queue(ptr noundef %65) #8
-  %66 = load i16, ptr %tx_frame_len, align 16
-  %conv12.i = zext i16 %66 to i32
+  %66 = load ptr, ptr %nic.i, align 16
+  %call8.i = call ptr @qemu_get_queue(ptr noundef %66) #8
+  %67 = load i16, ptr %tx_frame_len, align 16
+  %conv12.i = zext i16 %67 to i32
   %call13.i = call i64 @qemu_send_packet(ptr noundef %call8.i, ptr noundef nonnull %tx_frame.i, i32 noundef %conv12.i) #8
   br label %if.end15.ithread-pre-split
 
@@ -1710,20 +1710,20 @@ if.end15.ithread-pre-split:                       ; preds = %if.then2.i, %if.els
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end15.ithread-pre-split, %if.then25
-  %67 = phi i32 [ %.pr, %if.end15.ithread-pre-split ], [ %61, %if.then25 ]
-  %tobool18.not.i = icmp sgt i32 %67, -1
+  %68 = phi i32 [ %.pr, %if.end15.ithread-pre-split ], [ %62, %if.then25 ]
+  %tobool18.not.i = icmp sgt i32 %68, -1
   br i1 %tobool18.not.i, label %if.end28, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end15.i
-  %68 = load i32, ptr %0, align 4
-  %69 = or i32 %68, 1
-  store i32 %69, ptr %0, align 4
+  %69 = load i32, ptr %0, align 4
+  %70 = or i32 %69, 1
+  store i32 %70, ptr %0, align 4
   call fastcc void @tulip_update_int(ptr noundef nonnull %s)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then39.i, %do.body31.i, %if.then8.i61, %do.body.i, %if.then19.i, %if.end15.i, %if.then20, %tulip_setup_frame.exit
-  %70 = load i64, ptr %current_tx_desc, align 8
-  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %70, ptr noundef nonnull %desc)
+  %71 = load i64, ptr %current_tx_desc, align 8
+  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %71, ptr noundef nonnull %desc)
   %desc.val = load i32, ptr %control.i, align 4
   %desc.val16 = load i32, ptr %buf_addr2.i, align 4
   %conv.i70 = zext i32 %desc.val to i64
@@ -1732,8 +1732,8 @@ if.end28:                                         ; preds = %if.then39.i, %do.bo
   br i1 %tobool.not.i72, label %if.else.i75, label %if.then.i73
 
 if.then.i73:                                      ; preds = %if.end28
-  %71 = load i32, ptr %arrayidx.i74, align 16
-  %conv1.i = zext i32 %71 to i64
+  %72 = load i32, ptr %arrayidx.i74, align 16
+  %conv1.i = zext i32 %72 to i64
   br label %tulip_next_tx_descriptor.exit
 
 if.else.i75:                                      ; preds = %if.end28
@@ -1746,17 +1746,17 @@ if.then6.i:                                       ; preds = %if.else.i75
   br label %tulip_next_tx_descriptor.exit
 
 if.else9.i:                                       ; preds = %if.else.i75
-  %72 = load i32, ptr %csr10.i, align 16
-  %and12.i = and i32 %72, 124
+  %73 = load i32, ptr %csr10.i, align 16
+  %and12.i = and i32 %73, 124
   %narrow.i = add nuw nsw i32 %and12.i, 16
   %add.i77 = zext nneg i32 %narrow.i to i64
-  %73 = load i64, ptr %current_tx_desc, align 8
-  %add15.i = add i64 %73, %add.i77
+  %74 = load i64, ptr %current_tx_desc, align 8
+  %add15.i = add i64 %74, %add.i77
   br label %tulip_next_tx_descriptor.exit
 
 tulip_next_tx_descriptor.exit:                    ; preds = %if.then.i73, %if.then6.i, %if.else9.i
-  %74 = phi i64 [ %conv7.i, %if.then6.i ], [ %add15.i, %if.else9.i ], [ %conv1.i, %if.then.i73 ]
-  %and18.i = and i64 %74, -4
+  %75 = phi i64 [ %conv7.i, %if.then6.i ], [ %add15.i, %if.else9.i ], [ %conv1.i, %if.then.i73 ]
+  %and18.i = and i64 %75, -4
   store i64 %and18.i, ptr %current_tx_desc, align 8
   %inc = add nuw i8 %i.080, 1
   %exitcond.not = icmp eq i8 %inc, -128
