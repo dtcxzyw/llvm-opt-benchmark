@@ -1125,7 +1125,7 @@ define void @_ZNK4LIEF2PE16ResourcesManager9get_typesEv(ptr dead_on_unwind noali
 
 "_ZSt7find_ifIPKN4LIEF2PE16ResourcesManager4TYPEEZNKS2_9get_typesEvE3$_0ET_S7_S7_T0_.exit": ; preds = %.noexc13
   %.028.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZGRN4LIEF2PEL14RESOURCE_TYPESE_, i64 %.02950.i.i.i.add31
-  %.not = icmp eq i64 %.02950.i.i.i.add31, 84
+  %.not = icmp eq i64 %.02950.i.i.i.idx, 80
   br i1 %.not, label %_ZNSt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaIS3_EE9push_backERKS3_.exit, label %"_ZSt7find_ifIPKN4LIEF2PE16ResourcesManager4TYPEEZNKS2_9get_typesEvE3$_0ET_S7_S7_T0_.exit.thread25"
 
 "_ZSt7find_ifIPKN4LIEF2PE16ResourcesManager4TYPEEZNKS2_9get_typesEvE3$_0ET_S7_S7_T0_.exit.thread25": ; preds = %"_ZSt7find_ifIPKN4LIEF2PE16ResourcesManager4TYPEEZNKS2_9get_typesEvE3$_0ET_S7_S7_T0_.exit.thread", %.noexc16, %"_ZSt7find_ifIPKN4LIEF2PE16ResourcesManager4TYPEEZNKS2_9get_typesEvE3$_0ET_S7_S7_T0_.exit"

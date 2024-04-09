@@ -4042,7 +4042,7 @@ _ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i6.i: ; preds = %55, %.preh
 _ZN5draco31MeshEdgebreakerTraversalDecoder12DecodeSymbolEv.exit: ; preds = %_ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i6.i
   %67 = shl i32 %65, 1
   %68 = or disjoint i32 %67, 1
-  %69 = icmp eq i32 %68, 5
+  %69 = icmp eq i32 %67, 4
   switch i32 %68, label %.critedge [
     i32 5, label %171
     i32 3, label %171

@@ -802,8 +802,8 @@ define internal i32 @dissect_z21_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %update_command_field.exit
 
 40:                                               ; preds = %25
-  %41 = and i32 %29, 65534
-  %or.cond17 = icmp eq i32 %41, 58928
+  %41 = and i16 %28, -2
+  %or.cond17 = icmp eq i16 %41, -6608
   br i1 %or.cond17, label %42, label %.fold.split
 
 42:                                               ; preds = %40

@@ -362,30 +362,31 @@ declare i32 @mbedtls_sha512_update(ptr noundef, ptr noundef, i64 noundef) local_
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_hash_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 8
-  %6 = and i32 %5, 255
-  %switch.tableidx = add nsw i32 %6, -3
-  %7 = icmp ult i32 %switch.tableidx, 16
-  br i1 %7, label %switch.hole_check, label %8
+  %trunc = trunc i32 %5 to i8
+  %switch.tableidx = add i8 %trunc, -3
+  %6 = icmp ult i8 %switch.tableidx, 16
+  br i1 %6, label %switch.hole_check, label %7
 
-8:                                                ; preds = %switch.hole_check, %4
-  %9 = icmp eq i32 %6, 19
+7:                                                ; preds = %switch.hole_check, %4
+  %8 = and i32 %5, 255
+  %9 = icmp eq i32 %8, 19
   %10 = select i1 %9, i64 64, i64 0
   br label %12
 
 switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 -6169, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
+  br i1 %switch.lobit, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %11 = zext nneg i32 %switch.tableidx to i64
+  %11 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table.mbedtls_psa_hash_finish, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %12
 
-12:                                               ; preds = %switch.lookup, %8
-  %13 = phi i64 [ %10, %8 ], [ %switch.load, %switch.lookup ]
+12:                                               ; preds = %switch.lookup, %7
+  %13 = phi i64 [ %10, %7 ], [ %switch.load, %switch.lookup ]
   store i64 %2, ptr %3, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %15, label %14

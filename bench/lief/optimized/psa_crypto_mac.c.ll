@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.mbedtls_sha512_context }
 %struct.mbedtls_sha512_context = type { [2 x i64], [8 x i64], [128 x i8], i32 }
 
-@switch.table.psa_mac_setup = private unnamed_addr constant [16 x i64] [i64 16, i64 20, i64 20, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 16, i64 16, i64 28, i64 32, i64 48], align 8
 @switch.table.psa_mac_finish_internal = private unnamed_addr constant [16 x i64] [i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 128, i64 128, i64 128, i64 128, i64 64, i64 64, i64 144, i64 136, i64 104], align 8
 
 ; Function Attrs: nounwind uwtable
@@ -133,150 +132,168 @@ mac_init.exit:                                    ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   store i64 %3, ptr %6, align 8
-  %switch.tableidx = add nsw i32 %32, -33554435
-  %33 = icmp ult i32 %switch.tableidx, 16
-  br i1 %33, label %switch.hole_check, label %34
-
-34:                                               ; preds = %switch.hole_check, %30
-  %35 = icmp eq i32 %32, 33554451
-  %36 = select i1 %35, i64 64, i64 0
-  br label %38
-
-switch.hole_check:                                ; preds = %30
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -6169, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %34
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table.psa_mac_setup, i64 0, i64 %37
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %38
-
-38:                                               ; preds = %switch.lookup, %34
-  %39 = phi i64 [ %36, %34 ], [ %switch.load, %switch.lookup ]
+  %33 = and i32 %4, 255
   %trunc.i = trunc i32 %4 to i8
-  %switch.tableidx31 = add i8 %trunc.i, -3
-  %40 = icmp ult i8 %switch.tableidx31, 7
-  br i1 %40, label %switch.hole_check32, label %41
-
-41:                                               ; preds = %switch.hole_check32, %38
-  switch i32 %32, label %42 [
-    i32 33554442, label %.thread91.i
-    i32 33554443, label %.thread91.i
-    i32 33554444, label %.thread91.i
-    i32 33554445, label %.thread91.i
-    i32 33554448, label %.thread.i
-    i32 33554449, label %.thread.i
-    i32 33554450, label %.fold.split79.i
+  switch i8 %trunc.i, label %34 [
+    i8 3, label %.thread84.i
+    i8 4, label %.fold.split81.i
+    i8 5, label %.fold.split81.i
+    i8 8, label %.fold.split.i
+    i8 9, label %.fold.split66.i
+    i8 10, label %.thread.i
+    i8 11, label %.fold.split68.i
+    i8 12, label %.fold.split69.i
+    i8 13, label %.fold.split70.i
+    i8 16, label %.thread91.i
+    i8 17, label %.thread91.i
+    i8 18, label %.thread87.thread.i
   ]
 
-.fold.split79.i:                                  ; preds = %41
-  br label %.thread91.i
+34:                                               ; preds = %30
+  %35 = icmp eq i32 %33, 19
+  %36 = select i1 %35, i64 64, i64 0
+  br label %.fold.split81.i
 
-.thread.i:                                        ; preds = %41, %41
+.fold.split.i:                                    ; preds = %30
+  br label %.thread87.thread.i
+
+.fold.split66.i:                                  ; preds = %30
+  br label %.thread87.thread.i
+
+.fold.split68.i:                                  ; preds = %30
+  br label %.thread87.thread.i
+
+.fold.split69.i:                                  ; preds = %30
+  br label %.thread87.thread.i
+
+.fold.split70.i:                                  ; preds = %30
+  br label %.thread87.thread.i
+
+.thread.i:                                        ; preds = %30
+  br label %.thread87.thread.i
+
+.thread84.i:                                      ; preds = %30
+  br label %.thread87.thread.i
+
+.fold.split81.i:                                  ; preds = %34, %30, %30
+  %37 = phi i64 [ %36, %34 ], [ 20, %30 ], [ 20, %30 ]
+  switch i8 %trunc.i, label %.thread87.i [
+    i8 9, label %.thread87.thread.i
+    i8 8, label %.thread87.thread.i
+    i8 5, label %.thread87.thread.i
+    i8 4, label %.thread87.thread.i
+    i8 18, label %.fold.split79.i
+    i8 10, label %.fold.split80.i
+    i8 11, label %.fold.split80.i
+    i8 12, label %.fold.split80.i
+    i8 13, label %.fold.split80.i
+    i8 16, label %.thread91.i
+    i8 17, label %.thread91.i
+  ]
+
+.fold.split79.i:                                  ; preds = %.fold.split81.i
+  br label %.thread87.thread.i
+
+.fold.split80.i:                                  ; preds = %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i
+  br label %.thread87.thread.i
+
+.thread91.i:                                      ; preds = %.fold.split81.i, %.fold.split81.i, %30, %30
   store i32 %32, ptr %31, align 8
   br label %psa_hmac_setup_internal.exit
 
-switch.hole_check32:                              ; preds = %38
-  %switch.shifted34 = lshr i8 103, %switch.tableidx31
-  %switch.lobit35 = trunc i8 %switch.shifted34 to i1
-  br i1 %switch.lobit35, label %.thread91.i, label %41
-
-.thread91.i:                                      ; preds = %switch.hole_check32, %.fold.split79.i, %41, %41, %41, %41
-  %.ph.i = phi i64 [ 104, %.fold.split79.i ], [ 128, %41 ], [ 128, %41 ], [ 128, %41 ], [ 128, %41 ], [ 64, %switch.hole_check32 ]
+.thread87.thread.i:                               ; preds = %.fold.split80.i, %.fold.split79.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.thread84.i, %.thread.i, %.fold.split70.i, %.fold.split69.i, %.fold.split68.i, %.fold.split66.i, %.fold.split.i, %30
+  %.ph103.i = phi i64 [ 64, %.thread84.i ], [ 64, %.fold.split.i ], [ 64, %.fold.split66.i ], [ 128, %.thread.i ], [ 128, %.fold.split68.i ], [ 128, %.fold.split69.i ], [ 128, %.fold.split70.i ], [ 104, %30 ], [ 128, %.fold.split80.i ], [ 104, %.fold.split79.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ]
   store i32 %32, ptr %31, align 8
-  br label %46
+  br label %41
 
-42:                                               ; preds = %41
-  %43 = icmp eq i32 %32, 33554451
-  %44 = select i1 %43, i64 72, i64 0
+.thread87.i:                                      ; preds = %.fold.split81.i
+  %38 = icmp eq i32 %33, 19
+  %39 = select i1 %38, i64 72, i64 0
   store i32 %32, ptr %31, align 8
-  %45 = icmp ult i64 %44, %39
-  br i1 %45, label %psa_hmac_setup_internal.exit, label %46
+  %40 = icmp ult i64 %39, %37
+  br i1 %40, label %psa_hmac_setup_internal.exit, label %41
 
-46:                                               ; preds = %42, %.thread91.i
-  %47 = phi i64 [ %.ph.i, %.thread91.i ], [ %44, %42 ]
-  %48 = icmp ult i64 %47, %3
-  br i1 %48, label %49, label %51
+41:                                               ; preds = %.thread87.i, %.thread87.thread.i
+  %42 = phi i64 [ %.ph103.i, %.thread87.thread.i ], [ %39, %.thread87.i ]
+  %43 = icmp ult i64 %42, %3
+  br i1 %43, label %44, label %46
 
-49:                                               ; preds = %46
-  %50 = call i32 @psa_hash_compute(i32 noundef %32, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 128, ptr noundef nonnull %6) #5
-  %.not64.i = icmp eq i32 %50, 0
-  br i1 %.not64.i, label %52, label %75
+44:                                               ; preds = %41
+  %45 = call i32 @psa_hash_compute(i32 noundef %32, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 128, ptr noundef nonnull %6) #5
+  %.not64.i = icmp eq i32 %45, 0
+  br i1 %.not64.i, label %47, label %70
 
-51:                                               ; preds = %46
+46:                                               ; preds = %41
   %.not.i21 = icmp eq i64 %3, 0
-  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread95.i
+  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread107.i
 
-.thread95.i:                                      ; preds = %51
+.thread107.i:                                     ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
   br label %.lr.ph.preheader.i
 
-52:                                               ; preds = %49
+47:                                               ; preds = %44
   %.pre.i = load i64, ptr %6, align 8
-  %.not87.i = icmp eq i64 %.pre.i, 0
-  br i1 %.not87.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  %.not99.i = icmp eq i64 %.pre.i, 0
+  br i1 %.not99.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %52, %.thread95.i
-  %53 = phi i64 [ %3, %.thread95.i ], [ %.pre.i, %52 ]
+.lr.ph.preheader.i:                               ; preds = %47, %.thread107.i
+  %48 = phi i64 [ %3, %.thread107.i ], [ %.pre.i, %47 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05582.i = phi i64 [ %57, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %54 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05582.i
-  %55 = load i8, ptr %54, align 1
-  %56 = xor i8 %55, 54
-  store i8 %56, ptr %54, align 1
-  %57 = add nuw i64 %.05582.i, 1
-  %exitcond.not.i = icmp eq i64 %57, %53
+  %.05594.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %49 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05594.i
+  %50 = load i8, ptr %49, align 1
+  %51 = xor i8 %50, 54
+  store i8 %51, ptr %49, align 1
+  %52 = add nuw i64 %.05594.i, 1
+  %exitcond.not.i = icmp eq i64 %52, %48
   br i1 %exitcond.not.i, label %._crit_edge.i22, label %.lr.ph.i, !llvm.loop !4
 
-._crit_edge.thread.i:                             ; preds = %52, %51
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 54, i64 %47, i1 false)
-  br label %._crit_edge86.i
+._crit_edge.thread.i:                             ; preds = %47, %46
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 54, i64 %42, i1 false)
+  br label %._crit_edge98.i
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i
-  %58 = getelementptr inbounds i8, ptr %7, i64 %53
-  %59 = sub i64 %47, %53
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %58, i8 54, i64 %59, i1 false)
-  %60 = getelementptr inbounds i8, ptr %0, i64 248
-  br label %61
+  %53 = getelementptr inbounds i8, ptr %7, i64 %48
+  %54 = sub i64 %42, %48
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 54, i64 %54, i1 false)
+  %55 = getelementptr inbounds i8, ptr %0, i64 248
+  br label %56
 
-61:                                               ; preds = %61, %._crit_edge.i22
-  %.183.i = phi i64 [ 0, %._crit_edge.i22 ], [ %66, %61 ]
-  %62 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.183.i
-  %63 = load i8, ptr %62, align 1
-  %64 = xor i8 %63, 106
-  %65 = getelementptr inbounds [128 x i8], ptr %60, i64 0, i64 %.183.i
-  store i8 %64, ptr %65, align 1
-  %66 = add nuw i64 %.183.i, 1
-  %exitcond89.not.i = icmp eq i64 %66, %53
-  br i1 %exitcond89.not.i, label %._crit_edge86.i, label %61, !llvm.loop !6
+56:                                               ; preds = %56, %._crit_edge.i22
+  %.195.i = phi i64 [ 0, %._crit_edge.i22 ], [ %61, %56 ]
+  %57 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.195.i
+  %58 = load i8, ptr %57, align 1
+  %59 = xor i8 %58, 106
+  %60 = getelementptr inbounds [128 x i8], ptr %55, i64 0, i64 %.195.i
+  store i8 %59, ptr %60, align 1
+  %61 = add nuw i64 %.195.i, 1
+  %exitcond101.not.i = icmp eq i64 %61, %48
+  br i1 %exitcond101.not.i, label %._crit_edge98.i, label %56, !llvm.loop !6
 
-._crit_edge86.i:                                  ; preds = %61, %._crit_edge.thread.i
-  %67 = phi i64 [ %47, %._crit_edge.thread.i ], [ %59, %61 ]
-  %68 = phi i64 [ 0, %._crit_edge.thread.i ], [ %53, %61 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 248
-  %70 = getelementptr inbounds i8, ptr %69, i64 %68
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 92, i64 %67, i1 false)
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
-  %72 = call i32 @psa_hash_setup(ptr noundef nonnull %71, i32 noundef %32) #5
-  %.not65.i = icmp eq i32 %72, 0
-  br i1 %.not65.i, label %73, label %75
+._crit_edge98.i:                                  ; preds = %56, %._crit_edge.thread.i
+  %62 = phi i64 [ %42, %._crit_edge.thread.i ], [ %54, %56 ]
+  %63 = phi i64 [ 0, %._crit_edge.thread.i ], [ %48, %56 ]
+  %64 = getelementptr inbounds i8, ptr %0, i64 248
+  %65 = getelementptr inbounds i8, ptr %64, i64 %63
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %65, i8 92, i64 %62, i1 false)
+  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = call i32 @psa_hash_setup(ptr noundef nonnull %66, i32 noundef %32) #5
+  %.not65.i = icmp eq i32 %67, 0
+  br i1 %.not65.i, label %68, label %70
 
-73:                                               ; preds = %._crit_edge86.i
-  %74 = call i32 @psa_hash_update(ptr noundef nonnull %71, ptr noundef nonnull %7, i64 noundef %47) #5
-  br label %75
+68:                                               ; preds = %._crit_edge98.i
+  %69 = call i32 @psa_hash_update(ptr noundef nonnull %66, ptr noundef nonnull %7, i64 noundef %42) #5
+  br label %70
 
-75:                                               ; preds = %73, %._crit_edge86.i, %49
-  %.0.i23 = phi i32 [ %50, %49 ], [ %72, %._crit_edge86.i ], [ %74, %73 ]
+70:                                               ; preds = %68, %._crit_edge98.i, %44
+  %.0.i23 = phi i32 [ %45, %44 ], [ %67, %._crit_edge98.i ], [ %69, %68 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 128) #5
   br label %psa_hmac_setup_internal.exit
 
-psa_hmac_setup_internal.exit:                     ; preds = %.thread.i, %42, %75
-  %.054.i = phi i32 [ %.0.i23, %75 ], [ -134, %42 ], [ -134, %.thread.i ]
+psa_hmac_setup_internal.exit:                     ; preds = %.thread91.i, %.thread87.i, %70
+  %.054.i = phi i32 [ %.0.i23, %70 ], [ -134, %.thread87.i ], [ -134, %.thread91.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   br label %cmac_setup.exit
@@ -288,42 +305,42 @@ cmac_setup.exit:                                  ; preds = %28, %psa_hmac_setup
 
 cmac_setup.exit.thread:                           ; preds = %._crit_edge.i, %19, %19, %cmac_setup.exit
   %.029 = phi i32 [ %.0, %cmac_setup.exit ], [ -134, %19 ], [ -134, %19 ], [ -134, %._crit_edge.i ]
-  %76 = load i32, ptr %0, align 8
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %mbedtls_psa_mac_abort.exit, label %78
+  %71 = load i32, ptr %0, align 8
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %mbedtls_psa_mac_abort.exit, label %73
 
-78:                                               ; preds = %cmac_setup.exit.thread
-  %79 = and i32 %76, -4161537
-  %80 = icmp eq i32 %79, 62915072
-  br i1 %80, label %81, label %83
+73:                                               ; preds = %cmac_setup.exit.thread
+  %74 = and i32 %71, -4161537
+  %75 = icmp eq i32 %74, 62915072
+  br i1 %75, label %76, label %78
+
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @mbedtls_cipher_free(ptr noundef nonnull %77) #5
+  br label %85
+
+78:                                               ; preds = %73
+  %79 = and i32 %71, 2143289344
+  %80 = icmp eq i32 %79, 58720256
+  br i1 %80, label %81, label %86
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @mbedtls_cipher_free(ptr noundef nonnull %82) #5
-  br label %90
+  %82 = getelementptr inbounds i8, ptr %0, i64 248
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %82, i64 noundef 128) #5
+  %83 = getelementptr inbounds i8, ptr %0, i64 16
+  %84 = call i32 @psa_hash_abort(ptr noundef nonnull %83) #5
+  br label %85
 
-83:                                               ; preds = %78
-  %84 = and i32 %76, 2143289344
-  %85 = icmp eq i32 %84, 58720256
-  br i1 %85, label %86, label %91
-
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %0, i64 248
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %87, i64 noundef 128) #5
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
-  %89 = call i32 @psa_hash_abort(ptr noundef nonnull %88) #5
-  br label %90
-
-90:                                               ; preds = %86, %81
+85:                                               ; preds = %81, %76
   store i32 0, ptr %0, align 8
   br label %mbedtls_psa_mac_abort.exit
 
-91:                                               ; preds = %83
+86:                                               ; preds = %78
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %0, i8 0, i64 376, i1 false)
   br label %mbedtls_psa_mac_abort.exit
 
-mbedtls_psa_mac_abort.exit:                       ; preds = %91, %90, %cmac_setup.exit.thread, %mac_init.exit, %cmac_setup.exit, %5
-  %.017 = phi i32 [ -137, %5 ], [ -134, %mac_init.exit ], [ 0, %cmac_setup.exit ], [ %.029, %cmac_setup.exit.thread ], [ %.029, %90 ], [ %.029, %91 ]
+mbedtls_psa_mac_abort.exit:                       ; preds = %86, %85, %cmac_setup.exit.thread, %mac_init.exit, %cmac_setup.exit, %5
+  %.017 = phi i32 [ -137, %5 ], [ -134, %mac_init.exit ], [ 0, %cmac_setup.exit ], [ %.029, %cmac_setup.exit.thread ], [ %.029, %85 ], [ %.029, %86 ]
   ret i32 %.017
 }
 
@@ -425,30 +442,31 @@ define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %22 = load i32, ptr %21, align 8
   store i64 0, ptr %5, align 8
-  %23 = and i32 %22, 255
-  %switch.tableidx = add nsw i32 %23, -3
-  %24 = icmp ult i32 %switch.tableidx, 16
-  br i1 %24, label %switch.hole_check, label %25
+  %trunc.i = trunc i32 %22 to i8
+  %switch.tableidx = add i8 %trunc.i, -3
+  %23 = icmp ult i8 %switch.tableidx, 16
+  br i1 %23, label %switch.hole_check, label %24
 
-25:                                               ; preds = %switch.hole_check, %20
-  %26 = icmp eq i32 %23, 19
+24:                                               ; preds = %switch.hole_check, %20
+  %25 = and i32 %22, 255
+  %26 = icmp eq i32 %25, 19
   %27 = select i1 %26, i64 72, i64 0
   br label %29
 
 switch.hole_check:                                ; preds = %20
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 -6169, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %25
+  br i1 %switch.lobit, label %switch.lookup, label %24
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %28 = zext nneg i32 %switch.tableidx to i64
+  %28 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table.psa_mac_finish_internal, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %29
 
-29:                                               ; preds = %switch.lookup, %25
-  %30 = phi i64 [ %27, %25 ], [ %switch.load, %switch.lookup ]
+29:                                               ; preds = %switch.lookup, %24
+  %30 = phi i64 [ %27, %24 ], [ %switch.load, %switch.lookup ]
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   %32 = call i32 @psa_hash_finish(ptr noundef nonnull %31, ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull %5) #5
   %.not.i = icmp eq i32 %32, 0

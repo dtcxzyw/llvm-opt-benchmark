@@ -942,7 +942,7 @@ FSE_reloadDStream.exit302.i.i.i.i.i.i:            ; preds = %FSE_reloadDStream.e
   %bitD.i13.sroa.0.8.i.i.i.i.i.i = phi i64 [ %bitD.i13.sroa.0.7.ph1079.i.i.i.i.i.i, %if.end10.i279.i.i.i.i.i.i ], [ %add.ptr7.val.i277.i.i.i.i.i.i, %FSE_reloadDStream.exit302.sink.split.i.i.i.i.i.i ]
   %bitD.i13.sroa.24.7.i.i.i.i.i.i = phi i32 [ %add.i.i.i261.i.i.i.i.i.i, %if.end10.i279.i.i.i.i.i.i ], [ %bitD.i13.sroa.24.7.ph.i.i.i.i.i.i, %FSE_reloadDStream.exit302.sink.split.i.i.i.i.i.i ]
   %bitD.i13.sroa.58.9.idx.i.i.i.i.i.i = phi i64 [ 0, %if.end10.i279.i.i.i.i.i.i ], [ %bitD.i13.sroa.58.9.idx.ph.i.i.i.i.i.i, %FSE_reloadDStream.exit302.sink.split.i.i.i.i.i.i ]
-  %cmp72.i48.i.i.i.i.i.i = icmp eq i64 %op.i10.1.add.i.i.i.i.i.i, 255
+  %cmp72.i48.i.i.i.i.i.i = icmp eq i64 %op.i10.1.idx1000.i.i.i.i.i.i, 254
   %49 = icmp eq i32 %bitD.i13.sroa.24.7.i.i.i.i.i.i, 64
   br i1 %cmp72.i48.i.i.i.i.i.i, label %while.end.i70.split.loop.exit984.i.i.i.i.i.i, label %lor.lhs.false74.i49.i.i.i.i.i.i
 
@@ -1459,7 +1459,7 @@ FSE_reloadDStream.exit732.i.i.i.i.i.i:            ; preds = %FSE_reloadDStream.e
   %bitD.i.sroa.58.9.idx.i.i.i.i.i.i = phi i64 [ 0, %if.end10.i709.i.i.i.i.i.i ], [ %bitD.i.sroa.58.9.idx.ph.i.i.i.i.i.i, %FSE_reloadDStream.exit732.sink.split.i.i.i.i.i.i ]
   %bitD.i.sroa.24.7.i.i.i.i.i.i = phi i32 [ %add.i.i.i691.i.i.i.i.i.i, %if.end10.i709.i.i.i.i.i.i ], [ %bitD.i.sroa.24.7.ph.i.i.i.i.i.i, %FSE_reloadDStream.exit732.sink.split.i.i.i.i.i.i ]
   %bitD.i.sroa.0.8.i.i.i.i.i.i = phi i64 [ %bitD.i.sroa.0.7.ph1118.i.i.i.i.i.i, %if.end10.i709.i.i.i.i.i.i ], [ %add.ptr7.val.i707.i.i.i.i.i.i, %FSE_reloadDStream.exit732.sink.split.i.i.i.i.i.i ]
-  %cmp72.i.i.i.i.i.i.i = icmp eq i64 %op.i.1.add.i.i.i.i.i.i, 255
+  %cmp72.i.i.i.i.i.i.i = icmp eq i64 %op.i.1.idx1041.i.i.i.i.i.i, 254
   %74 = icmp eq i32 %bitD.i.sroa.24.7.i.i.i.i.i.i, 64
   br i1 %cmp72.i.i.i.i.i.i.i, label %while.end.i.split.loop.exit1025.i.i.i.i.i.i, label %lor.lhs.false74.i.i.i.i.i.i.i
 

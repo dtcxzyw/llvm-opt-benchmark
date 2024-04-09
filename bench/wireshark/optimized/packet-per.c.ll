@@ -725,7 +725,7 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
 
 71:                                               ; preds = %69
   %72 = icmp eq i32 %.0182307, 1
-  %73 = icmp eq i32 %63, 3
+  %73 = icmp eq i32 %59, 2
   %or.cond = select i1 %72, i1 %73, i1 false
   br i1 %or.cond, label %74, label %87
 

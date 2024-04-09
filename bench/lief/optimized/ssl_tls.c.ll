@@ -2712,7 +2712,7 @@ define internal fastcc i32 @ssl_session_load(ptr nocapture noundef %0, i8 nounde
   %17 = or disjoint i32 %16, 768
   %18 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %17, ptr %18, align 4
-  %cond = icmp eq i32 %17, 771
+  %cond = icmp eq i8 %15, 3
   br i1 %cond, label %19, label %ssl_session_load_tls12.exit
 
 19:                                               ; preds = %14
