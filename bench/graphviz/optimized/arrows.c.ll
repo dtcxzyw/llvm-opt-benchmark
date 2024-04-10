@@ -1700,77 +1700,78 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   %41 = fneg double %4
   %42 = getelementptr inbounds i8, ptr %10, i64 16
   store <2 x double> %40, ptr %42, align 16
-  %43 = extractelement <2 x double> %37, i64 0
-  %44 = extractelement <2 x double> %37, i64 1
-  %45 = getelementptr inbounds i8, ptr %9, i64 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 48
-  %47 = getelementptr inbounds i8, ptr %9, i64 56
-  %48 = insertelement <2 x double> poison, double %14, i64 0
-  %49 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> zeroinitializer
-  %50 = insertelement <2 x double> %38, double %41, i64 1
-  %51 = fmul <2 x double> %49, %50
-  %52 = extractelement <2 x double> %51, i64 1
-  %53 = fadd double %52, %43
-  %54 = extractelement <2 x double> %51, i64 0
-  %55 = fadd double %54, %53
-  store double %55, ptr %9, align 16
-  %56 = fadd double %54, %44
-  %57 = tail call double @llvm.fmuladd.f64(double %52, double 0x3FEE666666666666, double %43)
-  %58 = insertelement <2 x double> %51, double %56, i64 1
-  %59 = insertelement <2 x double> %51, double %57, i64 0
-  %60 = fadd <2 x double> %58, %59
-  %61 = fsub <2 x double> %58, %59
-  %62 = shufflevector <2 x double> %60, <2 x double> %61, <2 x i32> <i32 0, i32 3>
-  %63 = extractelement <2 x double> %61, i64 1
-  store double %63, ptr %45, align 8
-  %64 = fsub double %43, %52
-  %65 = fadd double %54, %64
-  store double %65, ptr %46, align 16
-  %66 = fsub double %44, %54
-  %67 = fmul <2 x double> %51, <double 4.000000e+00, double -4.000000e+00>
-  %68 = fdiv <2 x double> %67, <double 3.000000e+00, double 3.000000e+00>
-  %69 = tail call double @llvm.fmuladd.f64(double %52, double 0xBFEE666666666666, double %43)
-  %70 = insertelement <2 x double> poison, double %69, i64 0
-  %71 = insertelement <2 x double> %70, double %66, i64 1
-  %72 = fadd <2 x double> %71, %51
-  %73 = fsub <2 x double> %71, %51
-  %74 = shufflevector <2 x double> %72, <2 x double> %73, <2 x i32> <i32 0, i32 3>
-  %75 = extractelement <2 x double> %73, i64 1
-  store double %75, ptr %47, align 8
-  %76 = fsub <2 x double> %62, %68
-  %77 = fsub <2 x double> %74, %68
-  %78 = fadd <2 x double> %68, %62
-  %79 = fadd <2 x double> %68, %74
-  %80 = select i1 %.not, <2 x double> %76, <2 x double> %78
-  %81 = select i1 %.not, <2 x double> %77, <2 x double> %79
-  %82 = getelementptr inbounds i8, ptr %9, i64 16
-  store <2 x double> %80, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %9, i64 32
-  store <2 x double> %81, ptr %83, align 16
+  %43 = getelementptr inbounds i8, ptr %9, i64 48
+  %44 = insertelement <2 x double> poison, double %14, i64 0
+  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> zeroinitializer
+  %46 = insertelement <2 x double> %38, double %41, i64 1
+  %47 = fmul <2 x double> %45, %46
+  %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %49 = fadd <2 x double> %48, %37
+  %50 = fadd <2 x double> %49, %47
+  %51 = fsub <2 x double> %49, %47
+  %52 = shufflevector <2 x double> %50, <2 x double> %51, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %52, ptr %9, align 16
+  %53 = fsub <2 x double> %37, %48
+  %54 = fadd <2 x double> %53, %47
+  %55 = fsub <2 x double> %53, %47
+  %56 = shufflevector <2 x double> %54, <2 x double> %55, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %56, ptr %43, align 16
+  %57 = extractelement <2 x double> %37, i64 0
+  %58 = extractelement <2 x double> %47, i64 1
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double 0x3FEE666666666666, double %57)
+  %60 = extractelement <2 x double> %47, i64 0
+  %61 = fadd double %60, %59
+  %62 = fmul <2 x double> %47, <double 4.000000e+00, double -4.000000e+00>
+  %63 = fdiv <2 x double> %62, <double 3.000000e+00, double 3.000000e+00>
+  %64 = tail call double @llvm.fmuladd.f64(double %58, double 0xBFEE666666666666, double %57)
+  %65 = fadd double %60, %64
+  br i1 %.not, label %71, label %66
+
+66:                                               ; preds = %36
+  %67 = insertelement <2 x double> %52, double %61, i64 0
+  %68 = fadd <2 x double> %63, %67
+  %69 = insertelement <2 x double> %56, double %65, i64 0
+  %70 = fadd <2 x double> %63, %69
+  br label %76
+
+71:                                               ; preds = %36
+  %72 = insertelement <2 x double> %52, double %61, i64 0
+  %73 = fsub <2 x double> %72, %63
+  %74 = insertelement <2 x double> %56, double %65, i64 0
+  %75 = fsub <2 x double> %74, %63
+  br label %76
+
+76:                                               ; preds = %71, %66
+  %77 = phi <2 x double> [ %73, %71 ], [ %68, %66 ]
+  %78 = phi <2 x double> [ %75, %71 ], [ %70, %66 ]
+  %79 = getelementptr inbounds i8, ptr %9, i64 16
+  store <2 x double> %77, ptr %79, align 16
+  %80 = getelementptr inbounds i8, ptr %9, i64 32
+  store <2 x double> %78, ptr %80, align 16
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2) #11
-  %84 = and i32 %7, 64
-  %.not67 = icmp eq i32 %84, 0
-  br i1 %.not67, label %87, label %85
+  %81 = and i32 %7, 64
+  %.not67 = icmp eq i32 %81, 0
+  br i1 %.not67, label %84, label %82
 
-85:                                               ; preds = %36
-  %86 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef null, ptr noundef nonnull %9) #11
-  br label %91
+82:                                               ; preds = %76
+  %83 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef null, ptr noundef nonnull %9) #11
+  br label %88
 
-87:                                               ; preds = %36
-  %88 = and i32 %7, 128
-  %.not68 = icmp eq i32 %88, 0
-  br i1 %.not68, label %91, label %89
+84:                                               ; preds = %76
+  %85 = and i32 %7, 128
+  %.not68 = icmp eq i32 %85, 0
+  br i1 %.not68, label %88, label %86
 
-89:                                               ; preds = %87
-  %90 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef nonnull %9, ptr noundef null) #11
-  br label %91
+86:                                               ; preds = %84
+  %87 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef nonnull %9, ptr noundef null) #11
+  br label %88
 
-91:                                               ; preds = %87, %89, %85
+88:                                               ; preds = %84, %86, %82
   call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 0) #11
-  %92 = extractelement <2 x double> %40, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %92, 0
-  %93 = extractelement <2 x double> %40, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %93, 1
+  %89 = extractelement <2 x double> %40, i64 0
+  %.fca.0.insert = insertvalue { double, double } poison, double %89, 0
+  %90 = extractelement <2 x double> %40, i64 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %90, 1
   ret { double, double } %.fca.1.insert
 }
 

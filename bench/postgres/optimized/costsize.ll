@@ -3637,20 +3637,24 @@ define dso_local void @cost_merge_append(ptr nocapture noundef writeonly %0, ptr
   %12 = load double, ptr @cpu_operator_cost, align 8
   %13 = fmul double %12, 2.000000e+00
   %14 = fmul double %13, %9
-  %15 = tail call double @llvm.fmuladd.f64(double %14, double %11, double 0.000000e+00)
-  %16 = fmul double %13, %6
-  %17 = tail call double @llvm.fmuladd.f64(double %16, double %11, double 0.000000e+00)
-  %18 = load double, ptr @cpu_tuple_cost, align 8
-  %19 = fmul double %18, 5.000000e-01
-  %20 = tail call double @llvm.fmuladd.f64(double %19, double %6, double %17)
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = fadd double %15, %20
-  %23 = insertelement <2 x double> poison, double %15, i64 0
-  %24 = insertelement <2 x double> %23, double %22, i64 1
-  %25 = insertelement <2 x double> poison, double %4, i64 0
-  %26 = insertelement <2 x double> %25, double %5, i64 1
-  %27 = fadd <2 x double> %24, %26
-  store <2 x double> %27, ptr %21, align 8
+  %15 = fmul double %13, %6
+  %16 = tail call double @llvm.fmuladd.f64(double %15, double %11, double 0.000000e+00)
+  %17 = load double, ptr @cpu_tuple_cost, align 8
+  %18 = fmul double %17, 5.000000e-01
+  %19 = insertelement <2 x double> poison, double %11, i64 0
+  %20 = insertelement <2 x double> %19, double %18, i64 1
+  %21 = insertelement <2 x double> poison, double %14, i64 0
+  %22 = insertelement <2 x double> %21, double %6, i64 1
+  %23 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %16, i64 1
+  %24 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %22, <2 x double> %23)
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %shift = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %26 = fadd <2 x double> %24, %shift
+  %27 = shufflevector <2 x double> %24, <2 x double> %26, <2 x i32> <i32 0, i32 2>
+  %28 = insertelement <2 x double> poison, double %4, i64 0
+  %29 = insertelement <2 x double> %28, double %5, i64 1
+  %30 = fadd <2 x double> %27, %29
+  store <2 x double> %30, ptr %25, align 8
   ret void
 }
 

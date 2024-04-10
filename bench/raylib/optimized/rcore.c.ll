@@ -26131,9 +26131,10 @@ define void @MatrixFrustum(ptr dead_on_unwind noalias nocapture writable writeon
   %11 = fptrunc double %10 to float
   %12 = fsub double %6, %5
   %13 = fptrunc double %12 to float
-  %14 = insertelement <2 x double> poison, double %5, i64 0
-  %15 = insertelement <2 x double> %14, double %3, i64 1
-  %16 = fptrunc <2 x double> %15 to <2 x float>
+  %14 = fptrunc double %5 to float
+  %15 = fmul float %14, 2.000000e+00
+  %16 = fdiv float %15, %9
+  store float %16, ptr %0, align 4
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   %18 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %18, align 4
@@ -26147,34 +26148,30 @@ define void @MatrixFrustum(ptr dead_on_unwind noalias nocapture writable writeon
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store float %24, ptr %25, align 4
   %26 = fptrunc double %4 to float
-  %27 = insertelement <2 x float> <float 2.000000e+00, float poison>, float %26, i64 1
-  %28 = fmul <2 x float> %27, %16
-  %29 = fadd <2 x float> %27, %16
-  %30 = shufflevector <2 x float> %28, <2 x float> %29, <2 x i32> <i32 0, i32 3>
-  %31 = extractelement <2 x float> %28, i64 0
-  %32 = fdiv float %31, %9
-  store float %32, ptr %0, align 4
-  %33 = insertelement <2 x float> poison, float %11, i64 0
-  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
-  %35 = fdiv <2 x float> %30, %34
-  store <2 x float> %35, ptr %19, align 4
-  %36 = fptrunc double %6 to float
-  %37 = extractelement <2 x float> %16, i64 0
-  %38 = fadd float %37, %36
-  %39 = fneg float %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
-  store <2 x float> zeroinitializer, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 28
-  store <2 x float> zeroinitializer, ptr %42, align 4
-  %43 = fmul float %37, %36
-  %44 = fmul float %43, -2.000000e+00
-  %45 = insertelement <2 x float> poison, float %39, i64 0
-  %46 = insertelement <2 x float> %45, float %44, i64 1
-  %47 = insertelement <2 x float> poison, float %13, i64 0
-  %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> zeroinitializer
-  %49 = fdiv <2 x float> %46, %48
-  store <2 x float> %49, ptr %40, align 4
+  %27 = fptrunc double %3 to float
+  %28 = fadd float %27, %26
+  %29 = insertelement <2 x float> poison, float %15, i64 0
+  %30 = insertelement <2 x float> %29, float %28, i64 1
+  %31 = insertelement <2 x float> poison, float %11, i64 0
+  %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
+  %33 = fdiv <2 x float> %30, %32
+  store <2 x float> %33, ptr %19, align 4
+  %34 = fptrunc double %6 to float
+  %35 = fadd float %14, %34
+  %36 = fneg float %35
+  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds i8, ptr %0, i64 12
+  store <2 x float> zeroinitializer, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 28
+  store <2 x float> zeroinitializer, ptr %39, align 4
+  %40 = fmul float %14, %34
+  %41 = fmul float %40, -2.000000e+00
+  %42 = insertelement <2 x float> poison, float %36, i64 0
+  %43 = insertelement <2 x float> %42, float %41, i64 1
+  %44 = insertelement <2 x float> poison, float %13, i64 0
+  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
+  %46 = fdiv <2 x float> %43, %45
+  store <2 x float> %46, ptr %37, align 4
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float -1.000000e+00, float 0.000000e+00>, ptr %17, align 4
   ret void
 }

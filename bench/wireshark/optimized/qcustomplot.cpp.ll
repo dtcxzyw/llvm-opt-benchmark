@@ -164617,7 +164617,7 @@ define void @_ZN18QCPPolarAxisRadial4drawEP10QCPPainter(ptr noundef nonnull alig
   %9 = alloca %class.QPen, align 8
   %10 = alloca %class.QLineF, align 16
   %11 = alloca %class.QPen, align 8
-  %12 = alloca %class.QLineF, align 8
+  %12 = alloca %class.QLineF, align 16
   %13 = alloca %class.QFont, align 8
   %14 = alloca %class.QPen, align 8
   %15 = alloca %class.QLineF, align 8
@@ -164663,7 +164663,7 @@ define void @_ZN18QCPPolarAxisRadial4drawEP10QCPPainter(ptr noundef nonnull alig
   %43 = getelementptr inbounds i8, ptr %0, i64 %.v.i
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %43) #47
   invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.noexc unwind label %151
+          to label %.noexc unwind label %146
 
 .noexc:                                           ; preds = %27
   %44 = getelementptr inbounds i8, ptr %1, i64 8
@@ -164674,7 +164674,7 @@ define void @_ZN18QCPPolarAxisRadial4drawEP10QCPPainter(ptr noundef nonnull alig
 
 47:                                               ; preds = %.noexc
   invoke void @_ZN10QCPPainter15makeNonCosmeticEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %_ZN10QCPPainter6setPenERK4QPen.exit unwind label %151
+          to label %_ZN10QCPPainter6setPenERK4QPen.exit unwind label %146
 
 _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %47
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #47
@@ -164682,407 +164682,399 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %47
   %49 = getelementptr inbounds i8, ptr %0, i64 392
   %50 = load double, ptr %49, align 8
   %51 = fadd double %50, -5.000000e-01
-  %52 = getelementptr inbounds i8, ptr %0, i64 384
-  %53 = getelementptr inbounds i8, ptr %10, i64 16
-  %54 = load <2 x double>, ptr %7, align 16
-  %55 = insertelement <2 x double> poison, double %51, i64 0
-  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = fmul <2 x double> %54, %56
-  %58 = load <2 x double>, ptr %48, align 8
-  %59 = fadd <2 x double> %57, %58
+  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  %53 = load <2 x double>, ptr %7, align 16
+  %54 = insertelement <2 x double> poison, double %51, i64 0
+  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
+  %56 = fmul <2 x double> %53, %55
+  %57 = load <2 x double>, ptr %48, align 8
+  %58 = fadd <2 x double> %56, %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
-  store <2 x double> %59, ptr %53, align 16
+  store <2 x double> %58, ptr %52, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %60 = getelementptr inbounds i8, ptr %1, i64 12
-  %61 = load i8, ptr %60, align 4
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %66, label %63
+  %59 = getelementptr inbounds i8, ptr %1, i64 12
+  %60 = load i8, ptr %59, align 4
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %65, label %62
 
-63:                                               ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit
-  %64 = load i32, ptr %44, align 4
-  %65 = and i32 %64, 1
-  %.not.i37 = icmp eq i32 %65, 0
-  br i1 %.not.i37, label %67, label %66
+62:                                               ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit
+  %63 = load i32, ptr %44, align 4
+  %64 = and i32 %63, 1
+  %.not.i37 = icmp eq i32 %64, 0
+  br i1 %.not.i37, label %66, label %65
 
-66:                                               ; preds = %63, %_ZN10QCPPainter6setPenERK4QPen.exit
+65:                                               ; preds = %62, %_ZN10QCPPainter6setPenERK4QPen.exit
   call void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit
 
-67:                                               ; preds = %63
-  %68 = load <2 x double>, ptr %10, align 16
-  %69 = getelementptr inbounds i8, ptr %10, i64 8
-  %70 = load <2 x double>, ptr %69, align 8
-  %71 = shufflevector <2 x double> %68, <2 x double> %59, <2 x i32> <i32 0, i32 2>
-  %72 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %71)
-  %73 = fadd <2 x double> %71, %72
-  %74 = fptosi <2 x double> %73 to <2 x i32>
-  %75 = shufflevector <2 x double> %70, <2 x double> %59, <2 x i32> <i32 0, i32 3>
-  %76 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %75)
-  %77 = fadd <2 x double> %75, %76
-  %78 = fptosi <2 x double> %77 to <2 x i32>
-  %79 = zext <2 x i32> %78 to <2 x i64>
-  %80 = shl nuw <2 x i64> %79, <i64 32, i64 32>
-  %81 = zext <2 x i32> %74 to <2 x i64>
-  %82 = or disjoint <2 x i64> %80, %81
-  store <2 x i64> %82, ptr %5, align 16
+66:                                               ; preds = %62
+  %67 = load <2 x double>, ptr %10, align 16
+  %68 = getelementptr inbounds i8, ptr %10, i64 8
+  %69 = load <2 x double>, ptr %68, align 8
+  %70 = shufflevector <2 x double> %67, <2 x double> %58, <2 x i32> <i32 0, i32 2>
+  %71 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %70)
+  %72 = fadd <2 x double> %70, %71
+  %73 = fptosi <2 x double> %72 to <2 x i32>
+  %74 = shufflevector <2 x double> %69, <2 x double> %58, <2 x i32> <i32 0, i32 3>
+  %75 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %74)
+  %76 = fadd <2 x double> %74, %75
+  %77 = fptosi <2 x double> %76 to <2 x i32>
+  %78 = zext <2 x i32> %77 to <2 x i64>
+  %79 = shl nuw <2 x i64> %78, <i64 32, i64 32>
+  %80 = zext <2 x i32> %73 to <2 x i64>
+  %81 = or disjoint <2 x i64> %79, %80
+  store <2 x i64> %81, ptr %5, align 16
   call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit
 
-_ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %66, %67
+_ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %65, %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %83 = getelementptr inbounds i8, ptr %0, i64 480
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %.loopexit158, label %86
+  %82 = getelementptr inbounds i8, ptr %0, i64 480
+  %83 = load i64, ptr %82, align 8
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %.loopexit158, label %85
 
-86:                                               ; preds = %_ZN10QCPPainter8drawLineERK6QLineF.exit
-  %87 = load i32, ptr %40, align 8, !noalias !1368
-  %88 = and i32 %87, 1
-  %.not.i38 = icmp eq i32 %88, 0
+85:                                               ; preds = %_ZN10QCPPainter8drawLineERK6QLineF.exit
+  %86 = load i32, ptr %40, align 8, !noalias !1368
+  %87 = and i32 %86, 1
+  %.not.i38 = icmp eq i32 %87, 0
   %.v.i39 = select i1 %.not.i38, i64 336, i64 344
-  %89 = getelementptr inbounds i8, ptr %0, i64 %.v.i39
-  call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %89) #47
+  %88 = getelementptr inbounds i8, ptr %0, i64 %.v.i39
+  call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %88) #47
   invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc41 unwind label %153
+          to label %.noexc41 unwind label %148
 
-.noexc41:                                         ; preds = %86
-  %90 = load i32, ptr %44, align 4
-  %91 = and i32 %90, 4
-  %.not.i40 = icmp eq i32 %91, 0
-  br i1 %.not.i40, label %_ZN10QCPPainter6setPenERK4QPen.exit43, label %92
+.noexc41:                                         ; preds = %85
+  %89 = load i32, ptr %44, align 4
+  %90 = and i32 %89, 4
+  %.not.i40 = icmp eq i32 %90, 0
+  br i1 %.not.i40, label %_ZN10QCPPainter6setPenERK4QPen.exit43, label %91
 
-92:                                               ; preds = %.noexc41
+91:                                               ; preds = %.noexc41
   invoke void @_ZN10QCPPainter15makeNonCosmeticEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %_ZN10QCPPainter6setPenERK4QPen.exit43 unwind label %153
+          to label %_ZN10QCPPainter6setPenERK4QPen.exit43 unwind label %148
 
-_ZN10QCPPainter6setPenERK4QPen.exit43:            ; preds = %.noexc41, %92
+_ZN10QCPPainter6setPenERK4QPen.exit43:            ; preds = %.noexc41, %91
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #47
-  %93 = load i64, ptr %83, align 8
-  %94 = icmp sgt i64 %93, 0
-  br i1 %94, label %.lr.ph, label %.loopexit158
+  %92 = load i64, ptr %82, align 8
+  %93 = icmp sgt i64 %92, 0
+  br i1 %93, label %.lr.ph, label %.loopexit158
 
 .lr.ph:                                           ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit43
-  %95 = getelementptr inbounds i8, ptr %0, i64 472
-  %96 = getelementptr inbounds i8, ptr %0, i64 308
-  %.sroa.2137.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  %.sroa.2133.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
-  %97 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %98 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %99
+  %94 = getelementptr inbounds i8, ptr %0, i64 472
+  %95 = getelementptr inbounds i8, ptr %0, i64 308
+  %96 = getelementptr inbounds i8, ptr %0, i64 312
+  %97 = getelementptr inbounds i8, ptr %12, i64 16
+  br label %98
 
-99:                                               ; preds = %.lr.ph, %_ZN10QCPPainter8drawLineERK6QLineF.exit65
-  %100 = phi i64 [ 0, %.lr.ph ], [ %148, %_ZN10QCPPainter8drawLineERK6QLineF.exit65 ]
-  %.024159 = phi i32 [ 0, %.lr.ph ], [ %147, %_ZN10QCPPainter8drawLineERK6QLineF.exit65 ]
-  %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr double, ptr %101, i64 %100
-  %103 = load double, ptr %102, align 8
-  %104 = call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %0, double noundef %103)
-  %105 = load double, ptr %7, align 16
-  %106 = fmul double %104, %105
-  %107 = load double, ptr %34, align 8
-  %108 = fmul double %104, %107
-  %109 = load double, ptr %48, align 8
-  %110 = fadd double %106, %109
-  %111 = load double, ptr %52, align 8
-  %112 = fadd double %108, %111
-  %113 = load <2 x i32>, ptr %96, align 4
-  %114 = sitofp <2 x i32> %113 to <2 x double>
-  %115 = fmul <2 x double> %98, %114
-  %116 = fmul <2 x double> %97, %114
-  %117 = insertelement <2 x double> poison, double %110, i64 0
-  %118 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> zeroinitializer
-  %119 = fsub <2 x double> %118, %115
-  %120 = fadd <2 x double> %118, %115
-  %121 = shufflevector <2 x double> %119, <2 x double> %120, <2 x i32> <i32 0, i32 3>
-  %122 = insertelement <2 x double> poison, double %112, i64 0
-  %123 = shufflevector <2 x double> %122, <2 x double> poison, <2 x i32> zeroinitializer
-  %124 = fsub <2 x double> %123, %116
-  %125 = fadd <2 x double> %123, %116
-  %126 = shufflevector <2 x double> %124, <2 x double> %125, <2 x i32> <i32 0, i32 3>
-  %127 = extractelement <2 x double> %119, i64 0
-  store double %127, ptr %12, align 8
-  %128 = shufflevector <2 x double> %126, <2 x double> %121, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %128, ptr %.sroa.2137.0..sroa_idx, align 8
-  %129 = extractelement <2 x double> %125, i64 1
-  store double %129, ptr %.sroa.2133.0..sroa_idx, align 8
+98:                                               ; preds = %.lr.ph, %_ZN10QCPPainter8drawLineERK6QLineF.exit65
+  %99 = phi i64 [ 0, %.lr.ph ], [ %143, %_ZN10QCPPainter8drawLineERK6QLineF.exit65 ]
+  %.024159 = phi i32 [ 0, %.lr.ph ], [ %142, %_ZN10QCPPainter8drawLineERK6QLineF.exit65 ]
+  %100 = load ptr, ptr %94, align 8
+  %101 = getelementptr double, ptr %100, i64 %99
+  %102 = load double, ptr %101, align 8
+  %103 = call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %0, double noundef %102)
+  %104 = load i32, ptr %95, align 4
+  %105 = sitofp i32 %104 to double
+  %106 = load i32, ptr %96, align 8
+  %107 = sitofp i32 %106 to double
+  %108 = load <2 x double>, ptr %7, align 16
+  %109 = insertelement <2 x double> poison, double %103, i64 0
+  %110 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> zeroinitializer
+  %111 = fmul <2 x double> %110, %108
+  %112 = load <2 x double>, ptr %48, align 8
+  %113 = fadd <2 x double> %111, %112
+  %114 = insertelement <2 x double> poison, double %105, i64 0
+  %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
+  %116 = fmul <2 x double> %39, %115
+  %117 = fsub <2 x double> %113, %116
+  store <2 x double> %117, ptr %12, align 16
+  %118 = insertelement <2 x double> poison, double %107, i64 0
+  %119 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> zeroinitializer
+  %120 = fmul <2 x double> %39, %119
+  %121 = fadd <2 x double> %113, %120
+  store <2 x double> %121, ptr %97, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %130 = load i8, ptr %60, align 4
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %135, label %132
+  %122 = load i8, ptr %59, align 4
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %127, label %124
 
-132:                                              ; preds = %99
-  %133 = load i32, ptr %44, align 4
-  %134 = and i32 %133, 1
-  %.not.i56 = icmp eq i32 %134, 0
-  br i1 %.not.i56, label %136, label %135
+124:                                              ; preds = %98
+  %125 = load i32, ptr %44, align 4
+  %126 = and i32 %125, 1
+  %.not.i56 = icmp eq i32 %126, 0
+  br i1 %.not.i56, label %128, label %127
 
-135:                                              ; preds = %132, %99
+127:                                              ; preds = %124, %98
   call void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit65
 
-136:                                              ; preds = %132
-  %137 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %121)
-  %138 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %126)
-  %139 = fadd <2 x double> %121, %137
-  %140 = fptosi <2 x double> %139 to <2 x i32>
-  %141 = fadd <2 x double> %126, %138
-  %142 = fptosi <2 x double> %141 to <2 x i32>
-  %143 = zext <2 x i32> %142 to <2 x i64>
-  %144 = shl nuw <2 x i64> %143, <i64 32, i64 32>
-  %145 = zext <2 x i32> %140 to <2 x i64>
-  %146 = or disjoint <2 x i64> %144, %145
-  store <2 x i64> %146, ptr %4, align 16
+128:                                              ; preds = %124
+  %129 = shufflevector <2 x double> %117, <2 x double> %121, <2 x i32> <i32 0, i32 2>
+  %130 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %129)
+  %131 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %132 = shufflevector <2 x double> %131, <2 x double> %121, <2 x i32> <i32 0, i32 3>
+  %133 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %132)
+  %134 = fadd <2 x double> %129, %130
+  %135 = fptosi <2 x double> %134 to <2 x i32>
+  %136 = fadd <2 x double> %132, %133
+  %137 = fptosi <2 x double> %136 to <2 x i32>
+  %138 = zext <2 x i32> %137 to <2 x i64>
+  %139 = shl nuw <2 x i64> %138, <i64 32, i64 32>
+  %140 = zext <2 x i32> %135 to <2 x i64>
+  %141 = or disjoint <2 x i64> %139, %140
+  store <2 x i64> %141, ptr %4, align 16
   call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit65
 
-_ZN10QCPPainter8drawLineERK6QLineF.exit65:        ; preds = %135, %136
+_ZN10QCPPainter8drawLineERK6QLineF.exit65:        ; preds = %127, %128
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %147 = add i32 %.024159, 1
-  %148 = sext i32 %147 to i64
-  %149 = load i64, ptr %83, align 8
-  %150 = icmp sgt i64 %149, %148
-  br i1 %150, label %99, label %.loopexit158, !llvm.loop !1371
+  %142 = add i32 %.024159, 1
+  %143 = sext i32 %142 to i64
+  %144 = load i64, ptr %82, align 8
+  %145 = icmp sgt i64 %144, %143
+  br i1 %145, label %98, label %.loopexit158, !llvm.loop !1371
 
-151:                                              ; preds = %47, %27
-  %152 = landingpad { ptr, i32 }
+146:                                              ; preds = %47, %27
+  %147 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #47
-  br label %271
+  br label %266
 
-153:                                              ; preds = %92, %86
-  %154 = landingpad { ptr, i32 }
+148:                                              ; preds = %91, %85
+  %149 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #47
-  br label %271
+  br label %266
 
 .loopexit158:                                     ; preds = %_ZN10QCPPainter8drawLineERK6QLineF.exit65, %_ZN10QCPPainter6setPenERK4QPen.exit43, %_ZN10QCPPainter8drawLineERK6QLineF.exit
-  %155 = getelementptr inbounds i8, ptr %0, i64 432
-  %156 = load i64, ptr %155, align 8
-  %157 = icmp eq i64 %156, 0
-  br i1 %157, label %270, label %158
+  %150 = getelementptr inbounds i8, ptr %0, i64 432
+  %151 = load i64, ptr %150, align 8
+  %152 = icmp eq i64 %151, 0
+  br i1 %152, label %265, label %153
 
-158:                                              ; preds = %.loopexit158
-  %159 = getelementptr inbounds i8, ptr %0, i64 520
-  %160 = getelementptr inbounds i8, ptr %0, i64 536
-  %161 = load <2 x double>, ptr %48, align 8
-  %162 = load <2 x double>, ptr %7, align 16
-  %163 = fsub <2 x double> %161, %162
-  store <2 x double> %163, ptr %160, align 8
-  %164 = load i32, ptr %40, align 8, !noalias !1372
-  %165 = and i32 %164, 2
-  %.not.i68 = icmp eq i32 %165, 0
+153:                                              ; preds = %.loopexit158
+  %154 = getelementptr inbounds i8, ptr %0, i64 520
+  %155 = getelementptr inbounds i8, ptr %0, i64 536
+  %156 = load <2 x double>, ptr %48, align 8
+  %157 = load <2 x double>, ptr %7, align 16
+  %158 = fsub <2 x double> %156, %157
+  store <2 x double> %158, ptr %155, align 8
+  %159 = load i32, ptr %40, align 8, !noalias !1372
+  %160 = and i32 %159, 2
+  %.not.i68 = icmp eq i32 %160, 0
   %.v.i69 = select i1 %.not.i68, i64 224, i64 240
-  %166 = getelementptr inbounds i8, ptr %0, i64 %.v.i69
-  call void @_ZN5QFontC1ERKS_(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %166)
-  %167 = getelementptr inbounds i8, ptr %0, i64 560
-  %168 = invoke noundef zeroext i1 @_ZNK5QFontneERKS_(ptr noundef nonnull align 8 dereferenceable(12) %167, ptr noundef nonnull align 8 dereferenceable(12) %13)
-          to label %.noexc70 unwind label %262
+  %161 = getelementptr inbounds i8, ptr %0, i64 %.v.i69
+  call void @_ZN5QFontC1ERKS_(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %161)
+  %162 = getelementptr inbounds i8, ptr %0, i64 560
+  %163 = invoke noundef zeroext i1 @_ZNK5QFontneERKS_(ptr noundef nonnull align 8 dereferenceable(12) %162, ptr noundef nonnull align 8 dereferenceable(12) %13)
+          to label %.noexc70 unwind label %257
 
-.noexc70:                                         ; preds = %158
-  br i1 %168, label %169, label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit
+.noexc70:                                         ; preds = %153
+  br i1 %163, label %164, label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit
 
-169:                                              ; preds = %.noexc70
-  %170 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN5QFontaSERKS_(ptr noundef nonnull align 8 dereferenceable(12) %167, ptr noundef nonnull align 8 dereferenceable(12) %13)
-          to label %.noexc71 unwind label %262
+164:                                              ; preds = %.noexc70
+  %165 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN5QFontaSERKS_(ptr noundef nonnull align 8 dereferenceable(12) %162, ptr noundef nonnull align 8 dereferenceable(12) %13)
+          to label %.noexc71 unwind label %257
 
-.noexc71:                                         ; preds = %169
-  invoke void @_ZN22QCPLabelPainterPrivate18analyzeFontMetricsEv(ptr noundef nonnull align 8 dereferenceable(256) %159)
-          to label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit unwind label %262
+.noexc71:                                         ; preds = %164
+  invoke void @_ZN22QCPLabelPainterPrivate18analyzeFontMetricsEv(ptr noundef nonnull align 8 dereferenceable(256) %154)
+          to label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit unwind label %257
 
 _ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit: ; preds = %.noexc70, %.noexc71
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #47
-  %171 = load i32, ptr %40, align 8
-  %172 = and i32 %171, 2
-  %.not.i73 = icmp eq i32 %172, 0
+  %166 = load i32, ptr %40, align 8
+  %167 = and i32 %166, 2
+  %.not.i73 = icmp eq i32 %167, 0
   %.v.i74 = select i1 %.not.i73, i64 256, i64 272
-  %173 = getelementptr inbounds i8, ptr %0, i64 %.v.i74
-  %.sroa.0.0.copyload.i = load i64, ptr %173, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %173, i64 8
+  %168 = getelementptr inbounds i8, ptr %0, i64 %.v.i74
+  %.sroa.0.0.copyload.i = load i64, ptr %168, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 576
-  store i64 %.sroa.0.0.copyload.i, ptr %174, align 8
+  %169 = getelementptr inbounds i8, ptr %0, i64 576
+  store i64 %.sroa.0.0.copyload.i, ptr %169, align 8
   %.sroa.2127.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 584
   %.sroa.2127.0.extract.trunc = trunc i64 %.sroa.2.0.copyload.i to i48
   store i48 %.sroa.2127.0.extract.trunc, ptr %.sroa.2127.0..sroa_idx, align 8
-  %175 = and i32 %171, 1
-  %.not.i77 = icmp eq i32 %175, 0
+  %170 = and i32 %166, 1
+  %.not.i77 = icmp eq i32 %170, 0
   %.v.i78 = select i1 %.not.i77, i64 320, i64 328
-  %176 = getelementptr inbounds i8, ptr %0, i64 %.v.i78
-  call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %176) #47
+  %171 = getelementptr inbounds i8, ptr %0, i64 %.v.i78
+  call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %171) #47
   invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %.noexc80 unwind label %.loopexit.split-lp
 
 .noexc80:                                         ; preds = %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit
-  %177 = load i32, ptr %44, align 4
-  %178 = and i32 %177, 4
-  %.not.i79 = icmp eq i32 %178, 0
-  br i1 %.not.i79, label %_ZN10QCPPainter6setPenERK4QPen.exit82, label %179
+  %172 = load i32, ptr %44, align 4
+  %173 = and i32 %172, 4
+  %.not.i79 = icmp eq i32 %173, 0
+  br i1 %.not.i79, label %_ZN10QCPPainter6setPenERK4QPen.exit82, label %174
 
-179:                                              ; preds = %.noexc80
+174:                                              ; preds = %.noexc80
   invoke void @_ZN10QCPPainter15makeNonCosmeticEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZN10QCPPainter6setPenERK4QPen.exit82 unwind label %.loopexit.split-lp
 
-_ZN10QCPPainter6setPenERK4QPen.exit82:            ; preds = %179, %.noexc80
-  %180 = load i64, ptr %155, align 8
-  %181 = icmp sgt i64 %180, 0
-  br i1 %181, label %.lr.ph162, label %._crit_edge
+_ZN10QCPPainter6setPenERK4QPen.exit82:            ; preds = %174, %.noexc80
+  %175 = load i64, ptr %150, align 8
+  %176 = icmp sgt i64 %175, 0
+  br i1 %176, label %.lr.ph162, label %._crit_edge
 
 .lr.ph162:                                        ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit82
-  %182 = getelementptr inbounds i8, ptr %0, i64 424
-  %183 = getelementptr inbounds i8, ptr %0, i64 300
+  %177 = getelementptr inbounds i8, ptr %0, i64 424
+  %178 = getelementptr inbounds i8, ptr %0, i64 300
   %.sroa.2118.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.2114.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  %184 = getelementptr inbounds i8, ptr %0, i64 456
-  %185 = getelementptr inbounds i8, ptr %0, i64 368
-  %186 = getelementptr inbounds i8, ptr %0, i64 312
-  %187 = getelementptr inbounds i8, ptr %0, i64 448
-  %188 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %189 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %190
+  %179 = getelementptr inbounds i8, ptr %0, i64 456
+  %180 = getelementptr inbounds i8, ptr %0, i64 368
+  %181 = getelementptr inbounds i8, ptr %0, i64 312
+  %182 = getelementptr inbounds i8, ptr %0, i64 448
+  %183 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %184 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
+  br label %185
 
-190:                                              ; preds = %.lr.ph162, %265
-  %191 = phi i64 [ 0, %.lr.ph162 ], [ %267, %265 ]
-  %.023160 = phi i32 [ 0, %.lr.ph162 ], [ %266, %265 ]
-  %192 = load ptr, ptr %182, align 8
-  %193 = getelementptr double, ptr %192, i64 %191
-  %194 = load double, ptr %193, align 8
-  %195 = call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %0, double noundef %194)
-  %196 = load <2 x double>, ptr %7, align 16
-  %197 = insertelement <2 x double> poison, double %195, i64 0
-  %198 = shufflevector <2 x double> %197, <2 x double> poison, <2 x i32> zeroinitializer
-  %199 = fmul <2 x double> %198, %196
-  %200 = load <2 x double>, ptr %48, align 8
-  %201 = fadd <2 x double> %199, %200
-  %202 = load <2 x i32>, ptr %183, align 4
-  %203 = sitofp <2 x i32> %202 to <2 x double>
-  %204 = fmul <2 x double> %189, %203
-  %205 = fmul <2 x double> %188, %203
-  %206 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> zeroinitializer
-  %207 = fsub <2 x double> %206, %204
-  %208 = fadd <2 x double> %206, %204
-  %209 = shufflevector <2 x double> %207, <2 x double> %208, <2 x i32> <i32 0, i32 3>
-  %210 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %211 = fsub <2 x double> %210, %205
-  %212 = fadd <2 x double> %210, %205
-  %213 = shufflevector <2 x double> %211, <2 x double> %212, <2 x i32> <i32 0, i32 3>
-  %214 = extractelement <2 x double> %207, i64 0
-  store double %214, ptr %15, align 8
-  %215 = shufflevector <2 x double> %213, <2 x double> %209, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %215, ptr %.sroa.2118.0..sroa_idx, align 8
-  %216 = extractelement <2 x double> %212, i64 1
-  store double %216, ptr %.sroa.2114.0..sroa_idx, align 8
+185:                                              ; preds = %.lr.ph162, %260
+  %186 = phi i64 [ 0, %.lr.ph162 ], [ %262, %260 ]
+  %.023160 = phi i32 [ 0, %.lr.ph162 ], [ %261, %260 ]
+  %187 = load ptr, ptr %177, align 8
+  %188 = getelementptr double, ptr %187, i64 %186
+  %189 = load double, ptr %188, align 8
+  %190 = call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %0, double noundef %189)
+  %191 = load <2 x double>, ptr %7, align 16
+  %192 = insertelement <2 x double> poison, double %190, i64 0
+  %193 = shufflevector <2 x double> %192, <2 x double> poison, <2 x i32> zeroinitializer
+  %194 = fmul <2 x double> %193, %191
+  %195 = load <2 x double>, ptr %48, align 8
+  %196 = fadd <2 x double> %194, %195
+  %197 = load <2 x i32>, ptr %178, align 4
+  %198 = sitofp <2 x i32> %197 to <2 x double>
+  %199 = fmul <2 x double> %184, %198
+  %200 = fmul <2 x double> %183, %198
+  %201 = shufflevector <2 x double> %196, <2 x double> poison, <2 x i32> zeroinitializer
+  %202 = fsub <2 x double> %201, %199
+  %203 = fadd <2 x double> %201, %199
+  %204 = shufflevector <2 x double> %202, <2 x double> %203, <2 x i32> <i32 0, i32 3>
+  %205 = shufflevector <2 x double> %196, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %206 = fsub <2 x double> %205, %200
+  %207 = fadd <2 x double> %205, %200
+  %208 = shufflevector <2 x double> %206, <2 x double> %207, <2 x i32> <i32 0, i32 3>
+  %209 = extractelement <2 x double> %202, i64 0
+  store double %209, ptr %15, align 8
+  %210 = shufflevector <2 x double> %208, <2 x double> %204, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %210, ptr %.sroa.2118.0..sroa_idx, align 8
+  %211 = extractelement <2 x double> %207, i64 1
+  store double %211, ptr %.sroa.2114.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %217 = load i8, ptr %60, align 4
-  %218 = trunc i8 %217 to i1
-  br i1 %218, label %222, label %219
+  %212 = load i8, ptr %59, align 4
+  %213 = trunc i8 %212 to i1
+  br i1 %213, label %217, label %214
 
-219:                                              ; preds = %190
-  %220 = load i32, ptr %44, align 4
-  %221 = and i32 %220, 1
-  %.not.i95 = icmp eq i32 %221, 0
-  br i1 %.not.i95, label %223, label %222
+214:                                              ; preds = %185
+  %215 = load i32, ptr %44, align 4
+  %216 = and i32 %215, 1
+  %.not.i95 = icmp eq i32 %216, 0
+  br i1 %.not.i95, label %218, label %217
 
-222:                                              ; preds = %219, %190
+217:                                              ; preds = %214, %185
   invoke void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %15, i32 noundef 1)
-          to label %234 unwind label %.loopexit
+          to label %229 unwind label %.loopexit
 
-223:                                              ; preds = %219
-  %224 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %209)
-  %225 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %213)
-  %226 = fadd <2 x double> %209, %224
-  %227 = fptosi <2 x double> %226 to <2 x i32>
-  %228 = fadd <2 x double> %213, %225
-  %229 = fptosi <2 x double> %228 to <2 x i32>
-  %230 = zext <2 x i32> %229 to <2 x i64>
-  %231 = shl nuw <2 x i64> %230, <i64 32, i64 32>
-  %232 = zext <2 x i32> %227 to <2 x i64>
-  %233 = or disjoint <2 x i64> %231, %232
-  store <2 x i64> %233, ptr %3, align 16
+218:                                              ; preds = %214
+  %219 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %204)
+  %220 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %208)
+  %221 = fadd <2 x double> %204, %219
+  %222 = fptosi <2 x double> %221 to <2 x i32>
+  %223 = fadd <2 x double> %208, %220
+  %224 = fptosi <2 x double> %223 to <2 x i32>
+  %225 = zext <2 x i32> %224 to <2 x i64>
+  %226 = shl nuw <2 x i64> %225, <i64 32, i64 32>
+  %227 = zext <2 x i32> %222 to <2 x i64>
+  %228 = or disjoint <2 x i64> %226, %227
+  store <2 x i64> %228, ptr %3, align 16
   invoke void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i32 noundef 1)
-          to label %234 unwind label %.loopexit
+          to label %229 unwind label %.loopexit
 
-234:                                              ; preds = %222, %223
+229:                                              ; preds = %217, %218
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %235 = load i64, ptr %184, align 8
-  %236 = icmp eq i64 %235, 0
-  br i1 %236, label %265, label %237
+  %230 = load i64, ptr %179, align 8
+  %231 = icmp eq i64 %230, 0
+  br i1 %231, label %260, label %232
 
-237:                                              ; preds = %234
-  %238 = load i8, ptr %185, align 8
-  %239 = trunc i8 %238 to i1
-  br i1 %239, label %247, label %240
+232:                                              ; preds = %229
+  %233 = load i8, ptr %180, align 8
+  %234 = trunc i8 %233 to i1
+  br i1 %234, label %242, label %235
 
-240:                                              ; preds = %237
-  %241 = add i64 %235, -1
-  %242 = icmp sgt i64 %241, %191
-  br i1 %242, label %253, label %243
+235:                                              ; preds = %232
+  %236 = add i64 %230, -1
+  %237 = icmp sgt i64 %236, %186
+  br i1 %237, label %248, label %238
 
-243:                                              ; preds = %240
-  %244 = load double, ptr %49, align 8
-  %245 = fsub double %244, %195
-  %246 = fcmp ogt double %245, 1.000000e+01
-  br i1 %246, label %253, label %265
+238:                                              ; preds = %235
+  %239 = load double, ptr %49, align 8
+  %240 = fsub double %239, %190
+  %241 = fcmp ogt double %240, 1.000000e+01
+  br i1 %241, label %248, label %260
 
-247:                                              ; preds = %237
-  %248 = icmp sgt i32 %.023160, 0
-  br i1 %248, label %253, label %249
+242:                                              ; preds = %232
+  %243 = icmp sgt i32 %.023160, 0
+  br i1 %243, label %248, label %244
 
-249:                                              ; preds = %247
-  %250 = load double, ptr %49, align 8
-  %251 = fsub double %250, %195
-  %252 = fcmp ogt double %251, 1.000000e+01
-  br i1 %252, label %253, label %265
+244:                                              ; preds = %242
+  %245 = load double, ptr %49, align 8
+  %246 = fsub double %245, %190
+  %247 = fcmp ogt double %246, 1.000000e+01
+  br i1 %247, label %248, label %260
 
-253:                                              ; preds = %249, %247, %243, %240
-  %254 = load i32, ptr %186, align 8
-  %255 = sitofp i32 %254 to double
-  %256 = insertelement <2 x double> poison, double %255, i64 0
-  %257 = shufflevector <2 x double> %256, <2 x double> poison, <2 x i32> zeroinitializer
-  %258 = fmul <2 x double> %39, %257
-  %259 = fadd <2 x double> %201, %258
-  store <2 x double> %259, ptr %16, align 16
-  %260 = load ptr, ptr %187, align 8
-  %261 = getelementptr %class.QString, ptr %260, i64 %191
-  invoke void @_ZN22QCPLabelPainterPrivate13drawTickLabelEP10QCPPainterRK7QPointFRK7QString(ptr noundef nonnull align 8 dereferenceable(256) %159, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(24) %261)
-          to label %265 unwind label %.loopexit
+248:                                              ; preds = %244, %242, %238, %235
+  %249 = load i32, ptr %181, align 8
+  %250 = sitofp i32 %249 to double
+  %251 = insertelement <2 x double> poison, double %250, i64 0
+  %252 = shufflevector <2 x double> %251, <2 x double> poison, <2 x i32> zeroinitializer
+  %253 = fmul <2 x double> %39, %252
+  %254 = fadd <2 x double> %196, %253
+  store <2 x double> %254, ptr %16, align 16
+  %255 = load ptr, ptr %182, align 8
+  %256 = getelementptr %class.QString, ptr %255, i64 %186
+  invoke void @_ZN22QCPLabelPainterPrivate13drawTickLabelEP10QCPPainterRK7QPointFRK7QString(ptr noundef nonnull align 8 dereferenceable(256) %154, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(24) %256)
+          to label %260 unwind label %.loopexit
 
-262:                                              ; preds = %.noexc71, %169, %158
-  %263 = landingpad { ptr, i32 }
+257:                                              ; preds = %.noexc71, %164, %153
+  %258 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #47
-  br label %271
+  br label %266
 
-.loopexit:                                        ; preds = %253, %222, %223
+.loopexit:                                        ; preds = %248, %217, %218
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %259
 
-.loopexit.split-lp:                               ; preds = %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit, %179
+.loopexit.split-lp:                               ; preds = %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit, %174
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %259
 
-264:                                              ; preds = %.loopexit.split-lp, %.loopexit
+259:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #47
-  br label %271
+  br label %266
 
-265:                                              ; preds = %243, %234, %253, %249
-  %266 = add i32 %.023160, 1
-  %267 = sext i32 %266 to i64
-  %268 = load i64, ptr %155, align 8
-  %269 = icmp sgt i64 %268, %267
-  br i1 %269, label %190, label %._crit_edge, !llvm.loop !1375
+260:                                              ; preds = %238, %229, %248, %244
+  %261 = add i32 %.023160, 1
+  %262 = sext i32 %261 to i64
+  %263 = load i64, ptr %150, align 8
+  %264 = icmp sgt i64 %263, %262
+  br i1 %264, label %185, label %._crit_edge, !llvm.loop !1375
 
-._crit_edge:                                      ; preds = %265, %_ZN10QCPPainter6setPenERK4QPen.exit82
+._crit_edge:                                      ; preds = %260, %_ZN10QCPPainter6setPenERK4QPen.exit82
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #47
-  br label %270
+  br label %265
 
-270:                                              ; preds = %._crit_edge, %.loopexit158
+265:                                              ; preds = %._crit_edge, %.loopexit158
   ret void
 
-271:                                              ; preds = %264, %262, %153, %151
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %264 ], [ %263, %262 ], [ %154, %153 ], [ %152, %151 ]
+266:                                              ; preds = %259, %257, %148, %146
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %259 ], [ %258, %257 ], [ %149, %148 ], [ %147, %146 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -168324,7 +168316,7 @@ define void @_ZN19QCPPolarAxisAngular4drawEP10QCPPainter(ptr noundef nonnull ali
   %19 = getelementptr inbounds i8, ptr %0, i64 %.v.i
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %19) #47
   invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.noexc unwind label %98
+          to label %.noexc unwind label %101
 
 .noexc:                                           ; preds = %2
   %20 = getelementptr inbounds i8, ptr %1, i64 8
@@ -168335,7 +168327,7 @@ define void @_ZN19QCPPolarAxisAngular4drawEP10QCPPainter(ptr noundef nonnull ali
 
 23:                                               ; preds = %.noexc
   invoke void @_ZN10QCPPainter15makeNonCosmeticEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %_ZN10QCPPainter6setPenERK4QPen.exit unwind label %98
+          to label %_ZN10QCPPainter6setPenERK4QPen.exit unwind label %101
 
 _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %23
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
@@ -168367,7 +168359,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %23
   %39 = getelementptr inbounds i8, ptr %0, i64 %.v.i30
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %39) #47
   invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.noexc32 unwind label %100
+          to label %.noexc32 unwind label %103
 
 .noexc32:                                         ; preds = %36
   %40 = load i32, ptr %20, align 4
@@ -168377,7 +168369,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %23
 
 42:                                               ; preds = %.noexc32
   invoke void @_ZN10QCPPainter15makeNonCosmeticEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %_ZN10QCPPainter6setPenERK4QPen.exit34 unwind label %100
+          to label %_ZN10QCPPainter6setPenERK4QPen.exit34 unwind label %103
 
 _ZN10QCPPainter6setPenERK4QPen.exit34:            ; preds = %.noexc32, %42
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #47
@@ -168388,327 +168380,330 @@ _ZN10QCPPainter6setPenERK4QPen.exit34:            ; preds = %.noexc32, %42
 .lr.ph:                                           ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit34
   %45 = getelementptr inbounds i8, ptr %0, i64 752
   %46 = getelementptr inbounds i8, ptr %0, i64 484
+  %47 = getelementptr inbounds i8, ptr %0, i64 488
   %.sroa.294.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.290.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  %47 = getelementptr inbounds i8, ptr %1, i64 12
-  br label %48
+  %48 = getelementptr inbounds i8, ptr %1, i64 12
+  br label %49
 
-48:                                               ; preds = %.lr.ph, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit
-  %49 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit ]
-  %.02196 = phi i32 [ 0, %.lr.ph ], [ %94, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit ]
-  %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr %class.QPointF, ptr %50, i64 %49
-  %52 = load <2 x double>, ptr %14, align 8
-  %53 = load double, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
-  %55 = load double, ptr %54, align 8
-  %56 = load <2 x double>, ptr %13, align 8
-  %57 = load <2 x double>, ptr %25, align 8
-  %58 = load <2 x i32>, ptr %46, align 4
-  %59 = sitofp <2 x i32> %58 to <2 x double>
-  %60 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
-  %61 = fsub <2 x double> %60, %59
-  %62 = fadd <2 x double> %60, %59
-  %63 = shufflevector <2 x double> %61, <2 x double> %62, <2 x i32> <i32 0, i32 3>
-  %64 = insertelement <2 x double> poison, double %53, i64 0
-  %65 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> zeroinitializer
-  %66 = fmul <2 x double> %65, %63
-  %67 = insertelement <2 x double> poison, double %55, i64 0
-  %68 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> zeroinitializer
-  %69 = fmul <2 x double> %68, %63
-  %70 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> zeroinitializer
-  %71 = fadd <2 x double> %70, %66
-  %72 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> zeroinitializer
-  %73 = fadd <2 x double> %69, %72
+49:                                               ; preds = %.lr.ph, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit
+  %50 = phi i64 [ 0, %.lr.ph ], [ %98, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit ]
+  %.02196 = phi i32 [ 0, %.lr.ph ], [ %97, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit ]
+  %51 = load ptr, ptr %45, align 8
+  %52 = getelementptr %class.QPointF, ptr %51, i64 %50
+  %53 = load double, ptr %14, align 8
+  %54 = load i32, ptr %46, align 4
+  %55 = sitofp i32 %54 to double
+  %56 = fsub double %53, %55
+  %57 = load double, ptr %52, align 8
+  %58 = getelementptr inbounds i8, ptr %52, i64 8
+  %59 = load double, ptr %58, align 8
+  %60 = load <2 x double>, ptr %13, align 8
+  %61 = load <2 x double>, ptr %25, align 8
+  %62 = load i32, ptr %47, align 8
+  %63 = sitofp i32 %62 to double
+  %64 = fadd double %53, %63
+  %65 = insertelement <2 x double> poison, double %57, i64 0
+  %66 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> zeroinitializer
+  %67 = insertelement <2 x double> poison, double %56, i64 0
+  %68 = insertelement <2 x double> %67, double %64, i64 1
+  %69 = fmul <2 x double> %66, %68
+  %70 = insertelement <2 x double> poison, double %59, i64 0
+  %71 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> zeroinitializer
+  %72 = fmul <2 x double> %71, %68
+  %73 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
+  %74 = fadd <2 x double> %73, %69
+  %75 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> zeroinitializer
+  %76 = fadd <2 x double> %72, %75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %74 = extractelement <2 x double> %71, i64 0
-  store double %74, ptr %6, align 8
-  %75 = shufflevector <2 x double> %73, <2 x double> %71, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %75, ptr %.sroa.294.0..sroa_idx, align 8
-  %76 = extractelement <2 x double> %73, i64 1
-  store double %76, ptr %.sroa.290.0..sroa_idx, align 8
+  %77 = extractelement <2 x double> %74, i64 0
+  store double %77, ptr %6, align 8
+  %78 = shufflevector <2 x double> %76, <2 x double> %74, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %78, ptr %.sroa.294.0..sroa_idx, align 8
+  %79 = extractelement <2 x double> %76, i64 1
+  store double %79, ptr %.sroa.290.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %77 = load i8, ptr %47, align 4
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %82, label %79
+  %80 = load i8, ptr %48, align 4
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %85, label %82
 
-79:                                               ; preds = %48
-  %80 = load i32, ptr %20, align 4
-  %81 = and i32 %80, 1
-  %.not.i.i = icmp eq i32 %81, 0
-  br i1 %.not.i.i, label %83, label %82
+82:                                               ; preds = %49
+  %83 = load i32, ptr %20, align 4
+  %84 = and i32 %83, 1
+  %.not.i.i = icmp eq i32 %84, 0
+  br i1 %.not.i.i, label %86, label %85
 
-82:                                               ; preds = %79, %48
+85:                                               ; preds = %82, %49
   call void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit
 
-83:                                               ; preds = %79
-  %84 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %71)
-  %85 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %73)
-  %86 = fadd <2 x double> %71, %84
-  %87 = fptosi <2 x double> %86 to <2 x i32>
-  %88 = fadd <2 x double> %73, %85
-  %89 = fptosi <2 x double> %88 to <2 x i32>
-  %90 = zext <2 x i32> %89 to <2 x i64>
-  %91 = shl nuw <2 x i64> %90, <i64 32, i64 32>
-  %92 = zext <2 x i32> %87 to <2 x i64>
-  %93 = or disjoint <2 x i64> %91, %92
-  store <2 x i64> %93, ptr %5, align 16
+86:                                               ; preds = %82
+  %87 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %74)
+  %88 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %76)
+  %89 = fadd <2 x double> %74, %87
+  %90 = fptosi <2 x double> %89 to <2 x i32>
+  %91 = fadd <2 x double> %76, %88
+  %92 = fptosi <2 x double> %91 to <2 x i32>
+  %93 = zext <2 x i32> %92 to <2 x i64>
+  %94 = shl nuw <2 x i64> %93, <i64 32, i64 32>
+  %95 = zext <2 x i32> %90 to <2 x i64>
+  %96 = or disjoint <2 x i64> %94, %95
+  store <2 x i64> %96, ptr %5, align 16
   call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit
 
-_ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %82, %83
+_ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %85, %86
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %94 = add i32 %.02196, 1
-  %95 = sext i32 %94 to i64
-  %96 = load i64, ptr %33, align 8
-  %97 = icmp sgt i64 %96, %95
-  br i1 %97, label %48, label %.loopexit95, !llvm.loop !1396
+  %97 = add i32 %.02196, 1
+  %98 = sext i32 %97 to i64
+  %99 = load i64, ptr %33, align 8
+  %100 = icmp sgt i64 %99, %98
+  br i1 %100, label %49, label %.loopexit95, !llvm.loop !1396
 
-98:                                               ; preds = %23, %2
-  %99 = landingpad { ptr, i32 }
+101:                                              ; preds = %23, %2
+  %102 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
-  br label %212
+  br label %215
 
-100:                                              ; preds = %42, %36
-  %101 = landingpad { ptr, i32 }
+103:                                              ; preds = %42, %36
+  %104 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #47
-  br label %212
+  br label %215
 
 .loopexit95:                                      ; preds = %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit, %_ZN10QCPPainter6setPenERK4QPen.exit34, %_ZN10QCPPainter6setPenERK4QPen.exit
-  %102 = getelementptr inbounds i8, ptr %0, i64 664
-  %103 = load i64, ptr %102, align 8
-  %104 = icmp eq i64 %103, 0
-  br i1 %104, label %211, label %105
+  %105 = getelementptr inbounds i8, ptr %0, i64 664
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %214, label %108
 
-105:                                              ; preds = %.loopexit95
-  %106 = getelementptr inbounds i8, ptr %0, i64 824
-  %107 = getelementptr inbounds i8, ptr %0, i64 840
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
-  %108 = load i32, ptr %16, align 4, !noalias !1397
-  %109 = and i32 %108, 2
-  %.not.i41 = icmp eq i32 %109, 0
+108:                                              ; preds = %.loopexit95
+  %109 = getelementptr inbounds i8, ptr %0, i64 824
+  %110 = getelementptr inbounds i8, ptr %0, i64 840
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  %111 = load i32, ptr %16, align 4, !noalias !1397
+  %112 = and i32 %111, 2
+  %.not.i41 = icmp eq i32 %112, 0
   %.v.i42 = select i1 %.not.i41, i64 400, i64 416
-  %110 = getelementptr inbounds i8, ptr %0, i64 %.v.i42
-  call void @_ZN5QFontC1ERKS_(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %110)
-  %111 = getelementptr inbounds i8, ptr %0, i64 864
-  %112 = invoke noundef zeroext i1 @_ZNK5QFontneERKS_(ptr noundef nonnull align 8 dereferenceable(12) %111, ptr noundef nonnull align 8 dereferenceable(12) %10)
-          to label %.noexc43 unwind label %203
+  %113 = getelementptr inbounds i8, ptr %0, i64 %.v.i42
+  call void @_ZN5QFontC1ERKS_(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %113)
+  %114 = getelementptr inbounds i8, ptr %0, i64 864
+  %115 = invoke noundef zeroext i1 @_ZNK5QFontneERKS_(ptr noundef nonnull align 8 dereferenceable(12) %114, ptr noundef nonnull align 8 dereferenceable(12) %10)
+          to label %.noexc43 unwind label %206
 
-.noexc43:                                         ; preds = %105
-  br i1 %112, label %113, label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit
+.noexc43:                                         ; preds = %108
+  br i1 %115, label %116, label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit
 
-113:                                              ; preds = %.noexc43
-  %114 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN5QFontaSERKS_(ptr noundef nonnull align 8 dereferenceable(12) %111, ptr noundef nonnull align 8 dereferenceable(12) %10)
-          to label %.noexc44 unwind label %203
+116:                                              ; preds = %.noexc43
+  %117 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN5QFontaSERKS_(ptr noundef nonnull align 8 dereferenceable(12) %114, ptr noundef nonnull align 8 dereferenceable(12) %10)
+          to label %.noexc44 unwind label %206
 
-.noexc44:                                         ; preds = %113
-  invoke void @_ZN22QCPLabelPainterPrivate18analyzeFontMetricsEv(ptr noundef nonnull align 8 dereferenceable(256) %106)
-          to label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit unwind label %203
+.noexc44:                                         ; preds = %116
+  invoke void @_ZN22QCPLabelPainterPrivate18analyzeFontMetricsEv(ptr noundef nonnull align 8 dereferenceable(256) %109)
+          to label %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit unwind label %206
 
 _ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit: ; preds = %.noexc43, %.noexc44
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #47
-  %115 = load i32, ptr %16, align 4
-  %116 = and i32 %115, 2
-  %.not.i46 = icmp eq i32 %116, 0
+  %118 = load i32, ptr %16, align 4
+  %119 = and i32 %118, 2
+  %.not.i46 = icmp eq i32 %119, 0
   %.v.i47 = select i1 %.not.i46, i64 432, i64 448
-  %117 = getelementptr inbounds i8, ptr %0, i64 %.v.i47
-  %.sroa.0.0.copyload.i = load i64, ptr %117, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %117, i64 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 %.v.i47
+  %.sroa.0.0.copyload.i = load i64, ptr %120, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %120, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 880
-  store i64 %.sroa.0.0.copyload.i, ptr %118, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 880
+  store i64 %.sroa.0.0.copyload.i, ptr %121, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 888
   %.sroa.286.0.extract.trunc = trunc i64 %.sroa.2.0.copyload.i to i48
   store i48 %.sroa.286.0.extract.trunc, ptr %.sroa.286.0..sroa_idx, align 8
-  %119 = and i32 %115, 1
-  %.not.i50 = icmp eq i32 %119, 0
+  %122 = and i32 %118, 1
+  %.not.i50 = icmp eq i32 %122, 0
   %.v.i51 = select i1 %.not.i50, i64 496, i64 504
-  %120 = getelementptr inbounds i8, ptr %0, i64 %.v.i51
-  call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %120) #47
+  %123 = getelementptr inbounds i8, ptr %0, i64 %.v.i51
+  call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %123) #47
   invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %.noexc53 unwind label %.loopexit.split-lp
 
 .noexc53:                                         ; preds = %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit
-  %121 = load i32, ptr %20, align 4
-  %122 = and i32 %121, 4
-  %.not.i52 = icmp eq i32 %122, 0
-  br i1 %.not.i52, label %_ZN10QCPPainter6setPenERK4QPen.exit55, label %123
+  %124 = load i32, ptr %20, align 4
+  %125 = and i32 %124, 4
+  %.not.i52 = icmp eq i32 %125, 0
+  br i1 %.not.i52, label %_ZN10QCPPainter6setPenERK4QPen.exit55, label %126
 
-123:                                              ; preds = %.noexc53
+126:                                              ; preds = %.noexc53
   invoke void @_ZN10QCPPainter15makeNonCosmeticEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZN10QCPPainter6setPenERK4QPen.exit55 unwind label %.loopexit.split-lp
 
-_ZN10QCPPainter6setPenERK4QPen.exit55:            ; preds = %123, %.noexc53
-  %124 = load i64, ptr %102, align 8
-  %125 = icmp sgt i64 %124, 0
-  br i1 %125, label %.lr.ph98, label %._crit_edge
+_ZN10QCPPainter6setPenERK4QPen.exit55:            ; preds = %126, %.noexc53
+  %127 = load i64, ptr %105, align 8
+  %128 = icmp sgt i64 %127, 0
+  br i1 %128, label %.lr.ph98, label %._crit_edge
 
 .lr.ph98:                                         ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit55
-  %126 = getelementptr inbounds i8, ptr %0, i64 696
-  %127 = getelementptr inbounds i8, ptr %0, i64 704
-  %128 = getelementptr inbounds i8, ptr %0, i64 480
-  %129 = getelementptr inbounds i8, ptr %0, i64 476
-  %130 = getelementptr inbounds i8, ptr %4, i64 16
-  %131 = getelementptr inbounds i8, ptr %1, i64 12
-  %132 = getelementptr inbounds i8, ptr %4, i64 24
-  %133 = getelementptr inbounds i8, ptr %0, i64 688
-  %134 = getelementptr inbounds i8, ptr %0, i64 680
-  br label %135
+  %129 = getelementptr inbounds i8, ptr %0, i64 696
+  %130 = getelementptr inbounds i8, ptr %0, i64 704
+  %131 = getelementptr inbounds i8, ptr %0, i64 480
+  %132 = getelementptr inbounds i8, ptr %0, i64 476
+  %133 = getelementptr inbounds i8, ptr %4, i64 16
+  %134 = getelementptr inbounds i8, ptr %1, i64 12
+  %135 = getelementptr inbounds i8, ptr %4, i64 24
+  %136 = getelementptr inbounds i8, ptr %0, i64 688
+  %137 = getelementptr inbounds i8, ptr %0, i64 680
+  br label %138
 
-135:                                              ; preds = %.lr.ph98, %206
-  %136 = phi i64 [ 0, %.lr.ph98 ], [ %208, %206 ]
-  %.097 = phi i32 [ 0, %.lr.ph98 ], [ %207, %206 ]
-  %137 = load ptr, ptr %127, align 8
-  %138 = getelementptr %class.QPointF, ptr %137, i64 %136
-  %139 = load double, ptr %14, align 8
-  %140 = load i32, ptr %128, align 8
-  %141 = sitofp i32 %140 to double
-  %142 = fadd double %139, %141
-  %143 = load <2 x double>, ptr %138, align 8
-  %144 = insertelement <2 x double> poison, double %142, i64 0
-  %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> zeroinitializer
-  %146 = fmul <2 x double> %143, %145
-  %147 = load <2 x double>, ptr %13, align 8
-  %148 = fadd <2 x double> %147, %146
-  store <2 x double> %148, ptr %12, align 16
-  %149 = load i32, ptr %129, align 4
-  %150 = sitofp i32 %149 to double
-  %151 = fsub double %139, %150
+138:                                              ; preds = %.lr.ph98, %209
+  %139 = phi i64 [ 0, %.lr.ph98 ], [ %211, %209 ]
+  %.097 = phi i32 [ 0, %.lr.ph98 ], [ %210, %209 ]
+  %140 = load ptr, ptr %130, align 8
+  %141 = getelementptr %class.QPointF, ptr %140, i64 %139
+  %142 = load double, ptr %14, align 8
+  %143 = load i32, ptr %131, align 8
+  %144 = sitofp i32 %143 to double
+  %145 = fadd double %142, %144
+  %146 = load <2 x double>, ptr %141, align 8
+  %147 = insertelement <2 x double> poison, double %145, i64 0
+  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> zeroinitializer
+  %149 = fmul <2 x double> %146, %148
+  %150 = load <2 x double>, ptr %13, align 8
+  %151 = fadd <2 x double> %150, %149
+  store <2 x double> %151, ptr %12, align 16
+  %152 = load i32, ptr %132, align 4
+  %153 = sitofp i32 %152 to double
+  %154 = fsub double %142, %153
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %152 = insertelement <2 x double> poison, double %151, i64 0
-  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> zeroinitializer
-  %154 = fmul <2 x double> %143, %153
-  %155 = fadd <2 x double> %147, %154
-  store <2 x double> %155, ptr %4, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %130, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
+  %155 = insertelement <2 x double> poison, double %154, i64 0
+  %156 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> zeroinitializer
+  %157 = fmul <2 x double> %146, %156
+  %158 = fadd <2 x double> %150, %157
+  store <2 x double> %158, ptr %4, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %133, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %156 = load i8, ptr %131, align 4
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %161, label %158
+  %159 = load i8, ptr %134, align 4
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %164, label %161
 
-158:                                              ; preds = %135
-  %159 = load i32, ptr %20, align 4
-  %160 = and i32 %159, 1
-  %.not.i.i64 = icmp eq i32 %160, 0
-  br i1 %.not.i.i64, label %162, label %161
+161:                                              ; preds = %138
+  %162 = load i32, ptr %20, align 4
+  %163 = and i32 %162, 1
+  %.not.i.i64 = icmp eq i32 %163, 0
+  br i1 %.not.i.i64, label %165, label %164
 
-161:                                              ; preds = %158, %135
+164:                                              ; preds = %161, %138
   invoke void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i32 noundef 1)
-          to label %178 unwind label %.loopexit
+          to label %181 unwind label %.loopexit
 
-162:                                              ; preds = %158
-  %163 = load double, ptr %130, align 16
-  %164 = load double, ptr %132, align 8
-  %165 = insertelement <2 x double> %155, double %163, i64 1
-  %166 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %165)
-  %167 = fadd <2 x double> %165, %166
-  %168 = fptosi <2 x double> %167 to <2 x i32>
-  %169 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %170 = insertelement <2 x double> %169, double %164, i64 1
-  %171 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %170)
-  %172 = fadd <2 x double> %170, %171
-  %173 = fptosi <2 x double> %172 to <2 x i32>
-  %174 = zext <2 x i32> %173 to <2 x i64>
-  %175 = shl nuw <2 x i64> %174, <i64 32, i64 32>
-  %176 = zext <2 x i32> %168 to <2 x i64>
-  %177 = or disjoint <2 x i64> %175, %176
-  store <2 x i64> %177, ptr %3, align 16
+165:                                              ; preds = %161
+  %166 = load double, ptr %133, align 16
+  %167 = load double, ptr %135, align 8
+  %168 = insertelement <2 x double> %158, double %166, i64 1
+  %169 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %168)
+  %170 = fadd <2 x double> %168, %169
+  %171 = fptosi <2 x double> %170 to <2 x i32>
+  %172 = shufflevector <2 x double> %158, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %173 = insertelement <2 x double> %172, double %167, i64 1
+  %174 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %173)
+  %175 = fadd <2 x double> %173, %174
+  %176 = fptosi <2 x double> %175 to <2 x i32>
+  %177 = zext <2 x i32> %176 to <2 x i64>
+  %178 = shl nuw <2 x i64> %177, <i64 32, i64 32>
+  %179 = zext <2 x i32> %171 to <2 x i64>
+  %180 = or disjoint <2 x i64> %178, %179
+  store <2 x i64> %180, ptr %3, align 16
   invoke void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i32 noundef 1)
-          to label %178 unwind label %.loopexit
+          to label %181 unwind label %.loopexit
 
-178:                                              ; preds = %161, %162
+181:                                              ; preds = %164, %165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %179 = load i64, ptr %133, align 8
-  %180 = icmp eq i64 %179, 0
-  br i1 %180, label %206, label %181
-
-181:                                              ; preds = %178
-  %182 = add i64 %179, -1
-  %183 = icmp sgt i64 %182, %136
-  br i1 %183, label %.critedge, label %184
+  %182 = load i64, ptr %136, align 8
+  %183 = icmp eq i64 %182, 0
+  br i1 %183, label %209, label %184
 
 184:                                              ; preds = %181
-  %185 = load ptr, ptr %127, align 8
-  %186 = getelementptr %class.QPointF, ptr %185, i64 %136
-  %187 = load ptr, ptr %126, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %187, null
+  %185 = add i64 %182, -1
+  %186 = icmp sgt i64 %185, %139
+  br i1 %186, label %.critedge, label %187
+
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %130, align 8
+  %189 = getelementptr %class.QPointF, ptr %188, i64 %139
+  %190 = load ptr, ptr %129, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %190, null
   br i1 %.not.i.i.i.i.i, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i: ; preds = %184
-  %188 = load atomic i32, ptr %187 monotonic, align 4
-  %189 = icmp sgt i32 %188, 1
-  br i1 %189, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i, label %190
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i: ; preds = %187
+  %191 = load atomic i32, ptr %190 monotonic, align 4
+  %192 = icmp sgt i32 %191, 1
+  br i1 %192, label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i, label %193
 
-_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i, %184
-  invoke void @_ZN17QArrayDataPointerI7QPointFE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %126, i32 noundef 0, i64 noundef 0, ptr noundef null)
+_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i, %187
+  invoke void @_ZN17QArrayDataPointerI7QPointFE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %129, i32 noundef 0, i64 noundef 0, ptr noundef null)
           to label %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i._crit_edge unwind label %.loopexit
 
 _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i._crit_edge: ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i
-  %.pre = load ptr, ptr %127, align 8
-  br label %190
+  %.pre = load ptr, ptr %130, align 8
+  br label %193
 
-190:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i._crit_edge, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i
-  %191 = phi ptr [ %.pre, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i._crit_edge ], [ %185, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i ]
-  %192 = load <2 x double>, ptr %186, align 8
-  %193 = load <2 x double>, ptr %191, align 8
-  %194 = fsub <2 x double> %192, %193
-  %195 = fcmp ult <2 x double> %194, zeroinitializer
-  %196 = fneg <2 x double> %194
-  %197 = select <2 x i1> %195, <2 x double> %196, <2 x double> %194
-  %shift = shufflevector <2 x double> %197, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %198 = fadd <2 x double> %197, %shift
-  %199 = extractelement <2 x double> %198, i64 0
-  %200 = fcmp ogt double %199, 0x3FB657184AE74487
-  br i1 %200, label %.critedge, label %206
+193:                                              ; preds = %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i._crit_edge, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i
+  %194 = phi ptr [ %.pre, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i._crit_edge ], [ %188, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.i.i.i.i ]
+  %195 = load <2 x double>, ptr %189, align 8
+  %196 = load <2 x double>, ptr %194, align 8
+  %197 = fsub <2 x double> %195, %196
+  %198 = fcmp ult <2 x double> %197, zeroinitializer
+  %199 = fneg <2 x double> %197
+  %200 = select <2 x i1> %198, <2 x double> %199, <2 x double> %197
+  %shift = shufflevector <2 x double> %200, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %201 = fadd <2 x double> %200, %shift
+  %202 = extractelement <2 x double> %201, i64 0
+  %203 = fcmp ogt double %202, 0x3FB657184AE74487
+  br i1 %203, label %.critedge, label %209
 
-.critedge:                                        ; preds = %181, %190
-  %201 = load ptr, ptr %134, align 8
-  %202 = getelementptr %class.QString, ptr %201, i64 %136
-  invoke void @_ZN22QCPLabelPainterPrivate13drawTickLabelEP10QCPPainterRK7QPointFRK7QString(ptr noundef nonnull align 8 dereferenceable(256) %106, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %202)
-          to label %206 unwind label %.loopexit
+.critedge:                                        ; preds = %184, %193
+  %204 = load ptr, ptr %137, align 8
+  %205 = getelementptr %class.QString, ptr %204, i64 %139
+  invoke void @_ZN22QCPLabelPainterPrivate13drawTickLabelEP10QCPPainterRK7QPointFRK7QString(ptr noundef nonnull align 8 dereferenceable(256) %109, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %205)
+          to label %209 unwind label %.loopexit
 
-203:                                              ; preds = %.noexc44, %113, %105
-  %204 = landingpad { ptr, i32 }
+206:                                              ; preds = %.noexc44, %116, %108
+  %207 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #47
-  br label %212
+  br label %215
 
-.loopexit:                                        ; preds = %.critedge, %161, %162, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i
+.loopexit:                                        ; preds = %.critedge, %164, %165, %_ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %205
+  br label %208
 
-.loopexit.split-lp:                               ; preds = %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit, %123
+.loopexit.split-lp:                               ; preds = %_ZN22QCPLabelPainterPrivate7setFontERK5QFont.exit, %126
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %205
+  br label %208
 
-205:                                              ; preds = %.loopexit.split-lp, %.loopexit
+208:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #47
-  br label %212
+  br label %215
 
-206:                                              ; preds = %178, %.critedge, %190
-  %207 = add i32 %.097, 1
-  %208 = sext i32 %207 to i64
-  %209 = load i64, ptr %102, align 8
-  %210 = icmp sgt i64 %209, %208
-  br i1 %210, label %135, label %._crit_edge, !llvm.loop !1400
+209:                                              ; preds = %181, %.critedge, %193
+  %210 = add i32 %.097, 1
+  %211 = sext i32 %210 to i64
+  %212 = load i64, ptr %105, align 8
+  %213 = icmp sgt i64 %212, %211
+  br i1 %213, label %138, label %._crit_edge, !llvm.loop !1400
 
-._crit_edge:                                      ; preds = %206, %_ZN10QCPPainter6setPenERK4QPen.exit55
+._crit_edge:                                      ; preds = %209, %_ZN10QCPPainter6setPenERK4QPen.exit55
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #47
-  br label %211
+  br label %214
 
-211:                                              ; preds = %._crit_edge, %.loopexit95
+214:                                              ; preds = %._crit_edge, %.loopexit95
   ret void
 
-212:                                              ; preds = %205, %203, %100, %98
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %205 ], [ %204, %203 ], [ %101, %100 ], [ %99, %98 ]
+215:                                              ; preds = %208, %206, %103, %101
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %208 ], [ %207, %206 ], [ %104, %103 ], [ %102, %101 ]
   resume { ptr, i32 } %.pn
 }
 

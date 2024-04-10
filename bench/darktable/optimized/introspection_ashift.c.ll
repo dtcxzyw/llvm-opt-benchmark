@@ -1660,7 +1660,7 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
   %44 = load float, ptr %43, align 4, !tbaa !55
   %45 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %44
   %46 = fcmp reassoc nsz arcp contract afn uge float %45, 0x3F1A36E2E0000000
-  br i1 %46, label %._crit_edge, label %179
+  br i1 %46, label %._crit_edge, label %178
 
 ._crit_edge:                                      ; preds = %4, %42, %38, %33, %29, %23, %18
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #34
@@ -1785,43 +1785,42 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
   %147 = extractelement <4 x float> %136, i64 3
   %148 = fadd reassoc nsz arcp contract afn float %147, 1.000000e+00
   %149 = extractelement <4 x float> %136, i64 0
-  %150 = extractelement <4 x float> %136, i64 2
-  %151 = shufflevector <4 x float> %136, <4 x float> poison, <2 x i32> <i32 poison, i32 1>
-  %152 = insertelement <2 x float> %151, float %148, i64 0
+  %150 = extractelement <4 x float> %136, i64 1
+  %151 = extractelement <4 x float> %136, i64 2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %142, %146, %._crit_edge
-  %153 = phi float [ 0x47EFFFFFE0000000, %._crit_edge ], [ %150, %146 ], [ 0x47EFFFFFE0000000, %142 ]
-  %154 = phi float [ 0x47EFFFFFE0000000, %._crit_edge ], [ %149, %146 ], [ 0x47EFFFFFE0000000, %142 ]
-  %155 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %._crit_edge ], [ %152, %146 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %142 ]
-  %156 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %153
-  %157 = getelementptr inbounds i8, ptr %7, i64 32
-  %158 = load float, ptr %157, align 4, !tbaa !53
-  %159 = getelementptr inbounds i8, ptr %7, i64 28
-  %160 = load float, ptr %159, align 4, !tbaa !52
-  %161 = getelementptr inbounds i8, ptr %7, i64 40
-  %162 = load float, ptr %161, align 4, !tbaa !55
-  %163 = getelementptr inbounds i8, ptr %7, i64 36
-  %164 = load float, ptr %163, align 4, !tbaa !54
-  %165 = getelementptr inbounds i8, ptr %2, i64 8
-  %166 = insertelement <2 x float> poison, float %154, i64 0
-  %167 = insertelement <2 x float> %166, float %156, i64 1
-  %168 = fsub reassoc nsz arcp contract afn <2 x float> %155, %167
-  %169 = fadd reassoc nsz arcp contract afn <2 x float> %155, %167
-  %170 = shufflevector <2 x float> %168, <2 x float> %169, <2 x i32> <i32 0, i32 3>
-  %171 = insertelement <2 x float> poison, float %158, i64 0
-  %172 = insertelement <2 x float> %171, float %162, i64 1
-  %173 = insertelement <2 x float> poison, float %160, i64 0
-  %174 = insertelement <2 x float> %173, float %164, i64 1
-  %175 = fsub reassoc nsz arcp contract afn <2 x float> %172, %174
-  %176 = fmul reassoc nsz arcp contract afn <2 x float> %175, %170
-  %177 = call reassoc nsz arcp contract afn <2 x float> @llvm.floor.v2f32(<2 x float> %176)
-  %178 = fptosi <2 x float> %177 to <2 x i32>
-  store <2 x i32> %178, ptr %165, align 4, !tbaa !37
+  %152 = phi float [ 0xC7EFFFFFE0000000, %._crit_edge ], [ %148, %146 ], [ 0xC7EFFFFFE0000000, %142 ]
+  %153 = phi float [ 0x47EFFFFFE0000000, %._crit_edge ], [ %151, %146 ], [ 0x47EFFFFFE0000000, %142 ]
+  %154 = phi float [ 0xC7EFFFFFE0000000, %._crit_edge ], [ %150, %146 ], [ 0xC7EFFFFFE0000000, %142 ]
+  %155 = phi float [ 0x47EFFFFFE0000000, %._crit_edge ], [ %149, %146 ], [ 0x47EFFFFFE0000000, %142 ]
+  %156 = fsub reassoc nsz arcp contract afn float %152, %155
+  %157 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %153
+  %158 = fadd reassoc nsz arcp contract afn float %157, %154
+  %159 = getelementptr inbounds i8, ptr %7, i64 32
+  %160 = load float, ptr %159, align 4, !tbaa !53
+  %161 = getelementptr inbounds i8, ptr %7, i64 28
+  %162 = load float, ptr %161, align 4, !tbaa !52
+  %163 = getelementptr inbounds i8, ptr %7, i64 40
+  %164 = load float, ptr %163, align 4, !tbaa !55
+  %165 = getelementptr inbounds i8, ptr %7, i64 36
+  %166 = load float, ptr %165, align 4, !tbaa !54
+  %167 = getelementptr inbounds i8, ptr %2, i64 8
+  %168 = insertelement <2 x float> poison, float %160, i64 0
+  %169 = insertelement <2 x float> %168, float %164, i64 1
+  %170 = insertelement <2 x float> poison, float %162, i64 0
+  %171 = insertelement <2 x float> %170, float %166, i64 1
+  %172 = fsub reassoc nsz arcp contract afn <2 x float> %169, %171
+  %173 = insertelement <2 x float> poison, float %156, i64 0
+  %174 = insertelement <2 x float> %173, float %158, i64 1
+  %175 = fmul reassoc nsz arcp contract afn <2 x float> %172, %174
+  %176 = call reassoc nsz arcp contract afn <2 x float> @llvm.floor.v2f32(<2 x float> %175)
+  %177 = fptosi <2 x float> %176 to <2 x i32>
+  store <2 x i32> %177, ptr %167, align 4, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #34
-  br label %179
+  br label %178
 
-179:                                              ; preds = %.loopexit, %42
+178:                                              ; preds = %.loopexit, %42
   ret void
 }
 

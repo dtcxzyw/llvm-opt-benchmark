@@ -9085,46 +9085,45 @@ entry:
 
 if.end:                                           ; preds = %entry
   %clip = getelementptr inbounds i8, ptr %b, i64 8
-  store <2 x float> %r.coerce0, ptr %clip, align 8
-  %w5 = getelementptr inbounds i8, ptr %b, i64 16
-  store <2 x float> %r.coerce1, ptr %w5, align 8
-  %0 = load ptr, ptr %b, align 8
-  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef 0, i64 noundef 24, i64 noundef 8)
+  %0 = shufflevector <2 x float> %r.coerce0, <2 x float> %r.coerce1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %0, ptr %clip, align 8
+  %1 = load ptr, ptr %b, align 8
+  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %1, i32 noundef 0, i64 noundef 24, i64 noundef 8)
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %1 = load ptr, ptr %b, align 8
-  %memory5.i = getelementptr inbounds i8, ptr %1, i64 64
-  %2 = load ptr, ptr %memory5.i, align 8
+  %2 = load ptr, ptr %b, align 8
+  %memory5.i = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = load ptr, ptr %memory5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %last.i = getelementptr inbounds i8, ptr %b, i64 56
   store i64 %sub.ptr.sub.i, ptr %last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %add.ptr6.i = getelementptr inbounds i8, ptr %call.i, i64 31
-  %3 = ptrtoint ptr %add.ptr6.i to i64
-  %and.i = and i64 %3, -8
+  %4 = ptrtoint ptr %add.ptr6.i to i64
+  %and.i = and i64 %4, -8
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub9.i = sub i64 %and.i, %sub.ptr.rhs.cast8.i
   store i32 1, ptr %call.i, align 8
-  %4 = load ptr, ptr %b, align 8
-  %allocated.i = getelementptr inbounds i8, ptr %4, i64 88
-  %5 = load i64, ptr %allocated.i, align 8
-  %add.i = add i64 %5, %sub.ptr.sub9.i
+  %5 = load ptr, ptr %b, align 8
+  %allocated.i = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = load i64, ptr %allocated.i, align 8
+  %add.i = add i64 %6, %sub.ptr.sub9.i
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %add.i, ptr %next.i, align 8
   %end.i = getelementptr inbounds i8, ptr %b, i64 48
   store i64 %add.i, ptr %end.i, align 8
+  %7 = fptosi <2 x float> %r.coerce0 to <2 x i16>
   %x12 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %6 = fcmp ogt <2 x float> %r.coerce1, zeroinitializer
-  %7 = select <2 x i1> %6, <2 x float> %r.coerce1, <2 x float> zeroinitializer
-  %8 = shufflevector <2 x float> %r.coerce0, <2 x float> %7, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %9 = fptosi <4 x float> %8 to <4 x i16>
-  %10 = fptoui <4 x float> %8 to <4 x i16>
-  %11 = shufflevector <4 x i16> %9, <4 x i16> %10, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %11, ptr %x12, align 8
+  store <2 x i16> %7, ptr %x12, align 8
+  %8 = fcmp ogt <2 x float> %r.coerce1, zeroinitializer
+  %w20 = getelementptr inbounds i8, ptr %call.i, i64 20
+  %9 = select <2 x i1> %8, <2 x float> %r.coerce1, <2 x float> zeroinitializer
+  %10 = fptoui <2 x float> %9 to <2 x i16>
+  store <2 x i16> %10, ptr %w20, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end10
@@ -9370,102 +9369,98 @@ return:                                           ; preds = %if.end39, %if.then1
 ; Function Attrs: nounwind uwtable
 define void @nk_fill_rect(ptr noundef %b, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, float noundef %rounding, i32 %c.coerce) local_unnamed_addr #22 {
 entry:
+  %0 = extractelement <2 x float> %rect.coerce1, i64 1
+  %1 = extractelement <2 x float> %rect.coerce1, i64 0
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
   %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %c.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
-  %rect.sroa.7.8.vec.extract30 = extractelement <2 x float> %rect.coerce1, i64 0
-  %cmp3 = fcmp oeq float %rect.sroa.7.8.vec.extract30, 0.000000e+00
+  %cmp3 = fcmp oeq float %1, 0.000000e+00
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp3
-  %rect.sroa.7.12.vec.extract36 = extractelement <2 x float> %rect.coerce1, i64 1
-  %cmp6 = fcmp oeq float %rect.sroa.7.12.vec.extract36, 0.000000e+00
+  %cmp6 = fcmp oeq float %0, 0.000000e+00
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp6
   br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %use_clipping = getelementptr inbounds i8, ptr %b, i64 24
-  %0 = load i32, ptr %use_clipping, align 8
-  %tobool8.not = icmp eq i32 %0, 0
+  %2 = load i32, ptr %use_clipping, align 8
+  %tobool8.not = icmp eq i32 %2, 0
   br i1 %tobool8.not, label %if.end36, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %clip10 = getelementptr inbounds i8, ptr %b, i64 8
-  %1 = load float, ptr %clip10, align 4
-  %2 = fadd <2 x float> %rect.coerce0, %rect.coerce1
-  %add = extractelement <2 x float> %2, i64 0
-  %cmp13 = fcmp olt float %1, %add
+  %3 = load float, ptr %clip10, align 4
+  %4 = fadd <2 x float> %rect.coerce0, %rect.coerce1
+  %add = extractelement <2 x float> %4, i64 0
+  %cmp13 = fcmp olt float %3, %add
   br i1 %cmp13, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then9
   %rect.sroa.0.0.vec.extract = extractelement <2 x float> %rect.coerce0, i64 0
   %w17 = getelementptr inbounds i8, ptr %b, i64 16
-  %3 = load float, ptr %w17, align 4
-  %add18 = fadd float %1, %3
+  %5 = load float, ptr %w17, align 4
+  %add18 = fadd float %3, %5
   %cmp19 = fcmp olt float %rect.sroa.0.0.vec.extract, %add18
   br i1 %cmp19, label %land.lhs.true21, label %return
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
   %y = getelementptr inbounds i8, ptr %b, i64 12
-  %4 = load float, ptr %y, align 4
+  %6 = load float, ptr %y, align 4
   %rect.sroa.0.4.vec.extract = extractelement <2 x float> %rect.coerce0, i64 1
-  %add24 = fadd float %rect.sroa.0.4.vec.extract, %rect.sroa.7.12.vec.extract36
-  %cmp25 = fcmp olt float %4, %add24
+  %add24 = fadd float %rect.sroa.0.4.vec.extract, %0
+  %cmp25 = fcmp olt float %6, %add24
   br i1 %cmp25, label %land.lhs.true27, label %return
 
 land.lhs.true27:                                  ; preds = %land.lhs.true21
   %h30 = getelementptr inbounds i8, ptr %b, i64 20
-  %5 = load float, ptr %h30, align 4
-  %add31 = fadd float %4, %5
+  %7 = load float, ptr %h30, align 4
+  %add31 = fadd float %6, %7
   %cmp32 = fcmp olt float %rect.sroa.0.4.vec.extract, %add31
   br i1 %cmp32, label %if.end36, label %return
 
 if.end36:                                         ; preds = %land.lhs.true27, %if.end
-  %6 = load ptr, ptr %b, align 8
-  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %6, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %8 = load ptr, ptr %b, align 8
+  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %8, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %return, label %if.end39
 
 if.end39:                                         ; preds = %if.end36
-  %7 = load ptr, ptr %b, align 8
-  %memory5.i = getelementptr inbounds i8, ptr %7, i64 64
-  %8 = load ptr, ptr %memory5.i, align 8
+  %9 = load ptr, ptr %b, align 8
+  %memory5.i = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = load ptr, ptr %memory5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %last.i = getelementptr inbounds i8, ptr %b, i64 56
   store i64 %sub.ptr.sub.i, ptr %last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %add.ptr6.i = getelementptr inbounds i8, ptr %call.i, i64 39
-  %9 = ptrtoint ptr %add.ptr6.i to i64
-  %and.i = and i64 %9, -8
+  %11 = ptrtoint ptr %add.ptr6.i to i64
+  %and.i = and i64 %11, -8
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub9.i = sub i64 %and.i, %sub.ptr.rhs.cast8.i
   store i32 5, ptr %call.i, align 8
-  %10 = load ptr, ptr %b, align 8
-  %allocated.i = getelementptr inbounds i8, ptr %10, i64 88
-  %11 = load i64, ptr %allocated.i, align 8
-  %add.i = add i64 %11, %sub.ptr.sub9.i
+  %12 = load ptr, ptr %b, align 8
+  %allocated.i = getelementptr inbounds i8, ptr %12, i64 88
+  %13 = load i64, ptr %allocated.i, align 8
+  %add.i = add i64 %13, %sub.ptr.sub9.i
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %add.i, ptr %next.i, align 8
   %end.i = getelementptr inbounds i8, ptr %b, i64 48
   store i64 %add.i, ptr %end.i, align 8
+  %conv40 = fptoui float %rounding to i16
   %rounding41 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %cmp49 = fcmp ogt float %rect.sroa.7.8.vec.extract30, 0.000000e+00
-  %cond = select i1 %cmp49, float %rect.sroa.7.8.vec.extract30, float 0.000000e+00
-  %12 = shufflevector <2 x float> %rect.coerce0, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 poison>
-  %13 = insertelement <4 x float> %12, float %rounding, i64 0
-  %14 = insertelement <4 x float> %13, float %cond, i64 3
-  %15 = fptoui <4 x float> %14 to <4 x i16>
-  %16 = fptosi <4 x float> %14 to <4 x i16>
-  %17 = shufflevector <4 x i16> %15, <4 x i16> %16, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
-  store <4 x i16> %17, ptr %rounding41, align 8
-  %cmp55 = fcmp ogt float %rect.sroa.7.12.vec.extract36, 0.000000e+00
-  %cond61 = select i1 %cmp55, float %rect.sroa.7.12.vec.extract36, float 0.000000e+00
-  %conv62 = fptoui float %cond61 to i16
-  %h63 = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i16 %conv62, ptr %h63, align 8
+  store i16 %conv40, ptr %rounding41, align 8
+  %x44 = getelementptr inbounds i8, ptr %call.i, i64 18
+  %14 = fptosi <2 x float> %rect.coerce0 to <2 x i16>
+  store <2 x i16> %14, ptr %x44, align 2
+  %15 = fcmp ogt <2 x float> %rect.coerce1, zeroinitializer
+  %w53 = getelementptr inbounds i8, ptr %call.i, i64 22
+  %16 = select <2 x i1> %15, <2 x float> %rect.coerce1, <2 x float> zeroinitializer
+  %17 = fptoui <2 x float> %16 to <2 x i16>
+  store <2 x i16> %17, ptr %w53, align 2
   %color = getelementptr inbounds i8, ptr %call.i, i64 26
   store i24 %c.sroa.0.0.extract.trunc, ptr %color, align 2
   %c.sroa.2.0.color.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 29
@@ -9556,13 +9551,13 @@ if.end30:                                         ; preds = %if.end27
   %end.i = getelementptr inbounds i8, ptr %b, i64 48
   store i64 %add.i, ptr %end.i, align 8
   %x32 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %14 = fcmp ogt <2 x float> %rect.coerce1, zeroinitializer
-  %15 = select <2 x i1> %14, <2 x float> %rect.coerce1, <2 x float> zeroinitializer
-  %16 = shufflevector <2 x float> %rect.coerce0, <2 x float> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %17 = fptosi <4 x float> %16 to <4 x i16>
-  %18 = fptoui <4 x float> %16 to <4 x i16>
-  %19 = shufflevector <4 x i16> %17, <4 x i16> %18, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %19, ptr %x32, align 8
+  %14 = fptosi <2 x float> %rect.coerce0 to <2 x i16>
+  store <2 x i16> %14, ptr %x32, align 8
+  %15 = fcmp ogt <2 x float> %rect.coerce1, zeroinitializer
+  %w41 = getelementptr inbounds i8, ptr %call.i, i64 20
+  %16 = select <2 x i1> %15, <2 x float> %rect.coerce1, <2 x float> zeroinitializer
+  %17 = fptoui <2 x float> %16 to <2 x i16>
+  store <2 x i16> %17, ptr %w41, align 4
   %left52 = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 %left.coerce, ptr %left52, align 8
   %top53 = getelementptr inbounds i8, ptr %call.i, i64 28
@@ -9766,13 +9761,13 @@ if.end39:                                         ; preds = %if.end36
   %end.i = getelementptr inbounds i8, ptr %b, i64 48
   store i64 %add.i, ptr %end.i, align 8
   %x42 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %14 = fcmp olt <2 x float> %r.coerce1, zeroinitializer
-  %15 = select <2 x i1> %14, <2 x float> zeroinitializer, <2 x float> %r.coerce1
-  %16 = shufflevector <2 x float> %r.coerce0, <2 x float> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %17 = fptosi <4 x float> %16 to <4 x i16>
-  %18 = fptoui <4 x float> %16 to <4 x i16>
-  %19 = shufflevector <4 x i16> %17, <4 x i16> %18, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %19, ptr %x42, align 8
+  %14 = fptosi <2 x float> %r.coerce0 to <2 x i16>
+  store <2 x i16> %14, ptr %x42, align 8
+  %15 = fcmp olt <2 x float> %r.coerce1, zeroinitializer
+  %w51 = getelementptr inbounds i8, ptr %call.i, i64 20
+  %16 = select <2 x i1> %15, <2 x float> zeroinitializer, <2 x float> %r.coerce1
+  %17 = fptoui <2 x float> %16 to <2 x i16>
+  store <2 x i16> %17, ptr %w51, align 4
   %color = getelementptr inbounds i8, ptr %call.i, i64 24
   store i24 %c.sroa.0.0.extract.trunc, ptr %color, align 8
   %c.sroa.2.0.color.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 27
@@ -10537,13 +10532,13 @@ if.end29:                                         ; preds = %if.end26
   %end.i = getelementptr inbounds i8, ptr %b, i64 48
   store i64 %add.i, ptr %end.i, align 8
   %x31 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %13 = fcmp ogt <2 x float> %r.coerce1, zeroinitializer
-  %14 = select <2 x i1> %13, <2 x float> %r.coerce1, <2 x float> zeroinitializer
-  %15 = shufflevector <2 x float> %r.coerce0, <2 x float> %14, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %16 = fptosi <4 x float> %15 to <4 x i16>
-  %17 = fptoui <4 x float> %15 to <4 x i16>
-  %18 = shufflevector <4 x i16> %16, <4 x i16> %17, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %18, ptr %x31, align 8
+  %13 = fptosi <2 x float> %r.coerce0 to <2 x i16>
+  store <2 x i16> %13, ptr %x31, align 8
+  %w40 = getelementptr inbounds i8, ptr %call.i, i64 20
+  %14 = fcmp ogt <2 x float> %r.coerce1, zeroinitializer
+  %15 = select <2 x i1> %14, <2 x float> %r.coerce1, <2 x float> zeroinitializer
+  %16 = fptoui <2 x float> %15 to <2 x i16>
+  store <2 x i16> %16, ptr %w40, align 4
   %img51 = getelementptr inbounds i8, ptr %call.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %img51, ptr noundef nonnull align 8 dereferenceable(24) %img, i64 24, i1 false)
   %col52 = getelementptr inbounds i8, ptr %call.i, i64 48
@@ -10825,13 +10820,13 @@ if.end29:                                         ; preds = %if.end26
   %end.i = getelementptr inbounds i8, ptr %b, i64 48
   store i64 %add.i, ptr %end.i, align 8
   %x31 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %13 = fcmp ogt <2 x float> %r.coerce1, zeroinitializer
-  %14 = select <2 x i1> %13, <2 x float> %r.coerce1, <2 x float> zeroinitializer
-  %15 = shufflevector <2 x float> %r.coerce0, <2 x float> %14, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %16 = fptosi <4 x float> %15 to <4 x i16>
-  %17 = fptoui <4 x float> %15 to <4 x i16>
-  %18 = shufflevector <4 x i16> %16, <4 x i16> %17, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %18, ptr %x31, align 8
+  %13 = fptosi <2 x float> %r.coerce0 to <2 x i16>
+  store <2 x i16> %13, ptr %x31, align 8
+  %w40 = getelementptr inbounds i8, ptr %call.i, i64 20
+  %14 = fcmp ogt <2 x float> %r.coerce1, zeroinitializer
+  %15 = select <2 x i1> %14, <2 x float> %r.coerce1, <2 x float> zeroinitializer
+  %16 = fptoui <2 x float> %15 to <2 x i16>
+  store <2 x i16> %16, ptr %w40, align 4
   %callback_data = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %usr.coerce, ptr %callback_data, align 8
   %callback = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -43004,14 +42999,14 @@ if.end10.i26:                                     ; preds = %nk_push_scissor.exi
   %next.i.i39 = getelementptr inbounds i8, ptr %call.i.i24, i64 8
   store i64 %add.i.i38, ptr %next.i.i39, align 8
   store i64 %add.i.i38, ptr %end.i, align 8
+  %24 = fptosi <2 x float> %14 to <2 x i16>
   %x12.i41 = getelementptr inbounds i8, ptr %call.i.i24, i64 16
-  %24 = fcmp ogt <2 x float> %16, zeroinitializer
-  %25 = select <2 x i1> %24, <2 x float> %16, <2 x float> zeroinitializer
-  %26 = shufflevector <2 x float> %14, <2 x float> %25, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %27 = fptosi <4 x float> %26 to <4 x i16>
-  %28 = fptoui <4 x float> %26 to <4 x i16>
-  %29 = shufflevector <4 x i16> %27, <4 x i16> %28, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %29, ptr %x12.i41, align 8
+  store <2 x i16> %24, ptr %x12.i41, align 8
+  %25 = fcmp ogt <2 x float> %16, zeroinitializer
+  %w20.i43 = getelementptr inbounds i8, ptr %call.i.i24, i64 20
+  %26 = select <2 x i1> %25, <2 x float> %16, <2 x float> zeroinitializer
+  %27 = fptoui <2 x float> %26 to <2 x i16>
+  store <2 x i16> %27, ptr %w20.i43, align 4
   br label %return
 
 return:                                           ; preds = %if.end10.i26, %nk_push_scissor.exit, %if.end, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -44932,14 +44927,14 @@ if.end10.i:                                       ; preds = %if.end14
   store i64 %add.i.i, ptr %next.i.i, align 8
   %end.i.i = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %add.i.i, ptr %end.i.i, align 8
+  %27 = fptosi <2 x float> %17 to <2 x i16>
   %x12.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %27 = fcmp ogt <2 x float> %19, zeroinitializer
-  %28 = select <2 x i1> %27, <2 x float> %19, <2 x float> zeroinitializer
-  %29 = shufflevector <2 x float> %17, <2 x float> %28, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %30 = fptosi <4 x float> %29 to <4 x i16>
-  %31 = fptoui <4 x float> %29 to <4 x i16>
-  %32 = shufflevector <4 x i16> %30, <4 x i16> %31, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %32, ptr %x12.i, align 8
+  store <2 x i16> %27, ptr %x12.i, align 8
+  %28 = fcmp ogt <2 x float> %19, zeroinitializer
+  %w20.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  %29 = select <2 x i1> %28, <2 x float> %19, <2 x float> zeroinitializer
+  %30 = fptoui <2 x float> %29 to <2 x i16>
+  store <2 x i16> %30, ptr %w20.i, align 4
   br label %return
 
 return:                                           ; preds = %if.end10.i, %if.end14, %if.end, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -49386,14 +49381,14 @@ if.end10.i52:                                     ; preds = %nk_push_scissor.exi
   store i64 %add.i.i64, ptr %next.i.i65, align 8
   %end.i.i66 = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %add.i.i64, ptr %end.i.i66, align 8
+  %65 = fptosi <2 x float> %56 to <2 x i16>
   %x12.i68 = getelementptr inbounds i8, ptr %call.i.i50, i64 16
-  %65 = fcmp ogt <2 x float> %57, zeroinitializer
-  %66 = select <2 x i1> %65, <2 x float> %57, <2 x float> zeroinitializer
-  %67 = shufflevector <2 x float> %56, <2 x float> %66, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %68 = fptosi <4 x float> %67 to <4 x i16>
-  %69 = fptoui <4 x float> %67 to <4 x i16>
-  %70 = shufflevector <4 x i16> %68, <4 x i16> %69, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %70, ptr %x12.i68, align 8
+  store <2 x i16> %65, ptr %x12.i68, align 8
+  %66 = fcmp ogt <2 x float> %57, zeroinitializer
+  %w20.i74 = getelementptr inbounds i8, ptr %call.i.i50, i64 20
+  %67 = select <2 x i1> %66, <2 x float> %57, <2 x float> zeroinitializer
+  %68 = fptoui <2 x float> %67 to <2 x i16>
+  store <2 x i16> %68, ptr %w20.i74, align 4
   br label %nk_push_scissor.exit79
 
 nk_push_scissor.exit79:                           ; preds = %nk_push_scissor.exit, %if.end10.i52
@@ -62210,129 +62205,124 @@ if.then865:                                       ; preds = %land.lhs.true861, %
   %285 = load float, ptr %height869, align 8
   %cursor866.sroa.5.12.vec.insert = insertelement <2 x float> %cursor866.sroa.5.8.vec.insert, float %285, i64 1
   %286 = fadd <2 x float> %8, %cursor_pos.sroa.0.2
-  %add873 = extractelement <2 x float> %286, i64 0
   %scrollbar874 = getelementptr inbounds i8, ptr %edit, i64 160
-  %287 = load float, ptr %scrollbar874, align 8
-  %sub876 = fsub float %add873, %287
-  %cursor866.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %sub876, i64 0
-  %288 = fadd <2 x float> %8, %cursor_pos.sroa.0.2
-  %add880 = extractelement <2 x float> %288, i64 1
+  %287 = fadd <2 x float> %8, %cursor_pos.sroa.0.2
+  %add880 = extractelement <2 x float> %287, i64 1
   %div = fmul float %cond42, 5.000000e-01
   %add881 = fadd float %div, %add880
   %div883 = fmul float %285, 5.000000e-01
   %sub884 = fsub float %add881, %div883
-  %y887 = getelementptr inbounds i8, ptr %edit, i64 164
-  %289 = load float, ptr %y887, align 4
-  %sub889 = fsub float %sub884, %289
-  %cursor866.sroa.0.4.vec.insert21 = insertelement <2 x float> %cursor866.sroa.0.0.vec.insert, float %sub889, i64 1
-  call void @nk_fill_rect(ptr noundef nonnull %out, <2 x float> %cursor866.sroa.0.4.vec.insert21, <2 x float> %cursor866.sroa.5.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i954)
+  %288 = load <2 x float>, ptr %scrollbar874, align 8
+  %289 = insertelement <2 x float> %286, float %sub884, i64 1
+  %290 = fsub <2 x float> %289, %288
+  call void @nk_fill_rect(ptr noundef nonnull %out, <2 x float> %290, <2 x float> %cursor866.sroa.5.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i954)
   br label %if.end.i1235
 
 nk_widget_text.exit:                              ; preds = %for.inc.i.i1057, %if.end.i.i1071, %return.loopexit81.i1099, %return.loopexit.i1095, %for.end.i1068, %nk_utf_decode_byte.exit.i1061, %lor.lhs.false859
   %phi.call = phi i32 [ 0, %lor.lhs.false859 ], [ 1, %nk_utf_decode_byte.exit.i1061 ], [ 0, %for.end.i1068 ], [ %indvars78.le91.i1096, %return.loopexit.i1095 ], [ %indvars78.le.i1100, %return.loopexit81.i1099 ], [ %275, %if.end.i.i1071 ], [ 1, %for.inc.i.i1057 ]
   %scrollbar897 = getelementptr inbounds i8, ptr %edit, i64 160
-  %290 = fadd <2 x float> %8, %cursor_pos.sroa.0.2
-  %291 = load <2 x float>, ptr %scrollbar897, align 8
-  %292 = fsub <2 x float> %290, %291
+  %291 = fadd <2 x float> %8, %cursor_pos.sroa.0.2
+  %292 = load <2 x float>, ptr %scrollbar897, align 8
+  %293 = fsub <2 x float> %291, %292
   %width908 = getelementptr inbounds i8, ptr %font, i64 16
-  %293 = load ptr, ptr %width908, align 8
+  %294 = load ptr, ptr %width908, align 8
   %height910 = getelementptr inbounds i8, ptr %font, i64 8
-  %294 = load float, ptr %height910, align 8
-  %295 = load ptr, ptr %font, align 8
-  %call912 = call float %293(ptr %295, float noundef %294, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #51
+  %295 = load float, ptr %height910, align 8
+  %296 = load ptr, ptr %font, align 8
+  %call912 = call float %294(ptr %296, float noundef %295, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #51
   %label.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %call912, i64 0
   %label.sroa.4.12.vec.insert = insertelement <2 x float> %label.sroa.4.8.vec.insert, float %cond42, i64 1
-  call void @nk_fill_rect(ptr noundef nonnull %out, <2 x float> %292, <2 x float> %label.sroa.4.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i954)
+  call void @nk_fill_rect(ptr noundef nonnull %out, <2 x float> %293, <2 x float> %label.sroa.4.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i954)
   %cmp.i1116 = fcmp olt float %cond42, 0.000000e+00
   %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i1116, float 0.000000e+00, float %cond42
-  %296 = load float, ptr %height910, align 8
-  %297 = load ptr, ptr %width908, align 8
-  %298 = load ptr, ptr %font, align 8
-  %call.i1118 = call float %297(ptr %298, float noundef %296, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #51
-  %299 = extractelement <2 x float> %292, i64 0
-  %add35.i = fadd float %299, 0.000000e+00
-  %300 = insertelement <2 x float> poison, float %add35.i, i64 0
+  %297 = load float, ptr %height910, align 8
+  %298 = load ptr, ptr %width908, align 8
+  %299 = load ptr, ptr %font, align 8
+  %call.i1118 = call float %298(ptr %299, float noundef %297, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #51
+  %300 = extractelement <2 x float> %293, i64 0
+  %add35.i = fadd float %300, 0.000000e+00
+  %301 = insertelement <2 x float> poison, float %add35.i, i64 0
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
-  %301 = extractelement <2 x float> %292, i64 1
-  %add165.i = fadd float %div164.i, %301
-  %302 = load float, ptr %height910, align 8
-  %div167.i = fmul float %302, 5.000000e-01
+  %302 = extractelement <2 x float> %293, i64 1
+  %add165.i = fadd float %div164.i, %302
+  %303 = load float, ptr %height910, align 8
+  %div167.i = fmul float %303, 5.000000e-01
   %sub168.i = fsub float %add165.i, %div167.i
-  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %300, float %sub168.i, i64 1
+  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %301, float %sub168.i, i64 1
   %add177.i = fadd float %div164.i, %div167.i
   %sub178.i = fsub float %mul.b.sroa.14.12.vec.extract.i, %add177.i
-  %303 = insertelement <2 x float> poison, float %call912, i64 0
-  %304 = insertelement <2 x float> %303, float %sub178.i, i64 1
-  %305 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %div164.i, i64 1
-  %306 = fcmp ogt <2 x float> %304, %305
-  %307 = select <2 x i1> %306, <2 x float> %304, <2 x float> %305
-  call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %307, ptr noundef %cursor_ptr.2, i32 noundef %phi.call, ptr noundef nonnull %font, i32 %retval.sroa.0.0.insert.insert.i954, i32 %retval.sroa.0.0.insert.insert.i983)
+  %304 = insertelement <2 x float> poison, float %call912, i64 0
+  %305 = insertelement <2 x float> %304, float %sub178.i, i64 1
+  %306 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %div164.i, i64 1
+  %307 = fcmp ogt <2 x float> %305, %306
+  %308 = select <2 x i1> %307, <2 x float> %305, <2 x float> %306
+  call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %308, ptr noundef %cursor_ptr.2, i32 noundef %phi.call, ptr noundef nonnull %font, i32 %retval.sroa.0.0.insert.insert.i954, i32 %retval.sroa.0.0.insert.insert.i983)
   br label %if.end.i1235
 
 if.else922:                                       ; preds = %sw.epilog
-  %308 = load i32, ptr %len.i700, align 8
-  %tobool1.not.i1121 = icmp eq i32 %308, 0
+  %309 = load i32, ptr %len.i700, align 8
+  %tobool1.not.i1121 = icmp eq i32 %309, 0
   br i1 %tobool1.not.i1121, label %if.end.i1137, label %lor.lhs.false2.i1129
 
 lor.lhs.false2.i1129:                             ; preds = %if.else922
   %allocated.i1123 = getelementptr inbounds i8, ptr %edit, i64 112
-  %309 = load i64, ptr %allocated.i1123, align 8
-  %tobool3.not.i1131 = icmp eq i64 %309, 0
+  %310 = load i64, ptr %allocated.i1123, align 8
+  %tobool3.not.i1131 = icmp eq i64 %310, 0
   br i1 %tobool3.not.i1131, label %if.end.i1137, label %if.end.i1132
 
 if.end.i1132:                                     ; preds = %lor.lhs.false2.i1129
-  %conv.i1124 = trunc i64 %309 to i32
+  %conv.i1124 = trunc i64 %310 to i32
   %memory.i1133 = getelementptr inbounds i8, ptr %edit, i64 88
-  %310 = load ptr, ptr %memory.i1133, align 8
+  %311 = load ptr, ptr %memory.i1133, align 8
   br label %if.end.i1137
 
 if.end.i1137:                                     ; preds = %if.end.i1132, %lor.lhs.false2.i1129, %if.else922
   %retval.0.i11251458 = phi i32 [ %conv.i1124, %if.end.i1132 ], [ 0, %lor.lhs.false2.i1129 ], [ 0, %if.else922 ]
-  %retval.0.i1134 = phi ptr [ %310, %if.end.i1132 ], [ null, %lor.lhs.false2.i1129 ], [ null, %if.else922 ]
-  %311 = shufflevector <2 x float> %23, <2 x float> %26, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %311, ptr %clip43, align 8
-  %312 = load ptr, ptr %out, align 8
-  %call.i.i1146 = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %312, i32 noundef 0, i64 noundef 24, i64 noundef 8)
+  %retval.0.i1134 = phi ptr [ %311, %if.end.i1132 ], [ null, %lor.lhs.false2.i1129 ], [ null, %if.else922 ]
+  %312 = shufflevector <2 x float> %23, <2 x float> %26, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %312, ptr %clip43, align 8
+  %313 = load ptr, ptr %out, align 8
+  %call.i.i1146 = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %313, i32 noundef 0, i64 noundef 24, i64 noundef 8)
   %tobool1.not.i.i1147 = icmp eq ptr %call.i.i1146, null
   br i1 %tobool1.not.i.i1147, label %nk_push_scissor.exit1175, label %if.end10.i1148
 
 if.end10.i1148:                                   ; preds = %if.end.i1137
-  %313 = load ptr, ptr %out, align 8
-  %memory5.i.i1149 = getelementptr inbounds i8, ptr %313, i64 64
-  %314 = load ptr, ptr %memory5.i.i1149, align 8
+  %314 = load ptr, ptr %out, align 8
+  %memory5.i.i1149 = getelementptr inbounds i8, ptr %314, i64 64
+  %315 = load ptr, ptr %memory5.i.i1149, align 8
   %sub.ptr.lhs.cast.i.i1150 = ptrtoint ptr %call.i.i1146 to i64
-  %sub.ptr.rhs.cast.i.i1151 = ptrtoint ptr %314 to i64
+  %sub.ptr.rhs.cast.i.i1151 = ptrtoint ptr %315 to i64
   %sub.ptr.sub.i.i1152 = sub i64 %sub.ptr.lhs.cast.i.i1150, %sub.ptr.rhs.cast.i.i1151
   %last.i.i1153 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %sub.ptr.sub.i.i1152, ptr %last.i.i1153, align 8
   %add.ptr.i.i1154 = getelementptr inbounds i8, ptr %call.i.i1146, i64 24
   %add.ptr6.i.i1155 = getelementptr inbounds i8, ptr %call.i.i1146, i64 31
-  %315 = ptrtoint ptr %add.ptr6.i.i1155 to i64
-  %and.i.i1156 = and i64 %315, -8
+  %316 = ptrtoint ptr %add.ptr6.i.i1155 to i64
+  %and.i.i1156 = and i64 %316, -8
   %sub.ptr.rhs.cast8.i.i1157 = ptrtoint ptr %add.ptr.i.i1154 to i64
   %sub.ptr.sub9.i.i1158 = sub i64 %and.i.i1156, %sub.ptr.rhs.cast8.i.i1157
   store i32 1, ptr %call.i.i1146, align 8
-  %316 = load ptr, ptr %out, align 8
-  %allocated.i.i1159 = getelementptr inbounds i8, ptr %316, i64 88
-  %317 = load i64, ptr %allocated.i.i1159, align 8
-  %add.i.i1160 = add i64 %317, %sub.ptr.sub9.i.i1158
+  %317 = load ptr, ptr %out, align 8
+  %allocated.i.i1159 = getelementptr inbounds i8, ptr %317, i64 88
+  %318 = load i64, ptr %allocated.i.i1159, align 8
+  %add.i.i1160 = add i64 %318, %sub.ptr.sub9.i.i1158
   %next.i.i1161 = getelementptr inbounds i8, ptr %call.i.i1146, i64 8
   store i64 %add.i.i1160, ptr %next.i.i1161, align 8
   %end.i.i1162 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %add.i.i1160, ptr %end.i.i1162, align 8
-  %318 = shufflevector <2 x float> %23, <2 x float> %26, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %319 = fptosi <4 x float> %318 to <4 x i16>
-  %320 = fptoui <4 x float> %318 to <4 x i16>
-  %321 = shufflevector <4 x i16> %319, <4 x i16> %320, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %319 = shufflevector <2 x float> %23, <2 x float> %26, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %320 = fptosi <4 x float> %319 to <4 x i16>
+  %321 = fptoui <4 x float> %319 to <4 x i16>
+  %322 = shufflevector <4 x i16> %320, <4 x i16> %321, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %x12.i1164 = getelementptr inbounds i8, ptr %call.i.i1146, i64 16
-  store <4 x i16> %321, ptr %x12.i1164, align 8
+  store <4 x i16> %322, ptr %x12.i1164, align 8
   br label %nk_push_scissor.exit1175
 
 nk_push_scissor.exit1175:                         ; preds = %if.end.i1137, %if.end10.i1148
-  %322 = load i32, ptr %state, align 4
-  %and932 = and i32 %322, 32
+  %323 = load i32, ptr %state, align 4
+  %and932 = and i32 %323, 32
   %tobool933.not = icmp eq i32 %and932, 0
-  %and938 = and i32 %322, 16
+  %and938 = and i32 %323, 16
   %tobool939.not = icmp eq i32 %and938, 0
   %.1747 = select i1 %tobool939.not, i64 896, i64 900
   %style.hover = select i1 %tobool939.not, ptr %style, ptr %hover
@@ -62340,8 +62330,8 @@ nk_push_scissor.exit1175:                         ; preds = %if.end.i1137, %if.e
   %background929.0 = select i1 %tobool933.not, ptr %style.hover, ptr %active365
   %text_hover942 = getelementptr inbounds i8, ptr %style, i64 %.sink1745
   %text_color931.sroa.0.0 = load i32, ptr %text_hover942, align 4
-  %323 = load i32, ptr %background929.0, align 8
-  %cmp949 = icmp eq i32 %323, 1
+  %324 = load i32, ptr %background929.0, align 8
+  %cmp949 = icmp eq i32 %324, 1
   br i1 %cmp949, label %if.end956, label %if.else954
 
 if.else954:                                       ; preds = %nk_push_scissor.exit1175
@@ -62352,24 +62342,24 @@ if.else954:                                       ; preds = %nk_push_scissor.exi
 if.end956:                                        ; preds = %nk_push_scissor.exit1175, %if.else954
   %background_color930.sroa.0.0 = phi i32 [ %background_color930.sroa.0.0.copyload, %if.else954 ], [ 0, %nk_push_scissor.exit1175 ]
   %color_factor958 = getelementptr inbounds i8, ptr %style, i64 956
-  %324 = load float, ptr %color_factor958, align 4
+  %325 = load float, ptr %color_factor958, align 4
   %col.sroa.0.0.extract.trunc.i1176 = trunc i32 %background_color930.sroa.0.0 to i8
   %col.sroa.5.0.extract.shift.i1177 = lshr i32 %background_color930.sroa.0.0, 8
   %col.sroa.5.0.extract.trunc.i1178 = trunc i32 %col.sroa.5.0.extract.shift.i1177 to i8
   %col.sroa.7.0.extract.shift.i1179 = lshr i32 %background_color930.sroa.0.0, 16
   %col.sroa.7.0.extract.trunc.i1180 = trunc i32 %col.sroa.7.0.extract.shift.i1179 to i8
-  %cmp.i1181 = fcmp oeq float %324, 1.000000e+00
+  %cmp.i1181 = fcmp oeq float %325, 1.000000e+00
   br i1 %cmp.i1181, label %nk_rgb_factor.exit1204, label %if.end.i1182
 
 if.end.i1182:                                     ; preds = %if.end956
   %conv.i1183 = uitofp i8 %col.sroa.0.0.extract.trunc.i1176 to float
-  %mul.i1184 = fmul float %324, %conv.i1183
+  %mul.i1184 = fmul float %325, %conv.i1183
   %conv1.i1185 = fptoui float %mul.i1184 to i8
   %conv2.i1186 = uitofp i8 %col.sroa.5.0.extract.trunc.i1178 to float
-  %mul3.i1187 = fmul float %324, %conv2.i1186
+  %mul3.i1187 = fmul float %325, %conv2.i1186
   %conv4.i1188 = fptoui float %mul3.i1187 to i8
   %conv5.i1189 = uitofp i8 %col.sroa.7.0.extract.trunc.i1180 to float
-  %mul6.i1190 = fmul float %324, %conv5.i1189
+  %mul6.i1190 = fmul float %325, %conv5.i1189
   %conv7.i1191 = fptoui float %mul6.i1190 to i8
   br label %nk_rgb_factor.exit1204
 
@@ -62395,13 +62385,13 @@ nk_rgb_factor.exit1204:                           ; preds = %if.end956, %if.end.
 
 if.end.i1211:                                     ; preds = %nk_rgb_factor.exit1204
   %conv.i1212 = uitofp i8 %col.sroa.0.0.extract.trunc.i1205 to float
-  %mul.i1213 = fmul float %324, %conv.i1212
+  %mul.i1213 = fmul float %325, %conv.i1212
   %conv1.i1214 = fptoui float %mul.i1213 to i8
   %conv2.i1215 = uitofp i8 %col.sroa.5.0.extract.trunc.i1207 to float
-  %mul3.i1216 = fmul float %324, %conv2.i1215
+  %mul3.i1216 = fmul float %325, %conv2.i1215
   %conv4.i1217 = fptoui float %mul3.i1216 to i8
   %conv5.i1218 = uitofp i8 %col.sroa.7.0.extract.trunc.i1209 to float
-  %mul6.i1219 = fmul float %324, %conv5.i1218
+  %mul6.i1219 = fmul float %325, %conv5.i1218
   %conv7.i1220 = fptoui float %mul6.i1219 to i8
   br label %nk_rgb_factor.exit1233
 
@@ -62419,56 +62409,56 @@ nk_rgb_factor.exit1233:                           ; preds = %nk_rgb_factor.exit1
   %retval.sroa.0.0.insert.ext.i1231 = zext i8 %retval.sroa.0.0.i1222 to i32
   %retval.sroa.0.0.insert.insert.i1232 = or disjoint i32 %retval.sroa.3.0.insert.insert.i1230, %retval.sroa.0.0.insert.ext.i1231
   %scrollbar964 = getelementptr inbounds i8, ptr %edit, i64 160
-  %325 = load float, ptr %scrollbar964, align 8
-  %326 = extractelement <2 x float> %8, i64 0
-  %sub966 = fsub float %326, %325
+  %326 = load float, ptr %scrollbar964, align 8
+  %327 = extractelement <2 x float> %8, i64 0
+  %sub966 = fsub float %327, %326
   %y969 = getelementptr inbounds i8, ptr %edit, i64 164
-  %327 = load float, ptr %y969, align 4
-  %328 = extractelement <2 x float> %8, i64 1
-  %sub970 = fsub float %328, %327
+  %328 = load float, ptr %y969, align 4
+  %329 = extractelement <2 x float> %8, i64 1
+  %sub970 = fsub float %329, %328
   tail call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub966, float noundef %sub970, float noundef 0.000000e+00, ptr noundef %retval.0.i1134, i32 noundef %retval.0.i11251458, float noundef %cond42, ptr noundef %font, i32 %retval.sroa.0.0.insert.insert.i1203, i32 %retval.sroa.0.0.insert.insert.i1232, i32 noundef 0)
   br label %if.end.i1235
 
 if.end.i1235:                                     ; preds = %nk_rgb_factor.exit1233, %if.then865, %nk_widget_text.exit, %if.end848
-  store <2 x float> %old_clip.sroa.0.0.copyload, ptr %clip43, align 8
-  store <2 x float> %old_clip.sroa.6.0.copyload, ptr %old_clip.sroa.6.0.clip43.sroa_idx, align 8
-  %329 = load ptr, ptr %out, align 8
-  %call.i.i1244 = call fastcc ptr @nk_buffer_alloc(ptr noundef %329, i32 noundef 0, i64 noundef 24, i64 noundef 8)
+  %330 = shufflevector <2 x float> %old_clip.sroa.0.0.copyload, <2 x float> %old_clip.sroa.6.0.copyload, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %330, ptr %clip43, align 8
+  %331 = load ptr, ptr %out, align 8
+  %call.i.i1244 = call fastcc ptr @nk_buffer_alloc(ptr noundef %331, i32 noundef 0, i64 noundef 24, i64 noundef 8)
   %tobool1.not.i.i1245 = icmp eq ptr %call.i.i1244, null
   br i1 %tobool1.not.i.i1245, label %return, label %if.end10.i1246
 
 if.end10.i1246:                                   ; preds = %if.end.i1235
-  %330 = load ptr, ptr %out, align 8
-  %memory5.i.i1247 = getelementptr inbounds i8, ptr %330, i64 64
-  %331 = load ptr, ptr %memory5.i.i1247, align 8
+  %332 = load ptr, ptr %out, align 8
+  %memory5.i.i1247 = getelementptr inbounds i8, ptr %332, i64 64
+  %333 = load ptr, ptr %memory5.i.i1247, align 8
   %sub.ptr.lhs.cast.i.i1248 = ptrtoint ptr %call.i.i1244 to i64
-  %sub.ptr.rhs.cast.i.i1249 = ptrtoint ptr %331 to i64
+  %sub.ptr.rhs.cast.i.i1249 = ptrtoint ptr %333 to i64
   %sub.ptr.sub.i.i1250 = sub i64 %sub.ptr.lhs.cast.i.i1248, %sub.ptr.rhs.cast.i.i1249
   %last.i.i1251 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %sub.ptr.sub.i.i1250, ptr %last.i.i1251, align 8
   %add.ptr.i.i1252 = getelementptr inbounds i8, ptr %call.i.i1244, i64 24
   %add.ptr6.i.i1253 = getelementptr inbounds i8, ptr %call.i.i1244, i64 31
-  %332 = ptrtoint ptr %add.ptr6.i.i1253 to i64
-  %and.i.i1254 = and i64 %332, -8
+  %334 = ptrtoint ptr %add.ptr6.i.i1253 to i64
+  %and.i.i1254 = and i64 %334, -8
   %sub.ptr.rhs.cast8.i.i1255 = ptrtoint ptr %add.ptr.i.i1252 to i64
   %sub.ptr.sub9.i.i1256 = sub i64 %and.i.i1254, %sub.ptr.rhs.cast8.i.i1255
   store i32 1, ptr %call.i.i1244, align 8
-  %333 = load ptr, ptr %out, align 8
-  %allocated.i.i1257 = getelementptr inbounds i8, ptr %333, i64 88
-  %334 = load i64, ptr %allocated.i.i1257, align 8
-  %add.i.i1258 = add i64 %334, %sub.ptr.sub9.i.i1256
+  %335 = load ptr, ptr %out, align 8
+  %allocated.i.i1257 = getelementptr inbounds i8, ptr %335, i64 88
+  %336 = load i64, ptr %allocated.i.i1257, align 8
+  %add.i.i1258 = add i64 %336, %sub.ptr.sub9.i.i1256
   %next.i.i1259 = getelementptr inbounds i8, ptr %call.i.i1244, i64 8
   store i64 %add.i.i1258, ptr %next.i.i1259, align 8
   %end.i.i1260 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %add.i.i1258, ptr %end.i.i1260, align 8
+  %337 = fptosi <2 x float> %old_clip.sroa.0.0.copyload to <2 x i16>
   %x12.i1262 = getelementptr inbounds i8, ptr %call.i.i1244, i64 16
-  %335 = fcmp ogt <2 x float> %old_clip.sroa.6.0.copyload, zeroinitializer
-  %336 = select <2 x i1> %335, <2 x float> %old_clip.sroa.6.0.copyload, <2 x float> zeroinitializer
-  %337 = shufflevector <2 x float> %old_clip.sroa.0.0.copyload, <2 x float> %336, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %338 = fptosi <4 x float> %337 to <4 x i16>
-  %339 = fptoui <4 x float> %337 to <4 x i16>
-  %340 = shufflevector <4 x i16> %338, <4 x i16> %339, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x i16> %340, ptr %x12.i1262, align 8
+  store <2 x i16> %337, ptr %x12.i1262, align 8
+  %338 = fcmp ogt <2 x float> %old_clip.sroa.6.0.copyload, zeroinitializer
+  %w20.i1268 = getelementptr inbounds i8, ptr %call.i.i1244, i64 20
+  %339 = select <2 x i1> %338, <2 x float> %old_clip.sroa.6.0.copyload, <2 x float> zeroinitializer
+  %340 = fptoui <2 x float> %339 to <2 x i16>
+  store <2 x i16> %340, ptr %w20.i1268, align 4
   br label %return
 
 return:                                           ; preds = %if.end10.i1246, %if.end.i1235, %entry
@@ -66330,103 +66320,100 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit1
   %button111 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %padding = getelementptr inbounds i8, ptr %ctx, i64 8528
   %28 = load <2 x float>, ptr %padding, align 8
-  %29 = extractelement <2 x float> %28, i64 0
-  %add113 = fadd float %sub99, %29
-  %content.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add113, i64 0
-  %30 = extractelement <2 x float> %28, i64 1
-  %add120 = fadd float %add105, %30
-  %content.sroa.0.4.vec.insert = insertelement <2 x float> %content.sroa.0.0.vec.insert, float %add120, i64 1
-  %31 = insertelement <2 x float> poison, float %25, i64 0
-  %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
-  %33 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %28, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %32)
+  %29 = insertelement <2 x float> poison, float %sub99, i64 0
+  %30 = insertelement <2 x float> %29, float %add105, i64 1
+  %31 = fadd <2 x float> %30, %28
+  %32 = insertelement <2 x float> poison, float %25, i64 0
+  %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
+  %34 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %28, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %33)
   %content_padding = getelementptr inbounds i8, ptr %ctx, i64 8604
-  %34 = load float, ptr %content_padding, align 4
-  %add140 = fadd float %10, %34
+  %35 = load float, ptr %content_padding, align 4
+  %add140 = fadd float %10, %35
   %y145 = getelementptr inbounds i8, ptr %ctx, i64 8608
-  %35 = load float, ptr %y145, align 4
-  %add146 = fadd float %12, %35
-  %36 = tail call float @llvm.fmuladd.f32(float %35, float -2.000000e+00, float %9)
+  %36 = load float, ptr %y145, align 4
+  %add146 = fadd float %12, %36
+  %37 = tail call float @llvm.fmuladd.f32(float %36, float -2.000000e+00, float %9)
   br i1 %cmp92.not, label %if.else166, label %if.then154
 
 if.then154:                                       ; preds = %sw.epilog
   %spacing = getelementptr inbounds i8, ptr %ctx, i64 8620
-  %37 = load float, ptr %spacing, align 4
-  %add161 = fadd float %34, %37
+  %38 = load float, ptr %spacing, align 4
+  %add161 = fadd float %35, %38
   %sub162 = fsub float %sub99, %add161
   %sub164 = fsub float %sub162, %add140
   br label %if.end172
 
 if.else166:                                       ; preds = %sw.epilog
-  %38 = tail call float @llvm.fmuladd.f32(float %34, float -2.000000e+00, float %11)
+  %39 = tail call float @llvm.fmuladd.f32(float %35, float -2.000000e+00, float %11)
   br label %if.end172
 
 if.end172:                                        ; preds = %if.else166, %if.then154
-  %.sink186 = phi float [ %38, %if.else166 ], [ %sub164, %if.then154 ]
+  %.sink186 = phi float [ %39, %if.else166 ], [ %sub164, %if.then154 ]
   %buffer173 = getelementptr inbounds i8, ptr %0, i64 104
-  %39 = load ptr, ptr %style8, align 8
-  %cmp.i170 = fcmp olt float %36, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i170, float 0.000000e+00, float %36
-  %height.i = getelementptr inbounds i8, ptr %39, i64 8
-  %40 = load float, ptr %height.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = load ptr, ptr %width.i, align 8
-  %42 = load ptr, ptr %39, align 8
-  %call.i = tail call float %41(ptr %42, float noundef %40, ptr noundef nonnull %selected, i32 noundef %len) #51
+  %40 = load ptr, ptr %style8, align 8
+  %cmp.i170 = fcmp olt float %37, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i170, float 0.000000e+00, float %37
+  %height.i = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = load float, ptr %height.i, align 8
+  %width.i = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load ptr, ptr %width.i, align 8
+  %43 = load ptr, ptr %40, align 8
+  %call.i = tail call float %42(ptr %43, float noundef %41, ptr noundef nonnull %selected, i32 noundef %len) #51
   %add35.i = fadd float %add140, 0.000000e+00
-  %43 = insertelement <2 x float> poison, float %add35.i, i64 0
+  %44 = insertelement <2 x float> poison, float %add35.i, i64 0
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %add165.i = fadd float %add146, %div164.i
-  %44 = load float, ptr %height.i, align 8
-  %div167.i = fmul float %44, 5.000000e-01
+  %45 = load float, ptr %height.i, align 8
+  %div167.i = fmul float %45, 5.000000e-01
   %sub168.i = fsub float %add165.i, %div167.i
-  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %43, float %sub168.i, i64 1
+  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %44, float %sub168.i, i64 1
   %add177.i = fadd float %div164.i, %div167.i
   %sub178.i = fsub float %mul.b.sroa.14.12.vec.extract.i, %add177.i
-  %45 = insertelement <2 x float> poison, float %.sink186, i64 0
-  %46 = insertelement <2 x float> %45, float %sub178.i, i64 1
-  %47 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %div164.i, i64 1
-  %48 = fcmp ogt <2 x float> %46, %47
-  %49 = select <2 x i1> %48, <2 x float> %46, <2 x float> %47
-  tail call void @nk_draw_text(ptr noundef nonnull %buffer173, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %49, ptr noundef nonnull %selected, i32 noundef %len, ptr noundef nonnull %39, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i)
+  %46 = insertelement <2 x float> poison, float %.sink186, i64 0
+  %47 = insertelement <2 x float> %46, float %sub178.i, i64 1
+  %48 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %div164.i, i64 1
+  %49 = fcmp ogt <2 x float> %47, %48
+  %50 = select <2 x i1> %49, <2 x float> %47, <2 x float> %48
+  tail call void @nk_draw_text(ptr noundef nonnull %buffer173, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %50, ptr noundef nonnull %selected, i32 noundef %len, ptr noundef nonnull %40, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i)
   br i1 %cmp92.not, label %if.end183, label %if.then176
 
 if.then176:                                       ; preds = %if.end172
-  %50 = load i32, ptr %last_widget_state, align 8
-  %51 = load ptr, ptr %style8, align 8
-  %call.i171 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer173, ptr noundef nonnull %button, i32 noundef %50, ptr noundef nonnull %button111)
-  %52 = load i32, ptr %call.i171, align 8
-  %cmp.i172 = icmp eq i32 %52, 0
+  %51 = load i32, ptr %last_widget_state, align 8
+  %52 = load ptr, ptr %style8, align 8
+  %call.i171 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer173, ptr noundef nonnull %button, i32 noundef %51, ptr noundef nonnull %button111)
+  %53 = load i32, ptr %call.i171, align 8
+  %cmp.i172 = icmp eq i32 %53, 0
   %data.i = getelementptr inbounds i8, ptr %call.i171, i64 8
   %text_background.i = getelementptr inbounds i8, ptr %ctx, i64 8496
   %bg.sroa.0.0.in.i = select i1 %cmp.i172, ptr %data.i, ptr %text_background.i
   %bg.sroa.0.0.i = load i32, ptr %bg.sroa.0.0.in.i, align 8
-  %and.i = and i32 %50, 16
+  %and.i = and i32 %51, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %and4.i = and i32 %50, 32
+  %and4.i = and i32 %51, 32
   %tobool5.not.i = icmp eq i32 %and4.i, 0
   %..i = select i1 %tobool5.not.i, i64 132, i64 140
   %.sink.i = select i1 %tobool.not.i, i64 %..i, i64 136
   %text_active.i = getelementptr inbounds i8, ptr %button111, i64 %.sink.i
   %sym.sroa.0.0.i = load i32, ptr %text_active.i, align 4
   %color_factor_text.i = getelementptr inbounds i8, ptr %ctx, i64 8516
-  %53 = load float, ptr %color_factor_text.i, align 4
+  %54 = load float, ptr %color_factor_text.i, align 4
   %col.sroa.0.0.extract.trunc.i.i = trunc i32 %sym.sroa.0.0.i to i8
   %col.sroa.5.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 8
   %col.sroa.5.0.extract.trunc.i.i = trunc i32 %col.sroa.5.0.extract.shift.i.i to i8
   %col.sroa.7.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 16
   %col.sroa.7.0.extract.trunc.i.i = trunc i32 %col.sroa.7.0.extract.shift.i.i to i8
-  %cmp.i.i = fcmp oeq float %53, 1.000000e+00
+  %cmp.i.i = fcmp oeq float %54, 1.000000e+00
   br i1 %cmp.i.i, label %nk_draw_button_symbol.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then176
   %conv.i.i = uitofp i8 %col.sroa.0.0.extract.trunc.i.i to float
-  %mul.i.i = fmul float %53, %conv.i.i
+  %mul.i.i = fmul float %54, %conv.i.i
   %conv1.i.i = fptoui float %mul.i.i to i8
   %conv2.i.i = uitofp i8 %col.sroa.5.0.extract.trunc.i.i to float
-  %mul3.i.i = fmul float %53, %conv2.i.i
+  %mul3.i.i = fmul float %54, %conv2.i.i
   %conv4.i.i = fptoui float %mul3.i.i to i8
   %conv5.i.i = uitofp i8 %col.sroa.7.0.extract.trunc.i.i to float
-  %mul6.i.i = fmul float %53, %conv5.i.i
+  %mul6.i.i = fmul float %54, %conv5.i.i
   %conv7.i.i = fptoui float %mul6.i.i to i8
   br label %nk_draw_button_symbol.exit
 
@@ -66443,52 +66430,52 @@ nk_draw_button_symbol.exit:                       ; preds = %if.then176, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer173, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %33, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %51)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer173, i32 noundef %sym.0, <2 x float> %31, <2 x float> %34, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %52)
   br label %if.end183
 
 if.end183:                                        ; preds = %nk_draw_button_symbol.exit, %if.end172
-  %54 = load ptr, ptr %current, align 8
-  %tobool1.not.i = icmp eq ptr %54, null
+  %55 = load ptr, ptr %current, align 8
+  %tobool1.not.i = icmp eq ptr %55, null
   br i1 %tobool1.not.i, label %return, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.end183
-  %layout.i = getelementptr inbounds i8, ptr %54, i64 168
-  %55 = load ptr, ptr %layout.i, align 8
-  %tobool4.not.i = icmp eq ptr %55, null
+  %layout.i = getelementptr inbounds i8, ptr %55, i64 168
+  %56 = load ptr, ptr %layout.i, align 8
+  %tobool4.not.i = icmp eq ptr %56, null
   br i1 %tobool4.not.i, label %return, label %if.end.i173
 
 if.end.i173:                                      ; preds = %lor.lhs.false2.i
   %popup5.i = getelementptr inbounds i8, ptr %0, i64 288
-  %56 = load ptr, ptr %popup5.i, align 8
-  %57 = fadd <2 x float> %5, %7
-  %add.i174 = extractelement <2 x float> %57, i64 1
+  %57 = load ptr, ptr %popup5.i, align 8
+  %58 = fadd <2 x float> %5, %7
+  %add.i174 = extractelement <2 x float> %58, i64 1
   %combo_border.i = getelementptr inbounds i8, ptr %ctx, i64 9364
-  %58 = load float, ptr %combo_border.i, align 4
-  %sub.i = fsub float %add.i174, %58
+  %59 = load float, ptr %combo_border.i, align 4
+  %sub.i = fsub float %add.i174, %59
   %body.sroa.0.4.vec.insert.i = insertelement <2 x float> %5, float %sub.i, i64 1
   %combo_count.i = getelementptr inbounds i8, ptr %0, i64 352
-  %59 = load i32, ptr %combo_count.i, align 8
-  %inc.i = add i32 %59, 1
+  %60 = load i32, ptr %combo_count.i, align 8
+  %inc.i = add i32 %60, 1
   store i32 %inc.i, ptr %combo_count.i, align 8
-  %tobool13.i = icmp ne ptr %56, null
+  %tobool13.i = icmp ne ptr %57, null
   br i1 %tobool13.i, label %land.lhs.true.i, label %land.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i173
   %name.i = getelementptr inbounds i8, ptr %0, i64 344
-  %60 = load i32, ptr %name.i, align 8
-  %cmp.i175 = icmp eq i32 %60, %59
+  %61 = load i32, ptr %name.i, align 8
+  %cmp.i175 = icmp eq i32 %61, %60
   br i1 %cmp.i175, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %0, i64 296
-  %61 = load i32, ptr %type.i, align 8
-  %cmp17.i = icmp eq i32 %61, 32
+  %62 = load i32, ptr %type.i, align 8
+  %cmp17.i = icmp eq i32 %62, 32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i173
-  %62 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i173 ], [ %cmp17.i, %land.rhs.i ]
+  %63 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i173 ], [ %cmp17.i, %land.rhs.i ]
   %tobool24.i = xor i1 %tobool13.i, true
-  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %62
+  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %63
   %or.cond4.i = or i1 %tobool18.not, %tobool13.i
   %or.cond28.i = and i1 %or.cond4.i, %or.cond27.i
   br i1 %or.cond28.i, label %if.end34.i, label %return
@@ -66505,7 +66492,7 @@ if.end41.i:                                       ; preds = %if.end34.i
   %type43.i = getelementptr inbounds i8, ptr %0, i64 296
   store i32 32, ptr %type43.i, align 8
   %name45.i = getelementptr inbounds i8, ptr %0, i64 344
-  store i32 %59, ptr %name45.i, align 8
+  store i32 %60, ptr %name45.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end41.i, %if.end34.i, %land.end.i, %lor.lhs.false2.i, %if.end183, %if.end, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -66873,61 +66860,58 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit1
   %button90 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %padding = getelementptr inbounds i8, ptr %ctx, i64 8528
   %29 = load <2 x float>, ptr %padding, align 8
-  %30 = extractelement <2 x float> %29, i64 0
-  %add92 = fadd float %sub78, %30
-  %content.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add92, i64 0
-  %31 = extractelement <2 x float> %29, i64 1
-  %add99 = fadd float %add84, %31
-  %content.sroa.0.4.vec.insert = insertelement <2 x float> %content.sroa.0.0.vec.insert, float %add99, i64 1
-  %32 = insertelement <2 x float> poison, float %25, i64 0
-  %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
-  %34 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %29, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %33)
+  %30 = insertelement <2 x float> poison, float %sub78, i64 0
+  %31 = insertelement <2 x float> %30, float %add84, i64 1
+  %32 = fadd <2 x float> %31, %29
+  %33 = insertelement <2 x float> poison, float %25, i64 0
+  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
+  %35 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %29, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %34)
   %content_padding = getelementptr inbounds i8, ptr %ctx, i64 8604
-  %35 = load <2 x float>, ptr %content_padding, align 4
-  %36 = extractelement <2 x float> %35, i64 1
-  %37 = tail call float @llvm.fmuladd.f32(float %36, float -4.000000e+00, float %9)
-  %38 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %35, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> %5)
+  %36 = load <2 x float>, ptr %content_padding, align 4
+  %37 = extractelement <2 x float> %36, i64 1
+  %38 = tail call float @llvm.fmuladd.f32(float %37, float -4.000000e+00, float %9)
+  %39 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %36, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> %5)
   br i1 %cmp71.not, label %if.else140, label %if.then128
 
 if.then128:                                       ; preds = %sw.epilog
   %spacing = getelementptr inbounds i8, ptr %ctx, i64 8620
-  %39 = load float, ptr %spacing, align 4
-  %40 = extractelement <2 x float> %35, i64 0
-  %add135 = fadd float %40, %39
+  %40 = load float, ptr %spacing, align 4
+  %41 = extractelement <2 x float> %36, i64 0
+  %add135 = fadd float %41, %40
   %sub136 = fsub float %sub78, %add135
-  %41 = extractelement <2 x float> %38, i64 0
-  %sub138 = fsub float %sub136, %41
+  %42 = extractelement <2 x float> %39, i64 0
+  %sub138 = fsub float %sub136, %42
   br label %if.end146
 
 if.else140:                                       ; preds = %sw.epilog
-  %42 = extractelement <2 x float> %35, i64 0
-  %43 = tail call float @llvm.fmuladd.f32(float %42, float -4.000000e+00, float %10)
+  %43 = extractelement <2 x float> %36, i64 0
+  %44 = tail call float @llvm.fmuladd.f32(float %43, float -4.000000e+00, float %10)
   br label %if.end146
 
 if.end146:                                        ; preds = %if.else140, %if.then128
-  %.sink172 = phi float [ %43, %if.else140 ], [ %sub138, %if.then128 ]
-  %44 = insertelement <2 x float> poison, float %.sink172, i64 0
-  %bounds.sroa.4.8.vec.insert8 = insertelement <2 x float> %44, float %37, i64 1
+  %.sink172 = phi float [ %44, %if.else140 ], [ %sub138, %if.then128 ]
+  %45 = insertelement <2 x float> poison, float %.sink172, i64 0
+  %bounds.sroa.4.8.vec.insert8 = insertelement <2 x float> %45, float %38, i64 1
   %buffer147 = getelementptr inbounds i8, ptr %0, i64 104
   %color_factor150 = getelementptr inbounds i8, ptr %ctx, i64 8628
-  %45 = load float, ptr %color_factor150, align 4
+  %46 = load float, ptr %color_factor150, align 4
   %col.sroa.0.0.extract.trunc.i132 = trunc i32 %color.coerce to i8
   %col.sroa.5.0.extract.shift.i133 = lshr i32 %color.coerce, 8
   %col.sroa.5.0.extract.trunc.i134 = trunc i32 %col.sroa.5.0.extract.shift.i133 to i8
   %col.sroa.7.0.extract.shift.i135 = lshr i32 %color.coerce, 16
   %col.sroa.7.0.extract.trunc.i136 = trunc i32 %col.sroa.7.0.extract.shift.i135 to i8
-  %cmp.i137 = fcmp oeq float %45, 1.000000e+00
+  %cmp.i137 = fcmp oeq float %46, 1.000000e+00
   br i1 %cmp.i137, label %nk_rgb_factor.exit160, label %if.end.i138
 
 if.end.i138:                                      ; preds = %if.end146
   %conv.i139 = uitofp i8 %col.sroa.0.0.extract.trunc.i132 to float
-  %mul.i140 = fmul float %45, %conv.i139
+  %mul.i140 = fmul float %46, %conv.i139
   %conv1.i141 = fptoui float %mul.i140 to i8
   %conv2.i142 = uitofp i8 %col.sroa.5.0.extract.trunc.i134 to float
-  %mul3.i143 = fmul float %45, %conv2.i142
+  %mul3.i143 = fmul float %46, %conv2.i142
   %conv4.i144 = fptoui float %mul3.i143 to i8
   %conv5.i145 = uitofp i8 %col.sroa.7.0.extract.trunc.i136 to float
-  %mul6.i146 = fmul float %45, %conv5.i145
+  %mul6.i146 = fmul float %46, %conv5.i145
   %conv7.i147 = fptoui float %mul6.i146 to i8
   br label %nk_rgb_factor.exit160
 
@@ -66944,46 +66928,46 @@ nk_rgb_factor.exit160:                            ; preds = %if.end146, %if.end.
   %retval.sroa.3.0.insert.insert.i157 = or disjoint i32 %retval.sroa.5.0.insert.insert.i154, %retval.sroa.3.0.insert.shift.i156
   %retval.sroa.0.0.insert.ext.i158 = zext i8 %retval.sroa.0.0.i149 to i32
   %retval.sroa.0.0.insert.insert.i159 = or disjoint i32 %retval.sroa.3.0.insert.insert.i157, %retval.sroa.0.0.insert.ext.i158
-  tail call void @nk_fill_rect(ptr noundef nonnull %buffer147, <2 x float> %38, <2 x float> %bounds.sroa.4.8.vec.insert8, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i159)
+  tail call void @nk_fill_rect(ptr noundef nonnull %buffer147, <2 x float> %39, <2 x float> %bounds.sroa.4.8.vec.insert8, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i159)
   br i1 %cmp71.not, label %if.end159, label %if.then153
 
 if.then153:                                       ; preds = %nk_rgb_factor.exit160
-  %46 = load i32, ptr %last_widget_state, align 8
-  %47 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer147, ptr noundef nonnull %button, i32 noundef %46, ptr noundef nonnull %button90)
-  %48 = load i32, ptr %call.i, align 8
-  %cmp.i161 = icmp eq i32 %48, 0
+  %47 = load i32, ptr %last_widget_state, align 8
+  %48 = load ptr, ptr %style6, align 8
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer147, ptr noundef nonnull %button, i32 noundef %47, ptr noundef nonnull %button90)
+  %49 = load i32, ptr %call.i, align 8
+  %cmp.i161 = icmp eq i32 %49, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %text_background.i = getelementptr inbounds i8, ptr %ctx, i64 8496
   %bg.sroa.0.0.in.i = select i1 %cmp.i161, ptr %data.i, ptr %text_background.i
   %bg.sroa.0.0.i = load i32, ptr %bg.sroa.0.0.in.i, align 8
-  %and.i = and i32 %46, 16
+  %and.i = and i32 %47, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %and4.i = and i32 %46, 32
+  %and4.i = and i32 %47, 32
   %tobool5.not.i = icmp eq i32 %and4.i, 0
   %..i = select i1 %tobool5.not.i, i64 132, i64 140
   %.sink.i = select i1 %tobool.not.i, i64 %..i, i64 136
   %text_active.i = getelementptr inbounds i8, ptr %button90, i64 %.sink.i
   %sym.sroa.0.0.i = load i32, ptr %text_active.i, align 4
   %color_factor_text.i = getelementptr inbounds i8, ptr %ctx, i64 8516
-  %49 = load float, ptr %color_factor_text.i, align 4
+  %50 = load float, ptr %color_factor_text.i, align 4
   %col.sroa.0.0.extract.trunc.i.i = trunc i32 %sym.sroa.0.0.i to i8
   %col.sroa.5.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 8
   %col.sroa.5.0.extract.trunc.i.i = trunc i32 %col.sroa.5.0.extract.shift.i.i to i8
   %col.sroa.7.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 16
   %col.sroa.7.0.extract.trunc.i.i = trunc i32 %col.sroa.7.0.extract.shift.i.i to i8
-  %cmp.i.i = fcmp oeq float %49, 1.000000e+00
+  %cmp.i.i = fcmp oeq float %50, 1.000000e+00
   br i1 %cmp.i.i, label %nk_draw_button_symbol.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then153
   %conv.i.i = uitofp i8 %col.sroa.0.0.extract.trunc.i.i to float
-  %mul.i.i = fmul float %49, %conv.i.i
+  %mul.i.i = fmul float %50, %conv.i.i
   %conv1.i.i = fptoui float %mul.i.i to i8
   %conv2.i.i = uitofp i8 %col.sroa.5.0.extract.trunc.i.i to float
-  %mul3.i.i = fmul float %49, %conv2.i.i
+  %mul3.i.i = fmul float %50, %conv2.i.i
   %conv4.i.i = fptoui float %mul3.i.i to i8
   %conv5.i.i = uitofp i8 %col.sroa.7.0.extract.trunc.i.i to float
-  %mul6.i.i = fmul float %49, %conv5.i.i
+  %mul6.i.i = fmul float %50, %conv5.i.i
   %conv7.i.i = fptoui float %mul6.i.i to i8
   br label %nk_draw_button_symbol.exit
 
@@ -67000,52 +66984,52 @@ nk_draw_button_symbol.exit:                       ; preds = %if.then153, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer147, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %34, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %47)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer147, i32 noundef %sym.0, <2 x float> %32, <2 x float> %35, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %48)
   br label %if.end159
 
 if.end159:                                        ; preds = %nk_draw_button_symbol.exit, %nk_rgb_factor.exit160
-  %50 = load ptr, ptr %current, align 8
-  %tobool1.not.i = icmp eq ptr %50, null
+  %51 = load ptr, ptr %current, align 8
+  %tobool1.not.i = icmp eq ptr %51, null
   br i1 %tobool1.not.i, label %return, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.end159
-  %layout.i = getelementptr inbounds i8, ptr %50, i64 168
-  %51 = load ptr, ptr %layout.i, align 8
-  %tobool4.not.i = icmp eq ptr %51, null
+  %layout.i = getelementptr inbounds i8, ptr %51, i64 168
+  %52 = load ptr, ptr %layout.i, align 8
+  %tobool4.not.i = icmp eq ptr %52, null
   br i1 %tobool4.not.i, label %return, label %if.end.i162
 
 if.end.i162:                                      ; preds = %lor.lhs.false2.i
   %popup5.i = getelementptr inbounds i8, ptr %0, i64 288
-  %52 = load ptr, ptr %popup5.i, align 8
-  %53 = fadd <2 x float> %5, %7
-  %add.i = extractelement <2 x float> %53, i64 1
+  %53 = load ptr, ptr %popup5.i, align 8
+  %54 = fadd <2 x float> %5, %7
+  %add.i = extractelement <2 x float> %54, i64 1
   %combo_border.i = getelementptr inbounds i8, ptr %ctx, i64 9364
-  %54 = load float, ptr %combo_border.i, align 4
-  %sub.i = fsub float %add.i, %54
+  %55 = load float, ptr %combo_border.i, align 4
+  %sub.i = fsub float %add.i, %55
   %body.sroa.0.4.vec.insert.i = insertelement <2 x float> %5, float %sub.i, i64 1
   %combo_count.i = getelementptr inbounds i8, ptr %0, i64 352
-  %55 = load i32, ptr %combo_count.i, align 8
-  %inc.i = add i32 %55, 1
+  %56 = load i32, ptr %combo_count.i, align 8
+  %inc.i = add i32 %56, 1
   store i32 %inc.i, ptr %combo_count.i, align 8
-  %tobool13.i = icmp ne ptr %52, null
+  %tobool13.i = icmp ne ptr %53, null
   br i1 %tobool13.i, label %land.lhs.true.i, label %land.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i162
   %name.i = getelementptr inbounds i8, ptr %0, i64 344
-  %56 = load i32, ptr %name.i, align 8
-  %cmp.i163 = icmp eq i32 %56, %55
+  %57 = load i32, ptr %name.i, align 8
+  %cmp.i163 = icmp eq i32 %57, %56
   br i1 %cmp.i163, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %0, i64 296
-  %57 = load i32, ptr %type.i, align 8
-  %cmp17.i = icmp eq i32 %57, 32
+  %58 = load i32, ptr %type.i, align 8
+  %cmp17.i = icmp eq i32 %58, 32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i162
-  %58 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i162 ], [ %cmp17.i, %land.rhs.i ]
+  %59 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i162 ], [ %cmp17.i, %land.rhs.i ]
   %tobool24.i = xor i1 %tobool13.i, true
-  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %58
+  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %59
   %or.cond4.i = or i1 %tobool16.not, %tobool13.i
   %or.cond28.i = and i1 %or.cond4.i, %or.cond27.i
   br i1 %or.cond28.i, label %if.end34.i, label %return
@@ -67062,7 +67046,7 @@ if.end41.i:                                       ; preds = %if.end34.i
   %type43.i = getelementptr inbounds i8, ptr %0, i64 296
   store i32 32, ptr %type43.i, align 8
   %name45.i = getelementptr inbounds i8, ptr %0, i64 344
-  store i32 %55, ptr %name45.i, align 8
+  store i32 %56, ptr %name45.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end41.i, %if.end34.i, %land.end.i, %lor.lhs.false2.i, %if.end159, %if.end, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -67923,20 +67907,17 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit2
   %button115 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %padding = getelementptr inbounds i8, ptr %ctx, i64 8528
   %26 = load <2 x float>, ptr %padding, align 8
-  %27 = extractelement <2 x float> %26, i64 0
-  %add117 = fadd float %sub103, %27
-  %content.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add117, i64 0
-  %28 = extractelement <2 x float> %26, i64 1
-  %add124 = fadd float %add109, %28
-  %content.sroa.0.4.vec.insert = insertelement <2 x float> %content.sroa.0.0.vec.insert, float %add124, i64 1
-  %29 = insertelement <2 x float> poison, float %22, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %30)
+  %27 = insertelement <2 x float> poison, float %sub103, i64 0
+  %28 = insertelement <2 x float> %27, float %add109, i64 1
+  %29 = fadd <2 x float> %28, %26
+  %30 = insertelement <2 x float> poison, float %22, i64 0
+  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
+  %32 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %31)
   %buffer138 = getelementptr inbounds i8, ptr %0, i64 104
-  %32 = load ptr, ptr %style6, align 8
+  %33 = load ptr, ptr %style6, align 8
   %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer138, ptr noundef nonnull %button, i32 noundef %20, ptr noundef nonnull %button115)
-  %33 = load i32, ptr %call.i, align 8
-  %cmp.i207 = icmp eq i32 %33, 0
+  %34 = load i32, ptr %call.i, align 8
+  %cmp.i207 = icmp eq i32 %34, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %text_background.i = getelementptr inbounds i8, ptr %ctx, i64 8496
   %bg.sroa.0.0.in.i = select i1 %cmp.i207, ptr %data.i, ptr %text_background.i
@@ -67948,24 +67929,24 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit2
   %text_active.i = getelementptr inbounds i8, ptr %button115, i64 %.sink.i
   %sym.sroa.0.0.i = load i32, ptr %text_active.i, align 4
   %color_factor_text.i = getelementptr inbounds i8, ptr %ctx, i64 8516
-  %34 = load float, ptr %color_factor_text.i, align 4
+  %35 = load float, ptr %color_factor_text.i, align 4
   %col.sroa.0.0.extract.trunc.i.i = trunc i32 %sym.sroa.0.0.i to i8
   %col.sroa.5.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 8
   %col.sroa.5.0.extract.trunc.i.i = trunc i32 %col.sroa.5.0.extract.shift.i.i to i8
   %col.sroa.7.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 16
   %col.sroa.7.0.extract.trunc.i.i = trunc i32 %col.sroa.7.0.extract.shift.i.i to i8
-  %cmp.i.i = fcmp oeq float %34, 1.000000e+00
+  %cmp.i.i = fcmp oeq float %35, 1.000000e+00
   br i1 %cmp.i.i, label %nk_draw_button_symbol.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog
   %conv.i.i = uitofp i8 %col.sroa.0.0.extract.trunc.i.i to float
-  %mul.i.i = fmul float %34, %conv.i.i
+  %mul.i.i = fmul float %35, %conv.i.i
   %conv1.i.i = fptoui float %mul.i.i to i8
   %conv2.i.i = uitofp i8 %col.sroa.5.0.extract.trunc.i.i to float
-  %mul3.i.i = fmul float %34, %conv2.i.i
+  %mul3.i.i = fmul float %35, %conv2.i.i
   %conv4.i.i = fptoui float %mul3.i.i to i8
   %conv5.i.i = uitofp i8 %col.sroa.7.0.extract.trunc.i.i to float
-  %mul6.i.i = fmul float %34, %conv5.i.i
+  %mul6.i.i = fmul float %35, %conv5.i.i
   %conv7.i.i = fptoui float %mul6.i.i to i8
   br label %nk_draw_button_symbol.exit
 
@@ -67982,99 +67963,99 @@ nk_draw_button_symbol.exit:                       ; preds = %sw.epilog, %if.end.
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer138, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %31, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %32)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer138, i32 noundef %sym.0, <2 x float> %29, <2 x float> %32, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %33)
   %content_padding = getelementptr inbounds i8, ptr %ctx, i64 8604
   %y151 = getelementptr inbounds i8, ptr %ctx, i64 8608
-  %35 = load <2 x float>, ptr %content_padding, align 4
-  %36 = fadd <2 x float> %5, %35
-  %37 = extractelement <2 x float> %35, i64 1
-  %38 = tail call float @llvm.fmuladd.f32(float %37, float -2.000000e+00, float %9)
-  %39 = insertelement <2 x float> poison, float %38, i64 0
-  %image.sroa.4.8.vec.insert = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
-  %40 = load ptr, ptr %style6, align 8
-  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer138, i32 noundef %symbol, <2 x float> %36, <2 x float> %image.sroa.4.8.vec.insert, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i107, float noundef 1.000000e+00, ptr noundef %40)
-  %41 = extractelement <2 x float> %36, i64 0
-  %add169 = fadd float %41, %38
+  %36 = load <2 x float>, ptr %content_padding, align 4
+  %37 = fadd <2 x float> %5, %36
+  %38 = extractelement <2 x float> %36, i64 1
+  %39 = tail call float @llvm.fmuladd.f32(float %38, float -2.000000e+00, float %9)
+  %40 = insertelement <2 x float> poison, float %39, i64 0
+  %image.sroa.4.8.vec.insert = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
+  %41 = load ptr, ptr %style6, align 8
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer138, i32 noundef %symbol, <2 x float> %37, <2 x float> %image.sroa.4.8.vec.insert, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i107, float noundef 1.000000e+00, ptr noundef %41)
+  %42 = extractelement <2 x float> %37, i64 0
+  %add169 = fadd float %42, %39
   %spacing = getelementptr inbounds i8, ptr %ctx, i64 8620
-  %42 = load float, ptr %spacing, align 4
-  %add172 = fadd float %add169, %42
-  %43 = load float, ptr %content_padding, align 4
-  %44 = load float, ptr %y151, align 4
-  %add182 = fadd float %25, %44
-  %sub188 = fsub float %sub103, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %44, float -2.000000e+00, float %9)
-  %46 = load ptr, ptr %style6, align 8
-  %cmp.i210 = fcmp olt float %45, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i210, float 0.000000e+00, float %45
-  %height.i = getelementptr inbounds i8, ptr %46, i64 8
-  %47 = load float, ptr %height.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load ptr, ptr %width.i, align 8
-  %49 = load ptr, ptr %46, align 8
-  %call.i211 = tail call float %48(ptr %49, float noundef %47, ptr noundef %selected, i32 noundef %len) #51
+  %43 = load float, ptr %spacing, align 4
+  %add172 = fadd float %add169, %43
+  %44 = load float, ptr %content_padding, align 4
+  %45 = load float, ptr %y151, align 4
+  %add182 = fadd float %25, %45
+  %sub188 = fsub float %sub103, %44
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float -2.000000e+00, float %9)
+  %47 = load ptr, ptr %style6, align 8
+  %cmp.i210 = fcmp olt float %46, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i210, float 0.000000e+00, float %46
+  %height.i = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = load float, ptr %height.i, align 8
+  %width.i = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = load ptr, ptr %width.i, align 8
+  %50 = load ptr, ptr %47, align 8
+  %call.i211 = tail call float %49(ptr %50, float noundef %48, ptr noundef %selected, i32 noundef %len) #51
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %add165.i = fadd float %add182, %div164.i
-  %50 = load float, ptr %height.i, align 8
-  %div167.i = fmul float %50, 5.000000e-01
+  %51 = load float, ptr %height.i, align 8
+  %div167.i = fmul float %51, 5.000000e-01
   %sub168.i = fsub float %add165.i, %div167.i
-  %51 = insertelement <2 x float> poison, float %add172, i64 0
-  %52 = insertelement <2 x float> %51, float %div164.i, i64 1
-  %53 = insertelement <2 x float> poison, float %43, i64 0
-  %54 = insertelement <2 x float> %53, float %div167.i, i64 1
-  %55 = fadd <2 x float> %52, %54
-  %56 = extractelement <2 x float> %55, i64 0
-  %add35.i = fadd float %56, 0.000000e+00
-  %57 = insertelement <2 x float> poison, float %add35.i, i64 0
-  %58 = insertelement <2 x float> poison, float %sub188, i64 0
-  %59 = insertelement <2 x float> %58, float %mul.b.sroa.14.12.vec.extract.i, i64 1
-  %60 = fsub <2 x float> %59, %55
-  %61 = insertelement <2 x float> %52, float 0.000000e+00, i64 0
-  %62 = fcmp ogt <2 x float> %60, %61
-  %63 = select <2 x i1> %62, <2 x float> %60, <2 x float> %61
-  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %57, float %sub168.i, i64 1
-  tail call void @nk_draw_text(ptr noundef nonnull %buffer138, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %63, ptr noundef %selected, i32 noundef %len, ptr noundef nonnull %46, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i)
-  %64 = load ptr, ptr %current, align 8
-  %tobool1.not.i = icmp eq ptr %64, null
+  %52 = insertelement <2 x float> poison, float %add172, i64 0
+  %53 = insertelement <2 x float> %52, float %div164.i, i64 1
+  %54 = insertelement <2 x float> poison, float %44, i64 0
+  %55 = insertelement <2 x float> %54, float %div167.i, i64 1
+  %56 = fadd <2 x float> %53, %55
+  %57 = extractelement <2 x float> %56, i64 0
+  %add35.i = fadd float %57, 0.000000e+00
+  %58 = insertelement <2 x float> poison, float %add35.i, i64 0
+  %59 = insertelement <2 x float> poison, float %sub188, i64 0
+  %60 = insertelement <2 x float> %59, float %mul.b.sroa.14.12.vec.extract.i, i64 1
+  %61 = fsub <2 x float> %60, %56
+  %62 = insertelement <2 x float> %53, float 0.000000e+00, i64 0
+  %63 = fcmp ogt <2 x float> %61, %62
+  %64 = select <2 x i1> %63, <2 x float> %61, <2 x float> %62
+  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %58, float %sub168.i, i64 1
+  tail call void @nk_draw_text(ptr noundef nonnull %buffer138, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %64, ptr noundef %selected, i32 noundef %len, ptr noundef nonnull %47, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i)
+  %65 = load ptr, ptr %current, align 8
+  %tobool1.not.i = icmp eq ptr %65, null
   br i1 %tobool1.not.i, label %return, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %nk_draw_button_symbol.exit
-  %layout.i = getelementptr inbounds i8, ptr %64, i64 168
-  %65 = load ptr, ptr %layout.i, align 8
-  %tobool4.not.i = icmp eq ptr %65, null
+  %layout.i = getelementptr inbounds i8, ptr %65, i64 168
+  %66 = load ptr, ptr %layout.i, align 8
+  %tobool4.not.i = icmp eq ptr %66, null
   br i1 %tobool4.not.i, label %return, label %if.end.i212
 
 if.end.i212:                                      ; preds = %lor.lhs.false2.i
   %popup5.i = getelementptr inbounds i8, ptr %0, i64 288
-  %66 = load ptr, ptr %popup5.i, align 8
-  %67 = fadd <2 x float> %5, %7
-  %add.i213 = extractelement <2 x float> %67, i64 1
+  %67 = load ptr, ptr %popup5.i, align 8
+  %68 = fadd <2 x float> %5, %7
+  %add.i213 = extractelement <2 x float> %68, i64 1
   %combo_border.i = getelementptr inbounds i8, ptr %ctx, i64 9364
-  %68 = load float, ptr %combo_border.i, align 4
-  %sub.i = fsub float %add.i213, %68
+  %69 = load float, ptr %combo_border.i, align 4
+  %sub.i = fsub float %add.i213, %69
   %body.sroa.0.4.vec.insert.i = insertelement <2 x float> %5, float %sub.i, i64 1
   %combo_count.i = getelementptr inbounds i8, ptr %0, i64 352
-  %69 = load i32, ptr %combo_count.i, align 8
-  %inc.i = add i32 %69, 1
+  %70 = load i32, ptr %combo_count.i, align 8
+  %inc.i = add i32 %70, 1
   store i32 %inc.i, ptr %combo_count.i, align 8
-  %tobool13.i = icmp ne ptr %66, null
+  %tobool13.i = icmp ne ptr %67, null
   br i1 %tobool13.i, label %land.lhs.true.i, label %land.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i212
   %name.i = getelementptr inbounds i8, ptr %0, i64 344
-  %70 = load i32, ptr %name.i, align 8
-  %cmp.i214 = icmp eq i32 %70, %69
+  %71 = load i32, ptr %name.i, align 8
+  %cmp.i214 = icmp eq i32 %71, %70
   br i1 %cmp.i214, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %0, i64 296
-  %71 = load i32, ptr %type.i, align 8
-  %cmp17.i = icmp eq i32 %71, 32
+  %72 = load i32, ptr %type.i, align 8
+  %cmp17.i = icmp eq i32 %72, 32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i212
-  %72 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i212 ], [ %cmp17.i, %land.rhs.i ]
+  %73 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i212 ], [ %cmp17.i, %land.rhs.i ]
   %tobool24.i = xor i1 %tobool13.i, true
-  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %72
+  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %73
   %or.cond4.i = or i1 %tobool16.not, %tobool13.i
   %or.cond28.i = and i1 %or.cond4.i, %or.cond27.i
   br i1 %or.cond28.i, label %if.end34.i, label %return
@@ -68091,7 +68072,7 @@ if.end41.i:                                       ; preds = %if.end34.i
   %type43.i = getelementptr inbounds i8, ptr %0, i64 296
   store i32 32, ptr %type43.i, align 8
   %name45.i = getelementptr inbounds i8, ptr %0, i64 344
-  store i32 %69, ptr %name45.i, align 8
+  store i32 %70, ptr %name45.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end41.i, %if.end34.i, %land.end.i, %lor.lhs.false2.i, %nk_draw_button_symbol.exit, %if.end, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -68698,24 +68679,21 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit1
   store float %22, ptr %h106, align 4
   %padding = getelementptr inbounds i8, ptr %ctx, i64 8528
   %26 = load <2 x float>, ptr %padding, align 8
-  %27 = extractelement <2 x float> %26, i64 0
-  %add111 = fadd float %sub97, %27
-  %content.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add111, i64 0
-  %28 = extractelement <2 x float> %26, i64 1
-  %add118 = fadd float %add103, %28
-  %content.sroa.0.4.vec.insert = insertelement <2 x float> %content.sroa.0.0.vec.insert, float %add118, i64 1
-  %29 = insertelement <2 x float> poison, float %22, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %30)
+  %27 = insertelement <2 x float> poison, float %sub97, i64 0
+  %28 = insertelement <2 x float> %27, float %add103, i64 1
+  %29 = fadd <2 x float> %28, %26
+  %30 = insertelement <2 x float> poison, float %22, i64 0
+  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
+  %32 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> <float -2.000000e+00, float -2.000000e+00>, <2 x float> %31)
   br i1 %cmp90.not, label %if.end139, label %if.then133
 
 if.then133:                                       ; preds = %sw.epilog
   %button109 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %buffer134 = getelementptr inbounds i8, ptr %0, i64 104
-  %32 = load ptr, ptr %style6, align 8
+  %33 = load ptr, ptr %style6, align 8
   %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer134, ptr noundef nonnull %button, i32 noundef %20, ptr noundef nonnull %button109)
-  %33 = load i32, ptr %call.i, align 8
-  %cmp.i178 = icmp eq i32 %33, 0
+  %34 = load i32, ptr %call.i, align 8
+  %cmp.i178 = icmp eq i32 %34, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %text_background.i = getelementptr inbounds i8, ptr %ctx, i64 8496
   %bg.sroa.0.0.in.i = select i1 %cmp.i178, ptr %data.i, ptr %text_background.i
@@ -68727,24 +68705,24 @@ if.then133:                                       ; preds = %sw.epilog
   %text_active.i = getelementptr inbounds i8, ptr %button109, i64 %.sink.i
   %sym.sroa.0.0.i = load i32, ptr %text_active.i, align 4
   %color_factor_text.i = getelementptr inbounds i8, ptr %ctx, i64 8516
-  %34 = load float, ptr %color_factor_text.i, align 4
+  %35 = load float, ptr %color_factor_text.i, align 4
   %col.sroa.0.0.extract.trunc.i.i = trunc i32 %sym.sroa.0.0.i to i8
   %col.sroa.5.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 8
   %col.sroa.5.0.extract.trunc.i.i = trunc i32 %col.sroa.5.0.extract.shift.i.i to i8
   %col.sroa.7.0.extract.shift.i.i = lshr i32 %sym.sroa.0.0.i, 16
   %col.sroa.7.0.extract.trunc.i.i = trunc i32 %col.sroa.7.0.extract.shift.i.i to i8
-  %cmp.i.i = fcmp oeq float %34, 1.000000e+00
+  %cmp.i.i = fcmp oeq float %35, 1.000000e+00
   br i1 %cmp.i.i, label %nk_draw_button_symbol.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then133
   %conv.i.i = uitofp i8 %col.sroa.0.0.extract.trunc.i.i to float
-  %mul.i.i = fmul float %34, %conv.i.i
+  %mul.i.i = fmul float %35, %conv.i.i
   %conv1.i.i = fptoui float %mul.i.i to i8
   %conv2.i.i = uitofp i8 %col.sroa.5.0.extract.trunc.i.i to float
-  %mul3.i.i = fmul float %34, %conv2.i.i
+  %mul3.i.i = fmul float %35, %conv2.i.i
   %conv4.i.i = fptoui float %mul3.i.i to i8
   %conv5.i.i = uitofp i8 %col.sroa.7.0.extract.trunc.i.i to float
-  %mul6.i.i = fmul float %34, %conv5.i.i
+  %mul6.i.i = fmul float %35, %conv5.i.i
   %conv7.i.i = fptoui float %mul6.i.i to i8
   br label %nk_draw_button_symbol.exit
 
@@ -68761,114 +68739,114 @@ nk_draw_button_symbol.exit:                       ; preds = %if.then133, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer134, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %31, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %32)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer134, i32 noundef %sym.0, <2 x float> %29, <2 x float> %32, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %33)
   br label %if.end139
 
 if.end139:                                        ; preds = %nk_draw_button_symbol.exit, %sw.epilog
   %add.sub97 = phi float [ %sub97, %nk_draw_button_symbol.exit ], [ %add, %sw.epilog ]
   %content_padding = getelementptr inbounds i8, ptr %ctx, i64 8604
   %y148 = getelementptr inbounds i8, ptr %ctx, i64 8608
-  %35 = load <2 x float>, ptr %content_padding, align 4
-  %36 = fadd <2 x float> %5, %35
-  %37 = extractelement <2 x float> %35, i64 1
-  %38 = tail call float @llvm.fmuladd.f32(float %37, float -2.000000e+00, float %9)
-  %39 = insertelement <2 x float> poison, float %38, i64 0
-  %image.sroa.4.8.vec.insert = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
+  %36 = load <2 x float>, ptr %content_padding, align 4
+  %37 = fadd <2 x float> %5, %36
+  %38 = extractelement <2 x float> %36, i64 1
+  %39 = tail call float @llvm.fmuladd.f32(float %38, float -2.000000e+00, float %9)
+  %40 = insertelement <2 x float> poison, float %39, i64 0
+  %image.sroa.4.8.vec.insert = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
   %buffer158 = getelementptr inbounds i8, ptr %0, i64 104
-  %40 = load float, ptr %color_factor, align 4
-  %cmp.i179 = fcmp oeq float %40, 1.000000e+00
-  %mul.i181 = fmul float %40, 2.550000e+02
+  %41 = load float, ptr %color_factor, align 4
+  %cmp.i179 = fcmp oeq float %41, 1.000000e+00
+  %mul.i181 = fmul float %41, 2.550000e+02
   %conv1.i182 = fptoui float %mul.i181 to i8
-  %41 = zext i8 %conv1.i182 to i32
-  %retval.sroa.5.0.insert.ext.i190 = select i1 %cmp.i179, i32 255, i32 %41
+  %42 = zext i8 %conv1.i182 to i32
+  %retval.sroa.5.0.insert.ext.i190 = select i1 %cmp.i179, i32 255, i32 %42
   %retval.sroa.5.0.insert.shift.i191 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i190, 16
   %retval.sroa.3.0.insert.shift.i194 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i190, 8
   %retval.sroa.5.0.insert.insert.i192 = or disjoint i32 %retval.sroa.5.0.insert.shift.i191, %retval.sroa.3.0.insert.shift.i194
   %retval.sroa.3.0.insert.insert.i195 = or disjoint i32 %retval.sroa.5.0.insert.insert.i192, %retval.sroa.5.0.insert.ext.i190
   %retval.sroa.0.0.insert.insert.i197 = or disjoint i32 %retval.sroa.3.0.insert.insert.i195, -16777216
-  call void @nk_draw_image(ptr noundef nonnull %buffer158, <2 x float> %36, <2 x float> %image.sroa.4.8.vec.insert, ptr noundef nonnull %img, i32 %retval.sroa.0.0.insert.insert.i197)
-  %42 = extractelement <2 x float> %36, i64 0
-  %add168 = fadd float %42, %38
+  call void @nk_draw_image(ptr noundef nonnull %buffer158, <2 x float> %37, <2 x float> %image.sroa.4.8.vec.insert, ptr noundef nonnull %img, i32 %retval.sroa.0.0.insert.insert.i197)
+  %43 = extractelement <2 x float> %37, i64 0
+  %add168 = fadd float %43, %39
   %spacing = getelementptr inbounds i8, ptr %ctx, i64 8620
-  %43 = load float, ptr %spacing, align 4
-  %add171 = fadd float %add168, %43
-  %44 = load float, ptr %content_padding, align 4
-  %45 = load float, ptr %y148, align 4
-  %add181 = fadd float %25, %45
-  %46 = tail call float @llvm.fmuladd.f32(float %45, float -2.000000e+00, float %9)
-  %sub205 = fsub float %add.sub97, %44
-  %47 = load ptr, ptr %style6, align 8
-  %cmp.i201 = fcmp olt float %46, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i201, float 0.000000e+00, float %46
-  %height.i = getelementptr inbounds i8, ptr %47, i64 8
-  %48 = load float, ptr %height.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %width.i, align 8
-  %50 = load ptr, ptr %47, align 8
-  %call.i202 = tail call float %49(ptr %50, float noundef %48, ptr noundef %selected, i32 noundef %len) #51
+  %44 = load float, ptr %spacing, align 4
+  %add171 = fadd float %add168, %44
+  %45 = load float, ptr %content_padding, align 4
+  %46 = load float, ptr %y148, align 4
+  %add181 = fadd float %25, %46
+  %47 = tail call float @llvm.fmuladd.f32(float %46, float -2.000000e+00, float %9)
+  %sub205 = fsub float %add.sub97, %45
+  %48 = load ptr, ptr %style6, align 8
+  %cmp.i201 = fcmp olt float %47, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i201, float 0.000000e+00, float %47
+  %height.i = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = load float, ptr %height.i, align 8
+  %width.i = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load ptr, ptr %width.i, align 8
+  %51 = load ptr, ptr %48, align 8
+  %call.i202 = tail call float %50(ptr %51, float noundef %49, ptr noundef %selected, i32 noundef %len) #51
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %add165.i = fadd float %add181, %div164.i
-  %51 = load float, ptr %height.i, align 8
-  %div167.i = fmul float %51, 5.000000e-01
+  %52 = load float, ptr %height.i, align 8
+  %div167.i = fmul float %52, 5.000000e-01
   %sub168.i = fsub float %add165.i, %div167.i
-  %52 = insertelement <2 x float> poison, float %add171, i64 0
-  %53 = insertelement <2 x float> %52, float %div164.i, i64 1
-  %54 = insertelement <2 x float> poison, float %44, i64 0
-  %55 = insertelement <2 x float> %54, float %div167.i, i64 1
-  %56 = fadd <2 x float> %53, %55
-  %57 = extractelement <2 x float> %56, i64 0
-  %add35.i = fadd float %57, 0.000000e+00
-  %58 = insertelement <2 x float> poison, float %add35.i, i64 0
-  %59 = insertelement <2 x float> poison, float %sub205, i64 0
-  %60 = insertelement <2 x float> %59, float %mul.b.sroa.14.12.vec.extract.i, i64 1
-  %61 = fsub <2 x float> %60, %56
-  %62 = insertelement <2 x float> %53, float 0.000000e+00, i64 0
-  %63 = fcmp ogt <2 x float> %61, %62
-  %64 = select <2 x i1> %63, <2 x float> %61, <2 x float> %62
-  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %58, float %sub168.i, i64 1
-  tail call void @nk_draw_text(ptr noundef nonnull %buffer158, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %64, ptr noundef %selected, i32 noundef %len, ptr noundef nonnull %47, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i)
-  %65 = load ptr, ptr %current, align 8
-  %tobool1.not.i = icmp eq ptr %65, null
+  %53 = insertelement <2 x float> poison, float %add171, i64 0
+  %54 = insertelement <2 x float> %53, float %div164.i, i64 1
+  %55 = insertelement <2 x float> poison, float %45, i64 0
+  %56 = insertelement <2 x float> %55, float %div167.i, i64 1
+  %57 = fadd <2 x float> %54, %56
+  %58 = extractelement <2 x float> %57, i64 0
+  %add35.i = fadd float %58, 0.000000e+00
+  %59 = insertelement <2 x float> poison, float %add35.i, i64 0
+  %60 = insertelement <2 x float> poison, float %sub205, i64 0
+  %61 = insertelement <2 x float> %60, float %mul.b.sroa.14.12.vec.extract.i, i64 1
+  %62 = fsub <2 x float> %61, %57
+  %63 = insertelement <2 x float> %54, float 0.000000e+00, i64 0
+  %64 = fcmp ogt <2 x float> %62, %63
+  %65 = select <2 x i1> %64, <2 x float> %62, <2 x float> %63
+  %label.sroa.0.4.vec.insert27.i = insertelement <2 x float> %59, float %sub168.i, i64 1
+  tail call void @nk_draw_text(ptr noundef nonnull %buffer158, <2 x float> %label.sroa.0.4.vec.insert27.i, <2 x float> %65, ptr noundef %selected, i32 noundef %len, ptr noundef nonnull %48, i32 %text.sroa.3.0, i32 %retval.sroa.0.0.insert.insert.i)
+  %66 = load ptr, ptr %current, align 8
+  %tobool1.not.i = icmp eq ptr %66, null
   br i1 %tobool1.not.i, label %return, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.end139
-  %layout.i = getelementptr inbounds i8, ptr %65, i64 168
-  %66 = load ptr, ptr %layout.i, align 8
-  %tobool4.not.i = icmp eq ptr %66, null
+  %layout.i = getelementptr inbounds i8, ptr %66, i64 168
+  %67 = load ptr, ptr %layout.i, align 8
+  %tobool4.not.i = icmp eq ptr %67, null
   br i1 %tobool4.not.i, label %return, label %if.end.i203
 
 if.end.i203:                                      ; preds = %lor.lhs.false2.i
   %popup5.i = getelementptr inbounds i8, ptr %0, i64 288
-  %67 = load ptr, ptr %popup5.i, align 8
-  %68 = fadd <2 x float> %5, %7
-  %add.i204 = extractelement <2 x float> %68, i64 1
+  %68 = load ptr, ptr %popup5.i, align 8
+  %69 = fadd <2 x float> %5, %7
+  %add.i204 = extractelement <2 x float> %69, i64 1
   %combo_border.i = getelementptr inbounds i8, ptr %ctx, i64 9364
-  %69 = load float, ptr %combo_border.i, align 4
-  %sub.i = fsub float %add.i204, %69
+  %70 = load float, ptr %combo_border.i, align 4
+  %sub.i = fsub float %add.i204, %70
   %body.sroa.0.4.vec.insert.i = insertelement <2 x float> %5, float %sub.i, i64 1
   %combo_count.i = getelementptr inbounds i8, ptr %0, i64 352
-  %70 = load i32, ptr %combo_count.i, align 8
-  %inc.i = add i32 %70, 1
+  %71 = load i32, ptr %combo_count.i, align 8
+  %inc.i = add i32 %71, 1
   store i32 %inc.i, ptr %combo_count.i, align 8
-  %tobool13.i = icmp ne ptr %67, null
+  %tobool13.i = icmp ne ptr %68, null
   br i1 %tobool13.i, label %land.lhs.true.i, label %land.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i203
   %name.i = getelementptr inbounds i8, ptr %0, i64 344
-  %71 = load i32, ptr %name.i, align 8
-  %cmp.i205 = icmp eq i32 %71, %70
+  %72 = load i32, ptr %name.i, align 8
+  %cmp.i205 = icmp eq i32 %72, %71
   br i1 %cmp.i205, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %0, i64 296
-  %72 = load i32, ptr %type.i, align 8
-  %cmp17.i = icmp eq i32 %72, 32
+  %73 = load i32, ptr %type.i, align 8
+  %cmp17.i = icmp eq i32 %73, 32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i203
-  %73 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i203 ], [ %cmp17.i, %land.rhs.i ]
+  %74 = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i203 ], [ %cmp17.i, %land.rhs.i ]
   %tobool24.i = xor i1 %tobool13.i, true
-  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %73
+  %or.cond27.i = select i1 %tobool24.i, i1 true, i1 %74
   %or.cond4.i = or i1 %tobool16.not, %tobool13.i
   %or.cond28.i = and i1 %or.cond4.i, %or.cond27.i
   br i1 %or.cond28.i, label %if.end34.i, label %return
@@ -68885,7 +68863,7 @@ if.end41.i:                                       ; preds = %if.end34.i
   %type43.i = getelementptr inbounds i8, ptr %0, i64 296
   store i32 32, ptr %type43.i, align 8
   %name45.i = getelementptr inbounds i8, ptr %0, i64 344
-  store i32 %70, ptr %name45.i, align 8
+  store i32 %71, ptr %name45.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end41.i, %if.end34.i, %land.end.i, %lor.lhs.false2.i, %if.end139, %if.end, %entry, %lor.lhs.false, %lor.lhs.false2

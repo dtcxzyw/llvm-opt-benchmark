@@ -1769,94 +1769,95 @@ if.end211:                                        ; preds = %if.then159, %if.the
   %conv267 = sext i16 %cond258 to i32
   %call268 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %ps, i32 noundef %conv237, i32 noundef %conv267)
   %conv269 = sitofp i32 %call268 to float
-  %add270 = fadd nsz float %conv269, 5.000000e-01
   %Y272 = getelementptr inbounds i8, ptr %this, i64 96
-  store float %add270, ptr %Y272, align 8, !tbaa !164
   %62 = load i32, ptr %ps, align 4, !tbaa !147
   %mul.i556 = mul i32 %62, 1103515245
   %add.i557 = add i32 %mul.i556, 12345
   store i32 %add.i557, ptr %ps, align 4, !tbaa !147
   %div.i558 = sdiv i32 %add.i557, 65536
   %rem.i559 = and i32 %div.i558, 32767
-  %63 = load i16, ptr %ar, align 2, !tbaa !165
+  %63 = load i16, ptr %ar, align 2, !tbaa !164
   %conv276 = sext i16 %63 to i32
   %rem277 = urem i32 %rem.i559, %conv276
   %conv278 = uitofp i32 %rem277 to float
-  %add279 = fadd nsz float %conv278, 5.000000e-01
-  store float %add279, ptr %orp, align 4, !tbaa !166
+  %64 = insertelement <2 x float> poison, float %conv278, i64 0
+  %65 = insertelement <2 x float> %64, float %conv269, i64 1
+  %66 = fadd nsz <2 x float> %65, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %66, ptr %orp, align 4, !tbaa !70
   %gennotify = getelementptr inbounds i8, ptr %this, i64 16
-  %64 = load ptr, ptr %gennotify, align 8, !tbaa !133
-  %tobool282.not = icmp eq ptr %64, null
+  %67 = load ptr, ptr %gennotify, align 8, !tbaa !133
+  %tobool282.not = icmp eq ptr %67, null
   br i1 %tobool282.not, label %if.end314, label %if.then283
 
 if.then283:                                       ; preds = %56
-  %65 = load i16, ptr %of, align 8, !tbaa !167
-  %conv287 = sitofp i16 %65 to float
-  %add290 = fadd nsz float %add279, %conv287
+  %68 = load i16, ptr %of, align 8, !tbaa !165
+  %conv287 = sitofp i16 %68 to float
+  %69 = extractelement <2 x float> %66, i64 0
+  %add290 = fadd nsz float %69, %conv287
   %conv291 = fptosi float %add290 to i16
-  %66 = load float, ptr %Z265, align 4, !tbaa !163
-  %67 = load i8, ptr %large_cave, align 4, !tbaa !145, !range !99, !noundef !100
-  %tobool309.not = icmp eq i8 %67, 0
+  %70 = load float, ptr %Z265, align 4, !tbaa !163
+  %71 = load i8, ptr %large_cave, align 4, !tbaa !145, !range !99, !noundef !100
+  %tobool309.not = icmp eq i8 %71, 0
   %cond310 = select i1 %tobool309.not, i32 2, i32 4
-  %68 = load <2 x i16>, ptr %Y6.i548, align 2, !tbaa !15
-  %69 = sitofp <2 x i16> %68 to <2 x float>
-  %70 = insertelement <2 x float> poison, float %add270, i64 0
-  %71 = insertelement <2 x float> %70, float %66, i64 1
-  %72 = fadd nsz <2 x float> %71, %69
-  %73 = fptosi <2 x float> %72 to <2 x i16>
-  %74 = zext <2 x i16> %73 to <2 x i48>
-  %75 = shl nuw <2 x i48> %74, <i48 16, i48 32>
-  %shift = shufflevector <2 x i48> %75, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
-  %76 = or disjoint <2 x i48> %shift, %75
-  %abs_pos.sroa.4.0.insert.insert = extractelement <2 x i48> %76, i64 0
+  %72 = load <2 x i16>, ptr %Y6.i548, align 2, !tbaa !15
+  %73 = sitofp <2 x i16> %72 to <2 x float>
+  %74 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %75 = insertelement <2 x float> %74, float %70, i64 1
+  %76 = fadd nsz <2 x float> %75, %73
+  %77 = fptosi <2 x float> %76 to <2 x i16>
+  %78 = zext <2 x i16> %77 to <2 x i48>
+  %79 = shl nuw <2 x i48> %78, <i48 16, i48 32>
+  %shift = shufflevector <2 x i48> %79, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
+  %80 = or disjoint <2 x i48> %shift, %79
+  %abs_pos.sroa.4.0.insert.insert = extractelement <2 x i48> %80, i64 0
   %abs_pos.sroa.0.0.insert.ext = zext i16 %conv291 to i48
   %abs_pos.sroa.0.0.insert.insert = or disjoint i48 %abs_pos.sroa.4.0.insert.insert, %abs_pos.sroa.0.0.insert.ext
-  %call313 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %64, i32 noundef %cond310, i48 %abs_pos.sroa.0.0.insert.insert)
+  %call313 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %67, i32 noundef %cond310, i48 %abs_pos.sroa.0.0.insert.insert)
   br label %if.end314
 
 if.end314:                                        ; preds = %if.then283, %56
   %tunnel_routepoints316 = getelementptr inbounds i8, ptr %this, i64 70
-  %77 = load i16, ptr %tunnel_routepoints316, align 2, !tbaa !155
-  %cmp318577.not = icmp eq i16 %77, 0
+  %81 = load i16, ptr %tunnel_routepoints316, align 2, !tbaa !155
+  %cmp318577.not = icmp eq i16 %81, 0
   br i1 %cmp318577.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %if.end314
-  %78 = load ptr, ptr %gennotify, align 8, !tbaa !133
-  %tobool323.not = icmp eq ptr %78, null
+  %82 = load ptr, ptr %gennotify, align 8, !tbaa !133
+  %tobool323.not = icmp eq ptr %82, null
   br i1 %tobool323.not, label %if.end357, label %if.then324
 
 for.body:                                         ; preds = %if.end314, %for.body
   %j.0578 = phi i16 [ %inc, %for.body ], [ 0, %if.end314 ]
-  %79 = urem i16 %j.0578, %narrow568
-  %cmp321 = icmp eq i16 %79, 0
+  %83 = urem i16 %j.0578, %narrow568
+  %cmp321 = icmp eq i16 %83, 0
   tail call void @_ZN15CavesRandomWalk10makeTunnelEb(ptr noundef nonnull align 8 dereferenceable(150) %this, i1 noundef zeroext %cmp321)
   %inc = add nuw i16 %j.0578, 1
-  %80 = load i16, ptr %tunnel_routepoints316, align 2, !tbaa !155
-  %cmp318 = icmp ult i16 %inc, %80
-  br i1 %cmp318, label %for.body, label %for.cond.cleanup, !llvm.loop !168
+  %84 = load i16, ptr %tunnel_routepoints316, align 2, !tbaa !155
+  %cmp318 = icmp ult i16 %inc, %84
+  br i1 %cmp318, label %for.body, label %for.cond.cleanup, !llvm.loop !166
 
 if.then324:                                       ; preds = %for.cond.cleanup
-  %81 = load i16, ptr %of, align 8, !tbaa !167
-  %conv329 = sitofp i16 %81 to float
-  %82 = load float, ptr %orp, align 4, !tbaa !166
-  %add332 = fadd nsz float %82, %conv329
+  %85 = load i16, ptr %of, align 8, !tbaa !165
+  %conv329 = sitofp i16 %85 to float
+  %86 = load float, ptr %orp, align 4, !tbaa !167
+  %add332 = fadd nsz float %86, %conv329
   %conv333 = fptosi float %add332 to i16
-  %83 = load i8, ptr %large_cave, align 4, !tbaa !145, !range !99, !noundef !100
-  %tobool352.not = icmp eq i8 %83, 0
+  %87 = load i8, ptr %large_cave, align 4, !tbaa !145, !range !99, !noundef !100
+  %tobool352.not = icmp eq i8 %87, 0
   %cond353 = select i1 %tobool352.not, i32 3, i32 5
-  %84 = load <2 x i16>, ptr %Y6.i548, align 2, !tbaa !15
-  %85 = sitofp <2 x i16> %84 to <2 x float>
-  %86 = load <2 x float>, ptr %Y272, align 8, !tbaa !70
-  %87 = fadd nsz <2 x float> %86, %85
-  %88 = fptosi <2 x float> %87 to <2 x i16>
-  %89 = zext <2 x i16> %88 to <2 x i48>
-  %90 = shl nuw <2 x i48> %89, <i48 16, i48 32>
-  %shift588 = shufflevector <2 x i48> %90, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
-  %91 = or disjoint <2 x i48> %shift588, %90
-  %abs_pos325.sroa.4.0.insert.insert = extractelement <2 x i48> %91, i64 0
+  %88 = load <2 x i16>, ptr %Y6.i548, align 2, !tbaa !15
+  %89 = sitofp <2 x i16> %88 to <2 x float>
+  %90 = load <2 x float>, ptr %Y272, align 8, !tbaa !70
+  %91 = fadd nsz <2 x float> %90, %89
+  %92 = fptosi <2 x float> %91 to <2 x i16>
+  %93 = zext <2 x i16> %92 to <2 x i48>
+  %94 = shl nuw <2 x i48> %93, <i48 16, i48 32>
+  %shift588 = shufflevector <2 x i48> %94, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
+  %95 = or disjoint <2 x i48> %shift588, %94
+  %abs_pos325.sroa.4.0.insert.insert = extractelement <2 x i48> %95, i64 0
   %abs_pos325.sroa.0.0.insert.ext = zext i16 %conv333 to i48
   %abs_pos325.sroa.0.0.insert.insert = or disjoint i48 %abs_pos325.sroa.4.0.insert.insert, %abs_pos325.sroa.0.0.insert.ext
-  %call356 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %78, i32 noundef %cond353, i48 %abs_pos325.sroa.0.0.insert.insert)
+  %call356 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %82, i32 noundef %cond353, i48 %abs_pos325.sroa.0.0.insert.insert)
   br label %if.end357
 
 if.end357:                                        ; preds = %if.then324, %for.cond.cleanup
@@ -2053,13 +2054,13 @@ if.end:                                           ; preds = %if.then, %entry
   %min_tunnel_diameter = getelementptr inbounds i8, ptr %this, i64 66
   %22 = load i16, ptr %min_tunnel_diameter, align 2, !tbaa !156
   %max_tunnel_diameter = getelementptr inbounds i8, ptr %this, i64 68
-  %23 = load i16, ptr %max_tunnel_diameter, align 4, !tbaa !169
+  %23 = load i16, ptr %max_tunnel_diameter, align 4, !tbaa !168
   %conv24 = sext i16 %22 to i32
   %conv25 = sext i16 %23 to i32
   %call26 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %conv24, i32 noundef %conv25)
   %conv27 = trunc i32 %call26 to i16
   %rs = getelementptr inbounds i8, ptr %this, i64 116
-  store i16 %conv27, ptr %rs, align 4, !tbaa !170
+  store i16 %conv27, ptr %rs, align 4, !tbaa !169
   %part_max_length_rs = getelementptr inbounds i8, ptr %this, i64 72
   %24 = load i32, ptr %part_max_length_rs, align 8, !tbaa !154
   %mul = mul i32 %24, %call26
@@ -2185,7 +2186,7 @@ if.end121:                                        ; preds = %if.else84, %if.then
   %Z11.i = getelementptr inbounds i8, ptr %this, i64 108
   %36 = load i16, ptr %Z11.i, align 4, !tbaa !158
   %add13.i = add i16 %36, %conv131
-  %37 = load i16, ptr %rs, align 4, !tbaa !170
+  %37 = load i16, ptr %rs, align 4, !tbaa !169
   %38 = sdiv i16 %37, 2
   %add.i304 = add i16 %add.i301, %38
   %add6.i = add i16 %add8.i, %38
@@ -2205,7 +2206,7 @@ if.end121:                                        ; preds = %if.else84, %if.then
 land.lhs.true.i:                                  ; preds = %if.end121
   %conv.i = sext i16 %add10.i to i64
   %Z2.i = getelementptr inbounds i8, ptr %this, i64 84
-  %40 = load i16, ptr %Z2.i, align 4, !tbaa !171
+  %40 = load i16, ptr %Z2.i, align 4, !tbaa !170
   %conv3.i = sext i16 %40 to i64
   %cmp4.not.i = icmp slt i16 %add10.i, %40
   %Z8.i = getelementptr inbounds i8, ptr %this, i64 90
@@ -2217,7 +2218,7 @@ land.lhs.true.i:                                  ; preds = %if.end121
 land.lhs.true11.i:                                ; preds = %land.lhs.true.i
   %node_min.i = getelementptr inbounds i8, ptr %this, i64 80
   %node_max.i = getelementptr inbounds i8, ptr %this, i64 86
-  %42 = load i16, ptr %node_min.i, align 8, !tbaa !172
+  %42 = load i16, ptr %node_min.i, align 8, !tbaa !171
   %cmp16.not.i = icmp slt i16 %add.i304, %42
   %43 = load i16, ptr %node_max.i, align 2
   %cmp23.not.i = icmp sgt i16 %add.i304, %43
@@ -2264,7 +2265,7 @@ land.lhs.true.i337:                               ; preds = %if.else.i, %if.then
 land.lhs.true11.i347:                             ; preds = %land.lhs.true.i337
   %node_min.i348 = getelementptr inbounds i8, ptr %this, i64 80
   %node_max.i349 = getelementptr inbounds i8, ptr %this, i64 86
-  %48 = load i16, ptr %node_min.i348, align 8, !tbaa !172
+  %48 = load i16, ptr %node_min.i348, align 8, !tbaa !171
   %cmp16.not.i353 = icmp slt i16 %add.i316, %48
   %49 = load i16, ptr %node_max.i349, align 2
   %cmp23.not.i355 = icmp sgt i16 %add.i316, %49
@@ -2314,7 +2315,7 @@ if.then160:                                       ; preds = %if.end152
 
 if.else162:                                       ; preds = %if.end152
   %ar = getelementptr inbounds i8, ptr %this, i64 110
-  %59 = load i16, ptr %ar, align 2, !tbaa !165
+  %59 = load i16, ptr %ar, align 2, !tbaa !164
   %conv166 = sitofp i16 %59 to float
   %cmp167 = fcmp nsz ult float %58, %conv166
   br i1 %cmp167, label %if.end176, label %if.then168
@@ -2393,7 +2394,7 @@ if.end217:                                        ; preds = %if.then209, %if.els
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body
-  store <2 x float> %rp.sroa.0.1, ptr %orp, align 4, !tbaa.struct !173
+  store <2 x float> %rp.sroa.0.1, ptr %orp, align 4, !tbaa.struct !172
   store float %rp.sroa.12.0, ptr %Z130, align 4, !tbaa !70
   br label %cleanup
 
@@ -2402,7 +2403,7 @@ for.body:                                         ; preds = %for.body, %if.end21
   tail call void @_ZN15CavesRandomWalk10carveRouteEN3irr4core8vector3dIfEEfb(ptr noundef nonnull align 8 dereferenceable(150) %this, <2 x float> %63, float %sub6.i, float noundef %f.0467, i1 noundef zeroext %cmp228)
   %add = fadd nsz float %div233, %f.0467
   %cmp230 = fcmp nsz olt float %add, 1.000000e+00
-  br i1 %cmp230, label %for.body, label %for.cond.cleanup, !llvm.loop !174
+  br i1 %cmp230, label %for.body, label %for.cond.cleanup, !llvm.loop !173
 
 cleanup:                                          ; preds = %for.cond.cleanup, %if.else.i369, %if.then.i357, %if.else.i.thread, %if.else.i, %if.then.i
   ret void
@@ -2418,22 +2419,22 @@ entry:
   %0 = load i16, ptr %c_water_source, align 8, !tbaa !139
   store i16 %0, ptr %waternode, align 4, !tbaa !61
   %waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.param1.i319.sroa_idx = getelementptr inbounds i8, ptr %waternode, i64 2
-  store i8 0, ptr %waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.param1.i319.sroa_idx, align 2, !tbaa !175
+  store i8 0, ptr %waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.waternode.2.param1.i319.sroa_idx, align 2, !tbaa !174
   %waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.param2.i320.sroa_idx = getelementptr inbounds i8, ptr %waternode, i64 3
-  store i8 0, ptr %waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.param2.i320.sroa_idx, align 1, !tbaa !176
+  store i8 0, ptr %waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.waternode.3.param2.i320.sroa_idx, align 1, !tbaa !175
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lavanode)
   %c_lava_source = getelementptr inbounds i8, ptr %this, i64 146
   %1 = load i16, ptr %c_lava_source, align 2, !tbaa !140
   store i16 %1, ptr %lavanode, align 4, !tbaa !61
   %lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.param1.i321.sroa_idx = getelementptr inbounds i8, ptr %lavanode, i64 2
-  store i8 0, ptr %lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.param1.i321.sroa_idx, align 2, !tbaa !175
+  store i8 0, ptr %lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.lavanode.2.param1.i321.sroa_idx, align 2, !tbaa !174
   %lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.param2.i322.sroa_idx = getelementptr inbounds i8, ptr %lavanode, i64 3
-  store i8 0, ptr %lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.param2.i322.sroa_idx, align 1, !tbaa !176
+  store i8 0, ptr %lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.lavanode.3.param2.i322.sroa_idx, align 1, !tbaa !175
   %orp = getelementptr inbounds i8, ptr %this, i64 92
-  %2 = load float, ptr %orp, align 4, !tbaa !177
+  %2 = load float, ptr %orp, align 4, !tbaa !176
   %conv = fptosi float %2 to i16
   %Y = getelementptr inbounds i8, ptr %this, i64 96
-  %3 = load float, ptr %Y, align 8, !tbaa !178
+  %3 = load float, ptr %Y, align 8, !tbaa !177
   %conv3 = fptosi float %3 to i16
   %Z = getelementptr inbounds i8, ptr %this, i64 100
   %4 = load float, ptr %Z, align 4, !tbaa !130
@@ -2512,7 +2513,7 @@ if.else:                                          ; preds = %if.then
 
 land.lhs.true:                                    ; preds = %if.else
   %Y33 = getelementptr inbounds i8, ptr %this, i64 88
-  %19 = load i16, ptr %Y33, align 8, !tbaa !179
+  %19 = load i16, ptr %Y33, align 8, !tbaa !178
   %conv34 = sext i16 %19 to i32
   %water_level = getelementptr inbounds i8, ptr %this, i64 44
   %20 = load i32, ptr %water_level, align 4, !tbaa !135
@@ -2536,7 +2537,7 @@ if.end36:                                         ; preds = %cond.end, %if.then2
   %liquidnode.sroa.6.0 = phi i32 [ 0, %entry ], [ %22, %cond.end ], [ 0, %if.then24 ]
   %liquidnode.sroa.0.0 = phi i16 [ 127, %entry ], [ %liquidnode.sroa.0.0.extract.trunc, %cond.end ], [ %16, %if.then24 ]
   %rs = getelementptr inbounds i8, ptr %this, i64 116
-  %23 = load i16, ptr %rs, align 4, !tbaa !170
+  %23 = load i16, ptr %rs, align 4, !tbaa !169
   %24 = sdiv i16 %23, -2
   %conv43 = add i16 %24, %23
   br i1 %randomize_xz, label %if.then45, label %if.end56
@@ -2615,7 +2616,7 @@ for.body:                                         ; preds = %for.cond.cleanup100
   %35 = phi ptr [ %.pre, %for.body.lr.ph ], [ %43, %for.cond.cleanup100 ]
   %36 = phi i32 [ %.pre476, %for.body.lr.ph ], [ %44, %for.cond.cleanup100 ]
   %z0.0475 = phi i16 [ %d0.0, %for.body.lr.ph ], [ %inc279, %for.cond.cleanup100 ]
-  %37 = load i16, ptr %rs, align 4, !tbaa !170
+  %37 = load i16, ptr %rs, align 4, !tbaa !169
   %div67457 = sdiv i16 %37, 2
   %div67.sext478 = zext i16 %div67457 to i32
   %38 = tail call i16 @llvm.abs.i16(i16 %z0.0475, i1 false)
@@ -2657,7 +2658,7 @@ for.cond.cleanup100:                              ; preds = %for.cond.cleanup141
   %44 = phi i32 [ %add.i.i374467, %for.body ], [ %add.i.i374, %for.cond.cleanup141 ]
   %inc279 = add i16 %z0.0475, 1
   %cmp64.not = icmp sgt i16 %inc279, %d1.0
-  br i1 %cmp64.not, label %for.cond.cleanup, label %for.body, !llvm.loop !180
+  br i1 %cmp64.not, label %for.cond.cleanup, label %for.body, !llvm.loop !179
 
 for.body101:                                      ; preds = %for.cond.cleanup141, %for.body101.lr.ph
   %45 = phi ptr [ %34, %for.body101.lr.ph ], [ %49, %for.cond.cleanup141 ]
@@ -2665,7 +2666,7 @@ for.body101:                                      ; preds = %for.cond.cleanup141
   %x0.0472 = phi i16 [ %conv91, %for.body101.lr.ph ], [ %inc275, %for.cond.cleanup141 ]
   %46 = tail call i32 @llvm.abs.i32(i32 %conv93473, i1 true)
   %. = tail call i32 @llvm.umax.i32(i32 %46, i32 %39)
-  %47 = load i16, ptr %rs, align 4, !tbaa !170
+  %47 = load i16, ptr %rs, align 4, !tbaa !169
   %div114459 = sdiv i16 %47, 2
   %div114.sext479 = zext i16 %div114459 to i32
   %sext314 = shl nuw i32 %., 16
@@ -2705,7 +2706,7 @@ for.cond.cleanup141:                              ; preds = %for.cond.cleanup141
   %rem49.i377 = and i32 %div.i.i375, 1
   %add98 = add nsw i32 %rem49.i377, %sub95
   %cmp99.not = icmp slt i32 %add98, %conv93
-  br i1 %cmp99.not, label %for.cond.cleanup100, label %for.body101, !llvm.loop !181
+  br i1 %cmp99.not, label %for.cond.cleanup100, label %for.body101, !llvm.loop !180
 
 for.body142:                                      ; preds = %for.inc, %for.body142.lr.ph
   %conv138464 = phi i32 [ %conv138461, %for.body142.lr.ph ], [ %conv138, %for.inc ]
@@ -2713,7 +2714,7 @@ for.body142:                                      ; preds = %for.inc, %for.body1
   br i1 %33, label %land.lhs.true144, label %if.end156
 
 land.lhs.true144:                                 ; preds = %for.body142
-  %51 = load i16, ptr %rs, align 4, !tbaa !170
+  %51 = load i16, ptr %rs, align 4, !tbaa !169
   %52 = sdiv i16 %51, -2
   %cmp150.not = icmp sge i16 %52, %y0.0463
   %cmp154 = icmp slt i16 %51, 8
@@ -2726,7 +2727,7 @@ if.end156:                                        ; preds = %land.lhs.true144, %
   br i1 %tobool157.not, label %if.end170, label %if.then158
 
 if.then158:                                       ; preds = %if.end156
-  %54 = load i16, ptr %rs, align 4, !tbaa !170
+  %54 = load i16, ptr %rs, align 4, !tbaa !169
   %cmp161 = icmp sgt i16 %54, 7
   br i1 %cmp161, label %land.lhs.true162, label %if.end170
 
@@ -2775,7 +2776,7 @@ land.lhs.true22.i:                                ; preds = %land.lhs.true9.i
 
 _ZNK9VoxelArea8containsEN3irr4core8vector3dIsEE.exit: ; preds = %land.lhs.true22.i
   %Z31.i = getelementptr inbounds i8, ptr %60, i64 18
-  %66 = load i16, ptr %Z31.i, align 2, !tbaa !182
+  %66 = load i16, ptr %Z31.i, align 2, !tbaa !181
   %cmp33.i.not = icmp sgt i16 %add13.i387, %66
   br i1 %cmp33.i.not, label %for.inc, label %if.end190
 
@@ -2838,7 +2839,7 @@ if.end200:                                        ; preds = %_ZNK14NodeDefManage
   br i1 %tobool202.not, label %if.else260, label %if.then203
 
 if.then203:                                       ; preds = %if.end200
-  %77 = load i16, ptr %Y208, align 8, !tbaa !179
+  %77 = load i16, ptr %Y208, align 8, !tbaa !178
   %conv209 = sext i16 %77 to i32
   %add210 = add nsw i32 %conv209, 16
   %78 = load i8, ptr %flooded, align 2, !tbaa !149, !range !99, !noundef !100
@@ -2846,7 +2847,7 @@ if.then203:                                       ; preds = %if.end200
   br i1 %tobool212.not, label %if.else253, label %land.lhs.true213
 
 land.lhs.true213:                                 ; preds = %if.then203
-  %79 = load i16, ptr %Y204, align 2, !tbaa !183
+  %79 = load i16, ptr %Y204, align 2, !tbaa !182
   %conv205 = sext i16 %79 to i32
   %sub206 = add nsw i32 %conv205, -16
   %80 = load i32, ptr %water_level214, align 4
@@ -2881,7 +2882,7 @@ if.else260:                                       ; preds = %if.end200
   store i32 126, ptr %arrayidx, align 4, !tbaa.struct !101
   %83 = load ptr, ptr %this, align 8, !tbaa !141
   %m_flags = getelementptr inbounds i8, ptr %83, i64 40
-  %84 = load ptr, ptr %m_flags, align 8, !tbaa !184
+  %84 = load ptr, ptr %m_flags, align 8, !tbaa !183
   %arrayidx267 = getelementptr inbounds i8, ptr %84, i64 %idxprom
   %85 = load i8, ptr %arrayidx267, align 1, !tbaa !102
   %86 = or i8 %85, 4
@@ -2892,7 +2893,7 @@ for.inc:                                          ; preds = %if.else260, %if.els
   %inc = add i16 %y0.0463, 1
   %conv138 = sext i16 %inc to i32
   %cmp140.not = icmp slt i32 %conv134, %conv138
-  br i1 %cmp140.not, label %for.cond.cleanup141.loopexit, label %for.body142, !llvm.loop !185
+  br i1 %cmp140.not, label %for.cond.cleanup141.loopexit, label %for.body142, !llvm.loop !184
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2919,13 +2920,13 @@ entry:
   %ndef2 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %node_min, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %orp, i8 0, i64 24, i1 false)
-  store ptr %ndef, ptr %ndef2, align 8, !tbaa !186
+  store ptr %ndef, ptr %ndef2, align 8, !tbaa !185
   %gennotify3 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %gennotify, ptr %gennotify3, align 8, !tbaa !188
+  store ptr %gennotify, ptr %gennotify3, align 8, !tbaa !187
   %water_level4 = getelementptr inbounds i8, ptr %this, i64 52
-  store i32 %water_level, ptr %water_level4, align 4, !tbaa !189
+  store i32 %water_level, ptr %water_level4, align 4, !tbaa !188
   %c_water_source = getelementptr inbounds i8, ptr %this, i64 48
-  store i16 %water_source, ptr %c_water_source, align 8, !tbaa !190
+  store i16 %water_source, ptr %c_water_source, align 8, !tbaa !189
   %cmp = icmp eq i16 %water_source, 127
   br i1 %cmp, label %if.then, label %if.end17
 
@@ -2953,7 +2954,7 @@ call2.i11.i.noexc:                                ; preds = %if.then
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %call2.i11.i.noexc
-  store i16 %call, ptr %c_water_source, align 8, !tbaa !190
+  store i16 %call, ptr %c_water_source, align 8, !tbaa !189
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !119
   %cmp.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i59
@@ -2966,7 +2967,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 if.then.i.i59:                                    ; preds = %invoke.cont8
   call void @_ZdlPv(ptr noundef %3) #21
-  %.pr.pre = load i16, ptr %c_water_source, align 8, !tbaa !190
+  %.pr.pre = load i16, ptr %c_water_source, align 8, !tbaa !189
   br label %if.end
 
 lpad:                                             ; preds = %if.then
@@ -3003,12 +3004,12 @@ if.end:                                           ; preds = %if.then.i.i59, %_ZN
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end
-  store i16 126, ptr %c_water_source, align 8, !tbaa !190
+  store i16 126, ptr %c_water_source, align 8, !tbaa !189
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end, %entry
   %c_lava_source = getelementptr inbounds i8, ptr %this, i64 50
-  store i16 %lava_source, ptr %c_lava_source, align 2, !tbaa !191
+  store i16 %lava_source, ptr %c_lava_source, align 2, !tbaa !190
   %cmp20 = icmp eq i16 %lava_source, 127
   br i1 %cmp20, label %if.then21, label %if.end40
 
@@ -3036,7 +3037,7 @@ call2.i11.i.noexc75:                              ; preds = %if.then21
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %call2.i11.i.noexc75
-  store i16 %call28, ptr %c_lava_source, align 2, !tbaa !191
+  store i16 %call28, ptr %c_lava_source, align 2, !tbaa !190
   %12 = load ptr, ptr %ref.tmp22, align 8, !tbaa !119
   %cmp.i.i.i78 = icmp eq ptr %12, %9
   br i1 %cmp.i.i.i78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i80, label %if.then.i.i79
@@ -3049,7 +3050,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 if.then.i.i79:                                    ; preds = %invoke.cont27
   call void @_ZdlPv(ptr noundef %12) #21
-  %.pr91.pre = load i16, ptr %c_lava_source, align 2, !tbaa !191
+  %.pr91.pre = load i16, ptr %c_lava_source, align 2, !tbaa !190
   br label %if.end34
 
 lpad24:                                           ; preds = %if.then21
@@ -3086,7 +3087,7 @@ if.end34:                                         ; preds = %if.then.i.i79, %_ZN
   br i1 %cmp37, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.end34
-  store i16 126, ptr %c_lava_source, align 2, !tbaa !191
+  store i16 126, ptr %c_lava_source, align 2, !tbaa !190
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %if.end34, %if.end17
@@ -3107,11 +3108,11 @@ entry:
   %nmax.sroa.3.0.extract.shift = lshr i48 %nmax.coerce, 16
   %nmax.sroa.3.0.extract.trunc = trunc i48 %nmax.sroa.3.0.extract.shift to i32
   %frombool = zext i1 %is_large_cave to i8
-  store ptr %vm, ptr %this, align 8, !tbaa !192
+  store ptr %vm, ptr %this, align 8, !tbaa !191
   %ps4 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %ps, ptr %ps4, align 8, !tbaa !193
+  store ptr %ps, ptr %ps4, align 8, !tbaa !192
   %ps25 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %ps2, ptr %ps25, align 8, !tbaa !194
+  store ptr %ps2, ptr %ps25, align 8, !tbaa !193
   %node_min = getelementptr inbounds i8, ptr %this, i64 70
   store i16 %nmin.sroa.0.0.extract.trunc, ptr %node_min, align 2, !tbaa !15
   %nmin.sroa.3.0.node_min.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
@@ -3121,15 +3122,15 @@ entry:
   %nmax.sroa.3.0.node_max.sroa_idx = getelementptr inbounds i8, ptr %this, i64 78
   store i32 %nmax.sroa.3.0.extract.trunc, ptr %nmax.sroa.3.0.node_max.sroa_idx, align 2, !tbaa.struct !143
   %heightmap6 = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %heightmap, ptr %heightmap6, align 8, !tbaa !195
+  store ptr %heightmap, ptr %heightmap6, align 8, !tbaa !194
   %large_cave = getelementptr inbounds i8, ptr %this, i64 68
-  store i8 %frombool, ptr %large_cave, align 4, !tbaa !196
+  store i8 %frombool, ptr %large_cave, align 4, !tbaa !195
   %reass.sub9 = sub i16 %nmax.sroa.0.0.extract.trunc, %nmin.sroa.0.0.extract.trunc
   %add = add i16 %reass.sub9, 1
   %ystride = getelementptr inbounds i8, ptr %this, i64 56
-  store i16 %add, ptr %ystride, align 8, !tbaa !197
+  store i16 %add, ptr %ystride, align 8, !tbaa !196
   %min_tunnel_diameter = getelementptr inbounds i8, ptr %this, i64 58
-  store i16 2, ptr %min_tunnel_diameter, align 2, !tbaa !198
+  store i16 2, ptr %min_tunnel_diameter, align 2, !tbaa !197
   %0 = load i32, ptr %ps, align 4, !tbaa !147
   %mul.i.i = mul i32 %0, 1103515245
   %add.i.i = add i32 %mul.i.i, 12345
@@ -3139,7 +3140,7 @@ entry:
   %rem49.i = urem i16 %rem.lhs.trunc.i, 5
   %narrow468 = add nuw nsw i16 %rem49.i, 2
   %max_tunnel_diameter = getelementptr inbounds i8, ptr %this, i64 60
-  store i16 %narrow468, ptr %max_tunnel_diameter, align 4, !tbaa !199
+  store i16 %narrow468, ptr %max_tunnel_diameter, align 4, !tbaa !198
   %mul.i.i344 = mul i32 %add.i.i, 1103515245
   %add.i.i345 = add i32 %mul.i.i344, 12345
   %div.i.i346 = sdiv i32 %add.i.i345, 65536
@@ -3159,7 +3160,7 @@ if.then:                                          ; preds = %entry
   %narrow470 = add nuw nsw i16 %rem49.i355, 2
   %add28.i357 = zext nneg i16 %narrow470 to i32
   %part_max_length_rs = getelementptr inbounds i8, ptr %this, i64 64
-  store i32 %add28.i357, ptr %part_max_length_rs, align 8, !tbaa !200
+  store i32 %add28.i357, ptr %part_max_length_rs, align 8, !tbaa !199
   %mul.i.i358 = mul i32 %add.i.i352, 1103515245
   %add.i.i359 = add i32 %mul.i.i358, 12345
   store i32 %add.i.i359, ptr %ps, align 4, !tbaa !147
@@ -3169,8 +3170,8 @@ if.then:                                          ; preds = %entry
   %call17 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %ps, i32 noundef 5, i32 noundef %add28.i364)
   %conv18 = trunc i32 %call17 to i16
   %tunnel_routepoints = getelementptr inbounds i8, ptr %this, i64 62
-  store i16 %conv18, ptr %tunnel_routepoints, align 2, !tbaa !201
-  store i16 5, ptr %min_tunnel_diameter, align 2, !tbaa !198
+  store i16 %conv18, ptr %tunnel_routepoints, align 2, !tbaa !200
+  store i16 5, ptr %min_tunnel_diameter, align 2, !tbaa !197
   %4 = load i32, ptr %ps, align 4, !tbaa !147
   %mul.i.i365 = mul i32 %4, 1103515245
   %add.i.i366 = add i32 %mul.i.i365, 12345
@@ -3183,14 +3184,14 @@ if.then:                                          ; preds = %entry
   %add28.i371 = zext nneg i16 %narrow471 to i32
   %call21 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %ps, i32 noundef 7, i32 noundef %add28.i371)
   %conv22 = trunc i32 %call21 to i16
-  store i16 %conv22, ptr %max_tunnel_diameter, align 4, !tbaa !199
+  store i16 %conv22, ptr %max_tunnel_diameter, align 4, !tbaa !198
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %rem49.i376 = and i32 %div.i.i353, 7
   %add28.i378 = add nuw nsw i32 %rem49.i376, 2
   %part_max_length_rs25 = getelementptr inbounds i8, ptr %this, i64 64
-  store i32 %add28.i378, ptr %part_max_length_rs25, align 8, !tbaa !200
+  store i32 %add28.i378, ptr %part_max_length_rs25, align 8, !tbaa !199
   %mul.i.i379 = mul i32 %add.i.i352, 1103515245
   %add.i.i380 = add i32 %mul.i.i379, 12345
   store i32 %add.i.i380, ptr %ps, align 4, !tbaa !147
@@ -3200,8 +3201,8 @@ if.else:                                          ; preds = %entry
   %call27 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %ps, i32 noundef 10, i32 noundef %add28.i385)
   %conv28 = trunc i32 %call27 to i16
   %tunnel_routepoints29 = getelementptr inbounds i8, ptr %this, i64 62
-  store i16 %conv28, ptr %tunnel_routepoints29, align 2, !tbaa !201
-  %.pre = load i16, ptr %max_tunnel_diameter, align 4, !tbaa !199
+  store i16 %conv28, ptr %tunnel_routepoints29, align 2, !tbaa !200
+  %.pre = load i16, ptr %max_tunnel_diameter, align 4, !tbaa !198
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3215,7 +3216,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %8 = trunc i32 %div.i.i388 to i8
   %9 = and i8 %8, 1
   %frombool31 = xor i8 %9, 1
-  store i8 %frombool31, ptr %large_cave_is_flat, align 1, !tbaa !202
+  store i8 %frombool31, ptr %large_cave_is_flat, align 1, !tbaa !201
   %main_direction = getelementptr inbounds i8, ptr %this, i64 112
   store <2 x float> zeroinitializer, ptr %main_direction, align 8, !tbaa !70
   %ref.tmp.sroa.5.0.main_direction.sroa_idx = getelementptr inbounds i8, ptr %this, i64 120
@@ -3269,9 +3270,9 @@ cond.end:                                         ; preds = %cond.true, %if.end
   %sub13.i457 = sub i16 %18, %cond
   store i16 %sub13.i457, ptr %Z11.i456, align 4, !tbaa !158
   %route_y_min = getelementptr inbounds i8, ptr %this, i64 124
-  store i16 0, ptr %route_y_min, align 4, !tbaa !203
+  store i16 0, ptr %route_y_min, align 4, !tbaa !202
   %Y = getelementptr inbounds i8, ptr %this, i64 98
-  %19 = load i16, ptr %Y, align 2, !tbaa !204
+  %19 = load i16, ptr %Y, align 2, !tbaa !203
   %20 = sdiv i16 %6, 2
   %21 = trunc i32 %max_stone_height to i16
   %22 = add i16 %21, 7
@@ -3284,8 +3285,8 @@ cond.end:                                         ; preds = %cond.true, %if.end
   %sub88 = add i16 %add8.i, -1
   %spec.select = select i1 %cmp89.not, i16 %conv77, i16 %sub88
   %cond101 = select i1 %cmp80, i16 0, i16 %spec.select
-  store i16 %cond101, ptr %route_y_max, align 2, !tbaa !205
-  %24 = load i8, ptr %large_cave, align 4, !tbaa !196, !range !99, !noundef !100
+  store i16 %cond101, ptr %route_y_max, align 2, !tbaa !204
+  %24 = load i8, ptr %large_cave, align 4, !tbaa !195, !range !99, !noundef !100
   %tobool105.not = icmp eq i8 %24, 0
   br i1 %tobool105.not, label %if.end168.thread, label %if.then106
 
@@ -3297,7 +3298,7 @@ if.end168.thread:                                 ; preds = %cond.end
 if.then106:                                       ; preds = %cond.end
   %conv109 = sext i16 %13 to i32
   %water_level = getelementptr inbounds i8, ptr %this, i64 52
-  %25 = load i32, ptr %water_level, align 4, !tbaa !189
+  %25 = load i32, ptr %water_level, align 4, !tbaa !188
   %cmp110 = icmp sgt i32 %25, %conv109
   %conv113 = sext i16 %12 to i32
   %cmp115 = icmp slt i32 %25, %conv113
@@ -3313,7 +3314,7 @@ if.then116:                                       ; preds = %if.then106
   %28 = trunc i32 %25 to i16
   %29 = sub i16 %26, %19
   %conv136 = add i16 %29, %28
-  store i16 %conv136, ptr %route_y_max, align 2, !tbaa !205
+  store i16 %conv136, ptr %route_y_max, align 2, !tbaa !204
   %sext = shl i32 %sub125, 16
   %30 = ashr exact i32 %sext, 16
   br label %if.end168
@@ -3333,9 +3334,9 @@ if.end168:                                        ; preds = %if.then116, %if.the
   %.conv145 = select i1 %cmp156, i16 %31, i16 %conv145
   %cond165 = select i1 %cmp149, i16 0, i16 %.conv145
   %cond165.fr = freeze i16 %cond165
-  store i16 %cond165.fr, ptr %route_y_min, align 4, !tbaa !203
+  store i16 %cond165.fr, ptr %route_y_min, align 4, !tbaa !202
   %.pre479 = load i16, ptr %Y86, align 8
-  %.pre480 = load i16, ptr %Z11.i435, align 2, !tbaa !206
+  %.pre480 = load i16, ptr %Z11.i435, align 2, !tbaa !205
   %.pre481 = add i16 %.pre479, -1
   %cmp172 = icmp slt i16 %cond165.fr, 0
   %cmp180.not = icmp sgt i16 %.pre479, %cond165.fr
@@ -3366,98 +3367,99 @@ if.end168:                                        ; preds = %if.then116, %if.the
   %add221 = fadd nsz float %conv220, 5.000000e-01
   %orp = getelementptr inbounds i8, ptr %this, i64 84
   %Z222 = getelementptr inbounds i8, ptr %this, i64 92
-  store float %add221, ptr %Z222, align 4, !tbaa !207
+  store float %add221, ptr %Z222, align 4, !tbaa !206
   %conv224 = sext i16 %cond215 to i32
   %call225 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %ps, i32 noundef %conv194, i32 noundef %conv224)
   %conv226 = sitofp i32 %call225 to float
-  %add227 = fadd nsz float %conv226, 5.000000e-01
   %Y229 = getelementptr inbounds i8, ptr %this, i64 88
-  store float %add227, ptr %Y229, align 8, !tbaa !208
   %38 = load i32, ptr %ps, align 4, !tbaa !147
   %mul.i460 = mul i32 %38, 1103515245
   %add.i461 = add i32 %mul.i460, 12345
   store i32 %add.i461, ptr %ps, align 4, !tbaa !147
   %div.i462 = sdiv i32 %add.i461, 65536
   %rem.i463 = and i32 %div.i462, 32767
-  %39 = load i16, ptr %ar, align 2, !tbaa !209
+  %39 = load i16, ptr %ar, align 2, !tbaa !207
   %conv233 = sext i16 %39 to i32
   %rem234 = urem i32 %rem.i463, %conv233
   %conv235 = uitofp i32 %rem234 to float
-  %add236 = fadd nsz float %conv235, 5.000000e-01
-  store float %add236, ptr %orp, align 4, !tbaa !210
+  %40 = insertelement <2 x float> poison, float %conv235, i64 0
+  %41 = insertelement <2 x float> %40, float %conv226, i64 1
+  %42 = fadd nsz <2 x float> %41, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %42, ptr %orp, align 4, !tbaa !70
   %gennotify = getelementptr inbounds i8, ptr %this, i64 16
-  %40 = load ptr, ptr %gennotify, align 8, !tbaa !188
-  %cmp239.not = icmp eq ptr %40, null
+  %43 = load ptr, ptr %gennotify, align 8, !tbaa !187
+  %cmp239.not = icmp eq ptr %43, null
   br i1 %cmp239.not, label %if.end270, label %if.then240
 
 if.then240:                                       ; preds = %32
-  %41 = load i16, ptr %of, align 8, !tbaa !211
-  %conv244 = sitofp i16 %41 to float
-  %add247 = fadd nsz float %add236, %conv244
+  %44 = load i16, ptr %of, align 8, !tbaa !208
+  %conv244 = sitofp i16 %44 to float
+  %45 = extractelement <2 x float> %42, i64 0
+  %add247 = fadd nsz float %45, %conv244
   %conv248 = fptosi float %add247 to i16
-  %42 = load float, ptr %Z222, align 4, !tbaa !207
-  %43 = load i8, ptr %large_cave, align 4, !tbaa !196, !range !99, !noundef !100
-  %tobool266.not = icmp eq i8 %43, 0
+  %46 = load float, ptr %Z222, align 4, !tbaa !206
+  %47 = load i8, ptr %large_cave, align 4, !tbaa !195, !range !99, !noundef !100
+  %tobool266.not = icmp eq i8 %47, 0
   %cond267 = select i1 %tobool266.not, i32 2, i32 4
-  %44 = load <2 x i16>, ptr %Y, align 2, !tbaa !15
-  %45 = sitofp <2 x i16> %44 to <2 x float>
-  %46 = insertelement <2 x float> poison, float %add227, i64 0
-  %47 = insertelement <2 x float> %46, float %42, i64 1
-  %48 = fadd nsz <2 x float> %47, %45
-  %49 = fptosi <2 x float> %48 to <2 x i16>
-  %50 = zext <2 x i16> %49 to <2 x i48>
-  %51 = shl nuw <2 x i48> %50, <i48 16, i48 32>
-  %shift = shufflevector <2 x i48> %51, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
-  %52 = or disjoint <2 x i48> %shift, %51
-  %abs_pos.sroa.4.0.insert.insert = extractelement <2 x i48> %52, i64 0
+  %48 = load <2 x i16>, ptr %Y, align 2, !tbaa !15
+  %49 = sitofp <2 x i16> %48 to <2 x float>
+  %50 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %51 = insertelement <2 x float> %50, float %46, i64 1
+  %52 = fadd nsz <2 x float> %51, %49
+  %53 = fptosi <2 x float> %52 to <2 x i16>
+  %54 = zext <2 x i16> %53 to <2 x i48>
+  %55 = shl nuw <2 x i48> %54, <i48 16, i48 32>
+  %shift = shufflevector <2 x i48> %55, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
+  %56 = or disjoint <2 x i48> %shift, %55
+  %abs_pos.sroa.4.0.insert.insert = extractelement <2 x i48> %56, i64 0
   %abs_pos.sroa.0.0.insert.ext = zext i16 %conv248 to i48
   %abs_pos.sroa.0.0.insert.insert = or disjoint i48 %abs_pos.sroa.4.0.insert.insert, %abs_pos.sroa.0.0.insert.ext
-  %call269 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %40, i32 noundef %cond267, i48 %abs_pos.sroa.0.0.insert.insert)
+  %call269 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %43, i32 noundef %cond267, i48 %abs_pos.sroa.0.0.insert.insert)
   br label %if.end270
 
 if.end270:                                        ; preds = %if.then240, %32
   %tunnel_routepoints272 = getelementptr inbounds i8, ptr %this, i64 62
-  %53 = load i16, ptr %tunnel_routepoints272, align 2, !tbaa !201
-  %cmp274477.not = icmp eq i16 %53, 0
+  %57 = load i16, ptr %tunnel_routepoints272, align 2, !tbaa !200
+  %cmp274477.not = icmp eq i16 %57, 0
   br i1 %cmp274477.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %if.end270
-  %54 = load ptr, ptr %gennotify, align 8, !tbaa !188
-  %cmp279.not = icmp eq ptr %54, null
+  %58 = load ptr, ptr %gennotify, align 8, !tbaa !187
+  %cmp279.not = icmp eq ptr %58, null
   br i1 %cmp279.not, label %if.end313, label %if.then280
 
 for.body:                                         ; preds = %if.end270, %for.body
   %j.0478 = phi i16 [ %inc, %for.body ], [ 0, %if.end270 ]
-  %55 = urem i16 %j.0478, %narrow469
-  %cmp277 = icmp eq i16 %55, 0
+  %59 = urem i16 %j.0478, %narrow469
+  %cmp277 = icmp eq i16 %59, 0
   tail call void @_ZN7CavesV610makeTunnelEb(ptr noundef nonnull align 8 dereferenceable(128) %this, i1 noundef zeroext %cmp277)
   %inc = add nuw i16 %j.0478, 1
-  %56 = load i16, ptr %tunnel_routepoints272, align 2, !tbaa !201
-  %cmp274 = icmp ult i16 %inc, %56
-  br i1 %cmp274, label %for.body, label %for.cond.cleanup, !llvm.loop !212
+  %60 = load i16, ptr %tunnel_routepoints272, align 2, !tbaa !200
+  %cmp274 = icmp ult i16 %inc, %60
+  br i1 %cmp274, label %for.body, label %for.cond.cleanup, !llvm.loop !209
 
 if.then280:                                       ; preds = %for.cond.cleanup
-  %57 = load i16, ptr %of, align 8, !tbaa !211
-  %conv285 = sitofp i16 %57 to float
-  %58 = load float, ptr %orp, align 4, !tbaa !210
-  %add288 = fadd nsz float %58, %conv285
+  %61 = load i16, ptr %of, align 8, !tbaa !208
+  %conv285 = sitofp i16 %61 to float
+  %62 = load float, ptr %orp, align 4, !tbaa !210
+  %add288 = fadd nsz float %62, %conv285
   %conv289 = fptosi float %add288 to i16
-  %59 = load i8, ptr %large_cave, align 4, !tbaa !196, !range !99, !noundef !100
-  %tobool308.not = icmp eq i8 %59, 0
+  %63 = load i8, ptr %large_cave, align 4, !tbaa !195, !range !99, !noundef !100
+  %tobool308.not = icmp eq i8 %63, 0
   %cond309 = select i1 %tobool308.not, i32 3, i32 5
-  %60 = load <2 x i16>, ptr %Y, align 2, !tbaa !15
-  %61 = sitofp <2 x i16> %60 to <2 x float>
-  %62 = load <2 x float>, ptr %Y229, align 8, !tbaa !70
-  %63 = fadd nsz <2 x float> %62, %61
-  %64 = fptosi <2 x float> %63 to <2 x i16>
-  %65 = zext <2 x i16> %64 to <2 x i48>
-  %66 = shl nuw <2 x i48> %65, <i48 16, i48 32>
-  %shift489 = shufflevector <2 x i48> %66, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
-  %67 = or disjoint <2 x i48> %shift489, %66
-  %abs_pos281.sroa.4.0.insert.insert = extractelement <2 x i48> %67, i64 0
+  %64 = load <2 x i16>, ptr %Y, align 2, !tbaa !15
+  %65 = sitofp <2 x i16> %64 to <2 x float>
+  %66 = load <2 x float>, ptr %Y229, align 8, !tbaa !70
+  %67 = fadd nsz <2 x float> %66, %65
+  %68 = fptosi <2 x float> %67 to <2 x i16>
+  %69 = zext <2 x i16> %68 to <2 x i48>
+  %70 = shl nuw <2 x i48> %69, <i48 16, i48 32>
+  %shift489 = shufflevector <2 x i48> %70, <2 x i48> poison, <2 x i32> <i32 1, i32 poison>
+  %71 = or disjoint <2 x i48> %shift489, %70
+  %abs_pos281.sroa.4.0.insert.insert = extractelement <2 x i48> %71, i64 0
   %abs_pos281.sroa.0.0.insert.ext = zext i16 %conv289 to i48
   %abs_pos281.sroa.0.0.insert.insert = or disjoint i48 %abs_pos281.sroa.4.0.insert.insert, %abs_pos281.sroa.0.0.insert.ext
-  %call312 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %54, i32 noundef %cond309, i48 %abs_pos281.sroa.0.0.insert.insert)
+  %call312 = tail call noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104) %58, i32 noundef %cond309, i48 %abs_pos281.sroa.0.0.insert.insert)
   br label %if.end313
 
 if.end313:                                        ; preds = %if.then280, %for.cond.cleanup
@@ -3472,7 +3474,7 @@ entry:
   %tobool2.not = icmp eq i8 %0, 0
   %or.cond = select i1 %dirswitch, i1 %tobool2.not, i1 false
   %ps = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load ptr, ptr %ps, align 8, !tbaa !193
+  %1 = load ptr, ptr %ps, align 8, !tbaa !192
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3524,20 +3526,20 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %min_tunnel_diameter = getelementptr inbounds i8, ptr %this, i64 58
-  %22 = load i16, ptr %min_tunnel_diameter, align 2, !tbaa !198
+  %22 = load i16, ptr %min_tunnel_diameter, align 2, !tbaa !197
   %max_tunnel_diameter = getelementptr inbounds i8, ptr %this, i64 60
-  %23 = load i16, ptr %max_tunnel_diameter, align 4, !tbaa !199
+  %23 = load i16, ptr %max_tunnel_diameter, align 4, !tbaa !198
   %conv24 = sext i16 %22 to i32
   %conv25 = sext i16 %23 to i32
   %call26 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %conv24, i32 noundef %conv25)
   %conv27 = trunc i32 %call26 to i16
   %rs = getelementptr inbounds i8, ptr %this, i64 108
-  store i16 %conv27, ptr %rs, align 4, !tbaa !213
+  store i16 %conv27, ptr %rs, align 4, !tbaa !211
   %part_max_length_rs = getelementptr inbounds i8, ptr %this, i64 64
-  %24 = load i32, ptr %part_max_length_rs, align 8, !tbaa !200
+  %24 = load i32, ptr %part_max_length_rs, align 8, !tbaa !199
   %mul = mul i32 %24, %call26
   %conv30 = trunc i32 %mul to i16
-  %25 = load i8, ptr %large_cave, align 4, !tbaa !196, !range !99, !noundef !100
+  %25 = load i8, ptr %large_cave, align 4, !tbaa !195, !range !99, !noundef !100
   %tobool32.not = icmp eq i8 %25, 0
   %sext = shl i32 %mul, 16
   %conv39 = ashr exact i32 %sext, 16
@@ -3548,17 +3550,17 @@ if.then33:                                        ; preds = %if.end
   br label %if.end42
 
 if.else:                                          ; preds = %if.end
-  %26 = load ptr, ptr %ps, align 8, !tbaa !193
+  %26 = load ptr, ptr %ps, align 8, !tbaa !192
   %call40 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %26, i32 noundef 1, i32 noundef %conv39)
   %conv41 = trunc i32 %call40 to i16
-  %.pre458 = load i8, ptr %large_cave, align 4, !tbaa !196, !range !99
+  %.pre458 = load i8, ptr %large_cave, align 4, !tbaa !195, !range !99
   %27 = icmp eq i8 %.pre458, 0
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else, %if.then33
   %tobool77.not = phi i1 [ %27, %if.else ], [ false, %if.then33 ]
   %maxlen.sroa.7.0 = phi i16 [ %conv41, %if.else ], [ %div35455, %if.then33 ]
-  %28 = load ptr, ptr %ps, align 8, !tbaa !193
+  %28 = load ptr, ptr %ps, align 8, !tbaa !192
   %29 = load i32, ptr %28, align 4, !tbaa !147
   %mul.i265 = mul i32 %29, 1103515245
   %add.i266 = add i32 %mul.i265, 12345
@@ -3646,7 +3648,7 @@ if.end115:                                        ; preds = %if.then81, %land.lh
   %Z11.i = getelementptr inbounds i8, ptr %this, i64 100
   %39 = load i16, ptr %Z11.i, align 4, !tbaa !158
   %add13.i = add i16 %39, %conv125
-  %40 = load i16, ptr %rs, align 4, !tbaa !213
+  %40 = load i16, ptr %rs, align 4, !tbaa !211
   %41 = sdiv i16 %40, 2
   %add.i300 = add i16 %add.i297, %41
   %add6.i = add i16 %add8.i, %41
@@ -3664,14 +3666,14 @@ if.end115:                                        ; preds = %if.then81, %land.lh
   %retval.sroa.0.0.insert.ext.i324 = zext i16 %add.i312 to i48
   %44 = or disjoint i48 %retval.sroa.2.0.insert.shift.i322, %retval.sroa.0.0.insert.ext.i324
   %heightmap.i = getelementptr inbounds i8, ptr %this, i64 40
-  %45 = load ptr, ptr %heightmap.i, align 8, !tbaa !195
+  %45 = load ptr, ptr %heightmap.i, align 8, !tbaa !194
   %cmp.not.i = icmp eq ptr %45, null
   br i1 %cmp.not.i, label %_ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread446, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end115
   %conv.i = sext i16 %add10.i to i64
   %Z2.i = getelementptr inbounds i8, ptr %this, i64 74
-  %46 = load i16, ptr %Z2.i, align 2, !tbaa !214
+  %46 = load i16, ptr %Z2.i, align 2, !tbaa !212
   %conv3.i = sext i16 %46 to i64
   %cmp4.not.i = icmp slt i16 %add10.i, %46
   %Z8.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -3683,7 +3685,7 @@ land.lhs.true.i:                                  ; preds = %if.end115
 land.lhs.true11.i:                                ; preds = %land.lhs.true.i
   %node_min.i = getelementptr inbounds i8, ptr %this, i64 70
   %node_max.i = getelementptr inbounds i8, ptr %this, i64 76
-  %48 = load i16, ptr %node_min.i, align 2, !tbaa !215
+  %48 = load i16, ptr %node_min.i, align 2, !tbaa !213
   %cmp16.not.i = icmp slt i16 %add.i300, %48
   %49 = load i16, ptr %node_max.i, align 4
   %cmp23.not.i = icmp sgt i16 %add.i300, %49
@@ -3692,14 +3694,14 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true.i
 
 _ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit: ; preds = %land.lhs.true11.i, %land.lhs.true.i
   %water_level.i = getelementptr inbounds i8, ptr %this, i64 52
-  %50 = load i32, ptr %water_level.i, align 4, !tbaa !189
+  %50 = load i32, ptr %water_level.i, align 4, !tbaa !188
   %conv37.i = trunc i32 %50 to i16
   %cmp146 = icmp sgt i16 %add6.i, %conv37.i
   br i1 %cmp146, label %land.lhs.true.i331, label %land.end
 
 _ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread446: ; preds = %if.end115
   %water_level.i447 = getelementptr inbounds i8, ptr %this, i64 52
-  %51 = load i32, ptr %water_level.i447, align 4, !tbaa !189
+  %51 = load i32, ptr %water_level.i447, align 4, !tbaa !188
   %conv37.i448 = trunc i32 %51 to i16
   %cmp146449 = icmp sgt i16 %add6.i, %conv37.i448
   br i1 %cmp146449, label %land.rhs.thread450, label %land.end
@@ -3714,7 +3716,7 @@ _ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread: ; pred
   %conv15.i = sext i16 %48 to i64
   %sub.i = sub nsw i64 %conv.i, %conv3.i
   %ystride.i = getelementptr inbounds i8, ptr %this, i64 56
-  %53 = load i16, ptr %ystride.i, align 8, !tbaa !197
+  %53 = load i16, ptr %ystride.i, align 8, !tbaa !196
   %conv29.i = zext i16 %53 to i64
   %mul.i326 = mul nsw i64 %sub.i, %conv29.i
   %sub35.i = sub nsw i64 %conv12.i, %conv15.i
@@ -3740,7 +3742,7 @@ land.lhs.true11.i342:                             ; preds = %land.lhs.true.i331
   %node_max.i344 = getelementptr inbounds i8, ptr %this, i64 76
   %sext.i345 = shl i32 %55, 16
   %conv12.i346 = ashr exact i32 %sext.i345, 16
-  %56 = load i16, ptr %node_min.i343, align 2, !tbaa !215
+  %56 = load i16, ptr %node_min.i343, align 2, !tbaa !213
   %conv15.i347 = sext i16 %56 to i32
   %cmp16.not.i348 = icmp slt i32 %conv12.i346, %conv15.i347
   %57 = load i16, ptr %node_max.i344, align 4
@@ -3752,7 +3754,7 @@ land.lhs.true11.i342:                             ; preds = %land.lhs.true.i331
 if.then.i352:                                     ; preds = %land.lhs.true11.i342
   %sub.i353 = sub nsw i32 %conv.i334, %conv3.i336
   %ystride.i354 = getelementptr inbounds i8, ptr %this, i64 56
-  %58 = load i16, ptr %ystride.i354, align 8, !tbaa !197
+  %58 = load i16, ptr %ystride.i354, align 8, !tbaa !196
   %conv29.i355 = zext i16 %58 to i32
   %mul.i356 = mul nsw i32 %sub.i353, %conv29.i355
   %sub35.i357 = sub nsw i32 %conv12.i346, %conv15.i347
@@ -3765,7 +3767,7 @@ if.then.i352:                                     ; preds = %land.lhs.true11.i34
 if.end.i362:                                      ; preds = %land.lhs.true11.i342, %land.lhs.true.i331, %land.rhs.thread450
   %conv148445 = phi i32 [ %conv148444, %land.lhs.true11.i342 ], [ %conv148444, %land.lhs.true.i331 ], [ %conv148451, %land.rhs.thread450 ]
   %water_level.i363 = getelementptr inbounds i8, ptr %this, i64 52
-  %60 = load i32, ptr %water_level.i363, align 4, !tbaa !189
+  %60 = load i32, ptr %water_level.i363, align 4, !tbaa !188
   %conv37.i364 = trunc i32 %60 to i16
   br label %_ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit365
 
@@ -3796,7 +3798,7 @@ if.then161:                                       ; preds = %land.end
 
 if.else163:                                       ; preds = %land.end
   %ar = getelementptr inbounds i8, ptr %this, i64 102
-  %67 = load i16, ptr %ar, align 2, !tbaa !209
+  %67 = load i16, ptr %ar, align 2, !tbaa !207
   %conv167 = sitofp i16 %67 to float
   %cmp168 = fcmp nsz ult float %66, %conv167
   br i1 %cmp168, label %if.end177, label %if.then169
@@ -3812,7 +3814,7 @@ if.end177:                                        ; preds = %if.then169, %if.els
   %rp.sroa.0.0 = phi <2 x float> [ %rp.sroa.0.0.vec.insert, %if.then161 ], [ %65, %if.else163 ], [ %rp.sroa.0.0.vec.insert397, %if.then169 ]
   %rp.sroa.0.4.vec.extract = extractelement <2 x float> %rp.sroa.0.0, i64 1
   %route_y_min = getelementptr inbounds i8, ptr %this, i64 124
-  %68 = load i16, ptr %route_y_min, align 4, !tbaa !203
+  %68 = load i16, ptr %route_y_min, align 4, !tbaa !202
   %conv180 = sitofp i16 %68 to float
   %cmp181 = fcmp nsz olt float %rp.sroa.0.4.vec.extract, %conv180
   br i1 %cmp181, label %if.then182, label %if.else186
@@ -3823,7 +3825,7 @@ if.then182:                                       ; preds = %if.end177
 
 if.else186:                                       ; preds = %if.end177
   %route_y_max = getelementptr inbounds i8, ptr %this, i64 126
-  %69 = load i16, ptr %route_y_max, align 2, !tbaa !205
+  %69 = load i16, ptr %route_y_max, align 2, !tbaa !204
   %conv189 = sitofp i16 %69 to float
   %cmp190 = fcmp nsz ult float %rp.sroa.0.4.vec.extract, %conv189
   br i1 %cmp190, label %if.end198, label %if.then191
@@ -3842,7 +3844,7 @@ if.end198:                                        ; preds = %if.then191, %if.els
 
 if.else203:                                       ; preds = %if.end198
   %Z206 = getelementptr inbounds i8, ptr %this, i64 106
-  %70 = load i16, ptr %Z206, align 2, !tbaa !206
+  %70 = load i16, ptr %Z206, align 2, !tbaa !205
   %conv208 = sitofp i16 %70 to float
   %cmp209 = fcmp nsz ult float %add6.i376, %conv208
   br i1 %cmp209, label %if.end218, label %if.then210
@@ -3866,7 +3868,7 @@ if.end218:                                        ; preds = %if.then210, %if.els
   %cmp224 = fcmp nsz olt float %76, 0x3FA99999A0000000
   %77 = fdiv nsz float 1.000000e+00, %76
   %ps2 = getelementptr inbounds i8, ptr %this, i64 32
-  %78 = load ptr, ptr %ps2, align 8, !tbaa !194
+  %78 = load ptr, ptr %ps2, align 8, !tbaa !193
   %79 = load i32, ptr %78, align 4, !tbaa !147
   %mul.i.i389 = mul i32 %79, 1103515245
   %add.i.i390 = add i32 %mul.i.i389, 12345
@@ -3878,7 +3880,7 @@ if.end218:                                        ; preds = %if.then210, %if.els
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body
-  store <2 x float> %rp.sroa.0.1, ptr %orp, align 4, !tbaa.struct !173
+  store <2 x float> %rp.sroa.0.1, ptr %orp, align 4, !tbaa.struct !172
   store float %rp.sroa.12.0, ptr %Z124, align 4, !tbaa !70
   ret void
 
@@ -3887,20 +3889,20 @@ for.body:                                         ; preds = %for.body, %if.end21
   tail call void @_ZN7CavesV610carveRouteEN3irr4core8vector3dIfEEfbb(ptr noundef nonnull align 8 dereferenceable(128) %this, <2 x float> %71, float %sub6.i, float noundef %f.0457, i1 noundef zeroext %cmp228, i1 noundef zeroext %61)
   %add = fadd nsz float %div234, %f.0457
   %cmp230 = fcmp nsz olt float %add, 1.000000e+00
-  br i1 %cmp230, label %for.body, label %for.cond.cleanup, !llvm.loop !216
+  br i1 %cmp230, label %for.body, label %for.cond.cleanup, !llvm.loop !214
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN7CavesV610carveRouteEN3irr4core8vector3dIfEEfbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, <2 x float> %vec.coerce0, float %vec.coerce1, float noundef %f, i1 noundef zeroext %randomize_xz, i1 noundef zeroext %tunnel_above_ground) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c_water_source = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load i16, ptr %c_water_source, align 8, !tbaa !190
+  %0 = load i16, ptr %c_water_source, align 8, !tbaa !189
   %c_lava_source = getelementptr inbounds i8, ptr %this, i64 50
-  %1 = load i16, ptr %c_lava_source, align 2, !tbaa !191
+  %1 = load i16, ptr %c_lava_source, align 2, !tbaa !190
   %orp = getelementptr inbounds i8, ptr %this, i64 84
-  %2 = load float, ptr %orp, align 4, !tbaa !177
+  %2 = load float, ptr %orp, align 4, !tbaa !176
   %Y = getelementptr inbounds i8, ptr %this, i64 88
-  %3 = load float, ptr %Y, align 8, !tbaa !178
+  %3 = load float, ptr %Y, align 8, !tbaa !177
   %conv4 = fptosi float %3 to i16
   %of = getelementptr inbounds i8, ptr %this, i64 96
   %Y.i276 = getelementptr inbounds i8, ptr %this, i64 98
@@ -3918,7 +3920,7 @@ entry:
   %5 = load float, ptr %Z.i282, align 4, !tbaa !130
   %add6.i = fadd nsz float %mul3.i, %5
   %ps = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %ps, align 8, !tbaa !193
+  %6 = load ptr, ptr %ps, align 8, !tbaa !192
   %7 = load i32, ptr %6, align 4, !tbaa !147
   %mul.i.i = mul i32 %7, 1103515245
   %add.i.i = add i32 %mul.i.i, 12345
@@ -3945,7 +3947,7 @@ entry:
   %conv21 = fptosi float %add4.i to i16
   %conv23 = fptosi float %11 to i16
   %rs = getelementptr inbounds i8, ptr %this, i64 108
-  %12 = load i16, ptr %rs, align 4, !tbaa !213
+  %12 = load i16, ptr %rs, align 4, !tbaa !211
   %13 = sdiv i16 %12, -2
   %conv29 = add i16 %13, %12
   br i1 %randomize_xz, label %if.then, label %if.end
@@ -3999,7 +4001,7 @@ for.body:                                         ; preds = %for.cond.cleanup74,
   %19 = phi ptr [ %6, %for.body.lr.ph ], [ %28, %for.cond.cleanup74 ]
   %20 = phi i32 [ %16, %for.body.lr.ph ], [ %29, %for.cond.cleanup74 ]
   %z0.0408 = phi i16 [ %d0.0, %for.body.lr.ph ], [ %inc234, %for.cond.cleanup74 ]
-  %21 = load i16, ptr %rs, align 4, !tbaa !213
+  %21 = load i16, ptr %rs, align 4, !tbaa !211
   %div44388 = sdiv i16 %21, 2
   %div44.sext409 = zext i16 %div44388 to i32
   %22 = tail call i16 @llvm.abs.i16(i16 %z0.0408, i1 false)
@@ -4050,7 +4052,7 @@ for.body75.us:                                    ; preds = %for.body75.us, %for
   %rem49.i320.us = and i32 %div.i.i318.us, 1
   %add72.us = add nsw i32 %rem49.i320.us, %sub69
   %cmp73.not.us = icmp slt i32 %add72.us, %conv67.us
-  br i1 %cmp73.not.us, label %for.cond66.for.cond.cleanup74_crit_edge.split.us, label %for.body75.us, !llvm.loop !217
+  br i1 %cmp73.not.us, label %for.cond66.for.cond.cleanup74_crit_edge.split.us, label %for.body75.us, !llvm.loop !215
 
 for.cond66.for.cond.cleanup74_crit_edge.split.us: ; preds = %for.body75.us
   store i32 %add.i.i317.us, ptr %17, align 4, !tbaa !147
@@ -4063,7 +4065,7 @@ for.cond.cleanup74:                               ; preds = %for.inc229.loopexit
   %29 = phi i32 [ %add.i.i317.us, %for.cond66.for.cond.cleanup74_crit_edge.split.us ], [ %add.i.i317398, %for.body ], [ %add.i.i317, %for.inc229.loopexit ]
   %inc234 = add i16 %z0.0408, 1
   %cmp.not = icmp sgt i16 %inc234, %d1.0
-  br i1 %cmp.not, label %for.cond.cleanup, label %for.body, !llvm.loop !218
+  br i1 %cmp.not, label %for.cond.cleanup, label %for.body, !llvm.loop !216
 
 for.body75:                                       ; preds = %for.body75.lr.ph, %for.inc229.loopexit
   %30 = phi ptr [ %68, %for.inc229.loopexit ], [ %17, %for.body75.lr.ph ]
@@ -4072,7 +4074,7 @@ for.body75:                                       ; preds = %for.body75.lr.ph, %
   %x0.0403 = phi i16 [ %inc230, %for.inc229.loopexit ], [ %conv65, %for.body75.lr.ph ]
   %32 = tail call i32 @llvm.abs.i32(i32 %conv67405, i1 true)
   %. = tail call i32 @llvm.umax.i32(i32 %32, i32 %23)
-  %33 = load i16, ptr %rs, align 4, !tbaa !213
+  %33 = load i16, ptr %rs, align 4, !tbaa !211
   %div91390 = sdiv i16 %33, 2
   %div91.sext410 = zext i16 %div91390 to i32
   %sext269 = shl nuw i32 %., 16
@@ -4099,12 +4101,12 @@ for.body119.lr.ph:                                ; preds = %for.body75
 for.body119:                                      ; preds = %for.inc, %for.body119.lr.ph
   %conv115395 = phi i32 [ %conv115392, %for.body119.lr.ph ], [ %conv115, %for.inc ]
   %y0.0394 = phi i16 [ %conv113, %for.body119.lr.ph ], [ %inc, %for.inc ]
-  %35 = load i8, ptr %large_cave_is_flat, align 1, !tbaa !202, !range !99, !noundef !100
+  %35 = load i8, ptr %large_cave_is_flat, align 1, !tbaa !201, !range !99, !noundef !100
   %tobool120.not = icmp eq i8 %35, 0
   br i1 %tobool120.not, label %if.end132, label %if.then121
 
 if.then121:                                       ; preds = %for.body119
-  %36 = load i16, ptr %rs, align 4, !tbaa !213
+  %36 = load i16, ptr %rs, align 4, !tbaa !211
   %cmp124 = icmp sgt i16 %36, 7
   br i1 %cmp124, label %land.lhs.true, label %if.end132
 
@@ -4123,7 +4125,7 @@ if.end132:                                        ; preds = %land.lhs.true, %if.
   %add8.i327 = add i16 %add141, %40
   %41 = load i16, ptr %Z.i277, align 4, !tbaa !158
   %add13.i330 = add i16 %add146, %41
-  %42 = load ptr, ptr %this, align 8, !tbaa !192
+  %42 = load ptr, ptr %this, align 8, !tbaa !191
   %m_area = getelementptr inbounds i8, ptr %42, i64 8
   %conv.i = sext i16 %add.i324 to i64
   %43 = load i16, ptr %m_area, align 2, !tbaa !34
@@ -4153,7 +4155,7 @@ land.lhs.true22.i:                                ; preds = %land.lhs.true9.i
 
 _ZNK9VoxelArea8containsEN3irr4core8vector3dIsEE.exit: ; preds = %land.lhs.true22.i
   %Z31.i = getelementptr inbounds i8, ptr %42, i64 18
-  %48 = load i16, ptr %Z31.i, align 2, !tbaa !182
+  %48 = load i16, ptr %Z31.i, align 2, !tbaa !181
   %cmp33.i.not = icmp sgt i16 %add13.i330, %48
   br i1 %cmp33.i.not, label %for.inc, label %if.end152
 
@@ -4180,7 +4182,7 @@ if.end152:                                        ; preds = %_ZNK9VoxelArea8cont
   %idxprom = and i64 %add21.i.i, 4294967295
   %arrayidx = getelementptr inbounds %struct.MapNode, ptr %51, i64 %idxprom
   %52 = load i16, ptr %arrayidx, align 4, !tbaa !61
-  %53 = load ptr, ptr %ndef, align 8, !tbaa !186
+  %53 = load ptr, ptr %ndef, align 8, !tbaa !185
   %conv.i337 = zext i16 %52 to i64
   %_M_finish.i.i = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !71
@@ -4211,18 +4213,18 @@ _ZNK14NodeDefManager3getEt.exit:                  ; preds = %cond.false.i, %land
   br i1 %tobool160.not, label %for.inc, label %if.end162
 
 if.end162:                                        ; preds = %_ZNK14NodeDefManager3getEt.exit
-  %58 = load i8, ptr %large_cave, align 4, !tbaa !196, !range !99, !noundef !100
+  %58 = load i8, ptr %large_cave, align 4, !tbaa !195, !range !99, !noundef !100
   %tobool163.not = icmp eq i8 %58, 0
   br i1 %tobool163.not, label %if.else211, label %if.then164
 
 if.then164:                                       ; preds = %if.end162
-  %59 = load i16, ptr %Y165, align 8, !tbaa !219
+  %59 = load i16, ptr %Y165, align 8, !tbaa !217
   %conv166 = sext i16 %59 to i32
   %sub167 = add nsw i32 %conv166, -16
-  %60 = load i16, ptr %Y168, align 2, !tbaa !220
+  %60 = load i16, ptr %Y168, align 2, !tbaa !218
   %conv169 = sext i16 %60 to i32
   %add170 = add nsw i32 %conv169, 16
-  %61 = load i32, ptr %water_level, align 4, !tbaa !189
+  %61 = load i32, ptr %water_level, align 4, !tbaa !188
   %cmp171 = icmp slt i32 %sub167, %61
   %cmp174 = icmp sgt i32 %add170, %61
   %or.cond = select i1 %cmp171, i1 %cmp174, i1 false
@@ -4256,9 +4258,9 @@ if.else211:                                       ; preds = %if.end162
 
 if.end215:                                        ; preds = %if.else211
   store i32 126, ptr %arrayidx, align 4, !tbaa.struct !101
-  %64 = load ptr, ptr %this, align 8, !tbaa !192
+  %64 = load ptr, ptr %this, align 8, !tbaa !191
   %m_flags = getelementptr inbounds i8, ptr %64, i64 40
-  %65 = load ptr, ptr %m_flags, align 8, !tbaa !184
+  %65 = load ptr, ptr %m_flags, align 8, !tbaa !183
   %arrayidx222 = getelementptr inbounds i8, ptr %65, i64 %idxprom
   %66 = load i8, ptr %arrayidx222, align 1, !tbaa !102
   %67 = or i8 %66, 4
@@ -4269,10 +4271,10 @@ for.inc:                                          ; preds = %if.end215, %if.else
   %inc = add i16 %y0.0394, 1
   %conv115 = sext i16 %inc to i32
   %cmp117.not = icmp slt i32 %conv111, %conv115
-  br i1 %cmp117.not, label %for.inc229.loopexit.loopexit, label %for.body119, !llvm.loop !221
+  br i1 %cmp117.not, label %for.inc229.loopexit.loopexit, label %for.body119, !llvm.loop !219
 
 for.inc229.loopexit.loopexit:                     ; preds = %for.inc
-  %.pre = load ptr, ptr %ps, align 8, !tbaa !193
+  %.pre = load ptr, ptr %ps, align 8, !tbaa !192
   br label %for.inc229.loopexit
 
 for.inc229.loopexit:                              ; preds = %for.inc229.loopexit.loopexit, %for.body75
@@ -4288,7 +4290,7 @@ for.inc229.loopexit:                              ; preds = %for.inc229.loopexit
   %rem49.i320 = and i32 %div.i.i318, 1
   %add72 = add nsw i32 %rem49.i320, %sub69
   %cmp73.not = icmp slt i32 %add72, %conv67
-  br i1 %cmp73.not, label %for.cond.cleanup74, label %for.body75, !llvm.loop !217
+  br i1 %cmp73.not, label %for.cond.cleanup74, label %for.body75, !llvm.loop !215
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4481,10 +4483,10 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.500000e+02, float 1.500000e+02>, ptr @_ZL19nparams_caveliquids, align 16, !tbaa !70
   store float 1.500000e+02, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 2, i32 2), align 16, !tbaa !70
-  store i32 776, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 3), align 4, !tbaa !222
-  store i16 3, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 4), align 8, !tbaa !223
+  store i32 776, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 3), align 4, !tbaa !220
+  store i16 3, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 4), align 8, !tbaa !221
   store <2 x float> <float 0x3FE3333340000000, float 2.000000e+00>, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 5), align 4, !tbaa !70
-  store i32 1, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 7), align 4, !tbaa !224
+  store i32 1, ptr getelementptr inbounds (%struct.NoiseParams, ptr @_ZL19nparams_caveliquids, i64 0, i32 7), align 4, !tbaa !222
   ret void
 }
 
@@ -4695,64 +4697,62 @@ attributes #24 = { noreturn nounwind }
 !161 = !{!132, !10, i64 134}
 !162 = !{!132, !10, i64 114}
 !163 = !{!132, !11, i64 100}
-!164 = !{!132, !11, i64 96}
-!165 = !{!132, !10, i64 110}
-!166 = !{!132, !11, i64 92}
-!167 = !{!132, !10, i64 104}
-!168 = distinct !{!168, !29}
-!169 = !{!132, !10, i64 68}
-!170 = !{!132, !10, i64 116}
-!171 = !{!132, !10, i64 84}
-!172 = !{!132, !10, i64 80}
-!173 = !{i64 0, i64 4, !70, i64 4, i64 4, !70, i64 8, i64 4, !70}
-!174 = distinct !{!174, !29}
-!175 = !{!62, !7, i64 2}
-!176 = !{!62, !7, i64 3}
-!177 = !{!69, !11, i64 0}
-!178 = !{!69, !11, i64 4}
-!179 = !{!132, !10, i64 88}
+!164 = !{!132, !10, i64 110}
+!165 = !{!132, !10, i64 104}
+!166 = distinct !{!166, !29}
+!167 = !{!132, !11, i64 92}
+!168 = !{!132, !10, i64 68}
+!169 = !{!132, !10, i64 116}
+!170 = !{!132, !10, i64 84}
+!171 = !{!132, !10, i64 80}
+!172 = !{i64 0, i64 4, !70, i64 4, i64 4, !70, i64 8, i64 4, !70}
+!173 = distinct !{!173, !29}
+!174 = !{!62, !7, i64 2}
+!175 = !{!62, !7, i64 3}
+!176 = !{!69, !11, i64 0}
+!177 = !{!69, !11, i64 4}
+!178 = !{!132, !10, i64 88}
+!179 = distinct !{!179, !29}
 !180 = distinct !{!180, !29}
-!181 = distinct !{!181, !29}
-!182 = !{!27, !10, i64 10}
-!183 = !{!132, !10, i64 82}
-!184 = !{!60, !6, i64 40}
-!185 = distinct !{!185, !29}
-!186 = !{!187, !6, i64 8}
-!187 = !{!"_ZTS7CavesV6", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !10, i64 48, !10, i64 50, !38, i64 52, !10, i64 56, !10, i64 58, !10, i64 60, !10, i64 62, !38, i64 64, !51, i64 68, !51, i64 69, !9, i64 70, !9, i64 76, !69, i64 84, !9, i64 96, !9, i64 102, !10, i64 108, !69, i64 112, !10, i64 124, !10, i64 126}
-!188 = !{!187, !6, i64 16}
-!189 = !{!187, !38, i64 52}
-!190 = !{!187, !10, i64 48}
-!191 = !{!187, !10, i64 50}
-!192 = !{!187, !6, i64 0}
-!193 = !{!187, !6, i64 24}
-!194 = !{!187, !6, i64 32}
-!195 = !{!187, !6, i64 40}
-!196 = !{!187, !51, i64 68}
-!197 = !{!187, !10, i64 56}
-!198 = !{!187, !10, i64 58}
-!199 = !{!187, !10, i64 60}
-!200 = !{!187, !38, i64 64}
-!201 = !{!187, !10, i64 62}
-!202 = !{!187, !51, i64 69}
-!203 = !{!187, !10, i64 124}
-!204 = !{!187, !10, i64 98}
-!205 = !{!187, !10, i64 126}
-!206 = !{!187, !10, i64 106}
-!207 = !{!187, !11, i64 92}
-!208 = !{!187, !11, i64 88}
-!209 = !{!187, !10, i64 102}
-!210 = !{!187, !11, i64 84}
-!211 = !{!187, !10, i64 96}
-!212 = distinct !{!212, !29}
-!213 = !{!187, !10, i64 108}
-!214 = !{!187, !10, i64 74}
-!215 = !{!187, !10, i64 70}
+!181 = !{!27, !10, i64 10}
+!182 = !{!132, !10, i64 82}
+!183 = !{!60, !6, i64 40}
+!184 = distinct !{!184, !29}
+!185 = !{!186, !6, i64 8}
+!186 = !{!"_ZTS7CavesV6", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !10, i64 48, !10, i64 50, !38, i64 52, !10, i64 56, !10, i64 58, !10, i64 60, !10, i64 62, !38, i64 64, !51, i64 68, !51, i64 69, !9, i64 70, !9, i64 76, !69, i64 84, !9, i64 96, !9, i64 102, !10, i64 108, !69, i64 112, !10, i64 124, !10, i64 126}
+!187 = !{!186, !6, i64 16}
+!188 = !{!186, !38, i64 52}
+!189 = !{!186, !10, i64 48}
+!190 = !{!186, !10, i64 50}
+!191 = !{!186, !6, i64 0}
+!192 = !{!186, !6, i64 24}
+!193 = !{!186, !6, i64 32}
+!194 = !{!186, !6, i64 40}
+!195 = !{!186, !51, i64 68}
+!196 = !{!186, !10, i64 56}
+!197 = !{!186, !10, i64 58}
+!198 = !{!186, !10, i64 60}
+!199 = !{!186, !38, i64 64}
+!200 = !{!186, !10, i64 62}
+!201 = !{!186, !51, i64 69}
+!202 = !{!186, !10, i64 124}
+!203 = !{!186, !10, i64 98}
+!204 = !{!186, !10, i64 126}
+!205 = !{!186, !10, i64 106}
+!206 = !{!186, !11, i64 92}
+!207 = !{!186, !10, i64 102}
+!208 = !{!186, !10, i64 96}
+!209 = distinct !{!209, !29}
+!210 = !{!186, !11, i64 84}
+!211 = !{!186, !10, i64 108}
+!212 = !{!186, !10, i64 74}
+!213 = !{!186, !10, i64 70}
+!214 = distinct !{!214, !29}
+!215 = distinct !{!215, !29}
 !216 = distinct !{!216, !29}
-!217 = distinct !{!217, !29}
-!218 = distinct !{!218, !29}
-!219 = !{!187, !10, i64 72}
-!220 = !{!187, !10, i64 78}
-!221 = distinct !{!221, !29}
-!222 = !{!68, !38, i64 20}
-!223 = !{!68, !10, i64 24}
-!224 = !{!68, !38, i64 36}
+!217 = !{!186, !10, i64 72}
+!218 = !{!186, !10, i64 78}
+!219 = distinct !{!219, !29}
+!220 = !{!68, !38, i64 20}
+!221 = !{!68, !10, i64 24}
+!222 = !{!68, !38, i64 36}

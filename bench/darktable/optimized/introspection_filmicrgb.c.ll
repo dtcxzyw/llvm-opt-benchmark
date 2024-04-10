@@ -7282,16 +7282,15 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %77 = getelementptr inbounds i8, ptr %6, i64 208
   %78 = load float, ptr %77, align 16, !tbaa !310
   %79 = fmul reassoc nsz arcp contract afn float %78, 0x3FD5555560000000
-  %80 = fmul reassoc nsz arcp contract afn float %79, %79
-  %81 = getelementptr inbounds i8, ptr %6, i64 56
-  store float %80, ptr %81, align 8, !tbaa !193
-  %82 = getelementptr inbounds i8, ptr %6, i64 212
-  %83 = load float, ptr %82, align 4, !tbaa !311
-  %84 = fmul reassoc nsz arcp contract afn float %83, 0x3FD5555560000000
-  %85 = fsub reassoc nsz arcp contract afn float 0x3FD5555560000000, %84
-  %86 = fmul reassoc nsz arcp contract afn float %85, %85
-  %87 = getelementptr inbounds i8, ptr %6, i64 60
-  store float %86, ptr %87, align 4, !tbaa !194
+  %80 = getelementptr inbounds i8, ptr %6, i64 56
+  %81 = getelementptr inbounds i8, ptr %6, i64 212
+  %82 = load float, ptr %81, align 4, !tbaa !311
+  %83 = fmul reassoc nsz arcp contract afn float %82, 0x3FD5555560000000
+  %84 = fsub reassoc nsz arcp contract afn float 0x3FD5555560000000, %83
+  %85 = insertelement <2 x float> poison, float %79, i64 0
+  %86 = insertelement <2 x float> %85, float %84, i64 1
+  %87 = fmul reassoc nsz arcp contract afn <2 x float> %86, %86
+  store <2 x float> %87, ptr %80, align 8, !tbaa !14
   %88 = getelementptr inbounds i8, ptr %1, i64 12
   %89 = load float, ptr %88, align 4, !tbaa !312
   %90 = fadd reassoc nsz arcp contract afn float %89, %30

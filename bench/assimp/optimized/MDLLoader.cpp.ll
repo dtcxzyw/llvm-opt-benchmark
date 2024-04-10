@@ -1508,7 +1508,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad25, %lpad.i169, %lpad.i153, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i ], [ %46, %lpad.i153 ], [ %81, %lpad.i169 ], [ %4, %lpad ], [ %40, %lpad25 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i ], [ %46, %lpad.i153 ], [ %86, %lpad.i169 ], [ %4, %lpad ], [ %40, %lpad25 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -1806,35 +1806,33 @@ if.end.i:                                         ; preds = %if.then.i156, %if.t
   %iIndex.addr.0.i = phi i32 [ %sub.i, %if.then.i156 ], [ %conv166, %if.then159 ]
   %idxprom.i = zext i32 %iIndex.addr.0.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.Assimp::MDL::TexCoord_MDL3", ptr %szCurrent.0.lcssa, i64 %idxprom.i
-  %68 = load i16, ptr %arrayidx.i, align 1
-  %conv.i = sitofp i16 %68 to float
-  %v.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
-  %69 = load i16, ptr %v.i, align 1
-  %conv5.i = sitofp i16 %69 to float
+  %68 = load <2 x i16>, ptr %arrayidx.i, align 1
+  %69 = sitofp <2 x i16> %68 to <2 x float>
   %70 = load i32, ptr %iGSFileVersion86, align 8
   %cmp6.not.i = icmp eq i32 %70, 5
   br i1 %cmp6.not.i, label %_ZN6Assimp11MDLImporter30ImportUVCoordinate_3DGS_MDL345ER10aiVector3tIfEPKNS_3MDL13TexCoord_MDL3Ej.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %add.i = fadd float %conv.i, 5.000000e-01
+  %71 = extractelement <2 x float> %69, i64 0
+  %add.i = fadd float %71, 5.000000e-01
   %skinwidth.i = getelementptr inbounds i8, ptr %66, i64 52
-  %71 = load i32, ptr %skinwidth.i, align 1
-  %conv8.i = sitofp i32 %71 to float
+  %72 = load i32, ptr %skinwidth.i, align 1
+  %conv8.i = sitofp i32 %72 to float
   %div.i = fdiv float %add.i, %conv8.i
-  %add9.i = fadd float %conv5.i, 5.000000e-01
+  %73 = extractelement <2 x float> %69, i64 1
+  %add9.i = fadd float %73, 5.000000e-01
   %skinheight.i = getelementptr inbounds i8, ptr %66, i64 56
-  %72 = load i32, ptr %skinheight.i, align 1
-  %conv10.i = sitofp i32 %72 to float
+  %74 = load i32, ptr %skinheight.i, align 1
+  %conv10.i = sitofp i32 %74 to float
   %div11.i = fdiv float %add9.i, %conv10.i
   %sub12.i = fsub float 1.000000e+00, %div11.i
+  %75 = insertelement <2 x float> poison, float %div.i, i64 0
+  %76 = insertelement <2 x float> %75, float %sub12.i, i64 1
   br label %_ZN6Assimp11MDLImporter30ImportUVCoordinate_3DGS_MDL345ER10aiVector3tIfEPKNS_3MDL13TexCoord_MDL3Ej.exit
 
 _ZN6Assimp11MDLImporter30ImportUVCoordinate_3DGS_MDL345ER10aiVector3tIfEPKNS_3MDL13TexCoord_MDL3Ej.exit: ; preds = %if.end.i, %if.then7.i
-  %s.0.i = phi float [ %div.i, %if.then7.i ], [ %conv.i, %if.end.i ]
-  %t.0.i = phi float [ %sub12.i, %if.then7.i ], [ %conv5.i, %if.end.i ]
-  store float %s.0.i, ptr %arrayidx163, align 4
-  %y.i157 = getelementptr inbounds i8, ptr %arrayidx163, i64 4
-  store float %t.0.i, ptr %y.i157, align 4
+  %77 = phi <2 x float> [ %76, %if.then7.i ], [ %69, %if.end.i ]
+  store <2 x float> %77, ptr %arrayidx163, align 4
   %z.i158 = getelementptr inbounds i8, ptr %arrayidx163, i64 8
   store float 0.000000e+00, ptr %z.i158, align 4
   br label %for.inc168
@@ -1847,26 +1845,26 @@ for.inc168:                                       ; preds = %if.end115, %_ZN6Ass
 
 for.end171:                                       ; preds = %for.inc168
   %add172 = add i32 %iCurrent.0221, 2
-  %73 = load ptr, ptr %mFaces, align 8
-  %mIndices176 = getelementptr inbounds %struct.aiFace, ptr %73, i64 %indvars.iv232, i32 1
-  %74 = load ptr, ptr %mIndices176, align 8
-  store i32 %add172, ptr %74, align 4
+  %78 = load ptr, ptr %mFaces, align 8
+  %mIndices176 = getelementptr inbounds %struct.aiFace, ptr %78, i64 %indvars.iv232, i32 1
+  %79 = load ptr, ptr %mIndices176, align 8
+  store i32 %add172, ptr %79, align 4
   %add178 = add i32 %iCurrent.0221, 1
-  %75 = load ptr, ptr %mFaces, align 8
-  %mIndices182 = getelementptr inbounds %struct.aiFace, ptr %75, i64 %indvars.iv232, i32 1
-  %76 = load ptr, ptr %mIndices182, align 8
-  %arrayidx183 = getelementptr inbounds i8, ptr %76, i64 4
+  %80 = load ptr, ptr %mFaces, align 8
+  %mIndices182 = getelementptr inbounds %struct.aiFace, ptr %80, i64 %indvars.iv232, i32 1
+  %81 = load ptr, ptr %mIndices182, align 8
+  %arrayidx183 = getelementptr inbounds i8, ptr %81, i64 4
   store i32 %add178, ptr %arrayidx183, align 4
-  %77 = load ptr, ptr %mFaces, align 8
-  %mIndices188 = getelementptr inbounds %struct.aiFace, ptr %77, i64 %indvars.iv232, i32 1
-  %78 = load ptr, ptr %mIndices188, align 8
-  %arrayidx189 = getelementptr inbounds i8, ptr %78, i64 8
+  %82 = load ptr, ptr %mFaces, align 8
+  %mIndices188 = getelementptr inbounds %struct.aiFace, ptr %82, i64 %indvars.iv232, i32 1
+  %83 = load ptr, ptr %mIndices188, align 8
+  %arrayidx189 = getelementptr inbounds i8, ptr %83, i64 8
   store i32 %iCurrent.0221, ptr %arrayidx189, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %pcTriangles.0222, i64 12
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %79 = load i32, ptr %num_tris, align 1
-  %80 = zext i32 %79 to i64
-  %cmp96 = icmp ult i64 %indvars.iv.next233, %80
+  %84 = load i32, ptr %num_tris, align 1
+  %85 = zext i32 %84 to i64
+  %cmp96 = icmp ult i64 %indvars.iv.next233, %85
   br i1 %cmp96, label %for.body97, label %if.end322, !llvm.loop !10
 
 if.else193:                                       ; preds = %if.end84
@@ -1900,7 +1898,7 @@ invoke.cont.i170:                                 ; preds = %if.then.i167
   unreachable
 
 lpad.i169:                                        ; preds = %if.then.i167
-  %81 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i168) #24
   br label %common.resume
@@ -1910,11 +1908,11 @@ for.body208:                                      ; preds = %for.body208.lr.ph, 
   %iCurrent203.0215 = phi i32 [ 0, %for.body208.lr.ph ], [ %inc298, %for.end299 ]
   %pcTriangles.1214 = phi ptr [ %add.ptr14, %for.body208.lr.ph ], [ %incdec.ptr318, %for.end299 ]
   %call209 = call noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #26
-  %82 = load ptr, ptr %mFaces, align 8
-  %mIndices213 = getelementptr inbounds %struct.aiFace, ptr %82, i64 %indvars.iv225, i32 1
+  %87 = load ptr, ptr %mFaces, align 8
+  %mIndices213 = getelementptr inbounds %struct.aiFace, ptr %87, i64 %indvars.iv225, i32 1
   store ptr %call209, ptr %mIndices213, align 8
-  %83 = load ptr, ptr %mFaces, align 8
-  %arrayidx216 = getelementptr inbounds %struct.aiFace, ptr %83, i64 %indvars.iv225
+  %88 = load ptr, ptr %mFaces, align 8
+  %arrayidx216 = getelementptr inbounds %struct.aiFace, ptr %88, i64 %indvars.iv225
   store i32 3, ptr %arrayidx216, align 8
   %index_uv291 = getelementptr inbounds i8, ptr %pcTriangles.1214, i64 6
   br label %for.body222
@@ -1923,76 +1921,76 @@ for.body222:                                      ; preds = %for.body208, %for.i
   %indvars.iv = phi i64 [ 0, %for.body208 ], [ %indvars.iv.next, %for.inc296 ]
   %iCurrent203.1211 = phi i32 [ %iCurrent203.0215, %for.body208 ], [ %inc298, %for.inc296 ]
   %arrayidx226 = getelementptr inbounds [3 x i16], ptr %pcTriangles.1214, i64 0, i64 %indvars.iv
-  %84 = load i16, ptr %arrayidx226, align 1
-  %conv227 = zext i16 %84 to i32
-  %85 = load i32, ptr %num_verts, align 1
-  %cmp229.not = icmp ugt i32 %85, %conv227
+  %89 = load i16, ptr %arrayidx226, align 1
+  %conv227 = zext i16 %89 to i32
+  %90 = load i32, ptr %num_verts, align 1
+  %cmp229.not = icmp ugt i32 %90, %conv227
   br i1 %cmp229.not, label %if.end234, label %if.then230
 
 if.then230:                                       ; preds = %for.body222
-  %sub232 = add nsw i32 %85, -1
+  %sub232 = add nsw i32 %90, -1
   %call233 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call233, ptr noundef nonnull @.str.62)
   br label %if.end234
 
 if.end234:                                        ; preds = %if.then230, %for.body222
   %iIndex223.0 = phi i32 [ %sub232, %if.then230 ], [ %conv227, %for.body222 ]
-  %86 = load ptr, ptr %mVertices.i, align 8
+  %91 = load ptr, ptr %mVertices.i, align 8
   %idxprom237 = zext i32 %iCurrent203.1211 to i64
-  %arrayidx238 = getelementptr inbounds %class.aiVector3t, ptr %86, i64 %idxprom237
+  %arrayidx238 = getelementptr inbounds %class.aiVector3t, ptr %91, i64 %idxprom237
   %idxprom239 = zext i32 %iIndex223.0 to i64
   %arrayidx240 = getelementptr inbounds %"struct.Assimp::MDL::Vertex_MDL4", ptr %add.ptr199, i64 %idxprom239
-  %87 = load i16, ptr %arrayidx240, align 1
-  %conv243 = uitofp i16 %87 to float
-  %88 = load float, ptr %scale244, align 1
-  %mul246 = fmul float %88, %conv243
+  %92 = load i16, ptr %arrayidx240, align 1
+  %conv243 = uitofp i16 %92 to float
+  %93 = load float, ptr %scale244, align 1
+  %mul246 = fmul float %93, %conv243
   store float %mul246, ptr %arrayidx238, align 4
-  %89 = load float, ptr %translate248, align 1
-  %add251 = fadd float %mul246, %89
+  %94 = load float, ptr %translate248, align 1
+  %add251 = fadd float %mul246, %94
   store float %add251, ptr %arrayidx238, align 4
   %arrayidx255 = getelementptr inbounds i8, ptr %arrayidx240, i64 2
-  %90 = load i16, ptr %arrayidx255, align 1
-  %conv256 = uitofp i16 %90 to float
-  %91 = load float, ptr %arrayidx258, align 1
-  %mul259 = fmul float %91, %conv256
+  %95 = load i16, ptr %arrayidx255, align 1
+  %conv256 = uitofp i16 %95 to float
+  %96 = load float, ptr %arrayidx258, align 1
+  %mul259 = fmul float %96, %conv256
   %y260 = getelementptr inbounds i8, ptr %arrayidx238, i64 4
   store float %mul259, ptr %y260, align 4
-  %92 = load float, ptr %arrayidx262, align 1
-  %add264 = fadd float %mul259, %92
+  %97 = load float, ptr %arrayidx262, align 1
+  %add264 = fadd float %mul259, %97
   store float %add264, ptr %y260, align 4
   %arrayidx268 = getelementptr inbounds i8, ptr %arrayidx240, i64 4
-  %93 = load i16, ptr %arrayidx268, align 1
-  %conv269 = uitofp i16 %93 to float
-  %94 = load float, ptr %arrayidx271, align 1
-  %mul272 = fmul float %94, %conv269
+  %98 = load i16, ptr %arrayidx268, align 1
+  %conv269 = uitofp i16 %98 to float
+  %99 = load float, ptr %arrayidx271, align 1
+  %mul272 = fmul float %99, %conv269
   %z273 = getelementptr inbounds i8, ptr %arrayidx238, i64 8
   store float %mul272, ptr %z273, align 4
-  %95 = load float, ptr %arrayidx275, align 1
-  %add277 = fadd float %mul272, %95
+  %100 = load float, ptr %arrayidx275, align 1
+  %add277 = fadd float %mul272, %100
   store float %add277, ptr %z273, align 4
   %normalIndex280 = getelementptr inbounds i8, ptr %arrayidx240, i64 6
-  %96 = load i8, ptr %normalIndex280, align 1
-  %97 = load ptr, ptr %mNormals, align 8
-  %arrayidx283 = getelementptr inbounds %class.aiVector3t, ptr %97, i64 %idxprom237
-  call void @_ZN6Assimp3MD217LookupNormalIndexEhR10aiVector3tIfE(i8 noundef zeroext %96, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx283)
-  %98 = load i32, ptr %synctype, align 1
-  %tobool285.not = icmp eq i32 %98, 0
+  %101 = load i8, ptr %normalIndex280, align 1
+  %102 = load ptr, ptr %mNormals, align 8
+  %arrayidx283 = getelementptr inbounds %class.aiVector3t, ptr %102, i64 %idxprom237
+  call void @_ZN6Assimp3MD217LookupNormalIndexEhR10aiVector3tIfE(i8 noundef zeroext %101, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx283)
+  %103 = load i32, ptr %synctype, align 1
+  %tobool285.not = icmp eq i32 %103, 0
   br i1 %tobool285.not, label %for.inc296, label %if.then286
 
 if.then286:                                       ; preds = %if.end234
-  %99 = load ptr, ptr %mTextureCoords287, align 8
-  %arrayidx290 = getelementptr inbounds %class.aiVector3t, ptr %99, i64 %idxprom237
+  %104 = load ptr, ptr %mTextureCoords287, align 8
+  %arrayidx290 = getelementptr inbounds %class.aiVector3t, ptr %104, i64 %idxprom237
   %arrayidx293 = getelementptr inbounds [3 x i16], ptr %index_uv291, i64 0, i64 %indvars.iv
-  %100 = load i16, ptr %arrayidx293, align 1
-  %conv294 = zext i16 %100 to i32
-  %101 = load ptr, ptr %mBuffer, align 8
-  %synctype.i174 = getelementptr inbounds i8, ptr %101, i64 72
-  %102 = load i32, ptr %synctype.i174, align 1
-  %cmp.not.i175 = icmp ugt i32 %102, %conv294
+  %105 = load i16, ptr %arrayidx293, align 1
+  %conv294 = zext i16 %105 to i32
+  %106 = load ptr, ptr %mBuffer, align 8
+  %synctype.i174 = getelementptr inbounds i8, ptr %106, i64 72
+  %107 = load i32, ptr %synctype.i174, align 1
+  %cmp.not.i175 = icmp ugt i32 %107, %conv294
   br i1 %cmp.not.i175, label %if.end.i179, label %if.then.i176
 
 if.then.i176:                                     ; preds = %if.then286
-  %sub.i177 = add nsw i32 %102, -1
+  %sub.i177 = add nsw i32 %107, -1
   %call.i178 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call.i178, ptr noundef nonnull @.str.63)
   br label %if.end.i179
@@ -2001,35 +1999,33 @@ if.end.i179:                                      ; preds = %if.then.i176, %if.t
   %iIndex.addr.0.i180 = phi i32 [ %sub.i177, %if.then.i176 ], [ %conv294, %if.then286 ]
   %idxprom.i181 = zext i32 %iIndex.addr.0.i180 to i64
   %arrayidx.i182 = getelementptr inbounds %"struct.Assimp::MDL::TexCoord_MDL3", ptr %szCurrent.0.lcssa, i64 %idxprom.i181
-  %103 = load i16, ptr %arrayidx.i182, align 1
-  %conv.i183 = sitofp i16 %103 to float
-  %v.i184 = getelementptr inbounds i8, ptr %arrayidx.i182, i64 2
-  %104 = load i16, ptr %v.i184, align 1
-  %conv5.i185 = sitofp i16 %104 to float
-  %105 = load i32, ptr %iGSFileVersion86, align 8
-  %cmp6.not.i187 = icmp eq i32 %105, 5
+  %108 = load <2 x i16>, ptr %arrayidx.i182, align 1
+  %109 = sitofp <2 x i16> %108 to <2 x float>
+  %110 = load i32, ptr %iGSFileVersion86, align 8
+  %cmp6.not.i187 = icmp eq i32 %110, 5
   br i1 %cmp6.not.i187, label %_ZN6Assimp11MDLImporter30ImportUVCoordinate_3DGS_MDL345ER10aiVector3tIfEPKNS_3MDL13TexCoord_MDL3Ej.exit202, label %if.then7.i188
 
 if.then7.i188:                                    ; preds = %if.end.i179
-  %add.i189 = fadd float %conv.i183, 5.000000e-01
-  %skinwidth.i190 = getelementptr inbounds i8, ptr %101, i64 52
-  %106 = load i32, ptr %skinwidth.i190, align 1
-  %conv8.i191 = sitofp i32 %106 to float
+  %111 = extractelement <2 x float> %109, i64 0
+  %add.i189 = fadd float %111, 5.000000e-01
+  %skinwidth.i190 = getelementptr inbounds i8, ptr %106, i64 52
+  %112 = load i32, ptr %skinwidth.i190, align 1
+  %conv8.i191 = sitofp i32 %112 to float
   %div.i192 = fdiv float %add.i189, %conv8.i191
-  %add9.i193 = fadd float %conv5.i185, 5.000000e-01
-  %skinheight.i194 = getelementptr inbounds i8, ptr %101, i64 56
-  %107 = load i32, ptr %skinheight.i194, align 1
-  %conv10.i195 = sitofp i32 %107 to float
+  %113 = extractelement <2 x float> %109, i64 1
+  %add9.i193 = fadd float %113, 5.000000e-01
+  %skinheight.i194 = getelementptr inbounds i8, ptr %106, i64 56
+  %114 = load i32, ptr %skinheight.i194, align 1
+  %conv10.i195 = sitofp i32 %114 to float
   %div11.i196 = fdiv float %add9.i193, %conv10.i195
   %sub12.i197 = fsub float 1.000000e+00, %div11.i196
+  %115 = insertelement <2 x float> poison, float %div.i192, i64 0
+  %116 = insertelement <2 x float> %115, float %sub12.i197, i64 1
   br label %_ZN6Assimp11MDLImporter30ImportUVCoordinate_3DGS_MDL345ER10aiVector3tIfEPKNS_3MDL13TexCoord_MDL3Ej.exit202
 
 _ZN6Assimp11MDLImporter30ImportUVCoordinate_3DGS_MDL345ER10aiVector3tIfEPKNS_3MDL13TexCoord_MDL3Ej.exit202: ; preds = %if.end.i179, %if.then7.i188
-  %s.0.i198 = phi float [ %div.i192, %if.then7.i188 ], [ %conv.i183, %if.end.i179 ]
-  %t.0.i199 = phi float [ %sub12.i197, %if.then7.i188 ], [ %conv5.i185, %if.end.i179 ]
-  store float %s.0.i198, ptr %arrayidx290, align 4
-  %y.i200 = getelementptr inbounds i8, ptr %arrayidx290, i64 4
-  store float %t.0.i199, ptr %y.i200, align 4
+  %117 = phi <2 x float> [ %116, %if.then7.i188 ], [ %109, %if.end.i179 ]
+  store <2 x float> %117, ptr %arrayidx290, align 4
   %z.i201 = getelementptr inbounds i8, ptr %arrayidx290, i64 8
   store float 0.000000e+00, ptr %z.i201, align 4
   br label %for.inc296
@@ -2042,31 +2038,31 @@ for.inc296:                                       ; preds = %if.end234, %_ZN6Ass
 
 for.end299:                                       ; preds = %for.inc296
   %add300 = add i32 %iCurrent203.0215, 2
-  %108 = load ptr, ptr %mFaces, align 8
-  %mIndices304 = getelementptr inbounds %struct.aiFace, ptr %108, i64 %indvars.iv225, i32 1
-  %109 = load ptr, ptr %mIndices304, align 8
-  store i32 %add300, ptr %109, align 4
+  %118 = load ptr, ptr %mFaces, align 8
+  %mIndices304 = getelementptr inbounds %struct.aiFace, ptr %118, i64 %indvars.iv225, i32 1
+  %119 = load ptr, ptr %mIndices304, align 8
+  store i32 %add300, ptr %119, align 4
   %add306 = add i32 %iCurrent203.0215, 1
-  %110 = load ptr, ptr %mFaces, align 8
-  %mIndices310 = getelementptr inbounds %struct.aiFace, ptr %110, i64 %indvars.iv225, i32 1
-  %111 = load ptr, ptr %mIndices310, align 8
-  %arrayidx311 = getelementptr inbounds i8, ptr %111, i64 4
+  %120 = load ptr, ptr %mFaces, align 8
+  %mIndices310 = getelementptr inbounds %struct.aiFace, ptr %120, i64 %indvars.iv225, i32 1
+  %121 = load ptr, ptr %mIndices310, align 8
+  %arrayidx311 = getelementptr inbounds i8, ptr %121, i64 4
   store i32 %add306, ptr %arrayidx311, align 4
-  %112 = load ptr, ptr %mFaces, align 8
-  %mIndices316 = getelementptr inbounds %struct.aiFace, ptr %112, i64 %indvars.iv225, i32 1
-  %113 = load ptr, ptr %mIndices316, align 8
-  %arrayidx317 = getelementptr inbounds i8, ptr %113, i64 8
+  %122 = load ptr, ptr %mFaces, align 8
+  %mIndices316 = getelementptr inbounds %struct.aiFace, ptr %122, i64 %indvars.iv225, i32 1
+  %123 = load ptr, ptr %mIndices316, align 8
+  %arrayidx317 = getelementptr inbounds i8, ptr %123, i64 8
   store i32 %iCurrent203.0215, ptr %arrayidx317, align 4
   %incdec.ptr318 = getelementptr inbounds i8, ptr %pcTriangles.1214, i64 12
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %114 = load i32, ptr %num_tris, align 1
-  %115 = zext i32 %114 to i64
-  %cmp207 = icmp ult i64 %indvars.iv.next226, %115
+  %124 = load i32, ptr %num_tris, align 1
+  %125 = zext i32 %124 to i64
+  %cmp207 = icmp ult i64 %indvars.iv.next226, %125
   br i1 %cmp207, label %for.body208, label %if.end322, !llvm.loop !12
 
 if.end322:                                        ; preds = %for.end299, %for.end171, %for.cond205.preheader, %for.cond94.preheader
-  %116 = load i32, ptr %iGSFileVersion86, align 8
-  %cmp324 = icmp eq i32 %116, 5
+  %126 = load i32, ptr %iGSFileVersion86, align 8
+  %cmp324 = icmp eq i32 %126, 5
   br i1 %cmp324, label %if.then325, label %if.end326
 
 if.then325:                                       ; preds = %if.end322
@@ -4155,36 +4151,34 @@ if.end:                                           ; preds = %if.then, %entry
   %iIndex.addr.0 = phi i32 [ %sub, %if.then ], [ %iIndex, %entry ]
   %idxprom = zext i32 %iIndex.addr.0 to i64
   %arrayidx = getelementptr inbounds %"struct.Assimp::MDL::TexCoord_MDL3", ptr %pcSrc, i64 %idxprom
-  %2 = load i16, ptr %arrayidx, align 1
-  %conv = sitofp i16 %2 to float
-  %v = getelementptr inbounds i8, ptr %arrayidx, i64 2
-  %3 = load i16, ptr %v, align 1
-  %conv5 = sitofp i16 %3 to float
+  %2 = load <2 x i16>, ptr %arrayidx, align 1
+  %3 = sitofp <2 x i16> %2 to <2 x float>
   %iGSFileVersion = getelementptr inbounds i8, ptr %this, i64 120
   %4 = load i32, ptr %iGSFileVersion, align 8
   %cmp6.not = icmp eq i32 %4, 5
   br i1 %cmp6.not, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %add = fadd float %conv, 5.000000e-01
+  %5 = extractelement <2 x float> %3, i64 0
+  %add = fadd float %5, 5.000000e-01
   %skinwidth = getelementptr inbounds i8, ptr %0, i64 52
-  %5 = load i32, ptr %skinwidth, align 1
-  %conv8 = sitofp i32 %5 to float
+  %6 = load i32, ptr %skinwidth, align 1
+  %conv8 = sitofp i32 %6 to float
   %div = fdiv float %add, %conv8
-  %add9 = fadd float %conv5, 5.000000e-01
+  %7 = extractelement <2 x float> %3, i64 1
+  %add9 = fadd float %7, 5.000000e-01
   %skinheight = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = load i32, ptr %skinheight, align 1
-  %conv10 = sitofp i32 %6 to float
+  %8 = load i32, ptr %skinheight, align 1
+  %conv10 = sitofp i32 %8 to float
   %div11 = fdiv float %add9, %conv10
   %sub12 = fsub float 1.000000e+00, %div11
+  %9 = insertelement <2 x float> poison, float %div, i64 0
+  %10 = insertelement <2 x float> %9, float %sub12, i64 1
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then7, %if.end
-  %s.0 = phi float [ %div, %if.then7 ], [ %conv, %if.end ]
-  %t.0 = phi float [ %sub12, %if.then7 ], [ %conv5, %if.end ]
-  store float %s.0, ptr %vOut, align 4
-  %y = getelementptr inbounds i8, ptr %vOut, i64 4
-  store float %t.0, ptr %y, align 4
+  %11 = phi <2 x float> [ %10, %if.then7 ], [ %3, %if.end ]
+  store <2 x float> %11, ptr %vOut, align 4
   %z = getelementptr inbounds i8, ptr %vOut, i64 8
   store float 0.000000e+00, ptr %z, align 4
   ret void

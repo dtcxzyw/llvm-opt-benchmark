@@ -54204,9 +54204,9 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE18NormalizePerVertexERS2_.exit: ; preds = %_ZN
   br label %66
 
 66:                                               ; preds = %.lr.ph503, %_ZNSt6vectorIfSaIfEED2Ev.exit296
-  %.sroa.0410.0500 = phi ptr [ %.pre, %.lr.ph503 ], [ %633, %_ZNSt6vectorIfSaIfEED2Ev.exit296 ]
+  %.sroa.0410.0500 = phi ptr [ %.pre, %.lr.ph503 ], [ %636, %_ZNSt6vectorIfSaIfEED2Ev.exit296 ]
   %.sroa.8.0493 = phi i32 [ undef, %.lr.ph503 ], [ %.sroa.8.3, %_ZNSt6vectorIfSaIfEED2Ev.exit296 ]
-  %67 = phi <2 x float> [ undef, %.lr.ph503 ], [ %632, %_ZNSt6vectorIfSaIfEED2Ev.exit296 ]
+  %67 = phi <2 x float> [ undef, %.lr.ph503 ], [ %635, %_ZNSt6vectorIfSaIfEED2Ev.exit296 ]
   %68 = getelementptr inbounds i8, ptr %.sroa.0410.0500, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 1
@@ -55064,176 +55064,180 @@ _ZNK3vcg8Matrix33IfEmlERKS1_.exit:                ; preds = %461
   %.sroa.0602.4.vec.extract = extractelement <2 x float> %508, i64 1
   br label %509
 
-509:                                              ; preds = %482, %547
-  %510 = phi i1 [ true, %482 ], [ false, %547 ]
-  %indvars.iv531.sroa.phi.sroa.speculated = phi float [ %.sroa.0602.0.vec.extract, %482 ], [ %.sroa.0602.4.vec.extract, %547 ]
-  %.0160489 = phi float [ 0x7FF0000000000000, %482 ], [ %.2162, %547 ]
-  %511 = phi <2 x float> [ %67, %482 ], [ %546, %547 ]
+509:                                              ; preds = %482, %550
+  %510 = phi i1 [ true, %482 ], [ false, %550 ]
+  %indvars.iv531.sroa.phi.sroa.speculated = phi float [ %.sroa.0602.0.vec.extract, %482 ], [ %.sroa.0602.4.vec.extract, %550 ]
+  %.0160489 = phi float [ 0x7FF0000000000000, %482 ], [ %.2162, %550 ]
+  %511 = phi <2 x float> [ %67, %482 ], [ %549, %550 ]
   %square168 = fmul float %indvars.iv531.sroa.phi.sroa.speculated, %indvars.iv531.sroa.phi.sroa.speculated
   %512 = fadd float %square168, 4.000000e+00
   %sqrt = tail call float @llvm.sqrt.f32(float %512)
   %513 = fadd float %indvars.iv531.sroa.phi.sroa.speculated, %sqrt
   %514 = fsub float %indvars.iv531.sroa.phi.sroa.speculated, %sqrt
-  br label %515
+  %515 = insertelement <2 x float> poison, float %513, i64 0
+  %516 = insertelement <2 x float> %515, float %514, i64 1
+  %517 = fmul <2 x float> %516, <float 5.000000e-01, float 5.000000e-01>
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %517, i64 0
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %517, i64 1
+  br label %518
 
-515:                                              ; preds = %509, %515
-  %516 = phi i1 [ true, %509 ], [ false, %515 ]
-  %indvars.iv528.sroa.phi.sroa.speculated.in = phi float [ %513, %509 ], [ %514, %515 ]
-  %.1161485 = phi float [ %.0160489, %509 ], [ %.2162, %515 ]
-  %517 = phi <2 x float> [ %511, %509 ], [ %546, %515 ]
-  %indvars.iv528.sroa.phi.sroa.speculated = fmul float %indvars.iv528.sroa.phi.sroa.speculated.in, 5.000000e-01
+518:                                              ; preds = %509, %518
+  %519 = phi i1 [ true, %509 ], [ false, %518 ]
+  %indvars.iv528.sroa.phi.sroa.speculated = phi float [ %.sroa.0.0.vec.extract, %509 ], [ %.sroa.0.4.vec.extract, %518 ]
+  %.1161485 = phi float [ %.0160489, %509 ], [ %.2162, %518 ]
+  %520 = phi <2 x float> [ %511, %509 ], [ %549, %518 ]
   %square169 = fmul float %indvars.iv528.sroa.phi.sroa.speculated, %indvars.iv528.sroa.phi.sroa.speculated
-  %518 = fadd float %square169, 1.000000e+00
-  %519 = insertelement <2 x float> poison, float %indvars.iv528.sroa.phi.sroa.speculated, i64 0
-  %520 = insertelement <2 x float> %519, float %square169, i64 1
-  %521 = fmul <2 x float> %520, <float 2.000000e+00, float poison>
-  %522 = fsub <2 x float> <float poison, float 1.000000e+00>, %520
-  %523 = shufflevector <2 x float> %521, <2 x float> %522, <2 x i32> <i32 0, i32 3>
-  %524 = insertelement <2 x float> poison, float %518, i64 0
-  %525 = shufflevector <2 x float> %524, <2 x float> poison, <2 x i32> zeroinitializer
-  %526 = fdiv <2 x float> %523, %525
-  %527 = extractelement <2 x float> %526, i64 0
-  %528 = extractelement <2 x float> %526, i64 1
-  %529 = fmul float %528, %527
-  %530 = fmul <2 x float> %526, %526
-  %shift = shufflevector <2 x float> %530, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %531 = fsub <2 x float> %shift, %530
-  %532 = fmul <2 x float> %491, %531
-  %533 = extractelement <2 x float> %532, i64 0
-  %534 = tail call float @llvm.fmuladd.f32(float %529, float %493, float %533)
-  %535 = tail call float @acosf(float noundef %528) #25
-  %536 = tail call float @asinf(float noundef %527) #25
-  %537 = fdiv float %535, %536
-  %538 = tail call noundef float @llvm.fabs.f32(float %537)
-  %539 = fsub float 1.000000e+00, %538
-  %540 = tail call noundef float @llvm.fabs.f32(float %539)
-  %541 = tail call noundef float @llvm.fabs.f32(float %534)
-  %542 = fadd float %540, %541
-  %543 = fcmp olt float %542, %.1161485
-  %.2162 = select i1 %543, float %542, float %.1161485
-  %544 = insertelement <2 x i1> poison, i1 %543, i64 0
-  %545 = shufflevector <2 x i1> %544, <2 x i1> poison, <2 x i32> zeroinitializer
-  %546 = select <2 x i1> %545, <2 x float> %526, <2 x float> %517
-  br i1 %516, label %515, label %547, !llvm.loop !258
+  %521 = fadd float %square169, 1.000000e+00
+  %522 = insertelement <2 x float> poison, float %indvars.iv528.sroa.phi.sroa.speculated, i64 0
+  %523 = insertelement <2 x float> %522, float %square169, i64 1
+  %524 = fmul <2 x float> %523, <float 2.000000e+00, float poison>
+  %525 = fsub <2 x float> <float poison, float 1.000000e+00>, %523
+  %526 = shufflevector <2 x float> %524, <2 x float> %525, <2 x i32> <i32 0, i32 3>
+  %527 = insertelement <2 x float> poison, float %521, i64 0
+  %528 = shufflevector <2 x float> %527, <2 x float> poison, <2 x i32> zeroinitializer
+  %529 = fdiv <2 x float> %526, %528
+  %530 = extractelement <2 x float> %529, i64 0
+  %531 = extractelement <2 x float> %529, i64 1
+  %532 = fmul float %531, %530
+  %533 = fmul <2 x float> %529, %529
+  %shift = shufflevector <2 x float> %533, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %534 = fsub <2 x float> %shift, %533
+  %535 = fmul <2 x float> %491, %534
+  %536 = extractelement <2 x float> %535, i64 0
+  %537 = tail call float @llvm.fmuladd.f32(float %532, float %493, float %536)
+  %538 = tail call float @acosf(float noundef %531) #25
+  %539 = tail call float @asinf(float noundef %530) #25
+  %540 = fdiv float %538, %539
+  %541 = tail call noundef float @llvm.fabs.f32(float %540)
+  %542 = fsub float 1.000000e+00, %541
+  %543 = tail call noundef float @llvm.fabs.f32(float %542)
+  %544 = tail call noundef float @llvm.fabs.f32(float %537)
+  %545 = fadd float %543, %544
+  %546 = fcmp olt float %545, %.1161485
+  %.2162 = select i1 %546, float %545, float %.1161485
+  %547 = insertelement <2 x i1> poison, i1 %546, i64 0
+  %548 = shufflevector <2 x i1> %547, <2 x i1> poison, <2 x i32> zeroinitializer
+  %549 = select <2 x i1> %548, <2 x float> %529, <2 x float> %520
+  br i1 %519, label %518, label %550, !llvm.loop !258
 
-547:                                              ; preds = %515
-  br i1 %510, label %509, label %548, !llvm.loop !259
+550:                                              ; preds = %518
+  br i1 %510, label %509, label %551, !llvm.loop !259
 
-548:                                              ; preds = %547
-  %549 = load float, ptr %65, align 4
-  %550 = shufflevector <2 x float> %546, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %551 = insertelement <2 x float> poison, float %490, i64 0
-  %552 = insertelement <2 x float> %551, float %549, i64 1
-  %553 = shufflevector <2 x float> %546, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %554 = fmul <2 x float> %552, %553
-  %555 = shufflevector <2 x float> %546, <2 x float> poison, <2 x i32> zeroinitializer
-  %556 = fmul <2 x float> %491, %555
-  %557 = fsub <2 x float> %554, %556
-  %558 = fmul <2 x float> %550, %557
-  %shift583 = shufflevector <2 x float> %558, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %559 = fsub <2 x float> %558, %shift583
-  %560 = extractelement <2 x float> %559, i64 0
-  %561 = fmul <2 x float> %552, %555
-  %562 = fmul <2 x float> %553, %491
-  %563 = fadd <2 x float> %561, %562
-  %564 = fmul <2 x float> %546, %563
-  %shift584 = shufflevector <2 x float> %564, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %565 = fadd <2 x float> %564, %shift584
-  %566 = extractelement <2 x float> %565, i64 0
-  %567 = fneg float %566
-  %568 = tail call float @llvm.fmuladd.f32(float %560, float 3.000000e+00, float %567)
-  %569 = fneg float %560
-  %570 = tail call float @llvm.fmuladd.f32(float %566, float 3.000000e+00, float %569)
-  %571 = extractelement <2 x float> %546, i64 1
-  %572 = fmul float %486, %571
-  %573 = extractelement <2 x float> %546, i64 0
-  %574 = fmul float %489, %573
-  %575 = fsub float %572, %574
-  %576 = fmul float %486, %573
-  %577 = fmul float %489, %571
-  %578 = fadd float %576, %577
-  %579 = load ptr, ptr %.sroa.0410.0500, align 8
-  %580 = getelementptr inbounds i8, ptr %579, i64 72
-  %581 = load ptr, ptr %579, align 8
-  %582 = ptrtoint ptr %581 to i64
-  %583 = sub i64 %75, %582
-  %584 = sdiv exact i64 %583, 48
-  %sext.i289 = shl i64 %584, 32
-  %585 = ashr exact i64 %sext.i289, 32
-  %586 = load ptr, ptr %580, align 8
-  %587 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %586, i64 %585
-  %588 = insertelement <2 x float> %484, float %485, i64 1
-  %589 = fmul <2 x float> %588, %553
-  %590 = insertelement <2 x float> poison, float %487, i64 0
-  %591 = insertelement <2 x float> %590, float %488, i64 1
-  %592 = fmul <2 x float> %591, %555
-  %593 = fsub <2 x float> %589, %592
-  store <2 x float> %593, ptr %587, align 4
-  %594 = getelementptr inbounds i8, ptr %587, i64 8
-  store float %575, ptr %594, align 4
-  %595 = load ptr, ptr %.sroa.0410.0500, align 8
-  %596 = getelementptr inbounds i8, ptr %595, i64 72
-  %597 = load ptr, ptr %595, align 8
-  %598 = ptrtoint ptr %597 to i64
-  %599 = sub i64 %75, %598
-  %600 = sdiv exact i64 %599, 48
-  %sext.i290 = shl i64 %600, 32
-  %601 = ashr exact i64 %sext.i290, 32
-  %602 = load ptr, ptr %596, align 8
-  %603 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %602, i64 %601, i32 1
-  %604 = insertelement <2 x float> poison, float %485, i64 0
-  %605 = insertelement <2 x float> %604, float %487, i64 1
-  %606 = fmul <2 x float> %605, %546
-  %607 = shufflevector <2 x float> %606, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %608 = insertelement <2 x float> %484, float %488, i64 1
-  %609 = fmul <2 x float> %608, %546
-  %610 = fadd <2 x float> %607, %609
-  store <2 x float> %610, ptr %603, align 4
-  %611 = getelementptr inbounds i8, ptr %603, i64 8
-  store float %578, ptr %611, align 4
-  %612 = load ptr, ptr %.sroa.0410.0500, align 8
-  %613 = getelementptr inbounds i8, ptr %612, i64 72
-  %614 = load ptr, ptr %612, align 8
-  %615 = ptrtoint ptr %614 to i64
-  %616 = sub i64 %75, %615
-  %617 = sdiv exact i64 %616, 48
-  %sext.i291 = shl i64 %617, 32
-  %618 = ashr exact i64 %sext.i291, 32
-  %619 = load ptr, ptr %613, align 8
-  %620 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %619, i64 %618, i32 2
-  store float %568, ptr %620, align 4
-  %621 = load ptr, ptr %.sroa.0410.0500, align 8
-  %622 = getelementptr inbounds i8, ptr %621, i64 72
-  %623 = load ptr, ptr %621, align 8
-  %624 = ptrtoint ptr %623 to i64
-  %625 = sub i64 %75, %624
-  %626 = sdiv exact i64 %625, 48
-  %sext.i292 = shl i64 %626, 32
-  %627 = ashr exact i64 %sext.i292, 32
-  %628 = load ptr, ptr %622, align 8
-  %629 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %628, i64 %627, i32 3
-  store float %570, ptr %629, align 4
+551:                                              ; preds = %550
+  %552 = load float, ptr %65, align 4
+  %553 = shufflevector <2 x float> %549, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %554 = insertelement <2 x float> poison, float %490, i64 0
+  %555 = insertelement <2 x float> %554, float %552, i64 1
+  %556 = shufflevector <2 x float> %549, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %557 = fmul <2 x float> %555, %556
+  %558 = shufflevector <2 x float> %549, <2 x float> poison, <2 x i32> zeroinitializer
+  %559 = fmul <2 x float> %491, %558
+  %560 = fsub <2 x float> %557, %559
+  %561 = fmul <2 x float> %553, %560
+  %shift583 = shufflevector <2 x float> %561, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %562 = fsub <2 x float> %561, %shift583
+  %563 = extractelement <2 x float> %562, i64 0
+  %564 = fmul <2 x float> %555, %558
+  %565 = fmul <2 x float> %556, %491
+  %566 = fadd <2 x float> %564, %565
+  %567 = fmul <2 x float> %549, %566
+  %shift584 = shufflevector <2 x float> %567, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %568 = fadd <2 x float> %567, %shift584
+  %569 = extractelement <2 x float> %568, i64 0
+  %570 = fneg float %569
+  %571 = tail call float @llvm.fmuladd.f32(float %563, float 3.000000e+00, float %570)
+  %572 = fneg float %563
+  %573 = tail call float @llvm.fmuladd.f32(float %569, float 3.000000e+00, float %572)
+  %574 = extractelement <2 x float> %549, i64 1
+  %575 = fmul float %486, %574
+  %576 = extractelement <2 x float> %549, i64 0
+  %577 = fmul float %489, %576
+  %578 = fsub float %575, %577
+  %579 = fmul float %486, %576
+  %580 = fmul float %489, %574
+  %581 = fadd float %579, %580
+  %582 = load ptr, ptr %.sroa.0410.0500, align 8
+  %583 = getelementptr inbounds i8, ptr %582, i64 72
+  %584 = load ptr, ptr %582, align 8
+  %585 = ptrtoint ptr %584 to i64
+  %586 = sub i64 %75, %585
+  %587 = sdiv exact i64 %586, 48
+  %sext.i289 = shl i64 %587, 32
+  %588 = ashr exact i64 %sext.i289, 32
+  %589 = load ptr, ptr %583, align 8
+  %590 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %589, i64 %588
+  %591 = insertelement <2 x float> %484, float %485, i64 1
+  %592 = fmul <2 x float> %591, %556
+  %593 = insertelement <2 x float> poison, float %487, i64 0
+  %594 = insertelement <2 x float> %593, float %488, i64 1
+  %595 = fmul <2 x float> %594, %558
+  %596 = fsub <2 x float> %592, %595
+  store <2 x float> %596, ptr %590, align 4
+  %597 = getelementptr inbounds i8, ptr %590, i64 8
+  store float %578, ptr %597, align 4
+  %598 = load ptr, ptr %.sroa.0410.0500, align 8
+  %599 = getelementptr inbounds i8, ptr %598, i64 72
+  %600 = load ptr, ptr %598, align 8
+  %601 = ptrtoint ptr %600 to i64
+  %602 = sub i64 %75, %601
+  %603 = sdiv exact i64 %602, 48
+  %sext.i290 = shl i64 %603, 32
+  %604 = ashr exact i64 %sext.i290, 32
+  %605 = load ptr, ptr %599, align 8
+  %606 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %605, i64 %604, i32 1
+  %607 = insertelement <2 x float> poison, float %485, i64 0
+  %608 = insertelement <2 x float> %607, float %487, i64 1
+  %609 = fmul <2 x float> %608, %549
+  %610 = shufflevector <2 x float> %609, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %611 = insertelement <2 x float> %484, float %488, i64 1
+  %612 = fmul <2 x float> %611, %549
+  %613 = fadd <2 x float> %610, %612
+  store <2 x float> %613, ptr %606, align 4
+  %614 = getelementptr inbounds i8, ptr %606, i64 8
+  store float %581, ptr %614, align 4
+  %615 = load ptr, ptr %.sroa.0410.0500, align 8
+  %616 = getelementptr inbounds i8, ptr %615, i64 72
+  %617 = load ptr, ptr %615, align 8
+  %618 = ptrtoint ptr %617 to i64
+  %619 = sub i64 %75, %618
+  %620 = sdiv exact i64 %619, 48
+  %sext.i291 = shl i64 %620, 32
+  %621 = ashr exact i64 %sext.i291, 32
+  %622 = load ptr, ptr %616, align 8
+  %623 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %622, i64 %621, i32 2
+  store float %571, ptr %623, align 4
+  %624 = load ptr, ptr %.sroa.0410.0500, align 8
+  %625 = getelementptr inbounds i8, ptr %624, i64 72
+  %626 = load ptr, ptr %624, align 8
+  %627 = ptrtoint ptr %626 to i64
+  %628 = sub i64 %75, %627
+  %629 = sdiv exact i64 %628, 48
+  %sext.i292 = shl i64 %629, 32
+  %630 = ashr exact i64 %sext.i292, 32
+  %631 = load ptr, ptr %625, align 8
+  %632 = getelementptr inbounds %"struct.vcg::vertex::CurvatureDirTypeOcf", ptr %631, i64 %630, i32 3
+  store float %573, ptr %632, align 4
   %.not.i.i.i293 = icmp eq ptr %.sroa.0383.2, null
-  br i1 %.not.i.i.i293, label %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294, label %630
+  br i1 %.not.i.i.i293, label %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294, label %633
 
-630:                                              ; preds = %548
+633:                                              ; preds = %551
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0383.2) #33
   br label %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294
 
-_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294: ; preds = %548, %630
+_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294: ; preds = %551, %633
   %.not.i.i.i295 = icmp eq ptr %.sroa.0398.1.lcssa, null
-  br i1 %.not.i.i.i295, label %_ZNSt6vectorIfSaIfEED2Ev.exit296, label %631
+  br i1 %.not.i.i.i295, label %_ZNSt6vectorIfSaIfEED2Ev.exit296, label %634
 
-631:                                              ; preds = %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294
+634:                                              ; preds = %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0398.1.lcssa) #33
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit296
 
-_ZNSt6vectorIfSaIfEED2Ev.exit296:                 ; preds = %631, %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294, %66, %71
-  %.sroa.8.3 = phi i32 [ %.sroa.8.0493, %66 ], [ %.sroa.8.0493, %71 ], [ %storemerge.i, %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294 ], [ %storemerge.i, %631 ]
-  %632 = phi <2 x float> [ %67, %66 ], [ %67, %71 ], [ %546, %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294 ], [ %546, %631 ]
-  %633 = getelementptr inbounds i8, ptr %.sroa.0410.0500, i64 48
-  %634 = load ptr, ptr %16, align 8
-  %.not442 = icmp eq ptr %633, %634
+_ZNSt6vectorIfSaIfEED2Ev.exit296:                 ; preds = %634, %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294, %66, %71
+  %.sroa.8.3 = phi i32 [ %.sroa.8.0493, %66 ], [ %.sroa.8.0493, %71 ], [ %storemerge.i, %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294 ], [ %storemerge.i, %634 ]
+  %635 = phi <2 x float> [ %67, %66 ], [ %67, %71 ], [ %549, %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EED2Ev.exit294 ], [ %549, %634 ]
+  %636 = getelementptr inbounds i8, ptr %.sroa.0410.0500, i64 48
+  %637 = load ptr, ptr %16, align 8
+  %.not442 = icmp eq ptr %636, %637
   br i1 %.not442, label %._crit_edge504, label %66, !llvm.loop !260
 
 ._crit_edge504:                                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit296, %1, %_ZN3vcg3tri12UpdateNormalI6CMeshOE18NormalizePerVertexERS2_.exit

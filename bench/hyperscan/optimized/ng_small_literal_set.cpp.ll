@@ -1256,14 +1256,12 @@ land.end141.i:                                    ; preds = %invoke.cont133.i
   %shl.i.i.i132.i = shl nuw i64 1, %rem.i.i.i131.i
   %and.i.i133.i = and i64 %143, %shl.i.i.i132.i
   %tobool.i.i134.not.i = icmp eq i64 %and.i.i133.i, 0
-  br i1 %tobool.i.i134.not.i, label %if.end153.i, label %land.lhs.true144.i
+  %brmerge.i = or i1 %139, %tobool.i.i134.not.i
+  %not.tobool.i.i134.not.i = xor i1 %tobool.i.i134.not.i, true
+  br i1 %brmerge.i, label %if.end153.i, label %for.inc.i
 
-land.lhs.true144.i:                               ; preds = %land.end141.i
-  %cmp151.i = icmp eq i8 %retval.i220.0.i, %conv.i
-  br i1 %cmp151.i, label %for.inc.i, label %if.end153.i
-
-if.end153.i:                                      ; preds = %land.lhs.true144.i, %land.end141.i, %invoke.cont133.i, %for.body126.i
-  %144 = phi i1 [ true, %land.lhs.true144.i ], [ false, %land.end141.i ], [ false, %invoke.cont133.i ], [ false, %for.body126.i ]
+if.end153.i:                                      ; preds = %land.end141.i, %invoke.cont133.i, %for.body126.i
+  %144 = phi i1 [ %not.tobool.i.i134.not.i, %land.end141.i ], [ false, %invoke.cont133.i ], [ false, %for.body126.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %145 = load i8, ptr %_M_storage.i.i.i, align 8, !noalias !50
   %frombool.i.i.i = and i8 %145, 1
@@ -1429,7 +1427,7 @@ lpad158.i:                                        ; preds = %invoke.cont157.i
   call fastcc void @_ZN3ue212_GLOBAL__N_111sls_literalD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp154.i) #18
   br label %ehcleanup.i
 
-for.inc.i:                                        ; preds = %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit145.i, %land.lhs.true144.i
+for.inc.i:                                        ; preds = %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit145.i, %land.end141.i
   %cmp.not.i.i.i = icmp ult i64 %c.0321.i, 256
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %for.inc172.loopexit.i
 

@@ -1827,7 +1827,6 @@ return:                                           ; preds = %entry, %quicklistRe
 define dso_local noundef ptr @quicklistGetIteratorEntryAtIdx(ptr noundef %quicklist, i64 noundef %idx, ptr noundef %entry1) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i64 %idx, -1
-  %cond.i = zext i1 %cmp.i to i32
   %not.cmp.i = xor i1 %cmp.i, true
   %sub1.i = sext i1 %not.cmp.i to i64
   %cond2.i = xor i64 %sub1.i, %idx
@@ -1839,20 +1838,18 @@ entry:
 if.end.i:                                         ; preds = %entry
   %sub5.i = add i64 %0, -1
   %div34.i = lshr i64 %sub5.i, 1
-  %cmp6.i = icmp ugt i64 %cond2.i, %div34.i
-  %lnot.ext.i = zext i1 %not.cmp.i to i32
+  %cmp6.not.i = icmp ugt i64 %cond2.i, %div34.i
   %sub11.i = sub i64 %sub5.i, %cond2.i
-  %seek_forward.0.i = select i1 %cmp6.i, i32 %lnot.ext.i, i32 %cond.i
-  %seek_index.0.i = select i1 %cmp6.i, i64 %sub11.i, i64 %cond2.i
-  %tobool13.not.i = icmp eq i32 %seek_forward.0.i, 0
-  %cond17.in.idx.i = select i1 %tobool13.not.i, i64 8, i64 0
+  %seek_forward.0.v.i = select i1 %cmp6.not.i, i1 %not.cmp.i, i1 %cmp.i
+  %seek_index.0.i = select i1 %cmp6.not.i, i64 %sub11.i, i64 %cond2.i
+  %cond17.in.idx.i = select i1 %seek_forward.0.v.i, i64 0, i64 8
   %cond17.in.i = getelementptr inbounds i8, ptr %quicklist, i64 %cond17.in.idx.i
   %n.037.i = load ptr, ptr %cond17.in.i, align 8
   %tobool18.not38.i = icmp eq ptr %n.037.i, null
   br i1 %tobool18.not38.i, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %cond38.in.idx.i = select i1 %tobool13.not.i, i64 0, i64 8
+  %cond38.in.idx.i = select i1 %seek_forward.0.v.i, i64 8, i64 0
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.lr.ph.i
@@ -1873,9 +1870,8 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %tobool18.not.i, label %return, label %while.body.i, !llvm.loop !11
 
 if.end:                                           ; preds = %while.body.i
-  %cmp43.not.i = icmp eq i32 %seek_forward.0.i, %cond.i
   %sub52.i = sub i64 %0, %add.i
-  %spec.select.i = select i1 %cmp43.not.i, i64 %accum.039.i, i64 %sub52.i
+  %spec.select.i = select i1 %cmp6.not.i, i64 %sub52.i, i64 %accum.039.i
   %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #22
   %direction6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 1, ptr %direction6.i.i, align 8
@@ -3161,7 +3157,6 @@ land.lhs.true8:                                   ; preds = %if.end
 if.end14:                                         ; preds = %land.lhs.true, %land.lhs.true8
   %1 = phi i64 [ %.pre, %land.lhs.true8 ], [ %0, %land.lhs.true ]
   %extent.0 = phi i64 [ %spec.select, %land.lhs.true8 ], [ %spec.select82, %land.lhs.true ]
-  %cond.i = zext i1 %cmp1 to i32
   %not.cmp.i = xor i1 %cmp1, true
   %sub1.i = sext i1 %not.cmp.i to i64
   %cond2.i = xor i64 %sub1.i, %start
@@ -3172,20 +3167,18 @@ if.end14:                                         ; preds = %land.lhs.true, %lan
 if.end.i:                                         ; preds = %if.end14
   %sub5.i = add i64 %1, -1
   %div34.i = lshr i64 %sub5.i, 1
-  %cmp6.i = icmp ugt i64 %cond2.i, %div34.i
-  %lnot.ext.i = zext i1 %not.cmp.i to i32
+  %cmp6.not.i = icmp ugt i64 %cond2.i, %div34.i
   %sub11.i = sub i64 %sub5.i, %cond2.i
-  %seek_forward.0.i = select i1 %cmp6.i, i32 %lnot.ext.i, i32 %cond.i
-  %seek_index.0.i = select i1 %cmp6.i, i64 %sub11.i, i64 %cond2.i
-  %tobool13.not.i = icmp eq i32 %seek_forward.0.i, 0
-  %cond17.in.idx.i = select i1 %tobool13.not.i, i64 8, i64 0
+  %seek_forward.0.v.i = select i1 %cmp6.not.i, i1 %not.cmp.i, i1 %cmp1
+  %seek_index.0.i = select i1 %cmp6.not.i, i64 %sub11.i, i64 %cond2.i
+  %cond17.in.idx.i = select i1 %seek_forward.0.v.i, i64 0, i64 8
   %cond17.in.i = getelementptr inbounds i8, ptr %quicklist, i64 %cond17.in.idx.i
   %n.037.i = load ptr, ptr %cond17.in.i, align 8
   %tobool18.not38.i = icmp eq ptr %n.037.i, null
   br i1 %tobool18.not38.i, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %cond38.in.idx.i = select i1 %tobool13.not.i, i64 0, i64 8
+  %cond38.in.idx.i = select i1 %seek_forward.0.v.i, i64 8, i64 0
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.lr.ph.i
@@ -3207,9 +3200,8 @@ if.else.i:                                        ; preds = %while.body.i
 
 do.body.i:                                        ; preds = %while.body.i
   %count24.i.le = getelementptr inbounds i8, ptr %n.040.i, i64 32
-  %cmp43.not.i = icmp eq i32 %seek_forward.0.i, %cond.i
   %sub52.i = sub i64 %1, %add.i
-  %spec.select.i = select i1 %cmp43.not.i, i64 %accum.039.i, i64 %sub52.i
+  %spec.select.i = select i1 %cmp6.not.i, i64 %sub52.i, i64 %accum.039.i
   %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #22
   %direction6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i32 1, ptr %direction6.i.i, align 8
@@ -3394,7 +3386,6 @@ return:                                           ; preds = %if.else.i, %if.end1
 define dso_local noalias noundef ptr @quicklistGetIteratorAtIdx(ptr noundef %quicklist, i32 noundef %direction, i64 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i64 %idx, -1
-  %cond = zext i1 %cmp to i32
   %not.cmp = xor i1 %cmp, true
   %sub1 = sext i1 %not.cmp to i64
   %cond2 = xor i64 %sub1, %idx
@@ -3406,20 +3397,18 @@ entry:
 if.end:                                           ; preds = %entry
   %sub5 = add i64 %0, -1
   %div34 = lshr i64 %sub5, 1
-  %cmp6 = icmp ugt i64 %cond2, %div34
-  %lnot.ext = zext i1 %not.cmp to i32
+  %cmp6.not = icmp ugt i64 %cond2, %div34
   %sub11 = sub i64 %sub5, %cond2
-  %seek_forward.0 = select i1 %cmp6, i32 %lnot.ext, i32 %cond
-  %seek_index.0 = select i1 %cmp6, i64 %sub11, i64 %cond2
-  %tobool13.not = icmp eq i32 %seek_forward.0, 0
-  %cond17.in.idx = select i1 %tobool13.not, i64 8, i64 0
+  %seek_forward.0.v = select i1 %cmp6.not, i1 %not.cmp, i1 %cmp
+  %seek_index.0 = select i1 %cmp6.not, i64 %sub11, i64 %cond2
+  %cond17.in.idx = select i1 %seek_forward.0.v, i64 0, i64 8
   %cond17.in = getelementptr inbounds i8, ptr %quicklist, i64 %cond17.in.idx
   %n.037 = load ptr, ptr %cond17.in, align 8
   %tobool18.not38 = icmp eq ptr %n.037, null
   br i1 %tobool18.not38, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %cond38.in.idx = select i1 %tobool13.not, i64 0, i64 8
+  %cond38.in.idx = select i1 %seek_forward.0.v, i64 8, i64 0
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.else
@@ -3440,9 +3429,8 @@ if.else:                                          ; preds = %while.body
   br i1 %tobool18.not, label %return, label %while.body, !llvm.loop !11
 
 if.end42:                                         ; preds = %while.body
-  %cmp43.not = icmp eq i32 %seek_forward.0, %cond
   %sub52 = sub i64 %0, %add
-  %spec.select = select i1 %cmp43.not, i64 %accum.039, i64 %sub52
+  %spec.select = select i1 %cmp6.not, i64 %sub52, i64 %accum.039
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #22
   %direction6.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %direction, ptr %direction6.i, align 8

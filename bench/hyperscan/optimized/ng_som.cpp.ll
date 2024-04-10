@@ -13008,14 +13008,12 @@ land.end.i.i.i:                                   ; preds = %invoke.cont121.i.i.
   %shl.i.i.i407.i.i.i = shl nuw i64 1, %rem.i.i.i406.i.i.i
   %and.i.i408.i.i.i = and i64 %401, %shl.i.i.i407.i.i.i
   %tobool.i.i409.not.i.i.i = icmp eq i64 %and.i.i408.i.i.i, 0
-  br i1 %tobool.i.i409.not.i.i.i, label %if.end138.i.i.i, label %land.lhs.true129.i.i.i
+  %brmerge.i.i.i = or i1 %397, %tobool.i.i409.not.i.i.i
+  %not.tobool.i.i409.not.i.i.i = xor i1 %tobool.i.i409.not.i.i.i, true
+  br i1 %brmerge.i.i.i, label %if.end138.i.i.i, label %for.inc170.i.i.i
 
-land.lhs.true129.i.i.i:                           ; preds = %land.end.i.i.i
-  %cmp136.i.i.i = icmp eq i8 %retval.i.0.i.i.i, %conv.i.i.i
-  br i1 %cmp136.i.i.i, label %for.inc170.i.i.i, label %if.end138.i.i.i
-
-if.end138.i.i.i:                                  ; preds = %land.lhs.true129.i.i.i, %land.end.i.i.i, %invoke.cont121.i.i.i, %for.body114.i.i.i
-  %402 = phi i1 [ true, %land.lhs.true129.i.i.i ], [ false, %land.end.i.i.i ], [ false, %invoke.cont121.i.i.i ], [ false, %for.body114.i.i.i ]
+if.end138.i.i.i:                                  ; preds = %land.end.i.i.i, %invoke.cont121.i.i.i, %for.body114.i.i.i
+  %402 = phi i1 [ %not.tobool.i.i409.not.i.i.i, %land.end.i.i.i ], [ false, %invoke.cont121.i.i.i ], [ false, %for.body114.i.i.i ]
   %403 = load ptr, ptr %second.i.i.i, align 8
   %404 = load ptr, ptr %_M_finish.i.i.i.i401, align 8
   %cmp.i410.not649.i.i.i = icmp eq ptr %403, %404
@@ -13045,8 +13043,8 @@ invoke.cont157.i.i.i:                             ; preds = %invoke.cont153.i.i.
   %inc.i.i.i = add nuw nsw i32 %count.3651.i.i.i, 1
   %406 = load ptr, ptr %_M_finish.i.i411.i.i.i, align 8
   %add.ptr.i.i414.i.i.i = getelementptr inbounds i8, ptr %406, i64 -64
-  %call.i.i.i.i404 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i414.i.i.i) #21
-  %cmp160.i.i.i = icmp ugt i64 %call.i.i.i.i404, 32
+  %call.i.i.i.i406 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i414.i.i.i) #21
+  %cmp160.i.i.i = icmp ugt i64 %call.i.i.i.i406, 32
   br i1 %cmp160.i.i.i, label %land.lhs.true161.i.i.i, label %for.inc167.i.i.i
 
 land.lhs.true161.i.i.i:                           ; preds = %invoke.cont157.i.i.i
@@ -13064,30 +13062,30 @@ for.inc167.i.i.i:                                 ; preds = %invoke.cont163.i.i.
   %cmp.i410.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %404
   br i1 %cmp.i410.not.i.i.i, label %for.inc170.i.i.i, label %for.body145.i.i.i
 
-for.inc170.i.i.i:                                 ; preds = %for.inc167.i.i.i, %if.end138.i.i.i, %land.lhs.true129.i.i.i
-  %count.4.i.i.i = phi i32 [ %count.2654.i.i.i, %land.lhs.true129.i.i.i ], [ %count.2654.i.i.i, %if.end138.i.i.i ], [ %inc.i.i.i, %for.inc167.i.i.i ]
-  %did_expansion.5.i.i.i = phi i1 [ %did_expansion.3656.i.i.i, %land.lhs.true129.i.i.i ], [ %did_expansion.3656.i.i.i, %if.end138.i.i.i ], [ true, %for.inc167.i.i.i ]
+for.inc170.i.i.i:                                 ; preds = %for.inc167.i.i.i, %if.end138.i.i.i, %land.end.i.i.i
+  %count.4.i.i.i = phi i32 [ %count.2654.i.i.i, %land.end.i.i.i ], [ %count.2654.i.i.i, %if.end138.i.i.i ], [ %inc.i.i.i, %for.inc167.i.i.i ]
+  %did_expansion.5.i.i.i = phi i1 [ %did_expansion.3656.i.i.i, %land.end.i.i.i ], [ %did_expansion.3656.i.i.i, %if.end138.i.i.i ], [ true, %for.inc167.i.i.i ]
   %cmp.not.i.i419.i.i.i = icmp ult i64 %c.0655.i.i.i, 256
-  br i1 %cmp.not.i.i419.i.i.i, label %if.end.i.i.i.i.i405, label %for.inc174.i.i.i
+  br i1 %cmp.not.i.i419.i.i.i, label %if.end.i.i.i.i.i404, label %for.inc174.i.i.i
 
-if.end.i.i.i.i.i405:                              ; preds = %for.inc170.i.i.i
+if.end.i.i.i.i.i404:                              ; preds = %for.inc170.i.i.i
   %div1.i.i.i421.i.i.i = lshr i64 %c.0655.i.i.i, 6
   %rem.i.i.i.i.i = and i64 %c.0655.i.i.i, 63
   %cmp4.not.i.i422.i.i.i = icmp eq i64 %rem.i.i.i.i.i, 63
   br i1 %cmp4.not.i.i422.i.i.i, label %for.cond.i.i.i.i.i.preheader, label %if.then5.i.i.i.i.i
 
-for.cond.i.i.i.i.i.preheader:                     ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i405
+for.cond.i.i.i.i.i.preheader:                     ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i404
   br label %for.cond.i.i.i.i.i
 
-if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i405
+if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i404
   %arrayidx.i.i.i.i423.i.i.i = getelementptr inbounds [4 x i64], ptr %cr.i.i.i, i64 0, i64 %div1.i.i.i421.i.i.i
   %408 = load i64, ptr %arrayidx.i.i.i.i423.i.i.i, align 8
   %shl.i.i.i.i.i = shl nsw i64 -2, %rem.i.i.i.i.i
   %and.i.i424.i.i.i = and i64 %408, %shl.i.i.i.i.i
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i424.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i.i, label %for.cond.i.i.i.i.i.preheader, label %if.then7.i.i.i.i.i406
+  br i1 %tobool.not.i.i.i.i.i, label %for.cond.i.i.i.i.i.preheader, label %if.then7.i.i.i.i.i405
 
-if.then7.i.i.i.i.i406:                            ; preds = %if.then5.i.i.i.i.i
+if.then7.i.i.i.i.i405:                            ; preds = %if.then5.i.i.i.i.i
   %mul.i.i425.i.i.i = and i64 %c.0655.i.i.i, 192
   %409 = call i64 @llvm.cttz.i64(i64 %and.i.i424.i.i.i, i1 true), !range !431
   %add9.i.i426.i.i.i = or disjoint i64 %409, %mul.i.i425.i.i.i
@@ -13111,8 +13109,8 @@ if.then18.i.i.i.i.i:                              ; preds = %for.body.i.i427.i.i
   %add21.i.i428.i.i.i = or disjoint i64 %411, %mul19.i.i.i.i.i
   br label %for.body114.i.i.i.backedge
 
-for.body114.i.i.i.backedge:                       ; preds = %if.then18.i.i.i.i.i, %if.then7.i.i.i.i.i406
-  %c.0655.i.i.i.be = phi i64 [ %add21.i.i428.i.i.i, %if.then18.i.i.i.i.i ], [ %add9.i.i426.i.i.i, %if.then7.i.i.i.i.i406 ]
+for.body114.i.i.i.backedge:                       ; preds = %if.then18.i.i.i.i.i, %if.then7.i.i.i.i.i405
+  %c.0655.i.i.i.be = phi i64 [ %add21.i.i428.i.i.i, %if.then18.i.i.i.i.i ], [ %add9.i.i426.i.i.i, %if.then7.i.i.i.i.i405 ]
   br label %for.body114.i.i.i
 
 for.inc174.i.i.i:                                 ; preds = %for.inc.i.i.i.i.i, %for.inc170.i.i.i, %for.cond.i.i.i.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i, %invoke.cont85.i.i.i
