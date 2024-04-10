@@ -1484,13 +1484,11 @@ if.else5:                                         ; preds = %if.else
 for.body9:                                        ; preds = %if.else5, %if.end
   %p.010 = phi ptr [ %call27, %if.end ], [ %call6, %if.else5 ]
   %call10 = call zeroext i1 @safe_strtoul(ptr noundef nonnull %p.010, ptr noundef nonnull %sid) #17
-  %call10.not = xor i1 %call10, true
   %0 = load i32, ptr %sid, align 4
-  %cmp11 = icmp eq i32 %0, 0
-  %or.cond = select i1 %call10.not, i1 true, i1 %cmp11
-  %cmp13 = icmp ugt i32 %0, 63
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp13
-  br i1 %or.cond1, label %return, label %if.end
+  %1 = add i32 %0, -1
+  %2 = icmp ult i32 %1, 63
+  %or.cond1.not = select i1 %call10, i1 %2, i1 false
+  br i1 %or.cond1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body9
   %or = or disjoint i32 %0, 192
@@ -1516,12 +1514,12 @@ if.end30:                                         ; preds = %if.end, %if.else5, 
   %hash_crawl.0 = phi ptr [ null, %if.else ], [ %tocrawl, %for.body.preheader ], [ %tocrawl, %if.else5 ], [ %tocrawl, %if.end ]
   %call32 = call i32 @lru_crawler_start(ptr noundef %hash_crawl.0, i32 noundef %remaining, i32 noundef %type, ptr noundef null, ptr noundef %c, i32 noundef %sfd)
   %switch.tableidx = add i32 %call32, 2
-  %1 = icmp ult i32 %switch.tableidx, 3
-  br i1 %1, label %switch.lookup, label %return
+  %3 = icmp ult i32 %switch.tableidx, 3
+  br i1 %3, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %if.end30
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.lru_crawler_crawl, i64 0, i64 %2
+  %4 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.lru_crawler_crawl, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 

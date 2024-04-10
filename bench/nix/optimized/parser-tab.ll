@@ -1827,7 +1827,7 @@ define noundef i32 @_Z7yyparsePvPN3nix11ParserStateE(ptr noundef %0, ptr noundef
 _ZL14yyinitGLRStackP10yyGLRStackl.exit:           ; preds = %18
   %21 = getelementptr inbounds i8, ptr %3, i64 336
   %22 = call i32 @_setjmp(ptr noundef nonnull %21) #41
-  switch i32 %22, label %.loopexit183 [
+  switch i32 %22, label %.loopexit181 [
     i32 0, label %23
     i32 2, label %_ZL14yyinitGLRStackP10yyGLRStackl.exit.thread
   ]
@@ -1870,7 +1870,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit: ; preds = 
   %42 = getelementptr inbounds i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 54
-  br i1 %44, label %.loopexit183, label %.lr.ph.lr.ph
+  br i1 %44, label %.loopexit181, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit
   %45 = getelementptr inbounds i8, ptr %3, i64 568
@@ -1880,7 +1880,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit: ; preds = 
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
   %47 = phi i32 [ %43, %.lr.ph.lr.ph ], [ %.be, %.lr.ph.backedge ]
-  %.1200 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.1200.be, %.lr.ph.backedge ]
+  %.1198 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.1198.be, %.lr.ph.backedge ]
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds [174 x i16], ptr @_ZL6yypact, i64 0, i64 %48
   %50 = load i16, ptr %49, align 2
@@ -1901,7 +1901,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit: ; preds = 
 57:                                               ; preds = %52
   %58 = sext i8 %54 to i32
   call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %3, i64 noundef 0, i32 noundef %58, i1 noundef zeroext true, ptr noundef %1)
-  br label %131
+  br label %132
 
 59:                                               ; preds = %.lr.ph
   %60 = load i32, ptr %4, align 4
@@ -1941,330 +1941,328 @@ _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit: ; preds = %68
   %77 = sext i16 %50 to i32
   %78 = add nsw i32 %76, %77
   %79 = icmp eq i32 %65, 256
-  br i1 %79, label %.thread172.thread, label %80
+  br i1 %79, label %.thread170.thread, label %80
 
-.thread172.thread:                                ; preds = %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit
+.thread170.thread:                                ; preds = %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %255
 
 80:                                               ; preds = %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit
   %81 = phi i32 [ %70, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread ], [ %65, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
   %82 = phi i32 [ %72, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread ], [ %78, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
-  %.0.i126165 = phi i32 [ %.0.i126.ph, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread ], [ %76, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
-  %or.cond3.i = icmp ugt i32 %82, 332
-  br i1 %or.cond3.i, label %88, label %83
+  %.0.i126163 = phi i32 [ %.0.i126.ph, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread ], [ %76, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
+  %83 = icmp ugt i32 %82, 332
+  br i1 %83, label %89, label %84
 
-83:                                               ; preds = %80
-  %84 = zext nneg i32 %82 to i64
-  %85 = getelementptr inbounds [333 x i16], ptr @_ZL7yycheck, i64 0, i64 %84
-  %86 = load i16, ptr %85, align 2
-  %87 = sext i16 %86 to i32
-  %.not.i127 = icmp eq i32 %.0.i126165, %87
-  br i1 %.not.i127, label %93, label %88
+84:                                               ; preds = %80
+  %85 = zext nneg i32 %82 to i64
+  %86 = getelementptr inbounds [333 x i16], ptr @_ZL7yycheck, i64 0, i64 %85
+  %87 = load i16, ptr %86, align 2
+  %88 = sext i16 %87 to i32
+  %.not.i127 = icmp eq i32 %.0.i126163, %88
+  br i1 %.not.i127, label %94, label %89
 
-88:                                               ; preds = %83, %80
-  %89 = getelementptr inbounds [174 x i8], ptr @_ZL8yydefact, i64 0, i64 %48
-  %90 = load i8, ptr %89, align 1
-  %91 = sext i8 %90 to i32
-  %92 = sub nsw i32 0, %91
+89:                                               ; preds = %84, %80
+  %90 = getelementptr inbounds [174 x i8], ptr @_ZL8yydefact, i64 0, i64 %48
+  %91 = load i8, ptr %90, align 1
+  %92 = sext i8 %91 to i32
+  %93 = sub nsw i32 0, %92
   br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
 
-93:                                               ; preds = %83
-  %94 = getelementptr inbounds [333 x i16], ptr @_ZL7yytable, i64 0, i64 %84
-  %95 = load i16, ptr %94, align 2
-  %96 = icmp eq i16 %95, -69
-  %97 = getelementptr inbounds [333 x i8], ptr @_ZL8yyconflp, i64 0, i64 %84
-  %98 = load i8, ptr %97, align 1
-  %99 = sext i8 %98 to i64
-  %100 = getelementptr inbounds i16, ptr @_ZL7yyconfl, i64 %99
-  %narrow.i = select i1 %96, i16 0, i16 %95
+94:                                               ; preds = %84
+  %95 = getelementptr inbounds [333 x i16], ptr @_ZL7yytable, i64 0, i64 %85
+  %96 = load i16, ptr %95, align 2
+  %97 = icmp eq i16 %96, -69
+  %98 = getelementptr inbounds [333 x i8], ptr @_ZL8yyconflp, i64 0, i64 %85
+  %99 = load i8, ptr %98, align 1
+  %100 = sext i8 %99 to i64
+  %101 = getelementptr inbounds i16, ptr @_ZL7yyconfl, i64 %100
+  %narrow.i = select i1 %97, i16 0, i16 %96
   %spec.select.i = sext i16 %narrow.i to i32
   br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
 
-_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit:   ; preds = %88, %93
-  %.0162 = phi ptr [ @_ZL7yyconfl, %88 ], [ %100, %93 ]
-  %.0.i128 = phi i32 [ %92, %88 ], [ %spec.select.i, %93 ]
-  %101 = load i16, ptr %.0162, align 2
-  %.not = icmp eq i16 %101, 0
-  br i1 %.not, label %102, label %.preheader181.preheader
+_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit:   ; preds = %89, %94
+  %.0160 = phi ptr [ @_ZL7yyconfl, %89 ], [ %101, %94 ]
+  %.0.i128 = phi i32 [ %93, %89 ], [ %spec.select.i, %94 ]
+  %102 = load i16, ptr %.0160, align 2
+  %.not = icmp eq i16 %102, 0
+  br i1 %.not, label %103, label %.preheader179.preheader
 
-.preheader181.preheader:                          ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
+.preheader179.preheader:                          ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
   %.pre = load i64, ptr %15, align 8
-  br label %.preheader181
+  br label %.preheader179
 
-102:                                              ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
-  %103 = icmp sgt i32 %.0.i128, 0
-  br i1 %103, label %104, label %126
+103:                                              ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
+  %104 = icmp sgt i32 %.0.i128, 0
+  br i1 %104, label %105, label %127
 
-104:                                              ; preds = %102
+105:                                              ; preds = %103
   store i32 -2, ptr %4, align 4
-  %105 = add nsw i64 %.1200, 1
-  %106 = load ptr, ptr %12, align 8
-  %107 = load i64, ptr %8, align 8
-  %108 = add nsw i64 %107, -1
-  store i64 %108, ptr %8, align 8
-  %109 = getelementptr inbounds i8, ptr %106, i64 88
-  store ptr %109, ptr %12, align 8
-  store i8 1, ptr %106, align 8
-  %110 = getelementptr inbounds i8, ptr %106, i64 4
-  store i32 %.0.i128, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %106, i64 16
-  store i64 %105, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %106, i64 1
-  store i8 1, ptr %112, align 1
-  %113 = load ptr, ptr %14, align 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %106, i64 8
-  store ptr %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %106, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %117 = getelementptr inbounds i8, ptr %106, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %118 = load ptr, ptr %14, align 8
-  store ptr %106, ptr %118, align 8
-  %119 = load i64, ptr %8, align 8
-  %120 = icmp slt i64 %119, 2
-  br i1 %120, label %121, label %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
+  %106 = add nsw i64 %.1198, 1
+  %107 = load ptr, ptr %12, align 8
+  %108 = load i64, ptr %8, align 8
+  %109 = add nsw i64 %108, -1
+  store i64 %109, ptr %8, align 8
+  %110 = getelementptr inbounds i8, ptr %107, i64 88
+  store ptr %110, ptr %12, align 8
+  store i8 1, ptr %107, align 8
+  %111 = getelementptr inbounds i8, ptr %107, i64 4
+  store i32 %.0.i128, ptr %111, align 4
+  %112 = getelementptr inbounds i8, ptr %107, i64 16
+  store i64 %106, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %107, i64 1
+  store i8 1, ptr %113, align 1
+  %114 = load ptr, ptr %14, align 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %107, i64 8
+  store ptr %115, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %107, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %118 = getelementptr inbounds i8, ptr %107, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  %119 = load ptr, ptr %14, align 8
+  store ptr %107, ptr %119, align 8
+  %120 = load i64, ptr %8, align 8
+  %121 = icmp slt i64 %120, 2
+  br i1 %121, label %122, label %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
 
-121:                                              ; preds = %104
+122:                                              ; preds = %105
   call fastcc void @_ZL16yyexpandGLRStackP10yyGLRStack(ptr noundef nonnull %3)
   br label %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
 
-_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129: ; preds = %104, %121
-  %122 = load i32, ptr %3, align 8
-  %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %124, label %131
+_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129: ; preds = %105, %122
+  %123 = load i32, ptr %3, align 8
+  %124 = icmp sgt i32 %123, 0
+  br i1 %124, label %125, label %132
 
-124:                                              ; preds = %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
-  %125 = add nsw i32 %122, -1
-  store i32 %125, ptr %3, align 8
-  br label %131
+125:                                              ; preds = %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
+  %126 = add nsw i32 %123, -1
+  store i32 %126, ptr %3, align 8
+  br label %132
 
-126:                                              ; preds = %102
-  %127 = icmp eq i32 %.0.i128, 0
-  br i1 %127, label %.thread172, label %129
+127:                                              ; preds = %103
+  %128 = icmp eq i32 %.0.i128, 0
+  br i1 %128, label %.thread170, label %130
 
-.thread172:                                       ; preds = %126
+.thread170:                                       ; preds = %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %.not118 = icmp eq i32 %81, 256
-  br i1 %.not118, label %255, label %128
+  br i1 %.not118, label %255, label %129
 
-128:                                              ; preds = %.thread172
+129:                                              ; preds = %.thread170
   call fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
   br label %255
 
-129:                                              ; preds = %126
-  %130 = sub nsw i32 0, %.0.i128
-  call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %3, i64 noundef 0, i32 noundef %130, i1 noundef zeroext true, ptr noundef %1)
-  br label %131
+130:                                              ; preds = %127
+  %131 = sub nsw i32 0, %.0.i128
+  call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %3, i64 noundef 0, i32 noundef %131, i1 noundef zeroext true, ptr noundef %1)
+  br label %132
 
-131:                                              ; preds = %129, %57, %124, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
-  %.2 = phi i64 [ %.1200, %57 ], [ %105, %124 ], [ %105, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129 ], [ %.1200, %129 ]
-  %132 = load ptr, ptr %14, align 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 4
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp eq i32 %135, 54
-  br i1 %136, label %.loopexit183.loopexit, label %.lr.ph.backedge
+132:                                              ; preds = %130, %57, %125, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
+  %.2 = phi i64 [ %.1198, %57 ], [ %106, %125 ], [ %106, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129 ], [ %.1198, %130 ]
+  %133 = load ptr, ptr %14, align 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp eq i32 %136, 54
+  br i1 %137, label %.loopexit181.loopexit, label %.lr.ph.backedge
 
-.lr.ph.backedge:                                  ; preds = %131, %.backedge
-  %.be = phi i32 [ %135, %131 ], [ %253, %.backedge ]
-  %.1200.be = phi i64 [ %.2, %131 ], [ %.0106.be, %.backedge ]
+.lr.ph.backedge:                                  ; preds = %132, %.backedge
+  %.be = phi i32 [ %136, %132 ], [ %253, %.backedge ]
+  %.1198.be = phi i64 [ %.2, %132 ], [ %.0106.be, %.backedge ]
   br label %.lr.ph, !llvm.loop !6
 
-.preheader181:                                    ; preds = %.preheader181.preheader, %._crit_edge210
-  %137 = phi i64 [ %244, %._crit_edge210 ], [ %.pre, %.preheader181.preheader ]
-  %.3 = phi i64 [ %191, %._crit_edge210 ], [ %.1200, %.preheader181.preheader ]
-  %138 = icmp sgt i64 %137, 0
-  br i1 %138, label %.lr.ph203, label %_ZL15yyremoveDeletesP10yyGLRStack.exit
+.preheader179:                                    ; preds = %.preheader179.preheader, %._crit_edge208
+  %138 = phi i64 [ %244, %._crit_edge208 ], [ %.pre, %.preheader179.preheader ]
+  %.3 = phi i64 [ %192, %._crit_edge208 ], [ %.1198, %.preheader179.preheader ]
+  %139 = icmp sgt i64 %138, 0
+  br i1 %139, label %.lr.ph201, label %_ZL15yyremoveDeletesP10yyGLRStack.exit
 
-.preheader180:                                    ; preds = %.lr.ph203
-  %139 = icmp sgt i64 %146, 0
-  br i1 %139, label %.lr.ph205, label %_ZL15yyremoveDeletesP10yyGLRStack.exit
+.preheader178:                                    ; preds = %.lr.ph201
+  %140 = icmp sgt i64 %147, 0
+  br i1 %140, label %.lr.ph203, label %_ZL15yyremoveDeletesP10yyGLRStack.exit
 
-.lr.ph203:                                        ; preds = %.preheader181, %.lr.ph203
-  %.0107202 = phi i64 [ %145, %.lr.ph203 ], [ 0, %.preheader181 ]
-  %140 = load i32, ptr %4, align 4
-  %141 = icmp ne i32 %140, -2
-  %142 = load ptr, ptr %19, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 %.0107202
-  %144 = zext i1 %141 to i8
-  store i8 %144, ptr %143, align 1
-  %145 = add nuw nsw i64 %.0107202, 1
-  %146 = load i64, ptr %15, align 8
-  %147 = icmp slt i64 %145, %146
-  br i1 %147, label %.lr.ph203, label %.preheader180, !llvm.loop !7
+.lr.ph201:                                        ; preds = %.preheader179, %.lr.ph201
+  %.0107200 = phi i64 [ %146, %.lr.ph201 ], [ 0, %.preheader179 ]
+  %141 = load i32, ptr %4, align 4
+  %142 = icmp ne i32 %141, -2
+  %143 = load ptr, ptr %19, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 %.0107200
+  %145 = zext i1 %142 to i8
+  store i8 %145, ptr %144, align 1
+  %146 = add nuw nsw i64 %.0107200, 1
+  %147 = load i64, ptr %15, align 8
+  %148 = icmp slt i64 %146, %147
+  br i1 %148, label %.lr.ph201, label %.preheader178, !llvm.loop !7
 
-.lr.ph205:                                        ; preds = %.preheader180, %.lr.ph205
-  %.1108204 = phi i64 [ %148, %.lr.ph205 ], [ 0, %.preheader180 ]
-  call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef nonnull %3, i64 noundef %.1108204, ptr noundef %0, ptr noundef %1)
-  %148 = add nuw nsw i64 %.1108204, 1
+.lr.ph203:                                        ; preds = %.preheader178, %.lr.ph203
+  %.1108202 = phi i64 [ %149, %.lr.ph203 ], [ 0, %.preheader178 ]
+  call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef nonnull %3, i64 noundef %.1108202, ptr noundef %0, ptr noundef %1)
+  %149 = add nuw nsw i64 %.1108202, 1
   %.pr = load i64, ptr %15, align 8
-  %149 = icmp slt i64 %148, %.pr
-  br i1 %149, label %.lr.ph205, label %._crit_edge, !llvm.loop !8
+  %150 = icmp slt i64 %149, %.pr
+  br i1 %150, label %.lr.ph203, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph205
-  %150 = icmp sgt i64 %.pr, 0
-  br i1 %150, label %.lr.ph.i, label %_ZL15yyremoveDeletesP10yyGLRStack.exit
+._crit_edge:                                      ; preds = %.lr.ph203
+  %151 = icmp sgt i64 %.pr, 0
+  br i1 %151, label %.lr.ph.i, label %_ZL15yyremoveDeletesP10yyGLRStack.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %166
-  %151 = phi i64 [ %167, %166 ], [ %.pr, %._crit_edge ]
-  %.022.i = phi i64 [ %.1.i, %166 ], [ 0, %._crit_edge ]
-  %.01821.i = phi i64 [ %168, %166 ], [ 0, %._crit_edge ]
-  %152 = load ptr, ptr %14, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 %.01821.i
-  %154 = load ptr, ptr %153, align 8
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %158
+.lr.ph.i:                                         ; preds = %._crit_edge, %167
+  %152 = phi i64 [ %168, %167 ], [ %.pr, %._crit_edge ]
+  %.022.i = phi i64 [ %.1.i, %167 ], [ 0, %._crit_edge ]
+  %.01821.i = phi i64 [ %169, %167 ], [ 0, %._crit_edge ]
+  %153 = load ptr, ptr %14, align 8
+  %154 = getelementptr inbounds ptr, ptr %153, i64 %.01821.i
+  %155 = load ptr, ptr %154, align 8
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %157, label %159
 
-156:                                              ; preds = %.lr.ph.i
-  %157 = add nsw i64 %151, -1
-  store i64 %157, ptr %15, align 8
-  br label %166
+157:                                              ; preds = %.lr.ph.i
+  %158 = add nsw i64 %152, -1
+  store i64 %158, ptr %15, align 8
+  br label %167
 
-158:                                              ; preds = %.lr.ph.i
-  %159 = getelementptr inbounds ptr, ptr %152, i64 %.022.i
-  store ptr %154, ptr %159, align 8
-  %160 = load ptr, ptr %19, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 %.01821.i
-  %162 = load i8, ptr %161, align 1
-  %163 = getelementptr inbounds i8, ptr %160, i64 %.022.i
-  %164 = and i8 %162, 1
-  store i8 %164, ptr %163, align 1
-  %165 = add nsw i64 %.022.i, 1
+159:                                              ; preds = %.lr.ph.i
+  %160 = getelementptr inbounds ptr, ptr %153, i64 %.022.i
+  store ptr %155, ptr %160, align 8
+  %161 = load ptr, ptr %19, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 %.01821.i
+  %163 = load i8, ptr %162, align 1
+  %164 = getelementptr inbounds i8, ptr %161, i64 %.022.i
+  %165 = and i8 %163, 1
+  store i8 %165, ptr %164, align 1
+  %166 = add nsw i64 %.022.i, 1
   %.pre.i = load i64, ptr %15, align 8
-  br label %166
+  br label %167
 
-166:                                              ; preds = %158, %156
-  %167 = phi i64 [ %157, %156 ], [ %.pre.i, %158 ]
-  %.1.i = phi i64 [ %.022.i, %156 ], [ %165, %158 ]
-  %168 = add nuw nsw i64 %.01821.i, 1
-  %169 = icmp slt i64 %.1.i, %167
-  br i1 %169, label %.lr.ph.i, label %_ZL15yyremoveDeletesP10yyGLRStack.exit, !llvm.loop !9
+167:                                              ; preds = %159, %157
+  %168 = phi i64 [ %158, %157 ], [ %.pre.i, %159 ]
+  %.1.i = phi i64 [ %.022.i, %157 ], [ %166, %159 ]
+  %169 = add nuw nsw i64 %.01821.i, 1
+  %170 = icmp slt i64 %.1.i, %168
+  br i1 %170, label %.lr.ph.i, label %_ZL15yyremoveDeletesP10yyGLRStack.exit, !llvm.loop !9
 
-_ZL15yyremoveDeletesP10yyGLRStack.exit:           ; preds = %166, %.preheader181, %.preheader180, %._crit_edge
-  %.pr174 = phi i64 [ %.pr, %._crit_edge ], [ %146, %.preheader180 ], [ %137, %.preheader181 ], [ %167, %166 ]
-  %170 = icmp eq i64 %.pr174, 0
-  br i1 %170, label %171, label %182
+_ZL15yyremoveDeletesP10yyGLRStack.exit:           ; preds = %167, %.preheader179, %.preheader178, %._crit_edge
+  %.pr172 = phi i64 [ %.pr, %._crit_edge ], [ %147, %.preheader178 ], [ %138, %.preheader179 ], [ %168, %167 ]
+  %171 = icmp eq i64 %.pr172, 0
+  br i1 %171, label %172, label %183
 
-171:                                              ; preds = %_ZL15yyremoveDeletesP10yyGLRStack.exit
-  %172 = load ptr, ptr %45, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %_ZL19yyundeleteLastStackP10yyGLRStack.exit, label %174
+172:                                              ; preds = %_ZL15yyremoveDeletesP10yyGLRStack.exit
+  %173 = load ptr, ptr %45, align 8
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %_ZL19yyundeleteLastStackP10yyGLRStack.exit, label %175
 
-_ZL19yyundeleteLastStackP10yyGLRStack.exit:       ; preds = %171
+_ZL19yyundeleteLastStackP10yyGLRStack.exit:       ; preds = %172
   call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %6, ptr poison, ptr noundef %1, ptr noundef nonnull @.str)
   unreachable
 
-174:                                              ; preds = %171
-  %175 = load ptr, ptr %14, align 8
-  store ptr %172, ptr %175, align 8
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %14, align 8
+  store ptr %173, ptr %176, align 8
   store i64 1, ptr %15, align 8
   store ptr null, ptr %45, align 8
-  %176 = load ptr, ptr %13, align 8
-  %.not.i131 = icmp eq ptr %176, null
-  br i1 %.not.i131, label %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit.thread, label %177
+  %177 = load ptr, ptr %13, align 8
+  %.not.i131 = icmp eq ptr %177, null
+  br i1 %.not.i131, label %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit.thread, label %178
 
-177:                                              ; preds = %174
-  %178 = load ptr, ptr %14, align 8
-  %.01418.i = load ptr, ptr %178, align 8
-  %.not1619.i = icmp eq ptr %.01418.i, %176
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %14, align 8
+  %.01418.i = load ptr, ptr %179, align 8
+  %.not1619.i = icmp eq ptr %.01418.i, %177
   br i1 %.not1619.i, label %._crit_edge.i, label %.lr.ph.i132
 
-.lr.ph.i132:                                      ; preds = %177, %.lr.ph.i132
-  %.01421.i = phi ptr [ %.014.i, %.lr.ph.i132 ], [ %.01418.i, %177 ]
-  %.01320.i = phi i32 [ %180, %.lr.ph.i132 ], [ 0, %177 ]
-  %179 = getelementptr inbounds i8, ptr %.01421.i, i64 8
-  %180 = add nuw nsw i32 %.01320.i, 1
-  %.014.i = load ptr, ptr %179, align 8
-  %.not16.i = icmp eq ptr %.014.i, %176
+.lr.ph.i132:                                      ; preds = %178, %.lr.ph.i132
+  %.01421.i = phi ptr [ %.014.i, %.lr.ph.i132 ], [ %.01418.i, %178 ]
+  %.01320.i = phi i32 [ %181, %.lr.ph.i132 ], [ 0, %178 ]
+  %180 = getelementptr inbounds i8, ptr %.01421.i, i64 8
+  %181 = add nuw nsw i32 %.01320.i, 1
+  %.014.i = load ptr, ptr %180, align 8
+  %.not16.i = icmp eq ptr %.014.i, %177
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i132, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i132, %177
-  %.013.lcssa.i = phi i32 [ 0, %177 ], [ %180, %.lr.ph.i132 ]
-  %181 = call fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %.01418.i, i32 noundef %.013.lcssa.i, ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
-  switch i32 %181, label %.loopexit183 [
+._crit_edge.i:                                    ; preds = %.lr.ph.i132, %178
+  %.013.lcssa.i = phi i32 [ 0, %178 ], [ %181, %.lr.ph.i132 ]
+  %182 = call fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %.01418.i, i32 noundef %.013.lcssa.i, ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
+  switch i32 %182, label %.loopexit181 [
     i32 0, label %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit.thread
     i32 3, label %255
     i32 4, label %_ZL14yyinitGLRStackP10yyGLRStackl.exit.thread
-    i32 1, label %.loopexit183.loopexit
+    i32 1, label %.loopexit181.loopexit
   ]
 
-_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit.thread: ; preds = %._crit_edge.i, %174
+_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit.thread: ; preds = %._crit_edge.i, %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
   br label %255
 
-182:                                              ; preds = %_ZL15yyremoveDeletesP10yyGLRStack.exit
-  %183 = load i32, ptr %4, align 4
-  %or.cond = icmp ult i32 %183, 293
-  br i1 %or.cond, label %184, label %189
+183:                                              ; preds = %_ZL15yyremoveDeletesP10yyGLRStack.exit
+  %184 = load i32, ptr %4, align 4
+  %or.cond = icmp ult i32 %184, 293
+  br i1 %or.cond, label %185, label %190
 
-184:                                              ; preds = %182
-  %185 = zext nneg i32 %183 to i64
-  %186 = getelementptr inbounds [293 x i8], ptr @_ZL11yytranslate, i64 0, i64 %185
-  %187 = load i8, ptr %186, align 1
-  %188 = sext i8 %187 to i32
-  br label %189
+185:                                              ; preds = %183
+  %186 = zext nneg i32 %184 to i64
+  %187 = getelementptr inbounds [293 x i8], ptr @_ZL11yytranslate, i64 0, i64 %186
+  %188 = load i8, ptr %187, align 1
+  %189 = sext i8 %188 to i32
+  br label %190
 
-189:                                              ; preds = %182, %184
-  %190 = phi i32 [ %188, %184 ], [ 2, %182 ]
+190:                                              ; preds = %183, %185
+  %191 = phi i32 [ %189, %185 ], [ 2, %183 ]
   store i32 -2, ptr %4, align 4
-  %191 = add nsw i64 %.3, 1
-  %192 = icmp sgt i64 %.pr174, 0
-  br i1 %192, label %.lr.ph209, label %._crit_edge210
+  %192 = add nsw i64 %.3, 1
+  %193 = icmp sgt i64 %.pr172, 0
+  br i1 %193, label %.lr.ph207, label %._crit_edge208
 
-.lr.ph209:                                        ; preds = %189
-  %193 = icmp eq i32 %190, 1
-  br label %194
+.lr.ph207:                                        ; preds = %190
+  %194 = icmp eq i32 %191, 1
+  br label %195
 
-194:                                              ; preds = %.lr.ph209, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit141
-  %.2109207 = phi i64 [ 0, %.lr.ph209 ], [ %241, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit141 ]
-  %195 = load ptr, ptr %14, align 8
-  %196 = getelementptr inbounds ptr, ptr %195, i64 %.2109207
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 4
-  %199 = load i32, ptr %198, align 4
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds [174 x i16], ptr @_ZL6yypact, i64 0, i64 %200
-  %202 = load i16, ptr %201, align 2
-  %203 = sext i16 %202 to i32
-  %204 = add nsw i32 %190, %203
-  br i1 %193, label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140, label %205
+195:                                              ; preds = %.lr.ph207, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit140
+  %.2109205 = phi i64 [ 0, %.lr.ph207 ], [ %241, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit140 ]
+  %196 = load ptr, ptr %14, align 8
+  %197 = getelementptr inbounds ptr, ptr %196, i64 %.2109205
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 4
+  %200 = load i32, ptr %199, align 4
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds [174 x i16], ptr @_ZL6yypact, i64 0, i64 %201
+  %203 = load i16, ptr %202, align 2
+  %204 = sext i16 %203 to i32
+  %205 = add nsw i32 %191, %204
+  br i1 %194, label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit139, label %206
 
-205:                                              ; preds = %194
-  %206 = icmp eq i16 %202, -129
-  %207 = icmp slt i32 %204, 0
-  %or.cond.i134 = select i1 %206, i1 true, i1 %207
-  %208 = icmp sgt i32 %204, 332
-  %or.cond3.i135 = select i1 %or.cond.i134, i1 true, i1 %208
-  br i1 %or.cond3.i135, label %214, label %209
+206:                                              ; preds = %195
+  %207 = icmp eq i16 %203, -129
+  %208 = icmp ugt i32 %205, 332
+  %or.cond3.i134 = select i1 %207, i1 true, i1 %208
+  br i1 %or.cond3.i134, label %214, label %209
 
-209:                                              ; preds = %205
-  %210 = zext nneg i32 %204 to i64
+209:                                              ; preds = %206
+  %210 = zext nneg i32 %205 to i64
   %211 = getelementptr inbounds [333 x i16], ptr @_ZL7yycheck, i64 0, i64 %210
   %212 = load i16, ptr %211, align 2
   %213 = sext i16 %212 to i32
-  %.not.i136 = icmp eq i32 %190, %213
-  br i1 %.not.i136, label %219, label %214
+  %.not.i135 = icmp eq i32 %191, %213
+  br i1 %.not.i135, label %219, label %214
 
-214:                                              ; preds = %209, %205
-  %215 = getelementptr inbounds [174 x i8], ptr @_ZL8yydefact, i64 0, i64 %200
+214:                                              ; preds = %209, %206
+  %215 = getelementptr inbounds [174 x i8], ptr @_ZL8yydefact, i64 0, i64 %201
   %216 = load i8, ptr %215, align 1
   %217 = sext i8 %216 to i32
   %218 = sub nsw i32 0, %217
-  br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140
+  br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit139
 
 219:                                              ; preds = %209
   %220 = getelementptr inbounds [333 x i16], ptr @_ZL7yytable, i64 0, i64 %210
   %221 = load i16, ptr %220, align 2
   %222 = icmp eq i16 %221, -69
-  %narrow.i138 = select i1 %222, i16 0, i16 %221
-  %spec.select.i139 = sext i16 %narrow.i138 to i32
-  br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140
+  %narrow.i137 = select i1 %222, i16 0, i16 %221
+  %spec.select.i138 = sext i16 %narrow.i137 to i32
+  br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit139
 
-_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140: ; preds = %194, %214, %219
-  %.0.i137 = phi i32 [ %218, %214 ], [ %spec.select.i139, %219 ], [ 0, %194 ]
+_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit139: ; preds = %195, %214, %219
+  %.0.i136 = phi i32 [ %218, %214 ], [ %spec.select.i138, %219 ], [ 0, %195 ]
   %223 = load ptr, ptr %12, align 8
   %224 = load i64, ptr %8, align 8
   %225 = add nsw i64 %224, -1
@@ -2273,13 +2271,13 @@ _ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140: ; preds = %194, %214, %219
   store ptr %226, ptr %12, align 8
   store i8 1, ptr %223, align 8
   %227 = getelementptr inbounds i8, ptr %223, i64 4
-  store i32 %.0.i137, ptr %227, align 4
+  store i32 %.0.i136, ptr %227, align 4
   %228 = getelementptr inbounds i8, ptr %223, i64 16
-  store i64 %191, ptr %228, align 8
+  store i64 %192, ptr %228, align 8
   %229 = getelementptr inbounds i8, ptr %223, i64 1
   store i8 1, ptr %229, align 1
   %230 = load ptr, ptr %14, align 8
-  %231 = getelementptr inbounds ptr, ptr %230, i64 %.2109207
+  %231 = getelementptr inbounds ptr, ptr %230, i64 %.2109205
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i8, ptr %223, i64 8
   store ptr %232, ptr %233, align 8
@@ -2288,72 +2286,72 @@ _ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140: ; preds = %194, %214, %219
   %235 = getelementptr inbounds i8, ptr %223, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %236 = load ptr, ptr %14, align 8
-  %237 = getelementptr inbounds ptr, ptr %236, i64 %.2109207
+  %237 = getelementptr inbounds ptr, ptr %236, i64 %.2109205
   store ptr %223, ptr %237, align 8
   %238 = load i64, ptr %8, align 8
   %239 = icmp slt i64 %238, 2
-  br i1 %239, label %240, label %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit141
+  br i1 %239, label %240, label %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit140
 
-240:                                              ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140
+240:                                              ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit139
   call fastcc void @_ZL16yyexpandGLRStackP10yyGLRStack(ptr noundef nonnull %3)
-  br label %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit141
+  br label %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit140
 
-_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit141: ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit140, %240
-  %241 = add nuw nsw i64 %.2109207, 1
+_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit140: ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit139, %240
+  %241 = add nuw nsw i64 %.2109205, 1
   %242 = load i64, ptr %15, align 8
   %243 = icmp slt i64 %241, %242
-  br i1 %243, label %194, label %._crit_edge210, !llvm.loop !11
+  br i1 %243, label %195, label %._crit_edge208, !llvm.loop !11
 
-._crit_edge210:                                   ; preds = %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit141, %189
-  %244 = phi i64 [ %.pr174, %189 ], [ %242, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit141 ]
+._crit_edge208:                                   ; preds = %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit140, %190
+  %244 = phi i64 [ %.pr172, %190 ], [ %242, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit140 ]
   %245 = icmp eq i64 %244, 1
-  br i1 %245, label %246, label %.preheader181, !llvm.loop !12
+  br i1 %245, label %246, label %.preheader179, !llvm.loop !12
 
-246:                                              ; preds = %._crit_edge210
+246:                                              ; preds = %._crit_edge208
   %247 = load ptr, ptr %13, align 8
-  %.not.i142 = icmp eq ptr %247, null
-  br i1 %.not.i142, label %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit154.thread, label %248
+  %.not.i141 = icmp eq ptr %247, null
+  br i1 %.not.i141, label %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit153.thread, label %248
 
 248:                                              ; preds = %246
   %249 = load ptr, ptr %14, align 8
-  %.01418.i143 = load ptr, ptr %249, align 8
-  %.not1619.i144 = icmp eq ptr %.01418.i143, %247
-  br i1 %.not1619.i144, label %._crit_edge.i150, label %.lr.ph.i145
+  %.01418.i142 = load ptr, ptr %249, align 8
+  %.not1619.i143 = icmp eq ptr %.01418.i142, %247
+  br i1 %.not1619.i143, label %._crit_edge.i149, label %.lr.ph.i144
 
-.lr.ph.i145:                                      ; preds = %248, %.lr.ph.i145
-  %.01421.i146 = phi ptr [ %.014.i148, %.lr.ph.i145 ], [ %.01418.i143, %248 ]
-  %.01320.i147 = phi i32 [ %251, %.lr.ph.i145 ], [ 0, %248 ]
-  %250 = getelementptr inbounds i8, ptr %.01421.i146, i64 8
-  %251 = add nuw nsw i32 %.01320.i147, 1
-  %.014.i148 = load ptr, ptr %250, align 8
-  %.not16.i149 = icmp eq ptr %.014.i148, %247
-  br i1 %.not16.i149, label %._crit_edge.i150, label %.lr.ph.i145, !llvm.loop !10
+.lr.ph.i144:                                      ; preds = %248, %.lr.ph.i144
+  %.01421.i145 = phi ptr [ %.014.i147, %.lr.ph.i144 ], [ %.01418.i142, %248 ]
+  %.01320.i146 = phi i32 [ %251, %.lr.ph.i144 ], [ 0, %248 ]
+  %250 = getelementptr inbounds i8, ptr %.01421.i145, i64 8
+  %251 = add nuw nsw i32 %.01320.i146, 1
+  %.014.i147 = load ptr, ptr %250, align 8
+  %.not16.i148 = icmp eq ptr %.014.i147, %247
+  br i1 %.not16.i148, label %._crit_edge.i149, label %.lr.ph.i144, !llvm.loop !10
 
-._crit_edge.i150:                                 ; preds = %.lr.ph.i145, %248
-  %.013.lcssa.i151 = phi i32 [ 0, %248 ], [ %251, %.lr.ph.i145 ]
-  %252 = call fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %.01418.i143, i32 noundef %.013.lcssa.i151, ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
-  switch i32 %252, label %.loopexit183 [
-    i32 0, label %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit154.thread
+._crit_edge.i149:                                 ; preds = %.lr.ph.i144, %248
+  %.013.lcssa.i150 = phi i32 [ 0, %248 ], [ %251, %.lr.ph.i144 ]
+  %252 = call fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %.01418.i142, i32 noundef %.013.lcssa.i150, ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
+  switch i32 %252, label %.loopexit181 [
+    i32 0, label %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit153.thread
     i32 3, label %255
     i32 4, label %_ZL14yyinitGLRStackP10yyGLRStackl.exit.thread
-    i32 1, label %.loopexit183.loopexit
+    i32 1, label %.loopexit181.loopexit
   ]
 
-_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit154.thread: ; preds = %._crit_edge.i150, %246
+_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit153.thread: ; preds = %._crit_edge.i149, %246
   call fastcc void @_ZL15yycompressStackP10yyGLRStack(ptr noundef nonnull %3)
-  %.pre231 = load ptr, ptr %14, align 8
-  %.pre232 = load ptr, ptr %.pre231, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre232, i64 4
-  %.pre233 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre229 = load ptr, ptr %14, align 8
+  %.pre230 = load ptr, ptr %.pre229, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre230, i64 4
+  %.pre231 = load i32, ptr %.phi.trans.insert, align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit154.thread, %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit
-  %253 = phi i32 [ %283, %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit ], [ %.pre233, %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit154.thread ]
-  %.0106.be = phi i64 [ %378, %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit ], [ %191, %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit154.thread ]
+.backedge:                                        ; preds = %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit153.thread, %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit
+  %253 = phi i32 [ %283, %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit ], [ %.pre231, %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit153.thread ]
+  %.0106.be = phi i64 [ %378, %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit ], [ %192, %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit153.thread ]
   %254 = icmp eq i32 %253, 54
-  br i1 %254, label %.loopexit183, label %.lr.ph.backedge
+  br i1 %254, label %.loopexit181, label %.lr.ph.backedge
 
-255:                                              ; preds = %.thread172.thread, %._crit_edge.i150, %._crit_edge.i, %.thread172, %128, %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit.thread, %56
+255:                                              ; preds = %.thread170.thread, %._crit_edge.i149, %._crit_edge.i, %.thread170, %129, %_ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit.thread, %56
   %256 = load i32, ptr %3, align 8
   %257 = icmp eq i32 %256, 3
   br i1 %257, label %.preheader.i, label %.preheader117.i
@@ -2361,18 +2359,18 @@ _ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit154.thread: ; preds =
 .preheader117.i:                                  ; preds = %255
   %258 = load i64, ptr %15, align 8
   %259 = icmp sgt i64 %258, 0
-  br i1 %259, label %.lr.ph.i156, label %._crit_edge.i155
+  br i1 %259, label %.lr.ph.i155, label %._crit_edge.i154
 
-.lr.ph.i156:                                      ; preds = %.preheader117.i
+.lr.ph.i155:                                      ; preds = %.preheader117.i
   %260 = load ptr, ptr %14, align 8
   br label %303
 
 .preheader.i:                                     ; preds = %255
-  %.pre.i160 = load i32, ptr %4, align 4
+  %.pre.i159 = load i32, ptr %4, align 4
   br label %261
 
-261:                                              ; preds = %.backedge283, %.preheader.i
-  %262 = phi i32 [ %.pre.i160, %.preheader.i ], [ %279, %.backedge283 ]
+261:                                              ; preds = %.backedge281, %.preheader.i
+  %262 = phi i32 [ %.pre.i159, %.preheader.i ], [ %279, %.backedge281 ]
   switch i32 %262, label %264 [
     i32 0, label %263
     i32 -2, label %268
@@ -2428,8 +2426,8 @@ _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.i: ; preds = %274, %27
 288:                                              ; preds = %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.i
   %289 = sext i16 %286 to i32
   %290 = add nsw i32 %.0.i.i, %289
-  %or.cond.i161 = icmp ugt i32 %290, 332
-  br i1 %or.cond.i161, label %296, label %291
+  %or.cond.i = icmp ugt i32 %290, 332
+  br i1 %or.cond.i, label %296, label %291
 
 291:                                              ; preds = %288
   %292 = zext nneg i32 %290 to i64
@@ -2443,24 +2441,24 @@ _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.i: ; preds = %274, %27
   %297 = getelementptr inbounds [174 x i8], ptr @_ZL8yydefact, i64 0, i64 %284
   %298 = load i8, ptr %297, align 1
   %.not107.i = icmp eq i8 %298, 0
-  br i1 %.not107.i, label %.backedge283, label %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit
+  br i1 %.not107.i, label %.backedge281, label %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit
 
 299:                                              ; preds = %291
   %300 = getelementptr inbounds [333 x i16], ptr @_ZL7yytable, i64 0, i64 %292
   %301 = load i16, ptr %300, align 2
   %302 = icmp eq i16 %301, -69
-  br i1 %302, label %.backedge283, label %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit
+  br i1 %302, label %.backedge281, label %_ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit
 
-.backedge283:                                     ; preds = %299, %296
+.backedge281:                                     ; preds = %299, %296
   br label %261, !llvm.loop !13
 
-303:                                              ; preds = %308, %.lr.ph.i156
-  %.0123.i = phi i64 [ 0, %.lr.ph.i156 ], [ %306, %308 ]
+303:                                              ; preds = %308, %.lr.ph.i155
+  %.0123.i = phi i64 [ 0, %.lr.ph.i155 ], [ %306, %308 ]
   %304 = getelementptr inbounds ptr, ptr %260, i64 %.0123.i
   %305 = load ptr, ptr %304, align 8
-  %.not.i157 = icmp eq ptr %305, null
+  %.not.i156 = icmp eq ptr %305, null
   %306 = add nuw nsw i64 %.0123.i, 1
-  br i1 %.not.i157, label %308, label %.preheader116.i
+  br i1 %.not.i156, label %308, label %.preheader116.i
 
 .preheader116.i:                                  ; preds = %303
   %307 = icmp slt i64 %306, %258
@@ -2468,19 +2466,19 @@ _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.i: ; preds = %274, %27
 
 308:                                              ; preds = %303
   %exitcond.not.i = icmp eq i64 %306, %258
-  br i1 %exitcond.not.i, label %._crit_edge.i155, label %303, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i154, label %303, !llvm.loop !14
 
-._crit_edge.i155:                                 ; preds = %308, %.preheader117.i
+._crit_edge.i154:                                 ; preds = %308, %.preheader117.i
   call void @longjmp(ptr noundef nonnull %21, i32 noundef 1) #37
   unreachable
 
 .lr.ph126.i:                                      ; preds = %.preheader116.i, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit.i
-  %.1125.i = phi i64 [ %.1.i159, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit.i ], [ %306, %.preheader116.i ]
+  %.1125.i = phi i64 [ %.1.i158, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit.i ], [ %306, %.preheader116.i ]
   %309 = load ptr, ptr %14, align 8
   %310 = getelementptr inbounds ptr, ptr %309, i64 %.1125.i
   %311 = load ptr, ptr %310, align 8
-  %.not.i.i158 = icmp eq ptr %311, null
-  br i1 %.not.i.i158, label %_ZL18yymarkStackDeletedP10yyGLRStackl.exit.i, label %312
+  %.not.i.i157 = icmp eq ptr %311, null
+  br i1 %.not.i.i157, label %_ZL18yymarkStackDeletedP10yyGLRStackl.exit.i, label %312
 
 312:                                              ; preds = %.lr.ph126.i
   store ptr %311, ptr %45, align 8
@@ -2488,9 +2486,9 @@ _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.i: ; preds = %274, %27
 
 _ZL18yymarkStackDeletedP10yyGLRStackl.exit.i:     ; preds = %312, %.lr.ph126.i
   store ptr null, ptr %310, align 8
-  %.1.i159 = add nuw nsw i64 %.1125.i, 1
+  %.1.i158 = add nuw nsw i64 %.1125.i, 1
   %313 = load i64, ptr %15, align 8
-  %314 = icmp slt i64 %.1.i159, %313
+  %314 = icmp slt i64 %.1.i158, %313
   br i1 %314, label %.lr.ph126.i, label %._crit_edge127.i, !llvm.loop !15
 
 ._crit_edge127.i:                                 ; preds = %_ZL18yymarkStackDeletedP10yyGLRStackl.exit.i, %.preheader116.i
@@ -2636,20 +2634,20 @@ _ZL20yyrecoverSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE.exit: ; preds = %_Z
   %378 = load i64, ptr %377, align 8
   br label %.backedge
 
-_ZL14yyinitGLRStackP10yyGLRStackl.exit.thread:    ; preds = %._crit_edge.i150, %._crit_edge.i, %11, %20, %2, %_ZL14yyinitGLRStackP10yyGLRStackl.exit
+_ZL14yyinitGLRStackP10yyGLRStackl.exit.thread:    ; preds = %._crit_edge.i149, %._crit_edge.i, %11, %20, %2, %_ZL14yyinitGLRStackP10yyGLRStackl.exit
   call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %6, ptr poison, ptr noundef %1, ptr noundef nonnull @.str.5)
   unreachable
 
-.loopexit183.loopexit:                            ; preds = %._crit_edge.i, %._crit_edge.i150, %131
-  br label %.loopexit183
+.loopexit181.loopexit:                            ; preds = %._crit_edge.i, %._crit_edge.i149, %132
+  br label %.loopexit181
 
-.loopexit183:                                     ; preds = %.backedge, %._crit_edge.i, %._crit_edge.i150, %.loopexit183.loopexit, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit, %_ZL14yyinitGLRStackP10yyGLRStackl.exit
-  %.0 = phi i32 [ 1, %_ZL14yyinitGLRStackP10yyGLRStackl.exit ], [ 0, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit ], [ 0, %.loopexit183.loopexit ], [ 1, %._crit_edge.i150 ], [ 1, %._crit_edge.i ], [ 0, %.backedge ]
+.loopexit181:                                     ; preds = %.backedge, %._crit_edge.i, %._crit_edge.i149, %.loopexit181.loopexit, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit, %_ZL14yyinitGLRStackP10yyGLRStackl.exit
+  %.0 = phi i32 [ 1, %_ZL14yyinitGLRStackP10yyGLRStackl.exit ], [ 0, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit ], [ 0, %.loopexit181.loopexit ], [ 1, %._crit_edge.i149 ], [ 1, %._crit_edge.i ], [ 0, %.backedge ]
   %379 = load ptr, ptr %10, align 8
   %.not120 = icmp eq ptr %379, null
   br i1 %.not120, label %403, label %380
 
-380:                                              ; preds = %.loopexit183
+380:                                              ; preds = %.loopexit181
   %381 = load ptr, ptr %14, align 8
   %.not121 = icmp eq ptr %381, null
   br i1 %.not121, label %.loopexit, label %382
@@ -2657,22 +2655,22 @@ _ZL14yyinitGLRStackP10yyGLRStackl.exit.thread:    ; preds = %._crit_edge.i150, %
 382:                                              ; preds = %380
   %383 = load i64, ptr %15, align 8
   %384 = icmp sgt i64 %383, 0
-  br i1 %384, label %.lr.ph215, label %.loopexit
+  br i1 %384, label %.lr.ph213, label %.loopexit
 
-.lr.ph215:                                        ; preds = %382, %398
-  %.0105213 = phi i64 [ %399, %398 ], [ 0, %382 ]
-  %385 = getelementptr inbounds ptr, ptr %381, i64 %.0105213
+.lr.ph213:                                        ; preds = %382, %398
+  %.0105211 = phi i64 [ %399, %398 ], [ 0, %382 ]
+  %385 = getelementptr inbounds ptr, ptr %381, i64 %.0105211
   %386 = load ptr, ptr %385, align 8
   %.not122 = icmp eq ptr %386, null
   br i1 %.not122, label %398, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph215
-  %387 = getelementptr inbounds ptr, ptr %381, i64 %.0105213
+.preheader:                                       ; preds = %.lr.ph213
+  %387 = getelementptr inbounds ptr, ptr %381, i64 %.0105211
   %388 = getelementptr inbounds i8, ptr %3, i64 144
   br label %389
 
 389:                                              ; preds = %.preheader, %389
-  %390 = phi ptr [ %386, %.preheader ], [ %.pr177, %389 ]
+  %390 = phi ptr [ %386, %.preheader ], [ %.pr175, %389 ]
   %391 = getelementptr inbounds i8, ptr %390, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %388, ptr noundef nonnull align 8 dereferenceable(32) %391, i64 32, i1 false)
   %392 = getelementptr inbounds i8, ptr %390, i64 8
@@ -2684,21 +2682,21 @@ _ZL14yyinitGLRStackP10yyGLRStackl.exit.thread:    ; preds = %._crit_edge.i150, %
   %396 = load i64, ptr %8, align 8
   %397 = add nsw i64 %396, 1
   store i64 %397, ptr %8, align 8
-  %.pr177 = load ptr, ptr %387, align 8
-  %.not123 = icmp eq ptr %.pr177, null
+  %.pr175 = load ptr, ptr %387, align 8
+  %.not123 = icmp eq ptr %.pr175, null
   br i1 %.not123, label %.loopexit.loopexit, label %389, !llvm.loop !19
 
-398:                                              ; preds = %.lr.ph215
-  %399 = add nuw nsw i64 %.0105213, 1
+398:                                              ; preds = %.lr.ph213
+  %399 = add nuw nsw i64 %.0105211, 1
   %exitcond.not = icmp eq i64 %399, %383
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph215, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph213, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %389
-  %.pre234 = load ptr, ptr %10, align 8
+  %.pre232 = load ptr, ptr %10, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %398, %.loopexit.loopexit, %382, %380
-  %400 = phi ptr [ %.pre234, %.loopexit.loopexit ], [ %379, %382 ], [ %379, %380 ], [ %379, %398 ]
+  %400 = phi ptr [ %.pre232, %.loopexit.loopexit ], [ %379, %382 ], [ %379, %380 ], [ %379, %398 ]
   call void @free(ptr noundef %400) #35
   %401 = load ptr, ptr %14, align 8
   call void @free(ptr noundef %401) #35
@@ -2706,7 +2704,7 @@ _ZL14yyinitGLRStackP10yyGLRStackl.exit.thread:    ; preds = %._crit_edge.i150, %
   call void @free(ptr noundef %402) #35
   br label %403
 
-403:                                              ; preds = %.loopexit, %.loopexit183
+403:                                              ; preds = %.loopexit, %.loopexit181
   ret i32 %.0
 }
 
@@ -3465,9 +3463,9 @@ define internal fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14Parser
   %15 = getelementptr inbounds i8, ptr %0, i64 592
   br label %16
 
-16:                                               ; preds = %.lr.ph99, %127
-  %17 = phi ptr [ %8, %.lr.ph99 ], [ %130, %127 ]
-  %18 = phi ptr [ %6, %.lr.ph99 ], [ %128, %127 ]
+16:                                               ; preds = %.lr.ph99, %128
+  %17 = phi ptr [ %8, %.lr.ph99 ], [ %131, %128 ]
+  %18 = phi ptr [ %6, %.lr.ph99 ], [ %129, %128 ]
   %19 = getelementptr inbounds i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
@@ -3488,7 +3486,7 @@ _ZL18yymarkStackDeletedP10yyGLRStackl.exit:       ; preds = %25
 
 30:                                               ; preds = %25
   %31 = sext i8 %27 to i32
-  br label %127
+  br label %128
 
 32:                                               ; preds = %16
   %33 = load i32, ptr %9, align 4
@@ -3532,170 +3530,170 @@ _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit: ; preds = %41
 52:                                               ; preds = %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit
   %53 = phi i32 [ %44, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread ], [ %50, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
   %.0.i77 = phi i32 [ %.0.i.ph, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread ], [ %48, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
-  %or.cond3.i = icmp ugt i32 %53, 332
-  br i1 %or.cond3.i, label %59, label %54
+  %54 = icmp ugt i32 %53, 332
+  br i1 %54, label %60, label %55
 
-54:                                               ; preds = %52
-  %55 = zext nneg i32 %53 to i64
-  %56 = getelementptr inbounds [333 x i16], ptr @_ZL7yycheck, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = sext i16 %57 to i32
-  %.not.i69 = icmp eq i32 %.0.i77, %58
-  br i1 %.not.i69, label %64, label %59
+55:                                               ; preds = %52
+  %56 = zext nneg i32 %53 to i64
+  %57 = getelementptr inbounds [333 x i16], ptr @_ZL7yycheck, i64 0, i64 %56
+  %58 = load i16, ptr %57, align 2
+  %59 = sext i16 %58 to i32
+  %.not.i69 = icmp eq i32 %.0.i77, %59
+  br i1 %.not.i69, label %65, label %60
 
-59:                                               ; preds = %54, %52
-  %60 = getelementptr inbounds [174 x i8], ptr @_ZL8yydefact, i64 0, i64 %21
-  %61 = load i8, ptr %60, align 1
-  %62 = sext i8 %61 to i32
-  %63 = sub nsw i32 0, %62
+60:                                               ; preds = %55, %52
+  %61 = getelementptr inbounds [174 x i8], ptr @_ZL8yydefact, i64 0, i64 %21
+  %62 = load i8, ptr %61, align 1
+  %63 = sext i8 %62 to i32
+  %64 = sub nsw i32 0, %63
   br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
 
-64:                                               ; preds = %54
-  %65 = getelementptr inbounds [333 x i16], ptr @_ZL7yytable, i64 0, i64 %55
-  %66 = load i16, ptr %65, align 2
-  %67 = icmp eq i16 %66, -69
-  %68 = getelementptr inbounds [333 x i8], ptr @_ZL8yyconflp, i64 0, i64 %55
-  %69 = load i8, ptr %68, align 1
-  %70 = sext i8 %69 to i64
-  %71 = getelementptr inbounds i16, ptr @_ZL7yyconfl, i64 %70
-  %narrow.i = select i1 %67, i16 0, i16 %66
+65:                                               ; preds = %55
+  %66 = getelementptr inbounds [333 x i16], ptr @_ZL7yytable, i64 0, i64 %56
+  %67 = load i16, ptr %66, align 2
+  %68 = icmp eq i16 %67, -69
+  %69 = getelementptr inbounds [333 x i8], ptr @_ZL8yyconflp, i64 0, i64 %56
+  %70 = load i8, ptr %69, align 1
+  %71 = sext i8 %70 to i64
+  %72 = getelementptr inbounds i16, ptr @_ZL7yyconfl, i64 %71
+  %narrow.i = select i1 %68, i16 0, i16 %67
   %spec.select.i = sext i16 %narrow.i to i32
   br label %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
 
-_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit:   ; preds = %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit, %59, %64
-  %.0 = phi ptr [ @_ZL7yyconfl, %59 ], [ %71, %64 ], [ @_ZL7yyconfl, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
-  %.0.i70 = phi i32 [ %63, %59 ], [ %spec.select.i, %64 ], [ 0, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 %1
-  store i8 1, ptr %73, align 1
-  %74 = load i16, ptr %.0, align 2
-  %.not6895 = icmp eq i16 %74, 0
+_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit:   ; preds = %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit, %60, %65
+  %.0 = phi ptr [ @_ZL7yyconfl, %60 ], [ %72, %65 ], [ @_ZL7yyconfl, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
+  %.0.i70 = phi i32 [ %64, %60 ], [ %spec.select.i, %65 ], [ 0, %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit ]
+  %73 = load ptr, ptr %12, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 %1
+  store i8 1, ptr %74, align 1
+  %75 = load i16, ptr %.0, align 2
+  %.not6895 = icmp eq i16 %75, 0
   br i1 %.not6895, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit, %_ZL12yysplitStackP10yyGLRStackl.exit
-  %75 = phi i16 [ %117, %_ZL12yysplitStackP10yyGLRStackl.exit ], [ %74, %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit ]
-  %.196 = phi ptr [ %116, %_ZL12yysplitStackP10yyGLRStackl.exit ], [ %.0, %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit ]
-  %76 = load ptr, ptr %13, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %82
+  %76 = phi i16 [ %118, %_ZL12yysplitStackP10yyGLRStackl.exit ], [ %75, %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit ]
+  %.196 = phi ptr [ %117, %_ZL12yysplitStackP10yyGLRStackl.exit ], [ %.0, %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit ]
+  %77 = load ptr, ptr %13, align 8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %83
 
-78:                                               ; preds = %.lr.ph
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %1
-  %81 = load ptr, ptr %80, align 8
-  store ptr %81, ptr %13, align 8
-  br label %82
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %1
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %13, align 8
+  br label %83
 
-82:                                               ; preds = %78, %.lr.ph
-  %83 = load i64, ptr %14, align 8
-  %84 = load i64, ptr %15, align 8
-  %.not.i71 = icmp sgt i64 %83, %84
-  br i1 %.not.i71, label %_ZL12yysplitStackP10yyGLRStackl.exit, label %85
+83:                                               ; preds = %79, %.lr.ph
+  %84 = load i64, ptr %14, align 8
+  %85 = load i64, ptr %15, align 8
+  %.not.i71 = icmp sgt i64 %84, %85
+  br i1 %.not.i71, label %_ZL12yysplitStackP10yyGLRStackl.exit, label %86
 
-85:                                               ; preds = %82
-  %86 = icmp sgt i64 %83, 576460752303423487
-  br i1 %86, label %87, label %88
+86:                                               ; preds = %83
+  %87 = icmp sgt i64 %84, 576460752303423487
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %85
+88:                                               ; preds = %86
   tail call fastcc void @_ZL17yyMemoryExhaustedP10yyGLRStack(ptr noundef nonnull %0) #36
   unreachable
 
-88:                                               ; preds = %85
-  %89 = shl nsw i64 %83, 1
-  store i64 %89, ptr %14, align 8
-  %90 = load ptr, ptr %5, align 8
-  %91 = shl i64 %83, 4
-  %92 = tail call ptr @realloc(ptr noundef %90, i64 noundef %91) #43
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %95
+89:                                               ; preds = %86
+  %90 = shl nsw i64 %84, 1
+  store i64 %90, ptr %14, align 8
+  %91 = load ptr, ptr %5, align 8
+  %92 = shl i64 %84, 4
+  %93 = tail call ptr @realloc(ptr noundef %91, i64 noundef %92) #43
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %95, label %96
 
-94:                                               ; preds = %88
+95:                                               ; preds = %89
   tail call fastcc void @_ZL17yyMemoryExhaustedP10yyGLRStack(ptr noundef nonnull %0) #36
   unreachable
 
-95:                                               ; preds = %88
-  store ptr %92, ptr %5, align 8
-  %96 = load ptr, ptr %12, align 8
-  %97 = load i64, ptr %14, align 8
-  %98 = tail call ptr @realloc(ptr noundef %96, i64 noundef %97) #43
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %101
+96:                                               ; preds = %89
+  store ptr %93, ptr %5, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i64, ptr %14, align 8
+  %99 = tail call ptr @realloc(ptr noundef %97, i64 noundef %98) #43
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %102
 
-100:                                              ; preds = %95
+101:                                              ; preds = %96
   tail call fastcc void @_ZL17yyMemoryExhaustedP10yyGLRStack(ptr noundef nonnull %0) #36
   unreachable
 
-101:                                              ; preds = %95
-  store ptr %98, ptr %12, align 8
+102:                                              ; preds = %96
+  store ptr %99, ptr %12, align 8
   %.pre.i = load i64, ptr %15, align 8
   br label %_ZL12yysplitStackP10yyGLRStackl.exit
 
-_ZL12yysplitStackP10yyGLRStackl.exit:             ; preds = %82, %101
-  %102 = phi i64 [ %.pre.i, %101 ], [ %84, %82 ]
-  %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %1
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds ptr, ptr %103, i64 %102
-  store ptr %105, ptr %106, align 8
-  %107 = load ptr, ptr %12, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 %1
-  %109 = load i8, ptr %108, align 1
-  %110 = load i64, ptr %15, align 8
-  %111 = getelementptr inbounds i8, ptr %107, i64 %110
-  %112 = and i8 %109, 1
-  store i8 %112, ptr %111, align 1
-  %113 = load i64, ptr %15, align 8
-  %114 = add nsw i64 %113, 1
-  store i64 %114, ptr %15, align 8
-  %115 = sext i16 %75 to i32
-  tail call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %0, i64 noundef %113, i32 noundef %115, i1 noundef zeroext false, ptr noundef %3)
-  tail call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef nonnull %0, i64 noundef %113, ptr noundef %2, ptr noundef %3)
-  %116 = getelementptr inbounds i8, ptr %.196, i64 2
-  %117 = load i16, ptr %116, align 2
-  %.not68 = icmp eq i16 %117, 0
+_ZL12yysplitStackP10yyGLRStackl.exit:             ; preds = %83, %102
+  %103 = phi i64 [ %.pre.i, %102 ], [ %85, %83 ]
+  %104 = load ptr, ptr %5, align 8
+  %105 = getelementptr inbounds ptr, ptr %104, i64 %1
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds ptr, ptr %104, i64 %103
+  store ptr %106, ptr %107, align 8
+  %108 = load ptr, ptr %12, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 %1
+  %110 = load i8, ptr %109, align 1
+  %111 = load i64, ptr %15, align 8
+  %112 = getelementptr inbounds i8, ptr %108, i64 %111
+  %113 = and i8 %110, 1
+  store i8 %113, ptr %112, align 1
+  %114 = load i64, ptr %15, align 8
+  %115 = add nsw i64 %114, 1
+  store i64 %115, ptr %15, align 8
+  %116 = sext i16 %76 to i32
+  tail call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %0, i64 noundef %114, i32 noundef %116, i1 noundef zeroext false, ptr noundef %3)
+  tail call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef nonnull %0, i64 noundef %114, ptr noundef %2, ptr noundef %3)
+  %117 = getelementptr inbounds i8, ptr %.196, i64 2
+  %118 = load i16, ptr %117, align 2
+  %.not68 = icmp eq i16 %118, 0
   br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %_ZL12yysplitStackP10yyGLRStackl.exit, %_ZL14yygetLRActionsi15yysymbol_kind_tPPKs.exit
-  %118 = icmp sgt i32 %.0.i70, 0
-  br i1 %118, label %.loopexit, label %119
+  %119 = icmp sgt i32 %.0.i70, 0
+  br i1 %119, label %.loopexit, label %120
 
-119:                                              ; preds = %._crit_edge
-  %120 = icmp eq i32 %.0.i70, 0
-  br i1 %120, label %121, label %125
+120:                                              ; preds = %._crit_edge
+  %121 = icmp eq i32 %.0.i70, 0
+  br i1 %121, label %122, label %126
 
-121:                                              ; preds = %119
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds ptr, ptr %122, i64 %1
-  %124 = load ptr, ptr %123, align 8
-  %.not.i72 = icmp eq ptr %124, null
+122:                                              ; preds = %120
+  %123 = load ptr, ptr %5, align 8
+  %124 = getelementptr inbounds ptr, ptr %123, i64 %1
+  %125 = load ptr, ptr %124, align 8
+  %.not.i72 = icmp eq ptr %125, null
   br i1 %.not.i72, label %.loopexit.sink.split, label %.loopexit.sink.split.sink.split
 
-125:                                              ; preds = %119
-  %126 = sub nsw i32 0, %.0.i70
-  br label %127
+126:                                              ; preds = %120
+  %127 = sub nsw i32 0, %.0.i70
+  br label %128
 
-127:                                              ; preds = %125, %30
-  %.sink = phi i32 [ %126, %125 ], [ %31, %30 ]
+128:                                              ; preds = %126, %30
+  %.sink = phi i32 [ %127, %126 ], [ %31, %30 ]
   tail call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %.sink, i1 noundef zeroext false, ptr noundef %3)
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds ptr, ptr %128, i64 %1
-  %130 = load ptr, ptr %129, align 8
-  %.not = icmp eq ptr %130, null
+  %129 = load ptr, ptr %5, align 8
+  %130 = getelementptr inbounds ptr, ptr %129, i64 %1
+  %131 = load ptr, ptr %130, align 8
+  %.not = icmp eq ptr %131, null
   br i1 %.not, label %.loopexit, label %16, !llvm.loop !30
 
-.loopexit.sink.split.sink.split:                  ; preds = %121, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit
-  %.sink124 = phi ptr [ %17, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit ], [ %124, %121 ]
-  %.sink123.ph = phi ptr [ %29, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit ], [ %123, %121 ]
-  %131 = getelementptr inbounds i8, ptr %0, i64 568
-  store ptr %.sink124, ptr %131, align 8
+.loopexit.sink.split.sink.split:                  ; preds = %122, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit
+  %.sink124 = phi ptr [ %17, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit ], [ %125, %122 ]
+  %.sink123.ph = phi ptr [ %29, %_ZL18yymarkStackDeletedP10yyGLRStackl.exit ], [ %124, %122 ]
+  %132 = getelementptr inbounds i8, ptr %0, i64 568
+  store ptr %.sink124, ptr %132, align 8
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %121
-  %.sink123 = phi ptr [ %123, %121 ], [ %.sink123.ph, %.loopexit.sink.split.sink.split ]
+.loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %122
+  %.sink123 = phi ptr [ %124, %122 ], [ %.sink123.ph, %.loopexit.sink.split.sink.split ]
   store ptr null, ptr %.sink123, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %127, %.loopexit.sink.split, %4
+.loopexit:                                        ; preds = %._crit_edge, %128, %.loopexit.sink.split, %4
   ret void
 }
 

@@ -3953,7 +3953,7 @@ lpad4:                                            ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad4
   %.pn = phi { ptr, i32 } [ %5, %lpad4 ], [ %4, %lpad ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #25
-  br label %_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit74
+  br label %_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit73
 
 _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK6Assimp27find_node_by_name_predicateclEN4pugi8xml_nodeE.exit.i
   store ptr %storemerge8.i, ptr %child, align 8
@@ -4020,7 +4020,7 @@ ehcleanup23:                                      ; preds = %lpad18, %lpad.i16, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #25
   br label %ehcleanup54
 
-lpad24:                                           ; preds = %call1.i.i.noexc62, %if.then.i.i57, %if.then.i55, %if.then43, %call1.i.i.noexc, %if.then.i.i, %if.then.i, %if.then34, %if.then27
+lpad24:                                           ; preds = %call1.i.i.noexc61, %if.then.i.i56, %if.then.i54, %if.then43, %call1.i.i.noexc, %if.then.i.i, %if.then.i, %if.then34, %if.then27
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #25
@@ -4050,9 +4050,9 @@ lor.lhs.false4.i:                                 ; preds = %call.i24.noexc
   %cmp8.i = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i, 1.000000e+00
   %or.cond19.i = or i1 %cmp5.i, %cmp8.i
   %cmp10.i = fcmp olt float %call.fca.1.extract.i, 0.000000e+00
-  %or.cond20.i = select i1 %or.cond19.i, i1 true, i1 %cmp10.i
   %cmp13.i = fcmp ogt float %call.fca.1.extract.i, 1.000000e+00
-  %or.cond21.i = select i1 %or.cond20.i, i1 true, i1 %cmp13.i
+  %11 = or i1 %cmp10.i, %cmp13.i
+  %or.cond21.i = select i1 %or.cond19.i, i1 true, i1 %11
   br i1 %or.cond21.i, label %if.then.i, label %invoke.cont36
 
 if.then.i:                                        ; preds = %lor.lhs.false4.i, %call.i24.noexc
@@ -4091,17 +4091,17 @@ if.else40:                                        ; preds = %if.else
   br i1 %cmp.i33, label %if.then43, label %cleanup.thread
 
 if.then43:                                        ; preds = %if.else40
-  %call.i3560 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %child)
+  %call.i3559 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %child)
           to label %call.i35.noexc unwind label %lpad24
 
 call.i35.noexc:                                   ; preds = %if.then43
-  %call.fca.0.extract.i36 = extractvalue { <2 x float>, float } %call.i3560, 0
-  %call.fca.1.extract.i37 = extractvalue { <2 x float>, float } %call.i3560, 1
+  %call.fca.0.extract.i36 = extractvalue { <2 x float>, float } %call.i3559, 0
+  %call.fca.1.extract.i37 = extractvalue { <2 x float>, float } %call.i3559, 1
   %ref.tmp.sroa.0.0.vec.extract12.i38 = extractelement <2 x float> %call.fca.0.extract.i36, i64 0
   %cmp.i39 = fcmp olt float %ref.tmp.sroa.0.0.vec.extract12.i38, 0.000000e+00
   %cmp3.i40 = fcmp ogt float %ref.tmp.sroa.0.0.vec.extract12.i38, 1.000000e+00
   %or.cond.i41 = or i1 %cmp.i39, %cmp3.i40
-  br i1 %or.cond.i41, label %if.then.i55, label %lor.lhs.false4.i42
+  br i1 %or.cond.i41, label %if.then.i54, label %lor.lhs.false4.i42
 
 lor.lhs.false4.i42:                               ; preds = %call.i35.noexc
   %ref.tmp.sroa.0.4.vec.extract16.i43 = extractelement <2 x float> %call.fca.0.extract.i36, i64 1
@@ -4109,39 +4109,39 @@ lor.lhs.false4.i42:                               ; preds = %call.i35.noexc
   %cmp8.i45 = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i43, 1.000000e+00
   %or.cond19.i46 = or i1 %cmp5.i44, %cmp8.i45
   %cmp10.i47 = fcmp olt float %call.fca.1.extract.i37, 0.000000e+00
-  %or.cond20.i48 = select i1 %or.cond19.i46, i1 true, i1 %cmp10.i47
-  %cmp13.i49 = fcmp ogt float %call.fca.1.extract.i37, 1.000000e+00
-  %or.cond21.i50 = select i1 %or.cond20.i48, i1 true, i1 %cmp13.i49
-  br i1 %or.cond21.i50, label %if.then.i55, label %invoke.cont45
+  %cmp13.i48 = fcmp ogt float %call.fca.1.extract.i37, 1.000000e+00
+  %12 = or i1 %cmp10.i47, %cmp13.i48
+  %or.cond21.i49 = select i1 %or.cond19.i46, i1 true, i1 %12
+  br i1 %or.cond21.i49, label %if.then.i54, label %invoke.cont45
 
-if.then.i55:                                      ; preds = %lor.lhs.false4.i42, %call.i35.noexc
+if.then.i54:                                      ; preds = %lor.lhs.false4.i42, %call.i35.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i34), !noalias !47
-  %call.i.i5661 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
-          to label %call.i.i56.noexc unwind label %lpad24
+  %call.i.i5560 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
+          to label %call.i.i55.noexc unwind label %lpad24
 
-call.i.i56.noexc:                                 ; preds = %if.then.i55
-  br i1 %call.i.i5661, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i58, label %if.then.i.i57
+call.i.i55.noexc:                                 ; preds = %if.then.i54
+  br i1 %call.i.i5560, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i57, label %if.then.i.i56
 
-if.then.i.i57:                                    ; preds = %call.i.i56.noexc
-  %call1.i.i63 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-          to label %call1.i.i.noexc62 unwind label %lpad24
+if.then.i.i56:                                    ; preds = %call.i.i55.noexc
+  %call1.i.i62 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+          to label %call1.i.i.noexc61 unwind label %lpad24
 
-call1.i.i.noexc62:                                ; preds = %if.then.i.i57
+call1.i.i.noexc61:                                ; preds = %if.then.i.i56
   store ptr @.str, ptr %ref.tmp.i.i34, align 8, !noalias !47
-  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i63, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i34, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
-          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i58 unwind label %lpad24
+  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i62, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i34, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
+          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i57 unwind label %lpad24
 
-_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i58: ; preds = %call1.i.i.noexc62, %call.i.i56.noexc
+_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i57: ; preds = %call1.i.i.noexc61, %call.i.i55.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i34), !noalias !47
-  %.pre.i59 = extractelement <2 x float> %call.fca.0.extract.i36, i64 1
+  %.pre.i58 = extractelement <2 x float> %call.fca.0.extract.i36, i64 1
   br label %invoke.cont45
 
-invoke.cont45:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i58, %lor.lhs.false4.i42
-  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i52 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i43, %lor.lhs.false4.i42 ], [ %.pre.i59, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i58 ]
+invoke.cont45:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i57, %lor.lhs.false4.i42
+  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i51 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i43, %lor.lhs.false4.i42 ], [ %.pre.i58, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i57 ]
   %mColorSpecular = getelementptr inbounds i8, ptr %call, i64 1092
   store float %ref.tmp.sroa.0.0.vec.extract12.i38, ptr %mColorSpecular, align 4
-  %g3.i67 = getelementptr inbounds i8, ptr %call, i64 1096
-  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i52, ptr %g3.i67, align 4
+  %g3.i66 = getelementptr inbounds i8, ptr %call, i64 1096
+  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i51, ptr %g3.i66, align 4
   br label %cleanup.thread.sink.split
 
 cleanup.thread.sink.split:                        ; preds = %invoke.cont36, %invoke.cont45, %invoke.cont29
@@ -4163,15 +4163,15 @@ _ZNKSt14default_deleteI7aiLightEclEPS0_.exit.i:   ; preds = %_ZNK4pugi8xml_node1
   br label %_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit: ; preds = %cleanup.thread, %_ZNKSt14default_deleteI7aiLightEclEPS0_.exit.i
-  %retval.084 = phi ptr [ %call, %cleanup.thread ], [ null, %_ZNKSt14default_deleteI7aiLightEclEPS0_.exit.i ]
-  ret ptr %retval.084
+  %retval.083 = phi ptr [ %call, %cleanup.thread ], [ null, %_ZNKSt14default_deleteI7aiLightEclEPS0_.exit.i ]
+  ret ptr %retval.083
 
 ehcleanup54:                                      ; preds = %lpad24, %ehcleanup23
   %.pn6 = phi { ptr, i32 } [ %10, %lpad24 ], [ %.pn4, %ehcleanup23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %predicate) #25
-  br label %_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit74
+  br label %_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit73
 
-_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit74: ; preds = %ehcleanup54, %ehcleanup
+_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit73: ; preds = %ehcleanup54, %ehcleanup
   %.pn6.pn = phi { ptr, i32 } [ %.pn6, %ehcleanup54 ], [ %.pn, %ehcleanup ]
   call void @_ZdlPv(ptr noundef nonnull %call) #26
   resume { ptr, i32 } %.pn6.pn
@@ -4355,9 +4355,9 @@ lor.lhs.false4:                                   ; preds = %entry
   %cmp8 = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16, 1.000000e+00
   %or.cond19 = or i1 %cmp5, %cmp8
   %cmp10 = fcmp olt float %call.fca.1.extract, 0.000000e+00
-  %or.cond20 = select i1 %or.cond19, i1 true, i1 %cmp10
   %cmp13 = fcmp ogt float %call.fca.1.extract, 1.000000e+00
-  %or.cond21 = select i1 %or.cond20, i1 true, i1 %cmp13
+  %0 = or i1 %cmp10, %cmp13
+  %or.cond21 = select i1 %or.cond19, i1 true, i1 %0
   br i1 %or.cond21, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false4, %entry
@@ -5702,8 +5702,8 @@ ehcleanup191:                                     ; preds = %lpad187, %ehcleanup
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN6Assimp11XGLImporter12ReadMaterialERN4pugi8xml_nodeERNS0_9TempScopeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull align 8 dereferenceable(152) %scope) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i111 = alloca ptr, align 8
-  %ref.tmp.i.i75 = alloca ptr, align 8
+  %ref.tmp.i.i109 = alloca ptr, align 8
+  %ref.tmp.i.i74 = alloca ptr, align 8
   %ref.tmp.i.i39 = alloca ptr, align 8
   %ref.tmp.i.i = alloca ptr, align 8
   %mat_id = alloca i32, align 4
@@ -5797,22 +5797,22 @@ _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %invoke.cont
   store ptr %11, ptr %__begin1, align 8
   %12 = getelementptr inbounds i8, ptr %__begin1, i64 8
   store ptr %9, ptr %12, align 8
-  %cmp.not.i168.not = icmp eq ptr %11, null
-  br i1 %cmp.not.i168.not, label %for.end, label %for.body.lr.ph
+  %cmp.not.i165.not = icmp eq ptr %11, null
+  br i1 %cmp.not.i165.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node8childrenEv.exit
-  %g.i.i130 = getelementptr inbounds i8, ptr %c40, i64 4
-  %b.i.i131 = getelementptr inbounds i8, ptr %c40, i64 8
-  %g.i.i94 = getelementptr inbounds i8, ptr %c32, i64 4
-  %b.i.i95 = getelementptr inbounds i8, ptr %c32, i64 8
-  %g.i.i58 = getelementptr inbounds i8, ptr %c24, i64 4
-  %b.i.i59 = getelementptr inbounds i8, ptr %c24, i64 8
+  %g.i.i127 = getelementptr inbounds i8, ptr %c40, i64 4
+  %b.i.i128 = getelementptr inbounds i8, ptr %c40, i64 8
+  %g.i.i92 = getelementptr inbounds i8, ptr %c32, i64 4
+  %b.i.i93 = getelementptr inbounds i8, ptr %c32, i64 8
+  %g.i.i57 = getelementptr inbounds i8, ptr %c24, i64 4
+  %b.i.i58 = getelementptr inbounds i8, ptr %c24, i64 8
   %g.i.i = getelementptr inbounds i8, ptr %c, i64 4
   %b.i.i = getelementptr inbounds i8, ptr %c, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end65
-  %13 = phi ptr [ %11, %for.body.lr.ph ], [ %25, %if.end65 ]
+  %13 = phi ptr [ %11, %for.body.lr.ph ], [ %29, %if.end65 ]
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %_ZNK4pugi8xml_node4nameEv.exit, label %if.end.i
 
@@ -5876,9 +5876,9 @@ lor.lhs.false4.i:                                 ; preds = %call.i28.noexc
   %cmp8.i = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i, 1.000000e+00
   %or.cond19.i = or i1 %cmp5.i, %cmp8.i
   %cmp10.i = fcmp olt float %call.fca.1.extract.i, 0.000000e+00
-  %or.cond20.i = select i1 %or.cond19.i, i1 true, i1 %cmp10.i
   %cmp13.i = fcmp ogt float %call.fca.1.extract.i, 1.000000e+00
-  %or.cond21.i = select i1 %or.cond20.i, i1 true, i1 %cmp13.i
+  %16 = or i1 %cmp10.i, %cmp13.i
+  %or.cond21.i = select i1 %or.cond19.i, i1 true, i1 %16
   br i1 %or.cond21.i, label %if.then.i, label %invoke.cont18
 
 if.then.i:                                        ; preds = %lor.lhs.false4.i, %call.i28.noexc
@@ -5911,29 +5911,29 @@ invoke.cont18:                                    ; preds = %_ZN6Assimp12LogFunc
   br label %invoke.cont57.invoke
 
 lpad:                                             ; preds = %_ZN6Assimp11XGLImporter10ReadIDAttrERN4pugi8xml_nodeE.exit
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call2) #26
   br label %eh.resume
 
 lpad11:                                           ; preds = %call.i.noexc, %_ZNK4pugi8xml_node4nameEv.exit
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont12
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad.i, %lpad13
-  %.pn = phi { ptr, i32 } [ %18, %lpad13 ], [ %17, %lpad11 ], [ %15, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad13 ], [ %18, %lpad11 ], [ %15, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #25
   br label %eh.resume
 
-lpad15:                                           ; preds = %invoke.cont57.invoke, %call1.i.i.noexc139, %if.then.i.i134, %if.then.i132, %if.then39, %call1.i.i.noexc103, %if.then.i.i98, %if.then.i96, %if.then31, %call1.i.i.noexc67, %if.then.i.i62, %if.then.i60, %if.then23, %call1.i.i.noexc, %if.then.i.i, %if.then.i, %if.then, %if.then55, %if.then47
-  %19 = landingpad { ptr, i32 }
+lpad15:                                           ; preds = %invoke.cont57.invoke, %call1.i.i.noexc136, %if.then.i.i131, %if.then.i129, %if.then39, %call1.i.i.noexc101, %if.then.i.i96, %if.then.i94, %if.then31, %call1.i.i.noexc66, %if.then.i.i61, %if.then.i59, %if.then23, %call1.i.i.noexc, %if.then.i.i, %if.then.i, %if.then, %if.then55, %if.then47
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #25
   br label %eh.resume
@@ -5945,17 +5945,17 @@ if.else:                                          ; preds = %invoke.cont14
 
 if.then23:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %call.i4065 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
+  %call.i4064 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
           to label %call.i40.noexc unwind label %lpad15
 
 call.i40.noexc:                                   ; preds = %if.then23
-  %call.fca.0.extract.i41 = extractvalue { <2 x float>, float } %call.i4065, 0
-  %call.fca.1.extract.i42 = extractvalue { <2 x float>, float } %call.i4065, 1
+  %call.fca.0.extract.i41 = extractvalue { <2 x float>, float } %call.i4064, 0
+  %call.fca.1.extract.i42 = extractvalue { <2 x float>, float } %call.i4064, 1
   %ref.tmp.sroa.0.0.vec.extract12.i43 = extractelement <2 x float> %call.fca.0.extract.i41, i64 0
   %cmp.i44 = fcmp olt float %ref.tmp.sroa.0.0.vec.extract12.i43, 0.000000e+00
   %cmp3.i45 = fcmp ogt float %ref.tmp.sroa.0.0.vec.extract12.i43, 1.000000e+00
   %or.cond.i46 = or i1 %cmp.i44, %cmp3.i45
-  br i1 %or.cond.i46, label %if.then.i60, label %lor.lhs.false4.i47
+  br i1 %or.cond.i46, label %if.then.i59, label %lor.lhs.false4.i47
 
 lor.lhs.false4.i47:                               ; preds = %call.i40.noexc
   %ref.tmp.sroa.0.4.vec.extract16.i48 = extractelement <2 x float> %call.fca.0.extract.i41, i64 1
@@ -5963,162 +5963,162 @@ lor.lhs.false4.i47:                               ; preds = %call.i40.noexc
   %cmp8.i50 = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i48, 1.000000e+00
   %or.cond19.i51 = or i1 %cmp5.i49, %cmp8.i50
   %cmp10.i52 = fcmp olt float %call.fca.1.extract.i42, 0.000000e+00
-  %or.cond20.i53 = select i1 %or.cond19.i51, i1 true, i1 %cmp10.i52
-  %cmp13.i54 = fcmp ogt float %call.fca.1.extract.i42, 1.000000e+00
-  %or.cond21.i55 = select i1 %or.cond20.i53, i1 true, i1 %cmp13.i54
-  br i1 %or.cond21.i55, label %if.then.i60, label %invoke.cont25
+  %cmp13.i53 = fcmp ogt float %call.fca.1.extract.i42, 1.000000e+00
+  %21 = or i1 %cmp10.i52, %cmp13.i53
+  %or.cond21.i54 = select i1 %or.cond19.i51, i1 true, i1 %21
+  br i1 %or.cond21.i54, label %if.then.i59, label %invoke.cont25
 
-if.then.i60:                                      ; preds = %lor.lhs.false4.i47, %call.i40.noexc
+if.then.i59:                                      ; preds = %lor.lhs.false4.i47, %call.i40.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i39), !noalias !90
-  %call.i.i6166 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
-          to label %call.i.i61.noexc unwind label %lpad15
+  %call.i.i6065 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
+          to label %call.i.i60.noexc unwind label %lpad15
 
-call.i.i61.noexc:                                 ; preds = %if.then.i60
-  br i1 %call.i.i6166, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i63, label %if.then.i.i62
+call.i.i60.noexc:                                 ; preds = %if.then.i59
+  br i1 %call.i.i6065, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i62, label %if.then.i.i61
 
-if.then.i.i62:                                    ; preds = %call.i.i61.noexc
-  %call1.i.i68 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-          to label %call1.i.i.noexc67 unwind label %lpad15
+if.then.i.i61:                                    ; preds = %call.i.i60.noexc
+  %call1.i.i67 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+          to label %call1.i.i.noexc66 unwind label %lpad15
 
-call1.i.i.noexc67:                                ; preds = %if.then.i.i62
+call1.i.i.noexc66:                                ; preds = %if.then.i.i61
   store ptr @.str, ptr %ref.tmp.i.i39, align 8, !noalias !90
-  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i68, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i39, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
-          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i63 unwind label %lpad15
+  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i67, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i39, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
+          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i62 unwind label %lpad15
 
-_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i63: ; preds = %call1.i.i.noexc67, %call.i.i61.noexc
+_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i62: ; preds = %call1.i.i.noexc66, %call.i.i60.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i39), !noalias !90
-  %.pre.i64 = extractelement <2 x float> %call.fca.0.extract.i41, i64 1
+  %.pre.i63 = extractelement <2 x float> %call.fca.0.extract.i41, i64 1
   br label %invoke.cont25
 
-invoke.cont25:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i63, %lor.lhs.false4.i47
-  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i57 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i48, %lor.lhs.false4.i47 ], [ %.pre.i64, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i63 ]
+invoke.cont25:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i62, %lor.lhs.false4.i47
+  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i56 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i48, %lor.lhs.false4.i47 ], [ %.pre.i63, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i62 ]
   store float %ref.tmp.sroa.0.0.vec.extract12.i43, ptr %c24, align 4, !alias.scope !90
-  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i57, ptr %g.i.i58, align 4, !alias.scope !90
-  store float %call.fca.1.extract.i42, ptr %b.i.i59, align 4, !alias.scope !90
+  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i56, ptr %g.i.i57, align 4, !alias.scope !90
+  store float %call.fca.1.extract.i42, ptr %b.i.i58, align 4, !alias.scope !90
   br label %invoke.cont57.invoke
 
 if.else28:                                        ; preds = %if.else
-  %call.i73 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.61) #25
-  %cmp.i74 = icmp eq i32 %call.i73, 0
-  br i1 %cmp.i74, label %if.then31, label %if.else36
+  %call.i72 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.61) #25
+  %cmp.i73 = icmp eq i32 %call.i72, 0
+  br i1 %cmp.i73, label %if.then31, label %if.else36
 
 if.then31:                                        ; preds = %if.else28
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  %call.i76101 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
-          to label %call.i76.noexc unwind label %lpad15
+  %call.i7599 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
+          to label %call.i75.noexc unwind label %lpad15
 
-call.i76.noexc:                                   ; preds = %if.then31
-  %call.fca.0.extract.i77 = extractvalue { <2 x float>, float } %call.i76101, 0
-  %call.fca.1.extract.i78 = extractvalue { <2 x float>, float } %call.i76101, 1
-  %ref.tmp.sroa.0.0.vec.extract12.i79 = extractelement <2 x float> %call.fca.0.extract.i77, i64 0
-  %cmp.i80 = fcmp olt float %ref.tmp.sroa.0.0.vec.extract12.i79, 0.000000e+00
-  %cmp3.i81 = fcmp ogt float %ref.tmp.sroa.0.0.vec.extract12.i79, 1.000000e+00
-  %or.cond.i82 = or i1 %cmp.i80, %cmp3.i81
-  br i1 %or.cond.i82, label %if.then.i96, label %lor.lhs.false4.i83
+call.i75.noexc:                                   ; preds = %if.then31
+  %call.fca.0.extract.i76 = extractvalue { <2 x float>, float } %call.i7599, 0
+  %call.fca.1.extract.i77 = extractvalue { <2 x float>, float } %call.i7599, 1
+  %ref.tmp.sroa.0.0.vec.extract12.i78 = extractelement <2 x float> %call.fca.0.extract.i76, i64 0
+  %cmp.i79 = fcmp olt float %ref.tmp.sroa.0.0.vec.extract12.i78, 0.000000e+00
+  %cmp3.i80 = fcmp ogt float %ref.tmp.sroa.0.0.vec.extract12.i78, 1.000000e+00
+  %or.cond.i81 = or i1 %cmp.i79, %cmp3.i80
+  br i1 %or.cond.i81, label %if.then.i94, label %lor.lhs.false4.i82
 
-lor.lhs.false4.i83:                               ; preds = %call.i76.noexc
-  %ref.tmp.sroa.0.4.vec.extract16.i84 = extractelement <2 x float> %call.fca.0.extract.i77, i64 1
-  %cmp5.i85 = fcmp olt float %ref.tmp.sroa.0.4.vec.extract16.i84, 0.000000e+00
-  %cmp8.i86 = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i84, 1.000000e+00
-  %or.cond19.i87 = or i1 %cmp5.i85, %cmp8.i86
-  %cmp10.i88 = fcmp olt float %call.fca.1.extract.i78, 0.000000e+00
-  %or.cond20.i89 = select i1 %or.cond19.i87, i1 true, i1 %cmp10.i88
-  %cmp13.i90 = fcmp ogt float %call.fca.1.extract.i78, 1.000000e+00
-  %or.cond21.i91 = select i1 %or.cond20.i89, i1 true, i1 %cmp13.i90
-  br i1 %or.cond21.i91, label %if.then.i96, label %invoke.cont33
+lor.lhs.false4.i82:                               ; preds = %call.i75.noexc
+  %ref.tmp.sroa.0.4.vec.extract16.i83 = extractelement <2 x float> %call.fca.0.extract.i76, i64 1
+  %cmp5.i84 = fcmp olt float %ref.tmp.sroa.0.4.vec.extract16.i83, 0.000000e+00
+  %cmp8.i85 = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i83, 1.000000e+00
+  %or.cond19.i86 = or i1 %cmp5.i84, %cmp8.i85
+  %cmp10.i87 = fcmp olt float %call.fca.1.extract.i77, 0.000000e+00
+  %cmp13.i88 = fcmp ogt float %call.fca.1.extract.i77, 1.000000e+00
+  %22 = or i1 %cmp10.i87, %cmp13.i88
+  %or.cond21.i89 = select i1 %or.cond19.i86, i1 true, i1 %22
+  br i1 %or.cond21.i89, label %if.then.i94, label %invoke.cont33
 
-if.then.i96:                                      ; preds = %lor.lhs.false4.i83, %call.i76.noexc
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i75), !noalias !93
-  %call.i.i97102 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
-          to label %call.i.i97.noexc unwind label %lpad15
+if.then.i94:                                      ; preds = %lor.lhs.false4.i82, %call.i75.noexc
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i74), !noalias !93
+  %call.i.i95100 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
+          to label %call.i.i95.noexc unwind label %lpad15
 
-call.i.i97.noexc:                                 ; preds = %if.then.i96
-  br i1 %call.i.i97102, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i99, label %if.then.i.i98
+call.i.i95.noexc:                                 ; preds = %if.then.i94
+  br i1 %call.i.i95100, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i97, label %if.then.i.i96
 
-if.then.i.i98:                                    ; preds = %call.i.i97.noexc
-  %call1.i.i104 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-          to label %call1.i.i.noexc103 unwind label %lpad15
+if.then.i.i96:                                    ; preds = %call.i.i95.noexc
+  %call1.i.i102 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+          to label %call1.i.i.noexc101 unwind label %lpad15
 
-call1.i.i.noexc103:                               ; preds = %if.then.i.i98
-  store ptr @.str, ptr %ref.tmp.i.i75, align 8, !noalias !93
-  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i104, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i75, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
-          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i99 unwind label %lpad15
+call1.i.i.noexc101:                               ; preds = %if.then.i.i96
+  store ptr @.str, ptr %ref.tmp.i.i74, align 8, !noalias !93
+  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i102, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i74, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
+          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i97 unwind label %lpad15
 
-_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i99: ; preds = %call1.i.i.noexc103, %call.i.i97.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i75), !noalias !93
-  %.pre.i100 = extractelement <2 x float> %call.fca.0.extract.i77, i64 1
+_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i97: ; preds = %call1.i.i.noexc101, %call.i.i95.noexc
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i74), !noalias !93
+  %.pre.i98 = extractelement <2 x float> %call.fca.0.extract.i76, i64 1
   br label %invoke.cont33
 
-invoke.cont33:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i99, %lor.lhs.false4.i83
-  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i93 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i84, %lor.lhs.false4.i83 ], [ %.pre.i100, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i99 ]
-  store float %ref.tmp.sroa.0.0.vec.extract12.i79, ptr %c32, align 4, !alias.scope !93
-  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i93, ptr %g.i.i94, align 4, !alias.scope !93
-  store float %call.fca.1.extract.i78, ptr %b.i.i95, align 4, !alias.scope !93
+invoke.cont33:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i97, %lor.lhs.false4.i82
+  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i91 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i83, %lor.lhs.false4.i82 ], [ %.pre.i98, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i97 ]
+  store float %ref.tmp.sroa.0.0.vec.extract12.i78, ptr %c32, align 4, !alias.scope !93
+  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i91, ptr %g.i.i92, align 4, !alias.scope !93
+  store float %call.fca.1.extract.i77, ptr %b.i.i93, align 4, !alias.scope !93
   br label %invoke.cont57.invoke
 
 if.else36:                                        ; preds = %if.else28
-  %call.i109 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.63) #25
-  %cmp.i110 = icmp eq i32 %call.i109, 0
-  br i1 %cmp.i110, label %if.then39, label %if.else44
+  %call.i107 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.63) #25
+  %cmp.i108 = icmp eq i32 %call.i107, 0
+  br i1 %cmp.i108, label %if.then39, label %if.else44
 
 if.then39:                                        ; preds = %if.else36
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  %call.i112137 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
-          to label %call.i112.noexc unwind label %lpad15
+  %call.i110134 = invoke { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
+          to label %call.i110.noexc unwind label %lpad15
 
-call.i112.noexc:                                  ; preds = %if.then39
-  %call.fca.0.extract.i113 = extractvalue { <2 x float>, float } %call.i112137, 0
-  %call.fca.1.extract.i114 = extractvalue { <2 x float>, float } %call.i112137, 1
-  %ref.tmp.sroa.0.0.vec.extract12.i115 = extractelement <2 x float> %call.fca.0.extract.i113, i64 0
-  %cmp.i116 = fcmp olt float %ref.tmp.sroa.0.0.vec.extract12.i115, 0.000000e+00
-  %cmp3.i117 = fcmp ogt float %ref.tmp.sroa.0.0.vec.extract12.i115, 1.000000e+00
-  %or.cond.i118 = or i1 %cmp.i116, %cmp3.i117
-  br i1 %or.cond.i118, label %if.then.i132, label %lor.lhs.false4.i119
+call.i110.noexc:                                  ; preds = %if.then39
+  %call.fca.0.extract.i111 = extractvalue { <2 x float>, float } %call.i110134, 0
+  %call.fca.1.extract.i112 = extractvalue { <2 x float>, float } %call.i110134, 1
+  %ref.tmp.sroa.0.0.vec.extract12.i113 = extractelement <2 x float> %call.fca.0.extract.i111, i64 0
+  %cmp.i114 = fcmp olt float %ref.tmp.sroa.0.0.vec.extract12.i113, 0.000000e+00
+  %cmp3.i115 = fcmp ogt float %ref.tmp.sroa.0.0.vec.extract12.i113, 1.000000e+00
+  %or.cond.i116 = or i1 %cmp.i114, %cmp3.i115
+  br i1 %or.cond.i116, label %if.then.i129, label %lor.lhs.false4.i117
 
-lor.lhs.false4.i119:                              ; preds = %call.i112.noexc
-  %ref.tmp.sroa.0.4.vec.extract16.i120 = extractelement <2 x float> %call.fca.0.extract.i113, i64 1
-  %cmp5.i121 = fcmp olt float %ref.tmp.sroa.0.4.vec.extract16.i120, 0.000000e+00
-  %cmp8.i122 = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i120, 1.000000e+00
-  %or.cond19.i123 = or i1 %cmp5.i121, %cmp8.i122
-  %cmp10.i124 = fcmp olt float %call.fca.1.extract.i114, 0.000000e+00
-  %or.cond20.i125 = select i1 %or.cond19.i123, i1 true, i1 %cmp10.i124
-  %cmp13.i126 = fcmp ogt float %call.fca.1.extract.i114, 1.000000e+00
-  %or.cond21.i127 = select i1 %or.cond20.i125, i1 true, i1 %cmp13.i126
-  br i1 %or.cond21.i127, label %if.then.i132, label %invoke.cont41
+lor.lhs.false4.i117:                              ; preds = %call.i110.noexc
+  %ref.tmp.sroa.0.4.vec.extract16.i118 = extractelement <2 x float> %call.fca.0.extract.i111, i64 1
+  %cmp5.i119 = fcmp olt float %ref.tmp.sroa.0.4.vec.extract16.i118, 0.000000e+00
+  %cmp8.i120 = fcmp ogt float %ref.tmp.sroa.0.4.vec.extract16.i118, 1.000000e+00
+  %or.cond19.i121 = or i1 %cmp5.i119, %cmp8.i120
+  %cmp10.i122 = fcmp olt float %call.fca.1.extract.i112, 0.000000e+00
+  %cmp13.i123 = fcmp ogt float %call.fca.1.extract.i112, 1.000000e+00
+  %23 = or i1 %cmp10.i122, %cmp13.i123
+  %or.cond21.i124 = select i1 %or.cond19.i121, i1 true, i1 %23
+  br i1 %or.cond21.i124, label %if.then.i129, label %invoke.cont41
 
-if.then.i132:                                     ; preds = %lor.lhs.false4.i119, %call.i112.noexc
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i111), !noalias !96
-  %call.i.i133138 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
-          to label %call.i.i133.noexc unwind label %lpad15
+if.then.i129:                                     ; preds = %lor.lhs.false4.i117, %call.i110.noexc
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i109), !noalias !96
+  %call.i.i130135 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
+          to label %call.i.i130.noexc unwind label %lpad15
 
-call.i.i133.noexc:                                ; preds = %if.then.i132
-  br i1 %call.i.i133138, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i135, label %if.then.i.i134
+call.i.i130.noexc:                                ; preds = %if.then.i129
+  br i1 %call.i.i130135, label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i132, label %if.then.i.i131
 
-if.then.i.i134:                                   ; preds = %call.i.i133.noexc
-  %call1.i.i140 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-          to label %call1.i.i.noexc139 unwind label %lpad15
+if.then.i.i131:                                   ; preds = %call.i.i130.noexc
+  %call1.i.i137 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+          to label %call1.i.i.noexc136 unwind label %lpad15
 
-call1.i.i.noexc139:                               ; preds = %if.then.i.i134
-  store ptr @.str, ptr %ref.tmp.i.i111, align 8, !noalias !96
-  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i140, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i111, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
-          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i135 unwind label %lpad15
+call1.i.i.noexc136:                               ; preds = %if.then.i.i131
+  store ptr @.str, ptr %ref.tmp.i.i109, align 8, !noalias !96
+  invoke void @_ZN6Assimp6Logger4warnIJPKcRA36_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call1.i.i137, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i109, ptr noundef nonnull align 1 dereferenceable(36) @.str.84)
+          to label %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i132 unwind label %lpad15
 
-_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i135: ; preds = %call1.i.i.noexc139, %call.i.i133.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i111), !noalias !96
-  %.pre.i136 = extractelement <2 x float> %call.fca.0.extract.i113, i64 1
+_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i132: ; preds = %call1.i.i.noexc136, %call.i.i130.noexc
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i109), !noalias !96
+  %.pre.i133 = extractelement <2 x float> %call.fca.0.extract.i111, i64 1
   br label %invoke.cont41
 
-invoke.cont41:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i135, %lor.lhs.false4.i119
-  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i129 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i120, %lor.lhs.false4.i119 ], [ %.pre.i136, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i135 ]
-  store float %ref.tmp.sroa.0.0.vec.extract12.i115, ptr %c40, align 4, !alias.scope !96
-  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i129, ptr %g.i.i130, align 4, !alias.scope !96
-  store float %call.fca.1.extract.i114, ptr %b.i.i131, align 4, !alias.scope !96
+invoke.cont41:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i132, %lor.lhs.false4.i117
+  %ref.tmp.sroa.0.4.vec.extract.pre-phi.i126 = phi float [ %ref.tmp.sroa.0.4.vec.extract16.i118, %lor.lhs.false4.i117 ], [ %.pre.i133, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE7LogWarnIJRA36_KcEEEvDpOT_.exit.i132 ]
+  store float %ref.tmp.sroa.0.0.vec.extract12.i113, ptr %c40, align 4, !alias.scope !96
+  store float %ref.tmp.sroa.0.4.vec.extract.pre-phi.i126, ptr %g.i.i127, align 4, !alias.scope !96
+  store float %call.fca.1.extract.i112, ptr %b.i.i128, align 4, !alias.scope !96
   br label %invoke.cont57.invoke
 
 if.else44:                                        ; preds = %if.else36
-  %call.i145 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.65) #25
-  %cmp.i146 = icmp eq i32 %call.i145, 0
-  br i1 %cmp.i146, label %if.then47, label %if.else52
+  %call.i142 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.65) #25
+  %cmp.i143 = icmp eq i32 %call.i142, 0
+  br i1 %cmp.i143, label %if.then47, label %if.else52
 
 if.then47:                                        ; preds = %if.else44
   %call49 = invoke noundef float @_ZN6Assimp11XGLImporter9ReadFloatERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
@@ -6129,9 +6129,9 @@ invoke.cont48:                                    ; preds = %if.then47
   br label %invoke.cont57.invoke
 
 if.else52:                                        ; preds = %if.else44
-  %call.i149 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.67) #25
-  %cmp.i150 = icmp eq i32 %call.i149, 0
-  br i1 %cmp.i150, label %if.then55, label %if.end65
+  %call.i146 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull @.str.67) #25
+  %cmp.i147 = icmp eq i32 %call.i146, 0
+  br i1 %cmp.i147, label %if.then55, label %if.end65
 
 if.then55:                                        ; preds = %if.else52
   %call58 = invoke noundef float @_ZN6Assimp11XGLImporter9ReadFloatERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %__begin1)
@@ -6142,23 +6142,23 @@ invoke.cont57:                                    ; preds = %if.then55
   br label %invoke.cont57.invoke
 
 invoke.cont57.invoke:                             ; preds = %invoke.cont18, %invoke.cont25, %invoke.cont33, %invoke.cont41, %invoke.cont48, %invoke.cont57
-  %20 = phi ptr [ %f56, %invoke.cont57 ], [ %f, %invoke.cont48 ], [ %c40, %invoke.cont41 ], [ %c32, %invoke.cont33 ], [ %c24, %invoke.cont25 ], [ %c, %invoke.cont18 ]
-  %21 = phi i32 [ 4, %invoke.cont57 ], [ 4, %invoke.cont48 ], [ 12, %invoke.cont41 ], [ 12, %invoke.cont33 ], [ 12, %invoke.cont25 ], [ 12, %invoke.cont18 ]
-  %22 = phi ptr [ @.str.68, %invoke.cont57 ], [ @.str.66, %invoke.cont48 ], [ @.str.64, %invoke.cont41 ], [ @.str.62, %invoke.cont33 ], [ @.str.60, %invoke.cont25 ], [ @.str.58, %invoke.cont18 ]
-  %23 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call2, ptr noundef nonnull %20, i32 noundef %21, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %24 = phi ptr [ %f56, %invoke.cont57 ], [ %f, %invoke.cont48 ], [ %c40, %invoke.cont41 ], [ %c32, %invoke.cont33 ], [ %c24, %invoke.cont25 ], [ %c, %invoke.cont18 ]
+  %25 = phi i32 [ 4, %invoke.cont57 ], [ 4, %invoke.cont48 ], [ 12, %invoke.cont41 ], [ 12, %invoke.cont33 ], [ 12, %invoke.cont25 ], [ 12, %invoke.cont18 ]
+  %26 = phi ptr [ @.str.68, %invoke.cont57 ], [ @.str.66, %invoke.cont48 ], [ @.str.64, %invoke.cont41 ], [ @.str.62, %invoke.cont33 ], [ @.str.60, %invoke.cont25 ], [ @.str.58, %invoke.cont18 ]
+  %27 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call2, ptr noundef nonnull %24, i32 noundef %25, ptr noundef nonnull %26, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %if.end65 unwind label %lpad15
 
 if.end65:                                         ; preds = %invoke.cont57.invoke, %if.else52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #25
-  %24 = load ptr, ptr %__begin1, align 8
-  %next_sibling.i = getelementptr inbounds i8, ptr %24, i64 48
-  %25 = load ptr, ptr %next_sibling.i, align 8
-  store ptr %25, ptr %__begin1, align 8
-  %cmp.not.i = icmp ne ptr %25, null
-  %26 = load ptr, ptr %12, align 8
-  %cmp7.i = icmp ne ptr %26, %9
-  %27 = select i1 %cmp.not.i, i1 true, i1 %cmp7.i
-  br i1 %27, label %for.body, label %for.end
+  %28 = load ptr, ptr %__begin1, align 8
+  %next_sibling.i = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = load ptr, ptr %next_sibling.i, align 8
+  store ptr %29, ptr %__begin1, align 8
+  %cmp.not.i = icmp ne ptr %29, null
+  %30 = load ptr, ptr %12, align 8
+  %cmp7.i = icmp ne ptr %30, %9
+  %31 = select i1 %cmp.not.i, i1 true, i1 %cmp7.i
+  br i1 %31, label %for.body, label %for.end
 
 for.end:                                          ; preds = %if.end65, %_ZNK4pugi8xml_node8childrenEv.exit.thread, %_ZNK4pugi8xml_node8childrenEv.exit
   %materials = getelementptr inbounds i8, ptr %scope, i64 48
@@ -6166,23 +6166,23 @@ for.end:                                          ; preds = %if.end65, %_ZNK4pug
   store ptr %call2, ptr %call68, align 8
   %materials_linear = getelementptr inbounds i8, ptr %scope, i64 120
   %_M_finish.i = getelementptr inbounds i8, ptr %scope, i64 128
-  %28 = load ptr, ptr %_M_finish.i, align 8
+  %32 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %scope, i64 136
-  %29 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i154 = icmp eq ptr %28, %29
-  br i1 %cmp.not.i154, label %if.else.i, label %if.then.i155
+  %33 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i151 = icmp eq ptr %32, %33
+  br i1 %cmp.not.i151, label %if.else.i, label %if.then.i152
 
-if.then.i155:                                     ; preds = %for.end
-  store ptr %call2, ptr %28, align 8
-  %30 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %30, i64 8
+if.then.i152:                                     ; preds = %for.end
+  store ptr %call2, ptr %32, align 8
+  %34 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %for.end
-  %31 = load ptr, ptr %materials_linear, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %28 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %31 to i64
+  %35 = load ptr, ptr %materials_linear, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %32 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -6196,8 +6196,8 @@ _ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.e
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %32 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %32
+  %36 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %36
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIP10aiMaterialSaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -6214,32 +6214,32 @@ _ZNSt12_Vector_baseIP10aiMaterialSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %co
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIP10aiMaterialSaIS1_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %31, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %35, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 _ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIP10aiMaterialSaIS1_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i157 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i158 = icmp eq ptr %31, null
-  br i1 %tobool.not.i.i.i158, label %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
+  %incdec.ptr.i.i154 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
+  %tobool.not.i.i.i155 = icmp eq ptr %35, null
+  br i1 %tobool.not.i.i.i155, label %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %31) #26
+  call void @_ZdlPv(ptr noundef nonnull %35) #26
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
   store ptr %cond.i10.i.i, ptr %materials_linear, align 8
-  store ptr %incdec.ptr.i.i157, ptr %_M_finish.i, align 8
+  store ptr %incdec.ptr.i.i154, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backERKS1_.exit
 
-_ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i155, %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %33 = load i32, ptr %mat_id, align 4
-  ret i32 %33
+_ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i152, %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
+  %37 = load i32, ptr %mat_id, align 4
+  ret i32 %37
 
 eh.resume:                                        ; preds = %lpad15, %ehcleanup, %lpad
-  %.pn16 = phi { ptr, i32 } [ %19, %lpad15 ], [ %.pn, %ehcleanup ], [ %16, %lpad ]
+  %.pn16 = phi { ptr, i32 } [ %20, %lpad15 ], [ %.pn, %ehcleanup ], [ %17, %lpad ]
   resume { ptr, i32 } %.pn16
 }
 

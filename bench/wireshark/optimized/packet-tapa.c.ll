@@ -174,10 +174,9 @@ define internal i32 @dissect_tapa_static(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %12 = add i8 %9, -6
   %or.cond.i = icmp ult i8 %12, -5
-  %13 = icmp ult i16 %10, 12
-  %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %13
-  %14 = icmp ugt i16 %10, 1472
-  %or.cond8.i = select i1 %or.cond5.i, i1 true, i1 %14
+  %13 = add i16 %10, -1473
+  %14 = icmp ult i16 %13, -1461
+  %or.cond8.i = select i1 %or.cond.i, i1 true, i1 %14
   br i1 %or.cond8.i, label %test_tapa_discover.exit.thread, label %test_tapa_discover.exit
 
 test_tapa_discover.exit:                          ; preds = %8

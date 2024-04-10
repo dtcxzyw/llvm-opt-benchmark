@@ -8505,9 +8505,9 @@ _ZNK4pbrt8IntervalplES0_.exit144:                 ; preds = %_ZN4pbrt12AddRoundD
   %.sroa.speculated.i.i142 = select i1 %cmp.i1.i.i141, float %retval.0.i.i9.i137, float %retval.0.i.i.i126
   %cmp = fcmp ogt float %.sroa.speculated6.i.i139, 0.000000e+00
   %cmp35 = fcmp olt float %.sroa.speculated.i.i142, 0.000000e+00
-  %or.cond189 = select i1 %cmp, i1 true, i1 %cmp35
   %cmp39 = fcmp oeq float %.sroa.speculated6.i.i139, %.sroa.speculated.i.i142
-  %or.cond190 = select i1 %or.cond189, i1 true, i1 %cmp39
+  %16 = or i1 %cmp35, %cmp39
+  %or.cond190 = select i1 %cmp, i1 true, i1 %16
   br i1 %or.cond190, label %if.end104, label %if.end
 
 if.end:                                           ; preds = %_ZNK4pbrt8IntervalplES0_.exit144
@@ -8598,12 +8598,12 @@ for.end:                                          ; preds = %for.body, %if.end90
   br i1 %or.cond191, label %if.then99, label %if.end104
 
 if.then99:                                        ; preds = %for.end
-  %16 = load i32, ptr %nZeros, align 4
-  %conv100 = sext i32 %16 to i64
+  %17 = load i32, ptr %nZeros, align 4
+  %conv100 = sext i32 %17 to i64
   %arrayidx.i = getelementptr inbounds float, ptr %zeros.coerce0, i64 %conv100
   store float %tNewton.0.lcssa, ptr %arrayidx.i, align 4
-  %17 = load i32, ptr %nZeros, align 4
-  %inc102 = add nsw i32 %17, 1
+  %18 = load i32, ptr %nZeros, align 4
+  %inc102 = add nsw i32 %18, 1
   store i32 %inc102, ptr %nZeros, align 4
   br label %if.end104
 

@@ -8028,9 +8028,9 @@ define internal void @_on_drag_data_received(ptr nocapture readnone %0, ptr noun
   %15 = tail call fastcc ptr @_get_dnd_dest_module(ptr noundef %12, i32 noundef %3, ptr noundef %14)
   %16 = icmp eq ptr %14, null
   %17 = icmp eq ptr %15, null
-  %18 = select i1 %16, i1 true, i1 %17
-  %19 = icmp eq ptr %14, %15
-  %20 = select i1 %18, i1 true, i1 %19
+  %18 = icmp eq ptr %14, %15
+  %19 = or i1 %17, %18
+  %20 = select i1 %16, i1 true, i1 %19
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %8

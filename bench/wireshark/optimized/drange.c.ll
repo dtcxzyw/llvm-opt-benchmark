@@ -44,8 +44,8 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   %10 = icmp eq i32 %9, 22
   %11 = load ptr, ptr %3, align 8
   %12 = icmp eq ptr %11, %0
-  %or.cond78 = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond78, label %13, label %15
+  %or.cond76 = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond76, label %13, label %15
 
 13:                                               ; preds = %6
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #11
@@ -54,10 +54,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 
 15:                                               ; preds = %6
   %16 = icmp eq i32 %9, 34
-  %17 = icmp sgt i64 %8, 2147483647
-  %or.cond.i = select i1 %16, i1 true, i1 %17
-  %18 = icmp slt i64 %8, -2147483648
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %18
+  %17 = add i64 %8, -2147483648
+  %18 = icmp ult i64 %17, -4294967296
+  %or.cond3.i = select i1 %16, i1 true, i1 %18
   br i1 %or.cond3.i, label %19, label %21
 
 19:                                               ; preds = %15
@@ -68,19 +67,19 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 21:                                               ; preds = %15
   %22 = trunc i64 %8 to i32
   %.pre = load i8, ptr %11, align 1
-  %.not85 = icmp eq i8 %.pre, 0
-  br i1 %.not85, label %.thread128, label %.lr.ph
+  %.not83 = icmp eq i8 %.pre, 0
+  br i1 %.not83, label %.thread126, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %21
-  %.04699 = phi ptr [ %11, %21 ], [ %0, %2 ]
-  %.17497 = phi i32 [ %22, %21 ], [ 0, %2 ]
+  %.04697 = phi ptr [ %11, %21 ], [ %0, %2 ]
+  %.17295 = phi i32 [ %22, %21 ], [ 0, %2 ]
   %23 = phi i8 [ %.pre, %21 ], [ 58, %2 ]
   %24 = load ptr, ptr @g_ascii_table, align 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %31
   %26 = phi i8 [ %23, %.lr.ph ], [ %33, %31 ]
-  %.186 = phi ptr [ %.04699, %.lr.ph ], [ %32, %31 ]
+  %.184 = phi ptr [ %.04697, %.lr.ph ], [ %32, %31 ]
   %27 = zext i8 %26 to i64
   %28 = getelementptr i16, ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2
@@ -89,10 +88,10 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %.not53, label %.critedge, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr i8, ptr %.186, i64 1
+  %32 = getelementptr i8, ptr %.184, i64 1
   %33 = load i8, ptr %32, align 1
   %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %.thread128, label %25, !llvm.loop !4
+  br i1 %.not, label %.thread126, label %25, !llvm.loop !4
 
 .critedge:                                        ; preds = %25
   switch i8 %26, label %.critedge.thread [
@@ -101,7 +100,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   ]
 
 34:                                               ; preds = %.critedge
-  %35 = getelementptr i8, ptr %.186, i64 1
+  %35 = getelementptr i8, ptr %.184, i64 1
   %36 = tail call ptr @__errno_location() #10
   store i32 0, ptr %36, align 4
   %37 = call i64 @strtol(ptr noundef %35, ptr noundef nonnull %3, i32 noundef 0) #11
@@ -109,8 +108,8 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   %39 = icmp eq i32 %38, 22
   %40 = load ptr, ptr %3, align 8
   %41 = icmp eq ptr %40, %35
-  %or.cond80 = select i1 %39, i1 true, i1 %41
-  br i1 %or.cond80, label %42, label %44
+  %or.cond78 = select i1 %39, i1 true, i1 %41
+  br i1 %or.cond78, label %42, label %44
 
 42:                                               ; preds = %34
   %43 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %35) #11
@@ -119,11 +118,10 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 
 44:                                               ; preds = %34
   %45 = icmp eq i32 %38, 34
-  %46 = icmp sgt i64 %37, 2147483647
-  %or.cond.i58 = select i1 %45, i1 true, i1 %46
-  %47 = icmp slt i64 %37, -2147483648
-  %or.cond3.i59 = select i1 %or.cond.i58, i1 true, i1 %47
-  br i1 %or.cond3.i59, label %48, label %50
+  %46 = add i64 %37, -2147483648
+  %47 = icmp ult i64 %46, -4294967296
+  %or.cond3.i58 = select i1 %45, i1 true, i1 %47
+  br i1 %or.cond3.i58, label %48, label %50
 
 48:                                               ; preds = %44
   %49 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %35) #11
@@ -135,16 +133,16 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br label %.critedge.thread
 
 52:                                               ; preds = %.critedge
-  %53 = getelementptr i8, ptr %.186, i64 1
+  %53 = getelementptr i8, ptr %.184, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.critedge2.thread.thread124, label %58
+  br i1 %55, label %.critedge2.thread.thread122, label %58
 
-.critedge2.thread.thread124:                      ; preds = %52
+.critedge2.thread.thread122:                      ; preds = %52
   %56 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   %57 = getelementptr inbounds i8, ptr %56, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, i8 0, i64 12, i1 false)
-  store i32 %.17497, ptr %56, align 4
+  store i32 %.17295, ptr %56, align 4
   br label %112
 
 58:                                               ; preds = %52
@@ -155,8 +153,8 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   %62 = icmp eq i32 %61, 22
   %63 = load ptr, ptr %3, align 8
   %64 = icmp eq ptr %63, %53
-  %or.cond82 = select i1 %62, i1 true, i1 %64
-  br i1 %or.cond82, label %65, label %67
+  %or.cond80 = select i1 %62, i1 true, i1 %64
+  br i1 %or.cond80, label %65, label %67
 
 65:                                               ; preds = %58
   %66 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %53) #11
@@ -165,11 +163,10 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 
 67:                                               ; preds = %58
   %68 = icmp eq i32 %61, 34
-  %69 = icmp sgt i64 %60, 2147483647
-  %or.cond.i62 = select i1 %68, i1 true, i1 %69
-  %70 = icmp slt i64 %60, -2147483648
-  %or.cond3.i63 = select i1 %or.cond.i62, i1 true, i1 %70
-  br i1 %or.cond3.i63, label %71, label %73
+  %69 = add i64 %60, -2147483648
+  %70 = icmp ult i64 %69, -4294967296
+  %or.cond3.i61 = select i1 %68, i1 true, i1 %70
+  br i1 %or.cond3.i61, label %71, label %73
 
 71:                                               ; preds = %67
   %72 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %53) #11
@@ -181,27 +178,27 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %73, %71, %65, %50, %48, %42, %.critedge
-  %.272.ph = phi i32 [ %74, %73 ], [ 0, %71 ], [ 0, %65 ], [ %51, %50 ], [ 0, %48 ], [ 0, %42 ], [ 0, %.critedge ]
-  %.2.ph = phi ptr [ %63, %73 ], [ %63, %71 ], [ %63, %65 ], [ %40, %50 ], [ %40, %48 ], [ %40, %42 ], [ %.186, %.critedge ]
+  %.270.ph = phi i32 [ %74, %73 ], [ 0, %71 ], [ 0, %65 ], [ %51, %50 ], [ 0, %48 ], [ 0, %42 ], [ 0, %.critedge ]
+  %.2.ph = phi ptr [ %63, %73 ], [ %63, %71 ], [ %63, %65 ], [ %40, %50 ], [ %40, %48 ], [ %40, %42 ], [ %.184, %.critedge ]
   %.045.ph = phi i32 [ 1, %73 ], [ 1, %71 ], [ 1, %65 ], [ 2, %50 ], [ 2, %48 ], [ 2, %42 ], [ 0, %.critedge ]
   %.0.shrunk.ph = phi i1 [ true, %73 ], [ false, %71 ], [ false, %65 ], [ true, %50 ], [ false, %48 ], [ false, %42 ], [ false, %.critedge ]
   %.pr = load i8, ptr %.2.ph, align 1
-  %.not5487 = icmp eq i8 %.pr, 0
-  br i1 %.not5487, label %.critedge2, label %.lr.ph89
+  %.not5485 = icmp eq i8 %.pr, 0
+  br i1 %.not5485, label %.critedge2, label %.lr.ph87
 
-.lr.ph89:                                         ; preds = %.critedge.thread
+.lr.ph87:                                         ; preds = %.critedge.thread
   %75 = load ptr, ptr @g_ascii_table, align 8
   br label %79
 
 76:                                               ; preds = %79
-  %77 = getelementptr i8, ptr %.388, i64 1
+  %77 = getelementptr i8, ptr %.386, i64 1
   %78 = load i8, ptr %77, align 1
   %.not54 = icmp eq i8 %78, 0
   br i1 %.not54, label %.critedge2, label %79, !llvm.loop !6
 
-79:                                               ; preds = %.lr.ph89, %76
-  %80 = phi i8 [ %.pr, %.lr.ph89 ], [ %78, %76 ]
-  %.388 = phi ptr [ %.2.ph, %.lr.ph89 ], [ %77, %76 ]
+79:                                               ; preds = %.lr.ph87, %76
+  %80 = phi i8 [ %.pr, %.lr.ph87 ], [ %78, %76 ]
+  %.386 = phi ptr [ %.2.ph, %.lr.ph87 ], [ %77, %76 ]
   %81 = zext i8 %80 to i64
   %82 = getelementptr i16, ptr %75, i64 %81
   %83 = load i16, ptr %82, align 2
@@ -217,19 +214,19 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   store ptr %85, ptr %1, align 8
   br label %drange_str_to_gint32.exit.thread
 
-.thread128:                                       ; preds = %31, %21
-  %.17498109119.ph = phi i32 [ %22, %21 ], [ %.17497, %31 ]
+.thread126:                                       ; preds = %31, %21
+  %.17296107117.ph = phi i32 [ %22, %21 ], [ %.17295, %31 ]
   %86 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   %87 = getelementptr inbounds i8, ptr %86, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, i8 0, i64 12, i1 false)
-  store i32 %.17498109119.ph, ptr %86, align 4
+  store i32 %.17296107117.ph, ptr %86, align 4
   br label %94
 
 .critedge2.thread:                                ; preds = %.critedge2
   %88 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   %89 = getelementptr inbounds i8, ptr %88, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, i8 0, i64 12, i1 false)
-  store i32 %.17497, ptr %88, align 4
+  store i32 %.17295, ptr %88, align 4
   switch i32 %.045.ph, label %115 [
     i32 1, label %90
     i32 2, label %98
@@ -237,61 +234,61 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   ]
 
 90:                                               ; preds = %.critedge2.thread
-  %91 = icmp slt i32 %.272.ph, 1
+  %91 = icmp slt i32 %.270.ph, 1
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  %93 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, i32 noundef %.272.ph) #11
+  %93 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, i32 noundef %.270.ph) #11
   store ptr %93, ptr %1, align 8
   tail call void @g_free(ptr noundef nonnull %88) #11
   br label %drange_str_to_gint32.exit.thread
 
-94:                                               ; preds = %.thread128, %90
-  %.272110118123130 = phi i32 [ 1, %.thread128 ], [ %.272.ph, %90 ]
-  %95 = phi ptr [ %86, %.thread128 ], [ %88, %90 ]
+94:                                               ; preds = %.thread126, %90
+  %.270108116121128 = phi i32 [ 1, %.thread126 ], [ %.270.ph, %90 ]
+  %95 = phi ptr [ %86, %.thread126 ], [ %88, %90 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 4
-  store i32 %.272110118123130, ptr %96, align 4
+  store i32 %.270108116121128, ptr %96, align 4
   %97 = getelementptr inbounds i8, ptr %95, i64 12
   store i32 1, ptr %97, align 4
   br label %drange_str_to_gint32.exit.thread
 
 98:                                               ; preds = %.critedge2.thread
-  %99 = icmp slt i32 %.17497, 0
-  %100 = icmp sgt i32 %.272.ph, 0
+  %99 = icmp slt i32 %.17295, 0
+  %100 = icmp sgt i32 %.270.ph, 0
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %104, label %101
 
 101:                                              ; preds = %98
-  %102 = icmp sgt i32 %.17497, 0
-  %103 = icmp slt i32 %.272.ph, 0
+  %102 = icmp sgt i32 %.17295, 0
+  %103 = icmp slt i32 %.270.ph, 0
   %or.cond5 = select i1 %102, i1 %103, i1 false
   br i1 %or.cond5, label %104, label %106
 
 104:                                              ; preds = %101, %98
-  %105 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i32 noundef %.17497, i32 noundef %.272.ph) #11
+  %105 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i32 noundef %.17295, i32 noundef %.270.ph) #11
   store ptr %105, ptr %1, align 8
   tail call void @g_free(ptr noundef nonnull %88) #11
   br label %drange_str_to_gint32.exit.thread
 
 106:                                              ; preds = %101
-  %.not57 = icmp sgt i32 %.272.ph, %.17497
+  %.not57 = icmp sgt i32 %.270.ph, %.17295
   br i1 %.not57, label %109, label %107
 
 107:                                              ; preds = %106
-  %108 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, i32 noundef %.17497, i32 noundef %.272.ph) #11
+  %108 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, i32 noundef %.17295, i32 noundef %.270.ph) #11
   store ptr %108, ptr %1, align 8
   tail call void @g_free(ptr noundef nonnull %88) #11
   br label %drange_str_to_gint32.exit.thread
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds i8, ptr %88, i64 8
-  store i32 %.272.ph, ptr %110, align 4
+  store i32 %.270.ph, ptr %110, align 4
   %111 = getelementptr inbounds i8, ptr %88, i64 12
   store i32 2, ptr %111, align 4
   br label %drange_str_to_gint32.exit.thread
 
-112:                                              ; preds = %.critedge2.thread.thread124, %.critedge2.thread
-  %113 = phi ptr [ %56, %.critedge2.thread.thread124 ], [ %88, %.critedge2.thread ]
+112:                                              ; preds = %.critedge2.thread.thread122, %.critedge2.thread
+  %113 = phi ptr [ %56, %.critedge2.thread.thread122 ], [ %88, %.critedge2.thread ]
   %114 = getelementptr inbounds i8, ptr %113, i64 12
   store i32 3, ptr %114, align 4
   br label %drange_str_to_gint32.exit.thread

@@ -2466,7 +2466,7 @@ invoke.cont.i:                                    ; preds = %if.then6.i
 
 common.resume:                                    ; preds = %lpad.i25, %lpad.i.i, %lpad.i
   %exception.i24.sink = phi ptr [ %exception.i24, %lpad.i25 ], [ %exception.i.i, %lpad.i.i ], [ %exception.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i25 ], [ %14, %lpad.i.i ], [ %9, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i25 ], [ %14, %lpad.i.i ], [ %9, %lpad.i ]
   call void @__cxa_free_exception(ptr %exception.i24.sink) #22
   resume { ptr, i32 } %common.resume.op
 
@@ -2530,39 +2530,39 @@ if.then.i.i8:                                     ; preds = %_ZN6Assimp12StreamR
   br label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then.i.i8, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit
-  %out.addr.124.i.i.ph = phi ptr [ %buff, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit ], [ %incdec.ptr.i.i, %if.then.i.i8 ]
-  %written.121.i.i.ph = phi i32 [ 1, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit ], [ 2, %if.then.i.i8 ]
-  %number.addr.120.i.i.ph = phi i32 [ %conv15, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit ], [ %sub.i.i, %if.then.i.i8 ]
+  %out.addr.123.i.i.ph = phi ptr [ %buff, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit ], [ %incdec.ptr.i.i, %if.then.i.i8 ]
+  %written.120.i.i.ph = phi i32 [ 1, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit ], [ 2, %if.then.i.i8 ]
+  %number.addr.119.i.i.ph = phi i32 [ %conv15, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit ], [ %sub.i.i, %if.then.i.i8 ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end15.i.i
-  %out.addr.124.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.124.i.i.ph, %while.body.i.i.preheader ]
-  %mustPrint.023.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
-  %cur.022.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
-  %written.121.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.121.i.i.ph, %while.body.i.i.preheader ]
-  %number.addr.120.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.120.i.i.ph, %while.body.i.i.preheader ]
-  %div.i.i = sdiv i32 %number.addr.120.i.i, %cur.022.i.i
-  %sub11.i.i.recomposed = srem i32 %number.addr.120.i.i, %cur.022.i.i
+  %out.addr.123.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.123.i.i.ph, %while.body.i.i.preheader ]
+  %mustPrint.022.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
+  %cur.021.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
+  %written.120.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.120.i.i.ph, %while.body.i.i.preheader ]
+  %number.addr.119.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.119.i.i.ph, %while.body.i.i.preheader ]
+  %div.i.i = sdiv i32 %number.addr.119.i.i, %cur.021.i.i
+  %sub11.i.i.recomposed = srem i32 %number.addr.119.i.i, %cur.021.i.i
   %cmp3.i.i = icmp ne i32 %div.i.i, 0
-  %or.cond.i.i = select i1 %mustPrint.023.i.i, i1 true, i1 %cmp3.i.i
-  %cmp5.i.i = icmp eq i32 %cur.022.i.i, 1
-  %or.cond1.i.i = or i1 %cmp5.i.i, %or.cond.i.i
+  %cmp5.i.i = icmp eq i32 %cur.021.i.i, 1
+  %16 = or i1 %cmp5.i.i, %cmp3.i.i
+  %or.cond1.i.i = select i1 %mustPrint.022.i.i, i1 true, i1 %16
   br i1 %or.cond1.i.i, label %if.then6.i.i, label %if.end15.i.i
 
 if.then6.i.i:                                     ; preds = %while.body.i.i
-  %16 = trunc i32 %div.i.i to i8
-  %conv8.i.i = add i8 %16, 48
-  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.124.i.i, i64 1
-  store i8 %conv8.i.i, ptr %out.addr.124.i.i, align 1
-  %inc10.i.i = add nuw nsw i32 %written.121.i.i, 1
-  %mul.i.i = mul i32 %div.i.i, %cur.022.i.i
+  %17 = trunc i32 %div.i.i to i8
+  %conv8.i.i = add i8 %17, 48
+  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.123.i.i, i64 1
+  store i8 %conv8.i.i, ptr %out.addr.123.i.i, align 1
+  %inc10.i.i = add nuw nsw i32 %written.120.i.i, 1
+  %mul.i.i = mul i32 %div.i.i, %cur.021.i.i
   br i1 %cmp5.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then6.i.i, %while.body.i.i
-  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.120.i.i, %while.body.i.i ]
-  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.121.i.i, %while.body.i.i ]
-  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.124.i.i, %while.body.i.i ]
-  %div16.i.i = sdiv i32 %cur.022.i.i, 10
+  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.119.i.i, %while.body.i.i ]
+  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
+  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
+  %div16.i.i = sdiv i32 %cur.021.i.i, 10
   %cmp2.i.i = icmp ult i32 %written.2.i.i, 10
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, !llvm.loop !19
 
@@ -2574,31 +2574,31 @@ _ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit:   ; preds = %if.then6.i.i, %if.e
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, %sw.bb11, %sw.bb, %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit
-  %17 = load ptr, ptr %stream, align 8
-  %mLimit.i9 = getelementptr inbounds i8, ptr %17, i64 40
-  %18 = load ptr, ptr %mLimit.i9, align 8
-  %mCurrent.i10 = getelementptr inbounds i8, ptr %17, i64 24
-  store ptr %18, ptr %mCurrent.i10, align 8
-  %19 = load ptr, ptr %stream, align 8
-  %mLimit.i.i11 = getelementptr inbounds i8, ptr %19, i64 40
-  %20 = and i64 %sub.ptr.sub.i.i, 4294967295
-  %cmp.i13 = icmp eq i64 %20, 4294967295
+  %18 = load ptr, ptr %stream, align 8
+  %mLimit.i9 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = load ptr, ptr %mLimit.i9, align 8
+  %mCurrent.i10 = getelementptr inbounds i8, ptr %18, i64 24
+  store ptr %19, ptr %mCurrent.i10, align 8
+  %20 = load ptr, ptr %stream, align 8
+  %mLimit.i.i11 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = and i64 %sub.ptr.sub.i.i, 4294967295
+  %cmp.i13 = icmp eq i64 %21, 4294967295
   br i1 %cmp.i13, label %if.then.i27, label %if.end.i14
 
 if.then.i27:                                      ; preds = %sw.epilog
-  %mEnd.i28 = getelementptr inbounds i8, ptr %19, i64 32
-  %21 = load ptr, ptr %mEnd.i28, align 8
-  store ptr %21, ptr %mLimit.i.i11, align 8
+  %mEnd.i28 = getelementptr inbounds i8, ptr %20, i64 32
+  %22 = load ptr, ptr %mEnd.i28, align 8
+  store ptr %22, ptr %mLimit.i.i11, align 8
   br label %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit29
 
 if.end.i14:                                       ; preds = %sw.epilog
-  %mBuffer.i.i12 = getelementptr inbounds i8, ptr %19, i64 16
-  %22 = load ptr, ptr %mBuffer.i.i12, align 8
-  %add.ptr.i16 = getelementptr inbounds i8, ptr %22, i64 %20
+  %mBuffer.i.i12 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = load ptr, ptr %mBuffer.i.i12, align 8
+  %add.ptr.i16 = getelementptr inbounds i8, ptr %23, i64 %21
   store ptr %add.ptr.i16, ptr %mLimit.i.i11, align 8
-  %mEnd4.i17 = getelementptr inbounds i8, ptr %19, i64 32
-  %23 = load ptr, ptr %mEnd4.i17, align 8
-  %cmp5.i18 = icmp ugt ptr %add.ptr.i16, %23
+  %mEnd4.i17 = getelementptr inbounds i8, ptr %20, i64 32
+  %24 = load ptr, ptr %mEnd4.i17, align 8
+  %cmp5.i18 = icmp ugt ptr %add.ptr.i16, %24
   br i1 %cmp5.i18, label %if.then6.i23, label %_ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit29
 
 if.then6.i23:                                     ; preds = %if.end.i14
@@ -2611,18 +2611,18 @@ invoke.cont.i26:                                  ; preds = %if.then6.i23
   unreachable
 
 lpad.i25:                                         ; preds = %if.then6.i23
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit29: ; preds = %if.then.i27, %if.end.i14
-  %25 = load ptr, ptr %stream, align 8
-  %mLimit.i30 = getelementptr inbounds i8, ptr %25, i64 40
-  %26 = load ptr, ptr %mLimit.i30, align 8
-  %mCurrent.i31 = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = load ptr, ptr %mCurrent.i31, align 8
-  %sub.ptr.lhs.cast.i32 = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i33 = ptrtoint ptr %27 to i64
+  %26 = load ptr, ptr %stream, align 8
+  %mLimit.i30 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = load ptr, ptr %mLimit.i30, align 8
+  %mCurrent.i31 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = load ptr, ptr %mCurrent.i31, align 8
+  %sub.ptr.lhs.cast.i32 = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast.i33 = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i34 = sub i64 %sub.ptr.lhs.cast.i32, %sub.ptr.rhs.cast.i33
   %conv2.i35 = and i64 %sub.ptr.sub.i34, 4294967295
   %cmp23 = icmp eq i64 %conv2.i35, 0

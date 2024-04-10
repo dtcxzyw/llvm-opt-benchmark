@@ -431,7 +431,7 @@ define internal noundef i32 @read_set_decode_as_entries(ptr nocapture noundef re
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void @dissector_change_string(ptr noundef %25, ptr noundef %36, ptr noundef %31) #14
-  br label %69
+  br label %68
 
 37:                                               ; preds = %.critedge
   %38 = getelementptr inbounds i8, ptr %5, i64 8
@@ -439,122 +439,120 @@ define internal noundef i32 @read_set_decode_as_entries(ptr nocapture noundef re
   %40 = call i64 @strtol(ptr noundef %39, ptr noundef nonnull %6, i32 noundef 0) #14
   %41 = load ptr, ptr %6, align 8
   %42 = icmp eq ptr %41, %25
-  br i1 %42, label %50, label %43
+  br i1 %42, label %49, label %43
 
 43:                                               ; preds = %37
   %44 = load i8, ptr %41, align 1
   %45 = icmp ne i8 %44, 0
-  %46 = icmp slt i64 %40, 0
-  %or.cond9 = select i1 %45, i1 true, i1 %46
-  %47 = icmp ugt i64 %40, 4294967295
-  %or.cond11 = select i1 %or.cond9, i1 true, i1 %47
-  br i1 %or.cond11, label %50, label %48
+  %46 = icmp ugt i64 %40, 4294967295
+  %or.cond11 = select i1 %45, i1 true, i1 %46
+  br i1 %or.cond11, label %49, label %47
 
-48:                                               ; preds = %43
-  %49 = trunc i64 %40 to i32
-  tail call void @dissector_change_uint(ptr noundef %25, i32 noundef %49, ptr noundef %31) #14
-  br label %50
+47:                                               ; preds = %43
+  %48 = trunc i64 %40 to i32
+  tail call void @dissector_change_uint(ptr noundef %25, i32 noundef %48, ptr noundef %31) #14
+  br label %49
 
-50:                                               ; preds = %37, %43, %48
-  %.not82 = phi i1 [ false, %48 ], [ true, %43 ], [ true, %37 ]
-  %.067 = phi i32 [ 0, %48 ], [ 1, %43 ], [ 1, %37 ]
-  br i1 %.not79, label %68, label %51
+49:                                               ; preds = %37, %43, %47
+  %.not82 = phi i1 [ false, %47 ], [ true, %43 ], [ true, %37 ]
+  %.067 = phi i32 [ 0, %47 ], [ 1, %43 ], [ 1, %37 ]
+  br i1 %.not79, label %67, label %50
 
-51:                                               ; preds = %50
-  %52 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef nonnull %31) #14
-  %53 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %52) #14
-  %54 = tail call ptr @prefs_find_module(ptr noundef %53) #14
-  %55 = tail call ptr @prefs_find_preference(ptr noundef %54, ptr noundef %25) #14
-  %.not81 = icmp eq ptr %55, null
-  br i1 %.not81, label %68, label %56
+50:                                               ; preds = %49
+  %51 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef nonnull %31) #14
+  %52 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %51) #14
+  %53 = tail call ptr @prefs_find_module(ptr noundef %52) #14
+  %54 = tail call ptr @prefs_find_preference(ptr noundef %53, ptr noundef %25) #14
+  %.not81 = icmp eq ptr %54, null
+  br i1 %.not81, label %67, label %55
 
-56:                                               ; preds = %51
-  %57 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %53) #14
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %61
+55:                                               ; preds = %50
+  %56 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %52) #14
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %56
-  %60 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %53, ptr noundef %53) #14
-  br label %61
+58:                                               ; preds = %55
+  %59 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %52, ptr noundef %52) #14
+  br label %60
 
-61:                                               ; preds = %59, %56
-  %.0 = phi i32 [ 1, %59 ], [ 0, %56 ]
-  %62 = trunc i64 %40 to i32
-  %63 = tail call i32 @prefs_add_decode_as_value(ptr noundef nonnull %55, i32 noundef %62, i32 noundef %.0) #14
-  %64 = tail call i32 @prefs_get_effect_flags(ptr noundef nonnull %55) #14
-  %65 = getelementptr inbounds i8, ptr %54, i64 60
-  %66 = load i32, ptr %65, align 4
-  %67 = or i32 %66, %64
-  store i32 %67, ptr %65, align 4
-  br label %68
+60:                                               ; preds = %58, %55
+  %.0 = phi i32 [ 1, %58 ], [ 0, %55 ]
+  %61 = trunc i64 %40 to i32
+  %62 = tail call i32 @prefs_add_decode_as_value(ptr noundef nonnull %54, i32 noundef %61, i32 noundef %.0) #14
+  %63 = tail call i32 @prefs_get_effect_flags(ptr noundef nonnull %54) #14
+  %64 = getelementptr inbounds i8, ptr %53, i64 60
+  %65 = load i32, ptr %64, align 4
+  %66 = or i32 %65, %63
+  store i32 %66, ptr %64, align 4
+  br label %67
 
-68:                                               ; preds = %51, %61, %50
-  br i1 %.not82, label %.thread, label %69
+67:                                               ; preds = %50, %60, %49
+  br i1 %.not82, label %.thread, label %68
 
-69:                                               ; preds = %.thread86, %68
-  %70 = phi ptr [ %36, %.thread86 ], [ %39, %68 ]
-  %.16890 = phi i32 [ 0, %.thread86 ], [ %.067, %68 ]
-  %71 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %72 = tail call noalias ptr @g_strdup(ptr noundef %25) #14
-  store ptr %72, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
-  store i32 %28, ptr %73, align 8
-  switch i32 %28, label %83 [
-    i32 4, label %74
-    i32 5, label %74
-    i32 6, label %74
-    i32 7, label %74
-    i32 0, label %78
-    i32 26, label %80
-    i32 27, label %80
-    i32 28, label %80
-    i32 43, label %80
-    i32 45, label %80
+68:                                               ; preds = %.thread86, %67
+  %69 = phi ptr [ %36, %.thread86 ], [ %39, %67 ]
+  %.16890 = phi i32 [ 0, %.thread86 ], [ %.067, %67 ]
+  %70 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
+  %71 = tail call noalias ptr @g_strdup(ptr noundef %25) #14
+  store ptr %71, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  store i32 %28, ptr %72, align 8
+  switch i32 %28, label %82 [
+    i32 4, label %73
+    i32 5, label %73
+    i32 6, label %73
+    i32 7, label %73
+    i32 0, label %77
+    i32 26, label %79
+    i32 27, label %79
+    i32 28, label %79
+    i32 43, label %79
+    i32 45, label %79
   ]
 
-74:                                               ; preds = %69, %69, %69, %69
-  %75 = ptrtoint ptr %70 to i64
-  %76 = trunc i64 %75 to i32
-  %77 = getelementptr inbounds i8, ptr %71, i64 16
-  store i32 %76, ptr %77, align 8
+73:                                               ; preds = %68, %68, %68, %68
+  %74 = ptrtoint ptr %69 to i64
+  %75 = trunc i64 %74 to i32
+  %76 = getelementptr inbounds i8, ptr %70, i64 16
+  store i32 %75, ptr %76, align 8
   br label %decode_build_reset_list.exit
 
-78:                                               ; preds = %69
-  %79 = getelementptr inbounds i8, ptr %71, i64 16
-  store i32 0, ptr %79, align 8
+77:                                               ; preds = %68
+  %78 = getelementptr inbounds i8, ptr %70, i64 16
+  store i32 0, ptr %78, align 8
   br label %decode_build_reset_list.exit
 
-80:                                               ; preds = %69, %69, %69, %69, %69
-  %81 = tail call noalias ptr @g_strdup(ptr noundef %70) #14
-  %82 = getelementptr inbounds i8, ptr %71, i64 16
-  store ptr %81, ptr %82, align 8
+79:                                               ; preds = %68, %68, %68, %68, %68
+  %80 = tail call noalias ptr @g_strdup(ptr noundef %69) #14
+  %81 = getelementptr inbounds i8, ptr %70, i64 16
+  store ptr %80, ptr %81, align 8
   br label %decode_build_reset_list.exit
 
-83:                                               ; preds = %69
+82:                                               ; preds = %68
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 480, ptr noundef nonnull @__func__.decode_build_reset_list, ptr noundef nonnull @.str.8) #15
   unreachable
 
-decode_build_reset_list.exit:                     ; preds = %74, %78, %80
-  %84 = load ptr, ptr @dissector_reset_list, align 8
-  %85 = tail call ptr @g_slist_prepend(ptr noundef %84, ptr noundef nonnull %71) #14
-  store ptr %85, ptr @dissector_reset_list, align 8
+decode_build_reset_list.exit:                     ; preds = %73, %77, %79
+  %83 = load ptr, ptr @dissector_reset_list, align 8
+  %84 = tail call ptr @g_slist_prepend(ptr noundef %83, ptr noundef nonnull %70) #14
+  store ptr %84, ptr @dissector_reset_list, align 8
   br label %.thread
 
-.thread:                                          ; preds = %32, %4, %24, %decode_build_reset_list.exit, %68
-  %.2 = phi i32 [ %.16890, %decode_build_reset_list.exit ], [ %.067, %68 ], [ 1, %24 ], [ 2, %4 ], [ 0, %32 ]
-  br label %86
+.thread:                                          ; preds = %32, %4, %24, %decode_build_reset_list.exit, %67
+  %.2 = phi i32 [ %.16890, %decode_build_reset_list.exit ], [ %.067, %67 ], [ 1, %24 ], [ 2, %4 ], [ 0, %32 ]
+  br label %85
 
-86:                                               ; preds = %.thread, %86
-  %indvars.iv102 = phi i64 [ 0, %.thread ], [ %indvars.iv.next103, %86 ]
-  %87 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv102
-  %88 = load ptr, ptr %87, align 8
-  tail call void @g_free(ptr noundef %88) #14
+85:                                               ; preds = %.thread, %85
+  %indvars.iv102 = phi i64 [ 0, %.thread ], [ %indvars.iv.next103, %85 ]
+  %86 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv102
+  %87 = load ptr, ptr %86, align 8
+  tail call void @g_free(ptr noundef %87) #14
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 4
-  br i1 %exitcond105.not, label %.loopexit, label %86, !llvm.loop !8
+  br i1 %exitcond105.not, label %.loopexit, label %85, !llvm.loop !8
 
-.loopexit:                                        ; preds = %86, %.lr.ph, %.preheader
-  %.063 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.2, %86 ]
+.loopexit:                                        ; preds = %85, %.lr.ph, %.preheader
+  %.063 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.2, %85 ]
   ret i32 %.063
 }
 

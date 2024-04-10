@@ -383,10 +383,9 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %120 = add nsw i32 %.1.i, 3
   %121 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef %120) #4
   %122 = icmp ne i16 %117, 16
-  %123 = icmp eq i8 %119, 0
-  %or.cond.i = select i1 %122, i1 true, i1 %123
-  %124 = icmp eq i8 %119, -1
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %124
+  %123 = add i8 %119, 1
+  %124 = icmp ult i8 %123, 2
+  %or.cond3.i = select i1 %122, i1 true, i1 %124
   %125 = icmp ne i8 %121, -1
   %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %125
   br i1 %or.cond5.i, label %dissect_rftap_header.exit, label %126

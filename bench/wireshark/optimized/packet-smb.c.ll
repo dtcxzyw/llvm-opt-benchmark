@@ -22950,7 +22950,7 @@ define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %17, %7
   %.not121 = icmp eq ptr %1, null
-  br i1 %.not121, label %132, label %21
+  br i1 %.not121, label %131, label %21
 
 21:                                               ; preds = %20
   store i64 0, ptr %9, align 8
@@ -22959,7 +22959,7 @@ define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr nou
   %23 = shl nuw i32 %13, 16
   %24 = or disjoint i32 %23, %15
   %25 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %9, ptr noundef nonnull @.str.2620, i32 noundef %24) #15
-  br label %132
+  br label %131
 
 26:                                               ; preds = %17
   %27 = shl nuw nsw i32 %15, 1
@@ -22991,130 +22991,129 @@ define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr nou
   %or.cond8 = select i1 %44, i1 true, i1 %45
   %46 = icmp ugt i16 %., -16385
   %or.cond11 = select i1 %or.cond8, i1 true, i1 %46
-  %47 = add nsw i32 %37, -13
-  %48 = icmp ult i32 %47, -12
-  %or.cond17 = or i1 %or.cond11, %48
-  br i1 %or.cond17, label %70, label %49
+  %47 = icmp ugt i32 %38, 11
+  %or.cond17 = select i1 %or.cond11, i1 true, i1 %47
+  br i1 %or.cond17, label %69, label %48
 
-49:                                               ; preds = %26
-  %50 = and i32 %13, 1536
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %62
+48:                                               ; preds = %26
+  %49 = and i32 %13, 1536
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %61
 
-52:                                               ; preds = %49
-  %53 = trunc i32 %40 to i16
-  %.lhs.trunc = add nuw nsw i16 %53, 1980
-  %54 = urem i16 %.lhs.trunc, 100
-  %.not118 = icmp ne i16 %54, 0
-  %55 = urem i16 %.lhs.trunc, 400
-  %56 = icmp eq i16 %55, 0
-  %or.cond123 = or i1 %.not118, %56
-  br i1 %or.cond123, label %57, label %62
+51:                                               ; preds = %48
+  %52 = trunc i32 %40 to i16
+  %.lhs.trunc = add nuw nsw i16 %52, 1980
+  %53 = urem i16 %.lhs.trunc, 100
+  %.not118 = icmp ne i16 %53, 0
+  %54 = urem i16 %.lhs.trunc, 400
+  %55 = icmp eq i16 %54, 0
+  %or.cond123 = or i1 %.not118, %55
+  br i1 %or.cond123, label %56, label %61
 
-57:                                               ; preds = %52
-  %58 = zext nneg i32 %38 to i64
-  %59 = getelementptr [12 x i32], ptr @dissect_smb_datetime.mday_leap, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp sgt i32 %34, %60
-  br i1 %61, label %70, label %67
+56:                                               ; preds = %51
+  %57 = zext nneg i32 %38 to i64
+  %58 = getelementptr [12 x i32], ptr @dissect_smb_datetime.mday_leap, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp sgt i32 %34, %59
+  br i1 %60, label %69, label %66
 
-62:                                               ; preds = %52, %49
-  %63 = zext nneg i32 %38 to i64
-  %64 = getelementptr [12 x i32], ptr @dissect_smb_datetime.mday_noleap, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp sgt i32 %34, %65
-  br i1 %66, label %70, label %67
+61:                                               ; preds = %51, %48
+  %62 = zext nneg i32 %38 to i64
+  %63 = getelementptr [12 x i32], ptr @dissect_smb_datetime.mday_noleap, i64 0, i64 %62
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp sgt i32 %34, %64
+  br i1 %65, label %69, label %66
 
-67:                                               ; preds = %62, %57
-  %68 = call i64 @mktime(ptr noundef nonnull %8) #15
-  %69 = icmp eq i64 %68, -1
-  br i1 %69, label %70, label %102
+66:                                               ; preds = %61, %56
+  %67 = call i64 @mktime(ptr noundef nonnull %8) #15
+  %68 = icmp eq i64 %67, -1
+  br i1 %68, label %69, label %101
 
-70:                                               ; preds = %67, %62, %57, %26
+69:                                               ; preds = %66, %61, %56, %26
   %.not120 = icmp eq ptr %1, null
-  br i1 %.not120, label %132, label %71
+  br i1 %.not120, label %131, label %70
 
-71:                                               ; preds = %70
+70:                                               ; preds = %69
   store i64 0, ptr %9, align 8
-  %72 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 0, ptr %72, align 8
-  %73 = shl nuw i32 %13, 16
-  %74 = or disjoint i32 %73, %15
-  %75 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %9, ptr noundef nonnull @.str.2621, i32 noundef %74) #15
-  %76 = load i32, ptr @ett_smb_time_date, align 4
-  %77 = call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #15
-  br i1 %.not, label %90, label %78
+  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 0, ptr %71, align 8
+  %72 = shl nuw i32 %13, 16
+  %73 = or disjoint i32 %72, %15
+  %74 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %9, ptr noundef nonnull @.str.2621, i32 noundef %73) #15
+  %75 = load i32, ptr @ett_smb_time_date, align 4
+  %76 = call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75) #15
+  br i1 %.not, label %89, label %77
 
-78:                                               ; preds = %71
-  %79 = load i32, ptr %33, align 8
-  %80 = load i32, ptr %31, align 4
-  %81 = load i32, ptr %8, align 8
-  %82 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %77, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %79, i32 noundef %80, i32 noundef %81, i32 noundef %15) #15
-  %83 = add i32 %2, 2
-  %84 = load i32, ptr %42, align 4
-  %85 = add i32 %84, 1900
-  %86 = load i32, ptr %39, align 8
-  %87 = add i32 %86, 1
-  %88 = load i32, ptr %35, align 4
-  %89 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %77, i32 noundef %4, ptr noundef %0, i32 noundef %83, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %85, i32 noundef %87, i32 noundef %88, i32 noundef %13) #15
-  br label %132
+77:                                               ; preds = %70
+  %78 = load i32, ptr %33, align 8
+  %79 = load i32, ptr %31, align 4
+  %80 = load i32, ptr %8, align 8
+  %81 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %76, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %78, i32 noundef %79, i32 noundef %80, i32 noundef %15) #15
+  %82 = add i32 %2, 2
+  %83 = load i32, ptr %42, align 4
+  %84 = add i32 %83, 1900
+  %85 = load i32, ptr %39, align 8
+  %86 = add i32 %85, 1
+  %87 = load i32, ptr %35, align 4
+  %88 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %76, i32 noundef %4, ptr noundef %0, i32 noundef %82, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %84, i32 noundef %86, i32 noundef %87, i32 noundef %13) #15
+  br label %131
 
-90:                                               ; preds = %71
-  %91 = load i32, ptr %42, align 4
-  %92 = add i32 %91, 1900
-  %93 = load i32, ptr %39, align 8
-  %94 = add i32 %93, 1
-  %95 = load i32, ptr %35, align 4
-  %96 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %77, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %92, i32 noundef %94, i32 noundef %95, i32 noundef %13) #15
-  %97 = add i32 %2, 2
-  %98 = load i32, ptr %33, align 8
-  %99 = load i32, ptr %31, align 4
-  %100 = load i32, ptr %8, align 8
-  %101 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %77, i32 noundef %5, ptr noundef %0, i32 noundef %97, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %15) #15
-  br label %132
+89:                                               ; preds = %70
+  %90 = load i32, ptr %42, align 4
+  %91 = add i32 %90, 1900
+  %92 = load i32, ptr %39, align 8
+  %93 = add i32 %92, 1
+  %94 = load i32, ptr %35, align 4
+  %95 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %76, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %91, i32 noundef %93, i32 noundef %94, i32 noundef %13) #15
+  %96 = add i32 %2, 2
+  %97 = load i32, ptr %33, align 8
+  %98 = load i32, ptr %31, align 4
+  %99 = load i32, ptr %8, align 8
+  %100 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %76, i32 noundef %5, ptr noundef %0, i32 noundef %96, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %97, i32 noundef %98, i32 noundef %99, i32 noundef %15) #15
+  br label %131
 
-102:                                              ; preds = %67
-  store i64 %68, ptr %9, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 0, ptr %103, align 8
+101:                                              ; preds = %66
+  store i64 %67, ptr %9, align 8
+  %102 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 0, ptr %102, align 8
   %.not119 = icmp eq ptr %1, null
-  br i1 %.not119, label %132, label %104
+  br i1 %.not119, label %131, label %103
 
-104:                                              ; preds = %102
-  %105 = call ptr @proto_tree_add_time(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %9) #15
-  %106 = load i32, ptr @ett_smb_time_date, align 4
-  %107 = call ptr @proto_item_add_subtree(ptr noundef %105, i32 noundef %106) #15
-  br i1 %.not, label %120, label %108
+103:                                              ; preds = %101
+  %104 = call ptr @proto_tree_add_time(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %9) #15
+  %105 = load i32, ptr @ett_smb_time_date, align 4
+  %106 = call ptr @proto_item_add_subtree(ptr noundef %104, i32 noundef %105) #15
+  br i1 %.not, label %119, label %107
 
-108:                                              ; preds = %104
-  %109 = load i32, ptr %33, align 8
-  %110 = load i32, ptr %31, align 4
-  %111 = load i32, ptr %8, align 8
-  %112 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %107, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %109, i32 noundef %110, i32 noundef %111, i32 noundef %15) #15
-  %113 = add i32 %2, 2
-  %114 = load i32, ptr %42, align 4
-  %115 = add i32 %114, 1900
-  %116 = load i32, ptr %39, align 8
-  %117 = add i32 %116, 1
-  %118 = load i32, ptr %35, align 4
-  %119 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %107, i32 noundef %4, ptr noundef %0, i32 noundef %113, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %115, i32 noundef %117, i32 noundef %118, i32 noundef %13) #15
-  br label %132
+107:                                              ; preds = %103
+  %108 = load i32, ptr %33, align 8
+  %109 = load i32, ptr %31, align 4
+  %110 = load i32, ptr %8, align 8
+  %111 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %106, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef %15) #15
+  %112 = add i32 %2, 2
+  %113 = load i32, ptr %42, align 4
+  %114 = add i32 %113, 1900
+  %115 = load i32, ptr %39, align 8
+  %116 = add i32 %115, 1
+  %117 = load i32, ptr %35, align 4
+  %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %106, i32 noundef %4, ptr noundef %0, i32 noundef %112, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %114, i32 noundef %116, i32 noundef %117, i32 noundef %13) #15
+  br label %131
 
-120:                                              ; preds = %104
-  %121 = load i32, ptr %42, align 4
-  %122 = add i32 %121, 1900
-  %123 = load i32, ptr %39, align 8
-  %124 = add i32 %123, 1
-  %125 = load i32, ptr %35, align 4
-  %126 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %107, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %122, i32 noundef %124, i32 noundef %125, i32 noundef %13) #15
-  %127 = add i32 %2, 2
-  %128 = load i32, ptr %33, align 8
-  %129 = load i32, ptr %31, align 4
-  %130 = load i32, ptr %8, align 8
-  %131 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %107, i32 noundef %5, ptr noundef %0, i32 noundef %127, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %128, i32 noundef %129, i32 noundef %130, i32 noundef %15) #15
-  br label %132
+119:                                              ; preds = %103
+  %120 = load i32, ptr %42, align 4
+  %121 = add i32 %120, 1900
+  %122 = load i32, ptr %39, align 8
+  %123 = add i32 %122, 1
+  %124 = load i32, ptr %35, align 4
+  %125 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %106, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %13, ptr noundef nonnull @.str.2623, i32 noundef %121, i32 noundef %123, i32 noundef %124, i32 noundef %13) #15
+  %126 = add i32 %2, 2
+  %127 = load i32, ptr %33, align 8
+  %128 = load i32, ptr %31, align 4
+  %129 = load i32, ptr %8, align 8
+  %130 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %106, i32 noundef %5, ptr noundef %0, i32 noundef %126, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.2622, i32 noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef %15) #15
+  br label %131
 
-132:                                              ; preds = %102, %120, %108, %70, %90, %78, %20, %21
+131:                                              ; preds = %101, %119, %107, %69, %89, %77, %20, %21
   %.0 = add i32 %2, 4
   ret i32 %.0
 }

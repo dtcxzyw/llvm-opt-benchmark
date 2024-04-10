@@ -7687,7 +7687,7 @@ land.lhs.true.preheader:                          ; preds = %entry
   br i1 %cmp2, label %land.lhs.true2, label %return
 
 land.lhs.true2:                                   ; preds = %land.lhs.true.preheader, %land.lhs.true.backedge
-  %3 = phi ptr [ %13, %land.lhs.true.backedge ], [ %1, %land.lhs.true.preheader ]
+  %3 = phi ptr [ %15, %land.lhs.true.backedge ], [ %1, %land.lhs.true.preheader ]
   %noFallback = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load i8, ptr %noFallback, align 8
   %tobool3.not = icmp eq i8 %4, 0
@@ -7713,10 +7713,9 @@ if.then10:                                        ; preds = %while.body
   %call12 = call ptr @res_getStringNoTrace_75(ptr noundef nonnull %fData11, i32 noundef %call8, ptr noundef nonnull %parentLocaleLen)
   %cmp13 = icmp ne ptr %call12, null
   %7 = load i32, ptr %parentLocaleLen, align 4
-  %cmp15 = icmp sgt i32 %7, 0
-  %or.cond = select i1 %cmp13, i1 %cmp15, i1 false
-  %cmp17 = icmp slt i32 %7, 157
-  %or.cond26 = select i1 %or.cond, i1 %cmp17, i1 false
+  %8 = add i32 %7, -1
+  %9 = icmp ult i32 %8, 156
+  %or.cond26 = select i1 %cmp13, i1 %9, i1 false
   br i1 %or.cond26, label %if.then18, label %if.end24
 
 if.then18:                                        ; preds = %if.then10
@@ -7728,21 +7727,21 @@ if.then18:                                        ; preds = %if.then10
 
 if.end24:                                         ; preds = %if.then10, %if.then18, %while.body
   store i32 0, ptr %parentStatus, align 4
-  %8 = load ptr, ptr %t1, align 8
-  %fPath = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %fPath, align 8
-  %call25 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef %name, ptr noundef %9, ptr noundef nonnull %parentStatus)
-  %10 = load i32, ptr %parentStatus, align 4
-  %cmp.i27 = icmp slt i32 %10, 1
+  %10 = load ptr, ptr %t1, align 8
+  %fPath = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %fPath, align 8
+  %call25 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef %name, ptr noundef %11, ptr noundef nonnull %parentStatus)
+  %12 = load i32, ptr %parentStatus, align 4
+  %cmp.i27 = icmp slt i32 %12, 1
   br i1 %cmp.i27, label %if.else, label %if.then28
 
 if.then28:                                        ; preds = %if.end24
-  store i32 %10, ptr %status, align 4
+  store i32 %12, ptr %status, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end24
-  %11 = load ptr, ptr %t1, align 8
-  %fParent46 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load ptr, ptr %t1, align 8
+  %fParent46 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %call25, ptr %fParent46, align 8
   store ptr %call25, ptr %t1, align 8
   %call.i = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 95) #24
@@ -7754,8 +7753,8 @@ _ZL10chopLocalePc.exit:                           ; preds = %if.else
   br label %land.lhs.true.backedge
 
 lor.rhs:                                          ; preds = %if.else
-  %12 = load i8, ptr %name, align 1
-  %cmp.not.i29 = icmp eq i8 %12, 0
+  %14 = load i8, ptr %name, align 1
+  %cmp.not.i29 = icmp eq i8 %14, 0
   br i1 %cmp.not.i29, label %return, label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs
@@ -7764,10 +7763,10 @@ lor.end:                                          ; preds = %lor.rhs
   br i1 %cmp1.i.not, label %return, label %land.lhs.true.backedge
 
 land.lhs.true.backedge:                           ; preds = %lor.end, %_ZL10chopLocalePc.exit
-  %13 = load ptr, ptr %t1, align 8
-  %fParent = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load ptr, ptr %fParent, align 8
-  %cmp = icmp eq ptr %14, null
+  %15 = load ptr, ptr %t1, align 8
+  %fParent = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = load ptr, ptr %fParent, align 8
+  %cmp = icmp eq ptr %16, null
   br i1 %cmp, label %land.lhs.true2, label %return, !llvm.loop !34
 
 return:                                           ; preds = %if.then18, %land.lhs.true2, %land.lhs.true.backedge, %lor.end, %land.rhs, %lor.rhs, %land.lhs.true.preheader, %entry, %if.then28

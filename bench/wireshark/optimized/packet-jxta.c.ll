@@ -376,10 +376,9 @@ define internal i32 @dissect_jxta_udp(ptr noundef %0, ptr noundef %1, ptr nounde
   %21 = icmp eq ptr %20, null
   %or.cond = select i1 %19, i1 true, i1 %21
   %22 = load i64, ptr %5, align 8
-  %23 = icmp eq i64 %22, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %23
-  %24 = icmp ugt i64 %22, 4294967295
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %24
+  %23 = add i64 %22, -4294967296
+  %24 = icmp ult i64 %23, -4294967295
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %24
   br i1 %or.cond5, label %72, label %25
 
 25:                                               ; preds = %16
@@ -644,10 +643,9 @@ copy_address_wmem.exit141:                        ; preds = %72, %86
   %111 = icmp eq ptr %110, null
   %or.cond = select i1 %109, i1 true, i1 %111
   %112 = load i64, ptr %5, align 8
-  %113 = icmp slt i64 %112, 1
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %113
-  %114 = icmp sgt i64 %112, 4294967295
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %114
+  %113 = add i64 %112, -4294967296
+  %114 = icmp ult i64 %113, -4294967295
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %114
   br i1 %or.cond5, label %.thread, label %115
 
 115:                                              ; preds = %107

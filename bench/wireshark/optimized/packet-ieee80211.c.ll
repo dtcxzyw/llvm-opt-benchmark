@@ -24715,8 +24715,8 @@ define internal i32 @dissect_wlan_rsna_eapol_wpa_or_rsn_key(ptr noundef %0, ptr 
   %.not.i = icmp ne i8 %12, 0
   %13 = add nuw nsw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %13, 44
-  %or.cond299 = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond299, label %determine_nonce_is_set.exit, label %11, !llvm.loop !61
+  %or.cond298 = select i1 %.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond298, label %determine_nonce_is_set.exit, label %11, !llvm.loop !61
 
 determine_nonce_is_set.exit:                      ; preds = %11
   store i32 0, ptr %10, align 4
@@ -24760,7 +24760,7 @@ save_proto_data_value.exit:                       ; preds = %determine_nonce_is_
 34:                                               ; preds = %save_proto_data_value.exit
   %35 = and i32 %26, 8
   %.not237 = icmp eq i32 %35, 0
-  br i1 %.not237, label %141, label %36
+  br i1 %.not237, label %142, label %36
 
 36:                                               ; preds = %34
   %37 = trunc i16 %25 to i8
@@ -24778,7 +24778,7 @@ save_proto_data_value.exit:                       ; preds = %determine_nonce_is_
   tail call void @col_set_str(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.9460) #22
   %43 = load i32, ptr %10, align 4
   %.not240 = icmp eq i32 %43, 0
-  br i1 %.not240, label %151, label %44
+  br i1 %.not240, label %152, label %44
 
 44:                                               ; preds = %38
   %45 = tail call ptr @wmem_file_scope() #22
@@ -24868,7 +24868,7 @@ save_proto_data_value.exit251:                    ; preds = %discover_key_mic_le
   %86 = add i16 %78, 76
   %87 = zext i16 %86 to i32
   %88 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %87) #22
-  br label %151
+  br label %152
 
 89:                                               ; preds = %36
   %90 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_msgnr, align 4
@@ -24878,7 +24878,7 @@ save_proto_data_value.exit251:                    ; preds = %discover_key_mic_le
   tail call void @col_set_str(ptr noundef %93, i32 noundef 25, ptr noundef nonnull @.str.9461) #22
   %94 = load i32, ptr %10, align 4
   %.not239 = icmp eq i32 %94, 0
-  br i1 %.not239, label %151, label %95
+  br i1 %.not239, label %152, label %95
 
 95:                                               ; preds = %89
   tail call fastcc void @discover_key_mic_len2(ptr noundef %0, ptr noundef nonnull %1)
@@ -24900,13 +24900,13 @@ save_proto_data_value.exit253:                    ; preds = %95, %98
   %104 = add i16 %96, 76
   %105 = zext i16 %104 to i32
   %106 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %105) #22
-  br label %151
+  br label %152
 
 107:                                              ; preds = %36
   %108 = icmp eq i16 %14, 0
   %109 = icmp ugt i16 %24, 16
   %or.cond = select i1 %108, i1 %109, i1 false
-  br i1 %or.cond, label %119, label %110
+  br i1 %or.cond, label %120, label %110
 
 110:                                              ; preds = %107
   %111 = icmp ne i16 %14, 0
@@ -24918,518 +24918,518 @@ save_proto_data_value.exit253:                    ; preds = %95, %98
   %114 = and i32 %26, 512
   %115 = icmp eq i32 %114, 0
   %or.cond7 = and i1 %.not.i, %115
-  br i1 %or.cond7, label %119, label %.thread
+  br i1 %or.cond7, label %120, label %.thread
 
 116:                                              ; preds = %110
   %117 = icmp ne i16 %24, 0
-  %or.cond10 = select i1 %111, i1 %117, i1 false
   %118 = icmp ne i16 %24, 12
-  %or.cond13 = select i1 %or.cond10, i1 %118, i1 false
-  br i1 %or.cond13, label %119, label %.thread
+  %119 = and i1 %117, %118
+  %or.cond13 = select i1 %111, i1 %119, i1 false
+  br i1 %or.cond13, label %120, label %.thread
 
-119:                                              ; preds = %116, %113, %107
-  %120 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_msgnr, align 4
-  %121 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %120, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2) #22
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
-  %123 = load ptr, ptr %122, align 8
-  tail call void @col_set_str(ptr noundef %123, i32 noundef 25, ptr noundef nonnull @.str.9462) #22
-  %124 = load i32, ptr %10, align 4
-  %.not241 = icmp eq i32 %124, 0
-  br i1 %.not241, label %151, label %125
+120:                                              ; preds = %116, %113, %107
+  %121 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_msgnr, align 4
+  %122 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %121, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2) #22
+  %123 = getelementptr inbounds i8, ptr %1, i64 8
+  %124 = load ptr, ptr %123, align 8
+  tail call void @col_set_str(ptr noundef %124, i32 noundef 25, ptr noundef nonnull @.str.9462) #22
+  %125 = load i32, ptr %10, align 4
+  %.not241 = icmp eq i32 %125, 0
+  br i1 %.not241, label %152, label %126
 
-125:                                              ; preds = %119
+126:                                              ; preds = %120
   tail call fastcc void @discover_key_mic_len2(ptr noundef %0, ptr noundef nonnull %1)
-  %126 = call fastcc zeroext i16 @determine_mic_len(ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %10)
-  %127 = load i32, ptr @enable_decryption, align 4
-  %.not.i254 = icmp eq i32 %127, 0
-  br i1 %.not.i254, label %save_proto_data_value.exit255, label %128
+  %127 = call fastcc zeroext i16 @determine_mic_len(ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %10)
+  %128 = load i32, ptr @enable_decryption, align 4
+  %.not.i254 = icmp eq i32 %128, 0
+  br i1 %.not.i254, label %save_proto_data_value.exit255, label %129
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %1, i64 408
-  %130 = load ptr, ptr %129, align 8
-  %131 = load i32, ptr @proto_wlan, align 4
-  %132 = zext i16 %126 to i64
-  %133 = inttoptr i64 %132 to ptr
-  tail call void @p_add_proto_data(ptr noundef %130, ptr noundef nonnull %1, i32 noundef %131, i32 noundef 16, ptr noundef %133) #22
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %1, i64 408
+  %131 = load ptr, ptr %130, align 8
+  %132 = load i32, ptr @proto_wlan, align 4
+  %133 = zext i16 %127 to i64
+  %134 = inttoptr i64 %133 to ptr
+  tail call void @p_add_proto_data(ptr noundef %131, ptr noundef nonnull %1, i32 noundef %132, i32 noundef 16, ptr noundef %134) #22
   br label %save_proto_data_value.exit255
 
-save_proto_data_value.exit255:                    ; preds = %125, %128
-  %134 = add i16 %126, 76
-  %135 = zext i16 %134 to i32
-  %136 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %135) #22
-  br label %151
+save_proto_data_value.exit255:                    ; preds = %126, %129
+  %135 = add i16 %127, 76
+  %136 = zext i16 %135 to i32
+  %137 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %136) #22
+  br label %152
 
 .thread:                                          ; preds = %113, %116
-  %137 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_msgnr, align 4
-  %138 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %137, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 4) #22
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
-  %140 = load ptr, ptr %139, align 8
-  tail call void @col_set_str(ptr noundef %140, i32 noundef 25, ptr noundef nonnull @.str.9463) #22
-  br label %151
+  %138 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_msgnr, align 4
+  %139 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %138, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 4) #22
+  %140 = getelementptr inbounds i8, ptr %1, i64 8
+  %141 = load ptr, ptr %140, align 8
+  tail call void @col_set_str(ptr noundef %141, i32 noundef 25, ptr noundef nonnull @.str.9463) #22
+  br label %152
 
-141:                                              ; preds = %34
-  %142 = and i32 %26, 128
-  %.not238 = icmp eq i32 %142, 0
-  %143 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_msgnr, align 4
-  %144 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %.not238, label %148, label %145
+142:                                              ; preds = %34
+  %143 = and i32 %26, 128
+  %.not238 = icmp eq i32 %143, 0
+  %144 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_msgnr, align 4
+  %145 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %.not238, label %149, label %146
 
-145:                                              ; preds = %141
-  %146 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %143, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 1) #22
-  %147 = load ptr, ptr %144, align 8
-  tail call void @col_set_str(ptr noundef %147, i32 noundef 25, ptr noundef nonnull @.str.9464) #22
-  br label %151
+146:                                              ; preds = %142
+  %147 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 1) #22
+  %148 = load ptr, ptr %145, align 8
+  tail call void @col_set_str(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.9464) #22
+  br label %152
 
-148:                                              ; preds = %141
-  %149 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %143, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2) #22
-  %150 = load ptr, ptr %144, align 8
-  tail call void @col_set_str(ptr noundef %150, i32 noundef 25, ptr noundef nonnull @.str.9465) #22
-  br label %151
+149:                                              ; preds = %142
+  %150 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2) #22
+  %151 = load ptr, ptr %145, align 8
+  tail call void @col_set_str(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.9465) #22
+  br label %152
 
-151:                                              ; preds = %119, %save_proto_data_value.exit255, %89, %save_proto_data_value.exit253, %38, %save_proto_data_value.exit251, %.thread, %148, %145
-  %.0233 = phi i32 [ 4, %.thread ], [ 5, %145 ], [ 6, %148 ], [ 1, %save_proto_data_value.exit251 ], [ 1, %38 ], [ 3, %save_proto_data_value.exit253 ], [ 3, %89 ], [ 2, %save_proto_data_value.exit255 ], [ 2, %119 ]
-  %.3232 = phi i16 [ %14, %.thread ], [ %14, %145 ], [ %14, %148 ], [ %78, %save_proto_data_value.exit251 ], [ %14, %38 ], [ %96, %save_proto_data_value.exit253 ], [ %14, %89 ], [ %126, %save_proto_data_value.exit255 ], [ %14, %119 ]
-  %.0228 = phi ptr [ %138, %.thread ], [ %146, %145 ], [ %149, %148 ], [ %40, %save_proto_data_value.exit251 ], [ %40, %38 ], [ %91, %save_proto_data_value.exit253 ], [ %91, %89 ], [ %121, %save_proto_data_value.exit255 ], [ %121, %119 ]
-  %.3 = phi i16 [ %24, %.thread ], [ %24, %145 ], [ %24, %148 ], [ %88, %save_proto_data_value.exit251 ], [ %24, %38 ], [ %106, %save_proto_data_value.exit253 ], [ %24, %89 ], [ %136, %save_proto_data_value.exit255 ], [ %24, %119 ]
+152:                                              ; preds = %120, %save_proto_data_value.exit255, %89, %save_proto_data_value.exit253, %38, %save_proto_data_value.exit251, %.thread, %149, %146
+  %.0233 = phi i32 [ 4, %.thread ], [ 5, %146 ], [ 6, %149 ], [ 1, %save_proto_data_value.exit251 ], [ 1, %38 ], [ 3, %save_proto_data_value.exit253 ], [ 3, %89 ], [ 2, %save_proto_data_value.exit255 ], [ 2, %120 ]
+  %.3232 = phi i16 [ %14, %.thread ], [ %14, %146 ], [ %14, %149 ], [ %78, %save_proto_data_value.exit251 ], [ %14, %38 ], [ %96, %save_proto_data_value.exit253 ], [ %14, %89 ], [ %127, %save_proto_data_value.exit255 ], [ %14, %120 ]
+  %.0228 = phi ptr [ %139, %.thread ], [ %147, %146 ], [ %150, %149 ], [ %40, %save_proto_data_value.exit251 ], [ %40, %38 ], [ %91, %save_proto_data_value.exit253 ], [ %91, %89 ], [ %122, %save_proto_data_value.exit255 ], [ %122, %120 ]
+  %.3 = phi i16 [ %24, %.thread ], [ %24, %146 ], [ %24, %149 ], [ %88, %save_proto_data_value.exit251 ], [ %24, %38 ], [ %106, %save_proto_data_value.exit253 ], [ %24, %89 ], [ %137, %save_proto_data_value.exit255 ], [ %24, %120 ]
   %.not.i256 = icmp eq ptr %.0228, null
-  br i1 %.not.i256, label %proto_item_set_generated.exit, label %152
+  br i1 %.not.i256, label %proto_item_set_generated.exit, label %153
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %.0228, i64 32
-  %154 = load ptr, ptr %153, align 8
-  %.not5.i = icmp eq ptr %154, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %155
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds i8, ptr %.0228, i64 32
+  %155 = load ptr, ptr %154, align 8
+  %.not5.i = icmp eq ptr %155, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %156
 
-155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %154, i64 28
-  %157 = load i32, ptr %156, align 4
-  %158 = or i32 %157, 2
-  store i32 %158, ptr %156, align 4
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds i8, ptr %155, i64 28
+  %158 = load i32, ptr %157, align 4
+  %159 = or i32 %158, 2
+  store i32 %159, ptr %157, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %28, %32, %151, %152, %155
-  %.3297 = phi i16 [ %.3, %151 ], [ %.3, %152 ], [ %.3, %155 ], [ %24, %32 ], [ %24, %28 ]
-  %.3232296 = phi i16 [ %.3232, %151 ], [ %.3232, %152 ], [ %.3232, %155 ], [ %14, %32 ], [ %14, %28 ]
-  %.0233295 = phi i32 [ %.0233, %151 ], [ %.0233, %152 ], [ %.0233, %155 ], [ 0, %32 ], [ 0, %28 ]
-  %159 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #22
-  %160 = and i16 %159, 7
-  %161 = load i32, ptr @enable_decryption, align 4
-  %.not.i257 = icmp eq i32 %161, 0
-  br i1 %.not.i257, label %save_proto_data_value.exit258, label %162
+proto_item_set_generated.exit:                    ; preds = %28, %32, %152, %153, %156
+  %.3296 = phi i16 [ %.3, %152 ], [ %.3, %153 ], [ %.3, %156 ], [ %24, %32 ], [ %24, %28 ]
+  %.3232295 = phi i16 [ %.3232, %152 ], [ %.3232, %153 ], [ %.3232, %156 ], [ %14, %32 ], [ %14, %28 ]
+  %.0233294 = phi i32 [ %.0233, %152 ], [ %.0233, %153 ], [ %.0233, %156 ], [ 0, %32 ], [ 0, %28 ]
+  %160 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #22
+  %161 = and i16 %160, 7
+  %162 = load i32, ptr @enable_decryption, align 4
+  %.not.i257 = icmp eq i32 %162, 0
+  br i1 %.not.i257, label %save_proto_data_value.exit258, label %163
 
-162:                                              ; preds = %proto_item_set_generated.exit
-  %163 = getelementptr inbounds i8, ptr %1, i64 408
-  %164 = load ptr, ptr %163, align 8
-  %165 = load i32, ptr @proto_wlan, align 4
-  %166 = zext nneg i16 %160 to i64
-  %167 = inttoptr i64 %166 to ptr
-  tail call void @p_add_proto_data(ptr noundef %164, ptr noundef %1, i32 noundef %165, i32 noundef 17, ptr noundef %167) #22
+163:                                              ; preds = %proto_item_set_generated.exit
+  %164 = getelementptr inbounds i8, ptr %1, i64 408
+  %165 = load ptr, ptr %164, align 8
+  %166 = load i32, ptr @proto_wlan, align 4
+  %167 = zext nneg i16 %161 to i64
+  %168 = inttoptr i64 %167 to ptr
+  tail call void @p_add_proto_data(ptr noundef %165, ptr noundef %1, i32 noundef %166, i32 noundef 17, ptr noundef %168) #22
   br label %save_proto_data_value.exit258
 
-save_proto_data_value.exit258:                    ; preds = %proto_item_set_generated.exit, %162
-  %168 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_keyinfo, align 4
-  %169 = load i32, ptr @ett_keyinfo, align 4
-  %170 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %168, i32 noundef %169, ptr noundef nonnull @dissect_wlan_rsna_eapol_wpa_or_rsn_key.wlan_rsna_eapol_wpa_keydes_keyinfo, i32 noundef 0, i32 noundef 1) #22
-  %171 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #22
-  %172 = load i32, ptr @hf_wlan_rsna_eapol_keydes_key_len, align 4
-  %173 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %172, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #22
-  %174 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #22
-  %175 = load i32, ptr @enable_decryption, align 4
-  %.not.i259 = icmp eq i32 %175, 0
-  br i1 %.not.i259, label %save_proto_data_value.exit260, label %176
+save_proto_data_value.exit258:                    ; preds = %proto_item_set_generated.exit, %163
+  %169 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_keyinfo, align 4
+  %170 = load i32, ptr @ett_keyinfo, align 4
+  %171 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %169, i32 noundef %170, ptr noundef nonnull @dissect_wlan_rsna_eapol_wpa_or_rsn_key.wlan_rsna_eapol_wpa_keydes_keyinfo, i32 noundef 0, i32 noundef 1) #22
+  %172 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #22
+  %173 = load i32, ptr @hf_wlan_rsna_eapol_keydes_key_len, align 4
+  %174 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %173, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #22
+  %175 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #22
+  %176 = load i32, ptr @enable_decryption, align 4
+  %.not.i259 = icmp eq i32 %176, 0
+  br i1 %.not.i259, label %save_proto_data_value.exit260, label %177
 
-176:                                              ; preds = %save_proto_data_value.exit258
-  %177 = getelementptr inbounds i8, ptr %1, i64 408
-  %178 = load ptr, ptr %177, align 8
-  %179 = load i32, ptr @proto_wlan, align 4
-  %180 = zext i16 %174 to i64
-  %181 = inttoptr i64 %180 to ptr
-  tail call void @p_add_proto_data(ptr noundef %178, ptr noundef %1, i32 noundef %179, i32 noundef 18, ptr noundef %181) #22
+177:                                              ; preds = %save_proto_data_value.exit258
+  %178 = getelementptr inbounds i8, ptr %1, i64 408
+  %179 = load ptr, ptr %178, align 8
+  %180 = load i32, ptr @proto_wlan, align 4
+  %181 = zext i16 %175 to i64
+  %182 = inttoptr i64 %181 to ptr
+  tail call void @p_add_proto_data(ptr noundef %179, ptr noundef %1, i32 noundef %180, i32 noundef 18, ptr noundef %182) #22
   br label %save_proto_data_value.exit260
 
-save_proto_data_value.exit260:                    ; preds = %save_proto_data_value.exit258, %176
-  %182 = load i32, ptr @hf_wlan_rsna_eapol_keydes_replay_counter, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %182, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef 0) #22
-  %184 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_nonce, align 4
-  %185 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %184, ptr noundef %0, i32 noundef 12, i32 noundef 32, i32 noundef 0) #22
-  %186 = load i32, ptr @enable_decryption, align 4
-  %.not.i261 = icmp eq i32 %186, 0
-  br i1 %.not.i261, label %save_proto_data.exit, label %187
+save_proto_data_value.exit260:                    ; preds = %save_proto_data_value.exit258, %177
+  %183 = load i32, ptr @hf_wlan_rsna_eapol_keydes_replay_counter, align 4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %183, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef 0) #22
+  %185 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_nonce, align 4
+  %186 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %185, ptr noundef %0, i32 noundef 12, i32 noundef 32, i32 noundef 0) #22
+  %187 = load i32, ptr @enable_decryption, align 4
+  %.not.i261 = icmp eq i32 %187, 0
+  br i1 %.not.i261, label %save_proto_data.exit, label %188
 
-187:                                              ; preds = %save_proto_data_value.exit260
-  %188 = getelementptr inbounds i8, ptr %1, i64 408
-  %189 = load ptr, ptr %188, align 8
-  %190 = tail call noalias ptr @wmem_alloc(ptr noundef %189, i64 noundef 32) #22
-  %191 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %190, i32 noundef 12, i64 noundef 32) #22
-  %192 = load ptr, ptr %188, align 8
-  %193 = load i32, ptr @proto_wlan, align 4
-  tail call void @p_add_proto_data(ptr noundef %192, ptr noundef %1, i32 noundef %193, i32 noundef 11, ptr noundef %190) #22
+188:                                              ; preds = %save_proto_data_value.exit260
+  %189 = getelementptr inbounds i8, ptr %1, i64 408
+  %190 = load ptr, ptr %189, align 8
+  %191 = tail call noalias ptr @wmem_alloc(ptr noundef %190, i64 noundef 32) #22
+  %192 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %191, i32 noundef 12, i64 noundef 32) #22
+  %193 = load ptr, ptr %189, align 8
+  %194 = load i32, ptr @proto_wlan, align 4
+  tail call void @p_add_proto_data(ptr noundef %193, ptr noundef %1, i32 noundef %194, i32 noundef 11, ptr noundef %191) #22
   br label %save_proto_data.exit
 
-save_proto_data.exit:                             ; preds = %save_proto_data_value.exit260, %187
-  %194 = load i32, ptr @hf_wlan_rsna_eapol_keydes_key_iv, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %194, ptr noundef %0, i32 noundef 44, i32 noundef 16, i32 noundef 0) #22
-  %196 = load i32, ptr @enable_decryption, align 4
-  %.not.i262 = icmp eq i32 %196, 0
-  br i1 %.not.i262, label %save_proto_data.exit263, label %197
+save_proto_data.exit:                             ; preds = %save_proto_data_value.exit260, %188
+  %195 = load i32, ptr @hf_wlan_rsna_eapol_keydes_key_iv, align 4
+  %196 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %195, ptr noundef %0, i32 noundef 44, i32 noundef 16, i32 noundef 0) #22
+  %197 = load i32, ptr @enable_decryption, align 4
+  %.not.i262 = icmp eq i32 %197, 0
+  br i1 %.not.i262, label %save_proto_data.exit263, label %198
 
-197:                                              ; preds = %save_proto_data.exit
-  %198 = getelementptr inbounds i8, ptr %1, i64 408
-  %199 = load ptr, ptr %198, align 8
-  %200 = tail call noalias ptr @wmem_alloc(ptr noundef %199, i64 noundef 16) #22
-  %201 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %200, i32 noundef 44, i64 noundef 16) #22
-  %202 = load ptr, ptr %198, align 8
-  %203 = load i32, ptr @proto_wlan, align 4
-  tail call void @p_add_proto_data(ptr noundef %202, ptr noundef %1, i32 noundef %203, i32 noundef 19, ptr noundef %200) #22
+198:                                              ; preds = %save_proto_data.exit
+  %199 = getelementptr inbounds i8, ptr %1, i64 408
+  %200 = load ptr, ptr %199, align 8
+  %201 = tail call noalias ptr @wmem_alloc(ptr noundef %200, i64 noundef 16) #22
+  %202 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %201, i32 noundef 44, i64 noundef 16) #22
+  %203 = load ptr, ptr %199, align 8
+  %204 = load i32, ptr @proto_wlan, align 4
+  tail call void @p_add_proto_data(ptr noundef %203, ptr noundef %1, i32 noundef %204, i32 noundef 19, ptr noundef %201) #22
   br label %save_proto_data.exit263
 
-save_proto_data.exit263:                          ; preds = %save_proto_data.exit, %197
-  %204 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_rsc, align 4
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %204, ptr noundef %0, i32 noundef 60, i32 noundef 8, i32 noundef 0) #22
-  %206 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_id, align 4
-  %207 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef 68, i32 noundef 8, i32 noundef 0) #22
-  %208 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_mic, align 4
-  %209 = zext i16 %.3232296 to i32
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %208, ptr noundef %0, i32 noundef 76, i32 noundef %209, i32 noundef 0) #22
-  %211 = load i32, ptr @enable_decryption, align 4
-  %.not.i264 = icmp eq i32 %211, 0
-  br i1 %.not.i264, label %save_proto_data.exit265, label %212
+save_proto_data.exit263:                          ; preds = %save_proto_data.exit, %198
+  %205 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_rsc, align 4
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %205, ptr noundef %0, i32 noundef 60, i32 noundef 8, i32 noundef 0) #22
+  %207 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_id, align 4
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %207, ptr noundef %0, i32 noundef 68, i32 noundef 8, i32 noundef 0) #22
+  %209 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_mic, align 4
+  %210 = zext i16 %.3232295 to i32
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %209, ptr noundef %0, i32 noundef 76, i32 noundef %210, i32 noundef 0) #22
+  %212 = load i32, ptr @enable_decryption, align 4
+  %.not.i264 = icmp eq i32 %212, 0
+  br i1 %.not.i264, label %save_proto_data.exit265, label %213
 
-212:                                              ; preds = %save_proto_data.exit263
-  %213 = zext i16 %.3232296 to i64
-  %214 = getelementptr inbounds i8, ptr %1, i64 408
-  %215 = load ptr, ptr %214, align 8
-  %216 = tail call noalias ptr @wmem_alloc(ptr noundef %215, i64 noundef %213) #22
-  %217 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %216, i32 noundef 76, i64 noundef %213) #22
-  %218 = load ptr, ptr %214, align 8
-  %219 = load i32, ptr @proto_wlan, align 4
-  tail call void @p_add_proto_data(ptr noundef %218, ptr noundef %1, i32 noundef %219, i32 noundef 15, ptr noundef %216) #22
+213:                                              ; preds = %save_proto_data.exit263
+  %214 = zext i16 %.3232295 to i64
+  %215 = getelementptr inbounds i8, ptr %1, i64 408
+  %216 = load ptr, ptr %215, align 8
+  %217 = tail call noalias ptr @wmem_alloc(ptr noundef %216, i64 noundef %214) #22
+  %218 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %217, i32 noundef 76, i64 noundef %214) #22
+  %219 = load ptr, ptr %215, align 8
+  %220 = load i32, ptr @proto_wlan, align 4
+  tail call void @p_add_proto_data(ptr noundef %219, ptr noundef %1, i32 noundef %220, i32 noundef 15, ptr noundef %217) #22
   br label %save_proto_data.exit265
 
-save_proto_data.exit265:                          ; preds = %save_proto_data.exit263, %212
-  %220 = add nuw nsw i32 %209, 76
-  %221 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_data_len, align 4
-  %222 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %221, ptr noundef %0, i32 noundef %220, i32 noundef 2, i32 noundef 0) #22
-  %223 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %220) #22
-  %224 = load i32, ptr @enable_decryption, align 4
-  %.not.i266 = icmp eq i32 %224, 0
-  br i1 %.not.i266, label %save_proto_data_value.exit267, label %225
+save_proto_data.exit265:                          ; preds = %save_proto_data.exit263, %213
+  %221 = add nuw nsw i32 %210, 76
+  %222 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_data_len, align 4
+  %223 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %222, ptr noundef %0, i32 noundef %221, i32 noundef 2, i32 noundef 0) #22
+  %224 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %221) #22
+  %225 = load i32, ptr @enable_decryption, align 4
+  %.not.i266 = icmp eq i32 %225, 0
+  br i1 %.not.i266, label %save_proto_data_value.exit267, label %226
 
-225:                                              ; preds = %save_proto_data.exit265
-  %226 = getelementptr inbounds i8, ptr %1, i64 408
-  %227 = load ptr, ptr %226, align 8
-  %228 = load i32, ptr @proto_wlan, align 4
-  %229 = zext i16 %223 to i64
-  %230 = inttoptr i64 %229 to ptr
-  tail call void @p_add_proto_data(ptr noundef %227, ptr noundef %1, i32 noundef %228, i32 noundef 21, ptr noundef %230) #22
+226:                                              ; preds = %save_proto_data.exit265
+  %227 = getelementptr inbounds i8, ptr %1, i64 408
+  %228 = load ptr, ptr %227, align 8
+  %229 = load i32, ptr @proto_wlan, align 4
+  %230 = zext i16 %224 to i64
+  %231 = inttoptr i64 %230 to ptr
+  tail call void @p_add_proto_data(ptr noundef %228, ptr noundef %1, i32 noundef %229, i32 noundef 21, ptr noundef %231) #22
   br label %save_proto_data_value.exit267
 
-save_proto_data_value.exit267:                    ; preds = %save_proto_data.exit265, %225
-  %231 = add nuw nsw i32 %209, 78
-  %232 = zext i16 %.3297 to i32
-  %.not243 = icmp eq i16 %.3297, 0
-  br i1 %.not243, label %346, label %233
+save_proto_data_value.exit267:                    ; preds = %save_proto_data.exit265, %226
+  %232 = add nuw nsw i32 %210, 78
+  %233 = zext i16 %.3296 to i32
+  %.not243 = icmp eq i16 %.3296, 0
+  br i1 %.not243, label %347, label %234
 
-233:                                              ; preds = %save_proto_data_value.exit267
-  %234 = load i32, ptr @enable_decryption, align 4
-  %.not.i268 = icmp eq i32 %234, 0
-  br i1 %.not.i268, label %save_proto_data.exit269, label %235
+234:                                              ; preds = %save_proto_data_value.exit267
+  %235 = load i32, ptr @enable_decryption, align 4
+  %.not.i268 = icmp eq i32 %235, 0
+  br i1 %.not.i268, label %save_proto_data.exit269, label %236
 
-235:                                              ; preds = %233
-  %236 = zext i16 %.3297 to i64
-  %237 = getelementptr inbounds i8, ptr %1, i64 408
-  %238 = load ptr, ptr %237, align 8
-  %239 = tail call noalias ptr @wmem_alloc(ptr noundef %238, i64 noundef %236) #22
-  %240 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %239, i32 noundef %231, i64 noundef %236) #22
-  %241 = load ptr, ptr %237, align 8
-  %242 = load i32, ptr @proto_wlan, align 4
-  tail call void @p_add_proto_data(ptr noundef %241, ptr noundef %1, i32 noundef %242, i32 noundef 20, ptr noundef %239) #22
+236:                                              ; preds = %234
+  %237 = zext i16 %.3296 to i64
+  %238 = getelementptr inbounds i8, ptr %1, i64 408
+  %239 = load ptr, ptr %238, align 8
+  %240 = tail call noalias ptr @wmem_alloc(ptr noundef %239, i64 noundef %237) #22
+  %241 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %240, i32 noundef %232, i64 noundef %237) #22
+  %242 = load ptr, ptr %238, align 8
+  %243 = load i32, ptr @proto_wlan, align 4
+  tail call void @p_add_proto_data(ptr noundef %242, ptr noundef %1, i32 noundef %243, i32 noundef 20, ptr noundef %240) #22
   br label %save_proto_data.exit269
 
-save_proto_data.exit269:                          ; preds = %233, %235
-  %243 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_data, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %243, ptr noundef %0, i32 noundef %231, i32 noundef %232, i32 noundef 0) #22
-  %245 = and i32 %26, 4096
-  %.not244 = icmp eq i32 %245, 0
-  br i1 %.not244, label %246, label %250
+save_proto_data.exit269:                          ; preds = %234, %236
+  %244 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_data, align 4
+  %245 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %244, ptr noundef %0, i32 noundef %232, i32 noundef %233, i32 noundef 0) #22
+  %246 = and i32 %26, 4096
+  %.not244 = icmp eq i32 %246, 0
+  br i1 %.not244, label %247, label %251
 
-246:                                              ; preds = %save_proto_data.exit269
-  %247 = and i32 %26, 8
-  %248 = icmp eq i32 %247, 0
-  %249 = icmp ne i16 %171, 0
-  %or.cond16 = select i1 %248, i1 %249, i1 false
-  br i1 %or.cond16, label %250, label %334
+247:                                              ; preds = %save_proto_data.exit269
+  %248 = and i32 %26, 8
+  %249 = icmp eq i32 %248, 0
+  %250 = icmp ne i16 %172, 0
+  %or.cond16 = select i1 %249, i1 %250, i1 false
+  br i1 %or.cond16, label %251, label %335
 
-250:                                              ; preds = %246, %save_proto_data.exit269
-  %251 = getelementptr inbounds i8, ptr %1, i64 80
-  %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 50
-  %254 = load i16, ptr %253, align 2
-  %255 = and i16 %254, 8
-  %.not245 = icmp eq i16 %255, 0
-  br i1 %.not245, label %256, label %285
+251:                                              ; preds = %247, %save_proto_data.exit269
+  %252 = getelementptr inbounds i8, ptr %1, i64 80
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 50
+  %255 = load i16, ptr %254, align 2
+  %256 = and i16 %255, 8
+  %.not245 = icmp eq i16 %256, 0
+  br i1 %.not245, label %257, label %286
 
-256:                                              ; preds = %250
+257:                                              ; preds = %251
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %9)
-  %257 = load i32, ptr @enable_decryption, align 4
-  %.not.i270 = icmp eq i32 %257, 0
-  br i1 %.not.i270, label %try_decrypt_keydata.exit, label %258
+  %258 = load i32, ptr @enable_decryption, align 4
+  %.not.i270 = icmp eq i32 %258, 0
+  br i1 %.not.i270, label %try_decrypt_keydata.exit, label %259
 
-258:                                              ; preds = %256
-  %259 = getelementptr inbounds i8, ptr %1, i64 408
-  %260 = load ptr, ptr %259, align 8
-  %261 = load i32, ptr @proto_wlan, align 4
-  %262 = tail call ptr @p_get_proto_data(ptr noundef %260, ptr noundef nonnull %1, i32 noundef %261, i32 noundef 10) #22
-  %263 = load ptr, ptr %259, align 8
-  %264 = load i32, ptr @proto_wlan, align 4
-  %265 = tail call ptr @p_get_proto_data(ptr noundef %263, ptr noundef nonnull %1, i32 noundef %264, i32 noundef 9) #22
-  %266 = icmp ne ptr %262, null
-  %267 = icmp ne ptr %265, null
-  %or.cond.i = select i1 %266, i1 %267, i1 false
-  br i1 %or.cond.i, label %268, label %try_decrypt_keydata.exit
+259:                                              ; preds = %257
+  %260 = getelementptr inbounds i8, ptr %1, i64 408
+  %261 = load ptr, ptr %260, align 8
+  %262 = load i32, ptr @proto_wlan, align 4
+  %263 = tail call ptr @p_get_proto_data(ptr noundef %261, ptr noundef nonnull %1, i32 noundef %262, i32 noundef 10) #22
+  %264 = load ptr, ptr %260, align 8
+  %265 = load i32, ptr @proto_wlan, align 4
+  %266 = tail call ptr @p_get_proto_data(ptr noundef %264, ptr noundef nonnull %1, i32 noundef %265, i32 noundef 9) #22
+  %267 = icmp ne ptr %263, null
+  %268 = icmp ne ptr %266, null
+  %or.cond.i = select i1 %267, i1 %268, i1 false
+  br i1 %or.cond.i, label %269, label %try_decrypt_keydata.exit
 
-268:                                              ; preds = %258
+269:                                              ; preds = %259
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, i8 0, i64 152, i1 false)
   call fastcc void @get_eapol_parsed(ptr noundef nonnull %1, ptr noundef nonnull %8)
-  %269 = call i32 @Dot11DecryptDecryptKeyData(ptr noundef nonnull @dot11decrypt_ctx, ptr noundef nonnull %8, ptr noundef nonnull %262, ptr noundef nonnull %265, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9) #22
-  %270 = icmp eq i32 %269, 0
-  %271 = load i32, ptr %6, align 4
-  %272 = icmp ne i32 %271, 0
-  %or.cond3.i = select i1 %270, i1 %272, i1 false
-  br i1 %or.cond3.i, label %273, label %try_decrypt_keydata.exit
+  %270 = call i32 @Dot11DecryptDecryptKeyData(ptr noundef nonnull @dot11decrypt_ctx, ptr noundef nonnull %8, ptr noundef nonnull %263, ptr noundef nonnull %266, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9) #22
+  %271 = icmp eq i32 %270, 0
+  %272 = load i32, ptr %6, align 4
+  %273 = icmp ne i32 %272, 0
+  %or.cond3.i = select i1 %271, i1 %273, i1 false
+  br i1 %or.cond3.i, label %274, label %try_decrypt_keydata.exit
 
-273:                                              ; preds = %268
-  %274 = call ptr @wmem_file_scope() #22
-  %275 = call noalias ptr @wmem_alloc(ptr noundef %274, i64 noundef 448) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %275, ptr noundef nonnull align 8 dereferenceable(432) %9, i64 432, i1 false)
-  %276 = load i32, ptr %6, align 4
-  %277 = getelementptr inbounds i8, ptr %275, i64 432
-  store i32 %276, ptr %277, align 8
-  %278 = call ptr @wmem_file_scope() #22
-  %279 = load i32, ptr %6, align 4
-  %280 = zext i32 %279 to i64
-  %281 = call noalias ptr @wmem_memdup(ptr noundef %278, ptr noundef nonnull %7, i64 noundef %280) #22
-  %282 = getelementptr inbounds i8, ptr %275, i64 440
-  store ptr %281, ptr %282, align 8
-  %283 = call ptr @wmem_file_scope() #22
-  %284 = load i32, ptr @proto_wlan, align 4
-  call void @p_add_proto_data(ptr noundef %283, ptr noundef nonnull %1, i32 noundef %284, i32 noundef 5, ptr noundef %275) #22
+274:                                              ; preds = %269
+  %275 = call ptr @wmem_file_scope() #22
+  %276 = call noalias ptr @wmem_alloc(ptr noundef %275, i64 noundef 448) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %276, ptr noundef nonnull align 8 dereferenceable(432) %9, i64 432, i1 false)
+  %277 = load i32, ptr %6, align 4
+  %278 = getelementptr inbounds i8, ptr %276, i64 432
+  store i32 %277, ptr %278, align 8
+  %279 = call ptr @wmem_file_scope() #22
+  %280 = load i32, ptr %6, align 4
+  %281 = zext i32 %280 to i64
+  %282 = call noalias ptr @wmem_memdup(ptr noundef %279, ptr noundef nonnull %7, i64 noundef %281) #22
+  %283 = getelementptr inbounds i8, ptr %276, i64 440
+  store ptr %282, ptr %283, align 8
+  %284 = call ptr @wmem_file_scope() #22
+  %285 = load i32, ptr @proto_wlan, align 4
+  call void @p_add_proto_data(ptr noundef %284, ptr noundef nonnull %1, i32 noundef %285, i32 noundef 5, ptr noundef %276) #22
   br label %try_decrypt_keydata.exit
 
-try_decrypt_keydata.exit:                         ; preds = %256, %258, %268, %273
+try_decrypt_keydata.exit:                         ; preds = %257, %259, %269, %274
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %9)
-  br label %285
+  br label %286
 
-285:                                              ; preds = %try_decrypt_keydata.exit, %250
-  %286 = call ptr @wmem_file_scope() #22
-  %287 = load i32, ptr @proto_wlan, align 4
-  %288 = call ptr @p_get_proto_data(ptr noundef %286, ptr noundef nonnull %1, i32 noundef %287, i32 noundef 5) #22
-  %.not246 = icmp eq ptr %288, null
-  br i1 %.not246, label %ieee_80211_add_tagged_parameters.exit283, label %289
+286:                                              ; preds = %try_decrypt_keydata.exit, %251
+  %287 = call ptr @wmem_file_scope() #22
+  %288 = load i32, ptr @proto_wlan, align 4
+  %289 = call ptr @p_get_proto_data(ptr noundef %287, ptr noundef nonnull %1, i32 noundef %288, i32 noundef 5) #22
+  %.not246 = icmp eq ptr %289, null
+  br i1 %.not246, label %ieee_80211_add_tagged_parameters.exit283, label %290
 
-289:                                              ; preds = %285
-  %290 = getelementptr inbounds i8, ptr %288, i64 432
-  %291 = load i32, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %288, i64 440
-  %293 = load ptr, ptr %292, align 8
-  %294 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %293, i32 noundef %291, i32 noundef %291) #22
-  %295 = load i32, ptr @ett_wlan_rsna_eapol_keydes_data, align 4
-  %296 = call ptr @proto_item_add_subtree(ptr noundef %244, i32 noundef %295) #22
-  %297 = icmp eq i16 %160, 1
-  br i1 %297, label %298, label %312
+290:                                              ; preds = %286
+  %291 = getelementptr inbounds i8, ptr %289, i64 432
+  %292 = load i32, ptr %291, align 8
+  %293 = getelementptr inbounds i8, ptr %289, i64 440
+  %294 = load ptr, ptr %293, align 8
+  %295 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %294, i32 noundef %292, i32 noundef %292) #22
+  %296 = load i32, ptr @ett_wlan_rsna_eapol_keydes_data, align 4
+  %297 = call ptr @proto_item_add_subtree(ptr noundef %245, i32 noundef %296) #22
+  %298 = icmp eq i16 %161, 1
+  br i1 %298, label %299, label %313
 
-298:                                              ; preds = %289
-  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %294, ptr noundef nonnull @.str.9466) #22
-  %299 = load i32, ptr @enable_decryption, align 4
-  %.not.i271 = icmp eq i32 %299, 0
+299:                                              ; preds = %290
+  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %295, ptr noundef nonnull @.str.9466) #22
+  %300 = load i32, ptr @enable_decryption, align 4
+  %.not.i271 = icmp eq i32 %300, 0
   br i1 %.not.i271, label %save_proto_data_value.exit274, label %save_proto_data.exit272
 
-save_proto_data.exit272:                          ; preds = %298
-  %300 = sext i32 %291 to i64
-  %301 = getelementptr inbounds i8, ptr %1, i64 408
-  %302 = load ptr, ptr %301, align 8
-  %303 = call noalias ptr @wmem_alloc(ptr noundef %302, i64 noundef %300) #22
-  %304 = call ptr @tvb_memcpy(ptr noundef %294, ptr noundef %303, i32 noundef 0, i64 noundef %300) #22
-  %305 = load ptr, ptr %301, align 8
-  %306 = load i32, ptr @proto_wlan, align 4
-  call void @p_add_proto_data(ptr noundef %305, ptr noundef nonnull %1, i32 noundef %306, i32 noundef 22, ptr noundef %303) #22
+save_proto_data.exit272:                          ; preds = %299
+  %301 = sext i32 %292 to i64
+  %302 = getelementptr inbounds i8, ptr %1, i64 408
+  %303 = load ptr, ptr %302, align 8
+  %304 = call noalias ptr @wmem_alloc(ptr noundef %303, i64 noundef %301) #22
+  %305 = call ptr @tvb_memcpy(ptr noundef %295, ptr noundef %304, i32 noundef 0, i64 noundef %301) #22
+  %306 = load ptr, ptr %302, align 8
+  %307 = load i32, ptr @proto_wlan, align 4
+  call void @p_add_proto_data(ptr noundef %306, ptr noundef nonnull %1, i32 noundef %307, i32 noundef 22, ptr noundef %304) #22
   %.pr = load i32, ptr @enable_decryption, align 4
   %.not.i273 = icmp eq i32 %.pr, 0
-  br i1 %.not.i273, label %save_proto_data_value.exit274, label %307
+  br i1 %.not.i273, label %save_proto_data_value.exit274, label %308
 
-307:                                              ; preds = %save_proto_data.exit272
-  %308 = load ptr, ptr %301, align 8
-  %309 = load i32, ptr @proto_wlan, align 4
-  %310 = zext i32 %291 to i64
-  %311 = inttoptr i64 %310 to ptr
-  call void @p_add_proto_data(ptr noundef %308, ptr noundef nonnull %1, i32 noundef %309, i32 noundef 23, ptr noundef %311) #22
+308:                                              ; preds = %save_proto_data.exit272
+  %309 = load ptr, ptr %302, align 8
+  %310 = load i32, ptr @proto_wlan, align 4
+  %311 = zext i32 %292 to i64
+  %312 = inttoptr i64 %311 to ptr
+  call void @p_add_proto_data(ptr noundef %309, ptr noundef nonnull %1, i32 noundef %310, i32 noundef 23, ptr noundef %312) #22
   br label %save_proto_data_value.exit274
 
-312:                                              ; preds = %289
-  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %294, ptr noundef nonnull @.str.9467) #22
-  %313 = call i32 @tvb_reported_length(ptr noundef %294) #22
-  %314 = call ptr @tvb_get_ptr(ptr noundef %294, i32 noundef 0, i32 noundef %313) #22
-  %invariant.gep.i = getelementptr i8, ptr %314, i64 -1
-  %315 = icmp sgt i32 %313, 0
-  br i1 %315, label %.lr.ph.preheader.i, label %keydata_padding_len.exit
+313:                                              ; preds = %290
+  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %295, ptr noundef nonnull @.str.9467) #22
+  %314 = call i32 @tvb_reported_length(ptr noundef %295) #22
+  %315 = call ptr @tvb_get_ptr(ptr noundef %295, i32 noundef 0, i32 noundef %314) #22
+  %invariant.gep.i = getelementptr i8, ptr %315, i64 -1
+  %316 = icmp sgt i32 %314, 0
+  br i1 %316, label %.lr.ph.preheader.i, label %keydata_padding_len.exit
 
-.lr.ph.preheader.i:                               ; preds = %312
-  %316 = zext nneg i32 %313 to i64
+.lr.ph.preheader.i:                               ; preds = %313
+  %317 = zext nneg i32 %314 to i64
   br label %.lr.ph.i275
 
-.lr.ph.i275:                                      ; preds = %318, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %316, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %318 ]
+.lr.ph.i275:                                      ; preds = %319, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %317, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %319 ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %317 = load i8, ptr %gep.i, align 1
-  switch i8 %317, label %keydata_padding_len.exit [
-    i8 0, label %318
-    i8 -35, label %320
+  %318 = load i8, ptr %gep.i, align 1
+  switch i8 %318, label %keydata_padding_len.exit [
+    i8 0, label %319
+    i8 -35, label %321
   ]
 
-318:                                              ; preds = %.lr.ph.i275
+319:                                              ; preds = %.lr.ph.i275
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %319 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %319, label %.lr.ph.i275, label %keydata_padding_len.exit, !llvm.loop !63
+  %320 = icmp sgt i64 %indvars.iv.i, 1
+  br i1 %320, label %.lr.ph.i275, label %keydata_padding_len.exit, !llvm.loop !63
 
-320:                                              ; preds = %.lr.ph.i275
-  %321 = trunc i64 %indvars.iv.i to i32
-  %.neg.i = add nuw i32 %313, 1
-  %322 = sub i32 %.neg.i, %321
+321:                                              ; preds = %.lr.ph.i275
+  %322 = trunc i64 %indvars.iv.i to i32
+  %.neg.i = add nuw i32 %314, 1
+  %323 = sub i32 %.neg.i, %322
   br label %keydata_padding_len.exit
 
-keydata_padding_len.exit:                         ; preds = %.lr.ph.i275, %318, %312, %320
-  %.0.i = phi i32 [ %322, %320 ], [ 0, %312 ], [ 0, %318 ], [ 0, %.lr.ph.i275 ]
-  %323 = sub i32 %291, %.0.i
+keydata_padding_len.exit:                         ; preds = %.lr.ph.i275, %319, %313, %321
+  %.0.i = phi i32 [ %323, %321 ], [ 0, %313 ], [ 0, %319 ], [ 0, %.lr.ph.i275 ]
+  %324 = sub i32 %292, %.0.i
   store i32 0, ptr @beacon_padding, align 4
-  %324 = icmp sgt i32 %323, 0
-  br i1 %324, label %.lr.ph.split.i, label %ieee_80211_add_tagged_parameters.exit
+  %325 = icmp sgt i32 %324, 0
+  br i1 %325, label %.lr.ph.split.i, label %ieee_80211_add_tagged_parameters.exit
 
 .lr.ph.split.i:                                   ; preds = %keydata_padding_len.exit, %.thread.i
-  %.039.i = phi i32 [ %328, %.thread.i ], [ 0, %keydata_padding_len.exit ]
-  %.03038.i = phi i32 [ %329, %.thread.i ], [ %323, %keydata_padding_len.exit ]
-  %325 = call zeroext i8 @tvb_get_guint8(ptr noundef %294, i32 noundef %.039.i) #22
-  %326 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %296, ptr noundef %294, i32 noundef %.039.i, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  %327 = icmp eq i32 %326, 0
-  br i1 %327, label %ieee_80211_add_tagged_parameters.exit, label %.thread.i
+  %.039.i = phi i32 [ %329, %.thread.i ], [ 0, %keydata_padding_len.exit ]
+  %.03038.i = phi i32 [ %330, %.thread.i ], [ %324, %keydata_padding_len.exit ]
+  %326 = call zeroext i8 @tvb_get_guint8(ptr noundef %295, i32 noundef %.039.i) #22
+  %327 = call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %297, ptr noundef %295, i32 noundef %.039.i, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %328 = icmp eq i32 %327, 0
+  br i1 %328, label %ieee_80211_add_tagged_parameters.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph.split.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %326, i32 %.03038.i)
-  %328 = add i32 %spec.select.i, %.039.i
-  %329 = sub i32 %.03038.i, %spec.select.i
-  %330 = icmp sgt i32 %329, 0
-  br i1 %330, label %.lr.ph.split.i, label %ieee_80211_add_tagged_parameters.exit, !llvm.loop !60
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %327, i32 %.03038.i)
+  %329 = add i32 %spec.select.i, %.039.i
+  %330 = sub i32 %.03038.i, %spec.select.i
+  %331 = icmp sgt i32 %330, 0
+  br i1 %331, label %.lr.ph.split.i, label %ieee_80211_add_tagged_parameters.exit, !llvm.loop !60
 
 ieee_80211_add_tagged_parameters.exit:            ; preds = %.lr.ph.split.i, %.thread.i, %keydata_padding_len.exit
   %.not247 = icmp eq i32 %.0.i, 0
-  br i1 %.not247, label %save_proto_data_value.exit274, label %331
+  br i1 %.not247, label %save_proto_data_value.exit274, label %332
 
-331:                                              ; preds = %ieee_80211_add_tagged_parameters.exit
-  %332 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_padding, align 4
-  %333 = call ptr @proto_tree_add_item(ptr noundef %296, i32 noundef %332, ptr noundef %294, i32 noundef %323, i32 noundef %.0.i, i32 noundef 0) #22
+332:                                              ; preds = %ieee_80211_add_tagged_parameters.exit
+  %333 = load i32, ptr @hf_wlan_rsna_eapol_wpa_keydes_padding, align 4
+  %334 = call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %333, ptr noundef %295, i32 noundef %324, i32 noundef %.0.i, i32 noundef 0) #22
   br label %save_proto_data_value.exit274
 
-save_proto_data_value.exit274:                    ; preds = %298, %307, %save_proto_data.exit272, %ieee_80211_add_tagged_parameters.exit, %331
-  call fastcc void @add_ptk_analysis(ptr noundef %0, ptr noundef %296, ptr noundef nonnull %288)
+save_proto_data_value.exit274:                    ; preds = %299, %308, %save_proto_data.exit272, %ieee_80211_add_tagged_parameters.exit, %332
+  call fastcc void @add_ptk_analysis(ptr noundef %0, ptr noundef %297, ptr noundef nonnull %289)
   br label %ieee_80211_add_tagged_parameters.exit283
 
-334:                                              ; preds = %246
-  %335 = load i32, ptr @ett_wlan_rsna_eapol_keydes_data, align 4
-  %336 = tail call ptr @proto_item_add_subtree(ptr noundef %244, i32 noundef %335) #22
-  %337 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %231) #22
+335:                                              ; preds = %247
+  %336 = load i32, ptr @ett_wlan_rsna_eapol_keydes_data, align 4
+  %337 = tail call ptr @proto_item_add_subtree(ptr noundef %245, i32 noundef %336) #22
+  %338 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %232) #22
   store i32 0, ptr @beacon_padding, align 4
-  %338 = icmp sgt i32 %337, 0
-  br i1 %338, label %.lr.ph.split.i278, label %ieee_80211_add_tagged_parameters.exit283
+  %339 = icmp sgt i32 %338, 0
+  br i1 %339, label %.lr.ph.split.i278, label %ieee_80211_add_tagged_parameters.exit283
 
-.lr.ph.split.i278:                                ; preds = %334, %.thread.i281
-  %.039.i279 = phi i32 [ %342, %.thread.i281 ], [ %231, %334 ]
-  %.03038.i280 = phi i32 [ %343, %.thread.i281 ], [ %337, %334 ]
-  %339 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039.i279) #22
-  %340 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %336, ptr noundef %0, i32 noundef %.039.i279, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %ieee_80211_add_tagged_parameters.exit283, label %.thread.i281
+.lr.ph.split.i278:                                ; preds = %335, %.thread.i281
+  %.039.i279 = phi i32 [ %343, %.thread.i281 ], [ %232, %335 ]
+  %.03038.i280 = phi i32 [ %344, %.thread.i281 ], [ %338, %335 ]
+  %340 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039.i279) #22
+  %341 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %337, ptr noundef %0, i32 noundef %.039.i279, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %342 = icmp eq i32 %341, 0
+  br i1 %342, label %ieee_80211_add_tagged_parameters.exit283, label %.thread.i281
 
 .thread.i281:                                     ; preds = %.lr.ph.split.i278
-  %spec.select.i282 = tail call i32 @llvm.smin.i32(i32 %340, i32 %.03038.i280)
-  %342 = add i32 %spec.select.i282, %.039.i279
-  %343 = sub i32 %.03038.i280, %spec.select.i282
-  %344 = icmp sgt i32 %343, 0
-  br i1 %344, label %.lr.ph.split.i278, label %ieee_80211_add_tagged_parameters.exit283, !llvm.loop !60
+  %spec.select.i282 = tail call i32 @llvm.smin.i32(i32 %341, i32 %.03038.i280)
+  %343 = add i32 %spec.select.i282, %.039.i279
+  %344 = sub i32 %.03038.i280, %spec.select.i282
+  %345 = icmp sgt i32 %344, 0
+  br i1 %345, label %.lr.ph.split.i278, label %ieee_80211_add_tagged_parameters.exit283, !llvm.loop !60
 
-ieee_80211_add_tagged_parameters.exit283:         ; preds = %.thread.i281, %.lr.ph.split.i278, %334, %285, %save_proto_data_value.exit274
-  %345 = add nuw nsw i32 %231, %232
-  br label %346
+ieee_80211_add_tagged_parameters.exit283:         ; preds = %.thread.i281, %.lr.ph.split.i278, %335, %286, %save_proto_data_value.exit274
+  %346 = add nuw nsw i32 %232, %233
+  br label %347
 
-346:                                              ; preds = %ieee_80211_add_tagged_parameters.exit283, %save_proto_data_value.exit267
-  %.0 = phi i32 [ %345, %ieee_80211_add_tagged_parameters.exit283 ], [ %231, %save_proto_data_value.exit267 ]
-  %347 = getelementptr inbounds i8, ptr %1, i64 80
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 50
-  %350 = load i16, ptr %349, align 2
-  %351 = and i16 %350, 8
-  %352 = icmp eq i16 %351, 0
-  %or.cond18 = and i1 %.not, %352
-  br i1 %or.cond18, label %353, label %374
+347:                                              ; preds = %ieee_80211_add_tagged_parameters.exit283, %save_proto_data_value.exit267
+  %.0 = phi i32 [ %346, %ieee_80211_add_tagged_parameters.exit283 ], [ %232, %save_proto_data_value.exit267 ]
+  %348 = getelementptr inbounds i8, ptr %1, i64 80
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds i8, ptr %349, i64 50
+  %351 = load i16, ptr %350, align 2
+  %352 = and i16 %351, 8
+  %353 = icmp eq i16 %352, 0
+  %or.cond18 = and i1 %.not, %353
+  br i1 %or.cond18, label %354, label %375
 
-353:                                              ; preds = %346
+354:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
-  %354 = load i32, ptr @enable_decryption, align 4
-  %.not.i284 = icmp eq i32 %354, 0
-  br i1 %.not.i284, label %try_scan_eapol_keys.exit, label %355
+  %355 = load i32, ptr @enable_decryption, align 4
+  %.not.i284 = icmp eq i32 %355, 0
+  br i1 %.not.i284, label %try_scan_eapol_keys.exit, label %356
 
-355:                                              ; preds = %353
-  %356 = getelementptr inbounds i8, ptr %1, i64 408
-  %357 = load ptr, ptr %356, align 8
-  %358 = load i32, ptr @proto_eapol, align 4
-  %359 = call ptr @p_get_proto_data(ptr noundef %357, ptr noundef nonnull %1, i32 noundef %358, i32 noundef 0) #22
-  %360 = load ptr, ptr %356, align 8
-  %361 = load i32, ptr @proto_wlan, align 4
-  %362 = call ptr @p_get_proto_data(ptr noundef %360, ptr noundef nonnull %1, i32 noundef %361, i32 noundef 10) #22
-  %363 = load ptr, ptr %356, align 8
-  %364 = load i32, ptr @proto_wlan, align 4
-  %365 = call ptr @p_get_proto_data(ptr noundef %363, ptr noundef nonnull %1, i32 noundef %364, i32 noundef 9) #22
-  %366 = icmp ne ptr %359, null
-  %367 = icmp ne ptr %362, null
-  %or.cond.i285 = select i1 %366, i1 %367, i1 false
-  %368 = icmp ne ptr %365, null
-  %or.cond3.i286 = select i1 %or.cond.i285, i1 %368, i1 false
-  br i1 %or.cond3.i286, label %369, label %try_scan_eapol_keys.exit
+356:                                              ; preds = %354
+  %357 = getelementptr inbounds i8, ptr %1, i64 408
+  %358 = load ptr, ptr %357, align 8
+  %359 = load i32, ptr @proto_eapol, align 4
+  %360 = call ptr @p_get_proto_data(ptr noundef %358, ptr noundef nonnull %1, i32 noundef %359, i32 noundef 0) #22
+  %361 = load ptr, ptr %357, align 8
+  %362 = load i32, ptr @proto_wlan, align 4
+  %363 = call ptr @p_get_proto_data(ptr noundef %361, ptr noundef nonnull %1, i32 noundef %362, i32 noundef 10) #22
+  %364 = load ptr, ptr %357, align 8
+  %365 = load i32, ptr @proto_wlan, align 4
+  %366 = call ptr @p_get_proto_data(ptr noundef %364, ptr noundef nonnull %1, i32 noundef %365, i32 noundef 9) #22
+  %367 = icmp ne ptr %360, null
+  %368 = icmp ne ptr %363, null
+  %or.cond.i285 = select i1 %367, i1 %368, i1 false
+  %369 = icmp ne ptr %366, null
+  %or.cond3.i286 = select i1 %or.cond.i285, i1 %369, i1 false
+  br i1 %or.cond3.i286, label %370, label %try_scan_eapol_keys.exit
 
-369:                                              ; preds = %355
+370:                                              ; preds = %356
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, i8 0, i64 152, i1 false)
   call fastcc void @get_eapol_parsed(ptr noundef nonnull %1, ptr noundef nonnull %5)
-  store i32 %.0233295, ptr %5, align 8
-  %370 = getelementptr inbounds i8, ptr %359, i64 8
-  %371 = load ptr, ptr %370, align 8
-  %372 = load i32, ptr %359, align 8
-  %373 = call i32 @Dot11DecryptScanEapolForKeys(ptr noundef nonnull @dot11decrypt_ctx, ptr noundef nonnull %5, ptr noundef %371, i32 noundef %372, ptr noundef nonnull %362, ptr noundef nonnull %365) #22
+  store i32 %.0233294, ptr %5, align 8
+  %371 = getelementptr inbounds i8, ptr %360, i64 8
+  %372 = load ptr, ptr %371, align 8
+  %373 = load i32, ptr %360, align 8
+  %374 = call i32 @Dot11DecryptScanEapolForKeys(ptr noundef nonnull @dot11decrypt_ctx, ptr noundef nonnull %5, ptr noundef %372, i32 noundef %373, ptr noundef nonnull %363, ptr noundef nonnull %366) #22
   br label %try_scan_eapol_keys.exit
 
-try_scan_eapol_keys.exit:                         ; preds = %353, %355, %369
+try_scan_eapol_keys.exit:                         ; preds = %354, %356, %370
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
-  br label %374
+  br label %375
 
-374:                                              ; preds = %try_scan_eapol_keys.exit, %346
-  %375 = call i32 @tvb_captured_length(ptr noundef %0) #22
-  %376 = add i32 %375, -1
-  %377 = icmp ult i32 %.0, %376
-  br i1 %377, label %378, label %383
+375:                                              ; preds = %try_scan_eapol_keys.exit, %347
+  %376 = call i32 @tvb_captured_length(ptr noundef %0) #22
+  %377 = add i32 %376, -1
+  %378 = icmp ult i32 %.0, %377
+  br i1 %378, label %379, label %384
 
-378:                                              ; preds = %374
-  %379 = load i32, ptr @hf_wlan_rsna_eapol_wpa_extraneous, align 4
-  %380 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0) #22
-  %381 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %379, ptr noundef %0, i32 noundef %.0, i32 noundef %380, i32 noundef 0) #22
-  %382 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %381, ptr noundef nonnull @ei_ieee80211_inv_val, ptr noundef nonnull @.str.9468) #22
-  br label %383
+379:                                              ; preds = %375
+  %380 = load i32, ptr @hf_wlan_rsna_eapol_wpa_extraneous, align 4
+  %381 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0) #22
+  %382 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %380, ptr noundef %0, i32 noundef %.0, i32 noundef %381, i32 noundef 0) #22
+  %383 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %382, ptr noundef nonnull @ei_ieee80211_inv_val, ptr noundef nonnull @.str.9468) #22
+  br label %384
 
-383:                                              ; preds = %378, %374
-  %384 = call i32 @tvb_captured_length(ptr noundef %0) #22
-  ret i32 %384
+384:                                              ; preds = %379, %375
+  %385 = call i32 @tvb_captured_length(ptr noundef %0) #22
+  ret i32 %385
 }
 
 ; Function Attrs: nounwind uwtable

@@ -901,10 +901,9 @@ define dso_local i64 @date_mi(ptr nocapture noundef readonly %0) local_unnamed_a
   %7 = trunc i64 %6 to i32
   %8 = add i32 %4, -2147483647
   %or.cond = icmp ult i32 %8, 2
-  %9 = icmp eq i32 %7, -2147483648
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %9
-  %10 = icmp eq i32 %7, 2147483647
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %10
+  %9 = add i32 %7, -2147483647
+  %10 = icmp ult i32 %9, 2
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %10
   br i1 %or.cond5, label %11, label %15
 
 11:                                               ; preds = %1

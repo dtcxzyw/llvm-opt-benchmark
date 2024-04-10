@@ -1971,10 +1971,9 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %85, %87
   %96 = load i32, ptr %19, align 8
   %97 = icmp eq i32 %96, 0
   %98 = load i32, ptr %18, align 4
-  %99 = icmp sgt i32 %98, 199
-  %or.cond = select i1 %97, i1 %99, i1 false
-  %100 = icmp slt i32 %98, 300
-  %or.cond3 = select i1 %or.cond, i1 %100, i1 false
+  %99 = add i32 %98, -200
+  %100 = icmp ult i32 %99, 100
+  %or.cond3 = select i1 %97, i1 %100, i1 false
   br label %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit
 
 101:                                              ; preds = %43, %41, %39, %37, %35, %25, %_ZN5vcpkg7CommandC2ENS_10StringViewE.exit

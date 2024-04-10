@@ -2926,7 +2926,7 @@ define internal fastcc void @stream_array_from_fd_set(ptr noundef %0, ptr nocapt
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 7
-  br i1 %.not, label %6, label %64
+  br i1 %.not, label %6, label %65
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
@@ -2945,12 +2945,12 @@ define internal fastcc void @stream_array_from_fd_set(ptr noundef %0, ptr nocapt
   %16 = load ptr, ptr %15, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
-  %.05576 = phi i32 [ %.1, %62 ], [ 0, %.lr.ph.preheader ]
-  %.05675 = phi i32 [ %63, %62 ], [ %14, %.lr.ph.preheader ]
-  %.05774 = phi ptr [ %.158, %62 ], [ %16, %.lr.ph.preheader ]
-  %.06073 = phi i32 [ %.161, %62 ], [ 0, %.lr.ph.preheader ]
-  %.06272 = phi ptr [ %.163, %62 ], [ null, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %63
+  %.05576 = phi i32 [ %.1, %63 ], [ 0, %.lr.ph.preheader ]
+  %.05675 = phi i32 [ %64, %63 ], [ %14, %.lr.ph.preheader ]
+  %.05774 = phi ptr [ %.158, %63 ], [ %16, %.lr.ph.preheader ]
+  %.06073 = phi i32 [ %.161, %63 ], [ 0, %.lr.ph.preheader ]
+  %.06272 = phi ptr [ %.163, %63 ], [ null, %.lr.ph.preheader ]
   %17 = load i32, ptr %12, align 8
   %18 = and i32 %17, 4
   %.not68 = icmp eq i32 %18, 0
@@ -2978,7 +2978,7 @@ define internal fastcc void @stream_array_from_fd_set(ptr noundef %0, ptr nocapt
   %30 = getelementptr inbounds i8, ptr %.05774, i64 8
   %31 = load i8, ptr %30, align 8
   switch i8 %31, label %35 [
-    i8 0, label %62
+    i8 0, label %63
     i8 10, label %32
   ]
 
@@ -2993,61 +2993,61 @@ define internal fastcc void @stream_array_from_fd_set(ptr noundef %0, ptr nocapt
   %37 = call i32 @php_file_le_pstream() #10
   %38 = call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %.053, ptr noundef nonnull @.str.6, i32 noundef %36, i32 noundef %37) #10
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %62, label %40
+  br i1 %39, label %63, label %40
 
 40:                                               ; preds = %35
   %41 = call i32 @_php_stream_cast(ptr noundef nonnull %38, i32 noundef 536870915, ptr noundef nonnull %3, i32 noundef 1) #10
   %42 = icmp eq i32 %41, 0
   %43 = load i32, ptr %3, align 4
   %44 = icmp ne i32 %43, -1
-  %or.cond = select i1 %42, i1 %44, i1 false
   %45 = icmp slt i32 %43, 1024
-  %or.cond3 = select i1 %or.cond, i1 %45, i1 false
-  br i1 %or.cond3, label %46, label %62
+  %46 = and i1 %44, %45
+  %or.cond3 = select i1 %42, i1 %46, i1 false
+  br i1 %or.cond3, label %47, label %63
 
-46:                                               ; preds = %40
-  %47 = sdiv i32 %43, 64
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [16 x i64], ptr %1, i64 0, i64 %48
-  %50 = load i64, ptr %49, align 8
-  %51 = srem i32 %43, 64
-  %52 = zext nneg i32 %51 to i64
-  %53 = shl nuw i64 1, %52
-  %54 = and i64 %50, %53
-  %.not69 = icmp eq i64 %54, 0
-  br i1 %.not69, label %62, label %55
+47:                                               ; preds = %40
+  %48 = sdiv i32 %43, 64
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds [16 x i64], ptr %1, i64 0, i64 %49
+  %51 = load i64, ptr %50, align 8
+  %52 = srem i32 %43, 64
+  %53 = zext nneg i32 %52 to i64
+  %54 = shl nuw i64 1, %53
+  %55 = and i64 %51, %54
+  %.not69 = icmp eq i64 %55, 0
+  br i1 %.not69, label %63, label %56
 
-55:                                               ; preds = %46
+56:                                               ; preds = %47
   %.not70 = icmp eq ptr %.163, null
-  br i1 %.not70, label %56, label %58
+  br i1 %.not70, label %57, label %59
 
-56:                                               ; preds = %55
-  %57 = call ptr @zend_hash_index_update(ptr noundef %10, i64 noundef %.059, ptr noundef nonnull %.053) #10
-  br label %60
+57:                                               ; preds = %56
+  %58 = call ptr @zend_hash_index_update(ptr noundef %10, i64 noundef %.059, ptr noundef nonnull %.053) #10
+  br label %61
 
-58:                                               ; preds = %55
-  %59 = call ptr @zend_hash_update(ptr noundef %10, ptr noundef nonnull %.163, ptr noundef nonnull %.053) #10
-  br label %60
+59:                                               ; preds = %56
+  %60 = call ptr @zend_hash_update(ptr noundef %10, ptr noundef nonnull %.163, ptr noundef nonnull %.053) #10
+  br label %61
 
-60:                                               ; preds = %58, %56
-  %.054 = phi ptr [ %59, %58 ], [ %57, %56 ]
+61:                                               ; preds = %59, %57
+  %.054 = phi ptr [ %60, %59 ], [ %58, %57 ]
   call void @zval_add_ref(ptr noundef %.054) #10
-  %61 = add nsw i32 %.05576, 1
-  br label %62
+  %62 = add nsw i32 %.05576, 1
+  br label %63
 
-62:                                               ; preds = %29, %40, %46, %35, %60
-  %.1 = phi i32 [ %.05576, %29 ], [ %.05576, %35 ], [ %61, %60 ], [ %.05576, %46 ], [ %.05576, %40 ]
-  %63 = add i32 %.05675, -1
-  %.not67 = icmp eq i32 %63, 0
+63:                                               ; preds = %29, %40, %47, %35, %61
+  %.1 = phi i32 [ %.05576, %29 ], [ %.05576, %35 ], [ %62, %61 ], [ %.05576, %47 ], [ %.05576, %40 ]
+  %64 = add i32 %.05675, -1
+  %.not67 = icmp eq i32 %64, 0
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %62, %6
+._crit_edge:                                      ; preds = %63, %6
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #10
   store ptr %10, ptr %0, align 8
   store i32 775, ptr %4, align 8
-  br label %64
+  br label %65
 
-64:                                               ; preds = %2, %._crit_edge
+65:                                               ; preds = %2, %._crit_edge
   ret void
 }
 

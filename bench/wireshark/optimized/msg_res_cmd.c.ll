@@ -65,10 +65,9 @@ define internal i32 @dissect_mac_mgmt_msg_res_cmd_decoder(ptr noundef %0, ptr no
   %12 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %13 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
   %14 = icmp eq i32 %12, -1
-  %15 = icmp sgt i32 %13, 64000
-  %or.cond = select i1 %14, i1 true, i1 %15
-  %16 = icmp slt i32 %13, 1
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %16
+  %15 = add i32 %13, -64001
+  %16 = icmp ult i32 %15, -64000
+  %or.cond3 = select i1 %14, i1 true, i1 %16
   br i1 %or.cond3, label %17, label %23
 
 17:                                               ; preds = %.lr.ph

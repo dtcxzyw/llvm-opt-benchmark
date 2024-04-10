@@ -505,10 +505,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   br i1 %114, label %248, label %229
 
 229:                                              ; preds = %228
-  %230 = icmp ult i32 %175, 8232
-  %or.cond = select i1 %113, i1 true, i1 %230
-  %231 = icmp ugt i32 %175, 8233
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %231
+  %230 = add i32 %175, -8234
+  %231 = icmp ult i32 %230, -2
+  %or.cond3 = select i1 %113, i1 true, i1 %231
   br i1 %or.cond3, label %232, label %.thread1081
 
 232:                                              ; preds = %229

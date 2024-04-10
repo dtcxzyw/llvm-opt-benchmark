@@ -5460,10 +5460,10 @@ lor.lhs.false.i:                                  ; preds = %for.inc.i, %lor.lhs
 if.end5.i:                                        ; preds = %lor.lhs.false.i
   %cmp6.i = icmp ne i32 %iteration.061.i, 0
   %cmp8.i = icmp ule i64 %this_frame_sample.059.i, %sample
-  %or.cond.not51.i = select i1 %cmp6.i, i1 %cmp8.i, i1 false
   %sub10.i = sub i64 %sample, %this_frame_sample.059.i
   %cmp11.i = icmp ult i64 %sub10.i, 131071
-  %or.cond46.not.i = select i1 %or.cond.not51.i, i1 %cmp11.i, i1 false
+  %.not51.i = and i1 %cmp8.i, %cmp11.i
+  %or.cond46.not.i = select i1 %cmp6.i, i1 %.not51.i, i1 false
   br i1 %or.cond46.not.i, label %if.end36.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end5.i

@@ -679,9 +679,9 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %44 = fcmp reassoc nsz arcp contract afn olt double %40, %43
   %45 = extractelement <2 x double> %31, i64 1
   %46 = fcmp reassoc nsz arcp contract afn ogt double %45, 4.900000e-01
-  %47 = select i1 %44, i1 %46, i1 false
-  %48 = fcmp reassoc nsz arcp contract afn olt double %45, 5.100000e-01
-  %49 = select i1 %47, i1 %48, i1 false
+  %47 = fcmp reassoc nsz arcp contract afn olt double %45, 5.100000e-01
+  %48 = and i1 %46, %47
+  %49 = select i1 %44, i1 %48, i1 false
   br i1 %49, label %81, label %64
 
 50:                                               ; preds = %26
@@ -701,9 +701,9 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %58 = fcmp reassoc nsz arcp contract afn olt double %54, %57
   %59 = extractelement <2 x double> %31, i64 0
   %60 = fcmp reassoc nsz arcp contract afn ogt double %59, 4.900000e-01
-  %61 = select i1 %58, i1 %60, i1 false
-  %62 = fcmp reassoc nsz arcp contract afn olt double %59, 5.100000e-01
-  %63 = select i1 %61, i1 %62, i1 false
+  %61 = fcmp reassoc nsz arcp contract afn olt double %59, 5.100000e-01
+  %62 = and i1 %60, %61
+  %63 = select i1 %58, i1 %62, i1 false
   br i1 %63, label %81, label %64
 
 64:                                               ; preds = %._crit_edge, %56, %42, %36

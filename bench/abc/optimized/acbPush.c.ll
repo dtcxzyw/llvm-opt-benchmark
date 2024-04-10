@@ -2673,7 +2673,7 @@ define noundef i32 @Acb_ObjPushToFanins(ptr nocapture noundef readonly %0, i32 n
   %10 = getelementptr inbounds i32, ptr %.val51, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %11, 2
-  br i1 %12, label %117, label %.preheader
+  br i1 %12, label %118, label %.preheader
 
 .preheader:                                       ; preds = %3
   %13 = getelementptr i8, ptr %0, i64 120
@@ -2785,7 +2785,7 @@ Acb_ObjFindFaninPushableIndex.exit:               ; preds = %37, %69, %72
 
 77:                                               ; preds = %Acb_ObjFindFaninPushableIndex.exit
   tail call void @Acb_ObjPushToFanin(ptr noundef %0, i32 noundef %1, i32 noundef %43, i32 noundef %18)
-  br label %117
+  br label %118
 
 Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.exit.i, %Acb_ObjFindFaninPushableIndex.exit, %25, %22, %16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
@@ -2793,14 +2793,14 @@ Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.e
 
 .critedge:                                        ; preds = %Acb_ObjFindFaninPushableIndex.exit.thread
   %78 = icmp eq i32 %11, 2
-  br i1 %78, label %79, label %117
+  br i1 %78, label %79, label %118
 
 79:                                               ; preds = %.critedge
   %.val54 = load ptr, ptr %14, align 8
   %80 = getelementptr %struct.Vec_Int_t_, ptr %.val54, i64 %6, i32 1
   %.val1.i57 = load i32, ptr %80, align 4
   %81 = icmp eq i32 %.val1.i57, 1
-  br i1 %81, label %82, label %117
+  br i1 %81, label %82, label %118
 
 82:                                               ; preds = %79
   %83 = getelementptr %struct.Vec_Int_t_, ptr %.val54, i64 %6, i32 2
@@ -2810,7 +2810,7 @@ Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.e
   %86 = getelementptr inbounds i8, ptr %.val52, i64 %85
   %87 = load i8, ptr %86, align 1
   %.not = icmp eq i8 %87, 4
-  br i1 %.not, label %117, label %88
+  br i1 %.not, label %118, label %88
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds i32, ptr %.val50, i64 %85
@@ -2819,7 +2819,7 @@ Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.e
   %92 = getelementptr inbounds i32, ptr %.val51, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = icmp slt i32 %93, %2
-  br i1 %94, label %.lr.ph.i60, label %117
+  br i1 %94, label %.lr.ph.i60, label %118
 
 .lr.ph.i60:                                       ; preds = %88
   %.val.i61 = load ptr, ptr %15, align 8
@@ -2842,15 +2842,14 @@ Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.e
   %108 = and i64 %107, %96
   %109 = lshr i64 %108, %103
   %110 = or i64 %109, %108
-  %111 = icmp eq i64 %110, 0
-  %112 = add i64 %105, 1
-  %113 = icmp ult i64 %112, 2
-  %or.cond15.i = select i1 %113, i1 true, i1 %111
-  %114 = icmp eq i64 %110, -1
-  %or.cond16.i = select i1 %or.cond15.i, i1 true, i1 %114
+  %111 = add i64 %105, 1
+  %112 = icmp ult i64 %111, 2
+  %113 = add i64 %110, 1
+  %114 = icmp ult i64 %113, 2
   %115 = xor i64 %110, %105
   %116 = icmp eq i64 %115, -1
-  %or.cond18.i = select i1 %or.cond16.i, i1 true, i1 %116
+  %117 = or i1 %114, %116
+  %or.cond18.i = select i1 %112, i1 true, i1 %117
   br i1 %or.cond18.i, label %Acb_ObjFindFanoutPushableIndex.exit, label %Abc_Tt6CheckOutDec.exit.i
 
 Abc_Tt6CheckOutDec.exit.i:                        ; preds = %97
@@ -2861,9 +2860,9 @@ Abc_Tt6CheckOutDec.exit.i:                        ; preds = %97
 Acb_ObjFindFanoutPushableIndex.exit:              ; preds = %97, %Abc_Tt6CheckOutDec.exit.i
   %.0.i59 = phi i32 [ %101, %97 ], [ -1, %Abc_Tt6CheckOutDec.exit.i ]
   tail call void @Acb_ObjPushToFanout(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i59, i32 noundef %84)
-  br label %117
+  br label %118
 
-117:                                              ; preds = %.critedge, %79, %88, %82, %3, %Acb_ObjFindFanoutPushableIndex.exit, %77
+118:                                              ; preds = %.critedge, %79, %88, %82, %3, %Acb_ObjFindFanoutPushableIndex.exit, %77
   %.0 = phi i32 [ 1, %77 ], [ 1, %Acb_ObjFindFanoutPushableIndex.exit ], [ 0, %3 ], [ 0, %82 ], [ 0, %88 ], [ 0, %79 ], [ 0, %.critedge ]
   ret i32 %.0
 }

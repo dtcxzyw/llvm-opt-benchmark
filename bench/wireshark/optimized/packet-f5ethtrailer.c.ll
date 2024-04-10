@@ -1493,14 +1493,12 @@ define internal noundef i32 @dissect_f5ethtrailer(ptr noundef %0, ptr noundef %1
   %43 = add i32 %.1, 2
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #7
   %45 = icmp ule i32 %42, %16
-  %46 = icmp ne i8 %38, 0
-  %or.cond = select i1 %45, i1 %46, i1 false
-  %47 = icmp ult i8 %38, 4
-  %or.cond3 = select i1 %or.cond, i1 %47, i1 false
-  %48 = icmp ugt i8 %40, 4
-  %or.cond5 = select i1 %or.cond3, i1 %48, i1 false
-  %49 = icmp ult i8 %40, -117
-  %or.cond7 = select i1 %or.cond5, i1 %49, i1 false
+  %46 = add i8 %38, -1
+  %47 = icmp ult i8 %46, 3
+  %or.cond3 = select i1 %45, i1 %47, i1 false
+  %48 = add i8 %40, -5
+  %49 = icmp ult i8 %48, -122
+  %or.cond7 = select i1 %or.cond3, i1 %49, i1 false
   %50 = icmp ult i8 %44, 4
   %or.cond9 = select i1 %or.cond7, i1 %50, i1 false
   br i1 %or.cond9, label %.loopexit135, label %51

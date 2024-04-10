@@ -3196,12 +3196,12 @@ define noundef i32 @job_defaults_list(ptr noundef %0, ptr nocapture noundef writ
   store ptr null, ptr %5, align 8
   store ptr null, ptr %1, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %32, label %6
+  br i1 %.not, label %31, label %6
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %32, label %9
+  br i1 %8, label %31, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #18
@@ -3211,11 +3211,11 @@ define noundef i32 @job_defaults_list(ptr noundef %0, ptr nocapture noundef writ
   %.not3748 = icmp eq ptr %12, null
   br i1 %.not3748, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9, %26
-  %.03149 = phi ptr [ %29, %26 ], [ %12, %9 ]
+.lr.ph:                                           ; preds = %9, %25
+  %.03149 = phi ptr [ %28, %25 ], [ %12, %9 ]
   %13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03149, i32 noundef 61) #19
   %.not38 = icmp eq ptr %13, null
-  br i1 %.not38, label %30, label %14
+  br i1 %.not38, label %29, label %14
 
 14:                                               ; preds = %.lr.ph
   store i8 0, ptr %13, align 1
@@ -3226,7 +3226,7 @@ define noundef i32 @job_defaults_list(ptr noundef %0, ptr nocapture noundef writ
 16:                                               ; preds = %14
   %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.03149, ptr noundef nonnull @.str.45) #18
   %.not2.i = icmp eq i32 %17, 0
-  br i1 %.not2.i, label %select.unfold, label %30
+  br i1 %.not2.i, label %select.unfold, label %29
 
 select.unfold:                                    ; preds = %16, %14
   %.0.i.ph = phi i16 [ 1, %14 ], [ 2, %16 ]
@@ -3234,43 +3234,41 @@ select.unfold:                                    ; preds = %16, %14
   %19 = call i64 @strtoll(ptr noundef nonnull %18, ptr noundef nonnull %3, i32 noundef 10) #18
   %20 = load ptr, ptr %3, align 8
   %.not39 = icmp eq ptr %20, null
-  br i1 %.not39, label %30, label %21
+  br i1 %.not39, label %29, label %21
 
 21:                                               ; preds = %select.unfold
   %22 = load i8, ptr %20, align 1
   %23 = icmp ne i8 %22, 0
-  %24 = icmp slt i64 %19, 0
-  %or.cond = select i1 %23, i1 true, i1 %24
-  %25 = icmp eq i64 %19, 9223372036854775807
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %25
-  br i1 %or.cond3, label %30, label %26
+  %24 = icmp ugt i64 %19, 9223372036854775806
+  %or.cond3 = select i1 %23, i1 true, i1 %24
+  br i1 %or.cond3, label %29, label %25
 
-26:                                               ; preds = %21
-  %27 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.228, i32 noundef 1280, ptr noundef nonnull @__func__.job_defaults_list) #18
-  store i16 %.0.i.ph, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 %19, ptr %28, align 8
-  call void @list_append(ptr noundef %10, ptr noundef nonnull %27) #18
-  %29 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.229, ptr noundef nonnull %5) #18
-  %.not37 = icmp eq ptr %29, null
+25:                                               ; preds = %21
+  %26 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.228, i32 noundef 1280, ptr noundef nonnull @__func__.job_defaults_list) #18
+  store i16 %.0.i.ph, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %19, ptr %27, align 8
+  call void @list_append(ptr noundef %10, ptr noundef nonnull %26) #18
+  %28 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.229, ptr noundef nonnull %5) #18
+  %.not37 = icmp eq ptr %28, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-30:                                               ; preds = %16, %select.unfold, %21, %.lr.ph
+29:                                               ; preds = %16, %select.unfold, %21, %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %4) #18
   %.not41 = icmp eq ptr %10, null
-  br i1 %.not41, label %32, label %31
+  br i1 %.not41, label %31, label %30
 
-31:                                               ; preds = %30
+30:                                               ; preds = %29
   call void @list_destroy(ptr noundef nonnull %10) #18
-  br label %32
+  br label %31
 
-._crit_edge:                                      ; preds = %26, %9
+._crit_edge:                                      ; preds = %25, %9
   call void @slurm_xfree(ptr noundef nonnull %4) #18
   store ptr %10, ptr %1, align 8
-  br label %32
+  br label %31
 
-32:                                               ; preds = %._crit_edge, %31, %30, %2, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 22, %30 ], [ 22, %31 ], [ 0, %._crit_edge ]
+31:                                               ; preds = %._crit_edge, %30, %29, %2, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 22, %29 ], [ 22, %30 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

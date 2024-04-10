@@ -36,7 +36,7 @@ define hidden noundef i32 @ps_open_files(ptr nocapture noundef %0, ptr noundef %
   %8 = tail call ptr @php_get_temporary_directory() #15
   %9 = tail call i32 @php_check_open_basedir(ptr noundef %8) #15
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %58
+  br i1 %.not, label %10, label %57
 
 10:                                               ; preds = %7, %3
   %.094 = phi ptr [ %8, %7 ], [ %1, %3 ]
@@ -74,7 +74,7 @@ define hidden noundef i32 @ps_open_files(ptr nocapture noundef %0, ptr noundef %
 
 28:                                               ; preds = %19
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.1) #15
-  br label %58
+  br label %57
 
 29:                                               ; preds = %19
   br i1 %13, label %30, label %.thread105
@@ -87,58 +87,56 @@ define hidden noundef i32 @ps_open_files(ptr nocapture noundef %0, ptr noundef %
   %34 = trunc i64 %33 to i32
   %35 = load i32, ptr %23, align 4
   %36 = icmp eq i32 %35, 34
-  %37 = icmp slt i32 %34, 0
-  %or.cond = select i1 %36, i1 true, i1 %37
-  %38 = icmp sgt i32 %34, 4095
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %38
-  br i1 %or.cond3, label %39, label %.thread105
+  %37 = icmp ugt i32 %34, 4095
+  %or.cond3 = select i1 %36, i1 true, i1 %37
+  br i1 %or.cond3, label %38, label %.thread105
 
-39:                                               ; preds = %30
+38:                                               ; preds = %30
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.2) #15
-  br label %58
+  br label %57
 
 .thread105:                                       ; preds = %10, %30, %29
   %.088110 = phi i64 [ %25, %30 ], [ %25, %29 ], [ 0, %10 ]
   %.191101109 = phi ptr [ %16, %30 ], [ %16, %29 ], [ %.094, %10 ]
   %.0 = phi i32 [ %34, %30 ], [ 384, %29 ], [ 384, %10 ]
-  %40 = tail call noalias dereferenceable_or_null(40) ptr @_ecalloc(i64 noundef 1, i64 noundef 40) #18
-  %41 = getelementptr inbounds i8, ptr %40, i64 36
-  store i32 -1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
-  store i64 %.088110, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 32
-  store i32 %.0, ptr %43, align 8
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.191101109) #16
-  %45 = and i64 %44, -8
-  %46 = add i64 %45, 32
-  %47 = tail call noalias ptr @_emalloc(i64 noundef %46) #19
-  store i32 1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
-  store i32 22, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
-  store i64 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
-  store i64 %44, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 1 %.191101109, i64 %44, i1 false)
-  %52 = getelementptr inbounds [1 x i8], ptr %51, i64 0, i64 %44
-  store i8 0, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %47, ptr %53, align 8
-  %54 = load ptr, ptr %0, align 8
-  %.not98 = icmp eq ptr %54, null
-  br i1 %.not98, label %57, label %55
+  %39 = tail call noalias dereferenceable_or_null(40) ptr @_ecalloc(i64 noundef 1, i64 noundef 40) #18
+  %40 = getelementptr inbounds i8, ptr %39, i64 36
+  store i32 -1, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  store i64 %.088110, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 32
+  store i32 %.0, ptr %42, align 8
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.191101109) #16
+  %44 = and i64 %43, -8
+  %45 = add i64 %44, 32
+  %46 = tail call noalias ptr @_emalloc(i64 noundef %45) #19
+  store i32 1, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  store i32 22, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  store i64 0, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  store i64 %43, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %46, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr align 1 %.191101109, i64 %43, i1 false)
+  %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 %43
+  store i8 0, ptr %51, align 1
+  %52 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %46, ptr %52, align 8
+  %53 = load ptr, ptr %0, align 8
+  %.not98 = icmp eq ptr %53, null
+  br i1 %.not98, label %56, label %54
 
-55:                                               ; preds = %.thread105
-  %56 = tail call i32 @ps_close_files(ptr noundef nonnull %0)
+54:                                               ; preds = %.thread105
+  %55 = tail call i32 @ps_close_files(ptr noundef nonnull %0)
+  br label %56
+
+56:                                               ; preds = %54, %.thread105
+  store ptr %39, ptr %0, align 8
   br label %57
 
-57:                                               ; preds = %55, %.thread105
-  store ptr %40, ptr %0, align 8
-  br label %58
-
-58:                                               ; preds = %7, %57, %39, %28
-  %.093 = phi i32 [ -1, %28 ], [ -1, %39 ], [ 0, %57 ], [ -1, %7 ]
+57:                                               ; preds = %7, %56, %38, %28
+  %.093 = phi i32 [ -1, %28 ], [ -1, %38 ], [ 0, %56 ], [ -1, %7 ]
   ret i32 %.093
 }
 

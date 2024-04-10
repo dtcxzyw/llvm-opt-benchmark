@@ -133,7 +133,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
   %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
-  br label %73
+  br label %72
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -153,7 +153,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
   %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
-  br label %73
+  br label %72
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %16, align 8
@@ -165,82 +165,80 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
-  br label %73
+  br label %72
 
 33:                                               ; preds = %26
   %34 = call i32 @xmlUTF8Strlen(ptr noundef nonnull %29) #6
   %35 = load i64, ptr %3, align 8
   %36 = load i64, ptr %4, align 8
-  %37 = icmp slt i64 %36, 0
-  %38 = icmp ugt i64 %35, 2147483647
-  %or.cond89 = select i1 %38, i1 true, i1 %37
-  %39 = icmp sgt i64 %36, 2147483647
-  %or.cond90 = select i1 %or.cond89, i1 true, i1 %39
-  br i1 %or.cond90, label %43, label %40
+  %37 = icmp ugt i64 %35, 2147483647
+  %38 = icmp ugt i64 %36, 2147483647
+  %or.cond90 = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond90, label %42, label %39
 
-40:                                               ; preds = %33
-  %41 = sext i32 %34 to i64
-  %42 = icmp sgt i64 %35, %41
-  br i1 %42, label %43, label %48
+39:                                               ; preds = %33
+  %40 = sext i32 %34 to i64
+  %41 = icmp sgt i64 %35, %40
+  br i1 %41, label %42, label %47
 
-43:                                               ; preds = %40, %33
-  %44 = getelementptr inbounds i8, ptr %14, i64 -16
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 @dom_get_strict_error(ptr noundef %45) #6
-  call void @php_dom_throw_error(i32 noundef 1, i32 noundef %46) #6
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %47, align 8
-  br label %73
+42:                                               ; preds = %39, %33
+  %43 = getelementptr inbounds i8, ptr %14, i64 -16
+  %44 = load ptr, ptr %43, align 8
+  %45 = call i32 @dom_get_strict_error(ptr noundef %44) #6
+  call void @php_dom_throw_error(i32 noundef 1, i32 noundef %45) #6
+  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %46, align 8
+  br label %72
 
-48:                                               ; preds = %40
-  %49 = add nuw nsw i64 %36, %35
-  %50 = icmp ugt i64 %49, %41
-  br i1 %50, label %51, label %53
+47:                                               ; preds = %39
+  %48 = add nuw nsw i64 %36, %35
+  %49 = icmp ugt i64 %48, %40
+  br i1 %49, label %50, label %52
 
-51:                                               ; preds = %48
-  %52 = sub nsw i64 %41, %35
-  store i64 %52, ptr %4, align 8
-  br label %53
+50:                                               ; preds = %47
+  %51 = sub nsw i64 %40, %35
+  store i64 %51, ptr %4, align 8
+  br label %52
 
-53:                                               ; preds = %51, %48
-  %54 = phi i64 [ %52, %51 ], [ %36, %48 ]
-  %55 = trunc i64 %35 to i32
-  %56 = trunc i64 %54 to i32
-  %57 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef %55, i32 noundef %56) #6
-  %.not = icmp eq ptr %57, null
-  br i1 %.not, label %70, label %58
+52:                                               ; preds = %50, %47
+  %53 = phi i64 [ %51, %50 ], [ %36, %47 ]
+  %54 = trunc i64 %35 to i32
+  %55 = trunc i64 %53 to i32
+  %56 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef %54, i32 noundef %55) #6
+  %.not = icmp eq ptr %56, null
+  br i1 %.not, label %69, label %57
 
-58:                                               ; preds = %53
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #7
-  %60 = and i64 %59, -8
-  %61 = add i64 %60, 32
-  %62 = call noalias ptr @_emalloc(i64 noundef %61) #8
-  store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
-  store i32 22, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %62, i64 8
-  store i64 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %62, i64 16
-  store i64 %59, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %62, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %66, ptr nonnull align 1 %57, i64 %59, i1 false)
-  %67 = getelementptr inbounds [1 x i8], ptr %66, i64 0, i64 %59
-  store i8 0, ptr %67, align 1
-  store ptr %62, ptr %1, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %68, align 8
-  %69 = load ptr, ptr @xmlFree, align 8
-  call void %69(ptr noundef nonnull %57) #6
-  br label %73
+57:                                               ; preds = %52
+  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #7
+  %59 = and i64 %58, -8
+  %60 = add i64 %59, 32
+  %61 = call noalias ptr @_emalloc(i64 noundef %60) #8
+  store i32 1, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  store i32 22, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  store i64 0, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  store i64 %58, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %61, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 1 %56, i64 %58, i1 false)
+  %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
+  store i8 0, ptr %66, align 1
+  store ptr %61, ptr %1, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %67, align 8
+  %68 = load ptr, ptr @xmlFree, align 8
+  call void %68(ptr noundef nonnull %56) #6
+  br label %72
 
-70:                                               ; preds = %53
-  %71 = load ptr, ptr @zend_empty_string, align 8
-  store ptr %71, ptr %1, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 6, ptr %72, align 8
-  br label %73
+69:                                               ; preds = %52
+  %70 = load ptr, ptr @zend_empty_string, align 8
+  store ptr %70, ptr %1, align 8
+  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 6, ptr %71, align 8
+  br label %72
 
-73:                                               ; preds = %70, %58, %43, %31, %18, %9
+72:                                               ; preds = %69, %57, %42, %31, %18, %9
   ret void
 }
 
@@ -420,7 +418,7 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
   %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
-  br label %70
+  br label %69
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -440,7 +438,7 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
   %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
-  br label %70
+  br label %69
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %16, align 8
@@ -452,75 +450,73 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
-  br label %70
+  br label %69
 
 33:                                               ; preds = %26
   %34 = call i32 @xmlUTF8Strlen(ptr noundef nonnull %29) #6
   %35 = load i64, ptr %3, align 8
   %36 = load i64, ptr %4, align 8
-  %37 = icmp slt i64 %36, 0
-  %38 = icmp ugt i64 %35, 2147483647
-  %or.cond30 = select i1 %38, i1 true, i1 %37
-  %39 = icmp sgt i64 %36, 2147483647
-  %or.cond31 = select i1 %or.cond30, i1 true, i1 %39
-  br i1 %or.cond31, label %43, label %40
+  %37 = icmp ugt i64 %35, 2147483647
+  %38 = icmp ugt i64 %36, 2147483647
+  %or.cond31 = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond31, label %42, label %39
 
-40:                                               ; preds = %33
-  %41 = sext i32 %34 to i64
-  %42 = icmp sgt i64 %35, %41
-  br i1 %42, label %43, label %48
+39:                                               ; preds = %33
+  %40 = sext i32 %34 to i64
+  %41 = icmp sgt i64 %35, %40
+  br i1 %41, label %42, label %47
 
-43:                                               ; preds = %40, %33
-  %44 = getelementptr inbounds i8, ptr %14, i64 -16
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 @dom_get_strict_error(ptr noundef %45) #6
-  call void @php_dom_throw_error(i32 noundef 1, i32 noundef %46) #6
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %47, align 8
-  br label %70
+42:                                               ; preds = %39, %33
+  %43 = getelementptr inbounds i8, ptr %14, i64 -16
+  %44 = load ptr, ptr %43, align 8
+  %45 = call i32 @dom_get_strict_error(ptr noundef %44) #6
+  call void @php_dom_throw_error(i32 noundef 1, i32 noundef %45) #6
+  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %46, align 8
+  br label %69
 
-48:                                               ; preds = %40
+47:                                               ; preds = %39
   %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %52, label %49
+  br i1 %.not, label %51, label %48
 
-49:                                               ; preds = %48
-  %50 = trunc i64 %35 to i32
-  %51 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef 0, i32 noundef %50) #6
+48:                                               ; preds = %47
+  %49 = trunc i64 %35 to i32
+  %50 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef 0, i32 noundef %49) #6
   %.pre = load i64, ptr %3, align 8
   %.pre32 = load i64, ptr %4, align 8
-  br label %52
+  br label %51
 
-52:                                               ; preds = %48, %49
-  %53 = phi i64 [ %.pre32, %49 ], [ %36, %48 ]
-  %54 = phi i64 [ %.pre, %49 ], [ 0, %48 ]
-  %.0 = phi ptr [ %51, %49 ], [ null, %48 ]
-  %55 = add nsw i64 %53, %54
-  %56 = icmp sgt i64 %55, %41
-  br i1 %56, label %57, label %59
+51:                                               ; preds = %47, %48
+  %52 = phi i64 [ %.pre32, %48 ], [ %36, %47 ]
+  %53 = phi i64 [ %.pre, %48 ], [ 0, %47 ]
+  %.0 = phi ptr [ %50, %48 ], [ null, %47 ]
+  %54 = add nsw i64 %52, %53
+  %55 = icmp sgt i64 %54, %40
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %52
-  %58 = sub nsw i64 %41, %54
-  store i64 %58, ptr %4, align 8
-  br label %59
+56:                                               ; preds = %51
+  %57 = sub nsw i64 %40, %53
+  store i64 %57, ptr %4, align 8
+  br label %58
 
-59:                                               ; preds = %57, %52
-  %60 = phi i64 [ %58, %57 ], [ %53, %52 ]
-  %61 = trunc i64 %54 to i32
-  %62 = trunc i64 %60 to i32
-  %63 = add nsw i32 %62, %61
-  %64 = sub nsw i32 %34, %61
-  %65 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef %63, i32 noundef %64) #6
-  %66 = call ptr @xmlStrcat(ptr noundef %.0, ptr noundef %65) #6
-  call void @xmlNodeSetContent(ptr noundef nonnull %27, ptr noundef %66) #6
+58:                                               ; preds = %56, %51
+  %59 = phi i64 [ %57, %56 ], [ %52, %51 ]
+  %60 = trunc i64 %53 to i32
+  %61 = trunc i64 %59 to i32
+  %62 = add nsw i32 %61, %60
+  %63 = sub nsw i32 %34, %60
+  %64 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef %62, i32 noundef %63) #6
+  %65 = call ptr @xmlStrcat(ptr noundef %.0, ptr noundef %64) #6
+  call void @xmlNodeSetContent(ptr noundef nonnull %27, ptr noundef %65) #6
+  %66 = load ptr, ptr @xmlFree, align 8
+  call void %66(ptr noundef %64) #6
   %67 = load ptr, ptr @xmlFree, align 8
   call void %67(ptr noundef %65) #6
-  %68 = load ptr, ptr @xmlFree, align 8
-  call void %68(ptr noundef %66) #6
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %69, align 8
-  br label %70
+  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %68, align 8
+  br label %69
 
-70:                                               ; preds = %59, %43, %31, %18, %9
+69:                                               ; preds = %58, %42, %31, %18, %9
   ret void
 }
 
@@ -542,7 +538,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
-  br label %79
+  br label %78
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -562,7 +558,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  br label %79
+  br label %78
 
 28:                                               ; preds = %14
   %29 = load ptr, ptr %18, align 8
@@ -574,92 +570,90 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %34, align 8
-  br label %79
+  br label %78
 
 35:                                               ; preds = %28
   %36 = call i32 @xmlUTF8Strlen(ptr noundef nonnull %31) #6
   %37 = load i64, ptr %4, align 8
   %38 = load i64, ptr %5, align 8
-  %39 = icmp slt i64 %38, 0
-  %40 = icmp ugt i64 %37, 2147483647
-  %or.cond35 = select i1 %40, i1 true, i1 %39
-  %41 = icmp sgt i64 %38, 2147483647
-  %or.cond36 = select i1 %or.cond35, i1 true, i1 %41
-  br i1 %or.cond36, label %45, label %42
+  %39 = icmp ugt i64 %37, 2147483647
+  %40 = icmp ugt i64 %38, 2147483647
+  %or.cond36 = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond36, label %44, label %41
 
-42:                                               ; preds = %35
-  %43 = sext i32 %36 to i64
-  %44 = icmp sgt i64 %37, %43
-  br i1 %44, label %45, label %50
+41:                                               ; preds = %35
+  %42 = sext i32 %36 to i64
+  %43 = icmp sgt i64 %37, %42
+  br i1 %43, label %44, label %49
 
-45:                                               ; preds = %42, %35
-  %46 = getelementptr inbounds i8, ptr %16, i64 -16
-  %47 = load ptr, ptr %46, align 8
-  %48 = call i32 @dom_get_strict_error(ptr noundef %47) #6
-  call void @php_dom_throw_error(i32 noundef 1, i32 noundef %48) #6
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %49, align 8
-  br label %79
+44:                                               ; preds = %41, %35
+  %45 = getelementptr inbounds i8, ptr %16, i64 -16
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 @dom_get_strict_error(ptr noundef %46) #6
+  call void @php_dom_throw_error(i32 noundef 1, i32 noundef %47) #6
+  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %48, align 8
+  br label %78
 
-50:                                               ; preds = %42
+49:                                               ; preds = %41
   %.not37 = icmp eq i64 %37, 0
-  br i1 %.not37, label %54, label %51
+  br i1 %.not37, label %53, label %50
 
-51:                                               ; preds = %50
-  %52 = trunc i64 %37 to i32
-  %53 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %52) #6
+50:                                               ; preds = %49
+  %51 = trunc i64 %37 to i32
+  %52 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %51) #6
   %.pre = load i64, ptr %4, align 8
   %.pre38 = load i64, ptr %5, align 8
-  br label %54
+  br label %53
 
-54:                                               ; preds = %50, %51
-  %55 = phi i64 [ %.pre38, %51 ], [ %38, %50 ]
-  %56 = phi i64 [ %.pre, %51 ], [ 0, %50 ]
-  %.0 = phi ptr [ %53, %51 ], [ null, %50 ]
-  %57 = add nsw i64 %55, %56
-  %58 = icmp sgt i64 %57, %43
-  br i1 %58, label %59, label %61
+53:                                               ; preds = %49, %50
+  %54 = phi i64 [ %.pre38, %50 ], [ %38, %49 ]
+  %55 = phi i64 [ %.pre, %50 ], [ 0, %49 ]
+  %.0 = phi ptr [ %52, %50 ], [ null, %49 ]
+  %56 = add nsw i64 %54, %55
+  %57 = icmp sgt i64 %56, %42
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %54
-  %60 = sub nsw i64 %43, %56
-  store i64 %60, ptr %5, align 8
-  br label %61
+58:                                               ; preds = %53
+  %59 = sub nsw i64 %42, %55
+  store i64 %59, ptr %5, align 8
+  br label %60
 
-61:                                               ; preds = %59, %54
-  %62 = phi i64 [ %60, %59 ], [ %55, %54 ]
-  %63 = icmp slt i64 %56, %43
-  br i1 %63, label %64, label %70
+60:                                               ; preds = %58, %53
+  %61 = phi i64 [ %59, %58 ], [ %54, %53 ]
+  %62 = icmp slt i64 %55, %42
+  br i1 %62, label %63, label %69
 
-64:                                               ; preds = %61
-  %65 = trunc i64 %56 to i32
-  %66 = add i64 %62, %56
-  %67 = trunc i64 %66 to i32
-  %68 = sub nsw i32 %36, %65
-  %69 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %31, i32 noundef %67, i32 noundef %68) #6
-  br label %70
+63:                                               ; preds = %60
+  %64 = trunc i64 %55 to i32
+  %65 = add i64 %61, %55
+  %66 = trunc i64 %65 to i32
+  %67 = sub nsw i32 %36, %64
+  %68 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %31, i32 noundef %66, i32 noundef %67) #6
+  br label %69
 
-70:                                               ; preds = %64, %61
-  %.028 = phi ptr [ %69, %64 ], [ null, %61 ]
-  %71 = load ptr, ptr %3, align 8
-  %72 = call ptr @xmlStrcat(ptr noundef %.0, ptr noundef %71) #6
-  %73 = call ptr @xmlStrcat(ptr noundef %72, ptr noundef %.028) #6
-  call void @xmlNodeSetContent(ptr noundef nonnull %29, ptr noundef %73) #6
+69:                                               ; preds = %63, %60
+  %.028 = phi ptr [ %68, %63 ], [ null, %60 ]
+  %70 = load ptr, ptr %3, align 8
+  %71 = call ptr @xmlStrcat(ptr noundef %.0, ptr noundef %70) #6
+  %72 = call ptr @xmlStrcat(ptr noundef %71, ptr noundef %.028) #6
+  call void @xmlNodeSetContent(ptr noundef nonnull %29, ptr noundef %72) #6
   %.not = icmp eq ptr %.028, null
-  br i1 %.not, label %76, label %74
+  br i1 %.not, label %75, label %73
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr @xmlFree, align 8
-  call void %75(ptr noundef nonnull %.028) #6
-  br label %76
+73:                                               ; preds = %69
+  %74 = load ptr, ptr @xmlFree, align 8
+  call void %74(ptr noundef nonnull %.028) #6
+  br label %75
 
-76:                                               ; preds = %74, %70
-  %77 = load ptr, ptr @xmlFree, align 8
-  call void %77(ptr noundef %73) #6
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %78, align 8
-  br label %79
+75:                                               ; preds = %73, %69
+  %76 = load ptr, ptr @xmlFree, align 8
+  call void %76(ptr noundef %72) #6
+  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %77, align 8
+  br label %78
 
-79:                                               ; preds = %76, %45, %33, %20, %11
+78:                                               ; preds = %75, %44, %33, %20, %11
   ret void
 }
 

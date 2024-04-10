@@ -2367,19 +2367,18 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
   %265 = trunc i8 %264 to i1
   %266 = getelementptr inbounds i8, ptr %12, i64 8
   %267 = load ptr, ptr %266, align 8
-  %268 = icmp eq ptr %267, null
-  %not. = xor i1 %265, true
-  %or.cond = select i1 %not., i1 true, i1 %268
-  %269 = icmp eq ptr %267, @launch_g_fwd_signal
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %269
-  br i1 %or.cond5, label %270, label %286
+  %268 = icmp ne ptr %267, null
+  %269 = icmp ne ptr %267, @launch_g_fwd_signal
+  %.not136 = and i1 %268, %269
+  %or.cond5.not = select i1 %265, i1 %.not136, i1 false
+  br i1 %or.cond5.not, label %286, label %270
 
 270:                                              ; preds = %262
   %271 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr @_task_finish, ptr %271, align 8
   %272 = call i32 @pthread_mutex_lock(ptr noundef nonnull @launch_lock) #18
-  %.not133 = icmp eq i32 %272, 0
-  br i1 %.not133, label %275, label %273
+  %.not137 = icmp eq i32 %272, 0
+  br i1 %.not137, label %275, label %273
 
 273:                                              ; preds = %270
   %274 = tail call ptr @__errno_location() #20
@@ -2389,8 +2388,8 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
 
 275:                                              ; preds = %270
   %276 = load ptr, ptr @opt_save, align 8
-  %.not134 = icmp eq ptr %276, null
-  br i1 %.not134, label %277, label %282
+  %.not138 = icmp eq ptr %276, null
+  br i1 %.not138, label %277, label %282
 
 277:                                              ; preds = %275
   %278 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 792, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1488, ptr noundef nonnull @__func__.launch_g_step_launch) #18
@@ -2405,8 +2404,8 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
 
 282:                                              ; preds = %275, %277
   %283 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @launch_lock) #18
-  %.not135 = icmp eq i32 %283, 0
-  br i1 %.not135, label %286, label %284
+  %.not139 = icmp eq i32 %283, 0
+  br i1 %.not139, label %286, label %284
 
 284:                                              ; preds = %282
   %285 = tail call ptr @__errno_location() #20
@@ -2423,8 +2422,8 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
 
 289:                                              ; preds = %286
   %290 = call i32 @slurm_step_launch(ptr noundef %288, ptr noundef nonnull %11, ptr noundef nonnull %12) #18
-  %.not137 = icmp eq i32 %290, 0
-  br i1 %.not137, label %309, label %291
+  %.not141 = icmp eq i32 %290, 0
+  br i1 %.not141, label %309, label %291
 
 291:                                              ; preds = %289
   %292 = tail call ptr @__errno_location() #20
@@ -2442,8 +2441,8 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
   %299 = getelementptr inbounds i8, ptr %0, i64 216
   %300 = load ptr, ptr %299, align 8
   %301 = call i32 @slurm_step_launch_add(ptr noundef %288, ptr noundef %288, ptr noundef nonnull %11, ptr noundef %300) #18
-  %.not136 = icmp eq i32 %301, 0
-  br i1 %.not136, label %309, label %302
+  %.not140 = icmp eq i32 %301, 0
+  br i1 %.not140, label %309, label %302
 
 302:                                              ; preds = %298
   %303 = tail call ptr @__errno_location() #20
@@ -2488,12 +2487,12 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
   br label %328
 
 328:                                              ; preds = %322, %316
-  %.val138 = load ptr, ptr %14, align 8
+  %.val142 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %329 = call i32 @pthread_mutex_lock(ptr noundef nonnull @start_mutex) #18
-  %.not.i139 = icmp eq i32 %329, 0
-  br i1 %.not.i139, label %332, label %330
+  %.not.i143 = icmp eq i32 %329, 0
+  br i1 %.not.i143, label %332, label %330
 
 330:                                              ; preds = %328
   %331 = tail call ptr @__errno_location() #20
@@ -2507,7 +2506,7 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
   br i1 %334, label %335, label %338
 
 335:                                              ; preds = %332
-  %336 = getelementptr inbounds i8, ptr %.val138, i64 152
+  %336 = getelementptr inbounds i8, ptr %.val142, i64 152
   %337 = load i32, ptr %336, align 8
   store i32 %337, ptr @_wait_all_het_job_comps_started.total_cnt, align 4
   br label %338

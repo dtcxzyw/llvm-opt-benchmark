@@ -260,20 +260,19 @@ define dso_local zeroext i1 @usb_amd_hang_symptom_quirk() #0 align 16 {
   tail call fastcc void @usb_amd_find_chipset_info()
   %1 = load i32, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3), align 4
   %2 = icmp eq i32 %1, 1
-  br i1 %2, label %10, label %3
+  br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
   %4 = load i8, ptr getelementptr inbounds (%struct.amd_chipset_info, ptr @amd_chipset, i64 0, i32 3, i32 1), align 8
   %5 = icmp eq i32 %1, 2
-  %6 = icmp ugt i8 %4, 57
-  %7 = select i1 %5, i1 %6, i1 false
-  %8 = icmp ult i8 %4, 60
-  %9 = select i1 %7, i1 %8, i1 false
-  br label %10
+  %6 = and i8 %4, -2
+  %7 = icmp eq i8 %6, 58
+  %8 = select i1 %5, i1 %7, i1 false
+  br label %9
 
-10:                                               ; preds = %3, %0
-  %11 = phi i1 [ true, %0 ], [ %9, %3 ]
-  ret i1 %11
+9:                                                ; preds = %3, %0
+  %10 = phi i1 [ true, %0 ], [ %8, %3 ]
+  ret i1 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

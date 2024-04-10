@@ -1547,10 +1547,10 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr nocapture noun
   %22 = phi i64 [ %23, %.preheader11 ], [ %13, %4 ]
   %23 = lshr exact i64 %22, 10
   %24 = icmp ne i64 %22, 0
-  %25 = select i1 %20, i1 %24, i1 false
-  %26 = and i64 %22, 1047552
-  %27 = icmp eq i64 %26, 0
-  %28 = select i1 %25, i1 %27, i1 false
+  %25 = and i64 %22, 1047552
+  %26 = icmp eq i64 %25, 0
+  %27 = and i1 %24, %26
+  %28 = select i1 %20, i1 %27, i1 false
   br i1 %28, label %.preheader11, label %.loopexit12.loopexit, !llvm.loop !31
 
 .loopexit12.loopexit:                             ; preds = %.preheader11
@@ -1582,10 +1582,10 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr nocapture noun
   %40 = phi i64 [ %41, %.preheader9 ], [ %31, %.loopexit12 ]
   %41 = lshr exact i64 %40, 10
   %42 = icmp ne i64 %40, 0
-  %43 = select i1 %38, i1 %42, i1 false
-  %44 = and i64 %40, 1047552
-  %45 = icmp eq i64 %44, 0
-  %46 = select i1 %43, i1 %45, i1 false
+  %43 = and i64 %40, 1047552
+  %44 = icmp eq i64 %43, 0
+  %45 = and i1 %42, %44
+  %46 = select i1 %38, i1 %45, i1 false
   br i1 %46, label %.preheader9, label %.loopexit10.loopexit, !llvm.loop !31
 
 .loopexit10.loopexit:                             ; preds = %.preheader9
@@ -1618,10 +1618,10 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr nocapture noun
   %59 = phi i64 [ %60, %.preheader7 ], [ %50, %.loopexit10 ]
   %60 = lshr exact i64 %59, 10
   %61 = icmp ne i64 %59, 0
-  %62 = select i1 %57, i1 %61, i1 false
-  %63 = and i64 %59, 1047552
-  %64 = icmp eq i64 %63, 0
-  %65 = select i1 %62, i1 %64, i1 false
+  %62 = and i64 %59, 1047552
+  %63 = icmp eq i64 %62, 0
+  %64 = and i1 %61, %63
+  %65 = select i1 %57, i1 %64, i1 false
   br i1 %65, label %.preheader7, label %.loopexit8.loopexit, !llvm.loop !31
 
 .loopexit8.loopexit:                              ; preds = %.preheader7
@@ -1659,10 +1659,10 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr nocapture noun
   %81 = phi i64 [ %82, %.preheader5 ], [ %72, %70 ]
   %82 = lshr exact i64 %81, 10
   %83 = icmp ne i64 %81, 0
-  %84 = select i1 %79, i1 %83, i1 false
-  %85 = and i64 %81, 1047552
-  %86 = icmp eq i64 %85, 0
-  %87 = select i1 %84, i1 %86, i1 false
+  %84 = and i64 %81, 1047552
+  %85 = icmp eq i64 %84, 0
+  %86 = and i1 %83, %85
+  %87 = select i1 %79, i1 %86, i1 false
   br i1 %87, label %.preheader5, label %.loopexit6.loopexit, !llvm.loop !31
 
 .loopexit6.loopexit:                              ; preds = %.preheader5
@@ -1703,10 +1703,10 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr nocapture noun
   %104 = phi i64 [ %105, %.preheader ], [ %95, %93 ]
   %105 = lshr exact i64 %104, 10
   %106 = icmp ne i64 %104, 0
-  %107 = select i1 %102, i1 %106, i1 false
-  %108 = and i64 %104, 1047552
-  %109 = icmp eq i64 %108, 0
-  %110 = select i1 %107, i1 %109, i1 false
+  %107 = and i64 %104, 1047552
+  %108 = icmp eq i64 %107, 0
+  %109 = and i1 %106, %108
+  %110 = select i1 %102, i1 %109, i1 false
   br i1 %110, label %.preheader, label %.loopexit.loopexit, !llvm.loop !31
 
 .loopexit.loopexit:                               ; preds = %.preheader

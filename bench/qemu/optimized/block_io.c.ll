@@ -4467,9 +4467,9 @@ if.end118:                                        ; preds = %if.end113
   br i1 %tobool120.not, label %if.end124.thread, label %if.else122
 
 if.end124.thread:                                 ; preds = %if.end118
-  %sub126159 = sub i64 %22, %8
-  %spec.select117160 = call i64 @llvm.smin.i64(i64 %sub126159, i64 %spec.select)
-  store i64 %spec.select117160, ptr %pnum, align 8
+  %sub126158 = sub i64 %22, %8
+  %spec.select117159 = call i64 @llvm.smin.i64(i64 %sub126158, i64 %spec.select)
+  store i64 %spec.select117159, ptr %pnum, align 8
   br label %if.then133
 
 if.else122:                                       ; preds = %if.end118
@@ -4477,23 +4477,23 @@ if.else122:                                       ; preds = %if.end118
   unreachable
 
 if.end124:                                        ; preds = %if.end105
-  %.pre156 = and i32 %ret.1135, 4
-  %.not = icmp eq i32 %.pre156, 0
+  %.pre155 = and i32 %ret.1135, 4
+  %.not = icmp eq i32 %.pre155, 0
   %sub126 = sub i64 %22, %8
   %spec.select117 = call i64 @llvm.smin.i64(i64 %sub126, i64 %spec.select)
   store i64 %spec.select117, ptr %pnum, align 8
   br i1 %.not, label %if.end136, label %if.then133
 
 if.then133:                                       ; preds = %if.end124.thread, %if.end124
-  %spec.select117164 = phi i64 [ %spec.select117160, %if.end124.thread ], [ %spec.select117, %if.end124 ]
+  %spec.select117163 = phi i64 [ %spec.select117159, %if.end124.thread ], [ %spec.select117, %if.end124 ]
   %23 = load i64, ptr %local_map, align 8
   %add135 = add i64 %23, %8
   store i64 %add135, ptr %local_map, align 8
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then133, %if.end124
-  %spec.select117163 = phi i64 [ %spec.select117164, %if.then133 ], [ %spec.select117, %if.end124 ]
-  %and131.pre-phi161 = phi i1 [ true, %if.then133 ], [ false, %if.end124 ]
+  %spec.select117162 = phi i64 [ %spec.select117163, %if.then133 ], [ %spec.select117, %if.end124 ]
+  %and131.pre-phi160 = phi i1 [ true, %if.then133 ], [ false, %if.end124 ]
   %and137 = and i32 %ret.1135, 8
   %tobool138.not = icmp eq i32 %and137, 0
   br i1 %tobool138.not, label %if.end149, label %if.then139
@@ -4501,7 +4501,7 @@ if.end136:                                        ; preds = %if.then133, %if.end
 if.then139:                                       ; preds = %if.end136
   %24 = load ptr, ptr %local_file, align 8
   %tobool143 = icmp ne ptr %24, null
-  %or.cond1 = select i1 %and131.pre-phi161, i1 %tobool143, i1 false
+  %or.cond1 = select i1 %and131.pre-phi160, i1 %tobool143, i1 false
   br i1 %or.cond1, label %out, label %if.else145
 
 if.else145:                                       ; preds = %if.then139
@@ -4556,16 +4556,13 @@ if.end177:                                        ; preds = %if.else154, %if.the
 
 land.lhs.true180:                                 ; preds = %if.end177.thread, %if.end177
   %ret.2139 = phi i32 [ %spec.select125, %if.end177.thread ], [ %ret.2, %if.end177 ]
-  %and181 = and i32 %ret.2139, 64
-  %tobool182 = icmp eq i32 %and181, 0
   %28 = load ptr, ptr %local_file, align 8
   %tobool184 = icmp eq ptr %28, null
-  %or.cond2.not148.not151.not154 = select i1 %tobool182, i1 true, i1 %tobool184
   %cmp186.not = icmp eq ptr %28, %bs
-  %or.cond119.not150.not153 = select i1 %or.cond2.not148.not151.not154, i1 true, i1 %cmp186.not
-  %29 = and i32 %ret.2139, 7
-  %30 = icmp ne i32 %29, 5
-  %or.cond122 = or i1 %30, %or.cond119.not150.not153
+  %.not.not153 = or i1 %tobool184, %cmp186.not
+  %29 = and i32 %ret.2139, 71
+  %30 = icmp ne i32 %29, 69
+  %or.cond122 = select i1 %30, i1 true, i1 %.not.not153
   br i1 %or.cond122, label %out.thread, label %if.then197
 
 if.then197:                                       ; preds = %land.lhs.true180
@@ -4578,15 +4575,15 @@ if.then197:                                       ; preds = %land.lhs.true180
 if.then202:                                       ; preds = %if.then197
   %and203 = and i32 %call199, 32
   %tobool204.not = icmp eq i32 %and203, 0
-  %.pre155 = load i64, ptr %file_pnum, align 8
+  %.pre154 = load i64, ptr %file_pnum, align 8
   br i1 %tobool204.not, label %if.then202.if.else211_crit_edge, label %land.lhs.true205
 
 if.then202.if.else211_crit_edge:                  ; preds = %if.then202
-  %.pre157 = and i32 %call199, 2
+  %.pre156 = and i32 %call199, 2
   br label %if.else211
 
 land.lhs.true205:                                 ; preds = %if.then202
-  %tobool206.not = icmp ne i64 %.pre155, 0
+  %tobool206.not = icmp ne i64 %.pre154, 0
   %and207 = and i32 %call199, 2
   %tobool208.not = icmp eq i32 %and207, 0
   %or.cond123 = and i1 %tobool208.not, %tobool206.not
@@ -4597,8 +4594,8 @@ if.then209:                                       ; preds = %land.lhs.true205
   br label %out.thread
 
 if.else211:                                       ; preds = %if.then202.if.else211_crit_edge, %land.lhs.true205
-  %and212.pre-phi = phi i32 [ %.pre157, %if.then202.if.else211_crit_edge ], [ 0, %land.lhs.true205 ]
-  store i64 %.pre155, ptr %pnum, align 8
+  %and212.pre-phi = phi i32 [ %.pre156, %if.then202.if.else211_crit_edge ], [ 0, %land.lhs.true205 ]
+  store i64 %.pre154, ptr %pnum, align 8
   %or213 = or disjoint i32 %and212.pre-phi, %ret.2139
   br label %out.thread
 
@@ -4610,7 +4607,7 @@ out.thread:                                       ; preds = %if.then209, %if.els
 
 out:                                              ; preds = %if.then139
   %34 = load i64, ptr %local_map, align 8
-  %call148 = call i32 @bdrv_co_do_block_status(ptr noundef nonnull %24, i1 noundef zeroext %want_zero, i64 noundef %34, i64 noundef %spec.select117163, ptr noundef nonnull %pnum, ptr noundef nonnull %local_map, ptr noundef nonnull %local_file)
+  %call148 = call i32 @bdrv_co_do_block_status(ptr noundef nonnull %24, i1 noundef zeroext %want_zero, i64 noundef %34, i64 noundef %spec.select117162, ptr noundef nonnull %pnum, ptr noundef nonnull %local_map, ptr noundef nonnull %local_file)
   %35 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @aio_wait_kick() #14
   %cmp217 = icmp sgt i32 %call148, -1

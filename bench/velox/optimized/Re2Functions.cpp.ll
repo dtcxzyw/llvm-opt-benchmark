@@ -39501,54 +39501,54 @@ invoke.cont5:                                     ; preds = %invoke.cont
 
 for.body.lr.ph:                                   ; preds = %invoke.cont5
   %3 = and i16 %escapeChar.coerce.fr, 256
-  %tobool.i.i.i.not = icmp eq i16 %3, 0
-  br i1 %tobool.i.i.i.not, label %for.body.us.us, label %for.body
+  %tobool.i.i.i17.not = icmp eq i16 %3, 0
+  br i1 %tobool.i.i.i17.not, label %for.body.us, label %for.body
 
-for.body.us.us:                                   ; preds = %for.body.lr.ph, %for.inc.us.us
-  %__begin3.029.us.us = phi ptr [ %incdec.ptr.us.us, %for.inc.us.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %4 = load i8, ptr %__begin3.029.us.us, align 1
-  switch i8 %4, label %sw.default.us.us [
-    i8 37, label %sw.bb.us.us
-    i8 95, label %sw.bb.us.us.invoke
-    i8 92, label %sw.bb26.us.us
-    i8 124, label %sw.bb26.us.us
-    i8 94, label %sw.bb26.us.us
-    i8 36, label %sw.bb26.us.us
-    i8 46, label %sw.bb26.us.us
-    i8 42, label %sw.bb26.us.us
-    i8 43, label %sw.bb26.us.us
-    i8 63, label %sw.bb26.us.us
-    i8 40, label %sw.bb26.us.us
-    i8 41, label %sw.bb26.us.us
-    i8 91, label %sw.bb26.us.us
-    i8 93, label %sw.bb26.us.us
-    i8 123, label %sw.bb26.us.us
-    i8 125, label %sw.bb26.us.us
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %__begin3.029.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %4 = load i8, ptr %__begin3.029.us, align 1
+  switch i8 %4, label %sw.default.us [
+    i8 37, label %sw.bb.us
+    i8 95, label %sw.bb.us.invoke
+    i8 92, label %sw.bb26.us
+    i8 124, label %sw.bb26.us
+    i8 94, label %sw.bb26.us
+    i8 36, label %sw.bb26.us
+    i8 46, label %sw.bb26.us
+    i8 42, label %sw.bb26.us
+    i8 43, label %sw.bb26.us
+    i8 63, label %sw.bb26.us
+    i8 40, label %sw.bb26.us
+    i8 41, label %sw.bb26.us
+    i8 91, label %sw.bb26.us
+    i8 93, label %sw.bb26.us
+    i8 123, label %sw.bb26.us
+    i8 125, label %sw.bb26.us
   ]
 
-sw.bb26.us.us:                                    ; preds = %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us, %for.body.us.us
-  %call28.us.us = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.32)
-          to label %sw.default.us.us unwind label %lpad.loopexit.split.us.split.us
+sw.bb26.us:                                       ; preds = %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us, %for.body.us
+  %call28.us = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.32)
+          to label %sw.default.us unwind label %lpad.loopexit.split.us
 
-sw.bb.us.us:                                      ; preds = %for.body.us.us
-  br label %sw.bb.us.us.invoke
+sw.bb.us:                                         ; preds = %for.body.us
+  br label %sw.bb.us.invoke
 
-sw.bb.us.us.invoke:                               ; preds = %for.body.us.us, %sw.bb.us.us
-  %5 = phi ptr [ @.str.29, %sw.bb.us.us ], [ @.str.31, %for.body.us.us ]
+sw.bb.us.invoke:                                  ; preds = %for.body.us, %sw.bb.us
+  %5 = phi ptr [ @.str.29, %sw.bb.us ], [ @.str.31, %for.body.us ]
   %6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %5)
-          to label %for.inc.us.us unwind label %lpad.loopexit.split.us.split.us
+          to label %for.inc.us unwind label %lpad.loopexit.split.us
 
-sw.default.us.us:                                 ; preds = %sw.bb26.us.us, %for.body.us.us
-  %call30.us.us = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 1, i8 noundef signext %4)
-          to label %for.inc.us.us unwind label %lpad.loopexit.split.us.split.us
+sw.default.us:                                    ; preds = %sw.bb26.us, %for.body.us
+  %call30.us = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 1, i8 noundef signext %4)
+          to label %for.inc.us unwind label %lpad.loopexit.split.us
 
-for.inc.us.us:                                    ; preds = %sw.bb.us.us.invoke, %sw.default.us.us
-  %incdec.ptr.us.us = getelementptr inbounds i8, ptr %__begin3.029.us.us, i64 1
-  %cmp.not.us.us = icmp eq ptr %incdec.ptr.us.us, %add.ptr.i
-  br i1 %cmp.not.us.us, label %if.end34, label %for.body.us.us
+for.inc.us:                                       ; preds = %sw.bb.us.invoke, %sw.default.us
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %__begin3.029.us, i64 1
+  %cmp.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i
+  br i1 %cmp.not.us, label %if.end34, label %for.body.us
 
-lpad.loopexit.split.us.split.us:                  ; preds = %sw.bb.us.us.invoke, %sw.default.us.us, %sw.bb26.us.us
-  %lpad.loopexit24.us.us = landingpad { ptr, i32 }
+lpad.loopexit.split.us:                           ; preds = %sw.bb.us.invoke, %sw.default.us, %sw.bb26.us
+  %lpad.loopexit24.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
@@ -39557,7 +39557,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %escaped.028 = phi i8 [ %escaped.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %7 = load i8, ptr %__begin3.029, align 1
   %tobool = trunc i8 %escaped.028 to i1
-  br i1 %tobool, label %switch.early.test, label %if.end
+  br i1 %tobool, label %switch.early.test, label %land.lhs.true15
 
 switch.early.test:                                ; preds = %for.body
   switch i8 %7, label %lor.lhs.false12 [
@@ -39583,16 +39583,16 @@ lpad.loopexit.split-lp:                           ; preds = %entry, %invoke.cont
           cleanup
   br label %lpad
 
-lpad:                                             ; preds = %lpad.loopexit.split.us.split.us, %lpad.loopexit.split.split, %lpad.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp25, %lpad.loopexit.split-lp ], [ %lpad.loopexit24.us.us, %lpad.loopexit.split.us.split.us ], [ %lpad.loopexit24, %lpad.loopexit.split.split ]
+lpad:                                             ; preds = %lpad.loopexit.split.us, %lpad.loopexit.split.split, %lpad.loopexit.split-lp
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp25, %lpad.loopexit.split-lp ], [ %lpad.loopexit24.us, %lpad.loopexit.split.us ], [ %lpad.loopexit24, %lpad.loopexit.split.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   resume { ptr, i32 } %lpad.phi
 
-if.end:                                           ; preds = %for.body
-  %cmp.i17.not = icmp eq i8 %7, %escapeChar.sroa.0.0.extract.trunc
-  br i1 %cmp.i17.not, label %for.inc, label %if.else
+land.lhs.true15:                                  ; preds = %for.body
+  %cmp.i18 = icmp eq i8 %7, %escapeChar.sroa.0.0.extract.trunc
+  br i1 %cmp.i18, label %for.inc, label %if.else
 
-if.else:                                          ; preds = %lor.lhs.false12, %if.then, %if.end
+if.else:                                          ; preds = %lor.lhs.false12, %if.then, %land.lhs.true15
   switch i8 %7, label %sw.default [
     i8 37, label %sw.bb
     i8 95, label %sw.bb22
@@ -39633,8 +39633,8 @@ sw.default:                                       ; preds = %sw.bb26, %if.else
   %call30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 1, i8 noundef signext %7)
           to label %for.inc unwind label %lpad.loopexit.split.split
 
-for.inc:                                          ; preds = %sw.bb.invoke, %if.end, %sw.default
-  %escaped.1 = phi i8 [ 0, %sw.default ], [ 1, %if.end ], [ 0, %sw.bb.invoke ]
+for.inc:                                          ; preds = %sw.bb.invoke, %sw.default, %land.lhs.true15
+  %escaped.1 = phi i8 [ 1, %land.lhs.true15 ], [ 0, %sw.default ], [ 0, %sw.bb.invoke ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.029, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
@@ -39647,7 +39647,7 @@ if.then33:                                        ; preds = %for.end
   store i8 0, ptr %validPattern, align 1
   br label %if.end34
 
-if.end34:                                         ; preds = %for.inc.us.us, %invoke.cont5, %if.then33, %for.end
+if.end34:                                         ; preds = %for.inc.us, %invoke.cont5, %if.then33, %for.end
   %call36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.33)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 

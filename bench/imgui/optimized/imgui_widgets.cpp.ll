@@ -34710,9 +34710,9 @@ if.end23:                                         ; preds = %if.end16
   %or.cond33 = select i1 %cmp5, i1 %cmp41, i1 %cmp37
   %add44 = add nsw i32 %i.03747, %cond6
   %cmp7 = icmp sgt i32 %add44, -1
-  %or.cond = select i1 %or.cond33, i1 %cmp7, i1 false
   %cmp9 = icmp slt i32 %add44, %7
-  %or.cond51 = select i1 %or.cond, i1 %cmp9, i1 false
+  %14 = and i1 %cmp7, %cmp9
+  %or.cond51 = select i1 %or.cond33, i1 %14, i1 false
   br i1 %or.cond51, label %for.body, label %for.end, !llvm.loop !85
 
 for.end:                                          ; preds = %if.end23, %if.end16, %for.body, %land.rhs.lr.ph
@@ -34722,9 +34722,9 @@ for.end:                                          ; preds = %if.end23, %if.end16
 
 if.then46:                                        ; preds = %for.end
   %sub47 = sub nsw i32 %dst_idx.1, %conv.i
-  %14 = load i32, ptr %src_tab, align 4
+  %15 = load i32, ptr %src_tab, align 4
   %ReorderRequestTabId.i = getelementptr inbounds i8, ptr %tab_bar, i64 108
-  store i32 %14, ptr %ReorderRequestTabId.i, align 4
+  store i32 %15, ptr %ReorderRequestTabId.i, align 4
   %conv.i35 = trunc i32 %sub47 to i16
   %ReorderRequestOffset.i = getelementptr inbounds i8, ptr %tab_bar, i64 112
   store i16 %conv.i35, ptr %ReorderRequestOffset.i, align 8

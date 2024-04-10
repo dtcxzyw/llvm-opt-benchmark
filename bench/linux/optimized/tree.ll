@@ -4348,10 +4348,10 @@ define internal fastcc void @rcu_barrier_entrain(ptr noundef %0) unnamed_addr #1
   %6 = icmp eq i64 %5, 0
   %7 = and i64 %2, 3
   %8 = icmp ne i64 %7, 0
-  %9 = select i1 %6, i1 %8, i1 false
-  %10 = xor i64 %4, %2
-  %11 = icmp ult i64 %10, 4
-  %12 = select i1 %9, i1 %11, i1 false
+  %9 = xor i64 %4, %2
+  %10 = icmp ult i64 %9, 4
+  %11 = and i1 %8, %10
+  %12 = select i1 %6, i1 %11, i1 false
   br i1 %12, label %13, label %70
 
 13:                                               ; preds = %1

@@ -6622,10 +6622,9 @@ define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef read
   %36 = icmp ult i32 %31, 24
   %37 = icmp ne i8 %33, 4
   %or.cond = select i1 %36, i1 true, i1 %37
-  %38 = icmp ugt i8 %35, 30
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %38
-  %39 = icmp ult i8 %35, 7
-  %or.cond8 = select i1 %or.cond5, i1 true, i1 %39
+  %38 = add i8 %35, -31
+  %39 = icmp ult i8 %38, -24
+  %or.cond8 = select i1 %or.cond, i1 true, i1 %39
   br i1 %or.cond8, label %.loopexit, label %40
 
 40:                                               ; preds = %29
@@ -14420,7 +14419,7 @@ define internal void @set_option_info(ptr noundef %0, ptr nocapture noundef %1, 
   %6 = load i32, ptr %1, align 4
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %7, i8 32, i8 44
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %9 = load i32, ptr %5, align 16
   %10 = icmp ult i32 %9, 41
   switch i32 %3, label %default.unreachable [
@@ -14540,16 +14539,10 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 73:                                               ; preds = %69, %54, %39, %22
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   store i32 1, ptr %1, align 4
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #19
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @write_file_contents(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -14740,6 +14733,12 @@ declare void @archive_entry_unset_mtime(ptr noundef) local_unnamed_addr #1
 declare void @archive_entry_unset_atime(ptr noundef) local_unnamed_addr #1
 
 declare void @archive_entry_unset_ctime(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20

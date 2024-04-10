@@ -3203,598 +3203,598 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %479 = icmp ne i8 %82, 14
   %480 = load i32, ptr %6, align 4
   %481 = icmp eq i32 %480, -1
-  %or.cond.not1059 = select i1 %479, i1 true, i1 %481
   %.mask = and i32 %480, -1024
   %.not967 = icmp eq i32 %.mask, 64512
-  %or.cond980 = select i1 %or.cond.not1059, i1 true, i1 %.not967
-  br i1 %or.cond980, label %641, label %482
+  %482 = or i1 %481, %.not967
+  %or.cond980 = select i1 %479, i1 true, i1 %482
+  br i1 %or.cond980, label %642, label %483
 
-482:                                              ; preds = %._crit_edge.thread1078
-  %483 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #5
-  %484 = icmp eq i8 %483, 0
-  br i1 %484, label %485, label %641
+483:                                              ; preds = %._crit_edge.thread1078
+  %484 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #5
+  %485 = icmp eq i8 %484, 0
+  br i1 %485, label %486, label %642
 
-485:                                              ; preds = %482
-  %486 = load i32, ptr @bluetooth_device_tap, align 4
-  %487 = call i32 @have_tap_listener(i32 noundef %486) #5
-  %.not968 = icmp eq i32 %487, 0
-  br i1 %.not968, label %641, label %488
+486:                                              ; preds = %483
+  %487 = load i32, ptr @bluetooth_device_tap, align 4
+  %488 = call i32 @have_tap_listener(i32 noundef %487) #5
+  %.not968 = icmp eq i32 %488, 0
+  br i1 %.not968, label %642, label %489
 
-488:                                              ; preds = %485
-  %489 = load i32, ptr %6, align 4
-  switch i32 %489, label %641 [
-    i32 3075, label %490
-    i32 3091, label %498
-    i32 3096, label %533
-    i32 3098, label %544
-    i32 3104, label %555
-    i32 3106, label %566
-    i32 3108, label %577
-    i32 3110, label %588
-    i32 3123, label %599
-    i32 3141, label %619
-    i32 3158, label %630
+489:                                              ; preds = %486
+  %490 = load i32, ptr %6, align 4
+  switch i32 %490, label %642 [
+    i32 3075, label %491
+    i32 3091, label %499
+    i32 3096, label %534
+    i32 3098, label %545
+    i32 3104, label %556
+    i32 3106, label %567
+    i32 3108, label %578
+    i32 3110, label %589
+    i32 3123, label %600
+    i32 3141, label %620
+    i32 3158, label %631
   ]
 
-490:                                              ; preds = %488
-  %491 = load ptr, ptr %20, align 8
-  %492 = call noalias ptr @wmem_alloc(ptr noundef %491, i64 noundef 48) #5
-  %493 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %493, ptr %492, align 8
-  %494 = getelementptr inbounds i8, ptr %492, i64 12
-  store i32 0, ptr %494, align 4
-  %495 = getelementptr inbounds i8, ptr %492, i64 8
-  store i32 1, ptr %495, align 8
-  %496 = getelementptr inbounds i8, ptr %492, i64 24
-  store i32 5, ptr %496, align 8
-  %497 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %497, ptr noundef nonnull %1, ptr noundef nonnull %492) #5
-  br label %641
+491:                                              ; preds = %489
+  %492 = load ptr, ptr %20, align 8
+  %493 = call noalias ptr @wmem_alloc(ptr noundef %492, i64 noundef 48) #5
+  %494 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %494, ptr %493, align 8
+  %495 = getelementptr inbounds i8, ptr %493, i64 12
+  store i32 0, ptr %495, align 4
+  %496 = getelementptr inbounds i8, ptr %493, i64 8
+  store i32 1, ptr %496, align 8
+  %497 = getelementptr inbounds i8, ptr %493, i64 24
+  store i32 5, ptr %497, align 8
+  %498 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %498, ptr noundef nonnull %1, ptr noundef nonnull %493) #5
+  br label %642
 
-498:                                              ; preds = %488
-  %499 = load ptr, ptr %20, align 8
-  %500 = call noalias ptr @wmem_alloc(ptr noundef %499, i64 noundef 48) #5
-  %501 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %501, ptr %500, align 8
-  %502 = getelementptr inbounds i8, ptr %500, i64 12
-  store i32 0, ptr %502, align 4
-  %503 = getelementptr inbounds i8, ptr %500, i64 8
-  store i32 1, ptr %503, align 8
-  %504 = getelementptr inbounds i8, ptr %500, i64 24
+499:                                              ; preds = %489
+  %500 = load ptr, ptr %20, align 8
+  %501 = call noalias ptr @wmem_alloc(ptr noundef %500, i64 noundef 48) #5
+  %502 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %502, ptr %501, align 8
+  %503 = getelementptr inbounds i8, ptr %501, i64 12
+  store i32 0, ptr %503, align 4
+  %504 = getelementptr inbounds i8, ptr %501, i64 8
   store i32 1, ptr %504, align 8
-  %505 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %506 = load ptr, ptr %505, align 8
-  %507 = getelementptr inbounds i8, ptr %500, i64 32
-  store ptr %506, ptr %507, align 8
-  %508 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %508, ptr noundef nonnull %1, ptr noundef nonnull %500) #5
-  %509 = load ptr, ptr %55, align 8
-  %510 = getelementptr inbounds i8, ptr %509, i64 50
-  %511 = load i16, ptr %510, align 2
-  %512 = and i16 %511, 8
-  %.not969 = icmp eq i16 %512, 0
-  br i1 %.not969, label %513, label %641
+  %505 = getelementptr inbounds i8, ptr %501, i64 24
+  store i32 1, ptr %505, align 8
+  %506 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %507 = load ptr, ptr %506, align 8
+  %508 = getelementptr inbounds i8, ptr %501, i64 32
+  store ptr %507, ptr %508, align 8
+  %509 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %509, ptr noundef nonnull %1, ptr noundef nonnull %501) #5
+  %510 = load ptr, ptr %55, align 8
+  %511 = getelementptr inbounds i8, ptr %510, i64 50
+  %512 = load i16, ptr %511, align 2
+  %513 = and i16 %512, 8
+  %.not969 = icmp eq i16 %513, 0
+  br i1 %.not969, label %514, label %642
 
-513:                                              ; preds = %498
-  %514 = getelementptr inbounds i8, ptr %3, i64 4
-  %515 = load i32, ptr %3, align 8
-  store i32 %515, ptr %16, align 4
-  %516 = load i32, ptr %514, align 4
-  store i32 %516, ptr %17, align 4
+514:                                              ; preds = %499
+  %515 = getelementptr inbounds i8, ptr %3, i64 4
+  %516 = load i32, ptr %3, align 8
+  store i32 %516, ptr %16, align 4
+  %517 = load i32, ptr %515, align 4
+  store i32 %517, ptr %17, align 4
   store i32 1, ptr %15, align 16
-  %517 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %16, ptr %517, align 8
-  %518 = getelementptr inbounds i8, ptr %15, i64 16
-  store i32 1, ptr %518, align 16
-  %519 = getelementptr inbounds i8, ptr %15, i64 24
-  store ptr %17, ptr %519, align 8
-  %520 = getelementptr inbounds i8, ptr %15, i64 32
-  store i32 1, ptr %520, align 16
-  %521 = getelementptr inbounds i8, ptr %15, i64 40
-  store ptr %13, ptr %521, align 8
-  %522 = getelementptr inbounds i8, ptr %15, i64 48
-  store i32 0, ptr %522, align 16
-  %523 = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr null, ptr %523, align 8
-  %524 = call ptr @wmem_file_scope() #5
-  %525 = call noalias ptr @wmem_alloc(ptr noundef %524, i64 noundef 16) #5
-  %526 = load i32, ptr %16, align 4
-  store i32 %526, ptr %525, align 8
-  %527 = load i32, ptr %17, align 4
-  %528 = getelementptr inbounds i8, ptr %525, i64 4
-  store i32 %527, ptr %528, align 4
-  %529 = load ptr, ptr %505, align 8
-  %530 = getelementptr inbounds i8, ptr %525, i64 8
-  store ptr %529, ptr %530, align 8
-  %531 = getelementptr inbounds i8, ptr %3, i64 72
-  %532 = load ptr, ptr %531, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %532, ptr noundef nonnull %15, ptr noundef nonnull %525) #5
-  br label %641
+  %518 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %16, ptr %518, align 8
+  %519 = getelementptr inbounds i8, ptr %15, i64 16
+  store i32 1, ptr %519, align 16
+  %520 = getelementptr inbounds i8, ptr %15, i64 24
+  store ptr %17, ptr %520, align 8
+  %521 = getelementptr inbounds i8, ptr %15, i64 32
+  store i32 1, ptr %521, align 16
+  %522 = getelementptr inbounds i8, ptr %15, i64 40
+  store ptr %13, ptr %522, align 8
+  %523 = getelementptr inbounds i8, ptr %15, i64 48
+  store i32 0, ptr %523, align 16
+  %524 = getelementptr inbounds i8, ptr %15, i64 56
+  store ptr null, ptr %524, align 8
+  %525 = call ptr @wmem_file_scope() #5
+  %526 = call noalias ptr @wmem_alloc(ptr noundef %525, i64 noundef 16) #5
+  %527 = load i32, ptr %16, align 4
+  store i32 %527, ptr %526, align 8
+  %528 = load i32, ptr %17, align 4
+  %529 = getelementptr inbounds i8, ptr %526, i64 4
+  store i32 %528, ptr %529, align 4
+  %530 = load ptr, ptr %506, align 8
+  %531 = getelementptr inbounds i8, ptr %526, i64 8
+  store ptr %530, ptr %531, align 8
+  %532 = getelementptr inbounds i8, ptr %3, i64 72
+  %533 = load ptr, ptr %532, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %533, ptr noundef nonnull %15, ptr noundef nonnull %526) #5
+  br label %642
 
-533:                                              ; preds = %488
-  %534 = load ptr, ptr %20, align 8
-  %535 = call noalias ptr @wmem_alloc(ptr noundef %534, i64 noundef 48) #5
-  %536 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %536, ptr %535, align 8
-  %537 = getelementptr inbounds i8, ptr %535, i64 12
-  store i32 0, ptr %537, align 4
-  %538 = getelementptr inbounds i8, ptr %535, i64 8
-  store i32 1, ptr %538, align 8
-  %539 = getelementptr inbounds i8, ptr %535, i64 24
-  store i32 12, ptr %539, align 8
-  %540 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %541 = load i16, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %535, i64 32
-  store i16 %541, ptr %542, align 8
-  %543 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %543, ptr noundef nonnull %1, ptr noundef nonnull %535) #5
-  br label %641
+534:                                              ; preds = %489
+  %535 = load ptr, ptr %20, align 8
+  %536 = call noalias ptr @wmem_alloc(ptr noundef %535, i64 noundef 48) #5
+  %537 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %537, ptr %536, align 8
+  %538 = getelementptr inbounds i8, ptr %536, i64 12
+  store i32 0, ptr %538, align 4
+  %539 = getelementptr inbounds i8, ptr %536, i64 8
+  store i32 1, ptr %539, align 8
+  %540 = getelementptr inbounds i8, ptr %536, i64 24
+  store i32 12, ptr %540, align 8
+  %541 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %542 = load i16, ptr %541, align 8
+  %543 = getelementptr inbounds i8, ptr %536, i64 32
+  store i16 %542, ptr %543, align 8
+  %544 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %544, ptr noundef nonnull %1, ptr noundef nonnull %536) #5
+  br label %642
 
-544:                                              ; preds = %488
-  %545 = load ptr, ptr %20, align 8
-  %546 = call noalias ptr @wmem_alloc(ptr noundef %545, i64 noundef 48) #5
-  %547 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %547, ptr %546, align 8
-  %548 = getelementptr inbounds i8, ptr %546, i64 12
-  store i32 0, ptr %548, align 4
-  %549 = getelementptr inbounds i8, ptr %546, i64 8
-  store i32 1, ptr %549, align 8
-  %550 = getelementptr inbounds i8, ptr %546, i64 24
-  store i32 6, ptr %550, align 8
-  %551 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %552 = load i8, ptr %551, align 8
-  %553 = getelementptr inbounds i8, ptr %546, i64 32
-  store i8 %552, ptr %553, align 8
-  %554 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %554, ptr noundef nonnull %1, ptr noundef nonnull %546) #5
-  br label %641
+545:                                              ; preds = %489
+  %546 = load ptr, ptr %20, align 8
+  %547 = call noalias ptr @wmem_alloc(ptr noundef %546, i64 noundef 48) #5
+  %548 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %548, ptr %547, align 8
+  %549 = getelementptr inbounds i8, ptr %547, i64 12
+  store i32 0, ptr %549, align 4
+  %550 = getelementptr inbounds i8, ptr %547, i64 8
+  store i32 1, ptr %550, align 8
+  %551 = getelementptr inbounds i8, ptr %547, i64 24
+  store i32 6, ptr %551, align 8
+  %552 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %553 = load i8, ptr %552, align 8
+  %554 = getelementptr inbounds i8, ptr %547, i64 32
+  store i8 %553, ptr %554, align 8
+  %555 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %555, ptr noundef nonnull %1, ptr noundef nonnull %547) #5
+  br label %642
 
-555:                                              ; preds = %488
-  %556 = load ptr, ptr %20, align 8
-  %557 = call noalias ptr @wmem_alloc(ptr noundef %556, i64 noundef 48) #5
-  %558 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %558, ptr %557, align 8
-  %559 = getelementptr inbounds i8, ptr %557, i64 12
-  store i32 0, ptr %559, align 4
-  %560 = getelementptr inbounds i8, ptr %557, i64 8
-  store i32 1, ptr %560, align 8
-  %561 = getelementptr inbounds i8, ptr %557, i64 24
-  store i32 8, ptr %561, align 8
-  %562 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %563 = load i8, ptr %562, align 8
-  %564 = getelementptr inbounds i8, ptr %557, i64 32
-  store i8 %563, ptr %564, align 8
-  %565 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %565, ptr noundef nonnull %1, ptr noundef nonnull %557) #5
-  br label %641
+556:                                              ; preds = %489
+  %557 = load ptr, ptr %20, align 8
+  %558 = call noalias ptr @wmem_alloc(ptr noundef %557, i64 noundef 48) #5
+  %559 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %559, ptr %558, align 8
+  %560 = getelementptr inbounds i8, ptr %558, i64 12
+  store i32 0, ptr %560, align 4
+  %561 = getelementptr inbounds i8, ptr %558, i64 8
+  store i32 1, ptr %561, align 8
+  %562 = getelementptr inbounds i8, ptr %558, i64 24
+  store i32 8, ptr %562, align 8
+  %563 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %564 = load i8, ptr %563, align 8
+  %565 = getelementptr inbounds i8, ptr %558, i64 32
+  store i8 %564, ptr %565, align 8
+  %566 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %566, ptr noundef nonnull %1, ptr noundef nonnull %558) #5
+  br label %642
 
-566:                                              ; preds = %488
-  %567 = load ptr, ptr %20, align 8
-  %568 = call noalias ptr @wmem_alloc(ptr noundef %567, i64 noundef 48) #5
-  %569 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %569, ptr %568, align 8
-  %570 = getelementptr inbounds i8, ptr %568, i64 12
-  store i32 0, ptr %570, align 4
-  %571 = getelementptr inbounds i8, ptr %568, i64 8
-  store i32 1, ptr %571, align 8
-  %572 = getelementptr inbounds i8, ptr %568, i64 24
-  store i32 9, ptr %572, align 8
-  %573 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %574 = load i8, ptr %573, align 8
-  %575 = getelementptr inbounds i8, ptr %568, i64 32
-  store i8 %574, ptr %575, align 8
-  %576 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %576, ptr noundef nonnull %1, ptr noundef nonnull %568) #5
-  br label %641
+567:                                              ; preds = %489
+  %568 = load ptr, ptr %20, align 8
+  %569 = call noalias ptr @wmem_alloc(ptr noundef %568, i64 noundef 48) #5
+  %570 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %570, ptr %569, align 8
+  %571 = getelementptr inbounds i8, ptr %569, i64 12
+  store i32 0, ptr %571, align 4
+  %572 = getelementptr inbounds i8, ptr %569, i64 8
+  store i32 1, ptr %572, align 8
+  %573 = getelementptr inbounds i8, ptr %569, i64 24
+  store i32 9, ptr %573, align 8
+  %574 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %575 = load i8, ptr %574, align 8
+  %576 = getelementptr inbounds i8, ptr %569, i64 32
+  store i8 %575, ptr %576, align 8
+  %577 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %577, ptr noundef nonnull %1, ptr noundef nonnull %569) #5
+  br label %642
 
-577:                                              ; preds = %488
-  %578 = load ptr, ptr %20, align 8
-  %579 = call noalias ptr @wmem_alloc(ptr noundef %578, i64 noundef 48) #5
-  %580 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %580, ptr %579, align 8
-  %581 = getelementptr inbounds i8, ptr %579, i64 12
-  store i32 0, ptr %581, align 4
-  %582 = getelementptr inbounds i8, ptr %579, i64 8
-  store i32 1, ptr %582, align 8
-  %583 = getelementptr inbounds i8, ptr %579, i64 24
-  store i32 10, ptr %583, align 8
-  %584 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %585 = load i32, ptr %584, align 8
-  %586 = getelementptr inbounds i8, ptr %579, i64 32
-  store i32 %585, ptr %586, align 8
-  %587 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %587, ptr noundef nonnull %1, ptr noundef nonnull %579) #5
-  br label %641
+578:                                              ; preds = %489
+  %579 = load ptr, ptr %20, align 8
+  %580 = call noalias ptr @wmem_alloc(ptr noundef %579, i64 noundef 48) #5
+  %581 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %581, ptr %580, align 8
+  %582 = getelementptr inbounds i8, ptr %580, i64 12
+  store i32 0, ptr %582, align 4
+  %583 = getelementptr inbounds i8, ptr %580, i64 8
+  store i32 1, ptr %583, align 8
+  %584 = getelementptr inbounds i8, ptr %580, i64 24
+  store i32 10, ptr %584, align 8
+  %585 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %586 = load i32, ptr %585, align 8
+  %587 = getelementptr inbounds i8, ptr %580, i64 32
+  store i32 %586, ptr %587, align 8
+  %588 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %588, ptr noundef nonnull %1, ptr noundef nonnull %580) #5
+  br label %642
 
-588:                                              ; preds = %488
-  %589 = load ptr, ptr %20, align 8
-  %590 = call noalias ptr @wmem_alloc(ptr noundef %589, i64 noundef 48) #5
-  %591 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %591, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %590, i64 12
-  store i32 0, ptr %592, align 4
-  %593 = getelementptr inbounds i8, ptr %590, i64 8
-  store i32 1, ptr %593, align 8
-  %594 = getelementptr inbounds i8, ptr %590, i64 24
-  store i32 7, ptr %594, align 8
-  %595 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %596 = load i16, ptr %595, align 8
-  %597 = getelementptr inbounds i8, ptr %590, i64 32
-  store i16 %596, ptr %597, align 8
-  %598 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %598, ptr noundef nonnull %1, ptr noundef nonnull %590) #5
-  br label %641
+589:                                              ; preds = %489
+  %590 = load ptr, ptr %20, align 8
+  %591 = call noalias ptr @wmem_alloc(ptr noundef %590, i64 noundef 48) #5
+  %592 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %592, ptr %591, align 8
+  %593 = getelementptr inbounds i8, ptr %591, i64 12
+  store i32 0, ptr %593, align 4
+  %594 = getelementptr inbounds i8, ptr %591, i64 8
+  store i32 1, ptr %594, align 8
+  %595 = getelementptr inbounds i8, ptr %591, i64 24
+  store i32 7, ptr %595, align 8
+  %596 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %597 = load i16, ptr %596, align 8
+  %598 = getelementptr inbounds i8, ptr %591, i64 32
+  store i16 %597, ptr %598, align 8
+  %599 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %599, ptr noundef nonnull %1, ptr noundef nonnull %591) #5
+  br label %642
 
-599:                                              ; preds = %488
-  %600 = load ptr, ptr %20, align 8
-  %601 = call noalias ptr @wmem_alloc(ptr noundef %600, i64 noundef 48) #5
-  %602 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %602, ptr %601, align 8
-  %603 = getelementptr inbounds i8, ptr %601, i64 12
-  store i32 0, ptr %603, align 4
-  %604 = getelementptr inbounds i8, ptr %601, i64 8
-  store i32 1, ptr %604, align 8
-  %605 = getelementptr inbounds i8, ptr %601, i64 24
-  store i32 14, ptr %605, align 8
-  %606 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %607 = load i16, ptr %606, align 8
-  %608 = getelementptr inbounds i8, ptr %601, i64 32
-  store i16 %607, ptr %608, align 8
-  %609 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 74
-  %610 = load i8, ptr %609, align 2
-  %611 = getelementptr inbounds i8, ptr %601, i64 34
-  store i8 %610, ptr %611, align 2
-  %612 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 76
-  %613 = load i16, ptr %612, align 4
-  %614 = getelementptr inbounds i8, ptr %601, i64 36
-  store i16 %613, ptr %614, align 4
-  %615 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 78
-  %616 = load i16, ptr %615, align 2
-  %617 = getelementptr inbounds i8, ptr %601, i64 38
-  store i16 %616, ptr %617, align 2
-  %618 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %618, ptr noundef nonnull %1, ptr noundef nonnull %601) #5
-  br label %641
+600:                                              ; preds = %489
+  %601 = load ptr, ptr %20, align 8
+  %602 = call noalias ptr @wmem_alloc(ptr noundef %601, i64 noundef 48) #5
+  %603 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %603, ptr %602, align 8
+  %604 = getelementptr inbounds i8, ptr %602, i64 12
+  store i32 0, ptr %604, align 4
+  %605 = getelementptr inbounds i8, ptr %602, i64 8
+  store i32 1, ptr %605, align 8
+  %606 = getelementptr inbounds i8, ptr %602, i64 24
+  store i32 14, ptr %606, align 8
+  %607 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %608 = load i16, ptr %607, align 8
+  %609 = getelementptr inbounds i8, ptr %602, i64 32
+  store i16 %608, ptr %609, align 8
+  %610 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 74
+  %611 = load i8, ptr %610, align 2
+  %612 = getelementptr inbounds i8, ptr %602, i64 34
+  store i8 %611, ptr %612, align 2
+  %613 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 76
+  %614 = load i16, ptr %613, align 4
+  %615 = getelementptr inbounds i8, ptr %602, i64 36
+  store i16 %614, ptr %615, align 4
+  %616 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 78
+  %617 = load i16, ptr %616, align 2
+  %618 = getelementptr inbounds i8, ptr %602, i64 38
+  store i16 %617, ptr %618, align 2
+  %619 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %619, ptr noundef nonnull %1, ptr noundef nonnull %602) #5
+  br label %642
 
-619:                                              ; preds = %488
-  %620 = load ptr, ptr %20, align 8
-  %621 = call noalias ptr @wmem_alloc(ptr noundef %620, i64 noundef 48) #5
-  %622 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %622, ptr %621, align 8
-  %623 = getelementptr inbounds i8, ptr %621, i64 12
-  store i32 0, ptr %623, align 4
-  %624 = getelementptr inbounds i8, ptr %621, i64 8
-  store i32 1, ptr %624, align 8
-  %625 = getelementptr inbounds i8, ptr %621, i64 24
-  store i32 13, ptr %625, align 8
-  %626 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %627 = load i8, ptr %626, align 8
-  %628 = getelementptr inbounds i8, ptr %621, i64 32
-  store i8 %627, ptr %628, align 8
-  %629 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %629, ptr noundef nonnull %1, ptr noundef nonnull %621) #5
-  br label %641
+620:                                              ; preds = %489
+  %621 = load ptr, ptr %20, align 8
+  %622 = call noalias ptr @wmem_alloc(ptr noundef %621, i64 noundef 48) #5
+  %623 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %623, ptr %622, align 8
+  %624 = getelementptr inbounds i8, ptr %622, i64 12
+  store i32 0, ptr %624, align 4
+  %625 = getelementptr inbounds i8, ptr %622, i64 8
+  store i32 1, ptr %625, align 8
+  %626 = getelementptr inbounds i8, ptr %622, i64 24
+  store i32 13, ptr %626, align 8
+  %627 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %628 = load i8, ptr %627, align 8
+  %629 = getelementptr inbounds i8, ptr %622, i64 32
+  store i8 %628, ptr %629, align 8
+  %630 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %630, ptr noundef nonnull %1, ptr noundef nonnull %622) #5
+  br label %642
 
-630:                                              ; preds = %488
-  %631 = load ptr, ptr %20, align 8
-  %632 = call noalias ptr @wmem_alloc(ptr noundef %631, i64 noundef 48) #5
-  %633 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %633, ptr %632, align 8
-  %634 = getelementptr inbounds i8, ptr %632, i64 12
-  store i32 0, ptr %634, align 4
-  %635 = getelementptr inbounds i8, ptr %632, i64 8
-  store i32 1, ptr %635, align 8
-  %636 = getelementptr inbounds i8, ptr %632, i64 24
-  store i32 11, ptr %636, align 8
-  %637 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
-  %638 = load i8, ptr %637, align 8
-  %639 = getelementptr inbounds i8, ptr %632, i64 32
-  store i8 %638, ptr %639, align 8
-  %640 = load i32, ptr @bluetooth_device_tap, align 4
-  call void @tap_queue_packet(i32 noundef %640, ptr noundef nonnull %1, ptr noundef nonnull %632) #5
-  br label %641
+631:                                              ; preds = %489
+  %632 = load ptr, ptr %20, align 8
+  %633 = call noalias ptr @wmem_alloc(ptr noundef %632, i64 noundef 48) #5
+  %634 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %634, ptr %633, align 8
+  %635 = getelementptr inbounds i8, ptr %633, i64 12
+  store i32 0, ptr %635, align 4
+  %636 = getelementptr inbounds i8, ptr %633, i64 8
+  store i32 1, ptr %636, align 8
+  %637 = getelementptr inbounds i8, ptr %633, i64 24
+  store i32 11, ptr %637, align 8
+  %638 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 72
+  %639 = load i8, ptr %638, align 8
+  %640 = getelementptr inbounds i8, ptr %633, i64 32
+  store i8 %639, ptr %640, align 8
+  %641 = load i32, ptr @bluetooth_device_tap, align 4
+  call void @tap_queue_packet(i32 noundef %641, ptr noundef nonnull %1, ptr noundef nonnull %633) #5
+  br label %642
 
-641:                                              ; preds = %482, %485, %498, %513, %630, %619, %599, %588, %577, %566, %555, %544, %533, %490, %488, %._crit_edge.thread1078
-  %642 = load ptr, ptr %55, align 8
-  %643 = getelementptr inbounds i8, ptr %642, i64 50
-  %644 = load i16, ptr %643, align 2
-  %645 = and i16 %644, 8
-  %.not970 = icmp eq i16 %645, 0
-  br i1 %.not970, label %646, label %659
+642:                                              ; preds = %483, %486, %499, %514, %631, %620, %600, %589, %578, %567, %556, %545, %534, %491, %489, %._crit_edge.thread1078
+  %643 = load ptr, ptr %55, align 8
+  %644 = getelementptr inbounds i8, ptr %643, i64 50
+  %645 = load i16, ptr %644, align 2
+  %646 = and i16 %645, 8
+  %.not970 = icmp eq i16 %646, 0
+  br i1 %.not970, label %647, label %660
 
-646:                                              ; preds = %641
-  %647 = getelementptr inbounds i8, ptr %425, i64 4
-  %648 = load i32, ptr %647, align 4
-  %649 = icmp eq i32 %648, 1
-  br i1 %649, label %650, label %659
+647:                                              ; preds = %642
+  %648 = getelementptr inbounds i8, ptr %425, i64 4
+  %649 = load i32, ptr %648, align 4
+  %650 = icmp eq i32 %649, 1
+  br i1 %650, label %651, label %660
 
-650:                                              ; preds = %646
-  %651 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 24
-  %652 = load i32, ptr %651, align 8
-  %653 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
-  %654 = icmp eq i32 %652, %653
-  br i1 %654, label %655, label %659
+651:                                              ; preds = %647
+  %652 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 24
+  %653 = load i32, ptr %652, align 8
+  %654 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
+  %655 = icmp eq i32 %653, %654
+  br i1 %655, label %656, label %660
 
-655:                                              ; preds = %650
-  %656 = load i32, ptr %13, align 4
-  store i32 %656, ptr %651, align 8
-  %657 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 32
-  %658 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %657, ptr noundef nonnull align 8 dereferenceable(16) %658, i64 16, i1 false)
+656:                                              ; preds = %651
+  %657 = load i32, ptr %13, align 4
+  store i32 %657, ptr %652, align 8
+  %658 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 32
+  %659 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %658, ptr noundef nonnull align 8 dereferenceable(16) %659, i64 16, i1 false)
   %.pre1065 = load ptr, ptr %55, align 8
   %.phi.trans.insert1066 = getelementptr inbounds i8, ptr %.pre1065, i64 50
   %.pre1067 = load i16, ptr %.phi.trans.insert1066, align 2
-  br label %659
+  br label %660
 
-659:                                              ; preds = %655, %650, %646, %641
-  %660 = phi i16 [ %.pre1067, %655 ], [ %644, %650 ], [ %644, %646 ], [ %644, %641 ]
-  %661 = and i16 %660, 8
-  %.not971 = icmp eq i16 %661, 0
-  br i1 %.not971, label %662, label %675
+660:                                              ; preds = %656, %651, %647, %642
+  %661 = phi i16 [ %.pre1067, %656 ], [ %645, %651 ], [ %645, %647 ], [ %645, %642 ]
+  %662 = and i16 %661, 8
+  %.not971 = icmp eq i16 %662, 0
+  br i1 %.not971, label %663, label %676
 
-662:                                              ; preds = %659
-  %663 = getelementptr inbounds i8, ptr %425, i64 4
-  %664 = load i32, ptr %663, align 4
-  %665 = icmp eq i32 %664, 0
-  br i1 %665, label %666, label %675
+663:                                              ; preds = %660
+  %664 = getelementptr inbounds i8, ptr %425, i64 4
+  %665 = load i32, ptr %664, align 4
+  %666 = icmp eq i32 %665, 0
+  br i1 %666, label %667, label %676
 
-666:                                              ; preds = %662
-  %667 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
-  %668 = load i32, ptr %667, align 8
-  %669 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
-  %670 = icmp eq i32 %668, %669
-  br i1 %670, label %671, label %675
+667:                                              ; preds = %663
+  %668 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
+  %669 = load i32, ptr %668, align 8
+  %670 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
+  %671 = icmp eq i32 %669, %670
+  br i1 %671, label %672, label %676
 
-671:                                              ; preds = %666
-  %672 = load i32, ptr %13, align 4
-  store i32 %672, ptr %667, align 8
-  %673 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
-  %674 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %673, ptr noundef nonnull align 8 dereferenceable(16) %674, i64 16, i1 false)
+672:                                              ; preds = %667
+  %673 = load i32, ptr %13, align 4
+  store i32 %673, ptr %668, align 8
+  %674 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
+  %675 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %674, ptr noundef nonnull align 8 dereferenceable(16) %675, i64 16, i1 false)
   %.pre1068 = load ptr, ptr %55, align 8
   %.phi.trans.insert1069 = getelementptr inbounds i8, ptr %.pre1068, i64 50
   %.pre1070 = load i16, ptr %.phi.trans.insert1069, align 2
-  br label %675
+  br label %676
 
-675:                                              ; preds = %671, %666, %662, %659
-  %676 = phi i16 [ %.pre1070, %671 ], [ %660, %666 ], [ %660, %662 ], [ %660, %659 ]
-  %677 = and i16 %676, 8
-  %.not972 = icmp eq i16 %677, 0
-  br i1 %.not972, label %678, label %695
+676:                                              ; preds = %672, %667, %663, %660
+  %677 = phi i16 [ %.pre1070, %672 ], [ %661, %667 ], [ %661, %663 ], [ %661, %660 ]
+  %678 = and i16 %677, 8
+  %.not972 = icmp eq i16 %678, 0
+  br i1 %.not972, label %679, label %696
 
-678:                                              ; preds = %675
-  %679 = getelementptr inbounds i8, ptr %425, i64 4
-  %680 = load i32, ptr %679, align 4
-  %681 = icmp eq i32 %680, 2
-  br i1 %681, label %682, label %695
+679:                                              ; preds = %676
+  %680 = getelementptr inbounds i8, ptr %425, i64 4
+  %681 = load i32, ptr %680, align 4
+  %682 = icmp eq i32 %681, 2
+  br i1 %682, label %683, label %696
 
-682:                                              ; preds = %678
-  %683 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
-  %684 = load i32, ptr %683, align 8
-  %685 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
-  %686 = icmp eq i32 %684, %685
-  br i1 %686, label %687, label %695
+683:                                              ; preds = %679
+  %684 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
+  %685 = load i32, ptr %684, align 8
+  %686 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
+  %687 = icmp eq i32 %685, %686
+  br i1 %687, label %688, label %696
 
-687:                                              ; preds = %682
-  %688 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 24
-  %689 = load i32, ptr %688, align 8
-  %690 = icmp eq i32 %689, %684
-  br i1 %690, label %691, label %695
+688:                                              ; preds = %683
+  %689 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 24
+  %690 = load i32, ptr %689, align 8
+  %691 = icmp eq i32 %690, %685
+  br i1 %691, label %692, label %696
 
-691:                                              ; preds = %687
-  %692 = load i32, ptr %13, align 4
-  store i32 %692, ptr %683, align 8
-  %693 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
-  %694 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %693, ptr noundef nonnull align 8 dereferenceable(16) %694, i64 16, i1 false)
-  br label %695
+692:                                              ; preds = %688
+  %693 = load i32, ptr %13, align 4
+  store i32 %693, ptr %684, align 8
+  %694 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
+  %695 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %694, ptr noundef nonnull align 8 dereferenceable(16) %695, i64 16, i1 false)
+  br label %696
 
-695:                                              ; preds = %691, %687, %682, %678, %675
-  %696 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 24
-  %697 = load i32, ptr %696, align 8
-  %698 = load i32, ptr %13, align 4
-  %699 = icmp eq i32 %697, %698
-  br i1 %699, label %700, label %proto_item_set_generated.exit1016
+696:                                              ; preds = %692, %688, %683, %679, %676
+  %697 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 24
+  %698 = load i32, ptr %697, align 8
+  %699 = load i32, ptr %13, align 4
+  %700 = icmp eq i32 %698, %699
+  br i1 %700, label %701, label %proto_item_set_generated.exit1016
 
-700:                                              ; preds = %695
-  %701 = load i32, ptr @hf_command_in_frame, align 4
-  %702 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 4
-  %703 = load i32, ptr %702, align 4
-  %704 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %701, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %703) #5
-  %.not.i = icmp eq ptr %704, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %705
+701:                                              ; preds = %696
+  %702 = load i32, ptr @hf_command_in_frame, align 4
+  %703 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 4
+  %704 = load i32, ptr %703, align 4
+  %705 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %702, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %704) #5
+  %.not.i = icmp eq ptr %705, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %706
 
-705:                                              ; preds = %700
-  %706 = getelementptr inbounds i8, ptr %704, i64 32
-  %707 = load ptr, ptr %706, align 8
-  %.not5.i = icmp eq ptr %707, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %708
+706:                                              ; preds = %701
+  %707 = getelementptr inbounds i8, ptr %705, i64 32
+  %708 = load ptr, ptr %707, align 8
+  %.not5.i = icmp eq ptr %708, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %709
 
-708:                                              ; preds = %705
-  %709 = getelementptr inbounds i8, ptr %707, i64 28
-  %710 = load i32, ptr %709, align 4
-  %711 = or i32 %710, 2
-  store i32 %711, ptr %709, align 4
+709:                                              ; preds = %706
+  %710 = getelementptr inbounds i8, ptr %708, i64 28
+  %711 = load i32, ptr %710, align 4
+  %712 = or i32 %711, 2
+  store i32 %712, ptr %710, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %700, %705, %708
-  %712 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
-  %713 = load i32, ptr %712, align 8
-  %714 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
-  %715 = icmp ult i32 %713, %714
-  br i1 %715, label %716, label %proto_item_set_generated.exit1010
+proto_item_set_generated.exit:                    ; preds = %701, %706, %709
+  %713 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
+  %714 = load i32, ptr %713, align 8
+  %715 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
+  %716 = icmp ult i32 %714, %715
+  br i1 %716, label %717, label %proto_item_set_generated.exit1010
 
-716:                                              ; preds = %proto_item_set_generated.exit
-  %717 = load i32, ptr @hf_response_in_frame, align 4
-  %718 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %717, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %713) #5
-  %.not.i1008 = icmp eq ptr %718, null
-  br i1 %.not.i1008, label %proto_item_set_generated.exit1010, label %719
+717:                                              ; preds = %proto_item_set_generated.exit
+  %718 = load i32, ptr @hf_response_in_frame, align 4
+  %719 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %718, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %714) #5
+  %.not.i1008 = icmp eq ptr %719, null
+  br i1 %.not.i1008, label %proto_item_set_generated.exit1010, label %720
 
-719:                                              ; preds = %716
-  %720 = getelementptr inbounds i8, ptr %718, i64 32
-  %721 = load ptr, ptr %720, align 8
-  %.not5.i1009 = icmp eq ptr %721, null
-  br i1 %.not5.i1009, label %proto_item_set_generated.exit1010, label %722
+720:                                              ; preds = %717
+  %721 = getelementptr inbounds i8, ptr %719, i64 32
+  %722 = load ptr, ptr %721, align 8
+  %.not5.i1009 = icmp eq ptr %722, null
+  br i1 %.not5.i1009, label %proto_item_set_generated.exit1010, label %723
 
-722:                                              ; preds = %719
-  %723 = getelementptr inbounds i8, ptr %721, i64 28
-  %724 = load i32, ptr %723, align 4
-  %725 = or i32 %724, 2
-  store i32 %725, ptr %723, align 4
+723:                                              ; preds = %720
+  %724 = getelementptr inbounds i8, ptr %722, i64 28
+  %725 = load i32, ptr %724, align 4
+  %726 = or i32 %725, 2
+  store i32 %726, ptr %724, align 4
   br label %proto_item_set_generated.exit1010
 
-proto_item_set_generated.exit1010:                ; preds = %722, %719, %716, %proto_item_set_generated.exit
-  %726 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 32
-  %727 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 8
-  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %726, ptr noundef nonnull %727) #5
-  %728 = load i32, ptr @hf_command_pending_time_delta, align 4
-  %729 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
-  %730 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %728, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %729) #5
-  %.not.i1011 = icmp eq ptr %730, null
-  br i1 %.not.i1011, label %proto_item_set_generated.exit1013, label %731
+proto_item_set_generated.exit1010:                ; preds = %723, %720, %717, %proto_item_set_generated.exit
+  %727 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 32
+  %728 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 8
+  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %727, ptr noundef nonnull %728) #5
+  %729 = load i32, ptr @hf_command_pending_time_delta, align 4
+  %730 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
+  %731 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %729, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %730) #5
+  %.not.i1011 = icmp eq ptr %731, null
+  br i1 %.not.i1011, label %proto_item_set_generated.exit1013, label %732
 
-731:                                              ; preds = %proto_item_set_generated.exit1010
-  %732 = getelementptr inbounds i8, ptr %730, i64 32
-  %733 = load ptr, ptr %732, align 8
-  %.not5.i1012 = icmp eq ptr %733, null
-  br i1 %.not5.i1012, label %proto_item_set_generated.exit1013, label %734
+732:                                              ; preds = %proto_item_set_generated.exit1010
+  %733 = getelementptr inbounds i8, ptr %731, i64 32
+  %734 = load ptr, ptr %733, align 8
+  %.not5.i1012 = icmp eq ptr %734, null
+  br i1 %.not5.i1012, label %proto_item_set_generated.exit1013, label %735
 
-734:                                              ; preds = %731
-  %735 = getelementptr inbounds i8, ptr %733, i64 28
-  %736 = load i32, ptr %735, align 4
-  %737 = or i32 %736, 2
-  store i32 %737, ptr %735, align 4
+735:                                              ; preds = %732
+  %736 = getelementptr inbounds i8, ptr %734, i64 28
+  %737 = load i32, ptr %736, align 4
+  %738 = or i32 %737, 2
+  store i32 %738, ptr %736, align 4
   br label %proto_item_set_generated.exit1013
 
-proto_item_set_generated.exit1013:                ; preds = %proto_item_set_generated.exit1010, %731, %734
-  %738 = load i32, ptr %712, align 8
-  %739 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
-  %740 = icmp ult i32 %738, %739
-  br i1 %740, label %741, label %proto_item_set_generated.exit1016
+proto_item_set_generated.exit1013:                ; preds = %proto_item_set_generated.exit1010, %732, %735
+  %739 = load i32, ptr %713, align 8
+  %740 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
+  %741 = icmp ult i32 %739, %740
+  br i1 %741, label %742, label %proto_item_set_generated.exit1016
 
-741:                                              ; preds = %proto_item_set_generated.exit1013
-  %742 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
-  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %742, ptr noundef nonnull %726) #5
-  %743 = load i32, ptr @hf_pending_response_time_delta, align 4
-  %744 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
-  %745 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %743, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %744) #5
-  %.not.i1014 = icmp eq ptr %745, null
-  br i1 %.not.i1014, label %proto_item_set_generated.exit1016, label %746
+742:                                              ; preds = %proto_item_set_generated.exit1013
+  %743 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
+  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %743, ptr noundef nonnull %727) #5
+  %744 = load i32, ptr @hf_pending_response_time_delta, align 4
+  %745 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
+  %746 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %744, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %745) #5
+  %.not.i1014 = icmp eq ptr %746, null
+  br i1 %.not.i1014, label %proto_item_set_generated.exit1016, label %747
 
-746:                                              ; preds = %741
-  %747 = getelementptr inbounds i8, ptr %745, i64 32
-  %748 = load ptr, ptr %747, align 8
-  %.not5.i1015 = icmp eq ptr %748, null
-  br i1 %.not5.i1015, label %proto_item_set_generated.exit1016, label %749
+747:                                              ; preds = %742
+  %748 = getelementptr inbounds i8, ptr %746, i64 32
+  %749 = load ptr, ptr %748, align 8
+  %.not5.i1015 = icmp eq ptr %749, null
+  br i1 %.not5.i1015, label %proto_item_set_generated.exit1016, label %750
 
-749:                                              ; preds = %746
-  %750 = getelementptr inbounds i8, ptr %748, i64 28
-  %751 = load i32, ptr %750, align 4
-  %752 = or i32 %751, 2
-  store i32 %752, ptr %750, align 4
+750:                                              ; preds = %747
+  %751 = getelementptr inbounds i8, ptr %749, i64 28
+  %752 = load i32, ptr %751, align 4
+  %753 = or i32 %752, 2
+  store i32 %753, ptr %751, align 4
   br label %proto_item_set_generated.exit1016
 
-proto_item_set_generated.exit1016:                ; preds = %749, %746, %741, %proto_item_set_generated.exit1013, %695
-  %753 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
-  %754 = load i32, ptr %753, align 8
-  %755 = load i32, ptr %13, align 4
-  %756 = icmp eq i32 %754, %755
-  br i1 %756, label %757, label %proto_item_set_generated.exit1028
+proto_item_set_generated.exit1016:                ; preds = %750, %747, %742, %proto_item_set_generated.exit1013, %696
+  %754 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 48
+  %755 = load i32, ptr %754, align 8
+  %756 = load i32, ptr %13, align 4
+  %757 = icmp eq i32 %755, %756
+  br i1 %757, label %758, label %proto_item_set_generated.exit1028
 
-757:                                              ; preds = %proto_item_set_generated.exit1016
-  %758 = load i32, ptr @hf_command_in_frame, align 4
-  %759 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 4
-  %760 = load i32, ptr %759, align 4
-  %761 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %758, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %760) #5
-  %.not.i1017 = icmp eq ptr %761, null
-  br i1 %.not.i1017, label %proto_item_set_generated.exit1019, label %762
+758:                                              ; preds = %proto_item_set_generated.exit1016
+  %759 = load i32, ptr @hf_command_in_frame, align 4
+  %760 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 4
+  %761 = load i32, ptr %760, align 4
+  %762 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %759, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %761) #5
+  %.not.i1017 = icmp eq ptr %762, null
+  br i1 %.not.i1017, label %proto_item_set_generated.exit1019, label %763
 
-762:                                              ; preds = %757
-  %763 = getelementptr inbounds i8, ptr %761, i64 32
-  %764 = load ptr, ptr %763, align 8
-  %.not5.i1018 = icmp eq ptr %764, null
-  br i1 %.not5.i1018, label %proto_item_set_generated.exit1019, label %765
+763:                                              ; preds = %758
+  %764 = getelementptr inbounds i8, ptr %762, i64 32
+  %765 = load ptr, ptr %764, align 8
+  %.not5.i1018 = icmp eq ptr %765, null
+  br i1 %.not5.i1018, label %proto_item_set_generated.exit1019, label %766
 
-765:                                              ; preds = %762
-  %766 = getelementptr inbounds i8, ptr %764, i64 28
-  %767 = load i32, ptr %766, align 4
-  %768 = or i32 %767, 2
-  store i32 %768, ptr %766, align 4
+766:                                              ; preds = %763
+  %767 = getelementptr inbounds i8, ptr %765, i64 28
+  %768 = load i32, ptr %767, align 4
+  %769 = or i32 %768, 2
+  store i32 %769, ptr %767, align 4
   br label %proto_item_set_generated.exit1019
 
-proto_item_set_generated.exit1019:                ; preds = %757, %762, %765
-  %769 = load i32, ptr %696, align 8
-  %770 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
-  %771 = icmp ult i32 %769, %770
-  br i1 %771, label %772, label %proto_item_set_generated.exit1025
+proto_item_set_generated.exit1019:                ; preds = %758, %763, %766
+  %770 = load i32, ptr %697, align 8
+  %771 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
+  %772 = icmp ult i32 %770, %771
+  br i1 %772, label %773, label %proto_item_set_generated.exit1025
 
-772:                                              ; preds = %proto_item_set_generated.exit1019
-  %773 = load i32, ptr @hf_pending_in_frame, align 4
-  %774 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %773, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %769) #5
-  %.not.i1020 = icmp eq ptr %774, null
-  br i1 %.not.i1020, label %proto_item_set_generated.exit1022, label %775
+773:                                              ; preds = %proto_item_set_generated.exit1019
+  %774 = load i32, ptr @hf_pending_in_frame, align 4
+  %775 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %774, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %770) #5
+  %.not.i1020 = icmp eq ptr %775, null
+  br i1 %.not.i1020, label %proto_item_set_generated.exit1022, label %776
 
-775:                                              ; preds = %772
-  %776 = getelementptr inbounds i8, ptr %774, i64 32
-  %777 = load ptr, ptr %776, align 8
-  %.not5.i1021 = icmp eq ptr %777, null
-  br i1 %.not5.i1021, label %proto_item_set_generated.exit1022, label %778
+776:                                              ; preds = %773
+  %777 = getelementptr inbounds i8, ptr %775, i64 32
+  %778 = load ptr, ptr %777, align 8
+  %.not5.i1021 = icmp eq ptr %778, null
+  br i1 %.not5.i1021, label %proto_item_set_generated.exit1022, label %779
 
-778:                                              ; preds = %775
-  %779 = getelementptr inbounds i8, ptr %777, i64 28
-  %780 = load i32, ptr %779, align 4
-  %781 = or i32 %780, 2
-  store i32 %781, ptr %779, align 4
+779:                                              ; preds = %776
+  %780 = getelementptr inbounds i8, ptr %778, i64 28
+  %781 = load i32, ptr %780, align 4
+  %782 = or i32 %781, 2
+  store i32 %782, ptr %780, align 4
   br label %proto_item_set_generated.exit1022
 
-proto_item_set_generated.exit1022:                ; preds = %772, %775, %778
-  %782 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
-  %783 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 32
-  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %782, ptr noundef nonnull %783) #5
-  %784 = load i32, ptr @hf_pending_response_time_delta, align 4
-  %785 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
-  %786 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %784, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %785) #5
-  %.not.i1023 = icmp eq ptr %786, null
-  br i1 %.not.i1023, label %proto_item_set_generated.exit1025, label %787
+proto_item_set_generated.exit1022:                ; preds = %773, %776, %779
+  %783 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
+  %784 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 32
+  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %783, ptr noundef nonnull %784) #5
+  %785 = load i32, ptr @hf_pending_response_time_delta, align 4
+  %786 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
+  %787 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %785, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %786) #5
+  %.not.i1023 = icmp eq ptr %787, null
+  br i1 %.not.i1023, label %proto_item_set_generated.exit1025, label %788
 
-787:                                              ; preds = %proto_item_set_generated.exit1022
-  %788 = getelementptr inbounds i8, ptr %786, i64 32
-  %789 = load ptr, ptr %788, align 8
-  %.not5.i1024 = icmp eq ptr %789, null
-  br i1 %.not5.i1024, label %proto_item_set_generated.exit1025, label %790
+788:                                              ; preds = %proto_item_set_generated.exit1022
+  %789 = getelementptr inbounds i8, ptr %787, i64 32
+  %790 = load ptr, ptr %789, align 8
+  %.not5.i1024 = icmp eq ptr %790, null
+  br i1 %.not5.i1024, label %proto_item_set_generated.exit1025, label %791
 
-790:                                              ; preds = %787
-  %791 = getelementptr inbounds i8, ptr %789, i64 28
-  %792 = load i32, ptr %791, align 4
-  %793 = or i32 %792, 2
-  store i32 %793, ptr %791, align 4
+791:                                              ; preds = %788
+  %792 = getelementptr inbounds i8, ptr %790, i64 28
+  %793 = load i32, ptr %792, align 4
+  %794 = or i32 %793, 2
+  store i32 %794, ptr %792, align 4
   br label %proto_item_set_generated.exit1025
 
-proto_item_set_generated.exit1025:                ; preds = %790, %787, %proto_item_set_generated.exit1022, %proto_item_set_generated.exit1019
-  %794 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
-  %795 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 8
-  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %794, ptr noundef nonnull %795) #5
-  %796 = load i32, ptr @hf_command_response_time_delta, align 4
-  %797 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
-  %798 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %796, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %797) #5
-  %.not.i1026 = icmp eq ptr %798, null
-  br i1 %.not.i1026, label %proto_item_set_generated.exit1028, label %799
+proto_item_set_generated.exit1025:                ; preds = %791, %788, %proto_item_set_generated.exit1022, %proto_item_set_generated.exit1019
+  %795 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 56
+  %796 = getelementptr inbounds i8, ptr %.0938.lcssa1083, i64 8
+  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %795, ptr noundef nonnull %796) #5
+  %797 = load i32, ptr @hf_command_response_time_delta, align 4
+  %798 = call double @nstime_to_msec(ptr noundef nonnull %14) #5
+  %799 = call ptr @proto_tree_add_double(ptr noundef %26, i32 noundef %797, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %798) #5
+  %.not.i1026 = icmp eq ptr %799, null
+  br i1 %.not.i1026, label %proto_item_set_generated.exit1028, label %800
 
-799:                                              ; preds = %proto_item_set_generated.exit1025
-  %800 = getelementptr inbounds i8, ptr %798, i64 32
-  %801 = load ptr, ptr %800, align 8
-  %.not5.i1027 = icmp eq ptr %801, null
-  br i1 %.not5.i1027, label %proto_item_set_generated.exit1028, label %802
+800:                                              ; preds = %proto_item_set_generated.exit1025
+  %801 = getelementptr inbounds i8, ptr %799, i64 32
+  %802 = load ptr, ptr %801, align 8
+  %.not5.i1027 = icmp eq ptr %802, null
+  br i1 %.not5.i1027, label %proto_item_set_generated.exit1028, label %803
 
-802:                                              ; preds = %799
-  %803 = getelementptr inbounds i8, ptr %801, i64 28
-  %804 = load i32, ptr %803, align 4
-  %805 = or i32 %804, 2
-  store i32 %805, ptr %803, align 4
+803:                                              ; preds = %800
+  %804 = getelementptr inbounds i8, ptr %802, i64 28
+  %805 = load i32, ptr %804, align 4
+  %806 = or i32 %805, 2
+  store i32 %806, ptr %804, align 4
   br label %proto_item_set_generated.exit1028
 
-proto_item_set_generated.exit1028:                ; preds = %410, %802, %799, %proto_item_set_generated.exit1025, %._crit_edge, %proto_item_set_generated.exit1016, %4, %401
-  %.0 = phi i32 [ %404, %401 ], [ 0, %4 ], [ %.0933, %proto_item_set_generated.exit1016 ], [ %.0933, %._crit_edge ], [ %.0933, %proto_item_set_generated.exit1025 ], [ %.0933, %799 ], [ %.0933, %802 ], [ %.0933, %410 ]
+proto_item_set_generated.exit1028:                ; preds = %410, %803, %800, %proto_item_set_generated.exit1025, %._crit_edge, %proto_item_set_generated.exit1016, %4, %401
+  %.0 = phi i32 [ %404, %401 ], [ 0, %4 ], [ %.0933, %proto_item_set_generated.exit1016 ], [ %.0933, %._crit_edge ], [ %.0933, %proto_item_set_generated.exit1025 ], [ %.0933, %800 ], [ %.0933, %803 ], [ %.0933, %410 ]
   ret i32 %.0
 }
 

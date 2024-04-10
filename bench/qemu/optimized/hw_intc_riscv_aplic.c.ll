@@ -493,22 +493,16 @@ if.end11:                                         ; preds = %if.end.us
 
 sw.bb:                                            ; preds = %if.end11
   %cmp16 = icmp sgt i32 %level, 0
-  %and19 = and i32 %7, 256
-  %tobool20.not = icmp eq i32 %and19, 0
-  %or.cond = select i1 %cmp16, i1 %tobool20.not, i1 false
-  %and22 = and i32 %7, 1
-  %tobool23.not = icmp eq i32 %and22, 0
-  %or.cond41 = select i1 %or.cond, i1 %tobool23.not, i1 false
+  %8 = and i32 %7, 257
+  %9 = icmp eq i32 %8, 0
+  %or.cond41 = select i1 %cmp16, i1 %9, i1 false
   br i1 %or.cond41, label %if.else60.thread, label %sw.epilog
 
 sw.bb26:                                          ; preds = %if.end11
   %cmp27 = icmp slt i32 %level, 1
-  %and30 = and i32 %7, 256
-  %tobool31.not = icmp ne i32 %and30, 0
-  %or.cond42.not81 = select i1 %cmp27, i1 %tobool31.not, i1 false
-  %and33 = and i32 %7, 1
-  %tobool34.not = icmp eq i32 %and33, 0
-  %or.cond43 = select i1 %or.cond42.not81, i1 %tobool34.not, i1 false
+  %10 = and i32 %7, 257
+  %11 = icmp eq i32 %10, 256
+  %or.cond43 = select i1 %cmp27, i1 %11, i1 false
   br i1 %or.cond43, label %if.end64.thread, label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end11
@@ -528,10 +522,10 @@ sw.bb45:                                          ; preds = %if.end11
 if.end64.thread:                                  ; preds = %sw.bb45, %sw.bb26
   %storemerge = or disjoint i32 %7, 1
   store i32 %storemerge, ptr %arrayidx14, align 4
-  %8 = load ptr, ptr %state12, align 8
-  %arrayidx5875 = getelementptr i32, ptr %8, i64 %idxprom
-  %9 = load i32, ptr %arrayidx5875, align 4
-  %and5976 = and i32 %9, -257
+  %12 = load ptr, ptr %state12, align 8
+  %arrayidx5875 = getelementptr i32, ptr %12, i64 %idxprom
+  %13 = load i32, ptr %arrayidx5875, align 4
+  %and5976 = and i32 %13, -257
   store i32 %and5976, ptr %arrayidx5875, align 4
   br label %if.then66
 
@@ -542,10 +536,10 @@ sw.epilog:                                        ; preds = %if.end11, %sw.bb45,
 if.else60.thread:                                 ; preds = %sw.bb37, %sw.bb
   %storemerge80 = or disjoint i32 %7, 1
   store i32 %storemerge80, ptr %arrayidx14, align 4
-  %10 = load ptr, ptr %state12, align 8
-  %arrayidx6378 = getelementptr i32, ptr %10, i64 %idxprom
-  %11 = load i32, ptr %arrayidx6378, align 4
-  %or79 = or i32 %11, 256
+  %14 = load ptr, ptr %state12, align 8
+  %arrayidx6378 = getelementptr i32, ptr %14, i64 %idxprom
+  %15 = load i32, ptr %arrayidx6378, align 4
+  %or79 = or i32 %15, 256
   store i32 %or79, ptr %arrayidx6378, align 4
   br label %if.then66
 
@@ -561,54 +555,54 @@ if.end64:                                         ; preds = %sw.epilog
 
 if.then66:                                        ; preds = %if.else60.thread, %if.end64.thread
   %msimode = getelementptr inbounds i8, ptr %opaque.tr87.us93, i64 1344
-  %12 = load i8, ptr %msimode, align 16
-  %tobool67 = trunc i8 %12 to i1
+  %16 = load i8, ptr %msimode, align 16
+  %tobool67 = trunc i8 %16 to i1
   br i1 %tobool67, label %lor.lhs.false.i, label %if.else69
 
 lor.lhs.false.i:                                  ; preds = %if.then66
-  %13 = load i32, ptr %num_irqs.le, align 4
-  %cmp.not.i = icmp ugt i32 %13, %irq
+  %17 = load i32, ptr %num_irqs.le, align 4
+  %cmp.not.i = icmp ugt i32 %17, %irq
   br i1 %cmp.not.i, label %lor.lhs.false1.i, label %if.end74
 
 lor.lhs.false1.i:                                 ; preds = %lor.lhs.false.i
   %domaincfg.i = getelementptr inbounds i8, ptr %opaque.tr87.us93, i64 1108
-  %14 = load i32, ptr %domaincfg.i, align 4
-  %and.i61 = and i32 %14, 256
+  %18 = load i32, ptr %domaincfg.i, align 4
+  %and.i61 = and i32 %18, 256
   %tobool2.not.i = icmp eq i32 %and.i61, 0
   br i1 %tobool2.not.i, label %if.end74, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false1.i
-  %15 = load ptr, ptr %state12, align 8
-  %arrayidx.i64 = getelementptr i32, ptr %15, i64 %idxprom
-  %16 = load i32, ptr %arrayidx.i64, align 4
-  %and3.i = and i32 %16, 3
+  %19 = load ptr, ptr %state12, align 8
+  %arrayidx.i64 = getelementptr i32, ptr %19, i64 %idxprom
+  %20 = load i32, ptr %arrayidx.i64, align 4
+  %and3.i = and i32 %20, 3
   %cmp4.not.i = icmp eq i32 %and3.i, 3
   br i1 %cmp4.not.i, label %if.end6.i, label %if.end74
 
 if.end6.i:                                        ; preds = %if.end.i
-  %and.i.i = and i32 %16, -2
+  %and.i.i = and i32 %20, -2
   store i32 %and.i.i, ptr %arrayidx.i64, align 4
   %target.i = getelementptr inbounds i8, ptr %opaque.tr87.us93, i64 1152
-  %17 = load ptr, ptr %target.i, align 16
-  %arrayidx8.i = getelementptr i32, ptr %17, i64 %idxprom
-  %18 = load i32, ptr %arrayidx8.i, align 4
-  %shr.i = lshr i32 %18, 18
+  %21 = load ptr, ptr %target.i, align 16
+  %arrayidx8.i = getelementptr i32, ptr %21, i64 %idxprom
+  %22 = load i32, ptr %arrayidx8.i, align 4
+  %shr.i = lshr i32 %22, 18
   %mmode.i = getelementptr inbounds i8, ptr %opaque.tr87.us93, i64 1345
-  %19 = load i8, ptr %mmode.i, align 1
-  %tobool10.i = trunc i8 %19 to i1
-  %shr15.i = lshr i32 %18, 12
+  %23 = load i8, ptr %mmode.i, align 1
+  %tobool10.i = trunc i8 %23 to i1
+  %shr15.i = lshr i32 %22, 12
   %and16.i = and i32 %shr15.i, 63
   %guest_idx.0.i = select i1 %tobool10.i, i32 0, i32 %and16.i
-  %and21.i = and i32 %18, 2047
+  %and21.i = and i32 %22, 2047
   tail call fastcc void @riscv_aplic_msi_send(ptr noundef nonnull %opaque.tr87.us93, i32 noundef %shr.i, i32 noundef %guest_idx.0.i, i32 noundef %and21.i)
   br label %if.end74
 
 if.else69:                                        ; preds = %if.then66
   %target = getelementptr inbounds i8, ptr %opaque.tr87.us93, i64 1152
-  %20 = load ptr, ptr %target, align 16
-  %arrayidx71 = getelementptr i32, ptr %20, i64 %idxprom
-  %21 = load i32, ptr %arrayidx71, align 4
-  %shr = lshr i32 %21, 18
+  %24 = load ptr, ptr %target, align 16
+  %arrayidx71 = getelementptr i32, ptr %24, i64 %idxprom
+  %25 = load i32, ptr %arrayidx71, align 4
+  %shr = lshr i32 %25, 18
   tail call fastcc void @riscv_aplic_idc_update(ptr noundef nonnull %opaque.tr87.us93, i32 noundef %shr)
   br label %if.end74
 

@@ -3965,25 +3965,25 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %lbmc_determine_msg_type.exit
-  %.0734.ph1281 = phi i32 [ %1, %.lr.ph.lr.ph ], [ %4015, %lbmc_determine_msg_type.exit ]
-  %.0735.ph1280 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.4, %lbmc_determine_msg_type.exit ]
-  %.0738.ph1279 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1739, %lbmc_determine_msg_type.exit ]
-  %.0740.ph1278 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2742, %lbmc_determine_msg_type.exit ]
-  %.0751.ph1277 = phi i64 [ %5, %.lr.ph.lr.ph ], [ %.2753, %lbmc_determine_msg_type.exit ]
-  %.0754.ph1276 = phi i16 [ 0, %.lr.ph.lr.ph ], [ %.1755, %lbmc_determine_msg_type.exit ]
-  %.sroa.31010.0.ph1275 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.31010.1.lcssa, %lbmc_determine_msg_type.exit ]
-  %.sroa.17.0.ph1274 = phi ptr [ undef, %.lr.ph.lr.ph ], [ %.sroa.17.1.lcssa, %lbmc_determine_msg_type.exit ]
-  %.sroa.22.0.ph1273 = phi i16 [ undef, %.lr.ph.lr.ph ], [ %.sroa.22.1.lcssa, %lbmc_determine_msg_type.exit ]
-  %.sroa.261036.0.ph1272 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.261036.1.lcssa, %lbmc_determine_msg_type.exit ]
-  %.sroa.40.0.ph1271 = phi ptr [ undef, %.lr.ph.lr.ph ], [ %.sroa.40.1.lcssa, %lbmc_determine_msg_type.exit ]
-  %.sroa.45.0.ph1270 = phi i16 [ undef, %.lr.ph.lr.ph ], [ %.sroa.45.1.lcssa, %lbmc_determine_msg_type.exit ]
+  %.0734.ph1243 = phi i32 [ %1, %.lr.ph.lr.ph ], [ %4019, %lbmc_determine_msg_type.exit ]
+  %.0735.ph1242 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.4, %lbmc_determine_msg_type.exit ]
+  %.0738.ph1241 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1739, %lbmc_determine_msg_type.exit ]
+  %.0740.ph1240 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2742, %lbmc_determine_msg_type.exit ]
+  %.0751.ph1239 = phi i64 [ %5, %.lr.ph.lr.ph ], [ %.2753, %lbmc_determine_msg_type.exit ]
+  %.0754.ph1238 = phi i16 [ 0, %.lr.ph.lr.ph ], [ %.1755, %lbmc_determine_msg_type.exit ]
+  %.sroa.31010.0.ph1237 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.31010.1.lcssa, %lbmc_determine_msg_type.exit ]
+  %.sroa.17.0.ph1236 = phi ptr [ undef, %.lr.ph.lr.ph ], [ %.sroa.17.1.lcssa, %lbmc_determine_msg_type.exit ]
+  %.sroa.22.0.ph1235 = phi i16 [ undef, %.lr.ph.lr.ph ], [ %.sroa.22.1.lcssa, %lbmc_determine_msg_type.exit ]
+  %.sroa.261036.0.ph1234 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.261036.1.lcssa, %lbmc_determine_msg_type.exit ]
+  %.sroa.40.0.ph1233 = phi ptr [ undef, %.lr.ph.lr.ph ], [ %.sroa.40.1.lcssa, %lbmc_determine_msg_type.exit ]
+  %.sroa.45.0.ph1232 = phi i16 [ undef, %.lr.ph.lr.ph ], [ %.sroa.45.1.lcssa, %lbmc_determine_msg_type.exit ]
   br label %227
 
 227:                                              ; preds = %.lr.ph, %295
-  %.07341179 = phi i32 [ %.0734.ph1281, %.lr.ph ], [ %297, %295 ]
-  %.07351178 = phi ptr [ %.0735.ph1280, %.lr.ph ], [ %.2737, %295 ]
-  %.07381177 = phi i32 [ %.0738.ph1279, %.lr.ph ], [ %.1739, %295 ]
-  %.07401176 = phi i32 [ %.0740.ph1278, %.lr.ph ], [ %298, %295 ]
+  %.07341179 = phi i32 [ %.0734.ph1243, %.lr.ph ], [ %297, %295 ]
+  %.07351178 = phi ptr [ %.0735.ph1242, %.lr.ph ], [ %.2737, %295 ]
+  %.07381177 = phi i32 [ %.0738.ph1241, %.lr.ph ], [ %.1739, %295 ]
+  %.07401176 = phi i32 [ %.0740.ph1240, %.lr.ph ], [ %298, %295 ]
   %228 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07341179) #9
   %229 = add i32 %.07341179, 2
   %230 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %229) #9
@@ -4155,3770 +4155,3768 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 0, ptr %41, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %42, i8 0, i64 256, i1 false)
   %314 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0743) #9
-  %.fr1181 = freeze i32 %314
-  %315 = icmp sgt i32 %.fr1181, 3
-  br i1 %315, label %switch.early.test.lr.ph, label %.critedge
+  %315 = icmp sgt i32 %314, 3
+  %316 = add i8 %303, -1
+  %317 = icmp ult i8 %316, -2
+  %or.cond351181 = select i1 %315, i1 %317, i1 false
+  br i1 %or.cond351181, label %.lr.ph1201, label %.critedge
 
-switch.early.test.lr.ph:                          ; preds = %309
-  %316 = getelementptr inbounds i8, ptr %311, i64 12
-  br label %switch.early.test
+.lr.ph1201:                                       ; preds = %309
+  %318 = getelementptr inbounds i8, ptr %311, i64 12
+  br label %319
 
-switch.early.test:                                ; preds = %switch.early.test.lr.ph, %dissect_nhdr_apphdr_chain.exit
-  %.07181200 = phi i8 [ %303, %switch.early.test.lr.ph ], [ %318, %dissect_nhdr_apphdr_chain.exit ]
-  %.07331199 = phi i32 [ %.0743, %switch.early.test.lr.ph ], [ %3048, %dissect_nhdr_apphdr_chain.exit ]
-  %.17411198 = phi i32 [ %302, %switch.early.test.lr.ph ], [ %3047, %dissect_nhdr_apphdr_chain.exit ]
-  %.07561197 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.1757, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.0.01196 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.sroa.0.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.3.01195 = phi i32 [ -1, %switch.early.test.lr.ph ], [ %.sroa.3.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.01009.01194 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.sroa.01009.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.31010.11193 = phi i32 [ %.sroa.31010.0.ph1275, %switch.early.test.lr.ph ], [ %.sroa.31010.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.010751192 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.5, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.131069.01191 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.sroa.131069.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.17.11190 = phi ptr [ %.sroa.17.0.ph1274, %switch.early.test.lr.ph ], [ %.sroa.17.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.8.01189 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.sroa.8.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.22.11188 = phi i16 [ %.sroa.22.0.ph1273, %switch.early.test.lr.ph ], [ %.sroa.22.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.261036.11187 = phi i32 [ %.sroa.261036.0.ph1272, %switch.early.test.lr.ph ], [ %.sroa.261036.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.31064.01186 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.sroa.31064.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.01063.01185 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.sroa.01063.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.40.11184 = phi ptr [ %.sroa.40.0.ph1271, %switch.early.test.lr.ph ], [ %.sroa.40.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.010801183 = phi i32 [ 0, %switch.early.test.lr.ph ], [ %.11081, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.45.11182 = phi i16 [ %.sroa.45.0.ph1270, %switch.early.test.lr.ph ], [ %.sroa.45.2, %dissect_nhdr_apphdr_chain.exit ]
-  switch i8 %.07181200, label %317 [
-    i8 -1, label %.critedge
-    i8 0, label %.critedge
+319:                                              ; preds = %.lr.ph1201, %dissect_nhdr_apphdr_chain.exit
+  %.07181200 = phi i8 [ %303, %.lr.ph1201 ], [ %320, %dissect_nhdr_apphdr_chain.exit ]
+  %.07331199 = phi i32 [ %.0743, %.lr.ph1201 ], [ %3050, %dissect_nhdr_apphdr_chain.exit ]
+  %.17411198 = phi i32 [ %302, %.lr.ph1201 ], [ %3049, %dissect_nhdr_apphdr_chain.exit ]
+  %.07561197 = phi i32 [ 0, %.lr.ph1201 ], [ %.1757, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.0.01196 = phi i32 [ 0, %.lr.ph1201 ], [ %.sroa.0.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.3.01195 = phi i32 [ -1, %.lr.ph1201 ], [ %.sroa.3.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.01009.01194 = phi i32 [ 0, %.lr.ph1201 ], [ %.sroa.01009.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.31010.11193 = phi i32 [ %.sroa.31010.0.ph1237, %.lr.ph1201 ], [ %.sroa.31010.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.010751192 = phi i32 [ 0, %.lr.ph1201 ], [ %.5, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.131069.01191 = phi i32 [ 0, %.lr.ph1201 ], [ %.sroa.131069.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.17.11190 = phi ptr [ %.sroa.17.0.ph1236, %.lr.ph1201 ], [ %.sroa.17.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.8.01189 = phi i32 [ 0, %.lr.ph1201 ], [ %.sroa.8.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.22.11188 = phi i16 [ %.sroa.22.0.ph1235, %.lr.ph1201 ], [ %.sroa.22.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.261036.11187 = phi i32 [ %.sroa.261036.0.ph1234, %.lr.ph1201 ], [ %.sroa.261036.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.31064.01186 = phi i32 [ 0, %.lr.ph1201 ], [ %.sroa.31064.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.01063.01185 = phi i32 [ 0, %.lr.ph1201 ], [ %.sroa.01063.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.40.11184 = phi ptr [ %.sroa.40.0.ph1233, %.lr.ph1201 ], [ %.sroa.40.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.010801183 = phi i32 [ 0, %.lr.ph1201 ], [ %.11081, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.45.11182 = phi i16 [ %.sroa.45.0.ph1232, %.lr.ph1201 ], [ %.sroa.45.2, %dissect_nhdr_apphdr_chain.exit ]
+  %320 = call zeroext i8 @tvb_get_guint8(ptr noundef %235, i32 noundef %.07331199) #9
+  %321 = add i32 %.07331199, 1
+  %322 = call zeroext i8 @tvb_get_guint8(ptr noundef %235, i32 noundef %321) #9
+  %323 = zext i8 %322 to i32
+  %324 = icmp eq i8 %322, 0
+  br i1 %324, label %.loopexit.sink.split, label %325
+
+325:                                              ; preds = %319
+  %326 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %.07331199, i32 noundef %323) #9
+  %327 = zext i8 %.07181200 to i64
+  %328 = getelementptr [256 x i8], ptr %42, i64 0, i64 %327
+  store i8 1, ptr %328, align 1
+  switch i8 %.07181200, label %3047 [
+    i8 1, label %329
+    i8 2, label %350
+    i8 3, label %362
+    i8 4, label %364
+    i8 5, label %386
+    i8 6, label %407
+    i8 7, label %429
+    i8 8, label %506
+    i8 9, label %522
+    i8 10, label %544
+    i8 11, label %564
+    i8 12, label %578
+    i8 13, label %593
+    i8 14, label %608
+    i8 15, label %622
+    i8 16, label %644
+    i8 17, label %668
+    i8 18, label %688
+    i8 19, label %718
+    i8 20, label %747
+    i8 21, label %769
+    i8 22, label %797
+    i8 23, label %817
+    i8 24, label %830
+    i8 25, label %846
+    i8 26, label %860
+    i8 27, label %872
+    i8 28, label %884
+    i8 29, label %902
+    i8 30, label %924
+    i8 32, label %942
+    i8 48, label %973
+    i8 49, label %1091
+    i8 50, label %1224
+    i8 51, label %1312
+    i8 52, label %1344
+    i8 53, label %1412
+    i8 54, label %1532
+    i8 55, label %1544
+    i8 56, label %1568
+    i8 57, label %1592
+    i8 58, label %1606
+    i8 59, label %1624
+    i8 60, label %1657
+    i8 61, label %1671
+    i8 62, label %1692
+    i8 63, label %1720
+    i8 64, label %1738
+    i8 65, label %1774
+    i8 66, label %1802
+    i8 67, label %1816
+    i8 68, label %1830
+    i8 69, label %1852
+    i8 70, label %1866
+    i8 71, label %1884
+    i8 72, label %1898
+    i8 73, label %2066
+    i8 74, label %2233
+    i8 75, label %2247
+    i8 76, label %2268
+    i8 77, label %2294
+    i8 78, label %2324
+    i8 79, label %2354
+    i8 80, label %2384
+    i8 81, label %2402
+    i8 82, label %2475
+    i8 83, label %2477
+    i8 84, label %2493
+    i8 85, label %2507
+    i8 86, label %2525
+    i8 87, label %2555
+    i8 88, label %2573
+    i8 96, label %2594
+    i8 98, label %2745
+    i8 99, label %2761
+    i8 100, label %2777
+    i8 101, label %2811
+    i8 103, label %2825
+    i8 104, label %2839
+    i8 105, label %2860
+    i8 106, label %2886
+    i8 107, label %2902
+    i8 -2, label %2917
   ]
 
-317:                                              ; preds = %switch.early.test
-  %318 = call zeroext i8 @tvb_get_guint8(ptr noundef %235, i32 noundef %.07331199) #9
-  %319 = add i32 %.07331199, 1
-  %320 = call zeroext i8 @tvb_get_guint8(ptr noundef %235, i32 noundef %319) #9
-  %321 = zext i8 %320 to i32
-  %322 = icmp eq i8 %320, 0
-  br i1 %322, label %.loopexit.sink.split, label %323
-
-323:                                              ; preds = %317
-  %324 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %.07331199, i32 noundef %321) #9
-  %325 = zext i8 %.07181200 to i64
-  %326 = getelementptr [256 x i8], ptr %42, i64 0, i64 %325
-  store i8 1, ptr %326, align 1
-  switch i8 %.07181200, label %3045 [
-    i8 1, label %327
-    i8 2, label %348
-    i8 3, label %360
-    i8 4, label %362
-    i8 5, label %384
-    i8 6, label %405
-    i8 7, label %427
-    i8 8, label %504
-    i8 9, label %520
-    i8 10, label %542
-    i8 11, label %562
-    i8 12, label %576
-    i8 13, label %591
-    i8 14, label %606
-    i8 15, label %620
-    i8 16, label %642
-    i8 17, label %666
-    i8 18, label %686
-    i8 19, label %716
-    i8 20, label %745
-    i8 21, label %767
-    i8 22, label %795
-    i8 23, label %815
-    i8 24, label %828
-    i8 25, label %844
-    i8 26, label %858
-    i8 27, label %870
-    i8 28, label %882
-    i8 29, label %900
-    i8 30, label %922
-    i8 32, label %940
-    i8 48, label %971
-    i8 49, label %1089
-    i8 50, label %1222
-    i8 51, label %1310
-    i8 52, label %1342
-    i8 53, label %1410
-    i8 54, label %1530
-    i8 55, label %1542
-    i8 56, label %1566
-    i8 57, label %1590
-    i8 58, label %1604
-    i8 59, label %1622
-    i8 60, label %1655
-    i8 61, label %1669
-    i8 62, label %1690
-    i8 63, label %1718
-    i8 64, label %1736
-    i8 65, label %1772
-    i8 66, label %1800
-    i8 67, label %1814
-    i8 68, label %1828
-    i8 69, label %1850
-    i8 70, label %1864
-    i8 71, label %1882
-    i8 72, label %1896
-    i8 73, label %2064
-    i8 74, label %2231
-    i8 75, label %2245
-    i8 76, label %2266
-    i8 77, label %2292
-    i8 78, label %2322
-    i8 79, label %2352
-    i8 80, label %2382
-    i8 81, label %2400
-    i8 82, label %2473
-    i8 83, label %2475
-    i8 84, label %2491
-    i8 85, label %2505
-    i8 86, label %2523
-    i8 87, label %2553
-    i8 88, label %2571
-    i8 96, label %2592
-    i8 98, label %2743
-    i8 99, label %2759
-    i8 100, label %2775
-    i8 101, label %2809
-    i8 103, label %2823
-    i8 104, label %2837
-    i8 105, label %2858
-    i8 106, label %2884
-    i8 107, label %2900
-    i8 -2, label %2915
-  ]
-
-327:                                              ; preds = %323
-  %328 = load i32, ptr @hf_lbmc_frag, align 4
-  %329 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %328, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %330 = load i32, ptr @ett_lbmc_frag, align 4
-  %331 = call ptr @proto_item_add_subtree(ptr noundef %329, i32 noundef %330) #9
-  %332 = load i32, ptr @hf_lbmc_frag_next_hdr, align 4
-  %333 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %332, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %334 = load i32, ptr @hf_lbmc_frag_hdr_len, align 4
-  %335 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %334, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %336 = load i32, ptr @hf_lbmc_frag_flags, align 4
-  %337 = load i32, ptr @ett_lbmc_frag, align 4
-  %338 = call ptr @proto_tree_add_bitmask(ptr noundef %331, ptr noundef %324, i32 noundef 2, i32 noundef %336, i32 noundef %337, ptr noundef nonnull @dissect_nhdr_frag.flags, i32 noundef 0) #9
-  %339 = load i32, ptr @hf_lbmc_frag_first_sqn, align 4
-  %340 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %339, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %341 = load i32, ptr @hf_lbmc_frag_offset, align 4
-  %342 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %341, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %343 = load i32, ptr @hf_lbmc_frag_len, align 4
-  %344 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %343, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %345 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 4) #9
-  %346 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 8) #9
-  %347 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 12) #9
+329:                                              ; preds = %325
+  %330 = load i32, ptr @hf_lbmc_frag, align 4
+  %331 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %330, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %332 = load i32, ptr @ett_lbmc_frag, align 4
+  %333 = call ptr @proto_item_add_subtree(ptr noundef %331, i32 noundef %332) #9
+  %334 = load i32, ptr @hf_lbmc_frag_next_hdr, align 4
+  %335 = call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %334, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %336 = load i32, ptr @hf_lbmc_frag_hdr_len, align 4
+  %337 = call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %336, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %338 = load i32, ptr @hf_lbmc_frag_flags, align 4
+  %339 = load i32, ptr @ett_lbmc_frag, align 4
+  %340 = call ptr @proto_tree_add_bitmask(ptr noundef %333, ptr noundef %326, i32 noundef 2, i32 noundef %338, i32 noundef %339, ptr noundef nonnull @dissect_nhdr_frag.flags, i32 noundef 0) #9
+  %341 = load i32, ptr @hf_lbmc_frag_first_sqn, align 4
+  %342 = call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %341, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %343 = load i32, ptr @hf_lbmc_frag_offset, align 4
+  %344 = call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %343, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %345 = load i32, ptr @hf_lbmc_frag_len, align 4
+  %346 = call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %345, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %347 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 4) #9
+  %348 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 8) #9
+  %349 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 12) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-348:                                              ; preds = %323
-  %349 = load i32, ptr @hf_lbmc_batch, align 4
-  %350 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %349, ptr noundef %324, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
-  %351 = load i32, ptr @ett_lbmc_batch, align 4
-  %352 = call ptr @proto_item_add_subtree(ptr noundef %350, i32 noundef %351) #9
-  %353 = load i32, ptr @hf_lbmc_batch_next_hdr, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %352, i32 noundef %353, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %355 = load i32, ptr @hf_lbmc_batch_hdr_len, align 4
-  %356 = call ptr @proto_tree_add_item(ptr noundef %352, i32 noundef %355, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %357 = load i32, ptr @hf_lbmc_batch_flags, align 4
-  %358 = load i32, ptr @ett_lbmc_batch_flags, align 4
-  %359 = call ptr @proto_tree_add_bitmask(ptr noundef %352, ptr noundef %324, i32 noundef 2, i32 noundef %357, i32 noundef %358, ptr noundef nonnull @dissect_nhdr_batch.flags, i32 noundef 0) #9
+350:                                              ; preds = %325
+  %351 = load i32, ptr @hf_lbmc_batch, align 4
+  %352 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %351, ptr noundef %326, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
+  %353 = load i32, ptr @ett_lbmc_batch, align 4
+  %354 = call ptr @proto_item_add_subtree(ptr noundef %352, i32 noundef %353) #9
+  %355 = load i32, ptr @hf_lbmc_batch_next_hdr, align 4
+  %356 = call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %355, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %357 = load i32, ptr @hf_lbmc_batch_hdr_len, align 4
+  %358 = call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %357, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %359 = load i32, ptr @hf_lbmc_batch_flags, align 4
+  %360 = load i32, ptr @ett_lbmc_batch_flags, align 4
+  %361 = call ptr @proto_tree_add_bitmask(ptr noundef %354, ptr noundef %326, i32 noundef 2, i32 noundef %359, i32 noundef %360, ptr noundef nonnull @dissect_nhdr_batch.flags, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-360:                                              ; preds = %323
-  %361 = call fastcc i32 @dissect_nhdr_unhandled(ptr noundef %324, ptr noundef %2, ptr noundef %275, i8 noundef zeroext 3)
+362:                                              ; preds = %325
+  %363 = call fastcc i32 @dissect_nhdr_unhandled(ptr noundef %326, ptr noundef %2, ptr noundef %275, i8 noundef zeroext 3)
   br label %dissect_nhdr_apphdr_chain.exit
 
-362:                                              ; preds = %323
-  %363 = load i32, ptr @hf_lbmc_tcp_request, align 4
-  %364 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %363, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %365 = load i32, ptr @ett_lbmc_tcp_request, align 4
-  %366 = call ptr @proto_item_add_subtree(ptr noundef %364, i32 noundef %365) #9
-  %367 = load i32, ptr @hf_lbmc_tcp_request_next_hdr, align 4
-  %368 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %367, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %369 = load i32, ptr @hf_lbmc_tcp_request_hdr_len, align 4
-  %370 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %369, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %371 = load i32, ptr @hf_lbmc_tcp_request_flags, align 4
-  %372 = load i32, ptr @ett_lbmc_tcp_request_flags, align 4
-  %373 = call ptr @proto_tree_add_bitmask(ptr noundef %366, ptr noundef %324, i32 noundef 2, i32 noundef %371, i32 noundef %372, ptr noundef nonnull @dissect_nhdr_request.flags, i32 noundef 0) #9
-  %374 = load i32, ptr @hf_lbmc_tcp_request_transport, align 4
-  %375 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %374, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %376 = load i32, ptr @hf_lbmc_tcp_request_qidx, align 4
-  %377 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %376, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %378 = load i32, ptr @hf_lbmc_tcp_request_port, align 4
-  %379 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %378, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %380 = load i32, ptr @hf_lbmc_tcp_request_reserved, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %380, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  %382 = load i32, ptr @hf_lbmc_tcp_request_ipaddr, align 4
-  %383 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %382, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+364:                                              ; preds = %325
+  %365 = load i32, ptr @hf_lbmc_tcp_request, align 4
+  %366 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %365, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %367 = load i32, ptr @ett_lbmc_tcp_request, align 4
+  %368 = call ptr @proto_item_add_subtree(ptr noundef %366, i32 noundef %367) #9
+  %369 = load i32, ptr @hf_lbmc_tcp_request_next_hdr, align 4
+  %370 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %369, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %371 = load i32, ptr @hf_lbmc_tcp_request_hdr_len, align 4
+  %372 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %371, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %373 = load i32, ptr @hf_lbmc_tcp_request_flags, align 4
+  %374 = load i32, ptr @ett_lbmc_tcp_request_flags, align 4
+  %375 = call ptr @proto_tree_add_bitmask(ptr noundef %368, ptr noundef %326, i32 noundef 2, i32 noundef %373, i32 noundef %374, ptr noundef nonnull @dissect_nhdr_request.flags, i32 noundef 0) #9
+  %376 = load i32, ptr @hf_lbmc_tcp_request_transport, align 4
+  %377 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %376, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %378 = load i32, ptr @hf_lbmc_tcp_request_qidx, align 4
+  %379 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %378, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %380 = load i32, ptr @hf_lbmc_tcp_request_port, align 4
+  %381 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %380, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %382 = load i32, ptr @hf_lbmc_tcp_request_reserved, align 4
+  %383 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %382, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  %384 = load i32, ptr @hf_lbmc_tcp_request_ipaddr, align 4
+  %385 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %384, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-384:                                              ; preds = %323
-  %385 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %386 = load i32, ptr @hf_lbmc_topicname, align 4
-  %387 = zext i8 %385 to i32
-  %388 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %386, ptr noundef %324, i32 noundef 0, i32 noundef %387, i32 noundef 0) #9
-  %389 = load i32, ptr @ett_lbmc_topicname, align 4
-  %390 = call ptr @proto_item_add_subtree(ptr noundef %388, i32 noundef %389) #9
-  %391 = load i32, ptr @hf_lbmc_topicname_next_hdr, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %391, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %393 = load i32, ptr @hf_lbmc_topicname_hdr_len, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %393, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %395 = load i32, ptr @hf_lbmc_topicname_flags, align 4
-  %396 = load i32, ptr @ett_lbmc_topicname_flags, align 4
-  %397 = call ptr @proto_tree_add_bitmask(ptr noundef %390, ptr noundef %324, i32 noundef 2, i32 noundef %395, i32 noundef %396, ptr noundef nonnull @dissect_nhdr_topicname.flags, i32 noundef 0) #9
-  %398 = icmp ugt i8 %385, 4
-  br i1 %398, label %399, label %403
+386:                                              ; preds = %325
+  %387 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %388 = load i32, ptr @hf_lbmc_topicname, align 4
+  %389 = zext i8 %387 to i32
+  %390 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %388, ptr noundef %326, i32 noundef 0, i32 noundef %389, i32 noundef 0) #9
+  %391 = load i32, ptr @ett_lbmc_topicname, align 4
+  %392 = call ptr @proto_item_add_subtree(ptr noundef %390, i32 noundef %391) #9
+  %393 = load i32, ptr @hf_lbmc_topicname_next_hdr, align 4
+  %394 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %393, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %395 = load i32, ptr @hf_lbmc_topicname_hdr_len, align 4
+  %396 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %395, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %397 = load i32, ptr @hf_lbmc_topicname_flags, align 4
+  %398 = load i32, ptr @ett_lbmc_topicname_flags, align 4
+  %399 = call ptr @proto_tree_add_bitmask(ptr noundef %392, ptr noundef %326, i32 noundef 2, i32 noundef %397, i32 noundef %398, ptr noundef nonnull @dissect_nhdr_topicname.flags, i32 noundef 0) #9
+  %400 = icmp ugt i8 %387, 4
+  br i1 %400, label %401, label %405
 
-399:                                              ; preds = %384
-  %400 = add nsw i32 %387, -4
-  %401 = load i32, ptr @hf_lbmc_topicname_topicname, align 4
-  %402 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %401, ptr noundef %324, i32 noundef 4, i32 noundef %400, i32 noundef 0) #9
+401:                                              ; preds = %386
+  %402 = add nsw i32 %389, -4
+  %403 = load i32, ptr @hf_lbmc_topicname_topicname, align 4
+  %404 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %403, ptr noundef %326, i32 noundef 4, i32 noundef %402, i32 noundef 0) #9
   br label %dissect_nhdr_topicname.exit
 
-403:                                              ; preds = %384
-  %404 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %394, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
+405:                                              ; preds = %386
+  %406 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %396, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
   br label %dissect_nhdr_topicname.exit
 
-dissect_nhdr_topicname.exit:                      ; preds = %399, %403
-  %.0.i = phi i32 [ %387, %399 ], [ 4, %403 ]
-  call void @proto_item_set_len(ptr noundef %388, i32 noundef %.0.i) #9
+dissect_nhdr_topicname.exit:                      ; preds = %401, %405
+  %.0.i = phi i32 [ %389, %401 ], [ 4, %405 ]
+  call void @proto_item_set_len(ptr noundef %390, i32 noundef %.0.i) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-405:                                              ; preds = %323
-  %406 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %407 = load i32, ptr @hf_lbmc_apphdr, align 4
-  %408 = zext i8 %406 to i32
-  %409 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %407, ptr noundef %324, i32 noundef 0, i32 noundef %408, i32 noundef 0) #9
-  %410 = load i32, ptr @ett_lbmc_apphdr, align 4
-  %411 = call ptr @proto_item_add_subtree(ptr noundef %409, i32 noundef %410) #9
-  %412 = load i32, ptr @hf_lbmc_apphdr_next_hdr, align 4
-  %413 = call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %412, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %414 = load i32, ptr @hf_lbmc_apphdr_hdr_len, align 4
-  %415 = call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %414, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %416 = load i32, ptr @hf_lbmc_apphdr_ignore, align 4
-  %417 = call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %416, ptr noundef %324, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %418 = load i32, ptr @hf_lbmc_apphdr_code, align 4
-  %419 = call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %418, ptr noundef %324, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %420 = icmp ugt i8 %406, 4
-  br i1 %420, label %421, label %425
+407:                                              ; preds = %325
+  %408 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %409 = load i32, ptr @hf_lbmc_apphdr, align 4
+  %410 = zext i8 %408 to i32
+  %411 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %409, ptr noundef %326, i32 noundef 0, i32 noundef %410, i32 noundef 0) #9
+  %412 = load i32, ptr @ett_lbmc_apphdr, align 4
+  %413 = call ptr @proto_item_add_subtree(ptr noundef %411, i32 noundef %412) #9
+  %414 = load i32, ptr @hf_lbmc_apphdr_next_hdr, align 4
+  %415 = call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %414, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %416 = load i32, ptr @hf_lbmc_apphdr_hdr_len, align 4
+  %417 = call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %416, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %418 = load i32, ptr @hf_lbmc_apphdr_ignore, align 4
+  %419 = call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %418, ptr noundef %326, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %420 = load i32, ptr @hf_lbmc_apphdr_code, align 4
+  %421 = call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %420, ptr noundef %326, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %422 = icmp ugt i8 %408, 4
+  br i1 %422, label %423, label %427
 
-421:                                              ; preds = %405
-  %422 = add nsw i32 %408, -4
-  %423 = load i32, ptr @hf_lbmc_apphdr_data, align 4
-  %424 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %411, i32 noundef %423, ptr noundef %324, i32 noundef 4, i32 noundef %422, ptr noundef nonnull @.str.1729, i32 noundef %422) #9
+423:                                              ; preds = %407
+  %424 = add nsw i32 %410, -4
+  %425 = load i32, ptr @hf_lbmc_apphdr_data, align 4
+  %426 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %413, i32 noundef %425, ptr noundef %326, i32 noundef 4, i32 noundef %424, ptr noundef nonnull @.str.1729, i32 noundef %424) #9
   br label %dissect_nhdr_apphdr.exit
 
-425:                                              ; preds = %405
-  %426 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %415, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
+427:                                              ; preds = %407
+  %428 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %417, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
   br label %dissect_nhdr_apphdr.exit
 
-dissect_nhdr_apphdr.exit:                         ; preds = %421, %425
-  %.0.i822 = phi i32 [ %408, %421 ], [ 4, %425 ]
-  call void @proto_item_set_len(ptr noundef %409, i32 noundef %.0.i822) #9
+dissect_nhdr_apphdr.exit:                         ; preds = %423, %427
+  %.0.i822 = phi i32 [ %410, %423 ], [ 4, %427 ]
+  call void @proto_item_set_len(ptr noundef %411, i32 noundef %.0.i822) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-427:                                              ; preds = %323
-  %428 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %429 = zext i8 %428 to i32
-  %430 = add i8 %428, -4
-  %431 = load i32, ptr @hf_lbmc_apphdr_chain, align 4
-  %432 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %431, ptr noundef %324, i32 noundef 0, i32 noundef %429, i32 noundef 0) #9
-  %433 = load i32, ptr @ett_lbmc_apphdr_chain, align 4
-  %434 = call ptr @proto_item_add_subtree(ptr noundef %432, i32 noundef %433) #9
-  %435 = load i32, ptr @hf_lbmc_apphdr_chain_next_hdr, align 4
-  %436 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %435, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %437 = load i32, ptr @hf_lbmc_apphdr_chain_hdr_len, align 4
-  %438 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %437, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %439 = load i32, ptr @hf_lbmc_apphdr_chain_res, align 4
-  %440 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %439, ptr noundef %324, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
-  %441 = load i32, ptr @hf_lbmc_apphdr_chain_first_chain_hdr, align 4
-  %442 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %441, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %443 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  %.not62.i = icmp eq i8 %430, 0
+429:                                              ; preds = %325
+  %430 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %431 = zext i8 %430 to i32
+  %432 = add i8 %430, -4
+  %433 = load i32, ptr @hf_lbmc_apphdr_chain, align 4
+  %434 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %433, ptr noundef %326, i32 noundef 0, i32 noundef %431, i32 noundef 0) #9
+  %435 = load i32, ptr @ett_lbmc_apphdr_chain, align 4
+  %436 = call ptr @proto_item_add_subtree(ptr noundef %434, i32 noundef %435) #9
+  %437 = load i32, ptr @hf_lbmc_apphdr_chain_next_hdr, align 4
+  %438 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %437, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %439 = load i32, ptr @hf_lbmc_apphdr_chain_hdr_len, align 4
+  %440 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %439, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %441 = load i32, ptr @hf_lbmc_apphdr_chain_res, align 4
+  %442 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %441, ptr noundef %326, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
+  %443 = load i32, ptr @hf_lbmc_apphdr_chain_first_chain_hdr, align 4
+  %444 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %443, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %445 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  %.not62.i = icmp eq i8 %432, 0
   br i1 %.not62.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %427, %503
-  %.11076 = phi i32 [ %.21077, %503 ], [ %.010751192, %427 ]
-  %.067.i = phi i32 [ %499, %503 ], [ 4, %427 ]
-  %.05066.i = phi i8 [ %.1.i, %503 ], [ %443, %427 ]
-  %.05264.i = phi i32 [ %496, %503 ], [ 4, %427 ]
-  %.05363.i = phi i8 [ %498, %503 ], [ %430, %427 ]
+.lr.ph.i:                                         ; preds = %429, %505
+  %.11076 = phi i32 [ %.21077, %505 ], [ %.010751192, %429 ]
+  %.067.i = phi i32 [ %501, %505 ], [ 4, %429 ]
+  %.05066.i = phi i8 [ %.1.i, %505 ], [ %445, %429 ]
+  %.05264.i = phi i32 [ %498, %505 ], [ 4, %429 ]
+  %.05363.i = phi i8 [ %500, %505 ], [ %432, %429 ]
   %cond.i = icmp eq i8 %.05066.i, 6
-  %444 = add i32 %.05264.i, 1
-  %445 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef %444) #9
-  %446 = zext i8 %445 to i32
-  br i1 %cond.i, label %447, label %469
+  %446 = add i32 %.05264.i, 1
+  %447 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef %446) #9
+  %448 = zext i8 %447 to i32
+  br i1 %cond.i, label %449, label %471
 
-447:                                              ; preds = %.lr.ph.i
-  %448 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop, align 4
-  %449 = call ptr @val_to_str(i32 noundef 6, ptr noundef nonnull @lbmc_apphdr_chain_type, ptr noundef nonnull @.str.1731) #9
-  %450 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %434, i32 noundef %448, ptr noundef %324, i32 noundef %.05264.i, i32 noundef %446, ptr noundef nonnull @.str.1730, ptr noundef %449) #9
-  %451 = load i32, ptr @ett_lbmc_apphdr_chain_msgprop, align 4
-  %452 = call ptr @proto_item_add_subtree(ptr noundef %450, i32 noundef %451) #9
-  %453 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_next_hdr, align 4
-  %454 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %453, ptr noundef %324, i32 noundef %.05264.i, i32 noundef 1, i32 noundef 0) #9
-  %455 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_hdr_len, align 4
-  %456 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %455, ptr noundef %324, i32 noundef %444, i32 noundef 1, i32 noundef 0) #9
-  %457 = icmp eq i8 %445, 0
-  br i1 %457, label %458, label %460
+449:                                              ; preds = %.lr.ph.i
+  %450 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop, align 4
+  %451 = call ptr @val_to_str(i32 noundef 6, ptr noundef nonnull @lbmc_apphdr_chain_type, ptr noundef nonnull @.str.1731) #9
+  %452 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %436, i32 noundef %450, ptr noundef %326, i32 noundef %.05264.i, i32 noundef %448, ptr noundef nonnull @.str.1730, ptr noundef %451) #9
+  %453 = load i32, ptr @ett_lbmc_apphdr_chain_msgprop, align 4
+  %454 = call ptr @proto_item_add_subtree(ptr noundef %452, i32 noundef %453) #9
+  %455 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_next_hdr, align 4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %454, i32 noundef %455, ptr noundef %326, i32 noundef %.05264.i, i32 noundef 1, i32 noundef 0) #9
+  %457 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_hdr_len, align 4
+  %458 = call ptr @proto_tree_add_item(ptr noundef %454, i32 noundef %457, ptr noundef %326, i32 noundef %446, i32 noundef 1, i32 noundef 0) #9
+  %459 = icmp eq i8 %447, 0
+  br i1 %459, label %460, label %462
 
-458:                                              ; preds = %447
-  %459 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %456, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull @.str.1732) #9
+460:                                              ; preds = %449
+  %461 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %458, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull @.str.1732) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-460:                                              ; preds = %447
-  %461 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_res, align 4
-  %462 = add i32 %.05264.i, 2
-  %463 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %461, ptr noundef %324, i32 noundef %462, i32 noundef 2, i32 noundef 0) #9
-  %464 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_len, align 4
-  %465 = add i32 %.05264.i, 4
-  %466 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %464, ptr noundef %324, i32 noundef %465, i32 noundef 4, i32 noundef 0) #9
-  %467 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef %465) #9
-  %468 = add i32 %467, %.11076
-  call void @proto_item_set_len(ptr noundef %450, i32 noundef 8) #9
+462:                                              ; preds = %449
+  %463 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_res, align 4
+  %464 = add i32 %.05264.i, 2
+  %465 = call ptr @proto_tree_add_item(ptr noundef %454, i32 noundef %463, ptr noundef %326, i32 noundef %464, i32 noundef 2, i32 noundef 0) #9
+  %466 = load i32, ptr @hf_lbmc_apphdr_chain_msgprop_len, align 4
+  %467 = add i32 %.05264.i, 4
+  %468 = call ptr @proto_tree_add_item(ptr noundef %454, i32 noundef %466, ptr noundef %326, i32 noundef %467, i32 noundef 4, i32 noundef 0) #9
+  %469 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef %467) #9
+  %470 = add i32 %469, %.11076
+  call void @proto_item_set_len(ptr noundef %452, i32 noundef 8) #9
   br label %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
 
-469:                                              ; preds = %.lr.ph.i
-  %470 = load i32, ptr @hf_lbmc_apphdr_chain_element, align 4
-  %471 = zext i8 %.05066.i to i32
-  %472 = call ptr @val_to_str(i32 noundef %471, ptr noundef nonnull @lbmc_apphdr_chain_type, ptr noundef nonnull @.str.1731) #9
-  %473 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %434, i32 noundef %470, ptr noundef %324, i32 noundef %.05264.i, i32 noundef %446, ptr noundef nonnull @.str.1730, ptr noundef %472) #9
-  %474 = load i32, ptr @ett_lbmc_apphdr_chain_element, align 4
-  %475 = call ptr @proto_item_add_subtree(ptr noundef %473, i32 noundef %474) #9
-  %476 = load i32, ptr @hf_lbmc_apphdr_chain_element_next_hdr, align 4
-  %477 = call ptr @proto_tree_add_item(ptr noundef %475, i32 noundef %476, ptr noundef %324, i32 noundef %.05264.i, i32 noundef 1, i32 noundef 0) #9
-  %478 = load i32, ptr @hf_lbmc_apphdr_chain_element_hdr_len, align 4
-  %479 = call ptr @proto_tree_add_item(ptr noundef %475, i32 noundef %478, ptr noundef %324, i32 noundef %444, i32 noundef 1, i32 noundef 0) #9
-  %480 = icmp eq i8 %445, 0
-  br i1 %480, label %481, label %483
+471:                                              ; preds = %.lr.ph.i
+  %472 = load i32, ptr @hf_lbmc_apphdr_chain_element, align 4
+  %473 = zext i8 %.05066.i to i32
+  %474 = call ptr @val_to_str(i32 noundef %473, ptr noundef nonnull @lbmc_apphdr_chain_type, ptr noundef nonnull @.str.1731) #9
+  %475 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %436, i32 noundef %472, ptr noundef %326, i32 noundef %.05264.i, i32 noundef %448, ptr noundef nonnull @.str.1730, ptr noundef %474) #9
+  %476 = load i32, ptr @ett_lbmc_apphdr_chain_element, align 4
+  %477 = call ptr @proto_item_add_subtree(ptr noundef %475, i32 noundef %476) #9
+  %478 = load i32, ptr @hf_lbmc_apphdr_chain_element_next_hdr, align 4
+  %479 = call ptr @proto_tree_add_item(ptr noundef %477, i32 noundef %478, ptr noundef %326, i32 noundef %.05264.i, i32 noundef 1, i32 noundef 0) #9
+  %480 = load i32, ptr @hf_lbmc_apphdr_chain_element_hdr_len, align 4
+  %481 = call ptr @proto_tree_add_item(ptr noundef %477, i32 noundef %480, ptr noundef %326, i32 noundef %446, i32 noundef 1, i32 noundef 0) #9
+  %482 = icmp eq i8 %447, 0
+  br i1 %482, label %483, label %485
 
-481:                                              ; preds = %469
-  %482 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %479, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull @.str.1732) #9
+483:                                              ; preds = %471
+  %484 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %481, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull @.str.1732) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-483:                                              ; preds = %469
-  %484 = load i32, ptr @hf_lbmc_apphdr_chain_element_res, align 4
-  %485 = add i32 %.05264.i, 2
-  %486 = call ptr @proto_tree_add_item(ptr noundef %475, i32 noundef %484, ptr noundef %324, i32 noundef %485, i32 noundef 2, i32 noundef 0) #9
-  %487 = icmp ugt i8 %445, 4
-  br i1 %487, label %488, label %493
+485:                                              ; preds = %471
+  %486 = load i32, ptr @hf_lbmc_apphdr_chain_element_res, align 4
+  %487 = add i32 %.05264.i, 2
+  %488 = call ptr @proto_tree_add_item(ptr noundef %477, i32 noundef %486, ptr noundef %326, i32 noundef %487, i32 noundef 2, i32 noundef 0) #9
+  %489 = icmp ugt i8 %447, 4
+  br i1 %489, label %490, label %495
 
-488:                                              ; preds = %483
-  %489 = add nsw i32 %446, -4
-  %490 = load i32, ptr @hf_lbmc_apphdr_chain_element_data, align 4
-  %491 = add i32 %.05264.i, 4
-  %492 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %475, i32 noundef %490, ptr noundef %324, i32 noundef %491, i32 noundef %489, ptr noundef nonnull @.str.1729, i32 noundef %489) #9
-  br label %495
+490:                                              ; preds = %485
+  %491 = add nsw i32 %448, -4
+  %492 = load i32, ptr @hf_lbmc_apphdr_chain_element_data, align 4
+  %493 = add i32 %.05264.i, 4
+  %494 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %477, i32 noundef %492, ptr noundef %326, i32 noundef %493, i32 noundef %491, ptr noundef nonnull @.str.1729, i32 noundef %491) #9
+  br label %497
 
-493:                                              ; preds = %483
-  %494 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %479, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
-  br label %495
+495:                                              ; preds = %485
+  %496 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %481, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
+  br label %497
 
-495:                                              ; preds = %493, %488
-  %.0.i56.i = phi i32 [ %446, %488 ], [ 4, %493 ]
-  call void @proto_item_set_len(ptr noundef %473, i32 noundef %.0.i56.i) #9
+497:                                              ; preds = %495, %490
+  %.0.i56.i = phi i32 [ %448, %490 ], [ 4, %495 ]
+  call void @proto_item_set_len(ptr noundef %475, i32 noundef %.0.i56.i) #9
   br label %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
 
-dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %495, %460
-  %.21077 = phi i32 [ %468, %460 ], [ %.11076, %495 ]
-  %.051.i = phi i32 [ 8, %460 ], [ %.0.i56.i, %495 ]
-  %496 = add i32 %.051.i, %.05264.i
-  %497 = trunc i32 %.051.i to i8
-  %498 = sub i8 %.05363.i, %497
-  %499 = add i32 %.051.i, %.067.i
-  %500 = icmp ugt i8 %498, 3
-  br i1 %500, label %501, label %503
+dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %497, %462
+  %.21077 = phi i32 [ %470, %462 ], [ %.11076, %497 ]
+  %.051.i = phi i32 [ 8, %462 ], [ %.0.i56.i, %497 ]
+  %498 = add i32 %.051.i, %.05264.i
+  %499 = trunc i32 %.051.i to i8
+  %500 = sub i8 %.05363.i, %499
+  %501 = add i32 %.051.i, %.067.i
+  %502 = icmp ugt i8 %500, 3
+  br i1 %502, label %503, label %505
 
-501:                                              ; preds = %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
-  %502 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef %496) #9
-  br label %503
+503:                                              ; preds = %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
+  %504 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef %498) #9
+  br label %505
 
-503:                                              ; preds = %501, %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
-  %.1.i = phi i8 [ %502, %501 ], [ %.05066.i, %dissect_nhdr_apphdr_chain_msgprop_element.exit.i ]
-  %.not.i823 = icmp eq i8 %498, 0
+505:                                              ; preds = %503, %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
+  %.1.i = phi i8 [ %504, %503 ], [ %.05066.i, %dissect_nhdr_apphdr_chain_msgprop_element.exit.i ]
+  %.not.i823 = icmp eq i8 %500, 0
   br i1 %.not.i823, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %503, %427
-  %.31078 = phi i32 [ %.010751192, %427 ], [ %.21077, %503 ]
-  %.0.lcssa.i = phi i32 [ 4, %427 ], [ %499, %503 ]
-  call void @proto_item_set_len(ptr noundef %432, i32 noundef %.0.lcssa.i) #9
+._crit_edge.i:                                    ; preds = %505, %429
+  %.31078 = phi i32 [ %.010751192, %429 ], [ %.21077, %505 ]
+  %.0.lcssa.i = phi i32 [ 4, %429 ], [ %501, %505 ]
+  call void @proto_item_set_len(ptr noundef %434, i32 noundef %.0.lcssa.i) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-504:                                              ; preds = %323
-  %505 = load i32, ptr @hf_lbmc_umq_msgid, align 4
-  %506 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %505, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %507 = load i32, ptr @ett_lbmc_umq_msgid, align 4
-  %508 = call ptr @proto_item_add_subtree(ptr noundef %506, i32 noundef %507) #9
-  %509 = load i32, ptr @hf_lbmc_umq_msgid_next_hdr, align 4
-  %510 = call ptr @proto_tree_add_item(ptr noundef %508, i32 noundef %509, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %511 = load i32, ptr @hf_lbmc_umq_msgid_hdr_len, align 4
-  %512 = call ptr @proto_tree_add_item(ptr noundef %508, i32 noundef %511, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %513 = load i32, ptr @hf_lbmc_umq_msgid_flags, align 4
-  %514 = load i32, ptr @ett_lbmc_umq_msgid_flags, align 4
-  %515 = call ptr @proto_tree_add_bitmask(ptr noundef %508, ptr noundef %324, i32 noundef 2, i32 noundef %513, i32 noundef %514, ptr noundef nonnull @dissect_nhdr_umq_msgid.flags, i32 noundef 0) #9
-  %516 = load i32, ptr @hf_lbmc_umq_msgid_msgid_regid, align 4
-  %517 = call ptr @proto_tree_add_item(ptr noundef %508, i32 noundef %516, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
-  %518 = load i32, ptr @hf_lbmc_umq_msgid_msgid_stamp, align 4
-  %519 = call ptr @proto_tree_add_item(ptr noundef %508, i32 noundef %518, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+506:                                              ; preds = %325
+  %507 = load i32, ptr @hf_lbmc_umq_msgid, align 4
+  %508 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %507, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %509 = load i32, ptr @ett_lbmc_umq_msgid, align 4
+  %510 = call ptr @proto_item_add_subtree(ptr noundef %508, i32 noundef %509) #9
+  %511 = load i32, ptr @hf_lbmc_umq_msgid_next_hdr, align 4
+  %512 = call ptr @proto_tree_add_item(ptr noundef %510, i32 noundef %511, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %513 = load i32, ptr @hf_lbmc_umq_msgid_hdr_len, align 4
+  %514 = call ptr @proto_tree_add_item(ptr noundef %510, i32 noundef %513, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %515 = load i32, ptr @hf_lbmc_umq_msgid_flags, align 4
+  %516 = load i32, ptr @ett_lbmc_umq_msgid_flags, align 4
+  %517 = call ptr @proto_tree_add_bitmask(ptr noundef %510, ptr noundef %326, i32 noundef 2, i32 noundef %515, i32 noundef %516, ptr noundef nonnull @dissect_nhdr_umq_msgid.flags, i32 noundef 0) #9
+  %518 = load i32, ptr @hf_lbmc_umq_msgid_msgid_regid, align 4
+  %519 = call ptr @proto_tree_add_item(ptr noundef %510, i32 noundef %518, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+  %520 = load i32, ptr @hf_lbmc_umq_msgid_msgid_stamp, align 4
+  %521 = call ptr @proto_tree_add_item(ptr noundef %510, i32 noundef %520, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-520:                                              ; preds = %323
-  %521 = load i32, ptr @hf_lbmc_umq_sqd_rcv, align 4
-  %522 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %521, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %523 = load i32, ptr @ett_lbmc_umq_sqd_rcv, align 4
-  %524 = call ptr @proto_item_add_subtree(ptr noundef %522, i32 noundef %523) #9
-  %525 = load i32, ptr @hf_lbmc_umq_sqd_rcv_next_hdr, align 4
-  %526 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %525, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %527 = load i32, ptr @hf_lbmc_umq_sqd_rcv_hdr_len, align 4
-  %528 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %527, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %529 = load i32, ptr @hf_lbmc_umq_sqd_rcv_flags, align 4
-  %530 = load i32, ptr @ett_lbmc_umq_sqd_rcv_flags, align 4
-  %531 = call ptr @proto_tree_add_bitmask(ptr noundef %524, ptr noundef %324, i32 noundef 2, i32 noundef %529, i32 noundef %530, ptr noundef nonnull @dissect_nhdr_umq_sqd_rcv.flags, i32 noundef 0) #9
-  %532 = load i32, ptr @hf_lbmc_umq_sqd_rcv_queue_id, align 4
-  %533 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %532, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %534 = load i32, ptr @hf_lbmc_umq_sqd_rcv_queue_ver, align 4
-  %535 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %534, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %536 = load i32, ptr @hf_lbmc_umq_sqd_rcv_rcr_idx, align 4
-  %537 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %536, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %538 = load i32, ptr @hf_lbmc_umq_sqd_rcv_assign_id, align 4
-  %539 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %538, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %540 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 12) #9
-  %541 = icmp eq i32 %540, 0
-  %..i = zext i1 %541 to i32
+522:                                              ; preds = %325
+  %523 = load i32, ptr @hf_lbmc_umq_sqd_rcv, align 4
+  %524 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %523, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %525 = load i32, ptr @ett_lbmc_umq_sqd_rcv, align 4
+  %526 = call ptr @proto_item_add_subtree(ptr noundef %524, i32 noundef %525) #9
+  %527 = load i32, ptr @hf_lbmc_umq_sqd_rcv_next_hdr, align 4
+  %528 = call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %527, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %529 = load i32, ptr @hf_lbmc_umq_sqd_rcv_hdr_len, align 4
+  %530 = call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %529, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %531 = load i32, ptr @hf_lbmc_umq_sqd_rcv_flags, align 4
+  %532 = load i32, ptr @ett_lbmc_umq_sqd_rcv_flags, align 4
+  %533 = call ptr @proto_tree_add_bitmask(ptr noundef %526, ptr noundef %326, i32 noundef 2, i32 noundef %531, i32 noundef %532, ptr noundef nonnull @dissect_nhdr_umq_sqd_rcv.flags, i32 noundef 0) #9
+  %534 = load i32, ptr @hf_lbmc_umq_sqd_rcv_queue_id, align 4
+  %535 = call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %534, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %536 = load i32, ptr @hf_lbmc_umq_sqd_rcv_queue_ver, align 4
+  %537 = call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %536, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %538 = load i32, ptr @hf_lbmc_umq_sqd_rcv_rcr_idx, align 4
+  %539 = call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %538, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %540 = load i32, ptr @hf_lbmc_umq_sqd_rcv_assign_id, align 4
+  %541 = call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %540, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %542 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 12) #9
+  %543 = icmp eq i32 %542, 0
+  %..i = zext i1 %543 to i32
   br label %dissect_nhdr_apphdr_chain.exit
 
-542:                                              ; preds = %323
-  %543 = load i32, ptr @hf_lbmc_umq_resub, align 4
-  %544 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %543, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %545 = load i32, ptr @ett_lbmc_umq_resub, align 4
-  %546 = call ptr @proto_item_add_subtree(ptr noundef %544, i32 noundef %545) #9
-  %547 = load i32, ptr @hf_lbmc_umq_resub_next_hdr, align 4
-  %548 = call ptr @proto_tree_add_item(ptr noundef %546, i32 noundef %547, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %549 = load i32, ptr @hf_lbmc_umq_resub_hdr_len, align 4
-  %550 = call ptr @proto_tree_add_item(ptr noundef %546, i32 noundef %549, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %551 = load i32, ptr @hf_lbmc_umq_resub_flags, align 4
-  %552 = load i32, ptr @ett_lbmc_umq_resub_flags, align 4
-  %553 = call ptr @proto_tree_add_bitmask(ptr noundef %546, ptr noundef %324, i32 noundef 2, i32 noundef %551, i32 noundef %552, ptr noundef nonnull @dissect_nhdr_umq_resub.flags, i32 noundef 0) #9
-  %554 = load i32, ptr @hf_lbmc_umq_resub_rcr_idx, align 4
-  %555 = call ptr @proto_tree_add_item(ptr noundef %546, i32 noundef %554, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %556 = load i32, ptr @hf_lbmc_umq_resub_resp_ip, align 4
-  %557 = call ptr @proto_tree_add_item(ptr noundef %546, i32 noundef %556, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %558 = load i32, ptr @hf_lbmc_umq_resub_resp_port, align 4
-  %559 = call ptr @proto_tree_add_item(ptr noundef %546, i32 noundef %558, ptr noundef %324, i32 noundef 12, i32 noundef 2, i32 noundef 0) #9
-  %560 = load i32, ptr @hf_lbmc_umq_resub_appset_idx, align 4
-  %561 = call ptr @proto_tree_add_item(ptr noundef %546, i32 noundef %560, ptr noundef %324, i32 noundef 14, i32 noundef 2, i32 noundef 0) #9
+544:                                              ; preds = %325
+  %545 = load i32, ptr @hf_lbmc_umq_resub, align 4
+  %546 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %545, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %547 = load i32, ptr @ett_lbmc_umq_resub, align 4
+  %548 = call ptr @proto_item_add_subtree(ptr noundef %546, i32 noundef %547) #9
+  %549 = load i32, ptr @hf_lbmc_umq_resub_next_hdr, align 4
+  %550 = call ptr @proto_tree_add_item(ptr noundef %548, i32 noundef %549, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %551 = load i32, ptr @hf_lbmc_umq_resub_hdr_len, align 4
+  %552 = call ptr @proto_tree_add_item(ptr noundef %548, i32 noundef %551, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %553 = load i32, ptr @hf_lbmc_umq_resub_flags, align 4
+  %554 = load i32, ptr @ett_lbmc_umq_resub_flags, align 4
+  %555 = call ptr @proto_tree_add_bitmask(ptr noundef %548, ptr noundef %326, i32 noundef 2, i32 noundef %553, i32 noundef %554, ptr noundef nonnull @dissect_nhdr_umq_resub.flags, i32 noundef 0) #9
+  %556 = load i32, ptr @hf_lbmc_umq_resub_rcr_idx, align 4
+  %557 = call ptr @proto_tree_add_item(ptr noundef %548, i32 noundef %556, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %558 = load i32, ptr @hf_lbmc_umq_resub_resp_ip, align 4
+  %559 = call ptr @proto_tree_add_item(ptr noundef %548, i32 noundef %558, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %560 = load i32, ptr @hf_lbmc_umq_resub_resp_port, align 4
+  %561 = call ptr @proto_tree_add_item(ptr noundef %548, i32 noundef %560, ptr noundef %326, i32 noundef 12, i32 noundef 2, i32 noundef 0) #9
+  %562 = load i32, ptr @hf_lbmc_umq_resub_appset_idx, align 4
+  %563 = call ptr @proto_tree_add_item(ptr noundef %548, i32 noundef %562, ptr noundef %326, i32 noundef 14, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-562:                                              ; preds = %323
-  %563 = load i32, ptr @hf_lbmc_otid, align 4
-  %564 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %563, ptr noundef %324, i32 noundef 0, i32 noundef 36, i32 noundef 0) #9
-  %565 = load i32, ptr @ett_lbmc_otid, align 4
-  %566 = call ptr @proto_item_add_subtree(ptr noundef %564, i32 noundef %565) #9
-  %567 = load i32, ptr @hf_lbmc_otid_next_hdr, align 4
-  %568 = call ptr @proto_tree_add_item(ptr noundef %566, i32 noundef %567, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %569 = load i32, ptr @hf_lbmc_otid_hdr_len, align 4
-  %570 = call ptr @proto_tree_add_item(ptr noundef %566, i32 noundef %569, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %571 = load i32, ptr @hf_lbmc_otid_flags, align 4
-  %572 = load i32, ptr @ett_lbmc_otid_flags, align 4
-  %573 = call ptr @proto_tree_add_bitmask(ptr noundef %566, ptr noundef %324, i32 noundef 2, i32 noundef %571, i32 noundef %572, ptr noundef nonnull @dissect_nhdr_otid.flags, i32 noundef 0) #9
-  %574 = load i32, ptr @hf_lbmc_otid_otid, align 4
-  %575 = call ptr @proto_tree_add_item(ptr noundef %566, i32 noundef %574, ptr noundef %324, i32 noundef 4, i32 noundef 32, i32 noundef 0) #9
+564:                                              ; preds = %325
+  %565 = load i32, ptr @hf_lbmc_otid, align 4
+  %566 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %565, ptr noundef %326, i32 noundef 0, i32 noundef 36, i32 noundef 0) #9
+  %567 = load i32, ptr @ett_lbmc_otid, align 4
+  %568 = call ptr @proto_item_add_subtree(ptr noundef %566, i32 noundef %567) #9
+  %569 = load i32, ptr @hf_lbmc_otid_next_hdr, align 4
+  %570 = call ptr @proto_tree_add_item(ptr noundef %568, i32 noundef %569, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %571 = load i32, ptr @hf_lbmc_otid_hdr_len, align 4
+  %572 = call ptr @proto_tree_add_item(ptr noundef %568, i32 noundef %571, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %573 = load i32, ptr @hf_lbmc_otid_flags, align 4
+  %574 = load i32, ptr @ett_lbmc_otid_flags, align 4
+  %575 = call ptr @proto_tree_add_bitmask(ptr noundef %568, ptr noundef %326, i32 noundef 2, i32 noundef %573, i32 noundef %574, ptr noundef nonnull @dissect_nhdr_otid.flags, i32 noundef 0) #9
+  %576 = load i32, ptr @hf_lbmc_otid_otid, align 4
+  %577 = call ptr @proto_tree_add_item(ptr noundef %568, i32 noundef %576, ptr noundef %326, i32 noundef 4, i32 noundef 32, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-576:                                              ; preds = %323
-  %577 = load i32, ptr @hf_lbmc_ctxinstd, align 4
-  %578 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %577, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %579 = load i32, ptr @ett_lbmc_ctxinstd, align 4
-  %580 = call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %579) #9
-  %581 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
-  %582 = call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %581, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %583 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
-  %584 = call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %583, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %585 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
-  %586 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
-  %587 = call ptr @proto_tree_add_bitmask(ptr noundef %580, ptr noundef %324, i32 noundef 2, i32 noundef %585, i32 noundef %586, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
-  %588 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
-  %589 = call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %588, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+578:                                              ; preds = %325
+  %579 = load i32, ptr @hf_lbmc_ctxinstd, align 4
+  %580 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %579, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %581 = load i32, ptr @ett_lbmc_ctxinstd, align 4
+  %582 = call ptr @proto_item_add_subtree(ptr noundef %580, i32 noundef %581) #9
+  %583 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
+  %584 = call ptr @proto_tree_add_item(ptr noundef %582, i32 noundef %583, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %585 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
+  %586 = call ptr @proto_tree_add_item(ptr noundef %582, i32 noundef %585, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %587 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
+  %588 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
+  %589 = call ptr @proto_tree_add_bitmask(ptr noundef %582, ptr noundef %326, i32 noundef 2, i32 noundef %587, i32 noundef %588, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
+  %590 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
+  %591 = call ptr @proto_tree_add_item(ptr noundef %582, i32 noundef %590, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
   store i32 1, ptr %40, align 4
-  %590 = call ptr @tvb_memcpy(ptr noundef %324, ptr noundef nonnull %57, i32 noundef 4, i64 noundef 8) #9
+  %592 = call ptr @tvb_memcpy(ptr noundef %326, ptr noundef nonnull %57, i32 noundef 4, i64 noundef 8) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-591:                                              ; preds = %323
-  %592 = load i32, ptr @hf_lbmc_ctxinstr, align 4
-  %593 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %592, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %594 = load i32, ptr @ett_lbmc_ctxinstr, align 4
-  %595 = call ptr @proto_item_add_subtree(ptr noundef %593, i32 noundef %594) #9
-  %596 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
-  %597 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %596, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %598 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
-  %599 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %598, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %600 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
-  %601 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
-  %602 = call ptr @proto_tree_add_bitmask(ptr noundef %595, ptr noundef %324, i32 noundef 2, i32 noundef %600, i32 noundef %601, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
-  %603 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
-  %604 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %603, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+593:                                              ; preds = %325
+  %594 = load i32, ptr @hf_lbmc_ctxinstr, align 4
+  %595 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %594, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %596 = load i32, ptr @ett_lbmc_ctxinstr, align 4
+  %597 = call ptr @proto_item_add_subtree(ptr noundef %595, i32 noundef %596) #9
+  %598 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
+  %599 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %598, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %600 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
+  %601 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %600, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %602 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
+  %603 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
+  %604 = call ptr @proto_tree_add_bitmask(ptr noundef %597, ptr noundef %326, i32 noundef 2, i32 noundef %602, i32 noundef %603, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
+  %605 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
+  %606 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %605, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
   store i32 1, ptr %41, align 4
-  %605 = call ptr @tvb_memcpy(ptr noundef %324, ptr noundef nonnull %56, i32 noundef 4, i64 noundef 8) #9
+  %607 = call ptr @tvb_memcpy(ptr noundef %326, ptr noundef nonnull %56, i32 noundef 4, i64 noundef 8) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-606:                                              ; preds = %323
-  %607 = load i32, ptr @hf_lbmc_srcidx, align 4
-  %608 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %607, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %609 = load i32, ptr @ett_lbmc_srcidx, align 4
-  %610 = call ptr @proto_item_add_subtree(ptr noundef %608, i32 noundef %609) #9
-  %611 = load i32, ptr @hf_lbmc_srcidx_next_hdr, align 4
-  %612 = call ptr @proto_tree_add_item(ptr noundef %610, i32 noundef %611, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %613 = load i32, ptr @hf_lbmc_srcidx_hdr_len, align 4
-  %614 = call ptr @proto_tree_add_item(ptr noundef %610, i32 noundef %613, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %615 = load i32, ptr @hf_lbmc_srcidx_flags, align 4
-  %616 = load i32, ptr @ett_lbmc_srcidx_flags, align 4
-  %617 = call ptr @proto_tree_add_bitmask(ptr noundef %610, ptr noundef %324, i32 noundef 2, i32 noundef %615, i32 noundef %616, ptr noundef nonnull @dissect_nhdr_srcidx.flags, i32 noundef 0) #9
-  %618 = load i32, ptr @hf_lbmc_srcidx_srcidx, align 4
-  %619 = call ptr @proto_tree_add_item(ptr noundef %610, i32 noundef %618, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+608:                                              ; preds = %325
+  %609 = load i32, ptr @hf_lbmc_srcidx, align 4
+  %610 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %609, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %611 = load i32, ptr @ett_lbmc_srcidx, align 4
+  %612 = call ptr @proto_item_add_subtree(ptr noundef %610, i32 noundef %611) #9
+  %613 = load i32, ptr @hf_lbmc_srcidx_next_hdr, align 4
+  %614 = call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %613, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %615 = load i32, ptr @hf_lbmc_srcidx_hdr_len, align 4
+  %616 = call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %615, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %617 = load i32, ptr @hf_lbmc_srcidx_flags, align 4
+  %618 = load i32, ptr @ett_lbmc_srcidx_flags, align 4
+  %619 = call ptr @proto_tree_add_bitmask(ptr noundef %612, ptr noundef %326, i32 noundef 2, i32 noundef %617, i32 noundef %618, ptr noundef nonnull @dissect_nhdr_srcidx.flags, i32 noundef 0) #9
+  %620 = load i32, ptr @hf_lbmc_srcidx_srcidx, align 4
+  %621 = call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %620, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-620:                                              ; preds = %323
-  %621 = load i32, ptr @hf_lbmc_umq_ulb_msg, align 4
-  %622 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %621, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %623 = load i32, ptr @ett_lbmc_umq_ulb_msg, align 4
-  %624 = call ptr @proto_item_add_subtree(ptr noundef %622, i32 noundef %623) #9
-  %625 = load i32, ptr @hf_lbmc_umq_ulb_msg_next_hdr, align 4
-  %626 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %625, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %627 = load i32, ptr @hf_lbmc_umq_ulb_msg_hdr_len, align 4
-  %628 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %627, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %629 = load i32, ptr @hf_lbmc_umq_ulb_msg_flags, align 4
-  %630 = load i32, ptr @ett_lbmc_umq_ulb_msg, align 4
-  %631 = call ptr @proto_tree_add_bitmask(ptr noundef %624, ptr noundef %324, i32 noundef 2, i32 noundef %629, i32 noundef %630, ptr noundef nonnull @dissect_nhdr_umq_ulb_msg.flags, i32 noundef 0) #9
-  %632 = load i32, ptr @hf_lbmc_umq_ulb_msg_queue_id, align 4
-  %633 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %632, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %634 = load i32, ptr @hf_lbmc_umq_ulb_msg_ulb_src_id, align 4
-  %635 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %634, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %636 = load i32, ptr @hf_lbmc_umq_ulb_msg_assign_id, align 4
-  %637 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %636, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %638 = load i32, ptr @hf_lbmc_umq_ulb_msg_appset_idx, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %638, ptr noundef %324, i32 noundef 16, i32 noundef 2, i32 noundef 0) #9
-  %640 = load i32, ptr @hf_lbmc_umq_ulb_msg_num_ras, align 4
-  %641 = call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %640, ptr noundef %324, i32 noundef 18, i32 noundef 2, i32 noundef 0) #9
+622:                                              ; preds = %325
+  %623 = load i32, ptr @hf_lbmc_umq_ulb_msg, align 4
+  %624 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %623, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %625 = load i32, ptr @ett_lbmc_umq_ulb_msg, align 4
+  %626 = call ptr @proto_item_add_subtree(ptr noundef %624, i32 noundef %625) #9
+  %627 = load i32, ptr @hf_lbmc_umq_ulb_msg_next_hdr, align 4
+  %628 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %627, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %629 = load i32, ptr @hf_lbmc_umq_ulb_msg_hdr_len, align 4
+  %630 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %629, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %631 = load i32, ptr @hf_lbmc_umq_ulb_msg_flags, align 4
+  %632 = load i32, ptr @ett_lbmc_umq_ulb_msg, align 4
+  %633 = call ptr @proto_tree_add_bitmask(ptr noundef %626, ptr noundef %326, i32 noundef 2, i32 noundef %631, i32 noundef %632, ptr noundef nonnull @dissect_nhdr_umq_ulb_msg.flags, i32 noundef 0) #9
+  %634 = load i32, ptr @hf_lbmc_umq_ulb_msg_queue_id, align 4
+  %635 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %634, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %636 = load i32, ptr @hf_lbmc_umq_ulb_msg_ulb_src_id, align 4
+  %637 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %636, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %638 = load i32, ptr @hf_lbmc_umq_ulb_msg_assign_id, align 4
+  %639 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %638, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %640 = load i32, ptr @hf_lbmc_umq_ulb_msg_appset_idx, align 4
+  %641 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %640, ptr noundef %326, i32 noundef 16, i32 noundef 2, i32 noundef 0) #9
+  %642 = load i32, ptr @hf_lbmc_umq_ulb_msg_num_ras, align 4
+  %643 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %642, ptr noundef %326, i32 noundef 18, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-642:                                              ; preds = %323
-  %643 = load i32, ptr @hf_lbmc_ssf_init, align 4
-  %644 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %643, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %645 = load i32, ptr @ett_lbmc_ssf_init, align 4
-  %646 = call ptr @proto_item_add_subtree(ptr noundef %644, i32 noundef %645) #9
-  %647 = load i32, ptr @hf_lbmc_ssf_init_next_hdr, align 4
-  %648 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %647, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %649 = load i32, ptr @hf_lbmc_ssf_init_hdr_len, align 4
-  %650 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %649, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %651 = load i32, ptr @hf_lbmc_ssf_init_flags, align 4
-  %652 = load i32, ptr @ett_lbmc_ssf_init, align 4
-  %653 = call ptr @proto_tree_add_bitmask(ptr noundef %646, ptr noundef %324, i32 noundef 2, i32 noundef %651, i32 noundef %652, ptr noundef nonnull @dissect_nhdr_ssf_init.flags, i32 noundef 0) #9
-  %654 = load i32, ptr @hf_lbmc_ssf_init_transport, align 4
-  %655 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %654, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %656 = load i32, ptr @hf_lbmc_ssf_init_transport_idx, align 4
-  %657 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %656, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %658 = load i32, ptr @hf_lbmc_ssf_init_client_idx, align 4
-  %659 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %658, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %660 = load i32, ptr @hf_lbmc_ssf_init_ssf_port, align 4
-  %661 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %660, ptr noundef %324, i32 noundef 12, i32 noundef 2, i32 noundef 0) #9
-  %662 = load i32, ptr @hf_lbmc_ssf_init_res, align 4
-  %663 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %662, ptr noundef %324, i32 noundef 14, i32 noundef 2, i32 noundef 0) #9
-  %664 = load i32, ptr @hf_lbmc_ssf_init_ssf_ip, align 4
-  %665 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %664, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+644:                                              ; preds = %325
+  %645 = load i32, ptr @hf_lbmc_ssf_init, align 4
+  %646 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %645, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %647 = load i32, ptr @ett_lbmc_ssf_init, align 4
+  %648 = call ptr @proto_item_add_subtree(ptr noundef %646, i32 noundef %647) #9
+  %649 = load i32, ptr @hf_lbmc_ssf_init_next_hdr, align 4
+  %650 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %649, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %651 = load i32, ptr @hf_lbmc_ssf_init_hdr_len, align 4
+  %652 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %651, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %653 = load i32, ptr @hf_lbmc_ssf_init_flags, align 4
+  %654 = load i32, ptr @ett_lbmc_ssf_init, align 4
+  %655 = call ptr @proto_tree_add_bitmask(ptr noundef %648, ptr noundef %326, i32 noundef 2, i32 noundef %653, i32 noundef %654, ptr noundef nonnull @dissect_nhdr_ssf_init.flags, i32 noundef 0) #9
+  %656 = load i32, ptr @hf_lbmc_ssf_init_transport, align 4
+  %657 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %656, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %658 = load i32, ptr @hf_lbmc_ssf_init_transport_idx, align 4
+  %659 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %658, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %660 = load i32, ptr @hf_lbmc_ssf_init_client_idx, align 4
+  %661 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %660, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %662 = load i32, ptr @hf_lbmc_ssf_init_ssf_port, align 4
+  %663 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %662, ptr noundef %326, i32 noundef 12, i32 noundef 2, i32 noundef 0) #9
+  %664 = load i32, ptr @hf_lbmc_ssf_init_res, align 4
+  %665 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %664, ptr noundef %326, i32 noundef 14, i32 noundef 2, i32 noundef 0) #9
+  %666 = load i32, ptr @hf_lbmc_ssf_init_ssf_ip, align 4
+  %667 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %666, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-666:                                              ; preds = %323
-  %667 = load i32, ptr @hf_lbmc_ssf_creq, align 4
-  %668 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %667, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %669 = load i32, ptr @ett_lbmc_ssf_creq, align 4
-  %670 = call ptr @proto_item_add_subtree(ptr noundef %668, i32 noundef %669) #9
-  %671 = load i32, ptr @hf_lbmc_ssf_creq_next_hdr, align 4
-  %672 = call ptr @proto_tree_add_item(ptr noundef %670, i32 noundef %671, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %673 = load i32, ptr @hf_lbmc_ssf_creq_hdr_len, align 4
-  %674 = call ptr @proto_tree_add_item(ptr noundef %670, i32 noundef %673, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %675 = load i32, ptr @hf_lbmc_ssf_creq_flags, align 4
-  %676 = load i32, ptr @ett_lbmc_ssf_creq, align 4
-  %677 = call ptr @proto_tree_add_bitmask(ptr noundef %670, ptr noundef %324, i32 noundef 2, i32 noundef %675, i32 noundef %676, ptr noundef nonnull @dissect_nhdr_ssf_creq.flags, i32 noundef 0) #9
-  %678 = load i32, ptr @hf_lbmc_ssf_creq_mode, align 4
-  %679 = call ptr @proto_tree_add_item(ptr noundef %670, i32 noundef %678, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %680 = load i32, ptr @hf_lbmc_ssf_creq_transport_idx, align 4
-  %681 = call ptr @proto_tree_add_item(ptr noundef %670, i32 noundef %680, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %682 = load i32, ptr @hf_lbmc_ssf_creq_topic_idx, align 4
-  %683 = call ptr @proto_tree_add_item(ptr noundef %670, i32 noundef %682, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %684 = load i32, ptr @hf_lbmc_ssf_creq_client_idx, align 4
-  %685 = call ptr @proto_tree_add_item(ptr noundef %670, i32 noundef %684, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+668:                                              ; preds = %325
+  %669 = load i32, ptr @hf_lbmc_ssf_creq, align 4
+  %670 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %669, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %671 = load i32, ptr @ett_lbmc_ssf_creq, align 4
+  %672 = call ptr @proto_item_add_subtree(ptr noundef %670, i32 noundef %671) #9
+  %673 = load i32, ptr @hf_lbmc_ssf_creq_next_hdr, align 4
+  %674 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %675 = load i32, ptr @hf_lbmc_ssf_creq_hdr_len, align 4
+  %676 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %675, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %677 = load i32, ptr @hf_lbmc_ssf_creq_flags, align 4
+  %678 = load i32, ptr @ett_lbmc_ssf_creq, align 4
+  %679 = call ptr @proto_tree_add_bitmask(ptr noundef %672, ptr noundef %326, i32 noundef 2, i32 noundef %677, i32 noundef %678, ptr noundef nonnull @dissect_nhdr_ssf_creq.flags, i32 noundef 0) #9
+  %680 = load i32, ptr @hf_lbmc_ssf_creq_mode, align 4
+  %681 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %680, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %682 = load i32, ptr @hf_lbmc_ssf_creq_transport_idx, align 4
+  %683 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %682, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %684 = load i32, ptr @hf_lbmc_ssf_creq_topic_idx, align 4
+  %685 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %684, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %686 = load i32, ptr @hf_lbmc_ssf_creq_client_idx, align 4
+  %687 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %686, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-686:                                              ; preds = %323
-  %687 = load i32, ptr @hf_lbmc_ume_preg, align 4
-  %688 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %687, ptr noundef %324, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
-  %689 = load i32, ptr @ett_lbmc_ume_preg, align 4
-  %690 = call ptr @proto_item_add_subtree(ptr noundef %688, i32 noundef %689) #9
-  %691 = load i32, ptr @hf_lbmc_ume_preg_next_hdr, align 4
-  %692 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %691, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %693 = load i32, ptr @hf_lbmc_ume_preg_hdr_len, align 4
-  %694 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %693, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %695 = load i32, ptr @hf_lbmc_ume_preg_flags, align 4
-  %696 = load i32, ptr @ett_lbmc_ume_preg_flags, align 4
-  %697 = call ptr @proto_tree_add_bitmask(ptr noundef %690, ptr noundef %324, i32 noundef 2, i32 noundef %695, i32 noundef %696, ptr noundef nonnull @dissect_nhdr_ume_preg.flags, i32 noundef 0) #9
-  %698 = load i32, ptr @hf_lbmc_ume_preg_s_flag, align 4
-  %699 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %698, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %700 = load i32, ptr @hf_lbmc_ume_preg_marker, align 4
-  %701 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %700, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %702 = load i32, ptr @hf_lbmc_ume_preg_reg_id, align 4
-  %703 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %702, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %704 = load i32, ptr @hf_lbmc_ume_preg_transport_idx, align 4
-  %705 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %704, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %706 = load i32, ptr @hf_lbmc_ume_preg_topic_idx, align 4
-  %707 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %706, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %708 = load i32, ptr @hf_lbmc_ume_preg_src_reg_id, align 4
-  %709 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %708, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %710 = load i32, ptr @hf_lbmc_ume_preg_resp_port, align 4
-  %711 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %710, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %712 = load i32, ptr @hf_lbmc_ume_preg_res2, align 4
-  %713 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %712, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
-  %714 = load i32, ptr @hf_lbmc_ume_preg_resp_ip, align 4
-  %715 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %714, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+688:                                              ; preds = %325
+  %689 = load i32, ptr @hf_lbmc_ume_preg, align 4
+  %690 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %689, ptr noundef %326, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
+  %691 = load i32, ptr @ett_lbmc_ume_preg, align 4
+  %692 = call ptr @proto_item_add_subtree(ptr noundef %690, i32 noundef %691) #9
+  %693 = load i32, ptr @hf_lbmc_ume_preg_next_hdr, align 4
+  %694 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %693, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %695 = load i32, ptr @hf_lbmc_ume_preg_hdr_len, align 4
+  %696 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %695, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %697 = load i32, ptr @hf_lbmc_ume_preg_flags, align 4
+  %698 = load i32, ptr @ett_lbmc_ume_preg_flags, align 4
+  %699 = call ptr @proto_tree_add_bitmask(ptr noundef %692, ptr noundef %326, i32 noundef 2, i32 noundef %697, i32 noundef %698, ptr noundef nonnull @dissect_nhdr_ume_preg.flags, i32 noundef 0) #9
+  %700 = load i32, ptr @hf_lbmc_ume_preg_s_flag, align 4
+  %701 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %700, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %702 = load i32, ptr @hf_lbmc_ume_preg_marker, align 4
+  %703 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %702, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %704 = load i32, ptr @hf_lbmc_ume_preg_reg_id, align 4
+  %705 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %704, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %706 = load i32, ptr @hf_lbmc_ume_preg_transport_idx, align 4
+  %707 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %706, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %708 = load i32, ptr @hf_lbmc_ume_preg_topic_idx, align 4
+  %709 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %708, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %710 = load i32, ptr @hf_lbmc_ume_preg_src_reg_id, align 4
+  %711 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %710, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %712 = load i32, ptr @hf_lbmc_ume_preg_resp_port, align 4
+  %713 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %712, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %714 = load i32, ptr @hf_lbmc_ume_preg_res2, align 4
+  %715 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %714, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+  %716 = load i32, ptr @hf_lbmc_ume_preg_resp_ip, align 4
+  %717 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %716, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-716:                                              ; preds = %323
-  %717 = load i32, ptr @hf_lbmc_ume_preg_resp, align 4
-  %718 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %717, ptr noundef %324, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
-  %719 = load i32, ptr @ett_lbmc_ume_preg_resp, align 4
-  %720 = call ptr @proto_item_add_subtree(ptr noundef %718, i32 noundef %719) #9
-  %721 = load i32, ptr @hf_lbmc_ume_preg_resp_next_hdr, align 4
-  %722 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %721, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %723 = load i32, ptr @hf_lbmc_ume_preg_resp_hdr_len, align 4
-  %724 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %723, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %725 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 2) #9
-  %726 = and i8 %725, 32
-  %727 = icmp eq i8 %726, 0
-  %728 = load i32, ptr @hf_lbmc_ume_preg_resp_code, align 4
-  %729 = load i32, ptr @ett_lbmc_ume_preg_resp_code, align 4
-  %dissect_nhdr_ume_preg_resp.codes.dissect_nhdr_ume_preg_resp.codes_e.i = select i1 %727, ptr @dissect_nhdr_ume_preg_resp.codes, ptr @dissect_nhdr_ume_preg_resp.codes_e
-  %730 = call ptr @proto_tree_add_bitmask(ptr noundef %720, ptr noundef %324, i32 noundef 2, i32 noundef %728, i32 noundef %729, ptr noundef nonnull %dissect_nhdr_ume_preg_resp.codes.dissect_nhdr_ume_preg_resp.codes_e.i, i32 noundef 0) #9
-  %731 = load i32, ptr @hf_lbmc_ume_preg_resp_s_flag, align 4
-  %732 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %731, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %733 = load i32, ptr @hf_lbmc_ume_preg_resp_marker, align 4
-  %734 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %733, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %735 = load i32, ptr @hf_lbmc_ume_preg_resp_reg_id, align 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %735, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %737 = load i32, ptr @hf_lbmc_ume_preg_resp_transport_idx, align 4
-  %738 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %737, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %739 = load i32, ptr @hf_lbmc_ume_preg_resp_topic_idx, align 4
-  %740 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %739, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %741 = load i32, ptr @hf_lbmc_ume_preg_resp_low_seqnum, align 4
-  %742 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %741, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %743 = load i32, ptr @hf_lbmc_ume_preg_resp_high_seqnum, align 4
-  %744 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %743, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+718:                                              ; preds = %325
+  %719 = load i32, ptr @hf_lbmc_ume_preg_resp, align 4
+  %720 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %719, ptr noundef %326, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
+  %721 = load i32, ptr @ett_lbmc_ume_preg_resp, align 4
+  %722 = call ptr @proto_item_add_subtree(ptr noundef %720, i32 noundef %721) #9
+  %723 = load i32, ptr @hf_lbmc_ume_preg_resp_next_hdr, align 4
+  %724 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %723, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %725 = load i32, ptr @hf_lbmc_ume_preg_resp_hdr_len, align 4
+  %726 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %725, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %727 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 2) #9
+  %728 = and i8 %727, 32
+  %729 = icmp eq i8 %728, 0
+  %730 = load i32, ptr @hf_lbmc_ume_preg_resp_code, align 4
+  %731 = load i32, ptr @ett_lbmc_ume_preg_resp_code, align 4
+  %dissect_nhdr_ume_preg_resp.codes.dissect_nhdr_ume_preg_resp.codes_e.i = select i1 %729, ptr @dissect_nhdr_ume_preg_resp.codes, ptr @dissect_nhdr_ume_preg_resp.codes_e
+  %732 = call ptr @proto_tree_add_bitmask(ptr noundef %722, ptr noundef %326, i32 noundef 2, i32 noundef %730, i32 noundef %731, ptr noundef nonnull %dissect_nhdr_ume_preg_resp.codes.dissect_nhdr_ume_preg_resp.codes_e.i, i32 noundef 0) #9
+  %733 = load i32, ptr @hf_lbmc_ume_preg_resp_s_flag, align 4
+  %734 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %733, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %735 = load i32, ptr @hf_lbmc_ume_preg_resp_marker, align 4
+  %736 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %735, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %737 = load i32, ptr @hf_lbmc_ume_preg_resp_reg_id, align 4
+  %738 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %737, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %739 = load i32, ptr @hf_lbmc_ume_preg_resp_transport_idx, align 4
+  %740 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %739, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %741 = load i32, ptr @hf_lbmc_ume_preg_resp_topic_idx, align 4
+  %742 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %741, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %743 = load i32, ptr @hf_lbmc_ume_preg_resp_low_seqnum, align 4
+  %744 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %743, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %745 = load i32, ptr @hf_lbmc_ume_preg_resp_high_seqnum, align 4
+  %746 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %745, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-745:                                              ; preds = %323
-  %746 = load i32, ptr @hf_lbmc_ume_ack, align 4
-  %747 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %746, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %748 = load i32, ptr @ett_lbmc_ume_ack, align 4
-  %749 = call ptr @proto_item_add_subtree(ptr noundef %747, i32 noundef %748) #9
-  %750 = load i32, ptr @hf_lbmc_ume_ack_next_hdr, align 4
-  %751 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %750, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %752 = load i32, ptr @hf_lbmc_ume_ack_hdr_len, align 4
-  %753 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %752, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %754 = load i32, ptr @hf_lbmc_ume_ack_flags, align 4
-  %755 = load i32, ptr @ett_lbmc_ume_ack_flags, align 4
-  %756 = call ptr @proto_tree_add_bitmask(ptr noundef %749, ptr noundef %324, i32 noundef 2, i32 noundef %754, i32 noundef %755, ptr noundef nonnull @dissect_nhdr_ume_ack.flags, i32 noundef 0) #9
-  %757 = load i32, ptr @hf_lbmc_ume_ack_type, align 4
-  %758 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %757, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %759 = load i32, ptr @hf_lbmc_ume_ack_transport_idx, align 4
-  %760 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %759, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %761 = load i32, ptr @hf_lbmc_ume_ack_id_2, align 4
-  %762 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %761, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %763 = load i32, ptr @hf_lbmc_ume_ack_rcv_reg_id, align 4
-  %764 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %763, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %765 = load i32, ptr @hf_lbmc_ume_ack_seqnum, align 4
-  %766 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %765, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+747:                                              ; preds = %325
+  %748 = load i32, ptr @hf_lbmc_ume_ack, align 4
+  %749 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %748, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %750 = load i32, ptr @ett_lbmc_ume_ack, align 4
+  %751 = call ptr @proto_item_add_subtree(ptr noundef %749, i32 noundef %750) #9
+  %752 = load i32, ptr @hf_lbmc_ume_ack_next_hdr, align 4
+  %753 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %752, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %754 = load i32, ptr @hf_lbmc_ume_ack_hdr_len, align 4
+  %755 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %754, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %756 = load i32, ptr @hf_lbmc_ume_ack_flags, align 4
+  %757 = load i32, ptr @ett_lbmc_ume_ack_flags, align 4
+  %758 = call ptr @proto_tree_add_bitmask(ptr noundef %751, ptr noundef %326, i32 noundef 2, i32 noundef %756, i32 noundef %757, ptr noundef nonnull @dissect_nhdr_ume_ack.flags, i32 noundef 0) #9
+  %759 = load i32, ptr @hf_lbmc_ume_ack_type, align 4
+  %760 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %759, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %761 = load i32, ptr @hf_lbmc_ume_ack_transport_idx, align 4
+  %762 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %761, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %763 = load i32, ptr @hf_lbmc_ume_ack_id_2, align 4
+  %764 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %763, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %765 = load i32, ptr @hf_lbmc_ume_ack_rcv_reg_id, align 4
+  %766 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %765, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %767 = load i32, ptr @hf_lbmc_ume_ack_seqnum, align 4
+  %768 = call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %767, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-767:                                              ; preds = %323
-  %768 = load i32, ptr @hf_lbmc_ume_rxreq, align 4
-  %769 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %768, ptr noundef %324, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
-  %770 = load i32, ptr @ett_lbmc_ume_rxreq, align 4
-  %771 = call ptr @proto_item_add_subtree(ptr noundef %769, i32 noundef %770) #9
-  %772 = load i32, ptr @hf_lbmc_ume_rxreq_next_hdr, align 4
-  %773 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %772, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %774 = load i32, ptr @hf_lbmc_ume_rxreq_hdr_len, align 4
-  %775 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %774, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %776 = load i32, ptr @hf_lbmc_ume_rxreq_flags, align 4
-  %777 = load i32, ptr @ett_lbmc_ume_rxreq_flags, align 4
-  %778 = call ptr @proto_tree_add_bitmask(ptr noundef %771, ptr noundef %324, i32 noundef 2, i32 noundef %776, i32 noundef %777, ptr noundef nonnull @dissect_nhdr_ume_rxreq.flags, i32 noundef 0) #9
-  %779 = load i32, ptr @hf_lbmc_ume_rxreq_marker, align 4
-  %780 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %779, ptr noundef %324, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %781 = load i32, ptr @hf_lbmc_ume_rxreq_request_idx, align 4
-  %782 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %781, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %783 = load i32, ptr @hf_lbmc_ume_rxreq_transport_idx, align 4
-  %784 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %783, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %785 = load i32, ptr @hf_lbmc_ume_rxreq_id_2, align 4
-  %786 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %785, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %787 = load i32, ptr @hf_lbmc_ume_rxreq_seqnum, align 4
-  %788 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %787, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %789 = load i32, ptr @hf_lbmc_ume_rxreq_rx_port, align 4
-  %790 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %789, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %791 = load i32, ptr @hf_lbmc_ume_rxreq_res, align 4
-  %792 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %791, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
-  %793 = load i32, ptr @hf_lbmc_ume_rxreq_rx_ip, align 4
-  %794 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %793, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+769:                                              ; preds = %325
+  %770 = load i32, ptr @hf_lbmc_ume_rxreq, align 4
+  %771 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %770, ptr noundef %326, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
+  %772 = load i32, ptr @ett_lbmc_ume_rxreq, align 4
+  %773 = call ptr @proto_item_add_subtree(ptr noundef %771, i32 noundef %772) #9
+  %774 = load i32, ptr @hf_lbmc_ume_rxreq_next_hdr, align 4
+  %775 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %774, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %776 = load i32, ptr @hf_lbmc_ume_rxreq_hdr_len, align 4
+  %777 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %776, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %778 = load i32, ptr @hf_lbmc_ume_rxreq_flags, align 4
+  %779 = load i32, ptr @ett_lbmc_ume_rxreq_flags, align 4
+  %780 = call ptr @proto_tree_add_bitmask(ptr noundef %773, ptr noundef %326, i32 noundef 2, i32 noundef %778, i32 noundef %779, ptr noundef nonnull @dissect_nhdr_ume_rxreq.flags, i32 noundef 0) #9
+  %781 = load i32, ptr @hf_lbmc_ume_rxreq_marker, align 4
+  %782 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %781, ptr noundef %326, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %783 = load i32, ptr @hf_lbmc_ume_rxreq_request_idx, align 4
+  %784 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %783, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %785 = load i32, ptr @hf_lbmc_ume_rxreq_transport_idx, align 4
+  %786 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %785, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %787 = load i32, ptr @hf_lbmc_ume_rxreq_id_2, align 4
+  %788 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %787, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %789 = load i32, ptr @hf_lbmc_ume_rxreq_seqnum, align 4
+  %790 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %789, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %791 = load i32, ptr @hf_lbmc_ume_rxreq_rx_port, align 4
+  %792 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %791, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %793 = load i32, ptr @hf_lbmc_ume_rxreq_res, align 4
+  %794 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %793, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+  %795 = load i32, ptr @hf_lbmc_ume_rxreq_rx_ip, align 4
+  %796 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %795, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-795:                                              ; preds = %323
-  %796 = load i32, ptr @hf_lbmc_ume_keepalive, align 4
-  %797 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %796, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %798 = load i32, ptr @ett_lbmc_ume_keepalive, align 4
-  %799 = call ptr @proto_item_add_subtree(ptr noundef %797, i32 noundef %798) #9
-  %800 = load i32, ptr @hf_lbmc_ume_keepalive_next_hdr, align 4
-  %801 = call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %800, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %802 = load i32, ptr @hf_lbmc_ume_keepalive_hdr_len, align 4
-  %803 = call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %802, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %804 = load i32, ptr @hf_lbmc_ume_keepalive_flags, align 4
-  %805 = load i32, ptr @ett_lbmc_ume_keepalive_flags, align 4
-  %806 = call ptr @proto_tree_add_bitmask(ptr noundef %799, ptr noundef %324, i32 noundef 2, i32 noundef %804, i32 noundef %805, ptr noundef nonnull @dissect_nhdr_ume_keepalive.flags, i32 noundef 0) #9
-  %807 = load i32, ptr @hf_lbmc_ume_keepalive_type, align 4
-  %808 = call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %807, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %809 = load i32, ptr @hf_lbmc_ume_keepalive_transport_idx, align 4
-  %810 = call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %809, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %811 = load i32, ptr @hf_lbmc_ume_keepalive_topic_idx, align 4
-  %812 = call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %811, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %813 = load i32, ptr @hf_lbmc_ume_keepalive_reg_id, align 4
-  %814 = call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %813, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+797:                                              ; preds = %325
+  %798 = load i32, ptr @hf_lbmc_ume_keepalive, align 4
+  %799 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %798, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %800 = load i32, ptr @ett_lbmc_ume_keepalive, align 4
+  %801 = call ptr @proto_item_add_subtree(ptr noundef %799, i32 noundef %800) #9
+  %802 = load i32, ptr @hf_lbmc_ume_keepalive_next_hdr, align 4
+  %803 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %802, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %804 = load i32, ptr @hf_lbmc_ume_keepalive_hdr_len, align 4
+  %805 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %804, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %806 = load i32, ptr @hf_lbmc_ume_keepalive_flags, align 4
+  %807 = load i32, ptr @ett_lbmc_ume_keepalive_flags, align 4
+  %808 = call ptr @proto_tree_add_bitmask(ptr noundef %801, ptr noundef %326, i32 noundef 2, i32 noundef %806, i32 noundef %807, ptr noundef nonnull @dissect_nhdr_ume_keepalive.flags, i32 noundef 0) #9
+  %809 = load i32, ptr @hf_lbmc_ume_keepalive_type, align 4
+  %810 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %809, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %811 = load i32, ptr @hf_lbmc_ume_keepalive_transport_idx, align 4
+  %812 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %811, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %813 = load i32, ptr @hf_lbmc_ume_keepalive_topic_idx, align 4
+  %814 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %813, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %815 = load i32, ptr @hf_lbmc_ume_keepalive_reg_id, align 4
+  %816 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %815, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-815:                                              ; preds = %323
-  %816 = load i32, ptr @hf_lbmc_ume_storeid, align 4
-  %817 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %816, ptr noundef %324, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
-  %818 = load i32, ptr @ett_lbmc_ume_storeid, align 4
-  %819 = call ptr @proto_item_add_subtree(ptr noundef %817, i32 noundef %818) #9
-  %820 = load i32, ptr @hf_lbmc_ume_storeid_next_hdr, align 4
-  %821 = call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %820, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %822 = load i32, ptr @hf_lbmc_ume_storeid_hdr_len, align 4
-  %823 = call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %822, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %824 = load i32, ptr @hf_lbmc_ume_storeid_ignore, align 4
-  %825 = call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %824, ptr noundef %324, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %826 = load i32, ptr @hf_lbmc_ume_storeid_store_id, align 4
-  %827 = call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %826, ptr noundef %324, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+817:                                              ; preds = %325
+  %818 = load i32, ptr @hf_lbmc_ume_storeid, align 4
+  %819 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %818, ptr noundef %326, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
+  %820 = load i32, ptr @ett_lbmc_ume_storeid, align 4
+  %821 = call ptr @proto_item_add_subtree(ptr noundef %819, i32 noundef %820) #9
+  %822 = load i32, ptr @hf_lbmc_ume_storeid_next_hdr, align 4
+  %823 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %822, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %824 = load i32, ptr @hf_lbmc_ume_storeid_hdr_len, align 4
+  %825 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %824, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %826 = load i32, ptr @hf_lbmc_ume_storeid_ignore, align 4
+  %827 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %826, ptr noundef %326, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %828 = load i32, ptr @hf_lbmc_ume_storeid_store_id, align 4
+  %829 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %828, ptr noundef %326, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-828:                                              ; preds = %323
-  %829 = load i32, ptr @hf_lbmc_ume_ranged_ack, align 4
-  %830 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %829, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %831 = load i32, ptr @ett_lbmc_ume_ranged_ack, align 4
-  %832 = call ptr @proto_item_add_subtree(ptr noundef %830, i32 noundef %831) #9
-  %833 = load i32, ptr @hf_lbmc_ume_ranged_ack_next_hdr, align 4
-  %834 = call ptr @proto_tree_add_item(ptr noundef %832, i32 noundef %833, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %835 = load i32, ptr @hf_lbmc_ume_ranged_ack_hdr_len, align 4
-  %836 = call ptr @proto_tree_add_item(ptr noundef %832, i32 noundef %835, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %837 = load i32, ptr @hf_lbmc_ume_ranged_ack_flags, align 4
-  %838 = load i32, ptr @ett_lbmc_ume_ranged_ack_flags, align 4
-  %839 = call ptr @proto_tree_add_bitmask(ptr noundef %832, ptr noundef %324, i32 noundef 2, i32 noundef %837, i32 noundef %838, ptr noundef nonnull @dissect_nhdr_ume_ranged_ack.flags, i32 noundef 0) #9
-  %840 = load i32, ptr @hf_lbmc_ume_ranged_ack_first_seqnum, align 4
-  %841 = call ptr @proto_tree_add_item(ptr noundef %832, i32 noundef %840, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %842 = load i32, ptr @hf_lbmc_ume_ranged_ack_last_seqnum, align 4
-  %843 = call ptr @proto_tree_add_item(ptr noundef %832, i32 noundef %842, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+830:                                              ; preds = %325
+  %831 = load i32, ptr @hf_lbmc_ume_ranged_ack, align 4
+  %832 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %831, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %833 = load i32, ptr @ett_lbmc_ume_ranged_ack, align 4
+  %834 = call ptr @proto_item_add_subtree(ptr noundef %832, i32 noundef %833) #9
+  %835 = load i32, ptr @hf_lbmc_ume_ranged_ack_next_hdr, align 4
+  %836 = call ptr @proto_tree_add_item(ptr noundef %834, i32 noundef %835, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %837 = load i32, ptr @hf_lbmc_ume_ranged_ack_hdr_len, align 4
+  %838 = call ptr @proto_tree_add_item(ptr noundef %834, i32 noundef %837, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %839 = load i32, ptr @hf_lbmc_ume_ranged_ack_flags, align 4
+  %840 = load i32, ptr @ett_lbmc_ume_ranged_ack_flags, align 4
+  %841 = call ptr @proto_tree_add_bitmask(ptr noundef %834, ptr noundef %326, i32 noundef 2, i32 noundef %839, i32 noundef %840, ptr noundef nonnull @dissect_nhdr_ume_ranged_ack.flags, i32 noundef 0) #9
+  %842 = load i32, ptr @hf_lbmc_ume_ranged_ack_first_seqnum, align 4
+  %843 = call ptr @proto_tree_add_item(ptr noundef %834, i32 noundef %842, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %844 = load i32, ptr @hf_lbmc_ume_ranged_ack_last_seqnum, align 4
+  %845 = call ptr @proto_tree_add_item(ptr noundef %834, i32 noundef %844, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-844:                                              ; preds = %323
-  %845 = load i32, ptr @hf_lbmc_ume_ack_id, align 4
-  %846 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %845, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %847 = load i32, ptr @ett_lbmc_ume_ack_id, align 4
-  %848 = call ptr @proto_item_add_subtree(ptr noundef %846, i32 noundef %847) #9
-  %849 = load i32, ptr @hf_lbmc_ume_ack_id_next_hdr, align 4
-  %850 = call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %849, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %851 = load i32, ptr @hf_lbmc_ume_ack_id_hdr_len, align 4
-  %852 = call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %851, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %853 = load i32, ptr @hf_lbmc_ume_ack_id_flags, align 4
-  %854 = load i32, ptr @ett_lbmc_ume_ack_id_flags, align 4
-  %855 = call ptr @proto_tree_add_bitmask(ptr noundef %848, ptr noundef %324, i32 noundef 2, i32 noundef %853, i32 noundef %854, ptr noundef nonnull @dissect_nhdr_ume_ack_id.flags, i32 noundef 0) #9
-  %856 = load i32, ptr @hf_lbmc_ume_ack_id_id, align 4
-  %857 = call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %856, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+846:                                              ; preds = %325
+  %847 = load i32, ptr @hf_lbmc_ume_ack_id, align 4
+  %848 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %847, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %849 = load i32, ptr @ett_lbmc_ume_ack_id, align 4
+  %850 = call ptr @proto_item_add_subtree(ptr noundef %848, i32 noundef %849) #9
+  %851 = load i32, ptr @hf_lbmc_ume_ack_id_next_hdr, align 4
+  %852 = call ptr @proto_tree_add_item(ptr noundef %850, i32 noundef %851, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %853 = load i32, ptr @hf_lbmc_ume_ack_id_hdr_len, align 4
+  %854 = call ptr @proto_tree_add_item(ptr noundef %850, i32 noundef %853, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %855 = load i32, ptr @hf_lbmc_ume_ack_id_flags, align 4
+  %856 = load i32, ptr @ett_lbmc_ume_ack_id_flags, align 4
+  %857 = call ptr @proto_tree_add_bitmask(ptr noundef %850, ptr noundef %326, i32 noundef 2, i32 noundef %855, i32 noundef %856, ptr noundef nonnull @dissect_nhdr_ume_ack_id.flags, i32 noundef 0) #9
+  %858 = load i32, ptr @hf_lbmc_ume_ack_id_id, align 4
+  %859 = call ptr @proto_tree_add_item(ptr noundef %850, i32 noundef %858, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-858:                                              ; preds = %323
-  %859 = load i32, ptr @hf_lbmc_ume_capability, align 4
-  %860 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %859, ptr noundef %324, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
-  %861 = load i32, ptr @ett_lbmc_ume_capability, align 4
-  %862 = call ptr @proto_item_add_subtree(ptr noundef %860, i32 noundef %861) #9
-  %863 = load i32, ptr @hf_lbmc_ume_capability_next_hdr, align 4
-  %864 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %863, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %865 = load i32, ptr @hf_lbmc_ume_capability_hdr_len, align 4
-  %866 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %865, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %867 = load i32, ptr @hf_lbmc_ume_capability_flags, align 4
-  %868 = load i32, ptr @ett_lbmc_ume_capability_flags, align 4
-  %869 = call ptr @proto_tree_add_bitmask(ptr noundef %862, ptr noundef %324, i32 noundef 2, i32 noundef %867, i32 noundef %868, ptr noundef nonnull @dissect_nhdr_ume_capability.flags, i32 noundef 0) #9
+860:                                              ; preds = %325
+  %861 = load i32, ptr @hf_lbmc_ume_capability, align 4
+  %862 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %861, ptr noundef %326, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
+  %863 = load i32, ptr @ett_lbmc_ume_capability, align 4
+  %864 = call ptr @proto_item_add_subtree(ptr noundef %862, i32 noundef %863) #9
+  %865 = load i32, ptr @hf_lbmc_ume_capability_next_hdr, align 4
+  %866 = call ptr @proto_tree_add_item(ptr noundef %864, i32 noundef %865, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %867 = load i32, ptr @hf_lbmc_ume_capability_hdr_len, align 4
+  %868 = call ptr @proto_tree_add_item(ptr noundef %864, i32 noundef %867, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %869 = load i32, ptr @hf_lbmc_ume_capability_flags, align 4
+  %870 = load i32, ptr @ett_lbmc_ume_capability_flags, align 4
+  %871 = call ptr @proto_tree_add_bitmask(ptr noundef %864, ptr noundef %326, i32 noundef 2, i32 noundef %869, i32 noundef %870, ptr noundef nonnull @dissect_nhdr_ume_capability.flags, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-870:                                              ; preds = %323
-  %871 = load i32, ptr @hf_lbmc_ume_proxy_src, align 4
-  %872 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %871, ptr noundef %324, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
-  %873 = load i32, ptr @ett_lbmc_ume_proxy_src, align 4
-  %874 = call ptr @proto_item_add_subtree(ptr noundef %872, i32 noundef %873) #9
-  %875 = load i32, ptr @hf_lbmc_ume_proxy_src_next_hdr, align 4
-  %876 = call ptr @proto_tree_add_item(ptr noundef %874, i32 noundef %875, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %877 = load i32, ptr @hf_lbmc_ume_proxy_src_hdr_len, align 4
-  %878 = call ptr @proto_tree_add_item(ptr noundef %874, i32 noundef %877, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %879 = load i32, ptr @hf_lbmc_ume_proxy_src_flags, align 4
-  %880 = load i32, ptr @ett_lbmc_ume_proxy_src_flags, align 4
-  %881 = call ptr @proto_tree_add_bitmask(ptr noundef %874, ptr noundef %324, i32 noundef 2, i32 noundef %879, i32 noundef %880, ptr noundef nonnull @dissect_nhdr_ume_proxy_src.flags, i32 noundef 0) #9
+872:                                              ; preds = %325
+  %873 = load i32, ptr @hf_lbmc_ume_proxy_src, align 4
+  %874 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %873, ptr noundef %326, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
+  %875 = load i32, ptr @ett_lbmc_ume_proxy_src, align 4
+  %876 = call ptr @proto_item_add_subtree(ptr noundef %874, i32 noundef %875) #9
+  %877 = load i32, ptr @hf_lbmc_ume_proxy_src_next_hdr, align 4
+  %878 = call ptr @proto_tree_add_item(ptr noundef %876, i32 noundef %877, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %879 = load i32, ptr @hf_lbmc_ume_proxy_src_hdr_len, align 4
+  %880 = call ptr @proto_tree_add_item(ptr noundef %876, i32 noundef %879, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %881 = load i32, ptr @hf_lbmc_ume_proxy_src_flags, align 4
+  %882 = load i32, ptr @ett_lbmc_ume_proxy_src_flags, align 4
+  %883 = call ptr @proto_tree_add_bitmask(ptr noundef %876, ptr noundef %326, i32 noundef 2, i32 noundef %881, i32 noundef %882, ptr noundef nonnull @dissect_nhdr_ume_proxy_src.flags, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-882:                                              ; preds = %323
-  %883 = load i32, ptr @hf_lbmc_ume_store_group, align 4
-  %884 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %883, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %885 = load i32, ptr @ett_lbmc_ume_store_group, align 4
-  %886 = call ptr @proto_item_add_subtree(ptr noundef %884, i32 noundef %885) #9
-  %887 = load i32, ptr @hf_lbmc_ume_store_group_next_hdr, align 4
-  %888 = call ptr @proto_tree_add_item(ptr noundef %886, i32 noundef %887, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %889 = load i32, ptr @hf_lbmc_ume_store_group_hdr_len, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef %886, i32 noundef %889, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %891 = load i32, ptr @hf_lbmc_ume_store_group_flags, align 4
-  %892 = load i32, ptr @ett_lbmc_ume_store_group_flags, align 4
-  %893 = call ptr @proto_tree_add_bitmask(ptr noundef %886, ptr noundef %324, i32 noundef 2, i32 noundef %891, i32 noundef %892, ptr noundef nonnull @dissect_nhdr_ume_store_group.flags, i32 noundef 0) #9
-  %894 = load i32, ptr @hf_lbmc_ume_store_group_grp_idx, align 4
-  %895 = call ptr @proto_tree_add_item(ptr noundef %886, i32 noundef %894, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %896 = load i32, ptr @hf_lbmc_ume_store_group_grp_sz, align 4
-  %897 = call ptr @proto_tree_add_item(ptr noundef %886, i32 noundef %896, ptr noundef %324, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %898 = load i32, ptr @hf_lbmc_ume_store_group_res1, align 4
-  %899 = call ptr @proto_tree_add_item(ptr noundef %886, i32 noundef %898, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+884:                                              ; preds = %325
+  %885 = load i32, ptr @hf_lbmc_ume_store_group, align 4
+  %886 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %885, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %887 = load i32, ptr @ett_lbmc_ume_store_group, align 4
+  %888 = call ptr @proto_item_add_subtree(ptr noundef %886, i32 noundef %887) #9
+  %889 = load i32, ptr @hf_lbmc_ume_store_group_next_hdr, align 4
+  %890 = call ptr @proto_tree_add_item(ptr noundef %888, i32 noundef %889, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %891 = load i32, ptr @hf_lbmc_ume_store_group_hdr_len, align 4
+  %892 = call ptr @proto_tree_add_item(ptr noundef %888, i32 noundef %891, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %893 = load i32, ptr @hf_lbmc_ume_store_group_flags, align 4
+  %894 = load i32, ptr @ett_lbmc_ume_store_group_flags, align 4
+  %895 = call ptr @proto_tree_add_bitmask(ptr noundef %888, ptr noundef %326, i32 noundef 2, i32 noundef %893, i32 noundef %894, ptr noundef nonnull @dissect_nhdr_ume_store_group.flags, i32 noundef 0) #9
+  %896 = load i32, ptr @hf_lbmc_ume_store_group_grp_idx, align 4
+  %897 = call ptr @proto_tree_add_item(ptr noundef %888, i32 noundef %896, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %898 = load i32, ptr @hf_lbmc_ume_store_group_grp_sz, align 4
+  %899 = call ptr @proto_tree_add_item(ptr noundef %888, i32 noundef %898, ptr noundef %326, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %900 = load i32, ptr @hf_lbmc_ume_store_group_res1, align 4
+  %901 = call ptr @proto_tree_add_item(ptr noundef %888, i32 noundef %900, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-900:                                              ; preds = %323
-  %901 = load i32, ptr @hf_lbmc_ume_store, align 4
-  %902 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %901, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %903 = load i32, ptr @ett_lbmc_ume_store, align 4
-  %904 = call ptr @proto_item_add_subtree(ptr noundef %902, i32 noundef %903) #9
-  %905 = load i32, ptr @hf_lbmc_ume_store_next_hdr, align 4
-  %906 = call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %905, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %907 = load i32, ptr @hf_lbmc_ume_store_hdr_len, align 4
-  %908 = call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %907, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %909 = load i32, ptr @hf_lbmc_ume_store_flags, align 4
-  %910 = load i32, ptr @ett_lbmc_ume_store_flags, align 4
-  %911 = call ptr @proto_tree_add_bitmask(ptr noundef %904, ptr noundef %324, i32 noundef 2, i32 noundef %909, i32 noundef %910, ptr noundef nonnull @dissect_nhdr_ume_store.flags, i32 noundef 0) #9
-  %912 = load i32, ptr @hf_lbmc_ume_store_grp_idx, align 4
-  %913 = call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %912, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %914 = load i32, ptr @hf_lbmc_ume_store_store_tcp_port, align 4
-  %915 = call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %914, ptr noundef %324, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %916 = load i32, ptr @hf_lbmc_ume_store_store_idx, align 4
-  %917 = call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %916, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
-  %918 = load i32, ptr @hf_lbmc_ume_store_store_ip_addr, align 4
-  %919 = call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %918, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %920 = load i32, ptr @hf_lbmc_ume_store_src_reg_id, align 4
-  %921 = call ptr @proto_tree_add_item(ptr noundef %904, i32 noundef %920, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+902:                                              ; preds = %325
+  %903 = load i32, ptr @hf_lbmc_ume_store, align 4
+  %904 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %903, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %905 = load i32, ptr @ett_lbmc_ume_store, align 4
+  %906 = call ptr @proto_item_add_subtree(ptr noundef %904, i32 noundef %905) #9
+  %907 = load i32, ptr @hf_lbmc_ume_store_next_hdr, align 4
+  %908 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %907, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %909 = load i32, ptr @hf_lbmc_ume_store_hdr_len, align 4
+  %910 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %909, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %911 = load i32, ptr @hf_lbmc_ume_store_flags, align 4
+  %912 = load i32, ptr @ett_lbmc_ume_store_flags, align 4
+  %913 = call ptr @proto_tree_add_bitmask(ptr noundef %906, ptr noundef %326, i32 noundef 2, i32 noundef %911, i32 noundef %912, ptr noundef nonnull @dissect_nhdr_ume_store.flags, i32 noundef 0) #9
+  %914 = load i32, ptr @hf_lbmc_ume_store_grp_idx, align 4
+  %915 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %914, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %916 = load i32, ptr @hf_lbmc_ume_store_store_tcp_port, align 4
+  %917 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %916, ptr noundef %326, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %918 = load i32, ptr @hf_lbmc_ume_store_store_idx, align 4
+  %919 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %918, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+  %920 = load i32, ptr @hf_lbmc_ume_store_store_ip_addr, align 4
+  %921 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %920, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %922 = load i32, ptr @hf_lbmc_ume_store_src_reg_id, align 4
+  %923 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %922, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-922:                                              ; preds = %323
-  %923 = load i32, ptr @hf_lbmc_ume_lj_info, align 4
-  %924 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %923, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %925 = load i32, ptr @ett_lbmc_ume_lj_info, align 4
-  %926 = call ptr @proto_item_add_subtree(ptr noundef %924, i32 noundef %925) #9
-  %927 = load i32, ptr @hf_lbmc_ume_lj_info_next_hdr, align 4
-  %928 = call ptr @proto_tree_add_item(ptr noundef %926, i32 noundef %927, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %929 = load i32, ptr @hf_lbmc_ume_lj_info_hdr_len, align 4
-  %930 = call ptr @proto_tree_add_item(ptr noundef %926, i32 noundef %929, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %931 = load i32, ptr @hf_lbmc_ume_lj_info_flags, align 4
-  %932 = load i32, ptr @ett_lbmc_ume_lj_info_flags, align 4
-  %933 = call ptr @proto_tree_add_bitmask(ptr noundef %926, ptr noundef %324, i32 noundef 2, i32 noundef %931, i32 noundef %932, ptr noundef nonnull @dissect_nhdr_ume_lj_info.flags, i32 noundef 0) #9
-  %934 = load i32, ptr @hf_lbmc_ume_lj_info_low_seqnum, align 4
-  %935 = call ptr @proto_tree_add_item(ptr noundef %926, i32 noundef %934, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %936 = load i32, ptr @hf_lbmc_ume_lj_info_high_seqnum, align 4
-  %937 = call ptr @proto_tree_add_item(ptr noundef %926, i32 noundef %936, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %938 = load i32, ptr @hf_lbmc_ume_lj_info_qidx, align 4
-  %939 = call ptr @proto_tree_add_item(ptr noundef %926, i32 noundef %938, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+924:                                              ; preds = %325
+  %925 = load i32, ptr @hf_lbmc_ume_lj_info, align 4
+  %926 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %925, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %927 = load i32, ptr @ett_lbmc_ume_lj_info, align 4
+  %928 = call ptr @proto_item_add_subtree(ptr noundef %926, i32 noundef %927) #9
+  %929 = load i32, ptr @hf_lbmc_ume_lj_info_next_hdr, align 4
+  %930 = call ptr @proto_tree_add_item(ptr noundef %928, i32 noundef %929, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %931 = load i32, ptr @hf_lbmc_ume_lj_info_hdr_len, align 4
+  %932 = call ptr @proto_tree_add_item(ptr noundef %928, i32 noundef %931, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %933 = load i32, ptr @hf_lbmc_ume_lj_info_flags, align 4
+  %934 = load i32, ptr @ett_lbmc_ume_lj_info_flags, align 4
+  %935 = call ptr @proto_tree_add_bitmask(ptr noundef %928, ptr noundef %326, i32 noundef 2, i32 noundef %933, i32 noundef %934, ptr noundef nonnull @dissect_nhdr_ume_lj_info.flags, i32 noundef 0) #9
+  %936 = load i32, ptr @hf_lbmc_ume_lj_info_low_seqnum, align 4
+  %937 = call ptr @proto_tree_add_item(ptr noundef %928, i32 noundef %936, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %938 = load i32, ptr @hf_lbmc_ume_lj_info_high_seqnum, align 4
+  %939 = call ptr @proto_tree_add_item(ptr noundef %928, i32 noundef %938, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %940 = load i32, ptr @hf_lbmc_ume_lj_info_qidx, align 4
+  %941 = call ptr @proto_tree_add_item(ptr noundef %928, i32 noundef %940, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-940:                                              ; preds = %323
-  %941 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %942 = load i32, ptr @hf_lbmc_tsni, align 4
-  %943 = zext i8 %941 to i32
-  %944 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %942, ptr noundef %324, i32 noundef 0, i32 noundef %943, i32 noundef 0) #9
-  %945 = load i32, ptr @ett_lbmc_tsni, align 4
-  %946 = call ptr @proto_item_add_subtree(ptr noundef %944, i32 noundef %945) #9
-  %947 = load i32, ptr @hf_lbmc_tsni_next_hdr, align 4
-  %948 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %947, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %949 = load i32, ptr @hf_lbmc_tsni_hdr_len, align 4
-  %950 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %949, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %951 = load i32, ptr @hf_lbmc_tsni_ignore, align 4
-  %952 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %951, ptr noundef %324, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %953 = load i32, ptr @hf_lbmc_tsni_num_recs, align 4
-  %954 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %953, ptr noundef %324, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
-  %955 = add i8 %941, -4
-  %956 = icmp ugt i8 %955, 7
-  br i1 %956, label %.lr.ph.i826, label %dissect_nhdr_tsni.exit
+942:                                              ; preds = %325
+  %943 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %944 = load i32, ptr @hf_lbmc_tsni, align 4
+  %945 = zext i8 %943 to i32
+  %946 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %944, ptr noundef %326, i32 noundef 0, i32 noundef %945, i32 noundef 0) #9
+  %947 = load i32, ptr @ett_lbmc_tsni, align 4
+  %948 = call ptr @proto_item_add_subtree(ptr noundef %946, i32 noundef %947) #9
+  %949 = load i32, ptr @hf_lbmc_tsni_next_hdr, align 4
+  %950 = call ptr @proto_tree_add_item(ptr noundef %948, i32 noundef %949, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %951 = load i32, ptr @hf_lbmc_tsni_hdr_len, align 4
+  %952 = call ptr @proto_tree_add_item(ptr noundef %948, i32 noundef %951, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %953 = load i32, ptr @hf_lbmc_tsni_ignore, align 4
+  %954 = call ptr @proto_tree_add_item(ptr noundef %948, i32 noundef %953, ptr noundef %326, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %955 = load i32, ptr @hf_lbmc_tsni_num_recs, align 4
+  %956 = call ptr @proto_tree_add_item(ptr noundef %948, i32 noundef %955, ptr noundef %326, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %957 = add i8 %943, -4
+  %958 = icmp ugt i8 %957, 7
+  br i1 %958, label %.lr.ph.i826, label %dissect_nhdr_tsni.exit
 
-.lr.ph.i826:                                      ; preds = %940, %.lr.ph.i826
-  %.039.i = phi i32 [ %969, %.lr.ph.i826 ], [ 4, %940 ]
-  %.03537.i = phi i8 [ %968, %.lr.ph.i826 ], [ %955, %940 ]
-  %957 = load i32, ptr @hf_lbmc_tsni_rec, align 4
-  %958 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %957, ptr noundef %324, i32 noundef %.039.i, i32 noundef 8, i32 noundef 0) #9
-  %959 = load i32, ptr @ett_lbmc_tsni_rec, align 4
-  %960 = call ptr @proto_item_add_subtree(ptr noundef %958, i32 noundef %959) #9
-  %961 = load i32, ptr @hf_lbmc_tsni_rec_tidx, align 4
-  %962 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %961, ptr noundef %324, i32 noundef %.039.i, i32 noundef 4, i32 noundef 0) #9
-  %963 = load i32, ptr @hf_lbmc_tsni_rec_sqn, align 4
-  %964 = add nuw nsw i32 %.039.i, 4
-  %965 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %963, ptr noundef %324, i32 noundef %964, i32 noundef 4, i32 noundef 0) #9
-  %966 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef %964) #9
-  %967 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %965, ptr noundef nonnull @ei_lbmc_analysis_tsni, ptr noundef nonnull @.str.1733, i32 noundef %966) #9
-  %968 = add i8 %.03537.i, -8
-  %969 = add nuw nsw i32 %.039.i, 8
-  %970 = icmp ugt i8 %968, 7
-  br i1 %970, label %.lr.ph.i826, label %dissect_nhdr_tsni.exit, !llvm.loop !7
+.lr.ph.i826:                                      ; preds = %942, %.lr.ph.i826
+  %.039.i = phi i32 [ %971, %.lr.ph.i826 ], [ 4, %942 ]
+  %.03537.i = phi i8 [ %970, %.lr.ph.i826 ], [ %957, %942 ]
+  %959 = load i32, ptr @hf_lbmc_tsni_rec, align 4
+  %960 = call ptr @proto_tree_add_item(ptr noundef %948, i32 noundef %959, ptr noundef %326, i32 noundef %.039.i, i32 noundef 8, i32 noundef 0) #9
+  %961 = load i32, ptr @ett_lbmc_tsni_rec, align 4
+  %962 = call ptr @proto_item_add_subtree(ptr noundef %960, i32 noundef %961) #9
+  %963 = load i32, ptr @hf_lbmc_tsni_rec_tidx, align 4
+  %964 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %963, ptr noundef %326, i32 noundef %.039.i, i32 noundef 4, i32 noundef 0) #9
+  %965 = load i32, ptr @hf_lbmc_tsni_rec_sqn, align 4
+  %966 = add nuw nsw i32 %.039.i, 4
+  %967 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %965, ptr noundef %326, i32 noundef %966, i32 noundef 4, i32 noundef 0) #9
+  %968 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef %966) #9
+  %969 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %967, ptr noundef nonnull @ei_lbmc_analysis_tsni, ptr noundef nonnull @.str.1733, i32 noundef %968) #9
+  %970 = add i8 %.03537.i, -8
+  %971 = add nuw nsw i32 %.039.i, 8
+  %972 = icmp ugt i8 %970, 7
+  br i1 %972, label %.lr.ph.i826, label %dissect_nhdr_tsni.exit, !llvm.loop !7
 
-dissect_nhdr_tsni.exit:                           ; preds = %.lr.ph.i826, %940
-  %.0.lcssa.i825 = phi i32 [ 4, %940 ], [ %969, %.lr.ph.i826 ]
-  call void @proto_item_set_len(ptr noundef %944, i32 noundef %.0.lcssa.i825) #9
+dissect_nhdr_tsni.exit:                           ; preds = %.lr.ph.i826, %942
+  %.0.lcssa.i825 = phi i32 [ 4, %942 ], [ %971, %.lr.ph.i826 ]
+  call void @proto_item_set_len(ptr noundef %946, i32 noundef %.0.lcssa.i825) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-971:                                              ; preds = %323
-  %972 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %973 = load i32, ptr @hf_lbmc_umq_reg, align 4
-  %974 = zext i8 %972 to i32
-  %975 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %973, ptr noundef %324, i32 noundef 0, i32 noundef %974, i32 noundef 0) #9
-  %976 = load i32, ptr @ett_lbmc_umq_reg, align 4
-  %977 = call ptr @proto_item_add_subtree(ptr noundef %975, i32 noundef %976) #9
-  %978 = load i32, ptr @hf_lbmc_umq_reg_next_hdr, align 4
-  %979 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %978, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %980 = load i32, ptr @hf_lbmc_umq_reg_hdr_len, align 4
-  %981 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %980, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %982 = load i32, ptr @hf_lbmc_umq_reg_flags, align 4
-  %983 = load i32, ptr @ett_lbmc_umq_reg_flags, align 4
-  %984 = call ptr @proto_tree_add_bitmask(ptr noundef %977, ptr noundef %324, i32 noundef 2, i32 noundef %982, i32 noundef %983, ptr noundef nonnull @dissect_nhdr_umq_reg.flags, i32 noundef 0) #9
-  %985 = load i32, ptr @hf_lbmc_umq_reg_reg_type, align 4
-  %986 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %985, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %987 = load i32, ptr @hf_lbmc_umq_reg_queue_id, align 4
-  %988 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %987, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %989 = load i32, ptr @hf_lbmc_umq_reg_cmd_id, align 4
-  %990 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %989, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %991 = load i32, ptr @hf_lbmc_umq_reg_inst_idx, align 4
-  %992 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %991, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  %993 = load i32, ptr @hf_lbmc_umq_reg_regid, align 4
-  %994 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %993, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %995 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  switch i8 %995, label %1086 [
-    i8 1, label %996
-    i8 2, label %1009
-    i8 3, label %1018
-    i8 4, label %1029
-    i8 5, label %1038
-    i8 6, label %1057
-    i8 7, label %1066
-    i8 8, label %1077
+973:                                              ; preds = %325
+  %974 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %975 = load i32, ptr @hf_lbmc_umq_reg, align 4
+  %976 = zext i8 %974 to i32
+  %977 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %975, ptr noundef %326, i32 noundef 0, i32 noundef %976, i32 noundef 0) #9
+  %978 = load i32, ptr @ett_lbmc_umq_reg, align 4
+  %979 = call ptr @proto_item_add_subtree(ptr noundef %977, i32 noundef %978) #9
+  %980 = load i32, ptr @hf_lbmc_umq_reg_next_hdr, align 4
+  %981 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %980, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %982 = load i32, ptr @hf_lbmc_umq_reg_hdr_len, align 4
+  %983 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %982, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %984 = load i32, ptr @hf_lbmc_umq_reg_flags, align 4
+  %985 = load i32, ptr @ett_lbmc_umq_reg_flags, align 4
+  %986 = call ptr @proto_tree_add_bitmask(ptr noundef %979, ptr noundef %326, i32 noundef 2, i32 noundef %984, i32 noundef %985, ptr noundef nonnull @dissect_nhdr_umq_reg.flags, i32 noundef 0) #9
+  %987 = load i32, ptr @hf_lbmc_umq_reg_reg_type, align 4
+  %988 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %987, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %989 = load i32, ptr @hf_lbmc_umq_reg_queue_id, align 4
+  %990 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %989, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %991 = load i32, ptr @hf_lbmc_umq_reg_cmd_id, align 4
+  %992 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %991, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %993 = load i32, ptr @hf_lbmc_umq_reg_inst_idx, align 4
+  %994 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %993, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  %995 = load i32, ptr @hf_lbmc_umq_reg_regid, align 4
+  %996 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %995, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %997 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  switch i8 %997, label %1088 [
+    i8 1, label %998
+    i8 2, label %1011
+    i8 3, label %1020
+    i8 4, label %1031
+    i8 5, label %1040
+    i8 6, label %1059
+    i8 7, label %1068
+    i8 8, label %1079
   ]
 
-996:                                              ; preds = %971
-  %997 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx, align 4
-  %998 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %997, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %999 = load i32, ptr @ett_lbmc_umq_reg_reg_ctx, align 4
-  %1000 = call ptr @proto_item_add_subtree(ptr noundef %998, i32 noundef %999) #9
-  %1001 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_port, align 4
-  %1002 = call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1001, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %1003 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_reserved, align 4
-  %1004 = call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1003, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
-  %1005 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_ip, align 4
-  %1006 = call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1005, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1007 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_capabilities, align 4
-  %1008 = call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1007, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+998:                                              ; preds = %973
+  %999 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx, align 4
+  %1000 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %999, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1001 = load i32, ptr @ett_lbmc_umq_reg_reg_ctx, align 4
+  %1002 = call ptr @proto_item_add_subtree(ptr noundef %1000, i32 noundef %1001) #9
+  %1003 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_port, align 4
+  %1004 = call ptr @proto_tree_add_item(ptr noundef %1002, i32 noundef %1003, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %1005 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_reserved, align 4
+  %1006 = call ptr @proto_tree_add_item(ptr noundef %1002, i32 noundef %1005, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+  %1007 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_ip, align 4
+  %1008 = call ptr @proto_tree_add_item(ptr noundef %1002, i32 noundef %1007, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1009 = load i32, ptr @hf_lbmc_umq_reg_reg_ctx_capabilities, align 4
+  %1010 = call ptr @proto_tree_add_item(ptr noundef %1002, i32 noundef %1009, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1009:                                             ; preds = %971
-  %1010 = load i32, ptr @hf_lbmc_umq_reg_reg_src, align 4
-  %1011 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %1010, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1012 = load i32, ptr @ett_lbmc_umq_reg_reg_src, align 4
-  %1013 = call ptr @proto_item_add_subtree(ptr noundef %1011, i32 noundef %1012) #9
-  %1014 = load i32, ptr @hf_lbmc_umq_reg_reg_src_transport_idx, align 4
-  %1015 = call ptr @proto_tree_add_item(ptr noundef %1013, i32 noundef %1014, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1016 = load i32, ptr @hf_lbmc_umq_reg_reg_src_topic_idx, align 4
-  %1017 = call ptr @proto_tree_add_item(ptr noundef %1013, i32 noundef %1016, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1011:                                             ; preds = %973
+  %1012 = load i32, ptr @hf_lbmc_umq_reg_reg_src, align 4
+  %1013 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %1012, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1014 = load i32, ptr @ett_lbmc_umq_reg_reg_src, align 4
+  %1015 = call ptr @proto_item_add_subtree(ptr noundef %1013, i32 noundef %1014) #9
+  %1016 = load i32, ptr @hf_lbmc_umq_reg_reg_src_transport_idx, align 4
+  %1017 = call ptr @proto_tree_add_item(ptr noundef %1015, i32 noundef %1016, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1018 = load i32, ptr @hf_lbmc_umq_reg_reg_src_topic_idx, align 4
+  %1019 = call ptr @proto_tree_add_item(ptr noundef %1015, i32 noundef %1018, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1018:                                             ; preds = %971
-  %1019 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv, align 4
-  %1020 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %1019, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %1021 = load i32, ptr @ett_lbmc_umq_reg_reg_rcv, align 4
-  %1022 = call ptr @proto_item_add_subtree(ptr noundef %1020, i32 noundef %1021) #9
-  %1023 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv_assign_id, align 4
-  %1024 = call ptr @proto_tree_add_item(ptr noundef %1022, i32 noundef %1023, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1025 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv_rcv_type_id, align 4
-  %1026 = call ptr @proto_tree_add_item(ptr noundef %1022, i32 noundef %1025, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1027 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv_last_topic_rcr_tsp, align 4
-  %1028 = call ptr @proto_tree_add_item(ptr noundef %1022, i32 noundef %1027, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+1020:                                             ; preds = %973
+  %1021 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv, align 4
+  %1022 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %1021, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1023 = load i32, ptr @ett_lbmc_umq_reg_reg_rcv, align 4
+  %1024 = call ptr @proto_item_add_subtree(ptr noundef %1022, i32 noundef %1023) #9
+  %1025 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv_assign_id, align 4
+  %1026 = call ptr @proto_tree_add_item(ptr noundef %1024, i32 noundef %1025, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1027 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv_rcv_type_id, align 4
+  %1028 = call ptr @proto_tree_add_item(ptr noundef %1024, i32 noundef %1027, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1029 = load i32, ptr @hf_lbmc_umq_reg_reg_rcv_last_topic_rcr_tsp, align 4
+  %1030 = call ptr @proto_tree_add_item(ptr noundef %1024, i32 noundef %1029, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1029:                                             ; preds = %971
-  %1030 = load i32, ptr @hf_lbmc_umq_reg_rcv_dereg, align 4
-  %1031 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %1030, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1032 = load i32, ptr @ett_lbmc_umq_reg_rcv_dereg, align 4
-  %1033 = call ptr @proto_item_add_subtree(ptr noundef %1031, i32 noundef %1032) #9
-  %1034 = load i32, ptr @hf_lbmc_umq_reg_rcv_dereg_rcr_idx, align 4
-  %1035 = call ptr @proto_tree_add_item(ptr noundef %1033, i32 noundef %1034, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1036 = load i32, ptr @hf_lbmc_umq_reg_rcv_dereg_assign_id, align 4
-  %1037 = call ptr @proto_tree_add_item(ptr noundef %1033, i32 noundef %1036, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1031:                                             ; preds = %973
+  %1032 = load i32, ptr @hf_lbmc_umq_reg_rcv_dereg, align 4
+  %1033 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %1032, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1034 = load i32, ptr @ett_lbmc_umq_reg_rcv_dereg, align 4
+  %1035 = call ptr @proto_item_add_subtree(ptr noundef %1033, i32 noundef %1034) #9
+  %1036 = load i32, ptr @hf_lbmc_umq_reg_rcv_dereg_rcr_idx, align 4
+  %1037 = call ptr @proto_tree_add_item(ptr noundef %1035, i32 noundef %1036, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1038 = load i32, ptr @hf_lbmc_umq_reg_rcv_dereg_assign_id, align 4
+  %1039 = call ptr @proto_tree_add_item(ptr noundef %1035, i32 noundef %1038, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1038:                                             ; preds = %971
-  %1039 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv, align 4
-  %1040 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %1039, ptr noundef %324, i32 noundef 20, i32 noundef 24, i32 noundef 0) #9
-  %1041 = load i32, ptr @ett_lbmc_umq_reg_reg_ulb_rcv, align 4
-  %1042 = call ptr @proto_item_add_subtree(ptr noundef %1040, i32 noundef %1041) #9
-  %1043 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_ulb_src_id, align 4
-  %1044 = call ptr @proto_tree_add_item(ptr noundef %1042, i32 noundef %1043, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1045 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_assign_id, align 4
-  %1046 = call ptr @proto_tree_add_item(ptr noundef %1042, i32 noundef %1045, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1047 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_rcv_type_id, align 4
-  %1048 = call ptr @proto_tree_add_item(ptr noundef %1042, i32 noundef %1047, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
-  %1049 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_port, align 4
-  %1050 = call ptr @proto_tree_add_item(ptr noundef %1042, i32 noundef %1049, ptr noundef %324, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
-  %1051 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_reserved, align 4
-  %1052 = call ptr @proto_tree_add_item(ptr noundef %1042, i32 noundef %1051, ptr noundef %324, i32 noundef 34, i32 noundef 2, i32 noundef 0) #9
-  %1053 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_ip, align 4
-  %1054 = call ptr @proto_tree_add_item(ptr noundef %1042, i32 noundef %1053, ptr noundef %324, i32 noundef 36, i32 noundef 4, i32 noundef 0) #9
-  %1055 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_capabilities, align 4
-  %1056 = call ptr @proto_tree_add_item(ptr noundef %1042, i32 noundef %1055, ptr noundef %324, i32 noundef 40, i32 noundef 4, i32 noundef 0) #9
+1040:                                             ; preds = %973
+  %1041 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv, align 4
+  %1042 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %1041, ptr noundef %326, i32 noundef 20, i32 noundef 24, i32 noundef 0) #9
+  %1043 = load i32, ptr @ett_lbmc_umq_reg_reg_ulb_rcv, align 4
+  %1044 = call ptr @proto_item_add_subtree(ptr noundef %1042, i32 noundef %1043) #9
+  %1045 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_ulb_src_id, align 4
+  %1046 = call ptr @proto_tree_add_item(ptr noundef %1044, i32 noundef %1045, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1047 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_assign_id, align 4
+  %1048 = call ptr @proto_tree_add_item(ptr noundef %1044, i32 noundef %1047, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1049 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_rcv_type_id, align 4
+  %1050 = call ptr @proto_tree_add_item(ptr noundef %1044, i32 noundef %1049, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+  %1051 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_port, align 4
+  %1052 = call ptr @proto_tree_add_item(ptr noundef %1044, i32 noundef %1051, ptr noundef %326, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
+  %1053 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_reserved, align 4
+  %1054 = call ptr @proto_tree_add_item(ptr noundef %1044, i32 noundef %1053, ptr noundef %326, i32 noundef 34, i32 noundef 2, i32 noundef 0) #9
+  %1055 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_ip, align 4
+  %1056 = call ptr @proto_tree_add_item(ptr noundef %1044, i32 noundef %1055, ptr noundef %326, i32 noundef 36, i32 noundef 4, i32 noundef 0) #9
+  %1057 = load i32, ptr @hf_lbmc_umq_reg_reg_ulb_rcv_capabilities, align 4
+  %1058 = call ptr @proto_tree_add_item(ptr noundef %1044, i32 noundef %1057, ptr noundef %326, i32 noundef 40, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1057:                                             ; preds = %971
-  %1058 = load i32, ptr @hf_lbmc_umq_reg_ulb_rcv_dereg, align 4
-  %1059 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %1058, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1060 = load i32, ptr @ett_lbmc_umq_reg_ulb_rcv_dereg, align 4
-  %1061 = call ptr @proto_item_add_subtree(ptr noundef %1059, i32 noundef %1060) #9
-  %1062 = load i32, ptr @hf_lbmc_umq_reg_ulb_rcv_dereg_ulb_src_id, align 4
-  %1063 = call ptr @proto_tree_add_item(ptr noundef %1061, i32 noundef %1062, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1064 = load i32, ptr @hf_lbmc_umq_reg_ulb_rcv_dereg_assign_id, align 4
-  %1065 = call ptr @proto_tree_add_item(ptr noundef %1061, i32 noundef %1064, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1059:                                             ; preds = %973
+  %1060 = load i32, ptr @hf_lbmc_umq_reg_ulb_rcv_dereg, align 4
+  %1061 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %1060, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1062 = load i32, ptr @ett_lbmc_umq_reg_ulb_rcv_dereg, align 4
+  %1063 = call ptr @proto_item_add_subtree(ptr noundef %1061, i32 noundef %1062) #9
+  %1064 = load i32, ptr @hf_lbmc_umq_reg_ulb_rcv_dereg_ulb_src_id, align 4
+  %1065 = call ptr @proto_tree_add_item(ptr noundef %1063, i32 noundef %1064, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1066 = load i32, ptr @hf_lbmc_umq_reg_ulb_rcv_dereg_assign_id, align 4
+  %1067 = call ptr @proto_tree_add_item(ptr noundef %1063, i32 noundef %1066, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1066:                                             ; preds = %971
-  %1067 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv, align 4
-  %1068 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %1067, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %1069 = load i32, ptr @ett_lbmc_umq_reg_reg_observer_rcv, align 4
-  %1070 = call ptr @proto_item_add_subtree(ptr noundef %1068, i32 noundef %1069) #9
-  %1071 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv_assign_id, align 4
-  %1072 = call ptr @proto_tree_add_item(ptr noundef %1070, i32 noundef %1071, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1073 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv_rcv_type_id, align 4
-  %1074 = call ptr @proto_tree_add_item(ptr noundef %1070, i32 noundef %1073, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1075 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv_last_topic_rcr_tsp, align 4
-  %1076 = call ptr @proto_tree_add_item(ptr noundef %1070, i32 noundef %1075, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+1068:                                             ; preds = %973
+  %1069 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv, align 4
+  %1070 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %1069, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1071 = load i32, ptr @ett_lbmc_umq_reg_reg_observer_rcv, align 4
+  %1072 = call ptr @proto_item_add_subtree(ptr noundef %1070, i32 noundef %1071) #9
+  %1073 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv_assign_id, align 4
+  %1074 = call ptr @proto_tree_add_item(ptr noundef %1072, i32 noundef %1073, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1075 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv_rcv_type_id, align 4
+  %1076 = call ptr @proto_tree_add_item(ptr noundef %1072, i32 noundef %1075, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1077 = load i32, ptr @hf_lbmc_umq_reg_reg_observer_rcv_last_topic_rcr_tsp, align 4
+  %1078 = call ptr @proto_tree_add_item(ptr noundef %1072, i32 noundef %1077, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1077:                                             ; preds = %971
-  %1078 = load i32, ptr @hf_lbmc_umq_reg_observer_rcv_dereg, align 4
-  %1079 = call ptr @proto_tree_add_item(ptr noundef %977, i32 noundef %1078, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1080 = load i32, ptr @ett_lbmc_umq_reg_observer_rcv_dereg, align 4
-  %1081 = call ptr @proto_item_add_subtree(ptr noundef %1079, i32 noundef %1080) #9
-  %1082 = load i32, ptr @hf_lbmc_umq_reg_observer_rcv_dereg_rcr_idx, align 4
-  %1083 = call ptr @proto_tree_add_item(ptr noundef %1081, i32 noundef %1082, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1084 = load i32, ptr @hf_lbmc_umq_reg_observer_rcv_dereg_assign_id, align 4
-  %1085 = call ptr @proto_tree_add_item(ptr noundef %1081, i32 noundef %1084, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1079:                                             ; preds = %973
+  %1080 = load i32, ptr @hf_lbmc_umq_reg_observer_rcv_dereg, align 4
+  %1081 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %1080, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1082 = load i32, ptr @ett_lbmc_umq_reg_observer_rcv_dereg, align 4
+  %1083 = call ptr @proto_item_add_subtree(ptr noundef %1081, i32 noundef %1082) #9
+  %1084 = load i32, ptr @hf_lbmc_umq_reg_observer_rcv_dereg_rcr_idx, align 4
+  %1085 = call ptr @proto_tree_add_item(ptr noundef %1083, i32 noundef %1084, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1086 = load i32, ptr @hf_lbmc_umq_reg_observer_rcv_dereg_assign_id, align 4
+  %1087 = call ptr @proto_tree_add_item(ptr noundef %1083, i32 noundef %1086, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg.exit
 
-1086:                                             ; preds = %971
-  %1087 = zext i8 %995 to i32
-  %1088 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %986, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1734, i32 noundef %1087) #9
+1088:                                             ; preds = %973
+  %1089 = zext i8 %997 to i32
+  %1090 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %988, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1734, i32 noundef %1089) #9
   br label %dissect_nhdr_umq_reg.exit
 
-dissect_nhdr_umq_reg.exit:                        ; preds = %996, %1009, %1018, %1029, %1038, %1057, %1066, %1077, %1086
-  %.0.i827 = phi i32 [ 20, %1086 ], [ 28, %1077 ], [ 32, %1066 ], [ 28, %1057 ], [ 44, %1038 ], [ 28, %1029 ], [ 32, %1018 ], [ 28, %1009 ], [ 32, %996 ]
-  call void @proto_item_set_len(ptr noundef %975, i32 noundef %.0.i827) #9
+dissect_nhdr_umq_reg.exit:                        ; preds = %998, %1011, %1020, %1031, %1040, %1059, %1068, %1079, %1088
+  %.0.i827 = phi i32 [ 20, %1088 ], [ 28, %1079 ], [ 32, %1068 ], [ 28, %1059 ], [ 44, %1040 ], [ 28, %1031 ], [ 32, %1020 ], [ 28, %1011 ], [ 32, %998 ]
+  call void @proto_item_set_len(ptr noundef %977, i32 noundef %.0.i827) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1089:                                             ; preds = %323
-  %1090 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1091 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  %1092 = load i32, ptr @hf_lbmc_umq_reg_resp, align 4
-  %1093 = zext i8 %1090 to i32
-  %1094 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1092, ptr noundef %324, i32 noundef 0, i32 noundef %1093, i32 noundef 0) #9
-  %1095 = load i32, ptr @ett_lbmc_umq_reg_resp, align 4
-  %1096 = call ptr @proto_item_add_subtree(ptr noundef %1094, i32 noundef %1095) #9
-  %1097 = load i32, ptr @hf_lbmc_umq_reg_resp_next_hdr, align 4
-  %1098 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1097, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1099 = load i32, ptr @hf_lbmc_umq_reg_resp_hdr_len, align 4
-  %1100 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1099, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1101 = load i32, ptr @hf_lbmc_umq_reg_resp_flags, align 4
-  %1102 = load i32, ptr @ett_lbmc_umq_reg_resp_flags, align 4
-  %switch.selectcmp.i = icmp eq i8 %1091, -1
+1091:                                             ; preds = %325
+  %1092 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1093 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  %1094 = load i32, ptr @hf_lbmc_umq_reg_resp, align 4
+  %1095 = zext i8 %1092 to i32
+  %1096 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1094, ptr noundef %326, i32 noundef 0, i32 noundef %1095, i32 noundef 0) #9
+  %1097 = load i32, ptr @ett_lbmc_umq_reg_resp, align 4
+  %1098 = call ptr @proto_item_add_subtree(ptr noundef %1096, i32 noundef %1097) #9
+  %1099 = load i32, ptr @hf_lbmc_umq_reg_resp_next_hdr, align 4
+  %1100 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1099, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1101 = load i32, ptr @hf_lbmc_umq_reg_resp_hdr_len, align 4
+  %1102 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1101, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1103 = load i32, ptr @hf_lbmc_umq_reg_resp_flags, align 4
+  %1104 = load i32, ptr @ett_lbmc_umq_reg_resp_flags, align 4
+  %switch.selectcmp.i = icmp eq i8 %1093, -1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @dissect_nhdr_umq_reg_resp.flags_err, ptr @dissect_nhdr_umq_reg_resp.flags
-  %switch.selectcmp98.i = icmp eq i8 %1091, 2
+  %switch.selectcmp98.i = icmp eq i8 %1093, 2
   %switch.select99.i = select i1 %switch.selectcmp98.i, ptr @dissect_nhdr_umq_reg_resp.flags_src, ptr %switch.select.i
-  %1103 = call ptr @proto_tree_add_bitmask(ptr noundef %1096, ptr noundef %324, i32 noundef 2, i32 noundef %1101, i32 noundef %1102, ptr noundef nonnull %switch.select99.i, i32 noundef 0) #9
-  %1104 = load i32, ptr @hf_lbmc_umq_reg_resp_resp_type, align 4
-  %1105 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1104, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1106 = load i32, ptr @hf_lbmc_umq_reg_resp_queue_id, align 4
-  %1107 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1106, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1108 = load i32, ptr @hf_lbmc_umq_reg_resp_cmd_id, align 4
-  %1109 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1108, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %1110 = load i32, ptr @hf_lbmc_umq_reg_resp_inst_idx, align 4
-  %1111 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1110, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  %1112 = load i32, ptr @hf_lbmc_umq_reg_resp_regid, align 4
-  %1113 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1112, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  switch i8 %1091, label %1219 [
-    i8 1, label %1114
-    i8 9, label %1121
-    i8 -1, label %1135
-    i8 2, label %1144
-    i8 3, label %1151
-    i8 4, label %1164
-    i8 5, label %1173
-    i8 6, label %1188
-    i8 7, label %1197
-    i8 8, label %1210
+  %1105 = call ptr @proto_tree_add_bitmask(ptr noundef %1098, ptr noundef %326, i32 noundef 2, i32 noundef %1103, i32 noundef %1104, ptr noundef nonnull %switch.select99.i, i32 noundef 0) #9
+  %1106 = load i32, ptr @hf_lbmc_umq_reg_resp_resp_type, align 4
+  %1107 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1106, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1108 = load i32, ptr @hf_lbmc_umq_reg_resp_queue_id, align 4
+  %1109 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1108, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1110 = load i32, ptr @hf_lbmc_umq_reg_resp_cmd_id, align 4
+  %1111 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1110, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %1112 = load i32, ptr @hf_lbmc_umq_reg_resp_inst_idx, align 4
+  %1113 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1112, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  %1114 = load i32, ptr @hf_lbmc_umq_reg_resp_regid, align 4
+  %1115 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1114, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  switch i8 %1093, label %1221 [
+    i8 1, label %1116
+    i8 9, label %1123
+    i8 -1, label %1137
+    i8 2, label %1146
+    i8 3, label %1153
+    i8 4, label %1166
+    i8 5, label %1175
+    i8 6, label %1190
+    i8 7, label %1199
+    i8 8, label %1212
   ]
 
-1114:                                             ; preds = %1089
-  %1115 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx, align 4
-  %1116 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1115, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1117 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ctx, align 4
-  %1118 = call ptr @proto_item_add_subtree(ptr noundef %1116, i32 noundef %1117) #9
-  %1119 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_capabilities, align 4
-  %1120 = call ptr @proto_tree_add_item(ptr noundef %1118, i32 noundef %1119, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+1116:                                             ; preds = %1091
+  %1117 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx, align 4
+  %1118 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1117, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1119 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ctx, align 4
+  %1120 = call ptr @proto_item_add_subtree(ptr noundef %1118, i32 noundef %1119) #9
+  %1121 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_capabilities, align 4
+  %1122 = call ptr @proto_tree_add_item(ptr noundef %1120, i32 noundef %1121, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1121:                                             ; preds = %1089
-  %1122 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex, align 4
-  %1123 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1122, ptr noundef %324, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
-  %1124 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ctx_ex, align 4
-  %1125 = call ptr @proto_item_add_subtree(ptr noundef %1123, i32 noundef %1124) #9
-  %1126 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_capabilities, align 4
-  %1127 = call ptr @proto_tree_add_item(ptr noundef %1125, i32 noundef %1126, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1128 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_reserved, align 4
-  %1129 = call ptr @proto_tree_add_item(ptr noundef %1125, i32 noundef %1128, ptr noundef %324, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
-  %1130 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_flags, align 4
-  %1131 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ctx_ex_flags, align 4
-  %1132 = call ptr @proto_tree_add_bitmask(ptr noundef %1125, ptr noundef %324, i32 noundef 26, i32 noundef %1130, i32 noundef %1131, ptr noundef nonnull @dissect_nhdr_umq_reg_resp_ctx_ex.flags, i32 noundef 0) #9
-  %1133 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_stamp, align 4
-  %1134 = call ptr @proto_tree_add_item(ptr noundef %1125, i32 noundef %1133, ptr noundef %324, i32 noundef 28, i32 noundef 8, i32 noundef 0) #9
+1123:                                             ; preds = %1091
+  %1124 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex, align 4
+  %1125 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1124, ptr noundef %326, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
+  %1126 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ctx_ex, align 4
+  %1127 = call ptr @proto_item_add_subtree(ptr noundef %1125, i32 noundef %1126) #9
+  %1128 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_capabilities, align 4
+  %1129 = call ptr @proto_tree_add_item(ptr noundef %1127, i32 noundef %1128, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1130 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_reserved, align 4
+  %1131 = call ptr @proto_tree_add_item(ptr noundef %1127, i32 noundef %1130, ptr noundef %326, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
+  %1132 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_flags, align 4
+  %1133 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ctx_ex_flags, align 4
+  %1134 = call ptr @proto_tree_add_bitmask(ptr noundef %1127, ptr noundef %326, i32 noundef 26, i32 noundef %1132, i32 noundef %1133, ptr noundef nonnull @dissect_nhdr_umq_reg_resp_ctx_ex.flags, i32 noundef 0) #9
+  %1135 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ctx_ex_stamp, align 4
+  %1136 = call ptr @proto_tree_add_item(ptr noundef %1127, i32 noundef %1135, ptr noundef %326, i32 noundef 28, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1135:                                             ; preds = %1089
-  %1136 = load i32, ptr @hf_lbmc_umq_reg_resp_err, align 4
-  %1137 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1136, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1138 = load i32, ptr @ett_lbmc_umq_reg_resp_err, align 4
-  %1139 = call ptr @proto_item_add_subtree(ptr noundef %1137, i32 noundef %1138) #9
-  %1140 = load i32, ptr @hf_lbmc_umq_reg_resp_err_reserved, align 4
-  %1141 = call ptr @proto_tree_add_item(ptr noundef %1139, i32 noundef %1140, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %1142 = load i32, ptr @hf_lbmc_umq_reg_resp_err_code, align 4
-  %1143 = call ptr @proto_tree_add_item(ptr noundef %1139, i32 noundef %1142, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+1137:                                             ; preds = %1091
+  %1138 = load i32, ptr @hf_lbmc_umq_reg_resp_err, align 4
+  %1139 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1138, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1140 = load i32, ptr @ett_lbmc_umq_reg_resp_err, align 4
+  %1141 = call ptr @proto_item_add_subtree(ptr noundef %1139, i32 noundef %1140) #9
+  %1142 = load i32, ptr @hf_lbmc_umq_reg_resp_err_reserved, align 4
+  %1143 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %1142, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %1144 = load i32, ptr @hf_lbmc_umq_reg_resp_err_code, align 4
+  %1145 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %1144, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1144:                                             ; preds = %1089
-  %1145 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_src, align 4
-  %1146 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1145, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1147 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_src, align 4
-  %1148 = call ptr @proto_item_add_subtree(ptr noundef %1146, i32 noundef %1147) #9
-  %1149 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_src_rcr_idx, align 4
-  %1150 = call ptr @proto_tree_add_item(ptr noundef %1148, i32 noundef %1149, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+1146:                                             ; preds = %1091
+  %1147 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_src, align 4
+  %1148 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1147, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1149 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_src, align 4
+  %1150 = call ptr @proto_item_add_subtree(ptr noundef %1148, i32 noundef %1149) #9
+  %1151 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_src_rcr_idx, align 4
+  %1152 = call ptr @proto_tree_add_item(ptr noundef %1150, i32 noundef %1151, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1151:                                             ; preds = %1089
-  %1152 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv, align 4
-  %1153 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1152, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %1154 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_rcv, align 4
-  %1155 = call ptr @proto_item_add_subtree(ptr noundef %1153, i32 noundef %1154) #9
-  %1156 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_rcr_idx, align 4
-  %1157 = call ptr @proto_tree_add_item(ptr noundef %1155, i32 noundef %1156, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1158 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_assign_id, align 4
-  %1159 = call ptr @proto_tree_add_item(ptr noundef %1155, i32 noundef %1158, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1160 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_appset_idx, align 4
-  %1161 = call ptr @proto_tree_add_item(ptr noundef %1155, i32 noundef %1160, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %1162 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_reserved, align 4
-  %1163 = call ptr @proto_tree_add_item(ptr noundef %1155, i32 noundef %1162, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+1153:                                             ; preds = %1091
+  %1154 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv, align 4
+  %1155 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1154, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1156 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_rcv, align 4
+  %1157 = call ptr @proto_item_add_subtree(ptr noundef %1155, i32 noundef %1156) #9
+  %1158 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_rcr_idx, align 4
+  %1159 = call ptr @proto_tree_add_item(ptr noundef %1157, i32 noundef %1158, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1160 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_assign_id, align 4
+  %1161 = call ptr @proto_tree_add_item(ptr noundef %1157, i32 noundef %1160, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1162 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_appset_idx, align 4
+  %1163 = call ptr @proto_tree_add_item(ptr noundef %1157, i32 noundef %1162, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %1164 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_rcv_reserved, align 4
+  %1165 = call ptr @proto_tree_add_item(ptr noundef %1157, i32 noundef %1164, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1164:                                             ; preds = %1089
-  %1165 = load i32, ptr @hf_lbmc_umq_reg_resp_rcv_dereg, align 4
-  %1166 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1165, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1167 = load i32, ptr @ett_lbmc_umq_reg_resp_rcv_dereg, align 4
-  %1168 = call ptr @proto_item_add_subtree(ptr noundef %1166, i32 noundef %1167) #9
-  %1169 = load i32, ptr @hf_lbmc_umq_reg_resp_rcv_dereg_rcr_idx, align 4
-  %1170 = call ptr @proto_tree_add_item(ptr noundef %1168, i32 noundef %1169, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1171 = load i32, ptr @hf_lbmc_umq_reg_resp_rcv_dereg_assign_id, align 4
-  %1172 = call ptr @proto_tree_add_item(ptr noundef %1168, i32 noundef %1171, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1166:                                             ; preds = %1091
+  %1167 = load i32, ptr @hf_lbmc_umq_reg_resp_rcv_dereg, align 4
+  %1168 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1167, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1169 = load i32, ptr @ett_lbmc_umq_reg_resp_rcv_dereg, align 4
+  %1170 = call ptr @proto_item_add_subtree(ptr noundef %1168, i32 noundef %1169) #9
+  %1171 = load i32, ptr @hf_lbmc_umq_reg_resp_rcv_dereg_rcr_idx, align 4
+  %1172 = call ptr @proto_tree_add_item(ptr noundef %1170, i32 noundef %1171, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1173 = load i32, ptr @hf_lbmc_umq_reg_resp_rcv_dereg_assign_id, align 4
+  %1174 = call ptr @proto_tree_add_item(ptr noundef %1170, i32 noundef %1173, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1173:                                             ; preds = %1089
-  %1174 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv, align 4
-  %1175 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1174, ptr noundef %324, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
-  %1176 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ulb_rcv, align 4
-  %1177 = call ptr @proto_item_add_subtree(ptr noundef %1175, i32 noundef %1176) #9
-  %1178 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_ulb_src_id, align 4
-  %1179 = call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1178, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1180 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_assign_id, align 4
-  %1181 = call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1180, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1182 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_appset_idx, align 4
-  %1183 = call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1182, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %1184 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_reserved, align 4
-  %1185 = call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1184, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
-  %1186 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_capabilities, align 4
-  %1187 = call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1186, ptr noundef %324, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
+1175:                                             ; preds = %1091
+  %1176 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv, align 4
+  %1177 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1176, ptr noundef %326, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
+  %1178 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_ulb_rcv, align 4
+  %1179 = call ptr @proto_item_add_subtree(ptr noundef %1177, i32 noundef %1178) #9
+  %1180 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_ulb_src_id, align 4
+  %1181 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1180, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1182 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_assign_id, align 4
+  %1183 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1182, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1184 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_appset_idx, align 4
+  %1185 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1184, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %1186 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_reserved, align 4
+  %1187 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1186, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+  %1188 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_ulb_rcv_capabilities, align 4
+  %1189 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1188, ptr noundef %326, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1188:                                             ; preds = %1089
-  %1189 = load i32, ptr @hf_lbmc_umq_reg_resp_ulb_rcv_dereg, align 4
-  %1190 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1189, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1191 = load i32, ptr @ett_lbmc_umq_reg_resp_ulb_rcv_dereg, align 4
-  %1192 = call ptr @proto_item_add_subtree(ptr noundef %1190, i32 noundef %1191) #9
-  %1193 = load i32, ptr @hf_lbmc_umq_reg_resp_ulb_rcv_dereg_ulb_src_id, align 4
-  %1194 = call ptr @proto_tree_add_item(ptr noundef %1192, i32 noundef %1193, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1195 = load i32, ptr @hf_lbmc_umq_reg_resp_ulb_rcv_dereg_assign_id, align 4
-  %1196 = call ptr @proto_tree_add_item(ptr noundef %1192, i32 noundef %1195, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1190:                                             ; preds = %1091
+  %1191 = load i32, ptr @hf_lbmc_umq_reg_resp_ulb_rcv_dereg, align 4
+  %1192 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1191, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1193 = load i32, ptr @ett_lbmc_umq_reg_resp_ulb_rcv_dereg, align 4
+  %1194 = call ptr @proto_item_add_subtree(ptr noundef %1192, i32 noundef %1193) #9
+  %1195 = load i32, ptr @hf_lbmc_umq_reg_resp_ulb_rcv_dereg_ulb_src_id, align 4
+  %1196 = call ptr @proto_tree_add_item(ptr noundef %1194, i32 noundef %1195, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1197 = load i32, ptr @hf_lbmc_umq_reg_resp_ulb_rcv_dereg_assign_id, align 4
+  %1198 = call ptr @proto_tree_add_item(ptr noundef %1194, i32 noundef %1197, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1197:                                             ; preds = %1089
-  %1198 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv, align 4
-  %1199 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1198, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %1200 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_observer_rcv, align 4
-  %1201 = call ptr @proto_item_add_subtree(ptr noundef %1199, i32 noundef %1200) #9
-  %1202 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_rcr_idx, align 4
-  %1203 = call ptr @proto_tree_add_item(ptr noundef %1201, i32 noundef %1202, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1204 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_assign_id, align 4
-  %1205 = call ptr @proto_tree_add_item(ptr noundef %1201, i32 noundef %1204, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1206 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_appset_idx, align 4
-  %1207 = call ptr @proto_tree_add_item(ptr noundef %1201, i32 noundef %1206, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %1208 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_reserved, align 4
-  %1209 = call ptr @proto_tree_add_item(ptr noundef %1201, i32 noundef %1208, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+1199:                                             ; preds = %1091
+  %1200 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv, align 4
+  %1201 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1200, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1202 = load i32, ptr @ett_lbmc_umq_reg_resp_reg_observer_rcv, align 4
+  %1203 = call ptr @proto_item_add_subtree(ptr noundef %1201, i32 noundef %1202) #9
+  %1204 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_rcr_idx, align 4
+  %1205 = call ptr @proto_tree_add_item(ptr noundef %1203, i32 noundef %1204, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1206 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_assign_id, align 4
+  %1207 = call ptr @proto_tree_add_item(ptr noundef %1203, i32 noundef %1206, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1208 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_appset_idx, align 4
+  %1209 = call ptr @proto_tree_add_item(ptr noundef %1203, i32 noundef %1208, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %1210 = load i32, ptr @hf_lbmc_umq_reg_resp_reg_observer_rcv_reserved, align 4
+  %1211 = call ptr @proto_tree_add_item(ptr noundef %1203, i32 noundef %1210, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1210:                                             ; preds = %1089
-  %1211 = load i32, ptr @hf_lbmc_umq_reg_resp_observer_rcv_dereg, align 4
-  %1212 = call ptr @proto_tree_add_item(ptr noundef %1096, i32 noundef %1211, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1213 = load i32, ptr @ett_lbmc_umq_reg_resp_observer_rcv_dereg, align 4
-  %1214 = call ptr @proto_item_add_subtree(ptr noundef %1212, i32 noundef %1213) #9
-  %1215 = load i32, ptr @hf_lbmc_umq_reg_resp_observer_rcv_dereg_rcr_idx, align 4
-  %1216 = call ptr @proto_tree_add_item(ptr noundef %1214, i32 noundef %1215, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1217 = load i32, ptr @hf_lbmc_umq_reg_resp_observer_rcv_dereg_assign_id, align 4
-  %1218 = call ptr @proto_tree_add_item(ptr noundef %1214, i32 noundef %1217, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1212:                                             ; preds = %1091
+  %1213 = load i32, ptr @hf_lbmc_umq_reg_resp_observer_rcv_dereg, align 4
+  %1214 = call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1213, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1215 = load i32, ptr @ett_lbmc_umq_reg_resp_observer_rcv_dereg, align 4
+  %1216 = call ptr @proto_item_add_subtree(ptr noundef %1214, i32 noundef %1215) #9
+  %1217 = load i32, ptr @hf_lbmc_umq_reg_resp_observer_rcv_dereg_rcr_idx, align 4
+  %1218 = call ptr @proto_tree_add_item(ptr noundef %1216, i32 noundef %1217, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1219 = load i32, ptr @hf_lbmc_umq_reg_resp_observer_rcv_dereg_assign_id, align 4
+  %1220 = call ptr @proto_tree_add_item(ptr noundef %1216, i32 noundef %1219, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-1219:                                             ; preds = %1089
-  %1220 = zext i8 %1091 to i32
-  %1221 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1105, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1735, i32 noundef %1220) #9
+1221:                                             ; preds = %1091
+  %1222 = zext i8 %1093 to i32
+  %1223 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1107, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1735, i32 noundef %1222) #9
   br label %dissect_nhdr_umq_reg_resp.exit
 
-dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1114, %1121, %1135, %1144, %1151, %1164, %1173, %1188, %1197, %1210, %1219
-  %.0.i828 = phi i32 [ 20, %1219 ], [ 28, %1210 ], [ 32, %1197 ], [ 28, %1188 ], [ 36, %1173 ], [ 28, %1164 ], [ 32, %1151 ], [ 24, %1144 ], [ 24, %1135 ], [ 36, %1121 ], [ 24, %1114 ]
-  call void @proto_item_set_len(ptr noundef %1094, i32 noundef %.0.i828) #9
+dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1116, %1123, %1137, %1146, %1153, %1166, %1175, %1190, %1199, %1212, %1221
+  %.0.i828 = phi i32 [ 20, %1221 ], [ 28, %1212 ], [ 32, %1199 ], [ 28, %1190 ], [ 36, %1175 ], [ 28, %1166 ], [ 32, %1153 ], [ 24, %1146 ], [ 24, %1137 ], [ 36, %1123 ], [ 24, %1116 ]
+  call void @proto_item_set_len(ptr noundef %1096, i32 noundef %.0.i828) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1222:                                             ; preds = %323
-  %1223 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1224 = load i32, ptr @hf_lbmc_umq_ack, align 4
-  %1225 = zext i8 %1223 to i32
-  %1226 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1224, ptr noundef %324, i32 noundef 0, i32 noundef %1225, i32 noundef 0) #9
-  %1227 = load i32, ptr @ett_lbmc_umq_ack, align 4
-  %1228 = call ptr @proto_item_add_subtree(ptr noundef %1226, i32 noundef %1227) #9
-  %1229 = load i32, ptr @hf_lbmc_umq_ack_next_hdr, align 4
-  %1230 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1229, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1231 = load i32, ptr @hf_lbmc_umq_ack_hdr_len, align 4
-  %1232 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1231, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1233 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 2) #9
-  %1234 = load i32, ptr @hf_lbmc_umq_ack_msgs, align 4
-  %1235 = load i32, ptr @ett_lbmc_umq_ack_msgs, align 4
-  %1236 = call ptr @proto_tree_add_bitmask(ptr noundef %1228, ptr noundef %324, i32 noundef 2, i32 noundef %1234, i32 noundef %1235, ptr noundef nonnull @dissect_nhdr_umq_ack.msgs, i32 noundef 0) #9
-  %1237 = load i32, ptr @hf_lbmc_umq_ack_numids, align 4
-  %1238 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1237, ptr noundef %324, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
-  %1239 = load i32, ptr @hf_lbmc_umq_ack_ack_type, align 4
-  %1240 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1239, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1241 = call i32 @tvb_reported_length_remaining(ptr noundef %324, i32 noundef 0) #9
-  %1242 = and i8 %1233, 15
-  %1243 = icmp ne i8 %1242, 0
-  %1244 = icmp sgt i32 %1241, 4
-  %1245 = select i1 %1243, i1 %1244, i1 false
-  br i1 %1245, label %.lr.ph.i831, label %._crit_edge.i829
+1224:                                             ; preds = %325
+  %1225 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1226 = load i32, ptr @hf_lbmc_umq_ack, align 4
+  %1227 = zext i8 %1225 to i32
+  %1228 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1226, ptr noundef %326, i32 noundef 0, i32 noundef %1227, i32 noundef 0) #9
+  %1229 = load i32, ptr @ett_lbmc_umq_ack, align 4
+  %1230 = call ptr @proto_item_add_subtree(ptr noundef %1228, i32 noundef %1229) #9
+  %1231 = load i32, ptr @hf_lbmc_umq_ack_next_hdr, align 4
+  %1232 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1231, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1233 = load i32, ptr @hf_lbmc_umq_ack_hdr_len, align 4
+  %1234 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1233, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1235 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 2) #9
+  %1236 = load i32, ptr @hf_lbmc_umq_ack_msgs, align 4
+  %1237 = load i32, ptr @ett_lbmc_umq_ack_msgs, align 4
+  %1238 = call ptr @proto_tree_add_bitmask(ptr noundef %1230, ptr noundef %326, i32 noundef 2, i32 noundef %1236, i32 noundef %1237, ptr noundef nonnull @dissect_nhdr_umq_ack.msgs, i32 noundef 0) #9
+  %1239 = load i32, ptr @hf_lbmc_umq_ack_numids, align 4
+  %1240 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1239, ptr noundef %326, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
+  %1241 = load i32, ptr @hf_lbmc_umq_ack_ack_type, align 4
+  %1242 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1241, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1243 = call i32 @tvb_reported_length_remaining(ptr noundef %326, i32 noundef 0) #9
+  %1244 = and i8 %1235, 15
+  %1245 = icmp ne i8 %1244, 0
+  %1246 = icmp sgt i32 %1243, 4
+  %1247 = select i1 %1245, i1 %1246, i1 false
+  br i1 %1247, label %.lr.ph.i831, label %._crit_edge.i829
 
-.lr.ph.i831:                                      ; preds = %1222, %.lr.ph.i831
-  %.06467.i = phi i32 [ %1255, %.lr.ph.i831 ], [ 4, %1222 ]
-  %.06566.i = phi i8 [ %1256, %.lr.ph.i831 ], [ 0, %1222 ]
-  %1246 = load i32, ptr @hf_lbmc_umq_ack_msgid, align 4
-  %1247 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1246, ptr noundef %324, i32 noundef %.06467.i, i32 noundef 16, i32 noundef 0) #9
-  %1248 = load i32, ptr @ett_lbmc_umq_ack_msgid, align 4
-  %1249 = call ptr @proto_item_add_subtree(ptr noundef %1247, i32 noundef %1248) #9
-  %1250 = load i32, ptr @hf_lbmc_umq_ack_msgid_regid, align 4
-  %1251 = call ptr @proto_tree_add_item(ptr noundef %1249, i32 noundef %1250, ptr noundef %324, i32 noundef %.06467.i, i32 noundef 8, i32 noundef 0) #9
-  %1252 = load i32, ptr @hf_lbmc_umq_ack_msgid_stamp, align 4
-  %1253 = add nuw nsw i32 %.06467.i, 8
-  %1254 = call ptr @proto_tree_add_item(ptr noundef %1249, i32 noundef %1252, ptr noundef %324, i32 noundef %1253, i32 noundef 8, i32 noundef 0) #9
-  %1255 = add nuw nsw i32 %.06467.i, 16
-  %1256 = add nuw nsw i8 %.06566.i, 1
-  %1257 = icmp ult i8 %1256, %1242
-  %1258 = icmp slt i32 %1255, %1241
-  %1259 = select i1 %1257, i1 %1258, i1 false
-  br i1 %1259, label %.lr.ph.i831, label %._crit_edge.i829, !llvm.loop !8
+.lr.ph.i831:                                      ; preds = %1224, %.lr.ph.i831
+  %.06467.i = phi i32 [ %1257, %.lr.ph.i831 ], [ 4, %1224 ]
+  %.06566.i = phi i8 [ %1258, %.lr.ph.i831 ], [ 0, %1224 ]
+  %1248 = load i32, ptr @hf_lbmc_umq_ack_msgid, align 4
+  %1249 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1248, ptr noundef %326, i32 noundef %.06467.i, i32 noundef 16, i32 noundef 0) #9
+  %1250 = load i32, ptr @ett_lbmc_umq_ack_msgid, align 4
+  %1251 = call ptr @proto_item_add_subtree(ptr noundef %1249, i32 noundef %1250) #9
+  %1252 = load i32, ptr @hf_lbmc_umq_ack_msgid_regid, align 4
+  %1253 = call ptr @proto_tree_add_item(ptr noundef %1251, i32 noundef %1252, ptr noundef %326, i32 noundef %.06467.i, i32 noundef 8, i32 noundef 0) #9
+  %1254 = load i32, ptr @hf_lbmc_umq_ack_msgid_stamp, align 4
+  %1255 = add nuw nsw i32 %.06467.i, 8
+  %1256 = call ptr @proto_tree_add_item(ptr noundef %1251, i32 noundef %1254, ptr noundef %326, i32 noundef %1255, i32 noundef 8, i32 noundef 0) #9
+  %1257 = add nuw nsw i32 %.06467.i, 16
+  %1258 = add nuw nsw i8 %.06566.i, 1
+  %1259 = icmp ult i8 %1258, %1244
+  %1260 = icmp slt i32 %1257, %1243
+  %1261 = select i1 %1259, i1 %1260, i1 false
+  br i1 %1261, label %.lr.ph.i831, label %._crit_edge.i829, !llvm.loop !8
 
-._crit_edge.i829:                                 ; preds = %.lr.ph.i831, %1222
-  %.064.lcssa.i = phi i32 [ 4, %1222 ], [ %1255, %.lr.ph.i831 ]
-  %1260 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  switch i8 %1260, label %1306 [
-    i8 1, label %1261
-    i8 2, label %1274
-    i8 3, label %1290
+._crit_edge.i829:                                 ; preds = %.lr.ph.i831, %1224
+  %.064.lcssa.i = phi i32 [ 4, %1224 ], [ %1257, %.lr.ph.i831 ]
+  %1262 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  switch i8 %1262, label %1308 [
+    i8 1, label %1263
+    i8 2, label %1276
+    i8 3, label %1292
   ]
 
-1261:                                             ; preds = %._crit_edge.i829
-  %1262 = load i32, ptr @hf_lbmc_umq_ack_stable, align 4
-  %1263 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1262, ptr noundef %324, i32 noundef %.064.lcssa.i, i32 noundef 8, i32 noundef 0) #9
-  %1264 = load i32, ptr @ett_lbmc_umq_ack_stable, align 4
-  %1265 = call ptr @proto_item_add_subtree(ptr noundef %1263, i32 noundef %1264) #9
-  %1266 = load i32, ptr @hf_lbmc_umq_ack_stable_queue_id, align 4
-  %1267 = call ptr @proto_tree_add_item(ptr noundef %1265, i32 noundef %1266, ptr noundef %324, i32 noundef %.064.lcssa.i, i32 noundef 4, i32 noundef 0) #9
-  %1268 = load i32, ptr @hf_lbmc_umq_ack_stable_inst_idx, align 4
-  %1269 = add i32 %.064.lcssa.i, 4
-  %1270 = call ptr @proto_tree_add_item(ptr noundef %1265, i32 noundef %1268, ptr noundef %324, i32 noundef %1269, i32 noundef 2, i32 noundef 0) #9
-  %1271 = load i32, ptr @hf_lbmc_umq_ack_stable_reserved, align 4
-  %1272 = add i32 %.064.lcssa.i, 6
-  %1273 = call ptr @proto_tree_add_item(ptr noundef %1265, i32 noundef %1271, ptr noundef %324, i32 noundef %1272, i32 noundef 2, i32 noundef 0) #9
+1263:                                             ; preds = %._crit_edge.i829
+  %1264 = load i32, ptr @hf_lbmc_umq_ack_stable, align 4
+  %1265 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1264, ptr noundef %326, i32 noundef %.064.lcssa.i, i32 noundef 8, i32 noundef 0) #9
+  %1266 = load i32, ptr @ett_lbmc_umq_ack_stable, align 4
+  %1267 = call ptr @proto_item_add_subtree(ptr noundef %1265, i32 noundef %1266) #9
+  %1268 = load i32, ptr @hf_lbmc_umq_ack_stable_queue_id, align 4
+  %1269 = call ptr @proto_tree_add_item(ptr noundef %1267, i32 noundef %1268, ptr noundef %326, i32 noundef %.064.lcssa.i, i32 noundef 4, i32 noundef 0) #9
+  %1270 = load i32, ptr @hf_lbmc_umq_ack_stable_inst_idx, align 4
+  %1271 = add i32 %.064.lcssa.i, 4
+  %1272 = call ptr @proto_tree_add_item(ptr noundef %1267, i32 noundef %1270, ptr noundef %326, i32 noundef %1271, i32 noundef 2, i32 noundef 0) #9
+  %1273 = load i32, ptr @hf_lbmc_umq_ack_stable_reserved, align 4
+  %1274 = add i32 %.064.lcssa.i, 6
+  %1275 = call ptr @proto_tree_add_item(ptr noundef %1267, i32 noundef %1273, ptr noundef %326, i32 noundef %1274, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_ack.exit
 
-1274:                                             ; preds = %._crit_edge.i829
-  %1275 = load i32, ptr @hf_lbmc_umq_ack_cr, align 4
-  %1276 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1275, ptr noundef %324, i32 noundef %.064.lcssa.i, i32 noundef 12, i32 noundef 0) #9
-  %1277 = load i32, ptr @ett_lbmc_umq_ack_cr, align 4
-  %1278 = call ptr @proto_item_add_subtree(ptr noundef %1276, i32 noundef %1277) #9
-  %1279 = load i32, ptr @hf_lbmc_umq_ack_cr_rcr_idx, align 4
-  %1280 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1279, ptr noundef %324, i32 noundef %.064.lcssa.i, i32 noundef 4, i32 noundef 0) #9
-  %1281 = load i32, ptr @hf_lbmc_umq_ack_cr_assign_id, align 4
-  %1282 = add i32 %.064.lcssa.i, 4
-  %1283 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1281, ptr noundef %324, i32 noundef %1282, i32 noundef 4, i32 noundef 0) #9
-  %1284 = load i32, ptr @hf_lbmc_umq_ack_cr_appset_idx, align 4
-  %1285 = add i32 %.064.lcssa.i, 8
-  %1286 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1284, ptr noundef %324, i32 noundef %1285, i32 noundef 2, i32 noundef 0) #9
-  %1287 = load i32, ptr @hf_lbmc_umq_ack_cr_reserved, align 4
-  %1288 = add i32 %.064.lcssa.i, 10
-  %1289 = call ptr @proto_tree_add_item(ptr noundef %1278, i32 noundef %1287, ptr noundef %324, i32 noundef %1288, i32 noundef 2, i32 noundef 0) #9
+1276:                                             ; preds = %._crit_edge.i829
+  %1277 = load i32, ptr @hf_lbmc_umq_ack_cr, align 4
+  %1278 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1277, ptr noundef %326, i32 noundef %.064.lcssa.i, i32 noundef 12, i32 noundef 0) #9
+  %1279 = load i32, ptr @ett_lbmc_umq_ack_cr, align 4
+  %1280 = call ptr @proto_item_add_subtree(ptr noundef %1278, i32 noundef %1279) #9
+  %1281 = load i32, ptr @hf_lbmc_umq_ack_cr_rcr_idx, align 4
+  %1282 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1281, ptr noundef %326, i32 noundef %.064.lcssa.i, i32 noundef 4, i32 noundef 0) #9
+  %1283 = load i32, ptr @hf_lbmc_umq_ack_cr_assign_id, align 4
+  %1284 = add i32 %.064.lcssa.i, 4
+  %1285 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1283, ptr noundef %326, i32 noundef %1284, i32 noundef 4, i32 noundef 0) #9
+  %1286 = load i32, ptr @hf_lbmc_umq_ack_cr_appset_idx, align 4
+  %1287 = add i32 %.064.lcssa.i, 8
+  %1288 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1286, ptr noundef %326, i32 noundef %1287, i32 noundef 2, i32 noundef 0) #9
+  %1289 = load i32, ptr @hf_lbmc_umq_ack_cr_reserved, align 4
+  %1290 = add i32 %.064.lcssa.i, 10
+  %1291 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1289, ptr noundef %326, i32 noundef %1290, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_ack.exit
 
-1290:                                             ; preds = %._crit_edge.i829
-  %1291 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr, align 4
-  %1292 = call ptr @proto_tree_add_item(ptr noundef %1228, i32 noundef %1291, ptr noundef %324, i32 noundef %.064.lcssa.i, i32 noundef 12, i32 noundef 0) #9
-  %1293 = load i32, ptr @ett_lbmc_umq_ack_ulb_cr, align 4
-  %1294 = call ptr @proto_item_add_subtree(ptr noundef %1292, i32 noundef %1293) #9
-  %1295 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_ulb_src_id, align 4
-  %1296 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1295, ptr noundef %324, i32 noundef %.064.lcssa.i, i32 noundef 4, i32 noundef 0) #9
-  %1297 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_assign_id, align 4
-  %1298 = add i32 %.064.lcssa.i, 4
-  %1299 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1297, ptr noundef %324, i32 noundef %1298, i32 noundef 4, i32 noundef 0) #9
-  %1300 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_appset_idx, align 4
-  %1301 = add i32 %.064.lcssa.i, 8
-  %1302 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1300, ptr noundef %324, i32 noundef %1301, i32 noundef 2, i32 noundef 0) #9
-  %1303 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_reserved, align 4
-  %1304 = add i32 %.064.lcssa.i, 10
-  %1305 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1303, ptr noundef %324, i32 noundef %1304, i32 noundef 2, i32 noundef 0) #9
+1292:                                             ; preds = %._crit_edge.i829
+  %1293 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr, align 4
+  %1294 = call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1293, ptr noundef %326, i32 noundef %.064.lcssa.i, i32 noundef 12, i32 noundef 0) #9
+  %1295 = load i32, ptr @ett_lbmc_umq_ack_ulb_cr, align 4
+  %1296 = call ptr @proto_item_add_subtree(ptr noundef %1294, i32 noundef %1295) #9
+  %1297 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_ulb_src_id, align 4
+  %1298 = call ptr @proto_tree_add_item(ptr noundef %1296, i32 noundef %1297, ptr noundef %326, i32 noundef %.064.lcssa.i, i32 noundef 4, i32 noundef 0) #9
+  %1299 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_assign_id, align 4
+  %1300 = add i32 %.064.lcssa.i, 4
+  %1301 = call ptr @proto_tree_add_item(ptr noundef %1296, i32 noundef %1299, ptr noundef %326, i32 noundef %1300, i32 noundef 4, i32 noundef 0) #9
+  %1302 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_appset_idx, align 4
+  %1303 = add i32 %.064.lcssa.i, 8
+  %1304 = call ptr @proto_tree_add_item(ptr noundef %1296, i32 noundef %1302, ptr noundef %326, i32 noundef %1303, i32 noundef 2, i32 noundef 0) #9
+  %1305 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr_reserved, align 4
+  %1306 = add i32 %.064.lcssa.i, 10
+  %1307 = call ptr @proto_tree_add_item(ptr noundef %1296, i32 noundef %1305, ptr noundef %326, i32 noundef %1306, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_ack.exit
 
-1306:                                             ; preds = %._crit_edge.i829
-  %1307 = zext i8 %1260 to i32
-  %1308 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1240, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1736, i32 noundef %1307) #9
+1308:                                             ; preds = %._crit_edge.i829
+  %1309 = zext i8 %1262 to i32
+  %1310 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1242, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1736, i32 noundef %1309) #9
   br label %dissect_nhdr_umq_ack.exit
 
-dissect_nhdr_umq_ack.exit:                        ; preds = %1261, %1274, %1290, %1306
-  %.0.i830 = phi i32 [ 0, %1306 ], [ 12, %1290 ], [ 12, %1274 ], [ 8, %1261 ]
-  %1309 = add i32 %.0.i830, %.064.lcssa.i
-  call void @proto_item_set_len(ptr noundef %1226, i32 noundef %1309) #9
+dissect_nhdr_umq_ack.exit:                        ; preds = %1263, %1276, %1292, %1308
+  %.0.i830 = phi i32 [ 0, %1308 ], [ 12, %1292 ], [ 12, %1276 ], [ 8, %1263 ]
+  %1311 = add i32 %.0.i830, %.064.lcssa.i
+  call void @proto_item_set_len(ptr noundef %1228, i32 noundef %1311) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1310:                                             ; preds = %323
-  %1311 = load i32, ptr @hf_lbmc_umq_rcr, align 4
-  %1312 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1311, ptr noundef %324, i32 noundef 0, i32 noundef 48, i32 noundef 0) #9
-  %1313 = load i32, ptr @ett_lbmc_umq_rcr, align 4
-  %1314 = call ptr @proto_item_add_subtree(ptr noundef %1312, i32 noundef %1313) #9
-  %1315 = load i32, ptr @hf_lbmc_umq_rcr_next_hdr, align 4
-  %1316 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1315, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1317 = load i32, ptr @hf_lbmc_umq_rcr_hdr_len, align 4
-  %1318 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1317, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1319 = load i32, ptr @hf_lbmc_umq_rcr_flags, align 4
-  %1320 = load i32, ptr @ett_lbmc_umq_rcr_flags, align 4
-  %1321 = call ptr @proto_tree_add_bitmask(ptr noundef %1314, ptr noundef %324, i32 noundef 2, i32 noundef %1319, i32 noundef %1320, ptr noundef nonnull @dissect_nhdr_umq_rcr.flags, i32 noundef 0) #9
-  %1322 = load i32, ptr @hf_lbmc_umq_rcr_queue_id, align 4
-  %1323 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1322, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1324 = load i32, ptr @hf_lbmc_umq_rcr_rcr_idx, align 4
-  %1325 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1324, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %1326 = load i32, ptr @hf_lbmc_umq_rcr_msgid_regid, align 4
-  %1327 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1326, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %1328 = load i32, ptr @hf_lbmc_umq_rcr_msgid_stamp, align 4
-  %1329 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1328, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1330 = load i32, ptr @hf_lbmc_umq_rcr_topic_tsp, align 4
-  %1331 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1330, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
-  %1332 = load i32, ptr @hf_lbmc_umq_rcr_q_tsp, align 4
-  %1333 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1332, ptr noundef %324, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
-  %1334 = load i32, ptr @hf_lbmc_umq_rcr_assign_id, align 4
-  %1335 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1334, ptr noundef %324, i32 noundef 36, i32 noundef 4, i32 noundef 0) #9
-  %1336 = load i32, ptr @hf_lbmc_umq_rcr_appset_idx, align 4
-  %1337 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1336, ptr noundef %324, i32 noundef 40, i32 noundef 2, i32 noundef 0) #9
-  %1338 = load i32, ptr @hf_lbmc_umq_rcr_num_ras, align 4
-  %1339 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1338, ptr noundef %324, i32 noundef 42, i32 noundef 2, i32 noundef 0) #9
-  %1340 = load i32, ptr @hf_lbmc_umq_rcr_queue_ver, align 4
-  %1341 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1340, ptr noundef %324, i32 noundef 44, i32 noundef 4, i32 noundef 0) #9
+1312:                                             ; preds = %325
+  %1313 = load i32, ptr @hf_lbmc_umq_rcr, align 4
+  %1314 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1313, ptr noundef %326, i32 noundef 0, i32 noundef 48, i32 noundef 0) #9
+  %1315 = load i32, ptr @ett_lbmc_umq_rcr, align 4
+  %1316 = call ptr @proto_item_add_subtree(ptr noundef %1314, i32 noundef %1315) #9
+  %1317 = load i32, ptr @hf_lbmc_umq_rcr_next_hdr, align 4
+  %1318 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1317, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1319 = load i32, ptr @hf_lbmc_umq_rcr_hdr_len, align 4
+  %1320 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1319, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1321 = load i32, ptr @hf_lbmc_umq_rcr_flags, align 4
+  %1322 = load i32, ptr @ett_lbmc_umq_rcr_flags, align 4
+  %1323 = call ptr @proto_tree_add_bitmask(ptr noundef %1316, ptr noundef %326, i32 noundef 2, i32 noundef %1321, i32 noundef %1322, ptr noundef nonnull @dissect_nhdr_umq_rcr.flags, i32 noundef 0) #9
+  %1324 = load i32, ptr @hf_lbmc_umq_rcr_queue_id, align 4
+  %1325 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1324, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1326 = load i32, ptr @hf_lbmc_umq_rcr_rcr_idx, align 4
+  %1327 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1326, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %1328 = load i32, ptr @hf_lbmc_umq_rcr_msgid_regid, align 4
+  %1329 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1328, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %1330 = load i32, ptr @hf_lbmc_umq_rcr_msgid_stamp, align 4
+  %1331 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1330, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1332 = load i32, ptr @hf_lbmc_umq_rcr_topic_tsp, align 4
+  %1333 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1332, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+  %1334 = load i32, ptr @hf_lbmc_umq_rcr_q_tsp, align 4
+  %1335 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1334, ptr noundef %326, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
+  %1336 = load i32, ptr @hf_lbmc_umq_rcr_assign_id, align 4
+  %1337 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1336, ptr noundef %326, i32 noundef 36, i32 noundef 4, i32 noundef 0) #9
+  %1338 = load i32, ptr @hf_lbmc_umq_rcr_appset_idx, align 4
+  %1339 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1338, ptr noundef %326, i32 noundef 40, i32 noundef 2, i32 noundef 0) #9
+  %1340 = load i32, ptr @hf_lbmc_umq_rcr_num_ras, align 4
+  %1341 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1340, ptr noundef %326, i32 noundef 42, i32 noundef 2, i32 noundef 0) #9
+  %1342 = load i32, ptr @hf_lbmc_umq_rcr_queue_ver, align 4
+  %1343 = call ptr @proto_tree_add_item(ptr noundef %1316, i32 noundef %1342, ptr noundef %326, i32 noundef 44, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1342:                                             ; preds = %323
-  %1343 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1344 = load i32, ptr @hf_lbmc_cntl_umq_ka, align 4
-  %1345 = zext i8 %1343 to i32
-  %1346 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1344, ptr noundef %324, i32 noundef 0, i32 noundef %1345, i32 noundef 0) #9
-  %1347 = load i32, ptr @ett_lbmc_umq_ka, align 4
-  %1348 = call ptr @proto_item_add_subtree(ptr noundef %1346, i32 noundef %1347) #9
-  %1349 = load i32, ptr @hf_lbmc_cntl_umq_ka_next_hdr, align 4
-  %1350 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1349, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1351 = load i32, ptr @hf_lbmc_cntl_umq_ka_hdr_len, align 4
-  %1352 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1351, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1353 = load i32, ptr @hf_lbmc_cntl_umq_ka_flags, align 4
-  %1354 = load i32, ptr @ett_lbmc_umq_ka_flags, align 4
-  %1355 = call ptr @proto_tree_add_bitmask(ptr noundef %1348, ptr noundef %324, i32 noundef 2, i32 noundef %1353, i32 noundef %1354, ptr noundef nonnull @dissect_nhdr_umq_ka.flags, i32 noundef 0) #9
-  %1356 = load i32, ptr @hf_lbmc_cntl_umq_ka_ka_type, align 4
-  %1357 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1356, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1358 = load i32, ptr @hf_lbmc_cntl_umq_ka_queue_id, align 4
-  %1359 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1358, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1360 = load i32, ptr @hf_lbmc_cntl_umq_ka_regid, align 4
-  %1361 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1360, ptr noundef %324, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
-  %1362 = load i32, ptr @hf_lbmc_cntl_umq_ka_inst_idx, align 4
-  %1363 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1362, ptr noundef %324, i32 noundef 16, i32 noundef 2, i32 noundef 0) #9
-  %1364 = load i32, ptr @hf_lbmc_cntl_umq_ka_reserved, align 4
-  %1365 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1364, ptr noundef %324, i32 noundef 18, i32 noundef 2, i32 noundef 0) #9
-  %1366 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  switch i8 %1366, label %1407 [
-    i8 1, label %1367
-    i8 17, label %1367
-    i8 2, label %1376
-    i8 18, label %1376
-    i8 3, label %1385
-    i8 19, label %1394
+1344:                                             ; preds = %325
+  %1345 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1346 = load i32, ptr @hf_lbmc_cntl_umq_ka, align 4
+  %1347 = zext i8 %1345 to i32
+  %1348 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1346, ptr noundef %326, i32 noundef 0, i32 noundef %1347, i32 noundef 0) #9
+  %1349 = load i32, ptr @ett_lbmc_umq_ka, align 4
+  %1350 = call ptr @proto_item_add_subtree(ptr noundef %1348, i32 noundef %1349) #9
+  %1351 = load i32, ptr @hf_lbmc_cntl_umq_ka_next_hdr, align 4
+  %1352 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1351, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1353 = load i32, ptr @hf_lbmc_cntl_umq_ka_hdr_len, align 4
+  %1354 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1353, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1355 = load i32, ptr @hf_lbmc_cntl_umq_ka_flags, align 4
+  %1356 = load i32, ptr @ett_lbmc_umq_ka_flags, align 4
+  %1357 = call ptr @proto_tree_add_bitmask(ptr noundef %1350, ptr noundef %326, i32 noundef 2, i32 noundef %1355, i32 noundef %1356, ptr noundef nonnull @dissect_nhdr_umq_ka.flags, i32 noundef 0) #9
+  %1358 = load i32, ptr @hf_lbmc_cntl_umq_ka_ka_type, align 4
+  %1359 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1358, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1360 = load i32, ptr @hf_lbmc_cntl_umq_ka_queue_id, align 4
+  %1361 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1360, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1362 = load i32, ptr @hf_lbmc_cntl_umq_ka_regid, align 4
+  %1363 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1362, ptr noundef %326, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
+  %1364 = load i32, ptr @hf_lbmc_cntl_umq_ka_inst_idx, align 4
+  %1365 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1364, ptr noundef %326, i32 noundef 16, i32 noundef 2, i32 noundef 0) #9
+  %1366 = load i32, ptr @hf_lbmc_cntl_umq_ka_reserved, align 4
+  %1367 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1366, ptr noundef %326, i32 noundef 18, i32 noundef 2, i32 noundef 0) #9
+  %1368 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  switch i8 %1368, label %1409 [
+    i8 1, label %1369
+    i8 17, label %1369
+    i8 2, label %1378
+    i8 18, label %1378
+    i8 3, label %1387
+    i8 19, label %1396
     i8 0, label %dissect_nhdr_umq_ka.exit
     i8 16, label %dissect_nhdr_umq_ka.exit
   ]
 
-1367:                                             ; preds = %1342, %1342
-  %1368 = load i32, ptr @hf_lbmc_umq_ka_src, align 4
-  %1369 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1368, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1370 = load i32, ptr @ett_lbmc_umq_ka_src, align 4
-  %1371 = call ptr @proto_item_add_subtree(ptr noundef %1369, i32 noundef %1370) #9
-  %1372 = load i32, ptr @hf_lbmc_umq_ka_src_transport_idx, align 4
-  %1373 = call ptr @proto_tree_add_item(ptr noundef %1371, i32 noundef %1372, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1374 = load i32, ptr @hf_lbmc_umq_ka_src_topic_idx, align 4
-  %1375 = call ptr @proto_tree_add_item(ptr noundef %1371, i32 noundef %1374, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1369:                                             ; preds = %1344, %1344
+  %1370 = load i32, ptr @hf_lbmc_umq_ka_src, align 4
+  %1371 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1370, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1372 = load i32, ptr @ett_lbmc_umq_ka_src, align 4
+  %1373 = call ptr @proto_item_add_subtree(ptr noundef %1371, i32 noundef %1372) #9
+  %1374 = load i32, ptr @hf_lbmc_umq_ka_src_transport_idx, align 4
+  %1375 = call ptr @proto_tree_add_item(ptr noundef %1373, i32 noundef %1374, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1376 = load i32, ptr @hf_lbmc_umq_ka_src_topic_idx, align 4
+  %1377 = call ptr @proto_tree_add_item(ptr noundef %1373, i32 noundef %1376, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_ka.exit
 
-1376:                                             ; preds = %1342, %1342
-  %1377 = load i32, ptr @hf_lbmc_umq_ka_rcv, align 4
-  %1378 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1377, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1379 = load i32, ptr @ett_lbmc_umq_ka_rcv, align 4
-  %1380 = call ptr @proto_item_add_subtree(ptr noundef %1378, i32 noundef %1379) #9
-  %1381 = load i32, ptr @hf_lbmc_umq_ka_rcv_rcr_idx, align 4
-  %1382 = call ptr @proto_tree_add_item(ptr noundef %1380, i32 noundef %1381, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1383 = load i32, ptr @hf_lbmc_umq_ka_rcv_assign_id, align 4
-  %1384 = call ptr @proto_tree_add_item(ptr noundef %1380, i32 noundef %1383, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1378:                                             ; preds = %1344, %1344
+  %1379 = load i32, ptr @hf_lbmc_umq_ka_rcv, align 4
+  %1380 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1379, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1381 = load i32, ptr @ett_lbmc_umq_ka_rcv, align 4
+  %1382 = call ptr @proto_item_add_subtree(ptr noundef %1380, i32 noundef %1381) #9
+  %1383 = load i32, ptr @hf_lbmc_umq_ka_rcv_rcr_idx, align 4
+  %1384 = call ptr @proto_tree_add_item(ptr noundef %1382, i32 noundef %1383, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1385 = load i32, ptr @hf_lbmc_umq_ka_rcv_assign_id, align 4
+  %1386 = call ptr @proto_tree_add_item(ptr noundef %1382, i32 noundef %1385, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_ka.exit
 
-1385:                                             ; preds = %1342
-  %1386 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv, align 4
-  %1387 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1386, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1388 = load i32, ptr @ett_lbmc_umq_ka_ulb_rcv, align 4
-  %1389 = call ptr @proto_item_add_subtree(ptr noundef %1387, i32 noundef %1388) #9
-  %1390 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_ulb_src_id, align 4
-  %1391 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1390, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1392 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_assign_id, align 4
-  %1393 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1392, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1387:                                             ; preds = %1344
+  %1388 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv, align 4
+  %1389 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1388, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1390 = load i32, ptr @ett_lbmc_umq_ka_ulb_rcv, align 4
+  %1391 = call ptr @proto_item_add_subtree(ptr noundef %1389, i32 noundef %1390) #9
+  %1392 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_ulb_src_id, align 4
+  %1393 = call ptr @proto_tree_add_item(ptr noundef %1391, i32 noundef %1392, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1394 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_assign_id, align 4
+  %1395 = call ptr @proto_tree_add_item(ptr noundef %1391, i32 noundef %1394, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_ka.exit
 
-1394:                                             ; preds = %1342
-  %1395 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp, align 4
-  %1396 = call ptr @proto_tree_add_item(ptr noundef %1348, i32 noundef %1395, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %1397 = load i32, ptr @ett_lbmc_umq_ka_ulb_rcv_resp, align 4
-  %1398 = call ptr @proto_item_add_subtree(ptr noundef %1396, i32 noundef %1397) #9
-  %1399 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_ulb_src_id, align 4
-  %1400 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1399, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1401 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_assign_id, align 4
-  %1402 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1401, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1403 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_appset_idx, align 4
-  %1404 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1403, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %1405 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_reserved, align 4
-  %1406 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1405, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+1396:                                             ; preds = %1344
+  %1397 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp, align 4
+  %1398 = call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1397, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1399 = load i32, ptr @ett_lbmc_umq_ka_ulb_rcv_resp, align 4
+  %1400 = call ptr @proto_item_add_subtree(ptr noundef %1398, i32 noundef %1399) #9
+  %1401 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_ulb_src_id, align 4
+  %1402 = call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1401, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1403 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_assign_id, align 4
+  %1404 = call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1403, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1405 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_appset_idx, align 4
+  %1406 = call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1405, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %1407 = load i32, ptr @hf_lbmc_umq_ka_ulb_rcv_resp_reserved, align 4
+  %1408 = call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1407, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_ka.exit
 
-1407:                                             ; preds = %1342
-  %1408 = zext i8 %1366 to i32
-  %1409 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1357, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1737, i32 noundef %1408) #9
+1409:                                             ; preds = %1344
+  %1410 = zext i8 %1368 to i32
+  %1411 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1359, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1737, i32 noundef %1410) #9
   br label %dissect_nhdr_umq_ka.exit
 
-dissect_nhdr_umq_ka.exit:                         ; preds = %1342, %1342, %1367, %1376, %1385, %1394, %1407
-  %.0.i832 = phi i32 [ 20, %1407 ], [ 32, %1394 ], [ 28, %1385 ], [ 28, %1376 ], [ 28, %1367 ], [ 20, %1342 ], [ 20, %1342 ]
-  call void @proto_item_set_len(ptr noundef %1346, i32 noundef %.0.i832) #9
+dissect_nhdr_umq_ka.exit:                         ; preds = %1344, %1344, %1369, %1378, %1387, %1396, %1409
+  %.0.i832 = phi i32 [ 20, %1409 ], [ 32, %1396 ], [ 28, %1387 ], [ 28, %1378 ], [ 28, %1369 ], [ 20, %1344 ], [ 20, %1344 ]
+  call void @proto_item_set_len(ptr noundef %1348, i32 noundef %.0.i832) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1410:                                             ; preds = %323
-  %1411 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1412 = load i32, ptr @hf_lbmc_umq_rxreq, align 4
-  %1413 = zext i8 %1411 to i32
-  %1414 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1412, ptr noundef %324, i32 noundef 0, i32 noundef %1413, i32 noundef 0) #9
-  %1415 = load i32, ptr @ett_lbmc_umq_rxreq, align 4
-  %1416 = call ptr @proto_item_add_subtree(ptr noundef %1414, i32 noundef %1415) #9
-  %1417 = load i32, ptr @hf_lbmc_umq_rxreq_next_hdr, align 4
-  %1418 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1417, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1419 = load i32, ptr @hf_lbmc_umq_rxreq_hdr_len, align 4
-  %1420 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1419, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1421 = load i32, ptr @hf_lbmc_umq_rxreq_flags, align 4
-  %1422 = load i32, ptr @ett_lbmc_umq_rxreq_flags, align 4
-  %1423 = call ptr @proto_tree_add_bitmask(ptr noundef %1416, ptr noundef %324, i32 noundef 2, i32 noundef %1421, i32 noundef %1422, ptr noundef nonnull @dissect_nhdr_umq_rxreq.flags, i32 noundef 0) #9
-  %1424 = load i32, ptr @hf_lbmc_umq_rxreq_rxreq_type, align 4
-  %1425 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1424, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1426 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 2) #9
-  %1427 = and i8 %1426, 64
-  %.not.i833 = icmp eq i8 %1427, 0
-  br i1 %.not.i833, label %1435, label %1428
+1412:                                             ; preds = %325
+  %1413 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1414 = load i32, ptr @hf_lbmc_umq_rxreq, align 4
+  %1415 = zext i8 %1413 to i32
+  %1416 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1414, ptr noundef %326, i32 noundef 0, i32 noundef %1415, i32 noundef 0) #9
+  %1417 = load i32, ptr @ett_lbmc_umq_rxreq, align 4
+  %1418 = call ptr @proto_item_add_subtree(ptr noundef %1416, i32 noundef %1417) #9
+  %1419 = load i32, ptr @hf_lbmc_umq_rxreq_next_hdr, align 4
+  %1420 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1419, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1421 = load i32, ptr @hf_lbmc_umq_rxreq_hdr_len, align 4
+  %1422 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1421, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1423 = load i32, ptr @hf_lbmc_umq_rxreq_flags, align 4
+  %1424 = load i32, ptr @ett_lbmc_umq_rxreq_flags, align 4
+  %1425 = call ptr @proto_tree_add_bitmask(ptr noundef %1418, ptr noundef %326, i32 noundef 2, i32 noundef %1423, i32 noundef %1424, ptr noundef nonnull @dissect_nhdr_umq_rxreq.flags, i32 noundef 0) #9
+  %1426 = load i32, ptr @hf_lbmc_umq_rxreq_rxreq_type, align 4
+  %1427 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1426, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1428 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 2) #9
+  %1429 = and i8 %1428, 64
+  %.not.i833 = icmp eq i8 %1429, 0
+  br i1 %.not.i833, label %1437, label %1430
 
-1428:                                             ; preds = %1410
-  %1429 = load i32, ptr @hf_lbmc_umq_rxreq_regid_resp, align 4
-  %1430 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1429, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
-  %1431 = load i32, ptr @ett_lbmc_umq_rxreq_regid_resp, align 4
-  %1432 = call ptr @proto_item_add_subtree(ptr noundef %1430, i32 noundef %1431) #9
-  %1433 = load i32, ptr @hf_lbmc_umq_rxreq_regid_resp_regid, align 4
-  %1434 = call ptr @proto_tree_add_item(ptr noundef %1432, i32 noundef %1433, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
-  br label %1446
+1430:                                             ; preds = %1412
+  %1431 = load i32, ptr @hf_lbmc_umq_rxreq_regid_resp, align 4
+  %1432 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1431, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+  %1433 = load i32, ptr @ett_lbmc_umq_rxreq_regid_resp, align 4
+  %1434 = call ptr @proto_item_add_subtree(ptr noundef %1432, i32 noundef %1433) #9
+  %1435 = load i32, ptr @hf_lbmc_umq_rxreq_regid_resp_regid, align 4
+  %1436 = call ptr @proto_tree_add_item(ptr noundef %1434, i32 noundef %1435, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+  br label %1448
 
-1435:                                             ; preds = %1410
-  %1436 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp, align 4
-  %1437 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1436, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
-  %1438 = load i32, ptr @ett_lbmc_umq_rxreq_addr_resp, align 4
-  %1439 = call ptr @proto_item_add_subtree(ptr noundef %1437, i32 noundef %1438) #9
-  %1440 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp_ip, align 4
-  %1441 = call ptr @proto_tree_add_item(ptr noundef %1439, i32 noundef %1440, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1442 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp_port, align 4
-  %1443 = call ptr @proto_tree_add_item(ptr noundef %1439, i32 noundef %1442, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %1444 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp_reserved, align 4
-  %1445 = call ptr @proto_tree_add_item(ptr noundef %1439, i32 noundef %1444, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  br label %1446
+1437:                                             ; preds = %1412
+  %1438 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp, align 4
+  %1439 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1438, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+  %1440 = load i32, ptr @ett_lbmc_umq_rxreq_addr_resp, align 4
+  %1441 = call ptr @proto_item_add_subtree(ptr noundef %1439, i32 noundef %1440) #9
+  %1442 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp_ip, align 4
+  %1443 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1442, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1444 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp_port, align 4
+  %1445 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1444, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %1446 = load i32, ptr @hf_lbmc_umq_rxreq_addr_resp_reserved, align 4
+  %1447 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1446, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  br label %1448
 
-1446:                                             ; preds = %1435, %1428
-  %1447 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  switch i8 %1447, label %1527 [
-    i8 1, label %1448
-    i8 4, label %1459
-    i8 6, label %1476
-    i8 2, label %1489
-    i8 3, label %1496
-    i8 5, label %1505
-    i8 7, label %1516
+1448:                                             ; preds = %1437, %1430
+  %1449 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  switch i8 %1449, label %1529 [
+    i8 1, label %1450
+    i8 4, label %1461
+    i8 6, label %1478
+    i8 2, label %1491
+    i8 3, label %1498
+    i8 5, label %1507
+    i8 7, label %1518
   ]
 
-1448:                                             ; preds = %1446
-  %1449 = load i32, ptr @hf_lbmc_umq_rxreq_mr, align 4
-  %1450 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1449, ptr noundef %324, i32 noundef 12, i32 noundef 20, i32 noundef 0) #9
-  %1451 = load i32, ptr @ett_lbmc_umq_rxreq_mr, align 4
-  %1452 = call ptr @proto_item_add_subtree(ptr noundef %1450, i32 noundef %1451) #9
-  %1453 = load i32, ptr @hf_lbmc_umq_rxreq_mr_assign_id, align 4
-  %1454 = call ptr @proto_tree_add_item(ptr noundef %1452, i32 noundef %1453, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1455 = load i32, ptr @hf_lbmc_umq_rxreq_mr_msgid_regid, align 4
-  %1456 = call ptr @proto_tree_add_item(ptr noundef %1452, i32 noundef %1455, ptr noundef %324, i32 noundef 16, i32 noundef 8, i32 noundef 0) #9
-  %1457 = load i32, ptr @hf_lbmc_umq_rxreq_mr_msgid_stamp, align 4
-  %1458 = call ptr @proto_tree_add_item(ptr noundef %1452, i32 noundef %1457, ptr noundef %324, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
+1450:                                             ; preds = %1448
+  %1451 = load i32, ptr @hf_lbmc_umq_rxreq_mr, align 4
+  %1452 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1451, ptr noundef %326, i32 noundef 12, i32 noundef 20, i32 noundef 0) #9
+  %1453 = load i32, ptr @ett_lbmc_umq_rxreq_mr, align 4
+  %1454 = call ptr @proto_item_add_subtree(ptr noundef %1452, i32 noundef %1453) #9
+  %1455 = load i32, ptr @hf_lbmc_umq_rxreq_mr_assign_id, align 4
+  %1456 = call ptr @proto_tree_add_item(ptr noundef %1454, i32 noundef %1455, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1457 = load i32, ptr @hf_lbmc_umq_rxreq_mr_msgid_regid, align 4
+  %1458 = call ptr @proto_tree_add_item(ptr noundef %1454, i32 noundef %1457, ptr noundef %326, i32 noundef 16, i32 noundef 8, i32 noundef 0) #9
+  %1459 = load i32, ptr @hf_lbmc_umq_rxreq_mr_msgid_stamp, align 4
+  %1460 = call ptr @proto_tree_add_item(ptr noundef %1454, i32 noundef %1459, ptr noundef %326, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-1459:                                             ; preds = %1446
-  %1460 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr, align 4
-  %1461 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1460, ptr noundef %324, i32 noundef 12, i32 noundef 28, i32 noundef 0) #9
-  %1462 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_mr, align 4
-  %1463 = call ptr @proto_item_add_subtree(ptr noundef %1461, i32 noundef %1462) #9
-  %1464 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_ulb_src_id, align 4
-  %1465 = call ptr @proto_tree_add_item(ptr noundef %1463, i32 noundef %1464, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1466 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_assign_id, align 4
-  %1467 = call ptr @proto_tree_add_item(ptr noundef %1463, i32 noundef %1466, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %1468 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_appset_idx, align 4
-  %1469 = call ptr @proto_tree_add_item(ptr noundef %1463, i32 noundef %1468, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %1470 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_reserved, align 4
-  %1471 = call ptr @proto_tree_add_item(ptr noundef %1463, i32 noundef %1470, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
-  %1472 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_msgid_regid, align 4
-  %1473 = call ptr @proto_tree_add_item(ptr noundef %1463, i32 noundef %1472, ptr noundef %324, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
-  %1474 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_msgid_stamp, align 4
-  %1475 = call ptr @proto_tree_add_item(ptr noundef %1463, i32 noundef %1474, ptr noundef %324, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
+1461:                                             ; preds = %1448
+  %1462 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr, align 4
+  %1463 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1462, ptr noundef %326, i32 noundef 12, i32 noundef 28, i32 noundef 0) #9
+  %1464 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_mr, align 4
+  %1465 = call ptr @proto_item_add_subtree(ptr noundef %1463, i32 noundef %1464) #9
+  %1466 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_ulb_src_id, align 4
+  %1467 = call ptr @proto_tree_add_item(ptr noundef %1465, i32 noundef %1466, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1468 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_assign_id, align 4
+  %1469 = call ptr @proto_tree_add_item(ptr noundef %1465, i32 noundef %1468, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %1470 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_appset_idx, align 4
+  %1471 = call ptr @proto_tree_add_item(ptr noundef %1465, i32 noundef %1470, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %1472 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_reserved, align 4
+  %1473 = call ptr @proto_tree_add_item(ptr noundef %1465, i32 noundef %1472, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+  %1474 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_msgid_regid, align 4
+  %1475 = call ptr @proto_tree_add_item(ptr noundef %1465, i32 noundef %1474, ptr noundef %326, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
+  %1476 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_msgid_stamp, align 4
+  %1477 = call ptr @proto_tree_add_item(ptr noundef %1465, i32 noundef %1476, ptr noundef %326, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-1476:                                             ; preds = %1446
-  %1477 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort, align 4
-  %1478 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1477, ptr noundef %324, i32 noundef 12, i32 noundef 24, i32 noundef 0) #9
-  %1479 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_mr_abort, align 4
-  %1480 = call ptr @proto_item_add_subtree(ptr noundef %1478, i32 noundef %1479) #9
-  %1481 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_ulb_src_id, align 4
-  %1482 = call ptr @proto_tree_add_item(ptr noundef %1480, i32 noundef %1481, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1483 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_assign_id, align 4
-  %1484 = call ptr @proto_tree_add_item(ptr noundef %1480, i32 noundef %1483, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %1485 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_msgid_regid, align 4
-  %1486 = call ptr @proto_tree_add_item(ptr noundef %1480, i32 noundef %1485, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1487 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_msgid_stamp, align 4
-  %1488 = call ptr @proto_tree_add_item(ptr noundef %1480, i32 noundef %1487, ptr noundef %324, i32 noundef 28, i32 noundef 8, i32 noundef 0) #9
+1478:                                             ; preds = %1448
+  %1479 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort, align 4
+  %1480 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1479, ptr noundef %326, i32 noundef 12, i32 noundef 24, i32 noundef 0) #9
+  %1481 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_mr_abort, align 4
+  %1482 = call ptr @proto_item_add_subtree(ptr noundef %1480, i32 noundef %1481) #9
+  %1483 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_ulb_src_id, align 4
+  %1484 = call ptr @proto_tree_add_item(ptr noundef %1482, i32 noundef %1483, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1485 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_assign_id, align 4
+  %1486 = call ptr @proto_tree_add_item(ptr noundef %1482, i32 noundef %1485, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %1487 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_msgid_regid, align 4
+  %1488 = call ptr @proto_tree_add_item(ptr noundef %1482, i32 noundef %1487, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1489 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_mr_abort_msgid_stamp, align 4
+  %1490 = call ptr @proto_tree_add_item(ptr noundef %1482, i32 noundef %1489, ptr noundef %326, i32 noundef 28, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-1489:                                             ; preds = %1446
-  %1490 = load i32, ptr @hf_lbmc_umq_rxreq_qrcrr, align 4
-  %1491 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1490, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1492 = load i32, ptr @ett_lbmc_umq_rxreq_qrcrr, align 4
-  %1493 = call ptr @proto_item_add_subtree(ptr noundef %1491, i32 noundef %1492) #9
-  %1494 = load i32, ptr @hf_lbmc_umq_rxreq_qrcrr_tsp, align 4
-  %1495 = call ptr @proto_tree_add_item(ptr noundef %1493, i32 noundef %1494, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+1491:                                             ; preds = %1448
+  %1492 = load i32, ptr @hf_lbmc_umq_rxreq_qrcrr, align 4
+  %1493 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1492, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1494 = load i32, ptr @ett_lbmc_umq_rxreq_qrcrr, align 4
+  %1495 = call ptr @proto_item_add_subtree(ptr noundef %1493, i32 noundef %1494) #9
+  %1496 = load i32, ptr @hf_lbmc_umq_rxreq_qrcrr_tsp, align 4
+  %1497 = call ptr @proto_tree_add_item(ptr noundef %1495, i32 noundef %1496, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-1496:                                             ; preds = %1446
-  %1497 = load i32, ptr @hf_lbmc_umq_rxreq_trcrr, align 4
-  %1498 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1497, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %1499 = load i32, ptr @ett_lbmc_umq_rxreq_trcrr, align 4
-  %1500 = call ptr @proto_item_add_subtree(ptr noundef %1498, i32 noundef %1499) #9
-  %1501 = load i32, ptr @hf_lbmc_umq_rxreq_trcrr_rcr_idx, align 4
-  %1502 = call ptr @proto_tree_add_item(ptr noundef %1500, i32 noundef %1501, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1503 = load i32, ptr @hf_lbmc_umq_rxreq_trcrr_tsp, align 4
-  %1504 = call ptr @proto_tree_add_item(ptr noundef %1500, i32 noundef %1503, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+1498:                                             ; preds = %1448
+  %1499 = load i32, ptr @hf_lbmc_umq_rxreq_trcrr, align 4
+  %1500 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1499, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %1501 = load i32, ptr @ett_lbmc_umq_rxreq_trcrr, align 4
+  %1502 = call ptr @proto_item_add_subtree(ptr noundef %1500, i32 noundef %1501) #9
+  %1503 = load i32, ptr @hf_lbmc_umq_rxreq_trcrr_rcr_idx, align 4
+  %1504 = call ptr @proto_tree_add_item(ptr noundef %1502, i32 noundef %1503, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1505 = load i32, ptr @hf_lbmc_umq_rxreq_trcrr_tsp, align 4
+  %1506 = call ptr @proto_tree_add_item(ptr noundef %1502, i32 noundef %1505, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-1505:                                             ; preds = %1446
-  %1506 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr, align 4
-  %1507 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1506, ptr noundef %324, i32 noundef 12, i32 noundef 12, i32 noundef 0) #9
-  %1508 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_trcrr, align 4
-  %1509 = call ptr @proto_item_add_subtree(ptr noundef %1507, i32 noundef %1508) #9
-  %1510 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_ulb_src_id, align 4
-  %1511 = call ptr @proto_tree_add_item(ptr noundef %1509, i32 noundef %1510, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1512 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_assign_id, align 4
-  %1513 = call ptr @proto_tree_add_item(ptr noundef %1509, i32 noundef %1512, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %1514 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_tsp, align 4
-  %1515 = call ptr @proto_tree_add_item(ptr noundef %1509, i32 noundef %1514, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+1507:                                             ; preds = %1448
+  %1508 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr, align 4
+  %1509 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1508, ptr noundef %326, i32 noundef 12, i32 noundef 12, i32 noundef 0) #9
+  %1510 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_trcrr, align 4
+  %1511 = call ptr @proto_item_add_subtree(ptr noundef %1509, i32 noundef %1510) #9
+  %1512 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_ulb_src_id, align 4
+  %1513 = call ptr @proto_tree_add_item(ptr noundef %1511, i32 noundef %1512, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1514 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_assign_id, align 4
+  %1515 = call ptr @proto_tree_add_item(ptr noundef %1511, i32 noundef %1514, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %1516 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_tsp, align 4
+  %1517 = call ptr @proto_tree_add_item(ptr noundef %1511, i32 noundef %1516, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-1516:                                             ; preds = %1446
-  %1517 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort, align 4
-  %1518 = call ptr @proto_tree_add_item(ptr noundef %1416, i32 noundef %1517, ptr noundef %324, i32 noundef 12, i32 noundef 12, i32 noundef 0) #9
-  %1519 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_trcrr_abort, align 4
-  %1520 = call ptr @proto_item_add_subtree(ptr noundef %1518, i32 noundef %1519) #9
-  %1521 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort_ulb_src_id, align 4
-  %1522 = call ptr @proto_tree_add_item(ptr noundef %1520, i32 noundef %1521, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1523 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort_assign_id, align 4
-  %1524 = call ptr @proto_tree_add_item(ptr noundef %1520, i32 noundef %1523, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %1525 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort_tsp, align 4
-  %1526 = call ptr @proto_tree_add_item(ptr noundef %1520, i32 noundef %1525, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+1518:                                             ; preds = %1448
+  %1519 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort, align 4
+  %1520 = call ptr @proto_tree_add_item(ptr noundef %1418, i32 noundef %1519, ptr noundef %326, i32 noundef 12, i32 noundef 12, i32 noundef 0) #9
+  %1521 = load i32, ptr @ett_lbmc_umq_rxreq_ulb_trcrr_abort, align 4
+  %1522 = call ptr @proto_item_add_subtree(ptr noundef %1520, i32 noundef %1521) #9
+  %1523 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort_ulb_src_id, align 4
+  %1524 = call ptr @proto_tree_add_item(ptr noundef %1522, i32 noundef %1523, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1525 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort_assign_id, align 4
+  %1526 = call ptr @proto_tree_add_item(ptr noundef %1522, i32 noundef %1525, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %1527 = load i32, ptr @hf_lbmc_umq_rxreq_ulb_trcrr_abort_tsp, align 4
+  %1528 = call ptr @proto_tree_add_item(ptr noundef %1522, i32 noundef %1527, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-1527:                                             ; preds = %1446
-  %1528 = zext i8 %1447 to i32
-  %1529 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1425, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1738, i32 noundef %1528) #9
+1529:                                             ; preds = %1448
+  %1530 = zext i8 %1449 to i32
+  %1531 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1427, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1738, i32 noundef %1530) #9
   br label %dissect_nhdr_umq_rxreq.exit
 
-dissect_nhdr_umq_rxreq.exit:                      ; preds = %1448, %1459, %1476, %1489, %1496, %1505, %1516, %1527
-  %.1.i834 = phi i32 [ 12, %1527 ], [ 24, %1516 ], [ 24, %1505 ], [ 20, %1496 ], [ 16, %1489 ], [ 36, %1476 ], [ 40, %1459 ], [ 32, %1448 ]
-  call void @proto_item_set_len(ptr noundef %1414, i32 noundef %.1.i834) #9
+dissect_nhdr_umq_rxreq.exit:                      ; preds = %1450, %1461, %1478, %1491, %1498, %1507, %1518, %1529
+  %.1.i834 = phi i32 [ 12, %1529 ], [ 24, %1518 ], [ 24, %1507 ], [ 20, %1498 ], [ 16, %1491 ], [ 36, %1478 ], [ 40, %1461 ], [ 32, %1450 ]
+  call void @proto_item_set_len(ptr noundef %1416, i32 noundef %.1.i834) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1530:                                             ; preds = %323
-  %1531 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1532 = load i32, ptr @hf_lbmc_umq_qmgmt, align 4
-  %1533 = zext i8 %1531 to i32
-  %1534 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1532, ptr noundef %324, i32 noundef 0, i32 noundef %1533, i32 noundef 0) #9
-  %1535 = load i32, ptr @ett_lbmc_umq_qmgmt, align 4
-  %1536 = call ptr @proto_item_add_subtree(ptr noundef %1534, i32 noundef %1535) #9
-  %1537 = load i32, ptr @hf_lbmc_umq_qmgmt_next_hdr, align 4
-  %1538 = call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1537, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1539 = load i32, ptr @hf_lbmc_umq_qmgmt_hdr_len, align 4
-  %1540 = call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1539, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1541 = call i32 @lbmr_dissect_umq_qmgmt(ptr noundef %324, i32 noundef 0, ptr noundef %2, ptr noundef %1536) #9
-  call void @proto_item_set_len(ptr noundef %1534, i32 noundef %1541) #9
+1532:                                             ; preds = %325
+  %1533 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1534 = load i32, ptr @hf_lbmc_umq_qmgmt, align 4
+  %1535 = zext i8 %1533 to i32
+  %1536 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1534, ptr noundef %326, i32 noundef 0, i32 noundef %1535, i32 noundef 0) #9
+  %1537 = load i32, ptr @ett_lbmc_umq_qmgmt, align 4
+  %1538 = call ptr @proto_item_add_subtree(ptr noundef %1536, i32 noundef %1537) #9
+  %1539 = load i32, ptr @hf_lbmc_umq_qmgmt_next_hdr, align 4
+  %1540 = call ptr @proto_tree_add_item(ptr noundef %1538, i32 noundef %1539, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1541 = load i32, ptr @hf_lbmc_umq_qmgmt_hdr_len, align 4
+  %1542 = call ptr @proto_tree_add_item(ptr noundef %1538, i32 noundef %1541, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1543 = call i32 @lbmr_dissect_umq_qmgmt(ptr noundef %326, i32 noundef 0, ptr noundef %2, ptr noundef %1538) #9
+  call void @proto_item_set_len(ptr noundef %1536, i32 noundef %1543) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1542:                                             ; preds = %323
-  %1543 = load i32, ptr @hf_lbmc_umq_resub_req, align 4
-  %1544 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1543, ptr noundef %324, i32 noundef 0, i32 noundef 32, i32 noundef 0) #9
-  %1545 = load i32, ptr @ett_lbmc_umq_resub_req, align 4
-  %1546 = call ptr @proto_item_add_subtree(ptr noundef %1544, i32 noundef %1545) #9
-  %1547 = load i32, ptr @hf_lbmc_umq_resub_req_next_hdr, align 4
-  %1548 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1547, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1549 = load i32, ptr @hf_lbmc_umq_resub_req_hdr_len, align 4
-  %1550 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1549, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1551 = load i32, ptr @hf_lbmc_umq_resub_req_flags, align 4
-  %1552 = load i32, ptr @ett_lbmc_umq_resub_req_flags, align 4
-  %1553 = call ptr @proto_tree_add_bitmask(ptr noundef %1546, ptr noundef %324, i32 noundef 2, i32 noundef %1551, i32 noundef %1552, ptr noundef nonnull @dissect_nhdr_umq_resub_req.flags, i32 noundef 0) #9
-  %1554 = load i32, ptr @hf_lbmc_umq_resub_req_msgid_regid, align 4
-  %1555 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1554, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
-  %1556 = load i32, ptr @hf_lbmc_umq_resub_req_msgid_stamp, align 4
-  %1557 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1556, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %1558 = load i32, ptr @hf_lbmc_umq_resub_req_rcr_idx, align 4
-  %1559 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1558, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1560 = load i32, ptr @hf_lbmc_umq_resub_req_resp_ip, align 4
-  %1561 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1560, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1562 = load i32, ptr @hf_lbmc_umq_resub_req_resp_port, align 4
-  %1563 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1562, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %1564 = load i32, ptr @hf_lbmc_umq_resub_req_appset_idx, align 4
-  %1565 = call ptr @proto_tree_add_item(ptr noundef %1546, i32 noundef %1564, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+1544:                                             ; preds = %325
+  %1545 = load i32, ptr @hf_lbmc_umq_resub_req, align 4
+  %1546 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1545, ptr noundef %326, i32 noundef 0, i32 noundef 32, i32 noundef 0) #9
+  %1547 = load i32, ptr @ett_lbmc_umq_resub_req, align 4
+  %1548 = call ptr @proto_item_add_subtree(ptr noundef %1546, i32 noundef %1547) #9
+  %1549 = load i32, ptr @hf_lbmc_umq_resub_req_next_hdr, align 4
+  %1550 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1549, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1551 = load i32, ptr @hf_lbmc_umq_resub_req_hdr_len, align 4
+  %1552 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1551, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1553 = load i32, ptr @hf_lbmc_umq_resub_req_flags, align 4
+  %1554 = load i32, ptr @ett_lbmc_umq_resub_req_flags, align 4
+  %1555 = call ptr @proto_tree_add_bitmask(ptr noundef %1548, ptr noundef %326, i32 noundef 2, i32 noundef %1553, i32 noundef %1554, ptr noundef nonnull @dissect_nhdr_umq_resub_req.flags, i32 noundef 0) #9
+  %1556 = load i32, ptr @hf_lbmc_umq_resub_req_msgid_regid, align 4
+  %1557 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1556, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+  %1558 = load i32, ptr @hf_lbmc_umq_resub_req_msgid_stamp, align 4
+  %1559 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1558, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %1560 = load i32, ptr @hf_lbmc_umq_resub_req_rcr_idx, align 4
+  %1561 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1560, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1562 = load i32, ptr @hf_lbmc_umq_resub_req_resp_ip, align 4
+  %1563 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1562, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1564 = load i32, ptr @hf_lbmc_umq_resub_req_resp_port, align 4
+  %1565 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1564, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %1566 = load i32, ptr @hf_lbmc_umq_resub_req_appset_idx, align 4
+  %1567 = call ptr @proto_tree_add_item(ptr noundef %1548, i32 noundef %1566, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1566:                                             ; preds = %323
-  %1567 = load i32, ptr @hf_lbmc_umq_resub_resp, align 4
-  %1568 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1567, ptr noundef %324, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
-  %1569 = load i32, ptr @ett_lbmc_umq_resub_resp, align 4
-  %1570 = call ptr @proto_item_add_subtree(ptr noundef %1568, i32 noundef %1569) #9
-  %1571 = load i32, ptr @hf_lbmc_umq_resub_resp_next_hdr, align 4
-  %1572 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1571, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1573 = load i32, ptr @hf_lbmc_umq_resub_resp_hdr_len, align 4
-  %1574 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1573, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1575 = load i32, ptr @hf_lbmc_umq_resub_resp_flags, align 4
-  %1576 = load i32, ptr @ett_lbmc_umq_resub_resp_flags, align 4
-  %1577 = call ptr @proto_tree_add_bitmask(ptr noundef %1570, ptr noundef %324, i32 noundef 2, i32 noundef %1575, i32 noundef %1576, ptr noundef nonnull @dissect_nhdr_umq_resub_resp.flags, i32 noundef 0) #9
-  %1578 = load i32, ptr @hf_lbmc_umq_resub_resp_code, align 4
-  %1579 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1578, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1580 = load i32, ptr @hf_lbmc_umq_resub_resp_msgid_regid, align 4
-  %1581 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1580, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
-  %1582 = load i32, ptr @hf_lbmc_umq_resub_resp_msgid_stamp, align 4
-  %1583 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1582, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %1584 = load i32, ptr @hf_lbmc_umq_resub_resp_rcr_idx, align 4
-  %1585 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1584, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1586 = load i32, ptr @hf_lbmc_umq_resub_resp_reserved, align 4
-  %1587 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1586, ptr noundef %324, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
-  %1588 = load i32, ptr @hf_lbmc_umq_resub_resp_appset_idx, align 4
-  %1589 = call ptr @proto_tree_add_item(ptr noundef %1570, i32 noundef %1588, ptr noundef %324, i32 noundef 26, i32 noundef 2, i32 noundef 0) #9
+1568:                                             ; preds = %325
+  %1569 = load i32, ptr @hf_lbmc_umq_resub_resp, align 4
+  %1570 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1569, ptr noundef %326, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
+  %1571 = load i32, ptr @ett_lbmc_umq_resub_resp, align 4
+  %1572 = call ptr @proto_item_add_subtree(ptr noundef %1570, i32 noundef %1571) #9
+  %1573 = load i32, ptr @hf_lbmc_umq_resub_resp_next_hdr, align 4
+  %1574 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1573, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1575 = load i32, ptr @hf_lbmc_umq_resub_resp_hdr_len, align 4
+  %1576 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1575, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1577 = load i32, ptr @hf_lbmc_umq_resub_resp_flags, align 4
+  %1578 = load i32, ptr @ett_lbmc_umq_resub_resp_flags, align 4
+  %1579 = call ptr @proto_tree_add_bitmask(ptr noundef %1572, ptr noundef %326, i32 noundef 2, i32 noundef %1577, i32 noundef %1578, ptr noundef nonnull @dissect_nhdr_umq_resub_resp.flags, i32 noundef 0) #9
+  %1580 = load i32, ptr @hf_lbmc_umq_resub_resp_code, align 4
+  %1581 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1580, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1582 = load i32, ptr @hf_lbmc_umq_resub_resp_msgid_regid, align 4
+  %1583 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1582, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+  %1584 = load i32, ptr @hf_lbmc_umq_resub_resp_msgid_stamp, align 4
+  %1585 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1584, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %1586 = load i32, ptr @hf_lbmc_umq_resub_resp_rcr_idx, align 4
+  %1587 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1586, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1588 = load i32, ptr @hf_lbmc_umq_resub_resp_reserved, align 4
+  %1589 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1588, ptr noundef %326, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
+  %1590 = load i32, ptr @hf_lbmc_umq_resub_resp_appset_idx, align 4
+  %1591 = call ptr @proto_tree_add_item(ptr noundef %1572, i32 noundef %1590, ptr noundef %326, i32 noundef 26, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1590:                                             ; preds = %323
-  %1591 = load i32, ptr @hf_lbmc_topic_interest, align 4
-  %1592 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1591, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %1593 = load i32, ptr @ett_lbmc_topic_interest, align 4
-  %1594 = call ptr @proto_item_add_subtree(ptr noundef %1592, i32 noundef %1593) #9
-  %1595 = load i32, ptr @hf_lbmc_topic_interest_next_hdr, align 4
-  %1596 = call ptr @proto_tree_add_item(ptr noundef %1594, i32 noundef %1595, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1597 = load i32, ptr @hf_lbmc_topic_interest_hdr_len, align 4
-  %1598 = call ptr @proto_tree_add_item(ptr noundef %1594, i32 noundef %1597, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1599 = load i32, ptr @hf_lbmc_topic_interest_flags, align 4
-  %1600 = load i32, ptr @ett_lbmc_topic_interest_flags, align 4
-  %1601 = call ptr @proto_tree_add_bitmask(ptr noundef %1594, ptr noundef %324, i32 noundef 2, i32 noundef %1599, i32 noundef %1600, ptr noundef nonnull @dissect_nhdr_topic_interest.flags, i32 noundef 0) #9
-  %1602 = load i32, ptr @hf_lbmc_topic_interest_domain_id, align 4
-  %1603 = call ptr @proto_tree_add_item(ptr noundef %1594, i32 noundef %1602, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+1592:                                             ; preds = %325
+  %1593 = load i32, ptr @hf_lbmc_topic_interest, align 4
+  %1594 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1593, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %1595 = load i32, ptr @ett_lbmc_topic_interest, align 4
+  %1596 = call ptr @proto_item_add_subtree(ptr noundef %1594, i32 noundef %1595) #9
+  %1597 = load i32, ptr @hf_lbmc_topic_interest_next_hdr, align 4
+  %1598 = call ptr @proto_tree_add_item(ptr noundef %1596, i32 noundef %1597, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1599 = load i32, ptr @hf_lbmc_topic_interest_hdr_len, align 4
+  %1600 = call ptr @proto_tree_add_item(ptr noundef %1596, i32 noundef %1599, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1601 = load i32, ptr @hf_lbmc_topic_interest_flags, align 4
+  %1602 = load i32, ptr @ett_lbmc_topic_interest_flags, align 4
+  %1603 = call ptr @proto_tree_add_bitmask(ptr noundef %1596, ptr noundef %326, i32 noundef 2, i32 noundef %1601, i32 noundef %1602, ptr noundef nonnull @dissect_nhdr_topic_interest.flags, i32 noundef 0) #9
+  %1604 = load i32, ptr @hf_lbmc_topic_interest_domain_id, align 4
+  %1605 = call ptr @proto_tree_add_item(ptr noundef %1596, i32 noundef %1604, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1604:                                             ; preds = %323
-  %1605 = load i32, ptr @hf_lbmc_pattern_interest, align 4
-  %1606 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1605, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %1607 = load i32, ptr @ett_lbmc_pattern_interest, align 4
-  %1608 = call ptr @proto_item_add_subtree(ptr noundef %1606, i32 noundef %1607) #9
-  %1609 = load i32, ptr @hf_lbmc_pattern_interest_next_hdr, align 4
-  %1610 = call ptr @proto_tree_add_item(ptr noundef %1608, i32 noundef %1609, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1611 = load i32, ptr @hf_lbmc_pattern_interest_hdr_len, align 4
-  %1612 = call ptr @proto_tree_add_item(ptr noundef %1608, i32 noundef %1611, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1613 = load i32, ptr @hf_lbmc_pattern_interest_flags, align 4
-  %1614 = load i32, ptr @ett_lbmc_pattern_interest_flags, align 4
-  %1615 = call ptr @proto_tree_add_bitmask(ptr noundef %1608, ptr noundef %324, i32 noundef 2, i32 noundef %1613, i32 noundef %1614, ptr noundef nonnull @dissect_nhdr_pattern_interest.flags, i32 noundef 0) #9
-  %1616 = load i32, ptr @hf_lbmc_pattern_interest_type, align 4
-  %1617 = call ptr @proto_tree_add_item(ptr noundef %1608, i32 noundef %1616, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1618 = load i32, ptr @hf_lbmc_pattern_interest_domain_id, align 4
-  %1619 = call ptr @proto_tree_add_item(ptr noundef %1608, i32 noundef %1618, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1620 = load i32, ptr @hf_lbmc_pattern_interest_index, align 4
-  %1621 = call ptr @proto_tree_add_item(ptr noundef %1608, i32 noundef %1620, ptr noundef %324, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
+1606:                                             ; preds = %325
+  %1607 = load i32, ptr @hf_lbmc_pattern_interest, align 4
+  %1608 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1607, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %1609 = load i32, ptr @ett_lbmc_pattern_interest, align 4
+  %1610 = call ptr @proto_item_add_subtree(ptr noundef %1608, i32 noundef %1609) #9
+  %1611 = load i32, ptr @hf_lbmc_pattern_interest_next_hdr, align 4
+  %1612 = call ptr @proto_tree_add_item(ptr noundef %1610, i32 noundef %1611, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1613 = load i32, ptr @hf_lbmc_pattern_interest_hdr_len, align 4
+  %1614 = call ptr @proto_tree_add_item(ptr noundef %1610, i32 noundef %1613, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1615 = load i32, ptr @hf_lbmc_pattern_interest_flags, align 4
+  %1616 = load i32, ptr @ett_lbmc_pattern_interest_flags, align 4
+  %1617 = call ptr @proto_tree_add_bitmask(ptr noundef %1610, ptr noundef %326, i32 noundef 2, i32 noundef %1615, i32 noundef %1616, ptr noundef nonnull @dissect_nhdr_pattern_interest.flags, i32 noundef 0) #9
+  %1618 = load i32, ptr @hf_lbmc_pattern_interest_type, align 4
+  %1619 = call ptr @proto_tree_add_item(ptr noundef %1610, i32 noundef %1618, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1620 = load i32, ptr @hf_lbmc_pattern_interest_domain_id, align 4
+  %1621 = call ptr @proto_tree_add_item(ptr noundef %1610, i32 noundef %1620, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1622 = load i32, ptr @hf_lbmc_pattern_interest_index, align 4
+  %1623 = call ptr @proto_tree_add_item(ptr noundef %1610, i32 noundef %1622, ptr noundef %326, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1622:                                             ; preds = %323
-  %1623 = load i32, ptr @hf_lbmc_advertisement, align 4
-  %1624 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1623, ptr noundef %324, i32 noundef 0, i32 noundef 48, i32 noundef 0) #9
-  %1625 = load i32, ptr @ett_lbmc_advertisement, align 4
-  %1626 = call ptr @proto_item_add_subtree(ptr noundef %1624, i32 noundef %1625) #9
-  %1627 = load i32, ptr @hf_lbmc_advertisement_next_hdr, align 4
-  %1628 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1627, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1629 = load i32, ptr @hf_lbmc_advertisement_hdr_len, align 4
-  %1630 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1629, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1631 = load i32, ptr @hf_lbmc_advertisement_flags, align 4
-  %1632 = load i32, ptr @ett_lbmc_advertisement_flags, align 4
-  %1633 = call ptr @proto_tree_add_bitmask(ptr noundef %1626, ptr noundef %324, i32 noundef 2, i32 noundef %1631, i32 noundef %1632, ptr noundef nonnull @dissect_nhdr_advertisement.flags, i32 noundef 0) #9
-  %1634 = load i32, ptr @hf_lbmc_advertisement_ad_flags, align 4
-  %1635 = load i32, ptr @ett_lbmc_advertisement_ad_flags, align 4
-  %1636 = call ptr @proto_tree_add_bitmask(ptr noundef %1626, ptr noundef %324, i32 noundef 4, i32 noundef %1634, i32 noundef %1635, ptr noundef nonnull @dissect_nhdr_advertisement.ad_flags, i32 noundef 0) #9
-  %1637 = load i32, ptr @hf_lbmc_advertisement_hop_count, align 4
-  %1638 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1637, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1639 = load i32, ptr @hf_lbmc_advertisement_cost, align 4
-  %1640 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1639, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %1641 = load i32, ptr @hf_lbmc_advertisement_transport_idx, align 4
-  %1642 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1641, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1643 = load i32, ptr @hf_lbmc_advertisement_topic_idx, align 4
-  %1644 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1643, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %1645 = load i32, ptr @hf_lbmc_advertisement_low_seqno, align 4
-  %1646 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1645, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1647 = load i32, ptr @hf_lbmc_advertisement_high_seqno, align 4
-  %1648 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1647, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1649 = load i32, ptr @hf_lbmc_advertisement_domain_id, align 4
-  %1650 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1649, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
-  %1651 = load i32, ptr @hf_lbmc_advertisement_pat_idx, align 4
-  %1652 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1651, ptr noundef %324, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
-  %1653 = load i32, ptr @hf_lbmc_advertisement_ctxinst, align 4
-  %1654 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1653, ptr noundef %324, i32 noundef 40, i32 noundef 8, i32 noundef 0) #9
+1624:                                             ; preds = %325
+  %1625 = load i32, ptr @hf_lbmc_advertisement, align 4
+  %1626 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1625, ptr noundef %326, i32 noundef 0, i32 noundef 48, i32 noundef 0) #9
+  %1627 = load i32, ptr @ett_lbmc_advertisement, align 4
+  %1628 = call ptr @proto_item_add_subtree(ptr noundef %1626, i32 noundef %1627) #9
+  %1629 = load i32, ptr @hf_lbmc_advertisement_next_hdr, align 4
+  %1630 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1629, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1631 = load i32, ptr @hf_lbmc_advertisement_hdr_len, align 4
+  %1632 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1631, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1633 = load i32, ptr @hf_lbmc_advertisement_flags, align 4
+  %1634 = load i32, ptr @ett_lbmc_advertisement_flags, align 4
+  %1635 = call ptr @proto_tree_add_bitmask(ptr noundef %1628, ptr noundef %326, i32 noundef 2, i32 noundef %1633, i32 noundef %1634, ptr noundef nonnull @dissect_nhdr_advertisement.flags, i32 noundef 0) #9
+  %1636 = load i32, ptr @hf_lbmc_advertisement_ad_flags, align 4
+  %1637 = load i32, ptr @ett_lbmc_advertisement_ad_flags, align 4
+  %1638 = call ptr @proto_tree_add_bitmask(ptr noundef %1628, ptr noundef %326, i32 noundef 4, i32 noundef %1636, i32 noundef %1637, ptr noundef nonnull @dissect_nhdr_advertisement.ad_flags, i32 noundef 0) #9
+  %1639 = load i32, ptr @hf_lbmc_advertisement_hop_count, align 4
+  %1640 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1639, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1641 = load i32, ptr @hf_lbmc_advertisement_cost, align 4
+  %1642 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1641, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %1643 = load i32, ptr @hf_lbmc_advertisement_transport_idx, align 4
+  %1644 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1643, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1645 = load i32, ptr @hf_lbmc_advertisement_topic_idx, align 4
+  %1646 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1645, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %1647 = load i32, ptr @hf_lbmc_advertisement_low_seqno, align 4
+  %1648 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1647, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1649 = load i32, ptr @hf_lbmc_advertisement_high_seqno, align 4
+  %1650 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1649, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1651 = load i32, ptr @hf_lbmc_advertisement_domain_id, align 4
+  %1652 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1651, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+  %1653 = load i32, ptr @hf_lbmc_advertisement_pat_idx, align 4
+  %1654 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1653, ptr noundef %326, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
+  %1655 = load i32, ptr @hf_lbmc_advertisement_ctxinst, align 4
+  %1656 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1655, ptr noundef %326, i32 noundef 40, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1655:                                             ; preds = %323
-  %1656 = load i32, ptr @hf_lbmc_ctxinst, align 4
-  %1657 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1656, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %1658 = load i32, ptr @ett_lbmc_ctxinst, align 4
-  %1659 = call ptr @proto_item_add_subtree(ptr noundef %1657, i32 noundef %1658) #9
-  %1660 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
-  %1661 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1660, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1662 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
-  %1663 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1662, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1664 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
-  %1665 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
-  %1666 = call ptr @proto_tree_add_bitmask(ptr noundef %1659, ptr noundef %324, i32 noundef 2, i32 noundef %1664, i32 noundef %1665, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
-  %1667 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
-  %1668 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1667, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+1657:                                             ; preds = %325
+  %1658 = load i32, ptr @hf_lbmc_ctxinst, align 4
+  %1659 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1658, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %1660 = load i32, ptr @ett_lbmc_ctxinst, align 4
+  %1661 = call ptr @proto_item_add_subtree(ptr noundef %1659, i32 noundef %1660) #9
+  %1662 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
+  %1663 = call ptr @proto_tree_add_item(ptr noundef %1661, i32 noundef %1662, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1664 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
+  %1665 = call ptr @proto_tree_add_item(ptr noundef %1661, i32 noundef %1664, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1666 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
+  %1667 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
+  %1668 = call ptr @proto_tree_add_bitmask(ptr noundef %1661, ptr noundef %326, i32 noundef 2, i32 noundef %1666, i32 noundef %1667, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
+  %1669 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
+  %1670 = call ptr @proto_tree_add_item(ptr noundef %1661, i32 noundef %1669, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1669:                                             ; preds = %323
-  %1670 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1671 = load i32, ptr @hf_lbmc_ume_storename, align 4
-  %1672 = zext i8 %1670 to i32
-  %1673 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1671, ptr noundef %324, i32 noundef 0, i32 noundef %1672, i32 noundef 0) #9
-  %1674 = load i32, ptr @ett_lbmc_ume_storename, align 4
-  %1675 = call ptr @proto_item_add_subtree(ptr noundef %1673, i32 noundef %1674) #9
-  %1676 = load i32, ptr @hf_lbmc_ume_storename_next_hdr, align 4
-  %1677 = call ptr @proto_tree_add_item(ptr noundef %1675, i32 noundef %1676, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1678 = load i32, ptr @hf_lbmc_ume_storename_hdr_len, align 4
-  %1679 = call ptr @proto_tree_add_item(ptr noundef %1675, i32 noundef %1678, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1680 = load i32, ptr @hf_lbmc_ume_storename_flags, align 4
-  %1681 = load i32, ptr @ett_lbmc_ume_storename_flags, align 4
-  %1682 = call ptr @proto_tree_add_bitmask(ptr noundef %1675, ptr noundef %324, i32 noundef 2, i32 noundef %1680, i32 noundef %1681, ptr noundef nonnull @dissect_nhdr_storename.flags, i32 noundef 0) #9
-  %1683 = icmp ugt i8 %1670, 4
-  br i1 %1683, label %1684, label %1688
+1671:                                             ; preds = %325
+  %1672 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1673 = load i32, ptr @hf_lbmc_ume_storename, align 4
+  %1674 = zext i8 %1672 to i32
+  %1675 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1673, ptr noundef %326, i32 noundef 0, i32 noundef %1674, i32 noundef 0) #9
+  %1676 = load i32, ptr @ett_lbmc_ume_storename, align 4
+  %1677 = call ptr @proto_item_add_subtree(ptr noundef %1675, i32 noundef %1676) #9
+  %1678 = load i32, ptr @hf_lbmc_ume_storename_next_hdr, align 4
+  %1679 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1678, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1680 = load i32, ptr @hf_lbmc_ume_storename_hdr_len, align 4
+  %1681 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1680, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1682 = load i32, ptr @hf_lbmc_ume_storename_flags, align 4
+  %1683 = load i32, ptr @ett_lbmc_ume_storename_flags, align 4
+  %1684 = call ptr @proto_tree_add_bitmask(ptr noundef %1677, ptr noundef %326, i32 noundef 2, i32 noundef %1682, i32 noundef %1683, ptr noundef nonnull @dissect_nhdr_storename.flags, i32 noundef 0) #9
+  %1685 = icmp ugt i8 %1672, 4
+  br i1 %1685, label %1686, label %1690
 
-1684:                                             ; preds = %1669
-  %1685 = add nsw i32 %1672, -4
-  %1686 = load i32, ptr @hf_lbmc_ume_storename_store, align 4
-  %1687 = call ptr @proto_tree_add_item(ptr noundef %1675, i32 noundef %1686, ptr noundef %324, i32 noundef 4, i32 noundef %1685, i32 noundef 0) #9
+1686:                                             ; preds = %1671
+  %1687 = add nsw i32 %1674, -4
+  %1688 = load i32, ptr @hf_lbmc_ume_storename_store, align 4
+  %1689 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1688, ptr noundef %326, i32 noundef 4, i32 noundef %1687, i32 noundef 0) #9
   br label %dissect_nhdr_storename.exit
 
-1688:                                             ; preds = %1669
-  %1689 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1679, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
+1690:                                             ; preds = %1671
+  %1691 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1681, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
   br label %dissect_nhdr_storename.exit
 
-dissect_nhdr_storename.exit:                      ; preds = %1684, %1688
-  %.0.i835 = phi i32 [ %1672, %1684 ], [ 4, %1688 ]
-  call void @proto_item_set_len(ptr noundef %1673, i32 noundef %.0.i835) #9
+dissect_nhdr_storename.exit:                      ; preds = %1686, %1690
+  %.0.i835 = phi i32 [ %1674, %1686 ], [ 4, %1690 ]
+  call void @proto_item_set_len(ptr noundef %1675, i32 noundef %.0.i835) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1690:                                             ; preds = %323
-  %1691 = load i32, ptr @hf_lbmc_umq_ulb_rcr, align 4
-  %1692 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1691, ptr noundef %324, i32 noundef 0, i32 noundef 40, i32 noundef 0) #9
-  %1693 = load i32, ptr @ett_lbmc_umq_ulb_rcr, align 4
-  %1694 = call ptr @proto_item_add_subtree(ptr noundef %1692, i32 noundef %1693) #9
-  %1695 = load i32, ptr @hf_lbmc_umq_ulb_rcr_next_hdr, align 4
-  %1696 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1695, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1697 = load i32, ptr @hf_lbmc_umq_ulb_rcr_hdr_len, align 4
-  %1698 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1697, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1699 = load i32, ptr @hf_lbmc_umq_ulb_rcr_flags, align 4
-  %1700 = load i32, ptr @ett_lbmc_umq_ulb_rcr_flags, align 4
-  %1701 = call ptr @proto_tree_add_bitmask(ptr noundef %1694, ptr noundef %324, i32 noundef 2, i32 noundef %1699, i32 noundef %1700, ptr noundef nonnull @dissect_nhdr_umq_ulb_rcr.flags, i32 noundef 0) #9
-  %1702 = load i32, ptr @hf_lbmc_umq_ulb_rcr_queue_id, align 4
-  %1703 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1702, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1704 = load i32, ptr @hf_lbmc_umq_ulb_rcr_ulb_src_id, align 4
-  %1705 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1704, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %1706 = load i32, ptr @hf_lbmc_umq_ulb_rcr_msgid_regid, align 4
-  %1707 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1706, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %1708 = load i32, ptr @hf_lbmc_umq_ulb_rcr_msgid_stamp, align 4
-  %1709 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1708, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1710 = load i32, ptr @hf_lbmc_umq_ulb_rcr_topic_tsp, align 4
-  %1711 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1710, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
-  %1712 = load i32, ptr @hf_lbmc_umq_ulb_rcr_assign_id, align 4
-  %1713 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1712, ptr noundef %324, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
-  %1714 = load i32, ptr @hf_lbmc_umq_ulb_rcr_appset_idx, align 4
-  %1715 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1714, ptr noundef %324, i32 noundef 36, i32 noundef 2, i32 noundef 0) #9
-  %1716 = load i32, ptr @hf_lbmc_umq_ulb_rcr_num_ras, align 4
-  %1717 = call ptr @proto_tree_add_item(ptr noundef %1694, i32 noundef %1716, ptr noundef %324, i32 noundef 38, i32 noundef 2, i32 noundef 0) #9
+1692:                                             ; preds = %325
+  %1693 = load i32, ptr @hf_lbmc_umq_ulb_rcr, align 4
+  %1694 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1693, ptr noundef %326, i32 noundef 0, i32 noundef 40, i32 noundef 0) #9
+  %1695 = load i32, ptr @ett_lbmc_umq_ulb_rcr, align 4
+  %1696 = call ptr @proto_item_add_subtree(ptr noundef %1694, i32 noundef %1695) #9
+  %1697 = load i32, ptr @hf_lbmc_umq_ulb_rcr_next_hdr, align 4
+  %1698 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1697, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1699 = load i32, ptr @hf_lbmc_umq_ulb_rcr_hdr_len, align 4
+  %1700 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1699, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1701 = load i32, ptr @hf_lbmc_umq_ulb_rcr_flags, align 4
+  %1702 = load i32, ptr @ett_lbmc_umq_ulb_rcr_flags, align 4
+  %1703 = call ptr @proto_tree_add_bitmask(ptr noundef %1696, ptr noundef %326, i32 noundef 2, i32 noundef %1701, i32 noundef %1702, ptr noundef nonnull @dissect_nhdr_umq_ulb_rcr.flags, i32 noundef 0) #9
+  %1704 = load i32, ptr @hf_lbmc_umq_ulb_rcr_queue_id, align 4
+  %1705 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1704, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1706 = load i32, ptr @hf_lbmc_umq_ulb_rcr_ulb_src_id, align 4
+  %1707 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1706, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %1708 = load i32, ptr @hf_lbmc_umq_ulb_rcr_msgid_regid, align 4
+  %1709 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1708, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %1710 = load i32, ptr @hf_lbmc_umq_ulb_rcr_msgid_stamp, align 4
+  %1711 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1710, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1712 = load i32, ptr @hf_lbmc_umq_ulb_rcr_topic_tsp, align 4
+  %1713 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1712, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+  %1714 = load i32, ptr @hf_lbmc_umq_ulb_rcr_assign_id, align 4
+  %1715 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1714, ptr noundef %326, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
+  %1716 = load i32, ptr @hf_lbmc_umq_ulb_rcr_appset_idx, align 4
+  %1717 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1716, ptr noundef %326, i32 noundef 36, i32 noundef 2, i32 noundef 0) #9
+  %1718 = load i32, ptr @hf_lbmc_umq_ulb_rcr_num_ras, align 4
+  %1719 = call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1718, ptr noundef %326, i32 noundef 38, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1718:                                             ; preds = %323
-  %1719 = load i32, ptr @hf_lbmc_umq_lf, align 4
-  %1720 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1719, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %1721 = load i32, ptr @ett_lbmc_umq_lf, align 4
-  %1722 = call ptr @proto_item_add_subtree(ptr noundef %1720, i32 noundef %1721) #9
-  %1723 = load i32, ptr @hf_lbmc_umq_lf_next_hdr, align 4
-  %1724 = call ptr @proto_tree_add_item(ptr noundef %1722, i32 noundef %1723, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1725 = load i32, ptr @hf_lbmc_umq_lf_hdr_len, align 4
-  %1726 = call ptr @proto_tree_add_item(ptr noundef %1722, i32 noundef %1725, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1727 = load i32, ptr @hf_lbmc_umq_lf_flags, align 4
-  %1728 = load i32, ptr @ett_lbmc_umq_lf_flags, align 4
-  %1729 = call ptr @proto_tree_add_bitmask(ptr noundef %1722, ptr noundef %324, i32 noundef 2, i32 noundef %1727, i32 noundef %1728, ptr noundef nonnull @dissect_nhdr_umq_lf.flags, i32 noundef 0) #9
-  %1730 = load i32, ptr @hf_lbmc_umq_lf_type, align 4
-  %1731 = call ptr @proto_tree_add_item(ptr noundef %1722, i32 noundef %1730, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1732 = load i32, ptr @hf_lbmc_umq_lf_num_srcs, align 4
-  %1733 = call ptr @proto_tree_add_item(ptr noundef %1722, i32 noundef %1732, ptr noundef %324, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %1734 = load i32, ptr @hf_lbmc_umq_lf_lf, align 4
-  %1735 = call ptr @proto_tree_add_item(ptr noundef %1722, i32 noundef %1734, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+1720:                                             ; preds = %325
+  %1721 = load i32, ptr @hf_lbmc_umq_lf, align 4
+  %1722 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1721, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %1723 = load i32, ptr @ett_lbmc_umq_lf, align 4
+  %1724 = call ptr @proto_item_add_subtree(ptr noundef %1722, i32 noundef %1723) #9
+  %1725 = load i32, ptr @hf_lbmc_umq_lf_next_hdr, align 4
+  %1726 = call ptr @proto_tree_add_item(ptr noundef %1724, i32 noundef %1725, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1727 = load i32, ptr @hf_lbmc_umq_lf_hdr_len, align 4
+  %1728 = call ptr @proto_tree_add_item(ptr noundef %1724, i32 noundef %1727, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1729 = load i32, ptr @hf_lbmc_umq_lf_flags, align 4
+  %1730 = load i32, ptr @ett_lbmc_umq_lf_flags, align 4
+  %1731 = call ptr @proto_tree_add_bitmask(ptr noundef %1724, ptr noundef %326, i32 noundef 2, i32 noundef %1729, i32 noundef %1730, ptr noundef nonnull @dissect_nhdr_umq_lf.flags, i32 noundef 0) #9
+  %1732 = load i32, ptr @hf_lbmc_umq_lf_type, align 4
+  %1733 = call ptr @proto_tree_add_item(ptr noundef %1724, i32 noundef %1732, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1734 = load i32, ptr @hf_lbmc_umq_lf_num_srcs, align 4
+  %1735 = call ptr @proto_tree_add_item(ptr noundef %1724, i32 noundef %1734, ptr noundef %326, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %1736 = load i32, ptr @hf_lbmc_umq_lf_lf, align 4
+  %1737 = call ptr @proto_tree_add_item(ptr noundef %1724, i32 noundef %1736, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1736:                                             ; preds = %323
-  %1737 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1738 = load i32, ptr @hf_lbmc_ctxinfo, align 4
-  %1739 = zext i8 %1737 to i32
-  %1740 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1738, ptr noundef %324, i32 noundef 0, i32 noundef %1739, i32 noundef 0) #9
-  %1741 = load i32, ptr @ett_lbmc_ctxinfo, align 4
-  %1742 = call ptr @proto_item_add_subtree(ptr noundef %1740, i32 noundef %1741) #9
-  %1743 = load i32, ptr @hf_lbmc_ctxinfo_next_hdr, align 4
-  %1744 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1743, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1745 = load i32, ptr @hf_lbmc_ctxinfo_hdr_len, align 4
-  %1746 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1745, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1747 = call zeroext i16 @tvb_get_ntohs(ptr noundef %324, i32 noundef 2) #9
-  %1748 = load i32, ptr @hf_lbmc_ctxinfo_flags, align 4
-  %1749 = load i32, ptr @ett_lbmc_ctxinfo_flags, align 4
-  %1750 = call ptr @proto_tree_add_bitmask(ptr noundef %1742, ptr noundef %324, i32 noundef 2, i32 noundef %1748, i32 noundef %1749, ptr noundef nonnull @dissect_nhdr_ctxinfo.flags, i32 noundef 0) #9
-  %1751 = load i32, ptr @hf_lbmc_ctxinfo_reserved, align 4
-  %1752 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1751, ptr noundef %324, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
-  %1753 = load i32, ptr @hf_lbmc_ctxinfo_hop_count, align 4
-  %1754 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1753, ptr noundef %324, i32 noundef 5, i32 noundef 1, i32 noundef 0) #9
-  %1755 = load i32, ptr @hf_lbmc_ctxinfo_port, align 4
-  %1756 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1755, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
-  %1757 = load i32, ptr @hf_lbmc_ctxinfo_addr, align 4
-  %1758 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1757, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %1759 = load i32, ptr @hf_lbmc_ctxinfo_domain_id, align 4
-  %1760 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1759, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1761 = load i32, ptr @hf_lbmc_ctxinfo_ctxinst, align 4
-  %1762 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1761, ptr noundef %324, i32 noundef 16, i32 noundef 8, i32 noundef 0) #9
-  %1763 = and i16 %1747, 2048
-  %.not.i836 = icmp eq i16 %1763, 0
-  br i1 %.not.i836, label %dissect_nhdr_ctxinfo.exit, label %1764
+1738:                                             ; preds = %325
+  %1739 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1740 = load i32, ptr @hf_lbmc_ctxinfo, align 4
+  %1741 = zext i8 %1739 to i32
+  %1742 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1740, ptr noundef %326, i32 noundef 0, i32 noundef %1741, i32 noundef 0) #9
+  %1743 = load i32, ptr @ett_lbmc_ctxinfo, align 4
+  %1744 = call ptr @proto_item_add_subtree(ptr noundef %1742, i32 noundef %1743) #9
+  %1745 = load i32, ptr @hf_lbmc_ctxinfo_next_hdr, align 4
+  %1746 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1745, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1747 = load i32, ptr @hf_lbmc_ctxinfo_hdr_len, align 4
+  %1748 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1747, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1749 = call zeroext i16 @tvb_get_ntohs(ptr noundef %326, i32 noundef 2) #9
+  %1750 = load i32, ptr @hf_lbmc_ctxinfo_flags, align 4
+  %1751 = load i32, ptr @ett_lbmc_ctxinfo_flags, align 4
+  %1752 = call ptr @proto_tree_add_bitmask(ptr noundef %1744, ptr noundef %326, i32 noundef 2, i32 noundef %1750, i32 noundef %1751, ptr noundef nonnull @dissect_nhdr_ctxinfo.flags, i32 noundef 0) #9
+  %1753 = load i32, ptr @hf_lbmc_ctxinfo_reserved, align 4
+  %1754 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1753, ptr noundef %326, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
+  %1755 = load i32, ptr @hf_lbmc_ctxinfo_hop_count, align 4
+  %1756 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1755, ptr noundef %326, i32 noundef 5, i32 noundef 1, i32 noundef 0) #9
+  %1757 = load i32, ptr @hf_lbmc_ctxinfo_port, align 4
+  %1758 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1757, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+  %1759 = load i32, ptr @hf_lbmc_ctxinfo_addr, align 4
+  %1760 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1759, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %1761 = load i32, ptr @hf_lbmc_ctxinfo_domain_id, align 4
+  %1762 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1761, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1763 = load i32, ptr @hf_lbmc_ctxinfo_ctxinst, align 4
+  %1764 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1763, ptr noundef %326, i32 noundef 16, i32 noundef 8, i32 noundef 0) #9
+  %1765 = and i16 %1749, 2048
+  %.not.i836 = icmp eq i16 %1765, 0
+  br i1 %.not.i836, label %dissect_nhdr_ctxinfo.exit, label %1766
 
-1764:                                             ; preds = %1736
-  %1765 = icmp ugt i8 %1737, 24
-  br i1 %1765, label %1766, label %1770
+1766:                                             ; preds = %1738
+  %1767 = icmp ugt i8 %1739, 24
+  br i1 %1767, label %1768, label %1772
 
-1766:                                             ; preds = %1764
-  %1767 = add nsw i32 %1739, -24
-  %1768 = load i32, ptr @hf_lbmc_ctxinfo_name, align 4
-  %1769 = call ptr @proto_tree_add_item(ptr noundef %1742, i32 noundef %1768, ptr noundef %324, i32 noundef 24, i32 noundef %1767, i32 noundef 0) #9
+1768:                                             ; preds = %1766
+  %1769 = add nsw i32 %1741, -24
+  %1770 = load i32, ptr @hf_lbmc_ctxinfo_name, align 4
+  %1771 = call ptr @proto_tree_add_item(ptr noundef %1744, i32 noundef %1770, ptr noundef %326, i32 noundef 24, i32 noundef %1769, i32 noundef 0) #9
   br label %dissect_nhdr_ctxinfo.exit
 
-1770:                                             ; preds = %1764
-  %1771 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1746, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
+1772:                                             ; preds = %1766
+  %1773 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1748, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
   br label %dissect_nhdr_ctxinfo.exit
 
-dissect_nhdr_ctxinfo.exit:                        ; preds = %1736, %1766, %1770
-  %.0.i837 = phi i32 [ %1739, %1766 ], [ 24, %1770 ], [ 24, %1736 ]
-  call void @proto_item_set_len(ptr noundef %1740, i32 noundef %.0.i837) #9
+dissect_nhdr_ctxinfo.exit:                        ; preds = %1738, %1768, %1772
+  %.0.i837 = phi i32 [ %1741, %1768 ], [ 24, %1772 ], [ 24, %1738 ]
+  call void @proto_item_set_len(ptr noundef %1742, i32 noundef %.0.i837) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1772:                                             ; preds = %323
-  %1773 = load i32, ptr @hf_lbmc_ume_pser, align 4
-  %1774 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1773, ptr noundef %324, i32 noundef 0, i32 noundef 40, i32 noundef 0) #9
-  %1775 = load i32, ptr @ett_lbmc_ume_pser, align 4
-  %1776 = call ptr @proto_item_add_subtree(ptr noundef %1774, i32 noundef %1775) #9
-  %1777 = load i32, ptr @hf_lbmc_ume_pser_next_hdr, align 4
-  %1778 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1777, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1779 = load i32, ptr @hf_lbmc_ume_pser_hdr_len, align 4
-  %1780 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1779, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1781 = load i32, ptr @hf_lbmc_ume_pser_flags, align 4
-  %1782 = load i32, ptr @ett_lbmc_ume_pser_flags, align 4
-  %1783 = call ptr @proto_tree_add_bitmask(ptr noundef %1776, ptr noundef %324, i32 noundef 2, i32 noundef %1781, i32 noundef %1782, ptr noundef nonnull @dissect_nhdr_ume_pser.flags, i32 noundef 0) #9
-  %1784 = load i32, ptr @hf_lbmc_ume_pser_source_ip, align 4
-  %1785 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1784, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1786 = load i32, ptr @hf_lbmc_ume_pser_store_ip, align 4
-  %1787 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1786, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %1788 = load i32, ptr @hf_lbmc_ume_pser_transport_idx, align 4
-  %1789 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1788, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %1790 = load i32, ptr @hf_lbmc_ume_pser_topic_idx, align 4
-  %1791 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1790, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %1792 = load i32, ptr @hf_lbmc_ume_pser_source_port, align 4
-  %1793 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1792, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %1794 = load i32, ptr @hf_lbmc_ume_pser_store_port, align 4
-  %1795 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1794, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
-  %1796 = load i32, ptr @hf_lbmc_ume_pser_source_ctxinst, align 4
-  %1797 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1796, ptr noundef %324, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
-  %1798 = load i32, ptr @hf_lbmc_ume_pser_store_ctxinst, align 4
-  %1799 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1798, ptr noundef %324, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
+1774:                                             ; preds = %325
+  %1775 = load i32, ptr @hf_lbmc_ume_pser, align 4
+  %1776 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1775, ptr noundef %326, i32 noundef 0, i32 noundef 40, i32 noundef 0) #9
+  %1777 = load i32, ptr @ett_lbmc_ume_pser, align 4
+  %1778 = call ptr @proto_item_add_subtree(ptr noundef %1776, i32 noundef %1777) #9
+  %1779 = load i32, ptr @hf_lbmc_ume_pser_next_hdr, align 4
+  %1780 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1779, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1781 = load i32, ptr @hf_lbmc_ume_pser_hdr_len, align 4
+  %1782 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1781, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1783 = load i32, ptr @hf_lbmc_ume_pser_flags, align 4
+  %1784 = load i32, ptr @ett_lbmc_ume_pser_flags, align 4
+  %1785 = call ptr @proto_tree_add_bitmask(ptr noundef %1778, ptr noundef %326, i32 noundef 2, i32 noundef %1783, i32 noundef %1784, ptr noundef nonnull @dissect_nhdr_ume_pser.flags, i32 noundef 0) #9
+  %1786 = load i32, ptr @hf_lbmc_ume_pser_source_ip, align 4
+  %1787 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1786, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1788 = load i32, ptr @hf_lbmc_ume_pser_store_ip, align 4
+  %1789 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1788, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %1790 = load i32, ptr @hf_lbmc_ume_pser_transport_idx, align 4
+  %1791 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1790, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %1792 = load i32, ptr @hf_lbmc_ume_pser_topic_idx, align 4
+  %1793 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1792, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %1794 = load i32, ptr @hf_lbmc_ume_pser_source_port, align 4
+  %1795 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1794, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %1796 = load i32, ptr @hf_lbmc_ume_pser_store_port, align 4
+  %1797 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1796, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+  %1798 = load i32, ptr @hf_lbmc_ume_pser_source_ctxinst, align 4
+  %1799 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1798, ptr noundef %326, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
+  %1800 = load i32, ptr @hf_lbmc_ume_pser_store_ctxinst, align 4
+  %1801 = call ptr @proto_tree_add_item(ptr noundef %1778, i32 noundef %1800, ptr noundef %326, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1800:                                             ; preds = %323
-  %1801 = load i32, ptr @hf_lbmc_ctxinst, align 4
-  %1802 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1801, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %1803 = load i32, ptr @ett_lbmc_ctxinst, align 4
-  %1804 = call ptr @proto_item_add_subtree(ptr noundef %1802, i32 noundef %1803) #9
-  %1805 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
-  %1806 = call ptr @proto_tree_add_item(ptr noundef %1804, i32 noundef %1805, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1807 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
-  %1808 = call ptr @proto_tree_add_item(ptr noundef %1804, i32 noundef %1807, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1809 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
-  %1810 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
-  %1811 = call ptr @proto_tree_add_bitmask(ptr noundef %1804, ptr noundef %324, i32 noundef 2, i32 noundef %1809, i32 noundef %1810, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
-  %1812 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
-  %1813 = call ptr @proto_tree_add_item(ptr noundef %1804, i32 noundef %1812, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+1802:                                             ; preds = %325
+  %1803 = load i32, ptr @hf_lbmc_ctxinst, align 4
+  %1804 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1803, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %1805 = load i32, ptr @ett_lbmc_ctxinst, align 4
+  %1806 = call ptr @proto_item_add_subtree(ptr noundef %1804, i32 noundef %1805) #9
+  %1807 = load i32, ptr @hf_lbmc_ctxinst_next_hdr, align 4
+  %1808 = call ptr @proto_tree_add_item(ptr noundef %1806, i32 noundef %1807, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1809 = load i32, ptr @hf_lbmc_ctxinst_hdr_len, align 4
+  %1810 = call ptr @proto_tree_add_item(ptr noundef %1806, i32 noundef %1809, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1811 = load i32, ptr @hf_lbmc_ctxinst_flags, align 4
+  %1812 = load i32, ptr @ett_lbmc_ctxinst_flags, align 4
+  %1813 = call ptr @proto_tree_add_bitmask(ptr noundef %1806, ptr noundef %326, i32 noundef 2, i32 noundef %1811, i32 noundef %1812, ptr noundef nonnull @dissect_ctxinst.flags, i32 noundef 0) #9
+  %1814 = load i32, ptr @hf_lbmc_ctxinst_ctxinst, align 4
+  %1815 = call ptr @proto_tree_add_item(ptr noundef %1806, i32 noundef %1814, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1814:                                             ; preds = %323
-  %1815 = load i32, ptr @hf_lbmc_domain, align 4
-  %1816 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1815, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %1817 = load i32, ptr @ett_lbmc_domain, align 4
-  %1818 = call ptr @proto_item_add_subtree(ptr noundef %1816, i32 noundef %1817) #9
-  %1819 = load i32, ptr @hf_lbmc_domain_next_hdr, align 4
-  %1820 = call ptr @proto_tree_add_item(ptr noundef %1818, i32 noundef %1819, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1821 = load i32, ptr @hf_lbmc_domain_hdr_len, align 4
-  %1822 = call ptr @proto_tree_add_item(ptr noundef %1818, i32 noundef %1821, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1823 = load i32, ptr @hf_lbmc_domain_flags, align 4
-  %1824 = load i32, ptr @ett_lbmc_domain_flags, align 4
-  %1825 = call ptr @proto_tree_add_bitmask(ptr noundef %1818, ptr noundef %324, i32 noundef 2, i32 noundef %1823, i32 noundef %1824, ptr noundef nonnull @dissect_nhdr_domain.flags, i32 noundef 0) #9
-  %1826 = load i32, ptr @hf_lbmc_domain_domain, align 4
-  %1827 = call ptr @proto_tree_add_item(ptr noundef %1818, i32 noundef %1826, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+1816:                                             ; preds = %325
+  %1817 = load i32, ptr @hf_lbmc_domain, align 4
+  %1818 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1817, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %1819 = load i32, ptr @ett_lbmc_domain, align 4
+  %1820 = call ptr @proto_item_add_subtree(ptr noundef %1818, i32 noundef %1819) #9
+  %1821 = load i32, ptr @hf_lbmc_domain_next_hdr, align 4
+  %1822 = call ptr @proto_tree_add_item(ptr noundef %1820, i32 noundef %1821, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1823 = load i32, ptr @hf_lbmc_domain_hdr_len, align 4
+  %1824 = call ptr @proto_tree_add_item(ptr noundef %1820, i32 noundef %1823, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1825 = load i32, ptr @hf_lbmc_domain_flags, align 4
+  %1826 = load i32, ptr @ett_lbmc_domain_flags, align 4
+  %1827 = call ptr @proto_tree_add_bitmask(ptr noundef %1820, ptr noundef %326, i32 noundef 2, i32 noundef %1825, i32 noundef %1826, ptr noundef nonnull @dissect_nhdr_domain.flags, i32 noundef 0) #9
+  %1828 = load i32, ptr @hf_lbmc_domain_domain, align 4
+  %1829 = call ptr @proto_tree_add_item(ptr noundef %1820, i32 noundef %1828, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1828:                                             ; preds = %323
-  %1829 = load i32, ptr @hf_lbmc_tnwg_capabilities, align 4
-  %1830 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1829, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %1831 = load i32, ptr @ett_lbmc_tnwg_capabilities, align 4
-  %1832 = call ptr @proto_item_add_subtree(ptr noundef %1830, i32 noundef %1831) #9
-  %1833 = load i32, ptr @hf_lbmc_tnwg_capabilities_next_hdr, align 4
-  %1834 = call ptr @proto_tree_add_item(ptr noundef %1832, i32 noundef %1833, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1835 = load i32, ptr @hf_lbmc_tnwg_capabilities_hdr_len, align 4
-  %1836 = call ptr @proto_tree_add_item(ptr noundef %1832, i32 noundef %1835, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1837 = load i32, ptr @hf_lbmc_tnwg_capabilities_flags, align 4
-  %1838 = load i32, ptr @ett_lbmc_tnwg_capabilities_flags, align 4
-  %1839 = call ptr @proto_tree_add_bitmask(ptr noundef %1832, ptr noundef %324, i32 noundef 2, i32 noundef %1837, i32 noundef %1838, ptr noundef nonnull @dissect_nhdr_tnwg_capabilities.flags, i32 noundef 0) #9
-  %1840 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities1, align 4
-  %1841 = load i32, ptr @ett_lbmc_tnwg_capabilities_capabilities1, align 4
-  %1842 = call ptr @proto_tree_add_bitmask(ptr noundef %1832, ptr noundef %324, i32 noundef 4, i32 noundef %1840, i32 noundef %1841, ptr noundef nonnull @dissect_nhdr_tnwg_capabilities.cap1, i32 noundef 0) #9
-  %1843 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities2, align 4
-  %1844 = call ptr @proto_tree_add_item(ptr noundef %1832, i32 noundef %1843, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %1845 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities3, align 4
-  %1846 = load i32, ptr @ett_lbmc_tnwg_capabilities_capabilities3, align 4
-  %1847 = call ptr @proto_tree_add_bitmask(ptr noundef %1832, ptr noundef %324, i32 noundef 12, i32 noundef %1845, i32 noundef %1846, ptr noundef nonnull @dissect_nhdr_tnwg_capabilities.cap3, i32 noundef 0) #9
-  %1848 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities4, align 4
-  %1849 = call ptr @proto_tree_add_item(ptr noundef %1832, i32 noundef %1848, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+1830:                                             ; preds = %325
+  %1831 = load i32, ptr @hf_lbmc_tnwg_capabilities, align 4
+  %1832 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1831, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %1833 = load i32, ptr @ett_lbmc_tnwg_capabilities, align 4
+  %1834 = call ptr @proto_item_add_subtree(ptr noundef %1832, i32 noundef %1833) #9
+  %1835 = load i32, ptr @hf_lbmc_tnwg_capabilities_next_hdr, align 4
+  %1836 = call ptr @proto_tree_add_item(ptr noundef %1834, i32 noundef %1835, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1837 = load i32, ptr @hf_lbmc_tnwg_capabilities_hdr_len, align 4
+  %1838 = call ptr @proto_tree_add_item(ptr noundef %1834, i32 noundef %1837, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1839 = load i32, ptr @hf_lbmc_tnwg_capabilities_flags, align 4
+  %1840 = load i32, ptr @ett_lbmc_tnwg_capabilities_flags, align 4
+  %1841 = call ptr @proto_tree_add_bitmask(ptr noundef %1834, ptr noundef %326, i32 noundef 2, i32 noundef %1839, i32 noundef %1840, ptr noundef nonnull @dissect_nhdr_tnwg_capabilities.flags, i32 noundef 0) #9
+  %1842 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities1, align 4
+  %1843 = load i32, ptr @ett_lbmc_tnwg_capabilities_capabilities1, align 4
+  %1844 = call ptr @proto_tree_add_bitmask(ptr noundef %1834, ptr noundef %326, i32 noundef 4, i32 noundef %1842, i32 noundef %1843, ptr noundef nonnull @dissect_nhdr_tnwg_capabilities.cap1, i32 noundef 0) #9
+  %1845 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities2, align 4
+  %1846 = call ptr @proto_tree_add_item(ptr noundef %1834, i32 noundef %1845, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %1847 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities3, align 4
+  %1848 = load i32, ptr @ett_lbmc_tnwg_capabilities_capabilities3, align 4
+  %1849 = call ptr @proto_tree_add_bitmask(ptr noundef %1834, ptr noundef %326, i32 noundef 12, i32 noundef %1847, i32 noundef %1848, ptr noundef nonnull @dissect_nhdr_tnwg_capabilities.cap3, i32 noundef 0) #9
+  %1850 = load i32, ptr @hf_lbmc_tnwg_capabilities_capabilities4, align 4
+  %1851 = call ptr @proto_tree_add_item(ptr noundef %1834, i32 noundef %1850, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1850:                                             ; preds = %323
-  %1851 = load i32, ptr @hf_lbmc_patidx, align 4
-  %1852 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1851, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %1853 = load i32, ptr @ett_lbmc_patidx, align 4
-  %1854 = call ptr @proto_item_add_subtree(ptr noundef %1852, i32 noundef %1853) #9
-  %1855 = load i32, ptr @hf_lbmc_patidx_next_hdr, align 4
-  %1856 = call ptr @proto_tree_add_item(ptr noundef %1854, i32 noundef %1855, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1857 = load i32, ptr @hf_lbmc_patidx_hdr_len, align 4
-  %1858 = call ptr @proto_tree_add_item(ptr noundef %1854, i32 noundef %1857, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1859 = load i32, ptr @hf_lbmc_patidx_flags, align 4
-  %1860 = load i32, ptr @ett_lbmc_patidx_flags, align 4
-  %1861 = call ptr @proto_tree_add_bitmask(ptr noundef %1854, ptr noundef %324, i32 noundef 2, i32 noundef %1859, i32 noundef %1860, ptr noundef nonnull @dissect_nhdr_patidx.flags, i32 noundef 0) #9
-  %1862 = load i32, ptr @hf_lbmc_patidx_patidx, align 4
-  %1863 = call ptr @proto_tree_add_item(ptr noundef %1854, i32 noundef %1862, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+1852:                                             ; preds = %325
+  %1853 = load i32, ptr @hf_lbmc_patidx, align 4
+  %1854 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1853, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %1855 = load i32, ptr @ett_lbmc_patidx, align 4
+  %1856 = call ptr @proto_item_add_subtree(ptr noundef %1854, i32 noundef %1855) #9
+  %1857 = load i32, ptr @hf_lbmc_patidx_next_hdr, align 4
+  %1858 = call ptr @proto_tree_add_item(ptr noundef %1856, i32 noundef %1857, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1859 = load i32, ptr @hf_lbmc_patidx_hdr_len, align 4
+  %1860 = call ptr @proto_tree_add_item(ptr noundef %1856, i32 noundef %1859, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1861 = load i32, ptr @hf_lbmc_patidx_flags, align 4
+  %1862 = load i32, ptr @ett_lbmc_patidx_flags, align 4
+  %1863 = call ptr @proto_tree_add_bitmask(ptr noundef %1856, ptr noundef %326, i32 noundef 2, i32 noundef %1861, i32 noundef %1862, ptr noundef nonnull @dissect_nhdr_patidx.flags, i32 noundef 0) #9
+  %1864 = load i32, ptr @hf_lbmc_patidx_patidx, align 4
+  %1865 = call ptr @proto_tree_add_item(ptr noundef %1856, i32 noundef %1864, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1864:                                             ; preds = %323
-  %1865 = load i32, ptr @hf_lbmc_ume_client_lifetime, align 4
-  %1866 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1865, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %1867 = load i32, ptr @ett_lbmc_ume_client_lifetime, align 4
-  %1868 = call ptr @proto_item_add_subtree(ptr noundef %1866, i32 noundef %1867) #9
-  %1869 = load i32, ptr @hf_lbmc_ume_client_lifetime_next_hdr, align 4
-  %1870 = call ptr @proto_tree_add_item(ptr noundef %1868, i32 noundef %1869, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1871 = load i32, ptr @hf_lbmc_ume_client_lifetime_hdr_len, align 4
-  %1872 = call ptr @proto_tree_add_item(ptr noundef %1868, i32 noundef %1871, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1873 = load i32, ptr @hf_lbmc_ume_client_lifetime_flags, align 4
-  %1874 = load i32, ptr @ett_lbmc_ume_client_lifetime_flags, align 4
-  %1875 = call ptr @proto_tree_add_bitmask(ptr noundef %1868, ptr noundef %324, i32 noundef 2, i32 noundef %1873, i32 noundef %1874, ptr noundef nonnull @dissect_nhdr_ume_client_lifetime.flags, i32 noundef 0) #9
-  %1876 = load i32, ptr @hf_lbmc_ume_client_lifetime_activity_tmo, align 4
-  %1877 = call ptr @proto_tree_add_item(ptr noundef %1868, i32 noundef %1876, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1878 = load i32, ptr @hf_lbmc_ume_client_lifetime_lifetime, align 4
-  %1879 = call ptr @proto_tree_add_item(ptr noundef %1868, i32 noundef %1878, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %1880 = load i32, ptr @hf_lbmc_ume_client_lifetime_ttl, align 4
-  %1881 = call ptr @proto_tree_add_item(ptr noundef %1868, i32 noundef %1880, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+1866:                                             ; preds = %325
+  %1867 = load i32, ptr @hf_lbmc_ume_client_lifetime, align 4
+  %1868 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1867, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %1869 = load i32, ptr @ett_lbmc_ume_client_lifetime, align 4
+  %1870 = call ptr @proto_item_add_subtree(ptr noundef %1868, i32 noundef %1869) #9
+  %1871 = load i32, ptr @hf_lbmc_ume_client_lifetime_next_hdr, align 4
+  %1872 = call ptr @proto_tree_add_item(ptr noundef %1870, i32 noundef %1871, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1873 = load i32, ptr @hf_lbmc_ume_client_lifetime_hdr_len, align 4
+  %1874 = call ptr @proto_tree_add_item(ptr noundef %1870, i32 noundef %1873, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1875 = load i32, ptr @hf_lbmc_ume_client_lifetime_flags, align 4
+  %1876 = load i32, ptr @ett_lbmc_ume_client_lifetime_flags, align 4
+  %1877 = call ptr @proto_tree_add_bitmask(ptr noundef %1870, ptr noundef %326, i32 noundef 2, i32 noundef %1875, i32 noundef %1876, ptr noundef nonnull @dissect_nhdr_ume_client_lifetime.flags, i32 noundef 0) #9
+  %1878 = load i32, ptr @hf_lbmc_ume_client_lifetime_activity_tmo, align 4
+  %1879 = call ptr @proto_tree_add_item(ptr noundef %1870, i32 noundef %1878, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1880 = load i32, ptr @hf_lbmc_ume_client_lifetime_lifetime, align 4
+  %1881 = call ptr @proto_tree_add_item(ptr noundef %1870, i32 noundef %1880, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %1882 = load i32, ptr @hf_lbmc_ume_client_lifetime_ttl, align 4
+  %1883 = call ptr @proto_tree_add_item(ptr noundef %1870, i32 noundef %1882, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1882:                                             ; preds = %323
-  %1883 = load i32, ptr @hf_lbmc_ume_sid, align 4
-  %1884 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1883, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %1885 = load i32, ptr @ett_lbmc_ume_sid, align 4
-  %1886 = call ptr @proto_item_add_subtree(ptr noundef %1884, i32 noundef %1885) #9
-  %1887 = load i32, ptr @hf_lbmc_ume_sid_next_hdr, align 4
-  %1888 = call ptr @proto_tree_add_item(ptr noundef %1886, i32 noundef %1887, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1889 = load i32, ptr @hf_lbmc_ume_sid_hdr_len, align 4
-  %1890 = call ptr @proto_tree_add_item(ptr noundef %1886, i32 noundef %1889, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1891 = load i32, ptr @hf_lbmc_ume_sid_flags, align 4
-  %1892 = load i32, ptr @ett_lbmc_ume_sid_flags, align 4
-  %1893 = call ptr @proto_tree_add_bitmask(ptr noundef %1886, ptr noundef %324, i32 noundef 2, i32 noundef %1891, i32 noundef %1892, ptr noundef nonnull @dissect_nhdr_ume_sid.flags, i32 noundef 0) #9
-  %1894 = load i32, ptr @hf_lbmc_ume_sid_sid, align 4
-  %1895 = call ptr @proto_tree_add_item(ptr noundef %1886, i32 noundef %1894, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+1884:                                             ; preds = %325
+  %1885 = load i32, ptr @hf_lbmc_ume_sid, align 4
+  %1886 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1885, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %1887 = load i32, ptr @ett_lbmc_ume_sid, align 4
+  %1888 = call ptr @proto_item_add_subtree(ptr noundef %1886, i32 noundef %1887) #9
+  %1889 = load i32, ptr @hf_lbmc_ume_sid_next_hdr, align 4
+  %1890 = call ptr @proto_tree_add_item(ptr noundef %1888, i32 noundef %1889, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1891 = load i32, ptr @hf_lbmc_ume_sid_hdr_len, align 4
+  %1892 = call ptr @proto_tree_add_item(ptr noundef %1888, i32 noundef %1891, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1893 = load i32, ptr @hf_lbmc_ume_sid_flags, align 4
+  %1894 = load i32, ptr @ett_lbmc_ume_sid_flags, align 4
+  %1895 = call ptr @proto_tree_add_bitmask(ptr noundef %1888, ptr noundef %326, i32 noundef 2, i32 noundef %1893, i32 noundef %1894, ptr noundef nonnull @dissect_nhdr_ume_sid.flags, i32 noundef 0) #9
+  %1896 = load i32, ptr @hf_lbmc_ume_sid_sid, align 4
+  %1897 = call ptr @proto_tree_add_item(ptr noundef %1888, i32 noundef %1896, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-1896:                                             ; preds = %323
-  %1897 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %1898 = load i32, ptr @hf_lbmc_umq_idx_cmd, align 4
-  %1899 = zext i8 %1897 to i32
-  %1900 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1898, ptr noundef %324, i32 noundef 0, i32 noundef %1899, i32 noundef 0) #9
-  %1901 = load i32, ptr @ett_lbmc_umq_idx_cmd, align 4
-  %1902 = call ptr @proto_item_add_subtree(ptr noundef %1900, i32 noundef %1901) #9
-  %1903 = load i32, ptr @hf_lbmc_umq_idx_cmd_next_hdr, align 4
-  %1904 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1903, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %1905 = load i32, ptr @hf_lbmc_umq_idx_cmd_hdr_len, align 4
-  %1906 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1905, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %1907 = load i32, ptr @hf_lbmc_umq_idx_cmd_flags, align 4
-  %1908 = load i32, ptr @ett_lbmc_umq_idx_cmd_flags, align 4
-  %1909 = call ptr @proto_tree_add_bitmask(ptr noundef %1902, ptr noundef %324, i32 noundef 2, i32 noundef %1907, i32 noundef %1908, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.flags, i32 noundef 0) #9
-  %1910 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  %1911 = load i32, ptr @hf_lbmc_umq_idx_cmd_cmd_type, align 4
-  %1912 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1911, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %1913 = load i32, ptr @hf_lbmc_umq_idx_cmd_queue_id, align 4
-  %1914 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1913, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %1915 = load i32, ptr @hf_lbmc_umq_idx_cmd_cmd_id, align 4
-  %1916 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1915, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %1917 = load i32, ptr @hf_lbmc_umq_idx_cmd_inst_idx, align 4
-  %1918 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1917, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  %1919 = load i32, ptr @hf_lbmc_umq_idx_cmd_regid, align 4
-  %1920 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1919, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  switch i8 %1910, label %2061 [
-    i8 1, label %1921
-    i8 2, label %1930
-    i8 3, label %1939
-    i8 4, label %1952
-    i8 5, label %1965
-    i8 6, label %1988
-    i8 7, label %2013
-    i8 8, label %2036
+1898:                                             ; preds = %325
+  %1899 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %1900 = load i32, ptr @hf_lbmc_umq_idx_cmd, align 4
+  %1901 = zext i8 %1899 to i32
+  %1902 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %1900, ptr noundef %326, i32 noundef 0, i32 noundef %1901, i32 noundef 0) #9
+  %1903 = load i32, ptr @ett_lbmc_umq_idx_cmd, align 4
+  %1904 = call ptr @proto_item_add_subtree(ptr noundef %1902, i32 noundef %1903) #9
+  %1905 = load i32, ptr @hf_lbmc_umq_idx_cmd_next_hdr, align 4
+  %1906 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1905, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %1907 = load i32, ptr @hf_lbmc_umq_idx_cmd_hdr_len, align 4
+  %1908 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1907, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %1909 = load i32, ptr @hf_lbmc_umq_idx_cmd_flags, align 4
+  %1910 = load i32, ptr @ett_lbmc_umq_idx_cmd_flags, align 4
+  %1911 = call ptr @proto_tree_add_bitmask(ptr noundef %1904, ptr noundef %326, i32 noundef 2, i32 noundef %1909, i32 noundef %1910, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.flags, i32 noundef 0) #9
+  %1912 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  %1913 = load i32, ptr @hf_lbmc_umq_idx_cmd_cmd_type, align 4
+  %1914 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1913, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %1915 = load i32, ptr @hf_lbmc_umq_idx_cmd_queue_id, align 4
+  %1916 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1915, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %1917 = load i32, ptr @hf_lbmc_umq_idx_cmd_cmd_id, align 4
+  %1918 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1917, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %1919 = load i32, ptr @hf_lbmc_umq_idx_cmd_inst_idx, align 4
+  %1920 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1919, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  %1921 = load i32, ptr @hf_lbmc_umq_idx_cmd_regid, align 4
+  %1922 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1921, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  switch i8 %1912, label %2063 [
+    i8 1, label %1923
+    i8 2, label %1932
+    i8 3, label %1941
+    i8 4, label %1954
+    i8 5, label %1967
+    i8 6, label %1990
+    i8 7, label %2015
+    i8 8, label %2038
   ]
 
-1921:                                             ; preds = %1896
-  %1922 = load i32, ptr @hf_lbmc_umq_idx_cmd_stop_assign, align 4
-  %1923 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1922, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1924 = load i32, ptr @ett_lbmc_umq_idx_cmd_stop_assign, align 4
-  %1925 = call ptr @proto_item_add_subtree(ptr noundef %1923, i32 noundef %1924) #9
-  %1926 = load i32, ptr @hf_lbmc_umq_idx_cmd_stop_assign_rcr_idx, align 4
-  %1927 = call ptr @proto_tree_add_item(ptr noundef %1925, i32 noundef %1926, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1928 = load i32, ptr @hf_lbmc_umq_idx_cmd_stop_assign_assign_id, align 4
-  %1929 = call ptr @proto_tree_add_item(ptr noundef %1925, i32 noundef %1928, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1923:                                             ; preds = %1898
+  %1924 = load i32, ptr @hf_lbmc_umq_idx_cmd_stop_assign, align 4
+  %1925 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1924, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1926 = load i32, ptr @ett_lbmc_umq_idx_cmd_stop_assign, align 4
+  %1927 = call ptr @proto_item_add_subtree(ptr noundef %1925, i32 noundef %1926) #9
+  %1928 = load i32, ptr @hf_lbmc_umq_idx_cmd_stop_assign_rcr_idx, align 4
+  %1929 = call ptr @proto_tree_add_item(ptr noundef %1927, i32 noundef %1928, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1930 = load i32, ptr @hf_lbmc_umq_idx_cmd_stop_assign_assign_id, align 4
+  %1931 = call ptr @proto_tree_add_item(ptr noundef %1927, i32 noundef %1930, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-1930:                                             ; preds = %1896
-  %1931 = load i32, ptr @hf_lbmc_umq_idx_cmd_start_assign, align 4
-  %1932 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1931, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %1933 = load i32, ptr @ett_lbmc_umq_idx_cmd_start_assign, align 4
-  %1934 = call ptr @proto_item_add_subtree(ptr noundef %1932, i32 noundef %1933) #9
-  %1935 = load i32, ptr @hf_lbmc_umq_idx_cmd_start_assign_rcr_idx, align 4
-  %1936 = call ptr @proto_tree_add_item(ptr noundef %1934, i32 noundef %1935, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1937 = load i32, ptr @hf_lbmc_umq_idx_cmd_start_assign_assign_id, align 4
-  %1938 = call ptr @proto_tree_add_item(ptr noundef %1934, i32 noundef %1937, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+1932:                                             ; preds = %1898
+  %1933 = load i32, ptr @hf_lbmc_umq_idx_cmd_start_assign, align 4
+  %1934 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1933, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %1935 = load i32, ptr @ett_lbmc_umq_idx_cmd_start_assign, align 4
+  %1936 = call ptr @proto_item_add_subtree(ptr noundef %1934, i32 noundef %1935) #9
+  %1937 = load i32, ptr @hf_lbmc_umq_idx_cmd_start_assign_rcr_idx, align 4
+  %1938 = call ptr @proto_tree_add_item(ptr noundef %1936, i32 noundef %1937, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1939 = load i32, ptr @hf_lbmc_umq_idx_cmd_start_assign_assign_id, align 4
+  %1940 = call ptr @proto_tree_add_item(ptr noundef %1936, i32 noundef %1939, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-1939:                                             ; preds = %1896
-  %1940 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign, align 4
-  %1941 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1940, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %1942 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_stop_assign, align 4
-  %1943 = call ptr @proto_item_add_subtree(ptr noundef %1941, i32 noundef %1942) #9
-  %1944 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_src_id, align 4
-  %1945 = call ptr @proto_tree_add_item(ptr noundef %1943, i32 noundef %1944, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1946 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_assign_id, align 4
-  %1947 = call ptr @proto_tree_add_item(ptr noundef %1943, i32 noundef %1946, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1948 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_appset_idx, align 4
-  %1949 = call ptr @proto_tree_add_item(ptr noundef %1943, i32 noundef %1948, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %1950 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_reserved, align 4
-  %1951 = call ptr @proto_tree_add_item(ptr noundef %1943, i32 noundef %1950, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+1941:                                             ; preds = %1898
+  %1942 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign, align 4
+  %1943 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1942, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1944 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_stop_assign, align 4
+  %1945 = call ptr @proto_item_add_subtree(ptr noundef %1943, i32 noundef %1944) #9
+  %1946 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_src_id, align 4
+  %1947 = call ptr @proto_tree_add_item(ptr noundef %1945, i32 noundef %1946, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1948 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_assign_id, align 4
+  %1949 = call ptr @proto_tree_add_item(ptr noundef %1945, i32 noundef %1948, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1950 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_appset_idx, align 4
+  %1951 = call ptr @proto_tree_add_item(ptr noundef %1945, i32 noundef %1950, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %1952 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_stop_assign_reserved, align 4
+  %1953 = call ptr @proto_tree_add_item(ptr noundef %1945, i32 noundef %1952, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-1952:                                             ; preds = %1896
-  %1953 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign, align 4
-  %1954 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1953, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %1955 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_start_assign, align 4
-  %1956 = call ptr @proto_item_add_subtree(ptr noundef %1954, i32 noundef %1955) #9
-  %1957 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_src_id, align 4
-  %1958 = call ptr @proto_tree_add_item(ptr noundef %1956, i32 noundef %1957, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1959 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_assign_id, align 4
-  %1960 = call ptr @proto_tree_add_item(ptr noundef %1956, i32 noundef %1959, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1961 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_appset_idx, align 4
-  %1962 = call ptr @proto_tree_add_item(ptr noundef %1956, i32 noundef %1961, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %1963 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_reserved, align 4
-  %1964 = call ptr @proto_tree_add_item(ptr noundef %1956, i32 noundef %1963, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+1954:                                             ; preds = %1898
+  %1955 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign, align 4
+  %1956 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1955, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %1957 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_start_assign, align 4
+  %1958 = call ptr @proto_item_add_subtree(ptr noundef %1956, i32 noundef %1957) #9
+  %1959 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_src_id, align 4
+  %1960 = call ptr @proto_tree_add_item(ptr noundef %1958, i32 noundef %1959, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1961 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_assign_id, align 4
+  %1962 = call ptr @proto_tree_add_item(ptr noundef %1958, i32 noundef %1961, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1963 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_appset_idx, align 4
+  %1964 = call ptr @proto_tree_add_item(ptr noundef %1958, i32 noundef %1963, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %1965 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_start_assign_reserved, align 4
+  %1966 = call ptr @proto_tree_add_item(ptr noundef %1958, i32 noundef %1965, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-1965:                                             ; preds = %1896
-  %1966 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign, align 4
-  %1967 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1966, ptr noundef %324, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
-  %1968 = add i8 %1897, -16
-  %1969 = load i32, ptr @ett_lbmc_umq_idx_cmd_release_assign, align 4
-  %1970 = call ptr @proto_item_add_subtree(ptr noundef %1967, i32 noundef %1969) #9
-  %1971 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_rcr_idx, align 4
-  %1972 = call ptr @proto_tree_add_item(ptr noundef %1970, i32 noundef %1971, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1973 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_assign_id, align 4
-  %1974 = call ptr @proto_tree_add_item(ptr noundef %1970, i32 noundef %1973, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1975 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 28) #9
-  %1976 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_flags, align 4
-  %1977 = load i32, ptr @ett_lbmc_umq_idx_cmd_release_assign_flags, align 4
-  %1978 = call ptr @proto_tree_add_bitmask(ptr noundef %1970, ptr noundef %324, i32 noundef 28, i32 noundef %1976, i32 noundef %1977, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.release_assign_flags, i32 noundef 0) #9
-  %1979 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_index_len, align 4
-  %1980 = call ptr @proto_tree_add_item(ptr noundef %1970, i32 noundef %1979, ptr noundef %324, i32 noundef 32, i32 noundef 1, i32 noundef 0) #9
-  %1981 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_reserved, align 4
-  %1982 = call ptr @proto_tree_add_item(ptr noundef %1970, i32 noundef %1981, ptr noundef %324, i32 noundef 33, i32 noundef 3, i32 noundef 0) #9
-  %1983 = and i32 %1975, 1
-  %.not240.i = icmp eq i32 %1983, 0
-  %1984 = zext i8 %1968 to i32
+1967:                                             ; preds = %1898
+  %1968 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign, align 4
+  %1969 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1968, ptr noundef %326, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
+  %1970 = add i8 %1899, -16
+  %1971 = load i32, ptr @ett_lbmc_umq_idx_cmd_release_assign, align 4
+  %1972 = call ptr @proto_item_add_subtree(ptr noundef %1969, i32 noundef %1971) #9
+  %1973 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_rcr_idx, align 4
+  %1974 = call ptr @proto_tree_add_item(ptr noundef %1972, i32 noundef %1973, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1975 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_assign_id, align 4
+  %1976 = call ptr @proto_tree_add_item(ptr noundef %1972, i32 noundef %1975, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %1977 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 28) #9
+  %1978 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_flags, align 4
+  %1979 = load i32, ptr @ett_lbmc_umq_idx_cmd_release_assign_flags, align 4
+  %1980 = call ptr @proto_tree_add_bitmask(ptr noundef %1972, ptr noundef %326, i32 noundef 28, i32 noundef %1978, i32 noundef %1979, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.release_assign_flags, i32 noundef 0) #9
+  %1981 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_index_len, align 4
+  %1982 = call ptr @proto_tree_add_item(ptr noundef %1972, i32 noundef %1981, ptr noundef %326, i32 noundef 32, i32 noundef 1, i32 noundef 0) #9
+  %1983 = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_reserved, align 4
+  %1984 = call ptr @proto_tree_add_item(ptr noundef %1972, i32 noundef %1983, ptr noundef %326, i32 noundef 33, i32 noundef 3, i32 noundef 0) #9
+  %1985 = and i32 %1977, 1
+  %.not240.i = icmp eq i32 %1985, 0
+  %1986 = zext i8 %1970 to i32
   %hf_lbmc_umq_idx_cmd_release_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_release_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_release_assign_numeric_index, align 4
-  %1985 = select i1 %.not240.i, i32 %hf_lbmc_umq_idx_cmd_release_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_release_assign_numeric_index.val.i
-  %1986 = call ptr @proto_tree_add_item(ptr noundef %1970, i32 noundef %1985, ptr noundef %324, i32 noundef 36, i32 noundef %1984, i32 noundef 0) #9
-  %1987 = add nuw nsw i32 %1984, 36
+  %1987 = select i1 %.not240.i, i32 %hf_lbmc_umq_idx_cmd_release_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_release_assign_numeric_index.val.i
+  %1988 = call ptr @proto_tree_add_item(ptr noundef %1972, i32 noundef %1987, ptr noundef %326, i32 noundef 36, i32 noundef %1986, i32 noundef 0) #9
+  %1989 = add nuw nsw i32 %1986, 36
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-1988:                                             ; preds = %1896
-  %1989 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign, align 4
-  %1990 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %1989, ptr noundef %324, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
-  %1991 = add i8 %1897, -16
-  %1992 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_release_assign, align 4
-  %1993 = call ptr @proto_item_add_subtree(ptr noundef %1990, i32 noundef %1992) #9
-  %1994 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_src_id, align 4
-  %1995 = call ptr @proto_tree_add_item(ptr noundef %1993, i32 noundef %1994, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %1996 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_assign_id, align 4
-  %1997 = call ptr @proto_tree_add_item(ptr noundef %1993, i32 noundef %1996, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %1998 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 28) #9
-  %1999 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_flags, align 4
-  %2000 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_release_assign_flags, align 4
-  %2001 = call ptr @proto_tree_add_bitmask(ptr noundef %1993, ptr noundef %324, i32 noundef 28, i32 noundef %1999, i32 noundef %2000, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.ulb_release_assign_flags, i32 noundef 0) #9
-  %2002 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_appset_idx, align 4
-  %2003 = call ptr @proto_tree_add_item(ptr noundef %1993, i32 noundef %2002, ptr noundef %324, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
-  %2004 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_index_len, align 4
-  %2005 = call ptr @proto_tree_add_item(ptr noundef %1993, i32 noundef %2004, ptr noundef %324, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
-  %2006 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_reserved, align 4
-  %2007 = call ptr @proto_tree_add_item(ptr noundef %1993, i32 noundef %2006, ptr noundef %324, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
-  %2008 = and i32 %1998, 1
-  %.not239.i = icmp eq i32 %2008, 0
-  %2009 = zext i8 %1991 to i32
+1990:                                             ; preds = %1898
+  %1991 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign, align 4
+  %1992 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %1991, ptr noundef %326, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
+  %1993 = add i8 %1899, -16
+  %1994 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_release_assign, align 4
+  %1995 = call ptr @proto_item_add_subtree(ptr noundef %1992, i32 noundef %1994) #9
+  %1996 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_src_id, align 4
+  %1997 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %1996, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %1998 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_assign_id, align 4
+  %1999 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %1998, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2000 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 28) #9
+  %2001 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_flags, align 4
+  %2002 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_release_assign_flags, align 4
+  %2003 = call ptr @proto_tree_add_bitmask(ptr noundef %1995, ptr noundef %326, i32 noundef 28, i32 noundef %2001, i32 noundef %2002, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.ulb_release_assign_flags, i32 noundef 0) #9
+  %2004 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_appset_idx, align 4
+  %2005 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %2004, ptr noundef %326, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
+  %2006 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_index_len, align 4
+  %2007 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %2006, ptr noundef %326, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
+  %2008 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_reserved, align 4
+  %2009 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %2008, ptr noundef %326, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
+  %2010 = and i32 %2000, 1
+  %.not239.i = icmp eq i32 %2010, 0
+  %2011 = zext i8 %1993 to i32
   %hf_lbmc_umq_idx_cmd_ulb_release_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_ulb_release_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_release_assign_numeric_index, align 4
-  %2010 = select i1 %.not239.i, i32 %hf_lbmc_umq_idx_cmd_ulb_release_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_ulb_release_assign_numeric_index.val.i
-  %2011 = call ptr @proto_tree_add_item(ptr noundef %1993, i32 noundef %2010, ptr noundef %324, i32 noundef 36, i32 noundef %2009, i32 noundef 0) #9
-  %2012 = add nuw nsw i32 %2009, 36
+  %2012 = select i1 %.not239.i, i32 %hf_lbmc_umq_idx_cmd_ulb_release_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_ulb_release_assign_numeric_index.val.i
+  %2013 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %2012, ptr noundef %326, i32 noundef 36, i32 noundef %2011, i32 noundef 0) #9
+  %2014 = add nuw nsw i32 %2011, 36
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-2013:                                             ; preds = %1896
-  %2014 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign, align 4
-  %2015 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %2014, ptr noundef %324, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
-  %2016 = add i8 %1897, -16
-  %2017 = load i32, ptr @ett_lbmc_umq_idx_cmd_reserve_assign, align 4
-  %2018 = call ptr @proto_item_add_subtree(ptr noundef %2015, i32 noundef %2017) #9
-  %2019 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_rcr_idx, align 4
-  %2020 = call ptr @proto_tree_add_item(ptr noundef %2018, i32 noundef %2019, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2021 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_assign_id, align 4
-  %2022 = call ptr @proto_tree_add_item(ptr noundef %2018, i32 noundef %2021, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2023 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 28) #9
-  %2024 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_flags, align 4
-  %2025 = load i32, ptr @ett_lbmc_umq_idx_cmd_reserve_assign_flags, align 4
-  %2026 = call ptr @proto_tree_add_bitmask(ptr noundef %2018, ptr noundef %324, i32 noundef 28, i32 noundef %2024, i32 noundef %2025, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.reserve_assign_flags, i32 noundef 0) #9
-  %2027 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_index_len, align 4
-  %2028 = call ptr @proto_tree_add_item(ptr noundef %2018, i32 noundef %2027, ptr noundef %324, i32 noundef 32, i32 noundef 1, i32 noundef 0) #9
-  %2029 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_reserved, align 4
-  %2030 = call ptr @proto_tree_add_item(ptr noundef %2018, i32 noundef %2029, ptr noundef %324, i32 noundef 33, i32 noundef 3, i32 noundef 0) #9
-  %2031 = and i32 %2023, 1
-  %.not238.i = icmp eq i32 %2031, 0
-  %2032 = zext i8 %2016 to i32
+2015:                                             ; preds = %1898
+  %2016 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign, align 4
+  %2017 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %2016, ptr noundef %326, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
+  %2018 = add i8 %1899, -16
+  %2019 = load i32, ptr @ett_lbmc_umq_idx_cmd_reserve_assign, align 4
+  %2020 = call ptr @proto_item_add_subtree(ptr noundef %2017, i32 noundef %2019) #9
+  %2021 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_rcr_idx, align 4
+  %2022 = call ptr @proto_tree_add_item(ptr noundef %2020, i32 noundef %2021, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2023 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_assign_id, align 4
+  %2024 = call ptr @proto_tree_add_item(ptr noundef %2020, i32 noundef %2023, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2025 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 28) #9
+  %2026 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_flags, align 4
+  %2027 = load i32, ptr @ett_lbmc_umq_idx_cmd_reserve_assign_flags, align 4
+  %2028 = call ptr @proto_tree_add_bitmask(ptr noundef %2020, ptr noundef %326, i32 noundef 28, i32 noundef %2026, i32 noundef %2027, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.reserve_assign_flags, i32 noundef 0) #9
+  %2029 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_index_len, align 4
+  %2030 = call ptr @proto_tree_add_item(ptr noundef %2020, i32 noundef %2029, ptr noundef %326, i32 noundef 32, i32 noundef 1, i32 noundef 0) #9
+  %2031 = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_reserved, align 4
+  %2032 = call ptr @proto_tree_add_item(ptr noundef %2020, i32 noundef %2031, ptr noundef %326, i32 noundef 33, i32 noundef 3, i32 noundef 0) #9
+  %2033 = and i32 %2025, 1
+  %.not238.i = icmp eq i32 %2033, 0
+  %2034 = zext i8 %2018 to i32
   %hf_lbmc_umq_idx_cmd_reserve_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_reserve_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_reserve_assign_numeric_index, align 4
-  %2033 = select i1 %.not238.i, i32 %hf_lbmc_umq_idx_cmd_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_reserve_assign_numeric_index.val.i
-  %2034 = call ptr @proto_tree_add_item(ptr noundef %2018, i32 noundef %2033, ptr noundef %324, i32 noundef 36, i32 noundef %2032, i32 noundef 0) #9
-  %2035 = add nuw nsw i32 %2032, 36
+  %2035 = select i1 %.not238.i, i32 %hf_lbmc_umq_idx_cmd_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_reserve_assign_numeric_index.val.i
+  %2036 = call ptr @proto_tree_add_item(ptr noundef %2020, i32 noundef %2035, ptr noundef %326, i32 noundef 36, i32 noundef %2034, i32 noundef 0) #9
+  %2037 = add nuw nsw i32 %2034, 36
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-2036:                                             ; preds = %1896
-  %2037 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign, align 4
-  %2038 = call ptr @proto_tree_add_item(ptr noundef %1902, i32 noundef %2037, ptr noundef %324, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
-  %2039 = add i8 %1897, -16
-  %2040 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_reserve_assign, align 4
-  %2041 = call ptr @proto_item_add_subtree(ptr noundef %2038, i32 noundef %2040) #9
-  %2042 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_src_id, align 4
-  %2043 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2042, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2044 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_assign_id, align 4
-  %2045 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2044, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2046 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 28) #9
-  %2047 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_flags, align 4
-  %2048 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_reserve_assign_flags, align 4
-  %2049 = call ptr @proto_tree_add_bitmask(ptr noundef %2041, ptr noundef %324, i32 noundef 28, i32 noundef %2047, i32 noundef %2048, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.ulb_reserve_assign_flags, i32 noundef 0) #9
-  %2050 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_appset_idx, align 4
-  %2051 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2050, ptr noundef %324, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
-  %2052 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_index_len, align 4
-  %2053 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2052, ptr noundef %324, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
-  %2054 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_reserved, align 4
-  %2055 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2054, ptr noundef %324, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
-  %2056 = and i32 %2046, 1
-  %.not.i838 = icmp eq i32 %2056, 0
-  %2057 = zext i8 %2039 to i32
+2038:                                             ; preds = %1898
+  %2039 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign, align 4
+  %2040 = call ptr @proto_tree_add_item(ptr noundef %1904, i32 noundef %2039, ptr noundef %326, i32 noundef 20, i32 noundef 16, i32 noundef 0) #9
+  %2041 = add i8 %1899, -16
+  %2042 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_reserve_assign, align 4
+  %2043 = call ptr @proto_item_add_subtree(ptr noundef %2040, i32 noundef %2042) #9
+  %2044 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_src_id, align 4
+  %2045 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2044, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2046 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_assign_id, align 4
+  %2047 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2046, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2048 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 28) #9
+  %2049 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_flags, align 4
+  %2050 = load i32, ptr @ett_lbmc_umq_idx_cmd_ulb_reserve_assign_flags, align 4
+  %2051 = call ptr @proto_tree_add_bitmask(ptr noundef %2043, ptr noundef %326, i32 noundef 28, i32 noundef %2049, i32 noundef %2050, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd.ulb_reserve_assign_flags, i32 noundef 0) #9
+  %2052 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_appset_idx, align 4
+  %2053 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2052, ptr noundef %326, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
+  %2054 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_index_len, align 4
+  %2055 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2054, ptr noundef %326, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
+  %2056 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_reserved, align 4
+  %2057 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2056, ptr noundef %326, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
+  %2058 = and i32 %2048, 1
+  %.not.i838 = icmp eq i32 %2058, 0
+  %2059 = zext i8 %2041 to i32
   %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index, align 4
-  %2058 = select i1 %.not.i838, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index.val.i
-  %2059 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2058, ptr noundef %324, i32 noundef 36, i32 noundef %2057, i32 noundef 0) #9
-  %2060 = add nuw nsw i32 %2057, 36
+  %2060 = select i1 %.not.i838, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index.val.i
+  %2061 = call ptr @proto_tree_add_item(ptr noundef %2043, i32 noundef %2060, ptr noundef %326, i32 noundef 36, i32 noundef %2059, i32 noundef 0) #9
+  %2062 = add nuw nsw i32 %2059, 36
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-2061:                                             ; preds = %1896
-  %2062 = zext i8 %1910 to i32
-  %2063 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1912, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1739, i32 noundef %2062) #9
+2063:                                             ; preds = %1898
+  %2064 = zext i8 %1912 to i32
+  %2065 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1914, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1739, i32 noundef %2064) #9
   br label %dissect_nhdr_umq_idx_cmd.exit
 
-dissect_nhdr_umq_idx_cmd.exit:                    ; preds = %1921, %1930, %1939, %1952, %1965, %1988, %2013, %2036, %2061
-  %.0.i839 = phi i32 [ 20, %2061 ], [ %2060, %2036 ], [ %2035, %2013 ], [ %2012, %1988 ], [ %1987, %1965 ], [ 32, %1952 ], [ 32, %1939 ], [ 28, %1930 ], [ 28, %1921 ]
-  call void @proto_item_set_len(ptr noundef %1900, i32 noundef %.0.i839) #9
+dissect_nhdr_umq_idx_cmd.exit:                    ; preds = %1923, %1932, %1941, %1954, %1967, %1990, %2015, %2038, %2063
+  %.0.i839 = phi i32 [ 20, %2063 ], [ %2062, %2038 ], [ %2037, %2015 ], [ %2014, %1990 ], [ %1989, %1967 ], [ 32, %1954 ], [ 32, %1941 ], [ 28, %1932 ], [ 28, %1923 ]
+  call void @proto_item_set_len(ptr noundef %1902, i32 noundef %.0.i839) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2064:                                             ; preds = %323
-  %2065 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2066 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp, align 4
-  %2067 = zext i8 %2065 to i32
-  %2068 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2066, ptr noundef %324, i32 noundef 0, i32 noundef %2067, i32 noundef 0) #9
-  %2069 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp, align 4
-  %2070 = call ptr @proto_item_add_subtree(ptr noundef %2068, i32 noundef %2069) #9
-  %2071 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_next_hdr, align 4
-  %2072 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2071, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2073 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_hdr_len, align 4
-  %2074 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2073, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2075 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_flags, align 4
-  %2076 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_flags, align 4
-  %2077 = call ptr @proto_tree_add_bitmask(ptr noundef %2070, ptr noundef %324, i32 noundef 2, i32 noundef %2075, i32 noundef %2076, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd_resp.flags, i32 noundef 0) #9
-  %2078 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  %2079 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_resp_type, align 4
-  %2080 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2079, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2081 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_queue_id, align 4
-  %2082 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2081, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2083 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_cmd_id, align 4
-  %2084 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2083, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %2085 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_inst_idx, align 4
-  %2086 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2085, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  %2087 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_regid, align 4
-  %2088 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2087, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  switch i8 %2078, label %2228 [
-    i8 -1, label %2089
-    i8 1, label %2102
-    i8 2, label %2111
-    i8 3, label %2124
-    i8 4, label %2137
-    i8 5, label %2150
-    i8 6, label %2163
-    i8 7, label %2176
-    i8 8, label %2202
+2066:                                             ; preds = %325
+  %2067 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2068 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp, align 4
+  %2069 = zext i8 %2067 to i32
+  %2070 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2068, ptr noundef %326, i32 noundef 0, i32 noundef %2069, i32 noundef 0) #9
+  %2071 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp, align 4
+  %2072 = call ptr @proto_item_add_subtree(ptr noundef %2070, i32 noundef %2071) #9
+  %2073 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_next_hdr, align 4
+  %2074 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2073, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2075 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_hdr_len, align 4
+  %2076 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2075, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2077 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_flags, align 4
+  %2078 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_flags, align 4
+  %2079 = call ptr @proto_tree_add_bitmask(ptr noundef %2072, ptr noundef %326, i32 noundef 2, i32 noundef %2077, i32 noundef %2078, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd_resp.flags, i32 noundef 0) #9
+  %2080 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  %2081 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_resp_type, align 4
+  %2082 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2081, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2083 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_queue_id, align 4
+  %2084 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2083, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2085 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_cmd_id, align 4
+  %2086 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2085, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %2087 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_inst_idx, align 4
+  %2088 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2087, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  %2089 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_regid, align 4
+  %2090 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2089, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  switch i8 %2080, label %2230 [
+    i8 -1, label %2091
+    i8 1, label %2104
+    i8 2, label %2113
+    i8 3, label %2126
+    i8 4, label %2139
+    i8 5, label %2152
+    i8 6, label %2165
+    i8 7, label %2178
+    i8 8, label %2204
   ]
 
-2089:                                             ; preds = %2064
-  %2090 = add nsw i32 %2067, -24
-  %2091 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err, align 4
-  %2092 = add nsw i32 %2067, -20
-  %2093 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2091, ptr noundef %324, i32 noundef 20, i32 noundef %2092, i32 noundef 0) #9
-  %2094 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_err, align 4
-  %2095 = call ptr @proto_item_add_subtree(ptr noundef %2093, i32 noundef %2094) #9
-  %2096 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err_reserved, align 4
-  %2097 = call ptr @proto_tree_add_item(ptr noundef %2095, i32 noundef %2096, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %2098 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err_code, align 4
-  %2099 = call ptr @proto_tree_add_item(ptr noundef %2095, i32 noundef %2098, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
-  %2100 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err_error_string, align 4
-  %2101 = call ptr @proto_tree_add_item(ptr noundef %2095, i32 noundef %2100, ptr noundef %324, i32 noundef 24, i32 noundef %2090, i32 noundef 0) #9
+2091:                                             ; preds = %2066
+  %2092 = add nsw i32 %2069, -24
+  %2093 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err, align 4
+  %2094 = add nsw i32 %2069, -20
+  %2095 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2093, ptr noundef %326, i32 noundef 20, i32 noundef %2094, i32 noundef 0) #9
+  %2096 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_err, align 4
+  %2097 = call ptr @proto_item_add_subtree(ptr noundef %2095, i32 noundef %2096) #9
+  %2098 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err_reserved, align 4
+  %2099 = call ptr @proto_tree_add_item(ptr noundef %2097, i32 noundef %2098, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %2100 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err_code, align 4
+  %2101 = call ptr @proto_tree_add_item(ptr noundef %2097, i32 noundef %2100, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+  %2102 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_err_error_string, align 4
+  %2103 = call ptr @proto_tree_add_item(ptr noundef %2097, i32 noundef %2102, ptr noundef %326, i32 noundef 24, i32 noundef %2092, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2102:                                             ; preds = %2064
-  %2103 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_stop_assign, align 4
-  %2104 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2103, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %2105 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_stop_assign, align 4
-  %2106 = call ptr @proto_item_add_subtree(ptr noundef %2104, i32 noundef %2105) #9
-  %2107 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_stop_assign_rcr_idx, align 4
-  %2108 = call ptr @proto_tree_add_item(ptr noundef %2106, i32 noundef %2107, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2109 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_stop_assign_assign_id, align 4
-  %2110 = call ptr @proto_tree_add_item(ptr noundef %2106, i32 noundef %2109, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+2104:                                             ; preds = %2066
+  %2105 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_stop_assign, align 4
+  %2106 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2105, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %2107 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_stop_assign, align 4
+  %2108 = call ptr @proto_item_add_subtree(ptr noundef %2106, i32 noundef %2107) #9
+  %2109 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_stop_assign_rcr_idx, align 4
+  %2110 = call ptr @proto_tree_add_item(ptr noundef %2108, i32 noundef %2109, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2111 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_stop_assign_assign_id, align 4
+  %2112 = call ptr @proto_tree_add_item(ptr noundef %2108, i32 noundef %2111, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2111:                                             ; preds = %2064
-  %2112 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign, align 4
-  %2113 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2112, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %2114 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_start_assign, align 4
-  %2115 = call ptr @proto_item_add_subtree(ptr noundef %2113, i32 noundef %2114) #9
-  %2116 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_rcr_idx, align 4
-  %2117 = call ptr @proto_tree_add_item(ptr noundef %2115, i32 noundef %2116, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2118 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_assign_id, align 4
-  %2119 = call ptr @proto_tree_add_item(ptr noundef %2115, i32 noundef %2118, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2120 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_appset_idx, align 4
-  %2121 = call ptr @proto_tree_add_item(ptr noundef %2115, i32 noundef %2120, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %2122 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_reserved, align 4
-  %2123 = call ptr @proto_tree_add_item(ptr noundef %2115, i32 noundef %2122, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+2113:                                             ; preds = %2066
+  %2114 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign, align 4
+  %2115 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2114, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %2116 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_start_assign, align 4
+  %2117 = call ptr @proto_item_add_subtree(ptr noundef %2115, i32 noundef %2116) #9
+  %2118 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_rcr_idx, align 4
+  %2119 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2118, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2120 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_assign_id, align 4
+  %2121 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2120, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2122 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_appset_idx, align 4
+  %2123 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2122, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %2124 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_start_assign_reserved, align 4
+  %2125 = call ptr @proto_tree_add_item(ptr noundef %2117, i32 noundef %2124, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2124:                                             ; preds = %2064
-  %2125 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign, align 4
-  %2126 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2125, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %2127 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_stop_assign, align 4
-  %2128 = call ptr @proto_item_add_subtree(ptr noundef %2126, i32 noundef %2127) #9
-  %2129 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_src_id, align 4
-  %2130 = call ptr @proto_tree_add_item(ptr noundef %2128, i32 noundef %2129, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2131 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_assign_id, align 4
-  %2132 = call ptr @proto_tree_add_item(ptr noundef %2128, i32 noundef %2131, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2133 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_appset_idx, align 4
-  %2134 = call ptr @proto_tree_add_item(ptr noundef %2128, i32 noundef %2133, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %2135 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_reserved, align 4
-  %2136 = call ptr @proto_tree_add_item(ptr noundef %2128, i32 noundef %2135, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+2126:                                             ; preds = %2066
+  %2127 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign, align 4
+  %2128 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2127, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %2129 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_stop_assign, align 4
+  %2130 = call ptr @proto_item_add_subtree(ptr noundef %2128, i32 noundef %2129) #9
+  %2131 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_src_id, align 4
+  %2132 = call ptr @proto_tree_add_item(ptr noundef %2130, i32 noundef %2131, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2133 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_assign_id, align 4
+  %2134 = call ptr @proto_tree_add_item(ptr noundef %2130, i32 noundef %2133, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2135 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_appset_idx, align 4
+  %2136 = call ptr @proto_tree_add_item(ptr noundef %2130, i32 noundef %2135, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %2137 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_stop_assign_reserved, align 4
+  %2138 = call ptr @proto_tree_add_item(ptr noundef %2130, i32 noundef %2137, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2137:                                             ; preds = %2064
-  %2138 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign, align 4
-  %2139 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2138, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %2140 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_start_assign, align 4
-  %2141 = call ptr @proto_item_add_subtree(ptr noundef %2139, i32 noundef %2140) #9
-  %2142 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_src_id, align 4
-  %2143 = call ptr @proto_tree_add_item(ptr noundef %2141, i32 noundef %2142, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2144 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_assign_id, align 4
-  %2145 = call ptr @proto_tree_add_item(ptr noundef %2141, i32 noundef %2144, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2146 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_appset_idx, align 4
-  %2147 = call ptr @proto_tree_add_item(ptr noundef %2141, i32 noundef %2146, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %2148 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_reserved, align 4
-  %2149 = call ptr @proto_tree_add_item(ptr noundef %2141, i32 noundef %2148, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+2139:                                             ; preds = %2066
+  %2140 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign, align 4
+  %2141 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2140, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %2142 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_start_assign, align 4
+  %2143 = call ptr @proto_item_add_subtree(ptr noundef %2141, i32 noundef %2142) #9
+  %2144 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_src_id, align 4
+  %2145 = call ptr @proto_tree_add_item(ptr noundef %2143, i32 noundef %2144, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2146 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_assign_id, align 4
+  %2147 = call ptr @proto_tree_add_item(ptr noundef %2143, i32 noundef %2146, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2148 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_appset_idx, align 4
+  %2149 = call ptr @proto_tree_add_item(ptr noundef %2143, i32 noundef %2148, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %2150 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_start_assign_reserved, align 4
+  %2151 = call ptr @proto_tree_add_item(ptr noundef %2143, i32 noundef %2150, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2150:                                             ; preds = %2064
-  %2151 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign, align 4
-  %2152 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2151, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %2153 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_release_assign, align 4
-  %2154 = call ptr @proto_item_add_subtree(ptr noundef %2152, i32 noundef %2153) #9
-  %2155 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_rcr_idx, align 4
-  %2156 = call ptr @proto_tree_add_item(ptr noundef %2154, i32 noundef %2155, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2157 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_assign_id, align 4
-  %2158 = call ptr @proto_tree_add_item(ptr noundef %2154, i32 noundef %2157, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2159 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_appset_idx, align 4
-  %2160 = call ptr @proto_tree_add_item(ptr noundef %2154, i32 noundef %2159, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %2161 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_reserved, align 4
-  %2162 = call ptr @proto_tree_add_item(ptr noundef %2154, i32 noundef %2161, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+2152:                                             ; preds = %2066
+  %2153 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign, align 4
+  %2154 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2153, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %2155 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_release_assign, align 4
+  %2156 = call ptr @proto_item_add_subtree(ptr noundef %2154, i32 noundef %2155) #9
+  %2157 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_rcr_idx, align 4
+  %2158 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2157, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2159 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_assign_id, align 4
+  %2160 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2159, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2161 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_appset_idx, align 4
+  %2162 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2161, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %2163 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_release_assign_reserved, align 4
+  %2164 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2163, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2163:                                             ; preds = %2064
-  %2164 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign, align 4
-  %2165 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2164, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %2166 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_release_assign, align 4
-  %2167 = call ptr @proto_item_add_subtree(ptr noundef %2165, i32 noundef %2166) #9
-  %2168 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_src_id, align 4
-  %2169 = call ptr @proto_tree_add_item(ptr noundef %2167, i32 noundef %2168, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2170 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_assign_id, align 4
-  %2171 = call ptr @proto_tree_add_item(ptr noundef %2167, i32 noundef %2170, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2172 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_appset_idx, align 4
-  %2173 = call ptr @proto_tree_add_item(ptr noundef %2167, i32 noundef %2172, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %2174 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_reserved, align 4
-  %2175 = call ptr @proto_tree_add_item(ptr noundef %2167, i32 noundef %2174, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+2165:                                             ; preds = %2066
+  %2166 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign, align 4
+  %2167 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2166, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %2168 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_release_assign, align 4
+  %2169 = call ptr @proto_item_add_subtree(ptr noundef %2167, i32 noundef %2168) #9
+  %2170 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_src_id, align 4
+  %2171 = call ptr @proto_tree_add_item(ptr noundef %2169, i32 noundef %2170, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2172 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_assign_id, align 4
+  %2173 = call ptr @proto_tree_add_item(ptr noundef %2169, i32 noundef %2172, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2174 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_appset_idx, align 4
+  %2175 = call ptr @proto_tree_add_item(ptr noundef %2169, i32 noundef %2174, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %2176 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_release_assign_reserved, align 4
+  %2177 = call ptr @proto_tree_add_item(ptr noundef %2169, i32 noundef %2176, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2176:                                             ; preds = %2064
-  %2177 = add i8 %2065, -36
-  %2178 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign, align 4
-  %2179 = zext i8 %2177 to i32
-  %2180 = add nuw nsw i32 %2179, 16
-  %2181 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2178, ptr noundef %324, i32 noundef 20, i32 noundef %2180, i32 noundef 0) #9
-  %2182 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_reserve_assign, align 4
-  %2183 = call ptr @proto_item_add_subtree(ptr noundef %2181, i32 noundef %2182) #9
-  %2184 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_rcr_idx, align 4
-  %2185 = call ptr @proto_tree_add_item(ptr noundef %2183, i32 noundef %2184, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2186 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_assign_id, align 4
-  %2187 = call ptr @proto_tree_add_item(ptr noundef %2183, i32 noundef %2186, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2188 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 28) #9
-  %2189 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_flags, align 4
-  %2190 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_reserve_assign_flags, align 4
-  %2191 = call ptr @proto_tree_add_bitmask(ptr noundef %2183, ptr noundef %324, i32 noundef 28, i32 noundef %2189, i32 noundef %2190, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd_resp.reserve_assign_flags, i32 noundef 0) #9
-  %2192 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_appset_idx, align 4
-  %2193 = call ptr @proto_tree_add_item(ptr noundef %2183, i32 noundef %2192, ptr noundef %324, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
-  %2194 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_index_len, align 4
-  %2195 = call ptr @proto_tree_add_item(ptr noundef %2183, i32 noundef %2194, ptr noundef %324, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
-  %2196 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_reserved, align 4
-  %2197 = call ptr @proto_tree_add_item(ptr noundef %2183, i32 noundef %2196, ptr noundef %324, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
-  %2198 = and i32 %2188, 1
-  %.not228.i = icmp eq i32 %2198, 0
+2178:                                             ; preds = %2066
+  %2179 = add i8 %2067, -36
+  %2180 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign, align 4
+  %2181 = zext i8 %2179 to i32
+  %2182 = add nuw nsw i32 %2181, 16
+  %2183 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2180, ptr noundef %326, i32 noundef 20, i32 noundef %2182, i32 noundef 0) #9
+  %2184 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_reserve_assign, align 4
+  %2185 = call ptr @proto_item_add_subtree(ptr noundef %2183, i32 noundef %2184) #9
+  %2186 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_rcr_idx, align 4
+  %2187 = call ptr @proto_tree_add_item(ptr noundef %2185, i32 noundef %2186, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2188 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_assign_id, align 4
+  %2189 = call ptr @proto_tree_add_item(ptr noundef %2185, i32 noundef %2188, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2190 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 28) #9
+  %2191 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_flags, align 4
+  %2192 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_reserve_assign_flags, align 4
+  %2193 = call ptr @proto_tree_add_bitmask(ptr noundef %2185, ptr noundef %326, i32 noundef 28, i32 noundef %2191, i32 noundef %2192, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd_resp.reserve_assign_flags, i32 noundef 0) #9
+  %2194 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_appset_idx, align 4
+  %2195 = call ptr @proto_tree_add_item(ptr noundef %2185, i32 noundef %2194, ptr noundef %326, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
+  %2196 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_index_len, align 4
+  %2197 = call ptr @proto_tree_add_item(ptr noundef %2185, i32 noundef %2196, ptr noundef %326, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
+  %2198 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_reserved, align 4
+  %2199 = call ptr @proto_tree_add_item(ptr noundef %2185, i32 noundef %2198, ptr noundef %326, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
+  %2200 = and i32 %2190, 1
+  %.not228.i = icmp eq i32 %2200, 0
   %hf_lbmc_umq_idx_cmd_resp_reserve_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_resp_reserve_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_reserve_assign_numeric_index, align 4
-  %2199 = select i1 %.not228.i, i32 %hf_lbmc_umq_idx_cmd_resp_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_resp_reserve_assign_numeric_index.val.i
-  %2200 = call ptr @proto_tree_add_item(ptr noundef %2183, i32 noundef %2199, ptr noundef %324, i32 noundef 36, i32 noundef %2179, i32 noundef 0) #9
-  %2201 = add nuw nsw i32 %2179, 36
+  %2201 = select i1 %.not228.i, i32 %hf_lbmc_umq_idx_cmd_resp_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_resp_reserve_assign_numeric_index.val.i
+  %2202 = call ptr @proto_tree_add_item(ptr noundef %2185, i32 noundef %2201, ptr noundef %326, i32 noundef 36, i32 noundef %2181, i32 noundef 0) #9
+  %2203 = add nuw nsw i32 %2181, 36
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2202:                                             ; preds = %2064
-  %2203 = add i8 %2065, -36
-  %2204 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign, align 4
-  %2205 = zext i8 %2203 to i32
-  %2206 = add nuw nsw i32 %2205, 16
-  %2207 = call ptr @proto_tree_add_item(ptr noundef %2070, i32 noundef %2204, ptr noundef %324, i32 noundef 20, i32 noundef %2206, i32 noundef 0) #9
-  %2208 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_reserve_assign, align 4
-  %2209 = call ptr @proto_item_add_subtree(ptr noundef %2207, i32 noundef %2208) #9
-  %2210 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_src_id, align 4
-  %2211 = call ptr @proto_tree_add_item(ptr noundef %2209, i32 noundef %2210, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2212 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_assign_id, align 4
-  %2213 = call ptr @proto_tree_add_item(ptr noundef %2209, i32 noundef %2212, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2214 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 28) #9
-  %2215 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_flags, align 4
-  %2216 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_flags, align 4
-  %2217 = call ptr @proto_tree_add_bitmask(ptr noundef %2209, ptr noundef %324, i32 noundef 28, i32 noundef %2215, i32 noundef %2216, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd_resp.ulb_reserve_assign_flags, i32 noundef 0) #9
-  %2218 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_appset_idx, align 4
-  %2219 = call ptr @proto_tree_add_item(ptr noundef %2209, i32 noundef %2218, ptr noundef %324, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
-  %2220 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_index_len, align 4
-  %2221 = call ptr @proto_tree_add_item(ptr noundef %2209, i32 noundef %2220, ptr noundef %324, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
-  %2222 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_reserved, align 4
-  %2223 = call ptr @proto_tree_add_item(ptr noundef %2209, i32 noundef %2222, ptr noundef %324, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
-  %2224 = and i32 %2214, 1
-  %.not.i840 = icmp eq i32 %2224, 0
+2204:                                             ; preds = %2066
+  %2205 = add i8 %2067, -36
+  %2206 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign, align 4
+  %2207 = zext i8 %2205 to i32
+  %2208 = add nuw nsw i32 %2207, 16
+  %2209 = call ptr @proto_tree_add_item(ptr noundef %2072, i32 noundef %2206, ptr noundef %326, i32 noundef 20, i32 noundef %2208, i32 noundef 0) #9
+  %2210 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_reserve_assign, align 4
+  %2211 = call ptr @proto_item_add_subtree(ptr noundef %2209, i32 noundef %2210) #9
+  %2212 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_src_id, align 4
+  %2213 = call ptr @proto_tree_add_item(ptr noundef %2211, i32 noundef %2212, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2214 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_assign_id, align 4
+  %2215 = call ptr @proto_tree_add_item(ptr noundef %2211, i32 noundef %2214, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2216 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 28) #9
+  %2217 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_flags, align 4
+  %2218 = load i32, ptr @ett_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_flags, align 4
+  %2219 = call ptr @proto_tree_add_bitmask(ptr noundef %2211, ptr noundef %326, i32 noundef 28, i32 noundef %2217, i32 noundef %2218, ptr noundef nonnull @dissect_nhdr_umq_idx_cmd_resp.ulb_reserve_assign_flags, i32 noundef 0) #9
+  %2220 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_appset_idx, align 4
+  %2221 = call ptr @proto_tree_add_item(ptr noundef %2211, i32 noundef %2220, ptr noundef %326, i32 noundef 32, i32 noundef 2, i32 noundef 0) #9
+  %2222 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_index_len, align 4
+  %2223 = call ptr @proto_tree_add_item(ptr noundef %2211, i32 noundef %2222, ptr noundef %326, i32 noundef 34, i32 noundef 1, i32 noundef 0) #9
+  %2224 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_reserved, align 4
+  %2225 = call ptr @proto_tree_add_item(ptr noundef %2211, i32 noundef %2224, ptr noundef %326, i32 noundef 35, i32 noundef 1, i32 noundef 0) #9
+  %2226 = and i32 %2216, 1
+  %.not.i840 = icmp eq i32 %2226, 0
   %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index, align 4
-  %2225 = select i1 %.not.i840, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index.val.i
-  %2226 = call ptr @proto_tree_add_item(ptr noundef %2209, i32 noundef %2225, ptr noundef %324, i32 noundef 36, i32 noundef %2205, i32 noundef 0) #9
-  %2227 = add nuw nsw i32 %2205, 36
+  %2227 = select i1 %.not.i840, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index.val.i
+  %2228 = call ptr @proto_tree_add_item(ptr noundef %2211, i32 noundef %2227, ptr noundef %326, i32 noundef 36, i32 noundef %2207, i32 noundef 0) #9
+  %2229 = add nuw nsw i32 %2207, 36
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-2228:                                             ; preds = %2064
-  %2229 = zext i8 %2078 to i32
-  %2230 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %2080, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1740, i32 noundef %2229) #9
+2230:                                             ; preds = %2066
+  %2231 = zext i8 %2080 to i32
+  %2232 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %2082, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1740, i32 noundef %2231) #9
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
-dissect_nhdr_umq_idx_cmd_resp.exit:               ; preds = %2089, %2102, %2111, %2124, %2137, %2150, %2163, %2176, %2202, %2228
-  %.0.i841 = phi i32 [ 20, %2228 ], [ %2227, %2202 ], [ %2201, %2176 ], [ 32, %2163 ], [ 32, %2150 ], [ 32, %2137 ], [ 32, %2124 ], [ 32, %2111 ], [ 28, %2102 ], [ %2067, %2089 ]
-  call void @proto_item_set_len(ptr noundef %2068, i32 noundef %.0.i841) #9
+dissect_nhdr_umq_idx_cmd_resp.exit:               ; preds = %2091, %2104, %2113, %2126, %2139, %2152, %2165, %2178, %2204, %2230
+  %.0.i841 = phi i32 [ 20, %2230 ], [ %2229, %2204 ], [ %2203, %2178 ], [ 32, %2165 ], [ 32, %2152 ], [ 32, %2139 ], [ 32, %2126 ], [ 32, %2113 ], [ 28, %2104 ], [ %2069, %2091 ]
+  call void @proto_item_set_len(ptr noundef %2070, i32 noundef %.0.i841) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2231:                                             ; preds = %323
-  %2232 = load i32, ptr @hf_lbmc_odomain, align 4
-  %2233 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2232, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %2234 = load i32, ptr @ett_lbmc_odomain, align 4
-  %2235 = call ptr @proto_item_add_subtree(ptr noundef %2233, i32 noundef %2234) #9
-  %2236 = load i32, ptr @hf_lbmc_odomain_next_hdr, align 4
-  %2237 = call ptr @proto_tree_add_item(ptr noundef %2235, i32 noundef %2236, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2238 = load i32, ptr @hf_lbmc_odomain_hdr_len, align 4
-  %2239 = call ptr @proto_tree_add_item(ptr noundef %2235, i32 noundef %2238, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2240 = load i32, ptr @hf_lbmc_odomain_flags, align 4
-  %2241 = load i32, ptr @ett_lbmc_odomain_flags, align 4
-  %2242 = call ptr @proto_tree_add_bitmask(ptr noundef %2235, ptr noundef %324, i32 noundef 2, i32 noundef %2240, i32 noundef %2241, ptr noundef nonnull @dissect_nhdr_odomain.flags, i32 noundef 0) #9
-  %2243 = load i32, ptr @hf_lbmc_odomain_domain, align 4
-  %2244 = call ptr @proto_tree_add_item(ptr noundef %2235, i32 noundef %2243, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+2233:                                             ; preds = %325
+  %2234 = load i32, ptr @hf_lbmc_odomain, align 4
+  %2235 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2234, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %2236 = load i32, ptr @ett_lbmc_odomain, align 4
+  %2237 = call ptr @proto_item_add_subtree(ptr noundef %2235, i32 noundef %2236) #9
+  %2238 = load i32, ptr @hf_lbmc_odomain_next_hdr, align 4
+  %2239 = call ptr @proto_tree_add_item(ptr noundef %2237, i32 noundef %2238, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2240 = load i32, ptr @hf_lbmc_odomain_hdr_len, align 4
+  %2241 = call ptr @proto_tree_add_item(ptr noundef %2237, i32 noundef %2240, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2242 = load i32, ptr @hf_lbmc_odomain_flags, align 4
+  %2243 = load i32, ptr @ett_lbmc_odomain_flags, align 4
+  %2244 = call ptr @proto_tree_add_bitmask(ptr noundef %2237, ptr noundef %326, i32 noundef 2, i32 noundef %2242, i32 noundef %2243, ptr noundef nonnull @dissect_nhdr_odomain.flags, i32 noundef 0) #9
+  %2245 = load i32, ptr @hf_lbmc_odomain_domain, align 4
+  %2246 = call ptr @proto_tree_add_item(ptr noundef %2237, i32 noundef %2245, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2245:                                             ; preds = %323
-  %2246 = load i32, ptr @hf_lbmc_stream, align 4
-  %2247 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2246, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %2248 = load i32, ptr @ett_lbmc_stream, align 4
-  %2249 = call ptr @proto_item_add_subtree(ptr noundef %2247, i32 noundef %2248) #9
-  %2250 = load i32, ptr @hf_lbmc_stream_next_hdr, align 4
-  %2251 = call ptr @proto_tree_add_item(ptr noundef %2249, i32 noundef %2250, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2252 = load i32, ptr @hf_lbmc_stream_hdr_len, align 4
-  %2253 = call ptr @proto_tree_add_item(ptr noundef %2249, i32 noundef %2252, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2254 = load i32, ptr @hf_lbmc_stream_flags, align 4
-  %2255 = load i32, ptr @ett_lbmc_stream_flags, align 4
-  %2256 = call ptr @proto_tree_add_bitmask(ptr noundef %2249, ptr noundef %324, i32 noundef 2, i32 noundef %2254, i32 noundef %2255, ptr noundef nonnull @dissect_nhdr_stream.flags, i32 noundef 0) #9
-  %2257 = load i32, ptr @hf_lbmc_stream_stream_id, align 4
-  %2258 = call ptr @proto_tree_add_item(ptr noundef %2249, i32 noundef %2257, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2259 = load i32, ptr @hf_lbmc_stream_sqn, align 4
-  %2260 = call ptr @proto_tree_add_item(ptr noundef %2249, i32 noundef %2259, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %2261 = load i32, ptr @hf_lbmc_stream_ctxinst, align 4
-  %2262 = call ptr @proto_tree_add_item(ptr noundef %2249, i32 noundef %2261, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+2247:                                             ; preds = %325
+  %2248 = load i32, ptr @hf_lbmc_stream, align 4
+  %2249 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2248, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %2250 = load i32, ptr @ett_lbmc_stream, align 4
+  %2251 = call ptr @proto_item_add_subtree(ptr noundef %2249, i32 noundef %2250) #9
+  %2252 = load i32, ptr @hf_lbmc_stream_next_hdr, align 4
+  %2253 = call ptr @proto_tree_add_item(ptr noundef %2251, i32 noundef %2252, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2254 = load i32, ptr @hf_lbmc_stream_hdr_len, align 4
+  %2255 = call ptr @proto_tree_add_item(ptr noundef %2251, i32 noundef %2254, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2256 = load i32, ptr @hf_lbmc_stream_flags, align 4
+  %2257 = load i32, ptr @ett_lbmc_stream_flags, align 4
+  %2258 = call ptr @proto_tree_add_bitmask(ptr noundef %2251, ptr noundef %326, i32 noundef 2, i32 noundef %2256, i32 noundef %2257, ptr noundef nonnull @dissect_nhdr_stream.flags, i32 noundef 0) #9
+  %2259 = load i32, ptr @hf_lbmc_stream_stream_id, align 4
+  %2260 = call ptr @proto_tree_add_item(ptr noundef %2251, i32 noundef %2259, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2261 = load i32, ptr @hf_lbmc_stream_sqn, align 4
+  %2262 = call ptr @proto_tree_add_item(ptr noundef %2251, i32 noundef %2261, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %2263 = load i32, ptr @hf_lbmc_stream_ctxinst, align 4
+  %2264 = call ptr @proto_tree_add_item(ptr noundef %2251, i32 noundef %2263, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
   store i32 1, ptr %39, align 4
-  %2263 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 4) #9
-  store i32 %2263, ptr %53, align 4
-  %2264 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 8) #9
-  store i32 %2264, ptr %54, align 4
-  %2265 = call ptr @tvb_memcpy(ptr noundef %324, ptr noundef nonnull %55, i32 noundef 12, i64 noundef 8) #9
+  %2265 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 4) #9
+  store i32 %2265, ptr %53, align 4
+  %2266 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 8) #9
+  store i32 %2266, ptr %54, align 4
+  %2267 = call ptr @tvb_memcpy(ptr noundef %326, ptr noundef nonnull %55, i32 noundef 12, i64 noundef 8) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2266:                                             ; preds = %323
-  %2267 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2268 = load i32, ptr @hf_lbmc_topic_md_interest, align 4
-  %2269 = zext i8 %2267 to i32
-  %2270 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2268, ptr noundef %324, i32 noundef 0, i32 noundef %2269, i32 noundef 0) #9
-  %2271 = load i32, ptr @ett_lbmc_topic_md_interest, align 4
-  %2272 = call ptr @proto_item_add_subtree(ptr noundef %2270, i32 noundef %2271) #9
-  %2273 = load i32, ptr @hf_lbmc_topic_md_interest_next_hdr, align 4
-  %2274 = call ptr @proto_tree_add_item(ptr noundef %2272, i32 noundef %2273, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2275 = load i32, ptr @hf_lbmc_topic_md_interest_hdr_len, align 4
-  %2276 = call ptr @proto_tree_add_item(ptr noundef %2272, i32 noundef %2275, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2277 = load i32, ptr @hf_lbmc_topic_md_interest_flags, align 4
-  %2278 = load i32, ptr @ett_lbmc_topic_md_interest_flags, align 4
-  %2279 = call ptr @proto_tree_add_bitmask(ptr noundef %2272, ptr noundef %324, i32 noundef 2, i32 noundef %2277, i32 noundef %2278, ptr noundef nonnull @dissect_nhdr_topic_md_interest.flags, i32 noundef 0) #9
-  %2280 = load i32, ptr @hf_lbmc_topic_md_interest_domain_count, align 4
-  %2281 = call ptr @proto_tree_add_item(ptr noundef %2272, i32 noundef %2280, ptr noundef %324, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %2282 = load i32, ptr @hf_lbmc_topic_md_interest_res1, align 4
-  %2283 = call ptr @proto_tree_add_item(ptr noundef %2272, i32 noundef %2282, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
-  %2284 = call zeroext i16 @tvb_get_ntohs(ptr noundef %324, i32 noundef 4) #9
-  %2285 = zext i16 %2284 to i32
-  %.not.i842 = icmp eq i16 %2284, 0
+2268:                                             ; preds = %325
+  %2269 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2270 = load i32, ptr @hf_lbmc_topic_md_interest, align 4
+  %2271 = zext i8 %2269 to i32
+  %2272 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2270, ptr noundef %326, i32 noundef 0, i32 noundef %2271, i32 noundef 0) #9
+  %2273 = load i32, ptr @ett_lbmc_topic_md_interest, align 4
+  %2274 = call ptr @proto_item_add_subtree(ptr noundef %2272, i32 noundef %2273) #9
+  %2275 = load i32, ptr @hf_lbmc_topic_md_interest_next_hdr, align 4
+  %2276 = call ptr @proto_tree_add_item(ptr noundef %2274, i32 noundef %2275, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2277 = load i32, ptr @hf_lbmc_topic_md_interest_hdr_len, align 4
+  %2278 = call ptr @proto_tree_add_item(ptr noundef %2274, i32 noundef %2277, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2279 = load i32, ptr @hf_lbmc_topic_md_interest_flags, align 4
+  %2280 = load i32, ptr @ett_lbmc_topic_md_interest_flags, align 4
+  %2281 = call ptr @proto_tree_add_bitmask(ptr noundef %2274, ptr noundef %326, i32 noundef 2, i32 noundef %2279, i32 noundef %2280, ptr noundef nonnull @dissect_nhdr_topic_md_interest.flags, i32 noundef 0) #9
+  %2282 = load i32, ptr @hf_lbmc_topic_md_interest_domain_count, align 4
+  %2283 = call ptr @proto_tree_add_item(ptr noundef %2274, i32 noundef %2282, ptr noundef %326, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %2284 = load i32, ptr @hf_lbmc_topic_md_interest_res1, align 4
+  %2285 = call ptr @proto_tree_add_item(ptr noundef %2274, i32 noundef %2284, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+  %2286 = call zeroext i16 @tvb_get_ntohs(ptr noundef %326, i32 noundef 4) #9
+  %2287 = zext i16 %2286 to i32
+  %.not.i842 = icmp eq i16 %2286, 0
   br i1 %.not.i842, label %dissect_nhdr_topic_md_interest.exit, label %.lr.ph.i843
 
-.lr.ph.i843:                                      ; preds = %2266, %.lr.ph.i843
-  %.03.i = phi i32 [ %2288, %.lr.ph.i843 ], [ 8, %2266 ]
-  %.0352.i = phi i32 [ %2289, %.lr.ph.i843 ], [ 0, %2266 ]
-  %2286 = load i32, ptr @hf_lbmc_topic_md_interest_domain_id, align 4
-  %2287 = call ptr @proto_tree_add_item(ptr noundef %2272, i32 noundef %2286, ptr noundef %324, i32 noundef %.03.i, i32 noundef 4, i32 noundef 0) #9
-  %2288 = add nuw nsw i32 %.03.i, 4
-  %2289 = add nuw nsw i32 %.0352.i, 1
-  %exitcond.not.i = icmp eq i32 %2289, %2285
+.lr.ph.i843:                                      ; preds = %2268, %.lr.ph.i843
+  %.03.i = phi i32 [ %2290, %.lr.ph.i843 ], [ 8, %2268 ]
+  %.0352.i = phi i32 [ %2291, %.lr.ph.i843 ], [ 0, %2268 ]
+  %2288 = load i32, ptr @hf_lbmc_topic_md_interest_domain_id, align 4
+  %2289 = call ptr @proto_tree_add_item(ptr noundef %2274, i32 noundef %2288, ptr noundef %326, i32 noundef %.03.i, i32 noundef 4, i32 noundef 0) #9
+  %2290 = add nuw nsw i32 %.03.i, 4
+  %2291 = add nuw nsw i32 %.0352.i, 1
+  %exitcond.not.i = icmp eq i32 %2291, %2287
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i843, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i843
-  %2290 = shl nuw nsw i32 %2285, 2
-  %2291 = add nuw nsw i32 %2290, 8
+  %2292 = shl nuw nsw i32 %2287, 2
+  %2293 = add nuw nsw i32 %2292, 8
   br label %dissect_nhdr_topic_md_interest.exit
 
-dissect_nhdr_topic_md_interest.exit:              ; preds = %2266, %._crit_edge.loopexit.i
-  %.0.lcssa.i845 = phi i32 [ 8, %2266 ], [ %2291, %._crit_edge.loopexit.i ]
-  call void @proto_item_set_len(ptr noundef %2270, i32 noundef %.0.lcssa.i845) #9
+dissect_nhdr_topic_md_interest.exit:              ; preds = %2268, %._crit_edge.loopexit.i
+  %.0.lcssa.i845 = phi i32 [ 8, %2268 ], [ %2293, %._crit_edge.loopexit.i ]
+  call void @proto_item_set_len(ptr noundef %2272, i32 noundef %.0.lcssa.i845) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2292:                                             ; preds = %323
-  %2293 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2294 = load i32, ptr @hf_lbmc_pattern_md_interest, align 4
-  %2295 = zext i8 %2293 to i32
-  %2296 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2294, ptr noundef %324, i32 noundef 0, i32 noundef %2295, i32 noundef 0) #9
-  %2297 = load i32, ptr @ett_lbmc_pattern_md_interest, align 4
-  %2298 = call ptr @proto_item_add_subtree(ptr noundef %2296, i32 noundef %2297) #9
-  %2299 = load i32, ptr @hf_lbmc_pattern_md_interest_next_hdr, align 4
-  %2300 = call ptr @proto_tree_add_item(ptr noundef %2298, i32 noundef %2299, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2301 = load i32, ptr @hf_lbmc_pattern_md_interest_hdr_len, align 4
-  %2302 = call ptr @proto_tree_add_item(ptr noundef %2298, i32 noundef %2301, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2303 = load i32, ptr @hf_lbmc_pattern_md_interest_flags, align 4
-  %2304 = load i32, ptr @ett_lbmc_pattern_md_interest_flags, align 4
-  %2305 = call ptr @proto_tree_add_bitmask(ptr noundef %2298, ptr noundef %324, i32 noundef 2, i32 noundef %2303, i32 noundef %2304, ptr noundef nonnull @dissect_nhdr_pattern_md_interest.flags, i32 noundef 0) #9
-  %2306 = load i32, ptr @hf_lbmc_pattern_md_interest_type, align 4
-  %2307 = call ptr @proto_tree_add_item(ptr noundef %2298, i32 noundef %2306, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2308 = load i32, ptr @hf_lbmc_pattern_md_interest_domain_count, align 4
-  %2309 = call ptr @proto_tree_add_item(ptr noundef %2298, i32 noundef %2308, ptr noundef %324, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %2310 = load i32, ptr @hf_lbmc_pattern_md_interest_res1, align 4
-  %2311 = call ptr @proto_tree_add_item(ptr noundef %2298, i32 noundef %2310, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
-  %2312 = load i32, ptr @hf_lbmc_pattern_md_interest_index, align 4
-  %2313 = call ptr @proto_tree_add_item(ptr noundef %2298, i32 noundef %2312, ptr noundef %324, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
-  %2314 = call zeroext i16 @tvb_get_ntohs(ptr noundef %324, i32 noundef 4) #9
-  %2315 = zext i16 %2314 to i32
-  %.not.i846 = icmp eq i16 %2314, 0
+2294:                                             ; preds = %325
+  %2295 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2296 = load i32, ptr @hf_lbmc_pattern_md_interest, align 4
+  %2297 = zext i8 %2295 to i32
+  %2298 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2296, ptr noundef %326, i32 noundef 0, i32 noundef %2297, i32 noundef 0) #9
+  %2299 = load i32, ptr @ett_lbmc_pattern_md_interest, align 4
+  %2300 = call ptr @proto_item_add_subtree(ptr noundef %2298, i32 noundef %2299) #9
+  %2301 = load i32, ptr @hf_lbmc_pattern_md_interest_next_hdr, align 4
+  %2302 = call ptr @proto_tree_add_item(ptr noundef %2300, i32 noundef %2301, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2303 = load i32, ptr @hf_lbmc_pattern_md_interest_hdr_len, align 4
+  %2304 = call ptr @proto_tree_add_item(ptr noundef %2300, i32 noundef %2303, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2305 = load i32, ptr @hf_lbmc_pattern_md_interest_flags, align 4
+  %2306 = load i32, ptr @ett_lbmc_pattern_md_interest_flags, align 4
+  %2307 = call ptr @proto_tree_add_bitmask(ptr noundef %2300, ptr noundef %326, i32 noundef 2, i32 noundef %2305, i32 noundef %2306, ptr noundef nonnull @dissect_nhdr_pattern_md_interest.flags, i32 noundef 0) #9
+  %2308 = load i32, ptr @hf_lbmc_pattern_md_interest_type, align 4
+  %2309 = call ptr @proto_tree_add_item(ptr noundef %2300, i32 noundef %2308, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2310 = load i32, ptr @hf_lbmc_pattern_md_interest_domain_count, align 4
+  %2311 = call ptr @proto_tree_add_item(ptr noundef %2300, i32 noundef %2310, ptr noundef %326, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %2312 = load i32, ptr @hf_lbmc_pattern_md_interest_res1, align 4
+  %2313 = call ptr @proto_tree_add_item(ptr noundef %2300, i32 noundef %2312, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+  %2314 = load i32, ptr @hf_lbmc_pattern_md_interest_index, align 4
+  %2315 = call ptr @proto_tree_add_item(ptr noundef %2300, i32 noundef %2314, ptr noundef %326, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
+  %2316 = call zeroext i16 @tvb_get_ntohs(ptr noundef %326, i32 noundef 4) #9
+  %2317 = zext i16 %2316 to i32
+  %.not.i846 = icmp eq i16 %2316, 0
   br i1 %.not.i846, label %dissect_nhdr_pattern_md_interest.exit, label %.lr.ph.i848
 
-.lr.ph.i848:                                      ; preds = %2292, %.lr.ph.i848
-  %.03.i849 = phi i32 [ %2318, %.lr.ph.i848 ], [ 16, %2292 ]
-  %.0412.i = phi i32 [ %2319, %.lr.ph.i848 ], [ 0, %2292 ]
-  %2316 = load i32, ptr @hf_lbmc_pattern_md_interest_domain_id, align 4
-  %2317 = call ptr @proto_tree_add_item(ptr noundef %2298, i32 noundef %2316, ptr noundef %324, i32 noundef %.03.i849, i32 noundef 4, i32 noundef 0) #9
-  %2318 = add nuw nsw i32 %.03.i849, 4
-  %2319 = add nuw nsw i32 %.0412.i, 1
-  %exitcond.not.i850 = icmp eq i32 %2319, %2315
+.lr.ph.i848:                                      ; preds = %2294, %.lr.ph.i848
+  %.03.i849 = phi i32 [ %2320, %.lr.ph.i848 ], [ 16, %2294 ]
+  %.0412.i = phi i32 [ %2321, %.lr.ph.i848 ], [ 0, %2294 ]
+  %2318 = load i32, ptr @hf_lbmc_pattern_md_interest_domain_id, align 4
+  %2319 = call ptr @proto_tree_add_item(ptr noundef %2300, i32 noundef %2318, ptr noundef %326, i32 noundef %.03.i849, i32 noundef 4, i32 noundef 0) #9
+  %2320 = add nuw nsw i32 %.03.i849, 4
+  %2321 = add nuw nsw i32 %.0412.i, 1
+  %exitcond.not.i850 = icmp eq i32 %2321, %2317
   br i1 %exitcond.not.i850, label %._crit_edge.loopexit.i851, label %.lr.ph.i848, !llvm.loop !10
 
 ._crit_edge.loopexit.i851:                        ; preds = %.lr.ph.i848
-  %2320 = shl nuw nsw i32 %2315, 2
-  %2321 = add nuw nsw i32 %2320, 16
+  %2322 = shl nuw nsw i32 %2317, 2
+  %2323 = add nuw nsw i32 %2322, 16
   br label %dissect_nhdr_pattern_md_interest.exit
 
-dissect_nhdr_pattern_md_interest.exit:            ; preds = %2292, %._crit_edge.loopexit.i851
-  %.0.lcssa.i853 = phi i32 [ 16, %2292 ], [ %2321, %._crit_edge.loopexit.i851 ]
-  call void @proto_item_set_len(ptr noundef %2296, i32 noundef %.0.lcssa.i853) #9
+dissect_nhdr_pattern_md_interest.exit:            ; preds = %2294, %._crit_edge.loopexit.i851
+  %.0.lcssa.i853 = phi i32 [ 16, %2294 ], [ %2323, %._crit_edge.loopexit.i851 ]
+  call void @proto_item_set_len(ptr noundef %2298, i32 noundef %.0.lcssa.i853) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2322:                                             ; preds = %323
-  %2323 = load i32, ptr @hf_lbmc_lji_req, align 4
-  %2324 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2323, ptr noundef %324, i32 noundef 0, i32 noundef 36, i32 noundef 0) #9
-  %2325 = load i32, ptr @ett_lbmc_lji_req, align 4
-  %2326 = call ptr @proto_item_add_subtree(ptr noundef %2324, i32 noundef %2325) #9
-  %2327 = load i32, ptr @hf_lbmc_lji_req_next_hdr, align 4
-  %2328 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2327, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2329 = load i32, ptr @hf_lbmc_lji_req_hdr_len, align 4
-  %2330 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2329, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2331 = load i32, ptr @hf_lbmc_lji_req_flags, align 4
-  %2332 = load i32, ptr @ett_lbmc_lji_req_flags, align 4
-  %2333 = call ptr @proto_tree_add_bitmask(ptr noundef %2326, ptr noundef %324, i32 noundef 2, i32 noundef %2331, i32 noundef %2332, ptr noundef nonnull @dissect_nhdr_lji_req.flags, i32 noundef 0) #9
-  %2334 = load i32, ptr @hf_lbmc_lji_req_request_idx, align 4
-  %2335 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2334, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2336 = load i32, ptr @hf_lbmc_lji_req_transport_idx, align 4
-  %2337 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2336, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %2338 = load i32, ptr @hf_lbmc_lji_req_topic_idx, align 4
-  %2339 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2338, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %2340 = load i32, ptr @hf_lbmc_lji_req_req_ip, align 4
-  %2341 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2340, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %2342 = load i32, ptr @hf_lbmc_lji_req_req_port, align 4
-  %2343 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2342, ptr noundef %324, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
-  %2344 = load i32, ptr @hf_lbmc_lji_req_res, align 4
-  %2345 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2344, ptr noundef %324, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
-  %2346 = load i32, ptr @hf_lbmc_lji_req_tx_low_sqn, align 4
-  %2347 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2346, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2348 = load i32, ptr @hf_lbmc_lji_req_rx_req_max, align 4
-  %2349 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2348, ptr noundef %324, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
-  %2350 = load i32, ptr @hf_lbmc_lji_req_rx_req_outstanding_max, align 4
-  %2351 = call ptr @proto_tree_add_item(ptr noundef %2326, i32 noundef %2350, ptr noundef %324, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
+2324:                                             ; preds = %325
+  %2325 = load i32, ptr @hf_lbmc_lji_req, align 4
+  %2326 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2325, ptr noundef %326, i32 noundef 0, i32 noundef 36, i32 noundef 0) #9
+  %2327 = load i32, ptr @ett_lbmc_lji_req, align 4
+  %2328 = call ptr @proto_item_add_subtree(ptr noundef %2326, i32 noundef %2327) #9
+  %2329 = load i32, ptr @hf_lbmc_lji_req_next_hdr, align 4
+  %2330 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2329, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2331 = load i32, ptr @hf_lbmc_lji_req_hdr_len, align 4
+  %2332 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2331, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2333 = load i32, ptr @hf_lbmc_lji_req_flags, align 4
+  %2334 = load i32, ptr @ett_lbmc_lji_req_flags, align 4
+  %2335 = call ptr @proto_tree_add_bitmask(ptr noundef %2328, ptr noundef %326, i32 noundef 2, i32 noundef %2333, i32 noundef %2334, ptr noundef nonnull @dissect_nhdr_lji_req.flags, i32 noundef 0) #9
+  %2336 = load i32, ptr @hf_lbmc_lji_req_request_idx, align 4
+  %2337 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2336, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2338 = load i32, ptr @hf_lbmc_lji_req_transport_idx, align 4
+  %2339 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2338, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %2340 = load i32, ptr @hf_lbmc_lji_req_topic_idx, align 4
+  %2341 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2340, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %2342 = load i32, ptr @hf_lbmc_lji_req_req_ip, align 4
+  %2343 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2342, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %2344 = load i32, ptr @hf_lbmc_lji_req_req_port, align 4
+  %2345 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2344, ptr noundef %326, i32 noundef 20, i32 noundef 2, i32 noundef 0) #9
+  %2346 = load i32, ptr @hf_lbmc_lji_req_res, align 4
+  %2347 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2346, ptr noundef %326, i32 noundef 22, i32 noundef 2, i32 noundef 0) #9
+  %2348 = load i32, ptr @hf_lbmc_lji_req_tx_low_sqn, align 4
+  %2349 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2348, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2350 = load i32, ptr @hf_lbmc_lji_req_rx_req_max, align 4
+  %2351 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2350, ptr noundef %326, i32 noundef 28, i32 noundef 4, i32 noundef 0) #9
+  %2352 = load i32, ptr @hf_lbmc_lji_req_rx_req_outstanding_max, align 4
+  %2353 = call ptr @proto_tree_add_item(ptr noundef %2328, i32 noundef %2352, ptr noundef %326, i32 noundef 32, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2352:                                             ; preds = %323
-  %2353 = load i32, ptr @hf_lbmc_tnwg_ka, align 4
-  %2354 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2353, ptr noundef %324, i32 noundef 0, i32 noundef 64, i32 noundef 0) #9
-  %2355 = load i32, ptr @ett_lbmc_tnwg_ka, align 4
-  %2356 = call ptr @proto_item_add_subtree(ptr noundef %2354, i32 noundef %2355) #9
-  %2357 = load i32, ptr @hf_lbmc_tnwg_ka_next_hdr, align 4
-  %2358 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2357, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2359 = load i32, ptr @hf_lbmc_tnwg_ka_hdr_len, align 4
-  %2360 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2359, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2361 = load i32, ptr @hf_lbmc_tnwg_ka_flags, align 4
-  %2362 = load i32, ptr @ett_lbmc_tnwg_ka_flags, align 4
-  %2363 = call ptr @proto_tree_add_bitmask(ptr noundef %2356, ptr noundef %324, i32 noundef 2, i32 noundef %2361, i32 noundef %2362, ptr noundef nonnull @dissect_nhdr_tnwg_ka.flags, i32 noundef 0) #9
-  %2364 = load i32, ptr @hf_lbmc_tnwg_ka_index, align 4
-  %2365 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2364, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2366 = load i32, ptr @hf_lbmc_tnwg_ka_ts_seconds, align 4
-  %2367 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2366, ptr noundef %324, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
-  %2368 = load i32, ptr @hf_lbmc_tnwg_ka_ts_microseconds, align 4
-  %2369 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2368, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %2370 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_1, align 4
-  %2371 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2370, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2372 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_2, align 4
-  %2373 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2372, ptr noundef %324, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
-  %2374 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_3, align 4
-  %2375 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2374, ptr noundef %324, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
-  %2376 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_4, align 4
-  %2377 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2376, ptr noundef %324, i32 noundef 40, i32 noundef 8, i32 noundef 0) #9
-  %2378 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_5, align 4
-  %2379 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2378, ptr noundef %324, i32 noundef 48, i32 noundef 8, i32 noundef 0) #9
-  %2380 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_6, align 4
-  %2381 = call ptr @proto_tree_add_item(ptr noundef %2356, i32 noundef %2380, ptr noundef %324, i32 noundef 56, i32 noundef 8, i32 noundef 0) #9
+2354:                                             ; preds = %325
+  %2355 = load i32, ptr @hf_lbmc_tnwg_ka, align 4
+  %2356 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2355, ptr noundef %326, i32 noundef 0, i32 noundef 64, i32 noundef 0) #9
+  %2357 = load i32, ptr @ett_lbmc_tnwg_ka, align 4
+  %2358 = call ptr @proto_item_add_subtree(ptr noundef %2356, i32 noundef %2357) #9
+  %2359 = load i32, ptr @hf_lbmc_tnwg_ka_next_hdr, align 4
+  %2360 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2359, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2361 = load i32, ptr @hf_lbmc_tnwg_ka_hdr_len, align 4
+  %2362 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2361, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2363 = load i32, ptr @hf_lbmc_tnwg_ka_flags, align 4
+  %2364 = load i32, ptr @ett_lbmc_tnwg_ka_flags, align 4
+  %2365 = call ptr @proto_tree_add_bitmask(ptr noundef %2358, ptr noundef %326, i32 noundef 2, i32 noundef %2363, i32 noundef %2364, ptr noundef nonnull @dissect_nhdr_tnwg_ka.flags, i32 noundef 0) #9
+  %2366 = load i32, ptr @hf_lbmc_tnwg_ka_index, align 4
+  %2367 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2366, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2368 = load i32, ptr @hf_lbmc_tnwg_ka_ts_seconds, align 4
+  %2369 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2368, ptr noundef %326, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
+  %2370 = load i32, ptr @hf_lbmc_tnwg_ka_ts_microseconds, align 4
+  %2371 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2370, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %2372 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_1, align 4
+  %2373 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2372, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2374 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_2, align 4
+  %2375 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2374, ptr noundef %326, i32 noundef 24, i32 noundef 8, i32 noundef 0) #9
+  %2376 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_3, align 4
+  %2377 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2376, ptr noundef %326, i32 noundef 32, i32 noundef 8, i32 noundef 0) #9
+  %2378 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_4, align 4
+  %2379 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2378, ptr noundef %326, i32 noundef 40, i32 noundef 8, i32 noundef 0) #9
+  %2380 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_5, align 4
+  %2381 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2380, ptr noundef %326, i32 noundef 48, i32 noundef 8, i32 noundef 0) #9
+  %2382 = load i32, ptr @hf_lbmc_tnwg_ka_reserved_6, align 4
+  %2383 = call ptr @proto_tree_add_item(ptr noundef %2358, i32 noundef %2382, ptr noundef %326, i32 noundef 56, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2382:                                             ; preds = %323
-  %2383 = load i32, ptr @hf_lbmc_ume_receiver_keepalive, align 4
-  %2384 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2383, ptr noundef %324, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
-  %2385 = load i32, ptr @ett_lbmc_ume_receiver_keepalive, align 4
-  %2386 = call ptr @proto_item_add_subtree(ptr noundef %2384, i32 noundef %2385) #9
-  %2387 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_next_hdr, align 4
-  %2388 = call ptr @proto_tree_add_item(ptr noundef %2386, i32 noundef %2387, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2389 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_hdr_len, align 4
-  %2390 = call ptr @proto_tree_add_item(ptr noundef %2386, i32 noundef %2389, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2391 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_flags, align 4
-  %2392 = load i32, ptr @ett_lbmc_ume_receiver_keepalive_flags, align 4
-  %2393 = call ptr @proto_tree_add_bitmask(ptr noundef %2386, ptr noundef %324, i32 noundef 2, i32 noundef %2391, i32 noundef %2392, ptr noundef nonnull @dissect_nhdr_ume_receiver_keepalive.flags, i32 noundef 0) #9
-  %2394 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_rcv_regid, align 4
-  %2395 = call ptr @proto_tree_add_item(ptr noundef %2386, i32 noundef %2394, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2396 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_session_id, align 4
-  %2397 = call ptr @proto_tree_add_item(ptr noundef %2386, i32 noundef %2396, ptr noundef %324, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
-  %2398 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_ctxinst, align 4
-  %2399 = call ptr @proto_tree_add_item(ptr noundef %2386, i32 noundef %2398, ptr noundef %324, i32 noundef 16, i32 noundef 8, i32 noundef 0) #9
+2384:                                             ; preds = %325
+  %2385 = load i32, ptr @hf_lbmc_ume_receiver_keepalive, align 4
+  %2386 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2385, ptr noundef %326, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
+  %2387 = load i32, ptr @ett_lbmc_ume_receiver_keepalive, align 4
+  %2388 = call ptr @proto_item_add_subtree(ptr noundef %2386, i32 noundef %2387) #9
+  %2389 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_next_hdr, align 4
+  %2390 = call ptr @proto_tree_add_item(ptr noundef %2388, i32 noundef %2389, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2391 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_hdr_len, align 4
+  %2392 = call ptr @proto_tree_add_item(ptr noundef %2388, i32 noundef %2391, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2393 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_flags, align 4
+  %2394 = load i32, ptr @ett_lbmc_ume_receiver_keepalive_flags, align 4
+  %2395 = call ptr @proto_tree_add_bitmask(ptr noundef %2388, ptr noundef %326, i32 noundef 2, i32 noundef %2393, i32 noundef %2394, ptr noundef nonnull @dissect_nhdr_ume_receiver_keepalive.flags, i32 noundef 0) #9
+  %2396 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_rcv_regid, align 4
+  %2397 = call ptr @proto_tree_add_item(ptr noundef %2388, i32 noundef %2396, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2398 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_session_id, align 4
+  %2399 = call ptr @proto_tree_add_item(ptr noundef %2388, i32 noundef %2398, ptr noundef %326, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
+  %2400 = load i32, ptr @hf_lbmc_ume_receiver_keepalive_ctxinst, align 4
+  %2401 = call ptr @proto_tree_add_item(ptr noundef %2388, i32 noundef %2400, ptr noundef %326, i32 noundef 16, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2400:                                             ; preds = %323
-  %2401 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2402 = load i32, ptr @hf_lbmc_umq_cmd, align 4
-  %2403 = zext i8 %2401 to i32
-  %2404 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2402, ptr noundef %324, i32 noundef 0, i32 noundef %2403, i32 noundef 0) #9
-  %2405 = load i32, ptr @ett_lbmc_umq_cmd, align 4
-  %2406 = call ptr @proto_item_add_subtree(ptr noundef %2404, i32 noundef %2405) #9
-  %2407 = load i32, ptr @hf_lbmc_umq_cmd_next_hdr, align 4
-  %2408 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2407, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2409 = load i32, ptr @hf_lbmc_umq_cmd_hdr_len, align 4
-  %2410 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2409, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2411 = load i32, ptr @hf_lbmc_umq_cmd_flags, align 4
-  %2412 = load i32, ptr @ett_lbmc_umq_cmd_flags, align 4
-  %2413 = call ptr @proto_tree_add_bitmask(ptr noundef %2406, ptr noundef %324, i32 noundef 2, i32 noundef %2411, i32 noundef %2412, ptr noundef nonnull @dissect_nhdr_umq_cmd.flags, i32 noundef 0) #9
-  %2414 = load i32, ptr @hf_lbmc_umq_cmd_cmd_type, align 4
-  %2415 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2414, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2416 = load i32, ptr @hf_lbmc_umq_cmd_queue_id, align 4
-  %2417 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2416, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2418 = load i32, ptr @hf_lbmc_umq_cmd_cmd_id, align 4
-  %2419 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2418, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %2420 = load i32, ptr @hf_lbmc_umq_cmd_inst_idx, align 4
-  %2421 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2420, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  %2422 = load i32, ptr @hf_lbmc_umq_cmd_regid, align 4
-  %2423 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2422, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %2424 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  switch i8 %2424, label %2470 [
-    i8 1, label %2425
-    i8 2, label %2432
-    i8 3, label %2461
+2402:                                             ; preds = %325
+  %2403 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2404 = load i32, ptr @hf_lbmc_umq_cmd, align 4
+  %2405 = zext i8 %2403 to i32
+  %2406 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2404, ptr noundef %326, i32 noundef 0, i32 noundef %2405, i32 noundef 0) #9
+  %2407 = load i32, ptr @ett_lbmc_umq_cmd, align 4
+  %2408 = call ptr @proto_item_add_subtree(ptr noundef %2406, i32 noundef %2407) #9
+  %2409 = load i32, ptr @hf_lbmc_umq_cmd_next_hdr, align 4
+  %2410 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2409, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2411 = load i32, ptr @hf_lbmc_umq_cmd_hdr_len, align 4
+  %2412 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2411, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2413 = load i32, ptr @hf_lbmc_umq_cmd_flags, align 4
+  %2414 = load i32, ptr @ett_lbmc_umq_cmd_flags, align 4
+  %2415 = call ptr @proto_tree_add_bitmask(ptr noundef %2408, ptr noundef %326, i32 noundef 2, i32 noundef %2413, i32 noundef %2414, ptr noundef nonnull @dissect_nhdr_umq_cmd.flags, i32 noundef 0) #9
+  %2416 = load i32, ptr @hf_lbmc_umq_cmd_cmd_type, align 4
+  %2417 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2416, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2418 = load i32, ptr @hf_lbmc_umq_cmd_queue_id, align 4
+  %2419 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2418, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2420 = load i32, ptr @hf_lbmc_umq_cmd_cmd_id, align 4
+  %2421 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2420, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %2422 = load i32, ptr @hf_lbmc_umq_cmd_inst_idx, align 4
+  %2423 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2422, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  %2424 = load i32, ptr @hf_lbmc_umq_cmd_regid, align 4
+  %2425 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2424, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %2426 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  switch i8 %2426, label %2472 [
+    i8 1, label %2427
+    i8 2, label %2434
+    i8 3, label %2463
   ]
 
-2425:                                             ; preds = %2400
-  %2426 = load i32, ptr @hf_lbmc_umq_cmd_topic_list, align 4
-  %2427 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2426, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %2428 = load i32, ptr @ett_lbmc_umq_cmd_topic_list, align 4
-  %2429 = call ptr @proto_item_add_subtree(ptr noundef %2427, i32 noundef %2428) #9
-  %2430 = load i32, ptr @hf_lbmc_umq_cmd_topic_list_serial_num, align 4
-  %2431 = call ptr @proto_tree_add_item(ptr noundef %2429, i32 noundef %2430, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+2427:                                             ; preds = %2402
+  %2428 = load i32, ptr @hf_lbmc_umq_cmd_topic_list, align 4
+  %2429 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2428, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %2430 = load i32, ptr @ett_lbmc_umq_cmd_topic_list, align 4
+  %2431 = call ptr @proto_item_add_subtree(ptr noundef %2429, i32 noundef %2430) #9
+  %2432 = load i32, ptr @hf_lbmc_umq_cmd_topic_list_serial_num, align 4
+  %2433 = call ptr @proto_tree_add_item(ptr noundef %2431, i32 noundef %2432, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_umq_cmd.exit
 
-2432:                                             ; preds = %2400
-  %2433 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve, align 4
-  %2434 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2433, ptr noundef %324, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
-  %2435 = load i32, ptr @ett_lbmc_umq_cmd_msg_retrieve, align 4
-  %2436 = call ptr @proto_item_add_subtree(ptr noundef %2434, i32 noundef %2435) #9
-  %2437 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_rcr_idx, align 4
-  %2438 = call ptr @proto_tree_add_item(ptr noundef %2436, i32 noundef %2437, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2439 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_assign_id, align 4
-  %2440 = call ptr @proto_tree_add_item(ptr noundef %2436, i32 noundef %2439, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  %2441 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_info_only, align 4
-  %2442 = call ptr @proto_tree_add_item(ptr noundef %2436, i32 noundef %2441, ptr noundef %324, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
-  %2443 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_num_msgids, align 4
-  %2444 = call ptr @proto_tree_add_item(ptr noundef %2436, i32 noundef %2443, ptr noundef %324, i32 noundef 30, i32 noundef 1, i32 noundef 0) #9
-  %2445 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_flags, align 4
-  %2446 = call ptr @proto_tree_add_item(ptr noundef %2436, i32 noundef %2445, ptr noundef %324, i32 noundef 31, i32 noundef 1, i32 noundef 0) #9
-  %2447 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 30) #9
-  %.not.i.i = icmp eq i8 %2447, 0
+2434:                                             ; preds = %2402
+  %2435 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve, align 4
+  %2436 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2435, ptr noundef %326, i32 noundef 20, i32 noundef 12, i32 noundef 0) #9
+  %2437 = load i32, ptr @ett_lbmc_umq_cmd_msg_retrieve, align 4
+  %2438 = call ptr @proto_item_add_subtree(ptr noundef %2436, i32 noundef %2437) #9
+  %2439 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_rcr_idx, align 4
+  %2440 = call ptr @proto_tree_add_item(ptr noundef %2438, i32 noundef %2439, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2441 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_assign_id, align 4
+  %2442 = call ptr @proto_tree_add_item(ptr noundef %2438, i32 noundef %2441, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  %2443 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_info_only, align 4
+  %2444 = call ptr @proto_tree_add_item(ptr noundef %2438, i32 noundef %2443, ptr noundef %326, i32 noundef 28, i32 noundef 2, i32 noundef 0) #9
+  %2445 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_num_msgids, align 4
+  %2446 = call ptr @proto_tree_add_item(ptr noundef %2438, i32 noundef %2445, ptr noundef %326, i32 noundef 30, i32 noundef 1, i32 noundef 0) #9
+  %2447 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_flags, align 4
+  %2448 = call ptr @proto_tree_add_item(ptr noundef %2438, i32 noundef %2447, ptr noundef %326, i32 noundef 31, i32 noundef 1, i32 noundef 0) #9
+  %2449 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 30) #9
+  %.not.i.i = icmp eq i8 %2449, 0
   br i1 %.not.i.i, label %dissect_nhdr_umq_rcv_msg_retrieve.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2432, %.lr.ph.i.i
-  %.02.i.i = phi i8 [ %2459, %.lr.ph.i.i ], [ 0, %2432 ]
-  %.0331.i.i = phi i32 [ %2458, %.lr.ph.i.i ], [ 12, %2432 ]
-  %2448 = add nuw nsw i32 %.0331.i.i, 20
-  %2449 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_entry, align 4
-  %2450 = call ptr @proto_tree_add_item(ptr noundef %2436, i32 noundef %2449, ptr noundef %324, i32 noundef %2448, i32 noundef 16, i32 noundef 0) #9
-  %2451 = load i32, ptr @ett_lbmc_umq_cmd_msg_retrieve_entry, align 4
-  %2452 = call ptr @proto_item_add_subtree(ptr noundef %2450, i32 noundef %2451) #9
-  %2453 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_entry_regid, align 4
-  %2454 = call ptr @proto_tree_add_item(ptr noundef %2452, i32 noundef %2453, ptr noundef %324, i32 noundef %2448, i32 noundef 8, i32 noundef 0) #9
-  %2455 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_entry_stamp, align 4
-  %2456 = add nuw nsw i32 %.0331.i.i, 28
-  %2457 = call ptr @proto_tree_add_item(ptr noundef %2452, i32 noundef %2455, ptr noundef %324, i32 noundef %2456, i32 noundef 8, i32 noundef 0) #9
-  %2458 = add nuw nsw i32 %.0331.i.i, 16
-  %2459 = add nuw i8 %.02.i.i, 1
-  %exitcond.not.i.i = icmp eq i8 %2459, %2447
+.lr.ph.i.i:                                       ; preds = %2434, %.lr.ph.i.i
+  %.02.i.i = phi i8 [ %2461, %.lr.ph.i.i ], [ 0, %2434 ]
+  %.0331.i.i = phi i32 [ %2460, %.lr.ph.i.i ], [ 12, %2434 ]
+  %2450 = add nuw nsw i32 %.0331.i.i, 20
+  %2451 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_entry, align 4
+  %2452 = call ptr @proto_tree_add_item(ptr noundef %2438, i32 noundef %2451, ptr noundef %326, i32 noundef %2450, i32 noundef 16, i32 noundef 0) #9
+  %2453 = load i32, ptr @ett_lbmc_umq_cmd_msg_retrieve_entry, align 4
+  %2454 = call ptr @proto_item_add_subtree(ptr noundef %2452, i32 noundef %2453) #9
+  %2455 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_entry_regid, align 4
+  %2456 = call ptr @proto_tree_add_item(ptr noundef %2454, i32 noundef %2455, ptr noundef %326, i32 noundef %2450, i32 noundef 8, i32 noundef 0) #9
+  %2457 = load i32, ptr @hf_lbmc_umq_cmd_msg_retrieve_entry_stamp, align 4
+  %2458 = add nuw nsw i32 %.0331.i.i, 28
+  %2459 = call ptr @proto_tree_add_item(ptr noundef %2454, i32 noundef %2457, ptr noundef %326, i32 noundef %2458, i32 noundef 8, i32 noundef 0) #9
+  %2460 = add nuw nsw i32 %.0331.i.i, 16
+  %2461 = add nuw i8 %.02.i.i, 1
+  %exitcond.not.i.i = icmp eq i8 %2461, %2449
   br i1 %exitcond.not.i.i, label %dissect_nhdr_umq_rcv_msg_retrieve.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
-dissect_nhdr_umq_rcv_msg_retrieve.exit.i:         ; preds = %.lr.ph.i.i, %2432
-  %.033.lcssa.i.i = phi i32 [ 12, %2432 ], [ %2458, %.lr.ph.i.i ]
-  call void @proto_item_set_len(ptr noundef %2434, i32 noundef %.033.lcssa.i.i) #9
-  %2460 = add i32 %.033.lcssa.i.i, 20
+dissect_nhdr_umq_rcv_msg_retrieve.exit.i:         ; preds = %.lr.ph.i.i, %2434
+  %.033.lcssa.i.i = phi i32 [ 12, %2434 ], [ %2460, %.lr.ph.i.i ]
+  call void @proto_item_set_len(ptr noundef %2436, i32 noundef %.033.lcssa.i.i) #9
+  %2462 = add i32 %.033.lcssa.i.i, 20
   br label %dissect_nhdr_umq_cmd.exit
 
-2461:                                             ; preds = %2400
-  %2462 = load i32, ptr @hf_lbmc_umq_cmd_msg_list, align 4
-  %2463 = call ptr @proto_tree_add_item(ptr noundef %2406, i32 noundef %2462, ptr noundef %324, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
-  %2464 = load i32, ptr @ett_lbmc_umq_cmd_msg_list, align 4
-  %2465 = call ptr @proto_item_add_subtree(ptr noundef %2463, i32 noundef %2464) #9
-  %2466 = load i32, ptr @hf_lbmc_umq_cmd_msg_list_rcr_idx, align 4
-  %2467 = call ptr @proto_tree_add_item(ptr noundef %2465, i32 noundef %2466, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2468 = load i32, ptr @hf_lbmc_umq_cmd_msg_list_assign_id, align 4
-  %2469 = call ptr @proto_tree_add_item(ptr noundef %2465, i32 noundef %2468, ptr noundef %324, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+2463:                                             ; preds = %2402
+  %2464 = load i32, ptr @hf_lbmc_umq_cmd_msg_list, align 4
+  %2465 = call ptr @proto_tree_add_item(ptr noundef %2408, i32 noundef %2464, ptr noundef %326, i32 noundef 20, i32 noundef 8, i32 noundef 0) #9
+  %2466 = load i32, ptr @ett_lbmc_umq_cmd_msg_list, align 4
+  %2467 = call ptr @proto_item_add_subtree(ptr noundef %2465, i32 noundef %2466) #9
+  %2468 = load i32, ptr @hf_lbmc_umq_cmd_msg_list_rcr_idx, align 4
+  %2469 = call ptr @proto_tree_add_item(ptr noundef %2467, i32 noundef %2468, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2470 = load i32, ptr @hf_lbmc_umq_cmd_msg_list_assign_id, align 4
+  %2471 = call ptr @proto_tree_add_item(ptr noundef %2467, i32 noundef %2470, ptr noundef %326, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_umq_cmd.exit
 
-2470:                                             ; preds = %2400
-  %2471 = zext i8 %2424 to i32
-  %2472 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %2415, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1741, i32 noundef %2471) #9
+2472:                                             ; preds = %2402
+  %2473 = zext i8 %2426 to i32
+  %2474 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %2417, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1741, i32 noundef %2473) #9
   br label %dissect_nhdr_umq_cmd.exit
 
-dissect_nhdr_umq_cmd.exit:                        ; preds = %2425, %dissect_nhdr_umq_rcv_msg_retrieve.exit.i, %2461, %2470
-  %.0.i854 = phi i32 [ 20, %2470 ], [ 28, %2461 ], [ %2460, %dissect_nhdr_umq_rcv_msg_retrieve.exit.i ], [ 28, %2425 ]
-  call void @proto_item_set_len(ptr noundef %2404, i32 noundef %.0.i854) #9
+dissect_nhdr_umq_cmd.exit:                        ; preds = %2427, %dissect_nhdr_umq_rcv_msg_retrieve.exit.i, %2463, %2472
+  %.0.i854 = phi i32 [ 20, %2472 ], [ 28, %2463 ], [ %2462, %dissect_nhdr_umq_rcv_msg_retrieve.exit.i ], [ 28, %2427 ]
+  call void @proto_item_set_len(ptr noundef %2406, i32 noundef %.0.i854) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2473:                                             ; preds = %323
-  %2474 = call fastcc i32 @dissect_nhdr_umq_cmd_resp(ptr noundef %324, ptr noundef %2, ptr noundef %275, i32 noundef %switch.load)
+2475:                                             ; preds = %325
+  %2476 = call fastcc i32 @dissect_nhdr_umq_cmd_resp(ptr noundef %326, ptr noundef %2, ptr noundef %275, i32 noundef %switch.load)
   br label %dissect_nhdr_apphdr_chain.exit
 
-2475:                                             ; preds = %323
-  %2476 = load i32, ptr @hf_lbmc_sri_req, align 4
-  %2477 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2476, ptr noundef %324, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %2478 = load i32, ptr @ett_lbmc_sri_req, align 4
-  %2479 = call ptr @proto_item_add_subtree(ptr noundef %2477, i32 noundef %2478) #9
-  %2480 = load i32, ptr @hf_lbmc_sri_req_next_hdr, align 4
-  %2481 = call ptr @proto_tree_add_item(ptr noundef %2479, i32 noundef %2480, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2482 = load i32, ptr @hf_lbmc_sri_req_hdr_len, align 4
-  %2483 = call ptr @proto_tree_add_item(ptr noundef %2479, i32 noundef %2482, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2484 = load i32, ptr @hf_lbmc_sri_req_flags, align 4
-  %2485 = load i32, ptr @ett_lbmc_sri_req_flags, align 4
-  %2486 = call ptr @proto_tree_add_bitmask(ptr noundef %2479, ptr noundef %324, i32 noundef 2, i32 noundef %2484, i32 noundef %2485, ptr noundef nonnull @dissect_nhdr_sri_req.flags, i32 noundef 0) #9
-  %2487 = load i32, ptr @hf_lbmc_sri_req_transport_idx, align 4
-  %2488 = call ptr @proto_tree_add_item(ptr noundef %2479, i32 noundef %2487, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2489 = load i32, ptr @hf_lbmc_sri_req_topic_idx, align 4
-  %2490 = call ptr @proto_tree_add_item(ptr noundef %2479, i32 noundef %2489, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+2477:                                             ; preds = %325
+  %2478 = load i32, ptr @hf_lbmc_sri_req, align 4
+  %2479 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2478, ptr noundef %326, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %2480 = load i32, ptr @ett_lbmc_sri_req, align 4
+  %2481 = call ptr @proto_item_add_subtree(ptr noundef %2479, i32 noundef %2480) #9
+  %2482 = load i32, ptr @hf_lbmc_sri_req_next_hdr, align 4
+  %2483 = call ptr @proto_tree_add_item(ptr noundef %2481, i32 noundef %2482, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2484 = load i32, ptr @hf_lbmc_sri_req_hdr_len, align 4
+  %2485 = call ptr @proto_tree_add_item(ptr noundef %2481, i32 noundef %2484, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2486 = load i32, ptr @hf_lbmc_sri_req_flags, align 4
+  %2487 = load i32, ptr @ett_lbmc_sri_req_flags, align 4
+  %2488 = call ptr @proto_tree_add_bitmask(ptr noundef %2481, ptr noundef %326, i32 noundef 2, i32 noundef %2486, i32 noundef %2487, ptr noundef nonnull @dissect_nhdr_sri_req.flags, i32 noundef 0) #9
+  %2489 = load i32, ptr @hf_lbmc_sri_req_transport_idx, align 4
+  %2490 = call ptr @proto_tree_add_item(ptr noundef %2481, i32 noundef %2489, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2491 = load i32, ptr @hf_lbmc_sri_req_topic_idx, align 4
+  %2492 = call ptr @proto_tree_add_item(ptr noundef %2481, i32 noundef %2491, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2491:                                             ; preds = %323
-  %2492 = load i32, ptr @hf_lbmc_ume_store_domain, align 4
-  %2493 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2492, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %2494 = load i32, ptr @ett_lbmc_ume_store_domain, align 4
-  %2495 = call ptr @proto_item_add_subtree(ptr noundef %2493, i32 noundef %2494) #9
-  %2496 = load i32, ptr @hf_lbmc_ume_store_domain_next_hdr, align 4
-  %2497 = call ptr @proto_tree_add_item(ptr noundef %2495, i32 noundef %2496, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2498 = load i32, ptr @hf_lbmc_ume_store_domain_hdr_len, align 4
-  %2499 = call ptr @proto_tree_add_item(ptr noundef %2495, i32 noundef %2498, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2500 = load i32, ptr @hf_lbmc_ume_store_domain_flags, align 4
-  %2501 = load i32, ptr @ett_lbmc_ume_store_domain_flags, align 4
-  %2502 = call ptr @proto_tree_add_bitmask(ptr noundef %2495, ptr noundef %324, i32 noundef 2, i32 noundef %2500, i32 noundef %2501, ptr noundef nonnull @dissect_nhdr_ume_store_domain.flags, i32 noundef 0) #9
-  %2503 = load i32, ptr @hf_lbmc_ume_store_domain_domain, align 4
-  %2504 = call ptr @proto_tree_add_item(ptr noundef %2495, i32 noundef %2503, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+2493:                                             ; preds = %325
+  %2494 = load i32, ptr @hf_lbmc_ume_store_domain, align 4
+  %2495 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2494, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %2496 = load i32, ptr @ett_lbmc_ume_store_domain, align 4
+  %2497 = call ptr @proto_item_add_subtree(ptr noundef %2495, i32 noundef %2496) #9
+  %2498 = load i32, ptr @hf_lbmc_ume_store_domain_next_hdr, align 4
+  %2499 = call ptr @proto_tree_add_item(ptr noundef %2497, i32 noundef %2498, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2500 = load i32, ptr @hf_lbmc_ume_store_domain_hdr_len, align 4
+  %2501 = call ptr @proto_tree_add_item(ptr noundef %2497, i32 noundef %2500, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2502 = load i32, ptr @hf_lbmc_ume_store_domain_flags, align 4
+  %2503 = load i32, ptr @ett_lbmc_ume_store_domain_flags, align 4
+  %2504 = call ptr @proto_tree_add_bitmask(ptr noundef %2497, ptr noundef %326, i32 noundef 2, i32 noundef %2502, i32 noundef %2503, ptr noundef nonnull @dissect_nhdr_ume_store_domain.flags, i32 noundef 0) #9
+  %2505 = load i32, ptr @hf_lbmc_ume_store_domain_domain, align 4
+  %2506 = call ptr @proto_tree_add_item(ptr noundef %2497, i32 noundef %2505, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2505:                                             ; preds = %323
-  %2506 = load i32, ptr @hf_lbmc_sri, align 4
-  %2507 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2506, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %2508 = load i32, ptr @ett_lbmc_sri, align 4
-  %2509 = call ptr @proto_item_add_subtree(ptr noundef %2507, i32 noundef %2508) #9
-  %2510 = load i32, ptr @hf_lbmc_sri_next_hdr, align 4
-  %2511 = call ptr @proto_tree_add_item(ptr noundef %2509, i32 noundef %2510, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2512 = load i32, ptr @hf_lbmc_sri_hdr_len, align 4
-  %2513 = call ptr @proto_tree_add_item(ptr noundef %2509, i32 noundef %2512, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2514 = load i32, ptr @hf_lbmc_sri_flags, align 4
-  %2515 = load i32, ptr @ett_lbmc_sri_flags, align 4
-  %2516 = call ptr @proto_tree_add_bitmask(ptr noundef %2509, ptr noundef %324, i32 noundef 2, i32 noundef %2514, i32 noundef %2515, ptr noundef nonnull @dissect_nhdr_sri.flags, i32 noundef 0) #9
-  %2517 = load i32, ptr @hf_lbmc_sri_version, align 4
-  %2518 = call ptr @proto_tree_add_item(ptr noundef %2509, i32 noundef %2517, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2519 = load i32, ptr @hf_lbmc_sri_low_sqn, align 4
-  %2520 = call ptr @proto_tree_add_item(ptr noundef %2509, i32 noundef %2519, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %2521 = load i32, ptr @hf_lbmc_sri_high_sqn, align 4
-  %2522 = call ptr @proto_tree_add_item(ptr noundef %2509, i32 noundef %2521, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+2507:                                             ; preds = %325
+  %2508 = load i32, ptr @hf_lbmc_sri, align 4
+  %2509 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2508, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %2510 = load i32, ptr @ett_lbmc_sri, align 4
+  %2511 = call ptr @proto_item_add_subtree(ptr noundef %2509, i32 noundef %2510) #9
+  %2512 = load i32, ptr @hf_lbmc_sri_next_hdr, align 4
+  %2513 = call ptr @proto_tree_add_item(ptr noundef %2511, i32 noundef %2512, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2514 = load i32, ptr @hf_lbmc_sri_hdr_len, align 4
+  %2515 = call ptr @proto_tree_add_item(ptr noundef %2511, i32 noundef %2514, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2516 = load i32, ptr @hf_lbmc_sri_flags, align 4
+  %2517 = load i32, ptr @ett_lbmc_sri_flags, align 4
+  %2518 = call ptr @proto_tree_add_bitmask(ptr noundef %2511, ptr noundef %326, i32 noundef 2, i32 noundef %2516, i32 noundef %2517, ptr noundef nonnull @dissect_nhdr_sri.flags, i32 noundef 0) #9
+  %2519 = load i32, ptr @hf_lbmc_sri_version, align 4
+  %2520 = call ptr @proto_tree_add_item(ptr noundef %2511, i32 noundef %2519, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2521 = load i32, ptr @hf_lbmc_sri_low_sqn, align 4
+  %2522 = call ptr @proto_tree_add_item(ptr noundef %2511, i32 noundef %2521, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %2523 = load i32, ptr @hf_lbmc_sri_high_sqn, align 4
+  %2524 = call ptr @proto_tree_add_item(ptr noundef %2511, i32 noundef %2523, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2523:                                             ; preds = %323
-  %2524 = load i32, ptr @hf_lbmc_route_info, align 4
-  %2525 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2524, ptr noundef %324, i32 noundef 0, i32 noundef 32, i32 noundef 0) #9
-  %2526 = load i32, ptr @ett_lbmc_route_info, align 4
-  %2527 = call ptr @proto_item_add_subtree(ptr noundef %2525, i32 noundef %2526) #9
-  %2528 = load i32, ptr @hf_lbmc_route_info_next_hdr, align 4
-  %2529 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2528, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2530 = load i32, ptr @hf_lbmc_route_info_hdr_len, align 4
-  %2531 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2530, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2532 = load i32, ptr @hf_lbmc_route_info_flags, align 4
-  %2533 = load i32, ptr @ett_lbmc_route_info_flags, align 4
-  %2534 = call ptr @proto_tree_add_bitmask(ptr noundef %2527, ptr noundef %324, i32 noundef 2, i32 noundef %2532, i32 noundef %2533, ptr noundef nonnull @dissect_nhdr_route_info.flags, i32 noundef 0) #9
-  %2535 = load i32, ptr @hf_lbmc_route_info_gateway_version, align 4
-  %2536 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2535, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2537 = load i32, ptr @hf_lbmc_route_info_configuration_signature, align 4
-  %2538 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2537, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %2539 = load i32, ptr @hf_lbmc_route_info_node_id, align 4
-  %2540 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2539, ptr noundef %324, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
-  %2541 = load i32, ptr @hf_lbmc_route_info_topology, align 4
-  %2542 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2541, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2543 = load i32, ptr @hf_lbmc_route_info_vers, align 4
-  %2544 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2543, ptr noundef %324, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
-  %2545 = load i32, ptr @hf_lbmc_route_info_sqn, align 4
-  %2546 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2545, ptr noundef %324, i32 noundef 26, i32 noundef 2, i32 noundef 0) #9
-  %2547 = load i32, ptr @hf_lbmc_route_info_ttl, align 4
-  %2548 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2547, ptr noundef %324, i32 noundef 28, i32 noundef 1, i32 noundef 0) #9
-  %2549 = load i32, ptr @hf_lbmc_route_info_reserved1, align 4
-  %2550 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2549, ptr noundef %324, i32 noundef 29, i32 noundef 1, i32 noundef 0) #9
-  %2551 = load i32, ptr @hf_lbmc_route_info_reserved2, align 4
-  %2552 = call ptr @proto_tree_add_item(ptr noundef %2527, i32 noundef %2551, ptr noundef %324, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
+2525:                                             ; preds = %325
+  %2526 = load i32, ptr @hf_lbmc_route_info, align 4
+  %2527 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2526, ptr noundef %326, i32 noundef 0, i32 noundef 32, i32 noundef 0) #9
+  %2528 = load i32, ptr @ett_lbmc_route_info, align 4
+  %2529 = call ptr @proto_item_add_subtree(ptr noundef %2527, i32 noundef %2528) #9
+  %2530 = load i32, ptr @hf_lbmc_route_info_next_hdr, align 4
+  %2531 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2530, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2532 = load i32, ptr @hf_lbmc_route_info_hdr_len, align 4
+  %2533 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2532, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2534 = load i32, ptr @hf_lbmc_route_info_flags, align 4
+  %2535 = load i32, ptr @ett_lbmc_route_info_flags, align 4
+  %2536 = call ptr @proto_tree_add_bitmask(ptr noundef %2529, ptr noundef %326, i32 noundef 2, i32 noundef %2534, i32 noundef %2535, ptr noundef nonnull @dissect_nhdr_route_info.flags, i32 noundef 0) #9
+  %2537 = load i32, ptr @hf_lbmc_route_info_gateway_version, align 4
+  %2538 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2537, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2539 = load i32, ptr @hf_lbmc_route_info_configuration_signature, align 4
+  %2540 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2539, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %2541 = load i32, ptr @hf_lbmc_route_info_node_id, align 4
+  %2542 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2541, ptr noundef %326, i32 noundef 12, i32 noundef 8, i32 noundef 0) #9
+  %2543 = load i32, ptr @hf_lbmc_route_info_topology, align 4
+  %2544 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2543, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2545 = load i32, ptr @hf_lbmc_route_info_vers, align 4
+  %2546 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2545, ptr noundef %326, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
+  %2547 = load i32, ptr @hf_lbmc_route_info_sqn, align 4
+  %2548 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2547, ptr noundef %326, i32 noundef 26, i32 noundef 2, i32 noundef 0) #9
+  %2549 = load i32, ptr @hf_lbmc_route_info_ttl, align 4
+  %2550 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2549, ptr noundef %326, i32 noundef 28, i32 noundef 1, i32 noundef 0) #9
+  %2551 = load i32, ptr @hf_lbmc_route_info_reserved1, align 4
+  %2552 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2551, ptr noundef %326, i32 noundef 29, i32 noundef 1, i32 noundef 0) #9
+  %2553 = load i32, ptr @hf_lbmc_route_info_reserved2, align 4
+  %2554 = call ptr @proto_tree_add_item(ptr noundef %2529, i32 noundef %2553, ptr noundef %326, i32 noundef 30, i32 noundef 2, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2553:                                             ; preds = %323
-  %2554 = load i32, ptr @hf_lbmc_route_info_neighbor, align 4
-  %2555 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2554, ptr noundef %324, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
-  %2556 = load i32, ptr @ett_lbmc_route_info_neighbor, align 4
-  %2557 = call ptr @proto_item_add_subtree(ptr noundef %2555, i32 noundef %2556) #9
-  %2558 = load i32, ptr @hf_lbmc_route_info_neighbor_next_hdr, align 4
-  %2559 = call ptr @proto_tree_add_item(ptr noundef %2557, i32 noundef %2558, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2560 = load i32, ptr @hf_lbmc_route_info_neighbor_hdr_len, align 4
-  %2561 = call ptr @proto_tree_add_item(ptr noundef %2557, i32 noundef %2560, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2562 = load i32, ptr @hf_lbmc_route_info_neighbor_flags, align 4
-  %2563 = load i32, ptr @ett_lbmc_route_info_neighbor_flags, align 4
-  %2564 = call ptr @proto_tree_add_bitmask(ptr noundef %2557, ptr noundef %324, i32 noundef 2, i32 noundef %2562, i32 noundef %2563, ptr noundef nonnull @dissect_nhdr_route_info_neighbor.flags, i32 noundef 0) #9
-  %2565 = load i32, ptr @hf_lbmc_route_info_neighbor_node_id, align 4
-  %2566 = call ptr @proto_tree_add_item(ptr noundef %2557, i32 noundef %2565, ptr noundef %324, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
-  %2567 = load i32, ptr @hf_lbmc_route_info_neighbor_ingress_cost, align 4
-  %2568 = call ptr @proto_tree_add_item(ptr noundef %2557, i32 noundef %2567, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %2569 = load i32, ptr @hf_lbmc_route_info_neighbor_egress_cost, align 4
-  %2570 = call ptr @proto_tree_add_item(ptr noundef %2557, i32 noundef %2569, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+2555:                                             ; preds = %325
+  %2556 = load i32, ptr @hf_lbmc_route_info_neighbor, align 4
+  %2557 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2556, ptr noundef %326, i32 noundef 0, i32 noundef 20, i32 noundef 0) #9
+  %2558 = load i32, ptr @ett_lbmc_route_info_neighbor, align 4
+  %2559 = call ptr @proto_item_add_subtree(ptr noundef %2557, i32 noundef %2558) #9
+  %2560 = load i32, ptr @hf_lbmc_route_info_neighbor_next_hdr, align 4
+  %2561 = call ptr @proto_tree_add_item(ptr noundef %2559, i32 noundef %2560, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2562 = load i32, ptr @hf_lbmc_route_info_neighbor_hdr_len, align 4
+  %2563 = call ptr @proto_tree_add_item(ptr noundef %2559, i32 noundef %2562, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2564 = load i32, ptr @hf_lbmc_route_info_neighbor_flags, align 4
+  %2565 = load i32, ptr @ett_lbmc_route_info_neighbor_flags, align 4
+  %2566 = call ptr @proto_tree_add_bitmask(ptr noundef %2559, ptr noundef %326, i32 noundef 2, i32 noundef %2564, i32 noundef %2565, ptr noundef nonnull @dissect_nhdr_route_info_neighbor.flags, i32 noundef 0) #9
+  %2567 = load i32, ptr @hf_lbmc_route_info_neighbor_node_id, align 4
+  %2568 = call ptr @proto_tree_add_item(ptr noundef %2559, i32 noundef %2567, ptr noundef %326, i32 noundef 4, i32 noundef 8, i32 noundef 0) #9
+  %2569 = load i32, ptr @hf_lbmc_route_info_neighbor_ingress_cost, align 4
+  %2570 = call ptr @proto_tree_add_item(ptr noundef %2559, i32 noundef %2569, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %2571 = load i32, ptr @hf_lbmc_route_info_neighbor_egress_cost, align 4
+  %2572 = call ptr @proto_tree_add_item(ptr noundef %2559, i32 noundef %2571, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2571:                                             ; preds = %323
-  %2572 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2573 = load i32, ptr @hf_lbmc_gateway_name, align 4
-  %2574 = zext i8 %2572 to i32
-  %2575 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2573, ptr noundef %324, i32 noundef 0, i32 noundef %2574, i32 noundef 0) #9
-  %2576 = load i32, ptr @ett_lbmc_gateway_name, align 4
-  %2577 = call ptr @proto_item_add_subtree(ptr noundef %2575, i32 noundef %2576) #9
-  %2578 = load i32, ptr @hf_lbmc_gateway_name_next_hdr, align 4
-  %2579 = call ptr @proto_tree_add_item(ptr noundef %2577, i32 noundef %2578, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2580 = load i32, ptr @hf_lbmc_gateway_name_hdr_len, align 4
-  %2581 = call ptr @proto_tree_add_item(ptr noundef %2577, i32 noundef %2580, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2582 = load i32, ptr @hf_lbmc_gateway_name_flags, align 4
-  %2583 = load i32, ptr @ett_lbmc_gateway_name_flags, align 4
-  %2584 = call ptr @proto_tree_add_bitmask(ptr noundef %2577, ptr noundef %324, i32 noundef 2, i32 noundef %2582, i32 noundef %2583, ptr noundef nonnull @dissect_nhdr_gateway_name.flags, i32 noundef 0) #9
-  %2585 = icmp ugt i8 %2572, 4
-  br i1 %2585, label %2586, label %2590
+2573:                                             ; preds = %325
+  %2574 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2575 = load i32, ptr @hf_lbmc_gateway_name, align 4
+  %2576 = zext i8 %2574 to i32
+  %2577 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2575, ptr noundef %326, i32 noundef 0, i32 noundef %2576, i32 noundef 0) #9
+  %2578 = load i32, ptr @ett_lbmc_gateway_name, align 4
+  %2579 = call ptr @proto_item_add_subtree(ptr noundef %2577, i32 noundef %2578) #9
+  %2580 = load i32, ptr @hf_lbmc_gateway_name_next_hdr, align 4
+  %2581 = call ptr @proto_tree_add_item(ptr noundef %2579, i32 noundef %2580, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2582 = load i32, ptr @hf_lbmc_gateway_name_hdr_len, align 4
+  %2583 = call ptr @proto_tree_add_item(ptr noundef %2579, i32 noundef %2582, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2584 = load i32, ptr @hf_lbmc_gateway_name_flags, align 4
+  %2585 = load i32, ptr @ett_lbmc_gateway_name_flags, align 4
+  %2586 = call ptr @proto_tree_add_bitmask(ptr noundef %2579, ptr noundef %326, i32 noundef 2, i32 noundef %2584, i32 noundef %2585, ptr noundef nonnull @dissect_nhdr_gateway_name.flags, i32 noundef 0) #9
+  %2587 = icmp ugt i8 %2574, 4
+  br i1 %2587, label %2588, label %2592
 
-2586:                                             ; preds = %2571
-  %2587 = add nsw i32 %2574, -4
-  %2588 = load i32, ptr @hf_lbmc_gateway_name_gateway_name, align 4
-  %2589 = call ptr @proto_tree_add_item(ptr noundef %2577, i32 noundef %2588, ptr noundef %324, i32 noundef 4, i32 noundef %2587, i32 noundef 0) #9
+2588:                                             ; preds = %2573
+  %2589 = add nsw i32 %2576, -4
+  %2590 = load i32, ptr @hf_lbmc_gateway_name_gateway_name, align 4
+  %2591 = call ptr @proto_tree_add_item(ptr noundef %2579, i32 noundef %2590, ptr noundef %326, i32 noundef 4, i32 noundef %2589, i32 noundef 0) #9
   br label %dissect_nhdr_gateway_name.exit
 
-2590:                                             ; preds = %2571
-  %2591 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2581, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
+2592:                                             ; preds = %2573
+  %2593 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2583, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
   br label %dissect_nhdr_gateway_name.exit
 
-dissect_nhdr_gateway_name.exit:                   ; preds = %2586, %2590
-  %.0.i855 = phi i32 [ %2574, %2586 ], [ 4, %2590 ]
-  call void @proto_item_set_len(ptr noundef %2575, i32 noundef %.0.i855) #9
+dissect_nhdr_gateway_name.exit:                   ; preds = %2588, %2592
+  %.0.i855 = phi i32 [ %2576, %2588 ], [ 4, %2592 ]
+  call void @proto_item_set_len(ptr noundef %2577, i32 noundef %.0.i855) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2592:                                             ; preds = %323
-  %2593 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  switch i8 %2593, label %2718 [
-    i8 1, label %2594
-    i8 2, label %2618
-    i8 3, label %2669
-    i8 4, label %2702
+2594:                                             ; preds = %325
+  %2595 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  switch i8 %2595, label %2720 [
+    i8 1, label %2596
+    i8 2, label %2620
+    i8 3, label %2671
+    i8 4, label %2704
   ]
 
-2594:                                             ; preds = %2592
-  %2595 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2596 = load i32, ptr @hf_lbmc_auth_request, align 4
-  %2597 = zext i8 %2595 to i32
-  %2598 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2596, ptr noundef %324, i32 noundef 0, i32 noundef %2597, i32 noundef 0) #9
-  %2599 = load i32, ptr @ett_lbmc_auth_request, align 4
-  %2600 = call ptr @proto_item_add_subtree(ptr noundef %2598, i32 noundef %2599) #9
-  %2601 = load i32, ptr @hf_lbmc_auth_request_next_hdr, align 4
-  %2602 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2601, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2603 = load i32, ptr @hf_lbmc_auth_request_hdr_len, align 4
-  %2604 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2603, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2605 = load i32, ptr @hf_lbmc_auth_request_flags, align 4
-  %2606 = load i32, ptr @ett_lbmc_auth_request_flags, align 4
-  %2607 = call ptr @proto_tree_add_bitmask(ptr noundef %2600, ptr noundef %324, i32 noundef 2, i32 noundef %2605, i32 noundef %2606, ptr noundef nonnull @dissect_nhdr_auth_request.flags, i32 noundef 0) #9
-  %2608 = load i32, ptr @hf_lbmc_auth_request_opid, align 4
-  %2609 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2608, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2610 = load i32, ptr @hf_lbmc_auth_request_user_len, align 4
-  %2611 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2610, ptr noundef %324, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
-  %2612 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 4) #9
-  %.not.i856 = icmp eq i8 %2612, 0
-  br i1 %.not.i856, label %dissect_nhdr_auth_request.exit, label %2613
+2596:                                             ; preds = %2594
+  %2597 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2598 = load i32, ptr @hf_lbmc_auth_request, align 4
+  %2599 = zext i8 %2597 to i32
+  %2600 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2598, ptr noundef %326, i32 noundef 0, i32 noundef %2599, i32 noundef 0) #9
+  %2601 = load i32, ptr @ett_lbmc_auth_request, align 4
+  %2602 = call ptr @proto_item_add_subtree(ptr noundef %2600, i32 noundef %2601) #9
+  %2603 = load i32, ptr @hf_lbmc_auth_request_next_hdr, align 4
+  %2604 = call ptr @proto_tree_add_item(ptr noundef %2602, i32 noundef %2603, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2605 = load i32, ptr @hf_lbmc_auth_request_hdr_len, align 4
+  %2606 = call ptr @proto_tree_add_item(ptr noundef %2602, i32 noundef %2605, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2607 = load i32, ptr @hf_lbmc_auth_request_flags, align 4
+  %2608 = load i32, ptr @ett_lbmc_auth_request_flags, align 4
+  %2609 = call ptr @proto_tree_add_bitmask(ptr noundef %2602, ptr noundef %326, i32 noundef 2, i32 noundef %2607, i32 noundef %2608, ptr noundef nonnull @dissect_nhdr_auth_request.flags, i32 noundef 0) #9
+  %2610 = load i32, ptr @hf_lbmc_auth_request_opid, align 4
+  %2611 = call ptr @proto_tree_add_item(ptr noundef %2602, i32 noundef %2610, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2612 = load i32, ptr @hf_lbmc_auth_request_user_len, align 4
+  %2613 = call ptr @proto_tree_add_item(ptr noundef %2602, i32 noundef %2612, ptr noundef %326, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
+  %2614 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 4) #9
+  %.not.i856 = icmp eq i8 %2614, 0
+  br i1 %.not.i856, label %dissect_nhdr_auth_request.exit, label %2615
 
-2613:                                             ; preds = %2594
-  %2614 = zext i8 %2612 to i32
-  %2615 = load i32, ptr @hf_lbmc_auth_request_user_name, align 4
-  %2616 = call ptr @proto_tree_add_item(ptr noundef %2600, i32 noundef %2615, ptr noundef %324, i32 noundef 5, i32 noundef %2614, i32 noundef 0) #9
-  %2617 = add nuw nsw i32 %2614, 5
+2615:                                             ; preds = %2596
+  %2616 = zext i8 %2614 to i32
+  %2617 = load i32, ptr @hf_lbmc_auth_request_user_name, align 4
+  %2618 = call ptr @proto_tree_add_item(ptr noundef %2602, i32 noundef %2617, ptr noundef %326, i32 noundef 5, i32 noundef %2616, i32 noundef 0) #9
+  %2619 = add nuw nsw i32 %2616, 5
   br label %dissect_nhdr_auth_request.exit
 
-dissect_nhdr_auth_request.exit:                   ; preds = %2594, %2613
-  %.0.i857 = phi i32 [ %2617, %2613 ], [ 5, %2594 ]
-  call void @proto_item_set_len(ptr noundef %2598, i32 noundef %.0.i857) #9
+dissect_nhdr_auth_request.exit:                   ; preds = %2596, %2615
+  %.0.i857 = phi i32 [ %2619, %2615 ], [ 5, %2596 ]
+  call void @proto_item_set_len(ptr noundef %2600, i32 noundef %.0.i857) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2618:                                             ; preds = %2592
-  %2619 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2620 = load i32, ptr @hf_lbmc_auth_challenge, align 4
-  %2621 = zext i8 %2619 to i32
-  %2622 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2620, ptr noundef %324, i32 noundef 0, i32 noundef %2621, i32 noundef 0) #9
-  %2623 = load i32, ptr @ett_lbmc_auth_challenge, align 4
-  %2624 = call ptr @proto_item_add_subtree(ptr noundef %2622, i32 noundef %2623) #9
-  %2625 = load i32, ptr @hf_lbmc_auth_challenge_next_hdr, align 4
-  %2626 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2625, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2627 = load i32, ptr @hf_lbmc_auth_challenge_hdr_len, align 4
-  %2628 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2627, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2629 = load i32, ptr @hf_lbmc_auth_challenge_flags, align 4
-  %2630 = load i32, ptr @ett_lbmc_auth_challenge_flags, align 4
-  %2631 = call ptr @proto_tree_add_bitmask(ptr noundef %2624, ptr noundef %324, i32 noundef 2, i32 noundef %2629, i32 noundef %2630, ptr noundef nonnull @dissect_nhdr_auth_challenge.flags, i32 noundef 0) #9
-  %2632 = load i32, ptr @hf_lbmc_auth_challenge_opid, align 4
-  %2633 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2632, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2634 = load i32, ptr @hf_lbmc_auth_challenge_mod_len, align 4
-  %2635 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2634, ptr noundef %324, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
-  %2636 = load i32, ptr @hf_lbmc_auth_challenge_gen_len, align 4
-  %2637 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2636, ptr noundef %324, i32 noundef 5, i32 noundef 1, i32 noundef 0) #9
-  %2638 = load i32, ptr @hf_lbmc_auth_challenge_salt_len, align 4
-  %2639 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2638, ptr noundef %324, i32 noundef 6, i32 noundef 1, i32 noundef 0) #9
-  %2640 = load i32, ptr @hf_lbmc_auth_challenge_pubkey_len, align 4
-  %2641 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2640, ptr noundef %324, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
-  %2642 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 4) #9
-  %.not.i858 = icmp eq i8 %2642, 0
-  br i1 %.not.i858, label %2648, label %2643
+2620:                                             ; preds = %2594
+  %2621 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2622 = load i32, ptr @hf_lbmc_auth_challenge, align 4
+  %2623 = zext i8 %2621 to i32
+  %2624 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2622, ptr noundef %326, i32 noundef 0, i32 noundef %2623, i32 noundef 0) #9
+  %2625 = load i32, ptr @ett_lbmc_auth_challenge, align 4
+  %2626 = call ptr @proto_item_add_subtree(ptr noundef %2624, i32 noundef %2625) #9
+  %2627 = load i32, ptr @hf_lbmc_auth_challenge_next_hdr, align 4
+  %2628 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2627, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2629 = load i32, ptr @hf_lbmc_auth_challenge_hdr_len, align 4
+  %2630 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2629, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2631 = load i32, ptr @hf_lbmc_auth_challenge_flags, align 4
+  %2632 = load i32, ptr @ett_lbmc_auth_challenge_flags, align 4
+  %2633 = call ptr @proto_tree_add_bitmask(ptr noundef %2626, ptr noundef %326, i32 noundef 2, i32 noundef %2631, i32 noundef %2632, ptr noundef nonnull @dissect_nhdr_auth_challenge.flags, i32 noundef 0) #9
+  %2634 = load i32, ptr @hf_lbmc_auth_challenge_opid, align 4
+  %2635 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2634, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2636 = load i32, ptr @hf_lbmc_auth_challenge_mod_len, align 4
+  %2637 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2636, ptr noundef %326, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
+  %2638 = load i32, ptr @hf_lbmc_auth_challenge_gen_len, align 4
+  %2639 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2638, ptr noundef %326, i32 noundef 5, i32 noundef 1, i32 noundef 0) #9
+  %2640 = load i32, ptr @hf_lbmc_auth_challenge_salt_len, align 4
+  %2641 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2640, ptr noundef %326, i32 noundef 6, i32 noundef 1, i32 noundef 0) #9
+  %2642 = load i32, ptr @hf_lbmc_auth_challenge_pubkey_len, align 4
+  %2643 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2642, ptr noundef %326, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  %2644 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 4) #9
+  %.not.i858 = icmp eq i8 %2644, 0
+  br i1 %.not.i858, label %2650, label %2645
 
-2643:                                             ; preds = %2618
-  %2644 = zext i8 %2642 to i32
-  %2645 = load i32, ptr @hf_lbmc_auth_challenge_mod, align 4
-  %2646 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2645, ptr noundef %324, i32 noundef 8, i32 noundef %2644, i32 noundef 0) #9
-  %2647 = add nuw nsw i32 %2644, 8
-  br label %2648
+2645:                                             ; preds = %2620
+  %2646 = zext i8 %2644 to i32
+  %2647 = load i32, ptr @hf_lbmc_auth_challenge_mod, align 4
+  %2648 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2647, ptr noundef %326, i32 noundef 8, i32 noundef %2646, i32 noundef 0) #9
+  %2649 = add nuw nsw i32 %2646, 8
+  br label %2650
 
-2648:                                             ; preds = %2643, %2618
-  %.077.i = phi i32 [ %2647, %2643 ], [ 8, %2618 ]
-  %2649 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 5) #9
-  %.not84.i = icmp eq i8 %2649, 0
-  br i1 %.not84.i, label %2655, label %2650
+2650:                                             ; preds = %2645, %2620
+  %.077.i = phi i32 [ %2649, %2645 ], [ 8, %2620 ]
+  %2651 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 5) #9
+  %.not84.i = icmp eq i8 %2651, 0
+  br i1 %.not84.i, label %2657, label %2652
 
-2650:                                             ; preds = %2648
-  %2651 = zext i8 %2649 to i32
-  %2652 = load i32, ptr @hf_lbmc_auth_challenge_gen, align 4
-  %2653 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2652, ptr noundef %324, i32 noundef %.077.i, i32 noundef %2651, i32 noundef 0) #9
-  %2654 = add nuw nsw i32 %.077.i, %2651
-  br label %2655
+2652:                                             ; preds = %2650
+  %2653 = zext i8 %2651 to i32
+  %2654 = load i32, ptr @hf_lbmc_auth_challenge_gen, align 4
+  %2655 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2654, ptr noundef %326, i32 noundef %.077.i, i32 noundef %2653, i32 noundef 0) #9
+  %2656 = add nuw nsw i32 %.077.i, %2653
+  br label %2657
 
-2655:                                             ; preds = %2650, %2648
-  %.178.i = phi i32 [ %2654, %2650 ], [ %.077.i, %2648 ]
-  %2656 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 6) #9
-  %.not85.i = icmp eq i8 %2656, 0
-  br i1 %.not85.i, label %2662, label %2657
+2657:                                             ; preds = %2652, %2650
+  %.178.i = phi i32 [ %2656, %2652 ], [ %.077.i, %2650 ]
+  %2658 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 6) #9
+  %.not85.i = icmp eq i8 %2658, 0
+  br i1 %.not85.i, label %2664, label %2659
 
-2657:                                             ; preds = %2655
-  %2658 = zext i8 %2656 to i32
-  %2659 = load i32, ptr @hf_lbmc_auth_challenge_salt, align 4
-  %2660 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2659, ptr noundef %324, i32 noundef %.178.i, i32 noundef %2658, i32 noundef 0) #9
-  %2661 = add nuw nsw i32 %.178.i, %2658
-  br label %2662
+2659:                                             ; preds = %2657
+  %2660 = zext i8 %2658 to i32
+  %2661 = load i32, ptr @hf_lbmc_auth_challenge_salt, align 4
+  %2662 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2661, ptr noundef %326, i32 noundef %.178.i, i32 noundef %2660, i32 noundef 0) #9
+  %2663 = add nuw nsw i32 %.178.i, %2660
+  br label %2664
 
-2662:                                             ; preds = %2657, %2655
-  %.279.i = phi i32 [ %2661, %2657 ], [ %.178.i, %2655 ]
-  %2663 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 7) #9
-  %.not86.i = icmp eq i8 %2663, 0
-  br i1 %.not86.i, label %dissect_nhdr_auth_challenge.exit, label %2664
+2664:                                             ; preds = %2659, %2657
+  %.279.i = phi i32 [ %2663, %2659 ], [ %.178.i, %2657 ]
+  %2665 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 7) #9
+  %.not86.i = icmp eq i8 %2665, 0
+  br i1 %.not86.i, label %dissect_nhdr_auth_challenge.exit, label %2666
 
-2664:                                             ; preds = %2662
-  %2665 = zext i8 %2663 to i32
-  %2666 = load i32, ptr @hf_lbmc_auth_challenge_pubkey, align 4
-  %2667 = call ptr @proto_tree_add_item(ptr noundef %2624, i32 noundef %2666, ptr noundef %324, i32 noundef %.279.i, i32 noundef %2665, i32 noundef 0) #9
-  %2668 = add nuw nsw i32 %.279.i, %2665
+2666:                                             ; preds = %2664
+  %2667 = zext i8 %2665 to i32
+  %2668 = load i32, ptr @hf_lbmc_auth_challenge_pubkey, align 4
+  %2669 = call ptr @proto_tree_add_item(ptr noundef %2626, i32 noundef %2668, ptr noundef %326, i32 noundef %.279.i, i32 noundef %2667, i32 noundef 0) #9
+  %2670 = add nuw nsw i32 %.279.i, %2667
   br label %dissect_nhdr_auth_challenge.exit
 
-dissect_nhdr_auth_challenge.exit:                 ; preds = %2662, %2664
-  %.3.i = phi i32 [ %2668, %2664 ], [ %.279.i, %2662 ]
-  call void @proto_item_set_len(ptr noundef %2622, i32 noundef %.3.i) #9
+dissect_nhdr_auth_challenge.exit:                 ; preds = %2664, %2666
+  %.3.i = phi i32 [ %2670, %2666 ], [ %.279.i, %2664 ]
+  call void @proto_item_set_len(ptr noundef %2624, i32 noundef %.3.i) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2669:                                             ; preds = %2592
-  %2670 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2671 = load i32, ptr @hf_lbmc_auth_challenge_rsp, align 4
-  %2672 = zext i8 %2670 to i32
-  %2673 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2671, ptr noundef %324, i32 noundef 0, i32 noundef %2672, i32 noundef 0) #9
-  %2674 = load i32, ptr @ett_lbmc_auth_challenge_rsp, align 4
-  %2675 = call ptr @proto_item_add_subtree(ptr noundef %2673, i32 noundef %2674) #9
-  %2676 = load i32, ptr @hf_lbmc_auth_challenge_rsp_next_hdr, align 4
-  %2677 = call ptr @proto_tree_add_item(ptr noundef %2675, i32 noundef %2676, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2678 = load i32, ptr @hf_lbmc_auth_challenge_rsp_hdr_len, align 4
-  %2679 = call ptr @proto_tree_add_item(ptr noundef %2675, i32 noundef %2678, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2680 = load i32, ptr @hf_lbmc_auth_challenge_rsp_flags, align 4
-  %2681 = load i32, ptr @ett_lbmc_auth_challenge_rsp_flags, align 4
-  %2682 = call ptr @proto_tree_add_bitmask(ptr noundef %2675, ptr noundef %324, i32 noundef 2, i32 noundef %2680, i32 noundef %2681, ptr noundef nonnull @dissect_nhdr_auth_challenge_rsp.flags, i32 noundef 0) #9
-  %2683 = load i32, ptr @hf_lbmc_auth_challenge_rsp_opid, align 4
-  %2684 = call ptr @proto_tree_add_item(ptr noundef %2675, i32 noundef %2683, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2685 = load i32, ptr @hf_lbmc_auth_challenge_rsp_pubkey_len, align 4
-  %2686 = call ptr @proto_tree_add_item(ptr noundef %2675, i32 noundef %2685, ptr noundef %324, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
-  %2687 = load i32, ptr @hf_lbmc_auth_challenge_rsp_evidence_len, align 4
-  %2688 = call ptr @proto_tree_add_item(ptr noundef %2675, i32 noundef %2687, ptr noundef %324, i32 noundef 5, i32 noundef 1, i32 noundef 0) #9
-  %2689 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 4) #9
-  %.not.i859 = icmp eq i8 %2689, 0
-  br i1 %.not.i859, label %2695, label %2690
+2671:                                             ; preds = %2594
+  %2672 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2673 = load i32, ptr @hf_lbmc_auth_challenge_rsp, align 4
+  %2674 = zext i8 %2672 to i32
+  %2675 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2673, ptr noundef %326, i32 noundef 0, i32 noundef %2674, i32 noundef 0) #9
+  %2676 = load i32, ptr @ett_lbmc_auth_challenge_rsp, align 4
+  %2677 = call ptr @proto_item_add_subtree(ptr noundef %2675, i32 noundef %2676) #9
+  %2678 = load i32, ptr @hf_lbmc_auth_challenge_rsp_next_hdr, align 4
+  %2679 = call ptr @proto_tree_add_item(ptr noundef %2677, i32 noundef %2678, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2680 = load i32, ptr @hf_lbmc_auth_challenge_rsp_hdr_len, align 4
+  %2681 = call ptr @proto_tree_add_item(ptr noundef %2677, i32 noundef %2680, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2682 = load i32, ptr @hf_lbmc_auth_challenge_rsp_flags, align 4
+  %2683 = load i32, ptr @ett_lbmc_auth_challenge_rsp_flags, align 4
+  %2684 = call ptr @proto_tree_add_bitmask(ptr noundef %2677, ptr noundef %326, i32 noundef 2, i32 noundef %2682, i32 noundef %2683, ptr noundef nonnull @dissect_nhdr_auth_challenge_rsp.flags, i32 noundef 0) #9
+  %2685 = load i32, ptr @hf_lbmc_auth_challenge_rsp_opid, align 4
+  %2686 = call ptr @proto_tree_add_item(ptr noundef %2677, i32 noundef %2685, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2687 = load i32, ptr @hf_lbmc_auth_challenge_rsp_pubkey_len, align 4
+  %2688 = call ptr @proto_tree_add_item(ptr noundef %2677, i32 noundef %2687, ptr noundef %326, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
+  %2689 = load i32, ptr @hf_lbmc_auth_challenge_rsp_evidence_len, align 4
+  %2690 = call ptr @proto_tree_add_item(ptr noundef %2677, i32 noundef %2689, ptr noundef %326, i32 noundef 5, i32 noundef 1, i32 noundef 0) #9
+  %2691 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 4) #9
+  %.not.i859 = icmp eq i8 %2691, 0
+  br i1 %.not.i859, label %2697, label %2692
 
-2690:                                             ; preds = %2669
-  %2691 = zext i8 %2689 to i32
-  %2692 = load i32, ptr @hf_lbmc_auth_challenge_rsp_pubkey, align 4
-  %2693 = call ptr @proto_tree_add_item(ptr noundef %2675, i32 noundef %2692, ptr noundef %324, i32 noundef 6, i32 noundef %2691, i32 noundef 0) #9
-  %2694 = add nuw nsw i32 %2691, 6
-  br label %2695
+2692:                                             ; preds = %2671
+  %2693 = zext i8 %2691 to i32
+  %2694 = load i32, ptr @hf_lbmc_auth_challenge_rsp_pubkey, align 4
+  %2695 = call ptr @proto_tree_add_item(ptr noundef %2677, i32 noundef %2694, ptr noundef %326, i32 noundef 6, i32 noundef %2693, i32 noundef 0) #9
+  %2696 = add nuw nsw i32 %2693, 6
+  br label %2697
 
-2695:                                             ; preds = %2690, %2669
-  %.049.i = phi i32 [ %2694, %2690 ], [ 6, %2669 ]
-  %2696 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 5) #9
-  %.not52.i = icmp eq i8 %2696, 0
-  br i1 %.not52.i, label %dissect_nhdr_auth_challenge_rsp.exit, label %2697
+2697:                                             ; preds = %2692, %2671
+  %.049.i = phi i32 [ %2696, %2692 ], [ 6, %2671 ]
+  %2698 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 5) #9
+  %.not52.i = icmp eq i8 %2698, 0
+  br i1 %.not52.i, label %dissect_nhdr_auth_challenge_rsp.exit, label %2699
 
-2697:                                             ; preds = %2695
-  %2698 = zext i8 %2696 to i32
-  %2699 = load i32, ptr @hf_lbmc_auth_challenge_rsp_evidence, align 4
-  %2700 = call ptr @proto_tree_add_item(ptr noundef %2675, i32 noundef %2699, ptr noundef %324, i32 noundef %.049.i, i32 noundef %2698, i32 noundef 0) #9
-  %2701 = add nuw nsw i32 %.049.i, %2698
+2699:                                             ; preds = %2697
+  %2700 = zext i8 %2698 to i32
+  %2701 = load i32, ptr @hf_lbmc_auth_challenge_rsp_evidence, align 4
+  %2702 = call ptr @proto_tree_add_item(ptr noundef %2677, i32 noundef %2701, ptr noundef %326, i32 noundef %.049.i, i32 noundef %2700, i32 noundef 0) #9
+  %2703 = add nuw nsw i32 %.049.i, %2700
   br label %dissect_nhdr_auth_challenge_rsp.exit
 
-dissect_nhdr_auth_challenge_rsp.exit:             ; preds = %2695, %2697
-  %.1.i860 = phi i32 [ %2701, %2697 ], [ %.049.i, %2695 ]
-  call void @proto_item_set_len(ptr noundef %2673, i32 noundef %.1.i860) #9
+dissect_nhdr_auth_challenge_rsp.exit:             ; preds = %2697, %2699
+  %.1.i860 = phi i32 [ %2703, %2699 ], [ %.049.i, %2697 ]
+  call void @proto_item_set_len(ptr noundef %2675, i32 noundef %.1.i860) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2702:                                             ; preds = %2592
-  %2703 = load i32, ptr @hf_lbmc_auth_result, align 4
-  %2704 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2703, ptr noundef %324, i32 noundef 0, i32 noundef 5, i32 noundef 0) #9
-  %2705 = load i32, ptr @ett_lbmc_auth_result, align 4
-  %2706 = call ptr @proto_item_add_subtree(ptr noundef %2704, i32 noundef %2705) #9
-  %2707 = load i32, ptr @hf_lbmc_auth_result_next_hdr, align 4
-  %2708 = call ptr @proto_tree_add_item(ptr noundef %2706, i32 noundef %2707, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2709 = load i32, ptr @hf_lbmc_auth_result_hdr_len, align 4
-  %2710 = call ptr @proto_tree_add_item(ptr noundef %2706, i32 noundef %2709, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2711 = load i32, ptr @hf_lbmc_auth_result_flags, align 4
-  %2712 = load i32, ptr @ett_lbmc_auth_result_flags, align 4
-  %2713 = call ptr @proto_tree_add_bitmask(ptr noundef %2706, ptr noundef %324, i32 noundef 2, i32 noundef %2711, i32 noundef %2712, ptr noundef nonnull @dissect_nhdr_auth_result.flags, i32 noundef 0) #9
-  %2714 = load i32, ptr @hf_lbmc_auth_result_opid, align 4
-  %2715 = call ptr @proto_tree_add_item(ptr noundef %2706, i32 noundef %2714, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2716 = load i32, ptr @hf_lbmc_auth_result_result, align 4
-  %2717 = call ptr @proto_tree_add_item(ptr noundef %2706, i32 noundef %2716, ptr noundef %324, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
+2704:                                             ; preds = %2594
+  %2705 = load i32, ptr @hf_lbmc_auth_result, align 4
+  %2706 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2705, ptr noundef %326, i32 noundef 0, i32 noundef 5, i32 noundef 0) #9
+  %2707 = load i32, ptr @ett_lbmc_auth_result, align 4
+  %2708 = call ptr @proto_item_add_subtree(ptr noundef %2706, i32 noundef %2707) #9
+  %2709 = load i32, ptr @hf_lbmc_auth_result_next_hdr, align 4
+  %2710 = call ptr @proto_tree_add_item(ptr noundef %2708, i32 noundef %2709, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2711 = load i32, ptr @hf_lbmc_auth_result_hdr_len, align 4
+  %2712 = call ptr @proto_tree_add_item(ptr noundef %2708, i32 noundef %2711, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2713 = load i32, ptr @hf_lbmc_auth_result_flags, align 4
+  %2714 = load i32, ptr @ett_lbmc_auth_result_flags, align 4
+  %2715 = call ptr @proto_tree_add_bitmask(ptr noundef %2708, ptr noundef %326, i32 noundef 2, i32 noundef %2713, i32 noundef %2714, ptr noundef nonnull @dissect_nhdr_auth_result.flags, i32 noundef 0) #9
+  %2716 = load i32, ptr @hf_lbmc_auth_result_opid, align 4
+  %2717 = call ptr @proto_tree_add_item(ptr noundef %2708, i32 noundef %2716, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2718 = load i32, ptr @hf_lbmc_auth_result_result, align 4
+  %2719 = call ptr @proto_tree_add_item(ptr noundef %2708, i32 noundef %2718, ptr noundef %326, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2718:                                             ; preds = %2592
-  %2719 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2720 = load i32, ptr @hf_lbmc_auth_unknown, align 4
-  %2721 = zext i8 %2719 to i32
-  %2722 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2720, ptr noundef %324, i32 noundef 0, i32 noundef %2721, i32 noundef 0) #9
-  %2723 = load i32, ptr @ett_lbmc_auth_unknown, align 4
-  %2724 = call ptr @proto_item_add_subtree(ptr noundef %2722, i32 noundef %2723) #9
-  %2725 = load i32, ptr @hf_lbmc_auth_unknown_next_hdr, align 4
-  %2726 = call ptr @proto_tree_add_item(ptr noundef %2724, i32 noundef %2725, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2727 = load i32, ptr @hf_lbmc_auth_unknown_hdr_len, align 4
-  %2728 = call ptr @proto_tree_add_item(ptr noundef %2724, i32 noundef %2727, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2729 = load i32, ptr @hf_lbmc_auth_unknown_flags, align 4
-  %2730 = call ptr @proto_tree_add_item(ptr noundef %2724, i32 noundef %2729, ptr noundef %324, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
-  %2731 = load i32, ptr @hf_lbmc_auth_unknown_opid, align 4
-  %2732 = call ptr @proto_tree_add_item(ptr noundef %2724, i32 noundef %2731, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2733 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 3) #9
-  %2734 = zext i8 %2733 to i32
-  %2735 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %2732, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1743, i32 noundef %2734) #9
-  %2736 = icmp ugt i8 %2719, 4
-  br i1 %2736, label %2737, label %2741
+2720:                                             ; preds = %2594
+  %2721 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2722 = load i32, ptr @hf_lbmc_auth_unknown, align 4
+  %2723 = zext i8 %2721 to i32
+  %2724 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2722, ptr noundef %326, i32 noundef 0, i32 noundef %2723, i32 noundef 0) #9
+  %2725 = load i32, ptr @ett_lbmc_auth_unknown, align 4
+  %2726 = call ptr @proto_item_add_subtree(ptr noundef %2724, i32 noundef %2725) #9
+  %2727 = load i32, ptr @hf_lbmc_auth_unknown_next_hdr, align 4
+  %2728 = call ptr @proto_tree_add_item(ptr noundef %2726, i32 noundef %2727, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2729 = load i32, ptr @hf_lbmc_auth_unknown_hdr_len, align 4
+  %2730 = call ptr @proto_tree_add_item(ptr noundef %2726, i32 noundef %2729, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2731 = load i32, ptr @hf_lbmc_auth_unknown_flags, align 4
+  %2732 = call ptr @proto_tree_add_item(ptr noundef %2726, i32 noundef %2731, ptr noundef %326, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
+  %2733 = load i32, ptr @hf_lbmc_auth_unknown_opid, align 4
+  %2734 = call ptr @proto_tree_add_item(ptr noundef %2726, i32 noundef %2733, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2735 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 3) #9
+  %2736 = zext i8 %2735 to i32
+  %2737 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %2734, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1743, i32 noundef %2736) #9
+  %2738 = icmp ugt i8 %2721, 4
+  br i1 %2738, label %2739, label %2743
 
-2737:                                             ; preds = %2718
-  %2738 = add nsw i32 %2721, -4
-  %2739 = load i32, ptr @hf_lbmc_auth_unknown_data, align 4
-  %2740 = call ptr @proto_tree_add_item(ptr noundef %2724, i32 noundef %2739, ptr noundef %324, i32 noundef 4, i32 noundef %2738, i32 noundef 0) #9
+2739:                                             ; preds = %2720
+  %2740 = add nsw i32 %2723, -4
+  %2741 = load i32, ptr @hf_lbmc_auth_unknown_data, align 4
+  %2742 = call ptr @proto_tree_add_item(ptr noundef %2726, i32 noundef %2741, ptr noundef %326, i32 noundef 4, i32 noundef %2740, i32 noundef 0) #9
   br label %dissect_nhdr_auth_unknown.exit
 
-2741:                                             ; preds = %2718
-  %2742 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2728, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
+2743:                                             ; preds = %2720
+  %2744 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2730, ptr noundef nonnull @ei_lbmc_analysis_length_incorrect) #9
   br label %dissect_nhdr_auth_unknown.exit
 
-dissect_nhdr_auth_unknown.exit:                   ; preds = %2737, %2741
-  %.0.i861 = phi i32 [ %2721, %2737 ], [ 4, %2741 ]
-  call void @proto_item_set_len(ptr noundef %2722, i32 noundef %.0.i861) #9
+dissect_nhdr_auth_unknown.exit:                   ; preds = %2739, %2743
+  %.0.i861 = phi i32 [ %2723, %2739 ], [ 4, %2743 ]
+  call void @proto_item_set_len(ptr noundef %2724, i32 noundef %.0.i861) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2743:                                             ; preds = %323
-  %2744 = load i32, ptr @hf_lbmc_hmac, align 4
-  %2745 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2744, ptr noundef %324, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
-  %2746 = load i32, ptr @ett_lbmc_hmac, align 4
-  %2747 = call ptr @proto_item_add_subtree(ptr noundef %2745, i32 noundef %2746) #9
-  %2748 = load i32, ptr @hf_lbmc_hmac_next_hdr, align 4
-  %2749 = call ptr @proto_tree_add_item(ptr noundef %2747, i32 noundef %2748, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2750 = load i32, ptr @hf_lbmc_hmac_hdr_len, align 4
-  %2751 = call ptr @proto_tree_add_item(ptr noundef %2747, i32 noundef %2750, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2752 = load i32, ptr @hf_lbmc_hmac_flags, align 4
-  %2753 = load i32, ptr @ett_lbmc_hmac_flags, align 4
-  %2754 = call ptr @proto_tree_add_bitmask(ptr noundef %2747, ptr noundef %324, i32 noundef 2, i32 noundef %2752, i32 noundef %2753, ptr noundef nonnull @dissect_nhdr_hmac.flags, i32 noundef 0) #9
-  %2755 = load i32, ptr @hf_lbmc_hmac_padding, align 4
-  %2756 = call ptr @proto_tree_add_item(ptr noundef %2747, i32 noundef %2755, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2757 = load i32, ptr @hf_lbmc_hmac_data, align 4
-  %2758 = call ptr @proto_tree_add_item(ptr noundef %2747, i32 noundef %2757, ptr noundef %324, i32 noundef 4, i32 noundef 20, i32 noundef 0) #9
+2745:                                             ; preds = %325
+  %2746 = load i32, ptr @hf_lbmc_hmac, align 4
+  %2747 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2746, ptr noundef %326, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
+  %2748 = load i32, ptr @ett_lbmc_hmac, align 4
+  %2749 = call ptr @proto_item_add_subtree(ptr noundef %2747, i32 noundef %2748) #9
+  %2750 = load i32, ptr @hf_lbmc_hmac_next_hdr, align 4
+  %2751 = call ptr @proto_tree_add_item(ptr noundef %2749, i32 noundef %2750, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2752 = load i32, ptr @hf_lbmc_hmac_hdr_len, align 4
+  %2753 = call ptr @proto_tree_add_item(ptr noundef %2749, i32 noundef %2752, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2754 = load i32, ptr @hf_lbmc_hmac_flags, align 4
+  %2755 = load i32, ptr @ett_lbmc_hmac_flags, align 4
+  %2756 = call ptr @proto_tree_add_bitmask(ptr noundef %2749, ptr noundef %326, i32 noundef 2, i32 noundef %2754, i32 noundef %2755, ptr noundef nonnull @dissect_nhdr_hmac.flags, i32 noundef 0) #9
+  %2757 = load i32, ptr @hf_lbmc_hmac_padding, align 4
+  %2758 = call ptr @proto_tree_add_item(ptr noundef %2749, i32 noundef %2757, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2759 = load i32, ptr @hf_lbmc_hmac_data, align 4
+  %2760 = call ptr @proto_tree_add_item(ptr noundef %2749, i32 noundef %2759, ptr noundef %326, i32 noundef 4, i32 noundef 20, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2759:                                             ; preds = %323
-  %2760 = load i32, ptr @hf_lbmc_umq_sid, align 4
-  %2761 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2760, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %2762 = load i32, ptr @ett_lbmc_umq_sid, align 4
-  %2763 = call ptr @proto_item_add_subtree(ptr noundef %2761, i32 noundef %2762) #9
-  %2764 = load i32, ptr @hf_lbmc_umq_sid_next_hdr, align 4
-  %2765 = call ptr @proto_tree_add_item(ptr noundef %2763, i32 noundef %2764, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2766 = load i32, ptr @hf_lbmc_umq_sid_hdr_len, align 4
-  %2767 = call ptr @proto_tree_add_item(ptr noundef %2763, i32 noundef %2766, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2768 = load i32, ptr @hf_lbmc_umq_sid_flags, align 4
-  %2769 = load i32, ptr @ett_lbmc_umq_sid_flags, align 4
-  %2770 = call ptr @proto_tree_add_bitmask(ptr noundef %2763, ptr noundef %324, i32 noundef 2, i32 noundef %2768, i32 noundef %2769, ptr noundef nonnull @dissect_nhdr_umq_sid.flags, i32 noundef 0) #9
-  %2771 = load i32, ptr @hf_lbmc_umq_sid_key, align 4
-  %2772 = call ptr @proto_tree_add_item(ptr noundef %2763, i32 noundef %2771, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2773 = load i32, ptr @hf_lbmc_umq_sid_sid, align 4
-  %2774 = call ptr @proto_tree_add_item(ptr noundef %2763, i32 noundef %2773, ptr noundef %324, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
+2761:                                             ; preds = %325
+  %2762 = load i32, ptr @hf_lbmc_umq_sid, align 4
+  %2763 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2762, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %2764 = load i32, ptr @ett_lbmc_umq_sid, align 4
+  %2765 = call ptr @proto_item_add_subtree(ptr noundef %2763, i32 noundef %2764) #9
+  %2766 = load i32, ptr @hf_lbmc_umq_sid_next_hdr, align 4
+  %2767 = call ptr @proto_tree_add_item(ptr noundef %2765, i32 noundef %2766, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2768 = load i32, ptr @hf_lbmc_umq_sid_hdr_len, align 4
+  %2769 = call ptr @proto_tree_add_item(ptr noundef %2765, i32 noundef %2768, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2770 = load i32, ptr @hf_lbmc_umq_sid_flags, align 4
+  %2771 = load i32, ptr @ett_lbmc_umq_sid_flags, align 4
+  %2772 = call ptr @proto_tree_add_bitmask(ptr noundef %2765, ptr noundef %326, i32 noundef 2, i32 noundef %2770, i32 noundef %2771, ptr noundef nonnull @dissect_nhdr_umq_sid.flags, i32 noundef 0) #9
+  %2773 = load i32, ptr @hf_lbmc_umq_sid_key, align 4
+  %2774 = call ptr @proto_tree_add_item(ptr noundef %2765, i32 noundef %2773, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2775 = load i32, ptr @hf_lbmc_umq_sid_sid, align 4
+  %2776 = call ptr @proto_tree_add_item(ptr noundef %2765, i32 noundef %2775, ptr noundef %326, i32 noundef 8, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2775:                                             ; preds = %323
-  %2776 = load i32, ptr @hf_lbmc_destination, align 4
-  %2777 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2776, ptr noundef %324, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
-  %2778 = load i32, ptr @ett_lbmc_destination, align 4
-  %2779 = call ptr @proto_item_add_subtree(ptr noundef %2777, i32 noundef %2778) #9
-  %2780 = load i32, ptr @hf_lbmc_destination_next_hdr, align 4
-  %2781 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2780, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2782 = load i32, ptr @hf_lbmc_destination_hdr_len, align 4
-  %2783 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2782, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2784 = load i32, ptr @hf_lbmc_destination_flags, align 4
-  %2785 = load i32, ptr @ett_lbmc_destination_flags, align 4
-  %2786 = call ptr @proto_tree_add_bitmask(ptr noundef %2779, ptr noundef %324, i32 noundef 2, i32 noundef %2784, i32 noundef %2785, ptr noundef nonnull @dissect_nhdr_destination.flags, i32 noundef 0) #9
-  %2787 = load i32, ptr @hf_lbmc_destination_domain_id, align 4
-  %2788 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2787, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2789 = load i32, ptr @hf_lbmc_destination_ipaddr, align 4
-  %2790 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2789, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %2791 = load i32, ptr @hf_lbmc_destination_port, align 4
-  %2792 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2791, ptr noundef %324, i32 noundef 12, i32 noundef 2, i32 noundef 0) #9
-  %2793 = load i32, ptr @hf_lbmc_destination_hops_taken, align 4
-  %2794 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2793, ptr noundef %324, i32 noundef 14, i32 noundef 2, i32 noundef 0) #9
-  %2795 = load i32, ptr @hf_lbmc_destination_orig_domain_id, align 4
-  %2796 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2795, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %2797 = load i32, ptr @hf_lbmc_destination_orig_ipaddr, align 4
-  %2798 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2797, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %2799 = load i32, ptr @hf_lbmc_destination_orig_port, align 4
-  %2800 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2799, ptr noundef %324, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
-  %2801 = load i32, ptr @hf_lbmc_destination_reserved, align 4
-  %2802 = call ptr @proto_tree_add_item(ptr noundef %2779, i32 noundef %2801, ptr noundef %324, i32 noundef 26, i32 noundef 2, i32 noundef 0) #9
-  %2803 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 4) #9
-  %2804 = call ptr @tvb_get_ptr(ptr noundef %324, i32 noundef 8, i32 noundef 4) #9
-  %2805 = call zeroext i16 @tvb_get_ntohs(ptr noundef %324, i32 noundef 12) #9
-  %2806 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 16) #9
-  %2807 = call ptr @tvb_get_ptr(ptr noundef %324, i32 noundef 20, i32 noundef 4) #9
-  %2808 = call zeroext i16 @tvb_get_ntohs(ptr noundef %324, i32 noundef 24) #9
+2777:                                             ; preds = %325
+  %2778 = load i32, ptr @hf_lbmc_destination, align 4
+  %2779 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2778, ptr noundef %326, i32 noundef 0, i32 noundef 28, i32 noundef 0) #9
+  %2780 = load i32, ptr @ett_lbmc_destination, align 4
+  %2781 = call ptr @proto_item_add_subtree(ptr noundef %2779, i32 noundef %2780) #9
+  %2782 = load i32, ptr @hf_lbmc_destination_next_hdr, align 4
+  %2783 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2782, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2784 = load i32, ptr @hf_lbmc_destination_hdr_len, align 4
+  %2785 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2784, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2786 = load i32, ptr @hf_lbmc_destination_flags, align 4
+  %2787 = load i32, ptr @ett_lbmc_destination_flags, align 4
+  %2788 = call ptr @proto_tree_add_bitmask(ptr noundef %2781, ptr noundef %326, i32 noundef 2, i32 noundef %2786, i32 noundef %2787, ptr noundef nonnull @dissect_nhdr_destination.flags, i32 noundef 0) #9
+  %2789 = load i32, ptr @hf_lbmc_destination_domain_id, align 4
+  %2790 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2789, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2791 = load i32, ptr @hf_lbmc_destination_ipaddr, align 4
+  %2792 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2791, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %2793 = load i32, ptr @hf_lbmc_destination_port, align 4
+  %2794 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2793, ptr noundef %326, i32 noundef 12, i32 noundef 2, i32 noundef 0) #9
+  %2795 = load i32, ptr @hf_lbmc_destination_hops_taken, align 4
+  %2796 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2795, ptr noundef %326, i32 noundef 14, i32 noundef 2, i32 noundef 0) #9
+  %2797 = load i32, ptr @hf_lbmc_destination_orig_domain_id, align 4
+  %2798 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2797, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %2799 = load i32, ptr @hf_lbmc_destination_orig_ipaddr, align 4
+  %2800 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2799, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %2801 = load i32, ptr @hf_lbmc_destination_orig_port, align 4
+  %2802 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2801, ptr noundef %326, i32 noundef 24, i32 noundef 2, i32 noundef 0) #9
+  %2803 = load i32, ptr @hf_lbmc_destination_reserved, align 4
+  %2804 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2803, ptr noundef %326, i32 noundef 26, i32 noundef 2, i32 noundef 0) #9
+  %2805 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 4) #9
+  %2806 = call ptr @tvb_get_ptr(ptr noundef %326, i32 noundef 8, i32 noundef 4) #9
+  %2807 = call zeroext i16 @tvb_get_ntohs(ptr noundef %326, i32 noundef 12) #9
+  %2808 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 16) #9
+  %2809 = call ptr @tvb_get_ptr(ptr noundef %326, i32 noundef 20, i32 noundef 4) #9
+  %2810 = call zeroext i16 @tvb_get_ntohs(ptr noundef %326, i32 noundef 24) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2809:                                             ; preds = %323
-  %2810 = load i32, ptr @hf_lbmc_topic_idx, align 4
-  %2811 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2810, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %2812 = load i32, ptr @ett_lbmc_topic_idx, align 4
-  %2813 = call ptr @proto_item_add_subtree(ptr noundef %2811, i32 noundef %2812) #9
-  %2814 = load i32, ptr @hf_lbmc_topic_idx_next_hdr, align 4
-  %2815 = call ptr @proto_tree_add_item(ptr noundef %2813, i32 noundef %2814, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2816 = load i32, ptr @hf_lbmc_topic_idx_hdr_len, align 4
-  %2817 = call ptr @proto_tree_add_item(ptr noundef %2813, i32 noundef %2816, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2818 = load i32, ptr @hf_lbmc_topic_idx_flags, align 4
-  %2819 = load i32, ptr @ett_lbmc_topic_idx_flags, align 4
-  %2820 = call ptr @proto_tree_add_bitmask(ptr noundef %2813, ptr noundef %324, i32 noundef 2, i32 noundef %2818, i32 noundef %2819, ptr noundef nonnull @dissect_nhdr_topic_idx.flags, i32 noundef 0) #9
-  %2821 = load i32, ptr @hf_lbmc_topic_idx_tidx, align 4
-  %2822 = call ptr @proto_tree_add_item(ptr noundef %2813, i32 noundef %2821, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+2811:                                             ; preds = %325
+  %2812 = load i32, ptr @hf_lbmc_topic_idx, align 4
+  %2813 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2812, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %2814 = load i32, ptr @ett_lbmc_topic_idx, align 4
+  %2815 = call ptr @proto_item_add_subtree(ptr noundef %2813, i32 noundef %2814) #9
+  %2816 = load i32, ptr @hf_lbmc_topic_idx_next_hdr, align 4
+  %2817 = call ptr @proto_tree_add_item(ptr noundef %2815, i32 noundef %2816, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2818 = load i32, ptr @hf_lbmc_topic_idx_hdr_len, align 4
+  %2819 = call ptr @proto_tree_add_item(ptr noundef %2815, i32 noundef %2818, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2820 = load i32, ptr @hf_lbmc_topic_idx_flags, align 4
+  %2821 = load i32, ptr @ett_lbmc_topic_idx_flags, align 4
+  %2822 = call ptr @proto_tree_add_bitmask(ptr noundef %2815, ptr noundef %326, i32 noundef 2, i32 noundef %2820, i32 noundef %2821, ptr noundef nonnull @dissect_nhdr_topic_idx.flags, i32 noundef 0) #9
+  %2823 = load i32, ptr @hf_lbmc_topic_idx_tidx, align 4
+  %2824 = call ptr @proto_tree_add_item(ptr noundef %2815, i32 noundef %2823, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2823:                                             ; preds = %323
-  %2824 = load i32, ptr @hf_lbmc_topic_source, align 4
-  %2825 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2824, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %2826 = load i32, ptr @ett_lbmc_topic_source, align 4
-  %2827 = call ptr @proto_item_add_subtree(ptr noundef %2825, i32 noundef %2826) #9
-  %2828 = load i32, ptr @hf_lbmc_topic_source_next_hdr, align 4
-  %2829 = call ptr @proto_tree_add_item(ptr noundef %2827, i32 noundef %2828, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2830 = load i32, ptr @hf_lbmc_topic_source_hdr_len, align 4
-  %2831 = call ptr @proto_tree_add_item(ptr noundef %2827, i32 noundef %2830, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2832 = load i32, ptr @hf_lbmc_topic_source_flags, align 4
-  %2833 = load i32, ptr @ett_lbmc_topic_source_flags, align 4
-  %2834 = call ptr @proto_tree_add_bitmask(ptr noundef %2827, ptr noundef %324, i32 noundef 2, i32 noundef %2832, i32 noundef %2833, ptr noundef nonnull @dissect_nhdr_topic_source.flags, i32 noundef 0) #9
-  %2835 = load i32, ptr @hf_lbmc_topic_source_domain_id, align 4
-  %2836 = call ptr @proto_tree_add_item(ptr noundef %2827, i32 noundef %2835, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+2825:                                             ; preds = %325
+  %2826 = load i32, ptr @hf_lbmc_topic_source, align 4
+  %2827 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2826, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %2828 = load i32, ptr @ett_lbmc_topic_source, align 4
+  %2829 = call ptr @proto_item_add_subtree(ptr noundef %2827, i32 noundef %2828) #9
+  %2830 = load i32, ptr @hf_lbmc_topic_source_next_hdr, align 4
+  %2831 = call ptr @proto_tree_add_item(ptr noundef %2829, i32 noundef %2830, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2832 = load i32, ptr @hf_lbmc_topic_source_hdr_len, align 4
+  %2833 = call ptr @proto_tree_add_item(ptr noundef %2829, i32 noundef %2832, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2834 = load i32, ptr @hf_lbmc_topic_source_flags, align 4
+  %2835 = load i32, ptr @ett_lbmc_topic_source_flags, align 4
+  %2836 = call ptr @proto_tree_add_bitmask(ptr noundef %2829, ptr noundef %326, i32 noundef 2, i32 noundef %2834, i32 noundef %2835, ptr noundef nonnull @dissect_nhdr_topic_source.flags, i32 noundef 0) #9
+  %2837 = load i32, ptr @hf_lbmc_topic_source_domain_id, align 4
+  %2838 = call ptr @proto_tree_add_item(ptr noundef %2829, i32 noundef %2837, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2837:                                             ; preds = %323
-  %2838 = load i32, ptr @hf_lbmc_topic_source_exfunc, align 4
-  %2839 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2838, ptr noundef %324, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
-  %2840 = load i32, ptr @ett_lbmc_topic_source_exfunc, align 4
-  %2841 = call ptr @proto_item_add_subtree(ptr noundef %2839, i32 noundef %2840) #9
-  %2842 = load i32, ptr @hf_lbmc_topic_source_exfunc_next_hdr, align 4
-  %2843 = call ptr @proto_tree_add_item(ptr noundef %2841, i32 noundef %2842, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2844 = load i32, ptr @hf_lbmc_topic_source_exfunc_hdr_len, align 4
-  %2845 = call ptr @proto_tree_add_item(ptr noundef %2841, i32 noundef %2844, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2846 = load i32, ptr @hf_lbmc_topic_source_exfunc_flags, align 4
-  %2847 = load i32, ptr @ett_lbmc_topic_source_exfunc_flags, align 4
-  %2848 = call ptr @proto_tree_add_bitmask(ptr noundef %2841, ptr noundef %324, i32 noundef 2, i32 noundef %2846, i32 noundef %2847, ptr noundef nonnull @dissect_nhdr_topic_source_exfunc.flags, i32 noundef 0) #9
-  %2849 = load i32, ptr @hf_lbmc_topic_source_exfunc_src_ip, align 4
-  %2850 = call ptr @proto_tree_add_item(ptr noundef %2841, i32 noundef %2849, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2851 = load i32, ptr @hf_lbmc_topic_source_exfunc_src_port, align 4
-  %2852 = call ptr @proto_tree_add_item(ptr noundef %2841, i32 noundef %2851, ptr noundef %324, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %2853 = load i32, ptr @hf_lbmc_topic_source_exfunc_unused, align 4
-  %2854 = call ptr @proto_tree_add_item(ptr noundef %2841, i32 noundef %2853, ptr noundef %324, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
-  %2855 = load i32, ptr @hf_lbmc_topic_source_exfunc_functionality_flags, align 4
-  %2856 = load i32, ptr @ett_lbmc_topic_source_exfunc_functionality_flags, align 4
-  %2857 = call ptr @proto_tree_add_bitmask(ptr noundef %2841, ptr noundef %324, i32 noundef 12, i32 noundef %2855, i32 noundef %2856, ptr noundef nonnull @dissect_nhdr_topic_source_exfunc.functionality_flags, i32 noundef 0) #9
+2839:                                             ; preds = %325
+  %2840 = load i32, ptr @hf_lbmc_topic_source_exfunc, align 4
+  %2841 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2840, ptr noundef %326, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %2842 = load i32, ptr @ett_lbmc_topic_source_exfunc, align 4
+  %2843 = call ptr @proto_item_add_subtree(ptr noundef %2841, i32 noundef %2842) #9
+  %2844 = load i32, ptr @hf_lbmc_topic_source_exfunc_next_hdr, align 4
+  %2845 = call ptr @proto_tree_add_item(ptr noundef %2843, i32 noundef %2844, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2846 = load i32, ptr @hf_lbmc_topic_source_exfunc_hdr_len, align 4
+  %2847 = call ptr @proto_tree_add_item(ptr noundef %2843, i32 noundef %2846, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2848 = load i32, ptr @hf_lbmc_topic_source_exfunc_flags, align 4
+  %2849 = load i32, ptr @ett_lbmc_topic_source_exfunc_flags, align 4
+  %2850 = call ptr @proto_tree_add_bitmask(ptr noundef %2843, ptr noundef %326, i32 noundef 2, i32 noundef %2848, i32 noundef %2849, ptr noundef nonnull @dissect_nhdr_topic_source_exfunc.flags, i32 noundef 0) #9
+  %2851 = load i32, ptr @hf_lbmc_topic_source_exfunc_src_ip, align 4
+  %2852 = call ptr @proto_tree_add_item(ptr noundef %2843, i32 noundef %2851, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2853 = load i32, ptr @hf_lbmc_topic_source_exfunc_src_port, align 4
+  %2854 = call ptr @proto_tree_add_item(ptr noundef %2843, i32 noundef %2853, ptr noundef %326, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
+  %2855 = load i32, ptr @hf_lbmc_topic_source_exfunc_unused, align 4
+  %2856 = call ptr @proto_tree_add_item(ptr noundef %2843, i32 noundef %2855, ptr noundef %326, i32 noundef 10, i32 noundef 2, i32 noundef 0) #9
+  %2857 = load i32, ptr @hf_lbmc_topic_source_exfunc_functionality_flags, align 4
+  %2858 = load i32, ptr @ett_lbmc_topic_source_exfunc_functionality_flags, align 4
+  %2859 = call ptr @proto_tree_add_bitmask(ptr noundef %2843, ptr noundef %326, i32 noundef 12, i32 noundef %2857, i32 noundef %2858, ptr noundef nonnull @dissect_nhdr_topic_source_exfunc.functionality_flags, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2858:                                             ; preds = %323
-  %2859 = load i32, ptr @hf_lbmc_ume_store_ext, align 4
-  %2860 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2859, ptr noundef %324, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
-  %2861 = load i32, ptr @ett_lbmc_ume_store_ext, align 4
-  %2862 = call ptr @proto_item_add_subtree(ptr noundef %2860, i32 noundef %2861) #9
-  %2863 = load i32, ptr @hf_lbmc_ume_store_ext_next_hdr, align 4
-  %2864 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2863, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2865 = load i32, ptr @hf_lbmc_ume_store_ext_hdr_len, align 4
-  %2866 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2865, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2867 = load i32, ptr @hf_lbmc_ume_store_ext_flags, align 4
-  %2868 = load i32, ptr @ett_lbmc_ume_store_ext_flags, align 4
-  %2869 = call ptr @proto_tree_add_bitmask(ptr noundef %2862, ptr noundef %324, i32 noundef 2, i32 noundef %2867, i32 noundef %2868, ptr noundef nonnull @dissect_nhdr_ume_store_ext.flags, i32 noundef 0) #9
-  %2870 = load i32, ptr @hf_lbmc_ume_store_ext_grp_idx, align 4
-  %2871 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2870, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2872 = load i32, ptr @hf_lbmc_ume_store_ext_store_tcp_port, align 4
-  %2873 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2872, ptr noundef %324, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %2874 = load i32, ptr @hf_lbmc_ume_store_ext_store_idx, align 4
-  %2875 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2874, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
-  %2876 = load i32, ptr @hf_lbmc_ume_store_ext_store_ip_addr, align 4
-  %2877 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2876, ptr noundef %324, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
-  %2878 = load i32, ptr @hf_lbmc_ume_store_ext_src_reg_id, align 4
-  %2879 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2878, ptr noundef %324, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  %2880 = load i32, ptr @hf_lbmc_ume_store_ext_domain_id, align 4
-  %2881 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2880, ptr noundef %324, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %2882 = load i32, ptr @hf_lbmc_ume_store_ext_version, align 4
-  %2883 = call ptr @proto_tree_add_item(ptr noundef %2862, i32 noundef %2882, ptr noundef %324, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+2860:                                             ; preds = %325
+  %2861 = load i32, ptr @hf_lbmc_ume_store_ext, align 4
+  %2862 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2861, ptr noundef %326, i32 noundef 0, i32 noundef 24, i32 noundef 0) #9
+  %2863 = load i32, ptr @ett_lbmc_ume_store_ext, align 4
+  %2864 = call ptr @proto_item_add_subtree(ptr noundef %2862, i32 noundef %2863) #9
+  %2865 = load i32, ptr @hf_lbmc_ume_store_ext_next_hdr, align 4
+  %2866 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2865, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2867 = load i32, ptr @hf_lbmc_ume_store_ext_hdr_len, align 4
+  %2868 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2867, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2869 = load i32, ptr @hf_lbmc_ume_store_ext_flags, align 4
+  %2870 = load i32, ptr @ett_lbmc_ume_store_ext_flags, align 4
+  %2871 = call ptr @proto_tree_add_bitmask(ptr noundef %2864, ptr noundef %326, i32 noundef 2, i32 noundef %2869, i32 noundef %2870, ptr noundef nonnull @dissect_nhdr_ume_store_ext.flags, i32 noundef 0) #9
+  %2872 = load i32, ptr @hf_lbmc_ume_store_ext_grp_idx, align 4
+  %2873 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2872, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2874 = load i32, ptr @hf_lbmc_ume_store_ext_store_tcp_port, align 4
+  %2875 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2874, ptr noundef %326, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %2876 = load i32, ptr @hf_lbmc_ume_store_ext_store_idx, align 4
+  %2877 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2876, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+  %2878 = load i32, ptr @hf_lbmc_ume_store_ext_store_ip_addr, align 4
+  %2879 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2878, ptr noundef %326, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %2880 = load i32, ptr @hf_lbmc_ume_store_ext_src_reg_id, align 4
+  %2881 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2880, ptr noundef %326, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
+  %2882 = load i32, ptr @hf_lbmc_ume_store_ext_domain_id, align 4
+  %2883 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2882, ptr noundef %326, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %2884 = load i32, ptr @hf_lbmc_ume_store_ext_version, align 4
+  %2885 = call ptr @proto_tree_add_item(ptr noundef %2864, i32 noundef %2884, ptr noundef %326, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2884:                                             ; preds = %323
-  %2885 = load i32, ptr @hf_lbmc_ume_psrc_election_token, align 4
-  %2886 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2885, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %2887 = load i32, ptr @ett_lbmc_ume_psrc_election_token, align 4
-  %2888 = call ptr @proto_item_add_subtree(ptr noundef %2886, i32 noundef %2887) #9
-  %2889 = load i32, ptr @hf_lbmc_ume_psrc_election_token_next_hdr, align 4
-  %2890 = call ptr @proto_tree_add_item(ptr noundef %2888, i32 noundef %2889, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2891 = load i32, ptr @hf_lbmc_ume_psrc_election_token_hdr_len, align 4
-  %2892 = call ptr @proto_tree_add_item(ptr noundef %2888, i32 noundef %2891, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2893 = load i32, ptr @hf_lbmc_ume_psrc_election_token_flags, align 4
-  %2894 = load i32, ptr @ett_lbmc_ume_psrc_election_token_flags, align 4
-  %2895 = call ptr @proto_tree_add_bitmask(ptr noundef %2888, ptr noundef %324, i32 noundef 2, i32 noundef %2893, i32 noundef %2894, ptr noundef nonnull @dissect_nhdr_ume_psrc_election_token.flags, i32 noundef 0) #9
-  %2896 = load i32, ptr @hf_lbmc_ume_psrc_election_token_store_index, align 4
-  %2897 = call ptr @proto_tree_add_item(ptr noundef %2888, i32 noundef %2896, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2898 = load i32, ptr @hf_lbmc_ume_psrc_election_token_token, align 4
-  %2899 = call ptr @proto_tree_add_item(ptr noundef %2888, i32 noundef %2898, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+2886:                                             ; preds = %325
+  %2887 = load i32, ptr @hf_lbmc_ume_psrc_election_token, align 4
+  %2888 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2887, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %2889 = load i32, ptr @ett_lbmc_ume_psrc_election_token, align 4
+  %2890 = call ptr @proto_item_add_subtree(ptr noundef %2888, i32 noundef %2889) #9
+  %2891 = load i32, ptr @hf_lbmc_ume_psrc_election_token_next_hdr, align 4
+  %2892 = call ptr @proto_tree_add_item(ptr noundef %2890, i32 noundef %2891, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2893 = load i32, ptr @hf_lbmc_ume_psrc_election_token_hdr_len, align 4
+  %2894 = call ptr @proto_tree_add_item(ptr noundef %2890, i32 noundef %2893, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2895 = load i32, ptr @hf_lbmc_ume_psrc_election_token_flags, align 4
+  %2896 = load i32, ptr @ett_lbmc_ume_psrc_election_token_flags, align 4
+  %2897 = call ptr @proto_tree_add_bitmask(ptr noundef %2890, ptr noundef %326, i32 noundef 2, i32 noundef %2895, i32 noundef %2896, ptr noundef nonnull @dissect_nhdr_ume_psrc_election_token.flags, i32 noundef 0) #9
+  %2898 = load i32, ptr @hf_lbmc_ume_psrc_election_token_store_index, align 4
+  %2899 = call ptr @proto_tree_add_item(ptr noundef %2890, i32 noundef %2898, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2900 = load i32, ptr @hf_lbmc_ume_psrc_election_token_token, align 4
+  %2901 = call ptr @proto_tree_add_item(ptr noundef %2890, i32 noundef %2900, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2900:                                             ; preds = %323
-  %2901 = load i32, ptr @hf_lbmc_tcp_sid, align 4
-  %2902 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2901, ptr noundef %324, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
-  %2903 = load i32, ptr @ett_lbmc_tcp_sid, align 4
-  %2904 = call ptr @proto_item_add_subtree(ptr noundef %2902, i32 noundef %2903) #9
-  %2905 = load i32, ptr @hf_lbmc_tcp_sid_next_hdr, align 4
-  %2906 = call ptr @proto_tree_add_item(ptr noundef %2904, i32 noundef %2905, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2907 = load i32, ptr @hf_lbmc_tcp_sid_hdr_len, align 4
-  %2908 = call ptr @proto_tree_add_item(ptr noundef %2904, i32 noundef %2907, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2909 = load i32, ptr @hf_lbmc_tcp_sid_flags, align 4
-  %2910 = load i32, ptr @ett_lbmc_tcp_sid_flags, align 4
-  %2911 = call ptr @proto_tree_add_bitmask(ptr noundef %2904, ptr noundef %324, i32 noundef 2, i32 noundef %2909, i32 noundef %2910, ptr noundef nonnull @dissect_nhdr_tcp_sid.flags, i32 noundef 0) #9
-  %2912 = load i32, ptr @hf_lbmc_tcp_sid_sid, align 4
-  %2913 = call ptr @proto_tree_add_item(ptr noundef %2904, i32 noundef %2912, ptr noundef %324, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
-  %2914 = call i32 @tvb_get_ntohl(ptr noundef %324, i32 noundef 4) #9
+2902:                                             ; preds = %325
+  %2903 = load i32, ptr @hf_lbmc_tcp_sid, align 4
+  %2904 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2903, ptr noundef %326, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
+  %2905 = load i32, ptr @ett_lbmc_tcp_sid, align 4
+  %2906 = call ptr @proto_item_add_subtree(ptr noundef %2904, i32 noundef %2905) #9
+  %2907 = load i32, ptr @hf_lbmc_tcp_sid_next_hdr, align 4
+  %2908 = call ptr @proto_tree_add_item(ptr noundef %2906, i32 noundef %2907, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2909 = load i32, ptr @hf_lbmc_tcp_sid_hdr_len, align 4
+  %2910 = call ptr @proto_tree_add_item(ptr noundef %2906, i32 noundef %2909, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2911 = load i32, ptr @hf_lbmc_tcp_sid_flags, align 4
+  %2912 = load i32, ptr @ett_lbmc_tcp_sid_flags, align 4
+  %2913 = call ptr @proto_tree_add_bitmask(ptr noundef %2906, ptr noundef %326, i32 noundef 2, i32 noundef %2911, i32 noundef %2912, ptr noundef nonnull @dissect_nhdr_tcp_sid.flags, i32 noundef 0) #9
+  %2914 = load i32, ptr @hf_lbmc_tcp_sid_sid, align 4
+  %2915 = call ptr @proto_tree_add_item(ptr noundef %2906, i32 noundef %2914, ptr noundef %326, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %2916 = call i32 @tvb_get_ntohl(ptr noundef %326, i32 noundef 4) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2915:                                             ; preds = %323
-  %2916 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 1) #9
-  %2917 = call zeroext i8 @tvb_get_guint8(ptr noundef %324, i32 noundef 2) #9
-  %2918 = call zeroext i16 @tvb_get_ntohs(ptr noundef %324, i32 noundef 4) #9
-  %2919 = call zeroext i16 @tvb_get_ntohs(ptr noundef %324, i32 noundef 6) #9
-  %2920 = load i32, ptr @hf_lbmc_extopt, align 4
-  %2921 = zext i8 %2916 to i32
-  %2922 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2920, ptr noundef %324, i32 noundef 0, i32 noundef %2921, i32 noundef 0) #9
-  %2923 = load i32, ptr @ett_lbmc_extopt, align 4
-  %2924 = call ptr @proto_item_add_subtree(ptr noundef %2922, i32 noundef %2923) #9
-  %2925 = load i32, ptr @hf_lbmc_extopt_next_hdr, align 4
-  %2926 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %2925, ptr noundef %324, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %2927 = load i32, ptr @hf_lbmc_extopt_hdr_len, align 4
-  %2928 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %2927, ptr noundef %324, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  %2929 = load i32, ptr @hf_lbmc_extopt_flags, align 4
-  %2930 = load i32, ptr @ett_lbmc_extopt_flags, align 4
-  %2931 = call ptr @proto_tree_add_bitmask(ptr noundef %2924, ptr noundef %324, i32 noundef 2, i32 noundef %2929, i32 noundef %2930, ptr noundef nonnull @dissect_nhdr_extopt.flags, i32 noundef 0) #9
-  %2932 = load i32, ptr @hf_lbmc_extopt_id, align 4
-  %2933 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %2932, ptr noundef %324, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  %2934 = load i32, ptr @hf_lbmc_extopt_subtype, align 4
-  %2935 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %2934, ptr noundef %324, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
-  %2936 = load i32, ptr @hf_lbmc_extopt_fragment_offset, align 4
-  %2937 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %2936, ptr noundef %324, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
-  %2938 = add nsw i32 %2921, -8
-  %2939 = and i8 %2917, 32
-  %2940 = icmp eq i8 %2939, 0
-  %2941 = load i32, ptr %311, align 4
-  %.not152.i = icmp eq i32 %2941, 0
-  br i1 %2940, label %2942, label %3014
+2917:                                             ; preds = %325
+  %2918 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 1) #9
+  %2919 = call zeroext i8 @tvb_get_guint8(ptr noundef %326, i32 noundef 2) #9
+  %2920 = call zeroext i16 @tvb_get_ntohs(ptr noundef %326, i32 noundef 4) #9
+  %2921 = call zeroext i16 @tvb_get_ntohs(ptr noundef %326, i32 noundef 6) #9
+  %2922 = load i32, ptr @hf_lbmc_extopt, align 4
+  %2923 = zext i8 %2918 to i32
+  %2924 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2922, ptr noundef %326, i32 noundef 0, i32 noundef %2923, i32 noundef 0) #9
+  %2925 = load i32, ptr @ett_lbmc_extopt, align 4
+  %2926 = call ptr @proto_item_add_subtree(ptr noundef %2924, i32 noundef %2925) #9
+  %2927 = load i32, ptr @hf_lbmc_extopt_next_hdr, align 4
+  %2928 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %2927, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %2929 = load i32, ptr @hf_lbmc_extopt_hdr_len, align 4
+  %2930 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %2929, ptr noundef %326, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %2931 = load i32, ptr @hf_lbmc_extopt_flags, align 4
+  %2932 = load i32, ptr @ett_lbmc_extopt_flags, align 4
+  %2933 = call ptr @proto_tree_add_bitmask(ptr noundef %2926, ptr noundef %326, i32 noundef 2, i32 noundef %2931, i32 noundef %2932, ptr noundef nonnull @dissect_nhdr_extopt.flags, i32 noundef 0) #9
+  %2934 = load i32, ptr @hf_lbmc_extopt_id, align 4
+  %2935 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %2934, ptr noundef %326, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
+  %2936 = load i32, ptr @hf_lbmc_extopt_subtype, align 4
+  %2937 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %2936, ptr noundef %326, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %2938 = load i32, ptr @hf_lbmc_extopt_fragment_offset, align 4
+  %2939 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %2938, ptr noundef %326, i32 noundef 6, i32 noundef 2, i32 noundef 0) #9
+  %2940 = add nsw i32 %2923, -8
+  %2941 = and i8 %2919, 32
+  %2942 = icmp eq i8 %2941, 0
+  %2943 = load i32, ptr %311, align 4
+  %.not152.i = icmp eq i32 %2943, 0
+  br i1 %2942, label %2944, label %3016
 
-2942:                                             ; preds = %2915
-  br i1 %.not152.i, label %3004, label %2943
+2944:                                             ; preds = %2917
+  br i1 %.not152.i, label %3006, label %2945
 
-2943:                                             ; preds = %2942
-  %2944 = load i32, ptr %313, align 4
-  %2945 = zext i16 %2919 to i32
-  %2946 = add nsw i32 %2938, %2945
-  %2947 = add i32 %2946, %2944
-  %2948 = icmp slt i32 %2947, 65536
-  br i1 %2948, label %2949, label %2990
+2945:                                             ; preds = %2944
+  %2946 = load i32, ptr %313, align 4
+  %2947 = zext i16 %2921 to i32
+  %2948 = add nsw i32 %2940, %2947
+  %2949 = add i32 %2948, %2946
+  %2950 = icmp slt i32 %2949, 65536
+  br i1 %2950, label %2951, label %2992
 
-2949:                                             ; preds = %2943
-  %2950 = zext i16 %2919 to i64
-  %2951 = getelementptr i8, ptr %316, i64 %2950
-  %2952 = sext i32 %2938 to i64
-  %2953 = call ptr @tvb_memcpy(ptr noundef %324, ptr noundef %2951, i32 noundef 8, i64 noundef %2952) #9
-  %2954 = load i32, ptr %313, align 4
-  %2955 = add i32 %2954, %2938
-  store i32 %2955, ptr %313, align 4
-  %2956 = load ptr, ptr %52, align 8
-  %2957 = sext i32 %2955 to i64
-  %2958 = call noalias ptr @wmem_memdup(ptr noundef %2956, ptr noundef nonnull %316, i64 noundef %2957) #9
-  %2959 = load i32, ptr %313, align 4
-  %2960 = call ptr @tvb_new_real_data(ptr noundef %2958, i32 noundef %2959, i32 noundef %2959) #9
-  call void @add_new_data_source(ptr noundef %2, ptr noundef %2960, ptr noundef nonnull @.str.1744) #9
-  %2961 = load i32, ptr @hf_lbmc_extopt_data, align 4
-  %2962 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %2961, ptr noundef %324, i32 noundef 8, i32 noundef %2938, i32 noundef 0) #9
-  %2963 = load i32, ptr @hf_lbmc_extopt_reassembled_data, align 4
-  %2964 = load i32, ptr %313, align 4
-  %2965 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2963, ptr noundef %2960, i32 noundef 0, i32 noundef %2964, i32 noundef 0) #9
-  %2966 = load i32, ptr @ett_lbmc_extopt_reassembled_data, align 4
-  %2967 = call ptr @proto_item_add_subtree(ptr noundef %2965, i32 noundef %2966) #9
-  %2968 = load i32, ptr @hf_lbmc_extopt_reassembled_data_subtype, align 4
-  %2969 = load i16, ptr %312, align 4
-  %2970 = zext i16 %2969 to i32
-  %2971 = call ptr @proto_tree_add_uint(ptr noundef %2967, i32 noundef %2968, ptr noundef %2960, i32 noundef 0, i32 noundef 0, i32 noundef %2970) #9
-  %.not.i.i864 = icmp eq ptr %2971, null
-  br i1 %.not.i.i864, label %proto_item_set_generated.exit.i, label %2972
+2951:                                             ; preds = %2945
+  %2952 = zext i16 %2921 to i64
+  %2953 = getelementptr i8, ptr %318, i64 %2952
+  %2954 = sext i32 %2940 to i64
+  %2955 = call ptr @tvb_memcpy(ptr noundef %326, ptr noundef %2953, i32 noundef 8, i64 noundef %2954) #9
+  %2956 = load i32, ptr %313, align 4
+  %2957 = add i32 %2956, %2940
+  store i32 %2957, ptr %313, align 4
+  %2958 = load ptr, ptr %52, align 8
+  %2959 = sext i32 %2957 to i64
+  %2960 = call noalias ptr @wmem_memdup(ptr noundef %2958, ptr noundef nonnull %318, i64 noundef %2959) #9
+  %2961 = load i32, ptr %313, align 4
+  %2962 = call ptr @tvb_new_real_data(ptr noundef %2960, i32 noundef %2961, i32 noundef %2961) #9
+  call void @add_new_data_source(ptr noundef %2, ptr noundef %2962, ptr noundef nonnull @.str.1744) #9
+  %2963 = load i32, ptr @hf_lbmc_extopt_data, align 4
+  %2964 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %2963, ptr noundef %326, i32 noundef 8, i32 noundef %2940, i32 noundef 0) #9
+  %2965 = load i32, ptr @hf_lbmc_extopt_reassembled_data, align 4
+  %2966 = load i32, ptr %313, align 4
+  %2967 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %2965, ptr noundef %2962, i32 noundef 0, i32 noundef %2966, i32 noundef 0) #9
+  %2968 = load i32, ptr @ett_lbmc_extopt_reassembled_data, align 4
+  %2969 = call ptr @proto_item_add_subtree(ptr noundef %2967, i32 noundef %2968) #9
+  %2970 = load i32, ptr @hf_lbmc_extopt_reassembled_data_subtype, align 4
+  %2971 = load i16, ptr %312, align 4
+  %2972 = zext i16 %2971 to i32
+  %2973 = call ptr @proto_tree_add_uint(ptr noundef %2969, i32 noundef %2970, ptr noundef %2962, i32 noundef 0, i32 noundef 0, i32 noundef %2972) #9
+  %.not.i.i864 = icmp eq ptr %2973, null
+  br i1 %.not.i.i864, label %proto_item_set_generated.exit.i, label %2974
 
-2972:                                             ; preds = %2949
-  %2973 = getelementptr inbounds i8, ptr %2971, i64 32
-  %2974 = load ptr, ptr %2973, align 8
-  %.not5.i.i = icmp eq ptr %2974, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %2975
+2974:                                             ; preds = %2951
+  %2975 = getelementptr inbounds i8, ptr %2973, i64 32
+  %2976 = load ptr, ptr %2975, align 8
+  %.not5.i.i = icmp eq ptr %2976, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %2977
 
-2975:                                             ; preds = %2972
-  %2976 = getelementptr inbounds i8, ptr %2974, i64 28
-  %2977 = load i32, ptr %2976, align 4
-  %2978 = or i32 %2977, 2
-  store i32 %2978, ptr %2976, align 4
+2977:                                             ; preds = %2974
+  %2978 = getelementptr inbounds i8, ptr %2976, i64 28
+  %2979 = load i32, ptr %2978, align 4
+  %2980 = or i32 %2979, 2
+  store i32 %2980, ptr %2978, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %2975, %2972, %2949
-  %2979 = load i32, ptr @hf_lbmc_extopt_reassembled_data_len, align 4
-  %2980 = load i32, ptr %313, align 4
-  %2981 = call ptr @proto_tree_add_uint(ptr noundef %2967, i32 noundef %2979, ptr noundef %2960, i32 noundef 0, i32 noundef 0, i32 noundef %2980) #9
-  %.not.i153.i = icmp eq ptr %2981, null
-  br i1 %.not.i153.i, label %proto_item_set_generated.exit155.i, label %2982
+proto_item_set_generated.exit.i:                  ; preds = %2977, %2974, %2951
+  %2981 = load i32, ptr @hf_lbmc_extopt_reassembled_data_len, align 4
+  %2982 = load i32, ptr %313, align 4
+  %2983 = call ptr @proto_tree_add_uint(ptr noundef %2969, i32 noundef %2981, ptr noundef %2962, i32 noundef 0, i32 noundef 0, i32 noundef %2982) #9
+  %.not.i153.i = icmp eq ptr %2983, null
+  br i1 %.not.i153.i, label %proto_item_set_generated.exit155.i, label %2984
 
-2982:                                             ; preds = %proto_item_set_generated.exit.i
-  %2983 = getelementptr inbounds i8, ptr %2981, i64 32
-  %2984 = load ptr, ptr %2983, align 8
-  %.not5.i154.i = icmp eq ptr %2984, null
-  br i1 %.not5.i154.i, label %proto_item_set_generated.exit155.i, label %2985
+2984:                                             ; preds = %proto_item_set_generated.exit.i
+  %2985 = getelementptr inbounds i8, ptr %2983, i64 32
+  %2986 = load ptr, ptr %2985, align 8
+  %.not5.i154.i = icmp eq ptr %2986, null
+  br i1 %.not5.i154.i, label %proto_item_set_generated.exit155.i, label %2987
 
-2985:                                             ; preds = %2982
-  %2986 = getelementptr inbounds i8, ptr %2984, i64 28
-  %2987 = load i32, ptr %2986, align 4
-  %2988 = or i32 %2987, 2
-  store i32 %2988, ptr %2986, align 4
+2987:                                             ; preds = %2984
+  %2988 = getelementptr inbounds i8, ptr %2986, i64 28
+  %2989 = load i32, ptr %2988, align 4
+  %2990 = or i32 %2989, 2
+  store i32 %2990, ptr %2988, align 4
   br label %proto_item_set_generated.exit155.i
 
-proto_item_set_generated.exit155.i:               ; preds = %2985, %2982, %proto_item_set_generated.exit.i
-  %2989 = load i16, ptr %312, align 4
-  switch i16 %2989, label %2999 [
-    i16 257, label %2992
-    i16 256, label %2996
+proto_item_set_generated.exit155.i:               ; preds = %2987, %2984, %proto_item_set_generated.exit.i
+  %2991 = load i16, ptr %312, align 4
+  switch i16 %2991, label %3001 [
+    i16 257, label %2994
+    i16 256, label %2998
   ]
 
-2990:                                             ; preds = %2943
-  %2991 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2937, ptr noundef nonnull @ei_lbmc_extopt_fragment_offset) #9
+2992:                                             ; preds = %2945
+  %2993 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2939, ptr noundef nonnull @ei_lbmc_extopt_fragment_offset) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-2992:                                             ; preds = %proto_item_set_generated.exit155.i
-  %2993 = load i32, ptr @hf_lbmc_extopt_reassembled_data_msgsel, align 4
-  %2994 = load i32, ptr %313, align 4
-  %2995 = call ptr @proto_tree_add_item(ptr noundef %2967, i32 noundef %2993, ptr noundef %2960, i32 noundef 0, i32 noundef %2994, i32 noundef 0) #9
-  br label %3003
+2994:                                             ; preds = %proto_item_set_generated.exit155.i
+  %2995 = load i32, ptr @hf_lbmc_extopt_reassembled_data_msgsel, align 4
+  %2996 = load i32, ptr %313, align 4
+  %2997 = call ptr @proto_tree_add_item(ptr noundef %2969, i32 noundef %2995, ptr noundef %2962, i32 noundef 0, i32 noundef %2996, i32 noundef 0) #9
+  br label %3005
 
-2996:                                             ; preds = %proto_item_set_generated.exit155.i
-  %2997 = call fastcc i32 @dissect_nhdr_extopt_cfgopt(ptr noundef %2960, i32 noundef 0, ptr noundef %2967)
-  %2998 = add i32 %2997, %2921
-  br label %3003
+2998:                                             ; preds = %proto_item_set_generated.exit155.i
+  %2999 = call fastcc i32 @dissect_nhdr_extopt_cfgopt(ptr noundef %2962, i32 noundef 0, ptr noundef %2969)
+  %3000 = add i32 %2999, %2923
+  br label %3005
 
-2999:                                             ; preds = %proto_item_set_generated.exit155.i
-  %3000 = load i32, ptr @hf_lbmc_extopt_reassembled_data_data, align 4
-  %3001 = load i32, ptr %313, align 4
-  %3002 = call ptr @proto_tree_add_item(ptr noundef %2967, i32 noundef %3000, ptr noundef %2960, i32 noundef 0, i32 noundef %3001, i32 noundef 0) #9
-  br label %3003
+3001:                                             ; preds = %proto_item_set_generated.exit155.i
+  %3002 = load i32, ptr @hf_lbmc_extopt_reassembled_data_data, align 4
+  %3003 = load i32, ptr %313, align 4
+  %3004 = call ptr @proto_tree_add_item(ptr noundef %2969, i32 noundef %3002, ptr noundef %2962, i32 noundef 0, i32 noundef %3003, i32 noundef 0) #9
+  br label %3005
 
-3003:                                             ; preds = %2999, %2996, %2992
-  %.0148.i = phi i32 [ %2921, %2999 ], [ %2998, %2996 ], [ %2921, %2992 ]
+3005:                                             ; preds = %3001, %2998, %2994
+  %.0148.i = phi i32 [ %2923, %3001 ], [ %3000, %2998 ], [ %2923, %2994 ]
   store i32 0, ptr %311, align 4
   store i16 0, ptr %312, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(65540) %313, i8 0, i64 65540, i1 false)
-  br label %3044
+  br label %3046
 
-3004:                                             ; preds = %2942
-  switch i16 %2918, label %3011 [
-    i16 257, label %3005
-    i16 256, label %3008
+3006:                                             ; preds = %2944
+  switch i16 %2920, label %3013 [
+    i16 257, label %3007
+    i16 256, label %3010
   ]
 
-3005:                                             ; preds = %3004
-  %3006 = load i32, ptr @hf_lbmc_extopt_msgsel, align 4
-  %3007 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %3006, ptr noundef %324, i32 noundef 8, i32 noundef %2938, i32 noundef 0) #9
-  br label %3044
+3007:                                             ; preds = %3006
+  %3008 = load i32, ptr @hf_lbmc_extopt_msgsel, align 4
+  %3009 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %3008, ptr noundef %326, i32 noundef 8, i32 noundef %2940, i32 noundef 0) #9
+  br label %3046
 
-3008:                                             ; preds = %3004
-  %3009 = call fastcc i32 @dissect_nhdr_extopt_cfgopt(ptr noundef %324, i32 noundef 8, ptr noundef %2924)
-  %3010 = add i32 %3009, %2921
-  br label %3044
+3010:                                             ; preds = %3006
+  %3011 = call fastcc i32 @dissect_nhdr_extopt_cfgopt(ptr noundef %326, i32 noundef 8, ptr noundef %2926)
+  %3012 = add i32 %3011, %2923
+  br label %3046
 
-3011:                                             ; preds = %3004
-  %3012 = load i32, ptr @hf_lbmc_extopt_data, align 4
-  %3013 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %3012, ptr noundef %324, i32 noundef 8, i32 noundef %2938, i32 noundef 0) #9
-  br label %3044
+3013:                                             ; preds = %3006
+  %3014 = load i32, ptr @hf_lbmc_extopt_data, align 4
+  %3015 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %3014, ptr noundef %326, i32 noundef 8, i32 noundef %2940, i32 noundef 0) #9
+  br label %3046
 
-3014:                                             ; preds = %2915
-  br i1 %.not152.i, label %3032, label %3015
+3016:                                             ; preds = %2917
+  br i1 %.not152.i, label %3034, label %3017
 
-3015:                                             ; preds = %3014
-  %3016 = load i32, ptr %313, align 4
-  %3017 = zext i16 %2919 to i32
-  %3018 = add nsw i32 %2938, %3017
-  %3019 = add i32 %3018, %3016
-  %3020 = icmp slt i32 %3019, 65536
-  br i1 %3020, label %3021, label %3030
+3017:                                             ; preds = %3016
+  %3018 = load i32, ptr %313, align 4
+  %3019 = zext i16 %2921 to i32
+  %3020 = add nsw i32 %2940, %3019
+  %3021 = add i32 %3020, %3018
+  %3022 = icmp slt i32 %3021, 65536
+  br i1 %3022, label %3023, label %3032
 
-3021:                                             ; preds = %3015
-  %3022 = zext i16 %2919 to i64
-  %3023 = getelementptr i8, ptr %316, i64 %3022
-  %3024 = sext i32 %2938 to i64
-  %3025 = call ptr @tvb_memcpy(ptr noundef %324, ptr noundef %3023, i32 noundef 8, i64 noundef %3024) #9
-  %3026 = load i32, ptr %313, align 4
-  %3027 = add i32 %3026, %2938
-  store i32 %3027, ptr %313, align 4
-  %3028 = load i32, ptr @hf_lbmc_extopt_data, align 4
-  %3029 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %3028, ptr noundef %324, i32 noundef %2921, i32 noundef %2938, i32 noundef 0) #9
-  br label %3044
+3023:                                             ; preds = %3017
+  %3024 = zext i16 %2921 to i64
+  %3025 = getelementptr i8, ptr %318, i64 %3024
+  %3026 = sext i32 %2940 to i64
+  %3027 = call ptr @tvb_memcpy(ptr noundef %326, ptr noundef %3025, i32 noundef 8, i64 noundef %3026) #9
+  %3028 = load i32, ptr %313, align 4
+  %3029 = add i32 %3028, %2940
+  store i32 %3029, ptr %313, align 4
+  %3030 = load i32, ptr @hf_lbmc_extopt_data, align 4
+  %3031 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %3030, ptr noundef %326, i32 noundef %2923, i32 noundef %2940, i32 noundef 0) #9
+  br label %3046
 
-3030:                                             ; preds = %3015
-  %3031 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2937, ptr noundef nonnull @ei_lbmc_extopt_fragment_offset) #9
+3032:                                             ; preds = %3017
+  %3033 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %2939, ptr noundef nonnull @ei_lbmc_extopt_fragment_offset) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-3032:                                             ; preds = %3014
+3034:                                             ; preds = %3016
   store i32 1, ptr %311, align 4
-  store i16 %2918, ptr %312, align 4
+  store i16 %2920, ptr %312, align 4
   store i32 0, ptr %313, align 4
-  %.not151.i = icmp eq i16 %2919, 0
-  br i1 %.not151.i, label %3036, label %3033
+  %.not151.i = icmp eq i16 %2921, 0
+  br i1 %.not151.i, label %3038, label %3035
 
-3033:                                             ; preds = %3032
-  %3034 = zext i16 %2919 to i32
-  %3035 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_no_reassembly, ptr noundef nonnull @.str.1745, i32 noundef %3034) #9
-  br label %3041
+3035:                                             ; preds = %3034
+  %3036 = zext i16 %2921 to i32
+  %3037 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_no_reassembly, ptr noundef nonnull @.str.1745, i32 noundef %3036) #9
+  br label %3043
 
-3036:                                             ; preds = %3032
-  %3037 = sext i32 %2938 to i64
-  %3038 = call ptr @tvb_memcpy(ptr noundef %324, ptr noundef nonnull %316, i32 noundef 8, i64 noundef %3037) #9
-  %3039 = load i32, ptr %313, align 4
-  %3040 = add i32 %3039, %2938
-  store i32 %3040, ptr %313, align 4
-  br label %3041
+3038:                                             ; preds = %3034
+  %3039 = sext i32 %2940 to i64
+  %3040 = call ptr @tvb_memcpy(ptr noundef %326, ptr noundef nonnull %318, i32 noundef 8, i64 noundef %3039) #9
+  %3041 = load i32, ptr %313, align 4
+  %3042 = add i32 %3041, %2940
+  store i32 %3042, ptr %313, align 4
+  br label %3043
 
-3041:                                             ; preds = %3036, %3033
-  %3042 = load i32, ptr @hf_lbmc_extopt_data, align 4
-  %3043 = call ptr @proto_tree_add_item(ptr noundef %2924, i32 noundef %3042, ptr noundef %324, i32 noundef 8, i32 noundef %2938, i32 noundef 0) #9
-  br label %3044
+3043:                                             ; preds = %3038, %3035
+  %3044 = load i32, ptr @hf_lbmc_extopt_data, align 4
+  %3045 = call ptr @proto_tree_add_item(ptr noundef %2926, i32 noundef %3044, ptr noundef %326, i32 noundef 8, i32 noundef %2940, i32 noundef 0) #9
+  br label %3046
 
-3044:                                             ; preds = %3041, %3021, %3011, %3008, %3005, %3003
-  %.1.i863 = phi i32 [ %.0148.i, %3003 ], [ %2921, %3011 ], [ %3010, %3008 ], [ %2921, %3005 ], [ %2921, %3021 ], [ %2921, %3041 ]
-  call void @proto_item_set_len(ptr noundef %2922, i32 noundef %.1.i863) #9
+3046:                                             ; preds = %3043, %3023, %3013, %3010, %3007, %3005
+  %.1.i863 = phi i32 [ %.0148.i, %3005 ], [ %2923, %3013 ], [ %3012, %3010 ], [ %2923, %3007 ], [ %2923, %3023 ], [ %2923, %3043 ]
+  call void @proto_item_set_len(ptr noundef %2924, i32 noundef %.1.i863) #9
   br label %dissect_nhdr_apphdr_chain.exit
 
-3045:                                             ; preds = %323
-  %3046 = call fastcc i32 @dissect_nhdr_unhandled(ptr noundef %324, ptr noundef %2, ptr noundef %275, i8 noundef zeroext %.07181200)
+3047:                                             ; preds = %325
+  %3048 = call fastcc i32 @dissect_nhdr_unhandled(ptr noundef %326, ptr noundef %2, ptr noundef %275, i8 noundef zeroext %.07181200)
   br label %dissect_nhdr_apphdr_chain.exit
 
-dissect_nhdr_apphdr_chain.exit:                   ; preds = %3044, %3030, %2990, %._crit_edge.i, %481, %458, %dissect_nhdr_auth_request.exit, %dissect_nhdr_auth_challenge.exit, %dissect_nhdr_auth_challenge_rsp.exit, %2702, %dissect_nhdr_auth_unknown.exit, %3045, %2900, %2884, %2858, %2837, %2823, %2809, %2775, %2759, %2743, %dissect_nhdr_gateway_name.exit, %2553, %2523, %2505, %2491, %2475, %2473, %dissect_nhdr_umq_cmd.exit, %2382, %2352, %2322, %dissect_nhdr_pattern_md_interest.exit, %dissect_nhdr_topic_md_interest.exit, %2245, %2231, %dissect_nhdr_umq_idx_cmd_resp.exit, %dissect_nhdr_umq_idx_cmd.exit, %1882, %1864, %1850, %1828, %1814, %1800, %1772, %dissect_nhdr_ctxinfo.exit, %1718, %1690, %dissect_nhdr_storename.exit, %1655, %1622, %1604, %1590, %1566, %1542, %1530, %dissect_nhdr_umq_rxreq.exit, %dissect_nhdr_umq_ka.exit, %1310, %dissect_nhdr_umq_ack.exit, %dissect_nhdr_umq_reg_resp.exit, %dissect_nhdr_umq_reg.exit, %dissect_nhdr_tsni.exit, %922, %900, %882, %870, %858, %844, %828, %815, %795, %767, %745, %716, %686, %666, %642, %620, %606, %591, %576, %562, %542, %520, %504, %dissect_nhdr_apphdr.exit, %dissect_nhdr_topicname.exit, %362, %360, %348, %327
-  %.sroa.45.2 = phi i16 [ %.sroa.45.11182, %3045 ], [ %.sroa.45.11182, %2900 ], [ %.sroa.45.11182, %2884 ], [ %.sroa.45.11182, %2858 ], [ %.sroa.45.11182, %2837 ], [ %.sroa.45.11182, %2823 ], [ %.sroa.45.11182, %2809 ], [ %2808, %2775 ], [ %.sroa.45.11182, %2759 ], [ %.sroa.45.11182, %2743 ], [ %.sroa.45.11182, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.45.11182, %2702 ], [ %.sroa.45.11182, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.45.11182, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.45.11182, %dissect_nhdr_auth_request.exit ], [ %.sroa.45.11182, %dissect_nhdr_gateway_name.exit ], [ %.sroa.45.11182, %2553 ], [ %.sroa.45.11182, %2523 ], [ %.sroa.45.11182, %2505 ], [ %.sroa.45.11182, %2491 ], [ %.sroa.45.11182, %2475 ], [ %.sroa.45.11182, %2473 ], [ %.sroa.45.11182, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.45.11182, %2382 ], [ %.sroa.45.11182, %2352 ], [ %.sroa.45.11182, %2322 ], [ %.sroa.45.11182, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.45.11182, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.45.11182, %2245 ], [ %.sroa.45.11182, %2231 ], [ %.sroa.45.11182, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.45.11182, %1882 ], [ %.sroa.45.11182, %1864 ], [ %.sroa.45.11182, %1850 ], [ %.sroa.45.11182, %1828 ], [ %.sroa.45.11182, %1814 ], [ %.sroa.45.11182, %1800 ], [ %.sroa.45.11182, %1772 ], [ %.sroa.45.11182, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.45.11182, %1718 ], [ %.sroa.45.11182, %1690 ], [ %.sroa.45.11182, %dissect_nhdr_storename.exit ], [ %.sroa.45.11182, %1655 ], [ %.sroa.45.11182, %1622 ], [ %.sroa.45.11182, %1604 ], [ %.sroa.45.11182, %1590 ], [ %.sroa.45.11182, %1566 ], [ %.sroa.45.11182, %1542 ], [ %.sroa.45.11182, %1530 ], [ %.sroa.45.11182, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_ka.exit ], [ %.sroa.45.11182, %1310 ], [ %.sroa.45.11182, %dissect_nhdr_umq_ack.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_reg.exit ], [ %.sroa.45.11182, %dissect_nhdr_tsni.exit ], [ %.sroa.45.11182, %922 ], [ %.sroa.45.11182, %900 ], [ %.sroa.45.11182, %882 ], [ %.sroa.45.11182, %870 ], [ %.sroa.45.11182, %858 ], [ %.sroa.45.11182, %844 ], [ %.sroa.45.11182, %828 ], [ %.sroa.45.11182, %815 ], [ %.sroa.45.11182, %795 ], [ %.sroa.45.11182, %767 ], [ %.sroa.45.11182, %745 ], [ %.sroa.45.11182, %716 ], [ %.sroa.45.11182, %686 ], [ %.sroa.45.11182, %666 ], [ %.sroa.45.11182, %642 ], [ %.sroa.45.11182, %620 ], [ %.sroa.45.11182, %606 ], [ %.sroa.45.11182, %591 ], [ %.sroa.45.11182, %576 ], [ %.sroa.45.11182, %562 ], [ %.sroa.45.11182, %542 ], [ %.sroa.45.11182, %520 ], [ %.sroa.45.11182, %504 ], [ %.sroa.45.11182, %dissect_nhdr_apphdr.exit ], [ %.sroa.45.11182, %dissect_nhdr_topicname.exit ], [ %.sroa.45.11182, %362 ], [ %.sroa.45.11182, %360 ], [ %.sroa.45.11182, %348 ], [ %.sroa.45.11182, %327 ], [ %.sroa.45.11182, %458 ], [ %.sroa.45.11182, %481 ], [ %.sroa.45.11182, %._crit_edge.i ], [ %.sroa.45.11182, %2990 ], [ %.sroa.45.11182, %3030 ], [ %.sroa.45.11182, %3044 ]
-  %.11081 = phi i32 [ %.010801183, %3045 ], [ %.010801183, %2900 ], [ %.010801183, %2884 ], [ %.010801183, %2858 ], [ %.010801183, %2837 ], [ %.010801183, %2823 ], [ %.010801183, %2809 ], [ %.010801183, %2775 ], [ %.010801183, %2759 ], [ %.010801183, %2743 ], [ %.010801183, %dissect_nhdr_auth_unknown.exit ], [ %.010801183, %2702 ], [ %.010801183, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010801183, %dissect_nhdr_auth_challenge.exit ], [ %.010801183, %dissect_nhdr_auth_request.exit ], [ %.010801183, %dissect_nhdr_gateway_name.exit ], [ %.010801183, %2553 ], [ %.010801183, %2523 ], [ %.010801183, %2505 ], [ %.010801183, %2491 ], [ %.010801183, %2475 ], [ %.010801183, %2473 ], [ %.010801183, %dissect_nhdr_umq_cmd.exit ], [ %.010801183, %2382 ], [ %.010801183, %2352 ], [ %.010801183, %2322 ], [ %.010801183, %dissect_nhdr_pattern_md_interest.exit ], [ %.010801183, %dissect_nhdr_topic_md_interest.exit ], [ %.010801183, %2245 ], [ %.010801183, %2231 ], [ %.010801183, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010801183, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010801183, %1882 ], [ %.010801183, %1864 ], [ %.010801183, %1850 ], [ %.010801183, %1828 ], [ %.010801183, %1814 ], [ %.010801183, %1800 ], [ %.010801183, %1772 ], [ %.010801183, %dissect_nhdr_ctxinfo.exit ], [ %.010801183, %1718 ], [ %.010801183, %1690 ], [ %.010801183, %dissect_nhdr_storename.exit ], [ %.010801183, %1655 ], [ %.010801183, %1622 ], [ %.010801183, %1604 ], [ %.010801183, %1590 ], [ %.010801183, %1566 ], [ %.010801183, %1542 ], [ %.010801183, %1530 ], [ %.010801183, %dissect_nhdr_umq_rxreq.exit ], [ %.010801183, %dissect_nhdr_umq_ka.exit ], [ %.010801183, %1310 ], [ %.010801183, %dissect_nhdr_umq_ack.exit ], [ %.010801183, %dissect_nhdr_umq_reg_resp.exit ], [ %.010801183, %dissect_nhdr_umq_reg.exit ], [ %.010801183, %dissect_nhdr_tsni.exit ], [ %.010801183, %922 ], [ %.010801183, %900 ], [ %.010801183, %882 ], [ %.010801183, %870 ], [ %.010801183, %858 ], [ %.010801183, %844 ], [ %.010801183, %828 ], [ %.010801183, %815 ], [ %.010801183, %795 ], [ %.010801183, %767 ], [ %.010801183, %745 ], [ %.010801183, %716 ], [ %.010801183, %686 ], [ %.010801183, %666 ], [ %.010801183, %642 ], [ %.010801183, %620 ], [ %.010801183, %606 ], [ %.010801183, %591 ], [ %.010801183, %576 ], [ %.010801183, %562 ], [ %.010801183, %542 ], [ %..i, %520 ], [ %.010801183, %504 ], [ %.010801183, %dissect_nhdr_apphdr.exit ], [ %.010801183, %dissect_nhdr_topicname.exit ], [ %.010801183, %362 ], [ %.010801183, %360 ], [ %.010801183, %348 ], [ %.010801183, %327 ], [ %.010801183, %458 ], [ %.010801183, %481 ], [ %.010801183, %._crit_edge.i ], [ %.010801183, %2990 ], [ %.010801183, %3030 ], [ %.010801183, %3044 ]
-  %.sroa.40.2 = phi ptr [ %.sroa.40.11184, %3045 ], [ %.sroa.40.11184, %2900 ], [ %.sroa.40.11184, %2884 ], [ %.sroa.40.11184, %2858 ], [ %.sroa.40.11184, %2837 ], [ %.sroa.40.11184, %2823 ], [ %.sroa.40.11184, %2809 ], [ %2807, %2775 ], [ %.sroa.40.11184, %2759 ], [ %.sroa.40.11184, %2743 ], [ %.sroa.40.11184, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.40.11184, %2702 ], [ %.sroa.40.11184, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.40.11184, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.40.11184, %dissect_nhdr_auth_request.exit ], [ %.sroa.40.11184, %dissect_nhdr_gateway_name.exit ], [ %.sroa.40.11184, %2553 ], [ %.sroa.40.11184, %2523 ], [ %.sroa.40.11184, %2505 ], [ %.sroa.40.11184, %2491 ], [ %.sroa.40.11184, %2475 ], [ %.sroa.40.11184, %2473 ], [ %.sroa.40.11184, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.40.11184, %2382 ], [ %.sroa.40.11184, %2352 ], [ %.sroa.40.11184, %2322 ], [ %.sroa.40.11184, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.40.11184, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.40.11184, %2245 ], [ %.sroa.40.11184, %2231 ], [ %.sroa.40.11184, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.40.11184, %1882 ], [ %.sroa.40.11184, %1864 ], [ %.sroa.40.11184, %1850 ], [ %.sroa.40.11184, %1828 ], [ %.sroa.40.11184, %1814 ], [ %.sroa.40.11184, %1800 ], [ %.sroa.40.11184, %1772 ], [ %.sroa.40.11184, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.40.11184, %1718 ], [ %.sroa.40.11184, %1690 ], [ %.sroa.40.11184, %dissect_nhdr_storename.exit ], [ %.sroa.40.11184, %1655 ], [ %.sroa.40.11184, %1622 ], [ %.sroa.40.11184, %1604 ], [ %.sroa.40.11184, %1590 ], [ %.sroa.40.11184, %1566 ], [ %.sroa.40.11184, %1542 ], [ %.sroa.40.11184, %1530 ], [ %.sroa.40.11184, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_ka.exit ], [ %.sroa.40.11184, %1310 ], [ %.sroa.40.11184, %dissect_nhdr_umq_ack.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_reg.exit ], [ %.sroa.40.11184, %dissect_nhdr_tsni.exit ], [ %.sroa.40.11184, %922 ], [ %.sroa.40.11184, %900 ], [ %.sroa.40.11184, %882 ], [ %.sroa.40.11184, %870 ], [ %.sroa.40.11184, %858 ], [ %.sroa.40.11184, %844 ], [ %.sroa.40.11184, %828 ], [ %.sroa.40.11184, %815 ], [ %.sroa.40.11184, %795 ], [ %.sroa.40.11184, %767 ], [ %.sroa.40.11184, %745 ], [ %.sroa.40.11184, %716 ], [ %.sroa.40.11184, %686 ], [ %.sroa.40.11184, %666 ], [ %.sroa.40.11184, %642 ], [ %.sroa.40.11184, %620 ], [ %.sroa.40.11184, %606 ], [ %.sroa.40.11184, %591 ], [ %.sroa.40.11184, %576 ], [ %.sroa.40.11184, %562 ], [ %.sroa.40.11184, %542 ], [ %.sroa.40.11184, %520 ], [ %.sroa.40.11184, %504 ], [ %.sroa.40.11184, %dissect_nhdr_apphdr.exit ], [ %.sroa.40.11184, %dissect_nhdr_topicname.exit ], [ %.sroa.40.11184, %362 ], [ %.sroa.40.11184, %360 ], [ %.sroa.40.11184, %348 ], [ %.sroa.40.11184, %327 ], [ %.sroa.40.11184, %458 ], [ %.sroa.40.11184, %481 ], [ %.sroa.40.11184, %._crit_edge.i ], [ %.sroa.40.11184, %2990 ], [ %.sroa.40.11184, %3030 ], [ %.sroa.40.11184, %3044 ]
-  %.sroa.01063.1 = phi i32 [ %.sroa.01063.01185, %3045 ], [ %.sroa.01063.01185, %2900 ], [ %.sroa.01063.01185, %2884 ], [ %.sroa.01063.01185, %2858 ], [ %.sroa.01063.01185, %2837 ], [ %.sroa.01063.01185, %2823 ], [ %.sroa.01063.01185, %2809 ], [ %.sroa.01063.01185, %2775 ], [ %.sroa.01063.01185, %2759 ], [ %.sroa.01063.01185, %2743 ], [ %.sroa.01063.01185, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.01063.01185, %2702 ], [ %.sroa.01063.01185, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.01063.01185, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.01063.01185, %dissect_nhdr_auth_request.exit ], [ %.sroa.01063.01185, %dissect_nhdr_gateway_name.exit ], [ %.sroa.01063.01185, %2553 ], [ %.sroa.01063.01185, %2523 ], [ %.sroa.01063.01185, %2505 ], [ %.sroa.01063.01185, %2491 ], [ %.sroa.01063.01185, %2475 ], [ %.sroa.01063.01185, %2473 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.01063.01185, %2382 ], [ %.sroa.01063.01185, %2352 ], [ %.sroa.01063.01185, %2322 ], [ %.sroa.01063.01185, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.01063.01185, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.01063.01185, %2245 ], [ %.sroa.01063.01185, %2231 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.01063.01185, %1882 ], [ %.sroa.01063.01185, %1864 ], [ %.sroa.01063.01185, %1850 ], [ %.sroa.01063.01185, %1828 ], [ %.sroa.01063.01185, %1814 ], [ %.sroa.01063.01185, %1800 ], [ %.sroa.01063.01185, %1772 ], [ %.sroa.01063.01185, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.01063.01185, %1718 ], [ %.sroa.01063.01185, %1690 ], [ %.sroa.01063.01185, %dissect_nhdr_storename.exit ], [ %.sroa.01063.01185, %1655 ], [ %.sroa.01063.01185, %1622 ], [ %.sroa.01063.01185, %1604 ], [ %.sroa.01063.01185, %1590 ], [ %.sroa.01063.01185, %1566 ], [ %.sroa.01063.01185, %1542 ], [ %.sroa.01063.01185, %1530 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_ka.exit ], [ %.sroa.01063.01185, %1310 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_ack.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_reg.exit ], [ %.sroa.01063.01185, %dissect_nhdr_tsni.exit ], [ %.sroa.01063.01185, %922 ], [ %.sroa.01063.01185, %900 ], [ %.sroa.01063.01185, %882 ], [ %.sroa.01063.01185, %870 ], [ %.sroa.01063.01185, %858 ], [ %.sroa.01063.01185, %844 ], [ %.sroa.01063.01185, %828 ], [ %.sroa.01063.01185, %815 ], [ %.sroa.01063.01185, %795 ], [ %.sroa.01063.01185, %767 ], [ %.sroa.01063.01185, %745 ], [ %.sroa.01063.01185, %716 ], [ %.sroa.01063.01185, %686 ], [ %.sroa.01063.01185, %666 ], [ %.sroa.01063.01185, %642 ], [ %.sroa.01063.01185, %620 ], [ %.sroa.01063.01185, %606 ], [ %.sroa.01063.01185, %591 ], [ %.sroa.01063.01185, %576 ], [ %.sroa.01063.01185, %562 ], [ %.sroa.01063.01185, %542 ], [ %.sroa.01063.01185, %520 ], [ %.sroa.01063.01185, %504 ], [ %.sroa.01063.01185, %dissect_nhdr_apphdr.exit ], [ %.sroa.01063.01185, %dissect_nhdr_topicname.exit ], [ %.sroa.01063.01185, %362 ], [ %.sroa.01063.01185, %360 ], [ %.sroa.01063.01185, %348 ], [ 1, %327 ], [ %.sroa.01063.01185, %458 ], [ %.sroa.01063.01185, %481 ], [ %.sroa.01063.01185, %._crit_edge.i ], [ %.sroa.01063.01185, %2990 ], [ %.sroa.01063.01185, %3030 ], [ %.sroa.01063.01185, %3044 ]
-  %.sroa.31064.1 = phi i32 [ %.sroa.31064.01186, %3045 ], [ %.sroa.31064.01186, %2900 ], [ %.sroa.31064.01186, %2884 ], [ %.sroa.31064.01186, %2858 ], [ %.sroa.31064.01186, %2837 ], [ %.sroa.31064.01186, %2823 ], [ %.sroa.31064.01186, %2809 ], [ %.sroa.31064.01186, %2775 ], [ %.sroa.31064.01186, %2759 ], [ %.sroa.31064.01186, %2743 ], [ %.sroa.31064.01186, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.31064.01186, %2702 ], [ %.sroa.31064.01186, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.31064.01186, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.31064.01186, %dissect_nhdr_auth_request.exit ], [ %.sroa.31064.01186, %dissect_nhdr_gateway_name.exit ], [ %.sroa.31064.01186, %2553 ], [ %.sroa.31064.01186, %2523 ], [ %.sroa.31064.01186, %2505 ], [ %.sroa.31064.01186, %2491 ], [ %.sroa.31064.01186, %2475 ], [ %.sroa.31064.01186, %2473 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.31064.01186, %2382 ], [ %.sroa.31064.01186, %2352 ], [ %.sroa.31064.01186, %2322 ], [ %.sroa.31064.01186, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.31064.01186, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.31064.01186, %2245 ], [ %.sroa.31064.01186, %2231 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.31064.01186, %1882 ], [ %.sroa.31064.01186, %1864 ], [ %.sroa.31064.01186, %1850 ], [ %.sroa.31064.01186, %1828 ], [ %.sroa.31064.01186, %1814 ], [ %.sroa.31064.01186, %1800 ], [ %.sroa.31064.01186, %1772 ], [ %.sroa.31064.01186, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.31064.01186, %1718 ], [ %.sroa.31064.01186, %1690 ], [ %.sroa.31064.01186, %dissect_nhdr_storename.exit ], [ %.sroa.31064.01186, %1655 ], [ %.sroa.31064.01186, %1622 ], [ %.sroa.31064.01186, %1604 ], [ %.sroa.31064.01186, %1590 ], [ %.sroa.31064.01186, %1566 ], [ %.sroa.31064.01186, %1542 ], [ %.sroa.31064.01186, %1530 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_ka.exit ], [ %.sroa.31064.01186, %1310 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_ack.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_reg.exit ], [ %.sroa.31064.01186, %dissect_nhdr_tsni.exit ], [ %.sroa.31064.01186, %922 ], [ %.sroa.31064.01186, %900 ], [ %.sroa.31064.01186, %882 ], [ %.sroa.31064.01186, %870 ], [ %.sroa.31064.01186, %858 ], [ %.sroa.31064.01186, %844 ], [ %.sroa.31064.01186, %828 ], [ %.sroa.31064.01186, %815 ], [ %.sroa.31064.01186, %795 ], [ %.sroa.31064.01186, %767 ], [ %.sroa.31064.01186, %745 ], [ %.sroa.31064.01186, %716 ], [ %.sroa.31064.01186, %686 ], [ %.sroa.31064.01186, %666 ], [ %.sroa.31064.01186, %642 ], [ %.sroa.31064.01186, %620 ], [ %.sroa.31064.01186, %606 ], [ %.sroa.31064.01186, %591 ], [ %.sroa.31064.01186, %576 ], [ %.sroa.31064.01186, %562 ], [ %.sroa.31064.01186, %542 ], [ %.sroa.31064.01186, %520 ], [ %.sroa.31064.01186, %504 ], [ %.sroa.31064.01186, %dissect_nhdr_apphdr.exit ], [ %.sroa.31064.01186, %dissect_nhdr_topicname.exit ], [ %.sroa.31064.01186, %362 ], [ %.sroa.31064.01186, %360 ], [ %.sroa.31064.01186, %348 ], [ %345, %327 ], [ %.sroa.31064.01186, %458 ], [ %.sroa.31064.01186, %481 ], [ %.sroa.31064.01186, %._crit_edge.i ], [ %.sroa.31064.01186, %2990 ], [ %.sroa.31064.01186, %3030 ], [ %.sroa.31064.01186, %3044 ]
-  %.sroa.261036.2 = phi i32 [ %.sroa.261036.11187, %3045 ], [ %.sroa.261036.11187, %2900 ], [ %.sroa.261036.11187, %2884 ], [ %.sroa.261036.11187, %2858 ], [ %.sroa.261036.11187, %2837 ], [ %.sroa.261036.11187, %2823 ], [ %.sroa.261036.11187, %2809 ], [ %2806, %2775 ], [ %.sroa.261036.11187, %2759 ], [ %.sroa.261036.11187, %2743 ], [ %.sroa.261036.11187, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.261036.11187, %2702 ], [ %.sroa.261036.11187, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.261036.11187, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.261036.11187, %dissect_nhdr_auth_request.exit ], [ %.sroa.261036.11187, %dissect_nhdr_gateway_name.exit ], [ %.sroa.261036.11187, %2553 ], [ %.sroa.261036.11187, %2523 ], [ %.sroa.261036.11187, %2505 ], [ %.sroa.261036.11187, %2491 ], [ %.sroa.261036.11187, %2475 ], [ %.sroa.261036.11187, %2473 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.261036.11187, %2382 ], [ %.sroa.261036.11187, %2352 ], [ %.sroa.261036.11187, %2322 ], [ %.sroa.261036.11187, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.261036.11187, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.261036.11187, %2245 ], [ %.sroa.261036.11187, %2231 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.261036.11187, %1882 ], [ %.sroa.261036.11187, %1864 ], [ %.sroa.261036.11187, %1850 ], [ %.sroa.261036.11187, %1828 ], [ %.sroa.261036.11187, %1814 ], [ %.sroa.261036.11187, %1800 ], [ %.sroa.261036.11187, %1772 ], [ %.sroa.261036.11187, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.261036.11187, %1718 ], [ %.sroa.261036.11187, %1690 ], [ %.sroa.261036.11187, %dissect_nhdr_storename.exit ], [ %.sroa.261036.11187, %1655 ], [ %.sroa.261036.11187, %1622 ], [ %.sroa.261036.11187, %1604 ], [ %.sroa.261036.11187, %1590 ], [ %.sroa.261036.11187, %1566 ], [ %.sroa.261036.11187, %1542 ], [ %.sroa.261036.11187, %1530 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_ka.exit ], [ %.sroa.261036.11187, %1310 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_ack.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_reg.exit ], [ %.sroa.261036.11187, %dissect_nhdr_tsni.exit ], [ %.sroa.261036.11187, %922 ], [ %.sroa.261036.11187, %900 ], [ %.sroa.261036.11187, %882 ], [ %.sroa.261036.11187, %870 ], [ %.sroa.261036.11187, %858 ], [ %.sroa.261036.11187, %844 ], [ %.sroa.261036.11187, %828 ], [ %.sroa.261036.11187, %815 ], [ %.sroa.261036.11187, %795 ], [ %.sroa.261036.11187, %767 ], [ %.sroa.261036.11187, %745 ], [ %.sroa.261036.11187, %716 ], [ %.sroa.261036.11187, %686 ], [ %.sroa.261036.11187, %666 ], [ %.sroa.261036.11187, %642 ], [ %.sroa.261036.11187, %620 ], [ %.sroa.261036.11187, %606 ], [ %.sroa.261036.11187, %591 ], [ %.sroa.261036.11187, %576 ], [ %.sroa.261036.11187, %562 ], [ %.sroa.261036.11187, %542 ], [ %.sroa.261036.11187, %520 ], [ %.sroa.261036.11187, %504 ], [ %.sroa.261036.11187, %dissect_nhdr_apphdr.exit ], [ %.sroa.261036.11187, %dissect_nhdr_topicname.exit ], [ %.sroa.261036.11187, %362 ], [ %.sroa.261036.11187, %360 ], [ %.sroa.261036.11187, %348 ], [ %.sroa.261036.11187, %327 ], [ %.sroa.261036.11187, %458 ], [ %.sroa.261036.11187, %481 ], [ %.sroa.261036.11187, %._crit_edge.i ], [ %.sroa.261036.11187, %2990 ], [ %.sroa.261036.11187, %3030 ], [ %.sroa.261036.11187, %3044 ]
-  %.sroa.22.2 = phi i16 [ %.sroa.22.11188, %3045 ], [ %.sroa.22.11188, %2900 ], [ %.sroa.22.11188, %2884 ], [ %.sroa.22.11188, %2858 ], [ %.sroa.22.11188, %2837 ], [ %.sroa.22.11188, %2823 ], [ %.sroa.22.11188, %2809 ], [ %2805, %2775 ], [ %.sroa.22.11188, %2759 ], [ %.sroa.22.11188, %2743 ], [ %.sroa.22.11188, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.22.11188, %2702 ], [ %.sroa.22.11188, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.22.11188, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.22.11188, %dissect_nhdr_auth_request.exit ], [ %.sroa.22.11188, %dissect_nhdr_gateway_name.exit ], [ %.sroa.22.11188, %2553 ], [ %.sroa.22.11188, %2523 ], [ %.sroa.22.11188, %2505 ], [ %.sroa.22.11188, %2491 ], [ %.sroa.22.11188, %2475 ], [ %.sroa.22.11188, %2473 ], [ %.sroa.22.11188, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.22.11188, %2382 ], [ %.sroa.22.11188, %2352 ], [ %.sroa.22.11188, %2322 ], [ %.sroa.22.11188, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.22.11188, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.22.11188, %2245 ], [ %.sroa.22.11188, %2231 ], [ %.sroa.22.11188, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.22.11188, %1882 ], [ %.sroa.22.11188, %1864 ], [ %.sroa.22.11188, %1850 ], [ %.sroa.22.11188, %1828 ], [ %.sroa.22.11188, %1814 ], [ %.sroa.22.11188, %1800 ], [ %.sroa.22.11188, %1772 ], [ %.sroa.22.11188, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.22.11188, %1718 ], [ %.sroa.22.11188, %1690 ], [ %.sroa.22.11188, %dissect_nhdr_storename.exit ], [ %.sroa.22.11188, %1655 ], [ %.sroa.22.11188, %1622 ], [ %.sroa.22.11188, %1604 ], [ %.sroa.22.11188, %1590 ], [ %.sroa.22.11188, %1566 ], [ %.sroa.22.11188, %1542 ], [ %.sroa.22.11188, %1530 ], [ %.sroa.22.11188, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_ka.exit ], [ %.sroa.22.11188, %1310 ], [ %.sroa.22.11188, %dissect_nhdr_umq_ack.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_reg.exit ], [ %.sroa.22.11188, %dissect_nhdr_tsni.exit ], [ %.sroa.22.11188, %922 ], [ %.sroa.22.11188, %900 ], [ %.sroa.22.11188, %882 ], [ %.sroa.22.11188, %870 ], [ %.sroa.22.11188, %858 ], [ %.sroa.22.11188, %844 ], [ %.sroa.22.11188, %828 ], [ %.sroa.22.11188, %815 ], [ %.sroa.22.11188, %795 ], [ %.sroa.22.11188, %767 ], [ %.sroa.22.11188, %745 ], [ %.sroa.22.11188, %716 ], [ %.sroa.22.11188, %686 ], [ %.sroa.22.11188, %666 ], [ %.sroa.22.11188, %642 ], [ %.sroa.22.11188, %620 ], [ %.sroa.22.11188, %606 ], [ %.sroa.22.11188, %591 ], [ %.sroa.22.11188, %576 ], [ %.sroa.22.11188, %562 ], [ %.sroa.22.11188, %542 ], [ %.sroa.22.11188, %520 ], [ %.sroa.22.11188, %504 ], [ %.sroa.22.11188, %dissect_nhdr_apphdr.exit ], [ %.sroa.22.11188, %dissect_nhdr_topicname.exit ], [ %.sroa.22.11188, %362 ], [ %.sroa.22.11188, %360 ], [ %.sroa.22.11188, %348 ], [ %.sroa.22.11188, %327 ], [ %.sroa.22.11188, %458 ], [ %.sroa.22.11188, %481 ], [ %.sroa.22.11188, %._crit_edge.i ], [ %.sroa.22.11188, %2990 ], [ %.sroa.22.11188, %3030 ], [ %.sroa.22.11188, %3044 ]
-  %.sroa.8.1 = phi i32 [ %.sroa.8.01189, %3045 ], [ %.sroa.8.01189, %2900 ], [ %.sroa.8.01189, %2884 ], [ %.sroa.8.01189, %2858 ], [ %.sroa.8.01189, %2837 ], [ %.sroa.8.01189, %2823 ], [ %.sroa.8.01189, %2809 ], [ %.sroa.8.01189, %2775 ], [ %.sroa.8.01189, %2759 ], [ %.sroa.8.01189, %2743 ], [ %.sroa.8.01189, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.8.01189, %2702 ], [ %.sroa.8.01189, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.8.01189, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.8.01189, %dissect_nhdr_auth_request.exit ], [ %.sroa.8.01189, %dissect_nhdr_gateway_name.exit ], [ %.sroa.8.01189, %2553 ], [ %.sroa.8.01189, %2523 ], [ %.sroa.8.01189, %2505 ], [ %.sroa.8.01189, %2491 ], [ %.sroa.8.01189, %2475 ], [ %.sroa.8.01189, %2473 ], [ %.sroa.8.01189, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.8.01189, %2382 ], [ %.sroa.8.01189, %2352 ], [ %.sroa.8.01189, %2322 ], [ %.sroa.8.01189, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.8.01189, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.8.01189, %2245 ], [ %.sroa.8.01189, %2231 ], [ %.sroa.8.01189, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.8.01189, %1882 ], [ %.sroa.8.01189, %1864 ], [ %.sroa.8.01189, %1850 ], [ %.sroa.8.01189, %1828 ], [ %.sroa.8.01189, %1814 ], [ %.sroa.8.01189, %1800 ], [ %.sroa.8.01189, %1772 ], [ %.sroa.8.01189, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.8.01189, %1718 ], [ %.sroa.8.01189, %1690 ], [ %.sroa.8.01189, %dissect_nhdr_storename.exit ], [ %.sroa.8.01189, %1655 ], [ %.sroa.8.01189, %1622 ], [ %.sroa.8.01189, %1604 ], [ %.sroa.8.01189, %1590 ], [ %.sroa.8.01189, %1566 ], [ %.sroa.8.01189, %1542 ], [ %.sroa.8.01189, %1530 ], [ %.sroa.8.01189, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_ka.exit ], [ %.sroa.8.01189, %1310 ], [ %.sroa.8.01189, %dissect_nhdr_umq_ack.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_reg.exit ], [ %.sroa.8.01189, %dissect_nhdr_tsni.exit ], [ %.sroa.8.01189, %922 ], [ %.sroa.8.01189, %900 ], [ %.sroa.8.01189, %882 ], [ %.sroa.8.01189, %870 ], [ %.sroa.8.01189, %858 ], [ %.sroa.8.01189, %844 ], [ %.sroa.8.01189, %828 ], [ %.sroa.8.01189, %815 ], [ %.sroa.8.01189, %795 ], [ %.sroa.8.01189, %767 ], [ %.sroa.8.01189, %745 ], [ %.sroa.8.01189, %716 ], [ %.sroa.8.01189, %686 ], [ %.sroa.8.01189, %666 ], [ %.sroa.8.01189, %642 ], [ %.sroa.8.01189, %620 ], [ %.sroa.8.01189, %606 ], [ %.sroa.8.01189, %591 ], [ %.sroa.8.01189, %576 ], [ %.sroa.8.01189, %562 ], [ %.sroa.8.01189, %542 ], [ %.sroa.8.01189, %520 ], [ %.sroa.8.01189, %504 ], [ %.sroa.8.01189, %dissect_nhdr_apphdr.exit ], [ %.sroa.8.01189, %dissect_nhdr_topicname.exit ], [ %.sroa.8.01189, %362 ], [ %.sroa.8.01189, %360 ], [ %.sroa.8.01189, %348 ], [ %346, %327 ], [ %.sroa.8.01189, %458 ], [ %.sroa.8.01189, %481 ], [ %.sroa.8.01189, %._crit_edge.i ], [ %.sroa.8.01189, %2990 ], [ %.sroa.8.01189, %3030 ], [ %.sroa.8.01189, %3044 ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.11190, %3045 ], [ %.sroa.17.11190, %2900 ], [ %.sroa.17.11190, %2884 ], [ %.sroa.17.11190, %2858 ], [ %.sroa.17.11190, %2837 ], [ %.sroa.17.11190, %2823 ], [ %.sroa.17.11190, %2809 ], [ %2804, %2775 ], [ %.sroa.17.11190, %2759 ], [ %.sroa.17.11190, %2743 ], [ %.sroa.17.11190, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.17.11190, %2702 ], [ %.sroa.17.11190, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.17.11190, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.17.11190, %dissect_nhdr_auth_request.exit ], [ %.sroa.17.11190, %dissect_nhdr_gateway_name.exit ], [ %.sroa.17.11190, %2553 ], [ %.sroa.17.11190, %2523 ], [ %.sroa.17.11190, %2505 ], [ %.sroa.17.11190, %2491 ], [ %.sroa.17.11190, %2475 ], [ %.sroa.17.11190, %2473 ], [ %.sroa.17.11190, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.17.11190, %2382 ], [ %.sroa.17.11190, %2352 ], [ %.sroa.17.11190, %2322 ], [ %.sroa.17.11190, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.17.11190, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.17.11190, %2245 ], [ %.sroa.17.11190, %2231 ], [ %.sroa.17.11190, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.17.11190, %1882 ], [ %.sroa.17.11190, %1864 ], [ %.sroa.17.11190, %1850 ], [ %.sroa.17.11190, %1828 ], [ %.sroa.17.11190, %1814 ], [ %.sroa.17.11190, %1800 ], [ %.sroa.17.11190, %1772 ], [ %.sroa.17.11190, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.17.11190, %1718 ], [ %.sroa.17.11190, %1690 ], [ %.sroa.17.11190, %dissect_nhdr_storename.exit ], [ %.sroa.17.11190, %1655 ], [ %.sroa.17.11190, %1622 ], [ %.sroa.17.11190, %1604 ], [ %.sroa.17.11190, %1590 ], [ %.sroa.17.11190, %1566 ], [ %.sroa.17.11190, %1542 ], [ %.sroa.17.11190, %1530 ], [ %.sroa.17.11190, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_ka.exit ], [ %.sroa.17.11190, %1310 ], [ %.sroa.17.11190, %dissect_nhdr_umq_ack.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_reg.exit ], [ %.sroa.17.11190, %dissect_nhdr_tsni.exit ], [ %.sroa.17.11190, %922 ], [ %.sroa.17.11190, %900 ], [ %.sroa.17.11190, %882 ], [ %.sroa.17.11190, %870 ], [ %.sroa.17.11190, %858 ], [ %.sroa.17.11190, %844 ], [ %.sroa.17.11190, %828 ], [ %.sroa.17.11190, %815 ], [ %.sroa.17.11190, %795 ], [ %.sroa.17.11190, %767 ], [ %.sroa.17.11190, %745 ], [ %.sroa.17.11190, %716 ], [ %.sroa.17.11190, %686 ], [ %.sroa.17.11190, %666 ], [ %.sroa.17.11190, %642 ], [ %.sroa.17.11190, %620 ], [ %.sroa.17.11190, %606 ], [ %.sroa.17.11190, %591 ], [ %.sroa.17.11190, %576 ], [ %.sroa.17.11190, %562 ], [ %.sroa.17.11190, %542 ], [ %.sroa.17.11190, %520 ], [ %.sroa.17.11190, %504 ], [ %.sroa.17.11190, %dissect_nhdr_apphdr.exit ], [ %.sroa.17.11190, %dissect_nhdr_topicname.exit ], [ %.sroa.17.11190, %362 ], [ %.sroa.17.11190, %360 ], [ %.sroa.17.11190, %348 ], [ %.sroa.17.11190, %327 ], [ %.sroa.17.11190, %458 ], [ %.sroa.17.11190, %481 ], [ %.sroa.17.11190, %._crit_edge.i ], [ %.sroa.17.11190, %2990 ], [ %.sroa.17.11190, %3030 ], [ %.sroa.17.11190, %3044 ]
-  %.sroa.131069.1 = phi i32 [ %.sroa.131069.01191, %3045 ], [ %.sroa.131069.01191, %2900 ], [ %.sroa.131069.01191, %2884 ], [ %.sroa.131069.01191, %2858 ], [ %.sroa.131069.01191, %2837 ], [ %.sroa.131069.01191, %2823 ], [ %.sroa.131069.01191, %2809 ], [ %.sroa.131069.01191, %2775 ], [ %.sroa.131069.01191, %2759 ], [ %.sroa.131069.01191, %2743 ], [ %.sroa.131069.01191, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.131069.01191, %2702 ], [ %.sroa.131069.01191, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.131069.01191, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.131069.01191, %dissect_nhdr_auth_request.exit ], [ %.sroa.131069.01191, %dissect_nhdr_gateway_name.exit ], [ %.sroa.131069.01191, %2553 ], [ %.sroa.131069.01191, %2523 ], [ %.sroa.131069.01191, %2505 ], [ %.sroa.131069.01191, %2491 ], [ %.sroa.131069.01191, %2475 ], [ %.sroa.131069.01191, %2473 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.131069.01191, %2382 ], [ %.sroa.131069.01191, %2352 ], [ %.sroa.131069.01191, %2322 ], [ %.sroa.131069.01191, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.131069.01191, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.131069.01191, %2245 ], [ %.sroa.131069.01191, %2231 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.131069.01191, %1882 ], [ %.sroa.131069.01191, %1864 ], [ %.sroa.131069.01191, %1850 ], [ %.sroa.131069.01191, %1828 ], [ %.sroa.131069.01191, %1814 ], [ %.sroa.131069.01191, %1800 ], [ %.sroa.131069.01191, %1772 ], [ %.sroa.131069.01191, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.131069.01191, %1718 ], [ %.sroa.131069.01191, %1690 ], [ %.sroa.131069.01191, %dissect_nhdr_storename.exit ], [ %.sroa.131069.01191, %1655 ], [ %.sroa.131069.01191, %1622 ], [ %.sroa.131069.01191, %1604 ], [ %.sroa.131069.01191, %1590 ], [ %.sroa.131069.01191, %1566 ], [ %.sroa.131069.01191, %1542 ], [ %.sroa.131069.01191, %1530 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_ka.exit ], [ %.sroa.131069.01191, %1310 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_ack.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_reg.exit ], [ %.sroa.131069.01191, %dissect_nhdr_tsni.exit ], [ %.sroa.131069.01191, %922 ], [ %.sroa.131069.01191, %900 ], [ %.sroa.131069.01191, %882 ], [ %.sroa.131069.01191, %870 ], [ %.sroa.131069.01191, %858 ], [ %.sroa.131069.01191, %844 ], [ %.sroa.131069.01191, %828 ], [ %.sroa.131069.01191, %815 ], [ %.sroa.131069.01191, %795 ], [ %.sroa.131069.01191, %767 ], [ %.sroa.131069.01191, %745 ], [ %.sroa.131069.01191, %716 ], [ %.sroa.131069.01191, %686 ], [ %.sroa.131069.01191, %666 ], [ %.sroa.131069.01191, %642 ], [ %.sroa.131069.01191, %620 ], [ %.sroa.131069.01191, %606 ], [ %.sroa.131069.01191, %591 ], [ %.sroa.131069.01191, %576 ], [ %.sroa.131069.01191, %562 ], [ %.sroa.131069.01191, %542 ], [ %.sroa.131069.01191, %520 ], [ %.sroa.131069.01191, %504 ], [ %.sroa.131069.01191, %dissect_nhdr_apphdr.exit ], [ %.sroa.131069.01191, %dissect_nhdr_topicname.exit ], [ %.sroa.131069.01191, %362 ], [ %.sroa.131069.01191, %360 ], [ %.sroa.131069.01191, %348 ], [ %347, %327 ], [ %.sroa.131069.01191, %458 ], [ %.sroa.131069.01191, %481 ], [ %.sroa.131069.01191, %._crit_edge.i ], [ %.sroa.131069.01191, %2990 ], [ %.sroa.131069.01191, %3030 ], [ %.sroa.131069.01191, %3044 ]
-  %.5 = phi i32 [ %.010751192, %3045 ], [ %.010751192, %2900 ], [ %.010751192, %2884 ], [ %.010751192, %2858 ], [ %.010751192, %2837 ], [ %.010751192, %2823 ], [ %.010751192, %2809 ], [ %.010751192, %2775 ], [ %.010751192, %2759 ], [ %.010751192, %2743 ], [ %.010751192, %dissect_nhdr_auth_unknown.exit ], [ %.010751192, %2702 ], [ %.010751192, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010751192, %dissect_nhdr_auth_challenge.exit ], [ %.010751192, %dissect_nhdr_auth_request.exit ], [ %.010751192, %dissect_nhdr_gateway_name.exit ], [ %.010751192, %2553 ], [ %.010751192, %2523 ], [ %.010751192, %2505 ], [ %.010751192, %2491 ], [ %.010751192, %2475 ], [ %.010751192, %2473 ], [ %.010751192, %dissect_nhdr_umq_cmd.exit ], [ %.010751192, %2382 ], [ %.010751192, %2352 ], [ %.010751192, %2322 ], [ %.010751192, %dissect_nhdr_pattern_md_interest.exit ], [ %.010751192, %dissect_nhdr_topic_md_interest.exit ], [ %.010751192, %2245 ], [ %.010751192, %2231 ], [ %.010751192, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010751192, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010751192, %1882 ], [ %.010751192, %1864 ], [ %.010751192, %1850 ], [ %.010751192, %1828 ], [ %.010751192, %1814 ], [ %.010751192, %1800 ], [ %.010751192, %1772 ], [ %.010751192, %dissect_nhdr_ctxinfo.exit ], [ %.010751192, %1718 ], [ %.010751192, %1690 ], [ %.010751192, %dissect_nhdr_storename.exit ], [ %.010751192, %1655 ], [ %.010751192, %1622 ], [ %.010751192, %1604 ], [ %.010751192, %1590 ], [ %.010751192, %1566 ], [ %.010751192, %1542 ], [ %.010751192, %1530 ], [ %.010751192, %dissect_nhdr_umq_rxreq.exit ], [ %.010751192, %dissect_nhdr_umq_ka.exit ], [ %.010751192, %1310 ], [ %.010751192, %dissect_nhdr_umq_ack.exit ], [ %.010751192, %dissect_nhdr_umq_reg_resp.exit ], [ %.010751192, %dissect_nhdr_umq_reg.exit ], [ %.010751192, %dissect_nhdr_tsni.exit ], [ %.010751192, %922 ], [ %.010751192, %900 ], [ %.010751192, %882 ], [ %.010751192, %870 ], [ %.010751192, %858 ], [ %.010751192, %844 ], [ %.010751192, %828 ], [ %.010751192, %815 ], [ %.010751192, %795 ], [ %.010751192, %767 ], [ %.010751192, %745 ], [ %.010751192, %716 ], [ %.010751192, %686 ], [ %.010751192, %666 ], [ %.010751192, %642 ], [ %.010751192, %620 ], [ %.010751192, %606 ], [ %.010751192, %591 ], [ %.010751192, %576 ], [ %.010751192, %562 ], [ %.010751192, %542 ], [ %.010751192, %520 ], [ %.010751192, %504 ], [ %.010751192, %dissect_nhdr_apphdr.exit ], [ %.010751192, %dissect_nhdr_topicname.exit ], [ %.010751192, %362 ], [ %.010751192, %360 ], [ %.010751192, %348 ], [ %.010751192, %327 ], [ %.11076, %458 ], [ %.11076, %481 ], [ %.31078, %._crit_edge.i ], [ %.010751192, %2990 ], [ %.010751192, %3030 ], [ %.010751192, %3044 ]
-  %.sroa.31010.2 = phi i32 [ %.sroa.31010.11193, %3045 ], [ %.sroa.31010.11193, %2900 ], [ %.sroa.31010.11193, %2884 ], [ %.sroa.31010.11193, %2858 ], [ %.sroa.31010.11193, %2837 ], [ %.sroa.31010.11193, %2823 ], [ %.sroa.31010.11193, %2809 ], [ %2803, %2775 ], [ %.sroa.31010.11193, %2759 ], [ %.sroa.31010.11193, %2743 ], [ %.sroa.31010.11193, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.31010.11193, %2702 ], [ %.sroa.31010.11193, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.31010.11193, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.31010.11193, %dissect_nhdr_auth_request.exit ], [ %.sroa.31010.11193, %dissect_nhdr_gateway_name.exit ], [ %.sroa.31010.11193, %2553 ], [ %.sroa.31010.11193, %2523 ], [ %.sroa.31010.11193, %2505 ], [ %.sroa.31010.11193, %2491 ], [ %.sroa.31010.11193, %2475 ], [ %.sroa.31010.11193, %2473 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.31010.11193, %2382 ], [ %.sroa.31010.11193, %2352 ], [ %.sroa.31010.11193, %2322 ], [ %.sroa.31010.11193, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.31010.11193, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.31010.11193, %2245 ], [ %.sroa.31010.11193, %2231 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.31010.11193, %1882 ], [ %.sroa.31010.11193, %1864 ], [ %.sroa.31010.11193, %1850 ], [ %.sroa.31010.11193, %1828 ], [ %.sroa.31010.11193, %1814 ], [ %.sroa.31010.11193, %1800 ], [ %.sroa.31010.11193, %1772 ], [ %.sroa.31010.11193, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.31010.11193, %1718 ], [ %.sroa.31010.11193, %1690 ], [ %.sroa.31010.11193, %dissect_nhdr_storename.exit ], [ %.sroa.31010.11193, %1655 ], [ %.sroa.31010.11193, %1622 ], [ %.sroa.31010.11193, %1604 ], [ %.sroa.31010.11193, %1590 ], [ %.sroa.31010.11193, %1566 ], [ %.sroa.31010.11193, %1542 ], [ %.sroa.31010.11193, %1530 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_ka.exit ], [ %.sroa.31010.11193, %1310 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_ack.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_reg.exit ], [ %.sroa.31010.11193, %dissect_nhdr_tsni.exit ], [ %.sroa.31010.11193, %922 ], [ %.sroa.31010.11193, %900 ], [ %.sroa.31010.11193, %882 ], [ %.sroa.31010.11193, %870 ], [ %.sroa.31010.11193, %858 ], [ %.sroa.31010.11193, %844 ], [ %.sroa.31010.11193, %828 ], [ %.sroa.31010.11193, %815 ], [ %.sroa.31010.11193, %795 ], [ %.sroa.31010.11193, %767 ], [ %.sroa.31010.11193, %745 ], [ %.sroa.31010.11193, %716 ], [ %.sroa.31010.11193, %686 ], [ %.sroa.31010.11193, %666 ], [ %.sroa.31010.11193, %642 ], [ %.sroa.31010.11193, %620 ], [ %.sroa.31010.11193, %606 ], [ %.sroa.31010.11193, %591 ], [ %.sroa.31010.11193, %576 ], [ %.sroa.31010.11193, %562 ], [ %.sroa.31010.11193, %542 ], [ %.sroa.31010.11193, %520 ], [ %.sroa.31010.11193, %504 ], [ %.sroa.31010.11193, %dissect_nhdr_apphdr.exit ], [ %.sroa.31010.11193, %dissect_nhdr_topicname.exit ], [ %.sroa.31010.11193, %362 ], [ %.sroa.31010.11193, %360 ], [ %.sroa.31010.11193, %348 ], [ %.sroa.31010.11193, %327 ], [ %.sroa.31010.11193, %458 ], [ %.sroa.31010.11193, %481 ], [ %.sroa.31010.11193, %._crit_edge.i ], [ %.sroa.31010.11193, %2990 ], [ %.sroa.31010.11193, %3030 ], [ %.sroa.31010.11193, %3044 ]
-  %.sroa.01009.1 = phi i32 [ %.sroa.01009.01194, %3045 ], [ %.sroa.01009.01194, %2900 ], [ %.sroa.01009.01194, %2884 ], [ %.sroa.01009.01194, %2858 ], [ %.sroa.01009.01194, %2837 ], [ %.sroa.01009.01194, %2823 ], [ %.sroa.01009.01194, %2809 ], [ 1, %2775 ], [ %.sroa.01009.01194, %2759 ], [ %.sroa.01009.01194, %2743 ], [ %.sroa.01009.01194, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.01009.01194, %2702 ], [ %.sroa.01009.01194, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.01009.01194, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.01009.01194, %dissect_nhdr_auth_request.exit ], [ %.sroa.01009.01194, %dissect_nhdr_gateway_name.exit ], [ %.sroa.01009.01194, %2553 ], [ %.sroa.01009.01194, %2523 ], [ %.sroa.01009.01194, %2505 ], [ %.sroa.01009.01194, %2491 ], [ %.sroa.01009.01194, %2475 ], [ %.sroa.01009.01194, %2473 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.01009.01194, %2382 ], [ %.sroa.01009.01194, %2352 ], [ %.sroa.01009.01194, %2322 ], [ %.sroa.01009.01194, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.01009.01194, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.01009.01194, %2245 ], [ %.sroa.01009.01194, %2231 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.01009.01194, %1882 ], [ %.sroa.01009.01194, %1864 ], [ %.sroa.01009.01194, %1850 ], [ %.sroa.01009.01194, %1828 ], [ %.sroa.01009.01194, %1814 ], [ %.sroa.01009.01194, %1800 ], [ %.sroa.01009.01194, %1772 ], [ %.sroa.01009.01194, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.01009.01194, %1718 ], [ %.sroa.01009.01194, %1690 ], [ %.sroa.01009.01194, %dissect_nhdr_storename.exit ], [ %.sroa.01009.01194, %1655 ], [ %.sroa.01009.01194, %1622 ], [ %.sroa.01009.01194, %1604 ], [ %.sroa.01009.01194, %1590 ], [ %.sroa.01009.01194, %1566 ], [ %.sroa.01009.01194, %1542 ], [ %.sroa.01009.01194, %1530 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_ka.exit ], [ %.sroa.01009.01194, %1310 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_ack.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_reg.exit ], [ %.sroa.01009.01194, %dissect_nhdr_tsni.exit ], [ %.sroa.01009.01194, %922 ], [ %.sroa.01009.01194, %900 ], [ %.sroa.01009.01194, %882 ], [ %.sroa.01009.01194, %870 ], [ %.sroa.01009.01194, %858 ], [ %.sroa.01009.01194, %844 ], [ %.sroa.01009.01194, %828 ], [ %.sroa.01009.01194, %815 ], [ %.sroa.01009.01194, %795 ], [ %.sroa.01009.01194, %767 ], [ %.sroa.01009.01194, %745 ], [ %.sroa.01009.01194, %716 ], [ %.sroa.01009.01194, %686 ], [ %.sroa.01009.01194, %666 ], [ %.sroa.01009.01194, %642 ], [ %.sroa.01009.01194, %620 ], [ %.sroa.01009.01194, %606 ], [ %.sroa.01009.01194, %591 ], [ %.sroa.01009.01194, %576 ], [ %.sroa.01009.01194, %562 ], [ %.sroa.01009.01194, %542 ], [ %.sroa.01009.01194, %520 ], [ %.sroa.01009.01194, %504 ], [ %.sroa.01009.01194, %dissect_nhdr_apphdr.exit ], [ %.sroa.01009.01194, %dissect_nhdr_topicname.exit ], [ %.sroa.01009.01194, %362 ], [ %.sroa.01009.01194, %360 ], [ %.sroa.01009.01194, %348 ], [ %.sroa.01009.01194, %327 ], [ %.sroa.01009.01194, %458 ], [ %.sroa.01009.01194, %481 ], [ %.sroa.01009.01194, %._crit_edge.i ], [ %.sroa.01009.01194, %2990 ], [ %.sroa.01009.01194, %3030 ], [ %.sroa.01009.01194, %3044 ]
-  %.sroa.3.1 = phi i32 [ %.sroa.3.01195, %3045 ], [ %2914, %2900 ], [ %.sroa.3.01195, %2884 ], [ %.sroa.3.01195, %2858 ], [ %.sroa.3.01195, %2837 ], [ %.sroa.3.01195, %2823 ], [ %.sroa.3.01195, %2809 ], [ %.sroa.3.01195, %2775 ], [ %.sroa.3.01195, %2759 ], [ %.sroa.3.01195, %2743 ], [ %.sroa.3.01195, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.3.01195, %2702 ], [ %.sroa.3.01195, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.3.01195, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.3.01195, %dissect_nhdr_auth_request.exit ], [ %.sroa.3.01195, %dissect_nhdr_gateway_name.exit ], [ %.sroa.3.01195, %2553 ], [ %.sroa.3.01195, %2523 ], [ %.sroa.3.01195, %2505 ], [ %.sroa.3.01195, %2491 ], [ %.sroa.3.01195, %2475 ], [ %.sroa.3.01195, %2473 ], [ %.sroa.3.01195, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.3.01195, %2382 ], [ %.sroa.3.01195, %2352 ], [ %.sroa.3.01195, %2322 ], [ %.sroa.3.01195, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.3.01195, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.3.01195, %2245 ], [ %.sroa.3.01195, %2231 ], [ %.sroa.3.01195, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.3.01195, %1882 ], [ %.sroa.3.01195, %1864 ], [ %.sroa.3.01195, %1850 ], [ %.sroa.3.01195, %1828 ], [ %.sroa.3.01195, %1814 ], [ %.sroa.3.01195, %1800 ], [ %.sroa.3.01195, %1772 ], [ %.sroa.3.01195, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.3.01195, %1718 ], [ %.sroa.3.01195, %1690 ], [ %.sroa.3.01195, %dissect_nhdr_storename.exit ], [ %.sroa.3.01195, %1655 ], [ %.sroa.3.01195, %1622 ], [ %.sroa.3.01195, %1604 ], [ %.sroa.3.01195, %1590 ], [ %.sroa.3.01195, %1566 ], [ %.sroa.3.01195, %1542 ], [ %.sroa.3.01195, %1530 ], [ %.sroa.3.01195, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_ka.exit ], [ %.sroa.3.01195, %1310 ], [ %.sroa.3.01195, %dissect_nhdr_umq_ack.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_reg.exit ], [ %.sroa.3.01195, %dissect_nhdr_tsni.exit ], [ %.sroa.3.01195, %922 ], [ %.sroa.3.01195, %900 ], [ %.sroa.3.01195, %882 ], [ %.sroa.3.01195, %870 ], [ %.sroa.3.01195, %858 ], [ %.sroa.3.01195, %844 ], [ %.sroa.3.01195, %828 ], [ %.sroa.3.01195, %815 ], [ %.sroa.3.01195, %795 ], [ %.sroa.3.01195, %767 ], [ %.sroa.3.01195, %745 ], [ %.sroa.3.01195, %716 ], [ %.sroa.3.01195, %686 ], [ %.sroa.3.01195, %666 ], [ %.sroa.3.01195, %642 ], [ %.sroa.3.01195, %620 ], [ %.sroa.3.01195, %606 ], [ %.sroa.3.01195, %591 ], [ %.sroa.3.01195, %576 ], [ %.sroa.3.01195, %562 ], [ %.sroa.3.01195, %542 ], [ %.sroa.3.01195, %520 ], [ %.sroa.3.01195, %504 ], [ %.sroa.3.01195, %dissect_nhdr_apphdr.exit ], [ %.sroa.3.01195, %dissect_nhdr_topicname.exit ], [ %.sroa.3.01195, %362 ], [ %.sroa.3.01195, %360 ], [ %.sroa.3.01195, %348 ], [ %.sroa.3.01195, %327 ], [ %.sroa.3.01195, %458 ], [ %.sroa.3.01195, %481 ], [ %.sroa.3.01195, %._crit_edge.i ], [ %.sroa.3.01195, %2990 ], [ %.sroa.3.01195, %3030 ], [ %.sroa.3.01195, %3044 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.01196, %3045 ], [ 1, %2900 ], [ %.sroa.0.01196, %2884 ], [ %.sroa.0.01196, %2858 ], [ %.sroa.0.01196, %2837 ], [ %.sroa.0.01196, %2823 ], [ %.sroa.0.01196, %2809 ], [ %.sroa.0.01196, %2775 ], [ %.sroa.0.01196, %2759 ], [ %.sroa.0.01196, %2743 ], [ %.sroa.0.01196, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.0.01196, %2702 ], [ %.sroa.0.01196, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.0.01196, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.0.01196, %dissect_nhdr_auth_request.exit ], [ %.sroa.0.01196, %dissect_nhdr_gateway_name.exit ], [ %.sroa.0.01196, %2553 ], [ %.sroa.0.01196, %2523 ], [ %.sroa.0.01196, %2505 ], [ %.sroa.0.01196, %2491 ], [ %.sroa.0.01196, %2475 ], [ %.sroa.0.01196, %2473 ], [ %.sroa.0.01196, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.0.01196, %2382 ], [ %.sroa.0.01196, %2352 ], [ %.sroa.0.01196, %2322 ], [ %.sroa.0.01196, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.0.01196, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.0.01196, %2245 ], [ %.sroa.0.01196, %2231 ], [ %.sroa.0.01196, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.0.01196, %1882 ], [ %.sroa.0.01196, %1864 ], [ %.sroa.0.01196, %1850 ], [ %.sroa.0.01196, %1828 ], [ %.sroa.0.01196, %1814 ], [ %.sroa.0.01196, %1800 ], [ %.sroa.0.01196, %1772 ], [ %.sroa.0.01196, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.0.01196, %1718 ], [ %.sroa.0.01196, %1690 ], [ %.sroa.0.01196, %dissect_nhdr_storename.exit ], [ %.sroa.0.01196, %1655 ], [ %.sroa.0.01196, %1622 ], [ %.sroa.0.01196, %1604 ], [ %.sroa.0.01196, %1590 ], [ %.sroa.0.01196, %1566 ], [ %.sroa.0.01196, %1542 ], [ %.sroa.0.01196, %1530 ], [ %.sroa.0.01196, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_ka.exit ], [ %.sroa.0.01196, %1310 ], [ %.sroa.0.01196, %dissect_nhdr_umq_ack.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_reg.exit ], [ %.sroa.0.01196, %dissect_nhdr_tsni.exit ], [ %.sroa.0.01196, %922 ], [ %.sroa.0.01196, %900 ], [ %.sroa.0.01196, %882 ], [ %.sroa.0.01196, %870 ], [ %.sroa.0.01196, %858 ], [ %.sroa.0.01196, %844 ], [ %.sroa.0.01196, %828 ], [ %.sroa.0.01196, %815 ], [ %.sroa.0.01196, %795 ], [ %.sroa.0.01196, %767 ], [ %.sroa.0.01196, %745 ], [ %.sroa.0.01196, %716 ], [ %.sroa.0.01196, %686 ], [ %.sroa.0.01196, %666 ], [ %.sroa.0.01196, %642 ], [ %.sroa.0.01196, %620 ], [ %.sroa.0.01196, %606 ], [ %.sroa.0.01196, %591 ], [ %.sroa.0.01196, %576 ], [ %.sroa.0.01196, %562 ], [ %.sroa.0.01196, %542 ], [ %.sroa.0.01196, %520 ], [ %.sroa.0.01196, %504 ], [ %.sroa.0.01196, %dissect_nhdr_apphdr.exit ], [ %.sroa.0.01196, %dissect_nhdr_topicname.exit ], [ %.sroa.0.01196, %362 ], [ %.sroa.0.01196, %360 ], [ %.sroa.0.01196, %348 ], [ %.sroa.0.01196, %327 ], [ %.sroa.0.01196, %458 ], [ %.sroa.0.01196, %481 ], [ %.sroa.0.01196, %._crit_edge.i ], [ %.sroa.0.01196, %2990 ], [ %.sroa.0.01196, %3030 ], [ %.sroa.0.01196, %3044 ]
-  %.1757 = phi i32 [ %.07561197, %3045 ], [ %.07561197, %2900 ], [ %.07561197, %2884 ], [ %.07561197, %2858 ], [ %.07561197, %2837 ], [ %.07561197, %2823 ], [ %.07561197, %2809 ], [ %.07561197, %2775 ], [ %.07561197, %2759 ], [ %.07561197, %2743 ], [ %.07561197, %dissect_nhdr_auth_unknown.exit ], [ %.07561197, %2702 ], [ %.07561197, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.07561197, %dissect_nhdr_auth_challenge.exit ], [ %.07561197, %dissect_nhdr_auth_request.exit ], [ %.07561197, %dissect_nhdr_gateway_name.exit ], [ %.07561197, %2553 ], [ %.07561197, %2523 ], [ %.07561197, %2505 ], [ %.07561197, %2491 ], [ %.07561197, %2475 ], [ %.07561197, %2473 ], [ %.07561197, %dissect_nhdr_umq_cmd.exit ], [ %.07561197, %2382 ], [ %.07561197, %2352 ], [ %.07561197, %2322 ], [ %.07561197, %dissect_nhdr_pattern_md_interest.exit ], [ %.07561197, %dissect_nhdr_topic_md_interest.exit ], [ %.07561197, %2245 ], [ %.07561197, %2231 ], [ %.07561197, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.07561197, %dissect_nhdr_umq_idx_cmd.exit ], [ %.07561197, %1882 ], [ %.07561197, %1864 ], [ %.07561197, %1850 ], [ %.07561197, %1828 ], [ %.07561197, %1814 ], [ %.07561197, %1800 ], [ %.07561197, %1772 ], [ %.07561197, %dissect_nhdr_ctxinfo.exit ], [ %.07561197, %1718 ], [ %.07561197, %1690 ], [ %.07561197, %dissect_nhdr_storename.exit ], [ %.07561197, %1655 ], [ %.07561197, %1622 ], [ %.07561197, %1604 ], [ %.07561197, %1590 ], [ %.07561197, %1566 ], [ %.07561197, %1542 ], [ %.07561197, %1530 ], [ %.07561197, %dissect_nhdr_umq_rxreq.exit ], [ %.07561197, %dissect_nhdr_umq_ka.exit ], [ %.07561197, %1310 ], [ %.07561197, %dissect_nhdr_umq_ack.exit ], [ %.07561197, %dissect_nhdr_umq_reg_resp.exit ], [ %.07561197, %dissect_nhdr_umq_reg.exit ], [ %.07561197, %dissect_nhdr_tsni.exit ], [ %.07561197, %922 ], [ %.07561197, %900 ], [ %.07561197, %882 ], [ %.07561197, %870 ], [ %.07561197, %858 ], [ %.07561197, %844 ], [ %.07561197, %828 ], [ %.07561197, %815 ], [ %.07561197, %795 ], [ %.07561197, %767 ], [ %.07561197, %745 ], [ %.07561197, %716 ], [ %.07561197, %686 ], [ %.07561197, %666 ], [ %.07561197, %642 ], [ %.07561197, %620 ], [ 1, %606 ], [ %.07561197, %591 ], [ %.07561197, %576 ], [ %.07561197, %562 ], [ %.07561197, %542 ], [ %.07561197, %520 ], [ %.07561197, %504 ], [ %.07561197, %dissect_nhdr_apphdr.exit ], [ %.07561197, %dissect_nhdr_topicname.exit ], [ %.07561197, %362 ], [ %.07561197, %360 ], [ %.07561197, %348 ], [ %.07561197, %327 ], [ %.07561197, %458 ], [ %.07561197, %481 ], [ %.07561197, %._crit_edge.i ], [ %.07561197, %2990 ], [ %.07561197, %3030 ], [ %.07561197, %3044 ]
-  %.0746 = phi i32 [ %3046, %3045 ], [ 8, %2900 ], [ 8, %2884 ], [ 24, %2858 ], [ 16, %2837 ], [ 8, %2823 ], [ 8, %2809 ], [ 28, %2775 ], [ 16, %2759 ], [ 24, %2743 ], [ %.0.i861, %dissect_nhdr_auth_unknown.exit ], [ 5, %2702 ], [ %.1.i860, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.3.i, %dissect_nhdr_auth_challenge.exit ], [ %.0.i857, %dissect_nhdr_auth_request.exit ], [ %.0.i855, %dissect_nhdr_gateway_name.exit ], [ 20, %2553 ], [ 32, %2523 ], [ 16, %2505 ], [ 8, %2491 ], [ 12, %2475 ], [ %2474, %2473 ], [ %.0.i854, %dissect_nhdr_umq_cmd.exit ], [ 24, %2382 ], [ 64, %2352 ], [ 36, %2322 ], [ %.0.lcssa.i853, %dissect_nhdr_pattern_md_interest.exit ], [ %.0.lcssa.i845, %dissect_nhdr_topic_md_interest.exit ], [ 20, %2245 ], [ 8, %2231 ], [ %.0.i841, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.0.i839, %dissect_nhdr_umq_idx_cmd.exit ], [ 12, %1882 ], [ 16, %1864 ], [ 12, %1850 ], [ 20, %1828 ], [ 8, %1814 ], [ 12, %1800 ], [ 40, %1772 ], [ %.0.i837, %dissect_nhdr_ctxinfo.exit ], [ 8, %1718 ], [ 40, %1690 ], [ %.0.i835, %dissect_nhdr_storename.exit ], [ 12, %1655 ], [ 48, %1622 ], [ 16, %1604 ], [ 8, %1590 ], [ 28, %1566 ], [ 32, %1542 ], [ %1541, %1530 ], [ %.1.i834, %dissect_nhdr_umq_rxreq.exit ], [ %.0.i832, %dissect_nhdr_umq_ka.exit ], [ 48, %1310 ], [ %1309, %dissect_nhdr_umq_ack.exit ], [ %.0.i828, %dissect_nhdr_umq_reg_resp.exit ], [ %.0.i827, %dissect_nhdr_umq_reg.exit ], [ %.0.lcssa.i825, %dissect_nhdr_tsni.exit ], [ 16, %922 ], [ 16, %900 ], [ 8, %882 ], [ 4, %870 ], [ 4, %858 ], [ 8, %844 ], [ 12, %828 ], [ 4, %815 ], [ 16, %795 ], [ 28, %767 ], [ 20, %745 ], [ 24, %716 ], [ 28, %686 ], [ 16, %666 ], [ 20, %642 ], [ 20, %620 ], [ 12, %606 ], [ 12, %591 ], [ 12, %576 ], [ 36, %562 ], [ 16, %542 ], [ 20, %520 ], [ 20, %504 ], [ %.0.i822, %dissect_nhdr_apphdr.exit ], [ %.0.i, %dissect_nhdr_topicname.exit ], [ 16, %362 ], [ %361, %360 ], [ 4, %348 ], [ 16, %327 ], [ %.067.i, %458 ], [ %.067.i, %481 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %2921, %2990 ], [ %2921, %3030 ], [ %.1.i863, %3044 ]
-  %3047 = add i32 %.0746, %.17411198
-  %3048 = add i32 %.07331199, %321
-  %3049 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %3048) #9
-  %.fr = freeze i32 %3049
-  %3050 = icmp sgt i32 %.fr, 3
-  br i1 %3050, label %switch.early.test, label %.critedge, !llvm.loop !12
+dissect_nhdr_apphdr_chain.exit:                   ; preds = %3046, %3032, %2992, %._crit_edge.i, %483, %460, %dissect_nhdr_auth_request.exit, %dissect_nhdr_auth_challenge.exit, %dissect_nhdr_auth_challenge_rsp.exit, %2704, %dissect_nhdr_auth_unknown.exit, %3047, %2902, %2886, %2860, %2839, %2825, %2811, %2777, %2761, %2745, %dissect_nhdr_gateway_name.exit, %2555, %2525, %2507, %2493, %2477, %2475, %dissect_nhdr_umq_cmd.exit, %2384, %2354, %2324, %dissect_nhdr_pattern_md_interest.exit, %dissect_nhdr_topic_md_interest.exit, %2247, %2233, %dissect_nhdr_umq_idx_cmd_resp.exit, %dissect_nhdr_umq_idx_cmd.exit, %1884, %1866, %1852, %1830, %1816, %1802, %1774, %dissect_nhdr_ctxinfo.exit, %1720, %1692, %dissect_nhdr_storename.exit, %1657, %1624, %1606, %1592, %1568, %1544, %1532, %dissect_nhdr_umq_rxreq.exit, %dissect_nhdr_umq_ka.exit, %1312, %dissect_nhdr_umq_ack.exit, %dissect_nhdr_umq_reg_resp.exit, %dissect_nhdr_umq_reg.exit, %dissect_nhdr_tsni.exit, %924, %902, %884, %872, %860, %846, %830, %817, %797, %769, %747, %718, %688, %668, %644, %622, %608, %593, %578, %564, %544, %522, %506, %dissect_nhdr_apphdr.exit, %dissect_nhdr_topicname.exit, %364, %362, %350, %329
+  %.sroa.45.2 = phi i16 [ %.sroa.45.11182, %3047 ], [ %.sroa.45.11182, %2902 ], [ %.sroa.45.11182, %2886 ], [ %.sroa.45.11182, %2860 ], [ %.sroa.45.11182, %2839 ], [ %.sroa.45.11182, %2825 ], [ %.sroa.45.11182, %2811 ], [ %2810, %2777 ], [ %.sroa.45.11182, %2761 ], [ %.sroa.45.11182, %2745 ], [ %.sroa.45.11182, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.45.11182, %2704 ], [ %.sroa.45.11182, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.45.11182, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.45.11182, %dissect_nhdr_auth_request.exit ], [ %.sroa.45.11182, %dissect_nhdr_gateway_name.exit ], [ %.sroa.45.11182, %2555 ], [ %.sroa.45.11182, %2525 ], [ %.sroa.45.11182, %2507 ], [ %.sroa.45.11182, %2493 ], [ %.sroa.45.11182, %2477 ], [ %.sroa.45.11182, %2475 ], [ %.sroa.45.11182, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.45.11182, %2384 ], [ %.sroa.45.11182, %2354 ], [ %.sroa.45.11182, %2324 ], [ %.sroa.45.11182, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.45.11182, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.45.11182, %2247 ], [ %.sroa.45.11182, %2233 ], [ %.sroa.45.11182, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.45.11182, %1884 ], [ %.sroa.45.11182, %1866 ], [ %.sroa.45.11182, %1852 ], [ %.sroa.45.11182, %1830 ], [ %.sroa.45.11182, %1816 ], [ %.sroa.45.11182, %1802 ], [ %.sroa.45.11182, %1774 ], [ %.sroa.45.11182, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.45.11182, %1720 ], [ %.sroa.45.11182, %1692 ], [ %.sroa.45.11182, %dissect_nhdr_storename.exit ], [ %.sroa.45.11182, %1657 ], [ %.sroa.45.11182, %1624 ], [ %.sroa.45.11182, %1606 ], [ %.sroa.45.11182, %1592 ], [ %.sroa.45.11182, %1568 ], [ %.sroa.45.11182, %1544 ], [ %.sroa.45.11182, %1532 ], [ %.sroa.45.11182, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_ka.exit ], [ %.sroa.45.11182, %1312 ], [ %.sroa.45.11182, %dissect_nhdr_umq_ack.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.45.11182, %dissect_nhdr_umq_reg.exit ], [ %.sroa.45.11182, %dissect_nhdr_tsni.exit ], [ %.sroa.45.11182, %924 ], [ %.sroa.45.11182, %902 ], [ %.sroa.45.11182, %884 ], [ %.sroa.45.11182, %872 ], [ %.sroa.45.11182, %860 ], [ %.sroa.45.11182, %846 ], [ %.sroa.45.11182, %830 ], [ %.sroa.45.11182, %817 ], [ %.sroa.45.11182, %797 ], [ %.sroa.45.11182, %769 ], [ %.sroa.45.11182, %747 ], [ %.sroa.45.11182, %718 ], [ %.sroa.45.11182, %688 ], [ %.sroa.45.11182, %668 ], [ %.sroa.45.11182, %644 ], [ %.sroa.45.11182, %622 ], [ %.sroa.45.11182, %608 ], [ %.sroa.45.11182, %593 ], [ %.sroa.45.11182, %578 ], [ %.sroa.45.11182, %564 ], [ %.sroa.45.11182, %544 ], [ %.sroa.45.11182, %522 ], [ %.sroa.45.11182, %506 ], [ %.sroa.45.11182, %dissect_nhdr_apphdr.exit ], [ %.sroa.45.11182, %dissect_nhdr_topicname.exit ], [ %.sroa.45.11182, %364 ], [ %.sroa.45.11182, %362 ], [ %.sroa.45.11182, %350 ], [ %.sroa.45.11182, %329 ], [ %.sroa.45.11182, %460 ], [ %.sroa.45.11182, %483 ], [ %.sroa.45.11182, %._crit_edge.i ], [ %.sroa.45.11182, %2992 ], [ %.sroa.45.11182, %3032 ], [ %.sroa.45.11182, %3046 ]
+  %.11081 = phi i32 [ %.010801183, %3047 ], [ %.010801183, %2902 ], [ %.010801183, %2886 ], [ %.010801183, %2860 ], [ %.010801183, %2839 ], [ %.010801183, %2825 ], [ %.010801183, %2811 ], [ %.010801183, %2777 ], [ %.010801183, %2761 ], [ %.010801183, %2745 ], [ %.010801183, %dissect_nhdr_auth_unknown.exit ], [ %.010801183, %2704 ], [ %.010801183, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010801183, %dissect_nhdr_auth_challenge.exit ], [ %.010801183, %dissect_nhdr_auth_request.exit ], [ %.010801183, %dissect_nhdr_gateway_name.exit ], [ %.010801183, %2555 ], [ %.010801183, %2525 ], [ %.010801183, %2507 ], [ %.010801183, %2493 ], [ %.010801183, %2477 ], [ %.010801183, %2475 ], [ %.010801183, %dissect_nhdr_umq_cmd.exit ], [ %.010801183, %2384 ], [ %.010801183, %2354 ], [ %.010801183, %2324 ], [ %.010801183, %dissect_nhdr_pattern_md_interest.exit ], [ %.010801183, %dissect_nhdr_topic_md_interest.exit ], [ %.010801183, %2247 ], [ %.010801183, %2233 ], [ %.010801183, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010801183, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010801183, %1884 ], [ %.010801183, %1866 ], [ %.010801183, %1852 ], [ %.010801183, %1830 ], [ %.010801183, %1816 ], [ %.010801183, %1802 ], [ %.010801183, %1774 ], [ %.010801183, %dissect_nhdr_ctxinfo.exit ], [ %.010801183, %1720 ], [ %.010801183, %1692 ], [ %.010801183, %dissect_nhdr_storename.exit ], [ %.010801183, %1657 ], [ %.010801183, %1624 ], [ %.010801183, %1606 ], [ %.010801183, %1592 ], [ %.010801183, %1568 ], [ %.010801183, %1544 ], [ %.010801183, %1532 ], [ %.010801183, %dissect_nhdr_umq_rxreq.exit ], [ %.010801183, %dissect_nhdr_umq_ka.exit ], [ %.010801183, %1312 ], [ %.010801183, %dissect_nhdr_umq_ack.exit ], [ %.010801183, %dissect_nhdr_umq_reg_resp.exit ], [ %.010801183, %dissect_nhdr_umq_reg.exit ], [ %.010801183, %dissect_nhdr_tsni.exit ], [ %.010801183, %924 ], [ %.010801183, %902 ], [ %.010801183, %884 ], [ %.010801183, %872 ], [ %.010801183, %860 ], [ %.010801183, %846 ], [ %.010801183, %830 ], [ %.010801183, %817 ], [ %.010801183, %797 ], [ %.010801183, %769 ], [ %.010801183, %747 ], [ %.010801183, %718 ], [ %.010801183, %688 ], [ %.010801183, %668 ], [ %.010801183, %644 ], [ %.010801183, %622 ], [ %.010801183, %608 ], [ %.010801183, %593 ], [ %.010801183, %578 ], [ %.010801183, %564 ], [ %.010801183, %544 ], [ %..i, %522 ], [ %.010801183, %506 ], [ %.010801183, %dissect_nhdr_apphdr.exit ], [ %.010801183, %dissect_nhdr_topicname.exit ], [ %.010801183, %364 ], [ %.010801183, %362 ], [ %.010801183, %350 ], [ %.010801183, %329 ], [ %.010801183, %460 ], [ %.010801183, %483 ], [ %.010801183, %._crit_edge.i ], [ %.010801183, %2992 ], [ %.010801183, %3032 ], [ %.010801183, %3046 ]
+  %.sroa.40.2 = phi ptr [ %.sroa.40.11184, %3047 ], [ %.sroa.40.11184, %2902 ], [ %.sroa.40.11184, %2886 ], [ %.sroa.40.11184, %2860 ], [ %.sroa.40.11184, %2839 ], [ %.sroa.40.11184, %2825 ], [ %.sroa.40.11184, %2811 ], [ %2809, %2777 ], [ %.sroa.40.11184, %2761 ], [ %.sroa.40.11184, %2745 ], [ %.sroa.40.11184, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.40.11184, %2704 ], [ %.sroa.40.11184, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.40.11184, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.40.11184, %dissect_nhdr_auth_request.exit ], [ %.sroa.40.11184, %dissect_nhdr_gateway_name.exit ], [ %.sroa.40.11184, %2555 ], [ %.sroa.40.11184, %2525 ], [ %.sroa.40.11184, %2507 ], [ %.sroa.40.11184, %2493 ], [ %.sroa.40.11184, %2477 ], [ %.sroa.40.11184, %2475 ], [ %.sroa.40.11184, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.40.11184, %2384 ], [ %.sroa.40.11184, %2354 ], [ %.sroa.40.11184, %2324 ], [ %.sroa.40.11184, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.40.11184, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.40.11184, %2247 ], [ %.sroa.40.11184, %2233 ], [ %.sroa.40.11184, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.40.11184, %1884 ], [ %.sroa.40.11184, %1866 ], [ %.sroa.40.11184, %1852 ], [ %.sroa.40.11184, %1830 ], [ %.sroa.40.11184, %1816 ], [ %.sroa.40.11184, %1802 ], [ %.sroa.40.11184, %1774 ], [ %.sroa.40.11184, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.40.11184, %1720 ], [ %.sroa.40.11184, %1692 ], [ %.sroa.40.11184, %dissect_nhdr_storename.exit ], [ %.sroa.40.11184, %1657 ], [ %.sroa.40.11184, %1624 ], [ %.sroa.40.11184, %1606 ], [ %.sroa.40.11184, %1592 ], [ %.sroa.40.11184, %1568 ], [ %.sroa.40.11184, %1544 ], [ %.sroa.40.11184, %1532 ], [ %.sroa.40.11184, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_ka.exit ], [ %.sroa.40.11184, %1312 ], [ %.sroa.40.11184, %dissect_nhdr_umq_ack.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.40.11184, %dissect_nhdr_umq_reg.exit ], [ %.sroa.40.11184, %dissect_nhdr_tsni.exit ], [ %.sroa.40.11184, %924 ], [ %.sroa.40.11184, %902 ], [ %.sroa.40.11184, %884 ], [ %.sroa.40.11184, %872 ], [ %.sroa.40.11184, %860 ], [ %.sroa.40.11184, %846 ], [ %.sroa.40.11184, %830 ], [ %.sroa.40.11184, %817 ], [ %.sroa.40.11184, %797 ], [ %.sroa.40.11184, %769 ], [ %.sroa.40.11184, %747 ], [ %.sroa.40.11184, %718 ], [ %.sroa.40.11184, %688 ], [ %.sroa.40.11184, %668 ], [ %.sroa.40.11184, %644 ], [ %.sroa.40.11184, %622 ], [ %.sroa.40.11184, %608 ], [ %.sroa.40.11184, %593 ], [ %.sroa.40.11184, %578 ], [ %.sroa.40.11184, %564 ], [ %.sroa.40.11184, %544 ], [ %.sroa.40.11184, %522 ], [ %.sroa.40.11184, %506 ], [ %.sroa.40.11184, %dissect_nhdr_apphdr.exit ], [ %.sroa.40.11184, %dissect_nhdr_topicname.exit ], [ %.sroa.40.11184, %364 ], [ %.sroa.40.11184, %362 ], [ %.sroa.40.11184, %350 ], [ %.sroa.40.11184, %329 ], [ %.sroa.40.11184, %460 ], [ %.sroa.40.11184, %483 ], [ %.sroa.40.11184, %._crit_edge.i ], [ %.sroa.40.11184, %2992 ], [ %.sroa.40.11184, %3032 ], [ %.sroa.40.11184, %3046 ]
+  %.sroa.01063.1 = phi i32 [ %.sroa.01063.01185, %3047 ], [ %.sroa.01063.01185, %2902 ], [ %.sroa.01063.01185, %2886 ], [ %.sroa.01063.01185, %2860 ], [ %.sroa.01063.01185, %2839 ], [ %.sroa.01063.01185, %2825 ], [ %.sroa.01063.01185, %2811 ], [ %.sroa.01063.01185, %2777 ], [ %.sroa.01063.01185, %2761 ], [ %.sroa.01063.01185, %2745 ], [ %.sroa.01063.01185, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.01063.01185, %2704 ], [ %.sroa.01063.01185, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.01063.01185, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.01063.01185, %dissect_nhdr_auth_request.exit ], [ %.sroa.01063.01185, %dissect_nhdr_gateway_name.exit ], [ %.sroa.01063.01185, %2555 ], [ %.sroa.01063.01185, %2525 ], [ %.sroa.01063.01185, %2507 ], [ %.sroa.01063.01185, %2493 ], [ %.sroa.01063.01185, %2477 ], [ %.sroa.01063.01185, %2475 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.01063.01185, %2384 ], [ %.sroa.01063.01185, %2354 ], [ %.sroa.01063.01185, %2324 ], [ %.sroa.01063.01185, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.01063.01185, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.01063.01185, %2247 ], [ %.sroa.01063.01185, %2233 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.01063.01185, %1884 ], [ %.sroa.01063.01185, %1866 ], [ %.sroa.01063.01185, %1852 ], [ %.sroa.01063.01185, %1830 ], [ %.sroa.01063.01185, %1816 ], [ %.sroa.01063.01185, %1802 ], [ %.sroa.01063.01185, %1774 ], [ %.sroa.01063.01185, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.01063.01185, %1720 ], [ %.sroa.01063.01185, %1692 ], [ %.sroa.01063.01185, %dissect_nhdr_storename.exit ], [ %.sroa.01063.01185, %1657 ], [ %.sroa.01063.01185, %1624 ], [ %.sroa.01063.01185, %1606 ], [ %.sroa.01063.01185, %1592 ], [ %.sroa.01063.01185, %1568 ], [ %.sroa.01063.01185, %1544 ], [ %.sroa.01063.01185, %1532 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_ka.exit ], [ %.sroa.01063.01185, %1312 ], [ %.sroa.01063.01185, %dissect_nhdr_umq_ack.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.01063.01185, %dissect_nhdr_umq_reg.exit ], [ %.sroa.01063.01185, %dissect_nhdr_tsni.exit ], [ %.sroa.01063.01185, %924 ], [ %.sroa.01063.01185, %902 ], [ %.sroa.01063.01185, %884 ], [ %.sroa.01063.01185, %872 ], [ %.sroa.01063.01185, %860 ], [ %.sroa.01063.01185, %846 ], [ %.sroa.01063.01185, %830 ], [ %.sroa.01063.01185, %817 ], [ %.sroa.01063.01185, %797 ], [ %.sroa.01063.01185, %769 ], [ %.sroa.01063.01185, %747 ], [ %.sroa.01063.01185, %718 ], [ %.sroa.01063.01185, %688 ], [ %.sroa.01063.01185, %668 ], [ %.sroa.01063.01185, %644 ], [ %.sroa.01063.01185, %622 ], [ %.sroa.01063.01185, %608 ], [ %.sroa.01063.01185, %593 ], [ %.sroa.01063.01185, %578 ], [ %.sroa.01063.01185, %564 ], [ %.sroa.01063.01185, %544 ], [ %.sroa.01063.01185, %522 ], [ %.sroa.01063.01185, %506 ], [ %.sroa.01063.01185, %dissect_nhdr_apphdr.exit ], [ %.sroa.01063.01185, %dissect_nhdr_topicname.exit ], [ %.sroa.01063.01185, %364 ], [ %.sroa.01063.01185, %362 ], [ %.sroa.01063.01185, %350 ], [ 1, %329 ], [ %.sroa.01063.01185, %460 ], [ %.sroa.01063.01185, %483 ], [ %.sroa.01063.01185, %._crit_edge.i ], [ %.sroa.01063.01185, %2992 ], [ %.sroa.01063.01185, %3032 ], [ %.sroa.01063.01185, %3046 ]
+  %.sroa.31064.1 = phi i32 [ %.sroa.31064.01186, %3047 ], [ %.sroa.31064.01186, %2902 ], [ %.sroa.31064.01186, %2886 ], [ %.sroa.31064.01186, %2860 ], [ %.sroa.31064.01186, %2839 ], [ %.sroa.31064.01186, %2825 ], [ %.sroa.31064.01186, %2811 ], [ %.sroa.31064.01186, %2777 ], [ %.sroa.31064.01186, %2761 ], [ %.sroa.31064.01186, %2745 ], [ %.sroa.31064.01186, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.31064.01186, %2704 ], [ %.sroa.31064.01186, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.31064.01186, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.31064.01186, %dissect_nhdr_auth_request.exit ], [ %.sroa.31064.01186, %dissect_nhdr_gateway_name.exit ], [ %.sroa.31064.01186, %2555 ], [ %.sroa.31064.01186, %2525 ], [ %.sroa.31064.01186, %2507 ], [ %.sroa.31064.01186, %2493 ], [ %.sroa.31064.01186, %2477 ], [ %.sroa.31064.01186, %2475 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.31064.01186, %2384 ], [ %.sroa.31064.01186, %2354 ], [ %.sroa.31064.01186, %2324 ], [ %.sroa.31064.01186, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.31064.01186, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.31064.01186, %2247 ], [ %.sroa.31064.01186, %2233 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.31064.01186, %1884 ], [ %.sroa.31064.01186, %1866 ], [ %.sroa.31064.01186, %1852 ], [ %.sroa.31064.01186, %1830 ], [ %.sroa.31064.01186, %1816 ], [ %.sroa.31064.01186, %1802 ], [ %.sroa.31064.01186, %1774 ], [ %.sroa.31064.01186, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.31064.01186, %1720 ], [ %.sroa.31064.01186, %1692 ], [ %.sroa.31064.01186, %dissect_nhdr_storename.exit ], [ %.sroa.31064.01186, %1657 ], [ %.sroa.31064.01186, %1624 ], [ %.sroa.31064.01186, %1606 ], [ %.sroa.31064.01186, %1592 ], [ %.sroa.31064.01186, %1568 ], [ %.sroa.31064.01186, %1544 ], [ %.sroa.31064.01186, %1532 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_ka.exit ], [ %.sroa.31064.01186, %1312 ], [ %.sroa.31064.01186, %dissect_nhdr_umq_ack.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.31064.01186, %dissect_nhdr_umq_reg.exit ], [ %.sroa.31064.01186, %dissect_nhdr_tsni.exit ], [ %.sroa.31064.01186, %924 ], [ %.sroa.31064.01186, %902 ], [ %.sroa.31064.01186, %884 ], [ %.sroa.31064.01186, %872 ], [ %.sroa.31064.01186, %860 ], [ %.sroa.31064.01186, %846 ], [ %.sroa.31064.01186, %830 ], [ %.sroa.31064.01186, %817 ], [ %.sroa.31064.01186, %797 ], [ %.sroa.31064.01186, %769 ], [ %.sroa.31064.01186, %747 ], [ %.sroa.31064.01186, %718 ], [ %.sroa.31064.01186, %688 ], [ %.sroa.31064.01186, %668 ], [ %.sroa.31064.01186, %644 ], [ %.sroa.31064.01186, %622 ], [ %.sroa.31064.01186, %608 ], [ %.sroa.31064.01186, %593 ], [ %.sroa.31064.01186, %578 ], [ %.sroa.31064.01186, %564 ], [ %.sroa.31064.01186, %544 ], [ %.sroa.31064.01186, %522 ], [ %.sroa.31064.01186, %506 ], [ %.sroa.31064.01186, %dissect_nhdr_apphdr.exit ], [ %.sroa.31064.01186, %dissect_nhdr_topicname.exit ], [ %.sroa.31064.01186, %364 ], [ %.sroa.31064.01186, %362 ], [ %.sroa.31064.01186, %350 ], [ %347, %329 ], [ %.sroa.31064.01186, %460 ], [ %.sroa.31064.01186, %483 ], [ %.sroa.31064.01186, %._crit_edge.i ], [ %.sroa.31064.01186, %2992 ], [ %.sroa.31064.01186, %3032 ], [ %.sroa.31064.01186, %3046 ]
+  %.sroa.261036.2 = phi i32 [ %.sroa.261036.11187, %3047 ], [ %.sroa.261036.11187, %2902 ], [ %.sroa.261036.11187, %2886 ], [ %.sroa.261036.11187, %2860 ], [ %.sroa.261036.11187, %2839 ], [ %.sroa.261036.11187, %2825 ], [ %.sroa.261036.11187, %2811 ], [ %2808, %2777 ], [ %.sroa.261036.11187, %2761 ], [ %.sroa.261036.11187, %2745 ], [ %.sroa.261036.11187, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.261036.11187, %2704 ], [ %.sroa.261036.11187, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.261036.11187, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.261036.11187, %dissect_nhdr_auth_request.exit ], [ %.sroa.261036.11187, %dissect_nhdr_gateway_name.exit ], [ %.sroa.261036.11187, %2555 ], [ %.sroa.261036.11187, %2525 ], [ %.sroa.261036.11187, %2507 ], [ %.sroa.261036.11187, %2493 ], [ %.sroa.261036.11187, %2477 ], [ %.sroa.261036.11187, %2475 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.261036.11187, %2384 ], [ %.sroa.261036.11187, %2354 ], [ %.sroa.261036.11187, %2324 ], [ %.sroa.261036.11187, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.261036.11187, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.261036.11187, %2247 ], [ %.sroa.261036.11187, %2233 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.261036.11187, %1884 ], [ %.sroa.261036.11187, %1866 ], [ %.sroa.261036.11187, %1852 ], [ %.sroa.261036.11187, %1830 ], [ %.sroa.261036.11187, %1816 ], [ %.sroa.261036.11187, %1802 ], [ %.sroa.261036.11187, %1774 ], [ %.sroa.261036.11187, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.261036.11187, %1720 ], [ %.sroa.261036.11187, %1692 ], [ %.sroa.261036.11187, %dissect_nhdr_storename.exit ], [ %.sroa.261036.11187, %1657 ], [ %.sroa.261036.11187, %1624 ], [ %.sroa.261036.11187, %1606 ], [ %.sroa.261036.11187, %1592 ], [ %.sroa.261036.11187, %1568 ], [ %.sroa.261036.11187, %1544 ], [ %.sroa.261036.11187, %1532 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_ka.exit ], [ %.sroa.261036.11187, %1312 ], [ %.sroa.261036.11187, %dissect_nhdr_umq_ack.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.261036.11187, %dissect_nhdr_umq_reg.exit ], [ %.sroa.261036.11187, %dissect_nhdr_tsni.exit ], [ %.sroa.261036.11187, %924 ], [ %.sroa.261036.11187, %902 ], [ %.sroa.261036.11187, %884 ], [ %.sroa.261036.11187, %872 ], [ %.sroa.261036.11187, %860 ], [ %.sroa.261036.11187, %846 ], [ %.sroa.261036.11187, %830 ], [ %.sroa.261036.11187, %817 ], [ %.sroa.261036.11187, %797 ], [ %.sroa.261036.11187, %769 ], [ %.sroa.261036.11187, %747 ], [ %.sroa.261036.11187, %718 ], [ %.sroa.261036.11187, %688 ], [ %.sroa.261036.11187, %668 ], [ %.sroa.261036.11187, %644 ], [ %.sroa.261036.11187, %622 ], [ %.sroa.261036.11187, %608 ], [ %.sroa.261036.11187, %593 ], [ %.sroa.261036.11187, %578 ], [ %.sroa.261036.11187, %564 ], [ %.sroa.261036.11187, %544 ], [ %.sroa.261036.11187, %522 ], [ %.sroa.261036.11187, %506 ], [ %.sroa.261036.11187, %dissect_nhdr_apphdr.exit ], [ %.sroa.261036.11187, %dissect_nhdr_topicname.exit ], [ %.sroa.261036.11187, %364 ], [ %.sroa.261036.11187, %362 ], [ %.sroa.261036.11187, %350 ], [ %.sroa.261036.11187, %329 ], [ %.sroa.261036.11187, %460 ], [ %.sroa.261036.11187, %483 ], [ %.sroa.261036.11187, %._crit_edge.i ], [ %.sroa.261036.11187, %2992 ], [ %.sroa.261036.11187, %3032 ], [ %.sroa.261036.11187, %3046 ]
+  %.sroa.22.2 = phi i16 [ %.sroa.22.11188, %3047 ], [ %.sroa.22.11188, %2902 ], [ %.sroa.22.11188, %2886 ], [ %.sroa.22.11188, %2860 ], [ %.sroa.22.11188, %2839 ], [ %.sroa.22.11188, %2825 ], [ %.sroa.22.11188, %2811 ], [ %2807, %2777 ], [ %.sroa.22.11188, %2761 ], [ %.sroa.22.11188, %2745 ], [ %.sroa.22.11188, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.22.11188, %2704 ], [ %.sroa.22.11188, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.22.11188, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.22.11188, %dissect_nhdr_auth_request.exit ], [ %.sroa.22.11188, %dissect_nhdr_gateway_name.exit ], [ %.sroa.22.11188, %2555 ], [ %.sroa.22.11188, %2525 ], [ %.sroa.22.11188, %2507 ], [ %.sroa.22.11188, %2493 ], [ %.sroa.22.11188, %2477 ], [ %.sroa.22.11188, %2475 ], [ %.sroa.22.11188, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.22.11188, %2384 ], [ %.sroa.22.11188, %2354 ], [ %.sroa.22.11188, %2324 ], [ %.sroa.22.11188, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.22.11188, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.22.11188, %2247 ], [ %.sroa.22.11188, %2233 ], [ %.sroa.22.11188, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.22.11188, %1884 ], [ %.sroa.22.11188, %1866 ], [ %.sroa.22.11188, %1852 ], [ %.sroa.22.11188, %1830 ], [ %.sroa.22.11188, %1816 ], [ %.sroa.22.11188, %1802 ], [ %.sroa.22.11188, %1774 ], [ %.sroa.22.11188, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.22.11188, %1720 ], [ %.sroa.22.11188, %1692 ], [ %.sroa.22.11188, %dissect_nhdr_storename.exit ], [ %.sroa.22.11188, %1657 ], [ %.sroa.22.11188, %1624 ], [ %.sroa.22.11188, %1606 ], [ %.sroa.22.11188, %1592 ], [ %.sroa.22.11188, %1568 ], [ %.sroa.22.11188, %1544 ], [ %.sroa.22.11188, %1532 ], [ %.sroa.22.11188, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_ka.exit ], [ %.sroa.22.11188, %1312 ], [ %.sroa.22.11188, %dissect_nhdr_umq_ack.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.22.11188, %dissect_nhdr_umq_reg.exit ], [ %.sroa.22.11188, %dissect_nhdr_tsni.exit ], [ %.sroa.22.11188, %924 ], [ %.sroa.22.11188, %902 ], [ %.sroa.22.11188, %884 ], [ %.sroa.22.11188, %872 ], [ %.sroa.22.11188, %860 ], [ %.sroa.22.11188, %846 ], [ %.sroa.22.11188, %830 ], [ %.sroa.22.11188, %817 ], [ %.sroa.22.11188, %797 ], [ %.sroa.22.11188, %769 ], [ %.sroa.22.11188, %747 ], [ %.sroa.22.11188, %718 ], [ %.sroa.22.11188, %688 ], [ %.sroa.22.11188, %668 ], [ %.sroa.22.11188, %644 ], [ %.sroa.22.11188, %622 ], [ %.sroa.22.11188, %608 ], [ %.sroa.22.11188, %593 ], [ %.sroa.22.11188, %578 ], [ %.sroa.22.11188, %564 ], [ %.sroa.22.11188, %544 ], [ %.sroa.22.11188, %522 ], [ %.sroa.22.11188, %506 ], [ %.sroa.22.11188, %dissect_nhdr_apphdr.exit ], [ %.sroa.22.11188, %dissect_nhdr_topicname.exit ], [ %.sroa.22.11188, %364 ], [ %.sroa.22.11188, %362 ], [ %.sroa.22.11188, %350 ], [ %.sroa.22.11188, %329 ], [ %.sroa.22.11188, %460 ], [ %.sroa.22.11188, %483 ], [ %.sroa.22.11188, %._crit_edge.i ], [ %.sroa.22.11188, %2992 ], [ %.sroa.22.11188, %3032 ], [ %.sroa.22.11188, %3046 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.01189, %3047 ], [ %.sroa.8.01189, %2902 ], [ %.sroa.8.01189, %2886 ], [ %.sroa.8.01189, %2860 ], [ %.sroa.8.01189, %2839 ], [ %.sroa.8.01189, %2825 ], [ %.sroa.8.01189, %2811 ], [ %.sroa.8.01189, %2777 ], [ %.sroa.8.01189, %2761 ], [ %.sroa.8.01189, %2745 ], [ %.sroa.8.01189, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.8.01189, %2704 ], [ %.sroa.8.01189, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.8.01189, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.8.01189, %dissect_nhdr_auth_request.exit ], [ %.sroa.8.01189, %dissect_nhdr_gateway_name.exit ], [ %.sroa.8.01189, %2555 ], [ %.sroa.8.01189, %2525 ], [ %.sroa.8.01189, %2507 ], [ %.sroa.8.01189, %2493 ], [ %.sroa.8.01189, %2477 ], [ %.sroa.8.01189, %2475 ], [ %.sroa.8.01189, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.8.01189, %2384 ], [ %.sroa.8.01189, %2354 ], [ %.sroa.8.01189, %2324 ], [ %.sroa.8.01189, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.8.01189, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.8.01189, %2247 ], [ %.sroa.8.01189, %2233 ], [ %.sroa.8.01189, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.8.01189, %1884 ], [ %.sroa.8.01189, %1866 ], [ %.sroa.8.01189, %1852 ], [ %.sroa.8.01189, %1830 ], [ %.sroa.8.01189, %1816 ], [ %.sroa.8.01189, %1802 ], [ %.sroa.8.01189, %1774 ], [ %.sroa.8.01189, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.8.01189, %1720 ], [ %.sroa.8.01189, %1692 ], [ %.sroa.8.01189, %dissect_nhdr_storename.exit ], [ %.sroa.8.01189, %1657 ], [ %.sroa.8.01189, %1624 ], [ %.sroa.8.01189, %1606 ], [ %.sroa.8.01189, %1592 ], [ %.sroa.8.01189, %1568 ], [ %.sroa.8.01189, %1544 ], [ %.sroa.8.01189, %1532 ], [ %.sroa.8.01189, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_ka.exit ], [ %.sroa.8.01189, %1312 ], [ %.sroa.8.01189, %dissect_nhdr_umq_ack.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.8.01189, %dissect_nhdr_umq_reg.exit ], [ %.sroa.8.01189, %dissect_nhdr_tsni.exit ], [ %.sroa.8.01189, %924 ], [ %.sroa.8.01189, %902 ], [ %.sroa.8.01189, %884 ], [ %.sroa.8.01189, %872 ], [ %.sroa.8.01189, %860 ], [ %.sroa.8.01189, %846 ], [ %.sroa.8.01189, %830 ], [ %.sroa.8.01189, %817 ], [ %.sroa.8.01189, %797 ], [ %.sroa.8.01189, %769 ], [ %.sroa.8.01189, %747 ], [ %.sroa.8.01189, %718 ], [ %.sroa.8.01189, %688 ], [ %.sroa.8.01189, %668 ], [ %.sroa.8.01189, %644 ], [ %.sroa.8.01189, %622 ], [ %.sroa.8.01189, %608 ], [ %.sroa.8.01189, %593 ], [ %.sroa.8.01189, %578 ], [ %.sroa.8.01189, %564 ], [ %.sroa.8.01189, %544 ], [ %.sroa.8.01189, %522 ], [ %.sroa.8.01189, %506 ], [ %.sroa.8.01189, %dissect_nhdr_apphdr.exit ], [ %.sroa.8.01189, %dissect_nhdr_topicname.exit ], [ %.sroa.8.01189, %364 ], [ %.sroa.8.01189, %362 ], [ %.sroa.8.01189, %350 ], [ %348, %329 ], [ %.sroa.8.01189, %460 ], [ %.sroa.8.01189, %483 ], [ %.sroa.8.01189, %._crit_edge.i ], [ %.sroa.8.01189, %2992 ], [ %.sroa.8.01189, %3032 ], [ %.sroa.8.01189, %3046 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.11190, %3047 ], [ %.sroa.17.11190, %2902 ], [ %.sroa.17.11190, %2886 ], [ %.sroa.17.11190, %2860 ], [ %.sroa.17.11190, %2839 ], [ %.sroa.17.11190, %2825 ], [ %.sroa.17.11190, %2811 ], [ %2806, %2777 ], [ %.sroa.17.11190, %2761 ], [ %.sroa.17.11190, %2745 ], [ %.sroa.17.11190, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.17.11190, %2704 ], [ %.sroa.17.11190, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.17.11190, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.17.11190, %dissect_nhdr_auth_request.exit ], [ %.sroa.17.11190, %dissect_nhdr_gateway_name.exit ], [ %.sroa.17.11190, %2555 ], [ %.sroa.17.11190, %2525 ], [ %.sroa.17.11190, %2507 ], [ %.sroa.17.11190, %2493 ], [ %.sroa.17.11190, %2477 ], [ %.sroa.17.11190, %2475 ], [ %.sroa.17.11190, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.17.11190, %2384 ], [ %.sroa.17.11190, %2354 ], [ %.sroa.17.11190, %2324 ], [ %.sroa.17.11190, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.17.11190, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.17.11190, %2247 ], [ %.sroa.17.11190, %2233 ], [ %.sroa.17.11190, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.17.11190, %1884 ], [ %.sroa.17.11190, %1866 ], [ %.sroa.17.11190, %1852 ], [ %.sroa.17.11190, %1830 ], [ %.sroa.17.11190, %1816 ], [ %.sroa.17.11190, %1802 ], [ %.sroa.17.11190, %1774 ], [ %.sroa.17.11190, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.17.11190, %1720 ], [ %.sroa.17.11190, %1692 ], [ %.sroa.17.11190, %dissect_nhdr_storename.exit ], [ %.sroa.17.11190, %1657 ], [ %.sroa.17.11190, %1624 ], [ %.sroa.17.11190, %1606 ], [ %.sroa.17.11190, %1592 ], [ %.sroa.17.11190, %1568 ], [ %.sroa.17.11190, %1544 ], [ %.sroa.17.11190, %1532 ], [ %.sroa.17.11190, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_ka.exit ], [ %.sroa.17.11190, %1312 ], [ %.sroa.17.11190, %dissect_nhdr_umq_ack.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.17.11190, %dissect_nhdr_umq_reg.exit ], [ %.sroa.17.11190, %dissect_nhdr_tsni.exit ], [ %.sroa.17.11190, %924 ], [ %.sroa.17.11190, %902 ], [ %.sroa.17.11190, %884 ], [ %.sroa.17.11190, %872 ], [ %.sroa.17.11190, %860 ], [ %.sroa.17.11190, %846 ], [ %.sroa.17.11190, %830 ], [ %.sroa.17.11190, %817 ], [ %.sroa.17.11190, %797 ], [ %.sroa.17.11190, %769 ], [ %.sroa.17.11190, %747 ], [ %.sroa.17.11190, %718 ], [ %.sroa.17.11190, %688 ], [ %.sroa.17.11190, %668 ], [ %.sroa.17.11190, %644 ], [ %.sroa.17.11190, %622 ], [ %.sroa.17.11190, %608 ], [ %.sroa.17.11190, %593 ], [ %.sroa.17.11190, %578 ], [ %.sroa.17.11190, %564 ], [ %.sroa.17.11190, %544 ], [ %.sroa.17.11190, %522 ], [ %.sroa.17.11190, %506 ], [ %.sroa.17.11190, %dissect_nhdr_apphdr.exit ], [ %.sroa.17.11190, %dissect_nhdr_topicname.exit ], [ %.sroa.17.11190, %364 ], [ %.sroa.17.11190, %362 ], [ %.sroa.17.11190, %350 ], [ %.sroa.17.11190, %329 ], [ %.sroa.17.11190, %460 ], [ %.sroa.17.11190, %483 ], [ %.sroa.17.11190, %._crit_edge.i ], [ %.sroa.17.11190, %2992 ], [ %.sroa.17.11190, %3032 ], [ %.sroa.17.11190, %3046 ]
+  %.sroa.131069.1 = phi i32 [ %.sroa.131069.01191, %3047 ], [ %.sroa.131069.01191, %2902 ], [ %.sroa.131069.01191, %2886 ], [ %.sroa.131069.01191, %2860 ], [ %.sroa.131069.01191, %2839 ], [ %.sroa.131069.01191, %2825 ], [ %.sroa.131069.01191, %2811 ], [ %.sroa.131069.01191, %2777 ], [ %.sroa.131069.01191, %2761 ], [ %.sroa.131069.01191, %2745 ], [ %.sroa.131069.01191, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.131069.01191, %2704 ], [ %.sroa.131069.01191, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.131069.01191, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.131069.01191, %dissect_nhdr_auth_request.exit ], [ %.sroa.131069.01191, %dissect_nhdr_gateway_name.exit ], [ %.sroa.131069.01191, %2555 ], [ %.sroa.131069.01191, %2525 ], [ %.sroa.131069.01191, %2507 ], [ %.sroa.131069.01191, %2493 ], [ %.sroa.131069.01191, %2477 ], [ %.sroa.131069.01191, %2475 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.131069.01191, %2384 ], [ %.sroa.131069.01191, %2354 ], [ %.sroa.131069.01191, %2324 ], [ %.sroa.131069.01191, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.131069.01191, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.131069.01191, %2247 ], [ %.sroa.131069.01191, %2233 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.131069.01191, %1884 ], [ %.sroa.131069.01191, %1866 ], [ %.sroa.131069.01191, %1852 ], [ %.sroa.131069.01191, %1830 ], [ %.sroa.131069.01191, %1816 ], [ %.sroa.131069.01191, %1802 ], [ %.sroa.131069.01191, %1774 ], [ %.sroa.131069.01191, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.131069.01191, %1720 ], [ %.sroa.131069.01191, %1692 ], [ %.sroa.131069.01191, %dissect_nhdr_storename.exit ], [ %.sroa.131069.01191, %1657 ], [ %.sroa.131069.01191, %1624 ], [ %.sroa.131069.01191, %1606 ], [ %.sroa.131069.01191, %1592 ], [ %.sroa.131069.01191, %1568 ], [ %.sroa.131069.01191, %1544 ], [ %.sroa.131069.01191, %1532 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_ka.exit ], [ %.sroa.131069.01191, %1312 ], [ %.sroa.131069.01191, %dissect_nhdr_umq_ack.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.131069.01191, %dissect_nhdr_umq_reg.exit ], [ %.sroa.131069.01191, %dissect_nhdr_tsni.exit ], [ %.sroa.131069.01191, %924 ], [ %.sroa.131069.01191, %902 ], [ %.sroa.131069.01191, %884 ], [ %.sroa.131069.01191, %872 ], [ %.sroa.131069.01191, %860 ], [ %.sroa.131069.01191, %846 ], [ %.sroa.131069.01191, %830 ], [ %.sroa.131069.01191, %817 ], [ %.sroa.131069.01191, %797 ], [ %.sroa.131069.01191, %769 ], [ %.sroa.131069.01191, %747 ], [ %.sroa.131069.01191, %718 ], [ %.sroa.131069.01191, %688 ], [ %.sroa.131069.01191, %668 ], [ %.sroa.131069.01191, %644 ], [ %.sroa.131069.01191, %622 ], [ %.sroa.131069.01191, %608 ], [ %.sroa.131069.01191, %593 ], [ %.sroa.131069.01191, %578 ], [ %.sroa.131069.01191, %564 ], [ %.sroa.131069.01191, %544 ], [ %.sroa.131069.01191, %522 ], [ %.sroa.131069.01191, %506 ], [ %.sroa.131069.01191, %dissect_nhdr_apphdr.exit ], [ %.sroa.131069.01191, %dissect_nhdr_topicname.exit ], [ %.sroa.131069.01191, %364 ], [ %.sroa.131069.01191, %362 ], [ %.sroa.131069.01191, %350 ], [ %349, %329 ], [ %.sroa.131069.01191, %460 ], [ %.sroa.131069.01191, %483 ], [ %.sroa.131069.01191, %._crit_edge.i ], [ %.sroa.131069.01191, %2992 ], [ %.sroa.131069.01191, %3032 ], [ %.sroa.131069.01191, %3046 ]
+  %.5 = phi i32 [ %.010751192, %3047 ], [ %.010751192, %2902 ], [ %.010751192, %2886 ], [ %.010751192, %2860 ], [ %.010751192, %2839 ], [ %.010751192, %2825 ], [ %.010751192, %2811 ], [ %.010751192, %2777 ], [ %.010751192, %2761 ], [ %.010751192, %2745 ], [ %.010751192, %dissect_nhdr_auth_unknown.exit ], [ %.010751192, %2704 ], [ %.010751192, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010751192, %dissect_nhdr_auth_challenge.exit ], [ %.010751192, %dissect_nhdr_auth_request.exit ], [ %.010751192, %dissect_nhdr_gateway_name.exit ], [ %.010751192, %2555 ], [ %.010751192, %2525 ], [ %.010751192, %2507 ], [ %.010751192, %2493 ], [ %.010751192, %2477 ], [ %.010751192, %2475 ], [ %.010751192, %dissect_nhdr_umq_cmd.exit ], [ %.010751192, %2384 ], [ %.010751192, %2354 ], [ %.010751192, %2324 ], [ %.010751192, %dissect_nhdr_pattern_md_interest.exit ], [ %.010751192, %dissect_nhdr_topic_md_interest.exit ], [ %.010751192, %2247 ], [ %.010751192, %2233 ], [ %.010751192, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010751192, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010751192, %1884 ], [ %.010751192, %1866 ], [ %.010751192, %1852 ], [ %.010751192, %1830 ], [ %.010751192, %1816 ], [ %.010751192, %1802 ], [ %.010751192, %1774 ], [ %.010751192, %dissect_nhdr_ctxinfo.exit ], [ %.010751192, %1720 ], [ %.010751192, %1692 ], [ %.010751192, %dissect_nhdr_storename.exit ], [ %.010751192, %1657 ], [ %.010751192, %1624 ], [ %.010751192, %1606 ], [ %.010751192, %1592 ], [ %.010751192, %1568 ], [ %.010751192, %1544 ], [ %.010751192, %1532 ], [ %.010751192, %dissect_nhdr_umq_rxreq.exit ], [ %.010751192, %dissect_nhdr_umq_ka.exit ], [ %.010751192, %1312 ], [ %.010751192, %dissect_nhdr_umq_ack.exit ], [ %.010751192, %dissect_nhdr_umq_reg_resp.exit ], [ %.010751192, %dissect_nhdr_umq_reg.exit ], [ %.010751192, %dissect_nhdr_tsni.exit ], [ %.010751192, %924 ], [ %.010751192, %902 ], [ %.010751192, %884 ], [ %.010751192, %872 ], [ %.010751192, %860 ], [ %.010751192, %846 ], [ %.010751192, %830 ], [ %.010751192, %817 ], [ %.010751192, %797 ], [ %.010751192, %769 ], [ %.010751192, %747 ], [ %.010751192, %718 ], [ %.010751192, %688 ], [ %.010751192, %668 ], [ %.010751192, %644 ], [ %.010751192, %622 ], [ %.010751192, %608 ], [ %.010751192, %593 ], [ %.010751192, %578 ], [ %.010751192, %564 ], [ %.010751192, %544 ], [ %.010751192, %522 ], [ %.010751192, %506 ], [ %.010751192, %dissect_nhdr_apphdr.exit ], [ %.010751192, %dissect_nhdr_topicname.exit ], [ %.010751192, %364 ], [ %.010751192, %362 ], [ %.010751192, %350 ], [ %.010751192, %329 ], [ %.11076, %460 ], [ %.11076, %483 ], [ %.31078, %._crit_edge.i ], [ %.010751192, %2992 ], [ %.010751192, %3032 ], [ %.010751192, %3046 ]
+  %.sroa.31010.2 = phi i32 [ %.sroa.31010.11193, %3047 ], [ %.sroa.31010.11193, %2902 ], [ %.sroa.31010.11193, %2886 ], [ %.sroa.31010.11193, %2860 ], [ %.sroa.31010.11193, %2839 ], [ %.sroa.31010.11193, %2825 ], [ %.sroa.31010.11193, %2811 ], [ %2805, %2777 ], [ %.sroa.31010.11193, %2761 ], [ %.sroa.31010.11193, %2745 ], [ %.sroa.31010.11193, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.31010.11193, %2704 ], [ %.sroa.31010.11193, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.31010.11193, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.31010.11193, %dissect_nhdr_auth_request.exit ], [ %.sroa.31010.11193, %dissect_nhdr_gateway_name.exit ], [ %.sroa.31010.11193, %2555 ], [ %.sroa.31010.11193, %2525 ], [ %.sroa.31010.11193, %2507 ], [ %.sroa.31010.11193, %2493 ], [ %.sroa.31010.11193, %2477 ], [ %.sroa.31010.11193, %2475 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.31010.11193, %2384 ], [ %.sroa.31010.11193, %2354 ], [ %.sroa.31010.11193, %2324 ], [ %.sroa.31010.11193, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.31010.11193, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.31010.11193, %2247 ], [ %.sroa.31010.11193, %2233 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.31010.11193, %1884 ], [ %.sroa.31010.11193, %1866 ], [ %.sroa.31010.11193, %1852 ], [ %.sroa.31010.11193, %1830 ], [ %.sroa.31010.11193, %1816 ], [ %.sroa.31010.11193, %1802 ], [ %.sroa.31010.11193, %1774 ], [ %.sroa.31010.11193, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.31010.11193, %1720 ], [ %.sroa.31010.11193, %1692 ], [ %.sroa.31010.11193, %dissect_nhdr_storename.exit ], [ %.sroa.31010.11193, %1657 ], [ %.sroa.31010.11193, %1624 ], [ %.sroa.31010.11193, %1606 ], [ %.sroa.31010.11193, %1592 ], [ %.sroa.31010.11193, %1568 ], [ %.sroa.31010.11193, %1544 ], [ %.sroa.31010.11193, %1532 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_ka.exit ], [ %.sroa.31010.11193, %1312 ], [ %.sroa.31010.11193, %dissect_nhdr_umq_ack.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.31010.11193, %dissect_nhdr_umq_reg.exit ], [ %.sroa.31010.11193, %dissect_nhdr_tsni.exit ], [ %.sroa.31010.11193, %924 ], [ %.sroa.31010.11193, %902 ], [ %.sroa.31010.11193, %884 ], [ %.sroa.31010.11193, %872 ], [ %.sroa.31010.11193, %860 ], [ %.sroa.31010.11193, %846 ], [ %.sroa.31010.11193, %830 ], [ %.sroa.31010.11193, %817 ], [ %.sroa.31010.11193, %797 ], [ %.sroa.31010.11193, %769 ], [ %.sroa.31010.11193, %747 ], [ %.sroa.31010.11193, %718 ], [ %.sroa.31010.11193, %688 ], [ %.sroa.31010.11193, %668 ], [ %.sroa.31010.11193, %644 ], [ %.sroa.31010.11193, %622 ], [ %.sroa.31010.11193, %608 ], [ %.sroa.31010.11193, %593 ], [ %.sroa.31010.11193, %578 ], [ %.sroa.31010.11193, %564 ], [ %.sroa.31010.11193, %544 ], [ %.sroa.31010.11193, %522 ], [ %.sroa.31010.11193, %506 ], [ %.sroa.31010.11193, %dissect_nhdr_apphdr.exit ], [ %.sroa.31010.11193, %dissect_nhdr_topicname.exit ], [ %.sroa.31010.11193, %364 ], [ %.sroa.31010.11193, %362 ], [ %.sroa.31010.11193, %350 ], [ %.sroa.31010.11193, %329 ], [ %.sroa.31010.11193, %460 ], [ %.sroa.31010.11193, %483 ], [ %.sroa.31010.11193, %._crit_edge.i ], [ %.sroa.31010.11193, %2992 ], [ %.sroa.31010.11193, %3032 ], [ %.sroa.31010.11193, %3046 ]
+  %.sroa.01009.1 = phi i32 [ %.sroa.01009.01194, %3047 ], [ %.sroa.01009.01194, %2902 ], [ %.sroa.01009.01194, %2886 ], [ %.sroa.01009.01194, %2860 ], [ %.sroa.01009.01194, %2839 ], [ %.sroa.01009.01194, %2825 ], [ %.sroa.01009.01194, %2811 ], [ 1, %2777 ], [ %.sroa.01009.01194, %2761 ], [ %.sroa.01009.01194, %2745 ], [ %.sroa.01009.01194, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.01009.01194, %2704 ], [ %.sroa.01009.01194, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.01009.01194, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.01009.01194, %dissect_nhdr_auth_request.exit ], [ %.sroa.01009.01194, %dissect_nhdr_gateway_name.exit ], [ %.sroa.01009.01194, %2555 ], [ %.sroa.01009.01194, %2525 ], [ %.sroa.01009.01194, %2507 ], [ %.sroa.01009.01194, %2493 ], [ %.sroa.01009.01194, %2477 ], [ %.sroa.01009.01194, %2475 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.01009.01194, %2384 ], [ %.sroa.01009.01194, %2354 ], [ %.sroa.01009.01194, %2324 ], [ %.sroa.01009.01194, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.01009.01194, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.01009.01194, %2247 ], [ %.sroa.01009.01194, %2233 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.01009.01194, %1884 ], [ %.sroa.01009.01194, %1866 ], [ %.sroa.01009.01194, %1852 ], [ %.sroa.01009.01194, %1830 ], [ %.sroa.01009.01194, %1816 ], [ %.sroa.01009.01194, %1802 ], [ %.sroa.01009.01194, %1774 ], [ %.sroa.01009.01194, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.01009.01194, %1720 ], [ %.sroa.01009.01194, %1692 ], [ %.sroa.01009.01194, %dissect_nhdr_storename.exit ], [ %.sroa.01009.01194, %1657 ], [ %.sroa.01009.01194, %1624 ], [ %.sroa.01009.01194, %1606 ], [ %.sroa.01009.01194, %1592 ], [ %.sroa.01009.01194, %1568 ], [ %.sroa.01009.01194, %1544 ], [ %.sroa.01009.01194, %1532 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_ka.exit ], [ %.sroa.01009.01194, %1312 ], [ %.sroa.01009.01194, %dissect_nhdr_umq_ack.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.01009.01194, %dissect_nhdr_umq_reg.exit ], [ %.sroa.01009.01194, %dissect_nhdr_tsni.exit ], [ %.sroa.01009.01194, %924 ], [ %.sroa.01009.01194, %902 ], [ %.sroa.01009.01194, %884 ], [ %.sroa.01009.01194, %872 ], [ %.sroa.01009.01194, %860 ], [ %.sroa.01009.01194, %846 ], [ %.sroa.01009.01194, %830 ], [ %.sroa.01009.01194, %817 ], [ %.sroa.01009.01194, %797 ], [ %.sroa.01009.01194, %769 ], [ %.sroa.01009.01194, %747 ], [ %.sroa.01009.01194, %718 ], [ %.sroa.01009.01194, %688 ], [ %.sroa.01009.01194, %668 ], [ %.sroa.01009.01194, %644 ], [ %.sroa.01009.01194, %622 ], [ %.sroa.01009.01194, %608 ], [ %.sroa.01009.01194, %593 ], [ %.sroa.01009.01194, %578 ], [ %.sroa.01009.01194, %564 ], [ %.sroa.01009.01194, %544 ], [ %.sroa.01009.01194, %522 ], [ %.sroa.01009.01194, %506 ], [ %.sroa.01009.01194, %dissect_nhdr_apphdr.exit ], [ %.sroa.01009.01194, %dissect_nhdr_topicname.exit ], [ %.sroa.01009.01194, %364 ], [ %.sroa.01009.01194, %362 ], [ %.sroa.01009.01194, %350 ], [ %.sroa.01009.01194, %329 ], [ %.sroa.01009.01194, %460 ], [ %.sroa.01009.01194, %483 ], [ %.sroa.01009.01194, %._crit_edge.i ], [ %.sroa.01009.01194, %2992 ], [ %.sroa.01009.01194, %3032 ], [ %.sroa.01009.01194, %3046 ]
+  %.sroa.3.1 = phi i32 [ %.sroa.3.01195, %3047 ], [ %2916, %2902 ], [ %.sroa.3.01195, %2886 ], [ %.sroa.3.01195, %2860 ], [ %.sroa.3.01195, %2839 ], [ %.sroa.3.01195, %2825 ], [ %.sroa.3.01195, %2811 ], [ %.sroa.3.01195, %2777 ], [ %.sroa.3.01195, %2761 ], [ %.sroa.3.01195, %2745 ], [ %.sroa.3.01195, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.3.01195, %2704 ], [ %.sroa.3.01195, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.3.01195, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.3.01195, %dissect_nhdr_auth_request.exit ], [ %.sroa.3.01195, %dissect_nhdr_gateway_name.exit ], [ %.sroa.3.01195, %2555 ], [ %.sroa.3.01195, %2525 ], [ %.sroa.3.01195, %2507 ], [ %.sroa.3.01195, %2493 ], [ %.sroa.3.01195, %2477 ], [ %.sroa.3.01195, %2475 ], [ %.sroa.3.01195, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.3.01195, %2384 ], [ %.sroa.3.01195, %2354 ], [ %.sroa.3.01195, %2324 ], [ %.sroa.3.01195, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.3.01195, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.3.01195, %2247 ], [ %.sroa.3.01195, %2233 ], [ %.sroa.3.01195, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.3.01195, %1884 ], [ %.sroa.3.01195, %1866 ], [ %.sroa.3.01195, %1852 ], [ %.sroa.3.01195, %1830 ], [ %.sroa.3.01195, %1816 ], [ %.sroa.3.01195, %1802 ], [ %.sroa.3.01195, %1774 ], [ %.sroa.3.01195, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.3.01195, %1720 ], [ %.sroa.3.01195, %1692 ], [ %.sroa.3.01195, %dissect_nhdr_storename.exit ], [ %.sroa.3.01195, %1657 ], [ %.sroa.3.01195, %1624 ], [ %.sroa.3.01195, %1606 ], [ %.sroa.3.01195, %1592 ], [ %.sroa.3.01195, %1568 ], [ %.sroa.3.01195, %1544 ], [ %.sroa.3.01195, %1532 ], [ %.sroa.3.01195, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_ka.exit ], [ %.sroa.3.01195, %1312 ], [ %.sroa.3.01195, %dissect_nhdr_umq_ack.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.3.01195, %dissect_nhdr_umq_reg.exit ], [ %.sroa.3.01195, %dissect_nhdr_tsni.exit ], [ %.sroa.3.01195, %924 ], [ %.sroa.3.01195, %902 ], [ %.sroa.3.01195, %884 ], [ %.sroa.3.01195, %872 ], [ %.sroa.3.01195, %860 ], [ %.sroa.3.01195, %846 ], [ %.sroa.3.01195, %830 ], [ %.sroa.3.01195, %817 ], [ %.sroa.3.01195, %797 ], [ %.sroa.3.01195, %769 ], [ %.sroa.3.01195, %747 ], [ %.sroa.3.01195, %718 ], [ %.sroa.3.01195, %688 ], [ %.sroa.3.01195, %668 ], [ %.sroa.3.01195, %644 ], [ %.sroa.3.01195, %622 ], [ %.sroa.3.01195, %608 ], [ %.sroa.3.01195, %593 ], [ %.sroa.3.01195, %578 ], [ %.sroa.3.01195, %564 ], [ %.sroa.3.01195, %544 ], [ %.sroa.3.01195, %522 ], [ %.sroa.3.01195, %506 ], [ %.sroa.3.01195, %dissect_nhdr_apphdr.exit ], [ %.sroa.3.01195, %dissect_nhdr_topicname.exit ], [ %.sroa.3.01195, %364 ], [ %.sroa.3.01195, %362 ], [ %.sroa.3.01195, %350 ], [ %.sroa.3.01195, %329 ], [ %.sroa.3.01195, %460 ], [ %.sroa.3.01195, %483 ], [ %.sroa.3.01195, %._crit_edge.i ], [ %.sroa.3.01195, %2992 ], [ %.sroa.3.01195, %3032 ], [ %.sroa.3.01195, %3046 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.01196, %3047 ], [ 1, %2902 ], [ %.sroa.0.01196, %2886 ], [ %.sroa.0.01196, %2860 ], [ %.sroa.0.01196, %2839 ], [ %.sroa.0.01196, %2825 ], [ %.sroa.0.01196, %2811 ], [ %.sroa.0.01196, %2777 ], [ %.sroa.0.01196, %2761 ], [ %.sroa.0.01196, %2745 ], [ %.sroa.0.01196, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.0.01196, %2704 ], [ %.sroa.0.01196, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.0.01196, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.0.01196, %dissect_nhdr_auth_request.exit ], [ %.sroa.0.01196, %dissect_nhdr_gateway_name.exit ], [ %.sroa.0.01196, %2555 ], [ %.sroa.0.01196, %2525 ], [ %.sroa.0.01196, %2507 ], [ %.sroa.0.01196, %2493 ], [ %.sroa.0.01196, %2477 ], [ %.sroa.0.01196, %2475 ], [ %.sroa.0.01196, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.0.01196, %2384 ], [ %.sroa.0.01196, %2354 ], [ %.sroa.0.01196, %2324 ], [ %.sroa.0.01196, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.0.01196, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.0.01196, %2247 ], [ %.sroa.0.01196, %2233 ], [ %.sroa.0.01196, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.0.01196, %1884 ], [ %.sroa.0.01196, %1866 ], [ %.sroa.0.01196, %1852 ], [ %.sroa.0.01196, %1830 ], [ %.sroa.0.01196, %1816 ], [ %.sroa.0.01196, %1802 ], [ %.sroa.0.01196, %1774 ], [ %.sroa.0.01196, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.0.01196, %1720 ], [ %.sroa.0.01196, %1692 ], [ %.sroa.0.01196, %dissect_nhdr_storename.exit ], [ %.sroa.0.01196, %1657 ], [ %.sroa.0.01196, %1624 ], [ %.sroa.0.01196, %1606 ], [ %.sroa.0.01196, %1592 ], [ %.sroa.0.01196, %1568 ], [ %.sroa.0.01196, %1544 ], [ %.sroa.0.01196, %1532 ], [ %.sroa.0.01196, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_ka.exit ], [ %.sroa.0.01196, %1312 ], [ %.sroa.0.01196, %dissect_nhdr_umq_ack.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.0.01196, %dissect_nhdr_umq_reg.exit ], [ %.sroa.0.01196, %dissect_nhdr_tsni.exit ], [ %.sroa.0.01196, %924 ], [ %.sroa.0.01196, %902 ], [ %.sroa.0.01196, %884 ], [ %.sroa.0.01196, %872 ], [ %.sroa.0.01196, %860 ], [ %.sroa.0.01196, %846 ], [ %.sroa.0.01196, %830 ], [ %.sroa.0.01196, %817 ], [ %.sroa.0.01196, %797 ], [ %.sroa.0.01196, %769 ], [ %.sroa.0.01196, %747 ], [ %.sroa.0.01196, %718 ], [ %.sroa.0.01196, %688 ], [ %.sroa.0.01196, %668 ], [ %.sroa.0.01196, %644 ], [ %.sroa.0.01196, %622 ], [ %.sroa.0.01196, %608 ], [ %.sroa.0.01196, %593 ], [ %.sroa.0.01196, %578 ], [ %.sroa.0.01196, %564 ], [ %.sroa.0.01196, %544 ], [ %.sroa.0.01196, %522 ], [ %.sroa.0.01196, %506 ], [ %.sroa.0.01196, %dissect_nhdr_apphdr.exit ], [ %.sroa.0.01196, %dissect_nhdr_topicname.exit ], [ %.sroa.0.01196, %364 ], [ %.sroa.0.01196, %362 ], [ %.sroa.0.01196, %350 ], [ %.sroa.0.01196, %329 ], [ %.sroa.0.01196, %460 ], [ %.sroa.0.01196, %483 ], [ %.sroa.0.01196, %._crit_edge.i ], [ %.sroa.0.01196, %2992 ], [ %.sroa.0.01196, %3032 ], [ %.sroa.0.01196, %3046 ]
+  %.1757 = phi i32 [ %.07561197, %3047 ], [ %.07561197, %2902 ], [ %.07561197, %2886 ], [ %.07561197, %2860 ], [ %.07561197, %2839 ], [ %.07561197, %2825 ], [ %.07561197, %2811 ], [ %.07561197, %2777 ], [ %.07561197, %2761 ], [ %.07561197, %2745 ], [ %.07561197, %dissect_nhdr_auth_unknown.exit ], [ %.07561197, %2704 ], [ %.07561197, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.07561197, %dissect_nhdr_auth_challenge.exit ], [ %.07561197, %dissect_nhdr_auth_request.exit ], [ %.07561197, %dissect_nhdr_gateway_name.exit ], [ %.07561197, %2555 ], [ %.07561197, %2525 ], [ %.07561197, %2507 ], [ %.07561197, %2493 ], [ %.07561197, %2477 ], [ %.07561197, %2475 ], [ %.07561197, %dissect_nhdr_umq_cmd.exit ], [ %.07561197, %2384 ], [ %.07561197, %2354 ], [ %.07561197, %2324 ], [ %.07561197, %dissect_nhdr_pattern_md_interest.exit ], [ %.07561197, %dissect_nhdr_topic_md_interest.exit ], [ %.07561197, %2247 ], [ %.07561197, %2233 ], [ %.07561197, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.07561197, %dissect_nhdr_umq_idx_cmd.exit ], [ %.07561197, %1884 ], [ %.07561197, %1866 ], [ %.07561197, %1852 ], [ %.07561197, %1830 ], [ %.07561197, %1816 ], [ %.07561197, %1802 ], [ %.07561197, %1774 ], [ %.07561197, %dissect_nhdr_ctxinfo.exit ], [ %.07561197, %1720 ], [ %.07561197, %1692 ], [ %.07561197, %dissect_nhdr_storename.exit ], [ %.07561197, %1657 ], [ %.07561197, %1624 ], [ %.07561197, %1606 ], [ %.07561197, %1592 ], [ %.07561197, %1568 ], [ %.07561197, %1544 ], [ %.07561197, %1532 ], [ %.07561197, %dissect_nhdr_umq_rxreq.exit ], [ %.07561197, %dissect_nhdr_umq_ka.exit ], [ %.07561197, %1312 ], [ %.07561197, %dissect_nhdr_umq_ack.exit ], [ %.07561197, %dissect_nhdr_umq_reg_resp.exit ], [ %.07561197, %dissect_nhdr_umq_reg.exit ], [ %.07561197, %dissect_nhdr_tsni.exit ], [ %.07561197, %924 ], [ %.07561197, %902 ], [ %.07561197, %884 ], [ %.07561197, %872 ], [ %.07561197, %860 ], [ %.07561197, %846 ], [ %.07561197, %830 ], [ %.07561197, %817 ], [ %.07561197, %797 ], [ %.07561197, %769 ], [ %.07561197, %747 ], [ %.07561197, %718 ], [ %.07561197, %688 ], [ %.07561197, %668 ], [ %.07561197, %644 ], [ %.07561197, %622 ], [ 1, %608 ], [ %.07561197, %593 ], [ %.07561197, %578 ], [ %.07561197, %564 ], [ %.07561197, %544 ], [ %.07561197, %522 ], [ %.07561197, %506 ], [ %.07561197, %dissect_nhdr_apphdr.exit ], [ %.07561197, %dissect_nhdr_topicname.exit ], [ %.07561197, %364 ], [ %.07561197, %362 ], [ %.07561197, %350 ], [ %.07561197, %329 ], [ %.07561197, %460 ], [ %.07561197, %483 ], [ %.07561197, %._crit_edge.i ], [ %.07561197, %2992 ], [ %.07561197, %3032 ], [ %.07561197, %3046 ]
+  %.0746 = phi i32 [ %3048, %3047 ], [ 8, %2902 ], [ 8, %2886 ], [ 24, %2860 ], [ 16, %2839 ], [ 8, %2825 ], [ 8, %2811 ], [ 28, %2777 ], [ 16, %2761 ], [ 24, %2745 ], [ %.0.i861, %dissect_nhdr_auth_unknown.exit ], [ 5, %2704 ], [ %.1.i860, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.3.i, %dissect_nhdr_auth_challenge.exit ], [ %.0.i857, %dissect_nhdr_auth_request.exit ], [ %.0.i855, %dissect_nhdr_gateway_name.exit ], [ 20, %2555 ], [ 32, %2525 ], [ 16, %2507 ], [ 8, %2493 ], [ 12, %2477 ], [ %2476, %2475 ], [ %.0.i854, %dissect_nhdr_umq_cmd.exit ], [ 24, %2384 ], [ 64, %2354 ], [ 36, %2324 ], [ %.0.lcssa.i853, %dissect_nhdr_pattern_md_interest.exit ], [ %.0.lcssa.i845, %dissect_nhdr_topic_md_interest.exit ], [ 20, %2247 ], [ 8, %2233 ], [ %.0.i841, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.0.i839, %dissect_nhdr_umq_idx_cmd.exit ], [ 12, %1884 ], [ 16, %1866 ], [ 12, %1852 ], [ 20, %1830 ], [ 8, %1816 ], [ 12, %1802 ], [ 40, %1774 ], [ %.0.i837, %dissect_nhdr_ctxinfo.exit ], [ 8, %1720 ], [ 40, %1692 ], [ %.0.i835, %dissect_nhdr_storename.exit ], [ 12, %1657 ], [ 48, %1624 ], [ 16, %1606 ], [ 8, %1592 ], [ 28, %1568 ], [ 32, %1544 ], [ %1543, %1532 ], [ %.1.i834, %dissect_nhdr_umq_rxreq.exit ], [ %.0.i832, %dissect_nhdr_umq_ka.exit ], [ 48, %1312 ], [ %1311, %dissect_nhdr_umq_ack.exit ], [ %.0.i828, %dissect_nhdr_umq_reg_resp.exit ], [ %.0.i827, %dissect_nhdr_umq_reg.exit ], [ %.0.lcssa.i825, %dissect_nhdr_tsni.exit ], [ 16, %924 ], [ 16, %902 ], [ 8, %884 ], [ 4, %872 ], [ 4, %860 ], [ 8, %846 ], [ 12, %830 ], [ 4, %817 ], [ 16, %797 ], [ 28, %769 ], [ 20, %747 ], [ 24, %718 ], [ 28, %688 ], [ 16, %668 ], [ 20, %644 ], [ 20, %622 ], [ 12, %608 ], [ 12, %593 ], [ 12, %578 ], [ 36, %564 ], [ 16, %544 ], [ 20, %522 ], [ 20, %506 ], [ %.0.i822, %dissect_nhdr_apphdr.exit ], [ %.0.i, %dissect_nhdr_topicname.exit ], [ 16, %364 ], [ %363, %362 ], [ 4, %350 ], [ 16, %329 ], [ %.067.i, %460 ], [ %.067.i, %483 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %2923, %2992 ], [ %2923, %3032 ], [ %.1.i863, %3046 ]
+  %3049 = add i32 %.0746, %.17411198
+  %3050 = add i32 %.07331199, %323
+  %3051 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %3050) #9
+  %3052 = icmp sgt i32 %3051, 3
+  %3053 = add i8 %320, -1
+  %3054 = icmp ult i8 %3053, -2
+  %or.cond35 = select i1 %3052, i1 %3054, i1 false
+  br i1 %or.cond35, label %319, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %dissect_nhdr_apphdr_chain.exit, %switch.early.test, %switch.early.test, %309
-  %.sroa.45.1.lcssa = phi i16 [ %.sroa.45.0.ph1270, %309 ], [ %.sroa.45.11182, %switch.early.test ], [ %.sroa.45.11182, %switch.early.test ], [ %.sroa.45.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.01080.lcssa = phi i32 [ 0, %309 ], [ %.010801183, %switch.early.test ], [ %.010801183, %switch.early.test ], [ %.11081, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.40.1.lcssa = phi ptr [ %.sroa.40.0.ph1271, %309 ], [ %.sroa.40.11184, %switch.early.test ], [ %.sroa.40.11184, %switch.early.test ], [ %.sroa.40.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.01063.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.01063.01185, %switch.early.test ], [ %.sroa.01063.01185, %switch.early.test ], [ %.sroa.01063.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.31064.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.31064.01186, %switch.early.test ], [ %.sroa.31064.01186, %switch.early.test ], [ %.sroa.31064.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.261036.1.lcssa = phi i32 [ %.sroa.261036.0.ph1272, %309 ], [ %.sroa.261036.11187, %switch.early.test ], [ %.sroa.261036.11187, %switch.early.test ], [ %.sroa.261036.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.22.1.lcssa = phi i16 [ %.sroa.22.0.ph1273, %309 ], [ %.sroa.22.11188, %switch.early.test ], [ %.sroa.22.11188, %switch.early.test ], [ %.sroa.22.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.8.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.8.01189, %switch.early.test ], [ %.sroa.8.01189, %switch.early.test ], [ %.sroa.8.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.17.1.lcssa = phi ptr [ %.sroa.17.0.ph1274, %309 ], [ %.sroa.17.11190, %switch.early.test ], [ %.sroa.17.11190, %switch.early.test ], [ %.sroa.17.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.131069.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.131069.01191, %switch.early.test ], [ %.sroa.131069.01191, %switch.early.test ], [ %.sroa.131069.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.01075.lcssa = phi i32 [ 0, %309 ], [ %.010751192, %switch.early.test ], [ %.010751192, %switch.early.test ], [ %.5, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.31010.1.lcssa = phi i32 [ %.sroa.31010.0.ph1275, %309 ], [ %.sroa.31010.11193, %switch.early.test ], [ %.sroa.31010.11193, %switch.early.test ], [ %.sroa.31010.2, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.01009.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.01009.01194, %switch.early.test ], [ %.sroa.01009.01194, %switch.early.test ], [ %.sroa.01009.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.3.0.lcssa = phi i32 [ -1, %309 ], [ %.sroa.3.01195, %switch.early.test ], [ %.sroa.3.01195, %switch.early.test ], [ %.sroa.3.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.sroa.0.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.0.01196, %switch.early.test ], [ %.sroa.0.01196, %switch.early.test ], [ %.sroa.0.1, %dissect_nhdr_apphdr_chain.exit ]
-  %.0756.lcssa = phi i32 [ 0, %309 ], [ %.07561197, %switch.early.test ], [ %.07561197, %switch.early.test ], [ %.1757, %dissect_nhdr_apphdr_chain.exit ]
-  %.1741.lcssa = phi i32 [ %302, %309 ], [ %.17411198, %switch.early.test ], [ %.17411198, %switch.early.test ], [ %3047, %dissect_nhdr_apphdr_chain.exit ]
-  %.0733.lcssa = phi i32 [ %.0743, %309 ], [ %.07331199, %switch.early.test ], [ %.07331199, %switch.early.test ], [ %3048, %dissect_nhdr_apphdr_chain.exit ]
-  %.0718.lcssa = phi i8 [ %303, %309 ], [ %.07181200, %switch.early.test ], [ %.07181200, %switch.early.test ], [ %318, %dissect_nhdr_apphdr_chain.exit ]
-  %3051 = call i32 @lbm_channel_is_unknown_transport_source_lbttcp(i64 noundef %5) #9
-  %.not787 = icmp eq i32 %3051, 0
-  br i1 %.not787, label %3057, label %3052
+.critedge:                                        ; preds = %dissect_nhdr_apphdr_chain.exit, %309
+  %.sroa.45.1.lcssa = phi i16 [ %.sroa.45.0.ph1232, %309 ], [ %.sroa.45.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.01080.lcssa = phi i32 [ 0, %309 ], [ %.11081, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.40.1.lcssa = phi ptr [ %.sroa.40.0.ph1233, %309 ], [ %.sroa.40.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.01063.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.01063.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.31064.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.31064.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.261036.1.lcssa = phi i32 [ %.sroa.261036.0.ph1234, %309 ], [ %.sroa.261036.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.22.1.lcssa = phi i16 [ %.sroa.22.0.ph1235, %309 ], [ %.sroa.22.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.8.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.8.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.17.1.lcssa = phi ptr [ %.sroa.17.0.ph1236, %309 ], [ %.sroa.17.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.131069.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.131069.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.01075.lcssa = phi i32 [ 0, %309 ], [ %.5, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.31010.1.lcssa = phi i32 [ %.sroa.31010.0.ph1237, %309 ], [ %.sroa.31010.2, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.01009.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.01009.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.3.0.lcssa = phi i32 [ -1, %309 ], [ %.sroa.3.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %309 ], [ %.sroa.0.1, %dissect_nhdr_apphdr_chain.exit ]
+  %.0756.lcssa = phi i32 [ 0, %309 ], [ %.1757, %dissect_nhdr_apphdr_chain.exit ]
+  %.1741.lcssa = phi i32 [ %302, %309 ], [ %3049, %dissect_nhdr_apphdr_chain.exit ]
+  %.0733.lcssa = phi i32 [ %.0743, %309 ], [ %3050, %dissect_nhdr_apphdr_chain.exit ]
+  %.0718.lcssa = phi i8 [ %303, %309 ], [ %320, %dissect_nhdr_apphdr_chain.exit ]
+  %3055 = call i32 @lbm_channel_is_unknown_transport_source_lbttcp(i64 noundef %5) #9
+  %.not787 = icmp eq i32 %3055, 0
+  br i1 %.not787, label %3061, label %3056
 
-3052:                                             ; preds = %.critedge
-  %3053 = load ptr, ptr %60, align 8
-  %3054 = load <2 x i32>, ptr %58, align 8
-  store <2 x i32> %3054, ptr %44, align 8
-  store ptr %3053, ptr %61, align 8
+3056:                                             ; preds = %.critedge
+  %3057 = load ptr, ptr %60, align 8
+  %3058 = load <2 x i32>, ptr %58, align 8
+  store <2 x i32> %3058, ptr %44, align 8
+  store ptr %3057, ptr %61, align 8
   store ptr null, ptr %62, align 8
-  %3055 = load i32, ptr %63, align 4
-  %3056 = trunc i32 %3055 to i16
-  br label %3064
+  %3059 = load i32, ptr %63, align 4
+  %3060 = trunc i32 %3059 to i16
+  br label %3068
 
-3057:                                             ; preds = %.critedge
-  %3058 = call i32 @lbm_channel_is_unknown_transport_client_lbttcp(i64 noundef %5) #9
-  %.not788 = icmp eq i32 %3058, 0
-  br i1 %.not788, label %3064, label %3059
+3061:                                             ; preds = %.critedge
+  %3062 = call i32 @lbm_channel_is_unknown_transport_client_lbttcp(i64 noundef %5) #9
+  %.not788 = icmp eq i32 %3062, 0
+  br i1 %.not788, label %3068, label %3063
 
-3059:                                             ; preds = %3057
-  %3060 = load ptr, ptr %66, align 8
-  %3061 = load <2 x i32>, ptr %64, align 8
-  store <2 x i32> %3061, ptr %44, align 8
-  store ptr %3060, ptr %61, align 8
+3063:                                             ; preds = %3061
+  %3064 = load ptr, ptr %66, align 8
+  %3065 = load <2 x i32>, ptr %64, align 8
+  store <2 x i32> %3065, ptr %44, align 8
+  store ptr %3064, ptr %61, align 8
   store ptr null, ptr %62, align 8
-  %3062 = load i32, ptr %67, align 8
-  %3063 = trunc i32 %3062 to i16
-  br label %3064
+  %3066 = load i32, ptr %67, align 8
+  %3067 = trunc i32 %3066 to i16
+  br label %3068
 
-3064:                                             ; preds = %3057, %3059, %3052
-  %.1755 = phi i16 [ %3056, %3052 ], [ %3063, %3059 ], [ %.0754.ph1276, %3057 ]
-  %3065 = phi i1 [ true, %3052 ], [ true, %3059 ], [ false, %3057 ]
-  %3066 = load ptr, ptr %68, align 8
-  %3067 = getelementptr inbounds i8, ptr %3066, i64 50
-  %3068 = load i16, ptr %3067, align 2
-  %3069 = and i16 %3068, 8
-  %3070 = icmp eq i16 %3069, 0
-  %3071 = icmp ne i32 %.sroa.0.0.lcssa, 0
-  %or.cond17 = select i1 %3070, i1 %3071, i1 false
-  br i1 %or.cond17, label %3072, label %3077
+3068:                                             ; preds = %3061, %3063, %3056
+  %.1755 = phi i16 [ %3060, %3056 ], [ %3067, %3063 ], [ %.0754.ph1238, %3061 ]
+  %3069 = phi i1 [ true, %3056 ], [ true, %3063 ], [ false, %3061 ]
+  %3070 = load ptr, ptr %68, align 8
+  %3071 = getelementptr inbounds i8, ptr %3070, i64 50
+  %3072 = load i16, ptr %3071, align 2
+  %3073 = and i16 %3072, 8
+  %3074 = icmp eq i16 %3073, 0
+  %3075 = icmp ne i32 %.sroa.0.0.lcssa, 0
+  %or.cond17 = select i1 %3074, i1 %3075, i1 false
+  br i1 %or.cond17, label %3076, label %3081
 
-3072:                                             ; preds = %3064
-  %3073 = call i32 @lbm_channel_is_unknown_transport_lbttcp(i64 noundef %5) #9
-  %3074 = icmp ne i32 %3073, 0
-  %or.cond19 = and i1 %3065, %3074
-  br i1 %or.cond19, label %3075, label %3077
+3076:                                             ; preds = %3068
+  %3077 = call i32 @lbm_channel_is_unknown_transport_lbttcp(i64 noundef %5) #9
+  %3078 = icmp ne i32 %3077, 0
+  %or.cond19 = and i1 %3069, %3078
+  br i1 %or.cond19, label %3079, label %3081
 
-3075:                                             ; preds = %3072
-  %3076 = load i32, ptr %69, align 4
-  call void @lbttcp_transport_sid_add(ptr noundef nonnull %44, i16 noundef zeroext %.1755, i32 noundef %3076, i32 noundef %.sroa.3.0.lcssa) #9
-  br label %3077
+3079:                                             ; preds = %3076
+  %3080 = load i32, ptr %69, align 4
+  call void @lbttcp_transport_sid_add(ptr noundef nonnull %44, i16 noundef zeroext %.1755, i32 noundef %3080, i32 noundef %.sroa.3.0.lcssa) #9
+  br label %3081
 
-3077:                                             ; preds = %3075, %3072, %3064
-  %3078 = call zeroext i8 @lbm_channel_type(i64 noundef %5) #9
-  %3079 = icmp eq i8 %3078, 0
-  br i1 %3079, label %3080, label %.thread1087
+3081:                                             ; preds = %3079, %3076, %3068
+  %3082 = call zeroext i8 @lbm_channel_type(i64 noundef %5) #9
+  %3083 = icmp eq i8 %3082, 0
+  br i1 %3083, label %3084, label %.thread1087
 
-3080:                                             ; preds = %3077
-  %3081 = call i32 @lbm_channel_is_known(i64 noundef %5) #9
-  %.not789 = icmp eq i32 %3081, 0
-  br i1 %.not789, label %3083, label %3082
+3084:                                             ; preds = %3081
+  %3085 = call i32 @lbm_channel_is_known(i64 noundef %5) #9
+  %.not789 = icmp eq i32 %3085, 0
+  br i1 %.not789, label %3087, label %3086
 
-3082:                                             ; preds = %3080
+3086:                                             ; preds = %3084
   br i1 %248, label %.thread1087, label %.sink.split
 
-3083:                                             ; preds = %3080
+3087:                                             ; preds = %3084
   store i32 0, ptr %45, align 4
-  %3084 = load i32, ptr %69, align 4
-  %3085 = call i32 @lbttcp_transport_sid_find(ptr noundef nonnull %44, i16 noundef zeroext %.1755, i32 noundef %3084, ptr noundef nonnull %45) #9
-  %.not790 = icmp eq i32 %3085, 0
-  br i1 %.not790, label %3094, label %3086
-
-3086:                                             ; preds = %3083
-  %3087 = load i32, ptr %45, align 4
   %3088 = load i32, ptr %69, align 4
-  %3089 = call ptr @lbttcp_transport_find(ptr noundef nonnull %44, i16 noundef zeroext %.1755, i32 noundef %3087, i32 noundef %3088) #9
-  %.not791 = icmp eq ptr %3089, null
-  br i1 %.not791, label %3094, label %3090
+  %3089 = call i32 @lbttcp_transport_sid_find(ptr noundef nonnull %44, i16 noundef zeroext %.1755, i32 noundef %3088, ptr noundef nonnull %45) #9
+  %.not790 = icmp eq i32 %3089, 0
+  br i1 %.not790, label %3098, label %3090
 
-3090:                                             ; preds = %3086
-  %3091 = getelementptr inbounds i8, ptr %3089, i64 32
-  %3092 = load i64, ptr %3091, align 8
+3090:                                             ; preds = %3087
+  %3091 = load i32, ptr %45, align 4
+  %3092 = load i32, ptr %69, align 4
+  %3093 = call ptr @lbttcp_transport_find(ptr noundef nonnull %44, i16 noundef zeroext %.1755, i32 noundef %3091, i32 noundef %3092) #9
+  %.not791 = icmp eq ptr %3093, null
+  br i1 %.not791, label %3098, label %3094
+
+3094:                                             ; preds = %3090
+  %3095 = getelementptr inbounds i8, ptr %3093, i64 32
+  %3096 = load i64, ptr %3095, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %3082, %3090
-  %.sink = phi i64 [ %3092, %3090 ], [ %5, %3082 ]
-  %.1752.ph = phi i64 [ %3092, %3090 ], [ %.0751.ph1277, %3082 ]
-  %3093 = call ptr @lbm_topic_find(i64 noundef %.sink, i32 noundef %.1739) #9
-  br label %3094
+.sink.split:                                      ; preds = %3086, %3094
+  %.sink = phi i64 [ %3096, %3094 ], [ %5, %3086 ]
+  %.1752.ph = phi i64 [ %3096, %3094 ], [ %.0751.ph1239, %3086 ]
+  %3097 = call ptr @lbm_topic_find(i64 noundef %.sink, i32 noundef %.1739) #9
+  br label %3098
 
-3094:                                             ; preds = %.sink.split, %3083, %3086
-  %.1752 = phi i64 [ %.0751.ph1277, %3086 ], [ %.0751.ph1277, %3083 ], [ %.1752.ph, %.sink.split ]
-  %.3 = phi ptr [ %.2737, %3086 ], [ %.2737, %3083 ], [ %3093, %.sink.split ]
+3098:                                             ; preds = %.sink.split, %3087, %3090
+  %.1752 = phi i64 [ %.0751.ph1239, %3090 ], [ %.0751.ph1239, %3087 ], [ %.1752.ph, %.sink.split ]
+  %.3 = phi ptr [ %.2737, %3090 ], [ %.2737, %3087 ], [ %3097, %.sink.split ]
   %.not792 = icmp eq ptr %.3, null
-  br i1 %.not792, label %.thread1087, label %3095
+  br i1 %.not792, label %.thread1087, label %3099
 
-3095:                                             ; preds = %3094
-  br i1 %.not7851086, label %3096, label %3097
+3099:                                             ; preds = %3098
+  br i1 %.not7851086, label %3100, label %3101
 
-3096:                                             ; preds = %3095
+3100:                                             ; preds = %3099
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.07151085, ptr noundef nonnull @.str.3, ptr noundef nonnull %.3) #9
   br label %.thread1087
 
-3097:                                             ; preds = %3095
+3101:                                             ; preds = %3099
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.07151085, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %.3) #9
   br label %.thread1087
 
-.thread1087:                                      ; preds = %3082, %3094, %3097, %3096, %3077
-  %.2753 = phi i64 [ %.1752, %3096 ], [ %.1752, %3097 ], [ %.1752, %3094 ], [ %.0751.ph1277, %3077 ], [ %.0751.ph1277, %3082 ]
-  %.4 = phi ptr [ %.3, %3096 ], [ %.3, %3097 ], [ null, %3094 ], [ %.2737, %3077 ], [ null, %3082 ]
-  %3098 = load i32, ptr %70, align 8
-  %3099 = icmp eq i32 %3098, 2
-  br i1 %3099, label %3100, label %3505
+.thread1087:                                      ; preds = %3086, %3098, %3101, %3100, %3081
+  %.2753 = phi i64 [ %.1752, %3100 ], [ %.1752, %3101 ], [ %.1752, %3098 ], [ %.0751.ph1239, %3081 ], [ %.0751.ph1239, %3086 ]
+  %.4 = phi ptr [ %.3, %3100 ], [ %.3, %3101 ], [ null, %3098 ], [ %.2737, %3081 ], [ null, %3086 ]
+  %3102 = load i32, ptr %70, align 8
+  %3103 = icmp eq i32 %3102, 2
+  br i1 %3103, label %3104, label %3509
 
-3100:                                             ; preds = %.thread1087
-  %3101 = load i32, ptr %39, align 4
-  %3102 = icmp ne i32 %3101, 0
-  %3103 = load i32, ptr %40, align 4
-  %3104 = icmp eq i32 %3103, 0
-  %not. = xor i1 %3102, true
-  %or.cond22 = select i1 %not., i1 true, i1 %3104
-  %3105 = icmp ne i32 %.sroa.01009.0.lcssa, 0
-  %or.cond25 = select i1 %or.cond22, i1 true, i1 %3105
-  br i1 %or.cond25, label %3301, label %3106
+3104:                                             ; preds = %.thread1087
+  %3105 = load i32, ptr %39, align 4
+  %3106 = icmp ne i32 %3105, 0
+  %3107 = load i32, ptr %40, align 4
+  %3108 = icmp eq i32 %3107, 0
+  %not. = xor i1 %3106, true
+  %or.cond22 = select i1 %not., i1 true, i1 %3108
+  %3109 = icmp ne i32 %.sroa.01009.0.lcssa, 0
+  %or.cond25 = select i1 %or.cond22, i1 true, i1 %3109
+  br i1 %or.cond25, label %3305, label %3110
 
-3106:                                             ; preds = %3100
+3110:                                             ; preds = %3104
   %.val = load i64, ptr %55, align 4
   %.val815 = load i64, ptr %57, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36)
@@ -7926,24 +7924,24 @@ dissect_nhdr_apphdr_chain.exit:                   ; preds = %3044, %3030, %2990,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   store i64 %.val, ptr %36, align 8
   store i64 %.val815, ptr %71, align 8
-  %3107 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull dereferenceable(8) %71, i64 noundef 8) #10
-  %3108 = icmp sgt i32 %3107, 0
-  %3109 = trunc i64 %.val to i32
-  %3110 = lshr i64 %.val, 32
-  %3111 = trunc i64 %3110 to i32
-  %3112 = trunc i64 %.val815 to i32
-  %3113 = lshr i64 %.val815, 32
-  %3114 = trunc i64 %3113 to i32
-  br i1 %3108, label %3115, label %lbm_stream_istream_find.exit
+  %3111 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull dereferenceable(8) %71, i64 noundef 8) #10
+  %3112 = icmp sgt i32 %3111, 0
+  %3113 = trunc i64 %.val to i32
+  %3114 = lshr i64 %.val, 32
+  %3115 = trunc i64 %3114 to i32
+  %3116 = trunc i64 %.val815 to i32
+  %3117 = lshr i64 %.val815, 32
+  %3118 = trunc i64 %3117 to i32
+  br i1 %3112, label %3119, label %lbm_stream_istream_find.exit
 
-3115:                                             ; preds = %3106
+3119:                                             ; preds = %3110
   br label %lbm_stream_istream_find.exit
 
-lbm_stream_istream_find.exit:                     ; preds = %3106, %3115
-  %.0.copyload5.i.i = phi i32 [ %3114, %3106 ], [ %3111, %3115 ]
-  %.0.copyload3.i.i = phi i32 [ %3112, %3106 ], [ %3109, %3115 ]
-  %.0.copyload1.i.i = phi i32 [ %3111, %3106 ], [ %3114, %3115 ]
-  %.0.copyload.i.i = phi i32 [ %3109, %3106 ], [ %3112, %3115 ]
+lbm_stream_istream_find.exit:                     ; preds = %3110, %3119
+  %.0.copyload5.i.i = phi i32 [ %3118, %3110 ], [ %3115, %3119 ]
+  %.0.copyload3.i.i = phi i32 [ %3116, %3110 ], [ %3113, %3119 ]
+  %.0.copyload1.i.i = phi i32 [ %3115, %3110 ], [ %3118, %3119 ]
+  %.0.copyload.i.i = phi i32 [ %3113, %3110 ], [ %3116, %3119 ]
   store i32 %.0.copyload.i.i, ptr %37, align 16
   store i32 %.0.copyload1.i.i, ptr %72, align 4
   store i32 %.0.copyload3.i.i, ptr %73, align 8
@@ -7952,15 +7950,15 @@ lbm_stream_istream_find.exit:                     ; preds = %3106, %3115
   store ptr %37, ptr %75, align 8
   store i32 0, ptr %76, align 16
   store ptr null, ptr %77, align 8
-  %3116 = load ptr, ptr @instance_stream_table, align 8
-  %3117 = call ptr @wmem_tree_lookup32_array(ptr noundef %3116, ptr noundef nonnull %38) #9
+  %3120 = load ptr, ptr @instance_stream_table, align 8
+  %3121 = call ptr @wmem_tree_lookup32_array(ptr noundef %3120, ptr noundef nonnull %38) #9
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
-  %3118 = icmp eq ptr %3117, null
-  br i1 %3118, label %3119, label %3154
+  %3122 = icmp eq ptr %3121, null
+  br i1 %3122, label %3123, label %3158
 
-3119:                                             ; preds = %lbm_stream_istream_find.exit
+3123:                                             ; preds = %lbm_stream_istream_find.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   %.val.i = load i64, ptr %55, align 4
@@ -7970,24 +7968,24 @@ lbm_stream_istream_find.exit:                     ; preds = %3106, %3115
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   store i64 %.val.i, ptr %31, align 8
   store i64 %.val21.i, ptr %78, align 8
-  %3120 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %31, ptr noundef nonnull dereferenceable(8) %78, i64 noundef 8) #10
-  %3121 = icmp sgt i32 %3120, 0
-  %3122 = trunc i64 %.val.i to i32
-  %3123 = lshr i64 %.val.i, 32
-  %3124 = trunc i64 %3123 to i32
-  %3125 = trunc i64 %.val21.i to i32
-  %3126 = lshr i64 %.val21.i, 32
-  %3127 = trunc i64 %3126 to i32
-  br i1 %3121, label %3128, label %lbm_stream_istream_find.exit.i
+  %3124 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %31, ptr noundef nonnull dereferenceable(8) %78, i64 noundef 8) #10
+  %3125 = icmp sgt i32 %3124, 0
+  %3126 = trunc i64 %.val.i to i32
+  %3127 = lshr i64 %.val.i, 32
+  %3128 = trunc i64 %3127 to i32
+  %3129 = trunc i64 %.val21.i to i32
+  %3130 = lshr i64 %.val21.i, 32
+  %3131 = trunc i64 %3130 to i32
+  br i1 %3125, label %3132, label %lbm_stream_istream_find.exit.i
 
-3128:                                             ; preds = %3119
+3132:                                             ; preds = %3123
   br label %lbm_stream_istream_find.exit.i
 
-lbm_stream_istream_find.exit.i:                   ; preds = %3128, %3119
-  %.0.copyload5.i.i.i = phi i32 [ %3127, %3119 ], [ %3124, %3128 ]
-  %.0.copyload3.i.i.i = phi i32 [ %3125, %3119 ], [ %3122, %3128 ]
-  %.0.copyload1.i.i.i = phi i32 [ %3124, %3119 ], [ %3127, %3128 ]
-  %.0.copyload.i.i.i = phi i32 [ %3122, %3119 ], [ %3125, %3128 ]
+lbm_stream_istream_find.exit.i:                   ; preds = %3132, %3123
+  %.0.copyload5.i.i.i = phi i32 [ %3131, %3123 ], [ %3128, %3132 ]
+  %.0.copyload3.i.i.i = phi i32 [ %3129, %3123 ], [ %3126, %3132 ]
+  %.0.copyload1.i.i.i = phi i32 [ %3128, %3123 ], [ %3131, %3132 ]
+  %.0.copyload.i.i.i = phi i32 [ %3126, %3123 ], [ %3129, %3132 ]
   store i32 %.0.copyload.i.i.i, ptr %32, align 16
   store i32 %.0.copyload1.i.i.i, ptr %79, align 4
   store i32 %.0.copyload3.i.i.i, ptr %80, align 8
@@ -7996,53 +7994,53 @@ lbm_stream_istream_find.exit.i:                   ; preds = %3128, %3119
   store ptr %32, ptr %82, align 8
   store i32 0, ptr %83, align 16
   store ptr null, ptr %84, align 8
-  %3129 = load ptr, ptr @instance_stream_table, align 8
-  %3130 = call ptr @wmem_tree_lookup32_array(ptr noundef %3129, ptr noundef nonnull %33) #9
+  %3133 = load ptr, ptr @instance_stream_table, align 8
+  %3134 = call ptr @wmem_tree_lookup32_array(ptr noundef %3133, ptr noundef nonnull %33) #9
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
-  %.not.i865 = icmp eq ptr %3130, null
-  br i1 %.not.i865, label %3131, label %lbm_stream_istream_add.exit
+  %.not.i865 = icmp eq ptr %3134, null
+  br i1 %.not.i865, label %3135, label %lbm_stream_istream_add.exit
 
-3131:                                             ; preds = %lbm_stream_istream_find.exit.i
-  %3132 = call ptr @wmem_file_scope() #9
-  %3133 = call noalias ptr @wmem_alloc(ptr noundef %3132, i64 noundef 56) #9
-  %3134 = load i64, ptr %55, align 4
-  store i64 %3134, ptr %3133, align 8
-  %3135 = getelementptr inbounds i8, ptr %3133, i64 8
-  %3136 = load i64, ptr %57, align 4
-  store i64 %3136, ptr %3135, align 8
-  %3137 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %3133, ptr noundef nonnull dereferenceable(8) %3135, i64 noundef 8) #10
-  %3138 = icmp sgt i32 %3137, 0
-  %3139 = trunc i64 %3134 to i32
-  %3140 = lshr i64 %3134, 32
-  %3141 = trunc i64 %3140 to i32
-  %3142 = trunc i64 %3136 to i32
-  %3143 = lshr i64 %3136, 32
-  %3144 = trunc i64 %3143 to i32
-  br i1 %3138, label %3145, label %lbm_stream_order_istream_key.exit.i
+3135:                                             ; preds = %lbm_stream_istream_find.exit.i
+  %3136 = call ptr @wmem_file_scope() #9
+  %3137 = call noalias ptr @wmem_alloc(ptr noundef %3136, i64 noundef 56) #9
+  %3138 = load i64, ptr %55, align 4
+  store i64 %3138, ptr %3137, align 8
+  %3139 = getelementptr inbounds i8, ptr %3137, i64 8
+  %3140 = load i64, ptr %57, align 4
+  store i64 %3140, ptr %3139, align 8
+  %3141 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %3137, ptr noundef nonnull dereferenceable(8) %3139, i64 noundef 8) #10
+  %3142 = icmp sgt i32 %3141, 0
+  %3143 = trunc i64 %3138 to i32
+  %3144 = lshr i64 %3138, 32
+  %3145 = trunc i64 %3144 to i32
+  %3146 = trunc i64 %3140 to i32
+  %3147 = lshr i64 %3140, 32
+  %3148 = trunc i64 %3147 to i32
+  br i1 %3142, label %3149, label %lbm_stream_order_istream_key.exit.i
 
-3145:                                             ; preds = %3131
-  store i64 %3136, ptr %3133, align 8
-  store i64 %3134, ptr %3135, align 8
+3149:                                             ; preds = %3135
+  store i64 %3140, ptr %3137, align 8
+  store i64 %3138, ptr %3139, align 8
   br label %lbm_stream_order_istream_key.exit.i
 
-lbm_stream_order_istream_key.exit.i:              ; preds = %3145, %3131
-  %.0.copyload5.i.i867 = phi i32 [ %3144, %3131 ], [ %3141, %3145 ]
-  %.0.copyload3.i.i868 = phi i32 [ %3142, %3131 ], [ %3139, %3145 ]
-  %.0.copyload1.i.i869 = phi i32 [ %3141, %3131 ], [ %3144, %3145 ]
-  %.0.copyload.i.i870 = phi i32 [ %3139, %3131 ], [ %3142, %3145 ]
-  %3146 = call i64 @lbm_channel_assign(i8 noundef zeroext 16) #9
-  %3147 = getelementptr inbounds i8, ptr %3133, i64 16
-  store i64 %3146, ptr %3147, align 8
-  %3148 = getelementptr inbounds i8, ptr %3133, i64 24
-  store <4 x i32> <i32 1, i32 -1, i32 0, i32 0>, ptr %3148, align 8
-  %3149 = getelementptr inbounds i8, ptr %3133, i64 40
-  store i32 0, ptr %3149, align 8
-  %3150 = call ptr @wmem_file_scope() #9
-  %3151 = call noalias ptr @wmem_tree_new(ptr noundef %3150) #9
-  %3152 = getelementptr inbounds i8, ptr %3133, i64 48
-  store ptr %3151, ptr %3152, align 8
+lbm_stream_order_istream_key.exit.i:              ; preds = %3149, %3135
+  %.0.copyload5.i.i867 = phi i32 [ %3148, %3135 ], [ %3145, %3149 ]
+  %.0.copyload3.i.i868 = phi i32 [ %3146, %3135 ], [ %3143, %3149 ]
+  %.0.copyload1.i.i869 = phi i32 [ %3145, %3135 ], [ %3148, %3149 ]
+  %.0.copyload.i.i870 = phi i32 [ %3143, %3135 ], [ %3146, %3149 ]
+  %3150 = call i64 @lbm_channel_assign(i8 noundef zeroext 16) #9
+  %3151 = getelementptr inbounds i8, ptr %3137, i64 16
+  store i64 %3150, ptr %3151, align 8
+  %3152 = getelementptr inbounds i8, ptr %3137, i64 24
+  store <4 x i32> <i32 1, i32 -1, i32 0, i32 0>, ptr %3152, align 8
+  %3153 = getelementptr inbounds i8, ptr %3137, i64 40
+  store i32 0, ptr %3153, align 8
+  %3154 = call ptr @wmem_file_scope() #9
+  %3155 = call noalias ptr @wmem_tree_new(ptr noundef %3154) #9
+  %3156 = getelementptr inbounds i8, ptr %3137, i64 48
+  store ptr %3155, ptr %3156, align 8
   store i32 %.0.copyload.i.i870, ptr %34, align 16
   store i32 %.0.copyload1.i.i869, ptr %85, align 4
   store i32 %.0.copyload3.i.i868, ptr %86, align 8
@@ -8051,848 +8049,848 @@ lbm_stream_order_istream_key.exit.i:              ; preds = %3145, %3131
   store ptr %34, ptr %88, align 8
   store i32 0, ptr %89, align 16
   store ptr null, ptr %90, align 8
-  %3153 = load ptr, ptr @instance_stream_table, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3153, ptr noundef nonnull %35, ptr noundef nonnull %3133) #9
+  %3157 = load ptr, ptr @instance_stream_table, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3157, ptr noundef nonnull %35, ptr noundef nonnull %3137) #9
   br label %lbm_stream_istream_add.exit
 
 lbm_stream_istream_add.exit:                      ; preds = %lbm_stream_istream_find.exit.i, %lbm_stream_order_istream_key.exit.i
-  %.0.i866 = phi ptr [ %3133, %lbm_stream_order_istream_key.exit.i ], [ %3130, %lbm_stream_istream_find.exit.i ]
+  %.0.i866 = phi ptr [ %3137, %lbm_stream_order_istream_key.exit.i ], [ %3134, %lbm_stream_istream_find.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
-  br label %3154
+  br label %3158
 
-3154:                                             ; preds = %lbm_stream_istream_find.exit, %lbm_stream_istream_add.exit
-  %.0745 = phi ptr [ %.0.i866, %lbm_stream_istream_add.exit ], [ %3117, %lbm_stream_istream_find.exit ]
-  %3155 = load i32, ptr %63, align 4
-  %3156 = load i32, ptr %67, align 8
-  %3157 = load i32, ptr %53, align 4
-  %3158 = getelementptr i8, ptr %.0745, i64 48
-  %.0745.val = load ptr, ptr %3158, align 8
+3158:                                             ; preds = %lbm_stream_istream_find.exit, %lbm_stream_istream_add.exit
+  %.0745 = phi ptr [ %.0.i866, %lbm_stream_istream_add.exit ], [ %3121, %lbm_stream_istream_find.exit ]
+  %3159 = load i32, ptr %63, align 4
+  %3160 = load i32, ptr %67, align 8
+  %3161 = load i32, ptr %53, align 4
+  %3162 = getelementptr i8, ptr %.0745, i64 48
+  %.0745.val = load ptr, ptr %3162, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
-  %3159 = load ptr, ptr %60, align 8
-  %3160 = load ptr, ptr %66, align 8
-  %.0.copyload.i.i871 = load i32, ptr %3159, align 1
+  %3163 = load ptr, ptr %60, align 8
+  %3164 = load ptr, ptr %66, align 8
+  %.0.copyload.i.i871 = load i32, ptr %3163, align 1
   store i32 %.0.copyload.i.i871, ptr %29, align 16
-  %3161 = and i32 %3155, 65535
-  store i32 %3161, ptr %91, align 4
-  %.0.copyload1.i.i872 = load i32, ptr %3160, align 1
+  %3165 = and i32 %3159, 65535
+  store i32 %3165, ptr %91, align 4
+  %.0.copyload1.i.i872 = load i32, ptr %3164, align 1
   store i32 %.0.copyload1.i.i872, ptr %92, align 8
-  %3162 = and i32 %3156, 65535
-  store i32 %3162, ptr %93, align 4
-  store i32 %3157, ptr %94, align 16
+  %3166 = and i32 %3160, 65535
+  store i32 %3166, ptr %93, align 4
+  store i32 %3161, ptr %94, align 16
   store i32 5, ptr %30, align 16
   store ptr %29, ptr %95, align 8
   store i32 0, ptr %96, align 16
   store ptr null, ptr %97, align 8
-  %3163 = call ptr @wmem_tree_lookup32_array(ptr noundef %.0745.val, ptr noundef nonnull %30) #9
+  %3167 = call ptr @wmem_tree_lookup32_array(ptr noundef %.0745.val, ptr noundef nonnull %30) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
-  %3164 = icmp eq ptr %3163, null
-  br i1 %3164, label %3165, label %3212
+  %3168 = icmp eq ptr %3167, null
+  br i1 %3168, label %3169, label %3216
 
-3165:                                             ; preds = %3154
-  %3166 = load i32, ptr %63, align 4
-  %3167 = trunc i32 %3166 to i16
-  %3168 = load i32, ptr %67, align 8
-  %3169 = trunc i32 %3168 to i16
-  %3170 = load i32, ptr %53, align 4
+3169:                                             ; preds = %3158
+  %3170 = load i32, ptr %63, align 4
+  %3171 = trunc i32 %3170 to i16
+  %3172 = load i32, ptr %67, align 8
+  %3173 = trunc i32 %3172 to i16
+  %3174 = load i32, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
-  %.val.i873 = load ptr, ptr %3158, align 8
+  %.val.i873 = load ptr, ptr %3162, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
-  %3171 = load ptr, ptr %60, align 8
-  %3172 = load ptr, ptr %66, align 8
-  %.0.copyload.i.i.i874 = load i32, ptr %3171, align 1
+  %3175 = load ptr, ptr %60, align 8
+  %3176 = load ptr, ptr %66, align 8
+  %.0.copyload.i.i.i874 = load i32, ptr %3175, align 1
   store i32 %.0.copyload.i.i.i874, ptr %25, align 16
-  %3173 = and i32 %3166, 65535
-  store i32 %3173, ptr %98, align 4
-  %.0.copyload1.i.i.i875 = load i32, ptr %3172, align 1
+  %3177 = and i32 %3170, 65535
+  store i32 %3177, ptr %98, align 4
+  %.0.copyload1.i.i.i875 = load i32, ptr %3176, align 1
   store i32 %.0.copyload1.i.i.i875, ptr %99, align 8
-  %3174 = and i32 %3168, 65535
-  store i32 %3174, ptr %100, align 4
-  store i32 %3170, ptr %101, align 16
+  %3178 = and i32 %3172, 65535
+  store i32 %3178, ptr %100, align 4
+  store i32 %3174, ptr %101, align 16
   store i32 5, ptr %26, align 16
   store ptr %25, ptr %102, align 8
   store i32 0, ptr %103, align 16
   store ptr null, ptr %104, align 8
-  %3175 = call ptr @wmem_tree_lookup32_array(ptr noundef %.val.i873, ptr noundef nonnull %26) #9
+  %3179 = call ptr @wmem_tree_lookup32_array(ptr noundef %.val.i873, ptr noundef nonnull %26) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
-  %.not.i876 = icmp eq ptr %3175, null
-  br i1 %.not.i876, label %3176, label %lbm_stream_istream_substream_add.exit
+  %.not.i876 = icmp eq ptr %3179, null
+  br i1 %.not.i876, label %3180, label %lbm_stream_istream_substream_add.exit
 
-3176:                                             ; preds = %3165
-  %3177 = call ptr @wmem_file_scope() #9
-  %3178 = call noalias ptr @wmem_alloc(ptr noundef %3177, i64 noundef 96) #9
-  %3179 = call ptr @wmem_file_scope() #9
-  %3180 = load i32, ptr %58, align 8
-  %3181 = load i32, ptr %59, align 4
-  %3182 = load ptr, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3178, i8 0, i64 24, i1 false)
-  store i32 %3180, ptr %3178, align 8
-  %3183 = icmp eq i32 %3181, 0
-  br i1 %3183, label %copy_address_wmem.exit.i, label %3184
+3180:                                             ; preds = %3169
+  %3181 = call ptr @wmem_file_scope() #9
+  %3182 = call noalias ptr @wmem_alloc(ptr noundef %3181, i64 noundef 96) #9
+  %3183 = call ptr @wmem_file_scope() #9
+  %3184 = load i32, ptr %58, align 8
+  %3185 = load i32, ptr %59, align 4
+  %3186 = load ptr, ptr %60, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3182, i8 0, i64 24, i1 false)
+  store i32 %3184, ptr %3182, align 8
+  %3187 = icmp eq i32 %3185, 0
+  br i1 %3187, label %copy_address_wmem.exit.i, label %3188
 
-3184:                                             ; preds = %3176
-  %3185 = sext i32 %3181 to i64
-  %3186 = call noalias ptr @wmem_memdup(ptr noundef %3179, ptr noundef %3182, i64 noundef %3185) #9
-  %3187 = getelementptr inbounds i8, ptr %3178, i64 16
-  store ptr %3186, ptr %3187, align 8
-  %3188 = getelementptr inbounds i8, ptr %3178, i64 8
-  store ptr %3186, ptr %3188, align 8
-  %3189 = getelementptr inbounds i8, ptr %3178, i64 4
-  store i32 %3181, ptr %3189, align 4
+3188:                                             ; preds = %3180
+  %3189 = sext i32 %3185 to i64
+  %3190 = call noalias ptr @wmem_memdup(ptr noundef %3183, ptr noundef %3186, i64 noundef %3189) #9
+  %3191 = getelementptr inbounds i8, ptr %3182, i64 16
+  store ptr %3190, ptr %3191, align 8
+  %3192 = getelementptr inbounds i8, ptr %3182, i64 8
+  store ptr %3190, ptr %3192, align 8
+  %3193 = getelementptr inbounds i8, ptr %3182, i64 4
+  store i32 %3185, ptr %3193, align 4
   br label %copy_address_wmem.exit.i
 
-copy_address_wmem.exit.i:                         ; preds = %3184, %3176
-  %3190 = phi ptr [ null, %3176 ], [ %3186, %3184 ]
-  %3191 = getelementptr inbounds i8, ptr %3178, i64 24
-  store i16 %3167, ptr %3191, align 8
-  %3192 = call ptr @wmem_file_scope() #9
-  %3193 = getelementptr inbounds i8, ptr %3178, i64 32
-  %3194 = load i32, ptr %64, align 8
-  %3195 = load i32, ptr %65, align 4
-  %3196 = load ptr, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3193, i8 0, i64 24, i1 false)
-  store i32 %3194, ptr %3193, align 8
-  %3197 = icmp ne i32 %3195, 0
-  call void @llvm.assume(i1 %3197)
-  %3198 = sext i32 %3195 to i64
-  %3199 = call noalias ptr @wmem_memdup(ptr noundef %3192, ptr noundef %3196, i64 noundef %3198) #9
-  %3200 = getelementptr inbounds i8, ptr %3178, i64 48
-  store ptr %3199, ptr %3200, align 8
-  %3201 = getelementptr inbounds i8, ptr %3178, i64 40
-  store ptr %3199, ptr %3201, align 8
-  %3202 = getelementptr inbounds i8, ptr %3178, i64 36
-  store i32 %3195, ptr %3202, align 4
-  %3203 = getelementptr inbounds i8, ptr %3178, i64 56
-  store i16 %3169, ptr %3203, align 8
-  %3204 = getelementptr inbounds i8, ptr %3178, i64 60
-  store i32 %3170, ptr %3204, align 4
-  %3205 = getelementptr inbounds i8, ptr %3178, i64 64
-  store ptr %.0745, ptr %3205, align 8
-  %3206 = getelementptr inbounds i8, ptr %.0745, i64 24
-  %3207 = load i32, ptr %3206, align 8
-  %3208 = add i32 %3207, 1
-  store i32 %3208, ptr %3206, align 8
-  %3209 = getelementptr inbounds i8, ptr %3178, i64 72
-  store i32 %3207, ptr %3209, align 8
-  %3210 = getelementptr inbounds i8, ptr %3178, i64 76
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr %3210, align 4
-  %.0.copyload.i.i878 = load i32, ptr %3190, align 1
+copy_address_wmem.exit.i:                         ; preds = %3188, %3180
+  %3194 = phi ptr [ null, %3180 ], [ %3190, %3188 ]
+  %3195 = getelementptr inbounds i8, ptr %3182, i64 24
+  store i16 %3171, ptr %3195, align 8
+  %3196 = call ptr @wmem_file_scope() #9
+  %3197 = getelementptr inbounds i8, ptr %3182, i64 32
+  %3198 = load i32, ptr %64, align 8
+  %3199 = load i32, ptr %65, align 4
+  %3200 = load ptr, ptr %66, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3197, i8 0, i64 24, i1 false)
+  store i32 %3198, ptr %3197, align 8
+  %3201 = icmp ne i32 %3199, 0
+  call void @llvm.assume(i1 %3201)
+  %3202 = sext i32 %3199 to i64
+  %3203 = call noalias ptr @wmem_memdup(ptr noundef %3196, ptr noundef %3200, i64 noundef %3202) #9
+  %3204 = getelementptr inbounds i8, ptr %3182, i64 48
+  store ptr %3203, ptr %3204, align 8
+  %3205 = getelementptr inbounds i8, ptr %3182, i64 40
+  store ptr %3203, ptr %3205, align 8
+  %3206 = getelementptr inbounds i8, ptr %3182, i64 36
+  store i32 %3199, ptr %3206, align 4
+  %3207 = getelementptr inbounds i8, ptr %3182, i64 56
+  store i16 %3173, ptr %3207, align 8
+  %3208 = getelementptr inbounds i8, ptr %3182, i64 60
+  store i32 %3174, ptr %3208, align 4
+  %3209 = getelementptr inbounds i8, ptr %3182, i64 64
+  store ptr %.0745, ptr %3209, align 8
+  %3210 = getelementptr inbounds i8, ptr %.0745, i64 24
+  %3211 = load i32, ptr %3210, align 8
+  %3212 = add i32 %3211, 1
+  store i32 %3212, ptr %3210, align 8
+  %3213 = getelementptr inbounds i8, ptr %3182, i64 72
+  store i32 %3211, ptr %3213, align 8
+  %3214 = getelementptr inbounds i8, ptr %3182, i64 76
+  store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr %3214, align 4
+  %.0.copyload.i.i878 = load i32, ptr %3194, align 1
   store i32 %.0.copyload.i.i878, ptr %27, align 16
-  store i32 %3173, ptr %105, align 4
-  %.0.copyload1.i.i879 = load i32, ptr %3199, align 1
+  store i32 %3177, ptr %105, align 4
+  %.0.copyload1.i.i879 = load i32, ptr %3203, align 1
   store i32 %.0.copyload1.i.i879, ptr %106, align 8
-  store i32 %3174, ptr %107, align 4
-  store i32 %3170, ptr %108, align 16
+  store i32 %3178, ptr %107, align 4
+  store i32 %3174, ptr %108, align 16
   store i32 5, ptr %28, align 16
   store ptr %27, ptr %109, align 8
   store i32 0, ptr %110, align 16
   store ptr null, ptr %111, align 8
-  %3211 = load ptr, ptr %3158, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3211, ptr noundef nonnull %28, ptr noundef nonnull %3178) #9
+  %3215 = load ptr, ptr %3162, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3215, ptr noundef nonnull %28, ptr noundef nonnull %3182) #9
   br label %lbm_stream_istream_substream_add.exit
 
-lbm_stream_istream_substream_add.exit:            ; preds = %3165, %copy_address_wmem.exit.i
-  %.0.i877 = phi ptr [ %3178, %copy_address_wmem.exit.i ], [ %3175, %3165 ]
+lbm_stream_istream_substream_add.exit:            ; preds = %3169, %copy_address_wmem.exit.i
+  %.0.i877 = phi ptr [ %3182, %copy_address_wmem.exit.i ], [ %3179, %3169 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
-  br label %3212
+  br label %3216
 
-3212:                                             ; preds = %3154, %lbm_stream_istream_substream_add.exit
-  %.0747 = phi ptr [ %.0.i877, %lbm_stream_istream_substream_add.exit ], [ %3163, %3154 ]
-  %3213 = load i32, ptr %69, align 4
-  %3214 = getelementptr inbounds i8, ptr %.0747, i64 84
-  %3215 = load i32, ptr %3214, align 4
-  %3216 = add i32 %3215, 1
-  store i32 %3216, ptr %3214, align 4
-  %3217 = getelementptr inbounds i8, ptr %.0747, i64 64
-  %3218 = load ptr, ptr %3217, align 8
-  %3219 = getelementptr inbounds i8, ptr %3218, i64 36
-  %3220 = load i32, ptr %3219, align 4
-  %3221 = add i32 %3220, 1
-  store i32 %3221, ptr %3219, align 4
-  %3222 = getelementptr inbounds i8, ptr %.0747, i64 88
-  %3223 = load i32, ptr %3222, align 8
-  %3224 = add i32 %3223, %231
-  store i32 %3224, ptr %3222, align 8
-  %3225 = load ptr, ptr %3217, align 8
-  %3226 = getelementptr inbounds i8, ptr %3225, i64 40
+3216:                                             ; preds = %3158, %lbm_stream_istream_substream_add.exit
+  %.0747 = phi ptr [ %.0.i877, %lbm_stream_istream_substream_add.exit ], [ %3167, %3158 ]
+  %3217 = load i32, ptr %69, align 4
+  %3218 = getelementptr inbounds i8, ptr %.0747, i64 84
+  %3219 = load i32, ptr %3218, align 4
+  %3220 = add i32 %3219, 1
+  store i32 %3220, ptr %3218, align 4
+  %3221 = getelementptr inbounds i8, ptr %.0747, i64 64
+  %3222 = load ptr, ptr %3221, align 8
+  %3223 = getelementptr inbounds i8, ptr %3222, i64 36
+  %3224 = load i32, ptr %3223, align 4
+  %3225 = add i32 %3224, 1
+  store i32 %3225, ptr %3223, align 4
+  %3226 = getelementptr inbounds i8, ptr %.0747, i64 88
   %3227 = load i32, ptr %3226, align 8
   %3228 = add i32 %3227, %231
   store i32 %3228, ptr %3226, align 8
-  %3229 = getelementptr inbounds i8, ptr %.0747, i64 76
-  %3230 = load i32, ptr %3229, align 4
-  %3231 = icmp ugt i32 %3230, %3213
-  br i1 %3231, label %3232, label %3233
+  %3229 = load ptr, ptr %3221, align 8
+  %3230 = getelementptr inbounds i8, ptr %3229, i64 40
+  %3231 = load i32, ptr %3230, align 8
+  %3232 = add i32 %3231, %231
+  store i32 %3232, ptr %3230, align 8
+  %3233 = getelementptr inbounds i8, ptr %.0747, i64 76
+  %3234 = load i32, ptr %3233, align 4
+  %3235 = icmp ugt i32 %3234, %3217
+  br i1 %3235, label %3236, label %3237
 
-3232:                                             ; preds = %3212
-  store i32 %3213, ptr %3229, align 4
-  br label %3233
+3236:                                             ; preds = %3216
+  store i32 %3217, ptr %3233, align 4
+  br label %3237
 
-3233:                                             ; preds = %3232, %3212
-  %3234 = load ptr, ptr %3217, align 8
-  %3235 = getelementptr inbounds i8, ptr %3234, i64 28
-  %3236 = load i32, ptr %3235, align 4
-  %3237 = icmp ugt i32 %3236, %3213
-  br i1 %3237, label %3238, label %3239
+3237:                                             ; preds = %3236, %3216
+  %3238 = load ptr, ptr %3221, align 8
+  %3239 = getelementptr inbounds i8, ptr %3238, i64 28
+  %3240 = load i32, ptr %3239, align 4
+  %3241 = icmp ugt i32 %3240, %3217
+  br i1 %3241, label %3242, label %3243
 
-3238:                                             ; preds = %3233
-  store i32 %3213, ptr %3235, align 4
-  br label %3239
+3242:                                             ; preds = %3237
+  store i32 %3217, ptr %3239, align 4
+  br label %3243
 
-3239:                                             ; preds = %3238, %3233
-  %3240 = getelementptr inbounds i8, ptr %.0747, i64 80
-  %3241 = load i32, ptr %3240, align 8
-  %3242 = icmp ult i32 %3241, %3213
-  br i1 %3242, label %3243, label %3244
+3243:                                             ; preds = %3242, %3237
+  %3244 = getelementptr inbounds i8, ptr %.0747, i64 80
+  %3245 = load i32, ptr %3244, align 8
+  %3246 = icmp ult i32 %3245, %3217
+  br i1 %3246, label %3247, label %3248
 
-3243:                                             ; preds = %3239
-  store i32 %3213, ptr %3240, align 8
-  br label %3244
+3247:                                             ; preds = %3243
+  store i32 %3217, ptr %3244, align 8
+  br label %3248
 
-3244:                                             ; preds = %3243, %3239
-  %3245 = load ptr, ptr %3217, align 8
-  %3246 = getelementptr inbounds i8, ptr %3245, i64 32
-  %3247 = load i32, ptr %3246, align 8
-  %3248 = icmp ult i32 %3247, %3213
-  br i1 %3248, label %3249, label %lbm_stream_istream_substream_update.exit
+3248:                                             ; preds = %3247, %3243
+  %3249 = load ptr, ptr %3221, align 8
+  %3250 = getelementptr inbounds i8, ptr %3249, i64 32
+  %3251 = load i32, ptr %3250, align 8
+  %3252 = icmp ult i32 %3251, %3217
+  br i1 %3252, label %3253, label %lbm_stream_istream_substream_update.exit
 
-3249:                                             ; preds = %3244
-  store i32 %3213, ptr %3246, align 8
+3253:                                             ; preds = %3248
+  store i32 %3217, ptr %3250, align 8
   br label %lbm_stream_istream_substream_update.exit
 
-lbm_stream_istream_substream_update.exit:         ; preds = %3244, %3249
-  %3250 = load i32, ptr @hf_lbm_stream, align 4
-  %3251 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %3250, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
-  %.not.i880 = icmp eq ptr %3251, null
-  br i1 %.not.i880, label %proto_item_set_generated.exit882, label %3252
+lbm_stream_istream_substream_update.exit:         ; preds = %3248, %3253
+  %3254 = load i32, ptr @hf_lbm_stream, align 4
+  %3255 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %3254, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  %.not.i880 = icmp eq ptr %3255, null
+  br i1 %.not.i880, label %proto_item_set_generated.exit882, label %3256
 
-3252:                                             ; preds = %lbm_stream_istream_substream_update.exit
-  %3253 = getelementptr inbounds i8, ptr %3251, i64 32
-  %3254 = load ptr, ptr %3253, align 8
-  %.not5.i881 = icmp eq ptr %3254, null
-  br i1 %.not5.i881, label %proto_item_set_generated.exit882, label %3255
+3256:                                             ; preds = %lbm_stream_istream_substream_update.exit
+  %3257 = getelementptr inbounds i8, ptr %3255, i64 32
+  %3258 = load ptr, ptr %3257, align 8
+  %.not5.i881 = icmp eq ptr %3258, null
+  br i1 %.not5.i881, label %proto_item_set_generated.exit882, label %3259
 
-3255:                                             ; preds = %3252
-  %3256 = getelementptr inbounds i8, ptr %3254, i64 28
-  %3257 = load i32, ptr %3256, align 4
-  %3258 = or i32 %3257, 2
-  store i32 %3258, ptr %3256, align 4
+3259:                                             ; preds = %3256
+  %3260 = getelementptr inbounds i8, ptr %3258, i64 28
+  %3261 = load i32, ptr %3260, align 4
+  %3262 = or i32 %3261, 2
+  store i32 %3262, ptr %3260, align 4
   br label %proto_item_set_generated.exit882
 
-proto_item_set_generated.exit882:                 ; preds = %lbm_stream_istream_substream_update.exit, %3252, %3255
-  %3259 = load i32, ptr @ett_lbm_stream, align 4
-  %3260 = call ptr @proto_item_add_subtree(ptr noundef %3251, i32 noundef %3259) #9
-  %3261 = load i32, ptr @hf_lbm_stream_stream_id, align 4
-  %3262 = getelementptr inbounds i8, ptr %.0745, i64 16
-  %3263 = load i64, ptr %3262, align 8
-  %3264 = call ptr @proto_tree_add_uint64(ptr noundef %3260, i32 noundef %3261, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3263) #9
-  %.not.i883 = icmp eq ptr %3264, null
-  br i1 %.not.i883, label %proto_item_set_generated.exit885, label %3265
+proto_item_set_generated.exit882:                 ; preds = %lbm_stream_istream_substream_update.exit, %3256, %3259
+  %3263 = load i32, ptr @ett_lbm_stream, align 4
+  %3264 = call ptr @proto_item_add_subtree(ptr noundef %3255, i32 noundef %3263) #9
+  %3265 = load i32, ptr @hf_lbm_stream_stream_id, align 4
+  %3266 = getelementptr inbounds i8, ptr %.0745, i64 16
+  %3267 = load i64, ptr %3266, align 8
+  %3268 = call ptr @proto_tree_add_uint64(ptr noundef %3264, i32 noundef %3265, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3267) #9
+  %.not.i883 = icmp eq ptr %3268, null
+  br i1 %.not.i883, label %proto_item_set_generated.exit885, label %3269
 
-3265:                                             ; preds = %proto_item_set_generated.exit882
-  %3266 = getelementptr inbounds i8, ptr %3264, i64 32
-  %3267 = load ptr, ptr %3266, align 8
-  %.not5.i884 = icmp eq ptr %3267, null
-  br i1 %.not5.i884, label %proto_item_set_generated.exit885, label %3268
+3269:                                             ; preds = %proto_item_set_generated.exit882
+  %3270 = getelementptr inbounds i8, ptr %3268, i64 32
+  %3271 = load ptr, ptr %3270, align 8
+  %.not5.i884 = icmp eq ptr %3271, null
+  br i1 %.not5.i884, label %proto_item_set_generated.exit885, label %3272
 
-3268:                                             ; preds = %3265
-  %3269 = getelementptr inbounds i8, ptr %3267, i64 28
-  %3270 = load i32, ptr %3269, align 4
-  %3271 = or i32 %3270, 2
-  store i32 %3271, ptr %3269, align 4
+3272:                                             ; preds = %3269
+  %3273 = getelementptr inbounds i8, ptr %3271, i64 28
+  %3274 = load i32, ptr %3273, align 4
+  %3275 = or i32 %3274, 2
+  store i32 %3275, ptr %3273, align 4
   br label %proto_item_set_generated.exit885
 
-proto_item_set_generated.exit885:                 ; preds = %proto_item_set_generated.exit882, %3265, %3268
-  %3272 = load i32, ptr @hf_lbm_stream_substream_id, align 4
-  %3273 = getelementptr inbounds i8, ptr %.0747, i64 72
-  %3274 = load i32, ptr %3273, align 8
-  %3275 = call ptr @proto_tree_add_uint(ptr noundef %3260, i32 noundef %3272, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3274) #9
-  %.not.i886 = icmp eq ptr %3275, null
-  br i1 %.not.i886, label %3283, label %3276
+proto_item_set_generated.exit885:                 ; preds = %proto_item_set_generated.exit882, %3269, %3272
+  %3276 = load i32, ptr @hf_lbm_stream_substream_id, align 4
+  %3277 = getelementptr inbounds i8, ptr %.0747, i64 72
+  %3278 = load i32, ptr %3277, align 8
+  %3279 = call ptr @proto_tree_add_uint(ptr noundef %3264, i32 noundef %3276, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3278) #9
+  %.not.i886 = icmp eq ptr %3279, null
+  br i1 %.not.i886, label %3287, label %3280
 
-3276:                                             ; preds = %proto_item_set_generated.exit885
-  %3277 = getelementptr inbounds i8, ptr %3275, i64 32
-  %3278 = load ptr, ptr %3277, align 8
-  %.not5.i887 = icmp eq ptr %3278, null
-  br i1 %.not5.i887, label %3283, label %3279
+3280:                                             ; preds = %proto_item_set_generated.exit885
+  %3281 = getelementptr inbounds i8, ptr %3279, i64 32
+  %3282 = load ptr, ptr %3281, align 8
+  %.not5.i887 = icmp eq ptr %3282, null
+  br i1 %.not5.i887, label %3287, label %3283
 
-3279:                                             ; preds = %3276
-  %3280 = getelementptr inbounds i8, ptr %3278, i64 28
-  %3281 = load i32, ptr %3280, align 4
-  %3282 = or i32 %3281, 2
-  store i32 %3282, ptr %3280, align 4
-  br label %3283
+3283:                                             ; preds = %3280
+  %3284 = getelementptr inbounds i8, ptr %3282, i64 28
+  %3285 = load i32, ptr %3284, align 4
+  %3286 = or i32 %3285, 2
+  store i32 %3286, ptr %3284, align 4
+  br label %3287
 
-3283:                                             ; preds = %3279, %3276, %proto_item_set_generated.exit885
-  call void @proto_tree_move_item(ptr noundef %275, ptr noundef %.0759, ptr noundef %3251) #9
-  %3284 = load ptr, ptr %52, align 8
-  %3285 = call noalias ptr @wmem_alloc0(ptr noundef %3284, i64 noundef 112) #9
-  %3286 = load i64, ptr %3262, align 8
-  store i64 %3286, ptr %3285, align 8
-  %3287 = load i32, ptr %3273, align 8
-  %3288 = getelementptr inbounds i8, ptr %3285, i64 8
-  store i32 %3287, ptr %3288, align 8
-  %3289 = getelementptr inbounds i8, ptr %3285, i64 12
-  store i32 %231, ptr %3289, align 4
-  %3290 = getelementptr inbounds i8, ptr %3285, i64 16
-  store i32 0, ptr %3290, align 8
-  %3291 = getelementptr inbounds i8, ptr %3285, i64 24
-  %3292 = load i64, ptr %55, align 4
-  store i64 %3292, ptr %3291, align 8
-  %3293 = getelementptr inbounds i8, ptr %3285, i64 64
-  store i32 0, ptr %3293, align 8
-  %3294 = getelementptr inbounds i8, ptr %3285, i64 72
-  %3295 = load i64, ptr %57, align 4
-  store i64 %3295, ptr %3294, align 8
-  %3296 = load i32, ptr @lbmc_stream_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %3296, ptr noundef nonnull %2, ptr noundef nonnull %3285) #9
-  %3297 = load i64, ptr %3262, align 8
-  store i64 %3297, ptr %43, align 8
-  %3298 = load i32, ptr %54, align 4
-  store i32 %3298, ptr %.0758.sroa.gep974, align 8
+3287:                                             ; preds = %3283, %3280, %proto_item_set_generated.exit885
+  call void @proto_tree_move_item(ptr noundef %275, ptr noundef %.0759, ptr noundef %3255) #9
+  %3288 = load ptr, ptr %52, align 8
+  %3289 = call noalias ptr @wmem_alloc0(ptr noundef %3288, i64 noundef 112) #9
+  %3290 = load i64, ptr %3266, align 8
+  store i64 %3290, ptr %3289, align 8
+  %3291 = load i32, ptr %3277, align 8
+  %3292 = getelementptr inbounds i8, ptr %3289, i64 8
+  store i32 %3291, ptr %3292, align 8
+  %3293 = getelementptr inbounds i8, ptr %3289, i64 12
+  store i32 %231, ptr %3293, align 4
+  %3294 = getelementptr inbounds i8, ptr %3289, i64 16
+  store i32 0, ptr %3294, align 8
+  %3295 = getelementptr inbounds i8, ptr %3289, i64 24
+  %3296 = load i64, ptr %55, align 4
+  store i64 %3296, ptr %3295, align 8
+  %3297 = getelementptr inbounds i8, ptr %3289, i64 64
+  store i32 0, ptr %3297, align 8
+  %3298 = getelementptr inbounds i8, ptr %3289, i64 72
+  %3299 = load i64, ptr %57, align 4
+  store i64 %3299, ptr %3298, align 8
+  %3300 = load i32, ptr @lbmc_stream_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %3300, ptr noundef nonnull %2, ptr noundef nonnull %3289) #9
+  %3301 = load i64, ptr %3266, align 8
+  store i64 %3301, ptr %43, align 8
+  %3302 = load i32, ptr %54, align 4
+  store i32 %3302, ptr %.0758.sroa.gep974, align 8
   store i32 0, ptr %.0758.sroa.gep977, align 8
-  %3299 = load i64, ptr %55, align 4
-  store i64 %3299, ptr %.0758.sroa.gep980, align 8
+  %3303 = load i64, ptr %55, align 4
+  store i64 %3303, ptr %.0758.sroa.gep980, align 8
   store i32 0, ptr %.0758.sroa.gep983, align 8
-  %3300 = load i64, ptr %57, align 4
-  store i64 %3300, ptr %.0758.sroa.gep986, align 8
-  br label %3505
+  %3304 = load i64, ptr %57, align 4
+  store i64 %3304, ptr %.0758.sroa.gep986, align 8
+  br label %3509
 
-3301:                                             ; preds = %3100
-  %or.cond28 = select i1 %3102, i1 %3105, i1 false
-  br i1 %or.cond28, label %3302, label %3505
+3305:                                             ; preds = %3104
+  %or.cond28 = select i1 %3106, i1 %3109, i1 false
+  br i1 %or.cond28, label %3306, label %3509
 
-3302:                                             ; preds = %3301
+3306:                                             ; preds = %3305
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  %3303 = icmp ugt i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
-  br i1 %3303, label %.critedge28.i.i, label %3304
+  %3307 = icmp ugt i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
+  br i1 %3307, label %.critedge28.i.i, label %3308
 
-3304:                                             ; preds = %3302
-  %3305 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
-  br i1 %3305, label %cmp_address.exit.i.i, label %lbm_stream_dstream_find.exit
+3308:                                             ; preds = %3306
+  %3309 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
+  br i1 %3309, label %cmp_address.exit.i.i, label %lbm_stream_dstream_find.exit
 
-cmp_address.exit.i.i:                             ; preds = %3304
-  %3306 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %.sroa.17.1.lcssa, ptr noundef nonnull dereferenceable(4) %.sroa.40.1.lcssa, i64 noundef 4) #10
-  %3307 = icmp sgt i32 %3306, 0
-  br i1 %3307, label %.critedge28.i.i, label %cmp_address.exit.thread.i.i
+cmp_address.exit.i.i:                             ; preds = %3308
+  %3310 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %.sroa.17.1.lcssa, ptr noundef nonnull dereferenceable(4) %.sroa.40.1.lcssa, i64 noundef 4) #10
+  %3311 = icmp sgt i32 %3310, 0
+  br i1 %3311, label %.critedge28.i.i, label %cmp_address.exit.thread.i.i
 
 cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.i.i
-  %3308 = icmp eq i32 %3306, 0
+  %3312 = icmp eq i32 %3310, 0
   %.not.i.i891 = icmp ugt i16 %.sroa.22.1.lcssa, %.sroa.45.1.lcssa
-  %or.cond.i = select i1 %3308, i1 %.not.i.i891, i1 false
+  %or.cond.i = select i1 %3312, i1 %.not.i.i891, i1 false
   br i1 %or.cond.i, label %.critedge28.i.i, label %lbm_stream_dstream_find.exit
 
-.critedge28.i.i:                                  ; preds = %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %3302
+.critedge28.i.i:                                  ; preds = %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %3306
   br label %lbm_stream_dstream_find.exit
 
-lbm_stream_dstream_find.exit:                     ; preds = %3304, %cmp_address.exit.thread.i.i, %.critedge28.i.i
-  %.sroa.43.0.i = phi i16 [ %.sroa.22.1.lcssa, %.critedge28.i.i ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.45.1.lcssa, %3304 ]
-  %.sroa.38.0.i = phi i16 [ %.sroa.45.1.lcssa, %.critedge28.i.i ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.22.1.lcssa, %3304 ]
-  %.sroa.31.0.i = phi ptr [ %.sroa.17.1.lcssa, %.critedge28.i.i ], [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.40.1.lcssa, %3304 ]
-  %.sroa.19.0.i = phi i32 [ %.sroa.31010.1.lcssa, %.critedge28.i.i ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.261036.1.lcssa, %3304 ]
-  %.sroa.12.0.i = phi ptr [ %.sroa.40.1.lcssa, %.critedge28.i.i ], [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.17.1.lcssa, %3304 ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.261036.1.lcssa, %.critedge28.i.i ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.31010.1.lcssa, %3304 ]
+lbm_stream_dstream_find.exit:                     ; preds = %3308, %cmp_address.exit.thread.i.i, %.critedge28.i.i
+  %.sroa.43.0.i = phi i16 [ %.sroa.22.1.lcssa, %.critedge28.i.i ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.45.1.lcssa, %3308 ]
+  %.sroa.38.0.i = phi i16 [ %.sroa.45.1.lcssa, %.critedge28.i.i ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.22.1.lcssa, %3308 ]
+  %.sroa.31.0.i = phi ptr [ %.sroa.17.1.lcssa, %.critedge28.i.i ], [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.40.1.lcssa, %3308 ]
+  %.sroa.19.0.i = phi i32 [ %.sroa.31010.1.lcssa, %.critedge28.i.i ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.261036.1.lcssa, %3308 ]
+  %.sroa.12.0.i = phi ptr [ %.sroa.40.1.lcssa, %.critedge28.i.i ], [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.17.1.lcssa, %3308 ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.261036.1.lcssa, %.critedge28.i.i ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.31010.1.lcssa, %3308 ]
   store i32 %.sroa.0.0.i, ptr %23, align 16
   %.0.copyload.i.i889 = load i32, ptr %.sroa.12.0.i, align 1
   store i32 %.0.copyload.i.i889, ptr %112, align 4
   store i32 %.sroa.19.0.i, ptr %113, align 8
   %.0.copyload1.i.i890 = load i32, ptr %.sroa.31.0.i, align 1
   store i32 %.0.copyload1.i.i890, ptr %114, align 4
-  %3309 = zext i16 %.sroa.38.0.i to i32
-  store i32 %3309, ptr %115, align 16
-  %3310 = zext i16 %.sroa.43.0.i to i32
-  store i32 %3310, ptr %116, align 4
+  %3313 = zext i16 %.sroa.38.0.i to i32
+  store i32 %3313, ptr %115, align 16
+  %3314 = zext i16 %.sroa.43.0.i to i32
+  store i32 %3314, ptr %116, align 4
   store i32 6, ptr %24, align 16
   store ptr %23, ptr %117, align 8
   store i32 0, ptr %118, align 16
   store ptr null, ptr %119, align 8
-  %3311 = load ptr, ptr @domain_stream_table, align 8
-  %3312 = call ptr @wmem_tree_lookup32_array(ptr noundef %3311, ptr noundef nonnull %24) #9
+  %3315 = load ptr, ptr @domain_stream_table, align 8
+  %3316 = call ptr @wmem_tree_lookup32_array(ptr noundef %3315, ptr noundef nonnull %24) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  %3313 = icmp eq ptr %3312, null
-  br i1 %3313, label %3314, label %3362
+  %3317 = icmp eq ptr %3316, null
+  br i1 %3317, label %3318, label %3366
 
-3314:                                             ; preds = %lbm_stream_dstream_find.exit
+3318:                                             ; preds = %lbm_stream_dstream_find.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  br i1 %3303, label %.critedge28.i.i970, label %3315
+  br i1 %3307, label %.critedge28.i.i970, label %3319
 
-3315:                                             ; preds = %3314
-  %3316 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
-  br i1 %3316, label %cmp_address.exit.i.i966, label %lbm_stream_dstream_find.exit973
+3319:                                             ; preds = %3318
+  %3320 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
+  br i1 %3320, label %cmp_address.exit.i.i966, label %lbm_stream_dstream_find.exit973
 
-cmp_address.exit.i.i966:                          ; preds = %3315
-  %3317 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %.sroa.17.1.lcssa, ptr noundef nonnull dereferenceable(4) %.sroa.40.1.lcssa, i64 noundef 4) #10
-  %3318 = icmp sgt i32 %3317, 0
-  br i1 %3318, label %.critedge28.i.i970, label %cmp_address.exit.thread.i.i967
+cmp_address.exit.i.i966:                          ; preds = %3319
+  %3321 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %.sroa.17.1.lcssa, ptr noundef nonnull dereferenceable(4) %.sroa.40.1.lcssa, i64 noundef 4) #10
+  %3322 = icmp sgt i32 %3321, 0
+  br i1 %3322, label %.critedge28.i.i970, label %cmp_address.exit.thread.i.i967
 
 cmp_address.exit.thread.i.i967:                   ; preds = %cmp_address.exit.i.i966
-  %3319 = icmp eq i32 %3317, 0
+  %3323 = icmp eq i32 %3321, 0
   %.not.i.i968 = icmp ugt i16 %.sroa.22.1.lcssa, %.sroa.45.1.lcssa
-  %or.cond.i969 = select i1 %3319, i1 %.not.i.i968, i1 false
+  %or.cond.i969 = select i1 %3323, i1 %.not.i.i968, i1 false
   br i1 %or.cond.i969, label %.critedge28.i.i970, label %lbm_stream_dstream_find.exit973
 
-.critedge28.i.i970:                               ; preds = %cmp_address.exit.thread.i.i967, %cmp_address.exit.i.i966, %3314
+.critedge28.i.i970:                               ; preds = %cmp_address.exit.thread.i.i967, %cmp_address.exit.i.i966, %3318
   br label %lbm_stream_dstream_find.exit973
 
-lbm_stream_dstream_find.exit973:                  ; preds = %3315, %cmp_address.exit.thread.i.i967, %.critedge28.i.i970
-  %.sroa.43.0.i958 = phi i16 [ %.sroa.22.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.45.1.lcssa, %3315 ]
-  %.sroa.38.0.i959 = phi i16 [ %.sroa.45.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.22.1.lcssa, %3315 ]
-  %.sroa.31.0.i960 = phi ptr [ %.sroa.17.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.40.1.lcssa, %3315 ]
-  %.sroa.19.0.i961 = phi i32 [ %.sroa.31010.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.261036.1.lcssa, %3315 ]
-  %.sroa.12.0.i962 = phi ptr [ %.sroa.40.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.17.1.lcssa, %3315 ]
-  %.sroa.0.0.i963 = phi i32 [ %.sroa.261036.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.31010.1.lcssa, %3315 ]
+lbm_stream_dstream_find.exit973:                  ; preds = %3319, %cmp_address.exit.thread.i.i967, %.critedge28.i.i970
+  %.sroa.43.0.i958 = phi i16 [ %.sroa.22.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.45.1.lcssa, %3319 ]
+  %.sroa.38.0.i959 = phi i16 [ %.sroa.45.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.22.1.lcssa, %3319 ]
+  %.sroa.31.0.i960 = phi ptr [ %.sroa.17.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.40.1.lcssa, %3319 ]
+  %.sroa.19.0.i961 = phi i32 [ %.sroa.31010.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.261036.1.lcssa, %3319 ]
+  %.sroa.12.0.i962 = phi ptr [ %.sroa.40.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.17.1.lcssa, %3319 ]
+  %.sroa.0.0.i963 = phi i32 [ %.sroa.261036.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.31010.1.lcssa, %3319 ]
   store i32 %.sroa.0.0.i963, ptr %7, align 16
   %.0.copyload.i.i964 = load i32, ptr %.sroa.12.0.i962, align 1
   store i32 %.0.copyload.i.i964, ptr %120, align 4
   store i32 %.sroa.19.0.i961, ptr %121, align 8
   %.0.copyload1.i.i965 = load i32, ptr %.sroa.31.0.i960, align 1
   store i32 %.0.copyload1.i.i965, ptr %122, align 4
-  %3320 = zext i16 %.sroa.38.0.i959 to i32
-  store i32 %3320, ptr %123, align 16
-  %3321 = zext i16 %.sroa.43.0.i958 to i32
-  store i32 %3321, ptr %124, align 4
+  %3324 = zext i16 %.sroa.38.0.i959 to i32
+  store i32 %3324, ptr %123, align 16
+  %3325 = zext i16 %.sroa.43.0.i958 to i32
+  store i32 %3325, ptr %124, align 4
   store i32 6, ptr %8, align 16
   store ptr %7, ptr %125, align 8
   store i32 0, ptr %126, align 16
   store ptr null, ptr %127, align 8
-  %3322 = load ptr, ptr @domain_stream_table, align 8
-  %3323 = call ptr @wmem_tree_lookup32_array(ptr noundef %3322, ptr noundef nonnull %8) #9
+  %3326 = load ptr, ptr @domain_stream_table, align 8
+  %3327 = call ptr @wmem_tree_lookup32_array(ptr noundef %3326, ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %.not.i892 = icmp eq ptr %3323, null
+  %.not.i892 = icmp eq ptr %3327, null
   br i1 %.not.i892, label %copy_address_wmem.exit29.i, label %lbm_stream_dstream_add.exit
 
 copy_address_wmem.exit29.i:                       ; preds = %lbm_stream_dstream_find.exit973
-  %3324 = call ptr @wmem_file_scope() #9
-  %3325 = call noalias ptr @wmem_alloc(ptr noundef %3324, i64 noundef 112) #9
-  store i32 %.sroa.31010.1.lcssa, ptr %3325, align 8
-  %3326 = call ptr @wmem_file_scope() #9
-  %3327 = getelementptr inbounds i8, ptr %3325, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3327, i8 0, i64 24, i1 false)
-  store i32 2, ptr %3327, align 8
-  %3328 = call noalias ptr @wmem_memdup(ptr noundef %3326, ptr noundef %.sroa.17.1.lcssa, i64 noundef 4) #9
-  %3329 = getelementptr inbounds i8, ptr %3325, i64 24
-  store ptr %3328, ptr %3329, align 8
-  %3330 = getelementptr inbounds i8, ptr %3325, i64 16
-  store ptr %3328, ptr %3330, align 8
-  %3331 = getelementptr inbounds i8, ptr %3325, i64 12
-  store i32 4, ptr %3331, align 4
-  %3332 = getelementptr inbounds i8, ptr %3325, i64 64
-  store i16 %.sroa.22.1.lcssa, ptr %3332, align 8
-  %3333 = getelementptr inbounds i8, ptr %3325, i64 32
-  store i32 %.sroa.261036.1.lcssa, ptr %3333, align 8
-  %3334 = call ptr @wmem_file_scope() #9
-  %3335 = getelementptr inbounds i8, ptr %3325, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3335, i8 0, i64 24, i1 false)
-  store i32 2, ptr %3335, align 8
-  %3336 = call noalias ptr @wmem_memdup(ptr noundef %3334, ptr noundef %.sroa.40.1.lcssa, i64 noundef 4) #9
-  %3337 = getelementptr inbounds i8, ptr %3325, i64 56
-  store ptr %3336, ptr %3337, align 8
-  %3338 = getelementptr inbounds i8, ptr %3325, i64 48
-  store ptr %3336, ptr %3338, align 8
-  %3339 = getelementptr inbounds i8, ptr %3325, i64 44
-  store i32 4, ptr %3339, align 4
-  %3340 = getelementptr inbounds i8, ptr %3325, i64 66
-  store i16 %.sroa.45.1.lcssa, ptr %3340, align 2
-  br i1 %3303, label %.critedge28.i.i901, label %3341
+  %3328 = call ptr @wmem_file_scope() #9
+  %3329 = call noalias ptr @wmem_alloc(ptr noundef %3328, i64 noundef 112) #9
+  store i32 %.sroa.31010.1.lcssa, ptr %3329, align 8
+  %3330 = call ptr @wmem_file_scope() #9
+  %3331 = getelementptr inbounds i8, ptr %3329, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3331, i8 0, i64 24, i1 false)
+  store i32 2, ptr %3331, align 8
+  %3332 = call noalias ptr @wmem_memdup(ptr noundef %3330, ptr noundef %.sroa.17.1.lcssa, i64 noundef 4) #9
+  %3333 = getelementptr inbounds i8, ptr %3329, i64 24
+  store ptr %3332, ptr %3333, align 8
+  %3334 = getelementptr inbounds i8, ptr %3329, i64 16
+  store ptr %3332, ptr %3334, align 8
+  %3335 = getelementptr inbounds i8, ptr %3329, i64 12
+  store i32 4, ptr %3335, align 4
+  %3336 = getelementptr inbounds i8, ptr %3329, i64 64
+  store i16 %.sroa.22.1.lcssa, ptr %3336, align 8
+  %3337 = getelementptr inbounds i8, ptr %3329, i64 32
+  store i32 %.sroa.261036.1.lcssa, ptr %3337, align 8
+  %3338 = call ptr @wmem_file_scope() #9
+  %3339 = getelementptr inbounds i8, ptr %3329, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3339, i8 0, i64 24, i1 false)
+  store i32 2, ptr %3339, align 8
+  %3340 = call noalias ptr @wmem_memdup(ptr noundef %3338, ptr noundef %.sroa.40.1.lcssa, i64 noundef 4) #9
+  %3341 = getelementptr inbounds i8, ptr %3329, i64 56
+  store ptr %3340, ptr %3341, align 8
+  %3342 = getelementptr inbounds i8, ptr %3329, i64 48
+  store ptr %3340, ptr %3342, align 8
+  %3343 = getelementptr inbounds i8, ptr %3329, i64 44
+  store i32 4, ptr %3343, align 4
+  %3344 = getelementptr inbounds i8, ptr %3329, i64 66
+  store i16 %.sroa.45.1.lcssa, ptr %3344, align 2
+  br i1 %3307, label %.critedge28.i.i901, label %3345
 
-3341:                                             ; preds = %copy_address_wmem.exit29.i
-  %3342 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
-  br i1 %3342, label %cmp_address.exit.i.i897, label %lbm_stream_order_dstream_key.exit.i
+3345:                                             ; preds = %copy_address_wmem.exit29.i
+  %3346 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
+  br i1 %3346, label %cmp_address.exit.i.i897, label %lbm_stream_order_dstream_key.exit.i
 
-cmp_address.exit.i.i897:                          ; preds = %3341
-  %3343 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %3328, ptr noundef nonnull dereferenceable(4) %3336, i64 noundef 4) #10
-  %3344 = icmp sgt i32 %3343, 0
-  br i1 %3344, label %.critedge28.i.i901, label %cmp_address.exit.thread.i.i898
+cmp_address.exit.i.i897:                          ; preds = %3345
+  %3347 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %3332, ptr noundef nonnull dereferenceable(4) %3340, i64 noundef 4) #10
+  %3348 = icmp sgt i32 %3347, 0
+  br i1 %3348, label %.critedge28.i.i901, label %cmp_address.exit.thread.i.i898
 
 cmp_address.exit.thread.i.i898:                   ; preds = %cmp_address.exit.i.i897
-  %3345 = icmp eq i32 %3343, 0
+  %3349 = icmp eq i32 %3347, 0
   %.not.i.i899 = icmp ugt i16 %.sroa.22.1.lcssa, %.sroa.45.1.lcssa
-  %or.cond.i900 = select i1 %3345, i1 %.not.i.i899, i1 false
+  %or.cond.i900 = select i1 %3349, i1 %.not.i.i899, i1 false
   br i1 %or.cond.i900, label %.critedge28.i.i901, label %lbm_stream_order_dstream_key.exit.i
 
 .critedge28.i.i901:                               ; preds = %cmp_address.exit.thread.i.i898, %cmp_address.exit.i.i897, %copy_address_wmem.exit29.i
-  store i32 %.sroa.261036.1.lcssa, ptr %3325, align 8
-  store i32 2, ptr %3327, align 8
-  store i32 4, ptr %3331, align 4
-  store ptr %3336, ptr %3330, align 8
-  store ptr null, ptr %3329, align 8
-  store i16 %.sroa.45.1.lcssa, ptr %3332, align 8
-  store i32 %.sroa.31010.1.lcssa, ptr %3333, align 8
-  store i32 2, ptr %3335, align 8
-  store ptr %3328, ptr %3338, align 8
-  store ptr null, ptr %3337, align 8
-  store i16 %.sroa.22.1.lcssa, ptr %3340, align 2
+  store i32 %.sroa.261036.1.lcssa, ptr %3329, align 8
+  store i32 2, ptr %3331, align 8
+  store i32 4, ptr %3335, align 4
+  store ptr %3340, ptr %3334, align 8
+  store ptr null, ptr %3333, align 8
+  store i16 %.sroa.45.1.lcssa, ptr %3336, align 8
+  store i32 %.sroa.31010.1.lcssa, ptr %3337, align 8
+  store i32 2, ptr %3339, align 8
+  store ptr %3332, ptr %3342, align 8
+  store ptr null, ptr %3341, align 8
+  store i16 %.sroa.22.1.lcssa, ptr %3344, align 2
   br label %lbm_stream_order_dstream_key.exit.i
 
-lbm_stream_order_dstream_key.exit.i:              ; preds = %.critedge28.i.i901, %cmp_address.exit.thread.i.i898, %3341
-  %3346 = phi i16 [ %.sroa.45.1.lcssa, %3341 ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.22.1.lcssa, %.critedge28.i.i901 ]
-  %3347 = phi i16 [ %.sroa.22.1.lcssa, %3341 ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.45.1.lcssa, %.critedge28.i.i901 ]
-  %3348 = phi ptr [ %3336, %3341 ], [ %3336, %cmp_address.exit.thread.i.i898 ], [ %3328, %.critedge28.i.i901 ]
-  %3349 = phi i32 [ %.sroa.261036.1.lcssa, %3341 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.31010.1.lcssa, %.critedge28.i.i901 ]
-  %3350 = phi ptr [ %3328, %3341 ], [ %3328, %cmp_address.exit.thread.i.i898 ], [ %3336, %.critedge28.i.i901 ]
-  %3351 = phi i32 [ %.sroa.31010.1.lcssa, %3341 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.261036.1.lcssa, %.critedge28.i.i901 ]
-  %3352 = call i64 @lbm_channel_assign(i8 noundef zeroext 16) #9
-  %3353 = getelementptr inbounds i8, ptr %3325, i64 72
-  store i64 %3352, ptr %3353, align 8
-  %3354 = getelementptr inbounds i8, ptr %3325, i64 80
-  store <4 x i32> <i32 1, i32 -1, i32 0, i32 0>, ptr %3354, align 8
-  %3355 = getelementptr inbounds i8, ptr %3325, i64 96
-  store i32 0, ptr %3355, align 8
-  %3356 = call ptr @wmem_file_scope() #9
-  %3357 = call noalias ptr @wmem_tree_new(ptr noundef %3356) #9
-  %3358 = getelementptr inbounds i8, ptr %3325, i64 104
-  store ptr %3357, ptr %3358, align 8
-  store i32 %3351, ptr %21, align 16
-  %.0.copyload.i.i895 = load i32, ptr %3350, align 1
+lbm_stream_order_dstream_key.exit.i:              ; preds = %.critedge28.i.i901, %cmp_address.exit.thread.i.i898, %3345
+  %3350 = phi i16 [ %.sroa.45.1.lcssa, %3345 ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.22.1.lcssa, %.critedge28.i.i901 ]
+  %3351 = phi i16 [ %.sroa.22.1.lcssa, %3345 ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.45.1.lcssa, %.critedge28.i.i901 ]
+  %3352 = phi ptr [ %3340, %3345 ], [ %3340, %cmp_address.exit.thread.i.i898 ], [ %3332, %.critedge28.i.i901 ]
+  %3353 = phi i32 [ %.sroa.261036.1.lcssa, %3345 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.31010.1.lcssa, %.critedge28.i.i901 ]
+  %3354 = phi ptr [ %3332, %3345 ], [ %3332, %cmp_address.exit.thread.i.i898 ], [ %3340, %.critedge28.i.i901 ]
+  %3355 = phi i32 [ %.sroa.31010.1.lcssa, %3345 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i898 ], [ %.sroa.261036.1.lcssa, %.critedge28.i.i901 ]
+  %3356 = call i64 @lbm_channel_assign(i8 noundef zeroext 16) #9
+  %3357 = getelementptr inbounds i8, ptr %3329, i64 72
+  store i64 %3356, ptr %3357, align 8
+  %3358 = getelementptr inbounds i8, ptr %3329, i64 80
+  store <4 x i32> <i32 1, i32 -1, i32 0, i32 0>, ptr %3358, align 8
+  %3359 = getelementptr inbounds i8, ptr %3329, i64 96
+  store i32 0, ptr %3359, align 8
+  %3360 = call ptr @wmem_file_scope() #9
+  %3361 = call noalias ptr @wmem_tree_new(ptr noundef %3360) #9
+  %3362 = getelementptr inbounds i8, ptr %3329, i64 104
+  store ptr %3361, ptr %3362, align 8
+  store i32 %3355, ptr %21, align 16
+  %.0.copyload.i.i895 = load i32, ptr %3354, align 1
   store i32 %.0.copyload.i.i895, ptr %128, align 4
-  store i32 %3349, ptr %129, align 8
-  %.0.copyload1.i.i896 = load i32, ptr %3348, align 1
+  store i32 %3353, ptr %129, align 8
+  %.0.copyload1.i.i896 = load i32, ptr %3352, align 1
   store i32 %.0.copyload1.i.i896, ptr %130, align 4
-  %3359 = zext i16 %3347 to i32
-  store i32 %3359, ptr %131, align 16
-  %3360 = zext i16 %3346 to i32
-  store i32 %3360, ptr %132, align 4
+  %3363 = zext i16 %3351 to i32
+  store i32 %3363, ptr %131, align 16
+  %3364 = zext i16 %3350 to i32
+  store i32 %3364, ptr %132, align 4
   store i32 6, ptr %22, align 16
   store ptr %21, ptr %133, align 8
   store i32 0, ptr %134, align 16
   store ptr null, ptr %135, align 8
-  %3361 = load ptr, ptr @domain_stream_table, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3361, ptr noundef nonnull %22, ptr noundef nonnull %3325) #9
+  %3365 = load ptr, ptr @domain_stream_table, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3365, ptr noundef nonnull %22, ptr noundef nonnull %3329) #9
   br label %lbm_stream_dstream_add.exit
 
 lbm_stream_dstream_add.exit:                      ; preds = %lbm_stream_dstream_find.exit973, %lbm_stream_order_dstream_key.exit.i
-  %.0.i893 = phi ptr [ %3325, %lbm_stream_order_dstream_key.exit.i ], [ %3323, %lbm_stream_dstream_find.exit973 ]
+  %.0.i893 = phi ptr [ %3329, %lbm_stream_order_dstream_key.exit.i ], [ %3327, %lbm_stream_dstream_find.exit973 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  br label %3362
+  br label %3366
 
-3362:                                             ; preds = %lbm_stream_dstream_find.exit, %lbm_stream_dstream_add.exit
-  %.0748 = phi ptr [ %.0.i893, %lbm_stream_dstream_add.exit ], [ %3312, %lbm_stream_dstream_find.exit ]
-  %3363 = load i32, ptr %63, align 4
-  %3364 = load i32, ptr %67, align 8
-  %3365 = load i32, ptr %53, align 4
-  %3366 = getelementptr i8, ptr %.0748, i64 104
-  %.0748.val = load ptr, ptr %3366, align 8
+3366:                                             ; preds = %lbm_stream_dstream_find.exit, %lbm_stream_dstream_add.exit
+  %.0748 = phi ptr [ %.0.i893, %lbm_stream_dstream_add.exit ], [ %3316, %lbm_stream_dstream_find.exit ]
+  %3367 = load i32, ptr %63, align 4
+  %3368 = load i32, ptr %67, align 8
+  %3369 = load i32, ptr %53, align 4
+  %3370 = getelementptr i8, ptr %.0748, i64 104
+  %.0748.val = load ptr, ptr %3370, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  %3367 = load ptr, ptr %60, align 8
-  %3368 = load ptr, ptr %66, align 8
-  %.0.copyload.i.i904 = load i32, ptr %3367, align 1
+  %3371 = load ptr, ptr %60, align 8
+  %3372 = load ptr, ptr %66, align 8
+  %.0.copyload.i.i904 = load i32, ptr %3371, align 1
   store i32 %.0.copyload.i.i904, ptr %19, align 16
-  %3369 = and i32 %3363, 65535
-  store i32 %3369, ptr %136, align 4
-  %.0.copyload1.i.i905 = load i32, ptr %3368, align 1
+  %3373 = and i32 %3367, 65535
+  store i32 %3373, ptr %136, align 4
+  %.0.copyload1.i.i905 = load i32, ptr %3372, align 1
   store i32 %.0.copyload1.i.i905, ptr %137, align 8
-  %3370 = and i32 %3364, 65535
-  store i32 %3370, ptr %138, align 4
-  store i32 %3365, ptr %139, align 16
+  %3374 = and i32 %3368, 65535
+  store i32 %3374, ptr %138, align 4
+  store i32 %3369, ptr %139, align 16
   store i32 5, ptr %20, align 16
   store ptr %19, ptr %140, align 8
   store i32 0, ptr %141, align 16
   store ptr null, ptr %142, align 8
-  %3371 = call ptr @wmem_tree_lookup32_array(ptr noundef %.0748.val, ptr noundef nonnull %20) #9
+  %3375 = call ptr @wmem_tree_lookup32_array(ptr noundef %.0748.val, ptr noundef nonnull %20) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  %3372 = icmp eq ptr %3371, null
-  br i1 %3372, label %3373, label %3420
+  %3376 = icmp eq ptr %3375, null
+  br i1 %3376, label %3377, label %3424
 
-3373:                                             ; preds = %3362
-  %3374 = load i32, ptr %63, align 4
-  %3375 = trunc i32 %3374 to i16
-  %3376 = load i32, ptr %67, align 8
-  %3377 = trunc i32 %3376 to i16
-  %3378 = load i32, ptr %53, align 4
+3377:                                             ; preds = %3366
+  %3378 = load i32, ptr %63, align 4
+  %3379 = trunc i32 %3378 to i16
+  %3380 = load i32, ptr %67, align 8
+  %3381 = trunc i32 %3380 to i16
+  %3382 = load i32, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  %.val.i906 = load ptr, ptr %3366, align 8
+  %.val.i906 = load ptr, ptr %3370, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %3379 = load ptr, ptr %60, align 8
-  %3380 = load ptr, ptr %66, align 8
-  %.0.copyload.i.i.i907 = load i32, ptr %3379, align 1
+  %3383 = load ptr, ptr %60, align 8
+  %3384 = load ptr, ptr %66, align 8
+  %.0.copyload.i.i.i907 = load i32, ptr %3383, align 1
   store i32 %.0.copyload.i.i.i907, ptr %15, align 16
-  %3381 = and i32 %3374, 65535
-  store i32 %3381, ptr %143, align 4
-  %.0.copyload1.i.i.i908 = load i32, ptr %3380, align 1
+  %3385 = and i32 %3378, 65535
+  store i32 %3385, ptr %143, align 4
+  %.0.copyload1.i.i.i908 = load i32, ptr %3384, align 1
   store i32 %.0.copyload1.i.i.i908, ptr %144, align 8
-  %3382 = and i32 %3376, 65535
-  store i32 %3382, ptr %145, align 4
-  store i32 %3378, ptr %146, align 16
+  %3386 = and i32 %3380, 65535
+  store i32 %3386, ptr %145, align 4
+  store i32 %3382, ptr %146, align 16
   store i32 5, ptr %16, align 16
   store ptr %15, ptr %147, align 8
   store i32 0, ptr %148, align 16
   store ptr null, ptr %149, align 8
-  %3383 = call ptr @wmem_tree_lookup32_array(ptr noundef %.val.i906, ptr noundef nonnull %16) #9
+  %3387 = call ptr @wmem_tree_lookup32_array(ptr noundef %.val.i906, ptr noundef nonnull %16) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %.not.i909 = icmp eq ptr %3383, null
-  br i1 %.not.i909, label %3384, label %lbm_stream_dstream_substream_add.exit
+  %.not.i909 = icmp eq ptr %3387, null
+  br i1 %.not.i909, label %3388, label %lbm_stream_dstream_substream_add.exit
 
-3384:                                             ; preds = %3373
-  %3385 = call ptr @wmem_file_scope() #9
-  %3386 = call noalias ptr @wmem_alloc(ptr noundef %3385, i64 noundef 96) #9
-  %3387 = call ptr @wmem_file_scope() #9
-  %3388 = load i32, ptr %58, align 8
-  %3389 = load i32, ptr %59, align 4
-  %3390 = load ptr, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3386, i8 0, i64 24, i1 false)
-  store i32 %3388, ptr %3386, align 8
-  %3391 = icmp eq i32 %3389, 0
-  br i1 %3391, label %copy_address_wmem.exit.i911, label %3392
+3388:                                             ; preds = %3377
+  %3389 = call ptr @wmem_file_scope() #9
+  %3390 = call noalias ptr @wmem_alloc(ptr noundef %3389, i64 noundef 96) #9
+  %3391 = call ptr @wmem_file_scope() #9
+  %3392 = load i32, ptr %58, align 8
+  %3393 = load i32, ptr %59, align 4
+  %3394 = load ptr, ptr %60, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3390, i8 0, i64 24, i1 false)
+  store i32 %3392, ptr %3390, align 8
+  %3395 = icmp eq i32 %3393, 0
+  br i1 %3395, label %copy_address_wmem.exit.i911, label %3396
 
-3392:                                             ; preds = %3384
-  %3393 = sext i32 %3389 to i64
-  %3394 = call noalias ptr @wmem_memdup(ptr noundef %3387, ptr noundef %3390, i64 noundef %3393) #9
-  %3395 = getelementptr inbounds i8, ptr %3386, i64 16
-  store ptr %3394, ptr %3395, align 8
-  %3396 = getelementptr inbounds i8, ptr %3386, i64 8
-  store ptr %3394, ptr %3396, align 8
-  %3397 = getelementptr inbounds i8, ptr %3386, i64 4
-  store i32 %3389, ptr %3397, align 4
+3396:                                             ; preds = %3388
+  %3397 = sext i32 %3393 to i64
+  %3398 = call noalias ptr @wmem_memdup(ptr noundef %3391, ptr noundef %3394, i64 noundef %3397) #9
+  %3399 = getelementptr inbounds i8, ptr %3390, i64 16
+  store ptr %3398, ptr %3399, align 8
+  %3400 = getelementptr inbounds i8, ptr %3390, i64 8
+  store ptr %3398, ptr %3400, align 8
+  %3401 = getelementptr inbounds i8, ptr %3390, i64 4
+  store i32 %3393, ptr %3401, align 4
   br label %copy_address_wmem.exit.i911
 
-copy_address_wmem.exit.i911:                      ; preds = %3392, %3384
-  %3398 = phi ptr [ null, %3384 ], [ %3394, %3392 ]
-  %3399 = getelementptr inbounds i8, ptr %3386, i64 24
-  store i16 %3375, ptr %3399, align 8
-  %3400 = call ptr @wmem_file_scope() #9
-  %3401 = getelementptr inbounds i8, ptr %3386, i64 32
-  %3402 = load i32, ptr %64, align 8
-  %3403 = load i32, ptr %65, align 4
-  %3404 = load ptr, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3401, i8 0, i64 24, i1 false)
-  store i32 %3402, ptr %3401, align 8
-  %3405 = icmp ne i32 %3403, 0
-  call void @llvm.assume(i1 %3405)
-  %3406 = sext i32 %3403 to i64
-  %3407 = call noalias ptr @wmem_memdup(ptr noundef %3400, ptr noundef %3404, i64 noundef %3406) #9
-  %3408 = getelementptr inbounds i8, ptr %3386, i64 48
-  store ptr %3407, ptr %3408, align 8
-  %3409 = getelementptr inbounds i8, ptr %3386, i64 40
-  store ptr %3407, ptr %3409, align 8
-  %3410 = getelementptr inbounds i8, ptr %3386, i64 36
-  store i32 %3403, ptr %3410, align 4
-  %3411 = getelementptr inbounds i8, ptr %3386, i64 56
-  store i16 %3377, ptr %3411, align 8
-  %3412 = getelementptr inbounds i8, ptr %3386, i64 60
-  store i32 %3378, ptr %3412, align 4
-  %3413 = getelementptr inbounds i8, ptr %3386, i64 64
-  store ptr %.0748, ptr %3413, align 8
-  %3414 = getelementptr inbounds i8, ptr %.0748, i64 80
-  %3415 = load i32, ptr %3414, align 8
-  %3416 = add i32 %3415, 1
-  store i32 %3416, ptr %3414, align 8
-  %3417 = getelementptr inbounds i8, ptr %3386, i64 72
-  store i32 %3415, ptr %3417, align 8
-  %3418 = getelementptr inbounds i8, ptr %3386, i64 76
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr %3418, align 4
-  %.0.copyload.i.i912 = load i32, ptr %3398, align 1
+copy_address_wmem.exit.i911:                      ; preds = %3396, %3388
+  %3402 = phi ptr [ null, %3388 ], [ %3398, %3396 ]
+  %3403 = getelementptr inbounds i8, ptr %3390, i64 24
+  store i16 %3379, ptr %3403, align 8
+  %3404 = call ptr @wmem_file_scope() #9
+  %3405 = getelementptr inbounds i8, ptr %3390, i64 32
+  %3406 = load i32, ptr %64, align 8
+  %3407 = load i32, ptr %65, align 4
+  %3408 = load ptr, ptr %66, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3405, i8 0, i64 24, i1 false)
+  store i32 %3406, ptr %3405, align 8
+  %3409 = icmp ne i32 %3407, 0
+  call void @llvm.assume(i1 %3409)
+  %3410 = sext i32 %3407 to i64
+  %3411 = call noalias ptr @wmem_memdup(ptr noundef %3404, ptr noundef %3408, i64 noundef %3410) #9
+  %3412 = getelementptr inbounds i8, ptr %3390, i64 48
+  store ptr %3411, ptr %3412, align 8
+  %3413 = getelementptr inbounds i8, ptr %3390, i64 40
+  store ptr %3411, ptr %3413, align 8
+  %3414 = getelementptr inbounds i8, ptr %3390, i64 36
+  store i32 %3407, ptr %3414, align 4
+  %3415 = getelementptr inbounds i8, ptr %3390, i64 56
+  store i16 %3381, ptr %3415, align 8
+  %3416 = getelementptr inbounds i8, ptr %3390, i64 60
+  store i32 %3382, ptr %3416, align 4
+  %3417 = getelementptr inbounds i8, ptr %3390, i64 64
+  store ptr %.0748, ptr %3417, align 8
+  %3418 = getelementptr inbounds i8, ptr %.0748, i64 80
+  %3419 = load i32, ptr %3418, align 8
+  %3420 = add i32 %3419, 1
+  store i32 %3420, ptr %3418, align 8
+  %3421 = getelementptr inbounds i8, ptr %3390, i64 72
+  store i32 %3419, ptr %3421, align 8
+  %3422 = getelementptr inbounds i8, ptr %3390, i64 76
+  store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr %3422, align 4
+  %.0.copyload.i.i912 = load i32, ptr %3402, align 1
   store i32 %.0.copyload.i.i912, ptr %17, align 16
-  store i32 %3381, ptr %150, align 4
-  %.0.copyload1.i.i913 = load i32, ptr %3407, align 1
+  store i32 %3385, ptr %150, align 4
+  %.0.copyload1.i.i913 = load i32, ptr %3411, align 1
   store i32 %.0.copyload1.i.i913, ptr %151, align 8
-  store i32 %3382, ptr %152, align 4
-  store i32 %3378, ptr %153, align 16
+  store i32 %3386, ptr %152, align 4
+  store i32 %3382, ptr %153, align 16
   store i32 5, ptr %18, align 16
   store ptr %17, ptr %154, align 8
   store i32 0, ptr %155, align 16
   store ptr null, ptr %156, align 8
-  %3419 = load ptr, ptr %3366, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3419, ptr noundef nonnull %18, ptr noundef nonnull %3386) #9
+  %3423 = load ptr, ptr %3370, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3423, ptr noundef nonnull %18, ptr noundef nonnull %3390) #9
   br label %lbm_stream_dstream_substream_add.exit
 
-lbm_stream_dstream_substream_add.exit:            ; preds = %3373, %copy_address_wmem.exit.i911
-  %.0.i910 = phi ptr [ %3386, %copy_address_wmem.exit.i911 ], [ %3383, %3373 ]
+lbm_stream_dstream_substream_add.exit:            ; preds = %3377, %copy_address_wmem.exit.i911
+  %.0.i910 = phi ptr [ %3390, %copy_address_wmem.exit.i911 ], [ %3387, %3377 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  br label %3420
+  br label %3424
 
-3420:                                             ; preds = %3362, %lbm_stream_dstream_substream_add.exit
-  %.0760 = phi ptr [ %.0.i910, %lbm_stream_dstream_substream_add.exit ], [ %3371, %3362 ]
-  %3421 = load i32, ptr %69, align 4
-  %3422 = getelementptr inbounds i8, ptr %.0760, i64 84
-  %3423 = load i32, ptr %3422, align 4
-  %3424 = add i32 %3423, 1
-  store i32 %3424, ptr %3422, align 4
-  %3425 = getelementptr inbounds i8, ptr %.0760, i64 64
-  %3426 = load ptr, ptr %3425, align 8
-  %3427 = getelementptr inbounds i8, ptr %3426, i64 92
-  %3428 = load i32, ptr %3427, align 4
-  %3429 = add i32 %3428, 1
-  store i32 %3429, ptr %3427, align 4
-  %3430 = getelementptr inbounds i8, ptr %.0760, i64 88
-  %3431 = load i32, ptr %3430, align 8
-  %3432 = add i32 %3431, %231
-  store i32 %3432, ptr %3430, align 8
-  %3433 = load ptr, ptr %3425, align 8
-  %3434 = getelementptr inbounds i8, ptr %3433, i64 96
+3424:                                             ; preds = %3366, %lbm_stream_dstream_substream_add.exit
+  %.0760 = phi ptr [ %.0.i910, %lbm_stream_dstream_substream_add.exit ], [ %3375, %3366 ]
+  %3425 = load i32, ptr %69, align 4
+  %3426 = getelementptr inbounds i8, ptr %.0760, i64 84
+  %3427 = load i32, ptr %3426, align 4
+  %3428 = add i32 %3427, 1
+  store i32 %3428, ptr %3426, align 4
+  %3429 = getelementptr inbounds i8, ptr %.0760, i64 64
+  %3430 = load ptr, ptr %3429, align 8
+  %3431 = getelementptr inbounds i8, ptr %3430, i64 92
+  %3432 = load i32, ptr %3431, align 4
+  %3433 = add i32 %3432, 1
+  store i32 %3433, ptr %3431, align 4
+  %3434 = getelementptr inbounds i8, ptr %.0760, i64 88
   %3435 = load i32, ptr %3434, align 8
   %3436 = add i32 %3435, %231
   store i32 %3436, ptr %3434, align 8
-  %3437 = getelementptr inbounds i8, ptr %.0760, i64 76
-  %3438 = load i32, ptr %3437, align 4
-  %3439 = icmp ugt i32 %3438, %3421
-  br i1 %3439, label %3440, label %3441
+  %3437 = load ptr, ptr %3429, align 8
+  %3438 = getelementptr inbounds i8, ptr %3437, i64 96
+  %3439 = load i32, ptr %3438, align 8
+  %3440 = add i32 %3439, %231
+  store i32 %3440, ptr %3438, align 8
+  %3441 = getelementptr inbounds i8, ptr %.0760, i64 76
+  %3442 = load i32, ptr %3441, align 4
+  %3443 = icmp ugt i32 %3442, %3425
+  br i1 %3443, label %3444, label %3445
 
-3440:                                             ; preds = %3420
-  store i32 %3421, ptr %3437, align 4
-  br label %3441
+3444:                                             ; preds = %3424
+  store i32 %3425, ptr %3441, align 4
+  br label %3445
 
-3441:                                             ; preds = %3440, %3420
-  %3442 = load ptr, ptr %3425, align 8
-  %3443 = getelementptr inbounds i8, ptr %3442, i64 84
-  %3444 = load i32, ptr %3443, align 4
-  %3445 = icmp ugt i32 %3444, %3421
-  br i1 %3445, label %3446, label %3447
+3445:                                             ; preds = %3444, %3424
+  %3446 = load ptr, ptr %3429, align 8
+  %3447 = getelementptr inbounds i8, ptr %3446, i64 84
+  %3448 = load i32, ptr %3447, align 4
+  %3449 = icmp ugt i32 %3448, %3425
+  br i1 %3449, label %3450, label %3451
 
-3446:                                             ; preds = %3441
-  store i32 %3421, ptr %3443, align 4
-  br label %3447
+3450:                                             ; preds = %3445
+  store i32 %3425, ptr %3447, align 4
+  br label %3451
 
-3447:                                             ; preds = %3446, %3441
-  %3448 = getelementptr inbounds i8, ptr %.0760, i64 80
-  %3449 = load i32, ptr %3448, align 8
-  %3450 = icmp ult i32 %3449, %3421
-  br i1 %3450, label %3451, label %3452
+3451:                                             ; preds = %3450, %3445
+  %3452 = getelementptr inbounds i8, ptr %.0760, i64 80
+  %3453 = load i32, ptr %3452, align 8
+  %3454 = icmp ult i32 %3453, %3425
+  br i1 %3454, label %3455, label %3456
 
-3451:                                             ; preds = %3447
-  store i32 %3421, ptr %3448, align 8
-  br label %3452
+3455:                                             ; preds = %3451
+  store i32 %3425, ptr %3452, align 8
+  br label %3456
 
-3452:                                             ; preds = %3451, %3447
-  %3453 = load ptr, ptr %3425, align 8
-  %3454 = getelementptr inbounds i8, ptr %3453, i64 88
-  %3455 = load i32, ptr %3454, align 8
-  %3456 = icmp ult i32 %3455, %3421
-  br i1 %3456, label %3457, label %lbm_stream_dstream_substream_update.exit
+3456:                                             ; preds = %3455, %3451
+  %3457 = load ptr, ptr %3429, align 8
+  %3458 = getelementptr inbounds i8, ptr %3457, i64 88
+  %3459 = load i32, ptr %3458, align 8
+  %3460 = icmp ult i32 %3459, %3425
+  br i1 %3460, label %3461, label %lbm_stream_dstream_substream_update.exit
 
-3457:                                             ; preds = %3452
-  store i32 %3421, ptr %3454, align 8
+3461:                                             ; preds = %3456
+  store i32 %3425, ptr %3458, align 8
   br label %lbm_stream_dstream_substream_update.exit
 
-lbm_stream_dstream_substream_update.exit:         ; preds = %3452, %3457
-  %3458 = load i32, ptr @hf_lbm_stream, align 4
-  %3459 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %3458, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
-  %.not.i914 = icmp eq ptr %3459, null
-  br i1 %.not.i914, label %proto_item_set_generated.exit916, label %3460
+lbm_stream_dstream_substream_update.exit:         ; preds = %3456, %3461
+  %3462 = load i32, ptr @hf_lbm_stream, align 4
+  %3463 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %3462, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  %.not.i914 = icmp eq ptr %3463, null
+  br i1 %.not.i914, label %proto_item_set_generated.exit916, label %3464
 
-3460:                                             ; preds = %lbm_stream_dstream_substream_update.exit
-  %3461 = getelementptr inbounds i8, ptr %3459, i64 32
-  %3462 = load ptr, ptr %3461, align 8
-  %.not5.i915 = icmp eq ptr %3462, null
-  br i1 %.not5.i915, label %proto_item_set_generated.exit916, label %3463
+3464:                                             ; preds = %lbm_stream_dstream_substream_update.exit
+  %3465 = getelementptr inbounds i8, ptr %3463, i64 32
+  %3466 = load ptr, ptr %3465, align 8
+  %.not5.i915 = icmp eq ptr %3466, null
+  br i1 %.not5.i915, label %proto_item_set_generated.exit916, label %3467
 
-3463:                                             ; preds = %3460
-  %3464 = getelementptr inbounds i8, ptr %3462, i64 28
-  %3465 = load i32, ptr %3464, align 4
-  %3466 = or i32 %3465, 2
-  store i32 %3466, ptr %3464, align 4
+3467:                                             ; preds = %3464
+  %3468 = getelementptr inbounds i8, ptr %3466, i64 28
+  %3469 = load i32, ptr %3468, align 4
+  %3470 = or i32 %3469, 2
+  store i32 %3470, ptr %3468, align 4
   br label %proto_item_set_generated.exit916
 
-proto_item_set_generated.exit916:                 ; preds = %lbm_stream_dstream_substream_update.exit, %3460, %3463
-  %3467 = load i32, ptr @ett_lbm_stream, align 4
-  %3468 = call ptr @proto_item_add_subtree(ptr noundef %3459, i32 noundef %3467) #9
-  %3469 = load i32, ptr @hf_lbm_stream_stream_id, align 4
-  %3470 = getelementptr inbounds i8, ptr %.0748, i64 72
-  %3471 = load i64, ptr %3470, align 8
-  %3472 = call ptr @proto_tree_add_uint64(ptr noundef %3468, i32 noundef %3469, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3471) #9
-  %.not.i917 = icmp eq ptr %3472, null
-  br i1 %.not.i917, label %proto_item_set_generated.exit919, label %3473
+proto_item_set_generated.exit916:                 ; preds = %lbm_stream_dstream_substream_update.exit, %3464, %3467
+  %3471 = load i32, ptr @ett_lbm_stream, align 4
+  %3472 = call ptr @proto_item_add_subtree(ptr noundef %3463, i32 noundef %3471) #9
+  %3473 = load i32, ptr @hf_lbm_stream_stream_id, align 4
+  %3474 = getelementptr inbounds i8, ptr %.0748, i64 72
+  %3475 = load i64, ptr %3474, align 8
+  %3476 = call ptr @proto_tree_add_uint64(ptr noundef %3472, i32 noundef %3473, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3475) #9
+  %.not.i917 = icmp eq ptr %3476, null
+  br i1 %.not.i917, label %proto_item_set_generated.exit919, label %3477
 
-3473:                                             ; preds = %proto_item_set_generated.exit916
-  %3474 = getelementptr inbounds i8, ptr %3472, i64 32
-  %3475 = load ptr, ptr %3474, align 8
-  %.not5.i918 = icmp eq ptr %3475, null
-  br i1 %.not5.i918, label %proto_item_set_generated.exit919, label %3476
+3477:                                             ; preds = %proto_item_set_generated.exit916
+  %3478 = getelementptr inbounds i8, ptr %3476, i64 32
+  %3479 = load ptr, ptr %3478, align 8
+  %.not5.i918 = icmp eq ptr %3479, null
+  br i1 %.not5.i918, label %proto_item_set_generated.exit919, label %3480
 
-3476:                                             ; preds = %3473
-  %3477 = getelementptr inbounds i8, ptr %3475, i64 28
-  %3478 = load i32, ptr %3477, align 4
-  %3479 = or i32 %3478, 2
-  store i32 %3479, ptr %3477, align 4
+3480:                                             ; preds = %3477
+  %3481 = getelementptr inbounds i8, ptr %3479, i64 28
+  %3482 = load i32, ptr %3481, align 4
+  %3483 = or i32 %3482, 2
+  store i32 %3483, ptr %3481, align 4
   br label %proto_item_set_generated.exit919
 
-proto_item_set_generated.exit919:                 ; preds = %proto_item_set_generated.exit916, %3473, %3476
-  %3480 = load i32, ptr @hf_lbm_stream_substream_id, align 4
-  %3481 = getelementptr inbounds i8, ptr %.0760, i64 72
-  %3482 = load i32, ptr %3481, align 8
-  %3483 = call ptr @proto_tree_add_uint(ptr noundef %3468, i32 noundef %3480, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3482) #9
-  %.not.i920 = icmp eq ptr %3483, null
-  br i1 %.not.i920, label %3491, label %3484
+proto_item_set_generated.exit919:                 ; preds = %proto_item_set_generated.exit916, %3477, %3480
+  %3484 = load i32, ptr @hf_lbm_stream_substream_id, align 4
+  %3485 = getelementptr inbounds i8, ptr %.0760, i64 72
+  %3486 = load i32, ptr %3485, align 8
+  %3487 = call ptr @proto_tree_add_uint(ptr noundef %3472, i32 noundef %3484, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3486) #9
+  %.not.i920 = icmp eq ptr %3487, null
+  br i1 %.not.i920, label %3495, label %3488
 
-3484:                                             ; preds = %proto_item_set_generated.exit919
-  %3485 = getelementptr inbounds i8, ptr %3483, i64 32
-  %3486 = load ptr, ptr %3485, align 8
-  %.not5.i921 = icmp eq ptr %3486, null
-  br i1 %.not5.i921, label %3491, label %3487
+3488:                                             ; preds = %proto_item_set_generated.exit919
+  %3489 = getelementptr inbounds i8, ptr %3487, i64 32
+  %3490 = load ptr, ptr %3489, align 8
+  %.not5.i921 = icmp eq ptr %3490, null
+  br i1 %.not5.i921, label %3495, label %3491
 
-3487:                                             ; preds = %3484
-  %3488 = getelementptr inbounds i8, ptr %3486, i64 28
-  %3489 = load i32, ptr %3488, align 4
-  %3490 = or i32 %3489, 2
-  store i32 %3490, ptr %3488, align 4
-  br label %3491
+3491:                                             ; preds = %3488
+  %3492 = getelementptr inbounds i8, ptr %3490, i64 28
+  %3493 = load i32, ptr %3492, align 4
+  %3494 = or i32 %3493, 2
+  store i32 %3494, ptr %3492, align 4
+  br label %3495
 
-3491:                                             ; preds = %3487, %3484, %proto_item_set_generated.exit919
-  call void @proto_tree_move_item(ptr noundef %275, ptr noundef %.0759, ptr noundef %3459) #9
-  %3492 = load ptr, ptr %52, align 8
-  %3493 = call noalias ptr @wmem_alloc0(ptr noundef %3492, i64 noundef 112) #9
-  %3494 = load i64, ptr %3470, align 8
-  store i64 %3494, ptr %3493, align 8
-  %3495 = load i32, ptr %3481, align 8
-  %3496 = getelementptr inbounds i8, ptr %3493, i64 8
-  store i32 %3495, ptr %3496, align 8
-  %3497 = getelementptr inbounds i8, ptr %3493, i64 12
-  store i32 %231, ptr %3497, align 4
-  %3498 = getelementptr inbounds i8, ptr %3493, i64 16
-  store i32 1, ptr %3498, align 8
-  %3499 = getelementptr inbounds i8, ptr %3493, i64 24
-  store i32 %.sroa.31010.1.lcssa, ptr %3499, align 8
-  %.sroa.91016.8..sroa_idx1017 = getelementptr inbounds i8, ptr %3493, i64 32
+3495:                                             ; preds = %3491, %3488, %proto_item_set_generated.exit919
+  call void @proto_tree_move_item(ptr noundef %275, ptr noundef %.0759, ptr noundef %3463) #9
+  %3496 = load ptr, ptr %52, align 8
+  %3497 = call noalias ptr @wmem_alloc0(ptr noundef %3496, i64 noundef 112) #9
+  %3498 = load i64, ptr %3474, align 8
+  store i64 %3498, ptr %3497, align 8
+  %3499 = load i32, ptr %3485, align 8
+  %3500 = getelementptr inbounds i8, ptr %3497, i64 8
+  store i32 %3499, ptr %3500, align 8
+  %3501 = getelementptr inbounds i8, ptr %3497, i64 12
+  store i32 %231, ptr %3501, align 4
+  %3502 = getelementptr inbounds i8, ptr %3497, i64 16
+  store i32 1, ptr %3502, align 8
+  %3503 = getelementptr inbounds i8, ptr %3497, i64 24
+  store i32 %.sroa.31010.1.lcssa, ptr %3503, align 8
+  %.sroa.91016.8..sroa_idx1017 = getelementptr inbounds i8, ptr %3497, i64 32
   store i32 2, ptr %.sroa.91016.8..sroa_idx1017, align 8
-  %.sroa.13.8..sroa_idx1021 = getelementptr inbounds i8, ptr %3493, i64 36
+  %.sroa.13.8..sroa_idx1021 = getelementptr inbounds i8, ptr %3497, i64 36
   store i32 4, ptr %.sroa.13.8..sroa_idx1021, align 4
-  %.sroa.17.8..sroa_idx1025 = getelementptr inbounds i8, ptr %3493, i64 40
+  %.sroa.17.8..sroa_idx1025 = getelementptr inbounds i8, ptr %3497, i64 40
   store ptr %.sroa.17.1.lcssa, ptr %.sroa.17.8..sroa_idx1025, align 8
-  %.sroa.21.8..sroa_idx1029 = getelementptr inbounds i8, ptr %3493, i64 48
+  %.sroa.21.8..sroa_idx1029 = getelementptr inbounds i8, ptr %3497, i64 48
   store ptr null, ptr %.sroa.21.8..sroa_idx1029, align 8
-  %.sroa.22.8..sroa_idx1031 = getelementptr inbounds i8, ptr %3493, i64 56
+  %.sroa.22.8..sroa_idx1031 = getelementptr inbounds i8, ptr %3497, i64 56
   store i16 %.sroa.22.1.lcssa, ptr %.sroa.22.8..sroa_idx1031, align 8
-  %.sroa.26.8..sroa_idx1035 = getelementptr inbounds i8, ptr %3493, i64 58
+  %.sroa.26.8..sroa_idx1035 = getelementptr inbounds i8, ptr %3497, i64 58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.26.8..sroa_idx1035, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.26, i64 6, i1 false)
-  %3500 = getelementptr inbounds i8, ptr %3493, i64 64
-  store i32 1, ptr %3500, align 8
-  %3501 = getelementptr inbounds i8, ptr %3493, i64 72
-  store i32 %.sroa.261036.1.lcssa, ptr %3501, align 8
-  %.sroa.321042.48..sroa_idx1043 = getelementptr inbounds i8, ptr %3493, i64 80
+  %3504 = getelementptr inbounds i8, ptr %3497, i64 64
+  store i32 1, ptr %3504, align 8
+  %3505 = getelementptr inbounds i8, ptr %3497, i64 72
+  store i32 %.sroa.261036.1.lcssa, ptr %3505, align 8
+  %.sroa.321042.48..sroa_idx1043 = getelementptr inbounds i8, ptr %3497, i64 80
   store i32 2, ptr %.sroa.321042.48..sroa_idx1043, align 8
-  %.sroa.36.48..sroa_idx1047 = getelementptr inbounds i8, ptr %3493, i64 84
+  %.sroa.36.48..sroa_idx1047 = getelementptr inbounds i8, ptr %3497, i64 84
   store i32 4, ptr %.sroa.36.48..sroa_idx1047, align 4
-  %.sroa.40.48..sroa_idx1051 = getelementptr inbounds i8, ptr %3493, i64 88
+  %.sroa.40.48..sroa_idx1051 = getelementptr inbounds i8, ptr %3497, i64 88
   store ptr %.sroa.40.1.lcssa, ptr %.sroa.40.48..sroa_idx1051, align 8
-  %.sroa.44.48..sroa_idx1055 = getelementptr inbounds i8, ptr %3493, i64 96
+  %.sroa.44.48..sroa_idx1055 = getelementptr inbounds i8, ptr %3497, i64 96
   store ptr null, ptr %.sroa.44.48..sroa_idx1055, align 8
-  %.sroa.45.48..sroa_idx1057 = getelementptr inbounds i8, ptr %3493, i64 104
+  %.sroa.45.48..sroa_idx1057 = getelementptr inbounds i8, ptr %3497, i64 104
   store i16 %.sroa.45.1.lcssa, ptr %.sroa.45.48..sroa_idx1057, align 8
-  %.sroa.49.48..sroa_idx1061 = getelementptr inbounds i8, ptr %3493, i64 106
+  %.sroa.49.48..sroa_idx1061 = getelementptr inbounds i8, ptr %3497, i64 106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.49.48..sroa_idx1061, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.49, i64 6, i1 false)
-  %3502 = load i32, ptr @lbmc_stream_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %3502, ptr noundef nonnull %2, ptr noundef nonnull %3493) #9
-  %3503 = load i64, ptr %3470, align 8
-  store i64 %3503, ptr %43, align 8
-  %3504 = load i32, ptr %54, align 4
-  store i32 %3504, ptr %.0758.sroa.gep974, align 8
+  %3506 = load i32, ptr @lbmc_stream_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %3506, ptr noundef nonnull %2, ptr noundef nonnull %3497) #9
+  %3507 = load i64, ptr %3474, align 8
+  store i64 %3507, ptr %43, align 8
+  %3508 = load i32, ptr %54, align 4
+  store i32 %3508, ptr %.0758.sroa.gep974, align 8
   store i32 1, ptr %.0758.sroa.gep977, align 8
   store i32 %.sroa.31010.1.lcssa, ptr %.0758.sroa.gep980, align 8
   store i32 2, ptr %.sroa.91016.8..sroa_idx, align 8
@@ -8909,1119 +8907,1119 @@ proto_item_set_generated.exit919:                 ; preds = %proto_item_set_gene
   store ptr null, ptr %.sroa.44.48..sroa_idx, align 8
   store i16 %.sroa.45.1.lcssa, ptr %.sroa.45.48..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.49.48..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.49, i64 6, i1 false)
-  br label %3505
+  br label %3509
 
-3505:                                             ; preds = %3283, %3491, %3301, %.thread1087
-  %.0758.sroa.phi = phi ptr [ %.0758.sroa.gep974, %3491 ], [ inttoptr (i64 8 to ptr), %3301 ], [ %.0758.sroa.gep974, %3283 ], [ inttoptr (i64 8 to ptr), %.thread1087 ]
-  %.0758.sroa.phi976 = phi ptr [ %.0758.sroa.gep977, %3491 ], [ inttoptr (i64 16 to ptr), %3301 ], [ %.0758.sroa.gep977, %3283 ], [ inttoptr (i64 16 to ptr), %.thread1087 ]
-  %.0758.sroa.phi979 = phi ptr [ %.0758.sroa.gep980, %3491 ], [ inttoptr (i64 24 to ptr), %3301 ], [ %.0758.sroa.gep980, %3283 ], [ inttoptr (i64 24 to ptr), %.thread1087 ]
-  %.0758.sroa.phi982 = phi ptr [ %.0758.sroa.gep983, %3491 ], [ inttoptr (i64 64 to ptr), %3301 ], [ %.0758.sroa.gep983, %3283 ], [ inttoptr (i64 64 to ptr), %.thread1087 ]
-  %.0758.sroa.phi985 = phi ptr [ %.0758.sroa.gep986, %3491 ], [ inttoptr (i64 72 to ptr), %3301 ], [ %.0758.sroa.gep986, %3283 ], [ inttoptr (i64 72 to ptr), %.thread1087 ]
-  %.0758.sroa.phi988 = phi ptr [ %.0758.sroa.gep, %3491 ], [ inttoptr (i64 112 to ptr), %3301 ], [ %.0758.sroa.gep, %3283 ], [ inttoptr (i64 112 to ptr), %.thread1087 ]
-  %.0758 = phi ptr [ %43, %3491 ], [ null, %3301 ], [ %43, %3283 ], [ null, %.thread1087 ]
-  %3506 = icmp eq i8 %.0718.lcssa, 0
-  br i1 %3506, label %3507, label %3894
+3509:                                             ; preds = %3287, %3495, %3305, %.thread1087
+  %.0758.sroa.phi = phi ptr [ %.0758.sroa.gep974, %3495 ], [ inttoptr (i64 8 to ptr), %3305 ], [ %.0758.sroa.gep974, %3287 ], [ inttoptr (i64 8 to ptr), %.thread1087 ]
+  %.0758.sroa.phi976 = phi ptr [ %.0758.sroa.gep977, %3495 ], [ inttoptr (i64 16 to ptr), %3305 ], [ %.0758.sroa.gep977, %3287 ], [ inttoptr (i64 16 to ptr), %.thread1087 ]
+  %.0758.sroa.phi979 = phi ptr [ %.0758.sroa.gep980, %3495 ], [ inttoptr (i64 24 to ptr), %3305 ], [ %.0758.sroa.gep980, %3287 ], [ inttoptr (i64 24 to ptr), %.thread1087 ]
+  %.0758.sroa.phi982 = phi ptr [ %.0758.sroa.gep983, %3495 ], [ inttoptr (i64 64 to ptr), %3305 ], [ %.0758.sroa.gep983, %3287 ], [ inttoptr (i64 64 to ptr), %.thread1087 ]
+  %.0758.sroa.phi985 = phi ptr [ %.0758.sroa.gep986, %3495 ], [ inttoptr (i64 72 to ptr), %3305 ], [ %.0758.sroa.gep986, %3287 ], [ inttoptr (i64 72 to ptr), %.thread1087 ]
+  %.0758.sroa.phi988 = phi ptr [ %.0758.sroa.gep, %3495 ], [ inttoptr (i64 112 to ptr), %3305 ], [ %.0758.sroa.gep, %3287 ], [ inttoptr (i64 112 to ptr), %.thread1087 ]
+  %.0758 = phi ptr [ %43, %3495 ], [ null, %3305 ], [ %43, %3287 ], [ null, %.thread1087 ]
+  %3510 = icmp eq i8 %.0718.lcssa, 0
+  br i1 %3510, label %3511, label %3898
 
-3507:                                             ; preds = %3505
-  %3508 = icmp eq i32 %.sroa.01063.0.lcssa, 0
-  br i1 %3508, label %3509, label %3518
+3511:                                             ; preds = %3509
+  %3512 = icmp eq i32 %.sroa.01063.0.lcssa, 0
+  br i1 %3512, label %3513, label %3522
 
-3509:                                             ; preds = %3507
+3513:                                             ; preds = %3511
   %.not802 = icmp eq i32 %.01075.lcssa, 0
-  br i1 %.not802, label %3516, label %3510
+  br i1 %.not802, label %3520, label %3514
 
-3510:                                             ; preds = %3509
-  %3511 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
-  %3512 = sub i32 %3511, %.01075.lcssa
-  %3513 = add i32 %3512, %.0733.lcssa
-  %3514 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %.0733.lcssa, i32 noundef %3512) #9
-  %3515 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %3513, i32 noundef %.01075.lcssa) #9
+3514:                                             ; preds = %3513
+  %3515 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
+  %3516 = sub i32 %3515, %.01075.lcssa
+  %3517 = add i32 %3516, %.0733.lcssa
+  %3518 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %.0733.lcssa, i32 noundef %3516) #9
+  %3519 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %3517, i32 noundef %.01075.lcssa) #9
   br label %proto_item_set_generated.exit938
 
-3516:                                             ; preds = %3509
-  %3517 = call ptr @tvb_new_subset_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
+3520:                                             ; preds = %3513
+  %3521 = call ptr @tvb_new_subset_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
   br label %proto_item_set_generated.exit938
 
-3518:                                             ; preds = %3507
-  %3519 = load i32, ptr @lbmc_reassemble_fragments, align 4
-  %.not799 = icmp eq i32 %3519, 0
-  br i1 %.not799, label %3520, label %3523
+3522:                                             ; preds = %3511
+  %3523 = load i32, ptr @lbmc_reassemble_fragments, align 4
+  %.not799 = icmp eq i32 %3523, 0
+  br i1 %.not799, label %3524, label %3527
 
-3520:                                             ; preds = %3518
-  %3521 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
-  %3522 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %.0733.lcssa, i32 noundef %3521) #9
+3524:                                             ; preds = %3522
+  %3525 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
+  %3526 = call ptr @tvb_new_subset_length(ptr noundef %235, i32 noundef %.0733.lcssa, i32 noundef %3525) #9
   br label %proto_item_set_generated.exit938
 
-3523:                                             ; preds = %3518
-  %3524 = load i32, ptr %67, align 8
-  %3525 = trunc i32 %3524 to i16
+3527:                                             ; preds = %3522
+  %3528 = load i32, ptr %67, align 8
+  %3529 = trunc i32 %3528 to i16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %3526 = load ptr, ptr %66, align 8
-  %3527 = lshr i64 %.2753, 32
-  %3528 = trunc i64 %3527 to i32
-  store i32 %3528, ptr %13, align 16
-  %3529 = trunc i64 %.2753 to i32
-  store i32 %3529, ptr %205, align 4
-  %.0.copyload.i.i923 = load i32, ptr %3526, align 1
+  %3530 = load ptr, ptr %66, align 8
+  %3531 = lshr i64 %.2753, 32
+  %3532 = trunc i64 %3531 to i32
+  store i32 %3532, ptr %13, align 16
+  %3533 = trunc i64 %.2753 to i32
+  store i32 %3533, ptr %205, align 4
+  %.0.copyload.i.i923 = load i32, ptr %3530, align 1
   store i32 %.0.copyload.i.i923, ptr %206, align 8
-  %3530 = and i32 %3524, 65535
-  store i32 %3530, ptr %207, align 4
+  %3534 = and i32 %3528, 65535
+  store i32 %3534, ptr %207, align 4
   store i32 %.sroa.31064.0.lcssa, ptr %208, align 16
   store i32 5, ptr %14, align 16
   store ptr %13, ptr %209, align 8
   store i32 0, ptr %210, align 16
   store ptr null, ptr %211, align 8
-  %3531 = load ptr, ptr @lbmc_message_table, align 8
-  %3532 = call ptr @wmem_tree_lookup32_array(ptr noundef %3531, ptr noundef nonnull %14) #9
+  %3535 = load ptr, ptr @lbmc_message_table, align 8
+  %3536 = call ptr @wmem_tree_lookup32_array(ptr noundef %3535, ptr noundef nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %3533 = icmp eq ptr %3532, null
-  br i1 %3533, label %3534, label %3562
+  %3537 = icmp eq ptr %3536, null
+  br i1 %3537, label %3538, label %3566
 
-3534:                                             ; preds = %3523
+3538:                                             ; preds = %3527
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %3535 = load ptr, ptr %66, align 8
-  store i32 %3528, ptr %9, align 16
-  store i32 %3529, ptr %212, align 4
-  %.0.copyload.i.i.i925 = load i32, ptr %3535, align 1
+  %3539 = load ptr, ptr %66, align 8
+  store i32 %3532, ptr %9, align 16
+  store i32 %3533, ptr %212, align 4
+  %.0.copyload.i.i.i925 = load i32, ptr %3539, align 1
   store i32 %.0.copyload.i.i.i925, ptr %213, align 8
-  store i32 %3530, ptr %214, align 4
+  store i32 %3534, ptr %214, align 4
   store i32 %.sroa.31064.0.lcssa, ptr %215, align 16
   store i32 5, ptr %10, align 16
   store ptr %9, ptr %216, align 8
   store i32 0, ptr %217, align 16
   store ptr null, ptr %218, align 8
-  %3536 = load ptr, ptr @lbmc_message_table, align 8
-  %3537 = call ptr @wmem_tree_lookup32_array(ptr noundef %3536, ptr noundef nonnull %10) #9
+  %3540 = load ptr, ptr @lbmc_message_table, align 8
+  %3541 = call ptr @wmem_tree_lookup32_array(ptr noundef %3540, ptr noundef nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %.not.i926 = icmp eq ptr %3537, null
+  %.not.i926 = icmp eq ptr %3541, null
   br i1 %.not.i926, label %copy_address_wmem.exit.i928, label %lbmc_message_create.exit
 
-copy_address_wmem.exit.i928:                      ; preds = %3534
-  %3538 = call ptr @wmem_file_scope() #9
-  %3539 = call noalias ptr @wmem_alloc(ptr noundef %3538, i64 noundef 104) #9
-  store i64 %.2753, ptr %3539, align 8
-  %3540 = call ptr @wmem_file_scope() #9
-  %3541 = getelementptr inbounds i8, ptr %3539, i64 8
-  %3542 = load i32, ptr %64, align 8
-  %3543 = load i32, ptr %65, align 4
-  %3544 = load ptr, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3541, i8 0, i64 24, i1 false)
-  store i32 %3542, ptr %3541, align 8
-  %3545 = icmp ne i32 %3543, 0
-  call void @llvm.assume(i1 %3545)
-  %3546 = sext i32 %3543 to i64
-  %3547 = call noalias ptr @wmem_memdup(ptr noundef %3540, ptr noundef %3544, i64 noundef %3546) #9
-  %3548 = getelementptr inbounds i8, ptr %3539, i64 24
-  store ptr %3547, ptr %3548, align 8
-  %3549 = getelementptr inbounds i8, ptr %3539, i64 16
-  store ptr %3547, ptr %3549, align 8
-  %3550 = getelementptr inbounds i8, ptr %3539, i64 12
-  store i32 %3543, ptr %3550, align 4
-  %3551 = getelementptr inbounds i8, ptr %3539, i64 32
-  store i16 %3525, ptr %3551, align 8
-  %3552 = getelementptr inbounds i8, ptr %3539, i64 36
-  store i32 %.sroa.31064.0.lcssa, ptr %3552, align 4
-  %3553 = getelementptr inbounds i8, ptr %3539, i64 40
-  store i32 0, ptr %3553, align 8
-  %3554 = getelementptr inbounds i8, ptr %3539, i64 44
-  store i32 %.sroa.131069.0.lcssa, ptr %3554, align 4
-  %3555 = getelementptr inbounds i8, ptr %3539, i64 48
-  store i32 0, ptr %3555, align 8
-  %3556 = getelementptr inbounds i8, ptr %3539, i64 52
-  store i32 %.01075.lcssa, ptr %3556, align 4
-  %3557 = getelementptr inbounds i8, ptr %3539, i64 56
+copy_address_wmem.exit.i928:                      ; preds = %3538
+  %3542 = call ptr @wmem_file_scope() #9
+  %3543 = call noalias ptr @wmem_alloc(ptr noundef %3542, i64 noundef 104) #9
+  store i64 %.2753, ptr %3543, align 8
+  %3544 = call ptr @wmem_file_scope() #9
+  %3545 = getelementptr inbounds i8, ptr %3543, i64 8
+  %3546 = load i32, ptr %64, align 8
+  %3547 = load i32, ptr %65, align 4
+  %3548 = load ptr, ptr %66, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3545, i8 0, i64 24, i1 false)
+  store i32 %3546, ptr %3545, align 8
+  %3549 = icmp ne i32 %3547, 0
+  call void @llvm.assume(i1 %3549)
+  %3550 = sext i32 %3547 to i64
+  %3551 = call noalias ptr @wmem_memdup(ptr noundef %3544, ptr noundef %3548, i64 noundef %3550) #9
+  %3552 = getelementptr inbounds i8, ptr %3543, i64 24
+  store ptr %3551, ptr %3552, align 8
+  %3553 = getelementptr inbounds i8, ptr %3543, i64 16
+  store ptr %3551, ptr %3553, align 8
+  %3554 = getelementptr inbounds i8, ptr %3543, i64 12
+  store i32 %3547, ptr %3554, align 4
+  %3555 = getelementptr inbounds i8, ptr %3543, i64 32
+  store i16 %3529, ptr %3555, align 8
+  %3556 = getelementptr inbounds i8, ptr %3543, i64 36
+  store i32 %.sroa.31064.0.lcssa, ptr %3556, align 4
+  %3557 = getelementptr inbounds i8, ptr %3543, i64 40
   store i32 0, ptr %3557, align 8
-  %3558 = getelementptr inbounds i8, ptr %3539, i64 64
-  store ptr null, ptr %3558, align 8
-  %3559 = getelementptr inbounds i8, ptr %3539, i64 72
+  %3558 = getelementptr inbounds i8, ptr %3543, i64 44
+  store i32 %.sroa.131069.0.lcssa, ptr %3558, align 4
+  %3559 = getelementptr inbounds i8, ptr %3543, i64 48
   store i32 0, ptr %3559, align 8
-  %3560 = getelementptr inbounds i8, ptr %3539, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3560, i8 0, i64 24, i1 false)
-  store i32 %3528, ptr %11, align 16
-  store i32 %3529, ptr %219, align 4
-  %.0.copyload.i.i929 = load i32, ptr %3547, align 1
+  %3560 = getelementptr inbounds i8, ptr %3543, i64 52
+  store i32 %.01075.lcssa, ptr %3560, align 4
+  %3561 = getelementptr inbounds i8, ptr %3543, i64 56
+  store i32 0, ptr %3561, align 8
+  %3562 = getelementptr inbounds i8, ptr %3543, i64 64
+  store ptr null, ptr %3562, align 8
+  %3563 = getelementptr inbounds i8, ptr %3543, i64 72
+  store i32 0, ptr %3563, align 8
+  %3564 = getelementptr inbounds i8, ptr %3543, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3564, i8 0, i64 24, i1 false)
+  store i32 %3532, ptr %11, align 16
+  store i32 %3533, ptr %219, align 4
+  %.0.copyload.i.i929 = load i32, ptr %3551, align 1
   store i32 %.0.copyload.i.i929, ptr %220, align 8
-  store i32 %3530, ptr %221, align 4
+  store i32 %3534, ptr %221, align 4
   store i32 %.sroa.31064.0.lcssa, ptr %222, align 16
   store i32 5, ptr %12, align 16
   store ptr %11, ptr %223, align 8
   store i32 0, ptr %224, align 16
   store ptr null, ptr %225, align 8
-  %3561 = load ptr, ptr @lbmc_message_table, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3561, ptr noundef nonnull %12, ptr noundef nonnull %3539) #9
+  %3565 = load ptr, ptr @lbmc_message_table, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3565, ptr noundef nonnull %12, ptr noundef nonnull %3543) #9
   br label %lbmc_message_create.exit
 
-lbmc_message_create.exit:                         ; preds = %3534, %copy_address_wmem.exit.i928
-  %.0.i927 = phi ptr [ %3539, %copy_address_wmem.exit.i928 ], [ %3537, %3534 ]
+lbmc_message_create.exit:                         ; preds = %3538, %copy_address_wmem.exit.i928
+  %.0.i927 = phi ptr [ %3543, %copy_address_wmem.exit.i928 ], [ %3541, %3538 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br label %3562
+  br label %3566
 
-3562:                                             ; preds = %3523, %lbmc_message_create.exit
-  %.0722 = phi ptr [ %.0.i927, %lbmc_message_create.exit ], [ %3532, %3523 ]
-  %3563 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
-  %3564 = add i32 %3563, %.sroa.8.0.lcssa
-  %3565 = getelementptr inbounds i8, ptr %.0722, i64 44
-  %3566 = load i32, ptr %3565, align 4
-  %3567 = icmp ugt i32 %3564, %3566
-  br i1 %3567, label %3568, label %3570
+3566:                                             ; preds = %3527, %lbmc_message_create.exit
+  %.0722 = phi ptr [ %.0.i927, %lbmc_message_create.exit ], [ %3536, %3527 ]
+  %3567 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
+  %3568 = add i32 %3567, %.sroa.8.0.lcssa
+  %3569 = getelementptr inbounds i8, ptr %.0722, i64 44
+  %3570 = load i32, ptr %3569, align 4
+  %3571 = icmp ugt i32 %3568, %3570
+  br i1 %3571, label %3572, label %3574
 
-3568:                                             ; preds = %3562
-  %3569 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_invalid_fragment, ptr noundef nonnull @.str.7, i32 noundef %3566, i32 noundef %.sroa.8.0.lcssa, i32 noundef %3563) #9
+3572:                                             ; preds = %3566
+  %3573 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_invalid_fragment, ptr noundef nonnull @.str.7, i32 noundef %3570, i32 noundef %.sroa.8.0.lcssa, i32 noundef %3567) #9
   br label %proto_item_set_generated.exit938
 
-3570:                                             ; preds = %3562
-  %3571 = load i32, ptr %69, align 4
-  %3572 = icmp eq ptr %235, null
-  br i1 %3572, label %lbmc_message_add_fragment.exit, label %3573
+3574:                                             ; preds = %3566
+  %3575 = load i32, ptr %69, align 4
+  %3576 = icmp eq ptr %235, null
+  br i1 %3576, label %lbmc_message_add_fragment.exit, label %3577
 
-3573:                                             ; preds = %3570
-  %3574 = getelementptr inbounds i8, ptr %.0722, i64 64
-  %3575 = load ptr, ptr %3574, align 8
-  %3576 = icmp eq ptr %3575, null
-  br i1 %3576, label %3577, label %.preheader.i
-
-3577:                                             ; preds = %3573
-  %3578 = call ptr @wmem_file_scope() #9
-  %3579 = call noalias ptr @wmem_alloc(ptr noundef %3578, i64 noundef 40) #9
+3577:                                             ; preds = %3574
+  %3578 = getelementptr inbounds i8, ptr %.0722, i64 64
+  %3579 = load ptr, ptr %3578, align 8
   %3580 = icmp eq ptr %3579, null
-  br i1 %3580, label %lbmc_message_add_fragment.exit, label %3581
+  br i1 %3580, label %3581, label %.preheader.i
 
 3581:                                             ; preds = %3577
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3579, i8 0, i64 16, i1 false)
-  store ptr %3579, ptr %3574, align 8
-  br label %3607
-
-.preheader.i:                                     ; preds = %3573, %3589
-  %.0.i930 = phi ptr [ %3591, %3589 ], [ %3575, %3573 ]
-  %3582 = getelementptr inbounds i8, ptr %.0.i930, i64 16
-  %3583 = load i32, ptr %3582, align 8
-  %3584 = icmp eq i32 %.sroa.8.0.lcssa, %3583
+  %3582 = call ptr @wmem_file_scope() #9
+  %3583 = call noalias ptr @wmem_alloc(ptr noundef %3582, i64 noundef 40) #9
+  %3584 = icmp eq ptr %3583, null
   br i1 %3584, label %lbmc_message_add_fragment.exit, label %3585
 
-3585:                                             ; preds = %.preheader.i
-  %3586 = icmp ult i32 %.sroa.8.0.lcssa, %3583
-  br i1 %3586, label %3587, label %3589
+3585:                                             ; preds = %3581
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3583, i8 0, i64 16, i1 false)
+  store ptr %3583, ptr %3578, align 8
+  br label %3611
 
-3587:                                             ; preds = %3585
-  %3588 = load ptr, ptr %.0.i930, align 8
+.preheader.i:                                     ; preds = %3577, %3593
+  %.0.i930 = phi ptr [ %3595, %3593 ], [ %3579, %3577 ]
+  %3586 = getelementptr inbounds i8, ptr %.0.i930, i64 16
+  %3587 = load i32, ptr %3586, align 8
+  %3588 = icmp eq i32 %.sroa.8.0.lcssa, %3587
+  br i1 %3588, label %lbmc_message_add_fragment.exit, label %3589
+
+3589:                                             ; preds = %.preheader.i
+  %3590 = icmp ult i32 %.sroa.8.0.lcssa, %3587
+  br i1 %3590, label %3591, label %3593
+
+3591:                                             ; preds = %3589
+  %3592 = load ptr, ptr %.0.i930, align 8
   br label %.loopexit65.i
 
-3589:                                             ; preds = %3585
-  %3590 = getelementptr inbounds i8, ptr %.0.i930, i64 8
-  %3591 = load ptr, ptr %3590, align 8
-  %3592 = icmp eq ptr %3591, null
-  br i1 %3592, label %.loopexit65.i, label %.preheader.i, !llvm.loop !13
+3593:                                             ; preds = %3589
+  %3594 = getelementptr inbounds i8, ptr %.0.i930, i64 8
+  %3595 = load ptr, ptr %3594, align 8
+  %3596 = icmp eq ptr %3595, null
+  br i1 %3596, label %.loopexit65.i, label %.preheader.i, !llvm.loop !13
 
-.loopexit65.i:                                    ; preds = %3589, %3587
-  %.1.i931 = phi ptr [ %3588, %3587 ], [ %.0.i930, %3589 ]
-  %3593 = call ptr @wmem_file_scope() #9
-  %3594 = call noalias ptr @wmem_alloc(ptr noundef %3593, i64 noundef 40) #9
-  %3595 = icmp eq ptr %3594, null
-  br i1 %3595, label %lbmc_message_add_fragment.exit, label %3596
+.loopexit65.i:                                    ; preds = %3593, %3591
+  %.1.i931 = phi ptr [ %3592, %3591 ], [ %.0.i930, %3593 ]
+  %3597 = call ptr @wmem_file_scope() #9
+  %3598 = call noalias ptr @wmem_alloc(ptr noundef %3597, i64 noundef 40) #9
+  %3599 = icmp eq ptr %3598, null
+  br i1 %3599, label %lbmc_message_add_fragment.exit, label %3600
 
-3596:                                             ; preds = %.loopexit65.i
-  %3597 = icmp eq ptr %.1.i931, null
-  br i1 %3597, label %3598, label %3601
+3600:                                             ; preds = %.loopexit65.i
+  %3601 = icmp eq ptr %.1.i931, null
+  br i1 %3601, label %3602, label %3605
 
-3598:                                             ; preds = %3596
-  store ptr null, ptr %3594, align 8
-  %3599 = load ptr, ptr %3574, align 8
-  %3600 = getelementptr inbounds i8, ptr %3594, i64 8
-  store ptr %3599, ptr %3600, align 8
-  store ptr %3594, ptr %3599, align 8
-  store ptr %3594, ptr %3574, align 8
-  br label %3607
-
-3601:                                             ; preds = %3596
-  store ptr %.1.i931, ptr %3594, align 8
-  %3602 = getelementptr inbounds i8, ptr %.1.i931, i64 8
-  %3603 = load ptr, ptr %3602, align 8
-  %3604 = getelementptr inbounds i8, ptr %3594, i64 8
+3602:                                             ; preds = %3600
+  store ptr null, ptr %3598, align 8
+  %3603 = load ptr, ptr %3578, align 8
+  %3604 = getelementptr inbounds i8, ptr %3598, i64 8
   store ptr %3603, ptr %3604, align 8
-  store ptr %3594, ptr %3602, align 8
-  %3605 = load ptr, ptr %3604, align 8
-  %.not.i932 = icmp eq ptr %3605, null
-  br i1 %.not.i932, label %3607, label %3606
+  store ptr %3598, ptr %3603, align 8
+  store ptr %3598, ptr %3578, align 8
+  br label %3611
 
-3606:                                             ; preds = %3601
-  store ptr %3594, ptr %3605, align 8
-  br label %3607
+3605:                                             ; preds = %3600
+  store ptr %.1.i931, ptr %3598, align 8
+  %3606 = getelementptr inbounds i8, ptr %.1.i931, i64 8
+  %3607 = load ptr, ptr %3606, align 8
+  %3608 = getelementptr inbounds i8, ptr %3598, i64 8
+  store ptr %3607, ptr %3608, align 8
+  store ptr %3598, ptr %3606, align 8
+  %3609 = load ptr, ptr %3608, align 8
+  %.not.i932 = icmp eq ptr %3609, null
+  br i1 %.not.i932, label %3611, label %3610
 
-3607:                                             ; preds = %3606, %3601, %3598, %3581
-  %.054.i = phi ptr [ %3579, %3581 ], [ %3594, %3598 ], [ %3594, %3606 ], [ %3594, %3601 ]
-  %3608 = getelementptr inbounds i8, ptr %.054.i, i64 16
-  store i32 %.sroa.8.0.lcssa, ptr %3608, align 8
-  %3609 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %235, i32 noundef %.0733.lcssa) #9
-  %3610 = getelementptr inbounds i8, ptr %.054.i, i64 20
-  store i32 %3609, ptr %3610, align 4
-  %3611 = call ptr @wmem_file_scope() #9
-  %3612 = load i32, ptr %3610, align 4
-  %3613 = zext i32 %3612 to i64
-  %3614 = call ptr @tvb_memdup(ptr noundef %3611, ptr noundef nonnull %235, i32 noundef %.0733.lcssa, i64 noundef %3613) #9
-  %3615 = getelementptr inbounds i8, ptr %.054.i, i64 32
-  store ptr %3614, ptr %3615, align 8
-  %3616 = getelementptr inbounds i8, ptr %.054.i, i64 24
-  store i32 %3571, ptr %3616, align 8
-  %3617 = getelementptr inbounds i8, ptr %.054.i, i64 28
-  store i32 %.0733.lcssa, ptr %3617, align 4
-  %3618 = load i32, ptr %3610, align 4
-  %3619 = getelementptr inbounds i8, ptr %.0722, i64 48
-  %3620 = load i32, ptr %3619, align 8
-  %3621 = add i32 %3620, %3618
-  store i32 %3621, ptr %3619, align 8
-  %3622 = getelementptr inbounds i8, ptr %.0722, i64 40
-  %3623 = load i32, ptr %3622, align 8
-  %3624 = add i32 %3623, 1
-  store i32 %3624, ptr %3622, align 8
+3610:                                             ; preds = %3605
+  store ptr %3598, ptr %3609, align 8
+  br label %3611
+
+3611:                                             ; preds = %3610, %3605, %3602, %3585
+  %.054.i = phi ptr [ %3583, %3585 ], [ %3598, %3602 ], [ %3598, %3610 ], [ %3598, %3605 ]
+  %3612 = getelementptr inbounds i8, ptr %.054.i, i64 16
+  store i32 %.sroa.8.0.lcssa, ptr %3612, align 8
+  %3613 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %235, i32 noundef %.0733.lcssa) #9
+  %3614 = getelementptr inbounds i8, ptr %.054.i, i64 20
+  store i32 %3613, ptr %3614, align 4
+  %3615 = call ptr @wmem_file_scope() #9
+  %3616 = load i32, ptr %3614, align 4
+  %3617 = zext i32 %3616 to i64
+  %3618 = call ptr @tvb_memdup(ptr noundef %3615, ptr noundef nonnull %235, i32 noundef %.0733.lcssa, i64 noundef %3617) #9
+  %3619 = getelementptr inbounds i8, ptr %.054.i, i64 32
+  store ptr %3618, ptr %3619, align 8
+  %3620 = getelementptr inbounds i8, ptr %.054.i, i64 24
+  store i32 %3575, ptr %3620, align 8
+  %3621 = getelementptr inbounds i8, ptr %.054.i, i64 28
+  store i32 %.0733.lcssa, ptr %3621, align 4
+  %3622 = load i32, ptr %3614, align 4
+  %3623 = getelementptr inbounds i8, ptr %.0722, i64 48
+  %3624 = load i32, ptr %3623, align 8
+  %3625 = add i32 %3624, %3622
+  store i32 %3625, ptr %3623, align 8
+  %3626 = getelementptr inbounds i8, ptr %.0722, i64 40
+  %3627 = load i32, ptr %3626, align 8
+  %3628 = add i32 %3627, 1
+  store i32 %3628, ptr %3626, align 8
   br label %lbmc_message_add_fragment.exit
 
-lbmc_message_add_fragment.exit:                   ; preds = %.preheader.i, %3570, %3577, %.loopexit65.i, %3607
+lbmc_message_add_fragment.exit:                   ; preds = %.preheader.i, %3574, %3581, %.loopexit65.i, %3611
   %.not801 = icmp eq i32 %.01080.lcssa, 0
-  br i1 %.not801, label %3627, label %3625
+  br i1 %.not801, label %3631, label %3629
 
-3625:                                             ; preds = %lbmc_message_add_fragment.exit
-  %3626 = getelementptr inbounds i8, ptr %.0722, i64 56
-  store i32 1, ptr %3626, align 8
-  br label %3627
+3629:                                             ; preds = %lbmc_message_add_fragment.exit
+  %3630 = getelementptr inbounds i8, ptr %.0722, i64 56
+  store i32 1, ptr %3630, align 8
+  br label %3631
 
-3627:                                             ; preds = %3625, %lbmc_message_add_fragment.exit
-  %3628 = load i32, ptr %3565, align 4
-  %3629 = getelementptr inbounds i8, ptr %.0722, i64 48
-  %3630 = load i32, ptr %3629, align 8
-  %3631 = icmp eq i32 %3628, %3630
-  br i1 %3631, label %3632, label %3643
-
-3632:                                             ; preds = %3627
-  %3633 = getelementptr inbounds i8, ptr %.0722, i64 72
+3631:                                             ; preds = %3629, %lbmc_message_add_fragment.exit
+  %3632 = load i32, ptr %3569, align 4
+  %3633 = getelementptr inbounds i8, ptr %.0722, i64 48
   %3634 = load i32, ptr %3633, align 8
-  %3635 = icmp eq i32 %3634, 0
-  br i1 %3635, label %3636, label %3638
+  %3635 = icmp eq i32 %3632, %3634
+  br i1 %3635, label %3636, label %3647
 
-3636:                                             ; preds = %3632
-  %3637 = load i32, ptr %69, align 4
-  store i32 %3637, ptr %3633, align 8
-  br label %3638
+3636:                                             ; preds = %3631
+  %3637 = getelementptr inbounds i8, ptr %.0722, i64 72
+  %3638 = load i32, ptr %3637, align 8
+  %3639 = icmp eq i32 %3638, 0
+  br i1 %3639, label %3640, label %3642
 
-3638:                                             ; preds = %3636, %3632
-  %3639 = call ptr @tvb_new_subset_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
-  %3640 = load i32, ptr %3633, align 8
+3640:                                             ; preds = %3636
   %3641 = load i32, ptr %69, align 4
-  %3642 = icmp ne i32 %3640, %3641
-  br label %3645
+  store i32 %3641, ptr %3637, align 8
+  br label %3642
 
-3643:                                             ; preds = %3627
-  %3644 = call ptr @tvb_new_subset_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
+3642:                                             ; preds = %3640, %3636
+  %3643 = call ptr @tvb_new_subset_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
+  %3644 = load i32, ptr %3637, align 8
+  %3645 = load i32, ptr %69, align 4
+  %3646 = icmp ne i32 %3644, %3645
+  br label %3649
+
+3647:                                             ; preds = %3631
+  %3648 = call ptr @tvb_new_subset_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0722, i64 72
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre1339 = load i32, ptr %69, align 4
-  br label %3645
+  %.pre1305 = load i32, ptr %69, align 4
+  br label %3649
 
-3645:                                             ; preds = %3643, %3638
-  %3646 = phi i32 [ %.pre1339, %3643 ], [ %3641, %3638 ]
-  %3647 = phi i32 [ %.pre, %3643 ], [ %3640, %3638 ]
-  %.1731 = phi ptr [ %3644, %3643 ], [ %3639, %3638 ]
-  %.0726 = phi i32 [ 0, %3643 ], [ 1, %3638 ]
-  %.not808 = phi i1 [ true, %3643 ], [ %3642, %3638 ]
-  %3648 = getelementptr inbounds i8, ptr %.0722, i64 72
-  %3649 = icmp eq i32 %3647, %3646
-  br i1 %3649, label %3650, label %3745
+3649:                                             ; preds = %3647, %3642
+  %3650 = phi i32 [ %.pre1305, %3647 ], [ %3645, %3642 ]
+  %3651 = phi i32 [ %.pre, %3647 ], [ %3644, %3642 ]
+  %.1731 = phi ptr [ %3648, %3647 ], [ %3643, %3642 ]
+  %.0726 = phi i32 [ 0, %3647 ], [ 1, %3642 ]
+  %.not808 = phi i1 [ true, %3647 ], [ %3646, %3642 ]
+  %3652 = getelementptr inbounds i8, ptr %.0722, i64 72
+  %3653 = icmp eq i32 %3651, %3650
+  br i1 %3653, label %3654, label %3749
 
-3650:                                             ; preds = %3645
-  %3651 = load ptr, ptr %52, align 8
-  %3652 = load i32, ptr %3565, align 4
-  %3653 = zext i32 %3652 to i64
-  %3654 = call noalias ptr @wmem_alloc(ptr noundef %3651, i64 noundef %3653) #9
-  %3655 = getelementptr inbounds i8, ptr %.0722, i64 64
-  %.07161259 = load ptr, ptr %3655, align 8
-  %.not8041260 = icmp eq ptr %.07161259, null
-  br i1 %.not8041260, label %._crit_edge, label %.lr.ph1262
+3654:                                             ; preds = %3649
+  %3655 = load ptr, ptr %52, align 8
+  %3656 = load i32, ptr %3569, align 4
+  %3657 = zext i32 %3656 to i64
+  %3658 = call noalias ptr @wmem_alloc(ptr noundef %3655, i64 noundef %3657) #9
+  %3659 = getelementptr inbounds i8, ptr %.0722, i64 64
+  %.07161221 = load ptr, ptr %3659, align 8
+  %.not8041222 = icmp eq ptr %.07161221, null
+  br i1 %.not8041222, label %._crit_edge, label %.lr.ph1224
 
-.lr.ph1262:                                       ; preds = %3650, %.lr.ph1262
-  %.07161261 = phi ptr [ %.0716, %.lr.ph1262 ], [ %.07161259, %3650 ]
-  %3656 = getelementptr inbounds i8, ptr %.07161261, i64 16
-  %3657 = load i32, ptr %3656, align 8
-  %3658 = zext i32 %3657 to i64
-  %3659 = getelementptr i8, ptr %3654, i64 %3658
-  %3660 = getelementptr inbounds i8, ptr %.07161261, i64 32
-  %3661 = load ptr, ptr %3660, align 8
-  %3662 = getelementptr inbounds i8, ptr %.07161261, i64 20
-  %3663 = load i32, ptr %3662, align 4
-  %3664 = zext i32 %3663 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3659, ptr align 1 %3661, i64 %3664, i1 false)
-  %3665 = getelementptr inbounds i8, ptr %.07161261, i64 8
-  %.0716 = load ptr, ptr %3665, align 8
+.lr.ph1224:                                       ; preds = %3654, %.lr.ph1224
+  %.07161223 = phi ptr [ %.0716, %.lr.ph1224 ], [ %.07161221, %3654 ]
+  %3660 = getelementptr inbounds i8, ptr %.07161223, i64 16
+  %3661 = load i32, ptr %3660, align 8
+  %3662 = zext i32 %3661 to i64
+  %3663 = getelementptr i8, ptr %3658, i64 %3662
+  %3664 = getelementptr inbounds i8, ptr %.07161223, i64 32
+  %3665 = load ptr, ptr %3664, align 8
+  %3666 = getelementptr inbounds i8, ptr %.07161223, i64 20
+  %3667 = load i32, ptr %3666, align 4
+  %3668 = zext i32 %3667 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3663, ptr align 1 %3665, i64 %3668, i1 false)
+  %3669 = getelementptr inbounds i8, ptr %.07161223, i64 8
+  %.0716 = load ptr, ptr %3669, align 8
   %.not804 = icmp eq ptr %.0716, null
-  br i1 %.not804, label %._crit_edge, label %.lr.ph1262, !llvm.loop !14
+  br i1 %.not804, label %._crit_edge, label %.lr.ph1224, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph1262, %3650
-  %3666 = load i32, ptr %3565, align 4
-  %3667 = call ptr @tvb_new_real_data(ptr noundef %3654, i32 noundef %3666, i32 noundef %3666) #9
-  %3668 = getelementptr inbounds i8, ptr %.0722, i64 80
-  store ptr %3667, ptr %3668, align 8
-  %3669 = load i32, ptr %3565, align 4
-  %3670 = getelementptr inbounds i8, ptr %.0722, i64 52
-  %3671 = load i32, ptr %3670, align 4
-  %3672 = sub i32 %3669, %3671
-  %3673 = call ptr @tvb_new_subset_length(ptr noundef %3667, i32 noundef 0, i32 noundef %3672) #9
-  %3674 = getelementptr inbounds i8, ptr %.0722, i64 88
-  store ptr %3673, ptr %3674, align 8
-  %3675 = load i32, ptr %3670, align 4
-  %.not805 = icmp eq i32 %3675, 0
-  br i1 %.not805, label %3682, label %3676
+._crit_edge:                                      ; preds = %.lr.ph1224, %3654
+  %3670 = load i32, ptr %3569, align 4
+  %3671 = call ptr @tvb_new_real_data(ptr noundef %3658, i32 noundef %3670, i32 noundef %3670) #9
+  %3672 = getelementptr inbounds i8, ptr %.0722, i64 80
+  store ptr %3671, ptr %3672, align 8
+  %3673 = load i32, ptr %3569, align 4
+  %3674 = getelementptr inbounds i8, ptr %.0722, i64 52
+  %3675 = load i32, ptr %3674, align 4
+  %3676 = sub i32 %3673, %3675
+  %3677 = call ptr @tvb_new_subset_length(ptr noundef %3671, i32 noundef 0, i32 noundef %3676) #9
+  %3678 = getelementptr inbounds i8, ptr %.0722, i64 88
+  store ptr %3677, ptr %3678, align 8
+  %3679 = load i32, ptr %3674, align 4
+  %.not805 = icmp eq i32 %3679, 0
+  br i1 %.not805, label %3686, label %3680
 
-3676:                                             ; preds = %._crit_edge
-  %3677 = load ptr, ptr %3668, align 8
-  %3678 = load i32, ptr %3565, align 4
-  %3679 = sub i32 %3678, %3675
-  %3680 = call ptr @tvb_new_subset_length(ptr noundef %3677, i32 noundef %3679, i32 noundef %3675) #9
-  %3681 = getelementptr inbounds i8, ptr %.0722, i64 96
-  store ptr %3680, ptr %3681, align 8
-  br label %3682
+3680:                                             ; preds = %._crit_edge
+  %3681 = load ptr, ptr %3672, align 8
+  %3682 = load i32, ptr %3569, align 4
+  %3683 = sub i32 %3682, %3679
+  %3684 = call ptr @tvb_new_subset_length(ptr noundef %3681, i32 noundef %3683, i32 noundef %3679) #9
+  %3685 = getelementptr inbounds i8, ptr %.0722, i64 96
+  store ptr %3684, ptr %3685, align 8
+  br label %3686
 
-3682:                                             ; preds = %3676, %._crit_edge
-  %3683 = load ptr, ptr %3668, align 8
-  call void @add_new_data_source(ptr noundef %2, ptr noundef %3683, ptr noundef nonnull @.str.8) #9
-  %3684 = load ptr, ptr %3674, align 8
-  %3685 = icmp eq ptr %3684, null
-  br i1 %3685, label %3686, label %3692
+3686:                                             ; preds = %3680, %._crit_edge
+  %3687 = load ptr, ptr %3672, align 8
+  call void @add_new_data_source(ptr noundef %2, ptr noundef %3687, ptr noundef nonnull @.str.8) #9
+  %3688 = load ptr, ptr %3678, align 8
+  %3689 = icmp eq ptr %3688, null
+  br i1 %3689, label %3690, label %3696
 
-3686:                                             ; preds = %3682
-  %3687 = load ptr, ptr %3668, align 8
-  %3688 = load i32, ptr %3565, align 4
-  %3689 = load i32, ptr %3670, align 4
-  %3690 = sub i32 %3688, %3689
-  %3691 = call ptr @tvb_new_subset_length(ptr noundef %3687, i32 noundef 0, i32 noundef %3690) #9
-  store ptr %3691, ptr %3674, align 8
-  br label %3692
+3690:                                             ; preds = %3686
+  %3691 = load ptr, ptr %3672, align 8
+  %3692 = load i32, ptr %3569, align 4
+  %3693 = load i32, ptr %3674, align 4
+  %3694 = sub i32 %3692, %3693
+  %3695 = call ptr @tvb_new_subset_length(ptr noundef %3691, i32 noundef 0, i32 noundef %3694) #9
+  store ptr %3695, ptr %3678, align 8
+  br label %3696
 
-3692:                                             ; preds = %3686, %3682
-  %3693 = phi ptr [ %3691, %3686 ], [ %3684, %3682 ]
-  %3694 = getelementptr inbounds i8, ptr %.0722, i64 96
-  %3695 = load ptr, ptr %3694, align 8
-  %3696 = icmp eq ptr %3695, null
-  br i1 %3696, label %3697, label %3704
+3696:                                             ; preds = %3690, %3686
+  %3697 = phi ptr [ %3695, %3690 ], [ %3688, %3686 ]
+  %3698 = getelementptr inbounds i8, ptr %.0722, i64 96
+  %3699 = load ptr, ptr %3698, align 8
+  %3700 = icmp eq ptr %3699, null
+  br i1 %3700, label %3701, label %3708
 
-3697:                                             ; preds = %3692
-  %3698 = load i32, ptr %3670, align 4
-  %.not806 = icmp eq i32 %3698, 0
-  br i1 %.not806, label %3704, label %3699
+3701:                                             ; preds = %3696
+  %3702 = load i32, ptr %3674, align 4
+  %.not806 = icmp eq i32 %3702, 0
+  br i1 %.not806, label %3708, label %3703
 
-3699:                                             ; preds = %3697
-  %3700 = load ptr, ptr %3668, align 8
-  %3701 = load i32, ptr %3565, align 4
-  %3702 = sub i32 %3701, %3698
-  %3703 = call ptr @tvb_new_subset_length(ptr noundef %3700, i32 noundef %3702, i32 noundef %3698) #9
-  store ptr %3703, ptr %3694, align 8
-  %.pre1340 = load ptr, ptr %3674, align 8
-  br label %3704
+3703:                                             ; preds = %3701
+  %3704 = load ptr, ptr %3672, align 8
+  %3705 = load i32, ptr %3569, align 4
+  %3706 = sub i32 %3705, %3702
+  %3707 = call ptr @tvb_new_subset_length(ptr noundef %3704, i32 noundef %3706, i32 noundef %3702) #9
+  store ptr %3707, ptr %3698, align 8
+  %.pre1306 = load ptr, ptr %3678, align 8
+  br label %3708
 
-3704:                                             ; preds = %3697, %3699, %3692
-  %3705 = phi ptr [ null, %3697 ], [ %3703, %3699 ], [ %3695, %3692 ]
-  %3706 = phi ptr [ %3693, %3697 ], [ %.pre1340, %3699 ], [ %3693, %3692 ]
-  %3707 = getelementptr inbounds i8, ptr %.0722, i64 56
-  %3708 = load i32, ptr %3707, align 8
-  %3709 = load i32, ptr @hf_lbmc_reassembly, align 4
-  %3710 = call i32 @tvb_reported_length_remaining(ptr noundef %3706, i32 noundef 0) #9
-  %3711 = getelementptr inbounds i8, ptr %.0722, i64 40
+3708:                                             ; preds = %3701, %3703, %3696
+  %3709 = phi ptr [ null, %3701 ], [ %3707, %3703 ], [ %3699, %3696 ]
+  %3710 = phi ptr [ %3697, %3701 ], [ %.pre1306, %3703 ], [ %3697, %3696 ]
+  %3711 = getelementptr inbounds i8, ptr %.0722, i64 56
   %3712 = load i32, ptr %3711, align 8
-  %3713 = load i32, ptr %3565, align 4
-  %3714 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %275, i32 noundef %3709, ptr noundef %3706, i32 noundef 0, i32 noundef %3710, ptr noundef nonnull @.str.9, i32 noundef %3712, i32 noundef %3713) #9
-  %3715 = load i32, ptr @ett_lbmc_reassembly, align 4
-  %3716 = call ptr @proto_item_add_subtree(ptr noundef %3714, i32 noundef %3715) #9
-  %.11263 = load ptr, ptr %3655, align 8
-  %.not8071264 = icmp eq ptr %.11263, null
-  br i1 %.not8071264, label %._crit_edge1269, label %.lr.ph1268
+  %3713 = load i32, ptr @hf_lbmc_reassembly, align 4
+  %3714 = call i32 @tvb_reported_length_remaining(ptr noundef %3710, i32 noundef 0) #9
+  %3715 = getelementptr inbounds i8, ptr %.0722, i64 40
+  %3716 = load i32, ptr %3715, align 8
+  %3717 = load i32, ptr %3569, align 4
+  %3718 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %275, i32 noundef %3713, ptr noundef %3710, i32 noundef 0, i32 noundef %3714, ptr noundef nonnull @.str.9, i32 noundef %3716, i32 noundef %3717) #9
+  %3719 = load i32, ptr @ett_lbmc_reassembly, align 4
+  %3720 = call ptr @proto_item_add_subtree(ptr noundef %3718, i32 noundef %3719) #9
+  %.11225 = load ptr, ptr %3659, align 8
+  %.not8071226 = icmp eq ptr %.11225, null
+  br i1 %.not8071226, label %._crit_edge1231, label %.lr.ph1230
 
-.lr.ph1268:                                       ; preds = %3704, %proto_item_set_generated.exit935
-  %.11266 = phi ptr [ %.1, %proto_item_set_generated.exit935 ], [ %.11263, %3704 ]
-  %.not8141265 = phi ptr [ @.str.12, %proto_item_set_generated.exit935 ], [ @.str.11, %3704 ]
-  %3717 = load i32, ptr @hf_lbmc_reassembly_fragment, align 4
-  %3718 = load ptr, ptr %3668, align 8
-  %3719 = getelementptr inbounds i8, ptr %.11266, i64 16
-  %3720 = load i32, ptr %3719, align 8
-  %3721 = getelementptr inbounds i8, ptr %.11266, i64 20
-  %3722 = load i32, ptr %3721, align 4
-  %3723 = getelementptr inbounds i8, ptr %.11266, i64 24
+.lr.ph1230:                                       ; preds = %3708, %proto_item_set_generated.exit935
+  %.11228 = phi ptr [ %.1, %proto_item_set_generated.exit935 ], [ %.11225, %3708 ]
+  %.not8141227 = phi ptr [ @.str.12, %proto_item_set_generated.exit935 ], [ @.str.11, %3708 ]
+  %3721 = load i32, ptr @hf_lbmc_reassembly_fragment, align 4
+  %3722 = load ptr, ptr %3672, align 8
+  %3723 = getelementptr inbounds i8, ptr %.11228, i64 16
   %3724 = load i32, ptr %3723, align 8
-  %3725 = add i32 %3720, -1
-  %3726 = add i32 %3725, %3722
-  %3727 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3716, i32 noundef %3717, ptr noundef %3718, i32 noundef %3720, i32 noundef %3722, i32 noundef %3724, ptr noundef nonnull @.str.10, i32 noundef %3724, i32 noundef %3720, i32 noundef %3726, i32 noundef %3722) #9
-  %.not.i933 = icmp eq ptr %3727, null
-  br i1 %.not.i933, label %proto_item_set_generated.exit935, label %3728
+  %3725 = getelementptr inbounds i8, ptr %.11228, i64 20
+  %3726 = load i32, ptr %3725, align 4
+  %3727 = getelementptr inbounds i8, ptr %.11228, i64 24
+  %3728 = load i32, ptr %3727, align 8
+  %3729 = add i32 %3724, -1
+  %3730 = add i32 %3729, %3726
+  %3731 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3720, i32 noundef %3721, ptr noundef %3722, i32 noundef %3724, i32 noundef %3726, i32 noundef %3728, ptr noundef nonnull @.str.10, i32 noundef %3728, i32 noundef %3724, i32 noundef %3730, i32 noundef %3726) #9
+  %.not.i933 = icmp eq ptr %3731, null
+  br i1 %.not.i933, label %proto_item_set_generated.exit935, label %3732
 
-3728:                                             ; preds = %.lr.ph1268
-  %3729 = getelementptr inbounds i8, ptr %3727, i64 32
-  %3730 = load ptr, ptr %3729, align 8
-  %.not5.i934 = icmp eq ptr %3730, null
-  br i1 %.not5.i934, label %proto_item_set_generated.exit935, label %3731
+3732:                                             ; preds = %.lr.ph1230
+  %3733 = getelementptr inbounds i8, ptr %3731, i64 32
+  %3734 = load ptr, ptr %3733, align 8
+  %.not5.i934 = icmp eq ptr %3734, null
+  br i1 %.not5.i934, label %proto_item_set_generated.exit935, label %3735
 
-3731:                                             ; preds = %3728
-  %3732 = getelementptr inbounds i8, ptr %3730, i64 28
-  %3733 = load i32, ptr %3732, align 4
-  %3734 = or i32 %3733, 2
-  store i32 %3734, ptr %3732, align 4
+3735:                                             ; preds = %3732
+  %3736 = getelementptr inbounds i8, ptr %3734, i64 28
+  %3737 = load i32, ptr %3736, align 4
+  %3738 = or i32 %3737, 2
+  store i32 %3738, ptr %3736, align 4
   br label %proto_item_set_generated.exit935
 
-proto_item_set_generated.exit935:                 ; preds = %.lr.ph1268, %3728, %3731
-  %3735 = load i32, ptr %3723, align 8
-  %3736 = load i32, ptr %3721, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3714, ptr noundef nonnull %.not8141265, i32 noundef %3735, i32 noundef %3736) #9
-  %3737 = getelementptr inbounds i8, ptr %.11266, i64 8
-  %.1 = load ptr, ptr %3737, align 8
+proto_item_set_generated.exit935:                 ; preds = %.lr.ph1230, %3732, %3735
+  %3739 = load i32, ptr %3727, align 8
+  %3740 = load i32, ptr %3725, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3718, ptr noundef nonnull %.not8141227, i32 noundef %3739, i32 noundef %3740) #9
+  %3741 = getelementptr inbounds i8, ptr %.11228, i64 8
+  %.1 = load ptr, ptr %3741, align 8
   %.not807 = icmp eq ptr %.1, null
-  br i1 %.not807, label %._crit_edge1269, label %.lr.ph1268, !llvm.loop !15
+  br i1 %.not807, label %._crit_edge1231, label %.lr.ph1230, !llvm.loop !15
 
-._crit_edge1269:                                  ; preds = %proto_item_set_generated.exit935, %3704
-  %.not.i936 = icmp eq ptr %3714, null
-  br i1 %.not.i936, label %proto_item_set_generated.exit938, label %3738
+._crit_edge1231:                                  ; preds = %proto_item_set_generated.exit935, %3708
+  %.not.i936 = icmp eq ptr %3718, null
+  br i1 %.not.i936, label %proto_item_set_generated.exit938, label %3742
 
-3738:                                             ; preds = %._crit_edge1269
-  %3739 = getelementptr inbounds i8, ptr %3714, i64 32
-  %3740 = load ptr, ptr %3739, align 8
-  %.not5.i937 = icmp eq ptr %3740, null
-  br i1 %.not5.i937, label %proto_item_set_generated.exit938, label %3741
+3742:                                             ; preds = %._crit_edge1231
+  %3743 = getelementptr inbounds i8, ptr %3718, i64 32
+  %3744 = load ptr, ptr %3743, align 8
+  %.not5.i937 = icmp eq ptr %3744, null
+  br i1 %.not5.i937, label %proto_item_set_generated.exit938, label %3745
 
-3741:                                             ; preds = %3738
-  %3742 = getelementptr inbounds i8, ptr %3740, i64 28
-  %3743 = load i32, ptr %3742, align 4
-  %3744 = or i32 %3743, 2
-  store i32 %3744, ptr %3742, align 4
+3745:                                             ; preds = %3742
+  %3746 = getelementptr inbounds i8, ptr %3744, i64 28
+  %3747 = load i32, ptr %3746, align 4
+  %3748 = or i32 %3747, 2
+  store i32 %3748, ptr %3746, align 4
   br label %proto_item_set_generated.exit938
 
-3745:                                             ; preds = %3645
-  %3746 = icmp eq i32 %3647, 0
-  br i1 %3746, label %3747, label %3749
+3749:                                             ; preds = %3649
+  %3750 = icmp eq i32 %3651, 0
+  br i1 %3750, label %3751, label %3753
 
-3747:                                             ; preds = %3745
-  %3748 = call ptr @proto_tree_add_expert(ptr noundef %275, ptr noundef nonnull %2, ptr noundef nonnull @ei_lbmc_analysis_missing_reassembly_frame, ptr noundef %.1731, i32 noundef 0, i32 noundef -1) #9
+3751:                                             ; preds = %3749
+  %3752 = call ptr @proto_tree_add_expert(ptr noundef %275, ptr noundef nonnull %2, ptr noundef nonnull @ei_lbmc_analysis_missing_reassembly_frame, ptr noundef %.1731, i32 noundef 0, i32 noundef -1) #9
   br label %proto_item_set_generated.exit938
 
-3749:                                             ; preds = %3745
-  %3750 = load i32, ptr @hf_reassembly_frame, align 4
-  %3751 = call i32 @tvb_reported_length_remaining(ptr noundef %.1731, i32 noundef 0) #9
-  %3752 = load i32, ptr %3648, align 8
-  %3753 = call ptr @proto_tree_add_uint(ptr noundef %275, i32 noundef %3750, ptr noundef %.1731, i32 noundef 0, i32 noundef %3751, i32 noundef %3752) #9
-  %.not.i939 = icmp eq ptr %3753, null
-  br i1 %.not.i939, label %proto_item_set_generated.exit938, label %3754
+3753:                                             ; preds = %3749
+  %3754 = load i32, ptr @hf_reassembly_frame, align 4
+  %3755 = call i32 @tvb_reported_length_remaining(ptr noundef %.1731, i32 noundef 0) #9
+  %3756 = load i32, ptr %3652, align 8
+  %3757 = call ptr @proto_tree_add_uint(ptr noundef %275, i32 noundef %3754, ptr noundef %.1731, i32 noundef 0, i32 noundef %3755, i32 noundef %3756) #9
+  %.not.i939 = icmp eq ptr %3757, null
+  br i1 %.not.i939, label %proto_item_set_generated.exit938, label %3758
 
-3754:                                             ; preds = %3749
-  %3755 = getelementptr inbounds i8, ptr %3753, i64 32
-  %3756 = load ptr, ptr %3755, align 8
-  %.not5.i940 = icmp eq ptr %3756, null
-  br i1 %.not5.i940, label %proto_item_set_generated.exit938, label %3757
+3758:                                             ; preds = %3753
+  %3759 = getelementptr inbounds i8, ptr %3757, i64 32
+  %3760 = load ptr, ptr %3759, align 8
+  %.not5.i940 = icmp eq ptr %3760, null
+  br i1 %.not5.i940, label %proto_item_set_generated.exit938, label %3761
 
-3757:                                             ; preds = %3754
-  %3758 = getelementptr inbounds i8, ptr %3756, i64 28
-  %3759 = load i32, ptr %3758, align 4
-  %3760 = or i32 %3759, 2
-  store i32 %3760, ptr %3758, align 4
+3761:                                             ; preds = %3758
+  %3762 = getelementptr inbounds i8, ptr %3760, i64 28
+  %3763 = load i32, ptr %3762, align 4
+  %3764 = or i32 %3763, 2
+  store i32 %3764, ptr %3762, align 4
   br label %proto_item_set_generated.exit938
 
-proto_item_set_generated.exit938:                 ; preds = %3510, %3516, %3520, %3568, %3757, %3754, %3749, %3741, %3738, %._crit_edge1269, %3747
-  %.not8081099 = phi i1 [ %.not808, %3747 ], [ %.not808, %._crit_edge1269 ], [ %.not808, %3738 ], [ %.not808, %3741 ], [ %.not808, %3749 ], [ %.not808, %3754 ], [ %.not808, %3757 ], [ false, %3510 ], [ false, %3516 ], [ true, %3520 ], [ true, %3568 ]
-  %.21082 = phi i32 [ %.01080.lcssa, %3747 ], [ %3708, %._crit_edge1269 ], [ %3708, %3738 ], [ %3708, %3741 ], [ %.01080.lcssa, %3749 ], [ %.01080.lcssa, %3754 ], [ %.01080.lcssa, %3757 ], [ %.01080.lcssa, %3510 ], [ %.01080.lcssa, %3516 ], [ %.01080.lcssa, %3520 ], [ %.01080.lcssa, %3568 ]
-  %.2732 = phi ptr [ %.1731, %3747 ], [ %3706, %._crit_edge1269 ], [ %3706, %3738 ], [ %3706, %3741 ], [ %.1731, %3749 ], [ %.1731, %3754 ], [ %.1731, %3757 ], [ %3514, %3510 ], [ %3517, %3516 ], [ %3522, %3520 ], [ null, %3568 ]
-  %.2 = phi ptr [ null, %3747 ], [ %3705, %._crit_edge1269 ], [ %3705, %3738 ], [ %3705, %3741 ], [ null, %3749 ], [ null, %3754 ], [ null, %3757 ], [ %3515, %3510 ], [ null, %3516 ], [ null, %3520 ], [ null, %3568 ]
-  %.1727 = phi i32 [ %.0726, %3747 ], [ 1, %._crit_edge1269 ], [ 1, %3738 ], [ 1, %3741 ], [ %.0726, %3749 ], [ %.0726, %3754 ], [ %.0726, %3757 ], [ 1, %3510 ], [ 1, %3516 ], [ 1, %3520 ], [ 1, %3568 ]
-  %3761 = icmp ne i32 %.21082, 0
-  %3762 = icmp ne i32 %.1727, 0
-  %or.cond30 = and i1 %3761, %3762
-  br i1 %or.cond30, label %3763, label %3766
+proto_item_set_generated.exit938:                 ; preds = %3514, %3520, %3524, %3572, %3761, %3758, %3753, %3745, %3742, %._crit_edge1231, %3751
+  %.not8081099 = phi i1 [ %.not808, %3751 ], [ %.not808, %._crit_edge1231 ], [ %.not808, %3742 ], [ %.not808, %3745 ], [ %.not808, %3753 ], [ %.not808, %3758 ], [ %.not808, %3761 ], [ false, %3514 ], [ false, %3520 ], [ true, %3524 ], [ true, %3572 ]
+  %.21082 = phi i32 [ %.01080.lcssa, %3751 ], [ %3712, %._crit_edge1231 ], [ %3712, %3742 ], [ %3712, %3745 ], [ %.01080.lcssa, %3753 ], [ %.01080.lcssa, %3758 ], [ %.01080.lcssa, %3761 ], [ %.01080.lcssa, %3514 ], [ %.01080.lcssa, %3520 ], [ %.01080.lcssa, %3524 ], [ %.01080.lcssa, %3572 ]
+  %.2732 = phi ptr [ %.1731, %3751 ], [ %3710, %._crit_edge1231 ], [ %3710, %3742 ], [ %3710, %3745 ], [ %.1731, %3753 ], [ %.1731, %3758 ], [ %.1731, %3761 ], [ %3518, %3514 ], [ %3521, %3520 ], [ %3526, %3524 ], [ null, %3572 ]
+  %.2 = phi ptr [ null, %3751 ], [ %3709, %._crit_edge1231 ], [ %3709, %3742 ], [ %3709, %3745 ], [ null, %3753 ], [ null, %3758 ], [ null, %3761 ], [ %3519, %3514 ], [ null, %3520 ], [ null, %3524 ], [ null, %3572 ]
+  %.1727 = phi i32 [ %.0726, %3751 ], [ 1, %._crit_edge1231 ], [ 1, %3742 ], [ 1, %3745 ], [ %.0726, %3753 ], [ %.0726, %3758 ], [ %.0726, %3761 ], [ 1, %3514 ], [ 1, %3520 ], [ 1, %3524 ], [ 1, %3572 ]
+  %3765 = icmp ne i32 %.21082, 0
+  %3766 = icmp ne i32 %.1727, 0
+  %or.cond30 = and i1 %3765, %3766
+  br i1 %or.cond30, label %3767, label %3770
 
-3763:                                             ; preds = %proto_item_set_generated.exit938
-  %3764 = call fastcc i32 @dissect_nhdr_umq_cmd_resp(ptr noundef %.2732, ptr noundef %2, ptr noundef %275, i32 noundef 1)
-  %3765 = load ptr, ptr %204, align 8
-  call void @col_append_sep_str(ptr noundef %3765, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #9
-  br label %3784
+3767:                                             ; preds = %proto_item_set_generated.exit938
+  %3768 = call fastcc i32 @dissect_nhdr_umq_cmd_resp(ptr noundef %.2732, ptr noundef %2, ptr noundef %275, i32 noundef 1)
+  %3769 = load ptr, ptr %204, align 8
+  call void @col_append_sep_str(ptr noundef %3769, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #9
+  br label %3788
 
-3766:                                             ; preds = %proto_item_set_generated.exit938
-  %3767 = call i32 @lbm_channel_is_transport(i64 noundef %5) #9
-  %3768 = icmp ne i32 %3767, 0
-  %3769 = icmp ne i32 %.0756.lcssa, 0
-  %or.cond32 = select i1 %3768, i1 true, i1 %3769
+3770:                                             ; preds = %proto_item_set_generated.exit938
+  %3771 = call i32 @lbm_channel_is_transport(i64 noundef %5) #9
+  %3772 = icmp ne i32 %3771, 0
+  %3773 = icmp ne i32 %.0756.lcssa, 0
+  %or.cond32 = select i1 %3772, i1 true, i1 %3773
   %.val817 = load i8, ptr %226, align 4
   %.not4.i = icmp eq i8 %.val817, 0
   %.str.1747..str.1746.i943 = select i1 %.not4.i, ptr @.str.1747, ptr @.str.1746
   %.str.1749..str.1748.i = select i1 %.not4.i, ptr @.str.1749, ptr @.str.1748
   %phi.call = select i1 %or.cond32, ptr %.str.1749..str.1748.i, ptr %.str.1747..str.1746.i943
-  %3770 = load ptr, ptr %204, align 8
-  call void @col_append_sep_str(ptr noundef %3770, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %phi.call) #9
-  br i1 %.not8081099, label %3782, label %3771
+  %3774 = load ptr, ptr %204, align 8
+  call void @col_append_sep_str(ptr noundef %3774, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %phi.call) #9
+  br i1 %.not8081099, label %3786, label %3775
 
-3771:                                             ; preds = %3766
-  %3772 = load i32, ptr @lbmc_use_heuristic_subdissectors, align 4
-  %.not809 = icmp eq i32 %3772, 0
-  br i1 %.not809, label %.thread1100, label %3773
+3775:                                             ; preds = %3770
+  %3776 = load i32, ptr @lbmc_use_heuristic_subdissectors, align 4
+  %.not809 = icmp eq i32 %3776, 0
+  br i1 %.not809, label %.thread1100, label %3777
 
-3773:                                             ; preds = %3771
-  %3774 = load ptr, ptr @lbmc_heuristic_subdissector_list, align 8
-  %3775 = call i32 @dissector_try_heuristic(ptr noundef %3774, ptr noundef %.2732, ptr noundef nonnull %2, ptr noundef %275, ptr noundef nonnull %46, ptr noundef null) #9
-  %.not810 = icmp eq i32 %3775, 0
-  br i1 %.not810, label %.thread1100, label %3784
+3777:                                             ; preds = %3775
+  %3778 = load ptr, ptr @lbmc_heuristic_subdissector_list, align 8
+  %3779 = call i32 @dissector_try_heuristic(ptr noundef %3778, ptr noundef %.2732, ptr noundef nonnull %2, ptr noundef %275, ptr noundef nonnull %46, ptr noundef null) #9
+  %.not810 = icmp eq i32 %3779, 0
+  br i1 %.not810, label %.thread1100, label %3788
 
-.thread1100:                                      ; preds = %3771, %3773
-  %3776 = load i32, ptr @lbmc_dissect_lbmpdm, align 4
-  %.not811 = icmp eq i32 %3776, 0
-  br i1 %.not811, label %.thread1103, label %3777
+.thread1100:                                      ; preds = %3775, %3777
+  %3780 = load i32, ptr @lbmc_dissect_lbmpdm, align 4
+  %.not811 = icmp eq i32 %3780, 0
+  br i1 %.not811, label %.thread1103, label %3781
 
-3777:                                             ; preds = %.thread1100
-  %3778 = call i32 @lbmpdm_verify_payload(ptr noundef %.2732, i32 noundef 0, ptr noundef nonnull %47, ptr noundef nonnull %48) #9
-  %.not812 = icmp eq i32 %3778, 0
-  br i1 %.not812, label %.thread1103, label %3779
+3781:                                             ; preds = %.thread1100
+  %3782 = call i32 @lbmpdm_verify_payload(ptr noundef %.2732, i32 noundef 0, ptr noundef nonnull %47, ptr noundef nonnull %48) #9
+  %.not812 = icmp eq i32 %3782, 0
+  br i1 %.not812, label %.thread1103, label %3783
 
-3779:                                             ; preds = %3777
-  %3780 = call i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef %.2732, i32 noundef 0, ptr noundef nonnull %2, ptr noundef %275, i64 noundef %.2753) #9
-  br label %3784
+3783:                                             ; preds = %3781
+  %3784 = call i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef %.2732, i32 noundef 0, ptr noundef nonnull %2, ptr noundef %275, i64 noundef %.2753) #9
+  br label %3788
 
-.thread1103:                                      ; preds = %.thread1100, %3777
-  %3781 = call i32 @call_data_dissector(ptr noundef %.2732, ptr noundef nonnull %2, ptr noundef %275) #9
-  br label %3784
+.thread1103:                                      ; preds = %.thread1100, %3781
+  %3785 = call i32 @call_data_dissector(ptr noundef %.2732, ptr noundef nonnull %2, ptr noundef %275) #9
+  br label %3788
 
-3782:                                             ; preds = %3766
-  %3783 = call i32 @call_data_dissector(ptr noundef %.2732, ptr noundef nonnull %2, ptr noundef %275) #9
-  br label %3784
+3786:                                             ; preds = %3770
+  %3787 = call i32 @call_data_dissector(ptr noundef %.2732, ptr noundef nonnull %2, ptr noundef %275) #9
+  br label %3788
 
-3784:                                             ; preds = %3782, %3779, %.thread1103, %3773, %3763
-  %.0749 = phi ptr [ null, %3763 ], [ %phi.call, %3773 ], [ %phi.call, %3779 ], [ %phi.call, %.thread1103 ], [ %phi.call, %3782 ]
+3788:                                             ; preds = %3786, %3783, %.thread1103, %3777, %3767
+  %.0749 = phi ptr [ null, %3767 ], [ %phi.call, %3777 ], [ %phi.call, %3783 ], [ %phi.call, %.thread1103 ], [ %phi.call, %3786 ]
   %.not813 = icmp eq ptr %.2, null
-  br i1 %.not813, label %dissect_msg_properties.exit, label %3785
+  br i1 %.not813, label %dissect_msg_properties.exit, label %3789
 
-3785:                                             ; preds = %3784
-  %3786 = call i32 @tvb_get_letohl(ptr noundef nonnull %.2, i32 noundef 0) #9
-  %.not176.i = icmp eq i32 %3786, -1160074069
+3789:                                             ; preds = %3788
+  %3790 = call i32 @tvb_get_letohl(ptr noundef nonnull %.2, i32 noundef 0) #9
+  %.not176.i = icmp eq i32 %3790, -1160074069
   %.167.i = select i1 %.not176.i, i32 0, i32 -2147483648
-  %3787 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.2, i32 noundef 0) #9
-  %3788 = load i32, ptr @hf_lbm_msg_properties, align 4
-  %3789 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %3788, ptr noundef nonnull %.2, i32 noundef 0, i32 noundef %3787, i32 noundef %.167.i) #9
-  %3790 = load i32, ptr @ett_lbm_msg_properties, align 4
-  %3791 = call ptr @proto_item_add_subtree(ptr noundef %3789, i32 noundef %3790) #9
-  %3792 = load i32, ptr @hf_lbm_msg_properties_data, align 4
-  %3793 = call ptr @proto_tree_add_item(ptr noundef %3791, i32 noundef %3792, ptr noundef nonnull %.2, i32 noundef 0, i32 noundef 8, i32 noundef %.167.i) #9
-  %3794 = load i32, ptr @ett_lbm_msg_properties_data, align 4
+  %3791 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.2, i32 noundef 0) #9
+  %3792 = load i32, ptr @hf_lbm_msg_properties, align 4
+  %3793 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %3792, ptr noundef nonnull %.2, i32 noundef 0, i32 noundef %3791, i32 noundef %.167.i) #9
+  %3794 = load i32, ptr @ett_lbm_msg_properties, align 4
   %3795 = call ptr @proto_item_add_subtree(ptr noundef %3793, i32 noundef %3794) #9
-  %3796 = load i32, ptr @hf_lbm_msg_properties_data_magic, align 4
-  %3797 = call ptr @proto_tree_add_item(ptr noundef %3795, i32 noundef %3796, ptr noundef nonnull %.2, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #9
-  %3798 = load i32, ptr @hf_lbm_msg_properties_data_num_fields, align 4
-  %3799 = call ptr @proto_tree_add_item(ptr noundef %3795, i32 noundef %3798, ptr noundef nonnull %.2, i32 noundef 4, i32 noundef 2, i32 noundef %.167.i) #9
-  %3800 = load i32, ptr @hf_lbm_msg_properties_data_version, align 4
-  %3801 = call ptr @proto_tree_add_item(ptr noundef %3795, i32 noundef %3800, ptr noundef nonnull %.2, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i) #9
-  %3802 = load i32, ptr @hf_lbm_msg_properties_data_type, align 4
-  %3803 = call ptr @proto_tree_add_item(ptr noundef %3795, i32 noundef %3802, ptr noundef nonnull %.2, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i) #9
-  %3804 = load i32, ptr @hf_lbm_msg_properties_data_res, align 4
-  %3805 = call ptr @proto_tree_add_item(ptr noundef %3795, i32 noundef %3804, ptr noundef nonnull %.2, i32 noundef 7, i32 noundef 1, i32 noundef %.167.i) #9
-  switch i32 %3786, label %3806 [
-    i32 -1160074069, label %3808
-    i32 -1414735174, label %3808
+  %3796 = load i32, ptr @hf_lbm_msg_properties_data, align 4
+  %3797 = call ptr @proto_tree_add_item(ptr noundef %3795, i32 noundef %3796, ptr noundef nonnull %.2, i32 noundef 0, i32 noundef 8, i32 noundef %.167.i) #9
+  %3798 = load i32, ptr @ett_lbm_msg_properties_data, align 4
+  %3799 = call ptr @proto_item_add_subtree(ptr noundef %3797, i32 noundef %3798) #9
+  %3800 = load i32, ptr @hf_lbm_msg_properties_data_magic, align 4
+  %3801 = call ptr @proto_tree_add_item(ptr noundef %3799, i32 noundef %3800, ptr noundef nonnull %.2, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #9
+  %3802 = load i32, ptr @hf_lbm_msg_properties_data_num_fields, align 4
+  %3803 = call ptr @proto_tree_add_item(ptr noundef %3799, i32 noundef %3802, ptr noundef nonnull %.2, i32 noundef 4, i32 noundef 2, i32 noundef %.167.i) #9
+  %3804 = load i32, ptr @hf_lbm_msg_properties_data_version, align 4
+  %3805 = call ptr @proto_tree_add_item(ptr noundef %3799, i32 noundef %3804, ptr noundef nonnull %.2, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i) #9
+  %3806 = load i32, ptr @hf_lbm_msg_properties_data_type, align 4
+  %3807 = call ptr @proto_tree_add_item(ptr noundef %3799, i32 noundef %3806, ptr noundef nonnull %.2, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i) #9
+  %3808 = load i32, ptr @hf_lbm_msg_properties_data_res, align 4
+  %3809 = call ptr @proto_tree_add_item(ptr noundef %3799, i32 noundef %3808, ptr noundef nonnull %.2, i32 noundef 7, i32 noundef 1, i32 noundef %.167.i) #9
+  switch i32 %3790, label %3810 [
+    i32 -1160074069, label %3812
+    i32 -1414735174, label %3812
   ]
 
-3806:                                             ; preds = %3785
-  %3807 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %3797, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1750) #9
+3810:                                             ; preds = %3789
+  %3811 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %3801, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1750) #9
   br label %dissect_msg_properties.exit
 
-3808:                                             ; preds = %3785, %3785
-  br i1 %.not176.i, label %3811, label %3809
+3812:                                             ; preds = %3789, %3789
+  br i1 %.not176.i, label %3815, label %3813
 
-3809:                                             ; preds = %3808
-  %3810 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.2, i32 noundef 4) #9
-  br label %3813
+3813:                                             ; preds = %3812
+  %3814 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.2, i32 noundef 4) #9
+  br label %3817
 
-3811:                                             ; preds = %3808
-  %3812 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.2, i32 noundef 4) #9
-  br label %3813
+3815:                                             ; preds = %3812
+  %3816 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.2, i32 noundef 4) #9
+  br label %3817
 
-3813:                                             ; preds = %3811, %3809
-  %.0164.i = phi i16 [ %3810, %3809 ], [ %3812, %3811 ]
+3817:                                             ; preds = %3815, %3813
+  %.0164.i = phi i16 [ %3814, %3813 ], [ %3816, %3815 ]
   %.not.i945 = icmp eq i16 %.0164.i, 0
   br i1 %.not.i945, label %dissect_msg_properties.exit, label %.lr.ph.i946
 
-.lr.ph.i946:                                      ; preds = %3813, %3860
-  %.0161174.i = phi i32 [ %3863, %3860 ], [ 8, %3813 ]
-  %.0163173.i = phi i16 [ %3864, %3860 ], [ 0, %3813 ]
-  %3814 = or disjoint i32 %.0161174.i, 4
-  %3815 = add nuw nsw i32 %.0161174.i, 12
-  br i1 %.not176.i, label %3820, label %3816
-
-3816:                                             ; preds = %.lr.ph.i946
-  %3817 = call i32 @tvb_get_letohl(ptr noundef %.2, i32 noundef %.0161174.i) #9
-  %3818 = call i32 @tvb_get_letohl(ptr noundef %.2, i32 noundef %3814) #9
-  %3819 = call i32 @tvb_get_letohl(ptr noundef %.2, i32 noundef %3815) #9
-  br label %3824
+.lr.ph.i946:                                      ; preds = %3817, %3864
+  %.0161174.i = phi i32 [ %3867, %3864 ], [ 8, %3817 ]
+  %.0163173.i = phi i16 [ %3868, %3864 ], [ 0, %3817 ]
+  %3818 = or disjoint i32 %.0161174.i, 4
+  %3819 = add nuw nsw i32 %.0161174.i, 12
+  br i1 %.not176.i, label %3824, label %3820
 
 3820:                                             ; preds = %.lr.ph.i946
-  %3821 = call i32 @tvb_get_ntohl(ptr noundef %.2, i32 noundef %.0161174.i) #9
-  %3822 = call i32 @tvb_get_ntohl(ptr noundef %.2, i32 noundef %3814) #9
-  %3823 = call i32 @tvb_get_ntohl(ptr noundef %.2, i32 noundef %3815) #9
-  br label %3824
+  %3821 = call i32 @tvb_get_letohl(ptr noundef %.2, i32 noundef %.0161174.i) #9
+  %3822 = call i32 @tvb_get_letohl(ptr noundef %.2, i32 noundef %3818) #9
+  %3823 = call i32 @tvb_get_letohl(ptr noundef %.2, i32 noundef %3819) #9
+  br label %3828
 
-3824:                                             ; preds = %3820, %3816
-  %.0160.i = phi i32 [ %3821, %3820 ], [ %3817, %3816 ]
-  %.0159.i = phi i32 [ %3822, %3820 ], [ %3818, %3816 ]
-  %.0158.i = phi i32 [ %3823, %3820 ], [ %3819, %3816 ]
-  %3825 = load i32, ptr @hf_lbm_msg_properties_hdr, align 4
-  %3826 = call ptr @proto_tree_add_item(ptr noundef %3791, i32 noundef %3825, ptr noundef %.2, i32 noundef %.0161174.i, i32 noundef 16, i32 noundef %.167.i) #9
-  %3827 = load i32, ptr @ett_lbm_msg_properties_hdr, align 4
-  %3828 = call ptr @proto_item_add_subtree(ptr noundef %3826, i32 noundef %3827) #9
-  %3829 = load i32, ptr @hf_lbm_msg_properties_hdr_key_offset, align 4
-  %3830 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3829, ptr noundef %.2, i32 noundef %.0161174.i, i32 noundef 4, i32 noundef %.167.i) #9
-  %3831 = load i32, ptr @hf_lbm_msg_properties_hdr_value_offset, align 4
-  %3832 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3831, ptr noundef %.2, i32 noundef %3814, i32 noundef 4, i32 noundef %.167.i) #9
-  %3833 = load i32, ptr @hf_lbm_msg_properties_hdr_hash, align 4
-  %3834 = add nuw nsw i32 %.0161174.i, 8
-  %3835 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3833, ptr noundef %.2, i32 noundef %3834, i32 noundef 4, i32 noundef %.167.i) #9
-  %3836 = load i32, ptr @hf_lbm_msg_properties_hdr_type, align 4
-  %3837 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3836, ptr noundef %.2, i32 noundef %3815, i32 noundef 4, i32 noundef %.167.i) #9
-  switch i32 %.0158.i, label %3847 [
-    i32 1, label %3849
-    i32 2, label %3849
+3824:                                             ; preds = %.lr.ph.i946
+  %3825 = call i32 @tvb_get_ntohl(ptr noundef %.2, i32 noundef %.0161174.i) #9
+  %3826 = call i32 @tvb_get_ntohl(ptr noundef %.2, i32 noundef %3818) #9
+  %3827 = call i32 @tvb_get_ntohl(ptr noundef %.2, i32 noundef %3819) #9
+  br label %3828
+
+3828:                                             ; preds = %3824, %3820
+  %.0160.i = phi i32 [ %3825, %3824 ], [ %3821, %3820 ]
+  %.0159.i = phi i32 [ %3826, %3824 ], [ %3822, %3820 ]
+  %.0158.i = phi i32 [ %3827, %3824 ], [ %3823, %3820 ]
+  %3829 = load i32, ptr @hf_lbm_msg_properties_hdr, align 4
+  %3830 = call ptr @proto_tree_add_item(ptr noundef %3795, i32 noundef %3829, ptr noundef %.2, i32 noundef %.0161174.i, i32 noundef 16, i32 noundef %.167.i) #9
+  %3831 = load i32, ptr @ett_lbm_msg_properties_hdr, align 4
+  %3832 = call ptr @proto_item_add_subtree(ptr noundef %3830, i32 noundef %3831) #9
+  %3833 = load i32, ptr @hf_lbm_msg_properties_hdr_key_offset, align 4
+  %3834 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3833, ptr noundef %.2, i32 noundef %.0161174.i, i32 noundef 4, i32 noundef %.167.i) #9
+  %3835 = load i32, ptr @hf_lbm_msg_properties_hdr_value_offset, align 4
+  %3836 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3835, ptr noundef %.2, i32 noundef %3818, i32 noundef 4, i32 noundef %.167.i) #9
+  %3837 = load i32, ptr @hf_lbm_msg_properties_hdr_hash, align 4
+  %3838 = add nuw nsw i32 %.0161174.i, 8
+  %3839 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3837, ptr noundef %.2, i32 noundef %3838, i32 noundef 4, i32 noundef %.167.i) #9
+  %3840 = load i32, ptr @hf_lbm_msg_properties_hdr_type, align 4
+  %3841 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3840, ptr noundef %.2, i32 noundef %3819, i32 noundef 4, i32 noundef %.167.i) #9
+  switch i32 %.0158.i, label %3851 [
+    i32 1, label %3853
+    i32 2, label %3853
     i32 3, label %.thread.i
-    i32 4, label %3841
-    i32 6, label %3841
-    i32 5, label %3842
-    i32 7, label %3842
+    i32 4, label %3845
+    i32 6, label %3845
+    i32 5, label %3846
+    i32 7, label %3846
     i32 8, label %.thread170.i
   ]
 
-.thread.i:                                        ; preds = %3824
-  %3838 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0160.i) #9
-  %3839 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3840 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3839, ptr noundef %.2, i32 noundef %.0160.i, i32 noundef %3838, i32 noundef %.167.i) #9
-  br label %3860
+.thread.i:                                        ; preds = %3828
+  %3842 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0160.i) #9
+  %3843 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
+  %3844 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3843, ptr noundef %.2, i32 noundef %.0160.i, i32 noundef %3842, i32 noundef %.167.i) #9
+  br label %3864
 
-3841:                                             ; preds = %3824, %3824
-  br label %3849
+3845:                                             ; preds = %3828, %3828
+  br label %3853
 
-3842:                                             ; preds = %3824, %3824
-  br label %3849
+3846:                                             ; preds = %3828, %3828
+  br label %3853
 
-.thread170.i:                                     ; preds = %3824
-  %3843 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0159.i) #9
-  %3844 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0160.i) #9
-  %3845 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3846 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3845, ptr noundef %.2, i32 noundef %.0160.i, i32 noundef %3844, i32 noundef %.167.i) #9
-  br label %3860
+.thread170.i:                                     ; preds = %3828
+  %3847 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0159.i) #9
+  %3848 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0160.i) #9
+  %3849 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
+  %3850 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3849, ptr noundef %.2, i32 noundef %.0160.i, i32 noundef %3848, i32 noundef %.167.i) #9
+  br label %3864
 
-3847:                                             ; preds = %3824
-  %3848 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3837, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1751, i32 noundef %.0158.i) #9
-  br label %3849
+3851:                                             ; preds = %3828
+  %3852 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3841, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1751, i32 noundef %.0158.i) #9
+  br label %3853
 
-3849:                                             ; preds = %3847, %3842, %3841, %3824, %3824
-  %.0.i948 = phi i32 [ 4, %3847 ], [ 8, %3842 ], [ 4, %3841 ], [ 1, %3824 ], [ 1, %3824 ]
-  %3850 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0160.i) #9
-  %3851 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3852 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3851, ptr noundef %.2, i32 noundef %.0160.i, i32 noundef %3850, i32 noundef %.167.i) #9
-  switch i32 %.0158.i, label %3859 [
-    i32 1, label %3860
-    i32 2, label %3853
-    i32 8, label %3858
-    i32 4, label %3854
-    i32 6, label %3855
-    i32 5, label %3856
-    i32 7, label %3857
+3853:                                             ; preds = %3851, %3846, %3845, %3828, %3828
+  %.0.i948 = phi i32 [ 4, %3851 ], [ 8, %3846 ], [ 4, %3845 ], [ 1, %3828 ], [ 1, %3828 ]
+  %3854 = call i32 @tvb_strsize(ptr noundef %.2, i32 noundef %.0160.i) #9
+  %3855 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
+  %3856 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3855, ptr noundef %.2, i32 noundef %.0160.i, i32 noundef %3854, i32 noundef %.167.i) #9
+  switch i32 %.0158.i, label %3863 [
+    i32 1, label %3864
+    i32 2, label %3857
+    i32 8, label %3862
+    i32 4, label %3858
+    i32 6, label %3859
+    i32 5, label %3860
+    i32 7, label %3861
   ]
 
-3853:                                             ; preds = %3849
-  br label %3860
+3857:                                             ; preds = %3853
+  br label %3864
 
-3854:                                             ; preds = %3849
-  br label %3860
+3858:                                             ; preds = %3853
+  br label %3864
 
-3855:                                             ; preds = %3849
-  br label %3860
+3859:                                             ; preds = %3853
+  br label %3864
 
-3856:                                             ; preds = %3849
-  br label %3860
+3860:                                             ; preds = %3853
+  br label %3864
 
-3857:                                             ; preds = %3849
-  br label %3860
+3861:                                             ; preds = %3853
+  br label %3864
 
-3858:                                             ; preds = %3849
-  br label %3860
+3862:                                             ; preds = %3853
+  br label %3864
 
-3859:                                             ; preds = %3849
-  br label %3860
+3863:                                             ; preds = %3853
+  br label %3864
 
-3860:                                             ; preds = %3859, %3858, %3857, %3856, %3855, %3854, %3853, %3849, %.thread170.i, %.thread.i
-  %hf_lbm_msg_properties_hdr_unknown_value.sink.i = phi ptr [ @hf_lbm_msg_properties_hdr_unknown_value, %3859 ], [ @hf_lbm_msg_properties_hdr_double_value, %3857 ], [ @hf_lbm_msg_properties_hdr_long_value, %3856 ], [ @hf_lbm_msg_properties_hdr_float_value, %3855 ], [ @hf_lbm_msg_properties_hdr_int_value, %3854 ], [ @hf_lbm_msg_properties_hdr_short_value, %.thread.i ], [ @hf_lbm_msg_properties_hdr_byte_value, %3853 ], [ @hf_lbm_msg_properties_hdr_boolean_value, %3849 ], [ @hf_lbm_msg_properties_hdr_string_value, %.thread170.i ], [ @hf_lbm_msg_properties_hdr_string_value, %3858 ]
-  %.0.sink.i = phi i32 [ %.0.i948, %3859 ], [ %.0.i948, %3857 ], [ %.0.i948, %3856 ], [ %.0.i948, %3855 ], [ %.0.i948, %3854 ], [ 2, %.thread.i ], [ %.0.i948, %3853 ], [ %.0.i948, %3849 ], [ %3843, %.thread170.i ], [ %.0.i948, %3858 ]
-  %3861 = load i32, ptr %hf_lbm_msg_properties_hdr_unknown_value.sink.i, align 4
-  %3862 = call ptr @proto_tree_add_item(ptr noundef %3828, i32 noundef %3861, ptr noundef %.2, i32 noundef %.0159.i, i32 noundef %.0.sink.i, i32 noundef %.167.i) #9
-  %3863 = add nuw nsw i32 %.0161174.i, 16
-  %3864 = add nuw i16 %.0163173.i, 1
-  %exitcond.not.i947 = icmp eq i16 %3864, %.0164.i
+3864:                                             ; preds = %3863, %3862, %3861, %3860, %3859, %3858, %3857, %3853, %.thread170.i, %.thread.i
+  %hf_lbm_msg_properties_hdr_unknown_value.sink.i = phi ptr [ @hf_lbm_msg_properties_hdr_unknown_value, %3863 ], [ @hf_lbm_msg_properties_hdr_double_value, %3861 ], [ @hf_lbm_msg_properties_hdr_long_value, %3860 ], [ @hf_lbm_msg_properties_hdr_float_value, %3859 ], [ @hf_lbm_msg_properties_hdr_int_value, %3858 ], [ @hf_lbm_msg_properties_hdr_short_value, %.thread.i ], [ @hf_lbm_msg_properties_hdr_byte_value, %3857 ], [ @hf_lbm_msg_properties_hdr_boolean_value, %3853 ], [ @hf_lbm_msg_properties_hdr_string_value, %.thread170.i ], [ @hf_lbm_msg_properties_hdr_string_value, %3862 ]
+  %.0.sink.i = phi i32 [ %.0.i948, %3863 ], [ %.0.i948, %3861 ], [ %.0.i948, %3860 ], [ %.0.i948, %3859 ], [ %.0.i948, %3858 ], [ 2, %.thread.i ], [ %.0.i948, %3857 ], [ %.0.i948, %3853 ], [ %3847, %.thread170.i ], [ %.0.i948, %3862 ]
+  %3865 = load i32, ptr %hf_lbm_msg_properties_hdr_unknown_value.sink.i, align 4
+  %3866 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3865, ptr noundef %.2, i32 noundef %.0159.i, i32 noundef %.0.sink.i, i32 noundef %.167.i) #9
+  %3867 = add nuw nsw i32 %.0161174.i, 16
+  %3868 = add nuw i16 %.0163173.i, 1
+  %exitcond.not.i947 = icmp eq i16 %3868, %.0164.i
   br i1 %exitcond.not.i947, label %dissect_msg_properties.exit, label %.lr.ph.i946, !llvm.loop !16
 
-dissect_msg_properties.exit:                      ; preds = %3860, %3813, %3806, %3784
-  %3865 = icmp ne ptr %.0758, null
-  %or.cond37 = and i1 %3865, %3762
-  br i1 %or.cond37, label %3866, label %3891
+dissect_msg_properties.exit:                      ; preds = %3864, %3817, %3810, %3788
+  %3869 = icmp ne ptr %.0758, null
+  %or.cond37 = and i1 %3869, %3766
+  br i1 %or.cond37, label %3870, label %3895
 
-3866:                                             ; preds = %dissect_msg_properties.exit
+3870:                                             ; preds = %dissect_msg_properties.exit
   store ptr %.0749, ptr %.0758.sroa.phi988, align 8
-  %3867 = load ptr, ptr %52, align 8
-  %3868 = call noalias ptr @wmem_alloc(ptr noundef %3867, i64 noundef 120) #9
-  %3869 = load i64, ptr %.0758, align 8
-  store i64 %3869, ptr %3868, align 8
-  %3870 = load i32, ptr %.0758.sroa.phi, align 8
-  %3871 = getelementptr inbounds i8, ptr %3868, i64 8
-  store i32 %3870, ptr %3871, align 8
-  %3872 = load i32, ptr %.0758.sroa.phi976, align 8
-  %3873 = getelementptr inbounds i8, ptr %3868, i64 16
-  store i32 %3872, ptr %3873, align 8
-  %3874 = icmp eq i32 %3872, 0
-  %3875 = getelementptr inbounds i8, ptr %3868, i64 24
-  br i1 %3874, label %3876, label %3878
+  %3871 = load ptr, ptr %52, align 8
+  %3872 = call noalias ptr @wmem_alloc(ptr noundef %3871, i64 noundef 120) #9
+  %3873 = load i64, ptr %.0758, align 8
+  store i64 %3873, ptr %3872, align 8
+  %3874 = load i32, ptr %.0758.sroa.phi, align 8
+  %3875 = getelementptr inbounds i8, ptr %3872, i64 8
+  store i32 %3874, ptr %3875, align 8
+  %3876 = load i32, ptr %.0758.sroa.phi976, align 8
+  %3877 = getelementptr inbounds i8, ptr %3872, i64 16
+  store i32 %3876, ptr %3877, align 8
+  %3878 = icmp eq i32 %3876, 0
+  %3879 = getelementptr inbounds i8, ptr %3872, i64 24
+  br i1 %3878, label %3880, label %3882
 
-3876:                                             ; preds = %3866
-  %3877 = load i64, ptr %.0758.sroa.phi979, align 8
-  store i64 %3877, ptr %3875, align 8
-  br label %3879
+3880:                                             ; preds = %3870
+  %3881 = load i64, ptr %.0758.sroa.phi979, align 8
+  store i64 %3881, ptr %3879, align 8
+  br label %3883
 
-3878:                                             ; preds = %3866
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3875, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi979, i64 40, i1 false)
-  br label %3879
+3882:                                             ; preds = %3870
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3879, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi979, i64 40, i1 false)
+  br label %3883
 
-3879:                                             ; preds = %3878, %3876
-  %3880 = load i32, ptr %.0758.sroa.phi982, align 8
-  %3881 = getelementptr inbounds i8, ptr %3868, i64 64
-  store i32 %3880, ptr %3881, align 8
-  %3882 = icmp eq i32 %3880, 0
-  %3883 = getelementptr inbounds i8, ptr %3868, i64 72
-  br i1 %3882, label %3884, label %3886
+3883:                                             ; preds = %3882, %3880
+  %3884 = load i32, ptr %.0758.sroa.phi982, align 8
+  %3885 = getelementptr inbounds i8, ptr %3872, i64 64
+  store i32 %3884, ptr %3885, align 8
+  %3886 = icmp eq i32 %3884, 0
+  %3887 = getelementptr inbounds i8, ptr %3872, i64 72
+  br i1 %3886, label %3888, label %3890
 
-3884:                                             ; preds = %3879
-  %3885 = load i64, ptr %.0758.sroa.phi985, align 8
-  store i64 %3885, ptr %3883, align 8
+3888:                                             ; preds = %3883
+  %3889 = load i64, ptr %.0758.sroa.phi985, align 8
+  store i64 %3889, ptr %3887, align 8
   br label %lbmc_dup_stream_info.exit
 
-3886:                                             ; preds = %3879
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3883, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi985, i64 40, i1 false)
+3890:                                             ; preds = %3883
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3887, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi985, i64 40, i1 false)
   br label %lbmc_dup_stream_info.exit
 
-lbmc_dup_stream_info.exit:                        ; preds = %3884, %3886
-  %3887 = load ptr, ptr %.0758.sroa.phi988, align 8
-  %3888 = call noalias ptr @wmem_strdup(ptr noundef %3867, ptr noundef %3887) #9
-  %3889 = getelementptr inbounds i8, ptr %3868, i64 112
-  store ptr %3888, ptr %3889, align 8
-  %3890 = load i32, ptr @lbmc_uim_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %3890, ptr noundef nonnull %2, ptr noundef nonnull %3868) #9
-  br label %3891
+lbmc_dup_stream_info.exit:                        ; preds = %3888, %3890
+  %3891 = load ptr, ptr %.0758.sroa.phi988, align 8
+  %3892 = call noalias ptr @wmem_strdup(ptr noundef %3871, ptr noundef %3891) #9
+  %3893 = getelementptr inbounds i8, ptr %3872, i64 112
+  store ptr %3892, ptr %3893, align 8
+  %3894 = load i32, ptr @lbmc_uim_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %3894, ptr noundef nonnull %2, ptr noundef nonnull %3872) #9
+  br label %3895
 
-3891:                                             ; preds = %lbmc_dup_stream_info.exit, %dissect_msg_properties.exit
-  %3892 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
-  %3893 = add i32 %3892, %.1741.lcssa
+3895:                                             ; preds = %lbmc_dup_stream_info.exit, %dissect_msg_properties.exit
+  %3896 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %.0733.lcssa) #9
+  %3897 = add i32 %3896, %.1741.lcssa
   br label %lbmc_determine_msg_type.exit
 
-3894:                                             ; preds = %3505
-  %3895 = load i8, ptr %157, align 16
-  %.not.i949 = icmp eq i8 %3895, 0
-  br i1 %.not.i949, label %3896, label %3988
-
-3896:                                             ; preds = %3894
-  %3897 = load i8, ptr %158, align 1
-  %.not48.i = icmp eq i8 %3897, 0
-  br i1 %.not48.i, label %3898, label %3988
-
-3898:                                             ; preds = %3896
-  %3899 = load i8, ptr %159, align 2
-  %.not49.i = icmp eq i8 %3899, 0
-  br i1 %.not49.i, label %3900, label %3988
+3898:                                             ; preds = %3509
+  %3899 = load i8, ptr %157, align 16
+  %.not.i949 = icmp eq i8 %3899, 0
+  br i1 %.not.i949, label %3900, label %3992
 
 3900:                                             ; preds = %3898
-  %3901 = load i8, ptr %160, align 1
-  %.not50.i = icmp eq i8 %3901, 0
-  br i1 %.not50.i, label %3902, label %3988
+  %3901 = load i8, ptr %158, align 1
+  %.not48.i = icmp eq i8 %3901, 0
+  br i1 %.not48.i, label %3902, label %3992
 
 3902:                                             ; preds = %3900
-  %3903 = load i8, ptr %161, align 4
-  %.not51.i = icmp eq i8 %3903, 0
-  br i1 %.not51.i, label %3904, label %3988
+  %3903 = load i8, ptr %159, align 2
+  %.not49.i = icmp eq i8 %3903, 0
+  br i1 %.not49.i, label %3904, label %3992
 
 3904:                                             ; preds = %3902
-  %3905 = load i8, ptr %162, align 1
-  %.not52.i951 = icmp eq i8 %3905, 0
-  br i1 %.not52.i951, label %3906, label %3988
+  %3905 = load i8, ptr %160, align 1
+  %.not50.i = icmp eq i8 %3905, 0
+  br i1 %.not50.i, label %3906, label %3992
 
 3906:                                             ; preds = %3904
-  %3907 = load i8, ptr %163, align 2
-  %.not53.i = icmp eq i8 %3907, 0
-  br i1 %.not53.i, label %3908, label %3988
+  %3907 = load i8, ptr %161, align 4
+  %.not51.i = icmp eq i8 %3907, 0
+  br i1 %.not51.i, label %3908, label %3992
 
 3908:                                             ; preds = %3906
-  %3909 = load i8, ptr %164, align 2
-  %.not54.i = icmp eq i8 %3909, 0
-  br i1 %.not54.i, label %3910, label %3988
+  %3909 = load i8, ptr %162, align 1
+  %.not52.i951 = icmp eq i8 %3909, 0
+  br i1 %.not52.i951, label %3910, label %3992
 
 3910:                                             ; preds = %3908
-  %3911 = load i8, ptr %165, align 16
-  %.not55.i = icmp eq i8 %3911, 0
-  br i1 %.not55.i, label %3912, label %3988
+  %3911 = load i8, ptr %163, align 2
+  %.not53.i = icmp eq i8 %3911, 0
+  br i1 %.not53.i, label %3912, label %3992
 
 3912:                                             ; preds = %3910
-  %3913 = load i8, ptr %166, align 16
-  %.not56.i = icmp eq i8 %3913, 0
-  br i1 %.not56.i, label %3914, label %3988
+  %3913 = load i8, ptr %164, align 2
+  %.not54.i = icmp eq i8 %3913, 0
+  br i1 %.not54.i, label %3914, label %3992
 
 3914:                                             ; preds = %3912
-  %3915 = load i8, ptr %167, align 1
-  %.not57.i = icmp eq i8 %3915, 0
-  br i1 %.not57.i, label %3916, label %3988
+  %3915 = load i8, ptr %165, align 16
+  %.not55.i = icmp eq i8 %3915, 0
+  br i1 %.not55.i, label %3916, label %3992
 
 3916:                                             ; preds = %3914
-  %3917 = load i8, ptr %168, align 2
-  %.not58.i = icmp eq i8 %3917, 0
-  br i1 %.not58.i, label %3918, label %3988
+  %3917 = load i8, ptr %166, align 16
+  %.not56.i = icmp eq i8 %3917, 0
+  br i1 %.not56.i, label %3918, label %3992
 
 3918:                                             ; preds = %3916
-  %3919 = load i8, ptr %169, align 4
-  %.not59.i = icmp eq i8 %3919, 0
-  br i1 %.not59.i, label %3920, label %3988
+  %3919 = load i8, ptr %167, align 1
+  %.not57.i = icmp eq i8 %3919, 0
+  br i1 %.not57.i, label %3920, label %3992
 
 3920:                                             ; preds = %3918
-  %3921 = load i8, ptr %170, align 1
-  %.not60.i = icmp eq i8 %3921, 0
-  br i1 %.not60.i, label %3922, label %3988
+  %3921 = load i8, ptr %168, align 2
+  %.not58.i = icmp eq i8 %3921, 0
+  br i1 %.not58.i, label %3922, label %3992
 
 3922:                                             ; preds = %3920
-  %3923 = load i8, ptr %171, align 1
-  %.not61.i = icmp eq i8 %3923, 0
-  br i1 %.not61.i, label %3924, label %3988
+  %3923 = load i8, ptr %169, align 4
+  %.not59.i = icmp eq i8 %3923, 0
+  br i1 %.not59.i, label %3924, label %3992
 
 3924:                                             ; preds = %3922
-  %3925 = load i8, ptr %172, align 2
-  %.not62.i952 = icmp eq i8 %3925, 0
-  br i1 %.not62.i952, label %3926, label %3988
+  %3925 = load i8, ptr %170, align 1
+  %.not60.i = icmp eq i8 %3925, 0
+  br i1 %.not60.i, label %3926, label %3992
 
 3926:                                             ; preds = %3924
-  %3927 = load i8, ptr %173, align 2
-  %.not63.i = icmp eq i8 %3927, 0
-  br i1 %.not63.i, label %3928, label %3988
+  %3927 = load i8, ptr %171, align 1
+  %.not61.i = icmp eq i8 %3927, 0
+  br i1 %.not61.i, label %3928, label %3992
 
 3928:                                             ; preds = %3926
-  %3929 = load i8, ptr %174, align 1
-  %.not64.i = icmp eq i8 %3929, 0
-  br i1 %.not64.i, label %3930, label %3988
+  %3929 = load i8, ptr %172, align 2
+  %.not62.i952 = icmp eq i8 %3929, 0
+  br i1 %.not62.i952, label %3930, label %3992
 
 3930:                                             ; preds = %3928
-  %3931 = load i8, ptr %175, align 8
-  %.not65.i = icmp eq i8 %3931, 0
-  br i1 %.not65.i, label %3932, label %3988
+  %3931 = load i8, ptr %173, align 2
+  %.not63.i = icmp eq i8 %3931, 0
+  br i1 %.not63.i, label %3932, label %3992
 
 3932:                                             ; preds = %3930
-  %3933 = load i8, ptr %176, align 1
-  %.not66.i = icmp eq i8 %3933, 0
-  br i1 %.not66.i, label %3934, label %3988
+  %3933 = load i8, ptr %174, align 1
+  %.not64.i = icmp eq i8 %3933, 0
+  br i1 %.not64.i, label %3934, label %3992
 
 3934:                                             ; preds = %3932
-  %3935 = load i8, ptr %177, align 2
-  %.not67.i = icmp eq i8 %3935, 0
-  br i1 %.not67.i, label %3936, label %3988
+  %3935 = load i8, ptr %175, align 8
+  %.not65.i = icmp eq i8 %3935, 0
+  br i1 %.not65.i, label %3936, label %3992
 
 3936:                                             ; preds = %3934
-  %3937 = load i8, ptr %178, align 1
-  %.not68.i = icmp eq i8 %3937, 0
-  br i1 %.not68.i, label %3938, label %3988
+  %3937 = load i8, ptr %176, align 1
+  %.not66.i = icmp eq i8 %3937, 0
+  br i1 %.not66.i, label %3938, label %3992
 
 3938:                                             ; preds = %3936
-  %3939 = load i8, ptr %179, align 2
-  %.not69.i = icmp eq i8 %3939, 0
-  br i1 %.not69.i, label %3940, label %3988
+  %3939 = load i8, ptr %177, align 2
+  %.not67.i = icmp eq i8 %3939, 0
+  br i1 %.not67.i, label %3940, label %3992
 
 3940:                                             ; preds = %3938
-  %3941 = load i8, ptr %180, align 1
-  %.not70.i = icmp eq i8 %3941, 0
-  br i1 %.not70.i, label %3942, label %3988
+  %3941 = load i8, ptr %178, align 1
+  %.not68.i = icmp eq i8 %3941, 0
+  br i1 %.not68.i, label %3942, label %3992
 
 3942:                                             ; preds = %3940
-  %3943 = load i8, ptr %181, align 16
-  %.not71.i = icmp eq i8 %3943, 0
-  br i1 %.not71.i, label %3944, label %3988
+  %3943 = load i8, ptr %179, align 2
+  %.not69.i = icmp eq i8 %3943, 0
+  br i1 %.not69.i, label %3944, label %3992
 
 3944:                                             ; preds = %3942
-  %3945 = load i8, ptr %182, align 1
-  %.not72.i = icmp eq i8 %3945, 0
-  br i1 %.not72.i, label %3946, label %3988
+  %3945 = load i8, ptr %180, align 1
+  %.not70.i = icmp eq i8 %3945, 0
+  br i1 %.not70.i, label %3946, label %3992
 
 3946:                                             ; preds = %3944
-  %3947 = load i8, ptr %183, align 1
-  %.not73.i = icmp eq i8 %3947, 0
-  br i1 %.not73.i, label %3948, label %3988
+  %3947 = load i8, ptr %181, align 16
+  %.not71.i = icmp eq i8 %3947, 0
+  br i1 %.not71.i, label %3948, label %3992
 
 3948:                                             ; preds = %3946
-  %3949 = load i8, ptr %184, align 4
-  %.not74.i = icmp eq i8 %3949, 0
-  br i1 %.not74.i, label %3950, label %3988
+  %3949 = load i8, ptr %182, align 1
+  %.not72.i = icmp eq i8 %3949, 0
+  br i1 %.not72.i, label %3950, label %3992
 
 3950:                                             ; preds = %3948
-  %3951 = load i8, ptr %185, align 1
-  %.not75.i = icmp eq i8 %3951, 0
-  br i1 %.not75.i, label %3952, label %3988
+  %3951 = load i8, ptr %183, align 1
+  %.not73.i = icmp eq i8 %3951, 0
+  br i1 %.not73.i, label %3952, label %3992
 
 3952:                                             ; preds = %3950
-  %3953 = load i8, ptr %186, align 8
-  %.not76.i = icmp eq i8 %3953, 0
-  br i1 %.not76.i, label %3954, label %3988
+  %3953 = load i8, ptr %184, align 4
+  %.not74.i = icmp eq i8 %3953, 0
+  br i1 %.not74.i, label %3954, label %3992
 
 3954:                                             ; preds = %3952
-  %3955 = load i8, ptr %187, align 1
-  %.not77.i = icmp eq i8 %3955, 0
-  br i1 %.not77.i, label %3956, label %3988
+  %3955 = load i8, ptr %185, align 1
+  %.not75.i = icmp eq i8 %3955, 0
+  br i1 %.not75.i, label %3956, label %3992
 
 3956:                                             ; preds = %3954
-  %3957 = load i8, ptr %188, align 4
-  %.not78.i = icmp eq i8 %3957, 0
-  br i1 %.not78.i, label %3958, label %3988
+  %3957 = load i8, ptr %186, align 8
+  %.not76.i = icmp eq i8 %3957, 0
+  br i1 %.not76.i, label %3958, label %3992
 
 3958:                                             ; preds = %3956
-  %3959 = load i8, ptr %189, align 1
-  %.not79.i = icmp eq i8 %3959, 0
-  br i1 %.not79.i, label %3960, label %3988
+  %3959 = load i8, ptr %187, align 1
+  %.not77.i = icmp eq i8 %3959, 0
+  br i1 %.not77.i, label %3960, label %3992
 
 3960:                                             ; preds = %3958
-  %3961 = load i8, ptr %190, align 2
-  %.not80.i = icmp eq i8 %3961, 0
-  br i1 %.not80.i, label %3962, label %3988
+  %3961 = load i8, ptr %188, align 4
+  %.not78.i = icmp eq i8 %3961, 0
+  br i1 %.not78.i, label %3962, label %3992
 
 3962:                                             ; preds = %3960
-  %3963 = load i8, ptr %191, align 1
-  %.not81.i = icmp eq i8 %3963, 0
-  br i1 %.not81.i, label %3964, label %3988
+  %3963 = load i8, ptr %189, align 1
+  %.not79.i = icmp eq i8 %3963, 0
+  br i1 %.not79.i, label %3964, label %3992
 
 3964:                                             ; preds = %3962
-  %3965 = load i8, ptr %192, align 16
-  %.not82.i = icmp eq i8 %3965, 0
-  br i1 %.not82.i, label %3966, label %3988
+  %3965 = load i8, ptr %190, align 2
+  %.not80.i = icmp eq i8 %3965, 0
+  br i1 %.not80.i, label %3966, label %3992
 
 3966:                                             ; preds = %3964
-  %3967 = load i8, ptr %193, align 16
-  %.not83.i = icmp eq i8 %3967, 0
-  br i1 %.not83.i, label %3968, label %3988
+  %3967 = load i8, ptr %191, align 1
+  %.not81.i = icmp eq i8 %3967, 0
+  br i1 %.not81.i, label %3968, label %3992
 
 3968:                                             ; preds = %3966
-  %3969 = load i8, ptr %194, align 1
-  %.not84.i953 = icmp eq i8 %3969, 0
-  br i1 %.not84.i953, label %3970, label %3988
+  %3969 = load i8, ptr %192, align 16
+  %.not82.i = icmp eq i8 %3969, 0
+  br i1 %.not82.i, label %3970, label %3992
 
 3970:                                             ; preds = %3968
-  %3971 = load i8, ptr %195, align 2
-  %.not85.i954 = icmp eq i8 %3971, 0
-  br i1 %.not85.i954, label %3972, label %3988
+  %3971 = load i8, ptr %193, align 16
+  %.not83.i = icmp eq i8 %3971, 0
+  br i1 %.not83.i, label %3972, label %3992
 
 3972:                                             ; preds = %3970
-  %3973 = load i8, ptr %196, align 2
-  %.not86.i955 = icmp eq i8 %3973, 0
-  br i1 %.not86.i955, label %3974, label %3988
+  %3973 = load i8, ptr %194, align 1
+  %.not84.i953 = icmp eq i8 %3973, 0
+  br i1 %.not84.i953, label %3974, label %3992
 
 3974:                                             ; preds = %3972
-  %3975 = load i8, ptr %197, align 2
-  %.not87.i = icmp eq i8 %3975, 0
-  br i1 %.not87.i, label %3976, label %3988
+  %3975 = load i8, ptr %195, align 2
+  %.not85.i954 = icmp eq i8 %3975, 0
+  br i1 %.not85.i954, label %3976, label %3992
 
 3976:                                             ; preds = %3974
-  %3977 = load i8, ptr %198, align 1
-  %.not88.i = icmp eq i8 %3977, 0
-  br i1 %.not88.i, label %3978, label %3988
+  %3977 = load i8, ptr %196, align 2
+  %.not86.i955 = icmp eq i8 %3977, 0
+  br i1 %.not86.i955, label %3978, label %3992
 
 3978:                                             ; preds = %3976
-  %3979 = load i8, ptr %199, align 1
-  %.not89.i = icmp eq i8 %3979, 0
-  br i1 %.not89.i, label %3980, label %3988
+  %3979 = load i8, ptr %197, align 2
+  %.not87.i = icmp eq i8 %3979, 0
+  br i1 %.not87.i, label %3980, label %3992
 
 3980:                                             ; preds = %3978
-  %3981 = load i8, ptr %200, align 2
-  %.not90.i = icmp eq i8 %3981, 0
-  br i1 %.not90.i, label %3982, label %3988
+  %3981 = load i8, ptr %198, align 1
+  %.not88.i = icmp eq i8 %3981, 0
+  br i1 %.not88.i, label %3982, label %3992
 
 3982:                                             ; preds = %3980
-  %3983 = load i8, ptr %201, align 1
-  %.not91.i = icmp eq i8 %3983, 0
-  br i1 %.not91.i, label %3984, label %3988
+  %3983 = load i8, ptr %199, align 1
+  %.not89.i = icmp eq i8 %3983, 0
+  br i1 %.not89.i, label %3984, label %3992
 
 3984:                                             ; preds = %3982
-  %3985 = load i8, ptr %202, align 2
-  %.not92.i = icmp eq i8 %3985, 0
-  br i1 %.not92.i, label %3986, label %3988
+  %3985 = load i8, ptr %200, align 2
+  %.not90.i = icmp eq i8 %3985, 0
+  br i1 %.not90.i, label %3986, label %3992
 
 3986:                                             ; preds = %3984
-  %3987 = load i8, ptr %203, align 1
-  %.not93.i = icmp eq i8 %3987, 0
-  br i1 %.not93.i, label %lbmc_determine_msg_type.exit, label %3988
+  %3987 = load i8, ptr %201, align 1
+  %.not91.i = icmp eq i8 %3987, 0
+  br i1 %.not91.i, label %3988, label %3992
 
-3988:                                             ; preds = %3894, %3896, %3898, %3900, %3902, %3904, %3906, %3908, %3910, %3912, %3914, %3916, %3918, %3920, %3922, %3924, %3926, %3928, %3930, %3932, %3934, %3936, %3938, %3940, %3942, %3944, %3946, %3948, %3950, %3952, %3954, %3956, %3958, %3960, %3962, %3964, %3966, %3968, %3970, %3972, %3974, %3976, %3978, %3980, %3982, %3984, %3986
-  %.0.i950.ph = phi ptr [ @.str.1795, %3986 ], [ @.str.1794, %3984 ], [ @.str.1793, %3982 ], [ @.str.1792, %3980 ], [ @.str.1791, %3978 ], [ @.str.1790, %3976 ], [ @.str.1507, %3974 ], [ @.str.1789, %3972 ], [ @.str.14, %3970 ], [ @.str.1788, %3968 ], [ @.str.1787, %3966 ], [ @.str.1786, %3964 ], [ @.str.1785, %3962 ], [ @.str.1784, %3960 ], [ @.str.1783, %3958 ], [ @.str.1782, %3956 ], [ @.str.1781, %3954 ], [ @.str.1780, %3952 ], [ @.str.1779, %3950 ], [ @.str.1778, %3948 ], [ @.str.1777, %3946 ], [ @.str.1776, %3944 ], [ @.str.1775, %3942 ], [ @.str.1774, %3940 ], [ @.str.1773, %3938 ], [ @.str.1772, %3936 ], [ @.str.1771, %3934 ], [ @.str.1770, %3932 ], [ @.str.1769, %3930 ], [ @.str.1768, %3928 ], [ @.str.1767, %3926 ], [ @.str.1766, %3924 ], [ @.str.1765, %3922 ], [ @.str.1764, %3920 ], [ @.str.1763, %3918 ], [ @.str.1762, %3916 ], [ @.str.1761, %3914 ], [ @.str.1760, %3912 ], [ @.str.460, %3910 ], [ @.str.1759, %3908 ], [ @.str.1758, %3906 ], [ @.str.1757, %3904 ], [ @.str.1756, %3902 ], [ @.str.1755, %3900 ], [ @.str.1754, %3898 ], [ @.str.1753, %3896 ], [ @.str.1752, %3894 ]
-  %3989 = load ptr, ptr %204, align 8
-  call void @col_append_sep_str(ptr noundef %3989, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0.i950.ph) #9
-  %.not798 = icmp eq ptr %.0758, null
-  br i1 %.not798, label %lbmc_determine_msg_type.exit, label %3990
+3988:                                             ; preds = %3986
+  %3989 = load i8, ptr %202, align 2
+  %.not92.i = icmp eq i8 %3989, 0
+  br i1 %.not92.i, label %3990, label %3992
 
 3990:                                             ; preds = %3988
+  %3991 = load i8, ptr %203, align 1
+  %.not93.i = icmp eq i8 %3991, 0
+  br i1 %.not93.i, label %lbmc_determine_msg_type.exit, label %3992
+
+3992:                                             ; preds = %3898, %3900, %3902, %3904, %3906, %3908, %3910, %3912, %3914, %3916, %3918, %3920, %3922, %3924, %3926, %3928, %3930, %3932, %3934, %3936, %3938, %3940, %3942, %3944, %3946, %3948, %3950, %3952, %3954, %3956, %3958, %3960, %3962, %3964, %3966, %3968, %3970, %3972, %3974, %3976, %3978, %3980, %3982, %3984, %3986, %3988, %3990
+  %.0.i950.ph = phi ptr [ @.str.1795, %3990 ], [ @.str.1794, %3988 ], [ @.str.1793, %3986 ], [ @.str.1792, %3984 ], [ @.str.1791, %3982 ], [ @.str.1790, %3980 ], [ @.str.1507, %3978 ], [ @.str.1789, %3976 ], [ @.str.14, %3974 ], [ @.str.1788, %3972 ], [ @.str.1787, %3970 ], [ @.str.1786, %3968 ], [ @.str.1785, %3966 ], [ @.str.1784, %3964 ], [ @.str.1783, %3962 ], [ @.str.1782, %3960 ], [ @.str.1781, %3958 ], [ @.str.1780, %3956 ], [ @.str.1779, %3954 ], [ @.str.1778, %3952 ], [ @.str.1777, %3950 ], [ @.str.1776, %3948 ], [ @.str.1775, %3946 ], [ @.str.1774, %3944 ], [ @.str.1773, %3942 ], [ @.str.1772, %3940 ], [ @.str.1771, %3938 ], [ @.str.1770, %3936 ], [ @.str.1769, %3934 ], [ @.str.1768, %3932 ], [ @.str.1767, %3930 ], [ @.str.1766, %3928 ], [ @.str.1765, %3926 ], [ @.str.1764, %3924 ], [ @.str.1763, %3922 ], [ @.str.1762, %3920 ], [ @.str.1761, %3918 ], [ @.str.1760, %3916 ], [ @.str.460, %3914 ], [ @.str.1759, %3912 ], [ @.str.1758, %3910 ], [ @.str.1757, %3908 ], [ @.str.1756, %3906 ], [ @.str.1755, %3904 ], [ @.str.1754, %3902 ], [ @.str.1753, %3900 ], [ @.str.1752, %3898 ]
+  %3993 = load ptr, ptr %204, align 8
+  call void @col_append_sep_str(ptr noundef %3993, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0.i950.ph) #9
+  %.not798 = icmp eq ptr %.0758, null
+  br i1 %.not798, label %lbmc_determine_msg_type.exit, label %3994
+
+3994:                                             ; preds = %3992
   store ptr %.0.i950.ph, ptr %.0758.sroa.phi988, align 8
-  %3991 = load ptr, ptr %52, align 8
-  %3992 = call noalias ptr @wmem_alloc(ptr noundef %3991, i64 noundef 120) #9
-  %3993 = load i64, ptr %.0758, align 8
-  store i64 %3993, ptr %3992, align 8
-  %3994 = load i32, ptr %.0758.sroa.phi, align 8
-  %3995 = getelementptr inbounds i8, ptr %3992, i64 8
-  store i32 %3994, ptr %3995, align 8
-  %3996 = load i32, ptr %.0758.sroa.phi976, align 8
-  %3997 = getelementptr inbounds i8, ptr %3992, i64 16
-  store i32 %3996, ptr %3997, align 8
-  %3998 = icmp eq i32 %3996, 0
-  %3999 = getelementptr inbounds i8, ptr %3992, i64 24
-  br i1 %3998, label %4000, label %4002
+  %3995 = load ptr, ptr %52, align 8
+  %3996 = call noalias ptr @wmem_alloc(ptr noundef %3995, i64 noundef 120) #9
+  %3997 = load i64, ptr %.0758, align 8
+  store i64 %3997, ptr %3996, align 8
+  %3998 = load i32, ptr %.0758.sroa.phi, align 8
+  %3999 = getelementptr inbounds i8, ptr %3996, i64 8
+  store i32 %3998, ptr %3999, align 8
+  %4000 = load i32, ptr %.0758.sroa.phi976, align 8
+  %4001 = getelementptr inbounds i8, ptr %3996, i64 16
+  store i32 %4000, ptr %4001, align 8
+  %4002 = icmp eq i32 %4000, 0
+  %4003 = getelementptr inbounds i8, ptr %3996, i64 24
+  br i1 %4002, label %4004, label %4006
 
-4000:                                             ; preds = %3990
-  %4001 = load i64, ptr %.0758.sroa.phi979, align 8
-  store i64 %4001, ptr %3999, align 8
-  br label %4003
+4004:                                             ; preds = %3994
+  %4005 = load i64, ptr %.0758.sroa.phi979, align 8
+  store i64 %4005, ptr %4003, align 8
+  br label %4007
 
-4002:                                             ; preds = %3990
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3999, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi979, i64 40, i1 false)
-  br label %4003
+4006:                                             ; preds = %3994
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4003, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi979, i64 40, i1 false)
+  br label %4007
 
-4003:                                             ; preds = %4002, %4000
-  %4004 = load i32, ptr %.0758.sroa.phi982, align 8
-  %4005 = getelementptr inbounds i8, ptr %3992, i64 64
-  store i32 %4004, ptr %4005, align 8
-  %4006 = icmp eq i32 %4004, 0
-  %4007 = getelementptr inbounds i8, ptr %3992, i64 72
-  br i1 %4006, label %4008, label %4010
+4007:                                             ; preds = %4006, %4004
+  %4008 = load i32, ptr %.0758.sroa.phi982, align 8
+  %4009 = getelementptr inbounds i8, ptr %3996, i64 64
+  store i32 %4008, ptr %4009, align 8
+  %4010 = icmp eq i32 %4008, 0
+  %4011 = getelementptr inbounds i8, ptr %3996, i64 72
+  br i1 %4010, label %4012, label %4014
 
-4008:                                             ; preds = %4003
-  %4009 = load i64, ptr %.0758.sroa.phi985, align 8
-  store i64 %4009, ptr %4007, align 8
+4012:                                             ; preds = %4007
+  %4013 = load i64, ptr %.0758.sroa.phi985, align 8
+  store i64 %4013, ptr %4011, align 8
   br label %lbmc_dup_stream_info.exit956
 
-4010:                                             ; preds = %4003
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4007, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi985, i64 40, i1 false)
+4014:                                             ; preds = %4007
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4011, ptr noundef nonnull align 8 dereferenceable(40) %.0758.sroa.phi985, i64 40, i1 false)
   br label %lbmc_dup_stream_info.exit956
 
-lbmc_dup_stream_info.exit956:                     ; preds = %4008, %4010
-  %4011 = load ptr, ptr %.0758.sroa.phi988, align 8
-  %4012 = call noalias ptr @wmem_strdup(ptr noundef %3991, ptr noundef %4011) #9
-  %4013 = getelementptr inbounds i8, ptr %3992, i64 112
-  store ptr %4012, ptr %4013, align 8
-  %4014 = load i32, ptr @lbmc_uim_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %4014, ptr noundef nonnull %2, ptr noundef nonnull %3992) #9
+lbmc_dup_stream_info.exit956:                     ; preds = %4012, %4014
+  %4015 = load ptr, ptr %.0758.sroa.phi988, align 8
+  %4016 = call noalias ptr @wmem_strdup(ptr noundef %3995, ptr noundef %4015) #9
+  %4017 = getelementptr inbounds i8, ptr %3996, i64 112
+  store ptr %4016, ptr %4017, align 8
+  %4018 = load i32, ptr @lbmc_uim_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %4018, ptr noundef nonnull %2, ptr noundef nonnull %3996) #9
   br label %lbmc_determine_msg_type.exit
 
-lbmc_determine_msg_type.exit:                     ; preds = %3986, %lbmc_dup_stream_info.exit956, %3988, %3891
-  %.2742 = phi i32 [ %3893, %3891 ], [ %.1741.lcssa, %lbmc_dup_stream_info.exit956 ], [ %.1741.lcssa, %3988 ], [ %.1741.lcssa, %3986 ]
-  %4015 = add i32 %.07341179, %231
-  %4016 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4015) #9
-  %4017 = icmp sgt i32 %4016, 3
-  br i1 %4017, label %.lr.ph, label %.loopexit, !llvm.loop !4
+lbmc_determine_msg_type.exit:                     ; preds = %3990, %lbmc_dup_stream_info.exit956, %3992, %3895
+  %.2742 = phi i32 [ %3897, %3895 ], [ %.1741.lcssa, %lbmc_dup_stream_info.exit956 ], [ %.1741.lcssa, %3992 ], [ %.1741.lcssa, %3990 ]
+  %4019 = add i32 %.07341179, %231
+  %4020 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4019) #9
+  %4021 = icmp sgt i32 %4020, 3
+  br i1 %4021, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
-.loopexit.sink.split:                             ; preds = %227, %317
-  %.str.6.sink = phi ptr [ @.str.6, %317 ], [ @.str, %227 ]
-  %.0.ph = phi i32 [ %.17411198, %317 ], [ %.07401176, %227 ]
-  %4018 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull %.str.6.sink) #9
+.loopexit.sink.split:                             ; preds = %227, %319
+  %.str.6.sink = phi ptr [ @.str.6, %319 ], [ @.str, %227 ]
+  %.0.ph = phi i32 [ %.17411198, %319 ], [ %.07401176, %227 ]
+  %4022 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull %.str.6.sink) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %lbmc_determine_msg_type.exit, %295, %.loopexit.sink.split, %6

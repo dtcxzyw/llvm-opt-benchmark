@@ -1131,7 +1131,7 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
   %11 = icmp eq i32 %10, 0
   %..i = zext i1 %11 to i32
   store i32 %..i, ptr @recent, align 8
-  br label %269
+  br label %268
 
 12:                                               ; preds = %4
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @.str.46) #15
@@ -1141,9 +1141,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 15:                                               ; preds = %12
   %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %17 = icmp eq i32 %16, 0
-  %..i127 = zext i1 %17 to i32
-  store i32 %..i127, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 1), align 4
-  br label %269
+  %..i126 = zext i1 %17 to i32
+  store i32 %..i126, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 1), align 4
+  br label %268
 
 18:                                               ; preds = %12
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.48) #15
@@ -1158,9 +1158,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 24:                                               ; preds = %21, %18
   %25 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %26 = icmp eq i32 %25, 0
-  %..i128 = zext i1 %26 to i32
-  store i32 %..i128, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 2), align 8
-  br label %269
+  %..i127 = zext i1 %26 to i32
+  store i32 %..i127, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 2), align 8
+  br label %268
 
 27:                                               ; preds = %21
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.50) #15
@@ -1170,9 +1170,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 30:                                               ; preds = %27
   %31 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %32 = icmp eq i32 %31, 0
-  %..i129 = zext i1 %32 to i32
-  store i32 %..i129, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 3), align 4
-  br label %269
+  %..i128 = zext i1 %32 to i32
+  store i32 %..i128, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 3), align 4
+  br label %268
 
 33:                                               ; preds = %27
   %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.52) #15
@@ -1182,9 +1182,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 36:                                               ; preds = %33
   %37 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %38 = icmp eq i32 %37, 0
-  %..i130 = zext i1 %38 to i32
-  store i32 %..i130, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 8
-  br label %269
+  %..i129 = zext i1 %38 to i32
+  store i32 %..i129, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 8
+  br label %268
 
 39:                                               ; preds = %33
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.54) #15
@@ -1194,9 +1194,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 42:                                               ; preds = %39
   %43 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %44 = icmp eq i32 %43, 0
-  %..i131 = zext i1 %44 to i32
-  store i32 %..i131, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 5), align 4
-  br label %269
+  %..i130 = zext i1 %44 to i32
+  store i32 %..i130, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 5), align 4
+  br label %268
 
 45:                                               ; preds = %39
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @.str.56) #15
@@ -1206,9 +1206,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 48:                                               ; preds = %45
   %49 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %50 = icmp eq i32 %49, 0
-  %..i132 = zext i1 %50 to i32
-  store i32 %..i132, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 6), align 8
-  br label %269
+  %..i131 = zext i1 %50 to i32
+  store i32 %..i131, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 6), align 8
+  br label %268
 
 51:                                               ; preds = %45
   %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.58) #15
@@ -1218,9 +1218,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 54:                                               ; preds = %51
   %55 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %56 = icmp eq i32 %55, 0
-  %..i133 = zext i1 %56 to i32
-  store i32 %..i133, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 7), align 4
-  br label %269
+  %..i132 = zext i1 %56 to i32
+  store i32 %..i132, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 7), align 4
+  br label %268
 
 57:                                               ; preds = %51
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.60) #15
@@ -1230,9 +1230,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 60:                                               ; preds = %57
   %61 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %62 = icmp eq i32 %61, 0
-  %..i134 = zext i1 %62 to i32
-  store i32 %..i134, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
-  br label %269
+  %..i133 = zext i1 %62 to i32
+  store i32 %..i133, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 8
+  br label %268
 
 63:                                               ; preds = %57
   %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.62) #15
@@ -1242,9 +1242,9 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 66:                                               ; preds = %63
   %67 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
   %68 = icmp eq i32 %67, 0
-  %..i135 = zext i1 %68 to i32
-  store i32 %..i135, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 9), align 4
-  br label %269
+  %..i134 = zext i1 %68 to i32
+  store i32 %..i134, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 9), align 4
+  br label %268
 
 69:                                               ; preds = %63
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.64) #15
@@ -1257,402 +1257,400 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
   %74 = zext i1 %not. to i32
   %75 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_type_values, i32 noundef %74) #13
   store i32 %75, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 10), align 8
-  br label %269
+  br label %268
 
 76:                                               ; preds = %69
   %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.72) #15
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %87
+  br i1 %78, label %79, label %86
 
 79:                                               ; preds = %76
   %80 = call zeroext i1 @ws_strtoi32(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5) #13
   %81 = load i32, ptr %5, align 4
-  %82 = icmp sgt i32 %81, -1
-  %or.cond = select i1 %80, i1 %82, i1 false
-  %83 = icmp slt i32 %81, 10
-  %or.cond3 = select i1 %or.cond, i1 %83, i1 false
-  br i1 %or.cond3, label %84, label %85
+  %82 = icmp ult i32 %81, 10
+  %or.cond3 = select i1 %80, i1 %82, i1 false
+  br i1 %or.cond3, label %83, label %84
+
+83:                                               ; preds = %79
+  store i32 %81, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  br label %268
 
 84:                                               ; preds = %79
-  store i32 %81, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
-  br label %269
+  %85 = call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_precision_values, i32 noundef -1) #13
+  store i32 %85, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
+  br label %268
 
-85:                                               ; preds = %79
-  %86 = call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_precision_values, i32 noundef -1) #13
-  store i32 %86, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 11), align 4
-  br label %269
+86:                                               ; preds = %76
+  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.76) #15
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %91
 
-87:                                               ; preds = %76
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.76) #15
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %92
+89:                                               ; preds = %86
+  %90 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_seconds_values, i32 noundef 0) #13
+  store i32 %90, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
+  br label %268
 
-90:                                               ; preds = %87
-  %91 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @ts_seconds_values, i32 noundef 0) #13
-  store i32 %91, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 12), align 8
-  br label %269
+91:                                               ; preds = %86
+  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.206) #15
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %102
 
-92:                                               ; preds = %87
-  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.206) #15
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %103
+94:                                               ; preds = %91
+  %95 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0) #13
+  %96 = load ptr, ptr %6, align 8
+  %97 = icmp eq ptr %96, %1
+  br i1 %97, label %268, label %98
 
-95:                                               ; preds = %92
-  %96 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0) #13
-  %97 = load ptr, ptr %6, align 8
-  %98 = icmp eq ptr %97, %1
-  br i1 %98, label %269, label %99
+98:                                               ; preds = %94
+  %99 = load i8, ptr %96, align 1
+  %.not124 = icmp eq i8 %99, 0
+  br i1 %.not124, label %100, label %268
 
-99:                                               ; preds = %95
-  %100 = load i8, ptr %97, align 1
-  %.not124 = icmp eq i8 %100, 0
-  br i1 %.not124, label %101, label %269
+100:                                              ; preds = %98
+  %101 = trunc i64 %95 to i32
+  store i32 %101, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
+  br label %268
 
-101:                                              ; preds = %99
-  %102 = trunc i64 %96 to i32
-  store i32 %102, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 13), align 4
-  br label %269
+102:                                              ; preds = %91
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.81) #15
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %107
 
-103:                                              ; preds = %92
-  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.81) #15
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %108
+105:                                              ; preds = %102
+  %106 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_view_type_values, i32 noundef 0) #13
+  store i32 %106, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
+  br label %268
 
-106:                                              ; preds = %103
-  %107 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_view_type_values, i32 noundef 0) #13
-  store i32 %107, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
-  br label %269
+107:                                              ; preds = %102
+  %108 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.83) #15
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %112
 
-108:                                              ; preds = %103
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.83) #15
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %113
+110:                                              ; preds = %107
+  %111 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_encoding_type_values, i32 noundef 0) #13
+  store i32 %111, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
+  br label %268
 
-111:                                              ; preds = %108
-  %112 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_encoding_type_values, i32 noundef 0) #13
-  store i32 %112, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 15), align 4
-  br label %269
+112:                                              ; preds = %107
+  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(32) @.str.85) #15
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %118
 
-113:                                              ; preds = %108
-  %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(32) @.str.85) #15
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %119
+115:                                              ; preds = %112
+  %116 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
+  %117 = icmp eq i32 %116, 0
+  %..i135 = zext i1 %117 to i32
+  store i32 %..i135, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
+  br label %268
 
-116:                                              ; preds = %113
-  %117 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
-  %118 = icmp eq i32 %117, 0
-  %..i136 = zext i1 %118 to i32
-  store i32 %..i136, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 16), align 8
-  br label %269
+118:                                              ; preds = %112
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.87) #15
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %124
 
-119:                                              ; preds = %113
-  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.87) #15
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %125
+121:                                              ; preds = %118
+  %122 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
+  %123 = icmp eq i32 %122, 0
+  %..i136 = zext i1 %123 to i32
+  store i32 %..i136, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
+  br label %268
 
-122:                                              ; preds = %119
-  %123 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
-  %124 = icmp eq i32 %123, 0
-  %..i137 = zext i1 %124 to i32
-  store i32 %..i137, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 17), align 4
-  br label %269
+124:                                              ; preds = %118
+  %125 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.89) #15
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %129
 
-125:                                              ; preds = %119
-  %126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.89) #15
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %130
+127:                                              ; preds = %124
+  %128 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_show_values, i32 noundef 0) #13
+  store i32 %128, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 24), align 8
+  br label %268
 
-128:                                              ; preds = %125
-  %129 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_show_values, i32 noundef 0) #13
-  store i32 %129, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 24), align 8
-  br label %269
+129:                                              ; preds = %124
+  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.91) #15
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %134
 
-130:                                              ; preds = %125
-  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.91) #15
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %135
+132:                                              ; preds = %129
+  %133 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @follow_delta_values, i32 noundef 0) #13
+  store i32 %133, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 25), align 4
+  br label %268
 
-133:                                              ; preds = %130
-  %134 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @follow_delta_values, i32 noundef 0) #13
-  store i32 %134, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 25), align 4
-  br label %269
+134:                                              ; preds = %129
+  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.93) #15
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %139
 
-135:                                              ; preds = %130
-  %136 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.93) #15
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %140
+137:                                              ; preds = %134
+  %138 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @show_bytes_decode_values, i32 noundef 0) #13
+  store i32 %138, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 26), align 8
+  br label %268
 
-138:                                              ; preds = %135
-  %139 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @show_bytes_decode_values, i32 noundef 0) #13
-  store i32 %139, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 26), align 8
-  br label %269
+139:                                              ; preds = %134
+  %140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.95) #15
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %144
 
-140:                                              ; preds = %135
-  %141 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.95) #15
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %145
+142:                                              ; preds = %139
+  %143 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_show_values, i32 noundef 0) #13
+  store i32 %143, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 27), align 4
+  br label %268
 
-143:                                              ; preds = %140
-  %144 = tail call i32 @str_to_val(ptr noundef %1, ptr noundef nonnull @bytes_show_values, i32 noundef 0) #13
-  store i32 %144, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 27), align 4
-  br label %269
+144:                                              ; preds = %139
+  %145 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.207) #15
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %156
 
-145:                                              ; preds = %140
-  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.207) #15
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %157
+147:                                              ; preds = %144
+  %148 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0) #13
+  %149 = load ptr, ptr %6, align 8
+  %150 = icmp eq ptr %149, %1
+  br i1 %150, label %268, label %151
 
-148:                                              ; preds = %145
-  %149 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0) #13
-  %150 = load ptr, ptr %6, align 8
-  %151 = icmp eq ptr %150, %1
-  br i1 %151, label %269, label %152
+151:                                              ; preds = %147
+  %152 = load i8, ptr %149, align 1
+  %.not123 = icmp ne i8 %152, 0
+  %153 = icmp slt i64 %148, 1
+  %or.cond = select i1 %.not123, i1 true, i1 %153
+  br i1 %or.cond, label %268, label %154
 
-152:                                              ; preds = %148
-  %153 = load i8, ptr %150, align 1
-  %.not123 = icmp ne i8 %153, 0
-  %154 = icmp slt i64 %149, 1
-  %or.cond125 = select i1 %.not123, i1 true, i1 %154
-  br i1 %or.cond125, label %269, label %155
+154:                                              ; preds = %151
+  %155 = trunc i64 %148 to i32
+  store i32 %155, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 34), align 8
+  br label %268
 
-155:                                              ; preds = %152
-  %156 = trunc i64 %149 to i32
-  store i32 %156, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 34), align 8
-  br label %269
+156:                                              ; preds = %144
+  %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.208) #15
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %159, label %168
 
-157:                                              ; preds = %145
-  %158 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.208) #15
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %169
+159:                                              ; preds = %156
+  %160 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0) #13
+  %161 = load ptr, ptr %6, align 8
+  %162 = icmp eq ptr %161, %1
+  br i1 %162, label %268, label %163
 
-160:                                              ; preds = %157
-  %161 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0) #13
-  %162 = load ptr, ptr %6, align 8
-  %163 = icmp eq ptr %162, %1
-  br i1 %163, label %269, label %164
+163:                                              ; preds = %159
+  %164 = load i8, ptr %161, align 1
+  %.not122 = icmp ne i8 %164, 0
+  %165 = icmp slt i64 %160, 1
+  %or.cond125 = select i1 %.not122, i1 true, i1 %165
+  br i1 %or.cond125, label %268, label %166
 
-164:                                              ; preds = %160
-  %165 = load i8, ptr %162, align 1
-  %.not122 = icmp ne i8 %165, 0
-  %166 = icmp slt i64 %161, 1
-  %or.cond126 = select i1 %.not122, i1 true, i1 %166
-  br i1 %or.cond126, label %269, label %167
+166:                                              ; preds = %163
+  %167 = trunc i64 %160 to i32
+  store i32 %167, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 35), align 4
+  br label %268
 
-167:                                              ; preds = %164
-  %168 = trunc i64 %161 to i32
-  store i32 %168, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 35), align 4
-  br label %269
+168:                                              ; preds = %156
+  %169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(31) @.str.209) #15
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %174
 
-169:                                              ; preds = %157
-  %170 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(31) @.str.209) #15
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %172, label %175
+171:                                              ; preds = %168
+  %172 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  tail call void @g_free(ptr noundef %172) #13
+  %173 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
+  store ptr %173, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
+  br label %268
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
-  tail call void @g_free(ptr noundef %173) #13
-  %174 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
-  store ptr %174, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 37), align 8
-  br label %269
+174:                                              ; preds = %168
+  %175 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.210) #15
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %177, label %180
 
-175:                                              ; preds = %169
-  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.210) #15
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %181
+177:                                              ; preds = %174
+  %178 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
+  tail call void @g_free(ptr noundef %178) #13
+  %179 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
+  store ptr %179, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
+  br label %268
 
-178:                                              ; preds = %175
-  %179 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
-  tail call void @g_free(ptr noundef %179) #13
-  %180 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
-  store ptr %180, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 38), align 8
-  br label %269
+180:                                              ; preds = %174
+  %181 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.211, i64 noundef 9) #15
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %183, label %188
 
-181:                                              ; preds = %175
-  %182 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.211, i64 noundef 9) #15
-  %183 = icmp eq i32 %182, 0
-  br i1 %183, label %184, label %189
+183:                                              ; preds = %180
+  %184 = getelementptr i8, ptr %0, i64 9
+  %185 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %184, i32 noundef 46) #15
+  %.not121 = icmp eq ptr %185, null
+  br i1 %.not121, label %268, label %186
 
-184:                                              ; preds = %181
-  %185 = getelementptr i8, ptr %0, i64 9
-  %186 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %185, i32 noundef 46) #15
-  %.not121 = icmp eq ptr %186, null
-  br i1 %.not121, label %269, label %187
+186:                                              ; preds = %183
+  store i8 0, ptr %185, align 1
+  %187 = getelementptr i8, ptr %185, i64 1
+  tail call fastcc void @window_geom_recent_read_pair(ptr noundef %184, ptr noundef %187, ptr noundef %1)
+  br label %268
 
-187:                                              ; preds = %184
-  store i8 0, ptr %186, align 1
-  %188 = getelementptr i8, ptr %186, i64 1
-  tail call fastcc void @window_geom_recent_read_pair(ptr noundef %185, ptr noundef %188, ptr noundef %1)
-  br label %269
+188:                                              ; preds = %180
+  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.212) #15
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %194
 
-189:                                              ; preds = %181
-  %190 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.212) #15
-  %191 = icmp eq i32 %190, 0
-  br i1 %191, label %192, label %195
+191:                                              ; preds = %188
+  %192 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
+  tail call void @g_list_free_full(ptr noundef %192, ptr noundef nonnull @g_free) #13
+  %193 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
+  store ptr %193, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
+  br label %268
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
-  tail call void @g_list_free_full(ptr noundef %193, ptr noundef nonnull @g_free) #13
-  %194 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %194, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 42), align 8
-  br label %269
+194:                                              ; preds = %188
+  %195 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.213) #15
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %197, label %200
 
-195:                                              ; preds = %189
-  %196 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.213) #15
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %201
+197:                                              ; preds = %194
+  %198 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 8
+  tail call void @g_list_free_full(ptr noundef %198, ptr noundef nonnull @g_free) #13
+  %199 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
+  store ptr %199, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 8
+  br label %268
 
-198:                                              ; preds = %195
-  %199 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 8
-  tail call void @g_list_free_full(ptr noundef %199, ptr noundef nonnull @g_free) #13
-  %200 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %200, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 43), align 8
-  br label %269
+200:                                              ; preds = %194
+  %201 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.214) #15
+  %202 = icmp eq i32 %201, 0
+  br i1 %202, label %203, label %206
 
-201:                                              ; preds = %195
-  %202 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.214) #15
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %207
+203:                                              ; preds = %200
+  %204 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
+  tail call void @g_list_free_full(ptr noundef %204, ptr noundef nonnull @g_free) #13
+  %205 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
+  store ptr %205, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
+  br label %268
 
-204:                                              ; preds = %201
-  %205 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
-  tail call void @g_list_free_full(ptr noundef %205, ptr noundef nonnull @g_free) #13
-  %206 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %206, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 44), align 8
-  br label %269
+206:                                              ; preds = %200
+  %207 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.215) #15
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %209, label %212
 
-207:                                              ; preds = %201
-  %208 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.215) #15
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %210, label %213
+209:                                              ; preds = %206
+  %210 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 8
+  tail call void @g_list_free_full(ptr noundef %210, ptr noundef nonnull @g_free) #13
+  %211 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
+  store ptr %211, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 8
+  br label %268
 
-210:                                              ; preds = %207
-  %211 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 8
-  tail call void @g_list_free_full(ptr noundef %211, ptr noundef nonnull @g_free) #13
-  %212 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %212, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 45), align 8
-  br label %269
+212:                                              ; preds = %206
+  %213 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.120) #15
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %215, label %218
 
-213:                                              ; preds = %207
-  %214 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(29) @.str.120) #15
-  %215 = icmp eq i32 %214, 0
-  br i1 %215, label %216, label %219
+215:                                              ; preds = %212
+  %216 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
+  %217 = icmp eq i32 %216, 0
+  %..i137 = zext i1 %217 to i32
+  store i32 %..i137, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
+  br label %268
 
-216:                                              ; preds = %213
-  %217 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.220) #13
-  %218 = icmp eq i32 %217, 0
-  %..i138 = zext i1 %218 to i32
-  store i32 %..i138, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 47), align 8
-  br label %269
+218:                                              ; preds = %212
+  %219 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.216) #15
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %221, label %252
 
-219:                                              ; preds = %213
-  %220 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.216) #15
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %253
+221:                                              ; preds = %218
+  %222 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
+  %223 = icmp eq ptr %222, null
+  br i1 %223, label %268, label %224
 
-222:                                              ; preds = %219
-  %223 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  %224 = icmp eq ptr %223, null
-  br i1 %224, label %269, label %225
+224:                                              ; preds = %221
+  %225 = tail call i32 @g_list_length(ptr noundef nonnull %222) #13
+  %226 = and i32 %225, 1
+  %.not = icmp eq i32 %226, 0
+  br i1 %.not, label %228, label %227
 
-225:                                              ; preds = %222
-  %226 = tail call i32 @g_list_length(ptr noundef nonnull %223) #13
-  %227 = and i32 %226, 1
-  %.not = icmp eq i32 %227, 0
-  br i1 %.not, label %229, label %228
+227:                                              ; preds = %224
+  tail call void @prefs_clear_string_list(ptr noundef nonnull %222) #13
+  br label %268
 
-228:                                              ; preds = %225
-  tail call void @prefs_clear_string_list(ptr noundef nonnull %223) #13
-  br label %269
-
-229:                                              ; preds = %225
-  %230 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
-  tail call void @g_list_free_full(ptr noundef %230, ptr noundef nonnull @free_col_width_data) #13
+228:                                              ; preds = %224
+  %229 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
+  tail call void @g_list_free_full(ptr noundef %229, ptr noundef nonnull @free_col_width_data) #13
   store ptr null, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
-  %231 = tail call ptr @g_list_first(ptr noundef nonnull %223) #13
-  %.not118139 = icmp eq ptr %231, null
-  br i1 %.not118139, label %._crit_edge, label %.lr.ph
+  %230 = tail call ptr @g_list_first(ptr noundef nonnull %222) #13
+  %.not118138 = icmp eq ptr %230, null
+  br i1 %.not118138, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %229, %247
-  %.0107140 = phi ptr [ %250, %247 ], [ %231, %229 ]
-  %232 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #14
-  %233 = getelementptr inbounds i8, ptr %.0107140, i64 8
+.lr.ph:                                           ; preds = %228, %246
+  %.0107139 = phi ptr [ %249, %246 ], [ %230, %228 ]
+  %231 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #14
+  %232 = getelementptr inbounds i8, ptr %.0107139, i64 8
+  %233 = load ptr, ptr %232, align 8
   %234 = load ptr, ptr %233, align 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = call i64 @strtol(ptr noundef %235, ptr noundef nonnull %6, i32 noundef 0) #13
-  %237 = trunc i64 %236 to i32
-  store i32 %237, ptr %232, align 4
-  %238 = load ptr, ptr %6, align 8
-  %239 = load ptr, ptr %234, align 8
-  %240 = icmp eq ptr %238, %239
-  br i1 %240, label %243, label %241
+  %235 = call i64 @strtol(ptr noundef %234, ptr noundef nonnull %6, i32 noundef 0) #13
+  %236 = trunc i64 %235 to i32
+  store i32 %236, ptr %231, align 4
+  %237 = load ptr, ptr %6, align 8
+  %238 = load ptr, ptr %233, align 8
+  %239 = icmp eq ptr %237, %238
+  br i1 %239, label %242, label %240
 
-241:                                              ; preds = %.lr.ph
-  %242 = load i8, ptr %238, align 1
-  switch i8 %242, label %243 [
-    i8 58, label %244
-    i8 0, label %247
+240:                                              ; preds = %.lr.ph
+  %241 = load i8, ptr %237, align 1
+  switch i8 %241, label %242 [
+    i8 58, label %243
+    i8 0, label %246
   ]
 
-243:                                              ; preds = %241, %.lr.ph
-  tail call void @g_free(ptr noundef nonnull %232) #13
-  br label %269
+242:                                              ; preds = %240, %.lr.ph
+  tail call void @g_free(ptr noundef nonnull %231) #13
+  br label %268
 
-244:                                              ; preds = %241
-  %245 = getelementptr i8, ptr %238, i64 1
-  store ptr %245, ptr %6, align 8
-  %246 = load i8, ptr %245, align 1
-  br label %247
+243:                                              ; preds = %240
+  %244 = getelementptr i8, ptr %237, i64 1
+  store ptr %244, ptr %6, align 8
+  %245 = load i8, ptr %244, align 1
+  br label %246
 
-247:                                              ; preds = %241, %244
-  %.sink = phi i8 [ %246, %244 ], [ %242, %241 ]
-  %248 = getelementptr inbounds i8, ptr %232, i64 4
-  store i8 %.sink, ptr %248, align 4
-  %249 = getelementptr inbounds i8, ptr %234, i64 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
-  %252 = tail call ptr @g_list_append(ptr noundef %251, ptr noundef nonnull %232) #13
-  store ptr %252, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
-  %.not118 = icmp eq ptr %250, null
+246:                                              ; preds = %240, %243
+  %.sink = phi i8 [ %245, %243 ], [ %241, %240 ]
+  %247 = getelementptr inbounds i8, ptr %231, i64 4
+  store i8 %.sink, ptr %247, align 4
+  %248 = getelementptr inbounds i8, ptr %233, i64 8
+  %249 = load ptr, ptr %248, align 8
+  %250 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
+  %251 = tail call ptr @g_list_append(ptr noundef %250, ptr noundef nonnull %231) #13
+  store ptr %251, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
+  %.not118 = icmp eq ptr %249, null
   br i1 %.not118, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %247, %229
-  tail call void @prefs_clear_string_list(ptr noundef nonnull %223) #13
-  br label %269
+._crit_edge:                                      ; preds = %246, %228
+  tail call void @prefs_clear_string_list(ptr noundef nonnull %222) #13
+  br label %268
 
-253:                                              ; preds = %219
-  %254 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.217) #15
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %256, label %259
+252:                                              ; preds = %218
+  %253 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.217) #15
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %255, label %258
 
-256:                                              ; preds = %253
-  %257 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
-  tail call void @g_free(ptr noundef %257) #13
-  %258 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
-  store ptr %258, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
-  br label %269
+255:                                              ; preds = %252
+  %256 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  tail call void @g_free(ptr noundef %256) #13
+  %257 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
+  store ptr %257, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 46), align 8
+  br label %268
 
-259:                                              ; preds = %253
-  %260 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.218) #15
-  %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %264
+258:                                              ; preds = %252
+  %259 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.218) #15
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %261, label %263
 
-262:                                              ; preds = %259
-  %263 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %263, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
-  br label %269
+261:                                              ; preds = %258
+  %262 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
+  store ptr %262, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 49), align 8
+  br label %268
 
-264:                                              ; preds = %259
-  %265 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.219) #15
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %267, label %269
+263:                                              ; preds = %258
+  %264 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.219) #15
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %266, label %268
 
-267:                                              ; preds = %264
-  %268 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
-  store ptr %268, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
-  br label %269
+266:                                              ; preds = %263
+  %267 = tail call ptr @prefs_get_string_list(ptr noundef %1) #13
+  store ptr %267, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 50), align 8
+  br label %268
 
-269:                                              ; preds = %9, %24, %36, %48, %60, %72, %90, %106, %116, %128, %138, %155, %172, %187, %184, %198, %210, %._crit_edge, %262, %267, %256, %216, %204, %192, %178, %167, %143, %133, %122, %111, %101, %84, %85, %66, %54, %42, %30, %15, %264, %222, %160, %164, %148, %152, %95, %99, %243, %228
-  %.0 = phi i32 [ 1, %228 ], [ 1, %243 ], [ 1, %99 ], [ 1, %95 ], [ 1, %152 ], [ 1, %148 ], [ 1, %164 ], [ 1, %160 ], [ 1, %222 ], [ 2, %264 ], [ 0, %15 ], [ 0, %30 ], [ 0, %42 ], [ 0, %54 ], [ 0, %66 ], [ 0, %85 ], [ 0, %84 ], [ 0, %101 ], [ 0, %111 ], [ 0, %122 ], [ 0, %133 ], [ 0, %143 ], [ 0, %167 ], [ 0, %178 ], [ 0, %192 ], [ 0, %204 ], [ 0, %216 ], [ 0, %256 ], [ 0, %267 ], [ 0, %262 ], [ 0, %._crit_edge ], [ 0, %210 ], [ 0, %198 ], [ 0, %184 ], [ 0, %187 ], [ 0, %172 ], [ 0, %155 ], [ 0, %138 ], [ 0, %128 ], [ 0, %116 ], [ 0, %106 ], [ 0, %90 ], [ 0, %72 ], [ 0, %60 ], [ 0, %48 ], [ 0, %36 ], [ 0, %24 ], [ 0, %9 ]
+268:                                              ; preds = %9, %24, %36, %48, %60, %72, %89, %105, %115, %127, %137, %154, %171, %186, %183, %197, %209, %._crit_edge, %261, %266, %255, %215, %203, %191, %177, %166, %142, %132, %121, %110, %100, %83, %84, %66, %54, %42, %30, %15, %263, %221, %159, %163, %147, %151, %94, %98, %242, %227
+  %.0 = phi i32 [ 1, %227 ], [ 1, %242 ], [ 1, %98 ], [ 1, %94 ], [ 1, %151 ], [ 1, %147 ], [ 1, %163 ], [ 1, %159 ], [ 1, %221 ], [ 2, %263 ], [ 0, %15 ], [ 0, %30 ], [ 0, %42 ], [ 0, %54 ], [ 0, %66 ], [ 0, %84 ], [ 0, %83 ], [ 0, %100 ], [ 0, %110 ], [ 0, %121 ], [ 0, %132 ], [ 0, %142 ], [ 0, %166 ], [ 0, %177 ], [ 0, %191 ], [ 0, %203 ], [ 0, %215 ], [ 0, %255 ], [ 0, %266 ], [ 0, %261 ], [ 0, %._crit_edge ], [ 0, %209 ], [ 0, %197 ], [ 0, %183 ], [ 0, %186 ], [ 0, %171 ], [ 0, %154 ], [ 0, %137 ], [ 0, %127 ], [ 0, %115 ], [ 0, %105 ], [ 0, %89 ], [ 0, %72 ], [ 0, %60 ], [ 0, %48 ], [ 0, %36 ], [ 0, %24 ], [ 0, %9 ]
   ret i32 %.0
 }
 

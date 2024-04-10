@@ -116,95 +116,94 @@ define hidden void @_ZN8rawspeed21SamsungV0DecompressorC2ERKNS_8RawImageENS_10By
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %79
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds i8, ptr %6, i64 40
   %39 = load i32, ptr %38, align 8, !tbaa !79
   %40 = getelementptr inbounds i8, ptr %6, i64 44
   %41 = load i32, ptr %40, align 4, !tbaa !80
-  %42 = icmp eq i32 %41, 0
-  %43 = add i32 %39, -5547
-  %44 = icmp ult i32 %43, -5531
-  %45 = select i1 %44, i1 true, i1 %42
-  %46 = icmp ugt i32 %41, 3714
-  %47 = select i1 %45, i1 true, i1 %46
-  br i1 %47, label %48, label %52
+  %42 = add i32 %39, -5547
+  %43 = icmp ult i32 %42, -5531
+  %44 = add i32 %41, -3715
+  %45 = icmp ult i32 %44, -3714
+  %46 = select i1 %43, i1 true, i1 %45
+  br i1 %46, label %47, label %51
 
-48:                                               ; preds = %37
+47:                                               ; preds = %37
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed21SamsungV0DecompressorC2ERKNS_8RawImageENS_10ByteStreamES4_, i32 noundef %39, i32 noundef %41) #19
-          to label %49 unwind label %50
+          to label %48 unwind label %49
 
-49:                                               ; preds = %48
+48:                                               ; preds = %47
   unreachable
 
-50:                                               ; preds = %65, %63, %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %64, %62, %47
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %79
 
-52:                                               ; preds = %37
+51:                                               ; preds = %37
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %53 = shl nuw nsw i32 %41, 2
+  %52 = shl nuw nsw i32 %41, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %54 = getelementptr inbounds i8, ptr %2, i64 16
-  %55 = load i32, ptr %54, align 8, !tbaa !87, !noalias !92
+  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %54 = load i32, ptr %53, align 8, !tbaa !87, !noalias !92
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  %56 = zext i32 %55 to i64
-  %57 = zext nneg i32 %53 to i64
-  %58 = add nuw nsw i64 %56, %57
-  %59 = getelementptr inbounds i8, ptr %2, i64 8
-  %60 = load i32, ptr %59, align 8, !tbaa !96, !noalias !97
-  %61 = zext i32 %60 to i64
-  %62 = icmp ugt i64 %58, %61
-  br i1 %62, label %63, label %65
+  %55 = zext i32 %54 to i64
+  %56 = zext nneg i32 %52 to i64
+  %57 = add nuw nsw i64 %55, %56
+  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !96, !noalias !97
+  %60 = zext i32 %59 to i64
+  %61 = icmp ugt i64 %57, %60
+  br i1 %61, label %62, label %64
 
-63:                                               ; preds = %52
+62:                                               ; preds = %51
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #19
-          to label %64 unwind label %50
+          to label %63 unwind label %49
 
-64:                                               ; preds = %63
+63:                                               ; preds = %62
   unreachable
 
-65:                                               ; preds = %52
-  %66 = load ptr, ptr %2, align 8, !tbaa !98, !noalias !97, !nonnull !99, !noundef !99
-  %67 = icmp sgt i32 %60, -1
-  tail call void @llvm.assume(i1 %67)
-  %68 = add nuw nsw i32 %55, %53
-  %69 = icmp ule i32 %68, %60
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %2, align 8, !tbaa !98, !noalias !97, !nonnull !99, !noundef !99
+  %66 = icmp sgt i32 %59, -1
+  tail call void @llvm.assume(i1 %66)
+  %67 = add nuw nsw i32 %54, %52
+  %68 = icmp ule i32 %67, %59
+  tail call void @llvm.assume(i1 %68)
+  %69 = icmp sgt i32 %54, -1
   tail call void @llvm.assume(i1 %69)
-  %70 = icmp sgt i32 %55, -1
-  tail call void @llvm.assume(i1 %70)
-  %71 = getelementptr inbounds i8, ptr %66, i64 %56
-  %72 = getelementptr inbounds i8, ptr %2, i64 12
-  %73 = load i32, ptr %72, align 4, !tbaa !100, !noalias !97
-  %74 = zext i32 %73 to i64
-  %75 = shl nuw i64 %74, 32
-  %76 = or disjoint i64 %75, %57
-  store ptr %71, ptr %5, align 8, !alias.scope !97
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %76, ptr %77, align 8, !alias.scope !97
-  %78 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 0, ptr %78, align 8, !tbaa !87, !alias.scope !97
+  %70 = getelementptr inbounds i8, ptr %65, i64 %55
+  %71 = getelementptr inbounds i8, ptr %2, i64 12
+  %72 = load i32, ptr %71, align 4, !tbaa !100, !noalias !97
+  %73 = zext i32 %72 to i64
+  %74 = shl nuw i64 %73, 32
+  %75 = or disjoint i64 %74, %56
+  store ptr %70, ptr %5, align 8, !alias.scope !97
+  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %75, ptr %76, align 8, !alias.scope !97
+  %77 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 0, ptr %77, align 8, !tbaa !87, !alias.scope !97
   invoke void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10ByteStreamES1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %5, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %3)
-          to label %79 unwind label %50
+          to label %78 unwind label %49
 
-79:                                               ; preds = %65
+78:                                               ; preds = %64
   ret void
 
-80:                                               ; preds = %50, %35
-  %81 = phi { ptr, i32 } [ %36, %35 ], [ %51, %50 ]
-  %82 = load ptr, ptr %21, align 8, !tbaa !101
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %85, label %84
+79:                                               ; preds = %49, %35
+  %80 = phi { ptr, i32 } [ %36, %35 ], [ %50, %49 ]
+  %81 = load ptr, ptr %21, align 8, !tbaa !101
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %84, label %83
 
-84:                                               ; preds = %80
-  tail call void @_ZdlPv(ptr noundef nonnull %82) #20
-  br label %85
+83:                                               ; preds = %79
+  tail call void @_ZdlPv(ptr noundef nonnull %81) #20
+  br label %84
 
-85:                                               ; preds = %84, %80
+84:                                               ; preds = %83, %79
   tail call void @_ZN8rawspeed27AbstractSamsungDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  resume { ptr, i32 } %81
+  resume { ptr, i32 } %80
 }
 
 declare i32 @__gxx_personality_v0(...)

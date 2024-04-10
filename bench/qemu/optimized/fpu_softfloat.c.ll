@@ -171,10 +171,10 @@ entry:
   %cmp12 = icmp eq i16 %0, 32767
   %shl14.mask = and i64 %a.coerce0, 4611686018427387903
   %tobool.not = icmp ne i64 %shl14.mask, 0
-  %or.cond.not = select i1 %cmp12, i1 %tobool.not, i1 false
   %1 = and i64 %a.coerce0, 4611686018427387904
   %cmp17 = icmp eq i64 %1, 0
-  %narrow = select i1 %or.cond.not, i1 %cmp17, i1 false
+  %2 = and i1 %tobool.not, %cmp17
+  %narrow = select i1 %cmp12, i1 %2, i1 false
   %land.ext20 = zext i1 %narrow to i32
   ret i32 %land.ext20
 }
@@ -206,8 +206,8 @@ cond.end:                                         ; preds = %entry
   %tobool.not.i = icmp ne i64 %shl14.mask.i, 0
   %2 = and i64 %a.coerce0, 4611686018427387904
   %cmp17.i = icmp eq i64 %2, 0
-  %narrow.i.not.not = and i1 %tobool.not.i, %cmp17.i
-  %3 = select i1 %narrow.i.not.not, i8 5, i8 4
+  %.not.not = and i1 %tobool.not.i, %cmp17.i
+  %3 = select i1 %.not.not, i8 5, i8 4
   %4 = and i16 %b.coerce1, 32767
   %cmp.i26 = icmp eq i16 %4, 32767
   %shl.mask.i27 = and i64 %b.coerce0, 9223372036854775807
@@ -217,41 +217,41 @@ cond.end:                                         ; preds = %entry
 
 cond.end.thread:                                  ; preds = %entry
   %6 = and i16 %b.coerce1, 32767
-  %cmp.i2662 = icmp eq i16 %6, 32767
-  %shl.mask.i2763 = and i64 %b.coerce0, 9223372036854775807
-  %tobool.i2864 = icmp ne i64 %shl.mask.i2763, 0
-  %7 = select i1 %cmp.i2662, i1 %tobool.i2864, i1 false
+  %cmp.i2661 = icmp eq i16 %6, 32767
+  %shl.mask.i2762 = and i64 %b.coerce0, 9223372036854775807
+  %tobool.i2863 = icmp ne i64 %shl.mask.i2762, 0
+  %7 = select i1 %cmp.i2661, i1 %tobool.i2863, i1 false
   br i1 %7, label %cond.end9, label %if.end
 
 cond.end9:                                        ; preds = %cond.end.thread, %cond.end
-  %cond265 = phi i8 [ 2, %cond.end.thread ], [ %3, %cond.end ]
+  %cond264 = phi i8 [ 2, %cond.end.thread ], [ %3, %cond.end ]
   %shl14.mask.i30 = and i64 %b.coerce0, 4611686018427387903
   %tobool.not.i31 = icmp ne i64 %shl14.mask.i30, 0
   %8 = and i64 %b.coerce0, 4611686018427387904
-  %cmp17.i33 = icmp eq i64 %8, 0
-  %narrow.i34.not.not = and i1 %tobool.not.i31, %cmp17.i33
-  %9 = select i1 %narrow.i34.not.not, i8 5, i8 4
-  %cmp.i36 = icmp eq i8 %cond265, 5
-  %brmerge = select i1 %cmp.i36, i1 true, i1 %narrow.i34.not.not
-  %.mux76 = select i1 %cmp.i36, i8 %9, i8 5
+  %cmp17.i32 = icmp eq i64 %8, 0
+  %.not.not74 = and i1 %tobool.not.i31, %cmp17.i32
+  %9 = select i1 %.not.not74, i8 5, i8 4
+  %cmp.i35 = icmp eq i8 %cond264, 5
+  %brmerge = select i1 %cmp.i35, i1 true, i1 %.not.not74
+  %.mux76 = select i1 %cmp.i35, i8 %9, i8 5
   br i1 %brmerge, label %if.then, label %if.end
 
 cond.end9.thread:                                 ; preds = %cond.end
-  br i1 %narrow.i.not.not, label %if.then, label %if.end
+  br i1 %.not.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end9, %cond.end9.thread
-  %cond267 = phi i8 [ 5, %cond.end9.thread ], [ %cond265, %cond.end9 ]
-  %cmp.i3650 = phi i1 [ true, %cond.end9.thread ], [ %cmp.i36, %cond.end9 ]
-  %cond1047 = phi i8 [ 2, %cond.end9.thread ], [ %.mux76, %cond.end9 ]
+  %cond266 = phi i8 [ 5, %cond.end9.thread ], [ %cond264, %cond.end9 ]
+  %cmp.i3549 = phi i1 [ true, %cond.end9.thread ], [ %cmp.i35, %cond.end9 ]
+  %cond1046 = phi i8 [ 2, %cond.end9.thread ], [ %.mux76, %cond.end9 ]
   %10 = load i16, ptr %status, align 2
   %or1.i = or i16 %10, 1
   store i16 %or1.i, ptr %status, align 2
   br label %if.end
 
 if.end:                                           ; preds = %cond.end9, %cond.end.thread, %cond.end9.thread, %if.then
-  %cond266 = phi i8 [ %cond267, %if.then ], [ 4, %cond.end9.thread ], [ 2, %cond.end.thread ], [ %cond265, %cond.end9 ]
-  %cmp.i3648 = phi i1 [ %cmp.i3650, %if.then ], [ false, %cond.end9.thread ], [ false, %cond.end.thread ], [ false, %cond.end9 ]
-  %cond1046 = phi i8 [ %cond1047, %if.then ], [ 2, %cond.end9.thread ], [ 2, %cond.end.thread ], [ 4, %cond.end9 ]
+  %cond265 = phi i8 [ %cond266, %if.then ], [ 4, %cond.end9.thread ], [ 2, %cond.end.thread ], [ %cond264, %cond.end9 ]
+  %cmp.i3547 = phi i1 [ %cmp.i3549, %if.then ], [ false, %cond.end9.thread ], [ false, %cond.end.thread ], [ false, %cond.end9 ]
+  %cond1045 = phi i8 [ %cond1046, %if.then ], [ 2, %cond.end9.thread ], [ 2, %cond.end.thread ], [ 4, %cond.end9 ]
   %default_nan_mode = getelementptr inbounds i8, ptr %status, i64 7
   %11 = load i8, ptr %default_nan_mode, align 1
   %tobool16 = trunc i8 %11 to i1
@@ -269,37 +269,37 @@ if.else:                                          ; preds = %if.end19
 
 if.end37:                                         ; preds = %if.else, %if.end19
   %aIsLargerSignificand.0 = phi i1 [ true, %if.end19 ], [ %spec.select.not, %if.else ]
-  switch i8 %cond266, label %if.then41 [
+  switch i8 %cond265, label %if.then41 [
     i8 5, label %pickNaN.exit
     i8 4, label %if.then6.i
   ]
 
 if.then6.i:                                       ; preds = %if.end37
-  %cmp.i10.i = icmp ne i8 %cond1046, 5
-  %cmp.i11.i = icmp eq i8 %cond1046, 4
+  %cmp.i10.i = icmp ne i8 %cond1045, 5
+  %cmp.i11.i = icmp eq i8 %cond1045, 4
   %spec.select.i = and i1 %cmp.i11.i, %aIsLargerSignificand.0
   %or.cond = select i1 %cmp.i10.i, i1 %spec.select.i, i1 false
   br i1 %or.cond, label %if.then41, label %if.else46
 
 pickNaN.exit:                                     ; preds = %if.end37
-  %cmp.i7.i = icmp eq i8 %cond1046, 5
-  %cmp.i8.i = icmp eq i8 %cond1046, 4
+  %cmp.i7.i = icmp eq i8 %cond1045, 5
+  %cmp.i8.i = icmp eq i8 %cond1045, 4
   %spec.select = select i1 %cmp.i7.i, i1 %aIsLargerSignificand.0, i1 %cmp.i8.i
   br i1 %spec.select, label %if.then41, label %if.else46
 
 if.then41:                                        ; preds = %if.then6.i, %if.end37, %pickNaN.exit
-  %cmp.i38 = icmp eq i8 %cond1046, 5
+  %cmp.i37 = icmp eq i8 %cond1045, 5
   %or.i = or i64 %b.coerce0, -4611686018427387904
-  %spec.select73 = select i1 %cmp.i38, i64 %or.i, i64 %b.coerce0
+  %spec.select72 = select i1 %cmp.i37, i64 %or.i, i64 %b.coerce0
   br label %return
 
 if.else46:                                        ; preds = %if.then6.i, %pickNaN.exit
-  %or.i40 = or i64 %a.coerce0, -4611686018427387904
-  %spec.select74 = select i1 %cmp.i3648, i64 %or.i40, i64 %a.coerce0
+  %or.i39 = or i64 %a.coerce0, -4611686018427387904
+  %spec.select73 = select i1 %cmp.i3547, i64 %or.i39, i64 %a.coerce0
   br label %return
 
 return:                                           ; preds = %if.else46, %if.then41, %if.end
-  %retval.sroa.0.0 = phi i64 [ -4611686018427387904, %if.end ], [ %spec.select73, %if.then41 ], [ %spec.select74, %if.else46 ]
+  %retval.sroa.0.0 = phi i64 [ -4611686018427387904, %if.end ], [ %spec.select72, %if.then41 ], [ %spec.select73, %if.else46 ]
   %retval.sroa.6.0 = phi i16 [ -1, %if.end ], [ %b.coerce1, %if.then41 ], [ %a.coerce1, %if.else46 ]
   %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i16 } %.fca.0.insert, i16 %retval.sroa.6.0, 1

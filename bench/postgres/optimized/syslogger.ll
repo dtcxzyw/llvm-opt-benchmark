@@ -960,10 +960,9 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
   %287 = icmp eq i8 %.sroa.2.0.copyload.i, 0
   %or.cond.i = select i1 %286, i1 %287, i1 false
   %288 = zext i16 %.sroa.3.0.copyload.i to i32
-  %289 = icmp ne i16 %.sroa.3.0.copyload.i, 0
-  %or.cond8.i = select i1 %or.cond.i, i1 %289, i1 false
-  %290 = icmp ult i16 %.sroa.3.0.copyload.i, 4088
-  %or.cond12.i = select i1 %or.cond8.i, i1 %290, i1 false
+  %289 = add i16 %.sroa.3.0.copyload.i, -1
+  %290 = icmp ult i16 %289, 4087
+  %or.cond12.i = select i1 %or.cond.i, i1 %290, i1 false
   %291 = icmp ne i32 %.sroa.10.0.copyload.i, 0
   %or.cond15.i = select i1 %or.cond12.i, i1 %291, i1 false
   br i1 %or.cond15.i, label %292, label %.lr.ph.preheader.i

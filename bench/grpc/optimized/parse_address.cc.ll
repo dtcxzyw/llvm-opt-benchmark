@@ -858,10 +858,8 @@ if.end26:                                         ; preds = %if.end19
   %call28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call27, ptr noundef nonnull @.str.15, ptr noundef nonnull %port_num) #18
   %cmp29 = icmp ne i32 %call28, 1
   %8 = load i32, ptr %port_num, align 4
-  %cmp30 = icmp slt i32 %8, 0
-  %or.cond = select i1 %cmp29, i1 true, i1 %cmp30
-  %cmp32 = icmp sgt i32 %8, 65535
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp32
+  %9 = icmp ugt i32 %8, 65535
+  %or.cond1 = select i1 %cmp29, i1 true, i1 %9
   br i1 %or.cond1, label %if.then33, label %if.end39
 
 if.then33:                                        ; preds = %if.end26
@@ -869,10 +867,10 @@ if.then33:                                        ; preds = %if.end26
 
 if.then35.invoke:                                 ; preds = %if.then33, %if.then13
   %host.sink = phi ptr [ %host, %if.then13 ], [ %port, %if.then33 ]
-  %9 = phi i32 [ 226, %if.then13 ], [ 238, %if.then33 ]
-  %10 = phi ptr [ @.str.13, %if.then13 ], [ @.str.16, %if.then33 ]
+  %10 = phi i32 [ 226, %if.then13 ], [ 238, %if.then33 ]
+  %11 = phi ptr [ @.str.13, %if.then13 ], [ @.str.16, %if.then33 ]
   %call16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host.sink) #18
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %10, ptr noundef %call16)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %10, i32 noundef 2, ptr noundef nonnull %11, ptr noundef %call16)
           to label %cleanup unwind label %lpad
 
 if.end39:                                         ; preds = %if.end26
@@ -1145,10 +1143,8 @@ if.end77:                                         ; preds = %if.end70
   %call79 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call78, ptr noundef nonnull @.str.15, ptr noundef nonnull %port_num) #18
   %cmp80 = icmp ne i32 %call79, 1
   %13 = load i32, ptr %port_num, align 4
-  %cmp81 = icmp slt i32 %13, 0
-  %or.cond = select i1 %cmp80, i1 true, i1 %cmp81
-  %cmp83 = icmp sgt i32 %13, 65535
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp83
+  %14 = icmp ugt i32 %13, 65535
+  %or.cond1 = select i1 %cmp80, i1 true, i1 %14
   br i1 %or.cond1, label %if.then84, label %if.end90
 
 if.then84:                                        ; preds = %if.end77
@@ -1156,10 +1152,10 @@ if.then84:                                        ; preds = %if.end77
 
 if.then86.invoke:                                 ; preds = %if.then84, %if.then63
   %host.sink = phi ptr [ %host, %if.then63 ], [ %port, %if.then84 ]
-  %14 = phi i32 [ 320, %if.then63 ], [ 333, %if.then84 ]
-  %15 = phi ptr [ @.str.22, %if.then63 ], [ @.str.25, %if.then84 ]
+  %15 = phi i32 [ 320, %if.then63 ], [ 333, %if.then84 ]
+  %16 = phi ptr [ @.str.22, %if.then63 ], [ @.str.25, %if.then84 ]
   %call66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host.sink) #18
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %14, i32 noundef 2, ptr noundef nonnull %15, ptr noundef %call66)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef %15, i32 noundef 2, ptr noundef nonnull %16, ptr noundef %call66)
           to label %cleanup unwind label %lpad
 
 if.end90:                                         ; preds = %if.end77

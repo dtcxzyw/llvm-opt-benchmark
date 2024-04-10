@@ -3036,16 +3036,16 @@ if.end43:                                         ; preds = %if.end37
   %16 = load i8, ptr %vfmt, align 1
   %cmp45 = icmp ne i8 %16, 95
   %cmp49 = icmp ne i8 %.pre, 95
-  %or.cond1.not152 = select i1 %cmp45, i1 %cmp49, i1 false
   %cmp54.not = icmp eq i8 %16, %.pre
-  %or.cond55 = select i1 %or.cond1.not152, i1 %cmp54.not, i1 false
+  %17 = and i1 %cmp49, %cmp54.not
+  %or.cond55 = select i1 %cmp45, i1 %17, i1 false
   br i1 %or.cond55, label %if.end72, label %if.then56
 
 if.then56:                                        ; preds = %if.end43.thread, %if.end43
   store i8 95, ptr %vfmt, align 1
   %itemsize = getelementptr inbounds i8, ptr %v, i64 80
-  %17 = load i64, ptr %itemsize, align 8
-  %call58 = call fastcc ptr @struct_get_unpacker(ptr noundef %14, i64 noundef %17)
+  %18 = load i64, ptr %itemsize, align 8
+  %call58 = call fastcc ptr @struct_get_unpacker(ptr noundef %14, i64 noundef %18)
   %cmp59 = icmp eq ptr %call58, null
   br i1 %cmp59, label %if.then61, label %if.end63
 
@@ -3054,10 +3054,10 @@ if.then61:                                        ; preds = %if.then56
   br label %result
 
 if.end63:                                         ; preds = %if.then56
-  %18 = load ptr, ptr %format38, align 8
+  %19 = load ptr, ptr %format38, align 8
   %itemsize65 = getelementptr inbounds i8, ptr %ww.0, i64 24
-  %19 = load i64, ptr %itemsize65, align 8
-  %call66 = call fastcc ptr @struct_get_unpacker(ptr noundef %18, i64 noundef %19)
+  %20 = load i64, ptr %itemsize65, align 8
+  %call66 = call fastcc ptr @struct_get_unpacker(ptr noundef %19, i64 noundef %20)
   %cmp67 = icmp eq ptr %call66, null
   br i1 %cmp67, label %if.then69, label %if.end63.if.end72_crit_edge
 
@@ -3070,48 +3070,48 @@ if.then69:                                        ; preds = %if.end63
   br label %result
 
 if.end72:                                         ; preds = %if.end63.if.end72_crit_edge, %if.end43
-  %20 = phi i8 [ 95, %if.end63.if.end72_crit_edge ], [ %.pre, %if.end43 ]
-  %21 = phi i32 [ %.pre153, %if.end63.if.end72_crit_edge ], [ %8, %if.end43 ]
+  %21 = phi i8 [ 95, %if.end63.if.end72_crit_edge ], [ %.pre, %if.end43 ]
+  %22 = phi i32 [ %.pre153, %if.end63.if.end72_crit_edge ], [ %8, %if.end43 ]
   %unpack_v.0 = phi ptr [ %call58, %if.end63.if.end72_crit_edge ], [ null, %if.end43 ]
   %unpack_w.0 = phi ptr [ %call66, %if.end63.if.end72_crit_edge ], [ null, %if.end43 ]
-  %22 = load ptr, ptr %view, align 8
-  %23 = load ptr, ptr %ww.0, align 8
-  switch i32 %21, label %if.else88 [
+  %23 = load ptr, ptr %view, align 8
+  %24 = load ptr, ptr %ww.0, align 8
+  switch i32 %22, label %if.else88 [
     i32 0, label %if.then75
     i32 1, label %if.then82
   ]
 
 if.then75:                                        ; preds = %if.end72
-  %call77 = call fastcc i32 @unpack_cmp(ptr noundef %22, ptr noundef %23, i8 noundef signext %20, ptr noundef %unpack_v.0, ptr noundef %unpack_w.0)
+  %call77 = call fastcc i32 @unpack_cmp(ptr noundef %23, ptr noundef %24, i8 noundef signext %21, ptr noundef %unpack_v.0, ptr noundef %unpack_w.0)
   br label %result
 
 if.then82:                                        ; preds = %if.end72
   %shape = getelementptr inbounds i8, ptr %v, i64 104
-  %24 = load ptr, ptr %shape, align 8
+  %25 = load ptr, ptr %shape, align 8
   %strides = getelementptr inbounds i8, ptr %v, i64 112
-  %25 = load ptr, ptr %strides, align 8
+  %26 = load ptr, ptr %strides, align 8
   %suboffsets = getelementptr inbounds i8, ptr %v, i64 120
-  %26 = load ptr, ptr %suboffsets, align 8
+  %27 = load ptr, ptr %suboffsets, align 8
   %strides85 = getelementptr inbounds i8, ptr %ww.0, i64 56
-  %27 = load ptr, ptr %strides85, align 8
+  %28 = load ptr, ptr %strides85, align 8
   %suboffsets86 = getelementptr inbounds i8, ptr %ww.0, i64 64
-  %28 = load ptr, ptr %suboffsets86, align 8
-  %call87 = call fastcc i32 @cmp_base(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i8 noundef signext %20, ptr noundef %unpack_v.0, ptr noundef %unpack_w.0), !range !15
+  %29 = load ptr, ptr %suboffsets86, align 8
+  %call87 = call fastcc i32 @cmp_base(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i8 noundef signext %21, ptr noundef %unpack_v.0, ptr noundef %unpack_w.0), !range !15
   br label %result
 
 if.else88:                                        ; preds = %if.end72
-  %conv92 = sext i32 %21 to i64
+  %conv92 = sext i32 %22 to i64
   %shape93 = getelementptr inbounds i8, ptr %v, i64 104
-  %29 = load ptr, ptr %shape93, align 8
+  %30 = load ptr, ptr %shape93, align 8
   %strides94 = getelementptr inbounds i8, ptr %v, i64 112
-  %30 = load ptr, ptr %strides94, align 8
+  %31 = load ptr, ptr %strides94, align 8
   %suboffsets95 = getelementptr inbounds i8, ptr %v, i64 120
-  %31 = load ptr, ptr %suboffsets95, align 8
+  %32 = load ptr, ptr %suboffsets95, align 8
   %strides96 = getelementptr inbounds i8, ptr %ww.0, i64 56
-  %32 = load ptr, ptr %strides96, align 8
+  %33 = load ptr, ptr %strides96, align 8
   %suboffsets97 = getelementptr inbounds i8, ptr %ww.0, i64 64
-  %33 = load ptr, ptr %suboffsets97, align 8
-  %call98 = call fastcc i32 @cmp_rec(ptr noundef %22, ptr noundef %23, i64 noundef %conv92, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i8 noundef signext %20, ptr noundef %unpack_v.0, ptr noundef %unpack_w.0), !range !15
+  %34 = load ptr, ptr %suboffsets97, align 8
+  %call98 = call fastcc i32 @cmp_rec(ptr noundef %23, ptr noundef %24, i64 noundef %conv92, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i8 noundef signext %21, ptr noundef %unpack_v.0, ptr noundef %unpack_w.0), !range !15
   br label %result
 
 result:                                           ; preds = %if.then75, %if.else88, %if.then82, %if.then69, %if.then61
@@ -3165,52 +3165,52 @@ if.end126:                                        ; preds = %if.then125, %if.end
   br i1 %tobool.not.i, label %unpacker_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end126
-  %34 = load ptr, ptr %unpack_v.190, align 8
-  %cmp.not.i.i = icmp eq ptr %34, null
+  %35 = load ptr, ptr %unpack_v.190, align 8
+  %cmp.not.i.i = icmp eq ptr %35, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %35 = load i64, ptr %34, align 8
-  %36 = and i64 %35, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %36, 0
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %37, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %Py_XDECREF.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %dec.i.i.i = add i64 %35, -1
-  store i64 %dec.i.i.i, ptr %34, align 8
+  %dec.i.i.i = add i64 %36, -1
+  store i64 %dec.i.i.i, ptr %35, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %Py_XDECREF.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %34) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %35) #11
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.then.i
   %mview.i = getelementptr inbounds i8, ptr %unpack_v.190, i64 8
-  %37 = load ptr, ptr %mview.i, align 8
-  %cmp.not.i5.i = icmp eq ptr %37, null
+  %38 = load ptr, ptr %mview.i, align 8
+  %cmp.not.i5.i = icmp eq ptr %38, null
   br i1 %cmp.not.i5.i, label %Py_XDECREF.exit12.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %Py_XDECREF.exit.i
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 2147483648
-  %cmp.i2.not.i7.i = icmp eq i64 %39, 0
+  %39 = load i64, ptr %38, align 8
+  %40 = and i64 %39, 2147483648
+  %cmp.i2.not.i7.i = icmp eq i64 %40, 0
   br i1 %cmp.i2.not.i7.i, label %if.end.i.i8.i, label %Py_XDECREF.exit12.i
 
 if.end.i.i8.i:                                    ; preds = %if.then.i6.i
-  %dec.i.i9.i = add i64 %38, -1
-  store i64 %dec.i.i9.i, ptr %37, align 8
+  %dec.i.i9.i = add i64 %39, -1
+  store i64 %dec.i.i9.i, ptr %38, align 8
   %cmp.i.i10.i = icmp eq i64 %dec.i.i9.i, 0
   br i1 %cmp.i.i10.i, label %if.then1.i.i11.i, label %Py_XDECREF.exit12.i
 
 if.then1.i.i11.i:                                 ; preds = %if.end.i.i8.i
-  call void @_Py_Dealloc(ptr noundef nonnull %37) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %38) #11
   br label %Py_XDECREF.exit12.i
 
 Py_XDECREF.exit12.i:                              ; preds = %if.then1.i.i11.i, %if.end.i.i8.i, %if.then.i6.i, %Py_XDECREF.exit.i
   %item.i = getelementptr inbounds i8, ptr %unpack_v.190, i64 16
-  %40 = load ptr, ptr %item.i, align 8
-  call void @PyMem_Free(ptr noundef %40) #11
+  %41 = load ptr, ptr %item.i, align 8
+  call void @PyMem_Free(ptr noundef %41) #11
   call void @PyMem_Free(ptr noundef nonnull %unpack_v.190) #11
   br label %unpacker_free.exit
 
@@ -3219,52 +3219,52 @@ unpacker_free.exit:                               ; preds = %if.end126, %Py_XDEC
   br i1 %tobool.not.i56, label %unpacker_free.exit76, label %if.then.i57
 
 if.then.i57:                                      ; preds = %unpacker_free.exit
-  %41 = load ptr, ptr %unpack_w.192, align 8
-  %cmp.not.i.i58 = icmp eq ptr %41, null
+  %42 = load ptr, ptr %unpack_w.192, align 8
+  %cmp.not.i.i58 = icmp eq ptr %42, null
   br i1 %cmp.not.i.i58, label %Py_XDECREF.exit.i61, label %if.then.i.i59
 
 if.then.i.i59:                                    ; preds = %if.then.i57
-  %42 = load i64, ptr %41, align 8
-  %43 = and i64 %42, 2147483648
-  %cmp.i2.not.i.i60 = icmp eq i64 %43, 0
+  %43 = load i64, ptr %42, align 8
+  %44 = and i64 %43, 2147483648
+  %cmp.i2.not.i.i60 = icmp eq i64 %44, 0
   br i1 %cmp.i2.not.i.i60, label %if.end.i.i.i72, label %Py_XDECREF.exit.i61
 
 if.end.i.i.i72:                                   ; preds = %if.then.i.i59
-  %dec.i.i.i73 = add i64 %42, -1
-  store i64 %dec.i.i.i73, ptr %41, align 8
+  %dec.i.i.i73 = add i64 %43, -1
+  store i64 %dec.i.i.i73, ptr %42, align 8
   %cmp.i.i.i74 = icmp eq i64 %dec.i.i.i73, 0
   br i1 %cmp.i.i.i74, label %if.then1.i.i.i75, label %Py_XDECREF.exit.i61
 
 if.then1.i.i.i75:                                 ; preds = %if.end.i.i.i72
-  call void @_Py_Dealloc(ptr noundef nonnull %41) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %42) #11
   br label %Py_XDECREF.exit.i61
 
 Py_XDECREF.exit.i61:                              ; preds = %if.then1.i.i.i75, %if.end.i.i.i72, %if.then.i.i59, %if.then.i57
   %mview.i62 = getelementptr inbounds i8, ptr %unpack_w.192, i64 8
-  %44 = load ptr, ptr %mview.i62, align 8
-  %cmp.not.i5.i63 = icmp eq ptr %44, null
+  %45 = load ptr, ptr %mview.i62, align 8
+  %cmp.not.i5.i63 = icmp eq ptr %45, null
   br i1 %cmp.not.i5.i63, label %Py_XDECREF.exit12.i66, label %if.then.i6.i64
 
 if.then.i6.i64:                                   ; preds = %Py_XDECREF.exit.i61
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, 2147483648
-  %cmp.i2.not.i7.i65 = icmp eq i64 %46, 0
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 2147483648
+  %cmp.i2.not.i7.i65 = icmp eq i64 %47, 0
   br i1 %cmp.i2.not.i7.i65, label %if.end.i.i8.i68, label %Py_XDECREF.exit12.i66
 
 if.end.i.i8.i68:                                  ; preds = %if.then.i6.i64
-  %dec.i.i9.i69 = add i64 %45, -1
-  store i64 %dec.i.i9.i69, ptr %44, align 8
+  %dec.i.i9.i69 = add i64 %46, -1
+  store i64 %dec.i.i9.i69, ptr %45, align 8
   %cmp.i.i10.i70 = icmp eq i64 %dec.i.i9.i69, 0
   br i1 %cmp.i.i10.i70, label %if.then1.i.i11.i71, label %Py_XDECREF.exit12.i66
 
 if.then1.i.i11.i71:                               ; preds = %if.end.i.i8.i68
-  call void @_Py_Dealloc(ptr noundef nonnull %44) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %45) #11
   br label %Py_XDECREF.exit12.i66
 
 Py_XDECREF.exit12.i66:                            ; preds = %if.then1.i.i11.i71, %if.end.i.i8.i68, %if.then.i6.i64, %Py_XDECREF.exit.i61
   %item.i67 = getelementptr inbounds i8, ptr %unpack_w.192, i64 16
-  %47 = load ptr, ptr %item.i67, align 8
-  call void @PyMem_Free(ptr noundef %47) #11
+  %48 = load ptr, ptr %item.i67, align 8
+  call void @PyMem_Free(ptr noundef %48) #11
   call void @PyMem_Free(ptr noundef nonnull %unpack_w.192) #11
   br label %unpacker_free.exit76
 
@@ -3274,8 +3274,8 @@ unpacker_free.exit76:                             ; preds = %unpacker_free.exit,
 
 if.then.i.i78:                                    ; preds = %entry, %if.then26, %unpacker_free.exit76
   %res.0125130135138 = phi ptr [ %res.0, %unpacker_free.exit76 ], [ @_Py_NotImplementedStruct, %if.then26 ], [ @_Py_NotImplementedStruct, %entry ]
-  %48 = load i32, ptr %res.0125130135138, align 8
-  %add.i.i.i = add i32 %48, 1
+  %49 = load i32, ptr %res.0125130135138, align 8
+  %add.i.i.i = add i32 %49, 1
   %cmp.i.i.i79 = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i79, label %_Py_XNewRef.exit, label %if.end.i.i.i80
 
@@ -3436,10 +3436,8 @@ entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
   %cmp = icmp eq ptr %kwargs, null
-  %cmp1 = icmp sgt i64 %args.val, 0
-  %or.cond = select i1 %cmp, i1 %cmp1, i1 false
-  %cmp3 = icmp slt i64 %args.val, 2
-  %or.cond1 = select i1 %or.cond, i1 %cmp3, i1 false
+  %1 = icmp eq i64 %args.val, 1
+  %or.cond1 = select i1 %cmp, i1 %1, i1 false
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end
 
@@ -3450,8 +3448,8 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %entry, %cond.end
   %cond12 = phi ptr [ %call11, %cond.end ], [ %ob_item, %entry ]
-  %1 = load ptr, ptr %cond12, align 8
-  %call.i.i = call fastcc ptr @PyMemoryView_FromObjectAndFlags(ptr noundef %1, i32 noundef 284)
+  %2 = load ptr, ptr %cond12, align 8
+  %call.i.i = call fastcc ptr @PyMemoryView_FromObjectAndFlags(ptr noundef %2, i32 noundef 284)
   br label %exit
 
 exit:                                             ; preds = %cond.end, %if.end

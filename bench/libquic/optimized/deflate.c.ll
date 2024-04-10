@@ -90,20 +90,19 @@ if.end34:                                         ; preds = %if.else, %if.then28
   %or.cond1 = icmp ult i32 %4, -9
   %cmp41 = icmp ne i32 %method, 8
   %or.cond2 = or i1 %cmp41, %or.cond1
-  %cmp44 = icmp ult i32 %windowBits.addr.0, 8
-  %or.cond3 = select i1 %or.cond2, i1 true, i1 %cmp44
-  %cmp47 = icmp ugt i32 %windowBits.addr.0, 15
-  %or.cond4 = select i1 %or.cond3, i1 true, i1 %cmp47
-  %5 = icmp ugt i32 %spec.store.select, 9
-  %or.cond6 = or i1 %5, %or.cond4
-  %6 = icmp ugt i32 %strategy, 4
-  %or.cond8 = or i1 %6, %or.cond6
+  %5 = add nsw i32 %windowBits.addr.0, -16
+  %6 = icmp ult i32 %5, -8
+  %or.cond4 = select i1 %or.cond2, i1 true, i1 %6
+  %7 = icmp ugt i32 %spec.store.select, 9
+  %or.cond6 = or i1 %7, %or.cond4
+  %8 = icmp ugt i32 %strategy, 4
+  %or.cond8 = or i1 %8, %or.cond6
   br i1 %or.cond8, label %return, label %if.end62
 
 if.end62:                                         ; preds = %if.end34
   %opaque68 = getelementptr inbounds i8, ptr %strm, i64 80
-  %7 = load ptr, ptr %opaque68, align 8
-  %call = tail call ptr %2(ptr noundef %7, i32 noundef 1, i32 noundef 7072) #10
+  %9 = load ptr, ptr %opaque68, align 8
+  %call = tail call ptr %2(ptr noundef %9, i32 noundef 1, i32 noundef 7072) #10
   %cmp69 = icmp eq ptr %call, null
   br i1 %cmp69, label %return, label %if.end72
 
@@ -125,40 +124,40 @@ if.end72:                                         ; preds = %if.end62
   %sub77 = add nsw i32 %shl, -1
   %w_mask = getelementptr inbounds i8, ptr %call, i64 168
   store i32 %sub77, ptr %w_mask, align 8
-  %8 = load i32, ptr @x86_cpu_enable_simd, align 4
-  %tobool.not = icmp eq i32 %8, 0
+  %10 = load i32, ptr @x86_cpu_enable_simd, align 4
+  %tobool.not = icmp eq i32 %10, 0
   %add = add nuw nsw i32 %memLevel, 7
   %spec.select97 = select i1 %tobool.not, i32 %add, i32 15
-  %9 = getelementptr inbounds i8, ptr %call, i64 216
-  store i32 %spec.select97, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %call, i64 216
+  store i32 %spec.select97, ptr %11, align 8
   %shl83 = shl nuw nsw i32 1, %spec.select97
   %hash_size = getelementptr inbounds i8, ptr %call, i64 212
   store i32 %shl83, ptr %hash_size, align 4
   %sub85 = add nsw i32 %shl83, -1
   %hash_mask = getelementptr inbounds i8, ptr %call, i64 220
   store i32 %sub85, ptr %hash_mask, align 4
-  %10 = trunc i32 %spec.select97 to i8
-  %div.lhs.trunc = add i8 %10, 2
+  %12 = trunc i32 %spec.select97 to i8
+  %div.lhs.trunc = add i8 %12, 2
   %div96 = udiv i8 %div.lhs.trunc, 3
   %div.zext = zext nneg i8 %div96 to i32
   %hash_shift = getelementptr inbounds i8, ptr %call, i64 224
   store i32 %div.zext, ptr %hash_shift, align 16
-  %11 = load ptr, ptr %zalloc, align 8
-  %12 = load ptr, ptr %opaque68, align 8
-  %add92 = add nuw nsw i32 %shl, 8
-  %call93 = tail call ptr %11(ptr noundef %12, i32 noundef %add92, i32 noundef 2) #10
-  %window = getelementptr inbounds i8, ptr %call, i64 176
-  store ptr %call93, ptr %window, align 16
   %13 = load ptr, ptr %zalloc, align 8
   %14 = load ptr, ptr %opaque68, align 8
-  %15 = load i32, ptr %w_size, align 16
-  %call97 = tail call ptr %13(ptr noundef %14, i32 noundef %15, i32 noundef 2) #10
+  %add92 = or disjoint i32 %shl, 8
+  %call93 = tail call ptr %13(ptr noundef %14, i32 noundef %add92, i32 noundef 2) #10
+  %window = getelementptr inbounds i8, ptr %call, i64 176
+  store ptr %call93, ptr %window, align 16
+  %15 = load ptr, ptr %zalloc, align 8
+  %16 = load ptr, ptr %opaque68, align 8
+  %17 = load i32, ptr %w_size, align 16
+  %call97 = tail call ptr %15(ptr noundef %16, i32 noundef %17, i32 noundef 2) #10
   %prev = getelementptr inbounds i8, ptr %call, i64 192
   store ptr %call97, ptr %prev, align 16
-  %16 = load ptr, ptr %zalloc, align 8
-  %17 = load ptr, ptr %opaque68, align 8
-  %18 = load i32, ptr %hash_size, align 4
-  %call101 = tail call ptr %16(ptr noundef %17, i32 noundef %18, i32 noundef 2) #10
+  %18 = load ptr, ptr %zalloc, align 8
+  %19 = load ptr, ptr %opaque68, align 8
+  %20 = load i32, ptr %hash_size, align 4
+  %call101 = tail call ptr %18(ptr noundef %19, i32 noundef %20, i32 noundef 2) #10
   %head = getelementptr inbounds i8, ptr %call, i64 200
   store ptr %call101, ptr %head, align 8
   %class_bitmap = getelementptr inbounds i8, ptr %call, i64 232
@@ -170,28 +169,28 @@ if.end72:                                         ; preds = %if.end62
   %shl103 = shl nuw nsw i32 64, %memLevel
   %lit_bufsize = getelementptr inbounds i8, ptr %call, i64 7008
   store i32 %shl103, ptr %lit_bufsize, align 16
-  %19 = load ptr, ptr %zalloc, align 8
-  %20 = load ptr, ptr %opaque68, align 8
-  %call107 = tail call ptr %19(ptr noundef %20, i32 noundef %shl103, i32 noundef 4) #10
+  %21 = load ptr, ptr %zalloc, align 8
+  %22 = load ptr, ptr %opaque68, align 8
+  %call107 = tail call ptr %21(ptr noundef %22, i32 noundef %shl103, i32 noundef 4) #10
   %pending_buf = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call107, ptr %pending_buf, align 16
-  %21 = load i32, ptr %lit_bufsize, align 16
-  %conv109 = zext i32 %21 to i64
+  %23 = load i32, ptr %lit_bufsize, align 16
+  %conv109 = zext i32 %23 to i64
   %mul = shl nuw nsw i64 %conv109, 2
   %pending_buf_size = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %mul, ptr %pending_buf_size, align 8
-  %22 = load ptr, ptr %window, align 16
-  %cmp111 = icmp eq ptr %22, null
+  %24 = load ptr, ptr %window, align 16
+  %cmp111 = icmp eq ptr %24, null
   br i1 %cmp111, label %if.then125, label %lor.lhs.false113
 
 lor.lhs.false113:                                 ; preds = %if.end72
-  %23 = load ptr, ptr %prev, align 16
-  %cmp115 = icmp eq ptr %23, null
+  %25 = load ptr, ptr %prev, align 16
+  %cmp115 = icmp eq ptr %25, null
   br i1 %cmp115, label %if.then125, label %lor.lhs.false117
 
 lor.lhs.false117:                                 ; preds = %lor.lhs.false113
-  %24 = load ptr, ptr %head, align 8
-  %cmp119 = icmp eq ptr %24, null
+  %26 = load ptr, ptr %head, align 8
+  %cmp119 = icmp eq ptr %26, null
   %cmp123 = icmp eq ptr %call107, null
   %or.cond95 = select i1 %cmp119, i1 true, i1 %cmp123
   br i1 %or.cond95, label %if.then125, label %if.end128
@@ -199,14 +198,14 @@ lor.lhs.false117:                                 ; preds = %lor.lhs.false113
 if.then125:                                       ; preds = %lor.lhs.false117, %lor.lhs.false113, %if.end72
   %status = getelementptr inbounds i8, ptr %call, i64 8
   store i32 666, ptr %status, align 8
-  %25 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @MOZ_Z_z_errmsg, i64 0, i64 6), align 16
-  store ptr %25, ptr %msg, align 8
+  %27 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @MOZ_Z_z_errmsg, i64 0, i64 6), align 16
+  store ptr %27, ptr %msg, align 8
   %call127 = tail call i32 @MOZ_Z_deflateEnd(ptr noundef nonnull %strm), !range !6
   br label %return
 
 if.end128:                                        ; preds = %lor.lhs.false117
-  %26 = lshr i32 %21, 1
-  %div131 = zext nneg i32 %26 to i64
+  %28 = lshr i32 %23, 1
+  %div131 = zext nneg i32 %28 to i64
   %add.ptr = getelementptr inbounds i16, ptr %call107, i64 %div131
   %d_buf = getelementptr inbounds i8, ptr %call, i64 7016
   store ptr %add.ptr, ptr %d_buf, align 8

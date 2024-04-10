@@ -1964,7 +1964,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %15 = and i64 %.val212, 536870911
   %16 = icmp eq i64 %15, 536870911
   %narrow.i218.not = or i1 %.not.i217, %16
-  br i1 %narrow.i218.not, label %270, label %.thread230
+  br i1 %narrow.i218.not, label %273, label %.thread230
 
 17:                                               ; preds = %3
   %18 = sub nsw i64 0, %11
@@ -2030,7 +2030,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not195, label %125, label %62
 
 62:                                               ; preds = %.thread231
-  br i1 %or.cond239, label %270, label %63
+  br i1 %or.cond239, label %273, label %63
 
 63:                                               ; preds = %62
   %64 = icmp eq ptr %35, %2
@@ -2067,7 +2067,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %91 = zext nneg i32 %89 to i64
   %92 = xor i64 %90, %91
   %93 = inttoptr i64 %92 to ptr
-  br label %270
+  br label %273
 
 94:                                               ; preds = %63
   %95 = icmp eq ptr %34, %2
@@ -2104,7 +2104,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %122 = zext nneg i32 %120 to i64
   %123 = xor i64 %121, %122
   %124 = inttoptr i64 %123 to ptr
-  br label %270
+  br label %273
 
 125:                                              ; preds = %.thread231
   br i1 %or.cond239, label %126, label %128
@@ -2112,13 +2112,13 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
 126:                                              ; preds = %125
   %127 = getelementptr i8, ptr %0, i64 32
   %.val214 = load ptr, ptr %127, align 8
-  br label %270
+  br label %273
 
 128:                                              ; preds = %125
   %129 = icmp eq ptr %34, %2
   %130 = icmp eq ptr %35, %2
   %or.cond = select i1 %129, i1 true, i1 %130
-  br i1 %or.cond, label %270, label %131
+  br i1 %or.cond, label %273, label %131
 
 131:                                              ; preds = %128, %94
   %132 = and i64 %7, 1
@@ -2131,7 +2131,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not196, label %152, label %137
 
 137:                                              ; preds = %131
-  br i1 %or.cond241, label %270, label %138
+  br i1 %or.cond241, label %273, label %138
 
 138:                                              ; preds = %137
   %139 = icmp eq ptr %56, %1
@@ -2142,7 +2142,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %142 = xor i64 %141, 1
   %143 = inttoptr i64 %142 to ptr
   %144 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %143, ptr noundef %1)
-  br label %270
+  br label %273
 
 145:                                              ; preds = %138
   %146 = icmp eq ptr %55, %1
@@ -2153,7 +2153,7 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %149 = xor i64 %148, 1
   %150 = inttoptr i64 %149 to ptr
   %151 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %150, ptr noundef %1)
-  br label %270
+  br label %273
 
 152:                                              ; preds = %131
   br i1 %or.cond241, label %153, label %155
@@ -2161,26 +2161,26 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
 153:                                              ; preds = %152
   %154 = getelementptr i8, ptr %0, i64 32
   %.val215 = load ptr, ptr %154, align 8
-  br label %270
+  br label %273
 
 155:                                              ; preds = %152
   %156 = icmp eq ptr %55, %1
   %157 = icmp eq ptr %56, %1
   %or.cond203 = select i1 %156, i1 true, i1 %157
-  br i1 %or.cond203, label %270, label %158
+  br i1 %or.cond203, label %273, label %158
 
 158:                                              ; preds = %155
   %159 = ptrtoint ptr %55 to i64
   %160 = xor i64 %159, 1
   %161 = inttoptr i64 %160 to ptr
   %162 = icmp eq ptr %34, %161
-  br i1 %.not195, label %163, label %186
+  br i1 %.not195, label %163, label %187
 
 .thread232:                                       ; preds = %145
   br i1 %.not195, label %.thread233, label %.thread235
 
 163:                                              ; preds = %158
-  br i1 %162, label %171, label %164
+  br i1 %162, label %172, label %164
 
 164:                                              ; preds = %163
   %165 = ptrtoint ptr %56 to i64
@@ -2188,182 +2188,182 @@ define internal fastcc ptr @Gia_ManAddStrash(ptr noundef %0, ptr noundef %1, ptr
   %167 = inttoptr i64 %166 to ptr
   %168 = icmp eq ptr %34, %167
   %169 = icmp eq ptr %35, %161
-  %or.cond242 = select i1 %168, i1 true, i1 %169
   %170 = icmp eq ptr %35, %167
-  %or.cond243 = select i1 %or.cond242, i1 true, i1 %170
-  br i1 %or.cond243, label %171, label %173
+  %171 = or i1 %169, %170
+  %or.cond243 = select i1 %168, i1 true, i1 %171
+  br i1 %or.cond243, label %172, label %174
 
-171:                                              ; preds = %164, %163
-  %172 = getelementptr i8, ptr %0, i64 32
-  %.val216 = load ptr, ptr %172, align 8
-  br label %270
+172:                                              ; preds = %164, %163
+  %173 = getelementptr i8, ptr %0, i64 32
+  %.val216 = load ptr, ptr %173, align 8
+  br label %273
 
-173:                                              ; preds = %164
-  %174 = icmp eq ptr %34, %55
-  %175 = icmp eq ptr %35, %55
-  %or.cond204 = select i1 %174, i1 true, i1 %175
-  br i1 %or.cond204, label %176, label %178
+174:                                              ; preds = %164
+  %175 = icmp eq ptr %34, %55
+  %176 = icmp eq ptr %35, %55
+  %or.cond204 = select i1 %175, i1 true, i1 %176
+  br i1 %or.cond204, label %177, label %179
 
-176:                                              ; preds = %173
-  %177 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %1, ptr noundef %56)
-  br label %270
+177:                                              ; preds = %174
+  %178 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %1, ptr noundef %56)
+  br label %273
 
-178:                                              ; preds = %173
-  %179 = icmp eq ptr %35, %56
-  br i1 %179, label %180, label %182
+179:                                              ; preds = %174
+  %180 = icmp eq ptr %35, %56
+  br i1 %180, label %181, label %183
 
-180:                                              ; preds = %178
-  %181 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %34, ptr noundef %2)
-  br label %270
+181:                                              ; preds = %179
+  %182 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %34, ptr noundef %2)
+  br label %273
 
-182:                                              ; preds = %178
-  %183 = icmp eq ptr %34, %56
-  br i1 %183, label %184, label %270
+183:                                              ; preds = %179
+  %184 = icmp eq ptr %34, %56
+  br i1 %184, label %185, label %273
 
-184:                                              ; preds = %182
-  %185 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %1, ptr noundef %55)
-  br label %270
+185:                                              ; preds = %183
+  %186 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %1, ptr noundef %55)
+  br label %273
 
-186:                                              ; preds = %158
-  br i1 %162, label %270, label %187
+187:                                              ; preds = %158
+  br i1 %162, label %273, label %188
 
-187:                                              ; preds = %186
-  %188 = ptrtoint ptr %56 to i64
-  %189 = xor i64 %188, 1
-  %190 = inttoptr i64 %189 to ptr
-  %191 = icmp eq ptr %34, %190
-  %192 = icmp eq ptr %35, %161
-  %or.cond244 = select i1 %191, i1 true, i1 %192
-  %193 = icmp eq ptr %35, %190
-  %or.cond245 = select i1 %or.cond244, i1 true, i1 %193
-  br i1 %or.cond245, label %270, label %194
+188:                                              ; preds = %187
+  %189 = ptrtoint ptr %56 to i64
+  %190 = xor i64 %189, 1
+  %191 = inttoptr i64 %190 to ptr
+  %192 = icmp eq ptr %34, %191
+  %193 = icmp eq ptr %35, %161
+  %194 = icmp eq ptr %35, %191
+  %195 = or i1 %193, %194
+  %or.cond245 = select i1 %192, i1 true, i1 %195
+  br i1 %or.cond245, label %273, label %196
 
-194:                                              ; preds = %187
-  %195 = icmp eq ptr %35, %55
-  %196 = icmp eq ptr %35, %56
-  %or.cond205 = select i1 %195, i1 true, i1 %196
-  br i1 %or.cond205, label %197, label %202
+196:                                              ; preds = %188
+  %197 = icmp eq ptr %35, %55
+  %198 = icmp eq ptr %35, %56
+  %or.cond205 = select i1 %197, i1 true, i1 %198
+  br i1 %or.cond205, label %199, label %204
 
-197:                                              ; preds = %194
-  %198 = ptrtoint ptr %34 to i64
-  %199 = xor i64 %198, 1
-  %200 = inttoptr i64 %199 to ptr
-  %201 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %200, ptr noundef %2)
-  br label %270
+199:                                              ; preds = %196
+  %200 = ptrtoint ptr %34 to i64
+  %201 = xor i64 %200, 1
+  %202 = inttoptr i64 %201 to ptr
+  %203 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %202, ptr noundef %2)
+  br label %273
 
-202:                                              ; preds = %194
-  %203 = icmp eq ptr %34, %55
-  %204 = icmp eq ptr %34, %56
-  %or.cond206 = select i1 %203, i1 true, i1 %204
-  br i1 %or.cond206, label %205, label %270
+204:                                              ; preds = %196
+  %205 = icmp eq ptr %34, %55
+  %206 = icmp eq ptr %34, %56
+  %or.cond206 = select i1 %205, i1 true, i1 %206
+  br i1 %or.cond206, label %207, label %273
 
-205:                                              ; preds = %202
-  %206 = ptrtoint ptr %35 to i64
-  %207 = xor i64 %206, 1
-  %208 = inttoptr i64 %207 to ptr
-  %209 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %208, ptr noundef %2)
-  br label %270
+207:                                              ; preds = %204
+  %208 = ptrtoint ptr %35 to i64
+  %209 = xor i64 %208, 1
+  %210 = inttoptr i64 %209 to ptr
+  %211 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %210, ptr noundef %2)
+  br label %273
 
 .thread233:                                       ; preds = %.thread232
-  %210 = ptrtoint ptr %34 to i64
-  %211 = xor i64 %210, 1
-  %212 = inttoptr i64 %211 to ptr
-  %213 = icmp eq ptr %55, %212
-  br i1 %213, label %270, label %214
+  %212 = ptrtoint ptr %34 to i64
+  %213 = xor i64 %212, 1
+  %214 = inttoptr i64 %213 to ptr
+  %215 = icmp eq ptr %55, %214
+  br i1 %215, label %273, label %216
 
-214:                                              ; preds = %.thread233
-  %215 = ptrtoint ptr %35 to i64
-  %216 = xor i64 %215, 1
-  %217 = inttoptr i64 %216 to ptr
-  %218 = icmp eq ptr %55, %217
-  %219 = icmp eq ptr %56, %212
-  %or.cond246 = select i1 %218, i1 true, i1 %219
-  %220 = icmp eq ptr %56, %217
-  %or.cond247 = select i1 %or.cond246, i1 true, i1 %220
-  br i1 %or.cond247, label %270, label %221
+216:                                              ; preds = %.thread233
+  %217 = ptrtoint ptr %35 to i64
+  %218 = xor i64 %217, 1
+  %219 = inttoptr i64 %218 to ptr
+  %220 = icmp eq ptr %55, %219
+  %221 = icmp eq ptr %56, %214
+  %222 = icmp eq ptr %56, %219
+  %223 = or i1 %221, %222
+  %or.cond247 = select i1 %220, i1 true, i1 %223
+  br i1 %or.cond247, label %273, label %224
 
-221:                                              ; preds = %214
-  %222 = icmp eq ptr %56, %34
-  %223 = icmp eq ptr %56, %35
-  %or.cond207 = select i1 %222, i1 true, i1 %223
-  br i1 %or.cond207, label %224, label %229
+224:                                              ; preds = %216
+  %225 = icmp eq ptr %56, %34
+  %226 = icmp eq ptr %56, %35
+  %or.cond207 = select i1 %225, i1 true, i1 %226
+  br i1 %or.cond207, label %227, label %232
 
-224:                                              ; preds = %221
-  %225 = ptrtoint ptr %55 to i64
-  %226 = xor i64 %225, 1
-  %227 = inttoptr i64 %226 to ptr
-  %228 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %227, ptr noundef %1)
-  br label %270
+227:                                              ; preds = %224
+  %228 = ptrtoint ptr %55 to i64
+  %229 = xor i64 %228, 1
+  %230 = inttoptr i64 %229 to ptr
+  %231 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %230, ptr noundef %1)
+  br label %273
 
-229:                                              ; preds = %221
-  %230 = icmp eq ptr %55, %34
-  %231 = icmp eq ptr %55, %35
-  %or.cond208 = select i1 %230, i1 true, i1 %231
-  br i1 %or.cond208, label %232, label %270
+232:                                              ; preds = %224
+  %233 = icmp eq ptr %55, %34
+  %234 = icmp eq ptr %55, %35
+  %or.cond208 = select i1 %233, i1 true, i1 %234
+  br i1 %or.cond208, label %235, label %273
 
-232:                                              ; preds = %229
-  %233 = ptrtoint ptr %56 to i64
-  %234 = xor i64 %233, 1
-  %235 = inttoptr i64 %234 to ptr
-  %236 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %235, ptr noundef %1)
-  br label %270
+235:                                              ; preds = %232
+  %236 = ptrtoint ptr %56 to i64
+  %237 = xor i64 %236, 1
+  %238 = inttoptr i64 %237 to ptr
+  %239 = tail call fastcc ptr @Gia_ManHashAndP(ptr noundef %0, ptr noundef %238, ptr noundef %1)
+  br label %273
 
 .thread235:                                       ; preds = %.thread232
-  %237 = icmp eq ptr %34, %56
-  %238 = ptrtoint ptr %55 to i64
-  %239 = xor i64 %238, 1
-  %240 = inttoptr i64 %239 to ptr
-  %241 = icmp eq ptr %35, %240
-  %or.cond251 = select i1 %237, i1 %241, i1 false
-  br i1 %or.cond251, label %242, label %246
+  %240 = icmp eq ptr %34, %56
+  %241 = ptrtoint ptr %55 to i64
+  %242 = xor i64 %241, 1
+  %243 = inttoptr i64 %242 to ptr
+  %244 = icmp eq ptr %35, %243
+  %or.cond251 = select i1 %240, i1 %244, i1 false
+  br i1 %or.cond251, label %245, label %249
 
-242:                                              ; preds = %.thread235
-  %243 = ptrtoint ptr %34 to i64
-  %244 = xor i64 %243, 1
-  %245 = inttoptr i64 %244 to ptr
-  br label %270
+245:                                              ; preds = %.thread235
+  %246 = ptrtoint ptr %34 to i64
+  %247 = xor i64 %246, 1
+  %248 = inttoptr i64 %247 to ptr
+  br label %273
 
-246:                                              ; preds = %.thread235
-  %247 = icmp eq ptr %35, %55
-  %248 = ptrtoint ptr %56 to i64
-  %249 = xor i64 %248, 1
-  %250 = inttoptr i64 %249 to ptr
-  %251 = icmp eq ptr %34, %250
-  %or.cond255 = select i1 %247, i1 %251, i1 false
-  br i1 %or.cond255, label %252, label %256
+249:                                              ; preds = %.thread235
+  %250 = icmp eq ptr %35, %55
+  %251 = ptrtoint ptr %56 to i64
+  %252 = xor i64 %251, 1
+  %253 = inttoptr i64 %252 to ptr
+  %254 = icmp eq ptr %34, %253
+  %or.cond255 = select i1 %250, i1 %254, i1 false
+  br i1 %or.cond255, label %255, label %259
 
-252:                                              ; preds = %246
-  %253 = ptrtoint ptr %35 to i64
-  %254 = xor i64 %253, 1
-  %255 = inttoptr i64 %254 to ptr
-  br label %270
+255:                                              ; preds = %249
+  %256 = ptrtoint ptr %35 to i64
+  %257 = xor i64 %256, 1
+  %258 = inttoptr i64 %257 to ptr
+  br label %273
 
-256:                                              ; preds = %246
-  %257 = icmp eq ptr %34, %55
-  %258 = icmp eq ptr %35, %250
-  %or.cond259 = select i1 %257, i1 %258, i1 false
-  br i1 %or.cond259, label %259, label %263
+259:                                              ; preds = %249
+  %260 = icmp eq ptr %34, %55
+  %261 = icmp eq ptr %35, %253
+  %or.cond259 = select i1 %260, i1 %261, i1 false
+  br i1 %or.cond259, label %262, label %266
 
-259:                                              ; preds = %256
-  %260 = ptrtoint ptr %34 to i64
-  %261 = xor i64 %260, 1
-  %262 = inttoptr i64 %261 to ptr
-  br label %270
+262:                                              ; preds = %259
+  %263 = ptrtoint ptr %34 to i64
+  %264 = xor i64 %263, 1
+  %265 = inttoptr i64 %264 to ptr
+  br label %273
 
-263:                                              ; preds = %256
-  %264 = icmp eq ptr %35, %56
-  %265 = icmp eq ptr %34, %240
-  %or.cond263 = select i1 %264, i1 %265, i1 false
-  br i1 %or.cond263, label %266, label %270
+266:                                              ; preds = %259
+  %267 = icmp eq ptr %35, %56
+  %268 = icmp eq ptr %34, %243
+  %or.cond263 = select i1 %267, i1 %268, i1 false
+  br i1 %or.cond263, label %269, label %273
 
-266:                                              ; preds = %263
-  %267 = ptrtoint ptr %35 to i64
-  %268 = xor i64 %267, 1
-  %269 = inttoptr i64 %268 to ptr
-  br label %270
+269:                                              ; preds = %266
+  %270 = ptrtoint ptr %35 to i64
+  %271 = xor i64 %270, 1
+  %272 = inttoptr i64 %271 to ptr
+  br label %273
 
-270:                                              ; preds = %263, %182, %202, %229, %.thread233, %214, %186, %187, %155, %137, %128, %62, %13, %266, %259, %252, %242, %232, %224, %205, %197, %184, %180, %176, %171, %153, %147, %140, %126, %96, %65
-  %.0 = phi ptr [ %93, %65 ], [ %124, %96 ], [ %144, %140 ], [ %151, %147 ], [ %245, %242 ], [ %255, %252 ], [ %262, %259 ], [ %269, %266 ], [ %228, %224 ], [ %236, %232 ], [ %201, %197 ], [ %209, %205 ], [ %.val216, %171 ], [ %177, %176 ], [ %181, %180 ], [ %185, %184 ], [ %.val215, %153 ], [ %.val214, %126 ], [ null, %13 ], [ %2, %62 ], [ %1, %128 ], [ %1, %137 ], [ %2, %155 ], [ %2, %187 ], [ %2, %186 ], [ %1, %214 ], [ %1, %.thread233 ], [ null, %229 ], [ null, %202 ], [ null, %182 ], [ null, %263 ]
+273:                                              ; preds = %266, %183, %204, %232, %.thread233, %216, %187, %188, %155, %137, %128, %62, %13, %269, %262, %255, %245, %235, %227, %207, %199, %185, %181, %177, %172, %153, %147, %140, %126, %96, %65
+  %.0 = phi ptr [ %93, %65 ], [ %124, %96 ], [ %144, %140 ], [ %151, %147 ], [ %248, %245 ], [ %258, %255 ], [ %265, %262 ], [ %272, %269 ], [ %231, %227 ], [ %239, %235 ], [ %203, %199 ], [ %211, %207 ], [ %.val216, %172 ], [ %178, %177 ], [ %182, %181 ], [ %186, %185 ], [ %.val215, %153 ], [ %.val214, %126 ], [ null, %13 ], [ %2, %62 ], [ %1, %128 ], [ %1, %137 ], [ %2, %155 ], [ %2, %188 ], [ %2, %187 ], [ %1, %216 ], [ %1, %.thread233 ], [ null, %232 ], [ null, %204 ], [ null, %183 ], [ null, %266 ]
   ret ptr %.0
 }
 

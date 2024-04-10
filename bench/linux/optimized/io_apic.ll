@@ -2041,9 +2041,9 @@ define internal fastcc void @print_IO_APIC(i32 noundef %0) unnamed_addr #8 secti
 
 49:                                               ; preds = %44, %.thread
   %50 = icmp eq i32 %19, %18
-  %51 = select i1 %17, i1 true, i1 %50
-  %52 = icmp eq i32 %19, %7
-  %53 = select i1 %51, i1 true, i1 %52
+  %51 = icmp eq i32 %19, %7
+  %52 = or i1 %50, %51
+  %53 = select i1 %17, i1 true, i1 %52
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %49

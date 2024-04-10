@@ -7431,7 +7431,7 @@ define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef rea
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #13
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %146, label %7
+  br i1 %.not, label %147, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -7510,8 +7510,7 @@ define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef rea
   %.sink = phi i64 [ 24, %44 ], [ 4, %41 ], [ 4, %36 ], [ 4, %34 ]
   %50 = getelementptr inbounds i8, ptr %3, i64 %.sink
   %.0 = load i32, ptr %50, align 4
-  %.0.fr = freeze i32 %.0
-  %51 = icmp eq i32 %.0.fr, 37
+  %51 = icmp eq i32 %.0, 37
   %52 = icmp ne i8 %15, 83
   %or.cond = select i1 %51, i1 %52, i1 false
   br i1 %or.cond, label %53, label %59
@@ -7527,7 +7526,7 @@ define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef rea
   unreachable
 
 59:                                               ; preds = %49
-  %60 = icmp eq i32 %.0.fr, 51
+  %60 = icmp eq i32 %.0, 51
   %61 = icmp ne i8 %15, 118
   %or.cond5 = select i1 %60, i1 %61, i1 false
   br i1 %or.cond5, label %62, label %68
@@ -7543,7 +7542,7 @@ define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef rea
   unreachable
 
 68:                                               ; preds = %59
-  %69 = icmp eq i32 %.0.fr, 23
+  %69 = icmp eq i32 %.0, 23
   %70 = icmp ne i8 %15, 109
   %or.cond8 = select i1 %69, i1 %70, i1 false
   br i1 %or.cond8, label %71, label %77
@@ -7559,7 +7558,7 @@ define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef rea
   unreachable
 
 77:                                               ; preds = %68
-  %78 = icmp eq i32 %.0.fr, 18
+  %78 = icmp eq i32 %.0, 18
   %79 = icmp ne i8 %15, 102
   %or.cond11 = select i1 %78, i1 %79, i1 false
   br i1 %or.cond11, label %80, label %86
@@ -7575,7 +7574,7 @@ define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef rea
   unreachable
 
 86:                                               ; preds = %77
-  %87 = icmp eq i32 %.0.fr, 49
+  %87 = icmp eq i32 %.0, 49
   %88 = icmp ne i8 %15, 99
   %or.cond14 = select i1 %87, i1 %88, i1 false
   br i1 %or.cond14, label %89, label %95
@@ -7591,102 +7590,98 @@ define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef rea
   unreachable
 
 95:                                               ; preds = %86
-  %96 = icmp eq i32 %.0.fr, 20
-  br i1 %96, label %switch.early.test, label %106
+  %96 = icmp eq i32 %.0, 20
+  %97 = and i8 %15, -33
+  %98 = icmp ne i8 %97, 73
+  %or.cond20 = select i1 %96, i1 %98, i1 false
+  br i1 %or.cond20, label %99, label %108
 
-switch.early.test:                                ; preds = %95
-  switch i8 %15, label %97 [
-    i8 105, label %106
-    i8 73, label %106
-  ]
+99:                                               ; preds = %95
+  %100 = load i32, ptr %3, align 4
+  %101 = icmp eq i32 %100, 199
+  br i1 %101, label %108, label %102
 
-97:                                               ; preds = %switch.early.test
-  %98 = load i32, ptr %3, align 4
-  %99 = icmp eq i32 %98, 199
-  br i1 %99, label %106, label %100
-
-100:                                              ; preds = %97
-  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %101)
-  %102 = tail call i32 @errcode(i32 noundef 151027844) #13
-  %103 = getelementptr inbounds i8, ptr %0, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.75, ptr noundef %104) #13
+102:                                              ; preds = %99
+  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %103)
+  %104 = tail call i32 @errcode(i32 noundef 151027844) #13
+  %105 = getelementptr inbounds i8, ptr %0, i64 24
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.75, ptr noundef %106) #13
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 18283, ptr noundef nonnull @__func__.RangeVarCallbackForAlterRelation) #13
   unreachable
 
-106:                                              ; preds = %switch.early.test, %switch.early.test, %95, %97
-  %107 = icmp ne i32 %.0.fr, 49
-  %108 = icmp eq i8 %15, 99
-  %or.cond23 = select i1 %107, i1 %108, i1 false
-  br i1 %or.cond23, label %109, label %116
+108:                                              ; preds = %99, %95
+  %109 = icmp ne i32 %.0, 49
+  %110 = icmp eq i8 %15, 99
+  %or.cond23 = select i1 %109, i1 %110, i1 false
+  br i1 %or.cond23, label %111, label %118
 
-109:                                              ; preds = %106
-  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %110)
-  %111 = tail call i32 @errcode(i32 noundef 151027844) #13
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef %113) #13
-  %115 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #13
+111:                                              ; preds = %108
+  %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %112)
+  %113 = tail call i32 @errcode(i32 noundef 151027844) #13
+  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %115 = load ptr, ptr %114, align 8
+  %116 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef %115) #13
+  %117 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #13
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 18295, ptr noundef nonnull @__func__.RangeVarCallbackForAlterRelation) #13
   unreachable
 
-116:                                              ; preds = %106
-  %117 = load i32, ptr %3, align 4
-  %118 = icmp eq i32 %117, 201
-  br i1 %118, label %119, label %145
+118:                                              ; preds = %108
+  %119 = load i32, ptr %3, align 4
+  %120 = icmp eq i32 %119, 201
+  br i1 %120, label %121, label %146
 
-119:                                              ; preds = %116
-  %120 = and i8 %15, -33
-  %or.cond26 = icmp eq i8 %120, 73
-  br i1 %or.cond26, label %121, label %128
+121:                                              ; preds = %118
+  %or.cond26 = icmp eq i8 %97, 73
+  br i1 %or.cond26, label %122, label %129
 
-121:                                              ; preds = %119
-  %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %122)
-  %123 = tail call i32 @errcode(i32 noundef 151027844) #13
-  %124 = getelementptr inbounds i8, ptr %0, i64 24
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.463, ptr noundef %125) #13
-  %127 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.464) #13
+122:                                              ; preds = %121
+  %123 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %123)
+  %124 = tail call i32 @errcode(i32 noundef 151027844) #13
+  %125 = getelementptr inbounds i8, ptr %0, i64 24
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.463, ptr noundef %126) #13
+  %128 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.464) #13
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 18308, ptr noundef nonnull @__func__.RangeVarCallbackForAlterRelation) #13
   unreachable
 
-128:                                              ; preds = %119
-  br i1 %108, label %129, label %136
+129:                                              ; preds = %121
+  br i1 %110, label %130, label %137
 
-129:                                              ; preds = %128
-  %130 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %130)
-  %131 = tail call i32 @errcode(i32 noundef 151027844) #13
-  %132 = getelementptr inbounds i8, ptr %0, i64 24
-  %133 = load ptr, ptr %132, align 8
-  %134 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.465, ptr noundef %133) #13
-  %135 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #13
+130:                                              ; preds = %129
+  %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %131)
+  %132 = tail call i32 @errcode(i32 noundef 151027844) #13
+  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %134 = load ptr, ptr %133, align 8
+  %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.465, ptr noundef %134) #13
+  %136 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #13
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 18316, ptr noundef nonnull @__func__.RangeVarCallbackForAlterRelation) #13
   unreachable
 
-136:                                              ; preds = %128
-  %137 = icmp eq i8 %15, 116
-  br i1 %137, label %138, label %145
+137:                                              ; preds = %129
+  %138 = icmp eq i8 %15, 116
+  br i1 %138, label %139, label %146
 
-138:                                              ; preds = %136
-  %139 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %139)
-  %140 = tail call i32 @errcode(i32 noundef 151027844) #13
-  %141 = getelementptr inbounds i8, ptr %0, i64 24
-  %142 = load ptr, ptr %141, align 8
-  %143 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.466, ptr noundef %142) #13
-  %144 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.464) #13
+139:                                              ; preds = %137
+  %140 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %140)
+  %141 = tail call i32 @errcode(i32 noundef 151027844) #13
+  %142 = getelementptr inbounds i8, ptr %0, i64 24
+  %143 = load ptr, ptr %142, align 8
+  %144 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.466, ptr noundef %143) #13
+  %145 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.464) #13
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 18322, ptr noundef nonnull @__func__.RangeVarCallbackForAlterRelation) #13
   unreachable
 
-145:                                              ; preds = %136, %116
+146:                                              ; preds = %137, %118
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #13
-  br label %146
+  br label %147
 
-146:                                              ; preds = %4, %145
+147:                                              ; preds = %4, %146
   ret void
 }
 

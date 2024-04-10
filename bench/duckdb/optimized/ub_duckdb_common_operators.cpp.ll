@@ -51807,9 +51807,9 @@ _ZN17duckdb_fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mant
   %retval.i.sroa.0.2 = phi i64 [ %shr60.i, %if.end49.i ], [ 0, %if.then40 ], [ 0, %if.end.i88 ], [ 0, %invoke.cont14.i ], [ 0, %if.then41.i ], [ %spec.select393, %if.end67.i ]
   %cmp.not.i = icmp ne i64 %retval.i97.sroa.0.2462, %retval.i.sroa.0.2
   %cmp4.i = icmp ne i32 %retval.i97.sroa.19.1460, %retval.i.sroa.19.1
-  %53 = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
   %cmp50 = icmp slt i32 %retval.i97.sroa.19.1460, 0
-  %or.cond389 = select i1 %53, i1 true, i1 %cmp50
+  %53 = or i1 %cmp50, %cmp4.i
+  %or.cond389 = select i1 %cmp.not.i, i1 true, i1 %53
   br i1 %or.cond389, label %if.then51, label %if.end55
 
 if.then51:                                        ; preds = %_ZN17duckdb_fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit, %_ZN17duckdb_fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit204.thread
@@ -54150,9 +54150,9 @@ _ZN17duckdb_fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mant
   %retval.i.sroa.0.2 = phi i64 [ %shr59.i, %if.end48.i ], [ 0, %if.then40 ], [ 0, %if.end.i121 ], [ 0, %invoke.cont13.i ], [ 0, %if.then40.i ], [ %spec.select367, %if.end66.i126 ]
   %cmp.not.i = icmp ne i64 %retval.i134.sroa.0.2436, %retval.i.sroa.0.2
   %cmp4.i = icmp ne i32 %retval.i134.sroa.19.1434, %retval.i.sroa.19.1
-  %53 = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
   %cmp49 = icmp slt i32 %retval.i134.sroa.19.1434, 0
-  %or.cond363 = select i1 %53, i1 true, i1 %cmp49
+  %53 = or i1 %cmp49, %cmp4.i
+  %or.cond363 = select i1 %cmp.not.i, i1 true, i1 %53
   br i1 %or.cond363, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %_ZN17duckdb_fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit, %_ZN17duckdb_fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit243.thread

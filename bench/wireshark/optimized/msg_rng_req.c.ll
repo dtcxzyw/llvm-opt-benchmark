@@ -173,10 +173,9 @@ define hidden void @dissect_power_saving_class(ptr noundef %0, i32 %1, ptr nound
   %15 = call i32 @get_tlv_type(ptr noundef nonnull %7) #2
   %16 = call i32 @get_tlv_length(ptr noundef nonnull %7) #2
   %17 = icmp eq i32 %15, -1
-  %18 = icmp ugt i32 %16, 64000
-  %or.cond = select i1 %17, i1 true, i1 %18
-  %19 = icmp eq i32 %16, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %19
+  %18 = add i32 %16, -64001
+  %19 = icmp ult i32 %18, -64000
+  %or.cond3 = select i1 %17, i1 true, i1 %19
   br i1 %or.cond3, label %20, label %26
 
 20:                                               ; preds = %.lr.ph
@@ -341,10 +340,9 @@ define internal i32 @dissect_mac_mgmt_msg_rng_req_decoder(ptr noundef %0, ptr no
   %15 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %16 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
   %17 = icmp eq i32 %15, -1
-  %18 = icmp sgt i32 %16, 64000
-  %or.cond = select i1 %17, i1 true, i1 %18
-  %19 = icmp slt i32 %16, 1
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %19
+  %18 = add i32 %16, -64001
+  %19 = icmp ult i32 %18, -64000
+  %or.cond3 = select i1 %17, i1 true, i1 %19
   br i1 %or.cond3, label %20, label %26
 
 20:                                               ; preds = %.lr.ph

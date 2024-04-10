@@ -163,10 +163,8 @@ if.else20:                                        ; preds = %for.inc
 
 lor.lhs.false:                                    ; preds = %if.else20
   %cmp24 = icmp eq ptr %extval.0, %4
-  %cmp27 = icmp slt i64 %call21, 0
-  %or.cond = select i1 %cmp24, i1 true, i1 %cmp27
-  %cmp30 = icmp sgt i64 %call21, 65535
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp30
+  %6 = icmp ugt i64 %call21, 65535
+  %or.cond1 = select i1 %cmp24, i1 true, i1 %6
   br i1 %or.cond1, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %lor.lhs.false, %if.else20
@@ -175,9 +173,9 @@ if.then32:                                        ; preds = %lor.lhs.false, %if.
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 119, ptr noundef nonnull @__func__.v2i_TLS_FEATURE) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 143, ptr noundef null) #4
   %name33 = getelementptr inbounds i8, ptr %call5, i64 8
-  %6 = load ptr, ptr %name33, align 8
-  %7 = load ptr, ptr %value.le, align 8
-  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef %7) #4
+  %7 = load ptr, ptr %name33, align 8
+  %8 = load ptr, ptr %value.le, align 8
+  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef %8) #4
   br label %err
 
 if.end36:                                         ; preds = %lor.lhs.false, %if.then18

@@ -766,10 +766,8 @@ sw.bb:                                            ; preds = %if.end34
   %17 = load i64, ptr %flags37, align 8
   %and38 = and i64 %17, 32
   %tobool39 = icmp ne i64 %and38, 0
-  %cmp41 = icmp ne i32 %call35, 1
-  %or.cond = select i1 %tobool39, i1 %cmp41, i1 false
-  %cmp44 = icmp ne i32 %call35, 0
-  %or.cond1 = select i1 %or.cond, i1 %cmp44, i1 false
+  %18 = icmp ugt i32 %call35, 1
+  %or.cond1 = select i1 %tobool39, i1 %18, i1 false
   br i1 %or.cond1, label %if.then72.critedge, label %if.end79
 
 sw.bb50:                                          ; preds = %if.end34
@@ -781,10 +779,10 @@ sw.default:                                       ; preds = %if.end34
   br i1 %cmp57, label %if.then72.critedge, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.default
-  %18 = load ptr, ptr %param9, align 8
-  %flags60 = getelementptr inbounds i8, ptr %18, i64 24
-  %19 = load i64, ptr %flags60, align 8
-  %and61 = and i64 %19, 32
+  %19 = load ptr, ptr %param9, align 8
+  %flags60 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = load i64, ptr %flags60, align 8
+  %and61 = and i64 %20, 32
   %tobool62 = icmp ne i64 %and61, 0
   %cmp64 = icmp ne i32 %call35, 1
   %or.cond2 = select i1 %tobool62, i1 %cmp64, i1 false
@@ -793,18 +791,18 @@ lor.lhs.false:                                    ; preds = %sw.default
 if.then72.critedge:                               ; preds = %sw.default, %lor.lhs.false, %sw.bb50, %sw.bb
   %.sink = phi i32 [ 24, %sw.bb ], [ 37, %sw.bb50 ], [ 24, %lor.lhs.false ], [ 24, %sw.default ]
   store i32 %.sink, ptr %error, align 8
-  %20 = trunc i64 %indvars.iv to i32
-  store i32 %20, ptr %error_depth, align 4
+  %21 = trunc i64 %indvars.iv to i32
+  store i32 %21, ptr %error_depth, align 4
   store ptr %call8, ptr %current_cert, align 8
   %call75 = tail call i32 %0(i32 noundef 0, ptr noundef nonnull %ctx) #14
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %end, label %if.end79
 
 if.end79:                                         ; preds = %sw.bb, %sw.bb50, %lor.lhs.false, %if.then72.critedge
-  %21 = load ptr, ptr %param9, align 8
-  %purpose81 = getelementptr inbounds i8, ptr %21, i64 32
-  %22 = load i32, ptr %purpose81, align 8
-  %cmp82 = icmp sgt i32 %22, 0
+  %22 = load ptr, ptr %param9, align 8
+  %purpose81 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = load i32, ptr %purpose81, align 8
+  %cmp82 = icmp sgt i32 %23, 0
   br i1 %cmp82, label %if.then84, label %if.end107
 
 if.then84:                                        ; preds = %if.end79
@@ -815,10 +813,10 @@ if.then84:                                        ; preds = %if.end79
   br i1 %cmp88, label %if.then98, label %lor.lhs.false90
 
 lor.lhs.false90:                                  ; preds = %if.then84
-  %23 = load ptr, ptr %param9, align 8
-  %flags92 = getelementptr inbounds i8, ptr %23, i64 24
-  %24 = load i64, ptr %flags92, align 8
-  %and93 = and i64 %24, 32
+  %24 = load ptr, ptr %param9, align 8
+  %flags92 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = load i64, ptr %flags92, align 8
+  %and93 = and i64 %25, 32
   %tobool94 = icmp ne i64 %and93, 0
   %cmp96 = icmp ne i32 %call87, 1
   %or.cond3 = and i1 %cmp96, %tobool94
@@ -826,8 +824,8 @@ lor.lhs.false90:                                  ; preds = %if.then84
 
 if.then98:                                        ; preds = %lor.lhs.false90, %if.then84
   store i32 26, ptr %error, align 8
-  %25 = trunc i64 %indvars.iv to i32
-  store i32 %25, ptr %error_depth, align 4
+  %26 = trunc i64 %indvars.iv to i32
+  store i32 %26, ptr %error_depth, align 4
   store ptr %call8, ptr %current_cert, align 8
   %call102 = tail call i32 %0(i32 noundef 0, ptr noundef nonnull %ctx) #14
   %tobool103.not = icmp eq i32 %call102, 0
@@ -839,29 +837,29 @@ if.end107:                                        ; preds = %lor.lhs.false90, %i
 
 land.lhs.true110:                                 ; preds = %if.end107
   %ex_flags111 = getelementptr inbounds i8, ptr %call8, i64 64
-  %26 = load i64, ptr %ex_flags111, align 8
-  %and112 = and i64 %26, 32
+  %27 = load i64, ptr %ex_flags111, align 8
+  %and112 = and i64 %27, 32
   %tobool113.not = icmp eq i64 %and112, 0
   br i1 %tobool113.not, label %land.lhs.true114, label %if.end132
 
 land.lhs.true114:                                 ; preds = %land.lhs.true110
   %ex_pathlen = getelementptr inbounds i8, ptr %call8, i64 48
-  %27 = load i64, ptr %ex_pathlen, align 8
-  %cmp115.not = icmp eq i64 %27, -1
+  %28 = load i64, ptr %ex_pathlen, align 8
+  %cmp115.not = icmp eq i64 %28, -1
   br i1 %cmp115.not, label %if.end132, label %land.lhs.true117
 
 land.lhs.true117:                                 ; preds = %land.lhs.true114
   %conv118 = zext nneg i32 %plen.091 to i64
   %conv120 = sext i32 %proxy_path_length.094 to i64
   %add = add nsw i64 %conv120, 1
-  %add121 = add i64 %add, %27
+  %add121 = add i64 %add, %28
   %cmp122 = icmp slt i64 %add121, %conv118
   br i1 %cmp122, label %if.then124, label %if.end132
 
 if.then124:                                       ; preds = %land.lhs.true117
   store i32 25, ptr %error, align 8
-  %28 = trunc i64 %indvars.iv to i32
-  store i32 %28, ptr %error_depth, align 4
+  %29 = trunc i64 %indvars.iv to i32
+  store i32 %29, ptr %error_depth, align 4
   store ptr %call8, ptr %current_cert, align 8
   %call128 = tail call i32 %0(i32 noundef 0, ptr noundef nonnull %ctx) #14
   %tobool129.not = icmp eq i32 %call128, 0
@@ -869,27 +867,27 @@ if.then124:                                       ; preds = %land.lhs.true117
 
 if.end132:                                        ; preds = %if.then124, %land.lhs.true117, %land.lhs.true114, %land.lhs.true110, %if.end107
   %ex_flags133 = getelementptr inbounds i8, ptr %call8, i64 64
-  %29 = load i64, ptr %ex_flags133, align 8
-  %and134 = and i64 %29, 32
+  %30 = load i64, ptr %ex_flags133, align 8
+  %and134 = and i64 %30, 32
   %tobool135.not = icmp eq i64 %and134, 0
   %inc = zext i1 %tobool135.not to i32
   %spec.select = add nuw nsw i32 %plen.091, %inc
-  %and139 = and i64 %29, 1024
+  %and139 = and i64 %30, 1024
   %tobool140.not = icmp eq i64 %and139, 0
   br i1 %tobool140.not, label %for.inc, label %if.then141
 
 if.then141:                                       ; preds = %if.end132
   %ex_pcpathlen = getelementptr inbounds i8, ptr %call8, i64 56
-  %30 = load i64, ptr %ex_pcpathlen, align 8
-  %cmp142.not = icmp ne i64 %30, -1
-  %cmp147 = icmp slt i64 %30, %indvars.iv
-  %or.cond88 = and i1 %cmp142.not, %cmp147
-  br i1 %or.cond88, label %if.then149, label %if.end157
+  %31 = load i64, ptr %ex_pcpathlen, align 8
+  %cmp142.not = icmp ne i64 %31, -1
+  %cmp147 = icmp slt i64 %31, %indvars.iv
+  %or.cond = and i1 %cmp142.not, %cmp147
+  br i1 %or.cond, label %if.then149, label %if.end157
 
 if.then149:                                       ; preds = %if.then141
   store i32 38, ptr %error, align 8
-  %31 = trunc i64 %indvars.iv to i32
-  store i32 %31, ptr %error_depth, align 4
+  %32 = trunc i64 %indvars.iv to i32
+  store i32 %32, ptr %error_depth, align 4
   store ptr %call8, ptr %current_cert, align 8
   %call153 = tail call i32 %0(i32 noundef 0, ptr noundef nonnull %ctx) #14
   %tobool154.not = icmp eq i32 %call153, 0
@@ -903,9 +901,9 @@ for.inc:                                          ; preds = %if.end132, %if.end1
   %must_be_ca.1 = phi i32 [ 0, %if.end157 ], [ 1, %if.end132 ]
   %proxy_path_length.1 = phi i32 [ %inc158, %if.end157 ], [ %proxy_path_length.094, %if.end132 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load i32, ptr %last_untrusted, align 4
-  %33 = sext i32 %32 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %33
+  %33 = load i32, ptr %last_untrusted, align 4
+  %34 = sext i32 %33 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %34
   br i1 %cmp, label %for.body, label %end, !llvm.loop !15
 
 end:                                              ; preds = %if.then15, %if.then26, %if.then72.critedge, %if.then98, %if.then124, %if.then149, %for.inc, %if.end7

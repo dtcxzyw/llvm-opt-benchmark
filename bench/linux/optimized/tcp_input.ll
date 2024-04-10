@@ -12734,10 +12734,10 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr nocaptur
   %146 = icmp sgt i32 %145, 0
   %147 = sub i32 %2, %39
   %148 = icmp sgt i32 %147, -1
-  %149 = select i1 %146, i1 %148, i1 false
-  %150 = sub i32 %141, %39
-  %151 = icmp slt i32 %150, 0
-  %152 = select i1 %149, i1 %151, i1 false
+  %149 = sub i32 %141, %39
+  %150 = icmp slt i32 %149, 0
+  %151 = and i1 %148, %150
+  %152 = select i1 %146, i1 %151, i1 false
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %143

@@ -1433,10 +1433,9 @@ invoke.cont13:                                    ; preds = %if.end9
   %5 = load i32, ptr %internalErrorCode, align 4
   %cmp.i16 = icmp slt i32 %5, 1
   %6 = load i32, ptr %length, align 4
-  %cmp18 = icmp sgt i32 %6, 0
-  %or.cond = select i1 %cmp.i16, i1 %cmp18, i1 false
-  %cmp20 = icmp slt i32 %6, 16
-  %or.cond1 = select i1 %or.cond, i1 %cmp20, i1 false
+  %7 = add i32 %6, -1
+  %8 = icmp ult i32 %7, 15
+  %or.cond1 = select i1 %cmp.i16, i1 %8, i1 false
   %defaultType = getelementptr inbounds i8, ptr %this, i64 480
   br i1 %or.cond1, label %if.then21, label %if.else
 
@@ -1446,10 +1445,10 @@ if.then21:                                        ; preds = %invoke.cont13
           to label %if.end26 unwind label %lpad
 
 lpad:                                             ; preds = %if.then21, %if.end9
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %def) #13
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %invoke.cont13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %defaultType, ptr noundef nonnull align 1 dereferenceable(9) @.str.7, i64 9, i1 false) #13
@@ -1464,42 +1463,42 @@ if.then.i:                                        ; preds = %if.end26
           to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #15
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %if.end26, %if.then.i
   %type = getelementptr inbounds i8, ptr %this, i64 464
-  %10 = load i8, ptr %type, align 8
-  %cmp27 = icmp eq i8 %10, 0
+  %12 = load i8, ptr %type, align 8
+  %cmp27 = icmp eq i8 %12, 0
   %defaultType31 = getelementptr inbounds i8, ptr %this, i64 480
   br i1 %cmp27, label %if.then28, label %if.else53
 
 if.then28:                                        ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
   %call33 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(1) %defaultType31) #13
   %typesTried = getelementptr inbounds i8, ptr %this, i64 496
-  %11 = load i32, ptr %typesTried, align 8
-  %or = or i32 %11, 2
+  %13 = load i32, ptr %typesTried, align 8
+  %or = or i32 %13, 2
   store i32 %or, ptr %typesTried, align 8
   %bcmp12 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %type, ptr noundef nonnull dereferenceable(7) @.str.8, i64 7)
   %cmp37 = icmp eq i32 %bcmp12, 0
   br i1 %cmp37, label %if.then38, label %if.end41
 
 if.then38:                                        ; preds = %if.then28
-  %or40 = or i32 %11, 3
+  %or40 = or i32 %13, 3
   store i32 %or40, ptr %typesTried, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then38, %if.then28
-  %12 = phi i32 [ %or40, %if.then38 ], [ %or, %if.then28 ]
+  %14 = phi i32 [ %or40, %if.then38 ], [ %or, %if.then28 ]
   %bcmp13 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %type, ptr noundef nonnull dereferenceable(9) @.str.7, i64 9)
   %cmp45 = icmp eq i32 %bcmp13, 0
   br i1 %cmp45, label %if.then46, label %if.end49
 
 if.then46:                                        ; preds = %if.end41
-  %or48 = or i32 %12, 4
+  %or48 = or i32 %14, 4
   store i32 %or48, ptr %typesTried, align 8
   br label %if.end49
 
@@ -1516,8 +1515,8 @@ if.else53:                                        ; preds = %_ZN6icu_7527LocalUR
 
 if.then60:                                        ; preds = %if.else53
   %typesTried61 = getelementptr inbounds i8, ptr %this, i64 496
-  %13 = load i32, ptr %typesTried61, align 8
-  %or62 = or i32 %13, 2
+  %15 = load i32, ptr %typesTried61, align 8
+  %or62 = or i32 %15, 2
   store i32 %or62, ptr %typesTried61, align 8
   br label %if.end63
 
@@ -1528,8 +1527,8 @@ if.end63:                                         ; preds = %if.then60, %if.else
 
 if.then68:                                        ; preds = %if.end63
   %typesTried69 = getelementptr inbounds i8, ptr %this, i64 496
-  %14 = load i32, ptr %typesTried69, align 8
-  %or70 = or i32 %14, 1
+  %16 = load i32, ptr %typesTried69, align 8
+  %or70 = or i32 %16, 1
   store i32 %or70, ptr %typesTried69, align 8
   br label %if.end71
 
@@ -1540,8 +1539,8 @@ if.end71:                                         ; preds = %if.then68, %if.end6
 
 if.then76:                                        ; preds = %if.end71
   %typesTried77 = getelementptr inbounds i8, ptr %this, i64 496
-  %15 = load i32, ptr %typesTried77, align 8
-  %or78 = or i32 %15, 4
+  %17 = load i32, ptr %typesTried77, align 8
+  %or78 = or i32 %17, 4
   store i32 %or78, ptr %typesTried77, align 8
   br label %if.end79
 
@@ -1595,7 +1594,7 @@ land.lhs.true9:                                   ; preds = %if.then6
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %land.lhs.true9
-  %or = or i32 %3, 1
+  %or = or disjoint i32 %3, 1
   store i32 %or, ptr %typesTried, align 8
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 470
   store i8 0, ptr %arrayidx, align 2

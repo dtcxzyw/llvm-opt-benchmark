@@ -2935,28 +2935,28 @@ define internal fastcc noundef zeroext i1 @append_universal_character_name(ptr n
   %or.cond7.i = and i1 %or.cond3.i, %33
   %34 = and i64 %23, 4294965248
   %or.cond9.i = icmp eq i64 %34, 55296
-  %or.cond39.i = select i1 %or.cond7.i, i1 true, i1 %or.cond9.i
   %35 = icmp ugt i64 %23, 1114111
-  %or.cond40.i = select i1 %or.cond39.i, i1 true, i1 %35
-  br i1 %or.cond40.i, label %.loopexit, label %40
+  %36 = or i1 %35, %or.cond9.i
+  %or.cond40.i = select i1 %or.cond7.i, i1 true, i1 %36
+  br i1 %or.cond40.i, label %.loopexit, label %41
 
 .loopexit:                                        ; preds = %13, %3, %6, %25, %20, %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
-  %39 = load i64, ptr %38, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %37, i64 %39, ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #32
-  br label %43
+  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = load i64, ptr %39, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %38, i64 %40, ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #32
+  br label %44
 
-40:                                               ; preds = %29
-  %41 = trunc i64 %23 to i32
+41:                                               ; preds = %29
+  %42 = trunc i64 %23 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %42 = call ptr @g_string_append_unichar(ptr noundef %1, i32 noundef %41) #32
-  br label %43
+  %43 = call ptr @g_string_append_unichar(ptr noundef %1, i32 noundef %42) #32
+  br label %44
 
-43:                                               ; preds = %40, %.loopexit
-  %.032.i9 = phi i1 [ true, %40 ], [ false, %.loopexit ]
+44:                                               ; preds = %41, %.loopexit
+  %.032.i9 = phi i1 [ true, %41 ], [ false, %.loopexit ]
   ret i1 %.032.i9
 }
 
@@ -3042,7 +3042,7 @@ define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr nound
   %5 = tail call ptr @g_string_free(ptr noundef %1, i32 noundef 0) #32
   %6 = getelementptr i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
-  switch i8 %7, label %159 [
+  switch i8 %7, label %160 [
     i8 39, label %8
     i8 92, label %13
   ]
@@ -3053,12 +3053,12 @@ define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %10, i64 %12, ptr noundef nonnull @.str.22) #32
-  br label %180
+  br label %181
 
 13:                                               ; preds = %2
   %14 = getelementptr i8, ptr %5, i64 2
   %15 = load i8, ptr %14, align 1
-  switch i8 %15, label %117 [
+  switch i8 %15, label %118 [
     i8 0, label %16
     i8 97, label %21
     i8 98, label %23
@@ -3081,43 +3081,43 @@ define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   %20 = load i64, ptr %19, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %18, i64 %20, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
-  br label %180
+  br label %181
 
 21:                                               ; preds = %13
   %22 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 23:                                               ; preds = %13
   %24 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 25:                                               ; preds = %13
   %26 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 27:                                               ; preds = %13
   %28 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 29:                                               ; preds = %13
   %30 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 31:                                               ; preds = %13
   %32 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 33:                                               ; preds = %13
   %34 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 35:                                               ; preds = %13
   %36 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 37:                                               ; preds = %13
   %38 = getelementptr i8, ptr %5, i64 3
-  br label %172
+  br label %173
 
 39:                                               ; preds = %13
   %40 = getelementptr i8, ptr %5, i64 3
@@ -3152,7 +3152,7 @@ define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr nound
   %54 = getelementptr inbounds i8, ptr %0, i64 64
   %55 = load i64, ptr %54, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %53, i64 %55, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
-  br label %180
+  br label %181
 
 56:                                               ; preds = %49, %45, %39
   %.0.in.i = phi i8 [ %46, %45 ], [ %50, %49 ], [ %42, %39 ]
@@ -3203,12 +3203,12 @@ define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr nound
   %80 = getelementptr inbounds i8, ptr %0, i64 64
   %81 = load i64, ptr %80, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %79, i64 %81, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
-  br label %180
+  br label %181
 
 82:                                               ; preds = %73, %67, %62, %56
   %.1.i = phi i64 [ %64, %62 ], [ %70, %67 ], [ %76, %73 ], [ %.0.i, %56 ]
   %83 = getelementptr i8, ptr %5, i64 5
-  br label %172
+  br label %173
 
 84:                                               ; preds = %13, %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -3266,161 +3266,161 @@ define internal fastcc noundef i32 @set_lval_charconst(ptr noundef %0, ptr nound
   %or.cond7.i.i = and i1 %or.cond3.i.i, %109
   %110 = and i64 %99, 4294965248
   %or.cond9.i.i = icmp eq i64 %110, 55296
-  %or.cond39.i.i = select i1 %or.cond7.i.i, i1 true, i1 %or.cond9.i.i
   %111 = icmp ugt i64 %99, 1114111
-  %or.cond40.i.i = select i1 %or.cond39.i.i, i1 true, i1 %111
-  br i1 %or.cond40.i.i, label %.loopexit.i, label %116
+  %112 = or i1 %111, %or.cond9.i.i
+  %or.cond40.i.i = select i1 %or.cond7.i.i, i1 true, i1 %112
+  br i1 %or.cond40.i.i, label %.loopexit.i, label %117
 
 .loopexit.i:                                      ; preds = %89, %105, %101, %96, %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %112 = getelementptr inbounds i8, ptr %0, i64 56
-  %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 64
-  %115 = load i64, ptr %114, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %113, i64 %115, ptr noundef nonnull @.str.24, ptr noundef nonnull %5) #32
-  br label %180
+  %113 = getelementptr inbounds i8, ptr %0, i64 56
+  %114 = load i64, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 64
+  %116 = load i64, ptr %115, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %114, i64 %116, ptr noundef nonnull @.str.24, ptr noundef nonnull %5) #32
+  br label %181
 
-116:                                              ; preds = %105
+117:                                              ; preds = %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %172
+  br label %173
 
-117:                                              ; preds = %13
-  %118 = and i8 %15, -8
-  %or.cond133.i = icmp eq i8 %118, 48
-  br i1 %or.cond133.i, label %119, label %123
+118:                                              ; preds = %13
+  %119 = and i8 %15, -8
+  %or.cond133.i = icmp eq i8 %119, 48
+  br i1 %or.cond133.i, label %120, label %124
 
-119:                                              ; preds = %117
+120:                                              ; preds = %118
   %narrow121.i = add nsw i8 %15, -48
-  %120 = zext nneg i8 %narrow121.i to i64
-  %121 = getelementptr i8, ptr %5, i64 3
-  %122 = load i8, ptr %121, align 1
-  %.not122.i = icmp eq i8 %122, 39
-  br i1 %.not122.i, label %.thread.i, label %128
+  %121 = zext nneg i8 %narrow121.i to i64
+  %122 = getelementptr i8, ptr %5, i64 3
+  %123 = load i8, ptr %122, align 1
+  %.not122.i = icmp eq i8 %123, 39
+  br i1 %.not122.i, label %.thread.i, label %129
 
-123:                                              ; preds = %117
-  %124 = getelementptr inbounds i8, ptr %0, i64 56
-  %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 64
-  %127 = load i64, ptr %126, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %125, i64 %127, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
-  br label %180
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds i8, ptr %0, i64 56
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 64
+  %128 = load i64, ptr %127, align 8
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %126, i64 %128, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  br label %181
 
-128:                                              ; preds = %119
-  %129 = and i8 %122, -8
-  %or.cond134.i = icmp eq i8 %129, 48
-  br i1 %or.cond134.i, label %130, label %136
+129:                                              ; preds = %120
+  %130 = and i8 %123, -8
+  %or.cond134.i = icmp eq i8 %130, 48
+  br i1 %or.cond134.i, label %131, label %137
 
-130:                                              ; preds = %128
-  %131 = shl nuw nsw i64 %120, 3
-  %narrow123.i = add nsw i8 %122, -48
-  %132 = zext nneg i8 %narrow123.i to i64
-  %133 = or disjoint i64 %131, %132
-  %134 = getelementptr i8, ptr %5, i64 4
-  %135 = load i8, ptr %134, align 1
-  %.not124.i = icmp eq i8 %135, 39
-  br i1 %.not124.i, label %.thread.i, label %141
+131:                                              ; preds = %129
+  %132 = shl nuw nsw i64 %121, 3
+  %narrow123.i = add nsw i8 %123, -48
+  %133 = zext nneg i8 %narrow123.i to i64
+  %134 = or disjoint i64 %132, %133
+  %135 = getelementptr i8, ptr %5, i64 4
+  %136 = load i8, ptr %135, align 1
+  %.not124.i = icmp eq i8 %136, 39
+  br i1 %.not124.i, label %.thread.i, label %142
 
-136:                                              ; preds = %128
-  %137 = getelementptr inbounds i8, ptr %0, i64 56
-  %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 64
-  %140 = load i64, ptr %139, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %138, i64 %140, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
-  br label %180
+137:                                              ; preds = %129
+  %138 = getelementptr inbounds i8, ptr %0, i64 56
+  %139 = load i64, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %0, i64 64
+  %141 = load i64, ptr %140, align 8
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %139, i64 %141, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  br label %181
 
-141:                                              ; preds = %130
-  %142 = and i8 %135, -8
-  %or.cond135.i = icmp eq i8 %142, 48
-  br i1 %or.cond135.i, label %148, label %143
+142:                                              ; preds = %131
+  %143 = and i8 %136, -8
+  %or.cond135.i = icmp eq i8 %143, 48
+  br i1 %or.cond135.i, label %149, label %144
 
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %0, i64 56
-  %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 64
-  %147 = load i64, ptr %146, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %145, i64 %147, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
-  br label %180
+144:                                              ; preds = %142
+  %145 = getelementptr inbounds i8, ptr %0, i64 56
+  %146 = load i64, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %0, i64 64
+  %148 = load i64, ptr %147, align 8
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %146, i64 %148, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  br label %181
 
-148:                                              ; preds = %141
-  %149 = shl nuw nsw i64 %133, 3
-  %narrow125.i = add nsw i8 %135, -48
-  %150 = zext nneg i8 %narrow125.i to i64
-  %151 = or disjoint i64 %149, %150
-  %152 = icmp ugt i64 %151, 255
-  br i1 %152, label %153, label %.thread.i
+149:                                              ; preds = %142
+  %150 = shl nuw nsw i64 %134, 3
+  %narrow125.i = add nsw i8 %136, -48
+  %151 = zext nneg i8 %narrow125.i to i64
+  %152 = or disjoint i64 %150, %151
+  %153 = icmp ugt i64 %152, 255
+  br i1 %153, label %154, label %.thread.i
 
-153:                                              ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %0, i64 56
-  %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 64
-  %157 = load i64, ptr %156, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %155, i64 %157, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #32
-  br label %180
+154:                                              ; preds = %149
+  %155 = getelementptr inbounds i8, ptr %0, i64 56
+  %156 = load i64, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %0, i64 64
+  %158 = load i64, ptr %157, align 8
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %156, i64 %158, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #32
+  br label %181
 
-.thread.i:                                        ; preds = %148, %130, %119
-  %.2144.i = phi i64 [ %151, %148 ], [ %120, %119 ], [ %133, %130 ]
-  %.099143.i = phi ptr [ %134, %148 ], [ %14, %119 ], [ %121, %130 ]
-  %158 = getelementptr i8, ptr %.099143.i, i64 1
-  br label %172
+.thread.i:                                        ; preds = %149, %131, %120
+  %.2144.i = phi i64 [ %152, %149 ], [ %121, %120 ], [ %134, %131 ]
+  %.099143.i = phi ptr [ %135, %149 ], [ %14, %120 ], [ %122, %131 ]
+  %159 = getelementptr i8, ptr %.099143.i, i64 1
+  br label %173
 
-159:                                              ; preds = %2
-  %160 = getelementptr i8, ptr %5, i64 2
-  %161 = sext i8 %7 to i64
-  %162 = load ptr, ptr @g_ascii_table, align 8
-  %163 = zext i8 %7 to i64
-  %164 = getelementptr i16, ptr %162, i64 %163
-  %165 = load i16, ptr %164, align 2
-  %166 = and i16 %165, 64
-  %.not.i = icmp eq i16 %166, 0
-  br i1 %.not.i, label %167, label %172
+160:                                              ; preds = %2
+  %161 = getelementptr i8, ptr %5, i64 2
+  %162 = sext i8 %7 to i64
+  %163 = load ptr, ptr @g_ascii_table, align 8
+  %164 = zext i8 %7 to i64
+  %165 = getelementptr i16, ptr %163, i64 %164
+  %166 = load i16, ptr %165, align 2
+  %167 = and i16 %166, 64
+  %.not.i = icmp eq i16 %167, 0
+  br i1 %.not.i, label %168, label %173
 
-167:                                              ; preds = %159
-  %168 = getelementptr inbounds i8, ptr %0, i64 56
-  %169 = load i64, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 64
-  %171 = load i64, ptr %170, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %169, i64 %171, ptr noundef nonnull @.str.26, i64 noundef %161) #32
-  br label %180
+168:                                              ; preds = %160
+  %169 = getelementptr inbounds i8, ptr %0, i64 56
+  %170 = load i64, ptr %169, align 8
+  %171 = getelementptr inbounds i8, ptr %0, i64 64
+  %172 = load i64, ptr %171, align 8
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %170, i64 %172, ptr noundef nonnull @.str.26, i64 noundef %162) #32
+  br label %181
 
-172:                                              ; preds = %159, %.thread.i, %116, %82, %37, %35, %33, %31, %29, %27, %25, %23, %21
-  %.1100.ph.i = phi ptr [ %160, %159 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %83, %82 ], [ %102, %116 ], [ %158, %.thread.i ]
-  %.3.ph.i = phi i64 [ %161, %159 ], [ 7, %21 ], [ 8, %23 ], [ 12, %25 ], [ 13, %27 ], [ 9, %29 ], [ 11, %31 ], [ 39, %33 ], [ 92, %35 ], [ 34, %37 ], [ %.1.i, %82 ], [ %99, %116 ], [ %.2144.i, %.thread.i ]
+173:                                              ; preds = %160, %.thread.i, %117, %82, %37, %35, %33, %31, %29, %27, %25, %23, %21
+  %.1100.ph.i = phi ptr [ %161, %160 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %83, %82 ], [ %102, %117 ], [ %159, %.thread.i ]
+  %.3.ph.i = phi i64 [ %162, %160 ], [ 7, %21 ], [ 8, %23 ], [ 12, %25 ], [ 13, %27 ], [ 9, %29 ], [ 11, %31 ], [ 39, %33 ], [ 92, %35 ], [ 34, %37 ], [ %.1.i, %82 ], [ %99, %117 ], [ %.2144.i, %.thread.i ]
   %.pr.i = load i8, ptr %.1100.ph.i, align 1
   %.not126.i = icmp eq i8 %.pr.i, 39
-  br i1 %.not126.i, label %173, label %.thread145.i
+  br i1 %.not126.i, label %174, label %.thread145.i
 
-173:                                              ; preds = %172
-  %174 = getelementptr i8, ptr %.1100.ph.i, i64 1
-  %175 = load i8, ptr %174, align 1
-  %.not127.i = icmp eq i8 %175, 0
-  br i1 %.not127.i, label %181, label %.thread145.i
+174:                                              ; preds = %173
+  %175 = getelementptr i8, ptr %.1100.ph.i, i64 1
+  %176 = load i8, ptr %175, align 1
+  %.not127.i = icmp eq i8 %176, 0
+  br i1 %.not127.i, label %182, label %.thread145.i
 
-.thread145.i:                                     ; preds = %173, %172, %13
-  %176 = getelementptr inbounds i8, ptr %0, i64 56
-  %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 64
-  %179 = load i64, ptr %178, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %177, i64 %179, ptr noundef nonnull @.str.27, ptr noundef nonnull %5) #32
-  br label %180
+.thread145.i:                                     ; preds = %174, %173, %13
+  %177 = getelementptr inbounds i8, ptr %0, i64 56
+  %178 = load i64, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %0, i64 64
+  %180 = load i64, ptr %179, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %178, i64 %180, ptr noundef nonnull @.str.27, ptr noundef nonnull %5) #32
+  br label %181
 
-180:                                              ; preds = %8, %153, %.thread145.i, %143, %136, %123, %.loopexit.i, %77, %51, %16, %167
+181:                                              ; preds = %8, %154, %.thread145.i, %144, %137, %124, %.loopexit.i, %77, %51, %16, %168
   call void @g_free(ptr noundef nonnull %5) #32
-  br label %189
+  br label %190
 
-181:                                              ; preds = %173
+182:                                              ; preds = %174
   store i64 %.3.ph.i, ptr %4, align 8
-  %182 = call dereferenceable_or_null(8) ptr @g_memdup2(ptr noundef nonnull %4, i64 noundef 8) #30
-  %183 = getelementptr inbounds i8, ptr %0, i64 56
-  %184 = load i64, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 64
-  %186 = load i64, ptr %185, align 8
-  %187 = call ptr @stnode_new(i32 noundef 6, ptr noundef %182, ptr noundef nonnull %5, i64 %184, i64 %186) #32
-  %188 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %187, ptr %188, align 8
-  br label %189
+  %183 = call dereferenceable_or_null(8) ptr @g_memdup2(ptr noundef nonnull %4, i64 noundef 8) #30
+  %184 = getelementptr inbounds i8, ptr %0, i64 56
+  %185 = load i64, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %0, i64 64
+  %187 = load i64, ptr %186, align 8
+  %188 = call ptr @stnode_new(i32 noundef 6, ptr noundef %183, ptr noundef nonnull %5, i64 %185, i64 %187) #32
+  %189 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %188, ptr %189, align 8
+  br label %190
 
-189:                                              ; preds = %181, %180
-  %.0 = phi i32 [ 26, %181 ], [ -1, %180 ]
+190:                                              ; preds = %182, %181
+  %.0 = phi i32 [ 26, %182 ], [ -1, %181 ]
   ret i32 %.0
 }
 

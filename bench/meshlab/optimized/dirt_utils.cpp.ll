@@ -25300,10 +25300,10 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg15ClosestIteratorINS_13GridStatic
   br i1 %23, label %._crit_edge101, label %.lr.ph100.split
 
 .lr.ph100.split:                                  ; preds = %.lr.ph100, %._crit_edge90
-  %24 = phi i32 [ %120, %._crit_edge90 ], [ %7, %.lr.ph100 ]
-  %25 = phi i32 [ %121, %._crit_edge90 ], [ %22, %.lr.ph100 ]
-  %26 = phi i32 [ %122, %._crit_edge90 ], [ %22, %.lr.ph100 ]
-  %.02797 = phi i32 [ %123, %._crit_edge90 ], [ %4, %.lr.ph100 ]
+  %24 = phi i32 [ %122, %._crit_edge90 ], [ %7, %.lr.ph100 ]
+  %25 = phi i32 [ %123, %._crit_edge90 ], [ %22, %.lr.ph100 ]
+  %26 = phi i32 [ %124, %._crit_edge90 ], [ %22, %.lr.ph100 ]
+  %.02797 = phi i32 [ %125, %._crit_edge90 ], [ %4, %.lr.ph100 ]
   %27 = load i32, ptr %8, align 4
   %.not2984 = icmp sgt i32 %27, %26
   br i1 %.not2984, label %._crit_edge90, label %.lr.ph89
@@ -25315,17 +25315,17 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg15ClosestIteratorINS_13GridStatic
   br i1 %30, label %._crit_edge90, label %.lr.ph89.split
 
 .lr.ph89.split:                                   ; preds = %.lr.ph89, %._crit_edge
-  %31 = phi i32 [ %116, %._crit_edge ], [ %25, %.lr.ph89 ]
-  %32 = phi i32 [ %117, %._crit_edge ], [ %29, %.lr.ph89 ]
-  %33 = phi i32 [ %118, %._crit_edge ], [ %29, %.lr.ph89 ]
-  %.02687 = phi i32 [ %119, %._crit_edge ], [ %27, %.lr.ph89 ]
+  %31 = phi i32 [ %118, %._crit_edge ], [ %25, %.lr.ph89 ]
+  %32 = phi i32 [ %119, %._crit_edge ], [ %29, %.lr.ph89 ]
+  %33 = phi i32 [ %120, %._crit_edge ], [ %29, %.lr.ph89 ]
+  %.02687 = phi i32 [ %121, %._crit_edge ], [ %27, %.lr.ph89 ]
   %34 = load i32, ptr %2, align 8
   %.not3077 = icmp sgt i32 %34, %33
   br i1 %.not3077, label %._crit_edge, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.lr.ph89.split, %.loopexit
-  %35 = phi i32 [ %114, %.loopexit ], [ %32, %.lr.ph89.split ]
-  %.080 = phi i32 [ %115, %.loopexit ], [ %34, %.lr.ph89.split ]
+  %35 = phi i32 [ %116, %.loopexit ], [ %32, %.lr.ph89.split ]
+  %.080 = phi i32 [ %117, %.loopexit ], [ %34, %.lr.ph89.split ]
   %36 = load i32, ptr %10, align 8
   %37 = load i32, ptr %11, align 4
   %38 = icmp sgt i32 %36, %37
@@ -25348,149 +25348,149 @@ _ZNK3vcg4Box3IiE6IsNullEv.exit:                   ; preds = %39
 47:                                               ; preds = %_ZNK3vcg4Box3IiE6IsNullEv.exit
   %48 = icmp sgt i32 %.080, %37
   %49 = icmp slt i32 %.02687, %40
-  %or.cond56 = select i1 %48, i1 true, i1 %49
   %50 = icmp sgt i32 %.02687, %41
-  %or.cond59 = select i1 %or.cond56, i1 true, i1 %50
-  %51 = icmp slt i32 %.02797, %43
-  %or.cond62 = select i1 %or.cond59, i1 true, i1 %51
-  %52 = icmp sgt i32 %.02797, %44
-  %or.cond65 = select i1 %or.cond62, i1 true, i1 %52
+  %51 = or i1 %49, %50
+  %or.cond59 = select i1 %48, i1 true, i1 %51
+  %52 = icmp slt i32 %.02797, %43
+  %53 = icmp sgt i32 %.02797, %44
+  %54 = or i1 %52, %53
+  %or.cond65 = select i1 %or.cond59, i1 true, i1 %54
   br i1 %or.cond65, label %_ZNK3vcg4Box3IiE6IsNullEv.exit.thread, label %.loopexit
 
 _ZNK3vcg4Box3IiE6IsNullEv.exit.thread:            ; preds = %.lr.ph81, %39, %47, %_ZNK3vcg4Box3IiE6IsNullEv.exit
-  %53 = load ptr, ptr %16, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 88
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 36
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %53, i64 40
+  %55 = load ptr, ptr %16, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 88
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 36
   %59 = load i32, ptr %58, align 4
-  %60 = mul nsw i32 %59, %.02797
-  %61 = add nsw i32 %60, %.02687
-  %62 = mul nsw i32 %61, %57
-  %63 = add nsw i32 %62, %.080
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %55, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  %60 = getelementptr inbounds i8, ptr %55, i64 40
+  %61 = load i32, ptr %60, align 4
+  %62 = mul nsw i32 %61, %.02797
+  %63 = add nsw i32 %62, %.02687
+  %64 = mul nsw i32 %63, %59
+  %65 = add nsw i32 %64, %.080
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds ptr, ptr %57, i64 %66
   %68 = load ptr, ptr %67, align 8
-  %.not3172 = icmp eq ptr %66, %68
+  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %.not3172 = icmp eq ptr %68, %70
   br i1 %.not3172, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3vcg4Box3IiE6IsNullEv.exit.thread, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit
-  %.02875 = phi ptr [ %113, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ], [ %66, %_ZNK3vcg4Box3IiE6IsNullEv.exit.thread ]
-  %69 = load ptr, ptr %.02875, align 8
-  %70 = load float, ptr %17, align 4
+  %.02875 = phi ptr [ %115, %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit ], [ %68, %_ZNK3vcg4Box3IiE6IsNullEv.exit.thread ]
+  %71 = load ptr, ptr %.02875, align 8
+  %72 = load float, ptr %17, align 4
   %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %0, align 8
   %.sroa.22.0.copyload.i.i = load float, ptr %.sroa.22.0..0..sroa_idx.i.i, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
-  %72 = load float, ptr %71, align 4
+  %73 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = load float, ptr %73, align 4
   %.sroa.016.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
-  %73 = fsub float %72, %.sroa.016.0.vec.extract.i
-  %74 = getelementptr inbounds i8, ptr %69, i64 12
-  %75 = load float, ptr %74, align 4
+  %75 = fsub float %74, %.sroa.016.0.vec.extract.i
+  %76 = getelementptr inbounds i8, ptr %71, i64 12
+  %77 = load float, ptr %76, align 4
   %.sroa.016.4.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 1
-  %76 = fsub float %75, %.sroa.016.4.vec.extract.i
-  %77 = getelementptr inbounds i8, ptr %69, i64 16
-  %78 = load float, ptr %77, align 4
-  %79 = fsub float %78, %.sroa.22.0.copyload.i.i
-  %80 = fmul float %76, %76
-  %81 = tail call float @llvm.fmuladd.f32(float %73, float %73, float %80)
-  %82 = tail call float @llvm.fmuladd.f32(float %79, float %79, float %81)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %82)
-  %83 = fcmp ugt float %sqrt.i.i, %70
-  br i1 %83, label %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit, label %84
+  %78 = fsub float %77, %.sroa.016.4.vec.extract.i
+  %79 = getelementptr inbounds i8, ptr %71, i64 16
+  %80 = load float, ptr %79, align 4
+  %81 = fsub float %80, %.sroa.22.0.copyload.i.i
+  %82 = fmul float %78, %78
+  %83 = tail call float @llvm.fmuladd.f32(float %75, float %75, float %82)
+  %84 = tail call float @llvm.fmuladd.f32(float %81, float %81, float %83)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %84)
+  %85 = fcmp ugt float %sqrt.i.i, %72
+  br i1 %85, label %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit, label %86
 
-84:                                               ; preds = %.lr.ph
-  %.sroa.042.0.copyload = load <2 x float>, ptr %71, align 8
-  %85 = tail call noundef float @llvm.fabs.f32(float %sqrt.i.i)
-  %86 = load ptr, ptr %19, align 8
-  %87 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp eq ptr %86, %87
-  br i1 %.not.i.i, label %91, label %88
+86:                                               ; preds = %.lr.ph
+  %.sroa.042.0.copyload = load <2 x float>, ptr %73, align 8
+  %87 = tail call noundef float @llvm.fabs.f32(float %sqrt.i.i)
+  %88 = load ptr, ptr %19, align 8
+  %89 = load ptr, ptr %20, align 8
+  %.not.i.i = icmp eq ptr %88, %89
+  br i1 %.not.i.i, label %93, label %90
 
-88:                                               ; preds = %84
-  store ptr %69, ptr %86, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 8
-  store float %85, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 12
+90:                                               ; preds = %86
+  store ptr %71, ptr %88, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 8
+  store float %87, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 12
   store <2 x float> %.sroa.042.0.copyload, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 20
-  store float %78, ptr %.sroa.5.0..sroa_idx, align 4
-  %89 = load ptr, ptr %19, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
-  store ptr %90, ptr %19, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 20
+  store float %80, ptr %.sroa.5.0..sroa_idx, align 4
+  %91 = load ptr, ptr %19, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  store ptr %92, ptr %19, align 8
   br label %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit
 
-91:                                               ; preds = %84
-  %92 = load ptr, ptr %18, align 8
-  %93 = ptrtoint ptr %86 to i64
-  %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = icmp eq i64 %95, 9223372036854775800
-  br i1 %96, label %97, label %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %18, align 8
+  %95 = ptrtoint ptr %88 to i64
+  %96 = ptrtoint ptr %94 to i64
+  %97 = sub i64 %95, %96
+  %98 = icmp eq i64 %97, 9223372036854775800
+  br i1 %98, label %99, label %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i
 
-97:                                               ; preds = %91
+99:                                               ; preds = %93
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #31
   unreachable
 
-_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %91
-  %98 = sdiv exact i64 %95, 24
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %98, i64 1)
-  %99 = add nsw i64 %.sroa.speculated.i.i.i.i, %98
-  %100 = icmp ult i64 %99, %98
-  %101 = tail call i64 @llvm.umin.i64(i64 %99, i64 384307168202282325)
-  %102 = select i1 %100, i64 384307168202282325, i64 %101
-  %.not.i.i.i.i = icmp eq i64 %102, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i, label %103
+_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %93
+  %100 = sdiv exact i64 %97, 24
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %100, i64 1)
+  %101 = add nsw i64 %.sroa.speculated.i.i.i.i, %100
+  %102 = icmp ult i64 %101, %100
+  %103 = tail call i64 @llvm.umin.i64(i64 %101, i64 384307168202282325)
+  %104 = select i1 %102, i64 384307168202282325, i64 %103
+  %.not.i.i.i.i = icmp eq i64 %104, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i, label %105
 
-103:                                              ; preds = %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i
-  %104 = mul nuw nsw i64 %102, 24
-  %105 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %104) #30
+105:                                              ; preds = %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i
+  %106 = mul nuw nsw i64 %104, 24
+  %107 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %106) #30
   br label %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i: ; preds = %103, %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i
-  %106 = phi ptr [ %105, %103 ], [ null, %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %107 = getelementptr inbounds %"struct.vcg::ClosestIterator<vcg::GridStaticPtr<CVertexO>, vcg::vertex::PointDistanceFunctor<float>, vcg::tri::EmptyTMark<CMeshO>>::Entry_Type", ptr %106, i64 %98
-  store ptr %69, ptr %107, align 8
-  %.sroa.3.0..sroa_idx35 = getelementptr inbounds i8, ptr %107, i64 8
-  store float %85, ptr %.sroa.3.0..sroa_idx35, align 8
-  %.sroa.4.0..sroa_idx37 = getelementptr inbounds i8, ptr %107, i64 12
+_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i: ; preds = %105, %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i
+  %108 = phi ptr [ %107, %105 ], [ null, %_ZNKSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %109 = getelementptr inbounds %"struct.vcg::ClosestIterator<vcg::GridStaticPtr<CVertexO>, vcg::vertex::PointDistanceFunctor<float>, vcg::tri::EmptyTMark<CMeshO>>::Entry_Type", ptr %108, i64 %100
+  store ptr %71, ptr %109, align 8
+  %.sroa.3.0..sroa_idx35 = getelementptr inbounds i8, ptr %109, i64 8
+  store float %87, ptr %.sroa.3.0..sroa_idx35, align 8
+  %.sroa.4.0..sroa_idx37 = getelementptr inbounds i8, ptr %109, i64 12
   store <2 x float> %.sroa.042.0.copyload, ptr %.sroa.4.0..sroa_idx37, align 4
-  %.sroa.5.0..sroa_idx39 = getelementptr inbounds i8, ptr %107, i64 20
-  store float %78, ptr %.sroa.5.0..sroa_idx39, align 4
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %92, %86
+  %.sroa.5.0..sroa_idx39 = getelementptr inbounds i8, ptr %109, i64 20
+  store float %80, ptr %.sroa.5.0..sroa_idx39, align 4
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %94, %88
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %109, %.lr.ph.i.i.i.i.i.i.i ], [ %106, %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %108, %.lr.ph.i.i.i.i.i.i.i ], [ %92, %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %111, %.lr.ph.i.i.i.i.i.i.i ], [ %108, %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %110, %.lr.ph.i.i.i.i.i.i.i ], [ %94, %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !320
-  %108 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 24
-  %109 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %108, %86
+  %110 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 24
+  %111 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %110, %88
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !324
 
 _ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %106, %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i ], [ %109, %.lr.ph.i.i.i.i.i.i.i ]
-  %110 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
-  %.not.i23.i.i.i = icmp eq ptr %92, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i, label %111
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %108, %_ZNSt12_Vector_baseIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_M_allocateEm.exit.i.i.i ], [ %111, %.lr.ph.i.i.i.i.i.i.i ]
+  %112 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %.not.i23.i.i.i = icmp eq ptr %94, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i, label %113
 
-111:                                              ; preds = %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %92) #26
+113:                                              ; preds = %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %94) #26
   br label %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i: ; preds = %111, %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i
-  store ptr %106, ptr %18, align 8
-  store ptr %110, ptr %19, align 8
-  %112 = getelementptr inbounds %"struct.vcg::ClosestIterator<vcg::GridStaticPtr<CVertexO>, vcg::vertex::PointDistanceFunctor<float>, vcg::tri::EmptyTMark<CMeshO>>::Entry_Type", ptr %106, i64 %102
-  store ptr %112, ptr %20, align 8
+_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i: ; preds = %113, %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i
+  store ptr %108, ptr %18, align 8
+  store ptr %112, ptr %19, align 8
+  %114 = getelementptr inbounds %"struct.vcg::ClosestIterator<vcg::GridStaticPtr<CVertexO>, vcg::vertex::PointDistanceFunctor<float>, vcg::tri::EmptyTMark<CMeshO>>::Entry_Type", ptr %108, i64 %104
+  store ptr %114, ptr %20, align 8
   br label %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit
 
-_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit: ; preds = %.lr.ph, %88, %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i
-  %113 = getelementptr inbounds i8, ptr %.02875, i64 16
-  %.not31 = icmp eq ptr %113, %68
+_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit: ; preds = %.lr.ph, %90, %_ZNSt6vectorIN3vcg15ClosestIteratorINS0_13GridStaticPtrI8CVertexOfEENS0_6vertex20PointDistanceFunctorIfEENS0_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i
+  %115 = getelementptr inbounds i8, ptr %.02875, i64 16
+  %.not31 = icmp eq ptr %115, %70
   br i1 %.not31, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !325
 
 .loopexit.loopexit:                               ; preds = %_ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9_.exit
@@ -25498,9 +25498,9 @@ _ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNK3vcg4Box3IiE6IsNullEv.exit.thread, %47
-  %114 = phi i32 [ %35, %47 ], [ %35, %_ZNK3vcg4Box3IiE6IsNullEv.exit.thread ], [ %.pre, %.loopexit.loopexit ]
-  %115 = add nsw i32 %.080, 1
-  %.not30.not = icmp slt i32 %.080, %114
+  %116 = phi i32 [ %35, %47 ], [ %35, %_ZNK3vcg4Box3IiE6IsNullEv.exit.thread ], [ %.pre, %.loopexit.loopexit ]
+  %117 = add nsw i32 %.080, 1
+  %.not30.not = icmp slt i32 %.080, %116
   br i1 %.not30.not, label %.lr.ph81, label %._crit_edge.loopexit, !llvm.loop !326
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
@@ -25508,11 +25508,11 @@ _ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph89.split
-  %116 = phi i32 [ %31, %.lr.ph89.split ], [ %.pre104, %._crit_edge.loopexit ]
-  %117 = phi i32 [ %32, %.lr.ph89.split ], [ %114, %._crit_edge.loopexit ]
-  %118 = phi i32 [ %33, %.lr.ph89.split ], [ %114, %._crit_edge.loopexit ]
-  %119 = add nsw i32 %.02687, 1
-  %.not29.not = icmp slt i32 %.02687, %116
+  %118 = phi i32 [ %31, %.lr.ph89.split ], [ %.pre104, %._crit_edge.loopexit ]
+  %119 = phi i32 [ %32, %.lr.ph89.split ], [ %116, %._crit_edge.loopexit ]
+  %120 = phi i32 [ %33, %.lr.ph89.split ], [ %116, %._crit_edge.loopexit ]
+  %121 = add nsw i32 %.02687, 1
+  %.not29.not = icmp slt i32 %.02687, %118
   br i1 %.not29.not, label %.lr.ph89.split, label %._crit_edge90.loopexit102, !llvm.loop !327
 
 ._crit_edge90.loopexit102:                        ; preds = %._crit_edge
@@ -25520,55 +25520,55 @@ _ZNK3vcg6vertex20PointDistanceFunctorIfEclI8CVertexOEEbRKT_RKNS_6Point3IfEERfRS9
   br label %._crit_edge90
 
 ._crit_edge90:                                    ; preds = %.lr.ph89, %._crit_edge90.loopexit102, %.lr.ph100.split
-  %120 = phi i32 [ %24, %.lr.ph100.split ], [ %.pre105, %._crit_edge90.loopexit102 ], [ %24, %.lr.ph89 ]
-  %121 = phi i32 [ %25, %.lr.ph100.split ], [ %116, %._crit_edge90.loopexit102 ], [ %25, %.lr.ph89 ]
-  %122 = phi i32 [ %26, %.lr.ph100.split ], [ %116, %._crit_edge90.loopexit102 ], [ %26, %.lr.ph89 ]
-  %123 = add nsw i32 %.02797, 1
-  %.not.not = icmp slt i32 %.02797, %120
+  %122 = phi i32 [ %24, %.lr.ph100.split ], [ %.pre105, %._crit_edge90.loopexit102 ], [ %24, %.lr.ph89 ]
+  %123 = phi i32 [ %25, %.lr.ph100.split ], [ %118, %._crit_edge90.loopexit102 ], [ %25, %.lr.ph89 ]
+  %124 = phi i32 [ %26, %.lr.ph100.split ], [ %118, %._crit_edge90.loopexit102 ], [ %26, %.lr.ph89 ]
+  %125 = add nsw i32 %.02797, 1
+  %.not.not = icmp slt i32 %.02797, %122
   br i1 %.not.not, label %.lr.ph100.split, label %._crit_edge101, !llvm.loop !328
 
 ._crit_edge101:                                   ; preds = %._crit_edge90, %.lr.ph100, %1
-  %124 = getelementptr inbounds i8, ptr %0, i64 88
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 96
+  %126 = getelementptr inbounds i8, ptr %0, i64 88
   %127 = load ptr, ptr %126, align 8
-  %.not.i.i32 = icmp eq ptr %125, %127
-  %128 = ptrtoint ptr %125 to i64
+  %128 = getelementptr inbounds i8, ptr %0, i64 96
+  %129 = load ptr, ptr %128, align 8
+  %.not.i.i32 = icmp eq ptr %127, %129
+  %130 = ptrtoint ptr %127 to i64
   br i1 %.not.i.i32, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit.thread, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit.thread: ; preds = %._crit_edge101
-  %129 = getelementptr inbounds i8, ptr %0, i64 120
-  store i64 %128, ptr %129, align 8
-  br label %144
+  %131 = getelementptr inbounds i8, ptr %0, i64 120
+  store i64 %130, ptr %131, align 8
+  br label %146
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit: ; preds = %._crit_edge101
-  %130 = ptrtoint ptr %127 to i64
-  %131 = sub i64 %130, %128
-  %132 = sdiv exact i64 %131, 24
-  %133 = tail call i64 @llvm.ctlz.i64(i64 %132, i1 true), !range !64
-  %134 = shl nuw nsw i64 %133, 1
-  %135 = xor i64 %134, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEElNS0_5__ops15_Iter_less_iterEEvT_SN_T0_T1_(ptr %125, ptr %127, i64 noundef %135)
-  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_less_iterEEvT_SN_T0_(ptr %125, ptr %127)
-  %.pre106 = load ptr, ptr %126, align 8
-  %.pre107 = load ptr, ptr %124, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 120
-  %137 = ptrtoint ptr %.pre106 to i64
-  store i64 %137, ptr %136, align 8
-  %138 = icmp eq ptr %.pre106, %.pre107
-  br i1 %138, label %144, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit
+  %132 = ptrtoint ptr %129 to i64
+  %133 = sub i64 %132, %130
+  %134 = sdiv exact i64 %133, 24
+  %135 = tail call i64 @llvm.ctlz.i64(i64 %134, i1 true), !range !64
+  %136 = shl nuw nsw i64 %135, 1
+  %137 = xor i64 %136, 126
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEElNS0_5__ops15_Iter_less_iterEEvT_SN_T0_T1_(ptr %127, ptr %129, i64 noundef %137)
+  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_less_iterEEvT_SN_T0_(ptr %127, ptr %129)
+  %.pre106 = load ptr, ptr %128, align 8
+  %.pre107 = load ptr, ptr %126, align 8
+  %138 = getelementptr inbounds i8, ptr %0, i64 120
+  %139 = ptrtoint ptr %.pre106 to i64
+  store i64 %139, ptr %138, align 8
+  %140 = icmp eq ptr %.pre106, %.pre107
+  br i1 %140, label %146, label %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit
 
 _ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit: ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit
-  %139 = getelementptr inbounds i8, ptr %.pre106, i64 -16
-  %140 = load float, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 80
+  %141 = getelementptr inbounds i8, ptr %.pre106, i64 -16
   %142 = load float, ptr %141, align 8
-  %143 = fcmp ogt float %140, %142
-  br label %144
+  %143 = getelementptr inbounds i8, ptr %0, i64 80
+  %144 = load float, ptr %143, align 8
+  %145 = fcmp ogt float %142, %144
+  br label %146
 
-144:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit.thread, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit
-  %145 = phi i1 [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit ], [ %143, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit ], [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit.thread ]
-  ret i1 %145
+146:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit.thread, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit
+  %147 = phi i1 [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit ], [ %145, %_ZN3vcg15ClosestIteratorINS_13GridStaticPtrI8CVertexOfEENS_6vertex20PointDistanceFunctorIfEENS_3tri10EmptyTMarkI6CMeshOEEE4DistEv.exit ], [ true, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg15ClosestIteratorINS2_13GridStaticPtrI8CVertexOfEENS2_6vertex20PointDistanceFunctorIfEENS2_3tri10EmptyTMarkI6CMeshOEEE10Entry_TypeESt6vectorISF_SaISF_EEEEEvT_SL_.exit.thread ]
+  ret i1 %147
 }
 
 ; Function Attrs: mustprogress uwtable

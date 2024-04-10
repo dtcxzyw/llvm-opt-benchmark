@@ -1250,59 +1250,58 @@ define dso_local noundef i32 @x509_decode_time(ptr nocapture noundef writeonly %
 
 125:                                              ; preds = %119
   %126 = icmp ult i32 %61, 1970
-  %127 = icmp eq i8 %narrow42, 0
-  %128 = select i1 %126, i1 true, i1 %127
-  %129 = icmp ugt i8 %narrow42, 12
-  %130 = select i1 %128, i1 true, i1 %129
-  br i1 %130, label %.thread, label %131
+  %127 = add nsw i32 %73, -13
+  %128 = icmp ult i32 %127, -12
+  %129 = select i1 %126, i1 true, i1 %128
+  br i1 %129, label %.thread, label %130
 
-131:                                              ; preds = %125
-  %132 = add nsw i32 %73, -1
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr [12 x i8], ptr @x509_decode_time.month_lengths, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1
-  %136 = zext i8 %135 to i32
-  %137 = icmp eq i8 %narrow42, 2
-  %138 = and i32 %61, 3
-  %139 = icmp eq i32 %138, 0
-  %140 = select i1 %137, i1 %139, i1 false
-  br i1 %140, label %141, label %148
+130:                                              ; preds = %125
+  %131 = add nsw i32 %73, -1
+  %132 = zext nneg i32 %131 to i64
+  %133 = getelementptr [12 x i8], ptr @x509_decode_time.month_lengths, i64 0, i64 %132
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = icmp eq i8 %narrow42, 2
+  %137 = and i32 %61, 3
+  %138 = icmp eq i32 %137, 0
+  %139 = select i1 %136, i1 %138, i1 false
+  br i1 %139, label %140, label %147
 
-141:                                              ; preds = %131
+140:                                              ; preds = %130
   %.lhs.trunc = trunc i32 %61 to i16
-  %142 = urem i16 %.lhs.trunc, 100
-  %143 = icmp eq i16 %142, 0
-  br i1 %143, label %144, label %148
+  %141 = urem i16 %.lhs.trunc, 100
+  %142 = icmp eq i16 %141, 0
+  br i1 %142, label %143, label %147
 
-144:                                              ; preds = %141
-  %145 = urem i16 %.lhs.trunc, 400
-  %146 = icmp eq i16 %145, 0
-  %147 = select i1 %146, i32 29, i32 28
-  br label %148
+143:                                              ; preds = %140
+  %144 = urem i16 %.lhs.trunc, 400
+  %145 = icmp eq i16 %144, 0
+  %146 = select i1 %145, i32 29, i32 28
+  br label %147
 
-148:                                              ; preds = %144, %141, %131
-  %149 = phi i32 [ %147, %144 ], [ 29, %141 ], [ %136, %131 ]
-  %150 = icmp eq i8 %narrow43, 0
-  br i1 %150, label %.thread, label %151
+147:                                              ; preds = %143, %140, %130
+  %148 = phi i32 [ %146, %143 ], [ 29, %140 ], [ %135, %130 ]
+  %149 = icmp eq i8 %narrow43, 0
+  br i1 %149, label %.thread, label %150
 
-151:                                              ; preds = %148
-  %152 = icmp ult i32 %149, %85
-  %153 = icmp ugt i8 %narrow44, 24
-  %154 = select i1 %152, i1 true, i1 %153
-  %155 = icmp ugt i8 %narrow45, 59
-  %156 = select i1 %154, i1 true, i1 %155
-  %157 = icmp ugt i8 %narrow46, 60
-  %158 = select i1 %156, i1 true, i1 %157
-  br i1 %158, label %.thread, label %159
+150:                                              ; preds = %147
+  %151 = icmp ult i32 %148, %85
+  %152 = icmp ugt i8 %narrow44, 24
+  %153 = select i1 %151, i1 true, i1 %152
+  %154 = icmp ugt i8 %narrow45, 59
+  %155 = select i1 %153, i1 true, i1 %154
+  %156 = icmp ugt i8 %narrow46, 60
+  %157 = select i1 %155, i1 true, i1 %156
+  br i1 %157, label %.thread, label %158
 
-159:                                              ; preds = %151
-  %160 = tail call i64 @mktime64(i32 noundef %61, i32 noundef %73, i32 noundef %85, i32 noundef %97, i32 noundef %109, i32 noundef %121) #16
-  store i64 %160, ptr %0, align 8
+158:                                              ; preds = %150
+  %159 = tail call i64 @mktime64(i32 noundef %61, i32 noundef %73, i32 noundef %85, i32 noundef %97, i32 noundef %109, i32 noundef %121) #16
+  store i64 %159, ptr %0, align 8
   br label %.thread
 
-.thread:                                          ; preds = %107, %114, %95, %102, %83, %90, %71, %78, %60, %66, %40, %48, %31, %35, %9, %13, %159, %151, %148, %125, %119, %53, %27, %7
-  %161 = phi i32 [ 0, %159 ], [ -74, %119 ], [ -74, %27 ], [ -74, %7 ], [ -74, %148 ], [ -74, %151 ], [ -74, %125 ], [ -74, %53 ], [ -74, %13 ], [ -74, %9 ], [ -74, %35 ], [ -74, %31 ], [ -74, %48 ], [ -74, %40 ], [ -74, %66 ], [ -74, %60 ], [ -74, %78 ], [ -74, %71 ], [ -74, %90 ], [ -74, %83 ], [ -74, %102 ], [ -74, %95 ], [ -74, %114 ], [ -74, %107 ]
-  ret i32 %161
+.thread:                                          ; preds = %107, %114, %95, %102, %83, %90, %71, %78, %60, %66, %40, %48, %31, %35, %9, %13, %158, %150, %147, %125, %119, %53, %27, %7
+  %160 = phi i32 [ 0, %158 ], [ -74, %119 ], [ -74, %27 ], [ -74, %7 ], [ -74, %147 ], [ -74, %150 ], [ -74, %125 ], [ -74, %53 ], [ -74, %13 ], [ -74, %9 ], [ -74, %35 ], [ -74, %31 ], [ -74, %48 ], [ -74, %40 ], [ -74, %66 ], [ -74, %60 ], [ -74, %78 ], [ -74, %71 ], [ -74, %90 ], [ -74, %83 ], [ -74, %102 ], [ -74, %95 ], [ -74, %114 ], [ -74, %107 ]
+  ret i32 %160
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1396,7 +1396,7 @@ define dso_local noundef i32 @xhci_suspend(ptr noundef %0, i1 noundef zeroext %1
   %4 = getelementptr inbounds i8, ptr %3, i64 592
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %14 [
-    i32 0, label %316
+    i32 0, label %313
     i32 4, label %6
   ]
 
@@ -1413,7 +1413,7 @@ define dso_local noundef i32 @xhci_suspend(ptr noundef %0, i1 noundef zeroext %1
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10, %2
-  br label %316
+  br label %313
 
 15:                                               ; preds = %10, %6
   %16 = getelementptr inbounds i8, ptr %0, i64 2584
@@ -1503,7 +1503,7 @@ define dso_local noundef i32 @xhci_suspend(ptr noundef %0, i1 noundef zeroext %1
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, 1
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %316, label %79
+  br i1 %78, label %313, label %79
 
 79:                                               ; preds = %.loopexit15
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %75, i32 -5, ptr elementtype(i8) %75) #21, !srcloc !28
@@ -1597,7 +1597,7 @@ define dso_local noundef i32 @xhci_suspend(ptr noundef %0, i1 noundef zeroext %1
   %132 = load ptr, ptr %131, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %132, ptr noundef nonnull @.str.17) #22
   tail call void @_raw_spin_unlock_irq(ptr noundef %17) #21
-  br label %316
+  br label %313
 
 133:                                              ; preds = %.loopexit13
   %134 = getelementptr inbounds i8, ptr %0, i64 152
@@ -1801,7 +1801,7 @@ define dso_local noundef i32 @xhci_suspend(ptr noundef %0, i1 noundef zeroext %1
 .loopexit:                                        ; preds = %275, %273, %.loopexit12
   %.pre-phi22 = phi i32 [ %.pre21, %273 ], [ %267, %.loopexit12 ], [ %278, %275 ]
   %282 = icmp eq i32 %.pre-phi22, 0
-  br i1 %282, label %302, label %283
+  br i1 %282, label %299, label %283
 
 283:                                              ; preds = %.loopexit
   %284 = load ptr, ptr %101, align 8
@@ -1810,52 +1810,49 @@ define dso_local noundef i32 @xhci_suspend(ptr noundef %0, i1 noundef zeroext %1
   %287 = load i64, ptr %90, align 8
   %288 = and i64 %287, 34359738368
   %289 = icmp ne i64 %288, 0
-  %290 = and i32 %286, 1024
+  %290 = and i32 %286, 5120
   %291 = icmp eq i32 %290, 0
   %292 = select i1 %289, i1 %291, i1 false
-  %293 = and i32 %286, 4096
-  %294 = icmp eq i32 %293, 0
-  %295 = select i1 %292, i1 %294, i1 false
-  br i1 %295, label %296, label %299
+  br i1 %292, label %293, label %296
+
+293:                                              ; preds = %283
+  %294 = load i8, ptr %261, align 8
+  %295 = or i8 %294, 2
+  store i8 %295, ptr %261, align 8
+  br label %299
 
 296:                                              ; preds = %283
-  %297 = load i8, ptr %261, align 8
-  %298 = or i8 %297, 2
-  store i8 %298, ptr %261, align 8
-  br label %302
-
-299:                                              ; preds = %283
-  %300 = load ptr, ptr %0, align 8
-  %301 = load ptr, ptr %300, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %301, ptr noundef nonnull @.str.18) #22
+  %297 = load ptr, ptr %0, align 8
+  %298 = load ptr, ptr %297, align 8
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %298, ptr noundef nonnull @.str.18) #22
   tail call void @_raw_spin_unlock_irq(ptr noundef %17) #21
-  br label %316
+  br label %313
 
-302:                                              ; preds = %296, %.loopexit
+299:                                              ; preds = %293, %.loopexit
   tail call void @_raw_spin_unlock_irq(ptr noundef %17) #21
-  %303 = load i64, ptr %90, align 8
-  %304 = and i64 %303, 16384
-  %305 = icmp eq i64 %304, 0
-  br i1 %305, label %316, label %306
+  %300 = load i64, ptr %90, align 8
+  %301 = and i64 %300, 16384
+  %302 = icmp eq i64 %301, 0
+  br i1 %302, label %313, label %303
 
-306:                                              ; preds = %302
-  %307 = getelementptr inbounds i8, ptr %0, i64 2736
-  %308 = load i32, ptr %307, align 8
-  %309 = load i32, ptr %19, align 8
-  %310 = shl nsw i32 -1, %309
-  %311 = xor i32 %310, %308
-  %312 = icmp eq i32 %311, -1
-  br i1 %312, label %316, label %313
+303:                                              ; preds = %299
+  %304 = getelementptr inbounds i8, ptr %0, i64 2736
+  %305 = load i32, ptr %304, align 8
+  %306 = load i32, ptr %19, align 8
+  %307 = shl nsw i32 -1, %306
+  %308 = xor i32 %307, %305
+  %309 = icmp eq i32 %308, -1
+  br i1 %309, label %313, label %310
 
-313:                                              ; preds = %306
-  %314 = getelementptr inbounds i8, ptr %0, i64 2696
-  %315 = tail call i32 @timer_delete_sync(ptr noundef %314) #21
+310:                                              ; preds = %303
+  %311 = getelementptr inbounds i8, ptr %0, i64 2696
+  %312 = tail call i32 @timer_delete_sync(ptr noundef %311) #21
   tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef %0, ptr noundef nonnull @trace_xhci_dbg_quirks, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.xhci_suspend) #21
-  br label %316
+  br label %313
 
-316:                                              ; preds = %313, %306, %302, %299, %130, %.loopexit15, %14, %2
-  %317 = phi i32 [ -22, %14 ], [ -110, %130 ], [ -110, %299 ], [ %5, %2 ], [ 0, %.loopexit15 ], [ 0, %313 ], [ 0, %306 ], [ 0, %302 ]
-  ret i32 %317
+313:                                              ; preds = %310, %303, %299, %296, %130, %.loopexit15, %14, %2
+  %314 = phi i32 [ -22, %14 ], [ -110, %130 ], [ -110, %296 ], [ %5, %2 ], [ 0, %.loopexit15 ], [ 0, %310 ], [ 0, %303 ], [ 0, %299 ]
+  ret i32 %314
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

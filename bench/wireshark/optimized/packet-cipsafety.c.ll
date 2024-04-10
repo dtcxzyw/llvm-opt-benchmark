@@ -2321,7 +2321,7 @@ define internal i32 @dissect_cip_class_s_validator(ptr noundef %0, ptr noundef %
   %27 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #6
   call void @load_cip_request_data(ptr noundef %1, ptr noundef nonnull %7) #6
   %.not.i = icmp sgt i8 %15, -1
-  br i1 %.not.i, label %52, label %28
+  br i1 %.not.i, label %54, label %28
 
 28:                                               ; preds = %4
   %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #6
@@ -2338,58 +2338,55 @@ define internal i32 @dissect_cip_class_s_validator(ptr noundef %0, ptr noundef %
   %37 = load i32, ptr @ett_ssupervisor_cmd_data, align 4
   %38 = call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %36, i32 noundef %34, i32 noundef %37, ptr noundef nonnull %5, ptr noundef nonnull @.str.524) #6
   %39 = icmp eq i8 %29, 0
-  br i1 %39, label %40, label %49
+  br i1 %39, label %40, label %51
 
 40:                                               ; preds = %35
   %41 = icmp eq i32 %22, 1
-  br i1 %41, label %switch.early.test.i, label %46
-
-switch.early.test.i:                              ; preds = %40
   %42 = getelementptr inbounds i8, ptr %7, i64 12
   %43 = load i32, ptr %42, align 4
-  switch i32 %43, label %44 [
-    i32 -1, label %46
-    i32 0, label %46
-  ]
+  %44 = add i32 %43, -1
+  %45 = icmp ult i32 %44, -2
+  %or.cond5.i = select i1 %41, i1 %45, i1 false
+  br i1 %or.cond5.i, label %46, label %48
 
-44:                                               ; preds = %switch.early.test.i
-  %45 = call i32 @dissect_cip_get_attribute_all_rsp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %38, i32 noundef %36, ptr noundef nonnull %7) #6
+46:                                               ; preds = %40
+  %47 = call i32 @dissect_cip_get_attribute_all_rsp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %38, i32 noundef %36, ptr noundef nonnull %7) #6
   br label %dissect_cip_s_validator_data.exit
 
-46:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %40
-  %47 = load i32, ptr @hf_cip_data, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %47, ptr noundef %0, i32 noundef %36, i32 noundef %34, i32 noundef 0) #6
+48:                                               ; preds = %40
+  %49 = load i32, ptr @hf_cip_data, align 4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %49, ptr noundef %0, i32 noundef %36, i32 noundef %34, i32 noundef 0) #6
   br label %dissect_cip_s_validator_data.exit
 
-49:                                               ; preds = %35
-  %50 = load i32, ptr @hf_cip_data, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %50, ptr noundef %0, i32 noundef %36, i32 noundef %34, i32 noundef 0) #6
+51:                                               ; preds = %35
+  %52 = load i32, ptr @hf_cip_data, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %52, ptr noundef %0, i32 noundef %36, i32 noundef %34, i32 noundef 0) #6
   br label %dissect_cip_s_validator_data.exit
 
-52:                                               ; preds = %4
-  %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 1
-  %56 = sub i32 %12, %55
-  %57 = add i32 %56, -2
-  %.not70.i = icmp eq i32 %57, 0
-  br i1 %.not70.i, label %dissect_cip_s_validator_data.exit, label %58
+54:                                               ; preds = %4
+  %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
+  %56 = zext i8 %55 to i32
+  %57 = shl nuw nsw i32 %56, 1
+  %58 = sub i32 %12, %57
+  %59 = add i32 %58, -2
+  %.not70.i = icmp eq i32 %59, 0
+  br i1 %.not70.i, label %dissect_cip_s_validator_data.exit, label %60
 
-58:                                               ; preds = %52
-  %59 = add nuw nsw i32 %55, 2
-  %60 = load i32, ptr @ett_ssupervisor_cmd_data, align 4
-  %61 = call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %59, i32 noundef %57, i32 noundef %60, ptr noundef null, ptr noundef nonnull @.str.524) #6
-  %62 = load i32, ptr @hf_cip_data, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %0, i32 noundef %59, i32 noundef %57, i32 noundef 0) #6
+60:                                               ; preds = %54
+  %61 = add nuw nsw i32 %57, 2
+  %62 = load i32, ptr @ett_ssupervisor_cmd_data, align 4
+  %63 = call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %61, i32 noundef %59, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.524) #6
+  %64 = load i32, ptr @hf_cip_data, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %61, i32 noundef %59, i32 noundef 0) #6
   br label %dissect_cip_s_validator_data.exit
 
-dissect_cip_s_validator_data.exit:                ; preds = %28, %44, %46, %49, %52, %58
+dissect_cip_s_validator_data.exit:                ; preds = %28, %46, %48, %51, %54, %60
   call void @add_cip_service_to_info_column(ptr noundef nonnull %1, i8 noundef zeroext %15, ptr noundef nonnull @cip_sc_vals_svalidator) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7)
-  %64 = call i32 @tvb_reported_length(ptr noundef %0) #6
-  ret i32 %64
+  %66 = call i32 @tvb_reported_length(ptr noundef %0) #6
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable

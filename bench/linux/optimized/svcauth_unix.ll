@@ -1438,7 +1438,7 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
   %18 = getelementptr i8, ptr %1, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 10
-  br i1 %20, label %21, label %103
+  br i1 %20, label %21, label %99
 
 21:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 80, i1 false), !annotation !11
@@ -1454,7 +1454,7 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
 .thread:                                          ; preds = %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %12) #19
-  br label %103
+  br label %99
 
 24:                                               ; preds = %21
   %25 = call i64 @simple_strtol(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 0) #19
@@ -1465,7 +1465,7 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
   %30 = select i1 %28, i32 %29, i32 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %12) #19
-  br i1 %28, label %31, label %103
+  br i1 %28, label %31, label %99
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds i8, ptr %15, i64 48
@@ -1494,7 +1494,7 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
-  br label %103
+  br label %99
 
 41:                                               ; preds = %37
   %42 = load i64, ptr %10, align 8
@@ -1515,7 +1515,7 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
 .thread10:                                        ; preds = %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %7) #19
-  br label %103
+  br label %99
 
 47:                                               ; preds = %41
   %48 = call i64 @simple_strtol(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0) #19
@@ -1523,112 +1523,109 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
   %50 = load i8, ptr %49, align 1
   %51 = icmp ne i8 %50, 0
   %52 = trunc i64 %48 to i32
-  %53 = select i1 %51, i32 0, i32 %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %7) #19
-  %54 = icmp slt i32 %53, 0
-  %55 = select i1 %51, i1 true, i1 %54
-  %56 = icmp sgt i32 %53, 8192
-  %57 = select i1 %55, i1 true, i1 %56
-  br i1 %57, label %103, label %58
+  %53 = icmp ugt i32 %52, 8192
+  %54 = select i1 %51, i1 true, i1 %53
+  br i1 %54, label %99, label %55
 
-58:                                               ; preds = %47
-  %59 = call ptr @groups_alloc(i32 noundef %52) #19
-  %60 = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr %59, ptr %60, align 8
-  %61 = icmp eq ptr %59, null
-  br i1 %61, label %103, label %62
+55:                                               ; preds = %47
+  %56 = call ptr @groups_alloc(i32 noundef %52) #19
+  %57 = getelementptr inbounds i8, ptr %15, i64 56
+  store ptr %56, ptr %57, align 8
+  %58 = icmp eq ptr %56, null
+  br i1 %58, label %99, label %59
 
-62:                                               ; preds = %58
-  %63 = icmp sgt i32 %52, 0
-  br i1 %63, label %64, label %.loopexit
+59:                                               ; preds = %55
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %.loopexit, label %60
 
-64:                                               ; preds = %62
-  %65 = and i64 %48, 2147483647
-  %66 = getelementptr inbounds i8, ptr %59, i64 8
-  br label %67
+60:                                               ; preds = %59
+  %61 = and i64 %48, 16383
+  %62 = getelementptr inbounds i8, ptr %56, i64 8
+  br label %63
 
-67:                                               ; preds = %79, %64
-  %68 = phi i64 [ 0, %64 ], [ %81, %79 ]
+63:                                               ; preds = %75, %60
+  %64 = phi i64 [ 0, %60 ], [ %77, %75 ]
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %5, i8 0, i64 50, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
   store ptr null, ptr %6, align 8, !annotation !11
-  %69 = call i32 @qword_get(ptr noundef nonnull %14, ptr noundef nonnull %5, i32 noundef 50) #19
-  %70 = icmp slt i32 %69, 1
-  br i1 %70, label %.thread11, label %71
+  %65 = call i32 @qword_get(ptr noundef nonnull %14, ptr noundef nonnull %5, i32 noundef 50) #19
+  %66 = icmp slt i32 %65, 1
+  br i1 %66, label %.thread11, label %67
 
-.thread11:                                        ; preds = %67
+.thread11:                                        ; preds = %63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #19
   br label %.thread13
 
-71:                                               ; preds = %67
-  %72 = call i64 @simple_strtol(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #19
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i8, ptr %73, align 1
-  %75 = icmp eq i8 %74, 0
-  %76 = trunc i64 %72 to i32
+67:                                               ; preds = %63
+  %68 = call i64 @simple_strtol(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #19
+  %69 = load ptr, ptr %6, align 8
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp eq i8 %70, 0
+  %72 = trunc i64 %68 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #19
-  %77 = icmp ne i32 %76, -1
-  %78 = select i1 %75, i1 %77, i1 false
-  br i1 %78, label %79, label %.thread13
+  %73 = icmp ne i32 %72, -1
+  %74 = select i1 %71, i1 %73, i1 false
+  br i1 %74, label %75, label %.thread13
 
-79:                                               ; preds = %71
-  %80 = getelementptr [0 x %struct.kgid_t], ptr %66, i64 0, i64 %68
-  store i32 %76, ptr %80, align 4
-  %81 = add nuw nsw i64 %68, 1
-  %82 = icmp eq i64 %81, %65
-  br i1 %82, label %.loopexit, label %67, !llvm.loop !21
+75:                                               ; preds = %67
+  %76 = getelementptr [0 x %struct.kgid_t], ptr %62, i64 0, i64 %64
+  store i32 %72, ptr %76, align 4
+  %77 = add nuw nsw i64 %64, 1
+  %78 = icmp eq i64 %77, %61
+  br i1 %78, label %.loopexit, label %63, !llvm.loop !21
 
-.loopexit:                                        ; preds = %79, %62
-  call void @groups_sort(ptr noundef nonnull %59) #19
+.loopexit:                                        ; preds = %75, %59
+  call void @groups_sort(ptr noundef nonnull %56) #19
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false), !annotation !11
-  %83 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 %30, ptr %83, align 8
-  %84 = zext i32 %30 to i64
-  %85 = mul i64 %84, 7046029254386353131
-  %86 = lshr i64 %85, 56
-  %87 = trunc i64 %86 to i32
-  %88 = call ptr @sunrpc_cache_lookup_rcu(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %87) #19
+  %79 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 %30, ptr %79, align 8
+  %80 = zext i32 %30 to i64
+  %81 = mul i64 %80, 7046029254386353131
+  %82 = lshr i64 %81, 56
+  %83 = trunc i64 %82 to i32
+  %84 = call ptr @sunrpc_cache_lookup_rcu(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %83) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #19
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread13, label %90
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.thread13, label %86
 
-90:                                               ; preds = %.loopexit
-  %91 = getelementptr inbounds i8, ptr %15, i64 40
-  store i64 0, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %15, i64 16
-  store i64 %44, ptr %92, align 8
-  %93 = call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %88, i32 noundef %87) #19
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread13, label %95
+86:                                               ; preds = %.loopexit
+  %87 = getelementptr inbounds i8, ptr %15, i64 40
+  store i64 0, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %15, i64 16
+  store i64 %44, ptr %88, align 8
+  %89 = call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %84, i32 noundef %83) #19
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %.thread13, label %91
 
-95:                                               ; preds = %90
-  call fastcc void @cache_put(ptr noundef nonnull %93, ptr noundef %0)
+91:                                               ; preds = %86
+  call fastcc void @cache_put(ptr noundef nonnull %89, ptr noundef %0)
   br label %.thread13
 
-.thread13:                                        ; preds = %71, %.thread11, %95, %90, %.loopexit
-  %96 = phi i32 [ 0, %95 ], [ -12, %90 ], [ -12, %.loopexit ], [ -22, %.thread11 ], [ -22, %71 ]
-  %97 = load ptr, ptr %60, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %103, label %99
+.thread13:                                        ; preds = %67, %.thread11, %91, %86, %.loopexit
+  %92 = phi i32 [ 0, %91 ], [ -12, %86 ], [ -12, %.loopexit ], [ -22, %.thread11 ], [ -22, %67 ]
+  %93 = load ptr, ptr %57, align 8
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %99, label %95
 
-99:                                               ; preds = %.thread13
-  %100 = call fastcc zeroext i1 @refcount_dec_and_test(ptr noundef nonnull %97)
-  br i1 %100, label %101, label %103
+95:                                               ; preds = %.thread13
+  %96 = call fastcc zeroext i1 @refcount_dec_and_test(ptr noundef nonnull %93)
+  br i1 %96, label %97, label %99
 
-101:                                              ; preds = %99
-  %102 = load ptr, ptr %60, align 8
-  call void @groups_free(ptr noundef %102) #19
-  br label %103
+97:                                               ; preds = %95
+  %98 = load ptr, ptr %57, align 8
+  call void @groups_free(ptr noundef %98) #19
+  br label %99
 
-103:                                              ; preds = %.thread10, %40, %.thread, %101, %99, %.thread13, %58, %47, %24, %3
-  %104 = phi i32 [ -22, %3 ], [ -22, %24 ], [ %.ph, %40 ], [ -22, %47 ], [ -12, %58 ], [ %96, %99 ], [ %96, %101 ], [ %96, %.thread13 ], [ -22, %.thread ], [ -22, %.thread10 ]
+99:                                               ; preds = %.thread10, %40, %.thread, %97, %95, %.thread13, %55, %47, %24, %3
+  %100 = phi i32 [ -22, %3 ], [ -22, %24 ], [ %.ph, %40 ], [ -22, %47 ], [ -12, %55 ], [ %92, %95 ], [ %92, %97 ], [ %92, %.thread13 ], [ -22, %.thread ], [ -22, %.thread10 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #19
-  ret i32 %104
+  ret i32 %100
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

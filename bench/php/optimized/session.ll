@@ -11060,10 +11060,9 @@ define internal noundef i32 @OnUpdateSidLength(ptr nocapture readnone %0, ptr no
 20:                                               ; preds = %16
   %21 = load i8, ptr %19, align 1
   %22 = icmp eq i8 %21, 0
-  %23 = icmp sgt i64 %18, 21
-  %or.cond3 = select i1 %22, i1 %23, i1 false
-  %24 = icmp slt i64 %18, 257
-  %or.cond5 = select i1 %or.cond3, i1 %24, i1 false
+  %23 = add i64 %18, -22
+  %24 = icmp ult i64 %23, 235
+  %or.cond5 = select i1 %22, i1 %24, i1 false
   br i1 %or.cond5, label %25, label %26
 
 25:                                               ; preds = %20
@@ -11112,10 +11111,9 @@ define internal noundef i32 @OnUpdateSidBits(ptr nocapture readnone %0, ptr noun
 20:                                               ; preds = %16
   %21 = load i8, ptr %19, align 1
   %22 = icmp eq i8 %21, 0
-  %23 = icmp sgt i64 %18, 3
-  %or.cond3 = select i1 %22, i1 %23, i1 false
-  %24 = icmp slt i64 %18, 7
-  %or.cond5 = select i1 %or.cond3, i1 %24, i1 false
+  %23 = add i64 %18, -4
+  %24 = icmp ult i64 %23, 3
+  %or.cond5 = select i1 %22, i1 %24, i1 false
   br i1 %or.cond5, label %25, label %26
 
 25:                                               ; preds = %20

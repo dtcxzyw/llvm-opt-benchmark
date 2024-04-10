@@ -689,9 +689,9 @@ if.then3.us:                                      ; preds = %for.body.us
   %spec.select28.us = select i1 %tobool10.not.us, i32 %2, i32 %1
   %cmp12.not.us = icmp eq i32 %2, %1
   %cmp14.not.us = icmp eq i32 %spec.select.us, %3
-  %or.cond.us = select i1 %cmp12.not.us, i1 true, i1 %cmp14.not.us
   %cmp16.not.us = icmp eq i32 %spec.select28.us, %3
-  %or.cond29.us = select i1 %or.cond.us, i1 true, i1 %cmp16.not.us
+  %4 = or i1 %cmp14.not.us, %cmp16.not.us
+  %or.cond29.us = select i1 %cmp12.not.us, i1 true, i1 %4
   br i1 %or.cond29.us, label %for.inc.us, label %if.then17.us
 
 if.then17.us:                                     ; preds = %if.then3.us
@@ -715,8 +715,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %start.032 = phi i64 [ %start.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %i.031 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %arrayidx = getelementptr i32, ptr %indices, i64 %i.031
-  %4 = load i32, ptr %arrayidx, align 4
-  %cmp1 = icmp eq i32 %4, %restart_index
+  %5 = load i32, ptr %arrayidx, align 4
+  %cmp1 = icmp eq i32 %5, %restart_index
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
@@ -730,18 +730,18 @@ if.else:                                          ; preds = %for.body
 
 if.then3:                                         ; preds = %if.else
   %arrayidx5 = getelementptr i8, ptr %arrayidx, i64 -8
-  %5 = load i32, ptr %arrayidx5, align 4
+  %6 = load i32, ptr %arrayidx5, align 4
   %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 -4
-  %6 = load i32, ptr %arrayidx7, align 4
+  %7 = load i32, ptr %arrayidx7, align 4
   %and = and i64 %sub, 1
   %tobool10.not = icmp eq i64 %and, 0
-  %spec.select = select i1 %tobool10.not, i32 %5, i32 %6
-  %spec.select28 = select i1 %tobool10.not, i32 %6, i32 %5
-  %cmp12.not = icmp eq i32 %6, %5
-  %cmp14.not = icmp eq i32 %spec.select, %4
-  %or.cond = or i1 %cmp12.not, %cmp14.not
-  %cmp16.not = icmp eq i32 %spec.select28, %4
-  %or.cond29 = or i1 %or.cond, %cmp16.not
+  %spec.select = select i1 %tobool10.not, i32 %6, i32 %7
+  %spec.select28 = select i1 %tobool10.not, i32 %7, i32 %6
+  %cmp12.not = icmp eq i32 %7, %6
+  %cmp14.not = icmp eq i32 %spec.select, %5
+  %cmp16.not = icmp eq i32 %spec.select28, %5
+  %8 = or i1 %cmp14.not, %cmp16.not
+  %or.cond29 = or i1 %cmp12.not, %8
   br i1 %or.cond29, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %if.then3
@@ -750,7 +750,7 @@ if.then17:                                        ; preds = %if.then3
   %arrayidx21 = getelementptr i8, ptr %arrayidx19, i64 4
   store i32 %spec.select28, ptr %arrayidx21, align 4
   %arrayidx23 = getelementptr i8, ptr %arrayidx19, i64 8
-  store i32 %4, ptr %arrayidx23, align 4
+  store i32 %5, ptr %arrayidx23, align 4
   %add24 = add i64 %offset.033, 3
   br label %for.inc
 

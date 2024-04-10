@@ -72,15 +72,14 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %call3 = tail call i64 @ossl_quic_reactor_get_tick_deadline(ptr noundef %call2) #3
   %3 = load ptr, ptr %now_cb, align 8
   %cmp.not = icmp eq ptr %3, null
-  %cmp.i.not.not.i.not = icmp eq i64 %call3, 0
-  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i.not.not.i.not
-  %cmp5.i.not.i.not = icmp eq i64 %call3, -1
-  %or.cond16 = select i1 %or.cond, i1 true, i1 %cmp5.i.not.i.not
+  %4 = add i64 %call3, 1
+  %5 = icmp ult i64 %4, 2
+  %or.cond16 = select i1 %cmp.not, i1 true, i1 %5
   br i1 %or.cond16, label %if.end28, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  %4 = load ptr, ptr %now_cb_arg, align 8
-  %call15 = tail call i64 %3(ptr noundef %4) #3
+  %6 = load ptr, ptr %now_cb_arg, align 8
+  %call15 = tail call i64 %3(ptr noundef %6) #3
   %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %call3, i64 %call15)
   %call22 = tail call i64 @ossl_time_now() #3
   %retval.sroa.0.0.i15 = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i, i64 %call22)
@@ -88,16 +87,16 @@ if.then11:                                        ; preds = %if.end
 
 if.end28:                                         ; preds = %if.then11, %if.end
   %deadline.sroa.0.0 = phi i64 [ %retval.sroa.0.0.i15, %if.then11 ], [ %call3, %if.end ]
-  %5 = load ptr, ptr %cv, align 8
-  tail call void @ossl_crypto_condvar_wait_timeout(ptr noundef %5, ptr noundef %call, i64 %deadline.sroa.0.0) #3
-  %6 = load i32, ptr %teardown, align 8
-  %tobool31.not = icmp eq i32 %6, 0
+  %7 = load ptr, ptr %cv, align 8
+  tail call void @ossl_crypto_condvar_wait_timeout(ptr noundef %7, ptr noundef %call, i64 %deadline.sroa.0.0) #3
+  %8 = load i32, ptr %teardown, align 8
+  %tobool31.not = icmp eq i32 %8, 0
   br i1 %tobool31.not, label %if.end33, label %for.end
 
 if.end33:                                         ; preds = %if.end28
   %call34 = tail call i32 @ossl_quic_reactor_tick(ptr noundef %call2, i32 noundef 1) #3
-  %7 = load i32, ptr %teardown, align 8
-  %tobool.not = icmp eq i32 %7, 0
+  %9 = load i32, ptr %teardown, align 8
+  %tobool.not = icmp eq i32 %9, 0
   br i1 %tobool.not, label %if.end, label %for.end
 
 for.end:                                          ; preds = %if.end33, %if.end28, %entry

@@ -4080,7 +4080,7 @@ trace_qcow2_writev_done_req.exit:                 ; preds = %if.end56, %land.lhs
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qcow2_co_pwrite_zeroes(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %_now.i.i72 = alloca %struct.timeval, align 8
+  %_now.i.i71 = alloca %struct.timeval, align 8
   %nr.i46 = alloca i64, align 8
   %nr.i = alloca i64, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -4095,10 +4095,10 @@ entry:
   %conv.i = zext i32 %sub.i to i64
   %and.i = and i64 %conv.i, %offset
   %add = add i64 %bytes, %offset
-  %conv193 = zext i32 %.val to i64
+  %conv192 = zext i32 %.val to i64
   %add2 = add i64 %add, 4294967295
-  %sub = add i64 %add2, %conv193
-  %sub5 = sub nsw i64 0, %conv193
+  %sub = add i64 %add2, %conv192
+  %sub5 = sub nsw i64 0, %conv192
   %and = and i64 %sub, %sub5
   %sub7 = sub i64 %and, %add
   %conv8 = trunc i64 %sub7 to i32
@@ -4178,9 +4178,9 @@ do.body.i:                                        ; preds = %if.end23, %land.lhs
   %bytes.addr.1.i = phi i64 [ %sub6.i, %land.lhs.true.i ], [ %spec.select.i, %if.end23 ]
   %call.i = call i32 @bdrv_co_block_status_above(ptr noundef %bs, ptr noundef null, i64 noundef %offset.addr.0.i, i64 noundef %bytes.addr.1.i, ptr noundef nonnull %nr.i, ptr noundef null, ptr noundef null) #22
   %cmp7.i = icmp sgt i32 %call.i, -1
-  br i1 %cmp7.i, label %land.lhs.true.i, label %is_zero.exit.thread87
+  br i1 %cmp7.i, label %land.lhs.true.i, label %is_zero.exit.thread86
 
-is_zero.exit.thread87:                            ; preds = %do.body.i
+is_zero.exit.thread86:                            ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nr.i)
   br label %return
 
@@ -4191,33 +4191,33 @@ land.lhs.true.i:                                  ; preds = %do.body.i
   %and.i45 = and i32 %call.i, 2
   %tobool8.i = icmp ne i32 %and.i45, 0
   %tobool10.i = icmp ne i64 %10, 0
-  %or.cond.i = select i1 %tobool8.i, i1 %tobool10.i, i1 false
   %tobool11.i = icmp ne i64 %sub6.i, 0
-  %or.cond1.i = select i1 %or.cond.i, i1 %tobool11.i, i1 false
+  %11 = and i1 %tobool10.i, %tobool11.i
+  %or.cond1.i = select i1 %tobool8.i, i1 %11, i1 false
   br i1 %or.cond1.i, label %do.body.i, label %is_zero.exit, !llvm.loop !19
 
 is_zero.exit:                                     ; preds = %land.lhs.true.i
   %cmp17.i = icmp eq i64 %sub6.i, 0
-  %spec.select16.i = select i1 %tobool8.i, i1 %cmp17.i, i1 false
+  %spec.select15.i = select i1 %tobool8.i, i1 %cmp17.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nr.i)
-  br i1 %spec.select16.i, label %is_zero.exit.land.lhs.true_crit_edge, label %return
+  br i1 %spec.select15.i, label %is_zero.exit.land.lhs.true_crit_edge, label %return
 
 is_zero.exit.land.lhs.true_crit_edge:             ; preds = %is_zero.exit
   %.pre = load i64, ptr %total_sectors, align 8
-  %.pre92 = shl i64 %.pre, 9
+  %.pre91 = shl i64 %.pre, 9
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %is_zero.exit.land.lhs.true_crit_edge, %is_zero.exit.thread
-  %mul.i48.pre-phi = phi i64 [ %.pre92, %is_zero.exit.land.lhs.true_crit_edge ], [ %mul, %is_zero.exit.thread ]
+  %mul.i48.pre-phi = phi i64 [ %.pre91, %is_zero.exit.land.lhs.true_crit_edge ], [ %mul, %is_zero.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nr.i46)
   %add.i = add i64 %add, %conv16
   %cmp.i49 = icmp ugt i64 %add.i, %mul.i48.pre-phi
   %sub.i50 = sub i64 %mul.i48.pre-phi, %add
   %spec.select.i51 = select i1 %cmp.i49, i64 %sub.i50, i64 %conv16
   %tobool.not.i52 = icmp eq i64 %spec.select.i51, 0
-  br i1 %tobool.not.i52, label %is_zero.exit71.thread, label %do.body.i53
+  br i1 %tobool.not.i52, label %is_zero.exit70.thread, label %do.body.i53
 
-is_zero.exit71.thread:                            ; preds = %land.lhs.true
+is_zero.exit70.thread:                            ; preds = %land.lhs.true
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nr.i46)
   br label %if.end34
 
@@ -4226,43 +4226,43 @@ do.body.i53:                                      ; preds = %land.lhs.true, %lan
   %bytes.addr.1.i55 = phi i64 [ %sub6.i60, %land.lhs.true.i59 ], [ %spec.select.i51, %land.lhs.true ]
   %call.i56 = call i32 @bdrv_co_block_status_above(ptr noundef %bs, ptr noundef null, i64 noundef %offset.addr.0.i54, i64 noundef %bytes.addr.1.i55, ptr noundef nonnull %nr.i46, ptr noundef null, ptr noundef null) #22
   %cmp7.i57 = icmp sgt i32 %call.i56, -1
-  br i1 %cmp7.i57, label %land.lhs.true.i59, label %is_zero.exit71.thread90
+  br i1 %cmp7.i57, label %land.lhs.true.i59, label %is_zero.exit70.thread89
 
-is_zero.exit71.thread90:                          ; preds = %do.body.i53
+is_zero.exit70.thread89:                          ; preds = %do.body.i53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nr.i46)
   br label %return
 
 land.lhs.true.i59:                                ; preds = %do.body.i53
-  %11 = load i64, ptr %nr.i46, align 8
-  %sub6.i60 = sub i64 %bytes.addr.1.i55, %11
-  %add5.i61 = add i64 %11, %offset.addr.0.i54
+  %12 = load i64, ptr %nr.i46, align 8
+  %sub6.i60 = sub i64 %bytes.addr.1.i55, %12
+  %add5.i61 = add i64 %12, %offset.addr.0.i54
   %and.i62 = and i32 %call.i56, 2
   %tobool8.i63 = icmp ne i32 %and.i62, 0
-  %tobool10.i64 = icmp ne i64 %11, 0
-  %or.cond.i65 = select i1 %tobool8.i63, i1 %tobool10.i64, i1 false
-  %tobool11.i66 = icmp ne i64 %sub6.i60, 0
-  %or.cond1.i67 = select i1 %or.cond.i65, i1 %tobool11.i66, i1 false
-  br i1 %or.cond1.i67, label %do.body.i53, label %is_zero.exit71, !llvm.loop !19
+  %tobool10.i64 = icmp ne i64 %12, 0
+  %tobool11.i65 = icmp ne i64 %sub6.i60, 0
+  %13 = and i1 %tobool10.i64, %tobool11.i65
+  %or.cond1.i66 = select i1 %tobool8.i63, i1 %13, i1 false
+  br i1 %or.cond1.i66, label %do.body.i53, label %is_zero.exit70, !llvm.loop !19
 
-is_zero.exit71:                                   ; preds = %land.lhs.true.i59
-  %cmp17.i69 = icmp eq i64 %sub6.i60, 0
-  %spec.select16.i70 = select i1 %tobool8.i63, i1 %cmp17.i69, i1 false
+is_zero.exit70:                                   ; preds = %land.lhs.true.i59
+  %cmp17.i68 = icmp eq i64 %sub6.i60, 0
+  %spec.select15.i69 = select i1 %tobool8.i63, i1 %cmp17.i68, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nr.i46)
-  br i1 %spec.select16.i70, label %if.end34, label %return
+  br i1 %spec.select15.i69, label %if.end34, label %return
 
-if.end34:                                         ; preds = %is_zero.exit71.thread, %is_zero.exit71
+if.end34:                                         ; preds = %is_zero.exit70.thread, %is_zero.exit70
   %lock = getelementptr inbounds i8, ptr %0, i64 160
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #22
-  %12 = load i32, ptr %1, align 8
-  store i32 %12, ptr %nr, align 4
+  %14 = load i32, ptr %1, align 8
+  store i32 %14, ptr %nr, align 4
   %call40 = call i32 @qcow2_get_host_offset(ptr noundef %bs, i64 noundef %sub25, ptr noundef nonnull %nr, ptr noundef nonnull %off, ptr noundef nonnull %type) #22
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then55, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %if.end34
-  %conv38 = sext i32 %12 to i64
-  %13 = load i32, ptr %type, align 4
-  %or.cond3 = icmp ugt i32 %13, 3
+  %conv38 = sext i32 %14 to i64
+  %15 = load i32, ptr %type, align 4
+  %or.cond3 = icmp ugt i32 %15, 3
   br i1 %or.cond3, label %if.then55, label %if.end62
 
 if.then55:                                        ; preds = %lor.lhs.false43, %if.end34
@@ -4279,47 +4279,47 @@ if.end62:                                         ; preds = %lor.lhs.false43, %i
   %bytes.addr.0 = phi i64 [ %conv38, %lor.lhs.false43 ], [ %bytes, %if.else60 ]
   %offset.addr.0 = phi i64 [ %sub25, %lor.lhs.false43 ], [ %offset, %if.else60 ]
   %call63 = call ptr @qemu_coroutine_self() #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i72)
-  %14 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i73 = icmp ne i32 %14, 0
-  %15 = load i16, ptr @_TRACE_QCOW2_PWRITE_ZEROES_DSTATE, align 2
-  %tobool4.i.i74 = icmp ne i16 %15, 0
-  %or.cond.i.i75 = select i1 %tobool.i.i73, i1 %tobool4.i.i74, i1 false
-  br i1 %or.cond.i.i75, label %land.lhs.true5.i.i76, label %trace_qcow2_pwrite_zeroes.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i71)
+  %16 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i72 = icmp ne i32 %16, 0
+  %17 = load i16, ptr @_TRACE_QCOW2_PWRITE_ZEROES_DSTATE, align 2
+  %tobool4.i.i73 = icmp ne i16 %17, 0
+  %or.cond.i.i74 = select i1 %tobool.i.i72, i1 %tobool4.i.i73, i1 false
+  br i1 %or.cond.i.i74, label %land.lhs.true5.i.i75, label %trace_qcow2_pwrite_zeroes.exit
 
-land.lhs.true5.i.i76:                             ; preds = %if.end62
-  %16 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i77 = and i32 %16, 32768
-  %cmp.i.not.i.i78 = icmp eq i32 %and.i.i.i77, 0
-  br i1 %cmp.i.not.i.i78, label %trace_qcow2_pwrite_zeroes.exit, label %if.then.i.i79
+land.lhs.true5.i.i75:                             ; preds = %if.end62
+  %18 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i76 = and i32 %18, 32768
+  %cmp.i.not.i.i77 = icmp eq i32 %and.i.i.i76, 0
+  br i1 %cmp.i.not.i.i77, label %trace_qcow2_pwrite_zeroes.exit, label %if.then.i.i78
 
-if.then.i.i79:                                    ; preds = %land.lhs.true5.i.i76
-  %17 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i80 = trunc i8 %17 to i1
-  br i1 %tobool7.i.i80, label %if.then8.i.i82, label %if.else.i.i81
+if.then.i.i78:                                    ; preds = %land.lhs.true5.i.i75
+  %19 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i79 = trunc i8 %19 to i1
+  br i1 %tobool7.i.i79, label %if.then8.i.i81, label %if.else.i.i80
 
-if.then8.i.i82:                                   ; preds = %if.then.i.i79
-  %call9.i.i83 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i72, ptr noundef null) #22
-  %call10.i.i84 = call i32 @qemu_get_thread_id() #22
-  %18 = load i64, ptr %_now.i.i72, align 8
-  %tv_usec.i.i85 = getelementptr inbounds i8, ptr %_now.i.i72, i64 8
-  %19 = load i64, ptr %tv_usec.i.i85, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.309, i32 noundef %call10.i.i84, i64 noundef %18, i64 noundef %19, ptr noundef %call63, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.0) #22
+if.then8.i.i81:                                   ; preds = %if.then.i.i78
+  %call9.i.i82 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i71, ptr noundef null) #22
+  %call10.i.i83 = call i32 @qemu_get_thread_id() #22
+  %20 = load i64, ptr %_now.i.i71, align 8
+  %tv_usec.i.i84 = getelementptr inbounds i8, ptr %_now.i.i71, i64 8
+  %21 = load i64, ptr %tv_usec.i.i84, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.309, i32 noundef %call10.i.i83, i64 noundef %20, i64 noundef %21, ptr noundef %call63, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.0) #22
   br label %trace_qcow2_pwrite_zeroes.exit
 
-if.else.i.i81:                                    ; preds = %if.then.i.i79
+if.else.i.i80:                                    ; preds = %if.then.i.i78
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.310, ptr noundef %call63, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.0) #22
   br label %trace_qcow2_pwrite_zeroes.exit
 
-trace_qcow2_pwrite_zeroes.exit:                   ; preds = %if.end62, %land.lhs.true5.i.i76, %if.then8.i.i82, %if.else.i.i81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i72)
+trace_qcow2_pwrite_zeroes.exit:                   ; preds = %if.end62, %land.lhs.true5.i.i75, %if.then8.i.i81, %if.else.i.i80
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i71)
   %call64 = call i32 @qcow2_subcluster_zeroize(ptr noundef %bs, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.0, i32 noundef %flags) #22
   %lock65 = getelementptr inbounds i8, ptr %0, i64 160
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock65) #22
   br label %return
 
-return:                                           ; preds = %is_zero.exit71.thread90, %is_zero.exit.thread87, %is_zero.exit, %is_zero.exit71, %trace_qcow2_pwrite_zeroes.exit, %if.then55
-  %retval.0 = phi i32 [ %cond, %if.then55 ], [ %call64, %trace_qcow2_pwrite_zeroes.exit ], [ -95, %is_zero.exit71 ], [ -95, %is_zero.exit ], [ -95, %is_zero.exit.thread87 ], [ -95, %is_zero.exit71.thread90 ]
+return:                                           ; preds = %is_zero.exit70.thread89, %is_zero.exit.thread86, %is_zero.exit, %is_zero.exit70, %trace_qcow2_pwrite_zeroes.exit, %if.then55
+  %retval.0 = phi i32 [ %cond, %if.then55 ], [ %call64, %trace_qcow2_pwrite_zeroes.exit ], [ -95, %is_zero.exit70 ], [ -95, %is_zero.exit ], [ -95, %is_zero.exit.thread86 ], [ -95, %is_zero.exit70.thread89 ]
   ret i32 %retval.0
 }
 
@@ -10666,18 +10666,18 @@ land.lhs.true:                                    ; preds = %do.body
   %and = and i32 %call, 2
   %tobool8 = icmp ne i32 %and, 0
   %tobool10 = icmp ne i64 %1, 0
-  %or.cond = select i1 %tobool8, i1 %tobool10, i1 false
   %tobool11 = icmp ne i64 %sub6, 0
-  %or.cond1 = select i1 %or.cond, i1 %tobool11, i1 false
+  %2 = and i1 %tobool10, %tobool11
+  %or.cond1 = select i1 %tobool8, i1 %2, i1 false
   br i1 %or.cond1, label %do.body, label %do.end, !llvm.loop !19
 
 do.end:                                           ; preds = %land.lhs.true
   %cmp17 = icmp eq i64 %sub6, 0
-  %spec.select16 = select i1 %tobool8, i1 %cmp17, i1 false
+  %spec.select15 = select i1 %tobool8, i1 %cmp17, i1 false
   br label %return
 
 return:                                           ; preds = %do.body, %do.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %spec.select16, %do.end ], [ false, %do.body ]
+  %retval.0 = phi i1 [ true, %entry ], [ %spec.select15, %do.end ], [ false, %do.body ]
   ret i1 %retval.0
 }
 

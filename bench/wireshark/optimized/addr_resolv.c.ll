@@ -6635,8 +6635,8 @@ define internal fastcc noundef i32 @read_subnets_file(ptr nocapture noundef read
 
 .preheader:                                       ; preds = %1
   %7 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %5)
-  %.not.i26 = icmp eq ptr %7, null
-  br i1 %.not.i26, label %fgetline.exit.thread, label %fgetline.exit
+  %.not.i27 = icmp eq ptr %7, null
+  br i1 %.not.i27, label %fgetline.exit.thread, label %fgetline.exit
 
 fgetline.exit:                                    ; preds = %.preheader, %.backedge
   %8 = call i64 @strcspn(ptr noundef nonnull %2, ptr noundef nonnull @.str.54) #23
@@ -6675,13 +6675,11 @@ fgetline.exit:                                    ; preds = %.preheader, %.backe
 24:                                               ; preds = %22
   %25 = getelementptr i8, ptr %20, i64 1
   %26 = call zeroext i1 @ws_strtou8(ptr noundef %25, ptr noundef null, ptr noundef nonnull %4) #20
-  %.not = xor i1 %26, true
   %27 = load i8, ptr %4, align 1
-  %28 = icmp eq i8 %27, 0
-  %or.cond = select i1 %.not, i1 true, i1 %28
-  %29 = icmp ugt i8 %27, 32
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %29
-  br i1 %or.cond5, label %.backedge, label %30
+  %28 = add i8 %27, -1
+  %29 = icmp ult i8 %28, 32
+  %or.cond5.not = select i1 %26, i1 %29, i1 false
+  br i1 %or.cond5.not, label %30, label %.backedge
 
 30:                                               ; preds = %24
   %31 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.53) #20
@@ -6715,23 +6713,23 @@ fgetline.exit:                                    ; preds = %.preheader, %.backe
   %52 = phi ptr [ %50, %48 ], [ %46, %33 ]
   %53 = getelementptr ptr, ptr %52, i64 %44
   %54 = load ptr, ptr %53, align 8
-  %.not.i22 = icmp eq ptr %54, null
-  br i1 %.not.i22, label %64, label %.preheader.i
+  %.not.i23 = icmp eq ptr %54, null
+  br i1 %.not.i23, label %64, label %.preheader.i
 
 .preheader.i:                                     ; preds = %51, %57
-  %.0.i23 = phi ptr [ %56, %57 ], [ %54, %51 ]
-  %55 = getelementptr inbounds i8, ptr %.0.i23, i64 8
+  %.0.i24 = phi ptr [ %56, %57 ], [ %54, %51 ]
+  %55 = getelementptr inbounds i8, ptr %.0.i24, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not26.i = icmp eq ptr %56, null
   br i1 %.not26.i, label %60, label %57
 
 57:                                               ; preds = %.preheader.i
-  %58 = load i32, ptr %.0.i23, align 8
+  %58 = load i32, ptr %.0.i24, align 8
   %59 = icmp eq i32 %58, %41
   br i1 %59, label %.backedge, label %.preheader.i, !llvm.loop !49
 
 60:                                               ; preds = %.preheader.i
-  %61 = getelementptr inbounds i8, ptr %.0.i23, i64 8
+  %61 = getelementptr inbounds i8, ptr %.0.i24, i64 8
   %62 = load ptr, ptr @addr_resolv_scope, align 8
   %63 = call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef 80) #20
   store ptr %63, ptr %61, align 8

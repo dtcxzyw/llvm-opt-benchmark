@@ -3636,9 +3636,9 @@ define dso_local void @folio_zero_new_buffers(ptr noundef %0, i64 noundef %1, i6
   %23 = and i64 %22, 32
   %24 = icmp ne i64 %23, 0
   %25 = icmp ugt i64 %21, %1
-  %26 = select i1 %24, i1 %25, i1 false
-  %27 = icmp ult i64 %18, %2
-  %28 = select i1 %26, i1 %27, i1 false
+  %26 = icmp ult i64 %18, %2
+  %27 = and i1 %26, %25
+  %28 = select i1 %24, i1 %27, i1 false
   br i1 %28, label %29, label %84
 
 29:                                               ; preds = %16

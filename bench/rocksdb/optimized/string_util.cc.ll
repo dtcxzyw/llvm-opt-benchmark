@@ -2157,10 +2157,8 @@ if.end:                                           ; preds = %invoke.cont11
   %2 = load i32, ptr %hours, align 4
   %or.cond1 = icmp ugt i32 %2, 23
   %3 = load i32, ptr %minutes, align 4
-  %cmp18 = icmp slt i32 %3, 0
-  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp18
-  %cmp20 = icmp sgt i32 %3, 59
-  %or.cond3 = select i1 %or.cond2, i1 true, i1 %cmp20
+  %4 = icmp ugt i32 %3, 59
+  %or.cond3 = select i1 %or.cond1, i1 true, i1 %4
   br i1 %or.cond3, label %cleanup, label %if.end22
 
 if.end22:                                         ; preds = %if.end

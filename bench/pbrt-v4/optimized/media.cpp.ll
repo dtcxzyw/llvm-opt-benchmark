@@ -2491,8 +2491,8 @@ if.end.i.i:                                       ; preds = %invoke.cont75
 
 _ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit.i: ; preds = %if.end.i.i, %invoke.cont75
   %retval.0.i.i = phi float [ %107, %if.end.i.i ], [ 0.000000e+00, %invoke.cont75 ]
-  %cmp.not116.i = icmp sgt i32 %.sroa.speculated.i.i, %.sroa.speculated.i51.i
-  br i1 %cmp.not116.i, label %invoke.cont78, label %for.cond72.preheader.lr.ph.i
+  %cmp.not115.i = icmp sgt i32 %.sroa.speculated.i.i, %.sroa.speculated.i51.i
+  br i1 %cmp.not115.i, label %invoke.cont78, label %for.cond72.preheader.lr.ph.i
 
 for.cond72.preheader.lr.ph.i:                     ; preds = %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit.i
   %108 = icmp sgt <2 x i32> %93, %98
@@ -2518,93 +2518,93 @@ for.cond72.preheader.preheader.i:                 ; preds = %for.cond72.preheade
   %124 = zext nneg i32 %.sroa.speculated.i.i to i64
   %125 = sext i32 %69 to i64
   %126 = add nuw i32 %.sroa.speculated.i51.i, 1
-  %wide.trip.count148.i = zext i32 %126 to i64
-  %wide.trip.count142.i = zext i32 %115 to i64
+  %wide.trip.count147.i = zext i32 %126 to i64
+  %wide.trip.count141.i = zext i32 %115 to i64
   %wide.trip.count.i = zext i32 %113 to i64
   br label %for.cond72.preheader.i
 
 for.cond72.preheader.i:                           ; preds = %for.cond72.for.inc93_crit_edge.split.i, %for.cond72.preheader.preheader.i
-  %indvars.iv144.i = phi i64 [ %124, %for.cond72.preheader.preheader.i ], [ %indvars.iv.next145.i, %for.cond72.for.inc93_crit_edge.split.i ]
-  %maxValue.0117.i = phi float [ %retval.0.i.i, %for.cond72.preheader.preheader.i ], [ %.us-phi115.i, %for.cond72.for.inc93_crit_edge.split.i ]
-  %cmp21.i.i86.i = icmp slt i64 %indvars.iv144.i, %125
-  %127 = mul nsw i64 %indvars.iv144.i, %123
-  %cmp21.i.i86.fr.i = freeze i1 %cmp21.i.i86.i
-  br i1 %cmp21.i.i86.fr.i, label %for.cond80.preheader.i, label %for.cond80.preheader.us109.i
+  %indvars.iv143.i = phi i64 [ %124, %for.cond72.preheader.preheader.i ], [ %indvars.iv.next144.i, %for.cond72.for.inc93_crit_edge.split.i ]
+  %maxValue.0116.i = phi float [ %retval.0.i.i, %for.cond72.preheader.preheader.i ], [ %.us-phi114.i, %for.cond72.for.inc93_crit_edge.split.i ]
+  %cmp21.i.i85.i = icmp slt i64 %indvars.iv143.i, %125
+  %127 = mul nsw i64 %indvars.iv143.i, %123
+  %cmp21.i.i85.fr.i = freeze i1 %cmp21.i.i85.i
+  br i1 %cmp21.i.i85.fr.i, label %for.cond80.preheader.i, label %for.cond80.preheader.us108.i
 
-for.cond80.preheader.us109.i:                     ; preds = %for.cond72.preheader.i, %for.cond80.for.inc90_crit_edge.split.us.us.i
-  %y69.0106.us110.i = phi i32 [ %inc91.us112.i, %for.cond80.for.inc90_crit_edge.split.us.us.i ], [ %120, %for.cond72.preheader.i ]
-  %maxValue.1105.us111.i = phi float [ %.sroa.speculated.us.us.i, %for.cond80.for.inc90_crit_edge.split.us.us.i ], [ %maxValue.0117.i, %for.cond72.preheader.i ]
+for.cond80.preheader.us108.i:                     ; preds = %for.cond72.preheader.i, %for.cond80.for.inc90_crit_edge.split.us.us.i
+  %y69.0105.us109.i = phi i32 [ %inc91.us111.i, %for.cond80.for.inc90_crit_edge.split.us.us.i ], [ %120, %for.cond72.preheader.i ]
+  %maxValue.1104.us110.i = phi float [ %.sroa.speculated.us.us.i, %for.cond80.for.inc90_crit_edge.split.us.us.i ], [ %maxValue.0116.i, %for.cond72.preheader.i ]
   br label %for.body84.us.us.i
 
-for.body84.us.us.i:                               ; preds = %for.body84.us.us.i, %for.cond80.preheader.us109.i
-  %x77.0103.us.us.i = phi i32 [ %116, %for.cond80.preheader.us109.i ], [ %inc.us.us.i, %for.body84.us.us.i ]
-  %maxValue.2102.us.us.i = phi float [ %maxValue.1105.us111.i, %for.cond80.preheader.us109.i ], [ %.sroa.speculated.us.us.i, %for.body84.us.us.i ]
-  %cmp.i.us.us.i = fcmp olt float %maxValue.2102.us.us.i, 0.000000e+00
-  %.sroa.speculated.us.us.i = select i1 %cmp.i.us.us.i, float 0.000000e+00, float %maxValue.2102.us.us.i
-  %inc.us.us.i = add nuw i32 %x77.0103.us.us.i, 1
-  %exitcond.not.i = icmp eq i32 %x77.0103.us.us.i, %112
+for.body84.us.us.i:                               ; preds = %for.body84.us.us.i, %for.cond80.preheader.us108.i
+  %x77.0102.us.us.i = phi i32 [ %116, %for.cond80.preheader.us108.i ], [ %inc.us.us.i, %for.body84.us.us.i ]
+  %maxValue.2101.us.us.i = phi float [ %maxValue.1104.us110.i, %for.cond80.preheader.us108.i ], [ %.sroa.speculated.us.us.i, %for.body84.us.us.i ]
+  %cmp.i.us.us.i = fcmp olt float %maxValue.2101.us.us.i, 0.000000e+00
+  %.sroa.speculated.us.us.i = select i1 %cmp.i.us.us.i, float 0.000000e+00, float %maxValue.2101.us.us.i
+  %inc.us.us.i = add nuw i32 %x77.0102.us.us.i, 1
+  %exitcond.not.i = icmp eq i32 %x77.0102.us.us.i, %112
   br i1 %exitcond.not.i, label %for.cond80.for.inc90_crit_edge.split.us.us.i, label %for.body84.us.us.i, !llvm.loop !13
 
 for.cond80.for.inc90_crit_edge.split.us.us.i:     ; preds = %for.body84.us.us.i
-  %inc91.us112.i = add nuw i32 %y69.0106.us110.i, 1
-  %exitcond132.not.i = icmp eq i32 %y69.0106.us110.i, %114
-  br i1 %exitcond132.not.i, label %for.cond72.for.inc93_crit_edge.split.i, label %for.cond80.preheader.us109.i, !llvm.loop !14
+  %inc91.us111.i = add nuw i32 %y69.0105.us109.i, 1
+  %exitcond131.not.i = icmp eq i32 %y69.0105.us109.i, %114
+  br i1 %exitcond131.not.i, label %for.cond72.for.inc93_crit_edge.split.i, label %for.cond80.preheader.us108.i, !llvm.loop !14
 
 for.cond80.preheader.i:                           ; preds = %for.cond72.preheader.i, %for.cond80.for.inc90_crit_edge.i
-  %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %for.cond80.for.inc90_crit_edge.i ], [ %121, %for.cond72.preheader.i ]
-  %maxValue.1105.i = phi float [ %.us-phi.i, %for.cond80.for.inc90_crit_edge.i ], [ %maxValue.0117.i, %for.cond72.preheader.i ]
-  %cmp13.i.i82.i = icmp slt i64 %indvars.iv137.i, %123
-  %cmp13.i.i82.fr.i = freeze i1 %cmp13.i.i82.i
-  br i1 %cmp13.i.i82.fr.i, label %for.body84.preheader.i, label %for.body84.us.i
+  %indvars.iv136.i = phi i64 [ %indvars.iv.next137.i, %for.cond80.for.inc90_crit_edge.i ], [ %121, %for.cond72.preheader.i ]
+  %maxValue.1104.i = phi float [ %.us-phi.i, %for.cond80.for.inc90_crit_edge.i ], [ %maxValue.0116.i, %for.cond72.preheader.i ]
+  %cmp13.i.i81.i = icmp slt i64 %indvars.iv136.i, %123
+  %cmp13.i.i81.fr.i = freeze i1 %cmp13.i.i81.i
+  br i1 %cmp13.i.i81.fr.i, label %for.body84.preheader.i, label %for.body84.us.i
 
 for.body84.preheader.i:                           ; preds = %for.cond80.preheader.i
-  %128 = add nsw i64 %indvars.iv137.i, %127
+  %128 = add nsw i64 %indvars.iv136.i, %127
   %129 = mul nsw i64 %128, %119
   %invariant.gep.i = getelementptr float, ptr %109, i64 %129
   br label %for.body84.i
 
 for.body84.us.i:                                  ; preds = %for.cond80.preheader.i, %for.body84.us.i
-  %x77.0103.us.i = phi i32 [ %inc.us.i, %for.body84.us.i ], [ %116, %for.cond80.preheader.i ]
-  %maxValue.2102.us.i = phi float [ %.sroa.speculated.us.i, %for.body84.us.i ], [ %maxValue.1105.i, %for.cond80.preheader.i ]
-  %cmp.i.us.i = fcmp olt float %maxValue.2102.us.i, 0.000000e+00
-  %.sroa.speculated.us.i = select i1 %cmp.i.us.i, float 0.000000e+00, float %maxValue.2102.us.i
-  %inc.us.i = add nuw i32 %x77.0103.us.i, 1
-  %exitcond133.not.i = icmp eq i32 %x77.0103.us.i, %112
-  br i1 %exitcond133.not.i, label %for.cond80.for.inc90_crit_edge.i, label %for.body84.us.i, !llvm.loop !13
+  %x77.0102.us.i = phi i32 [ %inc.us.i, %for.body84.us.i ], [ %116, %for.cond80.preheader.i ]
+  %maxValue.2101.us.i = phi float [ %.sroa.speculated.us.i, %for.body84.us.i ], [ %maxValue.1104.i, %for.cond80.preheader.i ]
+  %cmp.i.us.i = fcmp olt float %maxValue.2101.us.i, 0.000000e+00
+  %.sroa.speculated.us.i = select i1 %cmp.i.us.i, float 0.000000e+00, float %maxValue.2101.us.i
+  %inc.us.i = add nuw i32 %x77.0102.us.i, 1
+  %exitcond132.not.i = icmp eq i32 %x77.0102.us.i, %112
+  br i1 %exitcond132.not.i, label %for.cond80.for.inc90_crit_edge.i, label %for.body84.us.i, !llvm.loop !13
 
-for.body84.i:                                     ; preds = %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i, %for.body84.preheader.i
-  %indvars.iv.i = phi i64 [ %117, %for.body84.preheader.i ], [ %indvars.iv.next.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i ]
-  %maxValue.2102.i = phi float [ %maxValue.1105.i, %for.body84.preheader.i ], [ %.sroa.speculated.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i ]
+for.body84.i:                                     ; preds = %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i, %for.body84.preheader.i
+  %indvars.iv.i = phi i64 [ %117, %for.body84.preheader.i ], [ %indvars.iv.next.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i ]
+  %maxValue.2101.i = phi float [ %maxValue.1104.i, %for.body84.preheader.i ], [ %.sroa.speculated.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i ]
   %cmp4.i.i78.i = icmp slt i64 %indvars.iv.i, %119
-  br i1 %cmp4.i.i78.i, label %if.end.i89.i, label %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i
+  br i1 %cmp4.i.i78.i, label %if.end.i88.i, label %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i
 
-if.end.i89.i:                                     ; preds = %for.body84.i
+if.end.i88.i:                                     ; preds = %for.body84.i
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv.i
   %130 = load float, ptr %gep.i, align 4
-  br label %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i
+  br label %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i
 
-_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i: ; preds = %if.end.i89.i, %for.body84.i
-  %retval.0.i88.i = phi float [ %130, %if.end.i89.i ], [ 0.000000e+00, %for.body84.i ]
-  %cmp.i.i = fcmp olt float %maxValue.2102.i, %retval.0.i88.i
-  %.sroa.speculated.i = select i1 %cmp.i.i, float %retval.0.i88.i, float %maxValue.2102.i
+_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i: ; preds = %if.end.i88.i, %for.body84.i
+  %retval.0.i87.i = phi float [ %130, %if.end.i88.i ], [ 0.000000e+00, %for.body84.i ]
+  %cmp.i.i = fcmp olt float %maxValue.2101.i, %retval.0.i87.i
+  %.sroa.speculated.i = select i1 %cmp.i.i, float %retval.0.i87.i, float %maxValue.2101.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond136.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond136.not.i, label %for.cond80.for.inc90_crit_edge.i, label %for.body84.i, !llvm.loop !13
+  %exitcond135.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond135.not.i, label %for.cond80.for.inc90_crit_edge.i, label %for.body84.i, !llvm.loop !13
 
-for.cond80.for.inc90_crit_edge.i:                 ; preds = %for.body84.us.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i
-  %.us-phi.i = phi float [ %.sroa.speculated.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit97.i ], [ %.sroa.speculated.us.i, %for.body84.us.i ]
-  %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
-  %exitcond143.not.i = icmp eq i64 %indvars.iv.next138.i, %wide.trip.count142.i
-  br i1 %exitcond143.not.i, label %for.cond72.for.inc93_crit_edge.split.i, label %for.cond80.preheader.i, !llvm.loop !14
+for.cond80.for.inc90_crit_edge.i:                 ; preds = %for.body84.us.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i
+  %.us-phi.i = phi float [ %.sroa.speculated.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit96.i ], [ %.sroa.speculated.us.i, %for.body84.us.i ]
+  %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
+  %exitcond142.not.i = icmp eq i64 %indvars.iv.next137.i, %wide.trip.count141.i
+  br i1 %exitcond142.not.i, label %for.cond72.for.inc93_crit_edge.split.i, label %for.cond80.preheader.i, !llvm.loop !14
 
 for.cond72.for.inc93_crit_edge.split.i:           ; preds = %for.cond80.for.inc90_crit_edge.split.us.us.i, %for.cond80.for.inc90_crit_edge.i
-  %.us-phi115.i = phi float [ %.us-phi.i, %for.cond80.for.inc90_crit_edge.i ], [ %.sroa.speculated.us.us.i, %for.cond80.for.inc90_crit_edge.split.us.us.i ]
-  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
-  %exitcond149.not.i = icmp eq i64 %indvars.iv.next145.i, %wide.trip.count148.i
-  br i1 %exitcond149.not.i, label %invoke.cont78, label %for.cond72.preheader.i, !llvm.loop !15
+  %.us-phi114.i = phi float [ %.us-phi.i, %for.cond80.for.inc90_crit_edge.i ], [ %.sroa.speculated.us.us.i, %for.cond80.for.inc90_crit_edge.split.us.us.i ]
+  %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
+  %exitcond148.not.i = icmp eq i64 %indvars.iv.next144.i, %wide.trip.count147.i
+  br i1 %exitcond148.not.i, label %invoke.cont78, label %for.cond72.preheader.i, !llvm.loop !15
 
 invoke.cont78:                                    ; preds = %for.cond72.for.inc93_crit_edge.split.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit.i, %for.cond72.preheader.lr.ph.i
-  %maxValue.0.lcssa.i = phi float [ %retval.0.i.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit.i ], [ %retval.0.i.i, %for.cond72.preheader.lr.ph.i ], [ %.us-phi115.i, %for.cond72.for.inc93_crit_edge.split.i ]
+  %maxValue.0.lcssa.i = phi float [ %retval.0.i.i, %_ZNK4pbrt11SampledGridIfE6LookupIZNKS1_8MaxValueERKNS_7Bounds3IfEEEUlfE_EEDaRKNS_6Point3IiEET_.exit.i ], [ %retval.0.i.i, %for.cond72.preheader.lr.ph.i ], [ %.us-phi114.i, %for.cond72.for.inc93_crit_edge.split.i ]
   %mul.i73 = mul nsw i32 %67, %z.0150
   %add.i74 = add nsw i32 %mul.i73, %y.0148
   %mul5.i = mul nsw i32 %add.i74, %66
@@ -23215,15 +23215,15 @@ entry:
   %p.sroa.3.0.extract.trunc.i = trunc i64 %p.sroa.3.0.extract.shift.i to i32
   %cmp.not.i = icmp sle i32 %.sroa.speculated10.i.i, %p.sroa.0.0.extract.trunc.i
   %cmp4.i = icmp sgt i32 %.sroa.speculated10.i11.i, %p.sroa.0.0.extract.trunc.i
-  %or.cond.not12.not14.not17.i.not64 = and i1 %cmp.not.i, %cmp4.i
+  %or.cond.not12.not14.not17.i.not63 = and i1 %cmp.not.i, %cmp4.i
   %cmp8.not.i = icmp sle i32 %.sroa.speculated7.i.i, %p.sroa.3.0.extract.trunc.i
-  %or.cond9.not13.not16.i.not63 = select i1 %or.cond.not12.not14.not17.i.not64, i1 %cmp8.not.i, i1 false
   %cmp13.i = icmp sgt i32 %.sroa.speculated7.i12.i, %p.sroa.3.0.extract.trunc.i
-  %or.cond10.not15.i.not62 = select i1 %or.cond9.not13.not16.i.not63, i1 %cmp13.i, i1 false
+  %.not64 = and i1 %cmp8.not.i, %cmp13.i
+  %or.cond10.not15.i.not62 = select i1 %or.cond.not12.not14.not17.i.not63, i1 %.not64, i1 false
   %cmp17.not.i = icmp sle i32 %.sroa.speculated.i.i, %agg.tmp3.sroa.2.0.copyload
-  %or.cond11.i.not61 = select i1 %or.cond10.not15.i.not62, i1 %cmp17.not.i, i1 false
   %cmp21.i = icmp sgt i32 %.sroa.speculated.i13.i, %agg.tmp3.sroa.2.0.copyload
-  %or.cond = select i1 %or.cond11.i.not61, i1 %cmp21.i, i1 false
+  %3 = and i1 %cmp17.not.i, %cmp21.i
+  %or.cond = select i1 %or.cond10.not15.i.not62, i1 %3, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -23233,53 +23233,53 @@ if.end:                                           ; preds = %entry
   %add10 = add nsw i32 %mul9, %p.sroa.0.0.extract.trunc.i
   %conv = sext i32 %add10 to i64
   %ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %3, i64 %conv
+  %4 = load ptr, ptr %ptr.i, align 8
+  %arrayidx.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %4, i64 %conv
   %agg.tmp6.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx.i, align 4
   %agg.tmp6.sroa.2.0.call11.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %agg.tmp6.sroa.2.0.copyload = load <2 x float>, ptr %agg.tmp6.sroa.2.0.call11.sroa_idx, align 4
   %s.sroa.3.12.vec.extract.i7 = extractelement <2 x float> %agg.tmp6.sroa.2.0.copyload, i64 1
   %s.sroa.3.8.vec.extract.i8 = extractelement <2 x float> %agg.tmp6.sroa.2.0.copyload, i64 0
   %s.sroa.0.4.vec.extract.i9 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload, i64 1
-  %4 = tail call noundef float @llvm.fma.f32(float %s.sroa.0.4.vec.extract.i9, float 3.600000e+02, float %s.sroa.3.8.vec.extract.i8)
-  %5 = tail call noundef float @llvm.fma.f32(float %4, float 3.600000e+02, float %s.sroa.3.12.vec.extract.i7)
-  %6 = tail call float @llvm.fabs.f32(float %5)
-  %7 = fcmp oeq float %6, 0x7FF0000000000000
-  br i1 %7, label %if.then.i.i.i.i.i57, label %if.end.i.i.i.i.i10
+  %5 = tail call noundef float @llvm.fma.f32(float %s.sroa.0.4.vec.extract.i9, float 3.600000e+02, float %s.sroa.3.8.vec.extract.i8)
+  %6 = tail call noundef float @llvm.fma.f32(float %5, float 3.600000e+02, float %s.sroa.3.12.vec.extract.i7)
+  %7 = tail call float @llvm.fabs.f32(float %6)
+  %8 = fcmp oeq float %7, 0x7FF0000000000000
+  br i1 %8, label %if.then.i.i.i.i.i57, label %if.end.i.i.i.i.i10
 
 if.then.i.i.i.i.i57:                              ; preds = %if.end
-  %cmp.i.i.i.i.i58 = fcmp ogt float %5, 0.000000e+00
+  %cmp.i.i.i.i.i58 = fcmp ogt float %6, 0.000000e+00
   %conv.i.i.i.i.i59 = uitofp i1 %cmp.i.i.i.i.i58 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i17
 
 if.end.i.i.i.i.i10:                               ; preds = %if.end
-  %mul.i.i.i.i.i.i11 = fmul float %5, %5
+  %mul.i.i.i.i.i.i11 = fmul float %6, %6
   %add.i.i.i.i.i12 = fadd float %mul.i.i.i.i.i.i11, 1.000000e+00
   %sqrt.i.i.i.i.i13 = tail call float @llvm.sqrt.f32(float %add.i.i.i.i.i12)
   %mul.i.i.i.i.i14 = fmul float %sqrt.i.i.i.i.i13, 2.000000e+00
-  %div.i.i.i.i.i15 = fdiv float %5, %mul.i.i.i.i.i14
+  %div.i.i.i.i.i15 = fdiv float %6, %mul.i.i.i.i.i14
   %add3.i.i.i.i.i16 = fadd float %div.i.i.i.i.i15, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i17
 
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i17: ; preds = %if.end.i.i.i.i.i10, %if.then.i.i.i.i.i57
   %retval.0.i.i.i.i.i18 = phi float [ %conv.i.i.i.i.i59, %if.then.i.i.i.i.i57 ], [ %add3.i.i.i.i.i16, %if.end.i.i.i.i.i10 ]
-  %8 = tail call noundef float @llvm.fma.f32(float %s.sroa.0.4.vec.extract.i9, float 8.300000e+02, float %s.sroa.3.8.vec.extract.i8)
-  %9 = tail call noundef float @llvm.fma.f32(float %8, float 8.300000e+02, float %s.sroa.3.12.vec.extract.i7)
-  %10 = tail call float @llvm.fabs.f32(float %9)
-  %11 = fcmp oeq float %10, 0x7FF0000000000000
-  br i1 %11, label %if.then.i.i13.i.i.i54, label %if.end.i.i5.i.i.i19
+  %9 = tail call noundef float @llvm.fma.f32(float %s.sroa.0.4.vec.extract.i9, float 8.300000e+02, float %s.sroa.3.8.vec.extract.i8)
+  %10 = tail call noundef float @llvm.fma.f32(float %9, float 8.300000e+02, float %s.sroa.3.12.vec.extract.i7)
+  %11 = tail call float @llvm.fabs.f32(float %10)
+  %12 = fcmp oeq float %11, 0x7FF0000000000000
+  br i1 %12, label %if.then.i.i13.i.i.i54, label %if.end.i.i5.i.i.i19
 
 if.then.i.i13.i.i.i54:                            ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i17
-  %cmp.i.i14.i.i.i55 = fcmp ogt float %9, 0.000000e+00
+  %cmp.i.i14.i.i.i55 = fcmp ogt float %10, 0.000000e+00
   %conv.i.i15.i.i.i56 = uitofp i1 %cmp.i.i14.i.i.i55 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26
 
 if.end.i.i5.i.i.i19:                              ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i.i17
-  %mul.i.i.i6.i.i.i20 = fmul float %9, %9
+  %mul.i.i.i6.i.i.i20 = fmul float %10, %10
   %add.i.i7.i.i.i21 = fadd float %mul.i.i.i6.i.i.i20, 1.000000e+00
   %sqrt.i.i8.i.i.i22 = tail call float @llvm.sqrt.f32(float %add.i.i7.i.i.i21)
   %mul.i.i9.i.i.i23 = fmul float %sqrt.i.i8.i.i.i22, 2.000000e+00
-  %div.i.i10.i.i.i24 = fdiv float %9, %mul.i.i9.i.i.i23
+  %div.i.i10.i.i.i24 = fdiv float %10, %mul.i.i9.i.i.i23
   %add3.i.i11.i.i.i25 = fadd float %div.i.i10.i.i.i24, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26
 
@@ -23296,23 +23296,23 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26: ; preds = %if.end.i.i5.i.i.i
   br i1 %or.cond.i.i.i35, label %if.then.i.i.i39, label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60"
 
 if.then.i.i.i39:                                  ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26
-  %12 = tail call noundef float @llvm.fma.f32(float %div.i.i.i32, float %s.sroa.0.4.vec.extract.i9, float %s.sroa.3.8.vec.extract.i8)
-  %13 = tail call noundef float @llvm.fma.f32(float %div.i.i.i32, float %12, float %s.sroa.3.12.vec.extract.i7)
-  %14 = tail call float @llvm.fabs.f32(float %13)
-  %15 = fcmp oeq float %14, 0x7FF0000000000000
-  br i1 %15, label %if.then.i.i27.i.i.i51, label %if.end.i.i19.i.i.i40
+  %13 = tail call noundef float @llvm.fma.f32(float %div.i.i.i32, float %s.sroa.0.4.vec.extract.i9, float %s.sroa.3.8.vec.extract.i8)
+  %14 = tail call noundef float @llvm.fma.f32(float %div.i.i.i32, float %13, float %s.sroa.3.12.vec.extract.i7)
+  %15 = tail call float @llvm.fabs.f32(float %14)
+  %16 = fcmp oeq float %15, 0x7FF0000000000000
+  br i1 %16, label %if.then.i.i27.i.i.i51, label %if.end.i.i19.i.i.i40
 
 if.then.i.i27.i.i.i51:                            ; preds = %if.then.i.i.i39
-  %cmp.i.i28.i.i.i52 = fcmp ogt float %13, 0.000000e+00
+  %cmp.i.i28.i.i.i52 = fcmp ogt float %14, 0.000000e+00
   %conv.i.i29.i.i.i53 = uitofp i1 %cmp.i.i28.i.i.i52 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47
 
 if.end.i.i19.i.i.i40:                             ; preds = %if.then.i.i.i39
-  %mul.i.i.i20.i.i.i41 = fmul float %13, %13
+  %mul.i.i.i20.i.i.i41 = fmul float %14, %14
   %add.i.i21.i.i.i42 = fadd float %mul.i.i.i20.i.i.i41, 1.000000e+00
   %sqrt.i.i22.i.i.i43 = tail call float @llvm.sqrt.f32(float %add.i.i21.i.i.i42)
   %mul.i.i23.i.i.i44 = fmul float %sqrt.i.i22.i.i.i43, 2.000000e+00
-  %div.i.i24.i.i.i45 = fdiv float %13, %mul.i.i23.i.i.i44
+  %div.i.i24.i.i.i45 = fdiv float %14, %mul.i.i23.i.i.i44
   %add3.i.i25.i.i.i46 = fadd float %div.i.i24.i.i.i45, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47
 

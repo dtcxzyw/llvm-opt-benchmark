@@ -939,10 +939,9 @@ print_modules.exit:                               ; preds = %56, %37
   %149 = icmp slt i32 %148, %0
   %150 = icmp eq ptr %.2332, null
   %or.cond13.not398 = select i1 %149, i1 %150, i1 false
-  %151 = icmp ne i32 %.2, 6
-  %or.cond15 = select i1 %or.cond13.not398, i1 %151, i1 false
-  %152 = icmp ne i32 %.2, 7
-  %or.cond17 = select i1 %or.cond15, i1 %152, i1 false
+  %151 = add nsw i32 %.2, -8
+  %152 = icmp ult i32 %151, -2
+  %or.cond17 = select i1 %or.cond13.not398, i1 %152, i1 false
   br i1 %or.cond17, label %153, label %162
 
 153:                                              ; preds = %147

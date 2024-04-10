@@ -3820,10 +3820,9 @@ define void @_ZNK5faiss16IndexIVFFastScan22search_dispatch_implemElPKflPfPlRKNS0
 39:                                               ; preds = %32, %37, %28
   %.pr = phi i32 [ %., %32 ], [ %38, %37 ], [ %30, %28 ]
   %40 = icmp sgt i64 %1, 1
-  %41 = icmp sgt i32 %.pr, 9
-  %or.cond = select i1 %40, i1 %41, i1 false
-  %42 = icmp slt i32 %.pr, 14
-  %or.cond3 = select i1 %or.cond, i1 %42, i1 false
+  %41 = add i32 %.pr, -10
+  %42 = icmp ult i32 %41, 4
+  %or.cond3 = select i1 %40, i1 %42, i1 false
   br i1 %or.cond3, label %.thread, label %45
 
 .thread:                                          ; preds = %39

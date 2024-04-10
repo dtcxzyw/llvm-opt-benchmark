@@ -42,10 +42,8 @@ if.end:                                           ; preds = %entry
   %call = call i32 @ASN1_INTEGER_get_int64(ptr noundef nonnull %pvno, ptr noundef %0) #4
   %tobool6 = icmp eq i32 %call, 0
   %1 = load i64, ptr %pvno, align 8
-  %cmp7 = icmp slt i64 %1, 0
-  %or.cond = select i1 %tobool6, i1 true, i1 %cmp7
-  %cmp10 = icmp sgt i64 %1, 2147483647
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp10
+  %2 = icmp ugt i64 %1, 2147483647
+  %or.cond1 = select i1 %tobool6, i1 true, i1 %2
   %conv14 = trunc i64 %1 to i32
   %spec.select = select i1 %or.cond1, i32 -1, i32 %conv14
   br label %return

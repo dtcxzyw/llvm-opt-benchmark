@@ -2376,10 +2376,10 @@ if.end19:                                         ; preds = %if.then11, %if.then
 lor.lhs.false:                                    ; preds = %if.end19
   %cmp27 = icmp sgt i64 %12, 0
   %cmp30 = icmp sgt i64 %11, 0
-  %or.cond1 = select i1 %cmp27, i1 %cmp30, i1 false
   %sub33 = xor i64 %11, 9223372036854775807
   %cmp34 = icmp sgt i64 %12, %sub33
-  %or.cond23 = select i1 %or.cond1, i1 %cmp34, i1 false
+  %13 = and i1 %cmp30, %cmp34
+  %or.cond23 = select i1 %cmp27, i1 %13, i1 false
   br i1 %or.cond23, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %lor.lhs.false, %if.end19
@@ -2390,28 +2390,28 @@ if.end37:                                         ; preds = %lor.lhs.false
   %add = add nsw i64 %12, %11
   store i64 %add, ptr %value, align 8
   %call38 = call ptr @sdsfromlonglong(i64 noundef %add) #10
-  %13 = load ptr, ptr %argv, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load ptr, ptr %arrayidx40, align 8
-  %ptr41 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %ptr41, align 8
-  %call42 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i29, ptr noundef %15, ptr noundef %call38, i32 noundef 2), !range !10
-  %16 = load i64, ptr %value, align 8
-  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %16) #10
-  %17 = load ptr, ptr %db.i, align 8
-  %18 = load ptr, ptr %argv, align 8
-  %arrayidx44 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %arrayidx44, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %17, ptr noundef %19) #10
-  %20 = load ptr, ptr %argv, align 8
-  %arrayidx46 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %arrayidx46, align 8
-  %22 = load ptr, ptr %db.i, align 8
-  %id = getelementptr inbounds i8, ptr %22, i64 48
-  %23 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull @.str.15, ptr noundef %21, i32 noundef %23) #10
-  %24 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc = add nsw i64 %24, 1
+  %14 = load ptr, ptr %argv, align 8
+  %arrayidx40 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load ptr, ptr %arrayidx40, align 8
+  %ptr41 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %ptr41, align 8
+  %call42 = call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i29, ptr noundef %16, ptr noundef %call38, i32 noundef 2), !range !10
+  %17 = load i64, ptr %value, align 8
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %17) #10
+  %18 = load ptr, ptr %db.i, align 8
+  %19 = load ptr, ptr %argv, align 8
+  %arrayidx44 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %arrayidx44, align 8
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %18, ptr noundef %20) #10
+  %21 = load ptr, ptr %argv, align 8
+  %arrayidx46 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %arrayidx46, align 8
+  %23 = load ptr, ptr %db.i, align 8
+  %id = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull @.str.15, ptr noundef %22, i32 noundef %24) #10
+  %25 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %inc = add nsw i64 %25, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
   br label %return
 

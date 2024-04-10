@@ -1551,14 +1551,13 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
 land.lhs.true12:                                  ; preds = %lor.lhs.false10
   %cmp15 = icmp sgt i32 %prev.028, 31
   %or.cond2 = or i1 %cmp9, %cmp15
-  %cmp17 = icmp ne i8 %0, 0
-  %or.cond3 = select i1 %or.cond2, i1 %cmp17, i1 false
-  %cmp19 = icmp ult i8 %0, 32
-  %or.cond4 = select i1 %or.cond3, i1 %cmp19, i1 false
+  %1 = add i8 %0, -1
+  %2 = icmp ult i8 %1, 31
+  %or.cond4 = select i1 %or.cond2, i1 %2, i1 false
   br i1 %or.cond4, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %land.lhs.true12, %lor.lhs.false, %if.then4
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr %f)
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr %f)
   br label %if.end24
 
 if.else:                                          ; preds = %land.lhs.true12, %lor.lhs.false10

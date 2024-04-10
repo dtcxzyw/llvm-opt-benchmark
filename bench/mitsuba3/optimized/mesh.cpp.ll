@@ -10835,8 +10835,8 @@ define weak_odr { <2 x float>, float } @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8Sp
   %58 = fcmp contract oge float %57, 0.000000e+00
   %59 = fadd contract float %44, %57
   %60 = fcmp contract ole float %59, 1.000000e+00
-  %61 = select i1 %58, i1 %60, i1 false
-  %62 = select i1 %61, i1 %47, i1 false
+  %61 = and i1 %47, %60
+  %62 = select i1 %58, i1 %61, i1 false
   %63 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %27, <4 x float> %54, i8 113)
   %64 = extractelement <4 x float> %63, i64 0
   %65 = fmul contract float %39, %64

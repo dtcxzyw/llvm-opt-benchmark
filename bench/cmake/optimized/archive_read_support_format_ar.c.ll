@@ -334,10 +334,9 @@ ar_atol10.exit.thread.i:                          ; preds = %62, %60, %ar_atol10
   %93 = icmp eq i8 %92, 47
   %94 = getelementptr inbounds i8, ptr %3, i64 1
   %95 = load i8, ptr %94, align 1
-  %96 = icmp sgt i8 %95, 47
-  %or.cond8.i = select i1 %93, i1 %96, i1 false
-  %97 = icmp slt i8 %95, 58
-  %or.cond12.i = select i1 %or.cond8.i, i1 %97, i1 false
+  %96 = add i8 %95, -48
+  %97 = icmp ult i8 %96, 10
+  %or.cond12.i = select i1 %93, i1 %97, i1 false
   br i1 %or.cond12.i, label %98, label %128
 
 98:                                               ; preds = %91

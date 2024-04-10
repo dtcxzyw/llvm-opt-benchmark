@@ -2634,10 +2634,8 @@ if.end.us:                                        ; preds = %lor.lhs.false10.us
   %call.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 45) #24
   %call1.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #24
   %tobool.i.us = icmp ne ptr %call.i.us, null
-  %tobool2.i.us = icmp ne ptr %call1.i.us, null
-  %or.cond.i.us = select i1 %tobool.i.us, i1 %tobool2.i.us, i1 false
   %cmp.i.us = icmp ugt ptr %call1.i.us, %call.i.us
-  %or.cond18.i.us = select i1 %or.cond.i.us, i1 %cmp.i.us, i1 false
+  %or.cond18.i.us = select i1 %tobool.i.us, i1 %cmp.i.us, i1 false
   br i1 %or.cond18.i.us, label %for.cond.i.us, label %if.then22.us
 
 for.cond.i.us:                                    ; preds = %if.end.us, %for.body.i.us

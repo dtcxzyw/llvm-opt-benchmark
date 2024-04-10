@@ -164,9 +164,9 @@ define ptr @Aig_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   %64 = inttoptr i64 %63 to ptr
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, %142, %149, %167, %174, %124, %127, %129
-  %.tr282.be = phi ptr [ %64, %61 ], [ %71, %68 ], [ %92, %89 ], [ %98, %95 ], [ %145, %142 ], [ %152, %149 ], [ %170, %167 ], [ %177, %174 ], [ %.tr282349, %124 ], [ %.val237, %127 ], [ %.tr282349, %129 ]
-  %.tr283.be = phi ptr [ %.tr283350, %61 ], [ %.tr283350, %68 ], [ %.tr282349, %89 ], [ %.tr282349, %95 ], [ %.tr283350, %142 ], [ %.tr283350, %149 ], [ %.tr282349, %167 ], [ %.tr282349, %174 ], [ %.val240, %124 ], [ %.tr283350, %127 ], [ %.val238, %129 ]
+tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, %144, %151, %170, %177, %125, %128, %130
+  %.tr282.be = phi ptr [ %64, %61 ], [ %71, %68 ], [ %92, %89 ], [ %98, %95 ], [ %147, %144 ], [ %154, %151 ], [ %173, %170 ], [ %180, %177 ], [ %.tr282349, %125 ], [ %.val237, %128 ], [ %.tr282349, %130 ]
+  %.tr283.be = phi ptr [ %.tr283350, %61 ], [ %.tr283350, %68 ], [ %.tr282349, %89 ], [ %.tr282349, %95 ], [ %.tr283350, %144 ], [ %.tr283350, %151 ], [ %.tr282349, %170 ], [ %.tr282349, %177 ], [ %.val240, %125 ], [ %.tr283350, %128 ], [ %.val238, %130 ]
   %65 = icmp eq ptr %.tr282.be, %.tr283.be
   br i1 %65, label %.loopexit, label %7
 
@@ -248,13 +248,13 @@ tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, 
   %109 = xor i64 %108, 1
   %110 = inttoptr i64 %109 to ptr
   %111 = icmp eq ptr %.val237, %110
-  br i1 %.not219, label %112, label %131
+  br i1 %.not219, label %112, label %132
 
 .thread:                                          ; preds = %93
   br i1 %.not219, label %.thread245, label %.thread247
 
 112:                                              ; preds = %107
-  br i1 %111, label %120, label %113
+  br i1 %111, label %121, label %113
 
 113:                                              ; preds = %112
   %114 = ptrtoint ptr %.val240 to i64
@@ -262,274 +262,274 @@ tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, 
   %116 = inttoptr i64 %115 to ptr
   %117 = icmp eq ptr %.val237, %116
   %118 = icmp eq ptr %.val239, %110
-  %or.cond258 = select i1 %117, i1 true, i1 %118
   %119 = icmp eq ptr %.val239, %116
-  %or.cond259 = select i1 %or.cond258, i1 true, i1 %119
-  br i1 %or.cond259, label %120, label %124
+  %120 = or i1 %118, %119
+  %or.cond259 = select i1 %117, i1 true, i1 %120
+  br i1 %or.cond259, label %121, label %125
 
-120:                                              ; preds = %113, %112
-  %121 = ptrtoint ptr %21 to i64
-  %122 = xor i64 %121, 1
-  %123 = inttoptr i64 %122 to ptr
+121:                                              ; preds = %113, %112
+  %122 = ptrtoint ptr %21 to i64
+  %123 = xor i64 %122, 1
+  %124 = inttoptr i64 %123 to ptr
   br label %.loopexit
 
-124:                                              ; preds = %113
-  %125 = icmp eq ptr %.val237, %.val238
-  %126 = icmp eq ptr %.val239, %.val238
-  %or.cond231 = select i1 %125, i1 true, i1 %126
-  br i1 %or.cond231, label %tailrecurse.backedge, label %127
+125:                                              ; preds = %113
+  %126 = icmp eq ptr %.val237, %.val238
+  %127 = icmp eq ptr %.val239, %.val238
+  %or.cond231 = select i1 %126, i1 true, i1 %127
+  br i1 %or.cond231, label %tailrecurse.backedge, label %128
 
-127:                                              ; preds = %124
-  %128 = icmp eq ptr %.val239, %.val240
-  br i1 %128, label %tailrecurse.backedge, label %129
+128:                                              ; preds = %125
+  %129 = icmp eq ptr %.val239, %.val240
+  br i1 %129, label %tailrecurse.backedge, label %130
 
-129:                                              ; preds = %127
-  %130 = icmp eq ptr %.val237, %.val240
-  br i1 %130, label %tailrecurse.backedge, label %.loopexit284.loopexit
+130:                                              ; preds = %128
+  %131 = icmp eq ptr %.val237, %.val240
+  br i1 %131, label %tailrecurse.backedge, label %.loopexit284.loopexit
 
-131:                                              ; preds = %107
-  br i1 %111, label %.loopexit, label %132
+132:                                              ; preds = %107
+  br i1 %111, label %.loopexit, label %133
 
-132:                                              ; preds = %131
-  %133 = ptrtoint ptr %.val240 to i64
-  %134 = xor i64 %133, 1
-  %135 = inttoptr i64 %134 to ptr
-  %136 = icmp eq ptr %.val237, %135
-  %137 = icmp eq ptr %.val239, %110
-  %or.cond260 = select i1 %136, i1 true, i1 %137
-  %138 = icmp eq ptr %.val239, %135
-  %or.cond261 = select i1 %or.cond260, i1 true, i1 %138
-  br i1 %or.cond261, label %.loopexit, label %139
+133:                                              ; preds = %132
+  %134 = ptrtoint ptr %.val240 to i64
+  %135 = xor i64 %134, 1
+  %136 = inttoptr i64 %135 to ptr
+  %137 = icmp eq ptr %.val237, %136
+  %138 = icmp eq ptr %.val239, %110
+  %139 = icmp eq ptr %.val239, %136
+  %140 = or i1 %138, %139
+  %or.cond261 = select i1 %137, i1 true, i1 %140
+  br i1 %or.cond261, label %.loopexit, label %141
 
-139:                                              ; preds = %132
-  %140 = icmp eq ptr %.val239, %.val238
-  %141 = icmp eq ptr %.val239, %.val240
-  %or.cond232 = select i1 %140, i1 true, i1 %141
-  br i1 %or.cond232, label %142, label %146
+141:                                              ; preds = %133
+  %142 = icmp eq ptr %.val239, %.val238
+  %143 = icmp eq ptr %.val239, %.val240
+  %or.cond232 = select i1 %142, i1 true, i1 %143
+  br i1 %or.cond232, label %144, label %148
 
-142:                                              ; preds = %139
-  %143 = ptrtoint ptr %.val237 to i64
-  %144 = xor i64 %143, 1
-  %145 = inttoptr i64 %144 to ptr
+144:                                              ; preds = %141
+  %145 = ptrtoint ptr %.val237 to i64
+  %146 = xor i64 %145, 1
+  %147 = inttoptr i64 %146 to ptr
   br label %tailrecurse.backedge
 
-146:                                              ; preds = %139
-  %147 = icmp eq ptr %.val237, %.val238
-  %148 = icmp eq ptr %.val237, %.val240
-  %or.cond233 = select i1 %147, i1 true, i1 %148
-  br i1 %or.cond233, label %149, label %.loopexit284.loopexit
+148:                                              ; preds = %141
+  %149 = icmp eq ptr %.val237, %.val238
+  %150 = icmp eq ptr %.val237, %.val240
+  %or.cond233 = select i1 %149, i1 true, i1 %150
+  br i1 %or.cond233, label %151, label %.loopexit284.loopexit
 
-149:                                              ; preds = %146
-  %150 = ptrtoint ptr %.val239 to i64
-  %151 = xor i64 %150, 1
-  %152 = inttoptr i64 %151 to ptr
+151:                                              ; preds = %148
+  %152 = ptrtoint ptr %.val239 to i64
+  %153 = xor i64 %152, 1
+  %154 = inttoptr i64 %153 to ptr
   br label %tailrecurse.backedge
 
 .thread245:                                       ; preds = %.thread
-  %153 = ptrtoint ptr %.val237 to i64
-  %154 = xor i64 %153, 1
-  %155 = inttoptr i64 %154 to ptr
-  %156 = icmp eq ptr %.val238, %155
-  br i1 %156, label %.loopexit, label %157
+  %155 = ptrtoint ptr %.val237 to i64
+  %156 = xor i64 %155, 1
+  %157 = inttoptr i64 %156 to ptr
+  %158 = icmp eq ptr %.val238, %157
+  br i1 %158, label %.loopexit, label %159
 
-157:                                              ; preds = %.thread245
-  %158 = ptrtoint ptr %.val239 to i64
-  %159 = xor i64 %158, 1
-  %160 = inttoptr i64 %159 to ptr
-  %161 = icmp eq ptr %.val238, %160
-  %162 = icmp eq ptr %.val240, %155
-  %or.cond262 = select i1 %161, i1 true, i1 %162
-  %163 = icmp eq ptr %.val240, %160
-  %or.cond263 = select i1 %or.cond262, i1 true, i1 %163
-  br i1 %or.cond263, label %.loopexit, label %164
+159:                                              ; preds = %.thread245
+  %160 = ptrtoint ptr %.val239 to i64
+  %161 = xor i64 %160, 1
+  %162 = inttoptr i64 %161 to ptr
+  %163 = icmp eq ptr %.val238, %162
+  %164 = icmp eq ptr %.val240, %157
+  %165 = icmp eq ptr %.val240, %162
+  %166 = or i1 %164, %165
+  %or.cond263 = select i1 %163, i1 true, i1 %166
+  br i1 %or.cond263, label %.loopexit, label %167
 
-164:                                              ; preds = %157
-  %165 = icmp eq ptr %.val240, %.val237
-  %166 = icmp eq ptr %.val240, %.val239
-  %or.cond234 = select i1 %165, i1 true, i1 %166
-  br i1 %or.cond234, label %167, label %171
+167:                                              ; preds = %159
+  %168 = icmp eq ptr %.val240, %.val237
+  %169 = icmp eq ptr %.val240, %.val239
+  %or.cond234 = select i1 %168, i1 true, i1 %169
+  br i1 %or.cond234, label %170, label %174
 
-167:                                              ; preds = %164
-  %168 = ptrtoint ptr %.val238 to i64
-  %169 = xor i64 %168, 1
-  %170 = inttoptr i64 %169 to ptr
+170:                                              ; preds = %167
+  %171 = ptrtoint ptr %.val238 to i64
+  %172 = xor i64 %171, 1
+  %173 = inttoptr i64 %172 to ptr
   br label %tailrecurse.backedge
 
-171:                                              ; preds = %164
-  %172 = icmp eq ptr %.val238, %.val237
-  %173 = icmp eq ptr %.val238, %.val239
-  %or.cond235 = select i1 %172, i1 true, i1 %173
-  br i1 %or.cond235, label %174, label %.loopexit284.loopexit
+174:                                              ; preds = %167
+  %175 = icmp eq ptr %.val238, %.val237
+  %176 = icmp eq ptr %.val238, %.val239
+  %or.cond235 = select i1 %175, i1 true, i1 %176
+  br i1 %or.cond235, label %177, label %.loopexit284.loopexit
 
-174:                                              ; preds = %171
-  %175 = ptrtoint ptr %.val240 to i64
-  %176 = xor i64 %175, 1
-  %177 = inttoptr i64 %176 to ptr
+177:                                              ; preds = %174
+  %178 = ptrtoint ptr %.val240 to i64
+  %179 = xor i64 %178, 1
+  %180 = inttoptr i64 %179 to ptr
   br label %tailrecurse.backedge
 
 .thread247:                                       ; preds = %.thread
-  %178 = icmp eq ptr %.val237, %.val240
-  %179 = ptrtoint ptr %.val238 to i64
-  %180 = xor i64 %179, 1
-  %181 = inttoptr i64 %180 to ptr
-  %182 = icmp eq ptr %.val239, %181
-  %or.cond267 = select i1 %178, i1 %182, i1 false
-  br i1 %or.cond267, label %183, label %187
+  %181 = icmp eq ptr %.val237, %.val240
+  %182 = ptrtoint ptr %.val238 to i64
+  %183 = xor i64 %182, 1
+  %184 = inttoptr i64 %183 to ptr
+  %185 = icmp eq ptr %.val239, %184
+  %or.cond267 = select i1 %181, i1 %185, i1 false
+  br i1 %or.cond267, label %186, label %190
 
-183:                                              ; preds = %.thread247
-  %184 = ptrtoint ptr %.val237 to i64
-  %185 = xor i64 %184, 1
-  %186 = inttoptr i64 %185 to ptr
+186:                                              ; preds = %.thread247
+  %187 = ptrtoint ptr %.val237 to i64
+  %188 = xor i64 %187, 1
+  %189 = inttoptr i64 %188 to ptr
   br label %.loopexit
 
-187:                                              ; preds = %.thread247
-  %188 = icmp eq ptr %.val239, %.val238
-  %189 = ptrtoint ptr %.val240 to i64
-  %190 = xor i64 %189, 1
-  %191 = inttoptr i64 %190 to ptr
-  %192 = icmp eq ptr %.val237, %191
-  %or.cond271 = select i1 %188, i1 %192, i1 false
-  br i1 %or.cond271, label %193, label %197
+190:                                              ; preds = %.thread247
+  %191 = icmp eq ptr %.val239, %.val238
+  %192 = ptrtoint ptr %.val240 to i64
+  %193 = xor i64 %192, 1
+  %194 = inttoptr i64 %193 to ptr
+  %195 = icmp eq ptr %.val237, %194
+  %or.cond271 = select i1 %191, i1 %195, i1 false
+  br i1 %or.cond271, label %196, label %200
 
-193:                                              ; preds = %187
-  %194 = ptrtoint ptr %.val239 to i64
-  %195 = xor i64 %194, 1
-  %196 = inttoptr i64 %195 to ptr
+196:                                              ; preds = %190
+  %197 = ptrtoint ptr %.val239 to i64
+  %198 = xor i64 %197, 1
+  %199 = inttoptr i64 %198 to ptr
   br label %.loopexit
 
-197:                                              ; preds = %187
-  %198 = icmp eq ptr %.val237, %.val238
-  %199 = icmp eq ptr %.val239, %191
-  %or.cond275 = select i1 %198, i1 %199, i1 false
-  br i1 %or.cond275, label %200, label %204
+200:                                              ; preds = %190
+  %201 = icmp eq ptr %.val237, %.val238
+  %202 = icmp eq ptr %.val239, %194
+  %or.cond275 = select i1 %201, i1 %202, i1 false
+  br i1 %or.cond275, label %203, label %207
 
-200:                                              ; preds = %197
-  %201 = ptrtoint ptr %.val237 to i64
-  %202 = xor i64 %201, 1
-  %203 = inttoptr i64 %202 to ptr
+203:                                              ; preds = %200
+  %204 = ptrtoint ptr %.val237 to i64
+  %205 = xor i64 %204, 1
+  %206 = inttoptr i64 %205 to ptr
   br label %.loopexit
 
-204:                                              ; preds = %197
-  %205 = icmp eq ptr %.val239, %.val240
-  %206 = icmp eq ptr %.val237, %181
-  %or.cond279 = select i1 %205, i1 %206, i1 false
-  br i1 %or.cond279, label %207, label %.loopexit284
+207:                                              ; preds = %200
+  %208 = icmp eq ptr %.val239, %.val240
+  %209 = icmp eq ptr %.val237, %184
+  %or.cond279 = select i1 %208, i1 %209, i1 false
+  br i1 %or.cond279, label %210, label %.loopexit284
 
-207:                                              ; preds = %204
-  %208 = ptrtoint ptr %.val239 to i64
-  %209 = xor i64 %208, 1
-  %210 = inttoptr i64 %209 to ptr
+210:                                              ; preds = %207
+  %211 = ptrtoint ptr %.val239 to i64
+  %212 = xor i64 %211, 1
+  %213 = inttoptr i64 %212 to ptr
   br label %.loopexit
 
-.loopexit284.loopexit:                            ; preds = %38, %45, %129, %146, %171
+.loopexit284.loopexit:                            ; preds = %38, %45, %130, %148, %174
   %.pre = and i64 %18, 1
   br label %.loopexit284
 
-.loopexit284:                                     ; preds = %.loopexit284.loopexit, %204
-  %.pre-phi = phi i64 [ %.pre, %.loopexit284.loopexit ], [ 1, %204 ]
-  %211 = getelementptr inbounds i8, ptr %0, i64 316
-  %212 = load i32, ptr %211, align 4
-  %.not227 = icmp eq i32 %212, 0
-  %213 = and i64 %.pre-phi, %8
-  %214 = icmp eq i64 %213, 0
-  %or.cond281 = or i1 %214, %.not227
-  br i1 %or.cond281, label %Aig_ObjIsExorType.exit.thread, label %215
+.loopexit284:                                     ; preds = %.loopexit284.loopexit, %207
+  %.pre-phi = phi i64 [ %.pre, %.loopexit284.loopexit ], [ 1, %207 ]
+  %214 = getelementptr inbounds i8, ptr %0, i64 316
+  %215 = load i32, ptr %214, align 4
+  %.not227 = icmp eq i32 %215, 0
+  %216 = and i64 %.pre-phi, %8
+  %217 = icmp eq i64 %216, 0
+  %or.cond281 = or i1 %217, %.not227
+  br i1 %or.cond281, label %Aig_ObjIsExorType.exit.thread, label %218
 
-215:                                              ; preds = %.loopexit284
-  %216 = getelementptr i8, ptr %20, i64 24
-  %.val24.i = load i64, ptr %216, align 8
-  %217 = and i64 %.val24.i, 7
-  %.not34.i = icmp eq i64 %217, 5
-  br i1 %.not34.i, label %218, label %Aig_ObjIsExorType.exit.thread
-
-218:                                              ; preds = %215
-  %219 = getelementptr i8, ptr %30, i64 24
-  %.val25.i = load i64, ptr %219, align 8
-  %220 = and i64 %.val25.i, 7
-  %.not35.i = icmp eq i64 %220, 5
-  br i1 %.not35.i, label %221, label %Aig_ObjIsExorType.exit.thread
+218:                                              ; preds = %.loopexit284
+  %219 = getelementptr i8, ptr %20, i64 24
+  %.val24.i = load i64, ptr %219, align 8
+  %220 = and i64 %.val24.i, 7
+  %.not34.i = icmp eq i64 %220, 5
+  br i1 %.not34.i, label %221, label %Aig_ObjIsExorType.exit.thread
 
 221:                                              ; preds = %218
-  %222 = getelementptr i8, ptr %20, i64 8
-  %.val26.i = load ptr, ptr %222, align 8
-  %223 = ptrtoint ptr %.val26.i to i64
-  %224 = and i64 %223, -2
-  %225 = inttoptr i64 %224 to ptr
-  %226 = getelementptr i8, ptr %30, i64 8
-  %.val27.i = load ptr, ptr %226, align 8
-  %227 = ptrtoint ptr %.val27.i to i64
-  %228 = and i64 %227, -2
-  %229 = inttoptr i64 %228 to ptr
-  %.not21.i = icmp eq ptr %225, %229
-  br i1 %.not21.i, label %230, label %Aig_ObjIsExorType.exit.thread
+  %222 = getelementptr i8, ptr %30, i64 24
+  %.val25.i = load i64, ptr %222, align 8
+  %223 = and i64 %.val25.i, 7
+  %.not35.i = icmp eq i64 %223, 5
+  br i1 %.not35.i, label %224, label %Aig_ObjIsExorType.exit.thread
 
-230:                                              ; preds = %221
-  %231 = getelementptr i8, ptr %20, i64 16
-  %.val28.i = load ptr, ptr %231, align 8
-  %232 = ptrtoint ptr %.val28.i to i64
-  %233 = and i64 %232, -2
-  %234 = inttoptr i64 %233 to ptr
-  %235 = getelementptr i8, ptr %30, i64 16
-  %.val29.i = load ptr, ptr %235, align 8
-  %236 = ptrtoint ptr %.val29.i to i64
-  %237 = and i64 %236, -2
-  %238 = inttoptr i64 %237 to ptr
-  %.not22.i = icmp eq ptr %234, %238
-  br i1 %.not22.i, label %239, label %Aig_ObjIsExorType.exit.thread
+224:                                              ; preds = %221
+  %225 = getelementptr i8, ptr %20, i64 8
+  %.val26.i = load ptr, ptr %225, align 8
+  %226 = ptrtoint ptr %.val26.i to i64
+  %227 = and i64 %226, -2
+  %228 = inttoptr i64 %227 to ptr
+  %229 = getelementptr i8, ptr %30, i64 8
+  %.val27.i = load ptr, ptr %229, align 8
+  %230 = ptrtoint ptr %.val27.i to i64
+  %231 = and i64 %230, -2
+  %232 = inttoptr i64 %231 to ptr
+  %.not21.i = icmp eq ptr %228, %232
+  br i1 %.not21.i, label %233, label %Aig_ObjIsExorType.exit.thread
 
-239:                                              ; preds = %230
-  %240 = xor i64 %227, %223
-  %241 = and i64 %240, 1
-  %242 = icmp eq i64 %241, 0
-  br i1 %242, label %Aig_ObjIsExorType.exit.thread, label %243
+233:                                              ; preds = %224
+  %234 = getelementptr i8, ptr %20, i64 16
+  %.val28.i = load ptr, ptr %234, align 8
+  %235 = ptrtoint ptr %.val28.i to i64
+  %236 = and i64 %235, -2
+  %237 = inttoptr i64 %236 to ptr
+  %238 = getelementptr i8, ptr %30, i64 16
+  %.val29.i = load ptr, ptr %238, align 8
+  %239 = ptrtoint ptr %.val29.i to i64
+  %240 = and i64 %239, -2
+  %241 = inttoptr i64 %240 to ptr
+  %.not22.i = icmp eq ptr %237, %241
+  br i1 %.not22.i, label %242, label %Aig_ObjIsExorType.exit.thread
 
-243:                                              ; preds = %239
-  %244 = xor i64 %236, %232
-  %245 = and i64 %244, 1
-  %246 = icmp eq i64 %245, 0
-  br i1 %246, label %Aig_ObjIsExorType.exit.thread, label %Aig_ObjIsExorType.exit
+242:                                              ; preds = %233
+  %243 = xor i64 %230, %226
+  %244 = and i64 %243, 1
+  %245 = icmp eq i64 %244, 0
+  br i1 %245, label %Aig_ObjIsExorType.exit.thread, label %246
 
-Aig_ObjIsExorType.exit:                           ; preds = %243
-  %247 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.val26.i, ptr noundef %.val28.i)
+246:                                              ; preds = %242
+  %247 = xor i64 %239, %235
+  %248 = and i64 %247, 1
+  %249 = icmp eq i64 %248, 0
+  br i1 %249, label %Aig_ObjIsExorType.exit.thread, label %Aig_ObjIsExorType.exit
+
+Aig_ObjIsExorType.exit:                           ; preds = %246
+  %250 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.val26.i, ptr noundef %.val28.i)
   br label %.loopexit
 
-Aig_ObjIsExorType.exit.thread:                    ; preds = %239, %243, %221, %230, %215, %218, %.loopexit284
-  %248 = getelementptr inbounds i8, ptr %0, i64 80
-  %249 = load i64, ptr %248, align 8
-  %250 = and i64 %249, -8
-  %251 = or disjoint i64 %250, 5
-  store i64 %251, ptr %248, align 8
-  %252 = icmp eq ptr %.tr283350, null
-  br i1 %252, label %Aig_ObjCreateGhost.exit, label %253
+Aig_ObjIsExorType.exit.thread:                    ; preds = %242, %246, %224, %233, %218, %221, %.loopexit284
+  %251 = getelementptr inbounds i8, ptr %0, i64 80
+  %252 = load i64, ptr %251, align 8
+  %253 = and i64 %252, -8
+  %254 = or disjoint i64 %253, 5
+  store i64 %254, ptr %251, align 8
+  %255 = icmp eq ptr %.tr283350, null
+  br i1 %255, label %Aig_ObjCreateGhost.exit, label %256
 
-253:                                              ; preds = %Aig_ObjIsExorType.exit.thread
-  %254 = getelementptr inbounds i8, ptr %20, i64 36
-  %255 = load i32, ptr %254, align 4
-  %256 = getelementptr inbounds i8, ptr %30, i64 36
-  %257 = load i32, ptr %256, align 4
-  %258 = icmp slt i32 %255, %257
-  %spec.select.i = select i1 %258, ptr %.tr282349, ptr %.tr283350
-  %spec.select17.i = select i1 %258, ptr %.tr283350, ptr %.tr282349
+256:                                              ; preds = %Aig_ObjIsExorType.exit.thread
+  %257 = getelementptr inbounds i8, ptr %20, i64 36
+  %258 = load i32, ptr %257, align 4
+  %259 = getelementptr inbounds i8, ptr %30, i64 36
+  %260 = load i32, ptr %259, align 4
+  %261 = icmp slt i32 %258, %260
+  %spec.select.i = select i1 %261, ptr %.tr282349, ptr %.tr283350
+  %spec.select17.i = select i1 %261, ptr %.tr283350, ptr %.tr282349
   br label %Aig_ObjCreateGhost.exit
 
-Aig_ObjCreateGhost.exit:                          ; preds = %Aig_ObjIsExorType.exit.thread, %253
-  %.sink15.i = phi ptr [ %.tr282349, %Aig_ObjIsExorType.exit.thread ], [ %spec.select.i, %253 ]
-  %.sink.i = phi ptr [ null, %Aig_ObjIsExorType.exit.thread ], [ %spec.select17.i, %253 ]
-  %259 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %.sink15.i, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %.sink.i, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 56
-  %262 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %261) #7
-  %.not229 = icmp eq ptr %262, null
-  br i1 %.not229, label %263, label %.loopexit
+Aig_ObjCreateGhost.exit:                          ; preds = %Aig_ObjIsExorType.exit.thread, %256
+  %.sink15.i = phi ptr [ %.tr282349, %Aig_ObjIsExorType.exit.thread ], [ %spec.select.i, %256 ]
+  %.sink.i = phi ptr [ null, %Aig_ObjIsExorType.exit.thread ], [ %spec.select17.i, %256 ]
+  %262 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %.sink15.i, ptr %262, align 8
+  %263 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %.sink.i, ptr %263, align 8
+  %264 = getelementptr inbounds i8, ptr %0, i64 56
+  %265 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %264) #7
+  %.not229 = icmp eq ptr %265, null
+  br i1 %.not229, label %266, label %.loopexit
 
-263:                                              ; preds = %Aig_ObjCreateGhost.exit
-  %264 = tail call ptr @Aig_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %261) #7
+266:                                              ; preds = %Aig_ObjCreateGhost.exit
+  %267 = tail call ptr @Aig_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %264) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %58, %77, %86, %104, %132, %131, %157, %.thread245, %3, %Aig_ObjCreateGhost.exit, %34, %32, %25, %23, %263, %Aig_ObjIsExorType.exit, %207, %200, %193, %183, %120, %100, %73, %12
-  %.0 = phi ptr [ %16, %12 ], [ %186, %183 ], [ %196, %193 ], [ %203, %200 ], [ %210, %207 ], [ %247, %Aig_ObjIsExorType.exit ], [ %264, %263 ], [ %123, %120 ], [ %103, %100 ], [ %76, %73 ], [ %27, %25 ], [ %.tr283350, %23 ], [ %37, %34 ], [ %.tr282349, %32 ], [ %262, %Aig_ObjCreateGhost.exit ], [ %1, %3 ], [ %.tr282.be, %tailrecurse.backedge ], [ %.tr283350, %58 ], [ %.tr282349, %77 ], [ %.tr282349, %86 ], [ %.tr283350, %104 ], [ %.tr283350, %132 ], [ %.tr283350, %131 ], [ %.tr282349, %157 ], [ %.tr282349, %.thread245 ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %58, %77, %86, %104, %133, %132, %159, %.thread245, %3, %Aig_ObjCreateGhost.exit, %34, %32, %25, %23, %266, %Aig_ObjIsExorType.exit, %210, %203, %196, %186, %121, %100, %73, %12
+  %.0 = phi ptr [ %16, %12 ], [ %189, %186 ], [ %199, %196 ], [ %206, %203 ], [ %213, %210 ], [ %250, %Aig_ObjIsExorType.exit ], [ %267, %266 ], [ %124, %121 ], [ %103, %100 ], [ %76, %73 ], [ %27, %25 ], [ %.tr283350, %23 ], [ %37, %34 ], [ %.tr282349, %32 ], [ %265, %Aig_ObjCreateGhost.exit ], [ %1, %3 ], [ %.tr282.be, %tailrecurse.backedge ], [ %.tr283350, %58 ], [ %.tr282349, %77 ], [ %.tr282349, %86 ], [ %.tr283350, %104 ], [ %.tr283350, %133 ], [ %.tr283350, %132 ], [ %.tr282349, %159 ], [ %.tr282349, %.thread245 ]
   ret ptr %.0
 }
 

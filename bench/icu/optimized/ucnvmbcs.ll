@@ -6144,9 +6144,9 @@ if.then195:                                       ; preds = %while.end
   %34 = load i32, ptr %pErrorCode, align 4
   %cmp.i116 = icmp slt i32 %34, 1
   %cmp199 = icmp eq ptr %source.1.ptr, %7
-  %or.cond114 = select i1 %cmp.i116, i1 %cmp199, i1 false
   %cmp201 = icmp sgt i64 %source.1.idx, 0
-  %or.cond115 = select i1 %or.cond114, i1 %cmp201, i1 false
+  %35 = and i1 %cmp199, %cmp201
+  %or.cond115 = select i1 %cmp.i116, i1 %35, i1 false
   br i1 %or.cond115, label %if.then202, label %if.else207
 
 if.then202:                                       ; preds = %if.then195
@@ -6160,9 +6160,9 @@ do.body:                                          ; preds = %do.body, %if.then20
   %lastSource.1 = phi ptr [ %lastSource.0.ph, %if.then202 ], [ %incdec.ptr204, %do.body ]
   %bytes.0 = phi ptr [ %toUBytes, %if.then202 ], [ %incdec.ptr205, %do.body ]
   %incdec.ptr204 = getelementptr inbounds i8, ptr %lastSource.1, i64 1
-  %35 = load i8, ptr %lastSource.1, align 1
+  %36 = load i8, ptr %lastSource.1, align 1
   %incdec.ptr205 = getelementptr inbounds i8, ptr %bytes.0, i64 1
-  store i8 %35, ptr %bytes.0, align 1
+  store i8 %36, ptr %bytes.0, align 1
   %cmp206 = icmp ult ptr %incdec.ptr204, %7
   br i1 %cmp206, label %do.body, label %do.end, !llvm.loop !45
 
@@ -6174,15 +6174,15 @@ if.else207:                                       ; preds = %if.then195
   br i1 %cmp.i116, label %if.else234, label %if.then210
 
 if.then210:                                       ; preds = %if.else207
-  %36 = load ptr, ptr %sharedData, align 8
-  %dbcsOnlyState213 = getelementptr inbounds i8, ptr %36, i64 49
-  %37 = load i8, ptr %dbcsOnlyState213, align 1
-  %.fr = freeze i8 %37
+  %37 = load ptr, ptr %sharedData, align 8
+  %dbcsOnlyState213 = getelementptr inbounds i8, ptr %37, i64 49
+  %38 = load i8, ptr %dbcsOnlyState213, align 1
+  %.fr = freeze i8 %38
   %cmp215.not = icmp eq i8 %.fr, 0
   %toUBytes218 = getelementptr inbounds i8, ptr %0, i64 65
   %incdec.ptr220 = getelementptr inbounds i8, ptr %lastSource.0.ph, i64 1
-  %38 = load i8, ptr %lastSource.0.ph, align 1
-  store i8 %38, ptr %toUBytes218, align 1
+  %39 = load i8, ptr %lastSource.0.ph, align 1
+  store i8 %39, ptr %toUBytes218, align 1
   %cmp222 = icmp eq i64 %source.1.idx, 1
   br i1 %cmp222, label %if.then223, label %if.else225
 
@@ -6205,21 +6205,21 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %fo
   %i.0223.us = phi i8 [ %inc231.us, %for.body.us ], [ 1, %land.rhs.lr.ph ]
   %bytes217.0222.us = phi ptr [ %incdec.ptr230.us, %for.body.us ], [ %incdec.ptr221, %land.rhs.lr.ph ]
   %lastSource.2221.us = phi ptr [ %incdec.ptr229.us, %for.body.us ], [ %incdec.ptr220, %land.rhs.lr.ph ]
-  %39 = load i8, ptr %lastSource.2221.us, align 1
-  %idxprom2.i.us = zext i8 %39 to i64
+  %40 = load i8, ptr %lastSource.2221.us, align 1
+  %idxprom2.i.us = zext i8 %40 to i64
   %arrayidx3.i.us = getelementptr inbounds i32, ptr %arrayidx.i, i64 %idxprom2.i.us
-  %40 = load i32, ptr %arrayidx3.i.us, align 4
-  %cmp.i121.us = icmp sgt i32 %40, -1
+  %41 = load i32, ptr %arrayidx3.i.us, align 4
+  %cmp.i121.us = icmp sgt i32 %41, -1
   br i1 %cmp.i121.us, label %if.then.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %land.rhs.us
-  %41 = and i32 %40, 15728640
-  %cmp11.i.us = icmp ne i32 %41, 7340032
+  %42 = and i32 %41, 15728640
+  %cmp11.i.us = icmp ne i32 %42, 7340032
   %conv12.i124.us = zext i1 %cmp11.i.us to i8
   br label %_ZL14isSingleOrLeadPA256_Kihah.exit.us
 
 if.then.i.us:                                     ; preds = %land.rhs.us
-  %shr.i126.us = lshr i32 %40, 24
+  %shr.i126.us = lshr i32 %41, 24
   %conv.i127.us = trunc i32 %shr.i126.us to i8
   %call.i.us = tail call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull %stateTable.0, i8 noundef zeroext %conv.i127.us), !range !26
   br label %_ZL14isSingleOrLeadPA256_Kihah.exit.us
@@ -6232,7 +6232,7 @@ _ZL14isSingleOrLeadPA256_Kihah.exit.us:           ; preds = %if.then.i.us, %if.e
 for.body.us:                                      ; preds = %_ZL14isSingleOrLeadPA256_Kihah.exit.us
   %incdec.ptr229.us = getelementptr inbounds i8, ptr %lastSource.2221.us, i64 1
   %incdec.ptr230.us = getelementptr inbounds i8, ptr %bytes217.0222.us, i64 1
-  store i8 %39, ptr %bytes217.0222.us, align 1
+  store i8 %40, ptr %bytes217.0222.us, align 1
   %inc231.us = add i8 %i.0223.us, 1
   %cmp226.us = icmp ult ptr %incdec.ptr229.us, %source.1.ptr
   br i1 %cmp226.us, label %land.rhs.us, label %for.end, !llvm.loop !46
@@ -6241,21 +6241,21 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %i.0223 = phi i8 [ %inc231, %for.body ], [ 1, %land.rhs.lr.ph ]
   %bytes217.0222 = phi ptr [ %incdec.ptr230, %for.body ], [ %incdec.ptr221, %land.rhs.lr.ph ]
   %lastSource.2221 = phi ptr [ %incdec.ptr229, %for.body ], [ %incdec.ptr220, %land.rhs.lr.ph ]
-  %42 = load i8, ptr %lastSource.2221, align 1
-  %idxprom2.i = zext i8 %42 to i64
+  %43 = load i8, ptr %lastSource.2221, align 1
+  %idxprom2.i = zext i8 %43 to i64
   %arrayidx3.i = getelementptr inbounds i32, ptr %arrayidx.i, i64 %idxprom2.i
-  %43 = load i32, ptr %arrayidx3.i, align 4
-  %cmp.i121 = icmp sgt i32 %43, -1
+  %44 = load i32, ptr %arrayidx3.i, align 4
+  %cmp.i121 = icmp sgt i32 %44, -1
   br i1 %cmp.i121, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs
-  %shr.i126 = lshr i32 %43, 24
+  %shr.i126 = lshr i32 %44, 24
   %conv.i127 = trunc i32 %shr.i126 to i8
   %call.i = tail call fastcc noundef signext i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef nonnull %stateTable.0, i8 noundef zeroext %conv.i127), !range !26
   br label %_ZL14isSingleOrLeadPA256_Kihah.exit
 
 if.else.i:                                        ; preds = %land.rhs
-  %shr4.i = lshr i32 %43, 20
+  %shr4.i = lshr i32 %44, 20
   %conv5.i = and i32 %shr4.i, 15
   %cmp7.i122 = icmp eq i32 %conv5.i, 8
   br i1 %cmp7.i122, label %for.body, label %if.else9.i
@@ -6273,7 +6273,7 @@ _ZL14isSingleOrLeadPA256_Kihah.exit:              ; preds = %if.then.i, %if.else
 for.body:                                         ; preds = %if.else.i, %_ZL14isSingleOrLeadPA256_Kihah.exit
   %incdec.ptr229 = getelementptr inbounds i8, ptr %lastSource.2221, i64 1
   %incdec.ptr230 = getelementptr inbounds i8, ptr %bytes217.0222, i64 1
-  store i8 %42, ptr %bytes217.0222, align 1
+  store i8 %43, ptr %bytes217.0222, align 1
   %inc231 = add i8 %i.0223, 1
   %cmp226 = icmp ult ptr %incdec.ptr229, %source.1.ptr
   br i1 %cmp226, label %land.rhs, label %for.end, !llvm.loop !46

@@ -1405,10 +1405,10 @@ define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i8 %10, 5
   %20 = icmp ule i32 %13, %16
-  %21 = select i1 %19, i1 %20, i1 false
-  %22 = xor i32 %16, %13
-  %23 = icmp ult i32 %22, 16777216
-  %24 = select i1 %21, i1 %23, i1 false
+  %21 = xor i32 %16, %13
+  %22 = icmp ult i32 %21, 16777216
+  %23 = and i1 %20, %22
+  %24 = select i1 %19, i1 %23, i1 false
   %25 = icmp ult i32 %18, 67108864
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %27, label %176

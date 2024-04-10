@@ -421,339 +421,337 @@ define internal i32 @dissect_actrace(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
   %8 = icmp eq i32 %6, 48
-  %9 = icmp sgt i32 %7, -1
-  %or.cond.i = select i1 %8, i1 %9, i1 false
-  %10 = icmp slt i32 %7, 3
-  %or.cond3.i = select i1 %or.cond.i, i1 %10, i1 false
-  br i1 %or.cond3.i, label %is_actrace.exit, label %11
+  %9 = icmp ult i32 %7, 3
+  %or.cond3.i = select i1 %8, i1 %9, i1 false
+  br i1 %or.cond3.i, label %is_actrace.exit, label %10
 
-11:                                               ; preds = %4
-  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
-  %13 = icmp sgt i32 %6, 49
-  br i1 %13, label %14, label %is_actrace.exit.thread
+10:                                               ; preds = %4
+  %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
+  %12 = icmp sgt i32 %6, 49
+  br i1 %12, label %13, label %is_actrace.exit.thread
 
-14:                                               ; preds = %11
-  switch i32 %12, label %is_actrace.exit.thread [
+13:                                               ; preds = %10
+  switch i32 %11, label %is_actrace.exit.thread [
     i32 1231307843, label %is_actrace.exit
     i32 1229218915, label %is_actrace.exit
   ]
 
-is_actrace.exit:                                  ; preds = %14, %14, %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8
-  tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.145) #3
-  %17 = load ptr, ptr %15, align 8
-  tail call void @col_clear(ptr noundef %17, i32 noundef 25) #3
+is_actrace.exit:                                  ; preds = %13, %13, %4
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.145) #3
+  %16 = load ptr, ptr %14, align 8
+  tail call void @col_clear(ptr noundef %16, i32 noundef 25) #3
   %.not20 = icmp eq ptr %2, null
-  br i1 %.not20, label %23, label %18
+  br i1 %.not20, label %22, label %17
 
-18:                                               ; preds = %is_actrace.exit
-  %19 = load i32, ptr @proto_actrace, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  %21 = load i32, ptr @ett_actrace, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #3
-  br label %23
+17:                                               ; preds = %is_actrace.exit
+  %18 = load i32, ptr @proto_actrace, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %20 = load i32, ptr @ett_actrace, align 4
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #3
+  br label %22
 
-23:                                               ; preds = %18, %is_actrace.exit
-  %.017 = phi ptr [ %22, %18 ], [ null, %is_actrace.exit ]
-  br i1 %or.cond3.i, label %24, label %161
+22:                                               ; preds = %17, %is_actrace.exit
+  %.017 = phi ptr [ %21, %17 ], [ null, %is_actrace.exit ]
+  br i1 %or.cond3.i, label %23, label %160
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %15, align 8
-  tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.146) #3
-  %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
-  %27 = load i32, ptr @hf_actrace_cas_time, align 4
-  %28 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %26) #3
-  %29 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
-  %30 = load i32, ptr @hf_actrace_cas_source, align 4
-  %31 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %30, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %29) #3
-  %32 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #3
-  %33 = load i32, ptr @hf_actrace_cas_current_state, align 4
-  %34 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %33, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %32) #3
-  %35 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #3
-  %36 = load i32, ptr @hf_actrace_cas_event, align 4
-  %37 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %36, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %35) #3
-  %38 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #3
-  %39 = load i32, ptr @hf_actrace_cas_next_state, align 4
-  %40 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %39, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %38) #3
-  %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 20) #3
-  %42 = load i32, ptr @hf_actrace_cas_function, align 4
-  %43 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %42, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef %41) #3
-  %44 = load ptr, ptr %15, align 8
-  %45 = tail call ptr @val_to_str_const(i32 noundef %29, ptr noundef nonnull @actrace_cas_source_vals_short, ptr noundef nonnull @.str.148) #3
-  %46 = tail call ptr @val_to_str_ext(i32 noundef %35, ptr noundef nonnull @actrace_cas_event_vals_ext, ptr noundef nonnull @.str.149) #3
-  %47 = tail call ptr @val_to_str_ext(i32 noundef %41, ptr noundef nonnull @actrace_cas_function_vals_ext, ptr noundef nonnull @.str.149) #3
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.147, ptr noundef %45, i32 noundef %32, ptr noundef %46, i32 noundef %38, ptr noundef %47) #3
-  %48 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24) #3
-  switch i32 %41, label %66 [
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %14, align 8
+  tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.146) #3
+  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
+  %26 = load i32, ptr @hf_actrace_cas_time, align 4
+  %27 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %25) #3
+  %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
+  %29 = load i32, ptr @hf_actrace_cas_source, align 4
+  %30 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %28) #3
+  %31 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #3
+  %32 = load i32, ptr @hf_actrace_cas_current_state, align 4
+  %33 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %32, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %31) #3
+  %34 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #3
+  %35 = load i32, ptr @hf_actrace_cas_event, align 4
+  %36 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %35, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %34) #3
+  %37 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #3
+  %38 = load i32, ptr @hf_actrace_cas_next_state, align 4
+  %39 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %38, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %37) #3
+  %40 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 20) #3
+  %41 = load i32, ptr @hf_actrace_cas_function, align 4
+  %42 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %41, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef %40) #3
+  %43 = load ptr, ptr %14, align 8
+  %44 = tail call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @actrace_cas_source_vals_short, ptr noundef nonnull @.str.148) #3
+  %45 = tail call ptr @val_to_str_ext(i32 noundef %34, ptr noundef nonnull @actrace_cas_event_vals_ext, ptr noundef nonnull @.str.149) #3
+  %46 = tail call ptr @val_to_str_ext(i32 noundef %40, ptr noundef nonnull @actrace_cas_function_vals_ext, ptr noundef nonnull @.str.149) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.147, ptr noundef %44, i32 noundef %31, ptr noundef %45, i32 noundef %37, ptr noundef %46) #3
+  %47 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24) #3
+  switch i32 %40, label %65 [
     i32 3, label %.thread181.i
     i32 13, label %.thread.i
-    i32 8, label %60
-    i32 4, label %60
+    i32 8, label %59
+    i32 4, label %59
   ]
 
-.thread181.i:                                     ; preds = %24
-  %49 = load i32, ptr @hf_actrace_cas_par0, align 4
-  %50 = tail call ptr @val_to_str_ext(i32 noundef %48, ptr noundef nonnull @actrace_cas_pstn_event_vals_ext, ptr noundef nonnull @.str.151) #3
-  %51 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.017, i32 noundef %49, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef %48, ptr noundef nonnull @.str.150, ptr noundef %50) #3
-  %52 = load ptr, ptr %15, align 8
-  %53 = tail call ptr @val_to_str_ext(i32 noundef %48, ptr noundef nonnull @actrace_cas_pstn_event_vals_ext, ptr noundef nonnull @.str.149) #3
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %53) #3
-  %54 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #3
-  %55 = load i32, ptr @hf_actrace_cas_par1, align 4
-  %56 = tail call ptr @val_to_str_ext(i32 noundef %54, ptr noundef nonnull @actrace_cas_cause_vals_ext, ptr noundef nonnull @.str.151) #3
-  %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.017, i32 noundef %55, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef %54, ptr noundef nonnull @.str.150, ptr noundef %56) #3
-  %58 = load ptr, ptr %15, align 8
-  %59 = tail call ptr @val_to_str_ext(i32 noundef %54, ptr noundef nonnull @actrace_cas_cause_vals_ext, ptr noundef nonnull @.str.149) #3
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %59) #3
-  br label %75
+.thread181.i:                                     ; preds = %23
+  %48 = load i32, ptr @hf_actrace_cas_par0, align 4
+  %49 = tail call ptr @val_to_str_ext(i32 noundef %47, ptr noundef nonnull @actrace_cas_pstn_event_vals_ext, ptr noundef nonnull @.str.151) #3
+  %50 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.017, i32 noundef %48, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef %47, ptr noundef nonnull @.str.150, ptr noundef %49) #3
+  %51 = load ptr, ptr %14, align 8
+  %52 = tail call ptr @val_to_str_ext(i32 noundef %47, ptr noundef nonnull @actrace_cas_pstn_event_vals_ext, ptr noundef nonnull @.str.149) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %52) #3
+  %53 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #3
+  %54 = load i32, ptr @hf_actrace_cas_par1, align 4
+  %55 = tail call ptr @val_to_str_ext(i32 noundef %53, ptr noundef nonnull @actrace_cas_cause_vals_ext, ptr noundef nonnull @.str.151) #3
+  %56 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.017, i32 noundef %54, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef %53, ptr noundef nonnull @.str.150, ptr noundef %55) #3
+  %57 = load ptr, ptr %14, align 8
+  %58 = tail call ptr @val_to_str_ext(i32 noundef %53, ptr noundef nonnull @actrace_cas_cause_vals_ext, ptr noundef nonnull @.str.149) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %58) #3
+  br label %74
 
-60:                                               ; preds = %24, %24
+59:                                               ; preds = %23, %23
   br label %.thread.i
 
-.thread.i:                                        ; preds = %60, %24
-  %actrace_cas_send_type_vals.sink189.i = phi ptr [ @actrace_cas_send_type_vals, %60 ], [ @actrace_cas_collect_type_vals, %24 ]
-  %61 = load i32, ptr @hf_actrace_cas_par0, align 4
-  %62 = tail call ptr @val_to_str(i32 noundef %48, ptr noundef nonnull %actrace_cas_send_type_vals.sink189.i, ptr noundef nonnull @.str.151) #3
-  %63 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.017, i32 noundef %61, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef %48, ptr noundef nonnull @.str.150, ptr noundef %62) #3
-  %64 = load ptr, ptr %15, align 8
-  %65 = tail call ptr @val_to_str(i32 noundef %48, ptr noundef nonnull %actrace_cas_send_type_vals.sink189.i, ptr noundef nonnull @.str.149) #3
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %65) #3
-  br label %70
+.thread.i:                                        ; preds = %59, %23
+  %actrace_cas_send_type_vals.sink189.i = phi ptr [ @actrace_cas_send_type_vals, %59 ], [ @actrace_cas_collect_type_vals, %23 ]
+  %60 = load i32, ptr @hf_actrace_cas_par0, align 4
+  %61 = tail call ptr @val_to_str(i32 noundef %47, ptr noundef nonnull %actrace_cas_send_type_vals.sink189.i, ptr noundef nonnull @.str.151) #3
+  %62 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.017, i32 noundef %60, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef %47, ptr noundef nonnull @.str.150, ptr noundef %61) #3
+  %63 = load ptr, ptr %14, align 8
+  %64 = tail call ptr @val_to_str(i32 noundef %47, ptr noundef nonnull %actrace_cas_send_type_vals.sink189.i, ptr noundef nonnull @.str.149) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %64) #3
+  br label %69
 
-66:                                               ; preds = %24
-  %67 = load i32, ptr @hf_actrace_cas_par0, align 4
-  %68 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %67, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef %48) #3
-  %69 = load ptr, ptr %15, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %48) #3
-  br label %70
+65:                                               ; preds = %23
+  %66 = load i32, ptr @hf_actrace_cas_par0, align 4
+  %67 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %66, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef %47) #3
+  %68 = load ptr, ptr %14, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %47) #3
+  br label %69
 
-70:                                               ; preds = %66, %.thread.i
-  %71 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #3
-  %72 = load i32, ptr @hf_actrace_cas_par1, align 4
-  %73 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %72, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef %71) #3
-  %74 = load ptr, ptr %15, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %71) #3
-  br label %75
+69:                                               ; preds = %65, %.thread.i
+  %70 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #3
+  %71 = load i32, ptr @hf_actrace_cas_par1, align 4
+  %72 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %71, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef %70) #3
+  %73 = load ptr, ptr %14, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %70) #3
+  br label %74
 
-75:                                               ; preds = %70, %.thread181.i
-  %76 = phi i32 [ %71, %70 ], [ %54, %.thread181.i ]
-  %77 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 32) #3
-  %78 = load i32, ptr @hf_actrace_cas_par2, align 4
-  %79 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %78, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef %77) #3
-  %80 = load ptr, ptr %15, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %77) #3
-  %81 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 36) #3
-  %82 = load i32, ptr @hf_actrace_cas_trunk, align 4
-  %83 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %82, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef %81) #3
-  %84 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 40) #3
-  %85 = load i32, ptr @hf_actrace_cas_bchannel, align 4
-  %86 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %85, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef %84) #3
-  %87 = load ptr, ptr %15, align 8
-  tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %81, i32 noundef %84) #3
-  %88 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 44) #3
-  %89 = load i32, ptr @hf_actrace_cas_connection_id, align 4
-  %90 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %89, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef %88) #3
-  switch i32 %29, label %dissect_actrace_cas.exit [
-    i32 0, label %91
-    i32 2, label %110
+74:                                               ; preds = %69, %.thread181.i
+  %75 = phi i32 [ %70, %69 ], [ %53, %.thread181.i ]
+  %76 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 32) #3
+  %77 = load i32, ptr @hf_actrace_cas_par2, align 4
+  %78 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %77, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef %76) #3
+  %79 = load ptr, ptr %14, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %76) #3
+  %80 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 36) #3
+  %81 = load i32, ptr @hf_actrace_cas_trunk, align 4
+  %82 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %81, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef %80) #3
+  %83 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 40) #3
+  %84 = load i32, ptr @hf_actrace_cas_bchannel, align 4
+  %85 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %84, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef %83) #3
+  %86 = load ptr, ptr %14, align 8
+  tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %80, i32 noundef %83) #3
+  %87 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 44) #3
+  %88 = load i32, ptr @hf_actrace_cas_connection_id, align 4
+  %89 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %88, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef %87) #3
+  switch i32 %28, label %dissect_actrace_cas.exit [
+    i32 0, label %90
+    i32 2, label %109
   ]
 
-91:                                               ; preds = %75
-  %92 = add i32 %35, -17
-  %or.cond.i22 = icmp ult i32 %92, 4
-  br i1 %or.cond.i22, label %93, label %98
+90:                                               ; preds = %74
+  %91 = add i32 %34, -17
+  %or.cond.i = icmp ult i32 %91, 4
+  br i1 %or.cond.i, label %92, label %97
 
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %1, i64 408
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @actrace_cas_event_ab_vals, ptr noundef nonnull @.str.156) #3
-  %97 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %95, ptr noundef nonnull @.str.155, ptr noundef %96) #3
-  br label %151
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds i8, ptr %1, i64 408
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @actrace_cas_event_ab_vals, ptr noundef nonnull @.str.156) #3
+  %96 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %94, ptr noundef nonnull @.str.155, ptr noundef %95) #3
+  br label %150
 
-98:                                               ; preds = %91
-  %99 = add i32 %35, -32
-  %or.cond3.i23 = icmp ult i32 %99, 15
-  br i1 %or.cond3.i23, label %100, label %105
+97:                                               ; preds = %90
+  %98 = add i32 %34, -32
+  %or.cond3.i22 = icmp ult i32 %98, 15
+  br i1 %or.cond3.i22, label %99, label %104
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %1, i64 408
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call ptr @val_to_str_ext_const(i32 noundef %35, ptr noundef nonnull @actrace_cas_mf_vals_ext, ptr noundef nonnull @.str.156) #3
-  %104 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %102, ptr noundef nonnull @.str.157, ptr noundef %103) #3
-  br label %151
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds i8, ptr %1, i64 408
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call ptr @val_to_str_ext_const(i32 noundef %34, ptr noundef nonnull @actrace_cas_mf_vals_ext, ptr noundef nonnull @.str.156) #3
+  %103 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %101, ptr noundef nonnull @.str.157, ptr noundef %102) #3
+  br label %150
 
-105:                                              ; preds = %98
-  switch i32 %35, label %dissect_actrace_cas.exit [
-    i32 302, label %106
-    i32 63, label %106
+104:                                              ; preds = %97
+  switch i32 %34, label %dissect_actrace_cas.exit [
+    i32 302, label %105
+    i32 63, label %105
   ]
 
-106:                                              ; preds = %105, %105
-  %107 = getelementptr inbounds i8, ptr %1, i64 408
-  %108 = load ptr, ptr %107, align 8
-  %109 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %108, ptr noundef nonnull @.str.158, i32 noundef %48) #3
-  br label %151
+105:                                              ; preds = %104, %104
+  %106 = getelementptr inbounds i8, ptr %1, i64 408
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %107, ptr noundef nonnull @.str.158, i32 noundef %47) #3
+  br label %150
 
-110:                                              ; preds = %75
-  switch i32 %41, label %dissect_actrace_cas.exit [
-    i32 8, label %111
-    i32 2, label %136
-    i32 4, label %142
+109:                                              ; preds = %74
+  switch i32 %40, label %dissect_actrace_cas.exit [
+    i32 8, label %110
+    i32 2, label %135
+    i32 4, label %141
+  ]
+
+110:                                              ; preds = %109
+  switch i32 %47, label %dissect_actrace_cas.exit [
+    i32 2, label %111
+    i32 1, label %115
+    i32 4, label %119
+    i32 5, label %123
+    i32 6, label %127
+    i32 3, label %131
   ]
 
 111:                                              ; preds = %110
-  switch i32 %48, label %dissect_actrace_cas.exit [
-    i32 2, label %112
-    i32 1, label %116
-    i32 4, label %120
-    i32 5, label %124
-    i32 6, label %128
-    i32 3, label %132
+  %112 = getelementptr inbounds i8, ptr %1, i64 408
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %113, ptr noundef nonnull @.str.159, i32 noundef %75) #3
+  br label %150
+
+115:                                              ; preds = %110
+  %116 = getelementptr inbounds i8, ptr %1, i64 408
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call noalias ptr @wmem_strdup(ptr noundef %117, ptr noundef nonnull @.str.160) #3
+  br label %150
+
+119:                                              ; preds = %110
+  %120 = getelementptr inbounds i8, ptr %1, i64 408
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call noalias ptr @wmem_strdup(ptr noundef %121, ptr noundef nonnull @.str.161) #3
+  br label %150
+
+123:                                              ; preds = %110
+  %124 = getelementptr inbounds i8, ptr %1, i64 408
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call noalias ptr @wmem_strdup(ptr noundef %125, ptr noundef nonnull @.str.162) #3
+  br label %150
+
+127:                                              ; preds = %110
+  %128 = getelementptr inbounds i8, ptr %1, i64 408
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call noalias ptr @wmem_strdup(ptr noundef %129, ptr noundef nonnull @.str.163) #3
+  br label %150
+
+131:                                              ; preds = %110
+  %132 = getelementptr inbounds i8, ptr %1, i64 408
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call noalias ptr @wmem_strdup(ptr noundef %133, ptr noundef nonnull @.str.164) #3
+  br label %150
+
+135:                                              ; preds = %109
+  %136 = getelementptr inbounds i8, ptr %1, i64 408
+  %137 = load ptr, ptr %136, align 8
+  %138 = sub i32 20, %47
+  %139 = tail call ptr @val_to_str_const(i32 noundef %138, ptr noundef nonnull @actrace_cas_event_ab_vals, ptr noundef nonnull @.str.156) #3
+  %140 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %137, ptr noundef nonnull @.str.155, ptr noundef %139) #3
+  br label %150
+
+141:                                              ; preds = %109
+  switch i32 %47, label %dissect_actrace_cas.exit [
+    i32 1, label %142
+    i32 4, label %146
   ]
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %1, i64 408
-  %114 = load ptr, ptr %113, align 8
-  %115 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %114, ptr noundef nonnull @.str.159, i32 noundef %76) #3
-  br label %151
+142:                                              ; preds = %141
+  %143 = getelementptr inbounds i8, ptr %1, i64 408
+  %144 = load ptr, ptr %143, align 8
+  %145 = tail call noalias ptr @wmem_strdup(ptr noundef %144, ptr noundef nonnull @.str.165) #3
+  br label %150
 
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds i8, ptr %1, i64 408
-  %118 = load ptr, ptr %117, align 8
-  %119 = tail call noalias ptr @wmem_strdup(ptr noundef %118, ptr noundef nonnull @.str.160) #3
-  br label %151
+146:                                              ; preds = %141
+  %147 = getelementptr inbounds i8, ptr %1, i64 408
+  %148 = load ptr, ptr %147, align 8
+  %149 = tail call noalias ptr @wmem_strdup(ptr noundef %148, ptr noundef nonnull @.str.166) #3
+  br label %150
 
-120:                                              ; preds = %111
-  %121 = getelementptr inbounds i8, ptr %1, i64 408
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call noalias ptr @wmem_strdup(ptr noundef %122, ptr noundef nonnull @.str.161) #3
-  br label %151
-
-124:                                              ; preds = %111
-  %125 = getelementptr inbounds i8, ptr %1, i64 408
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call noalias ptr @wmem_strdup(ptr noundef %126, ptr noundef nonnull @.str.162) #3
-  br label %151
-
-128:                                              ; preds = %111
-  %129 = getelementptr inbounds i8, ptr %1, i64 408
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call noalias ptr @wmem_strdup(ptr noundef %130, ptr noundef nonnull @.str.163) #3
-  br label %151
-
-132:                                              ; preds = %111
-  %133 = getelementptr inbounds i8, ptr %1, i64 408
-  %134 = load ptr, ptr %133, align 8
-  %135 = tail call noalias ptr @wmem_strdup(ptr noundef %134, ptr noundef nonnull @.str.164) #3
-  br label %151
-
-136:                                              ; preds = %110
-  %137 = getelementptr inbounds i8, ptr %1, i64 408
-  %138 = load ptr, ptr %137, align 8
-  %139 = sub i32 20, %48
-  %140 = tail call ptr @val_to_str_const(i32 noundef %139, ptr noundef nonnull @actrace_cas_event_ab_vals, ptr noundef nonnull @.str.156) #3
-  %141 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %138, ptr noundef nonnull @.str.155, ptr noundef %140) #3
-  br label %151
-
-142:                                              ; preds = %110
-  switch i32 %48, label %dissect_actrace_cas.exit [
-    i32 1, label %143
-    i32 4, label %147
-  ]
-
-143:                                              ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %1, i64 408
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call noalias ptr @wmem_strdup(ptr noundef %145, ptr noundef nonnull @.str.165) #3
-  br label %151
-
-147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %1, i64 408
-  %149 = load ptr, ptr %148, align 8
-  %150 = tail call noalias ptr @wmem_strdup(ptr noundef %149, ptr noundef nonnull @.str.166) #3
-  br label %151
-
-151:                                              ; preds = %147, %143, %136, %132, %128, %124, %120, %116, %112, %106, %100, %93
-  %.0176.i = phi ptr [ %97, %93 ], [ %104, %100 ], [ %109, %106 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %127, %124 ], [ %131, %128 ], [ %135, %132 ], [ %141, %136 ], [ %146, %143 ], [ %150, %147 ]
-  %.0.i21 = phi i32 [ 1, %93 ], [ 1, %100 ], [ 1, %106 ], [ 0, %112 ], [ 0, %116 ], [ 0, %120 ], [ 0, %124 ], [ 0, %128 ], [ 0, %132 ], [ 0, %136 ], [ 0, %143 ], [ 0, %147 ]
+150:                                              ; preds = %146, %142, %135, %131, %127, %123, %119, %115, %111, %105, %99, %92
+  %.0176.i = phi ptr [ %96, %92 ], [ %103, %99 ], [ %108, %105 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ], [ %126, %123 ], [ %130, %127 ], [ %134, %131 ], [ %140, %135 ], [ %145, %142 ], [ %149, %146 ]
+  %.0.i21 = phi i32 [ 1, %92 ], [ 1, %99 ], [ 1, %105 ], [ 0, %111 ], [ 0, %115 ], [ 0, %119 ], [ 0, %123 ], [ 0, %127 ], [ 0, %131 ], [ 0, %135 ], [ 0, %142 ], [ 0, %146 ]
   %.not.i = icmp eq ptr %.0176.i, null
-  br i1 %.not.i, label %dissect_actrace_cas.exit, label %152
+  br i1 %.not.i, label %dissect_actrace_cas.exit, label %151
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %1, i64 408
-  %154 = load ptr, ptr %153, align 8
-  %155 = tail call noalias ptr @wmem_alloc(ptr noundef %154, i64 noundef 24) #3
-  store ptr %155, ptr @actrace_pi, align 8
-  store i32 1, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 4
-  store i32 %.0.i21, ptr %156, align 4
-  %157 = getelementptr inbounds i8, ptr %155, i64 8
-  store i32 %81, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %155, i64 12
-  store i32 %84, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %155, i64 16
-  store ptr %.0176.i, ptr %159, align 8
-  %160 = load i32, ptr @actrace_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %160, ptr noundef nonnull %1, ptr noundef nonnull %155) #3
+151:                                              ; preds = %150
+  %152 = getelementptr inbounds i8, ptr %1, i64 408
+  %153 = load ptr, ptr %152, align 8
+  %154 = tail call noalias ptr @wmem_alloc(ptr noundef %153, i64 noundef 24) #3
+  store ptr %154, ptr @actrace_pi, align 8
+  store i32 1, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 4
+  store i32 %.0.i21, ptr %155, align 4
+  %156 = getelementptr inbounds i8, ptr %154, i64 8
+  store i32 %80, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %154, i64 12
+  store i32 %83, ptr %157, align 4
+  %158 = getelementptr inbounds i8, ptr %154, i64 16
+  store ptr %.0176.i, ptr %158, align 8
+  %159 = load i32, ptr @actrace_tap, align 4
+  tail call void @tap_queue_packet(i32 noundef %159, ptr noundef nonnull %1, ptr noundef nonnull %154) #3
   br label %dissect_actrace_cas.exit
 
-161:                                              ; preds = %23
+160:                                              ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %162 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #3
-  %163 = load i32, ptr @hf_actrace_isdn_direction, align 4
-  %164 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %163, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %162) #3
-  %165 = icmp eq i32 %162, 1231307843
-  %166 = zext i1 %165 to i32
-  store i32 %166, ptr %5, align 4
-  %167 = getelementptr inbounds i8, ptr %5, i64 4
-  store i8 0, ptr %167, align 4
-  %168 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #3
-  %169 = zext i16 %168 to i32
-  %170 = load i32, ptr @hf_actrace_isdn_trunk, align 4
-  %171 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %170, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef %169) #3
-  %172 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 44) #3
-  %173 = zext i16 %172 to i32
-  %174 = load i32, ptr @hf_actrace_isdn_length, align 4
-  %175 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %174, ptr noundef %0, i32 noundef 44, i32 noundef 2, i32 noundef %173) #3
-  %176 = icmp ugt i16 %172, 4
-  br i1 %176, label %177, label %dissect_actrace_isdn.exit
+  %161 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #3
+  %162 = load i32, ptr @hf_actrace_isdn_direction, align 4
+  %163 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %162, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %161) #3
+  %164 = icmp eq i32 %161, 1231307843
+  %165 = zext i1 %164 to i32
+  store i32 %165, ptr %5, align 4
+  %166 = getelementptr inbounds i8, ptr %5, i64 4
+  store i8 0, ptr %166, align 4
+  %167 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #3
+  %168 = zext i16 %167 to i32
+  %169 = load i32, ptr @hf_actrace_isdn_trunk, align 4
+  %170 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %169, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef %168) #3
+  %171 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 44) #3
+  %172 = zext i16 %171 to i32
+  %173 = load i32, ptr @hf_actrace_isdn_length, align 4
+  %174 = tail call ptr @proto_tree_add_int(ptr noundef %.017, i32 noundef %173, ptr noundef %0, i32 noundef 44, i32 noundef 2, i32 noundef %172) #3
+  %175 = icmp ugt i16 %171, 4
+  br i1 %175, label %176, label %dissect_actrace_isdn.exit
 
-177:                                              ; preds = %161
-  %178 = getelementptr inbounds i8, ptr %1, i64 408
-  %179 = load ptr, ptr %178, align 8
-  %180 = tail call noalias ptr @wmem_alloc(ptr noundef %179, i64 noundef 24) #3
-  store ptr %180, ptr @actrace_pi, align 8
-  store i32 2, ptr %180, align 8
-  %181 = icmp eq i32 %162, 1229218915
-  %182 = zext i1 %181 to i32
-  %183 = getelementptr inbounds i8, ptr %180, i64 4
-  store i32 %182, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %180, i64 8
-  store i32 %169, ptr %184, align 8
-  %185 = load i32, ptr @actrace_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %185, ptr noundef nonnull %1, ptr noundef nonnull %180) #3
+176:                                              ; preds = %160
+  %177 = getelementptr inbounds i8, ptr %1, i64 408
+  %178 = load ptr, ptr %177, align 8
+  %179 = tail call noalias ptr @wmem_alloc(ptr noundef %178, i64 noundef 24) #3
+  store ptr %179, ptr @actrace_pi, align 8
+  store i32 2, ptr %179, align 8
+  %180 = icmp eq i32 %161, 1229218915
+  %181 = zext i1 %180 to i32
+  %182 = getelementptr inbounds i8, ptr %179, i64 4
+  store i32 %181, ptr %182, align 4
+  %183 = getelementptr inbounds i8, ptr %179, i64 8
+  store i32 %168, ptr %183, align 8
+  %184 = load i32, ptr @actrace_tap, align 4
+  tail call void @tap_queue_packet(i32 noundef %184, ptr noundef nonnull %1, ptr noundef nonnull %179) #3
   br label %dissect_actrace_isdn.exit
 
-dissect_actrace_isdn.exit:                        ; preds = %161, %177
-  %186 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 46, i32 noundef %173) #3
-  %187 = load ptr, ptr @lapd_phdr_handle, align 8
-  %188 = call i32 @call_dissector_with_data(ptr noundef %187, ptr noundef %186, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #3
-  %189 = load ptr, ptr %15, align 8
-  call void @col_set_str(ptr noundef %189, i32 noundef 34, ptr noundef nonnull @.str.333) #3
-  %190 = load ptr, ptr %15, align 8
-  %191 = icmp eq i32 %162, 1229218915
-  %192 = select i1 %191, ptr @.str.335, ptr @.str.336
-  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %190, i32 noundef 25, ptr noundef nonnull @.str.334, i32 noundef %169, ptr noundef nonnull %192) #3
+dissect_actrace_isdn.exit:                        ; preds = %160, %176
+  %185 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 46, i32 noundef %172) #3
+  %186 = load ptr, ptr @lapd_phdr_handle, align 8
+  %187 = call i32 @call_dissector_with_data(ptr noundef %186, ptr noundef %185, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #3
+  %188 = load ptr, ptr %14, align 8
+  call void @col_set_str(ptr noundef %188, i32 noundef 34, ptr noundef nonnull @.str.333) #3
+  %189 = load ptr, ptr %14, align 8
+  %190 = icmp eq i32 %161, 1229218915
+  %191 = select i1 %190, ptr @.str.335, ptr @.str.336
+  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %189, i32 noundef 25, ptr noundef nonnull @.str.334, i32 noundef %168, ptr noundef nonnull %191) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %dissect_actrace_cas.exit
 
-dissect_actrace_cas.exit:                         ; preds = %152, %151, %142, %111, %110, %105, %75, %dissect_actrace_isdn.exit
-  %193 = call i32 @tvb_captured_length(ptr noundef %0) #3
+dissect_actrace_cas.exit:                         ; preds = %151, %150, %141, %110, %109, %104, %74, %dissect_actrace_isdn.exit
+  %192 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %is_actrace.exit.thread
 
-is_actrace.exit.thread:                           ; preds = %14, %11, %dissect_actrace_cas.exit
-  %.0 = phi i32 [ %193, %dissect_actrace_cas.exit ], [ 0, %14 ], [ 0, %11 ]
+is_actrace.exit.thread:                           ; preds = %13, %10, %dissect_actrace_cas.exit
+  %.0 = phi i32 [ %192, %dissect_actrace_cas.exit ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 

@@ -1729,6 +1729,11 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_a2i_ipadd(ptr nocapture noundef writeonly %ipout, ptr noundef %ipasc) local_unnamed_addr #0 {
 entry:
+  %a0.i = alloca i32, align 4
+  %a1.i = alloca i32, align 4
+  %a2.i = alloca i32, align 4
+  %a3.i = alloca i32, align 4
+  %n.i = alloca i32, align 4
   %v6stat.i = alloca %struct.IPV6_STAT, align 4
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ipasc, i32 noundef 58) #12
   %tobool.not = icmp eq ptr %call, null
@@ -1824,13 +1829,83 @@ ipv6_from_asc.exit:                               ; preds = %if.then47.i, %if.th
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call4 = tail call fastcc i32 @ipv4_from_asc(ptr noundef %ipout, ptr noundef %ipasc), !range !4
-  %tobool5.not = icmp eq i32 %call4, 0
-  %.4 = select i1 %tobool5.not, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a0.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a1.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a2.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a3.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i)
+  %call.i5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %ipasc, ptr noundef nonnull @.str.22, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i, ptr noundef nonnull %n.i) #13
+  %cmp.not.i = icmp eq i32 %call.i5, 4
+  br i1 %cmp.not.i, label %if.end.i7, label %17
+
+if.end.i7:                                        ; preds = %if.else
+  %4 = load i32, ptr %a0.i, align 4
+  %or.cond.i8 = icmp ugt i32 %4, 255
+  %5 = load i32, ptr %a1.i, align 4
+  %6 = icmp ugt i32 %5, 255
+  %or.cond2.i = select i1 %or.cond.i8, i1 true, i1 %6
+  %7 = load i32, ptr %a2.i, align 4
+  %8 = icmp ugt i32 %7, 255
+  %or.cond4.i = select i1 %or.cond2.i, i1 true, i1 %8
+  %9 = load i32, ptr %a3.i, align 4
+  %10 = icmp ugt i32 %9, 255
+  %or.cond6.i = select i1 %or.cond4.i, i1 true, i1 %10
+  br i1 %or.cond6.i, label %17, label %if.end16.i
+
+if.end16.i:                                       ; preds = %if.end.i7
+  %11 = load i32, ptr %n.i, align 4
+  %idx.ext.i = sext i32 %11 to i64
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %ipasc, i64 %idx.ext.i
+  %12 = load i8, ptr %add.ptr.i9, align 1
+  %cmp17.i = icmp eq i8 %12, 0
+  br i1 %cmp17.i, label %ipv4_from_asc.exit, label %lor.lhs.false19.i
+
+lor.lhs.false19.i:                                ; preds = %if.end16.i
+  %conv.i10 = sext i8 %12 to i32
+  %call21.i = call i32 @ossl_ctype_check(i32 noundef %conv.i10, i32 noundef 8) #13
+  %tobool.not.i11 = icmp eq i32 %call21.i, 0
+  br i1 %tobool.not.i11, label %17, label %lor.lhs.false19.if.end23_crit_edge.i
+
+lor.lhs.false19.if.end23_crit_edge.i:             ; preds = %lor.lhs.false19.i
+  %.pre.i = load i32, ptr %a0.i, align 4
+  %.pre12.i = load i32, ptr %a1.i, align 4
+  %.pre13.i = load i32, ptr %a2.i, align 4
+  %.pre14.i = load i32, ptr %a3.i, align 4
+  br label %ipv4_from_asc.exit
+
+ipv4_from_asc.exit:                               ; preds = %if.end16.i, %lor.lhs.false19.if.end23_crit_edge.i
+  %13 = phi i32 [ %.pre14.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %9, %if.end16.i ]
+  %14 = phi i32 [ %.pre13.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %7, %if.end16.i ]
+  %15 = phi i32 [ %.pre12.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %5, %if.end16.i ]
+  %16 = phi i32 [ %.pre.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %4, %if.end16.i ]
+  %conv24.i = trunc i32 %16 to i8
+  store i8 %conv24.i, ptr %ipout, align 1
+  %conv25.i = trunc i32 %15 to i8
+  %arrayidx26.i = getelementptr inbounds i8, ptr %ipout, i64 1
+  store i8 %conv25.i, ptr %arrayidx26.i, align 1
+  %conv27.i = trunc i32 %14 to i8
+  %arrayidx28.i = getelementptr inbounds i8, ptr %ipout, i64 2
+  store i8 %conv27.i, ptr %arrayidx28.i, align 1
+  %conv29.i = trunc i32 %13 to i8
+  %arrayidx30.i = getelementptr inbounds i8, ptr %ipout, i64 3
+  store i8 %conv29.i, ptr %arrayidx30.i, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a1.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a2.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a3.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
   br label %return
 
-return:                                           ; preds = %3, %ipv6_from_asc.exit, %if.else
-  %retval.0 = phi i32 [ %.4, %if.else ], [ 0, %3 ], [ 16, %ipv6_from_asc.exit ]
+17:                                               ; preds = %if.else, %if.end.i7, %lor.lhs.false19.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a1.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a2.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a3.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
+  br label %return
+
+return:                                           ; preds = %17, %ipv4_from_asc.exit, %3, %ipv6_from_asc.exit
+  %retval.0 = phi i32 [ 0, %3 ], [ 16, %ipv6_from_asc.exit ], [ 0, %17 ], [ 4, %ipv4_from_asc.exit ]
   ret i32 %retval.0
 }
 
@@ -1984,82 +2059,6 @@ return:                                           ; preds = %if.end18, %if.end, 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ipv4_from_asc(ptr nocapture noundef writeonly %v4, ptr nocapture noundef readonly %in) unnamed_addr #0 {
-entry:
-  %a0 = alloca i32, align 4
-  %a1 = alloca i32, align 4
-  %a2 = alloca i32, align 4
-  %a3 = alloca i32, align 4
-  %n = alloca i32, align 4
-  %call = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %in, ptr noundef nonnull @.str.22, ptr noundef nonnull %a0, ptr noundef nonnull %a1, ptr noundef nonnull %a2, ptr noundef nonnull %a3, ptr noundef nonnull %n) #13
-  %cmp.not = icmp eq i32 %call, 4
-  br i1 %cmp.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %a0, align 4
-  %or.cond = icmp ugt i32 %0, 255
-  %1 = load i32, ptr %a1, align 4
-  %cmp4 = icmp slt i32 %1, 0
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp4
-  %cmp6 = icmp sgt i32 %1, 255
-  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp6
-  %2 = load i32, ptr %a2, align 4
-  %cmp8 = icmp slt i32 %2, 0
-  %or.cond3 = select i1 %or.cond2, i1 true, i1 %cmp8
-  %cmp10 = icmp sgt i32 %2, 255
-  %or.cond4 = select i1 %or.cond3, i1 true, i1 %cmp10
-  %3 = load i32, ptr %a3, align 4
-  %cmp12 = icmp slt i32 %3, 0
-  %or.cond5 = select i1 %or.cond4, i1 true, i1 %cmp12
-  %cmp14 = icmp sgt i32 %3, 255
-  %or.cond6 = select i1 %or.cond5, i1 true, i1 %cmp14
-  br i1 %or.cond6, label %return, label %if.end16
-
-if.end16:                                         ; preds = %if.end
-  %4 = load i32, ptr %n, align 4
-  %idx.ext = sext i32 %4 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
-  %5 = load i8, ptr %add.ptr, align 1
-  %cmp17 = icmp eq i8 %5, 0
-  br i1 %cmp17, label %if.end23, label %lor.lhs.false19
-
-lor.lhs.false19:                                  ; preds = %if.end16
-  %conv = sext i8 %5 to i32
-  %call21 = call i32 @ossl_ctype_check(i32 noundef %conv, i32 noundef 8) #13
-  %tobool.not = icmp eq i32 %call21, 0
-  br i1 %tobool.not, label %return, label %lor.lhs.false19.if.end23_crit_edge
-
-lor.lhs.false19.if.end23_crit_edge:               ; preds = %lor.lhs.false19
-  %.pre = load i32, ptr %a0, align 4
-  %.pre12 = load i32, ptr %a1, align 4
-  %.pre13 = load i32, ptr %a2, align 4
-  %.pre14 = load i32, ptr %a3, align 4
-  br label %if.end23
-
-if.end23:                                         ; preds = %lor.lhs.false19.if.end23_crit_edge, %if.end16
-  %6 = phi i32 [ %.pre14, %lor.lhs.false19.if.end23_crit_edge ], [ %3, %if.end16 ]
-  %7 = phi i32 [ %.pre13, %lor.lhs.false19.if.end23_crit_edge ], [ %2, %if.end16 ]
-  %8 = phi i32 [ %.pre12, %lor.lhs.false19.if.end23_crit_edge ], [ %1, %if.end16 ]
-  %9 = phi i32 [ %.pre, %lor.lhs.false19.if.end23_crit_edge ], [ %0, %if.end16 ]
-  %conv24 = trunc i32 %9 to i8
-  store i8 %conv24, ptr %v4, align 1
-  %conv25 = trunc i32 %8 to i8
-  %arrayidx26 = getelementptr inbounds i8, ptr %v4, i64 1
-  store i8 %conv25, ptr %arrayidx26, align 1
-  %conv27 = trunc i32 %7 to i8
-  %arrayidx28 = getelementptr inbounds i8, ptr %v4, i64 2
-  store i8 %conv27, ptr %arrayidx28, align 1
-  %conv29 = trunc i32 %6 to i8
-  %arrayidx30 = getelementptr inbounds i8, ptr %v4, i64 3
-  store i8 %conv29, ptr %arrayidx30, align 1
-  br label %return
-
-return:                                           ; preds = %lor.lhs.false19, %if.end, %entry, %if.end23
-  %retval.0 = phi i32 [ 1, %if.end23 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %lor.lhs.false19 ]
-  ret i32 %retval.0
-}
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @X509V3_NAME_from_section(ptr noundef %nm, ptr noundef %dn_sk, i64 noundef %chtype) local_unnamed_addr #0 {
@@ -2934,6 +2933,11 @@ declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ipv6_cb(ptr nocapture noundef readonly %elem, i32 noundef %len, ptr nocapture noundef %usr) #0 {
 entry:
+  %a0.i = alloca i32, align 4
+  %a1.i = alloca i32, align 4
+  %a2.i = alloca i32, align 4
+  %a3.i = alloca i32, align 4
+  %n.i = alloca i32, align 4
   %total = getelementptr inbounds i8, ptr %usr, i64 16
   %0 = load i32, ptr %total, align 4
   %cmp = icmp eq i32 %0, 16
@@ -2959,7 +2963,10 @@ if.else:                                          ; preds = %if.then2
 
 if.end12:                                         ; preds = %if.else, %if.then4
   %zero_cnt = getelementptr inbounds i8, ptr %usr, i64 24
-  br label %return.sink.split
+  %2 = load i32, ptr %zero_cnt, align 4
+  %inc = add nsw i32 %2, 1
+  store i32 %inc, ptr %zero_cnt, align 4
+  br label %return
 
 if.else13:                                        ; preds = %if.end
   %cmp14 = icmp sgt i32 %len, 4
@@ -2972,16 +2979,90 @@ if.then15:                                        ; preds = %if.else13
 if.end19:                                         ; preds = %if.then15
   %idxprom = zext nneg i32 %len to i64
   %arrayidx = getelementptr inbounds i8, ptr %elem, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  %tobool.not = icmp eq i8 %2, 0
+  %3 = load i8, ptr %arrayidx, align 1
+  %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end19
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %usr, i64 %idx.ext
-  %call = tail call fastcc i32 @ipv4_from_asc(ptr noundef %add.ptr, ptr noundef nonnull %elem), !range !4
-  %tobool23.not = icmp eq i32 %call, 0
-  br i1 %tobool23.not, label %return, label %return.sink.split
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a0.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a1.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a2.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a3.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i)
+  %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %elem, ptr noundef nonnull @.str.22, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i, ptr noundef nonnull %n.i) #13
+  %cmp.not.i = icmp eq i32 %call.i, 4
+  br i1 %cmp.not.i, label %if.end.i, label %ipv4_from_asc.exit.thread
+
+if.end.i:                                         ; preds = %if.end21
+  %4 = load i32, ptr %a0.i, align 4
+  %or.cond.i = icmp ugt i32 %4, 255
+  %5 = load i32, ptr %a1.i, align 4
+  %6 = icmp ugt i32 %5, 255
+  %or.cond2.i = select i1 %or.cond.i, i1 true, i1 %6
+  %7 = load i32, ptr %a2.i, align 4
+  %8 = icmp ugt i32 %7, 255
+  %or.cond4.i = select i1 %or.cond2.i, i1 true, i1 %8
+  %9 = load i32, ptr %a3.i, align 4
+  %10 = icmp ugt i32 %9, 255
+  %or.cond6.i = select i1 %or.cond4.i, i1 true, i1 %10
+  br i1 %or.cond6.i, label %ipv4_from_asc.exit.thread, label %if.end16.i
+
+if.end16.i:                                       ; preds = %if.end.i
+  %11 = load i32, ptr %n.i, align 4
+  %idx.ext.i = sext i32 %11 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %elem, i64 %idx.ext.i
+  %12 = load i8, ptr %add.ptr.i, align 1
+  %cmp17.i = icmp eq i8 %12, 0
+  br i1 %cmp17.i, label %if.end25, label %lor.lhs.false19.i
+
+lor.lhs.false19.i:                                ; preds = %if.end16.i
+  %conv.i = sext i8 %12 to i32
+  %call21.i = call i32 @ossl_ctype_check(i32 noundef %conv.i, i32 noundef 8) #13
+  %tobool.not.i = icmp eq i32 %call21.i, 0
+  br i1 %tobool.not.i, label %ipv4_from_asc.exit.thread, label %lor.lhs.false19.if.end23_crit_edge.i
+
+lor.lhs.false19.if.end23_crit_edge.i:             ; preds = %lor.lhs.false19.i
+  %.pre.i = load i32, ptr %a0.i, align 4
+  %.pre12.i = load i32, ptr %a1.i, align 4
+  %.pre13.i = load i32, ptr %a2.i, align 4
+  %.pre14.i = load i32, ptr %a3.i, align 4
+  br label %if.end25
+
+ipv4_from_asc.exit.thread:                        ; preds = %if.end21, %if.end.i, %lor.lhs.false19.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a1.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a2.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a3.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
+  br label %return
+
+if.end25:                                         ; preds = %lor.lhs.false19.if.end23_crit_edge.i, %if.end16.i
+  %13 = phi i32 [ %.pre14.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %9, %if.end16.i ]
+  %14 = phi i32 [ %.pre13.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %7, %if.end16.i ]
+  %15 = phi i32 [ %.pre12.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %5, %if.end16.i ]
+  %16 = phi i32 [ %.pre.i, %lor.lhs.false19.if.end23_crit_edge.i ], [ %4, %if.end16.i ]
+  %conv24.i = trunc i32 %16 to i8
+  store i8 %conv24.i, ptr %add.ptr, align 1
+  %conv25.i = trunc i32 %15 to i8
+  %arrayidx26.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  store i8 %conv25.i, ptr %arrayidx26.i, align 1
+  %conv27.i = trunc i32 %14 to i8
+  %arrayidx28.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  store i8 %conv27.i, ptr %arrayidx28.i, align 1
+  %conv29.i = trunc i32 %13 to i8
+  %arrayidx30.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  store i8 %conv29.i, ptr %arrayidx30.i, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a1.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a2.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a3.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
+  %17 = load i32, ptr %total, align 4
+  %add = add nsw i32 %17, 4
+  store i32 %add, ptr %total, align 4
+  br label %return
 
 while.cond.preheader.i:                           ; preds = %if.else13
   %idx.ext31 = sext i32 %0 to i64
@@ -2992,20 +3073,20 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %dec12.in.i = phi i32 [ %dec12.i, %if.end3.i ], [ %len, %while.cond.preheader.i ]
   %num.011.i = phi i32 [ %or.i, %if.end3.i ], [ 0, %while.cond.preheader.i ]
   %in.addr.010.i = phi ptr [ %incdec.ptr.i, %if.end3.i ], [ %elem, %while.cond.preheader.i ]
-  %3 = load i8, ptr %in.addr.010.i, align 1
-  %call.i = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %3) #13
-  %cmp1.i = icmp slt i32 %call.i, 0
+  %18 = load i8, ptr %in.addr.010.i, align 1
+  %call.i20 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %18) #13
+  %cmp1.i = icmp slt i32 %call.i20, 0
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %while.body.i
   %dec12.i = add nsw i32 %dec12.in.i, -1
   %shl.i = shl i32 %num.011.i, 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %in.addr.010.i, i64 1
-  %sext.i = shl i32 %call.i, 24
+  %sext.i = shl i32 %call.i20, 24
   %conv4.i = ashr exact i32 %sext.i, 24
   %or.i = or i32 %conv4.i, %shl.i
-  %tobool.not.i = icmp eq i32 %dec12.i, 0
-  br i1 %tobool.not.i, label %if.end36, label %while.body.i, !llvm.loop !24
+  %tobool.not.i21 = icmp eq i32 %dec12.i, 0
+  br i1 %tobool.not.i21, label %if.end36, label %while.body.i, !llvm.loop !24
 
 if.end36:                                         ; preds = %if.end3.i
   %shr.i = lshr i32 %or.i, 8
@@ -3014,18 +3095,13 @@ if.end36:                                         ; preds = %if.end3.i
   %conv6.i = trunc i32 %or.i to i8
   %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr32, i64 1
   store i8 %conv6.i, ptr %arrayidx7.i, align 1
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end21, %if.end36, %if.end12
-  %zero_cnt.sink23 = phi ptr [ %zero_cnt, %if.end12 ], [ %total, %if.end36 ], [ %total, %if.end21 ]
-  %.sink22 = phi i32 [ 1, %if.end12 ], [ 2, %if.end36 ], [ 4, %if.end21 ]
-  %4 = load i32, ptr %zero_cnt.sink23, align 4
-  %inc = add nsw i32 %4, %.sink22
-  store i32 %inc, ptr %zero_cnt.sink23, align 4
+  %19 = load i32, ptr %total, align 4
+  %add38 = add nsw i32 %19, 2
+  store i32 %add38, ptr %total, align 4
   br label %return
 
-return:                                           ; preds = %while.body.i, %return.sink.split, %if.end21, %if.end19, %if.then15, %if.else, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.else ], [ 0, %if.then15 ], [ 0, %if.end19 ], [ 0, %if.end21 ], [ 1, %return.sink.split ], [ 0, %while.body.i ]
+return:                                           ; preds = %while.body.i, %ipv4_from_asc.exit.thread, %if.end12, %if.end36, %if.end25, %if.end19, %if.then15, %if.else, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.else ], [ 0, %if.then15 ], [ 0, %if.end19 ], [ 1, %if.end25 ], [ 1, %if.end36 ], [ 1, %if.end12 ], [ 0, %ipv4_from_asc.exit.thread ], [ 0, %while.body.i ]
   ret i32 %retval.0
 }
 

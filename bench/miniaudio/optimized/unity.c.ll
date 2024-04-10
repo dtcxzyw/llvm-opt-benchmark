@@ -74136,21 +74136,18 @@ land.lhs.true86:                                  ; preds = %done, %done.thread1
   %isDataOwnedByResourceManager87 = getelementptr inbounds i8, ptr %pDataBufferNode.0, i64 20
   %66 = load i32, ptr %isDataOwnedByResourceManager87, align 4
   %tobool88.not = icmp eq i32 %66, 0
-  %and90 = and i32 %spec.select, 4
-  %cmp91.not = icmp eq i32 %and90, 0
-  %or.cond52 = select i1 %tobool88.not, i1 true, i1 %cmp91.not
-  %and93 = and i32 %spec.select, 8
-  %cmp94.not = icmp eq i32 %and93, 0
-  %or.cond53 = select i1 %or.cond52, i1 true, i1 %cmp94.not
+  %67 = and i32 %spec.select, 12
+  %68 = icmp ne i32 %67, 12
+  %or.cond53 = select i1 %tobool88.not, i1 true, i1 %68
   br i1 %or.cond53, label %if.end97, label %if.then95
 
 if.then95:                                        ; preds = %land.lhs.true86
   %pResourceManager.i = getelementptr inbounds i8, ptr %initNotification, i64 104
-  %67 = load ptr, ptr %pResourceManager.i, align 8
-  %68 = getelementptr i8, ptr %67, i64 68
-  %.val.i = load i32, ptr %68, align 4
-  %69 = and i32 %.val.i, 2
-  %tobool.not.not.i77 = icmp eq i32 %69, 0
+  %69 = load ptr, ptr %pResourceManager.i, align 8
+  %70 = getelementptr i8, ptr %69, i64 68
+  %.val.i = load i32, ptr %70, align 4
+  %71 = and i32 %.val.i, 2
+  %tobool.not.not.i77 = icmp eq i32 %71, 0
   br i1 %tobool.not.not.i77, label %ma_async_notification_event_uninit.exit.i, label %if.end97
 
 ma_async_notification_event_uninit.exit.i:        ; preds = %if.then95
@@ -91939,74 +91936,72 @@ if.end878:                                        ; preds = %for.end873
   %250 = add i32 %249, -384001
   %or.cond22 = icmp ult i32 %250, -384000
   %251 = load i16, ptr %channels, align 2
-  %cmp889 = icmp eq i16 %251, 0
-  %or.cond23 = select i1 %or.cond22, i1 true, i1 %cmp889
-  %cmp894 = icmp ugt i16 %251, 256
-  %or.cond24 = select i1 %or.cond23, i1 true, i1 %cmp894
-  %252 = load i16, ptr %bitsPerSample, align 2
-  %cmp899 = icmp eq i16 %252, 0
-  %or.cond25 = select i1 %or.cond24, i1 true, i1 %cmp899
-  %cmp904 = icmp ugt i16 %252, 64
-  %or.cond26 = select i1 %or.cond25, i1 true, i1 %cmp904
-  %253 = load i16, ptr %blockAlign, align 4
-  %cmp909 = icmp eq i16 %253, 0
+  %252 = add i16 %251, -257
+  %253 = icmp ult i16 %252, -256
+  %or.cond24 = select i1 %or.cond22, i1 true, i1 %253
+  %254 = load i16, ptr %bitsPerSample, align 2
+  %255 = add i16 %254, -65
+  %256 = icmp ult i16 %255, -64
+  %or.cond26 = select i1 %or.cond24, i1 true, i1 %256
+  %257 = load i16, ptr %blockAlign, align 4
+  %cmp909 = icmp eq i16 %257, 0
   %or.cond27 = select i1 %or.cond26, i1 true, i1 %cmp909
   br i1 %or.cond27, label %return, label %if.end912
 
 if.end912:                                        ; preds = %if.end878
-  %254 = load i16, ptr %fmt, align 4
-  %cmp915 = icmp eq i16 %254, -2
+  %258 = load i16, ptr %fmt, align 4
+  %cmp915 = icmp eq i16 %258, -2
   br i1 %cmp915, label %if.then917, label %if.end923
 
 if.then917:                                       ; preds = %if.end912
-  %255 = load i32, ptr %container531718, align 8
-  switch i32 %255, label %if.else.i1439 [
+  %259 = load i32, ptr %container531718, align 8
+  switch i32 %259, label %if.else.i1439 [
     i32 4, label %if.then.i1440
     i32 1, label %if.then.i1440
   ]
 
 if.then.i1440:                                    ; preds = %if.then917, %if.then917
   %arrayidx.i1648 = getelementptr inbounds i8, ptr %fmt, i64 25
-  %256 = load i8, ptr %arrayidx.i1648, align 1
-  %conv1.i1650 = zext i8 %256 to i16
-  %257 = load i8, ptr %subFormat, align 4
-  %conv4.i1652 = zext i8 %257 to i16
+  %260 = load i8, ptr %arrayidx.i1648, align 1
+  %conv1.i1650 = zext i8 %260 to i16
+  %261 = load i8, ptr %subFormat, align 4
+  %conv4.i1652 = zext i8 %261 to i16
   %shl5.i1653 = shl nuw i16 %conv4.i1652, 8
   %or.i1654 = or disjoint i16 %shl5.i1653, %conv1.i1650
   br label %if.end923
 
 if.else.i1439:                                    ; preds = %if.then917
-  %258 = load i16, ptr %subFormat, align 4
+  %262 = load i16, ptr %subFormat, align 4
   br label %if.end923
 
 if.end923:                                        ; preds = %if.then.i1440, %if.else.i1439, %if.end912
-  %translatedFormatTag.0 = phi i16 [ %254, %if.end912 ], [ %or.i1654, %if.then.i1440 ], [ %258, %if.else.i1439 ]
+  %translatedFormatTag.0 = phi i16 [ %258, %if.end912 ], [ %or.i1654, %if.then.i1440 ], [ %262, %if.else.i1439 ]
   br i1 %cmp.not, label %if.then925, label %if.end934
 
 if.then925:                                       ; preds = %if.end923
-  %259 = load ptr, ptr %onSeek285, align 8
-  %260 = load i64, ptr %dataChunkDataPos836, align 8
-  %261 = load ptr, ptr %pUserData, align 8
-  %call929 = call fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef %259, i64 noundef %260, ptr noundef %261)
+  %263 = load ptr, ptr %onSeek285, align 8
+  %264 = load i64, ptr %dataChunkDataPos836, align 8
+  %265 = load ptr, ptr %pUserData, align 8
+  %call929 = call fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef %263, i64 noundef %264, ptr noundef %265)
   %tobool930.not = icmp eq i32 %call929, 0
   br i1 %tobool930.not, label %return, label %if.end932
 
 if.end932:                                        ; preds = %if.then925
-  %262 = load i64, ptr %dataChunkDataPos836, align 8
-  store i64 %262, ptr %cursor, align 8
+  %266 = load i64, ptr %dataChunkDataPos836, align 8
+  store i64 %266, ptr %cursor, align 8
   br label %if.end934
 
 if.end934:                                        ; preds = %if.end932, %if.end923
   %metadataCount = getelementptr inbounds i8, ptr %metadataParser, i64 40
-  %263 = load i32, ptr %metadataCount, align 8
-  %cmp938 = icmp ne i32 %263, 0
+  %267 = load i32, ptr %metadataCount, align 8
+  %cmp938 = icmp ne i32 %267, 0
   %or.cond29 = select i1 %isProcessingMetadata.0.shrunk1160, i1 %cmp938, i1 false
   br i1 %or.cond29, label %if.then940, label %if.end984
 
 if.then940:                                       ; preds = %if.end934
-  %264 = load ptr, ptr %onSeek285, align 8
-  %265 = load ptr, ptr %pUserData, align 8
-  %call943 = call fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef %264, i64 noundef %69, ptr noundef %265)
+  %268 = load ptr, ptr %onSeek285, align 8
+  %269 = load ptr, ptr %pUserData, align 8
+  %call943 = call fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef %268, i64 noundef %69, ptr noundef %269)
   %cmp944 = icmp eq i32 %call943, 0
   br i1 %cmp944, label %return, label %if.end947
 
@@ -92024,22 +92019,22 @@ if.end952:                                        ; preds = %if.end947
   br label %for.cond954
 
 for.cond954:                                      ; preds = %ma_dr_wav__seek_forward.exit1053, %if.end952
-  %266 = load ptr, ptr %pWav, align 8
-  %267 = load ptr, ptr %pUserData, align 8
-  %268 = load i32, ptr %container531718, align 8
-  %call960 = call fastcc i32 @ma_dr_wav__read_chunk_header(ptr noundef %266, ptr noundef %267, i32 noundef %268, ptr noundef nonnull %cursor, ptr noundef nonnull %header955), !range !815
+  %270 = load ptr, ptr %pWav, align 8
+  %271 = load ptr, ptr %pUserData, align 8
+  %272 = load i32, ptr %container531718, align 8
+  %call960 = call fastcc i32 @ma_dr_wav__read_chunk_header(ptr noundef %270, ptr noundef %271, i32 noundef %272, ptr noundef nonnull %cursor, ptr noundef nonnull %header955), !range !815
   %cmp961.not = icmp eq i32 %call960, 0
   br i1 %cmp961.not, label %if.end964, label %for.end979
 
 if.end964:                                        ; preds = %for.cond954
   %call965 = call fastcc i64 @ma_dr_wav__metadata_process_chunk(ptr noundef nonnull %metadataParser, ptr noundef nonnull %header955)
-  %269 = load ptr, ptr %onSeek285, align 8
-  %270 = load i64, ptr %sizeInBytes967, align 8
-  %271 = load i32, ptr %paddingSize968, align 8
-  %conv969 = zext i32 %271 to i64
-  %add970 = sub i64 %270, %call965
+  %273 = load ptr, ptr %onSeek285, align 8
+  %274 = load i64, ptr %sizeInBytes967, align 8
+  %275 = load i32, ptr %paddingSize968, align 8
+  %conv969 = zext i32 %275 to i64
+  %add970 = sub i64 %274, %call965
   %sub971 = add i64 %add970, %conv969
-  %272 = load ptr, ptr %pUserData, align 8
+  %276 = load ptr, ptr %pUserData, align 8
   %cmp.not6.i1038 = icmp eq i64 %sub971, 0
   br i1 %cmp.not6.i1038, label %ma_dr_wav__seek_forward.exit1053, label %while.body.i1039.preheader
 
@@ -92049,14 +92044,14 @@ while.body.i1039.preheader:                       ; preds = %if.end964
 
 if.then.i1048:                                    ; preds = %while.body.i1039.preheader, %if.end7.i1051
   %bytesRemainingToSeek.07.i10401570 = phi i64 [ %sub.i1052, %if.end7.i1051 ], [ %sub971, %while.body.i1039.preheader ]
-  %call.i1049 = call i32 %269(ptr noundef %272, i32 noundef 2147483647, i32 noundef 1) #64
+  %call.i1049 = call i32 %273(ptr noundef %276, i32 noundef 2147483647, i32 noundef 1) #64
   %tobool.not.i1050 = icmp eq i32 %call.i1049, 0
   br i1 %tobool.not.i1050, label %if.then976, label %if.end7.i1051
 
 if.else.i1042:                                    ; preds = %if.end7.i1051, %while.body.i1039.preheader
   %bytesRemainingToSeek.07.i1040.lcssa = phi i64 [ %sub971, %while.body.i1039.preheader ], [ %sub.i1052, %if.end7.i1051 ]
   %conv.i1043 = trunc i64 %bytesRemainingToSeek.07.i1040.lcssa to i32
-  %call3.i1044 = call i32 %269(ptr noundef %272, i32 noundef %conv.i1043, i32 noundef 1) #64
+  %call3.i1044 = call i32 %273(ptr noundef %276, i32 noundef %conv.i1043, i32 noundef 1) #64
   %tobool4.not.i1045 = icmp ne i32 %call3.i1044, 0
   %spec.select.i1046 = zext i1 %tobool4.not.i1045 to i32
   br label %ma_dr_wav__seek_forward.exit1053
@@ -92073,29 +92068,29 @@ ma_dr_wav__seek_forward.exit1053:                 ; preds = %if.end964, %if.else
 
 if.then976:                                       ; preds = %ma_dr_wav__seek_forward.exit1053, %if.then.i1048
   %pMetadata = getelementptr inbounds i8, ptr %metadataParser, i64 32
-  %273 = load ptr, ptr %pMetadata, align 8
-  %cmp.i.i = icmp eq ptr %273, null
+  %277 = load ptr, ptr %pMetadata, align 8
+  %cmp.i.i = icmp eq ptr %277, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then976
   %onFree.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
-  %274 = load ptr, ptr %onFree.i.i, align 8
-  %cmp2.not.i.i = icmp eq ptr %274, null
+  %278 = load ptr, ptr %onFree.i.i, align 8
+  %cmp2.not.i.i = icmp eq ptr %278, null
   br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %275 = load ptr, ptr %allocationCallbacks, align 8
-  call void %274(ptr noundef nonnull %273, ptr noundef %275) #64
+  %279 = load ptr, ptr %allocationCallbacks, align 8
+  call void %278(ptr noundef nonnull %277, ptr noundef %279) #64
   br label %return
 
 for.end979:                                       ; preds = %for.cond954
   %pMetadata980 = getelementptr inbounds i8, ptr %metadataParser, i64 32
-  %276 = load ptr, ptr %pMetadata980, align 8
+  %280 = load ptr, ptr %pMetadata980, align 8
   %pMetadata981 = getelementptr inbounds i8, ptr %pWav, i64 176
-  store ptr %276, ptr %pMetadata981, align 8
-  %277 = load i32, ptr %metadataCount, align 8
+  store ptr %280, ptr %pMetadata981, align 8
+  %281 = load i32, ptr %metadataCount, align 8
   %metadataCount983 = getelementptr inbounds i8, ptr %pWav, i64 184
-  store i32 %277, ptr %metadataCount983, align 8
+  store i32 %281, ptr %metadataCount983, align 8
   br label %if.end984
 
 if.end984:                                        ; preds = %for.end979, %if.end934
@@ -92103,71 +92098,71 @@ if.end984:                                        ; preds = %for.end979, %if.end
   br i1 %cmp985, label %land.lhs.true987, label %if.end1010
 
 land.lhs.true987:                                 ; preds = %if.end984
-  %278 = load i32, ptr %container531718, align 8
-  %switch = icmp ult i32 %278, 2
+  %282 = load i32, ptr %container531718, align 8
+  %switch = icmp ult i32 %282, 2
   br i1 %switch, label %land.lhs.true995, label %if.end1010
 
 land.lhs.true995:                                 ; preds = %land.lhs.true987
   %isSequentialWrite = getelementptr inbounds i8, ptr %pWav, i64 168
-  %279 = load i32, ptr %isSequentialWrite, align 8
-  %cmp996 = icmp eq i32 %279, 0
+  %283 = load i32, ptr %isSequentialWrite, align 8
+  %cmp996 = icmp eq i32 %283, 0
   br i1 %cmp996, label %for.cond999, label %if.end1010
 
 for.cond999:                                      ; preds = %land.lhs.true995, %for.cond999
   %dataChunkSize.4 = phi i64 [ %add1004, %for.cond999 ], [ 0, %land.lhs.true995 ]
-  %280 = load ptr, ptr %pWav, align 8
-  %281 = load ptr, ptr %pUserData, align 8
-  %call1003 = call i64 %280(ptr noundef %281, ptr noundef nonnull %temp, i64 noundef 4096) #64
+  %284 = load ptr, ptr %pWav, align 8
+  %285 = load ptr, ptr %pUserData, align 8
+  %call1003 = call i64 %284(ptr noundef %285, ptr noundef nonnull %temp, i64 noundef 4096) #64
   %add1004 = add i64 %call1003, %dataChunkSize.4
   %cmp1005 = icmp ult i64 %call1003, 4096
   br i1 %cmp1005, label %if.end1010, label %for.cond999
 
 if.end1010:                                       ; preds = %for.cond999, %land.lhs.true987, %land.lhs.true995, %if.end984
   %dataChunkSize.5 = phi i64 [ 4294967295, %land.lhs.true995 ], [ %dataChunkSize.3, %if.end984 ], [ 4294967295, %land.lhs.true987 ], [ %add1004, %for.cond999 ]
-  %282 = load ptr, ptr %onSeek285, align 8
-  %283 = load i64, ptr %dataChunkDataPos836, align 8
-  %284 = load ptr, ptr %pUserData, align 8
-  %call1014 = call fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef %282, i64 noundef %283, ptr noundef %284)
+  %286 = load ptr, ptr %onSeek285, align 8
+  %287 = load i64, ptr %dataChunkDataPos836, align 8
+  %288 = load ptr, ptr %pUserData, align 8
+  %call1014 = call fastcc i32 @ma_dr_wav__seek_from_start(ptr noundef %286, i64 noundef %287, ptr noundef %288)
   %cmp1015 = icmp eq i32 %call1014, 0
   br i1 %cmp1015, label %if.then1017, label %if.end1020
 
 if.then1017:                                      ; preds = %if.end1010
   %pMetadata1018 = getelementptr inbounds i8, ptr %pWav, i64 176
-  %285 = load ptr, ptr %pMetadata1018, align 8
+  %289 = load ptr, ptr %pMetadata1018, align 8
   %allocationCallbacks1019 = getelementptr inbounds i8, ptr %pWav, i64 32
-  %cmp.i.i1057 = icmp eq ptr %285, null
+  %cmp.i.i1057 = icmp eq ptr %289, null
   br i1 %cmp.i.i1057, label %return, label %if.end.i.i1058
 
 if.end.i.i1058:                                   ; preds = %if.then1017
   %onFree.i.i1059 = getelementptr inbounds i8, ptr %pWav, i64 56
-  %286 = load ptr, ptr %onFree.i.i1059, align 8
-  %cmp2.not.i.i1060 = icmp eq ptr %286, null
+  %290 = load ptr, ptr %onFree.i.i1059, align 8
+  %cmp2.not.i.i1060 = icmp eq ptr %290, null
   br i1 %cmp2.not.i.i1060, label %return, label %if.then3.i.i1061
 
 if.then3.i.i1061:                                 ; preds = %if.end.i.i1058
-  %287 = load ptr, ptr %allocationCallbacks1019, align 8
-  call void %286(ptr noundef nonnull %285, ptr noundef %287) #64
+  %291 = load ptr, ptr %allocationCallbacks1019, align 8
+  call void %290(ptr noundef nonnull %289, ptr noundef %291) #64
   br label %return
 
 if.end1020:                                       ; preds = %if.end1010
   %fmt1021 = getelementptr inbounds i8, ptr %pWav, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %fmt1021, ptr noundef nonnull align 4 dereferenceable(40) %fmt, i64 40, i1 false)
-  %288 = load i32, ptr %sampleRate, align 4
+  %292 = load i32, ptr %sampleRate, align 4
   %sampleRate1023 = getelementptr inbounds i8, ptr %pWav, i64 108
-  store i32 %288, ptr %sampleRate1023, align 4
-  %289 = load i16, ptr %channels, align 2
+  store i32 %292, ptr %sampleRate1023, align 4
+  %293 = load i16, ptr %channels, align 2
   %channels1025 = getelementptr inbounds i8, ptr %pWav, i64 112
-  store i16 %289, ptr %channels1025, align 8
-  %290 = load i16, ptr %bitsPerSample, align 2
+  store i16 %293, ptr %channels1025, align 8
+  %294 = load i16, ptr %bitsPerSample, align 2
   %bitsPerSample1027 = getelementptr inbounds i8, ptr %pWav, i64 114
-  store i16 %290, ptr %bitsPerSample1027, align 2
+  store i16 %294, ptr %bitsPerSample1027, align 2
   %bytesRemaining = getelementptr inbounds i8, ptr %pWav, i64 144
   store i64 %dataChunkSize.5, ptr %bytesRemaining, align 8
   store i16 %translatedFormatTag.0, ptr %translatedFormatTag567, align 4
   %dataChunkDataSize = getelementptr inbounds i8, ptr %pWav, i64 128
   store i64 %dataChunkSize.5, ptr %dataChunkDataSize, align 8
-  %291 = load i64, ptr %sampleCountFromFactChunk, align 8
-  %cmp1029.not = icmp eq i64 %291, 0
+  %295 = load i64, ptr %sampleCountFromFactChunk, align 8
+  %cmp1029.not = icmp eq i64 %295, 0
   br i1 %cmp1029.not, label %if.else1032, label %if.end1109
 
 if.else1032:                                      ; preds = %if.end1020
@@ -92175,35 +92170,35 @@ if.else1032:                                      ; preds = %if.end1020
   br i1 %cmp1033.not, label %if.else1037, label %if.end1109
 
 if.else1037:                                      ; preds = %if.else1032
-  %conv.i1064 = zext i16 %290 to i32
+  %conv.i1064 = zext i16 %294 to i32
   %and.i = and i32 %conv.i1064, 7
   %cmp.i1065 = icmp eq i32 %and.i, 0
   br i1 %cmp.i1065, label %if.then.i1069, label %if.else.i1066
 
 if.then.i1069:                                    ; preds = %if.else1037
   %channels.i = getelementptr inbounds i8, ptr %pWav, i64 70
-  %292 = load i16, ptr %channels.i, align 2
-  %conv4.i1070 = zext i16 %292 to i32
+  %296 = load i16, ptr %channels.i, align 2
+  %conv4.i1070 = zext i16 %296 to i32
   %mul.i = mul nuw nsw i32 %conv4.i1070, %conv.i1064
   %shr.i = lshr exact i32 %mul.i, 3
   br label %if.end.i1067
 
 if.else.i1066:                                    ; preds = %if.else1037
   %blockAlign.i = getelementptr inbounds i8, ptr %pWav, i64 80
-  %293 = load i16, ptr %blockAlign.i, align 4
-  %conv6.i = zext i16 %293 to i32
+  %297 = load i16, ptr %blockAlign.i, align 4
+  %conv6.i = zext i16 %297 to i32
   br label %if.end.i1067
 
 if.end.i1067:                                     ; preds = %if.else.i1066, %if.then.i1069
   %bytesPerFrame.0.i = phi i32 [ %shr.i, %if.then.i1069 ], [ %conv6.i, %if.else.i1066 ]
-  %294 = and i16 %translatedFormatTag.0, -2
-  %switch.i = icmp eq i16 %294, 6
+  %298 = and i16 %translatedFormatTag.0, -2
+  %switch.i = icmp eq i16 %298, 6
   br i1 %switch.i, label %if.then14.i, label %ma_dr_wav_get_bytes_per_pcm_frame.exit
 
 if.then14.i:                                      ; preds = %if.end.i1067
   %channels16.i = getelementptr inbounds i8, ptr %pWav, i64 70
-  %295 = load i16, ptr %channels16.i, align 2
-  %conv17.i = zext i16 %295 to i32
+  %299 = load i16, ptr %channels16.i, align 2
+  %conv17.i = zext i16 %299 to i32
   %cmp18.not.i = icmp ne i32 %bytesPerFrame.0.i, %conv17.i
   %cmp1039 = icmp eq i32 %bytesPerFrame.0.i, 0
   %or.cond1347 = or i1 %cmp1039, %cmp18.not.i
@@ -92215,20 +92210,20 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit:           ; preds = %if.end.i1067
 
 if.then1041:                                      ; preds = %if.then14.i, %ma_dr_wav_get_bytes_per_pcm_frame.exit
   %pMetadata1042 = getelementptr inbounds i8, ptr %pWav, i64 176
-  %296 = load ptr, ptr %pMetadata1042, align 8
+  %300 = load ptr, ptr %pMetadata1042, align 8
   %allocationCallbacks1043 = getelementptr inbounds i8, ptr %pWav, i64 32
-  %cmp.i.i1072 = icmp eq ptr %296, null
+  %cmp.i.i1072 = icmp eq ptr %300, null
   br i1 %cmp.i.i1072, label %return, label %if.end.i.i1073
 
 if.end.i.i1073:                                   ; preds = %if.then1041
   %onFree.i.i1074 = getelementptr inbounds i8, ptr %pWav, i64 56
-  %297 = load ptr, ptr %onFree.i.i1074, align 8
-  %cmp2.not.i.i1075 = icmp eq ptr %297, null
+  %301 = load ptr, ptr %onFree.i.i1074, align 8
+  %cmp2.not.i.i1075 = icmp eq ptr %301, null
   br i1 %cmp2.not.i.i1075, label %return, label %if.then3.i.i1076
 
 if.then3.i.i1076:                                 ; preds = %if.end.i.i1073
-  %298 = load ptr, ptr %allocationCallbacks1043, align 8
-  call void %297(ptr noundef nonnull %296, ptr noundef %298) #64
+  %302 = load ptr, ptr %allocationCallbacks1043, align 8
+  call void %301(ptr noundef nonnull %300, ptr noundef %302) #64
   br label %return
 
 if.end1044:                                       ; preds = %if.then14.i, %ma_dr_wav_get_bytes_per_pcm_frame.exit
@@ -92242,14 +92237,14 @@ if.end1044:                                       ; preds = %if.then14.i, %ma_dr
   ]
 
 if.end1075.thread:                                ; preds = %if.end1044
-  %299 = load i16, ptr %blockAlign, align 4
-  %conv1054 = zext i16 %299 to i64
+  %303 = load i16, ptr %blockAlign, align 4
+  %conv1054 = zext i16 %303 to i64
   %div1055 = udiv i64 %dataChunkSize.5, %conv1054
   %mul1058 = mul i64 %div1055, %conv1054
   %cmp1059 = icmp ult i64 %mul1058, %dataChunkSize.5
   %add1062 = zext i1 %cmp1059 to i64
   %spec.select405 = add i64 %div1055, %add1062
-  %conv1065 = zext i16 %289 to i64
+  %conv1065 = zext i16 %293 to i64
   %mul1066.neg = mul i64 %conv1065, 9223372036854775802
   %mul1068.neg = mul i64 %mul1066.neg, %spec.select405
   %sub1069 = add i64 %mul1068.neg, %dataChunkSize.5
@@ -92258,14 +92253,14 @@ if.end1075.thread:                                ; preds = %if.end1044
   br label %if.then1119.sink.split
 
 if.then1080:                                      ; preds = %if.end1044
-  %300 = load i16, ptr %blockAlign, align 4
-  %conv1084 = zext i16 %300 to i64
+  %304 = load i16, ptr %blockAlign, align 4
+  %conv1084 = zext i16 %304 to i64
   %div1085 = udiv i64 %dataChunkSize.5, %conv1084
   %mul1088 = mul i64 %div1085, %conv1084
   %cmp1089 = icmp ult i64 %mul1088, %dataChunkSize.5
   %add1092 = zext i1 %cmp1089 to i64
   %spec.select406 = add i64 %div1085, %add1092
-  %conv1095 = zext i16 %289 to i64
+  %conv1095 = zext i16 %293 to i64
   %mul1096 = shl nuw nsw i64 %conv1095, 2
   %mul1098 = mul i64 %mul1096, %spec.select406
   %sub1099 = sub i64 %dataChunkSize.5, %mul1098
@@ -92275,7 +92270,7 @@ if.then1080:                                      ; preds = %if.end1044
   br label %if.then1119.sink.split
 
 if.end1109:                                       ; preds = %if.else1032, %if.end1020
-  %aiffFrameCount.0.ph1387.ph1812.sink = phi i64 [ %291, %if.end1020 ], [ %aiffFrameCount.0.ph1387.ph, %if.else1032 ]
+  %aiffFrameCount.0.ph1387.ph1812.sink = phi i64 [ %295, %if.end1020 ], [ %aiffFrameCount.0.ph1387.ph, %if.else1032 ]
   %totalPCMFrameCount1036 = getelementptr inbounds i8, ptr %pWav, i64 120
   store i64 %aiffFrameCount.0.ph1387.ph1812.sink, ptr %totalPCMFrameCount1036, align 8
   switch i16 %translatedFormatTag.0, label %if.end1128 [
@@ -92289,57 +92284,57 @@ if.then1119.sink.split:                           ; preds = %if.end1075.thread, 
   br label %if.then1119
 
 if.then1119:                                      ; preds = %if.then1119.sink.split, %if.end1109, %if.end1109
-  %cmp1122 = icmp ugt i16 %289, 2
+  %cmp1122 = icmp ugt i16 %293, 2
   br i1 %cmp1122, label %if.then1124, label %if.end1128
 
 if.then1124:                                      ; preds = %if.then1119
   %pMetadata1125 = getelementptr inbounds i8, ptr %pWav, i64 176
-  %301 = load ptr, ptr %pMetadata1125, align 8
+  %305 = load ptr, ptr %pMetadata1125, align 8
   %allocationCallbacks1126 = getelementptr inbounds i8, ptr %pWav, i64 32
-  %cmp.i.i1080 = icmp eq ptr %301, null
+  %cmp.i.i1080 = icmp eq ptr %305, null
   br i1 %cmp.i.i1080, label %return, label %if.end.i.i1081
 
 if.end.i.i1081:                                   ; preds = %if.then1124
   %onFree.i.i1082 = getelementptr inbounds i8, ptr %pWav, i64 56
-  %302 = load ptr, ptr %onFree.i.i1082, align 8
-  %cmp2.not.i.i1083 = icmp eq ptr %302, null
+  %306 = load ptr, ptr %onFree.i.i1082, align 8
+  %cmp2.not.i.i1083 = icmp eq ptr %306, null
   br i1 %cmp2.not.i.i1083, label %return, label %if.then3.i.i1084
 
 if.then3.i.i1084:                                 ; preds = %if.end.i.i1081
-  %303 = load ptr, ptr %allocationCallbacks1126, align 8
-  call void %302(ptr noundef nonnull %301, ptr noundef %303) #64
+  %307 = load ptr, ptr %allocationCallbacks1126, align 8
+  call void %306(ptr noundef nonnull %305, ptr noundef %307) #64
   br label %return
 
 if.end1128:                                       ; preds = %if.end1044, %if.end1109, %if.then1119
-  %conv.i1088 = zext i16 %290 to i32
+  %conv.i1088 = zext i16 %294 to i32
   %and.i1089 = and i32 %conv.i1088, 7
   %cmp.i1090 = icmp eq i32 %and.i1089, 0
   br i1 %cmp.i1090, label %if.then.i1104, label %if.else.i1091
 
 if.then.i1104:                                    ; preds = %if.end1128
   %channels.i1105 = getelementptr inbounds i8, ptr %pWav, i64 70
-  %304 = load i16, ptr %channels.i1105, align 2
-  %conv4.i1106 = zext i16 %304 to i32
+  %308 = load i16, ptr %channels.i1105, align 2
+  %conv4.i1106 = zext i16 %308 to i32
   %mul.i1107 = mul nuw nsw i32 %conv4.i1106, %conv.i1088
   %shr.i1108 = lshr exact i32 %mul.i1107, 3
   br label %if.end.i1094
 
 if.else.i1091:                                    ; preds = %if.end1128
   %blockAlign.i1092 = getelementptr inbounds i8, ptr %pWav, i64 80
-  %305 = load i16, ptr %blockAlign.i1092, align 4
-  %conv6.i1093 = zext i16 %305 to i32
+  %309 = load i16, ptr %blockAlign.i1092, align 4
+  %conv6.i1093 = zext i16 %309 to i32
   br label %if.end.i1094
 
 if.end.i1094:                                     ; preds = %if.else.i1091, %if.then.i1104
   %bytesPerFrame.0.i1095 = phi i32 [ %shr.i1108, %if.then.i1104 ], [ %conv6.i1093, %if.else.i1091 ]
-  %306 = and i16 %translatedFormatTag.0, -2
-  %switch.i1097 = icmp eq i16 %306, 6
+  %310 = and i16 %translatedFormatTag.0, -2
+  %switch.i1097 = icmp eq i16 %310, 6
   br i1 %switch.i1097, label %if.then14.i1100, label %ma_dr_wav_get_bytes_per_pcm_frame.exit1109
 
 if.then14.i1100:                                  ; preds = %if.end.i1094
   %channels16.i1101 = getelementptr inbounds i8, ptr %pWav, i64 70
-  %307 = load i16, ptr %channels16.i1101, align 2
-  %conv17.i1102 = zext i16 %307 to i32
+  %311 = load i16, ptr %channels16.i1101, align 2
+  %conv17.i1102 = zext i16 %311 to i32
   %cmp18.not.i1103 = icmp ne i32 %bytesPerFrame.0.i1095, %conv17.i1102
   %cmp1130 = icmp eq i32 %bytesPerFrame.0.i1095, 0
   %or.cond1348 = or i1 %cmp1130, %cmp18.not.i1103
@@ -92351,20 +92346,20 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit1109:       ; preds = %if.end.i1094
 
 if.then1132:                                      ; preds = %if.then14.i1100, %ma_dr_wav_get_bytes_per_pcm_frame.exit1109
   %pMetadata1133 = getelementptr inbounds i8, ptr %pWav, i64 176
-  %308 = load ptr, ptr %pMetadata1133, align 8
+  %312 = load ptr, ptr %pMetadata1133, align 8
   %allocationCallbacks1134 = getelementptr inbounds i8, ptr %pWav, i64 32
-  %cmp.i.i1111 = icmp eq ptr %308, null
+  %cmp.i.i1111 = icmp eq ptr %312, null
   br i1 %cmp.i.i1111, label %return, label %if.end.i.i1112
 
 if.end.i.i1112:                                   ; preds = %if.then1132
   %onFree.i.i1113 = getelementptr inbounds i8, ptr %pWav, i64 56
-  %309 = load ptr, ptr %onFree.i.i1113, align 8
-  %cmp2.not.i.i1114 = icmp eq ptr %309, null
+  %313 = load ptr, ptr %onFree.i.i1113, align 8
+  %cmp2.not.i.i1114 = icmp eq ptr %313, null
   br i1 %cmp2.not.i.i1114, label %return, label %if.then3.i.i1115
 
 if.then3.i.i1115:                                 ; preds = %if.end.i.i1112
-  %310 = load ptr, ptr %allocationCallbacks1134, align 8
-  call void %309(ptr noundef nonnull %308, ptr noundef %310) #64
+  %314 = load ptr, ptr %allocationCallbacks1134, align 8
+  call void %313(ptr noundef nonnull %312, ptr noundef %314) #64
   br label %return
 
 return:                                           ; preds = %for.body, %for.body.i501, %if.then.i578, %ma_dr_wav__seek_forward.exit1005, %if.then813, %if.then671, %land.lhs.true.i783, %land.lhs.true.i767, %land.lhs.true.i799, %land.lhs.true.i831, %land.lhs.true.i863, %land.lhs.true.i879, %land.lhs.true.i895, %land.lhs.true.i911, %land.lhs.true.i927, %ma_dr_wav__seek_forward.exit971, %ma_dr_wav_bytes_to_u16_ex.exit1458, %if.end637, %if.else630, %if.then623, %if.then.i1000, %if.then326, %if.then363, %if.then381, %if.then398, %if.else425, %if.end442, %if.then.i966, %if.end.i612, %if.then582, %if.then558, %ma_dr_wav__seek_from_start.exit, %if.end9.i, %if.then14.i1100, %if.end71, %if.end, %if.end203, %land.lhs.true.i528, %land.lhs.true.i430, %land.lhs.true.i448, %land.lhs.true.i464, %if.then3.i.i1115, %if.end.i.i1112, %if.then1132, %if.then3.i.i1084, %if.end.i.i1081, %if.then1124, %if.then3.i.i1076, %if.end.i.i1073, %if.then1041, %if.then3.i.i1061, %if.end.i.i1058, %if.then1017, %if.then3.i.i, %if.end.i.i, %if.then976, %ma_dr_wav__read_chunk_header.exit.thread, %ma_dr_wav_get_bytes_per_pcm_frame.exit1109, %if.end947, %if.then940, %if.then925, %if.end878, %for.end873, %ma_dr_wav__seek_forward.exit583, %if.end224, %if.end215, %if.end208, %if.end52, %if.end167, %if.end161, %if.then152, %if.end134, %if.then118, %if.end100, %if.then91, %ma_dr_wav_bytes_to_u32_ex.exit1316, %if.then63, %if.then15, %entry

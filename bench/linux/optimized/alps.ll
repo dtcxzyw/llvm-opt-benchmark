@@ -1085,7 +1085,7 @@ alps_rpt_cmd.exit5:                               ; preds = %58
 72:                                               ; preds = %.preheader
   %73 = getelementptr inbounds i8, ptr %69, i64 4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread, label %116
+  br i1 %74, label %.thread, label %115
 
 .thread:                                          ; preds = %65, %72
   %75 = load i8, ptr %4, align 4
@@ -1099,7 +1099,7 @@ alps_rpt_cmd.exit5:                               ; preds = %58
   %83 = load i8, ptr %59, align 2
   %84 = icmp eq i8 %83, -118
   %85 = select i1 %82, i1 %84, i1 false
-  br i1 %85, label %116, label %86
+  br i1 %85, label %115, label %86
 
 86:                                               ; preds = %.thread
   %87 = icmp eq i8 %77, 3
@@ -1115,7 +1115,7 @@ alps_rpt_cmd.exit5:                               ; preds = %58
   %95 = load i8, ptr %60, align 1
   %96 = add i8 %95, -1
   %97 = icmp ult i8 %96, 2
-  br i1 %97, label %116, label %.thread8.thread
+  br i1 %97, label %115, label %.thread10
 
 98:                                               ; preds = %86
   %99 = icmp eq i8 %91, -120
@@ -1125,65 +1125,63 @@ alps_rpt_cmd.exit5:                               ; preds = %58
   %101 = load i8, ptr %60, align 1
   %102 = and i8 %101, -16
   switch i8 %102, label %.thread8 [
-    i8 -80, label %116
-    i8 -64, label %116
+    i8 -80, label %115
+    i8 -64, label %115
   ]
 
 .thread8:                                         ; preds = %100
   %103 = icmp ne i8 %101, 8
   %.not12 = or i1 %93, %103
-  br i1 %.not12, label %.thread8.thread, label %116
+  br i1 %.not12, label %104, label %115
 
-.thread8.thread:                                  ; preds = %94, %.thread8
-  %104 = phi i8 [ %101, %.thread8 ], [ %95, %94 ]
+104:                                              ; preds = %.thread8
   %105 = xor i1 %93, true
-  %106 = icmp eq i8 %104, 7
+  %106 = icmp eq i8 %101, 7
   %107 = and i1 %106, %105
-  %108 = icmp ugt i8 %83, -113
-  %109 = select i1 %107, i1 %108, i1 false
-  %110 = icmp ult i8 %83, -98
-  %111 = select i1 %109, i1 %110, i1 false
-  br i1 %111, label %116, label %.thread10
+  %108 = add i8 %83, 112
+  %109 = icmp ult i8 %108, 14
+  %110 = select i1 %107, i1 %109, i1 false
+  br i1 %110, label %115, label %.thread10
 
-.thread10:                                        ; preds = %98, %.thread8.thread
-  br i1 %88, label %112, label %alps_rpt_cmd.exit.thread
+.thread10:                                        ; preds = %94, %98, %104
+  br i1 %88, label %111, label %alps_rpt_cmd.exit.thread
 
-112:                                              ; preds = %.thread10
+111:                                              ; preds = %.thread10
   switch i8 %80, label %alps_rpt_cmd.exit.thread [
-    i8 40, label %116
-    i8 20, label %116
-    i8 -56, label %113
+    i8 40, label %115
+    i8 20, label %115
+    i8 -56, label %112
   ]
 
-113:                                              ; preds = %112
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %115, ptr noundef nonnull @.str.13, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 344
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %114, ptr noundef nonnull @.str.13, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   br label %alps_rpt_cmd.exit.thread
 
-116:                                              ; preds = %112, %112, %.thread8.thread, %.thread8, %100, %100, %94, %.thread, %72
-  %117 = phi ptr [ %73, %72 ], [ @alps_v4_protocol_data, %.thread ], [ @alps_v5_protocol_data, %94 ], [ @alps_v7_protocol_data, %100 ], [ @alps_v7_protocol_data, %100 ], [ @alps_v3_rushmore_data, %.thread8 ], [ @alps_v3_protocol_data, %.thread8.thread ], [ @alps_v8_protocol_data, %112 ], [ @alps_v8_protocol_data, %112 ]
-  %118 = icmp eq ptr %1, null
-  br i1 %118, label %124, label %119
+115:                                              ; preds = %111, %111, %104, %.thread8, %100, %100, %94, %.thread, %72
+  %116 = phi ptr [ %73, %72 ], [ @alps_v4_protocol_data, %.thread ], [ @alps_v5_protocol_data, %94 ], [ @alps_v7_protocol_data, %100 ], [ @alps_v7_protocol_data, %100 ], [ @alps_v3_rushmore_data, %.thread8 ], [ @alps_v3_protocol_data, %104 ], [ @alps_v8_protocol_data, %111 ], [ @alps_v8_protocol_data, %111 ]
+  %117 = icmp eq ptr %1, null
+  br i1 %117, label %123, label %118
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %1, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(3) %120, ptr noundef nonnull align 4 dereferenceable(3) %4, i64 3, i1 false)
-  %121 = getelementptr inbounds i8, ptr %1, i64 195
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %121, ptr noundef nonnull align 4 dereferenceable(3) %5, i64 3, i1 false)
-  %122 = call fastcc i32 @alps_set_protocol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %117), !range !14
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %alps_rpt_cmd.exit.thread
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds i8, ptr %1, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(3) %119, ptr noundef nonnull align 4 dereferenceable(3) %4, i64 3, i1 false)
+  %120 = getelementptr inbounds i8, ptr %1, i64 195
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %120, ptr noundef nonnull align 4 dereferenceable(3) %5, i64 3, i1 false)
+  %121 = call fastcc i32 @alps_set_protocol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %116), !range !14
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %123, label %alps_rpt_cmd.exit.thread
 
-124:                                              ; preds = %119, %116
+123:                                              ; preds = %118, %115
   br label %alps_rpt_cmd.exit.thread
 
-alps_rpt_cmd.exit.thread:                         ; preds = %112, %.thread10, %58, %49, %52, %55, %alps_rpt_cmd.exit4, %42, %33, %36, %39, %30, %18, %9, %12, %15, %2, %124, %119, %113, %alps_rpt_cmd.exit5, %28, %alps_rpt_cmd.exit
-  %125 = phi i32 [ 0, %124 ], [ -22, %113 ], [ -22, %28 ], [ -22, %alps_rpt_cmd.exit ], [ -5, %alps_rpt_cmd.exit5 ], [ %122, %119 ], [ -5, %2 ], [ -5, %15 ], [ -5, %12 ], [ -5, %9 ], [ -5, %18 ], [ -5, %30 ], [ -5, %39 ], [ -5, %36 ], [ -5, %33 ], [ -5, %42 ], [ -5, %alps_rpt_cmd.exit4 ], [ -5, %55 ], [ -5, %52 ], [ -5, %49 ], [ -5, %58 ], [ -22, %.thread10 ], [ -22, %112 ]
+alps_rpt_cmd.exit.thread:                         ; preds = %111, %.thread10, %58, %49, %52, %55, %alps_rpt_cmd.exit4, %42, %33, %36, %39, %30, %18, %9, %12, %15, %2, %123, %118, %112, %alps_rpt_cmd.exit5, %28, %alps_rpt_cmd.exit
+  %124 = phi i32 [ 0, %123 ], [ -22, %112 ], [ -22, %28 ], [ -22, %alps_rpt_cmd.exit ], [ -5, %alps_rpt_cmd.exit5 ], [ %121, %118 ], [ -5, %2 ], [ -5, %15 ], [ -5, %12 ], [ -5, %9 ], [ -5, %18 ], [ -5, %30 ], [ -5, %39 ], [ -5, %36 ], [ -5, %33 ], [ -5, %42 ], [ -5, %alps_rpt_cmd.exit4 ], [ -5, %55 ], [ -5, %52 ], [ -5, %49 ], [ -5, %58 ], [ -22, %.thread10 ], [ -22, %111 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  ret i32 %125
+  ret i32 %124
 }
 
 ; Function Attrs: null_pointer_is_valid

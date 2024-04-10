@@ -6393,7 +6393,7 @@ define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr 
   %14 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
-  br label %112
+  br label %111
 
 17:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
@@ -6431,7 +6431,7 @@ define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr 
   %37 = call { i64, ptr } @jv_invalid_with_msg(i64 %35, ptr %36) #14
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1
-  br label %112
+  br label %111
 
 40:                                               ; preds = %26, %24
   call void @jv_free(i64 %3, ptr %4) #14
@@ -6443,111 +6443,108 @@ define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr 
   %or.cond = select i1 %42, i1 %45, i1 false
   %46 = getelementptr inbounds i8, ptr %6, i64 16
   %47 = load i32, ptr %46, align 8
-  %48 = icmp sgt i32 %47, -1
-  %or.cond5 = select i1 %or.cond, i1 %48, i1 false
-  %49 = icmp slt i32 %47, 12
-  %or.cond8 = select i1 %or.cond5, i1 %49, i1 false
-  br i1 %or.cond8, label %50, label %79
+  %48 = icmp ult i32 %47, 12
+  %or.cond8 = select i1 %or.cond, i1 %48, i1 false
+  br i1 %or.cond8, label %49, label %78
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %6, i64 20
-  %52 = load i32, ptr %51, align 4
-  %53 = add nsw i32 %52, 1900
-  %54 = sdiv i32 %53, 100
-  %55 = srem i32 %53, 100
-  %56 = icmp ult i32 %47, 2
-  %57 = sext i1 %56 to i32
-  %spec.select.i = add nsw i32 %55, %57
-  %.016.v.i = select i1 %56, i32 11, i32 -1
+49:                                               ; preds = %40
+  %50 = getelementptr inbounds i8, ptr %6, i64 20
+  %51 = load i32, ptr %50, align 4
+  %52 = add nsw i32 %51, 1900
+  %53 = sdiv i32 %52, 100
+  %54 = srem i32 %52, 100
+  %55 = icmp ult i32 %47, 2
+  %56 = sext i1 %55 to i32
+  %spec.select.i = add nsw i32 %54, %56
+  %.016.v.i = select i1 %55, i32 11, i32 -1
   %.016.i = add nsw i32 %.016.v.i, %47
-  %58 = sitofp i32 %.016.i to double
-  %59 = call double @llvm.fmuladd.f64(double %58, double 2.600000e+00, double -2.000000e-01)
-  %60 = call double @llvm.floor.f64(double %59)
-  %61 = fptosi double %60 to i32
-  %62 = sitofp i32 %spec.select.i to double
-  %63 = fmul double %62, 2.500000e-01
-  %64 = call double @llvm.floor.f64(double %63)
-  %65 = fptosi double %64 to i32
-  %66 = sitofp i32 %54 to double
-  %67 = fmul double %66, 2.500000e-01
-  %68 = call double @llvm.floor.f64(double %67)
-  %69 = fptosi double %68 to i32
-  %70 = add i32 %44, %61
-  %71 = shl nsw i32 %54, 1
-  %72 = sub i32 %70, %71
-  %73 = add i32 %72, %spec.select.i
-  %74 = add i32 %73, %69
-  %75 = add i32 %74, %65
-  %76 = srem i32 %75, 7
-  %77 = icmp slt i32 %76, 0
-  %78 = add nsw i32 %76, 7
-  %.0.i = select i1 %77, i32 %78, i32 %76
+  %57 = sitofp i32 %.016.i to double
+  %58 = call double @llvm.fmuladd.f64(double %57, double 2.600000e+00, double -2.000000e-01)
+  %59 = call double @llvm.floor.f64(double %58)
+  %60 = fptosi double %59 to i32
+  %61 = sitofp i32 %spec.select.i to double
+  %62 = fmul double %61, 2.500000e-01
+  %63 = call double @llvm.floor.f64(double %62)
+  %64 = fptosi double %63 to i32
+  %65 = sitofp i32 %53 to double
+  %66 = fmul double %65, 2.500000e-01
+  %67 = call double @llvm.floor.f64(double %66)
+  %68 = fptosi double %67 to i32
+  %69 = add i32 %44, %60
+  %70 = shl nsw i32 %53, 1
+  %71 = sub i32 %69, %70
+  %72 = add i32 %71, %spec.select.i
+  %73 = add i32 %72, %68
+  %74 = add i32 %73, %64
+  %75 = srem i32 %74, 7
+  %76 = icmp slt i32 %75, 0
+  %77 = add nsw i32 %75, 7
+  %.0.i = select i1 %76, i32 %77, i32 %75
   store i32 %.0.i, ptr %18, align 8
-  br label %79
+  br label %78
 
-79:                                               ; preds = %50, %40
-  %80 = load i32, ptr %19, align 4
-  %81 = icmp eq i32 %80, 367
-  %or.cond11 = select i1 %81, i1 %45, i1 false
-  %or.cond14 = select i1 %or.cond11, i1 %48, i1 false
-  %or.cond17 = select i1 %or.cond14, i1 %49, i1 false
-  br i1 %or.cond17, label %82, label %99
+78:                                               ; preds = %49, %40
+  %79 = load i32, ptr %19, align 4
+  %80 = icmp eq i32 %79, 367
+  %or.cond11 = select i1 %80, i1 %45, i1 false
+  %or.cond17 = select i1 %or.cond11, i1 %48, i1 false
+  br i1 %or.cond17, label %81, label %98
 
-82:                                               ; preds = %79
-  %83 = icmp ugt i32 %47, 1
-  br i1 %83, label %84, label %set_tm_yday.exit
+81:                                               ; preds = %78
+  %82 = icmp ugt i32 %47, 1
+  br i1 %82, label %83, label %set_tm_yday.exit
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %6, i64 20
-  %86 = load i32, ptr %85, align 4
-  %87 = add nsw i32 %86, 1900
-  %88 = and i32 %86, 3
-  %89 = icmp ne i32 %88, 0
-  %90 = srem i32 %87, 100
-  %.not.i = icmp eq i32 %90, 0
-  %or.cond.not21.not.i = select i1 %89, i1 true, i1 %.not.i
-  %91 = srem i32 %87, 400
-  %92 = icmp ne i32 %91, 0
-  %or.cond18.i = select i1 %or.cond.not21.not.i, i1 %92, i1 false
-  %93 = sext i1 %or.cond18.i to i32
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds i8, ptr %6, i64 20
+  %85 = load i32, ptr %84, align 4
+  %86 = add nsw i32 %85, 1900
+  %87 = and i32 %85, 3
+  %88 = icmp ne i32 %87, 0
+  %89 = srem i32 %86, 100
+  %.not.i = icmp eq i32 %89, 0
+  %or.cond.not21.not24.i = select i1 %88, i1 true, i1 %.not.i
+  %90 = srem i32 %86, 400
+  %91 = icmp ne i32 %90, 0
+  %or.cond18.not.i = select i1 %or.cond.not21.not24.i, i1 %91, i1 false
+  %92 = sext i1 %or.cond18.not.i to i32
   br label %set_tm_yday.exit
 
-set_tm_yday.exit:                                 ; preds = %82, %84
-  %.014.i = phi i32 [ -1, %82 ], [ %93, %84 ]
-  %94 = zext nneg i32 %47 to i64
-  %95 = getelementptr inbounds [12 x i32], ptr @set_tm_yday.d, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4
-  %97 = add i32 %.014.i, %44
-  %98 = add i32 %97, %96
-  store i32 %98, ptr %19, align 4
-  br label %99
+set_tm_yday.exit:                                 ; preds = %81, %83
+  %.014.i = phi i32 [ -1, %81 ], [ %92, %83 ]
+  %93 = zext nneg i32 %47 to i64
+  %94 = getelementptr inbounds [12 x i32], ptr @set_tm_yday.d, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4
+  %96 = add i32 %.014.i, %44
+  %97 = add i32 %96, %95
+  store i32 %97, ptr %19, align 4
+  br label %98
 
-99:                                               ; preds = %set_tm_yday.exit, %79
-  %100 = call fastcc { i64, ptr } @tm2jv(ptr noundef nonnull %6)
-  %101 = extractvalue { i64, ptr } %100, 0
-  %102 = extractvalue { i64, ptr } %100, 1
-  %103 = load i8, ptr %22, align 1
-  %.not58 = icmp eq i8 %103, 0
-  br i1 %.not58, label %111, label %104
+98:                                               ; preds = %set_tm_yday.exit, %78
+  %99 = call fastcc { i64, ptr } @tm2jv(ptr noundef nonnull %6)
+  %100 = extractvalue { i64, ptr } %99, 0
+  %101 = extractvalue { i64, ptr } %99, 1
+  %102 = load i8, ptr %22, align 1
+  %.not58 = icmp eq i8 %102, 0
+  br i1 %.not58, label %110, label %103
 
-104:                                              ; preds = %99
-  %105 = call { i64, ptr } @jv_string(ptr noundef nonnull %22) #14
-  %106 = extractvalue { i64, ptr } %105, 0
-  %107 = extractvalue { i64, ptr } %105, 1
-  %108 = call { i64, ptr } @jv_array_append(i64 %101, ptr %102, i64 %106, ptr %107) #14
-  %109 = extractvalue { i64, ptr } %108, 0
-  %110 = extractvalue { i64, ptr } %108, 1
+103:                                              ; preds = %98
+  %104 = call { i64, ptr } @jv_string(ptr noundef nonnull %22) #14
+  %105 = extractvalue { i64, ptr } %104, 0
+  %106 = extractvalue { i64, ptr } %104, 1
+  %107 = call { i64, ptr } @jv_array_append(i64 %100, ptr %101, i64 %105, ptr %106) #14
+  %108 = extractvalue { i64, ptr } %107, 0
+  %109 = extractvalue { i64, ptr } %107, 1
+  br label %110
+
+110:                                              ; preds = %103, %98
+  %.sroa.051.0 = phi i64 [ %108, %103 ], [ %100, %98 ]
+  %.sroa.653.0 = phi ptr [ %109, %103 ], [ %101, %98 ]
+  call void @jv_free(i64 %1, ptr %2) #14
   br label %111
 
-111:                                              ; preds = %104, %99
-  %.sroa.051.0 = phi i64 [ %109, %104 ], [ %101, %99 ]
-  %.sroa.653.0 = phi ptr [ %110, %104 ], [ %102, %99 ]
-  call void @jv_free(i64 %1, ptr %2) #14
-  br label %112
-
-112:                                              ; preds = %111, %33, %10
-  %.sroa.051.1 = phi i64 [ %15, %10 ], [ %38, %33 ], [ %.sroa.051.0, %111 ]
-  %.sroa.653.1 = phi ptr [ %16, %10 ], [ %39, %33 ], [ %.sroa.653.0, %111 ]
+111:                                              ; preds = %110, %33, %10
+  %.sroa.051.1 = phi i64 [ %15, %10 ], [ %38, %33 ], [ %.sroa.051.0, %110 ]
+  %.sroa.653.1 = phi ptr [ %16, %10 ], [ %39, %33 ], [ %.sroa.653.0, %110 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.051.1, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.653.1, 1
   ret { i64, ptr } %.fca.1.insert

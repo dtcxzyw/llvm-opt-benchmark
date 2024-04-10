@@ -920,27 +920,26 @@ define internal noundef i32 @param_set_timeout(ptr noundef %0, ptr nocapture nou
   %4 = call i64 @simple_strtoul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #8
   %5 = load ptr, ptr %3, align 8
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %17, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %5, align 1
   %9 = icmp ne i8 %8, 0
-  %10 = icmp ult i64 %4, 3
-  %11 = select i1 %9, i1 true, i1 %10
-  %12 = icmp ugt i64 %4, 20
-  %13 = select i1 %11, i1 true, i1 %12
-  br i1 %13, label %17, label %14
+  %10 = add i64 %4, -21
+  %11 = icmp ult i64 %10, -18
+  %12 = select i1 %9, i1 true, i1 %11
+  br i1 %12, label %16, label %13
 
-14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load ptr, ptr %15, align 8
-  store i64 %4, ptr %16, align 8
-  br label %17
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load ptr, ptr %14, align 8
+  store i64 %4, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %14, %7, %2
-  %18 = phi i32 [ 0, %14 ], [ -22, %7 ], [ -22, %2 ]
+16:                                               ; preds = %13, %7, %2
+  %17 = phi i32 [ 0, %13 ], [ -22, %7 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  ret i32 %18
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -952,27 +951,25 @@ define internal noundef i32 @param_set_port(ptr noundef %0, ptr nocapture nounde
   %5 = trunc i64 %4 to i32
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, %0
-  br i1 %7, label %18, label %8
+  br i1 %7, label %16, label %8
 
 8:                                                ; preds = %2
   %9 = load i8, ptr %6, align 1
   %10 = icmp ne i8 %9, 0
-  %11 = icmp slt i32 %5, 0
+  %11 = icmp ugt i32 %5, 65535
   %12 = select i1 %10, i1 true, i1 %11
-  %13 = icmp sgt i32 %5, 65535
-  %14 = select i1 %12, i1 true, i1 %13
-  br i1 %14, label %18, label %15
+  br i1 %12, label %16, label %13
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
-  %17 = load ptr, ptr %16, align 8
-  store i32 %5, ptr %17, align 4
-  br label %18
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load ptr, ptr %14, align 8
+  store i32 %5, ptr %15, align 4
+  br label %16
 
-18:                                               ; preds = %15, %8, %2
-  %19 = phi i32 [ 0, %15 ], [ -22, %8 ], [ -22, %2 ]
+16:                                               ; preds = %13, %8, %2
+  %17 = phi i32 [ 0, %13 ], [ -22, %8 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  ret i32 %19
+  ret i32 %17
 }
 
 ; Function Attrs: null_pointer_is_valid

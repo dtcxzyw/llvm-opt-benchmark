@@ -1257,10 +1257,10 @@ define dso_local i64 @timestamp_to_char(ptr nocapture noundef %0) local_unnamed_
   %16 = icmp eq i8 %15, 1
   %17 = and i8 %15, -2
   %18 = icmp eq i8 %17, 2
-  %or.cond38 = or i1 %16, %18
+  %or.cond = or i1 %16, %18
   %19 = icmp eq i8 %15, 18
   %20 = select i1 %19, i64 16, i64 0
-  %21 = select i1 %or.cond38, i64 8, i64 %20
+  %21 = select i1 %or.cond, i64 8, i64 %20
   br label %33
 
 22:                                               ; preds = %1
@@ -1284,10 +1284,9 @@ define dso_local i64 @timestamp_to_char(ptr nocapture noundef %0) local_unnamed_
 33:                                               ; preds = %24, %28, %13
   %34 = phi i64 [ %21, %13 ], [ %27, %24 ], [ %32, %28 ]
   %35 = icmp eq i64 %34, 0
-  %36 = icmp eq i64 %5, -9223372036854775808
-  %or.cond = select i1 %35, i1 true, i1 %36
-  %37 = icmp eq i64 %5, 9223372036854775807
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %37
+  %36 = add i64 %5, -9223372036854775807
+  %37 = icmp ult i64 %36, 2
+  %or.cond3 = select i1 %35, i1 true, i1 %37
   br i1 %or.cond3, label %38, label %40
 
 38:                                               ; preds = %33
@@ -1436,10 +1435,10 @@ define dso_local i64 @timestamptz_to_char(ptr nocapture noundef %0) local_unname
   %17 = icmp eq i8 %16, 1
   %18 = and i8 %16, -2
   %19 = icmp eq i8 %18, 2
-  %or.cond38 = or i1 %17, %19
+  %or.cond = or i1 %17, %19
   %20 = icmp eq i8 %16, 18
   %21 = select i1 %20, i64 16, i64 0
-  %22 = select i1 %or.cond38, i64 8, i64 %21
+  %22 = select i1 %or.cond, i64 8, i64 %21
   br label %34
 
 23:                                               ; preds = %1
@@ -1463,10 +1462,9 @@ define dso_local i64 @timestamptz_to_char(ptr nocapture noundef %0) local_unname
 34:                                               ; preds = %25, %29, %14
   %35 = phi i64 [ %22, %14 ], [ %28, %25 ], [ %33, %29 ]
   %36 = icmp eq i64 %35, 0
-  %37 = icmp eq i64 %6, -9223372036854775808
-  %or.cond = select i1 %36, i1 true, i1 %37
-  %38 = icmp eq i64 %6, 9223372036854775807
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %38
+  %37 = add i64 %6, -9223372036854775807
+  %38 = icmp ult i64 %37, 2
+  %or.cond3 = select i1 %36, i1 true, i1 %38
   br i1 %or.cond3, label %39, label %41
 
 39:                                               ; preds = %34
@@ -3835,7 +3833,7 @@ DCH_from_char.exit:                               ; preds = %197, %212, %227, %2
   %1055 = getelementptr inbounds i8, ptr %9, i64 4
   %1056 = load i8, ptr %1055, align 4
   %1057 = trunc i8 %1056 to i1
-  br i1 %1057, label %1341, label %1058
+  br i1 %1057, label %1340, label %1058
 
 1058:                                             ; preds = %1054, %1051, %DCH_from_char.exit
   br i1 %.not214, label %1073, label %.preheader
@@ -4025,7 +4023,7 @@ DCH_datetime_type.exit:                           ; preds = %.preheader
 
 1108:                                             ; preds = %1104
   %1109 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #18
-  br i1 %1109, label %1110, label %1341
+  br i1 %1109, label %1110, label %1340
 
 1110:                                             ; preds = %1108
   %1111 = call i32 @errcode(i32 noundef 117440642) #18
@@ -4033,7 +4031,7 @@ DCH_datetime_type.exit:                           ; preds = %.preheader
   %1113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.225, i32 noundef %1112) #18
   %1114 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.226) #18
   call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.3, i32 noundef 4600, ptr noundef nonnull @__func__.do_to_timestamp) #18
-  br label %1341
+  br label %1340
 
 1115:                                             ; preds = %1104
   %1116 = getelementptr inbounds i8, ptr %16, i64 8
@@ -4281,13 +4279,13 @@ thread-pre-split:                                 ; preds = %1159, %1162
 
 1226:                                             ; preds = %1219
   %1227 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #18
-  br i1 %1227, label %1228, label %1341
+  br i1 %1227, label %1228, label %1340
 
 1228:                                             ; preds = %1226
   %1229 = call i32 @errcode(i32 noundef 117440642) #18
   %1230 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.227) #18
   call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.3, i32 noundef 4712, ptr noundef nonnull @__func__.do_to_timestamp) #18
-  br label %1341
+  br label %1340
 
 1231:                                             ; preds = %1219
   %1232 = load i32, ptr %16, align 8
@@ -4412,7 +4410,7 @@ thread-pre-split:                                 ; preds = %1159, %1162
 
 1289:                                             ; preds = %1287
   call void @DateTimeParseError(i32 noundef -2, ptr noundef null, ptr noundef %17, ptr noundef nonnull @.str.228, ptr noundef %9) #18
-  br label %1341
+  br label %1340
 
 1290:                                             ; preds = %1287, %1286
   %1291 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4438,13 +4436,13 @@ thread-pre-split:                                 ; preds = %1159, %1162
 
 1301:                                             ; preds = %1298, %1296, %1293, %1290
   call void @DateTimeParseError(i32 noundef -2, ptr noundef null, ptr noundef %17, ptr noundef nonnull @.str.228, ptr noundef %9) #18
-  br label %1341
+  br label %1340
 
 1302:                                             ; preds = %1298
   %1303 = getelementptr inbounds i8, ptr %16, i64 80
   %1304 = load i32, ptr %1303, align 8
   %.not244 = icmp eq i32 %1304, 0
-  br i1 %.not244, label %1321, label %1305
+  br i1 %.not244, label %1320, label %1305
 
 1305:                                             ; preds = %1302
   %1306 = getelementptr inbounds i8, ptr %16, i64 84
@@ -4452,85 +4450,83 @@ thread-pre-split:                                 ; preds = %1159, %1162
   %or.cond8 = icmp ugt i32 %1307, 15
   %1308 = getelementptr inbounds i8, ptr %16, i64 88
   %1309 = load i32, ptr %1308, align 8
-  %1310 = icmp slt i32 %1309, 0
-  %or.cond11 = select i1 %or.cond8, i1 true, i1 %1310
-  %1311 = icmp sgt i32 %1309, 59
-  %or.cond14 = select i1 %or.cond11, i1 true, i1 %1311
-  br i1 %or.cond14, label %1312, label %1313
+  %1310 = icmp ugt i32 %1309, 59
+  %or.cond14 = select i1 %or.cond8, i1 true, i1 %1310
+  br i1 %or.cond14, label %1311, label %1312
+
+1311:                                             ; preds = %1305
+  call void @DateTimeParseError(i32 noundef -5, ptr noundef null, ptr noundef %17, ptr noundef nonnull @.str.228, ptr noundef %9) #18
+  br label %1340
 
 1312:                                             ; preds = %1305
-  call void @DateTimeParseError(i32 noundef -5, ptr noundef null, ptr noundef %17, ptr noundef nonnull @.str.228, ptr noundef %9) #18
-  br label %1341
-
-1313:                                             ; preds = %1305
   store i8 1, ptr %6, align 4
-  %1314 = mul nuw nsw i32 %1307, 60
-  %1315 = add nuw nsw i32 %1314, %1309
-  %1316 = mul nuw nsw i32 %1315, 60
-  %1317 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %1316, ptr %1317, align 4
-  %1318 = icmp sgt i32 %1304, 0
-  br i1 %1318, label %1319, label %1338
+  %1313 = mul nuw nsw i32 %1307, 60
+  %1314 = add nuw nsw i32 %1313, %1309
+  %1315 = mul nuw nsw i32 %1314, 60
+  %1316 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %1315, ptr %1316, align 4
+  %1317 = icmp sgt i32 %1304, 0
+  br i1 %1317, label %1318, label %1337
 
-1319:                                             ; preds = %1313
-  %1320 = sub nsw i32 0, %1316
-  store i32 %1320, ptr %1317, align 4
-  br label %1338
+1318:                                             ; preds = %1312
+  %1319 = sub nsw i32 0, %1315
+  store i32 %1319, ptr %1316, align 4
+  br label %1337
 
-1321:                                             ; preds = %1302
-  %1322 = getelementptr inbounds i8, ptr %16, i64 96
-  %1323 = load i8, ptr %1322, align 8
-  %1324 = trunc i8 %1323 to i1
-  br i1 %1324, label %1325, label %1338
+1320:                                             ; preds = %1302
+  %1321 = getelementptr inbounds i8, ptr %16, i64 96
+  %1322 = load i8, ptr %1321, align 8
+  %1323 = trunc i8 %1322 to i1
+  br i1 %1323, label %1324, label %1337
 
-1325:                                             ; preds = %1321
+1324:                                             ; preds = %1320
   store i8 1, ptr %6, align 4
-  %1326 = getelementptr inbounds i8, ptr %16, i64 104
-  %1327 = load ptr, ptr %1326, align 8
-  %1328 = icmp eq ptr %1327, null
-  %1329 = getelementptr inbounds i8, ptr %6, i64 4
-  br i1 %1328, label %1330, label %1334
+  %1325 = getelementptr inbounds i8, ptr %16, i64 104
+  %1326 = load ptr, ptr %1325, align 8
+  %1327 = icmp eq ptr %1326, null
+  %1328 = getelementptr inbounds i8, ptr %6, i64 4
+  br i1 %1327, label %1329, label %1333
 
-1330:                                             ; preds = %1325
-  %1331 = getelementptr inbounds i8, ptr %16, i64 100
-  %1332 = load i32, ptr %1331, align 4
-  %1333 = sub i32 0, %1332
-  store i32 %1333, ptr %1329, align 4
-  br label %1338
+1329:                                             ; preds = %1324
+  %1330 = getelementptr inbounds i8, ptr %16, i64 100
+  %1331 = load i32, ptr %1330, align 4
+  %1332 = sub i32 0, %1331
+  store i32 %1332, ptr %1328, align 4
+  br label %1337
 
-1334:                                             ; preds = %1325
-  %1335 = getelementptr inbounds i8, ptr %16, i64 112
-  %1336 = load ptr, ptr %1335, align 8
-  %1337 = call i32 @DetermineTimeZoneAbbrevOffset(ptr noundef nonnull %4, ptr noundef %1336, ptr noundef nonnull %1327) #18
-  store i32 %1337, ptr %1329, align 4
-  br label %1338
+1333:                                             ; preds = %1324
+  %1334 = getelementptr inbounds i8, ptr %16, i64 112
+  %1335 = load ptr, ptr %1334, align 8
+  %1336 = call i32 @DetermineTimeZoneAbbrevOffset(ptr noundef nonnull %4, ptr noundef %1335, ptr noundef nonnull %1326) #18
+  store i32 %1336, ptr %1328, align 4
+  br label %1337
 
-1338:                                             ; preds = %1321, %1334, %1330, %1313, %1319
+1337:                                             ; preds = %1320, %1333, %1329, %1312, %1318
   %.not245 = icmp eq ptr %.1, null
-  br i1 %.not245, label %1344, label %1339
+  br i1 %.not245, label %1343, label %1338
 
-1339:                                             ; preds = %1338
-  %1340 = trunc i8 %.1177 to i1
-  br i1 %1340, label %1344, label %.sink.split331
+1338:                                             ; preds = %1337
+  %1339 = trunc i8 %.1177 to i1
+  br i1 %1339, label %1343, label %.sink.split331
 
-1341:                                             ; preds = %1228, %1226, %1110, %1108, %1054, %1312, %1301, %1289
-  %.2178 = phi i8 [ %.0176, %1054 ], [ %.1177, %1110 ], [ %.1177, %1108 ], [ %.1177, %1289 ], [ %.1177, %1301 ], [ %.1177, %1312 ], [ %.1177, %1228 ], [ %.1177, %1226 ]
-  %.2 = phi ptr [ %.0172, %1054 ], [ %.1, %1110 ], [ %.1, %1108 ], [ %.1, %1289 ], [ %.1, %1301 ], [ %.1, %1312 ], [ %.1, %1228 ], [ %.1, %1226 ]
+1340:                                             ; preds = %1228, %1226, %1110, %1108, %1054, %1311, %1301, %1289
+  %.2178 = phi i8 [ %.0176, %1054 ], [ %.1177, %1110 ], [ %.1177, %1108 ], [ %.1177, %1289 ], [ %.1177, %1301 ], [ %.1177, %1311 ], [ %.1177, %1228 ], [ %.1177, %1226 ]
+  %.2 = phi ptr [ %.0172, %1054 ], [ %.1, %1110 ], [ %.1, %1108 ], [ %.1, %1289 ], [ %.1, %1301 ], [ %.1, %1311 ], [ %.1, %1228 ], [ %.1, %1226 ]
   %.not246 = icmp eq ptr %.2, null
-  br i1 %.not246, label %1344, label %1342
+  br i1 %.not246, label %1343, label %1341
 
-1342:                                             ; preds = %1341
-  %1343 = trunc i8 %.2178 to i1
-  br i1 %1343, label %1344, label %.sink.split331
+1341:                                             ; preds = %1340
+  %1342 = trunc i8 %.2178 to i1
+  br i1 %1342, label %1343, label %.sink.split331
 
-.sink.split331:                                   ; preds = %1342, %1339
-  %.2.sink = phi ptr [ %.1, %1339 ], [ %.2, %1342 ]
-  %.0.ph = phi i1 [ true, %1339 ], [ false, %1342 ]
+.sink.split331:                                   ; preds = %1341, %1338
+  %.2.sink = phi ptr [ %.1, %1338 ], [ %.2, %1341 ]
+  %.0.ph = phi i1 [ true, %1338 ], [ false, %1341 ]
   call void @pfree(ptr noundef nonnull %.2.sink) #18
-  br label %1344
+  br label %1343
 
-1344:                                             ; preds = %.sink.split331, %1341, %1342, %1338, %1339
-  %.0 = phi i1 [ true, %1339 ], [ true, %1338 ], [ false, %1342 ], [ false, %1341 ], [ %.0.ph, %.sink.split331 ]
+1343:                                             ; preds = %.sink.split331, %1340, %1341, %1337, %1338
+  %.0 = phi i1 [ true, %1338 ], [ true, %1337 ], [ false, %1341 ], [ false, %1340 ], [ %.0.ph, %.sink.split331 ]
   call void @pfree(ptr noundef %17) #18
   ret i1 %.0
 }
@@ -11353,7 +11349,7 @@ strspace_len.exit:                                ; preds = %strspace_len.exit.l
 32:                                               ; preds = %strspace_len.exit
   %33 = load i8, ptr %3, align 8
   switch i8 %33, label %36 [
-    i8 1, label %is_next_separator.exit.thread62
+    i8 1, label %is_next_separator.exit.thread61
     i8 2, label %34
   ]
 
@@ -11386,7 +11382,7 @@ strspace_len.exit:                                ; preds = %strspace_len.exit.l
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, 2048
   %.not14.i = icmp eq i16 %51, 0
-  br i1 %.not14.i, label %is_next_separator.exit.thread, label %is_next_separator.exit.thread62
+  br i1 %.not14.i, label %is_next_separator.exit.thread, label %is_next_separator.exit.thread61
 
 is_next_separator.exit:                           ; preds = %36
   %52 = getelementptr i8, ptr %3, i64 24
@@ -11394,7 +11390,7 @@ is_next_separator.exit:                           ; preds = %36
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load i8, ptr %54, align 8
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %is_next_separator.exit.thread62, label %is_next_separator.exit.thread
+  br i1 %56, label %is_next_separator.exit.thread61, label %is_next_separator.exit.thread
 
 is_next_separator.exit.thread:                    ; preds = %39, %43, %36, %34, %strspace_len.exit, %is_next_separator.exit
   %57 = tail call ptr @__errno_location() #19
@@ -11403,11 +11399,11 @@ is_next_separator.exit.thread:                    ; preds = %39, %43, %36, %34, 
   %59 = load ptr, ptr %7, align 8
   br label %95
 
-is_next_separator.exit.thread62:                  ; preds = %43, %32, %is_next_separator.exit
+is_next_separator.exit.thread61:                  ; preds = %43, %32, %is_next_separator.exit
   %60 = icmp slt i32 %28, %2
   br i1 %60, label %61, label %71
 
-61:                                               ; preds = %is_next_separator.exit.thread62
+61:                                               ; preds = %is_next_separator.exit.thread61
   %62 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
   br i1 %62, label %63, label %from_char_set_int.exit.thread
 
@@ -11422,7 +11418,7 @@ is_next_separator.exit.thread62:                  ; preds = %43, %32, %is_next_s
   call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.3, i32 noundef 2363, ptr noundef nonnull @__func__.from_char_parse_int_len) #18
   br label %from_char_set_int.exit.thread
 
-71:                                               ; preds = %is_next_separator.exit.thread62
+71:                                               ; preds = %is_next_separator.exit.thread61
   %72 = tail call ptr @__errno_location() #19
   store i32 0, ptr %72, align 4
   %73 = call i64 @strtol(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef 10) #18
@@ -11433,8 +11429,8 @@ is_next_separator.exit.thread62:                  ; preds = %43, %32, %is_next_s
   %78 = trunc i64 %77 to i32
   %79 = icmp sgt i32 %78, 0
   %80 = icmp slt i32 %78, %2
-  %or.cond57 = and i1 %79, %80
-  br i1 %or.cond57, label %81, label %91
+  %or.cond = and i1 %79, %80
+  br i1 %or.cond, label %81, label %91
 
 81:                                               ; preds = %71
   %82 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
@@ -11483,10 +11479,9 @@ is_next_separator.exit.thread62:                  ; preds = %43, %32, %is_next_s
   %107 = tail call ptr @__errno_location() #19
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, 34
-  %110 = icmp slt i64 %.050, -2147483648
-  %or.cond = select i1 %109, i1 true, i1 %110
-  %111 = icmp sgt i64 %.050, 2147483647
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %111
+  %110 = add i64 %.050, -2147483648
+  %111 = icmp ult i64 %110, -4294967296
+  %or.cond3 = select i1 %109, i1 true, i1 %111
   br i1 %or.cond3, label %112, label %121
 
 112:                                              ; preds = %106
@@ -11510,10 +11505,10 @@ is_next_separator.exit.thread62:                  ; preds = %43, %32, %is_next_s
 122:                                              ; preds = %121
   %123 = trunc i64 %.050 to i32
   %124 = load i32, ptr %0, align 4
-  %.not.i58 = icmp eq i32 %124, 0
+  %.not.i57 = icmp eq i32 %124, 0
   %.not10.i = icmp eq i32 %124, %123
-  %or.cond.i59 = or i1 %.not.i58, %.not10.i
-  br i1 %or.cond.i59, label %from_char_set_int.exit, label %125
+  %or.cond.i58 = or i1 %.not.i57, %.not10.i
+  br i1 %or.cond.i58, label %from_char_set_int.exit, label %125
 
 125:                                              ; preds = %122
   %126 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18

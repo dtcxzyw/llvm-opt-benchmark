@@ -248,7 +248,7 @@ define internal i32 @dissect_dect_dlc(ptr noundef %0, ptr noundef %1, ptr nounde
   %52 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %53 = add i32 %52, -3
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %55, label %143
+  br i1 %54, label %55, label %141
 
 55:                                               ; preds = %15
   %56 = lshr i8 %44, 2
@@ -338,7 +338,7 @@ define internal i32 @dissect_dect_dlc(ptr noundef %0, ptr noundef %1, ptr nounde
 
 114:                                              ; preds = %83, %110, %108, %105
   store i32 %68, ptr %67, align 8
-  br label %143
+  br label %141
 
 115:                                              ; preds = %62, %55
   %116 = getelementptr inbounds i8, ptr %1, i64 80
@@ -347,42 +347,39 @@ define internal i32 @dissect_dect_dlc(ptr noundef %0, ptr noundef %1, ptr nounde
   %119 = load i16, ptr %118, align 2
   %120 = and i16 %119, 8
   %.not113 = icmp eq i16 %120, 0
-  %121 = and i32 %37, 3
-  %122 = icmp eq i32 %121, 3
-  %or.cond = select i1 %.not113, i1 %122, i1 false
-  %123 = and i32 %37, 236
-  %124 = icmp eq i32 %123, 44
-  %or.cond117 = select i1 %or.cond, i1 %124, i1 false
-  br i1 %or.cond117, label %125, label %137
+  %121 = and i32 %37, 239
+  %122 = icmp eq i32 %121, 47
+  %or.cond117 = select i1 %.not113, i1 %122, i1 false
+  br i1 %or.cond117, label %123, label %135
 
-125:                                              ; preds = %115
-  %126 = tail call i32 @conversation_get_id_from_elements(ptr noundef nonnull %1, i32 noundef 26, i32 noundef 8) #4
-  %127 = shl i32 %126, 3
-  %128 = shl nuw nsw i8 %26, 1
-  %129 = zext nneg i8 %128 to i32
-  %130 = or disjoint i32 %127, %129
-  %131 = load i32, ptr %9, align 4
-  %132 = or i32 %130, %131
-  %133 = load ptr, ptr @dect_dlc_last_n_s_map, align 8
-  %134 = zext i32 %132 to i64
-  %135 = inttoptr i64 %134 to ptr
-  %136 = tail call ptr @wmem_map_insert(ptr noundef %133, ptr noundef %135, ptr noundef null) #4
-  br label %137
+123:                                              ; preds = %115
+  %124 = tail call i32 @conversation_get_id_from_elements(ptr noundef nonnull %1, i32 noundef 26, i32 noundef 8) #4
+  %125 = shl i32 %124, 3
+  %126 = shl nuw nsw i8 %26, 1
+  %127 = zext nneg i8 %126 to i32
+  %128 = or disjoint i32 %125, %127
+  %129 = load i32, ptr %9, align 4
+  %130 = or i32 %128, %129
+  %131 = load ptr, ptr @dect_dlc_last_n_s_map, align 8
+  %132 = zext i32 %130 to i64
+  %133 = inttoptr i64 %132 to ptr
+  %134 = tail call ptr @wmem_map_insert(ptr noundef %131, ptr noundef %133, ptr noundef null) #4
+  br label %135
 
-137:                                              ; preds = %125, %115
-  %138 = load ptr, ptr @dlc_sapi_dissector_table, align 8
-  %139 = zext nneg i8 %26 to i32
-  %140 = tail call i32 @dissector_try_uint(ptr noundef %138, i32 noundef %139, ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2) #4
-  %.not114 = icmp eq i32 %140, 0
-  br i1 %.not114, label %141, label %143
+135:                                              ; preds = %123, %115
+  %136 = load ptr, ptr @dlc_sapi_dissector_table, align 8
+  %137 = zext nneg i8 %26 to i32
+  %138 = tail call i32 @dissector_try_uint(ptr noundef %136, i32 noundef %137, ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2) #4
+  %.not114 = icmp eq i32 %138, 0
+  br i1 %.not114, label %139, label %141
 
-141:                                              ; preds = %137
-  %142 = tail call i32 @call_data_dissector(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2) #4
-  br label %143
+139:                                              ; preds = %135
+  %140 = tail call i32 @call_data_dissector(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2) #4
+  br label %141
 
-143:                                              ; preds = %114, %141, %137, %15
-  %144 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %144
+141:                                              ; preds = %114, %139, %135, %15
+  %142 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  ret i32 %142
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

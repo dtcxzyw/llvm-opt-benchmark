@@ -6460,7 +6460,7 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   %18 = getelementptr inbounds i8, ptr %11, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %_ZL14updateLeftFacePiiii.exit179
+  br i1 %20, label %21, label %_ZL14updateLeftFacePiiii.exit178
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %11, i64 4
@@ -6493,9 +6493,9 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
 
 38:                                               ; preds = %.lr.ph, %_ZL12circumCirclePKfS0_S0_PfRf.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL12circumCirclePKfS0_S0_PfRf.exit ]
-  %.0103215 = phi i32 [ %2, %.lr.ph ], [ %.1, %_ZL12circumCirclePKfS0_S0_PfRf.exit ]
-  %.0189214 = phi float [ -1.000000e+00, %.lr.ph ], [ %.4, %_ZL12circumCirclePKfS0_S0_PfRf.exit ]
-  %39 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %299, %_ZL12circumCirclePKfS0_S0_PfRf.exit ]
+  %.0103214 = phi i32 [ %2, %.lr.ph ], [ %.1, %_ZL12circumCirclePKfS0_S0_PfRf.exit ]
+  %.0188213 = phi float [ -1.000000e+00, %.lr.ph ], [ %.4, %_ZL12circumCirclePKfS0_S0_PfRf.exit ]
+  %39 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %301, %_ZL12circumCirclePKfS0_S0_PfRf.exit ]
   %40 = icmp eq i64 %indvars.iv, %37
   %41 = icmp eq i64 %indvars.iv, %36
   %or.cond = select i1 %40, i1 true, i1 %41
@@ -6530,7 +6530,7 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   br i1 %67, label %68, label %_ZL12circumCirclePKfS0_S0_PfRf.exit
 
 68:                                               ; preds = %42
-  %69 = fcmp olt float %.0189214, 0.000000e+00
+  %69 = fcmp olt float %.0188213, 0.000000e+00
   %70 = trunc i64 %indvars.iv to i32
   br i1 %69, label %71, label %105
 
@@ -6581,12 +6581,12 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   %110 = fmul float %109, %109
   %111 = tail call noundef float @llvm.fmuladd.f32(float %107, float %107, float %110)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %111)
-  %112 = fmul float %.0189214, 0x3FF00418A0000000
+  %112 = fmul float %.0188213, 0x3FF00418A0000000
   %113 = fcmp ogt float %sqrt.i, %112
   br i1 %113, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %114
 
 114:                                              ; preds = %105
-  %115 = fmul float %.0189214, 0x3FEFF7CEE0000000
+  %115 = fmul float %.0188213, 0x3FEFF7CEE0000000
   %116 = fcmp olt float %sqrt.i, %115
   br i1 %116, label %117, label %151
 
@@ -6630,7 +6630,7 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   br label %_ZL12circumCirclePKfS0_S0_PfRf.exit
 
 151:                                              ; preds = %114
-  br i1 %34, label %.lr.ph.i, label %_ZL12overlapEdgesPKfPKiiii.exit129.thread
+  br i1 %34, label %.lr.ph.i, label %_ZL12overlapEdgesPKfPKiiii.exit128.thread
 
 .lr.ph.i:                                         ; preds = %151
   %152 = fneg float %64
@@ -6641,7 +6641,7 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
 
 156:                                              ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i ]
-  %157 = phi i1 [ true, %.lr.ph.i ], [ %207, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i ]
+  %157 = phi i1 [ true, %.lr.ph.i ], [ %208, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i ]
   %158 = shl nsw i64 %indvars.iv.i, 2
   %159 = getelementptr inbounds i32, ptr %3, i64 %158
   %160 = load i32, ptr %159, align 4
@@ -6653,566 +6653,566 @@ define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noun
   %166 = icmp eq i64 %indvars.iv, %165
   %or.cond.i = or i1 %164, %166
   %167 = icmp eq i32 %163, %.0
-  %or.cond28.i = select i1 %or.cond.i, i1 true, i1 %167
   %168 = zext i32 %163 to i64
   %169 = icmp eq i64 %indvars.iv, %168
-  %or.cond29.i = select i1 %or.cond28.i, i1 true, i1 %169
-  br i1 %or.cond29.i, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i, label %170
+  %170 = or i1 %167, %169
+  %or.cond29.i = select i1 %or.cond.i, i1 true, i1 %170
+  br i1 %or.cond29.i, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i, label %171
 
-170:                                              ; preds = %156
-  %171 = mul nsw i32 %160, 3
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds float, ptr %1, i64 %172
-  %174 = mul nsw i32 %163, 3
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds float, ptr %1, i64 %175
-  %.val.i = load float, ptr %173, align 4
-  %177 = getelementptr i8, ptr %173, i64 8
-  %.val30.i = load float, ptr %177, align 4
-  %.val31.i = load float, ptr %176, align 4
-  %178 = getelementptr i8, ptr %176, i64 8
-  %.val32.i = load float, ptr %178, align 4
-  %179 = fsub float %.val31.i, %.val.i
-  %180 = fsub float %.val32.i, %.val30.i
-  %181 = fneg float %180
-  %182 = insertelement <2 x float> poison, float %.val.i, i64 0
-  %183 = shufflevector <2 x float> %182, <2 x float> poison, <2 x i32> zeroinitializer
-  %184 = fsub <2 x float> %155, %183
-  %185 = insertelement <2 x float> poison, float %.val30.i, i64 0
-  %186 = shufflevector <2 x float> %185, <2 x float> poison, <2 x i32> zeroinitializer
-  %187 = fsub <2 x float> %153, %186
-  %188 = insertelement <2 x float> poison, float %181, i64 0
-  %189 = shufflevector <2 x float> %188, <2 x float> poison, <2 x i32> zeroinitializer
-  %190 = fmul <2 x float> %184, %189
-  %191 = insertelement <2 x float> poison, float %179, i64 0
-  %192 = shufflevector <2 x float> %191, <2 x float> poison, <2 x i32> zeroinitializer
-  %193 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %192, <2 x float> %187, <2 x float> %190)
-  %194 = extractelement <2 x float> %193, i64 0
-  %195 = extractelement <2 x float> %193, i64 1
-  %196 = fmul float %194, %195
-  %197 = fcmp olt float %196, 0.000000e+00
-  br i1 %197, label %198, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
+171:                                              ; preds = %156
+  %172 = mul nsw i32 %160, 3
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds float, ptr %1, i64 %173
+  %175 = mul nsw i32 %163, 3
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds float, ptr %1, i64 %176
+  %.val.i = load float, ptr %174, align 4
+  %178 = getelementptr i8, ptr %174, i64 8
+  %.val30.i = load float, ptr %178, align 4
+  %.val31.i = load float, ptr %177, align 4
+  %179 = getelementptr i8, ptr %177, i64 8
+  %.val32.i = load float, ptr %179, align 4
+  %180 = fsub float %.val31.i, %.val.i
+  %181 = fsub float %.val32.i, %.val30.i
+  %182 = fneg float %181
+  %183 = insertelement <2 x float> poison, float %.val.i, i64 0
+  %184 = shufflevector <2 x float> %183, <2 x float> poison, <2 x i32> zeroinitializer
+  %185 = fsub <2 x float> %155, %184
+  %186 = insertelement <2 x float> poison, float %.val30.i, i64 0
+  %187 = shufflevector <2 x float> %186, <2 x float> poison, <2 x i32> zeroinitializer
+  %188 = fsub <2 x float> %153, %187
+  %189 = insertelement <2 x float> poison, float %182, i64 0
+  %190 = shufflevector <2 x float> %189, <2 x float> poison, <2 x i32> zeroinitializer
+  %191 = fmul <2 x float> %185, %190
+  %192 = insertelement <2 x float> poison, float %180, i64 0
+  %193 = shufflevector <2 x float> %192, <2 x float> poison, <2 x i32> zeroinitializer
+  %194 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %193, <2 x float> %188, <2 x float> %191)
+  %195 = extractelement <2 x float> %194, i64 0
+  %196 = extractelement <2 x float> %194, i64 1
+  %197 = fmul float %195, %196
+  %198 = fcmp olt float %197, 0.000000e+00
+  br i1 %198, label %199, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
 
-198:                                              ; preds = %170
-  %199 = fsub float %.val.i, %46
-  %200 = fsub float %.val30.i, %48
-  %201 = fmul float %199, %152
-  %202 = tail call noundef float @llvm.fmuladd.f32(float %62, float %200, float %201)
-  %203 = fadd float %194, %202
-  %204 = fsub float %203, %195
-  %205 = fmul float %202, %204
-  %206 = fcmp olt float %205, 0.000000e+00
-  br i1 %206, label %_ZL12overlapEdgesPKfPKiiii.exit, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
+199:                                              ; preds = %171
+  %200 = fsub float %.val.i, %46
+  %201 = fsub float %.val30.i, %48
+  %202 = fmul float %200, %152
+  %203 = tail call noundef float @llvm.fmuladd.f32(float %62, float %201, float %202)
+  %204 = fadd float %195, %203
+  %205 = fsub float %204, %196
+  %206 = fmul float %203, %205
+  %207 = fcmp olt float %206, 0.000000e+00
+  br i1 %207, label %_ZL12overlapEdgesPKfPKiiii.exit, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
 
-_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i:   ; preds = %198, %170, %156
+_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i:   ; preds = %199, %171, %156
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %207 = icmp ult i64 %indvars.iv.next.i, %35
+  %208 = icmp ult i64 %indvars.iv.next.i, %35
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %35
   br i1 %exitcond.not.i, label %_ZL12overlapEdgesPKfPKiiii.exit, label %156, !llvm.loop !61
 
-_ZL12overlapEdgesPKfPKiiii.exit:                  ; preds = %198, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
-  %.lcssa.i = phi i1 [ %157, %198 ], [ %207, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i ]
+_ZL12overlapEdgesPKfPKiiii.exit:                  ; preds = %199, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i
+  %.lcssa.i = phi i1 [ %157, %199 ], [ %208, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i ]
   br i1 %.lcssa.i, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %.lr.ph.i112
 
 .lr.ph.i112:                                      ; preds = %_ZL12overlapEdgesPKfPKiiii.exit
-  %208 = fsub float %49, %45
-  %209 = fsub float %51, %47
-  %210 = fneg float %209
-  %211 = insertelement <2 x float> %52, float %51, i64 1
-  %212 = insertelement <2 x float> poison, float %45, i64 0
-  %213 = insertelement <2 x float> %212, float %49, i64 1
-  br label %214
+  %209 = fsub float %49, %45
+  %210 = fsub float %51, %47
+  %211 = fneg float %210
+  %212 = insertelement <2 x float> %52, float %51, i64 1
+  %213 = insertelement <2 x float> poison, float %45, i64 0
+  %214 = insertelement <2 x float> %213, float %49, i64 1
+  br label %215
 
-214:                                              ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126, %.lr.ph.i112
-  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.i112 ], [ %indvars.iv.next.i127, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126 ]
-  %215 = phi i1 [ true, %.lr.ph.i112 ], [ %265, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126 ]
-  %216 = shl nsw i64 %indvars.iv.i114, 2
-  %217 = getelementptr inbounds i32, ptr %3, i64 %216
-  %218 = load i32, ptr %217, align 4
-  %219 = or disjoint i64 %216, 1
-  %220 = getelementptr inbounds i32, ptr %3, i64 %219
-  %221 = load i32, ptr %220, align 4
-  %222 = icmp eq i32 %218, %.0104
-  %223 = zext i32 %218 to i64
-  %224 = icmp eq i64 %indvars.iv, %223
-  %or.cond.i115 = or i1 %222, %224
-  %225 = icmp eq i32 %221, %.0104
-  %or.cond28.i116 = select i1 %or.cond.i115, i1 true, i1 %225
-  %226 = zext i32 %221 to i64
-  %227 = icmp eq i64 %indvars.iv, %226
-  %or.cond29.i117 = select i1 %or.cond28.i116, i1 true, i1 %227
-  br i1 %or.cond29.i117, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126, label %228
+215:                                              ; preds = %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125, %.lr.ph.i112
+  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.i112 ], [ %indvars.iv.next.i126, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125 ]
+  %216 = phi i1 [ true, %.lr.ph.i112 ], [ %267, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125 ]
+  %217 = shl nsw i64 %indvars.iv.i114, 2
+  %218 = getelementptr inbounds i32, ptr %3, i64 %217
+  %219 = load i32, ptr %218, align 4
+  %220 = or disjoint i64 %217, 1
+  %221 = getelementptr inbounds i32, ptr %3, i64 %220
+  %222 = load i32, ptr %221, align 4
+  %223 = icmp eq i32 %219, %.0104
+  %224 = zext i32 %219 to i64
+  %225 = icmp eq i64 %indvars.iv, %224
+  %or.cond.i115 = or i1 %223, %225
+  %226 = icmp eq i32 %222, %.0104
+  %227 = zext i32 %222 to i64
+  %228 = icmp eq i64 %indvars.iv, %227
+  %229 = or i1 %226, %228
+  %or.cond29.i116 = select i1 %or.cond.i115, i1 true, i1 %229
+  br i1 %or.cond29.i116, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125, label %230
 
-228:                                              ; preds = %214
-  %229 = mul nsw i32 %218, 3
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds float, ptr %1, i64 %230
-  %232 = mul nsw i32 %221, 3
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds float, ptr %1, i64 %233
-  %.val.i118 = load float, ptr %231, align 4
-  %235 = getelementptr i8, ptr %231, i64 8
-  %.val30.i119 = load float, ptr %235, align 4
-  %.val31.i120 = load float, ptr %234, align 4
-  %236 = getelementptr i8, ptr %234, i64 8
-  %.val32.i121 = load float, ptr %236, align 4
-  %237 = fsub float %.val31.i120, %.val.i118
-  %238 = fsub float %.val32.i121, %.val30.i119
-  %239 = fneg float %238
-  %240 = insertelement <2 x float> poison, float %.val.i118, i64 0
-  %241 = shufflevector <2 x float> %240, <2 x float> poison, <2 x i32> zeroinitializer
-  %242 = fsub <2 x float> %213, %241
-  %243 = insertelement <2 x float> poison, float %.val30.i119, i64 0
-  %244 = shufflevector <2 x float> %243, <2 x float> poison, <2 x i32> zeroinitializer
-  %245 = fsub <2 x float> %211, %244
-  %246 = insertelement <2 x float> poison, float %239, i64 0
-  %247 = shufflevector <2 x float> %246, <2 x float> poison, <2 x i32> zeroinitializer
-  %248 = fmul <2 x float> %242, %247
-  %249 = insertelement <2 x float> poison, float %237, i64 0
-  %250 = shufflevector <2 x float> %249, <2 x float> poison, <2 x i32> zeroinitializer
-  %251 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %250, <2 x float> %245, <2 x float> %248)
-  %252 = extractelement <2 x float> %251, i64 0
-  %253 = extractelement <2 x float> %251, i64 1
-  %254 = fmul float %252, %253
-  %255 = fcmp olt float %254, 0.000000e+00
-  br i1 %255, label %256, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126
+230:                                              ; preds = %215
+  %231 = mul nsw i32 %219, 3
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds float, ptr %1, i64 %232
+  %234 = mul nsw i32 %222, 3
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds float, ptr %1, i64 %235
+  %.val.i117 = load float, ptr %233, align 4
+  %237 = getelementptr i8, ptr %233, i64 8
+  %.val30.i118 = load float, ptr %237, align 4
+  %.val31.i119 = load float, ptr %236, align 4
+  %238 = getelementptr i8, ptr %236, i64 8
+  %.val32.i120 = load float, ptr %238, align 4
+  %239 = fsub float %.val31.i119, %.val.i117
+  %240 = fsub float %.val32.i120, %.val30.i118
+  %241 = fneg float %240
+  %242 = insertelement <2 x float> poison, float %.val.i117, i64 0
+  %243 = shufflevector <2 x float> %242, <2 x float> poison, <2 x i32> zeroinitializer
+  %244 = fsub <2 x float> %214, %243
+  %245 = insertelement <2 x float> poison, float %.val30.i118, i64 0
+  %246 = shufflevector <2 x float> %245, <2 x float> poison, <2 x i32> zeroinitializer
+  %247 = fsub <2 x float> %212, %246
+  %248 = insertelement <2 x float> poison, float %241, i64 0
+  %249 = shufflevector <2 x float> %248, <2 x float> poison, <2 x i32> zeroinitializer
+  %250 = fmul <2 x float> %244, %249
+  %251 = insertelement <2 x float> poison, float %239, i64 0
+  %252 = shufflevector <2 x float> %251, <2 x float> poison, <2 x i32> zeroinitializer
+  %253 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %252, <2 x float> %247, <2 x float> %250)
+  %254 = extractelement <2 x float> %253, i64 0
+  %255 = extractelement <2 x float> %253, i64 1
+  %256 = fmul float %254, %255
+  %257 = fcmp olt float %256, 0.000000e+00
+  br i1 %257, label %258, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125
 
-256:                                              ; preds = %228
-  %257 = fsub float %.val.i118, %45
-  %258 = fsub float %.val30.i119, %47
-  %259 = fmul float %257, %210
-  %260 = tail call noundef float @llvm.fmuladd.f32(float %208, float %258, float %259)
-  %261 = fadd float %252, %260
-  %262 = fsub float %261, %253
-  %263 = fmul float %260, %262
-  %264 = fcmp olt float %263, 0.000000e+00
-  br i1 %264, label %_ZL12overlapEdgesPKfPKiiii.exit129, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126
+258:                                              ; preds = %230
+  %259 = fsub float %.val.i117, %45
+  %260 = fsub float %.val30.i118, %47
+  %261 = fmul float %259, %211
+  %262 = tail call noundef float @llvm.fmuladd.f32(float %209, float %260, float %261)
+  %263 = fadd float %254, %262
+  %264 = fsub float %263, %255
+  %265 = fmul float %262, %264
+  %266 = fcmp olt float %265, 0.000000e+00
+  br i1 %266, label %_ZL12overlapEdgesPKfPKiiii.exit128, label %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125
 
-_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126: ; preds = %256, %228, %214
-  %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i114, 1
-  %265 = icmp ult i64 %indvars.iv.next.i127, %35
-  %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, %35
-  br i1 %exitcond.not.i128, label %_ZL12overlapEdgesPKfPKiiii.exit129, label %214, !llvm.loop !61
+_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125: ; preds = %258, %230, %215
+  %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i114, 1
+  %267 = icmp ult i64 %indvars.iv.next.i126, %35
+  %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, %35
+  br i1 %exitcond.not.i127, label %_ZL12overlapEdgesPKfPKiiii.exit128, label %215, !llvm.loop !61
 
-_ZL12overlapEdgesPKfPKiiii.exit129:               ; preds = %256, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126
-  %.lcssa.i111 = phi i1 [ %215, %256 ], [ %265, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126 ]
-  br i1 %.lcssa.i111, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %_ZL12overlapEdgesPKfPKiiii.exit129.thread
+_ZL12overlapEdgesPKfPKiiii.exit128:               ; preds = %258, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125
+  %.lcssa.i111 = phi i1 [ %216, %258 ], [ %267, %_ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i125 ]
+  br i1 %.lcssa.i111, label %_ZL12circumCirclePKfS0_S0_PfRf.exit, label %_ZL12overlapEdgesPKfPKiiii.exit128.thread
 
-_ZL12overlapEdgesPKfPKiiii.exit129.thread:        ; preds = %151, %_ZL12overlapEdgesPKfPKiiii.exit129
-  %266 = fcmp ogt float %66, 0x3EB0C6F7A0000000
-  %267 = insertelement <2 x float> poison, float %46, i64 0
-  %268 = insertelement <2 x float> %267, float %48, i64 1
-  br i1 %266, label %269, label %_ZL12circumCirclePKfS0_S0_PfRf.exit
+_ZL12overlapEdgesPKfPKiiii.exit128.thread:        ; preds = %151, %_ZL12overlapEdgesPKfPKiiii.exit128
+  %268 = fcmp ogt float %66, 0x3EB0C6F7A0000000
+  %269 = insertelement <2 x float> poison, float %46, i64 0
+  %270 = insertelement <2 x float> %269, float %48, i64 1
+  br i1 %268, label %271, label %_ZL12circumCirclePKfS0_S0_PfRf.exit
 
-269:                                              ; preds = %_ZL12overlapEdgesPKfPKiiii.exit129.thread
-  %270 = fmul <2 x float> %56, %56
-  %271 = extractelement <2 x float> %270, i64 0
-  %272 = tail call noundef float @llvm.fmuladd.f32(float %65, float %65, float %271)
-  %273 = fmul <2 x float> %59, %59
-  %274 = extractelement <2 x float> %273, i64 0
-  %275 = tail call noundef float @llvm.fmuladd.f32(float %62, float %62, float %274)
-  %276 = fsub <2 x float> %56, %59
-  %277 = fsub float 0.000000e+00, %60
-  %278 = fmul float %66, 2.000000e+00
-  %279 = fsub float 0.000000e+00, %62
-  %280 = insertelement <2 x float> poison, float %272, i64 0
-  %281 = shufflevector <2 x float> %280, <2 x float> poison, <2 x i32> zeroinitializer
-  %282 = insertelement <2 x float> %59, float %279, i64 1
-  %283 = fmul <2 x float> %281, %282
-  %284 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %276, <2 x float> zeroinitializer, <2 x float> %283)
-  %285 = insertelement <2 x float> poison, float %275, i64 0
-  %286 = shufflevector <2 x float> %285, <2 x float> poison, <2 x i32> zeroinitializer
-  %287 = insertelement <2 x float> %59, float %277, i64 0
-  %288 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %286, <2 x float> %287, <2 x float> %284)
-  %289 = insertelement <2 x float> poison, float %278, i64 0
-  %290 = shufflevector <2 x float> %289, <2 x float> poison, <2 x i32> zeroinitializer
-  %291 = fdiv <2 x float> %288, %290
-  %292 = extractelement <2 x float> %291, i64 0
-  %293 = fsub float 0.000000e+00, %292
-  %294 = extractelement <2 x float> %291, i64 1
+271:                                              ; preds = %_ZL12overlapEdgesPKfPKiiii.exit128.thread
+  %272 = fmul <2 x float> %56, %56
+  %273 = extractelement <2 x float> %272, i64 0
+  %274 = tail call noundef float @llvm.fmuladd.f32(float %65, float %65, float %273)
+  %275 = fmul <2 x float> %59, %59
+  %276 = extractelement <2 x float> %275, i64 0
+  %277 = tail call noundef float @llvm.fmuladd.f32(float %62, float %62, float %276)
+  %278 = fsub <2 x float> %56, %59
+  %279 = fsub float 0.000000e+00, %60
+  %280 = fmul float %66, 2.000000e+00
+  %281 = fsub float 0.000000e+00, %62
+  %282 = insertelement <2 x float> poison, float %274, i64 0
+  %283 = shufflevector <2 x float> %282, <2 x float> poison, <2 x i32> zeroinitializer
+  %284 = insertelement <2 x float> %59, float %281, i64 1
+  %285 = fmul <2 x float> %283, %284
+  %286 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %278, <2 x float> zeroinitializer, <2 x float> %285)
+  %287 = insertelement <2 x float> poison, float %277, i64 0
+  %288 = shufflevector <2 x float> %287, <2 x float> poison, <2 x i32> zeroinitializer
+  %289 = insertelement <2 x float> %59, float %279, i64 0
+  %290 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %288, <2 x float> %289, <2 x float> %286)
+  %291 = insertelement <2 x float> poison, float %280, i64 0
+  %292 = shufflevector <2 x float> %291, <2 x float> poison, <2 x i32> zeroinitializer
+  %293 = fdiv <2 x float> %290, %292
+  %294 = extractelement <2 x float> %293, i64 0
   %295 = fsub float 0.000000e+00, %294
-  %296 = fmul float %295, %295
-  %297 = tail call noundef float @llvm.fmuladd.f32(float %293, float %293, float %296)
-  %sqrt.i.i130 = tail call noundef float @llvm.sqrt.f32(float %297)
-  %298 = fadd <2 x float> %268, %291
+  %296 = extractelement <2 x float> %293, i64 1
+  %297 = fsub float 0.000000e+00, %296
+  %298 = fmul float %297, %297
+  %299 = tail call noundef float @llvm.fmuladd.f32(float %295, float %295, float %298)
+  %sqrt.i.i129 = tail call noundef float @llvm.sqrt.f32(float %299)
+  %300 = fadd <2 x float> %270, %293
   br label %_ZL12circumCirclePKfS0_S0_PfRf.exit
 
-_ZL12circumCirclePKfS0_S0_PfRf.exit:              ; preds = %269, %_ZL12overlapEdgesPKfPKiiii.exit129.thread, %121, %117, %75, %71, %42, %_ZL12overlapEdgesPKfPKiiii.exit129, %_ZL12overlapEdgesPKfPKiiii.exit, %105, %38
-  %.4 = phi float [ %.0189214, %38 ], [ %.0189214, %105 ], [ %.0189214, %_ZL12overlapEdgesPKfPKiiii.exit ], [ %.0189214, %_ZL12overlapEdgesPKfPKiiii.exit129 ], [ %.0189214, %42 ], [ %sqrt.i.i, %75 ], [ 0.000000e+00, %71 ], [ %sqrt.i.i109, %121 ], [ 0.000000e+00, %117 ], [ %sqrt.i.i130, %269 ], [ 0.000000e+00, %_ZL12overlapEdgesPKfPKiiii.exit129.thread ]
-  %.1 = phi i32 [ %.0103215, %38 ], [ %.0103215, %105 ], [ %.0103215, %_ZL12overlapEdgesPKfPKiiii.exit ], [ %.0103215, %_ZL12overlapEdgesPKfPKiiii.exit129 ], [ %.0103215, %42 ], [ %70, %75 ], [ %70, %71 ], [ %70, %121 ], [ %70, %117 ], [ %70, %269 ], [ %70, %_ZL12overlapEdgesPKfPKiiii.exit129.thread ]
-  %299 = phi <2 x float> [ %39, %38 ], [ %39, %105 ], [ %39, %_ZL12overlapEdgesPKfPKiiii.exit ], [ %39, %_ZL12overlapEdgesPKfPKiiii.exit129 ], [ %39, %42 ], [ %104, %75 ], [ %74, %71 ], [ %150, %121 ], [ %120, %117 ], [ %298, %269 ], [ %268, %_ZL12overlapEdgesPKfPKiiii.exit129.thread ]
+_ZL12circumCirclePKfS0_S0_PfRf.exit:              ; preds = %271, %_ZL12overlapEdgesPKfPKiiii.exit128.thread, %121, %117, %75, %71, %42, %_ZL12overlapEdgesPKfPKiiii.exit128, %_ZL12overlapEdgesPKfPKiiii.exit, %105, %38
+  %.4 = phi float [ %.0188213, %38 ], [ %.0188213, %105 ], [ %.0188213, %_ZL12overlapEdgesPKfPKiiii.exit ], [ %.0188213, %_ZL12overlapEdgesPKfPKiiii.exit128 ], [ %.0188213, %42 ], [ %sqrt.i.i, %75 ], [ 0.000000e+00, %71 ], [ %sqrt.i.i109, %121 ], [ 0.000000e+00, %117 ], [ %sqrt.i.i129, %271 ], [ 0.000000e+00, %_ZL12overlapEdgesPKfPKiiii.exit128.thread ]
+  %.1 = phi i32 [ %.0103214, %38 ], [ %.0103214, %105 ], [ %.0103214, %_ZL12overlapEdgesPKfPKiiii.exit ], [ %.0103214, %_ZL12overlapEdgesPKfPKiiii.exit128 ], [ %.0103214, %42 ], [ %70, %75 ], [ %70, %71 ], [ %70, %121 ], [ %70, %117 ], [ %70, %271 ], [ %70, %_ZL12overlapEdgesPKfPKiiii.exit128.thread ]
+  %301 = phi <2 x float> [ %39, %38 ], [ %39, %105 ], [ %39, %_ZL12overlapEdgesPKfPKiiii.exit ], [ %39, %_ZL12overlapEdgesPKfPKiiii.exit128 ], [ %39, %42 ], [ %104, %75 ], [ %74, %71 ], [ %150, %121 ], [ %120, %117 ], [ %300, %271 ], [ %270, %_ZL12overlapEdgesPKfPKiiii.exit128.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZL12circumCirclePKfS0_S0_PfRf.exit
-  %300 = icmp slt i32 %.1, %2
-  br i1 %300, label %301, label %._crit_edge.thread
+  %302 = icmp slt i32 %.1, %2
+  br i1 %302, label %303, label %._crit_edge.thread
 
-301:                                              ; preds = %._crit_edge
-  %302 = load i32, ptr %6, align 4
-  %303 = load i32, ptr %11, align 4
-  %304 = icmp ne i32 %303, %.0
-  %305 = getelementptr inbounds i8, ptr %11, i64 4
-  %306 = load i32, ptr %305, align 4
-  %307 = icmp ne i32 %306, %.0104
-  %or.cond13.i.not207 = select i1 %304, i1 true, i1 %307
-  %brmerge = or i1 %14, %or.cond13.i.not207
+303:                                              ; preds = %._crit_edge
+  %304 = load i32, ptr %6, align 4
+  %305 = load i32, ptr %11, align 4
+  %306 = icmp ne i32 %305, %.0
+  %307 = getelementptr inbounds i8, ptr %11, i64 4
+  %308 = load i32, ptr %307, align 4
+  %309 = icmp ne i32 %308, %.0104
+  %or.cond13.i.not206 = select i1 %306, i1 true, i1 %309
+  %brmerge = or i1 %14, %or.cond13.i.not206
   br i1 %brmerge, label %._crit_edge.i, label %.sink.split.i
 
-._crit_edge.i:                                    ; preds = %301
-  %308 = icmp eq i32 %306, %.0
-  %309 = icmp eq i32 %303, %.0104
-  %or.cond.i132 = and i1 %309, %308
-  br i1 %or.cond.i132, label %310, label %_ZL14updateLeftFacePiiii.exit
+._crit_edge.i:                                    ; preds = %303
+  %310 = icmp eq i32 %308, %.0
+  %311 = icmp eq i32 %305, %.0104
+  %or.cond.i131 = and i1 %311, %310
+  br i1 %or.cond.i131, label %312, label %_ZL14updateLeftFacePiiii.exit
 
-310:                                              ; preds = %._crit_edge.i
-  %311 = getelementptr inbounds i8, ptr %11, i64 12
-  %312 = load i32, ptr %311, align 4
-  %313 = icmp eq i32 %312, -1
-  br i1 %313, label %.sink.split.i, label %_ZL14updateLeftFacePiiii.exit
+312:                                              ; preds = %._crit_edge.i
+  %313 = getelementptr inbounds i8, ptr %11, i64 12
+  %314 = load i32, ptr %313, align 4
+  %315 = icmp eq i32 %314, -1
+  br i1 %315, label %.sink.split.i, label %_ZL14updateLeftFacePiiii.exit
 
-.sink.split.i:                                    ; preds = %301, %310
-  %.sink.i = phi ptr [ %311, %310 ], [ %12, %301 ]
-  store i32 %302, ptr %.sink.i, align 4
+.sink.split.i:                                    ; preds = %303, %312
+  %.sink.i = phi ptr [ %313, %312 ], [ %12, %303 ]
+  store i32 %304, ptr %.sink.i, align 4
   br label %_ZL14updateLeftFacePiiii.exit
 
-_ZL14updateLeftFacePiiii.exit:                    ; preds = %._crit_edge.i, %310, %.sink.split.i
-  %314 = load i32, ptr %4, align 4
-  %315 = icmp sgt i32 %314, 0
-  br i1 %315, label %.lr.ph.preheader.i, label %_ZL8findEdgePKiiii.exit.thread.thread
+_ZL14updateLeftFacePiiii.exit:                    ; preds = %._crit_edge.i, %312, %.sink.split.i
+  %316 = load i32, ptr %4, align 4
+  %317 = icmp sgt i32 %316, 0
+  br i1 %317, label %.lr.ph.preheader.i, label %_ZL8findEdgePKiiii.exit.thread.thread
 
 .lr.ph.preheader.i:                               ; preds = %_ZL14updateLeftFacePiiii.exit
-  %wide.trip.count.i134 = zext nneg i32 %314 to i64
-  br label %.lr.ph.i135
+  %wide.trip.count.i133 = zext nneg i32 %316 to i64
+  br label %.lr.ph.i134
 
-.lr.ph.i135:                                      ; preds = %330, %.lr.ph.preheader.i
-  %indvars.iv.i136 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i137, %330 ]
-  %316 = shl nsw i64 %indvars.iv.i136, 2
-  %317 = getelementptr inbounds i32, ptr %3, i64 %316
-  %318 = load i32, ptr %317, align 4
-  %319 = icmp eq i32 %318, %.1
-  br i1 %319, label %320, label %324
+.lr.ph.i134:                                      ; preds = %332, %.lr.ph.preheader.i
+  %indvars.iv.i135 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i136, %332 ]
+  %318 = shl nsw i64 %indvars.iv.i135, 2
+  %319 = getelementptr inbounds i32, ptr %3, i64 %318
+  %320 = load i32, ptr %319, align 4
+  %321 = icmp eq i32 %320, %.1
+  br i1 %321, label %322, label %326
 
-320:                                              ; preds = %.lr.ph.i135
-  %321 = getelementptr inbounds i8, ptr %317, i64 4
-  %322 = load i32, ptr %321, align 4
-  %323 = icmp eq i32 %322, %.0
-  br i1 %323, label %_ZL8findEdgePKiiii.exit, label %324
+322:                                              ; preds = %.lr.ph.i134
+  %323 = getelementptr inbounds i8, ptr %319, i64 4
+  %324 = load i32, ptr %323, align 4
+  %325 = icmp eq i32 %324, %.0
+  br i1 %325, label %_ZL8findEdgePKiiii.exit, label %326
 
-324:                                              ; preds = %320, %.lr.ph.i135
-  %325 = icmp eq i32 %318, %.0
-  br i1 %325, label %326, label %330
+326:                                              ; preds = %322, %.lr.ph.i134
+  %327 = icmp eq i32 %320, %.0
+  br i1 %327, label %328, label %332
 
-326:                                              ; preds = %324
-  %327 = getelementptr inbounds i8, ptr %317, i64 4
-  %328 = load i32, ptr %327, align 4
-  %329 = icmp eq i32 %328, %.1
-  br i1 %329, label %_ZL8findEdgePKiiii.exit, label %330
+328:                                              ; preds = %326
+  %329 = getelementptr inbounds i8, ptr %319, i64 4
+  %330 = load i32, ptr %329, align 4
+  %331 = icmp eq i32 %330, %.1
+  br i1 %331, label %_ZL8findEdgePKiiii.exit, label %332
 
-330:                                              ; preds = %326, %324
-  %indvars.iv.next.i137 = add nuw nsw i64 %indvars.iv.i136, 1
-  %exitcond.not.i138 = icmp eq i64 %indvars.iv.next.i137, %wide.trip.count.i134
-  br i1 %exitcond.not.i138, label %_ZL8findEdgePKiiii.exit.thread.loopexit, label %.lr.ph.i135, !llvm.loop !41
+332:                                              ; preds = %328, %326
+  %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
+  %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %wide.trip.count.i133
+  br i1 %exitcond.not.i137, label %_ZL8findEdgePKiiii.exit.thread.loopexit, label %.lr.ph.i134, !llvm.loop !41
 
-_ZL8findEdgePKiiii.exit:                          ; preds = %326, %320
-  %.0.i = trunc i64 %indvars.iv.i136 to i32
-  %331 = icmp eq i32 %.0.i, -1
-  %.pre222 = load i32, ptr %6, align 4
-  br i1 %331, label %_ZL8findEdgePKiiii.exit.thread, label %361
+_ZL8findEdgePKiiii.exit:                          ; preds = %328, %322
+  %.0.i = trunc i64 %indvars.iv.i135 to i32
+  %333 = icmp eq i32 %.0.i, -1
+  %.pre221 = load i32, ptr %6, align 4
+  br i1 %333, label %_ZL8findEdgePKiiii.exit.thread, label %363
 
-_ZL8findEdgePKiiii.exit.thread.loopexit:          ; preds = %330
+_ZL8findEdgePKiiii.exit.thread.loopexit:          ; preds = %332
   %.pre = load i32, ptr %6, align 4
   br label %_ZL8findEdgePKiiii.exit.thread
 
 _ZL8findEdgePKiiii.exit.thread:                   ; preds = %_ZL8findEdgePKiiii.exit.thread.loopexit, %_ZL8findEdgePKiiii.exit
-  %332 = phi i32 [ %.pre, %_ZL8findEdgePKiiii.exit.thread.loopexit ], [ %.pre222, %_ZL8findEdgePKiiii.exit ]
-  %.not.i = icmp slt i32 %314, %5
-  br i1 %.not.i, label %.lr.ph.i.i, label %334
+  %334 = phi i32 [ %.pre, %_ZL8findEdgePKiiii.exit.thread.loopexit ], [ %.pre221, %_ZL8findEdgePKiiii.exit ]
+  %.not.i = icmp slt i32 %316, %5
+  br i1 %.not.i, label %.lr.ph.i.i, label %336
 
 _ZL8findEdgePKiiii.exit.thread.thread:            ; preds = %_ZL14updateLeftFacePiiii.exit
-  %333 = load i32, ptr %6, align 4
-  %.not.i195 = icmp slt i32 %314, %5
-  br i1 %.not.i195, label %_ZL8findEdgePKiiii.exit.thread.i, label %334
+  %335 = load i32, ptr %6, align 4
+  %.not.i194 = icmp slt i32 %316, %5
+  br i1 %.not.i194, label %_ZL8findEdgePKiiii.exit.thread.i, label %336
 
-334:                                              ; preds = %_ZL8findEdgePKiiii.exit.thread.thread, %_ZL8findEdgePKiiii.exit.thread
-  tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %314, i32 noundef %5)
+336:                                              ; preds = %_ZL8findEdgePKiiii.exit.thread.thread, %_ZL8findEdgePKiiii.exit.thread
+  tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %316, i32 noundef %5)
   br label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
 
-.lr.ph.i.i:                                       ; preds = %_ZL8findEdgePKiiii.exit.thread, %349
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %349 ], [ 0, %_ZL8findEdgePKiiii.exit.thread ]
-  %335 = shl nsw i64 %indvars.iv.i.i, 2
-  %336 = getelementptr inbounds i32, ptr %3, i64 %335
-  %337 = load i32, ptr %336, align 4
-  %338 = icmp eq i32 %337, %.1
-  br i1 %338, label %339, label %343
+.lr.ph.i.i:                                       ; preds = %_ZL8findEdgePKiiii.exit.thread, %351
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %351 ], [ 0, %_ZL8findEdgePKiiii.exit.thread ]
+  %337 = shl nsw i64 %indvars.iv.i.i, 2
+  %338 = getelementptr inbounds i32, ptr %3, i64 %337
+  %339 = load i32, ptr %338, align 4
+  %340 = icmp eq i32 %339, %.1
+  br i1 %340, label %341, label %345
 
-339:                                              ; preds = %.lr.ph.i.i
-  %340 = getelementptr inbounds i8, ptr %336, i64 4
-  %341 = load i32, ptr %340, align 4
-  %342 = icmp eq i32 %341, %.0
-  br i1 %342, label %_ZL8findEdgePKiiii.exit.i, label %343
+341:                                              ; preds = %.lr.ph.i.i
+  %342 = getelementptr inbounds i8, ptr %338, i64 4
+  %343 = load i32, ptr %342, align 4
+  %344 = icmp eq i32 %343, %.0
+  br i1 %344, label %_ZL8findEdgePKiiii.exit.i, label %345
 
-343:                                              ; preds = %339, %.lr.ph.i.i
-  %344 = icmp eq i32 %337, %.0
-  br i1 %344, label %345, label %349
+345:                                              ; preds = %341, %.lr.ph.i.i
+  %346 = icmp eq i32 %339, %.0
+  br i1 %346, label %347, label %351
 
-345:                                              ; preds = %343
-  %346 = getelementptr inbounds i8, ptr %336, i64 4
-  %347 = load i32, ptr %346, align 4
-  %348 = icmp eq i32 %347, %.1
-  br i1 %348, label %_ZL8findEdgePKiiii.exit.i, label %349
+347:                                              ; preds = %345
+  %348 = getelementptr inbounds i8, ptr %338, i64 4
+  %349 = load i32, ptr %348, align 4
+  %350 = icmp eq i32 %349, %.1
+  br i1 %350, label %_ZL8findEdgePKiiii.exit.i, label %351
 
-349:                                              ; preds = %345, %343
+351:                                              ; preds = %347, %345
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i134
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i133
   br i1 %exitcond.not.i.i, label %_ZL8findEdgePKiiii.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !41
 
-_ZL8findEdgePKiiii.exit.i:                        ; preds = %345, %339
-  %350 = and i64 %indvars.iv.i.i, 4294967295
-  %351 = icmp eq i64 %350, 4294967295
-  br i1 %351, label %_ZL8findEdgePKiiii.exit.thread.i, label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
+_ZL8findEdgePKiiii.exit.i:                        ; preds = %347, %341
+  %352 = and i64 %indvars.iv.i.i, 4294967295
+  %353 = icmp eq i64 %352, 4294967295
+  br i1 %353, label %_ZL8findEdgePKiiii.exit.thread.i, label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
 
-_ZL8findEdgePKiiii.exit.thread.i:                 ; preds = %349, %_ZL8findEdgePKiiii.exit.thread.thread, %_ZL8findEdgePKiiii.exit.i
-  %352 = phi i32 [ %332, %_ZL8findEdgePKiiii.exit.i ], [ %333, %_ZL8findEdgePKiiii.exit.thread.thread ], [ %332, %349 ]
-  %353 = shl nsw i32 %314, 2
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds i32, ptr %3, i64 %354
-  store i32 %.1, ptr %355, align 4
-  %356 = getelementptr inbounds i8, ptr %355, i64 4
-  store i32 %.0, ptr %356, align 4
-  %357 = getelementptr inbounds i8, ptr %355, i64 8
-  store i32 %352, ptr %357, align 4
-  %358 = getelementptr inbounds i8, ptr %355, i64 12
-  store i32 -1, ptr %358, align 4
-  %359 = load i32, ptr %4, align 4
-  %360 = add nsw i32 %359, 1
-  store i32 %360, ptr %4, align 4
+_ZL8findEdgePKiiii.exit.thread.i:                 ; preds = %351, %_ZL8findEdgePKiiii.exit.thread.thread, %_ZL8findEdgePKiiii.exit.i
+  %354 = phi i32 [ %334, %_ZL8findEdgePKiiii.exit.i ], [ %335, %_ZL8findEdgePKiiii.exit.thread.thread ], [ %334, %351 ]
+  %355 = shl nsw i32 %316, 2
+  %356 = sext i32 %355 to i64
+  %357 = getelementptr inbounds i32, ptr %3, i64 %356
+  store i32 %.1, ptr %357, align 4
+  %358 = getelementptr inbounds i8, ptr %357, i64 4
+  store i32 %.0, ptr %358, align 4
+  %359 = getelementptr inbounds i8, ptr %357, i64 8
+  store i32 %354, ptr %359, align 4
+  %360 = getelementptr inbounds i8, ptr %357, i64 12
+  store i32 -1, ptr %360, align 4
+  %361 = load i32, ptr %4, align 4
+  %362 = add nsw i32 %361, 1
+  store i32 %362, ptr %4, align 4
   br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit
 
-361:                                              ; preds = %_ZL8findEdgePKiiii.exit
-  %362 = shl nsw i32 %.0.i, 2
-  %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds i32, ptr %3, i64 %363
-  %365 = load i32, ptr %364, align 4
-  %366 = icmp eq i32 %365, %.1
-  %367 = getelementptr inbounds i8, ptr %364, i64 4
-  %368 = load i32, ptr %367, align 4
-  %369 = icmp eq i32 %368, %.0
-  %or.cond13.i140 = select i1 %366, i1 %369, i1 false
-  br i1 %or.cond13.i140, label %370, label %._crit_edge.i141
+363:                                              ; preds = %_ZL8findEdgePKiiii.exit
+  %364 = shl nsw i32 %.0.i, 2
+  %365 = sext i32 %364 to i64
+  %366 = getelementptr inbounds i32, ptr %3, i64 %365
+  %367 = load i32, ptr %366, align 4
+  %368 = icmp eq i32 %367, %.1
+  %369 = getelementptr inbounds i8, ptr %366, i64 4
+  %370 = load i32, ptr %369, align 4
+  %371 = icmp eq i32 %370, %.0
+  %or.cond13.i139 = select i1 %368, i1 %371, i1 false
+  br i1 %or.cond13.i139, label %372, label %._crit_edge.i140
 
-370:                                              ; preds = %361
-  %371 = getelementptr inbounds i8, ptr %364, i64 8
-  %372 = load i32, ptr %371, align 4
-  %373 = icmp eq i32 %372, -1
-  br i1 %373, label %.sink.split.i143, label %._crit_edge.i141
+372:                                              ; preds = %363
+  %373 = getelementptr inbounds i8, ptr %366, i64 8
+  %374 = load i32, ptr %373, align 4
+  %375 = icmp eq i32 %374, -1
+  br i1 %375, label %.sink.split.i142, label %._crit_edge.i140
 
-._crit_edge.i141:                                 ; preds = %370, %361
-  %374 = phi i32 [ %.0, %370 ], [ %368, %361 ]
-  %375 = icmp eq i32 %374, %.1
-  %376 = icmp eq i32 %365, %.0
-  %or.cond.i142 = and i1 %376, %375
-  br i1 %or.cond.i142, label %377, label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
+._crit_edge.i140:                                 ; preds = %372, %363
+  %376 = phi i32 [ %.0, %372 ], [ %370, %363 ]
+  %377 = icmp eq i32 %376, %.1
+  %378 = icmp eq i32 %367, %.0
+  %or.cond.i141 = and i1 %378, %377
+  br i1 %or.cond.i141, label %379, label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
 
-377:                                              ; preds = %._crit_edge.i141
-  %378 = getelementptr inbounds i8, ptr %364, i64 12
-  %379 = load i32, ptr %378, align 4
-  %380 = icmp eq i32 %379, -1
-  br i1 %380, label %.sink.split.i143, label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
+379:                                              ; preds = %._crit_edge.i140
+  %380 = getelementptr inbounds i8, ptr %366, i64 12
+  %381 = load i32, ptr %380, align 4
+  %382 = icmp eq i32 %381, -1
+  br i1 %382, label %.sink.split.i142, label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
 
-.sink.split.i143:                                 ; preds = %377, %370
-  %.sink.i144 = phi ptr [ %371, %370 ], [ %378, %377 ]
-  store i32 %.pre222, ptr %.sink.i144, align 4
+.sink.split.i142:                                 ; preds = %379, %372
+  %.sink.i143 = phi ptr [ %373, %372 ], [ %380, %379 ]
+  store i32 %.pre221, ptr %.sink.i143, align 4
   br label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
 
-_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split: ; preds = %334, %_ZL8findEdgePKiiii.exit.i, %._crit_edge.i141, %377, %.sink.split.i143
+_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split: ; preds = %336, %_ZL8findEdgePKiiii.exit.i, %._crit_edge.i140, %379, %.sink.split.i142
   %.pr = load i32, ptr %4, align 4
   br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit
 
 _ZL7addEdgeP9rcContextPiRiiiiii.exit:             ; preds = %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split, %_ZL8findEdgePKiiii.exit.thread.i
-  %381 = phi i32 [ %.pr, %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split ], [ %360, %_ZL8findEdgePKiiii.exit.thread.i ]
-  %382 = icmp sgt i32 %381, 0
-  br i1 %382, label %.lr.ph.preheader.i148, label %_ZL8findEdgePKiiii.exit156.thread.thread
+  %383 = phi i32 [ %.pr, %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split ], [ %362, %_ZL8findEdgePKiiii.exit.thread.i ]
+  %384 = icmp sgt i32 %383, 0
+  br i1 %384, label %.lr.ph.preheader.i147, label %_ZL8findEdgePKiiii.exit155.thread.thread
 
-.lr.ph.preheader.i148:                            ; preds = %_ZL7addEdgeP9rcContextPiRiiiiii.exit
-  %wide.trip.count.i149 = zext nneg i32 %381 to i64
-  br label %.lr.ph.i150
+.lr.ph.preheader.i147:                            ; preds = %_ZL7addEdgeP9rcContextPiRiiiiii.exit
+  %wide.trip.count.i148 = zext nneg i32 %383 to i64
+  br label %.lr.ph.i149
 
-.lr.ph.i150:                                      ; preds = %397, %.lr.ph.preheader.i148
-  %indvars.iv.i151 = phi i64 [ 0, %.lr.ph.preheader.i148 ], [ %indvars.iv.next.i152, %397 ]
-  %383 = shl nsw i64 %indvars.iv.i151, 2
-  %384 = getelementptr inbounds i32, ptr %3, i64 %383
-  %385 = load i32, ptr %384, align 4
-  %386 = icmp eq i32 %385, %.0104
-  br i1 %386, label %387, label %391
+.lr.ph.i149:                                      ; preds = %399, %.lr.ph.preheader.i147
+  %indvars.iv.i150 = phi i64 [ 0, %.lr.ph.preheader.i147 ], [ %indvars.iv.next.i151, %399 ]
+  %385 = shl nsw i64 %indvars.iv.i150, 2
+  %386 = getelementptr inbounds i32, ptr %3, i64 %385
+  %387 = load i32, ptr %386, align 4
+  %388 = icmp eq i32 %387, %.0104
+  br i1 %388, label %389, label %393
 
-387:                                              ; preds = %.lr.ph.i150
-  %388 = getelementptr inbounds i8, ptr %384, i64 4
-  %389 = load i32, ptr %388, align 4
-  %390 = icmp eq i32 %389, %.1
-  br i1 %390, label %_ZL8findEdgePKiiii.exit156, label %391
+389:                                              ; preds = %.lr.ph.i149
+  %390 = getelementptr inbounds i8, ptr %386, i64 4
+  %391 = load i32, ptr %390, align 4
+  %392 = icmp eq i32 %391, %.1
+  br i1 %392, label %_ZL8findEdgePKiiii.exit155, label %393
 
-391:                                              ; preds = %387, %.lr.ph.i150
-  %392 = icmp eq i32 %385, %.1
-  br i1 %392, label %393, label %397
+393:                                              ; preds = %389, %.lr.ph.i149
+  %394 = icmp eq i32 %387, %.1
+  br i1 %394, label %395, label %399
 
-393:                                              ; preds = %391
-  %394 = getelementptr inbounds i8, ptr %384, i64 4
-  %395 = load i32, ptr %394, align 4
-  %396 = icmp eq i32 %395, %.0104
-  br i1 %396, label %_ZL8findEdgePKiiii.exit156, label %397
+395:                                              ; preds = %393
+  %396 = getelementptr inbounds i8, ptr %386, i64 4
+  %397 = load i32, ptr %396, align 4
+  %398 = icmp eq i32 %397, %.0104
+  br i1 %398, label %_ZL8findEdgePKiiii.exit155, label %399
 
-397:                                              ; preds = %393, %391
-  %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i151, 1
-  %exitcond.not.i153 = icmp eq i64 %indvars.iv.next.i152, %wide.trip.count.i149
-  br i1 %exitcond.not.i153, label %_ZL8findEdgePKiiii.exit156.thread.loopexit, label %.lr.ph.i150, !llvm.loop !41
+399:                                              ; preds = %395, %393
+  %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i150, 1
+  %exitcond.not.i152 = icmp eq i64 %indvars.iv.next.i151, %wide.trip.count.i148
+  br i1 %exitcond.not.i152, label %_ZL8findEdgePKiiii.exit155.thread.loopexit, label %.lr.ph.i149, !llvm.loop !41
 
-_ZL8findEdgePKiiii.exit156:                       ; preds = %393, %387
-  %.0.i147 = trunc i64 %indvars.iv.i151 to i32
-  %398 = icmp eq i32 %.0.i147, -1
-  %.pre224 = load i32, ptr %6, align 4
-  br i1 %398, label %_ZL8findEdgePKiiii.exit156.thread, label %428
-
-_ZL8findEdgePKiiii.exit156.thread.loopexit:       ; preds = %397
+_ZL8findEdgePKiiii.exit155:                       ; preds = %395, %389
+  %.0.i146 = trunc i64 %indvars.iv.i150 to i32
+  %400 = icmp eq i32 %.0.i146, -1
   %.pre223 = load i32, ptr %6, align 4
-  br label %_ZL8findEdgePKiiii.exit156.thread
+  br i1 %400, label %_ZL8findEdgePKiiii.exit155.thread, label %430
 
-_ZL8findEdgePKiiii.exit156.thread:                ; preds = %_ZL8findEdgePKiiii.exit156.thread.loopexit, %_ZL8findEdgePKiiii.exit156
-  %399 = phi i32 [ %.pre223, %_ZL8findEdgePKiiii.exit156.thread.loopexit ], [ %.pre224, %_ZL8findEdgePKiiii.exit156 ]
-  %.not.i157 = icmp slt i32 %381, %5
-  br i1 %.not.i157, label %.lr.ph.i.i162, label %401
+_ZL8findEdgePKiiii.exit155.thread.loopexit:       ; preds = %399
+  %.pre222 = load i32, ptr %6, align 4
+  br label %_ZL8findEdgePKiiii.exit155.thread
 
-_ZL8findEdgePKiiii.exit156.thread.thread:         ; preds = %_ZL7addEdgeP9rcContextPiRiiiiii.exit
-  %400 = load i32, ptr %6, align 4
-  %.not.i157197 = icmp slt i32 %381, %5
-  br i1 %.not.i157197, label %_ZL8findEdgePKiiii.exit.thread.i159, label %401
+_ZL8findEdgePKiiii.exit155.thread:                ; preds = %_ZL8findEdgePKiiii.exit155.thread.loopexit, %_ZL8findEdgePKiiii.exit155
+  %401 = phi i32 [ %.pre222, %_ZL8findEdgePKiiii.exit155.thread.loopexit ], [ %.pre223, %_ZL8findEdgePKiiii.exit155 ]
+  %.not.i156 = icmp slt i32 %383, %5
+  br i1 %.not.i156, label %.lr.ph.i.i161, label %403
 
-401:                                              ; preds = %_ZL8findEdgePKiiii.exit156.thread.thread, %_ZL8findEdgePKiiii.exit156.thread
-  tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %381, i32 noundef %5)
-  br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit167
+_ZL8findEdgePKiiii.exit155.thread.thread:         ; preds = %_ZL7addEdgeP9rcContextPiRiiiiii.exit
+  %402 = load i32, ptr %6, align 4
+  %.not.i156196 = icmp slt i32 %383, %5
+  br i1 %.not.i156196, label %_ZL8findEdgePKiiii.exit.thread.i158, label %403
 
-.lr.ph.i.i162:                                    ; preds = %_ZL8findEdgePKiiii.exit156.thread, %416
-  %indvars.iv.i.i163 = phi i64 [ %indvars.iv.next.i.i164, %416 ], [ 0, %_ZL8findEdgePKiiii.exit156.thread ]
-  %402 = shl nsw i64 %indvars.iv.i.i163, 2
-  %403 = getelementptr inbounds i32, ptr %3, i64 %402
-  %404 = load i32, ptr %403, align 4
-  %405 = icmp eq i32 %404, %.0104
-  br i1 %405, label %406, label %410
+403:                                              ; preds = %_ZL8findEdgePKiiii.exit155.thread.thread, %_ZL8findEdgePKiiii.exit155.thread
+  tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %383, i32 noundef %5)
+  br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit166
 
-406:                                              ; preds = %.lr.ph.i.i162
-  %407 = getelementptr inbounds i8, ptr %403, i64 4
-  %408 = load i32, ptr %407, align 4
-  %409 = icmp eq i32 %408, %.1
-  br i1 %409, label %_ZL8findEdgePKiiii.exit.i166, label %410
+.lr.ph.i.i161:                                    ; preds = %_ZL8findEdgePKiiii.exit155.thread, %418
+  %indvars.iv.i.i162 = phi i64 [ %indvars.iv.next.i.i163, %418 ], [ 0, %_ZL8findEdgePKiiii.exit155.thread ]
+  %404 = shl nsw i64 %indvars.iv.i.i162, 2
+  %405 = getelementptr inbounds i32, ptr %3, i64 %404
+  %406 = load i32, ptr %405, align 4
+  %407 = icmp eq i32 %406, %.0104
+  br i1 %407, label %408, label %412
 
-410:                                              ; preds = %406, %.lr.ph.i.i162
-  %411 = icmp eq i32 %404, %.1
-  br i1 %411, label %412, label %416
+408:                                              ; preds = %.lr.ph.i.i161
+  %409 = getelementptr inbounds i8, ptr %405, i64 4
+  %410 = load i32, ptr %409, align 4
+  %411 = icmp eq i32 %410, %.1
+  br i1 %411, label %_ZL8findEdgePKiiii.exit.i165, label %412
 
-412:                                              ; preds = %410
-  %413 = getelementptr inbounds i8, ptr %403, i64 4
-  %414 = load i32, ptr %413, align 4
-  %415 = icmp eq i32 %414, %.0104
-  br i1 %415, label %_ZL8findEdgePKiiii.exit.i166, label %416
+412:                                              ; preds = %408, %.lr.ph.i.i161
+  %413 = icmp eq i32 %406, %.1
+  br i1 %413, label %414, label %418
 
-416:                                              ; preds = %412, %410
-  %indvars.iv.next.i.i164 = add nuw nsw i64 %indvars.iv.i.i163, 1
-  %exitcond.not.i.i165 = icmp eq i64 %indvars.iv.next.i.i164, %wide.trip.count.i149
-  br i1 %exitcond.not.i.i165, label %_ZL8findEdgePKiiii.exit.thread.i159, label %.lr.ph.i.i162, !llvm.loop !41
+414:                                              ; preds = %412
+  %415 = getelementptr inbounds i8, ptr %405, i64 4
+  %416 = load i32, ptr %415, align 4
+  %417 = icmp eq i32 %416, %.0104
+  br i1 %417, label %_ZL8findEdgePKiiii.exit.i165, label %418
 
-_ZL8findEdgePKiiii.exit.i166:                     ; preds = %412, %406
-  %417 = and i64 %indvars.iv.i.i163, 4294967295
-  %418 = icmp eq i64 %417, 4294967295
-  br i1 %418, label %_ZL8findEdgePKiiii.exit.thread.i159, label %_ZL7addEdgeP9rcContextPiRiiiiii.exit167
+418:                                              ; preds = %414, %412
+  %indvars.iv.next.i.i163 = add nuw nsw i64 %indvars.iv.i.i162, 1
+  %exitcond.not.i.i164 = icmp eq i64 %indvars.iv.next.i.i163, %wide.trip.count.i148
+  br i1 %exitcond.not.i.i164, label %_ZL8findEdgePKiiii.exit.thread.i158, label %.lr.ph.i.i161, !llvm.loop !41
 
-_ZL8findEdgePKiiii.exit.thread.i159:              ; preds = %416, %_ZL8findEdgePKiiii.exit156.thread.thread, %_ZL8findEdgePKiiii.exit.i166
-  %419 = phi i32 [ %399, %_ZL8findEdgePKiiii.exit.i166 ], [ %400, %_ZL8findEdgePKiiii.exit156.thread.thread ], [ %399, %416 ]
-  %420 = shl nsw i32 %381, 2
-  %421 = sext i32 %420 to i64
-  %422 = getelementptr inbounds i32, ptr %3, i64 %421
-  store i32 %.0104, ptr %422, align 4
-  %423 = getelementptr inbounds i8, ptr %422, i64 4
-  store i32 %.1, ptr %423, align 4
-  %424 = getelementptr inbounds i8, ptr %422, i64 8
-  store i32 %419, ptr %424, align 4
-  %425 = getelementptr inbounds i8, ptr %422, i64 12
-  store i32 -1, ptr %425, align 4
-  %426 = load i32, ptr %4, align 4
-  %427 = add nsw i32 %426, 1
-  store i32 %427, ptr %4, align 4
-  br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit167
+_ZL8findEdgePKiiii.exit.i165:                     ; preds = %414, %408
+  %419 = and i64 %indvars.iv.i.i162, 4294967295
+  %420 = icmp eq i64 %419, 4294967295
+  br i1 %420, label %_ZL8findEdgePKiiii.exit.thread.i158, label %_ZL7addEdgeP9rcContextPiRiiiiii.exit166
 
-428:                                              ; preds = %_ZL8findEdgePKiiii.exit156
-  %429 = shl nsw i32 %.0.i147, 2
-  %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds i32, ptr %3, i64 %430
-  %432 = load i32, ptr %431, align 4
-  %433 = icmp eq i32 %432, %.0104
-  %434 = getelementptr inbounds i8, ptr %431, i64 4
-  %435 = load i32, ptr %434, align 4
-  %436 = icmp eq i32 %435, %.1
-  %or.cond13.i168 = select i1 %433, i1 %436, i1 false
-  br i1 %or.cond13.i168, label %437, label %._crit_edge.i169
+_ZL8findEdgePKiiii.exit.thread.i158:              ; preds = %418, %_ZL8findEdgePKiiii.exit155.thread.thread, %_ZL8findEdgePKiiii.exit.i165
+  %421 = phi i32 [ %401, %_ZL8findEdgePKiiii.exit.i165 ], [ %402, %_ZL8findEdgePKiiii.exit155.thread.thread ], [ %401, %418 ]
+  %422 = shl nsw i32 %383, 2
+  %423 = sext i32 %422 to i64
+  %424 = getelementptr inbounds i32, ptr %3, i64 %423
+  store i32 %.0104, ptr %424, align 4
+  %425 = getelementptr inbounds i8, ptr %424, i64 4
+  store i32 %.1, ptr %425, align 4
+  %426 = getelementptr inbounds i8, ptr %424, i64 8
+  store i32 %421, ptr %426, align 4
+  %427 = getelementptr inbounds i8, ptr %424, i64 12
+  store i32 -1, ptr %427, align 4
+  %428 = load i32, ptr %4, align 4
+  %429 = add nsw i32 %428, 1
+  store i32 %429, ptr %4, align 4
+  br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit166
 
-437:                                              ; preds = %428
-  %438 = getelementptr inbounds i8, ptr %431, i64 8
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp eq i32 %439, -1
-  br i1 %440, label %.sink.split.i171, label %._crit_edge.i169
+430:                                              ; preds = %_ZL8findEdgePKiiii.exit155
+  %431 = shl nsw i32 %.0.i146, 2
+  %432 = sext i32 %431 to i64
+  %433 = getelementptr inbounds i32, ptr %3, i64 %432
+  %434 = load i32, ptr %433, align 4
+  %435 = icmp eq i32 %434, %.0104
+  %436 = getelementptr inbounds i8, ptr %433, i64 4
+  %437 = load i32, ptr %436, align 4
+  %438 = icmp eq i32 %437, %.1
+  %or.cond13.i167 = select i1 %435, i1 %438, i1 false
+  br i1 %or.cond13.i167, label %439, label %._crit_edge.i168
 
-._crit_edge.i169:                                 ; preds = %437, %428
-  %441 = phi i32 [ %.1, %437 ], [ %435, %428 ]
-  %442 = icmp eq i32 %441, %.0104
-  %443 = icmp eq i32 %432, %.1
-  %or.cond.i170 = and i1 %443, %442
-  br i1 %or.cond.i170, label %444, label %_ZL7addEdgeP9rcContextPiRiiiiii.exit167
+439:                                              ; preds = %430
+  %440 = getelementptr inbounds i8, ptr %433, i64 8
+  %441 = load i32, ptr %440, align 4
+  %442 = icmp eq i32 %441, -1
+  br i1 %442, label %.sink.split.i170, label %._crit_edge.i168
 
-444:                                              ; preds = %._crit_edge.i169
-  %445 = getelementptr inbounds i8, ptr %431, i64 12
-  %446 = load i32, ptr %445, align 4
-  %447 = icmp eq i32 %446, -1
-  br i1 %447, label %.sink.split.i171, label %_ZL7addEdgeP9rcContextPiRiiiiii.exit167
+._crit_edge.i168:                                 ; preds = %439, %430
+  %443 = phi i32 [ %.1, %439 ], [ %437, %430 ]
+  %444 = icmp eq i32 %443, %.0104
+  %445 = icmp eq i32 %434, %.1
+  %or.cond.i169 = and i1 %445, %444
+  br i1 %or.cond.i169, label %446, label %_ZL7addEdgeP9rcContextPiRiiiiii.exit166
 
-.sink.split.i171:                                 ; preds = %444, %437
-  %.sink.i172 = phi ptr [ %438, %437 ], [ %445, %444 ]
-  store i32 %.pre224, ptr %.sink.i172, align 4
-  br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit167
+446:                                              ; preds = %._crit_edge.i168
+  %447 = getelementptr inbounds i8, ptr %433, i64 12
+  %448 = load i32, ptr %447, align 4
+  %449 = icmp eq i32 %448, -1
+  br i1 %449, label %.sink.split.i170, label %_ZL7addEdgeP9rcContextPiRiiiiii.exit166
 
-_ZL7addEdgeP9rcContextPiRiiiiii.exit167:          ; preds = %.sink.split.i171, %444, %._crit_edge.i169, %_ZL8findEdgePKiiii.exit.thread.i159, %_ZL8findEdgePKiiii.exit.i166, %401
-  %448 = load i32, ptr %6, align 4
-  %449 = add nsw i32 %448, 1
-  store i32 %449, ptr %6, align 4
-  br label %_ZL14updateLeftFacePiiii.exit179
+.sink.split.i170:                                 ; preds = %446, %439
+  %.sink.i171 = phi ptr [ %440, %439 ], [ %447, %446 ]
+  store i32 %.pre223, ptr %.sink.i171, align 4
+  br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit166
+
+_ZL7addEdgeP9rcContextPiRiiiiii.exit166:          ; preds = %.sink.split.i170, %446, %._crit_edge.i168, %_ZL8findEdgePKiiii.exit.thread.i158, %_ZL8findEdgePKiiii.exit.i165, %403
+  %450 = load i32, ptr %6, align 4
+  %451 = add nsw i32 %450, 1
+  store i32 %451, ptr %6, align 4
+  br label %_ZL14updateLeftFacePiiii.exit178
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %450 = load i32, ptr %11, align 4
-  %451 = icmp ne i32 %450, %.0
-  %452 = getelementptr inbounds i8, ptr %11, i64 4
-  %453 = load i32, ptr %452, align 4
-  %454 = icmp ne i32 %453, %.0104
-  %or.cond13.i174.not204 = select i1 %451, i1 true, i1 %454
-  %brmerge200 = or i1 %14, %or.cond13.i174.not204
-  br i1 %brmerge200, label %._crit_edge.i175, label %.sink.split.i177
+  %452 = load i32, ptr %11, align 4
+  %453 = icmp ne i32 %452, %.0
+  %454 = getelementptr inbounds i8, ptr %11, i64 4
+  %455 = load i32, ptr %454, align 4
+  %456 = icmp ne i32 %455, %.0104
+  %or.cond13.i173.not203 = select i1 %453, i1 true, i1 %456
+  %brmerge199 = or i1 %14, %or.cond13.i173.not203
+  br i1 %brmerge199, label %._crit_edge.i174, label %.sink.split.i176
 
-._crit_edge.i175:                                 ; preds = %._crit_edge.thread
-  %455 = icmp eq i32 %453, %.0
-  %456 = icmp eq i32 %450, %.0104
-  %or.cond.i176 = and i1 %456, %455
-  br i1 %or.cond.i176, label %457, label %_ZL14updateLeftFacePiiii.exit179
+._crit_edge.i174:                                 ; preds = %._crit_edge.thread
+  %457 = icmp eq i32 %455, %.0
+  %458 = icmp eq i32 %452, %.0104
+  %or.cond.i175 = and i1 %458, %457
+  br i1 %or.cond.i175, label %459, label %_ZL14updateLeftFacePiiii.exit178
 
-457:                                              ; preds = %._crit_edge.i175
-  %458 = getelementptr inbounds i8, ptr %11, i64 12
-  %459 = load i32, ptr %458, align 4
-  %460 = icmp eq i32 %459, -1
-  br i1 %460, label %.sink.split.i177, label %_ZL14updateLeftFacePiiii.exit179
+459:                                              ; preds = %._crit_edge.i174
+  %460 = getelementptr inbounds i8, ptr %11, i64 12
+  %461 = load i32, ptr %460, align 4
+  %462 = icmp eq i32 %461, -1
+  br i1 %462, label %.sink.split.i176, label %_ZL14updateLeftFacePiiii.exit178
 
-.sink.split.i177:                                 ; preds = %._crit_edge.thread, %457
-  %.sink.i178 = phi ptr [ %458, %457 ], [ %12, %._crit_edge.thread ]
-  store i32 -2, ptr %.sink.i178, align 4
-  br label %_ZL14updateLeftFacePiiii.exit179
+.sink.split.i176:                                 ; preds = %._crit_edge.thread, %459
+  %.sink.i177 = phi ptr [ %460, %459 ], [ %12, %._crit_edge.thread ]
+  store i32 -2, ptr %.sink.i177, align 4
+  br label %_ZL14updateLeftFacePiiii.exit178
 
-_ZL14updateLeftFacePiiii.exit179:                 ; preds = %.sink.split.i177, %457, %._crit_edge.i175, %17, %_ZL7addEdgeP9rcContextPiRiiiiii.exit167
+_ZL14updateLeftFacePiiii.exit178:                 ; preds = %.sink.split.i176, %459, %._crit_edge.i174, %17, %_ZL7addEdgeP9rcContextPiRiiiiii.exit166
   ret void
 }
 

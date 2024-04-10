@@ -9946,10 +9946,9 @@ define dso_local noundef i32 @_ZN5cmsys11SystemTools16GetTerminalWidthEv() local
 22:                                               ; preds = %18
   %23 = load i8, ptr %21, align 1
   %24 = icmp eq i8 %23, 0
-  %25 = icmp sgt i64 %20, 0
-  %or.cond9 = select i1 %24, i1 %25, i1 false
-  %26 = icmp slt i64 %20, 1000
-  %or.cond11 = select i1 %or.cond9, i1 %26, i1 false
+  %25 = add i64 %20, -1
+  %26 = icmp ult i64 %25, 999
+  %or.cond11 = select i1 %24, i1 %26, i1 false
   %27 = trunc i64 %20 to i32
   %spec.select21 = select i1 %or.cond11, i32 %27, i32 %.1
   br label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit

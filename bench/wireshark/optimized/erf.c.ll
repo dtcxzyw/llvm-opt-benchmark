@@ -220,101 +220,99 @@ define hidden i32 @erf_open(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca i64, align 8
   %9 = tail call ptr @getenv(ptr noundef nonnull @.str) #15
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.lr.ph118, label %10
+  br i1 %.not, label %.lr.ph117, label %10
 
 10:                                               ; preds = %3
   %11 = call zeroext i1 @ws_strtoi32(ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %4) #15
   %12 = load i32, ptr %4, align 4
-  %13 = icmp sgt i32 %12, -1
-  %or.cond = select i1 %11, i1 %13, i1 false
-  %14 = icmp slt i32 %12, 101
-  %or.cond3 = select i1 %or.cond, i1 %14, i1 false
-  br i1 %or.cond3, label %15, label %.lr.ph118
+  %13 = icmp ult i32 %12, 101
+  %or.cond3 = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond3, label %14, label %.lr.ph117
 
-15:                                               ; preds = %10
-  %.not136 = icmp eq i32 %12, 0
-  br i1 %.not136, label %.loopexit102, label %.lr.ph118
+14:                                               ; preds = %10
+  %.not135 = icmp eq i32 %12, 0
+  br i1 %.not135, label %.loopexit101, label %.lr.ph117
 
-.lr.ph118:                                        ; preds = %10, %3, %15
-  %.072128 = phi i32 [ %12, %15 ], [ 20, %3 ], [ 20, %10 ]
-  %16 = getelementptr inbounds i8, ptr %5, i64 10
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %18
+.lr.ph117:                                        ; preds = %10, %3, %14
+  %.072127 = phi i32 [ %12, %14 ], [ 20, %3 ], [ 20, %10 ]
+  %15 = getelementptr inbounds i8, ptr %5, i64 10
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  br label %17
 
-18:                                               ; preds = %.lr.ph118, %85
-  %.070116 = phi i32 [ 0, %.lr.ph118 ], [ %86, %85 ]
-  %.073115 = phi i64 [ 0, %.lr.ph118 ], [ %.174, %85 ]
-  %.075114 = phi i32 [ 0, %.lr.ph118 ], [ %.176, %85 ]
-  %19 = load ptr, ptr %0, align 8
-  %20 = call i32 @wtap_read_bytes_or_eof(ptr noundef %19, ptr noundef nonnull %5, i32 noundef 16, ptr noundef %1, ptr noundef %2) #15
-  %.not85 = icmp eq i32 %20, 0
-  br i1 %.not85, label %21, label %25
+17:                                               ; preds = %.lr.ph117, %85
+  %.070115 = phi i32 [ 0, %.lr.ph117 ], [ %86, %85 ]
+  %.073114 = phi i64 [ 0, %.lr.ph117 ], [ %.174, %85 ]
+  %.075113 = phi i32 [ 0, %.lr.ph117 ], [ %.176, %85 ]
+  %18 = load ptr, ptr %0, align 8
+  %19 = call i32 @wtap_read_bytes_or_eof(ptr noundef %18, ptr noundef nonnull %5, i32 noundef 16, ptr noundef %1, ptr noundef %2) #15
+  %.not85 = icmp eq i32 %19, 0
+  br i1 %.not85, label %20, label %24
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %1, align 4
-  switch i32 %22, label %.loopexit [
-    i32 0, label %.loopexit102
-    i32 -12, label %23
+20:                                               ; preds = %17
+  %21 = load i32, ptr %1, align 4
+  switch i32 %21, label %.loopexit [
+    i32 0, label %.loopexit101
+    i32 -12, label %22
   ]
 
-23:                                               ; preds = %21
-  %24 = icmp ult i32 %.070116, 3
-  br i1 %24, label %.loopexit, label %.loopexit102
+22:                                               ; preds = %20
+  %23 = icmp ult i32 %.070115, 3
+  br i1 %23, label %.loopexit, label %.loopexit101
 
-25:                                               ; preds = %18
-  %26 = load i16, ptr %16, align 2
-  %rev = call i16 @llvm.bswap.i16(i16 %26)
-  %27 = icmp ult i16 %rev, 16
-  br i1 %27, label %.loopexit, label %28
+24:                                               ; preds = %17
+  %25 = load i16, ptr %15, align 2
+  %rev = call i16 @llvm.bswap.i16(i16 %25)
+  %26 = icmp ult i16 %rev, 16
+  br i1 %26, label %.loopexit, label %27
 
-28:                                               ; preds = %25
-  %29 = zext i16 %rev to i32
-  %30 = add nsw i32 %29, -16
-  %31 = load i8, ptr %17, align 8
-  %32 = and i8 %31, 127
-  switch i8 %32, label %40 [
-    i8 48, label %33
+27:                                               ; preds = %24
+  %28 = zext i16 %rev to i32
+  %29 = add nsw i32 %28, -16
+  %30 = load i8, ptr %16, align 8
+  %31 = and i8 %30, 127
+  switch i8 %31, label %39 [
+    i8 48, label %32
     i8 0, label %.loopexit
   ]
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %0, align 8
-  %35 = call i32 @wtap_read_bytes(ptr noundef %34, ptr noundef null, i32 noundef %30, ptr noundef %1, ptr noundef %2) #15
-  %.not93 = icmp eq i32 %35, 0
-  br i1 %.not93, label %36, label %85
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %0, align 8
+  %34 = call i32 @wtap_read_bytes(ptr noundef %33, ptr noundef null, i32 noundef %29, ptr noundef %1, ptr noundef %2) #15
+  %.not93 = icmp eq i32 %34, 0
+  br i1 %.not93, label %35, label %85
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %1, align 4
-  %.not94 = icmp eq i32 %37, -12
-  br i1 %.not94, label %38, label %.loopexit
+35:                                               ; preds = %32
+  %36 = load i32, ptr %1, align 4
+  %.not94 = icmp eq i32 %36, -12
+  br i1 %.not94, label %37, label %.loopexit
 
-38:                                               ; preds = %36
-  %39 = icmp ult i32 %.070116, 3
-  br i1 %39, label %.loopexit, label %85
+37:                                               ; preds = %35
+  %38 = icmp ult i32 %.070115, 3
+  br i1 %38, label %.loopexit, label %85
 
-40:                                               ; preds = %28
-  %41 = load i64, ptr %5, align 8
-  %42 = icmp ult i64 %41, %.073115
-  %43 = sub i64 %.073115, %41
-  %44 = icmp ugt i64 %43, 8589934591
-  %or.cond96 = and i1 %42, %44
-  br i1 %or.cond96, label %.loopexit, label %45
+39:                                               ; preds = %27
+  %40 = load i64, ptr %5, align 8
+  %41 = icmp ult i64 %40, %.073114
+  %42 = sub i64 %.073114, %40
+  %43 = icmp ugt i64 %42, 8589934591
+  %or.cond = and i1 %41, %43
+  br i1 %or.cond, label %.loopexit, label %44
 
-45:                                               ; preds = %40
-  %.not86 = icmp ne i32 %.075114, 0
-  %46 = icmp ugt i64 %41, %.073115
-  %or.cond97 = select i1 %.not86, i1 %46, i1 false
-  %47 = sub i64 %41, %.073115
-  %48 = icmp ugt i64 %47, 135446092941623295
-  %or.cond99 = select i1 %or.cond97, i1 %48, i1 false
-  br i1 %or.cond99, label %.loopexit, label %.preheader
+44:                                               ; preds = %39
+  %.not86 = icmp ne i32 %.075113, 0
+  %45 = icmp ugt i64 %40, %.073114
+  %46 = sub i64 %40, %.073114
+  %47 = icmp ugt i64 %46, 135446092941623295
+  %48 = and i1 %45, %47
+  %or.cond98 = select i1 %.not86, i1 %48, i1 false
+  br i1 %or.cond98, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %45
-  %.not87112 = icmp sgt i8 %31, -1
-  br i1 %.not87112, label %._crit_edge, label %.lr.ph
+.preheader:                                       ; preds = %44
+  %.not87111 = icmp sgt i8 %30, -1
+  br i1 %.not87111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %56
-  %.071113 = phi i32 [ %57, %56 ], [ %30, %.preheader ]
+  %.071112 = phi i32 [ %57, %56 ], [ %29, %.preheader ]
   %49 = load ptr, ptr %0, align 8
   %50 = call i32 @wtap_read_bytes(ptr noundef %49, ptr noundef nonnull %8, i32 noundef 8, ptr noundef %1, ptr noundef %2) #15
   %.not92 = icmp eq i32 %50, 0
@@ -327,23 +325,23 @@ define hidden i32 @erf_open(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit
 
 54:                                               ; preds = %.lr.ph
-  %55 = icmp ult i32 %.071113, 8
+  %55 = icmp ult i32 %.071112, 8
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %54
-  %57 = add nsw i32 %.071113, -8
+  %57 = add nsw i32 %.071112, -8
   %.0.copyload = load i8, ptr %8, align 8
   %.not87 = icmp sgt i8 %.0.copyload, -1
   br i1 %.not87, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %56
-  %.pre = load i8, ptr %17, align 8
-  %.pre126 = and i8 %.pre, 127
+  %.pre = load i8, ptr %16, align 8
+  %.pre125 = and i8 %.pre, 127
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.pre-phi = phi i8 [ %.pre126, %._crit_edge.loopexit ], [ %32, %.preheader ]
-  %.071.lcssa = phi i32 [ %57, %._crit_edge.loopexit ], [ %30, %.preheader ]
+  %.pre-phi = phi i8 [ %.pre125, %._crit_edge.loopexit ], [ %31, %.preheader ]
+  %.071.lcssa = phi i32 [ %57, %._crit_edge.loopexit ], [ %29, %.preheader ]
   switch i8 %.pre-phi, label %78 [
     i8 5, label %58
     i8 6, label %58
@@ -368,7 +366,7 @@ define hidden i32 @erf_open(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
 61:                                               ; preds = %58
   %62 = load i32, ptr %1, align 4
   %63 = icmp ne i32 %62, -12
-  %.100 = sext i1 %63 to i32
+  %.99 = sext i1 %63 to i32
   br label %.loopexit
 
 64:                                               ; preds = %58
@@ -388,7 +386,7 @@ define hidden i32 @erf_open(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
 71:                                               ; preds = %68
   %72 = load i32, ptr %1, align 4
   %73 = icmp ne i32 %72, -12
-  %.101 = sext i1 %73 to i32
+  %.100 = sext i1 %73 to i32
   br label %.loopexit
 
 74:                                               ; preds = %68
@@ -412,23 +410,23 @@ define hidden i32 @erf_open(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not91, label %83, label %.loopexit
 
 83:                                               ; preds = %81
-  %84 = icmp ult i32 %.070116, 3
+  %84 = icmp ult i32 %.070115, 3
   br i1 %84, label %.loopexit, label %85
 
-85:                                               ; preds = %78, %83, %33, %38
-  %.176 = phi i32 [ %.075114, %33 ], [ %.075114, %38 ], [ 1, %83 ], [ 1, %78 ]
-  %.174 = phi i64 [ %.073115, %33 ], [ %.073115, %38 ], [ %41, %83 ], [ %41, %78 ]
-  %86 = add nuw nsw i32 %.070116, 1
-  %exitcond.not = icmp eq i32 %86, %.072128
-  br i1 %exitcond.not, label %.loopexit102, label %18, !llvm.loop !7
+85:                                               ; preds = %78, %83, %32, %37
+  %.176 = phi i32 [ %.075113, %32 ], [ %.075113, %37 ], [ 1, %83 ], [ 1, %78 ]
+  %.174 = phi i64 [ %.073114, %32 ], [ %.073114, %37 ], [ %40, %83 ], [ %40, %78 ]
+  %86 = add nuw nsw i32 %.070115, 1
+  %exitcond.not = icmp eq i32 %86, %.072127
+  br i1 %exitcond.not, label %.loopexit101, label %17, !llvm.loop !7
 
-.loopexit102:                                     ; preds = %85, %15, %21, %23
+.loopexit101:                                     ; preds = %85, %14, %20, %22
   %87 = load ptr, ptr %0, align 8
   %88 = call i64 @file_seek(ptr noundef %87, i64 noundef 0, i32 noundef 0, ptr noundef %1) #15
   %89 = icmp eq i64 %88, -1
   br i1 %89, label %.loopexit, label %90
 
-90:                                               ; preds = %.loopexit102
+90:                                               ; preds = %.loopexit101
   %91 = load i32, ptr @erf_file_type_subtype, align 4
   %92 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %91, ptr %92, align 4
@@ -458,8 +456,8 @@ define hidden i32 @erf_open(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   store ptr %99, ptr %105, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %83, %81, %74, %64, %45, %40, %28, %38, %36, %25, %54, %.loopexit102, %71, %61, %51, %21, %23, %90
-  %.069 = phi i32 [ 1, %90 ], [ 0, %23 ], [ -1, %21 ], [ %., %51 ], [ %.100, %61 ], [ %.101, %71 ], [ -1, %.loopexit102 ], [ 0, %54 ], [ 0, %83 ], [ -1, %81 ], [ 0, %74 ], [ 0, %64 ], [ 0, %45 ], [ 0, %40 ], [ 0, %28 ], [ 0, %38 ], [ -1, %36 ], [ 0, %25 ]
+.loopexit:                                        ; preds = %83, %81, %74, %64, %44, %39, %27, %37, %35, %24, %54, %.loopexit101, %71, %61, %51, %20, %22, %90
+  %.069 = phi i32 [ 1, %90 ], [ 0, %22 ], [ -1, %20 ], [ %., %51 ], [ %.99, %61 ], [ %.100, %71 ], [ -1, %.loopexit101 ], [ 0, %54 ], [ 0, %83 ], [ -1, %81 ], [ 0, %74 ], [ 0, %64 ], [ 0, %44 ], [ 0, %39 ], [ 0, %27 ], [ 0, %37 ], [ -1, %35 ], [ 0, %24 ]
   ret i32 %.069
 }
 

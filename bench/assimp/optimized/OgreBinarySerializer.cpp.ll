@@ -1395,7 +1395,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
 while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
   %conv = zext i16 %id.0100 to i32
   %16 = add nsw i32 %conv, -16384
-  %17 = call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 20)
+  %17 = lshr exact i32 %16, 12
   switch i32 %17, label %sw.epilog [
     i32 1, label %sw.bb
     i32 0, label %sw.bb39
@@ -15480,9 +15480,6 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pugi14xpath_node_setD2Ev, ptr nonnull @_ZN4pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #19
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshl.i16(i16, i16, i16) #15

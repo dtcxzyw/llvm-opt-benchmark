@@ -3178,23 +3178,17 @@ define noundef i32 @parse_uint16(ptr noundef %0, ptr nocapture noundef writeonly
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp ne i8 %6, 0
-  %8 = icmp eq i64 %4, -9223372036854775808
+  %8 = icmp ugt i64 %4, 65533
   %or.cond = select i1 %7, i1 true, i1 %8
-  %9 = icmp eq i64 %4, 9223372036854775807
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %9
-  %10 = icmp slt i64 %4, 0
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %10
-  %11 = icmp sgt i64 %4, 65533
-  %or.cond14 = select i1 %or.cond5, i1 true, i1 %11
-  br i1 %or.cond14, label %14, label %12
+  br i1 %or.cond, label %11, label %9
 
-12:                                               ; preds = %2
-  %13 = trunc i64 %4 to i16
-  store i16 %13, ptr %1, align 2
-  br label %14
+9:                                                ; preds = %2
+  %10 = trunc i64 %4 to i16
+  store i16 %10, ptr %1, align 2
+  br label %11
 
-14:                                               ; preds = %2, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %2 ]
+11:                                               ; preds = %2, %9
+  %.0 = phi i32 [ 0, %9 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -3205,23 +3199,17 @@ define noundef i32 @parse_uint32(ptr noundef %0, ptr nocapture noundef writeonly
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp ne i8 %6, 0
-  %8 = icmp eq i64 %4, -9223372036854775808
+  %8 = icmp ugt i64 %4, 4294967293
   %or.cond = select i1 %7, i1 true, i1 %8
-  %9 = icmp eq i64 %4, 9223372036854775807
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %9
-  %10 = icmp slt i64 %4, 0
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %10
-  %11 = icmp sgt i64 %4, 4294967293
-  %or.cond14 = select i1 %or.cond5, i1 true, i1 %11
-  br i1 %or.cond14, label %14, label %12
+  br i1 %or.cond, label %11, label %9
 
-12:                                               ; preds = %2
-  %13 = trunc i64 %4 to i32
-  store i32 %13, ptr %1, align 4
-  br label %14
+9:                                                ; preds = %2
+  %10 = trunc i64 %4 to i32
+  store i32 %10, ptr %1, align 4
+  br label %11
 
-14:                                               ; preds = %2, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %2 ]
+11:                                               ; preds = %2, %9
+  %.0 = phi i32 [ 0, %9 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -3232,20 +3220,16 @@ define noundef i32 @parse_uint64(ptr noundef %0, ptr nocapture noundef writeonly
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp ne i8 %6, 0
-  %8 = icmp eq i64 %4, -9223372036854775808
-  %or.cond = select i1 %7, i1 true, i1 %8
-  %9 = icmp eq i64 %4, 9223372036854775807
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %9
-  %10 = icmp slt i64 %4, 0
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %10
-  br i1 %or.cond5, label %12, label %11
+  %8 = icmp ugt i64 %4, 9223372036854775806
+  %or.cond5 = select i1 %7, i1 true, i1 %8
+  br i1 %or.cond5, label %10, label %9
 
-11:                                               ; preds = %2
+9:                                                ; preds = %2
   store i64 %4, ptr %1, align 8
-  br label %12
+  br label %10
 
-12:                                               ; preds = %2, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %2 ]
+10:                                               ; preds = %2, %9
+  %.0 = phi i32 [ 0, %9 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -3265,30 +3249,28 @@ define i32 @parse_int(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
 8:                                                ; preds = %5
   %9 = load i8, ptr %.pr, align 1
   %10 = icmp ne i8 %9, 0
-  %11 = icmp slt i64 %6, 0
-  %or.cond = select i1 %10, i1 true, i1 %11
-  %12 = icmp slt i64 %6, 1
-  %or.cond3 = select i1 %2, i1 %12, i1 false
-  %or.cond18 = select i1 %or.cond, i1 true, i1 %or.cond3
-  br i1 %or.cond18, label %.thread, label %14
+  %.v = zext i1 %2 to i64
+  %11 = icmp slt i64 %6, %.v
+  %or.cond18 = select i1 %10, i1 true, i1 %11
+  br i1 %or.cond18, label %.thread, label %13
 
 .thread:                                          ; preds = %3, %8, %5
-  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef %0) #20
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef %0) #20
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-14:                                               ; preds = %8
-  %15 = icmp ugt i64 %6, 2147483646
-  br i1 %15, label %16, label %18
+13:                                               ; preds = %8
+  %14 = icmp ugt i64 %6, 2147483646
+  br i1 %14, label %15, label %17
 
-16:                                               ; preds = %14
-  %17 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %6, ptr noundef %0) #20
+15:                                               ; preds = %13
+  %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %6, ptr noundef %0) #20
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-18:                                               ; preds = %14
-  %19 = trunc i64 %6 to i32
-  ret i32 %19
+17:                                               ; preds = %13
+  %18 = trunc i64 %6 to i32
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

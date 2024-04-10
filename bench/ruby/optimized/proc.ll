@@ -929,7 +929,7 @@ define hidden i32 @rb_block_pair_yield_optimizable() local_unnamed_addr #0 {
 11:                                               ; preds = %0
   %12 = and i64 %7, 3
   switch i64 %12, label %13 [
-    i64 1, label %36
+    i64 1, label %37
     i64 3, label %22
   ]
 
@@ -952,14 +952,14 @@ RB_SYMBOL_P.exit.i.i:                             ; preds = %16
   br i1 %21, label %block_setup.exit.thread16, label %25
 
 22:                                               ; preds = %11
-  br label %36
+  br label %37
 
 block_setup.exit.thread16:                        ; preds = %13, %RB_SYMBOL_P.exit.i.i
   %23 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 2, ptr %23, align 8
   store i64 %7, ptr %2, align 8
   %24 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
-  br label %42
+  br label %43
 
 25:                                               ; preds = %RB_SYMBOL_P.exit.i.i, %16
   %26 = getelementptr inbounds i8, ptr %2, i64 24
@@ -975,24 +975,24 @@ block_setup.exit.thread16:                        ; preds = %13, %RB_SYMBOL_P.ex
   %.not = icmp eq i8 %33, 0
   %34 = load i32, ptr %1, align 4
   %.not12 = icmp eq i32 %27, %34
-  %or.cond = select i1 %.not, i1 %.not12, i1 false
   %35 = icmp sgt i32 %27, 1
-  %spec.select = select i1 %or.cond, i1 %35, i1 false
-  br label %42
+  %36 = and i1 %35, %.not12
+  %spec.select = select i1 %.not, i1 %36, i1 false
+  br label %43
 
-36:                                               ; preds = %11, %22
+37:                                               ; preds = %11, %22
   %.sink = phi i32 [ 1, %22 ], [ 0, %11 ]
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %.sink, ptr %37, align 8
-  %38 = and i64 %7, -4
-  %39 = inttoptr i64 %38 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
-  %40 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
-  %41 = icmp sgt i32 %40, 1
-  br label %42
+  %38 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %.sink, ptr %38, align 8
+  %39 = and i64 %7, -4
+  %40 = inttoptr i64 %39 to ptr
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
+  %41 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  %42 = icmp sgt i32 %41, 1
+  br label %43
 
-42:                                               ; preds = %block_setup.exit.thread16, %25, %36
-  %.0.shrunk = phi i1 [ %41, %36 ], [ %spec.select, %25 ], [ false, %block_setup.exit.thread16 ]
+43:                                               ; preds = %block_setup.exit.thread16, %25, %37
+  %.0.shrunk = phi i1 [ %42, %37 ], [ %spec.select, %25 ], [ false, %block_setup.exit.thread16 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

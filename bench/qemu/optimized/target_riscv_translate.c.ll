@@ -51684,17 +51684,15 @@ land.lhs.true.i:                                  ; preds = %entry
   %3 = getelementptr i8, ptr %s, i64 136
   %s.val34.i = load i8, ptr %3, align 8
   %tobool.i.i = trunc i8 %s.val34.i to i1
-  %lnot.i.i = xor i1 %tobool.i.i, true
-  %cmp.i = icmp sgt i8 %add.i, -4
-  %or.cond.i = select i1 %lnot.i.i, i1 %cmp.i, i1 false
-  %cmp11.i = icmp slt i8 %add.i, 4
-  %or.cond1.i = select i1 %or.cond.i, i1 %cmp11.i, i1 false
-  br i1 %or.cond1.i, label %land.lhs.true13.i, label %return
+  %4 = add i8 %reass.sub.i, -3
+  %5 = icmp ult i8 %4, -7
+  %or.cond1.not.i = select i1 %tobool.i.i, i1 true, i1 %5
+  br i1 %or.cond1.not.i, label %return, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true.i
   %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %4 = load i32, ptr %rd.i, align 4
-  %conv14.i = trunc i32 %4 to i8
+  %6 = load i32, ptr %rd.i, align 4
+  %conv14.i = trunc i32 %6 to i8
   %cmp.i35.i = icmp slt i8 %1, 1
   br i1 %cmp.i35.i, label %land.lhs.true18.i, label %lor.rhs.i.i
 
@@ -51708,7 +51706,7 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
   %conv.i.i = zext nneg i8 %1 to i32
-  %sext.i = shl i32 %4, 24
+  %sext.i = shl i32 %6, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
   %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
@@ -51718,15 +51716,23 @@ require_align.exit.i:                             ; preds = %lor.rhs.i.i
 
 land.lhs.true18.i:                                ; preds = %require_align.exit.i, %land.lhs.true13.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
-  %5 = load i32, ptr %rs1.i, align 4
-  %conv19.i = trunc i32 %5 to i8
+  %7 = load i32, ptr %rs1.i, align 4
+  %conv19.i = trunc i32 %7 to i8
   %cmp.i36.i = icmp ugt i8 %reass.sub.i, 126
-  br i1 %cmp.i36.i, label %land.lhs.true22.i, label %require_align.exit47.i
+  br i1 %cmp.i36.i, label %land.lhs.true22.i, label %lor.rhs.i37.i
 
-require_align.exit47.i:                           ; preds = %land.lhs.true18.i
+lor.rhs.i37.i:                                    ; preds = %land.lhs.true18.i
+  %cmp3.not.i.i38.i = icmp ugt i8 %add.i, 32
+  br i1 %cmp3.not.i.i38.i, label %if.else.i.i46.i, label %require_align.exit47.i
+
+if.else.i.i46.i:                                  ; preds = %lor.rhs.i37.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
+  unreachable
+
+require_align.exit47.i:                           ; preds = %lor.rhs.i37.i
   %conv.i40.i = zext nneg i8 %add.i to i32
-  %sext72.i = shl i32 %5, 24
-  %conv2.i41.i = ashr exact i32 %sext72.i, 24
+  %sext71.i = shl i32 %7, 24
+  %conv2.i41.i = ashr exact i32 %sext71.i, 24
   %sub4.i.i42.i = sub nuw nsw i32 32, %conv.i40.i
   %shr5.i.i43.i = lshr i32 -1, %sub4.i.i42.i
   %and.i.i44.i = and i32 %conv2.i41.i, %shr5.i.i43.i
@@ -51735,125 +51741,127 @@ require_align.exit47.i:                           ; preds = %land.lhs.true18.i
 
 land.lhs.true22.i:                                ; preds = %require_align.exit47.i, %land.lhs.true18.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %6 = load i32, ptr %rs2.i, align 4
-  %conv23.i = trunc i32 %6 to i8
+  %8 = load i32, ptr %rs2.i, align 4
+  %conv23.i = trunc i32 %8 to i8
   br i1 %cmp.i35.i, label %land.lhs.true27.i, label %require_align.exit59.i
 
 require_align.exit59.i:                           ; preds = %land.lhs.true22.i
   %conv.i52.i = zext nneg i8 %1 to i32
-  %sext73.i = shl i32 %6, 24
-  %conv2.i53.i = ashr exact i32 %sext73.i, 24
+  %sext72.i = shl i32 %8, 24
+  %conv2.i53.i = ashr exact i32 %sext72.i, 24
   %sub4.i.i54.i = sub nuw nsw i32 32, %conv.i52.i
   %shr5.i.i55.i = lshr i32 -1, %sub4.i.i54.i
   %and.i.i56.i = and i32 %conv2.i53.i, %shr5.i.i55.i
   %cmp4.i57.i = icmp ne i32 %and.i.i56.i, 0
-  %cmp30.not.i = icmp eq i32 %4, %6
-  %or.cond69.i = select i1 %cmp4.i57.i, i1 true, i1 %cmp30.not.i
-  %cmp35.not.i = icmp eq i32 %4, %5
-  %or.cond70.i = select i1 %or.cond69.i, i1 true, i1 %cmp35.not.i
-  br i1 %or.cond70.i, label %return, label %land.lhs.true37.i
+  %cmp30.not.i = icmp eq i32 %6, %8
+  %or.cond.i = select i1 %cmp4.i57.i, i1 true, i1 %cmp30.not.i
+  %cmp35.not.i = icmp eq i32 %6, %7
+  %or.cond69.i = select i1 %or.cond.i, i1 true, i1 %cmp35.not.i
+  br i1 %or.cond69.i, label %return, label %land.lhs.true37.i
 
 land.lhs.true27.i:                                ; preds = %land.lhs.true22.i
-  %cmp30.not.old.i = icmp eq i32 %4, %6
-  %cmp35.not.old.i = icmp eq i32 %4, %5
-  %or.cond71.i = select i1 %cmp30.not.old.i, i1 true, i1 %cmp35.not.old.i
-  br i1 %or.cond71.i, label %return, label %land.lhs.true37.i
+  %cmp30.not.old.i = icmp eq i32 %6, %8
+  %cmp35.not.old.i = icmp eq i32 %6, %7
+  %or.cond70.i = select i1 %cmp30.not.old.i, i1 true, i1 %cmp35.not.old.i
+  br i1 %or.cond70.i, label %return, label %land.lhs.true37.i
 
 land.lhs.true37.i:                                ; preds = %land.lhs.true27.i, %require_align.exit59.i
-  %7 = tail call i8 @llvm.smax.i8(i8 %1, i8 0)
-  %cond.i = zext nneg i8 %7 to i32
+  %9 = tail call i8 @llvm.smax.i8(i8 %1, i8 0)
+  %cond.i = zext nneg i8 %9 to i32
   %shl.i = shl nuw i32 1, %cond.i
   %conv44.i = trunc i32 %shl.i to i8
-  %8 = tail call i8 @llvm.smax.i8(i8 %add.i, i8 0)
-  %cond54.i = zext nneg i8 %8 to i32
+  %10 = tail call i8 @llvm.smax.i8(i8 %add.i, i8 0)
+  %cond54.i = zext nneg i8 %10 to i32
   %shl55.i = shl nuw nsw i32 1, %cond54.i
   %conv56.i = trunc i32 %shl55.i to i8
-  %sext74.i = shl i32 16777216, %cond.i
-  %conv1.i.i = ashr exact i32 %sext74.i, 24
+  %sext73.i = shl i32 16777216, %cond.i
+  %conv1.i.i = ashr exact i32 %sext73.i, 24
   %add.i.i = add i8 %conv14.i, %conv44.i
+  %sext74.i = shl i32 16777216, %cond54.i
+  %conv4.i.i = ashr exact i32 %sext74.i, 24
   %add5.i.i = add i8 %conv19.i, %conv56.i
-  %9 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i.i)
-  %cond.i.i = sext i8 %9 to i32
-  %10 = tail call i8 @llvm.smin.i8(i8 %conv14.i, i8 %conv19.i)
-  %cond18.i.i = sext i8 %10 to i32
+  %11 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i.i)
+  %cond.i.i = sext i8 %11 to i32
+  %12 = tail call i8 @llvm.smin.i8(i8 %conv14.i, i8 %conv19.i)
+  %cond18.i.i = sext i8 %12 to i32
   %sub.i.i = sub nsw i32 %cond.i.i, %cond18.i.i
-  %add21.i.i = add nsw i32 %shl55.i, %conv1.i.i
+  %add21.i.i = add nsw i32 %conv4.i.i, %conv1.i.i
   %cmp22.i.i = icmp slt i32 %sub.i.i, %add21.i.i
   br i1 %cmp22.i.i, label %return, label %land.lhs.true58.i
 
 land.lhs.true58.i:                                ; preds = %land.lhs.true37.i
   %add5.i63.i = add i8 %conv23.i, %conv44.i
-  %11 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i63.i)
-  %cond.i64.i = sext i8 %11 to i32
-  %12 = tail call i8 @llvm.smin.i8(i8 %conv14.i, i8 %conv23.i)
-  %cond18.i65.i = sext i8 %12 to i32
+  %13 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i63.i)
+  %cond.i64.i = sext i8 %13 to i32
+  %14 = tail call i8 @llvm.smin.i8(i8 %conv14.i, i8 %conv23.i)
+  %cond18.i65.i = sext i8 %14 to i32
   %sub.i66.i = sub nsw i32 %cond.i64.i, %cond18.i65.i
-  %add21.i67.i = ashr exact i32 %sext74.i, 23
+  %add21.i67.i = ashr exact i32 %sext73.i, 23
   %cmp22.i68.i = icmp slt i32 %sub.i66.i, %add21.i67.i
   br i1 %cmp22.i68.i, label %return, label %vrgatherei16_vv_check.exit
 
 vrgatherei16_vv_check.exit:                       ; preds = %land.lhs.true58.i
-  %13 = load i32, ptr %a, align 4
-  %14 = or i32 %13, %4
-  %.not = icmp eq i32 %14, 0
+  %15 = load i32, ptr %a, align 4
+  %16 = or i32 %15, %6
+  %.not = icmp eq i32 %16, 0
   br i1 %.not, label %return, label %if.then
 
 if.then:                                          ; preds = %vrgatherei16_vv_check.exit
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr [4 x ptr], ptr @trans_vrgatherei16_vv.fns, i64 0, i64 %idxprom
-  %15 = load ptr, ptr %arrayidx, align 8
+  %17 = load ptr, ptr %arrayidx, align 8
   %call.i = tail call ptr @gen_new_label() #13
-  %16 = load ptr, ptr @cpu_vstart, align 8
-  %17 = load ptr, ptr @cpu_vl, align 8
-  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %16, ptr noundef %17, ptr noundef %call.i) #13
-  %bf.value.i = and i32 %13, 1
-  %18 = load i8, ptr %lmul.i, align 1
-  %19 = shl i8 %18, 1
-  %20 = and i8 %19, 14
-  %and6.i.i = zext nneg i8 %20 to i32
+  %18 = load ptr, ptr @cpu_vstart, align 8
+  %19 = load ptr, ptr @cpu_vl, align 8
+  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %18, ptr noundef %19, ptr noundef %call.i) #13
+  %bf.value.i = and i32 %15, 1
+  %20 = load i8, ptr %lmul.i, align 1
+  %21 = shl i8 %20, 1
+  %22 = and i8 %21, 14
+  %and6.i.i = zext nneg i8 %22 to i32
   %or.i.i = or disjoint i32 %bf.value.i, %and6.i.i
   %vta.i = getelementptr inbounds i8, ptr %s, i64 139
-  %21 = load i8, ptr %vta.i, align 1
-  %22 = shl i8 %21, 4
-  %23 = and i8 %22, 16
-  %and6.i26.i = zext nneg i8 %23 to i32
+  %23 = load i8, ptr %vta.i, align 1
+  %24 = shl i8 %23, 4
+  %25 = and i8 %24, 16
+  %and6.i26.i = zext nneg i8 %25 to i32
   %or.i27.i = or disjoint i32 %or.i.i, %and6.i26.i
   %cfg_vta_all_1s.i = getelementptr inbounds i8, ptr %s, i64 141
-  %24 = load i8, ptr %cfg_vta_all_1s.i, align 1
-  %25 = shl i8 %24, 5
-  %26 = and i8 %25, 32
-  %and6.i30.i = zext nneg i8 %26 to i32
+  %26 = load i8, ptr %cfg_vta_all_1s.i, align 1
+  %27 = shl i8 %26, 5
+  %28 = and i8 %27, 32
+  %and6.i30.i = zext nneg i8 %28 to i32
   %or.i31.i = or disjoint i32 %or.i27.i, %and6.i30.i
   %vma.i = getelementptr inbounds i8, ptr %s, i64 140
-  %27 = load i8, ptr %vma.i, align 4
-  %28 = shl i8 %27, 6
-  %29 = and i8 %28, 64
-  %and6.i34.i = zext nneg i8 %29 to i32
+  %29 = load i8, ptr %vma.i, align 4
+  %30 = shl i8 %29, 6
+  %31 = and i8 %30, 64
+  %and6.i34.i = zext nneg i8 %31 to i32
   %or.i35.i = or disjoint i32 %or.i31.i, %and6.i34.i
-  %30 = getelementptr i8, ptr %s, i64 128
-  %s.val24.i = load ptr, ptr %30, align 8
-  %31 = getelementptr i8, ptr %s.val24.i, i64 152
-  %s.val24.val.i = load i16, ptr %31, align 8
+  %32 = getelementptr i8, ptr %s, i64 128
+  %s.val24.i = load ptr, ptr %32, align 8
+  %33 = getelementptr i8, ptr %s.val24.i, i64 152
+  %s.val24.val.i = load i16, ptr %33, align 8
   %conv.i.i8 = zext i16 %s.val24.val.i to i32
-  %mul.i.i = mul i32 %4, %conv.i.i8
+  %mul.i.i = mul i32 %6, %conv.i.i8
   %div.i.i = sdiv i32 %mul.i.i, 8
   %narrow.i.i = add nsw i32 %div.i.i, 512
-  %mul.i38.i = mul i32 %5, %conv.i.i8
+  %mul.i38.i = mul i32 %7, %conv.i.i8
   %div.i39.i = sdiv i32 %mul.i38.i, 8
   %narrow.i40.i = add nsw i32 %div.i39.i, 512
-  %mul.i42.i = mul i32 %6, %conv.i.i8
+  %mul.i42.i = mul i32 %8, %conv.i.i8
   %div.i43.i = sdiv i32 %mul.i42.i, 8
   %narrow.i44.i = add nsw i32 %div.i43.i, 512
-  %32 = load ptr, ptr @tcg_env, align 8
-  %33 = lshr i16 %s.val24.val.i, 3
-  %div.i = zext nneg i16 %33 to i32
-  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i.i, i32 noundef 512, i32 noundef %narrow.i40.i, i32 noundef %narrow.i44.i, ptr noundef %32, i32 noundef %div.i, i32 noundef %div.i, i32 noundef %or.i35.i, ptr noundef %15) #13
+  %34 = load ptr, ptr @tcg_env, align 8
+  %35 = lshr i16 %s.val24.val.i, 3
+  %div.i = zext nneg i16 %35 to i32
+  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i.i, i32 noundef 512, i32 noundef %narrow.i40.i, i32 noundef %narrow.i44.i, ptr noundef %34, i32 noundef %div.i, i32 noundef %div.i, i32 noundef %or.i35.i, ptr noundef %17) #13
   tail call void @gen_set_label(ptr noundef %call.i) #13
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true.i, %require_align.exit.i, %require_align.exit47.i, %require_align.exit59.i, %land.lhs.true27.i, %land.lhs.true37.i, %land.lhs.true58.i, %vrgatherei16_vv_check.exit, %if.then
-  %34 = phi i1 [ false, %vrgatherei16_vv_check.exit ], [ true, %if.then ], [ false, %land.lhs.true58.i ], [ false, %land.lhs.true37.i ], [ false, %land.lhs.true27.i ], [ false, %require_align.exit59.i ], [ false, %require_align.exit47.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
-  ret i1 %34
+  %36 = phi i1 [ false, %vrgatherei16_vv_check.exit ], [ true, %if.then ], [ false, %land.lhs.true58.i ], [ false, %land.lhs.true37.i ], [ false, %land.lhs.true27.i ], [ false, %require_align.exit59.i ], [ false, %require_align.exit47.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
+  ret i1 %36
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -98745,34 +98753,31 @@ define internal fastcc zeroext i1 @int_ext_check(ptr nocapture noundef readonly 
 entry:
   %sew = getelementptr inbounds i8, ptr %s, i64 138
   %0 = load i8, ptr %sew, align 2
-  %reass.sub = sub i8 %0, %div
-  %sub = add i8 %reass.sub, 3
   %1 = getelementptr i8, ptr %s, i64 104
   %s.val = load i32, ptr %1, align 8
   %cmp.i = icmp ne i32 %s.val, 0
-  %cmp = icmp ult i8 %reass.sub, -3
-  %or.cond = select i1 %cmp.i, i1 %cmp, i1 false
-  %cmp8 = icmp ult i8 %sub, 9
-  %or.cond1 = select i1 %or.cond, i1 %cmp8, i1 false
+  %2 = sub i8 %0, %div
+  %3 = icmp ult i8 %2, 6
+  %or.cond1 = select i1 %cmp.i, i1 %3, i1 false
   br i1 %or.cond1, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %entry
   %rd = getelementptr inbounds i8, ptr %a, i64 4
-  %2 = load i32, ptr %rd, align 4
+  %4 = load i32, ptr %rd, align 4
   %rs2 = getelementptr inbounds i8, ptr %a, i64 8
-  %3 = load i32, ptr %rs2, align 4
-  %cmp11.not = icmp eq i32 %2, %3
+  %5 = load i32, ptr %rs2, align 4
+  %cmp11.not = icmp eq i32 %4, %5
   br i1 %cmp11.not, label %land.end, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %conv15 = trunc i32 %2 to i8
+  %conv15 = trunc i32 %4 to i8
   %lmul = getelementptr inbounds i8, ptr %s, i64 137
-  %4 = load i8, ptr %lmul, align 1
-  %cmp.i17 = icmp slt i8 %4, 1
+  %6 = load i8, ptr %lmul, align 1
+  %cmp.i17 = icmp slt i8 %6, 1
   br i1 %cmp.i17, label %land.lhs.true18, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true13
-  %cmp3.not.i.i = icmp ugt i8 %4, 32
+  %cmp3.not.i.i = icmp ugt i8 %6, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %require_align.exit
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -98780,8 +98785,8 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 require_align.exit:                               ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %4 to i32
-  %sext = shl i32 %2, 24
+  %conv.i = zext nneg i8 %6 to i32
+  %sext = shl i32 %4, 24
   %conv2.i = ashr exact i32 %sext, 24
   %sub4.i.i = sub nuw nsw i32 32, %conv.i
   %shr5.i.i = lshr i32 -1, %sub4.i.i
@@ -98790,8 +98795,8 @@ require_align.exit:                               ; preds = %lor.rhs.i
   br i1 %cmp4.i, label %land.lhs.true18, label %land.end
 
 land.lhs.true18:                                  ; preds = %land.lhs.true13, %require_align.exit
-  %conv20 = trunc i32 %3 to i8
-  %sub24 = sub i8 %4, %div
+  %conv20 = trunc i32 %5 to i8
+  %sub24 = sub i8 %6, %div
   %cmp.i18 = icmp slt i8 %sub24, 1
   br i1 %cmp.i18, label %land.lhs.true28, label %lor.rhs.i19
 
@@ -98805,7 +98810,7 @@ if.else.i.i28:                                    ; preds = %lor.rhs.i19
 
 require_align.exit29:                             ; preds = %lor.rhs.i19
   %conv.i22 = zext nneg i8 %sub24 to i32
-  %sext31 = shl i32 %3, 24
+  %sext31 = shl i32 %5, 24
   %conv2.i23 = ashr exact i32 %sext31, 24
   %sub4.i.i24 = sub nuw nsw i32 32, %conv.i22
   %shr5.i.i25 = lshr i32 -1, %sub4.i.i24
@@ -98814,20 +98819,20 @@ require_align.exit29:                             ; preds = %lor.rhs.i19
   br i1 %cmp4.i27, label %land.lhs.true28, label %land.end
 
 land.lhs.true28:                                  ; preds = %land.lhs.true18, %require_align.exit29
-  %5 = load i32, ptr %a, align 4
-  %6 = or i32 %5, %2
-  %.not = icmp eq i32 %6, 0
+  %7 = load i32, ptr %a, align 4
+  %8 = or i32 %7, %4
+  %.not = icmp eq i32 %8, 0
   br i1 %.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true28
-  %conv17.i = zext nneg i8 %4 to i32
+  %conv17.i = zext nneg i8 %6 to i32
   %shl.i = shl nuw i32 1, %conv17.i
-  %7 = trunc i32 %shl.i to i8
-  %conv3.i = select i1 %cmp.i17, i8 1, i8 %7
+  %9 = trunc i32 %shl.i to i8
+  %conv3.i = select i1 %cmp.i17, i8 1, i8 %9
   %conv418.i = zext nneg i8 %sub24 to i32
   %shl10.i = shl nuw i32 1, %conv418.i
-  %8 = trunc i32 %shl10.i to i8
-  %conv13.i = select i1 %cmp.i18, i8 1, i8 %8
+  %10 = trunc i32 %shl10.i to i8
+  %conv13.i = select i1 %cmp.i18, i8 1, i8 %10
   %cmp16.i = icmp sgt i8 %conv3.i, %conv13.i
   br i1 %cmp16.i, label %if.then.i, label %if.end33.i
 
@@ -98842,9 +98847,9 @@ land.lhs.true25.i:                                ; preds = %if.then.i
   %add.i.i = add i8 %conv3.i, %conv15
   %conv4.i.i = sext i8 %conv13.i to i32
   %add5.i.i = add i8 %conv13.i, %conv20
-  %9 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i.i)
-  %cond.i.i = sext i8 %9 to i32
-  %sext32 = shl i32 %2, 24
+  %11 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i.i)
+  %cond.i.i = sext i8 %11 to i32
+  %sext32 = shl i32 %4, 24
   %cond18.i.i = ashr exact i32 %sext32, 24
   %sub.i.i = sub nsw i32 %cond.i.i, %cond18.i.i
   %add21.i.i = add nsw i32 %conv4.i.i, %conv1.i.i
@@ -98853,10 +98858,10 @@ land.lhs.true25.i:                                ; preds = %if.then.i
 
 land.lhs.true27.i:                                ; preds = %land.lhs.true25.i
   %add5.i22.i = add i8 %add5.i.i, %conv13.i
-  %10 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i22.i)
-  %cond.i23.i = sext i8 %10 to i32
-  %11 = tail call i8 @llvm.smin.i8(i8 %conv15, i8 %add5.i.i)
-  %cond18.i24.i = sext i8 %11 to i32
+  %12 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i22.i)
+  %cond.i23.i = sext i8 %12 to i32
+  %13 = tail call i8 @llvm.smin.i8(i8 %conv15, i8 %add5.i.i)
+  %cond18.i24.i = sext i8 %13 to i32
   %sub.i25.i = sub nsw i32 %cond.i23.i, %cond18.i24.i
   %cmp22.i27.i = icmp slt i32 %sub.i25.i, %add21.i.i
   br i1 %cmp22.i27.i, label %if.end33.i, label %land.end
@@ -98866,18 +98871,18 @@ if.end33.i:                                       ; preds = %land.lhs.true27.i, 
   %add.i29.i = add i8 %conv3.i, %conv15
   %conv4.i30.i = sext i8 %conv13.i to i32
   %add5.i31.i = add i8 %conv13.i, %conv20
-  %12 = tail call i8 @llvm.smax.i8(i8 %add.i29.i, i8 %add5.i31.i)
-  %cond.i32.i = sext i8 %12 to i32
-  %13 = tail call i8 @llvm.smin.i8(i8 %conv15, i8 %conv20)
-  %cond18.i33.i = sext i8 %13 to i32
+  %14 = tail call i8 @llvm.smax.i8(i8 %add.i29.i, i8 %add5.i31.i)
+  %cond.i32.i = sext i8 %14 to i32
+  %15 = tail call i8 @llvm.smin.i8(i8 %conv15, i8 %conv20)
+  %cond18.i33.i = sext i8 %15 to i32
   %sub.i34.i = sub nsw i32 %cond.i32.i, %cond18.i33.i
   %add21.i35.i = add nsw i32 %conv4.i30.i, %conv1.i28.i
   %cmp22.i36.i = icmp sge i32 %sub.i34.i, %add21.i35.i
   br label %land.end
 
 land.end:                                         ; preds = %if.end33.i, %land.lhs.true27.i, %land.lhs.true28, %require_align.exit29, %require_align.exit, %land.lhs.true10, %entry
-  %14 = phi i1 [ false, %land.lhs.true28 ], [ false, %require_align.exit29 ], [ false, %require_align.exit ], [ false, %land.lhs.true10 ], [ false, %entry ], [ %cmp22.i36.i, %if.end33.i ], [ true, %land.lhs.true27.i ]
-  ret i1 %14
+  %16 = phi i1 [ false, %land.lhs.true28 ], [ false, %require_align.exit29 ], [ false, %require_align.exit ], [ false, %land.lhs.true10 ], [ false, %entry ], [ %cmp22.i36.i, %if.end33.i ], [ true, %land.lhs.true27.i ]
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

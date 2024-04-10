@@ -585,10 +585,9 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
   %146 = call i32 @get_tlv_type(ptr noundef nonnull %9) #2
   %147 = call i32 @get_tlv_length(ptr noundef nonnull %9) #2
   %148 = icmp eq i32 %146, -1
-  %149 = icmp ugt i32 %147, 64000
-  %or.cond = select i1 %148, i1 true, i1 %149
-  %150 = icmp eq i32 %147, 0
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %150
+  %149 = add i32 %147, -64001
+  %150 = icmp ult i32 %149, -64000
+  %or.cond3 = select i1 %148, i1 true, i1 %150
   br i1 %or.cond3, label %151, label %157
 
 151:                                              ; preds = %.lr.ph
@@ -889,10 +888,9 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %12 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %13 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
   %14 = icmp eq i32 %12, -1
-  %15 = icmp sgt i32 %13, 64000
-  %or.cond = select i1 %14, i1 true, i1 %15
-  %16 = icmp slt i32 %13, 1
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %16
+  %15 = add i32 %13, -64001
+  %16 = icmp ult i32 %15, -64000
+  %or.cond3 = select i1 %14, i1 true, i1 %16
   br i1 %or.cond3, label %17, label %23
 
 17:                                               ; preds = %.lr.ph
@@ -965,9 +963,10 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   br label %71
 
 34:                                               ; preds = %23
-  switch i32 %13, label %71 [
-    i32 4, label %35
-    i32 16, label %38
+  %trunc = trunc i32 %13 to i16
+  switch i16 %trunc, label %71 [
+    i16 4, label %35
+    i16 16, label %38
   ]
 
 35:                                               ; preds = %34

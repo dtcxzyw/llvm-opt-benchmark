@@ -64,10 +64,8 @@ define i32 @ompi_coll_tuned_read_rules_config_file(ptr noundef readonly %0, ptr 
   %29 = call i32 @ompi_coll_base_file_getnext_long(ptr noundef nonnull %17, ptr noundef nonnull @fileline, ptr noundef nonnull %4) #3
   %30 = icmp sgt i32 %29, -1
   %31 = load i64, ptr %4, align 8
-  %32 = icmp sgt i64 %31, -1
-  %or.cond3.not116 = select i1 %30, i1 %32, i1 false
-  %.not102 = icmp slt i64 %31, %27
-  %or.cond105 = select i1 %or.cond3.not116, i1 %.not102, i1 false
+  %32 = icmp ult i64 %31, %27
+  %or.cond105 = select i1 %30, i1 %32, i1 false
   br i1 %or.cond105, label %33, label %.thread
 
 33:                                               ; preds = %.lr.ph130

@@ -423,9 +423,9 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %286 = load i32, ptr %281, align 4, !tbaa !3
   %287 = icmp sge i32 %267, %270
   %288 = icmp slt i32 %286, 1
-  %289 = select i1 %287, i1 true, i1 %288
-  %290 = icmp sgt i32 %286, %270
-  %291 = select i1 %289, i1 true, i1 %290
+  %289 = icmp sgt i32 %286, %270
+  %290 = or i1 %288, %289
+  %291 = select i1 %287, i1 true, i1 %290
   br i1 %291, label %292, label %297
 
 292:                                              ; preds = %269, %.loopexit55

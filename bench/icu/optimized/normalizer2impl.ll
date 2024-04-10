@@ -12164,8 +12164,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %arrayidx5 = getelementptr inbounds i8, ptr %inData, i64 13
   %3 = load i8, ptr %arrayidx5, align 1
   %cmp7 = icmp eq i8 %3, 114
-  %or.cond75 = select i1 %cmp3, i1 %cmp7, i1 false
-  br i1 %or.cond75, label %land.lhs.true8, label %if.then24
+  %or.cond = select i1 %cmp3, i1 %cmp7, i1 false
+  br i1 %or.cond, label %land.lhs.true8, label %if.then24
 
 land.lhs.true8:                                   ; preds = %if.end
   %arrayidx10 = getelementptr inbounds i8, ptr %inData, i64 14
@@ -12177,22 +12177,21 @@ land.lhs.true13:                                  ; preds = %land.lhs.true8
   %arrayidx15 = getelementptr inbounds i8, ptr %inData, i64 15
   %5 = load i8, ptr %arrayidx15, align 1
   %cmp17 = icmp eq i8 %5, 50
-  %cmp20 = icmp ne i8 %1, 0
-  %or.cond = select i1 %cmp17, i1 %cmp20, i1 false
-  %cmp23 = icmp ult i8 %1, 5
-  %or.cond1 = select i1 %or.cond, i1 %cmp23, i1 false
+  %6 = add i8 %1, -1
+  %7 = icmp ult i8 %6, 4
+  %or.cond1 = select i1 %cmp17, i1 %7, i1 false
   br i1 %or.cond1, label %if.end40, label %if.then24
 
 if.then24:                                        ; preds = %if.end, %land.lhs.true13, %land.lhs.true8
-  %6 = phi i8 [ 114, %land.lhs.true13 ], [ 114, %land.lhs.true8 ], [ %3, %if.end ]
+  %8 = phi i8 [ 114, %land.lhs.true13 ], [ 114, %land.lhs.true8 ], [ %3, %if.end ]
   %conv27 = zext i8 %2 to i32
-  %conv30 = zext i8 %6 to i32
+  %conv30 = zext i8 %8 to i32
   %arrayidx32 = getelementptr inbounds i8, ptr %inData, i64 14
-  %7 = load i8, ptr %arrayidx32, align 2
-  %conv33 = zext i8 %7 to i32
+  %9 = load i8, ptr %arrayidx32, align 2
+  %conv33 = zext i8 %9 to i32
   %arrayidx35 = getelementptr inbounds i8, ptr %inData, i64 15
-  %8 = load i8, ptr %arrayidx35, align 1
-  %conv36 = zext i8 %8 to i32
+  %10 = load i8, ptr %arrayidx35, align 1
+  %conv36 = zext i8 %10 to i32
   %conv39 = zext i8 %1 to i32
   tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str.2, i32 noundef %conv27, i32 noundef %conv30, i32 noundef %conv33, i32 noundef %conv36, i32 noundef %conv39)
   store i32 16, ptr %pErrorCode, align 4
@@ -12228,8 +12227,8 @@ if.end59:                                         ; preds = %if.then55, %if.end4
 for.body:                                         ; preds = %if.end59, %for.body
   %indvars.iv = phi i64 [ 0, %if.end59 ], [ %indvars.iv.next, %for.body ]
   %arrayidx61 = getelementptr inbounds i32, ptr %add.ptr41, i64 %indvars.iv
-  %9 = load i32, ptr %arrayidx61, align 4
-  %call62 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %9)
+  %11 = load i32, ptr %arrayidx61, align 4
+  %call62 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %11)
   %arrayidx64 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 %indvars.iv
   store i32 %call62, ptr %arrayidx64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -12238,12 +12237,12 @@ for.body:                                         ; preds = %if.end59, %for.body
 
 for.end:                                          ; preds = %for.body
   %arrayidx65 = getelementptr inbounds i8, ptr %indexes, i64 28
-  %10 = load i32, ptr %arrayidx65, align 4
+  %12 = load i32, ptr %arrayidx65, align 4
   %cmp66 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp66, label %if.then67, label %if.end93
 
 if.then67:                                        ; preds = %for.end
-  %cmp68 = icmp slt i32 %length.addr.0, %10
+  %cmp68 = icmp slt i32 %length.addr.0, %12
   br i1 %cmp68, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %if.then67
@@ -12256,35 +12255,35 @@ if.end70:                                         ; preds = %if.then67
   br i1 %cmp71.not, label %if.end74, label %do.body
 
 do.body:                                          ; preds = %if.end70
-  %conv73 = sext i32 %10 to i64
+  %conv73 = sext i32 %12 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond, ptr nonnull align 1 %add.ptr41, i64 %conv73, i1 false)
   br label %if.end74
 
 if.end74:                                         ; preds = %do.body, %if.end70
-  %11 = load i32, ptr %indexes, align 16
+  %13 = load i32, ptr %indexes, align 16
   %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
-  %12 = load ptr, ptr %swapArray32, align 8
-  %call77 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %add.ptr41, i32 noundef %11, ptr noundef %cond, ptr noundef nonnull %pErrorCode)
+  %14 = load ptr, ptr %swapArray32, align 8
+  %call77 = tail call noundef i32 %14(ptr noundef %ds, ptr noundef nonnull %add.ptr41, i32 noundef %13, ptr noundef %cond, ptr noundef nonnull %pErrorCode)
   %arrayidx78 = getelementptr inbounds i8, ptr %indexes, i64 4
-  %13 = load i32, ptr %arrayidx78, align 4
-  %idx.ext79 = sext i32 %11 to i64
+  %15 = load i32, ptr %arrayidx78, align 4
+  %idx.ext79 = sext i32 %13 to i64
   %add.ptr80 = getelementptr inbounds i8, ptr %add.ptr41, i64 %idx.ext79
-  %sub81 = sub nsw i32 %13, %11
+  %sub81 = sub nsw i32 %15, %13
   %add.ptr83 = getelementptr inbounds i8, ptr %cond, i64 %idx.ext79
   %call84 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef %add.ptr80, i32 noundef %sub81, ptr noundef %add.ptr83, ptr noundef nonnull %pErrorCode)
   %arrayidx85 = getelementptr inbounds i8, ptr %indexes, i64 8
-  %14 = load i32, ptr %arrayidx85, align 8
+  %16 = load i32, ptr %arrayidx85, align 8
   %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
-  %15 = load ptr, ptr %swapArray16, align 8
-  %idx.ext86 = sext i32 %13 to i64
+  %17 = load ptr, ptr %swapArray16, align 8
+  %idx.ext86 = sext i32 %15 to i64
   %add.ptr87 = getelementptr inbounds i8, ptr %add.ptr41, i64 %idx.ext86
-  %sub88 = sub nsw i32 %14, %13
+  %sub88 = sub nsw i32 %16, %15
   %add.ptr90 = getelementptr inbounds i8, ptr %cond, i64 %idx.ext86
-  %call91 = tail call noundef i32 %15(ptr noundef %ds, ptr noundef %add.ptr87, i32 noundef %sub88, ptr noundef %add.ptr90, ptr noundef nonnull %pErrorCode)
+  %call91 = tail call noundef i32 %17(ptr noundef %ds, ptr noundef %add.ptr87, i32 noundef %sub88, ptr noundef %add.ptr90, ptr noundef nonnull %pErrorCode)
   br label %if.end93
 
 if.end93:                                         ; preds = %if.end74, %for.end
-  %add = add nsw i32 %10, %call
+  %add = add nsw i32 %12, %call
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end93, %if.then69, %if.then57, %if.then24

@@ -1850,15 +1850,14 @@ entry:
   %call = call i64 @PyLong_AsLongAndOverflow(ptr noundef %obj, ptr noundef nonnull %overflow)
   %0 = load i32, ptr %overflow, align 4
   %tobool = icmp ne i32 %0, 0
-  %cmp = icmp sgt i64 %call, 2147483647
-  %or.cond = select i1 %tobool, i1 true, i1 %cmp
-  %cmp2 = icmp slt i64 %call, -2147483648
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp2
+  %1 = add i64 %call, -2147483648
+  %2 = icmp ult i64 %1, -4294967296
+  %or.cond1 = select i1 %tobool, i1 true, i1 %2
   br i1 %or.cond1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.5) #16
+  %3 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.5) #16
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -11750,45 +11749,45 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add18 = add i64 %kwargs.val, %args.val
-  %ob_item23 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item20 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
-  %or.cond1 = icmp ult i64 %args.val, 3
+  %2 = icmp ult i64 %args.val, 3
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
-  br i1 %or.cond1, label %if.end, label %cond.end15
+  br i1 %2, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
-  %ob_item26 = phi ptr [ %ob_item23, %cond.end.thread ], [ %ob_item, %cond.end ]
-  %add24 = phi i64 [ %add18, %cond.end.thread ], [ %args.val, %cond.end ]
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item26, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @long_new._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #16
+  %ob_item23 = phi ptr [ %ob_item20, %cond.end.thread ], [ %ob_item, %cond.end ]
+  %add21 = phi i64 [ %add18, %cond.end.thread ], [ %args.val, %cond.end ]
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item23, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @long_new._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #16
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %cond.end, %cond.end15
-  %cond1631 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
-  %add2530 = phi i64 [ %add24, %cond.end15 ], [ %args.val, %cond.end ]
+  %cond1628 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
+  %add2227 = phi i64 [ %add21, %cond.end15 ], [ %args.val, %cond.end ]
   %cmp18 = icmp slt i64 %args.val, 1
   br i1 %cmp18, label %skip_optional_posonly, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  %dec = add i64 %add2530, -1
-  %2 = load ptr, ptr %cond1631, align 8
+  %dec = add i64 %add2227, -1
+  %3 = load ptr, ptr %cond1628, align 8
   br label %skip_optional_posonly
 
 skip_optional_posonly:                            ; preds = %if.end, %if.end20
-  %noptargs.0 = phi i64 [ %add2530, %if.end ], [ %dec, %if.end20 ]
-  %x.0 = phi ptr [ null, %if.end ], [ %2, %if.end20 ]
+  %noptargs.0 = phi i64 [ %add2227, %if.end ], [ %dec, %if.end20 ]
+  %x.0 = phi ptr [ null, %if.end ], [ %3, %if.end20 ]
   %tobool21.not = icmp eq i64 %noptargs.0, 0
   br i1 %tobool21.not, label %skip_optional_pos, label %if.end23
 
 if.end23:                                         ; preds = %skip_optional_posonly
-  %arrayidx24 = getelementptr i8, ptr %cond1631, i64 8
-  %3 = load ptr, ptr %arrayidx24, align 8
+  %arrayidx24 = getelementptr i8, ptr %cond1628, i64 8
+  %4 = load ptr, ptr %arrayidx24, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %skip_optional_posonly, %if.end23
-  %obase.0 = phi ptr [ %3, %if.end23 ], [ null, %skip_optional_posonly ]
+  %obase.0 = phi ptr [ %4, %if.end23 ], [ null, %skip_optional_posonly ]
   %call25 = call fastcc ptr @long_new_impl(ptr noundef %type, ptr noundef %x.0, ptr noundef %obase.0)
   br label %exit
 

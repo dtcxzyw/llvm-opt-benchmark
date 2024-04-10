@@ -1732,11 +1732,11 @@ define internal fastcc void @semcheck(ptr noundef %0, ptr noundef %1) unnamed_ad
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %6, align 8
   %7 = tail call i32 @stnode_type_id(ptr noundef %1) #6
-  switch i32 %7, label %237 [
+  switch i32 %7, label %242 [
     i32 1, label %8
-    i32 14, label %201
-    i32 10, label %201
-    i32 11, label %201
+    i32 14, label %206
+    i32 10, label %206
+    i32 11, label %206
   ]
 
 8:                                                ; preds = %2
@@ -1761,14 +1761,14 @@ define internal fastcc void @semcheck(ptr noundef %0, ptr noundef %1) unnamed_ad
     i32 13, label %24
     i32 14, label %27
     i32 15, label %27
-    i32 0, label %199
-    i32 17, label %199
-    i32 16, label %199
-    i32 18, label %199
-    i32 19, label %199
-    i32 20, label %199
-    i32 21, label %199
-    i32 22, label %199
+    i32 0, label %204
+    i32 17, label %204
+    i32 16, label %204
+    i32 18, label %204
+    i32 19, label %204
+    i32 20, label %204
+    i32 21, label %204
+    i32 22, label %204
   ]
 
 10:                                               ; preds = %8
@@ -1849,7 +1849,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   br i1 %.not34120.i, label %check_test.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %check_relation_LHS_FIELD.specialized.3.exit.i
-  %.0121.i = phi ptr [ %198, %check_relation_LHS_FIELD.specialized.3.exit.i ], [ %44, %43 ]
+  %.0121.i = phi ptr [ %203, %check_relation_LHS_FIELD.specialized.3.exit.i ], [ %44, %43 ]
   %45 = load ptr, ptr %.0121.i, align 8
   %46 = call i32 @stnode_type_id(ptr noundef %45) #6
   %47 = icmp eq i32 %46, 10
@@ -1948,120 +1948,122 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   br label %check_relation_LHS_FIELD.specialized.3.exit.i
 
 100:                                              ; preds = %75
-  %.not40.i.i = icmp eq i32 %77, 5
-  switch i32 %77, label %195 [
+  %101 = icmp eq i32 %77, 5
+  switch i32 %77, label %200 [
     i32 5, label %.preheader.i.i
     i32 3, label %.preheader.i.i
-    i32 6, label %122
-    i32 7, label %123
-    i32 10, label %124
-    i32 11, label %156
+    i32 6, label %127
+    i32 7, label %128
+    i32 10, label %129
+    i32 11, label %161
     i32 13, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 14, label %176
-    i32 2, label %193
+    i32 14, label %181
+    i32 2, label %198
   ]
 
 .preheader.i.i:                                   ; preds = %100, %100
-  %101 = getelementptr inbounds i8, ptr %64, i64 60
-  %102 = load i32, ptr %101, align 4
-  %.not23.i.i = icmp eq i32 %102, -1
+  %102 = getelementptr inbounds i8, ptr %64, i64 60
+  %103 = load i32, ptr %102, align 4
+  %.not23.i.i = icmp eq i32 %103, -1
   br i1 %.not23.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %103 = and i32 %76, -2
-  %switch.us28.i.i = icmp eq i32 %103, 26
-  br i1 %.not40.i.i, label %.lr.ph.split.split.us.i.i, label %.lr.ph.split.us.i.i
+  br i1 %101, label %.lr.ph.split.split.us.i.i, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
-  br i1 %switch.us28.i.i, label %.critedge9.us.i.i, label %.critedge.thread49.i.i
+  %104 = and i32 %76, -2
+  %105 = icmp eq i32 %104, 26
+  br i1 %105, label %.critedge9.us.i.i, label %.critedge.thread47.i.i
 
 .critedge9.us.i.i:                                ; preds = %.lr.ph.split.us.i.i, %.critedge9.us.i.i
-  %104 = phi i32 [ %109, %.critedge9.us.i.i ], [ %102, %.lr.ph.split.us.i.i ]
-  %105 = call ptr @proto_registrar_get_nth(i32 noundef %104) #6
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
-  %107 = load i32, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 60
-  %109 = load i32, ptr %108, align 4
-  %.not2.us.i.i = icmp ne i32 %109, -1
-  %110 = and i32 %107, -2
-  %111 = icmp eq i32 %110, 26
-  %or.cond39.i.i = select i1 %.not2.us.i.i, i1 %111, i1 false
-  br i1 %or.cond39.i.i, label %.critedge9.us.i.i, label %.critedge.i.i, !llvm.loop !12
+  %106 = phi i32 [ %111, %.critedge9.us.i.i ], [ %103, %.lr.ph.split.us.i.i ]
+  %107 = call ptr @proto_registrar_get_nth(i32 noundef %106) #6
+  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %109 = load i32, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %107, i64 60
+  %111 = load i32, ptr %110, align 4
+  %.not2.us.i.i = icmp ne i32 %111, -1
+  %112 = and i32 %109, -2
+  %113 = icmp eq i32 %112, 26
+  %or.cond38.i.i = select i1 %.not2.us.i.i, i1 %113, i1 false
+  br i1 %or.cond38.i.i, label %.critedge9.us.i.i, label %.critedge.i.i, !llvm.loop !12
 
 .lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.i.i
-  br i1 %switch.us28.i.i, label %.critedge.thread.i.i, label %.critedge9.us16.i.i
+  %114 = add i32 %76, -28
+  %115 = icmp ult i32 %114, -2
+  br i1 %115, label %.critedge9.us16.i.i, label %.critedge.thread.i.i
 
 .critedge9.us16.i.i:                              ; preds = %.lr.ph.split.split.us.i.i, %.critedge9.us16.i.i
-  %112 = phi i32 [ %117, %.critedge9.us16.i.i ], [ %102, %.lr.ph.split.split.us.i.i ]
-  %113 = call ptr @proto_registrar_get_nth(i32 noundef %112) #6
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
-  %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %113, i64 60
-  %117 = load i32, ptr %116, align 4
-  %.not2.us17.i.i = icmp eq i32 %117, -1
-  %118 = and i32 %115, -2
-  %switch.us.i.i = icmp eq i32 %118, 26
-  %or.cond.i.i = select i1 %.not2.us17.i.i, i1 true, i1 %switch.us.i.i
-  br i1 %or.cond.i.i, label %.critedge.i.i, label %.critedge9.us16.i.i, !llvm.loop !12
+  %116 = phi i32 [ %121, %.critedge9.us16.i.i ], [ %103, %.lr.ph.split.split.us.i.i ]
+  %117 = call ptr @proto_registrar_get_nth(i32 noundef %116) #6
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %119 = load i32, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %117, i64 60
+  %121 = load i32, ptr %120, align 4
+  %.not2.us17.i.i = icmp ne i32 %121, -1
+  %122 = add i32 %119, -28
+  %123 = icmp ult i32 %122, -2
+  %or.cond.i.i = select i1 %.not2.us17.i.i, i1 %123, i1 false
+  br i1 %or.cond.i.i, label %.critedge9.us16.i.i, label %.critedge.i.i, !llvm.loop !12
 
 .critedge.i.i:                                    ; preds = %.critedge9.us.i.i, %.critedge9.us16.i.i, %.preheader.i.i
-  %.0160.lcssa.i.i = phi i32 [ %76, %.preheader.i.i ], [ %115, %.critedge9.us16.i.i ], [ %107, %.critedge9.us.i.i ]
-  %.0.lcssa.i.i = phi ptr [ %64, %.preheader.i.i ], [ %113, %.critedge9.us16.i.i ], [ %105, %.critedge9.us.i.i ]
-  br i1 %.not40.i.i, label %.critedge.thread.i.i, label %.critedge.thread49.i.i
+  %.0160.lcssa.i.i = phi i32 [ %76, %.preheader.i.i ], [ %119, %.critedge9.us16.i.i ], [ %109, %.critedge9.us.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %64, %.preheader.i.i ], [ %117, %.critedge9.us16.i.i ], [ %107, %.critedge9.us.i.i ]
+  br i1 %101, label %.critedge.thread.i.i, label %.critedge.thread47.i.i
 
 .critedge.thread.i.i:                             ; preds = %.critedge.i.i, %.lr.ph.split.split.us.i.i
-  %.0.lcssa48.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %64, %.lr.ph.split.split.us.i.i ]
-  %.0160.lcssa47.i.i = phi i32 [ %.0160.lcssa.i.i, %.critedge.i.i ], [ %76, %.lr.ph.split.split.us.i.i ]
-  %119 = call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa47.i.i, ptr noundef %45, ptr noundef nonnull %.0.lcssa48.i.i)
-  br i1 %119, label %121, label %check_relation_LHS_FIELD.specialized.3.exit.i
+  %.0.lcssa46.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %64, %.lr.ph.split.split.us.i.i ]
+  %.0160.lcssa45.i.i = phi i32 [ %.0160.lcssa.i.i, %.critedge.i.i ], [ %76, %.lr.ph.split.split.us.i.i ]
+  %124 = call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa45.i.i, ptr noundef %45, ptr noundef nonnull %.0.lcssa46.i.i)
+  br i1 %124, label %126, label %check_relation_LHS_FIELD.specialized.3.exit.i
 
-.critedge.thread49.i.i:                           ; preds = %.critedge.i.i, %.lr.ph.split.us.i.i
-  %.0.lcssa53.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %64, %.lr.ph.split.us.i.i ]
-  %.0160.lcssa52.i.i = phi i32 [ %.0160.lcssa.i.i, %.critedge.i.i ], [ %76, %.lr.ph.split.us.i.i ]
-  %120 = call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa52.i.i, ptr noundef %45, i1 noundef zeroext false, ptr noundef nonnull %.0.lcssa53.i.i)
-  br i1 %120, label %121, label %check_relation_LHS_FIELD.specialized.3.exit.i
+.critedge.thread47.i.i:                           ; preds = %.critedge.i.i, %.lr.ph.split.us.i.i
+  %.0.lcssa51.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %64, %.lr.ph.split.us.i.i ]
+  %.0160.lcssa50.i.i = phi i32 [ %.0160.lcssa.i.i, %.critedge.i.i ], [ %76, %.lr.ph.split.us.i.i ]
+  %125 = call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa50.i.i, ptr noundef %45, i1 noundef zeroext false, ptr noundef nonnull %.0.lcssa51.i.i)
+  br i1 %125, label %126, label %check_relation_LHS_FIELD.specialized.3.exit.i
 
-121:                                              ; preds = %.critedge.thread49.i.i, %.critedge.thread.i.i
+126:                                              ; preds = %.critedge.thread47.i.i, %.critedge.thread.i.i
   call void @sttype_field_set_value_string(ptr noundef %28, i1 noundef zeroext true) #6
   br label %check_relation_LHS_FIELD.specialized.3.exit.i
 
-122:                                              ; preds = %100
+127:                                              ; preds = %100
   call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %76, ptr noundef %45)
   br label %check_relation_LHS_FIELD.specialized.3.exit.i
 
-123:                                              ; preds = %100
+128:                                              ; preds = %100
   call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %76, ptr noundef %45)
   br label %check_relation_LHS_FIELD.specialized.3.exit.i
 
-124:                                              ; preds = %100
-  %125 = call i32 @check_slice(ptr noundef %0, ptr noundef %45, i32 noundef %76), !range !10
-  %126 = call zeroext i1 @compatible_ftypes(i32 noundef %76, i32 noundef %125)
-  br i1 %126, label %133, label %127
+129:                                              ; preds = %100
+  %130 = call i32 @check_slice(ptr noundef %0, ptr noundef %45, i32 noundef %76), !range !10
+  %131 = call zeroext i1 @compatible_ftypes(i32 noundef %76, i32 noundef %130)
+  br i1 %131, label %138, label %132
 
-127:                                              ; preds = %124
-  %128 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
-  %129 = extractvalue { i64, i64 } %128, 0
-  %130 = extractvalue { i64, i64 } %128, 1
-  %131 = call ptr @stnode_tostr(ptr noundef %28, i1 noundef zeroext true) #6
-  %132 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %129, i64 %130, ptr noundef nonnull @.str.34, ptr noundef %131, ptr noundef %132) #7
+132:                                              ; preds = %129
+  %133 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
+  %134 = extractvalue { i64, i64 } %133, 0
+  %135 = extractvalue { i64, i64 } %133, 1
+  %136 = call ptr @stnode_tostr(ptr noundef %28, i1 noundef zeroext true) #6
+  %137 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %134, i64 %135, ptr noundef nonnull @.str.34, ptr noundef %136, ptr noundef %137) #7
   unreachable
 
-133:                                              ; preds = %124
-  %134 = call zeroext i1 @ftype_can_eq(i32 noundef %125) #6
-  br i1 %134, label %141, label %135
+138:                                              ; preds = %129
+  %139 = call zeroext i1 @ftype_can_eq(i32 noundef %130) #6
+  br i1 %139, label %146, label %140
 
-135:                                              ; preds = %133
-  %136 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
-  %137 = extractvalue { i64, i64 } %136, 0
-  %138 = extractvalue { i64, i64 } %136, 1
-  %139 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
-  %140 = call ptr @ftype_pretty_name(i32 noundef %125) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %137, i64 %138, ptr noundef nonnull @.str.35, ptr noundef %139, ptr noundef %140) #7
+140:                                              ; preds = %138
+  %141 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
+  %142 = extractvalue { i64, i64 } %141, 0
+  %143 = extractvalue { i64, i64 } %141, 1
+  %144 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
+  %145 = call ptr @ftype_pretty_name(i32 noundef %130) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %142, i64 %143, ptr noundef nonnull @.str.35, ptr noundef %144, ptr noundef %145) #7
   unreachable
 
-141:                                              ; preds = %133
-  switch i32 %76, label %144 [
+146:                                              ; preds = %138
+  switch i32 %76, label %149 [
     i32 39, label %check_relation_LHS_FIELD.specialized.3.exit.i
     i32 40, label %check_relation_LHS_FIELD.specialized.3.exit.i
     i32 44, label %check_relation_LHS_FIELD.specialized.3.exit.i
@@ -2108,119 +2110,119 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
     i32 18, label %is_bytes_type.exit.i.i
     i32 19, label %is_bytes_type.exit.i.i
     i32 38, label %is_bytes_type.exit.i.i
-    i32 46, label %142
-    i32 47, label %142
+    i32 46, label %147
+    i32 47, label %147
   ]
 
-142:                                              ; preds = %141, %141
-  %143 = call ptr @ftype_name(i32 noundef %76) #6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %143) #7
+147:                                              ; preds = %146, %146
+  %148 = call ptr @ftype_name(i32 noundef %76) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %148) #7
   unreachable
 
-144:                                              ; preds = %141
+149:                                              ; preds = %146
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 669, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.3) #7
   unreachable
 
-is_bytes_type.exit.i.i:                           ; preds = %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141
-  %145 = call zeroext i1 @ftype_can_slice(i32 noundef %76) #6
-  br i1 %145, label %153, label %146
+is_bytes_type.exit.i.i:                           ; preds = %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146
+  %150 = call zeroext i1 @ftype_can_slice(i32 noundef %76) #6
+  br i1 %150, label %158, label %151
 
-146:                                              ; preds = %is_bytes_type.exit.i.i
-  %147 = call { i64, i64 } @stnode_location(ptr noundef %28) #6
-  %148 = extractvalue { i64, i64 } %147, 0
-  %149 = extractvalue { i64, i64 } %147, 1
-  %150 = getelementptr inbounds i8, ptr %64, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call ptr @ftype_pretty_name(i32 noundef %76) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %148, i64 %149, ptr noundef nonnull @.str.37, ptr noundef %151, ptr noundef %152) #7
+151:                                              ; preds = %is_bytes_type.exit.i.i
+  %152 = call { i64, i64 } @stnode_location(ptr noundef %28) #6
+  %153 = extractvalue { i64, i64 } %152, 0
+  %154 = extractvalue { i64, i64 } %152, 1
+  %155 = getelementptr inbounds i8, ptr %64, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = call ptr @ftype_pretty_name(i32 noundef %76) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %153, i64 %154, ptr noundef nonnull @.str.37, ptr noundef %156, ptr noundef %157) #7
   unreachable
 
-153:                                              ; preds = %is_bytes_type.exit.i.i
-  %154 = call ptr @stnode_dup(ptr noundef %28) #6
-  %155 = call ptr @drange_node_new() #6
-  call void @drange_node_set_start_offset(ptr noundef %155, i32 noundef 0) #6
-  call void @drange_node_set_to_the_end(ptr noundef %155) #6
+158:                                              ; preds = %is_bytes_type.exit.i.i
+  %159 = call ptr @stnode_dup(ptr noundef %28) #6
+  %160 = call ptr @drange_node_new() #6
+  call void @drange_node_set_start_offset(ptr noundef %160, i32 noundef 0) #6
+  call void @drange_node_set_to_the_end(ptr noundef %160) #6
   call void @stnode_replace(ptr noundef %28, i32 noundef 10, ptr noundef null) #6
-  call void @sttype_slice_set1(ptr noundef %28, ptr noundef %154, ptr noundef %155) #6
+  call void @sttype_slice_set1(ptr noundef %28, ptr noundef %159, ptr noundef %160) #6
   br label %check_relation_LHS_FIELD.specialized.3.exit.i
 
-156:                                              ; preds = %100
-  %157 = call i32 @check_function(ptr noundef %0, ptr noundef %45, i32 noundef %76)
-  %158 = call zeroext i1 @compatible_ftypes(i32 noundef %76, i32 noundef %157)
-  br i1 %158, label %168, label %159
+161:                                              ; preds = %100
+  %162 = call i32 @check_function(ptr noundef %0, ptr noundef %45, i32 noundef %76)
+  %163 = call zeroext i1 @compatible_ftypes(i32 noundef %76, i32 noundef %162)
+  br i1 %163, label %173, label %164
 
-159:                                              ; preds = %156
-  %160 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
-  %161 = extractvalue { i64, i64 } %160, 0
-  %162 = extractvalue { i64, i64 } %160, 1
-  %163 = getelementptr inbounds i8, ptr %64, i64 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = call ptr @ftype_pretty_name(i32 noundef %76) #6
-  %166 = call ptr @sttype_function_name(ptr noundef %45) #6
-  %167 = call ptr @ftype_pretty_name(i32 noundef %157) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %161, i64 %162, ptr noundef nonnull @.str.38, ptr noundef %164, ptr noundef %165, ptr noundef %166, ptr noundef %167) #7
+164:                                              ; preds = %161
+  %165 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
+  %166 = extractvalue { i64, i64 } %165, 0
+  %167 = extractvalue { i64, i64 } %165, 1
+  %168 = getelementptr inbounds i8, ptr %64, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = call ptr @ftype_pretty_name(i32 noundef %76) #6
+  %171 = call ptr @sttype_function_name(ptr noundef %45) #6
+  %172 = call ptr @ftype_pretty_name(i32 noundef %162) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %166, i64 %167, ptr noundef nonnull @.str.38, ptr noundef %169, ptr noundef %170, ptr noundef %171, ptr noundef %172) #7
   unreachable
 
-168:                                              ; preds = %156
-  %169 = call zeroext i1 @ftype_can_eq(i32 noundef %157) #6
-  br i1 %169, label %check_relation_LHS_FIELD.specialized.3.exit.i, label %170
+173:                                              ; preds = %161
+  %174 = call zeroext i1 @ftype_can_eq(i32 noundef %162) #6
+  br i1 %174, label %check_relation_LHS_FIELD.specialized.3.exit.i, label %175
 
-170:                                              ; preds = %168
-  %171 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
-  %172 = extractvalue { i64, i64 } %171, 0
-  %173 = extractvalue { i64, i64 } %171, 1
-  %174 = call ptr @sttype_function_name(ptr noundef %45) #6
-  %175 = call ptr @ftype_pretty_name(i32 noundef %157) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %172, i64 %173, ptr noundef nonnull @.str.39, ptr noundef %174, ptr noundef %175) #7
+175:                                              ; preds = %173
+  %176 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
+  %177 = extractvalue { i64, i64 } %176, 0
+  %178 = extractvalue { i64, i64 } %176, 1
+  %179 = call ptr @sttype_function_name(ptr noundef %45) #6
+  %180 = call ptr @ftype_pretty_name(i32 noundef %162) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %177, i64 %178, ptr noundef nonnull @.str.39, ptr noundef %179, ptr noundef %180) #7
   unreachable
 
-176:                                              ; preds = %100
-  %177 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %45, i32 noundef %76)
-  %178 = call zeroext i1 @compatible_ftypes(i32 noundef %76, i32 noundef %177)
-  br i1 %178, label %185, label %179
+181:                                              ; preds = %100
+  %182 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %45, i32 noundef %76)
+  %183 = call zeroext i1 @compatible_ftypes(i32 noundef %76, i32 noundef %182)
+  br i1 %183, label %190, label %184
 
-179:                                              ; preds = %176
-  %180 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
-  %181 = extractvalue { i64, i64 } %180, 0
-  %182 = extractvalue { i64, i64 } %180, 1
-  %183 = call ptr @stnode_tostr(ptr noundef %28, i1 noundef zeroext true) #6
-  %184 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %181, i64 %182, ptr noundef nonnull @.str.34, ptr noundef %183, ptr noundef %184) #7
+184:                                              ; preds = %181
+  %185 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
+  %186 = extractvalue { i64, i64 } %185, 0
+  %187 = extractvalue { i64, i64 } %185, 1
+  %188 = call ptr @stnode_tostr(ptr noundef %28, i1 noundef zeroext true) #6
+  %189 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %186, i64 %187, ptr noundef nonnull @.str.34, ptr noundef %188, ptr noundef %189) #7
   unreachable
 
-185:                                              ; preds = %176
-  %186 = call zeroext i1 @ftype_can_eq(i32 noundef %177) #6
-  br i1 %186, label %check_relation_LHS_FIELD.specialized.3.exit.i, label %187
+190:                                              ; preds = %181
+  %191 = call zeroext i1 @ftype_can_eq(i32 noundef %182) #6
+  br i1 %191, label %check_relation_LHS_FIELD.specialized.3.exit.i, label %192
 
-187:                                              ; preds = %185
-  %188 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
-  %189 = extractvalue { i64, i64 } %188, 0
-  %190 = extractvalue { i64, i64 } %188, 1
-  %191 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
-  %192 = call ptr @ftype_pretty_name(i32 noundef %177) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %189, i64 %190, ptr noundef nonnull @.str.35, ptr noundef %191, ptr noundef %192) #7
+192:                                              ; preds = %190
+  %193 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
+  %194 = extractvalue { i64, i64 } %193, 0
+  %195 = extractvalue { i64, i64 } %193, 1
+  %196 = call ptr @stnode_tostr(ptr noundef %45, i1 noundef zeroext true) #6
+  %197 = call ptr @ftype_pretty_name(i32 noundef %182) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %194, i64 %195, ptr noundef nonnull @.str.35, ptr noundef %196, ptr noundef %197) #7
   unreachable
 
-193:                                              ; preds = %100
+198:                                              ; preds = %100
   call void @resolve_unparsed(ptr noundef %0, ptr noundef %45, i1 noundef zeroext true)
-  %194 = call ptr @sttype_name(i32 noundef 2) #6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %194) #7
+  %199 = call ptr @sttype_name(i32 noundef 2) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %199) #7
   unreachable
 
-195:                                              ; preds = %100
-  %196 = call ptr @sttype_name(i32 noundef %77) #6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %196) #7
+200:                                              ; preds = %100
+  %201 = call ptr @sttype_name(i32 noundef %77) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %201) #7
   unreachable
 
-check_relation_LHS_FIELD.specialized.3.exit.i:    ; preds = %185, %168, %153, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %141, %123, %122, %121, %.critedge.thread49.i.i, %.critedge.thread.i.i, %100, %97, %96, %56
-  %197 = getelementptr inbounds i8, ptr %54, i64 8
-  %198 = load ptr, ptr %197, align 8
-  %.not34.i = icmp eq ptr %198, null
+check_relation_LHS_FIELD.specialized.3.exit.i:    ; preds = %190, %173, %158, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %128, %127, %126, %.critedge.thread47.i.i, %.critedge.thread.i.i, %100, %97, %96, %56
+  %202 = getelementptr inbounds i8, ptr %54, i64 8
+  %203 = load ptr, ptr %202, align 8
+  %.not34.i = icmp eq ptr %203, null
   br i1 %.not34.i, label %check_test.exit, label %.lr.ph.i, !llvm.loop !13
 
-199:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8
-  %200 = call ptr @stnode_op_name(i32 noundef %9) #6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1719, ptr noundef nonnull @__func__.check_test, ptr noundef nonnull @.str.19, ptr noundef %200) #7
+204:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8
+  %205 = call ptr @stnode_op_name(i32 noundef %9) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1719, ptr noundef nonnull @__func__.check_test, ptr noundef nonnull @.str.19, ptr noundef %205) #7
   unreachable
 
 check_test.exit:                                  ; preds = %check_relation_LHS_FIELD.specialized.3.exit.i, %43, %8, %10, %12, %15, %18, %21, %24
@@ -2229,139 +2231,139 @@ check_test.exit:                                  ; preds = %check_relation_LHS_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %check_nonzero.exitthread-pre-split
 
-201:                                              ; preds = %2, %2, %2
-  %202 = tail call i32 @stnode_type_id(ptr noundef %1) #6
-  switch i32 %202, label %227 [
-    i32 14, label %203
-    i32 10, label %211
-    i32 11, label %219
+206:                                              ; preds = %2, %2, %2
+  %207 = tail call i32 @stnode_type_id(ptr noundef %1) #6
+  switch i32 %207, label %232 [
+    i32 14, label %208
+    i32 10, label %216
+    i32 11, label %224
   ]
 
-203:                                              ; preds = %201
-  %204 = tail call i32 @get_logical_ftype(ptr noundef nonnull %0, ptr noundef %1)
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %206, label %find_logical_ftype.exit.i
+208:                                              ; preds = %206
+  %209 = tail call i32 @get_logical_ftype(ptr noundef nonnull %0, ptr noundef %1)
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %211, label %find_logical_ftype.exit.i
 
-206:                                              ; preds = %203
-  %207 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %208 = extractvalue { i64, i64 } %207, 0
-  %209 = extractvalue { i64, i64 } %207, 1
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %208, i64 %209, ptr noundef nonnull @.str.41) #7
+211:                                              ; preds = %208
+  %212 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %213 = extractvalue { i64, i64 } %212, 0
+  %214 = extractvalue { i64, i64 } %212, 1
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %213, i64 %214, ptr noundef nonnull @.str.41) #7
   unreachable
 
-find_logical_ftype.exit.i:                        ; preds = %203
-  %210 = tail call i32 @check_arithmetic(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %204)
-  br label %230
+find_logical_ftype.exit.i:                        ; preds = %208
+  %215 = tail call i32 @check_arithmetic(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %209)
+  br label %235
 
-211:                                              ; preds = %201
-  %212 = tail call i32 @get_logical_ftype(ptr noundef nonnull %0, ptr noundef %1)
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %214, label %find_logical_ftype.exit17.i
+216:                                              ; preds = %206
+  %217 = tail call i32 @get_logical_ftype(ptr noundef nonnull %0, ptr noundef %1)
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %219, label %find_logical_ftype.exit17.i
 
-214:                                              ; preds = %211
-  %215 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %216 = extractvalue { i64, i64 } %215, 0
-  %217 = extractvalue { i64, i64 } %215, 1
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %216, i64 %217, ptr noundef nonnull @.str.41) #7
+219:                                              ; preds = %216
+  %220 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %221 = extractvalue { i64, i64 } %220, 0
+  %222 = extractvalue { i64, i64 } %220, 1
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %221, i64 %222, ptr noundef nonnull @.str.41) #7
   unreachable
 
-find_logical_ftype.exit17.i:                      ; preds = %211
-  %218 = tail call i32 @check_slice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %212), !range !10
-  br label %230
+find_logical_ftype.exit17.i:                      ; preds = %216
+  %223 = tail call i32 @check_slice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %217), !range !10
+  br label %235
 
-219:                                              ; preds = %201
-  %220 = tail call i32 @get_logical_ftype(ptr noundef nonnull %0, ptr noundef %1)
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %find_logical_ftype.exit18.i
+224:                                              ; preds = %206
+  %225 = tail call i32 @get_logical_ftype(ptr noundef nonnull %0, ptr noundef %1)
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %227, label %find_logical_ftype.exit18.i
 
-222:                                              ; preds = %219
-  %223 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %224 = extractvalue { i64, i64 } %223, 0
-  %225 = extractvalue { i64, i64 } %223, 1
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %224, i64 %225, ptr noundef nonnull @.str.41) #7
+227:                                              ; preds = %224
+  %228 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %229 = extractvalue { i64, i64 } %228, 0
+  %230 = extractvalue { i64, i64 } %228, 1
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %229, i64 %230, ptr noundef nonnull @.str.41) #7
   unreachable
 
-find_logical_ftype.exit18.i:                      ; preds = %219
-  %226 = tail call i32 @check_function(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %220)
-  br label %230
+find_logical_ftype.exit18.i:                      ; preds = %224
+  %231 = tail call i32 @check_function(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %225)
+  br label %235
 
-227:                                              ; preds = %201
-  %228 = tail call i32 @stnode_type_id(ptr noundef %1) #6
-  %229 = tail call ptr @sttype_name(i32 noundef %228) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1741, ptr noundef nonnull @__func__.check_nonzero, ptr noundef nonnull @.str.6, ptr noundef %229) #7
+232:                                              ; preds = %206
+  %233 = tail call i32 @stnode_type_id(ptr noundef %1) #6
+  %234 = tail call ptr @sttype_name(i32 noundef %233) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1741, ptr noundef nonnull @__func__.check_nonzero, ptr noundef nonnull @.str.6, ptr noundef %234) #7
   unreachable
 
-230:                                              ; preds = %find_logical_ftype.exit18.i, %find_logical_ftype.exit17.i, %find_logical_ftype.exit.i
-  %.0.i = phi i32 [ %226, %find_logical_ftype.exit18.i ], [ %218, %find_logical_ftype.exit17.i ], [ %210, %find_logical_ftype.exit.i ]
-  %231 = tail call zeroext i1 @ftype_can_is_zero(i32 noundef %.0.i) #6
-  br i1 %231, label %check_nonzero.exitthread-pre-split, label %232
+235:                                              ; preds = %find_logical_ftype.exit18.i, %find_logical_ftype.exit17.i, %find_logical_ftype.exit.i
+  %.0.i = phi i32 [ %231, %find_logical_ftype.exit18.i ], [ %223, %find_logical_ftype.exit17.i ], [ %215, %find_logical_ftype.exit.i ]
+  %236 = tail call zeroext i1 @ftype_can_is_zero(i32 noundef %.0.i) #6
+  br i1 %236, label %check_nonzero.exitthread-pre-split, label %237
 
-232:                                              ; preds = %230
-  %233 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %234 = extractvalue { i64, i64 } %233, 0
-  %235 = extractvalue { i64, i64 } %233, 1
-  %236 = tail call ptr @ftype_pretty_name(i32 noundef %.0.i) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %234, i64 %235, ptr noundef nonnull @.str.56, ptr noundef %236) #7
+237:                                              ; preds = %235
+  %238 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %239 = extractvalue { i64, i64 } %238, 0
+  %240 = extractvalue { i64, i64 } %238, 1
+  %241 = tail call ptr @ftype_pretty_name(i32 noundef %.0.i) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %239, i64 %240, ptr noundef nonnull @.str.56, ptr noundef %241) #7
   unreachable
 
-237:                                              ; preds = %2
+242:                                              ; preds = %2
   tail call void @resolve_unparsed(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext true)
-  %238 = tail call i32 @stnode_type_id(ptr noundef %1) #6
-  switch i32 %238, label %check_nonzero.exitthread-pre-split [
-    i32 8, label %239
-    i32 10, label %247
-    i32 5, label %242
-    i32 3, label %242
-    i32 6, label %242
-    i32 7, label %242
-    i32 2, label %247
-    i32 11, label %247
-    i32 12, label %247
-    i32 0, label %247
-    i32 15, label %247
-    i32 1, label %247
-    i32 9, label %247
-    i32 13, label %247
-    i32 14, label %247
+  %243 = tail call i32 @stnode_type_id(ptr noundef %1) #6
+  switch i32 %243, label %check_nonzero.exitthread-pre-split [
+    i32 8, label %244
+    i32 10, label %252
+    i32 5, label %247
+    i32 3, label %247
+    i32 6, label %247
+    i32 7, label %247
+    i32 2, label %252
+    i32 11, label %252
+    i32 12, label %252
+    i32 0, label %252
+    i32 15, label %252
+    i32 1, label %252
+    i32 9, label %252
+    i32 13, label %252
+    i32 14, label %252
   ]
 
-239:                                              ; preds = %237
-  %240 = load i32, ptr %6, align 8
-  %241 = add i32 %240, 1
-  store i32 %241, ptr %6, align 8
+244:                                              ; preds = %242
+  %245 = load i32, ptr %6, align 8
+  %246 = add i32 %245, 1
+  store i32 %246, ptr %6, align 8
   br label %check_nonzero.exit
 
-242:                                              ; preds = %237, %237, %237, %237
-  %243 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %244 = extractvalue { i64, i64 } %243, 0
-  %245 = extractvalue { i64, i64 } %243, 1
-  %246 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %244, i64 %245, ptr noundef nonnull @.str.57, ptr noundef %246) #7
+247:                                              ; preds = %242, %242, %242, %242
+  %248 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %249 = extractvalue { i64, i64 } %248, 0
+  %250 = extractvalue { i64, i64 } %248, 1
+  %251 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %249, i64 %250, ptr noundef nonnull @.str.57, ptr noundef %251) #7
   unreachable
 
-247:                                              ; preds = %237, %237, %237, %237, %237, %237, %237, %237, %237, %237
-  %248 = tail call i32 @stnode_type_id(ptr noundef %1) #6
-  %249 = tail call ptr @sttype_name(i32 noundef %248) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 800, ptr noundef nonnull @__func__.check_exists, ptr noundef nonnull @.str.6, ptr noundef %249) #7
+252:                                              ; preds = %242, %242, %242, %242, %242, %242, %242, %242, %242, %242
+  %253 = tail call i32 @stnode_type_id(ptr noundef %1) #6
+  %254 = tail call ptr @sttype_name(i32 noundef %253) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 800, ptr noundef nonnull @__func__.check_exists, ptr noundef nonnull @.str.6, ptr noundef %254) #7
   unreachable
 
-check_nonzero.exitthread-pre-split:               ; preds = %check_test.exit, %230, %237
+check_nonzero.exitthread-pre-split:               ; preds = %check_test.exit, %235, %242
   %.pr = load i32, ptr %6, align 8
   br label %check_nonzero.exit
 
-check_nonzero.exit:                               ; preds = %check_nonzero.exitthread-pre-split, %239
-  %250 = phi i32 [ %.pr, %check_nonzero.exitthread-pre-split ], [ %241, %239 ]
-  %251 = icmp eq i32 %250, 0
-  br i1 %251, label %252, label %256
+check_nonzero.exit:                               ; preds = %check_nonzero.exitthread-pre-split, %244
+  %255 = phi i32 [ %.pr, %check_nonzero.exitthread-pre-split ], [ %246, %244 ]
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %257, label %261
 
-252:                                              ; preds = %check_nonzero.exit
-  %253 = call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %254 = extractvalue { i64, i64 } %253, 0
-  %255 = extractvalue { i64, i64 } %253, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %254, i64 %255, ptr noundef nonnull @.str.32) #7
+257:                                              ; preds = %check_nonzero.exit
+  %258 = call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %259 = extractvalue { i64, i64 } %258, 0
+  %260 = extractvalue { i64, i64 } %258, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %259, i64 %260, ptr noundef nonnull @.str.32) #7
   unreachable
 
-256:                                              ; preds = %check_nonzero.exit
+261:                                              ; preds = %check_nonzero.exit
   ret void
 }
 
@@ -3212,12 +3214,12 @@ resolve_unparsed.exit:                            ; preds = %4, %11, %12
 
 check_warning_contains_RHS_FIELD.exit:            ; preds = %21, %17, %15, %resolve_unparsed.exit
   %29 = tail call i32 @stnode_type_id(ptr noundef %2) #6
-  switch i32 %29, label %190 [
+  switch i32 %29, label %195 [
     i32 8, label %30
     i32 4, label %30
     i32 2, label %30
-    i32 11, label %176
-    i32 10, label %183
+    i32 11, label %181
+    i32 10, label %188
   ]
 
 30:                                               ; preds = %check_warning_contains_RHS_FIELD.exit, %check_warning_contains_RHS_FIELD.exit, %check_warning_contains_RHS_FIELD.exit
@@ -3296,125 +3298,127 @@ check_warning_contains_RHS_FIELD.exit:            ; preds = %21, %17, %15, %reso
   br label %check_relation_LHS_FIELD.specialized.1.exit
 
 75:                                               ; preds = %49
-  %.not40.i = icmp eq i32 %51, 5
-  switch i32 %51, label %174 [
+  %76 = icmp eq i32 %51, 5
+  switch i32 %51, label %179 [
     i32 5, label %.preheader.i
     i32 3, label %.preheader.i
-    i32 6, label %101
-    i32 7, label %102
-    i32 10, label %103
-    i32 11, label %135
+    i32 6, label %106
+    i32 7, label %107
+    i32 10, label %108
+    i32 11, label %140
     i32 13, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 14, label %155
-    i32 2, label %172
+    i32 14, label %160
+    i32 2, label %177
   ]
 
 .preheader.i:                                     ; preds = %75, %75
-  %76 = getelementptr inbounds i8, ptr %38, i64 60
-  %77 = load i32, ptr %76, align 4
-  %.not23.i = icmp eq i32 %77, -1
+  %77 = getelementptr inbounds i8, ptr %38, i64 60
+  %78 = load i32, ptr %77, align 4
+  %.not23.i = icmp eq i32 %78, -1
   br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %78 = and i32 %50, -2
-  %switch.us28.i = icmp eq i32 %78, 26
-  br i1 %.not40.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.i
+  br i1 %76, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  br i1 %switch.us28.i, label %.critedge9.us.i, label %.critedge.thread49.i
+  %79 = and i32 %50, -2
+  %80 = icmp eq i32 %79, 26
+  br i1 %80, label %.critedge9.us.i, label %.critedge.thread47.i
 
 .critedge9.us.i:                                  ; preds = %.lr.ph.split.us.i, %.critedge9.us.i
-  %79 = phi i32 [ %84, %.critedge9.us.i ], [ %77, %.lr.ph.split.us.i ]
-  %80 = tail call ptr @proto_registrar_get_nth(i32 noundef %79) #6
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
-  %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %80, i64 60
-  %84 = load i32, ptr %83, align 4
-  %.not2.us.i = icmp ne i32 %84, -1
-  %85 = and i32 %82, -2
-  %86 = icmp eq i32 %85, 26
-  %or.cond39.i = select i1 %.not2.us.i, i1 %86, i1 false
-  br i1 %or.cond39.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !12
+  %81 = phi i32 [ %86, %.critedge9.us.i ], [ %78, %.lr.ph.split.us.i ]
+  %82 = tail call ptr @proto_registrar_get_nth(i32 noundef %81) #6
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %84 = load i32, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %82, i64 60
+  %86 = load i32, ptr %85, align 4
+  %.not2.us.i = icmp ne i32 %86, -1
+  %87 = and i32 %84, -2
+  %88 = icmp eq i32 %87, 26
+  %or.cond38.i = select i1 %.not2.us.i, i1 %88, i1 false
+  br i1 %or.cond38.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !12
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i
-  br i1 %switch.us28.i, label %.critedge.thread.i, label %.critedge9.us16.i
+  %89 = add i32 %50, -28
+  %90 = icmp ult i32 %89, -2
+  br i1 %90, label %.critedge9.us16.i, label %.critedge.thread.i
 
 .critedge9.us16.i:                                ; preds = %.lr.ph.split.split.us.i, %.critedge9.us16.i
-  %87 = phi i32 [ %92, %.critedge9.us16.i ], [ %77, %.lr.ph.split.split.us.i ]
-  %88 = tail call ptr @proto_registrar_get_nth(i32 noundef %87) #6
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
-  %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %88, i64 60
-  %92 = load i32, ptr %91, align 4
-  %.not2.us17.i = icmp eq i32 %92, -1
-  %93 = and i32 %90, -2
-  %switch.us.i = icmp eq i32 %93, 26
-  %or.cond.i = select i1 %.not2.us17.i, i1 true, i1 %switch.us.i
-  br i1 %or.cond.i, label %.critedge.i, label %.critedge9.us16.i, !llvm.loop !12
+  %91 = phi i32 [ %96, %.critedge9.us16.i ], [ %78, %.lr.ph.split.split.us.i ]
+  %92 = tail call ptr @proto_registrar_get_nth(i32 noundef %91) #6
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %94 = load i32, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %92, i64 60
+  %96 = load i32, ptr %95, align 4
+  %.not2.us17.i = icmp ne i32 %96, -1
+  %97 = add i32 %94, -28
+  %98 = icmp ult i32 %97, -2
+  %or.cond.i = select i1 %.not2.us17.i, i1 %98, i1 false
+  br i1 %or.cond.i, label %.critedge9.us16.i, label %.critedge.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %.critedge9.us.i, %.critedge9.us16.i, %.preheader.i
-  %.0160.lcssa.i = phi i32 [ %50, %.preheader.i ], [ %90, %.critedge9.us16.i ], [ %82, %.critedge9.us.i ]
-  %.0.lcssa.i = phi ptr [ %38, %.preheader.i ], [ %88, %.critedge9.us16.i ], [ %80, %.critedge9.us.i ]
-  br i1 %.not40.i, label %.critedge.thread.i, label %.critedge.thread49.i
+  %.0160.lcssa.i = phi i32 [ %50, %.preheader.i ], [ %94, %.critedge9.us16.i ], [ %84, %.critedge9.us.i ]
+  %.0.lcssa.i = phi ptr [ %38, %.preheader.i ], [ %92, %.critedge9.us16.i ], [ %82, %.critedge9.us.i ]
+  br i1 %76, label %.critedge.thread.i, label %.critedge.thread47.i
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %.lr.ph.split.split.us.i
-  %.0.lcssa48.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %38, %.lr.ph.split.split.us.i ]
-  %.0160.lcssa47.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %50, %.lr.ph.split.split.us.i ]
-  %94 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa47.i, ptr noundef %3, ptr noundef nonnull %.0.lcssa48.i)
-  br i1 %94, label %96, label %check_relation_LHS_FIELD.specialized.1.exit
+  %.0.lcssa46.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %38, %.lr.ph.split.split.us.i ]
+  %.0160.lcssa45.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %50, %.lr.ph.split.split.us.i ]
+  %99 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa45.i, ptr noundef %3, ptr noundef nonnull %.0.lcssa46.i)
+  br i1 %99, label %101, label %check_relation_LHS_FIELD.specialized.1.exit
 
-.critedge.thread49.i:                             ; preds = %.critedge.i, %.lr.ph.split.us.i
-  %.0.lcssa53.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %38, %.lr.ph.split.us.i ]
-  %.0160.lcssa52.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %50, %.lr.ph.split.us.i ]
-  %95 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa52.i, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %.0.lcssa53.i)
-  br i1 %95, label %96, label %check_relation_LHS_FIELD.specialized.1.exit
+.critedge.thread47.i:                             ; preds = %.critedge.i, %.lr.ph.split.us.i
+  %.0.lcssa51.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %38, %.lr.ph.split.us.i ]
+  %.0160.lcssa50.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %50, %.lr.ph.split.us.i ]
+  %100 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa50.i, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %.0.lcssa51.i)
+  br i1 %100, label %101, label %check_relation_LHS_FIELD.specialized.1.exit
 
-96:                                               ; preds = %.critedge.thread49.i, %.critedge.thread.i
+101:                                              ; preds = %.critedge.thread47.i, %.critedge.thread.i
   tail call void @sttype_field_set_value_string(ptr noundef %2, i1 noundef zeroext true) #6
-  %97 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %98 = extractvalue { i64, i64 } %97, 0
-  %99 = extractvalue { i64, i64 } %97, 1
-  %100 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %98, i64 %99, ptr noundef nonnull @.str.36, ptr noundef %100) #7
+  %102 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %103 = extractvalue { i64, i64 } %102, 0
+  %104 = extractvalue { i64, i64 } %102, 1
+  %105 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %103, i64 %104, ptr noundef nonnull @.str.36, ptr noundef %105) #7
   unreachable
 
-101:                                              ; preds = %75
+106:                                              ; preds = %75
   tail call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %50, ptr noundef %3)
   br label %check_relation_LHS_FIELD.specialized.1.exit
 
-102:                                              ; preds = %75
+107:                                              ; preds = %75
   tail call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %50, ptr noundef %3)
   br label %check_relation_LHS_FIELD.specialized.1.exit
 
-103:                                              ; preds = %75
-  %104 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %50), !range !10
-  %105 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %104)
-  br i1 %105, label %112, label %106
+108:                                              ; preds = %75
+  %109 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %50), !range !10
+  %110 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %109)
+  br i1 %110, label %117, label %111
 
-106:                                              ; preds = %103
-  %107 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %108 = extractvalue { i64, i64 } %107, 0
-  %109 = extractvalue { i64, i64 } %107, 1
-  %110 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  %111 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %108, i64 %109, ptr noundef nonnull @.str.34, ptr noundef %110, ptr noundef %111) #7
+111:                                              ; preds = %108
+  %112 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %113 = extractvalue { i64, i64 } %112, 0
+  %114 = extractvalue { i64, i64 } %112, 1
+  %115 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
+  %116 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %113, i64 %114, ptr noundef nonnull @.str.34, ptr noundef %115, ptr noundef %116) #7
   unreachable
 
-112:                                              ; preds = %103
-  %113 = tail call zeroext i1 @ftype_can_contains(i32 noundef %104) #6
-  br i1 %113, label %120, label %114
+117:                                              ; preds = %108
+  %118 = tail call zeroext i1 @ftype_can_contains(i32 noundef %109) #6
+  br i1 %118, label %125, label %119
 
-114:                                              ; preds = %112
-  %115 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %116 = extractvalue { i64, i64 } %115, 0
-  %117 = extractvalue { i64, i64 } %115, 1
-  %118 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  %119 = tail call ptr @ftype_pretty_name(i32 noundef %104) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %116, i64 %117, ptr noundef nonnull @.str.35, ptr noundef %118, ptr noundef %119) #7
+119:                                              ; preds = %117
+  %120 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %121 = extractvalue { i64, i64 } %120, 0
+  %122 = extractvalue { i64, i64 } %120, 1
+  %123 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  %124 = tail call ptr @ftype_pretty_name(i32 noundef %109) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %121, i64 %122, ptr noundef nonnull @.str.35, ptr noundef %123, ptr noundef %124) #7
   unreachable
 
-120:                                              ; preds = %112
-  switch i32 %50, label %123 [
+125:                                              ; preds = %117
+  switch i32 %50, label %128 [
     i32 39, label %check_relation_LHS_FIELD.specialized.1.exit
     i32 40, label %check_relation_LHS_FIELD.specialized.1.exit
     i32 44, label %check_relation_LHS_FIELD.specialized.1.exit
@@ -3461,152 +3465,152 @@ check_warning_contains_RHS_FIELD.exit:            ; preds = %21, %17, %15, %reso
     i32 18, label %is_bytes_type.exit.i
     i32 19, label %is_bytes_type.exit.i
     i32 38, label %is_bytes_type.exit.i
-    i32 46, label %121
-    i32 47, label %121
+    i32 46, label %126
+    i32 47, label %126
   ]
 
-121:                                              ; preds = %120, %120
-  %122 = tail call ptr @ftype_name(i32 noundef %50) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %122) #7
+126:                                              ; preds = %125, %125
+  %127 = tail call ptr @ftype_name(i32 noundef %50) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %127) #7
   unreachable
 
-123:                                              ; preds = %120
+128:                                              ; preds = %125
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 669, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.3) #7
   unreachable
 
-is_bytes_type.exit.i:                             ; preds = %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120
-  %124 = tail call zeroext i1 @ftype_can_slice(i32 noundef %50) #6
-  br i1 %124, label %132, label %125
+is_bytes_type.exit.i:                             ; preds = %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125
+  %129 = tail call zeroext i1 @ftype_can_slice(i32 noundef %50) #6
+  br i1 %129, label %137, label %130
 
-125:                                              ; preds = %is_bytes_type.exit.i
-  %126 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %127 = extractvalue { i64, i64 } %126, 0
-  %128 = extractvalue { i64, i64 } %126, 1
-  %129 = getelementptr inbounds i8, ptr %38, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call ptr @ftype_pretty_name(i32 noundef %50) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %127, i64 %128, ptr noundef nonnull @.str.37, ptr noundef %130, ptr noundef %131) #7
+130:                                              ; preds = %is_bytes_type.exit.i
+  %131 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
+  %132 = extractvalue { i64, i64 } %131, 0
+  %133 = extractvalue { i64, i64 } %131, 1
+  %134 = getelementptr inbounds i8, ptr %38, i64 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = tail call ptr @ftype_pretty_name(i32 noundef %50) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %132, i64 %133, ptr noundef nonnull @.str.37, ptr noundef %135, ptr noundef %136) #7
   unreachable
 
-132:                                              ; preds = %is_bytes_type.exit.i
-  %133 = tail call ptr @stnode_dup(ptr noundef %2) #6
-  %134 = tail call ptr @drange_node_new() #6
-  tail call void @drange_node_set_start_offset(ptr noundef %134, i32 noundef 0) #6
-  tail call void @drange_node_set_to_the_end(ptr noundef %134) #6
+137:                                              ; preds = %is_bytes_type.exit.i
+  %138 = tail call ptr @stnode_dup(ptr noundef %2) #6
+  %139 = tail call ptr @drange_node_new() #6
+  tail call void @drange_node_set_start_offset(ptr noundef %139, i32 noundef 0) #6
+  tail call void @drange_node_set_to_the_end(ptr noundef %139) #6
   tail call void @stnode_replace(ptr noundef %2, i32 noundef 10, ptr noundef null) #6
-  tail call void @sttype_slice_set1(ptr noundef %2, ptr noundef %133, ptr noundef %134) #6
+  tail call void @sttype_slice_set1(ptr noundef %2, ptr noundef %138, ptr noundef %139) #6
   br label %check_relation_LHS_FIELD.specialized.1.exit
 
-135:                                              ; preds = %75
-  %136 = tail call i32 @check_function(ptr noundef %0, ptr noundef %3, i32 noundef %50)
-  %137 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %136)
-  br i1 %137, label %147, label %138
+140:                                              ; preds = %75
+  %141 = tail call i32 @check_function(ptr noundef %0, ptr noundef %3, i32 noundef %50)
+  %142 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %141)
+  br i1 %142, label %152, label %143
 
-138:                                              ; preds = %135
-  %139 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %140 = extractvalue { i64, i64 } %139, 0
-  %141 = extractvalue { i64, i64 } %139, 1
-  %142 = getelementptr inbounds i8, ptr %38, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = tail call ptr @ftype_pretty_name(i32 noundef %50) #6
-  %145 = tail call ptr @sttype_function_name(ptr noundef %3) #6
-  %146 = tail call ptr @ftype_pretty_name(i32 noundef %136) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %140, i64 %141, ptr noundef nonnull @.str.38, ptr noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %146) #7
+143:                                              ; preds = %140
+  %144 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %145 = extractvalue { i64, i64 } %144, 0
+  %146 = extractvalue { i64, i64 } %144, 1
+  %147 = getelementptr inbounds i8, ptr %38, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = tail call ptr @ftype_pretty_name(i32 noundef %50) #6
+  %150 = tail call ptr @sttype_function_name(ptr noundef %3) #6
+  %151 = tail call ptr @ftype_pretty_name(i32 noundef %141) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %145, i64 %146, ptr noundef nonnull @.str.38, ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef %151) #7
   unreachable
 
-147:                                              ; preds = %135
-  %148 = tail call zeroext i1 @ftype_can_contains(i32 noundef %136) #6
-  br i1 %148, label %check_relation_LHS_FIELD.specialized.1.exit, label %149
+152:                                              ; preds = %140
+  %153 = tail call zeroext i1 @ftype_can_contains(i32 noundef %141) #6
+  br i1 %153, label %check_relation_LHS_FIELD.specialized.1.exit, label %154
 
-149:                                              ; preds = %147
-  %150 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %151 = extractvalue { i64, i64 } %150, 0
-  %152 = extractvalue { i64, i64 } %150, 1
-  %153 = tail call ptr @sttype_function_name(ptr noundef %3) #6
-  %154 = tail call ptr @ftype_pretty_name(i32 noundef %136) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %151, i64 %152, ptr noundef nonnull @.str.39, ptr noundef %153, ptr noundef %154) #7
+154:                                              ; preds = %152
+  %155 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %156 = extractvalue { i64, i64 } %155, 0
+  %157 = extractvalue { i64, i64 } %155, 1
+  %158 = tail call ptr @sttype_function_name(ptr noundef %3) #6
+  %159 = tail call ptr @ftype_pretty_name(i32 noundef %141) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %156, i64 %157, ptr noundef nonnull @.str.39, ptr noundef %158, ptr noundef %159) #7
   unreachable
 
-155:                                              ; preds = %75
-  %156 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %3, i32 noundef %50)
-  %157 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %156)
-  br i1 %157, label %164, label %158
+160:                                              ; preds = %75
+  %161 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %3, i32 noundef %50)
+  %162 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %161)
+  br i1 %162, label %169, label %163
 
-158:                                              ; preds = %155
-  %159 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %160 = extractvalue { i64, i64 } %159, 0
-  %161 = extractvalue { i64, i64 } %159, 1
-  %162 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  %163 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %160, i64 %161, ptr noundef nonnull @.str.34, ptr noundef %162, ptr noundef %163) #7
+163:                                              ; preds = %160
+  %164 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %165 = extractvalue { i64, i64 } %164, 0
+  %166 = extractvalue { i64, i64 } %164, 1
+  %167 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
+  %168 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %165, i64 %166, ptr noundef nonnull @.str.34, ptr noundef %167, ptr noundef %168) #7
   unreachable
 
-164:                                              ; preds = %155
-  %165 = tail call zeroext i1 @ftype_can_contains(i32 noundef %156) #6
-  br i1 %165, label %check_relation_LHS_FIELD.specialized.1.exit, label %166
+169:                                              ; preds = %160
+  %170 = tail call zeroext i1 @ftype_can_contains(i32 noundef %161) #6
+  br i1 %170, label %check_relation_LHS_FIELD.specialized.1.exit, label %171
 
-166:                                              ; preds = %164
-  %167 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %168 = extractvalue { i64, i64 } %167, 0
-  %169 = extractvalue { i64, i64 } %167, 1
-  %170 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  %171 = tail call ptr @ftype_pretty_name(i32 noundef %156) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %168, i64 %169, ptr noundef nonnull @.str.35, ptr noundef %170, ptr noundef %171) #7
+171:                                              ; preds = %169
+  %172 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %173 = extractvalue { i64, i64 } %172, 0
+  %174 = extractvalue { i64, i64 } %172, 1
+  %175 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  %176 = tail call ptr @ftype_pretty_name(i32 noundef %161) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %173, i64 %174, ptr noundef nonnull @.str.35, ptr noundef %175, ptr noundef %176) #7
   unreachable
 
-172:                                              ; preds = %75
+177:                                              ; preds = %75
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %3, i1 noundef zeroext true)
-  %173 = tail call ptr @sttype_name(i32 noundef 2) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %173) #7
+  %178 = tail call ptr @sttype_name(i32 noundef 2) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %178) #7
   unreachable
 
-174:                                              ; preds = %75
-  %175 = tail call ptr @sttype_name(i32 noundef %51) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %175) #7
+179:                                              ; preds = %75
+  %180 = tail call ptr @sttype_name(i32 noundef %51) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %180) #7
   unreachable
 
-176:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
-  %177 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %find_logical_ftype.exit
+181:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
+  %182 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %find_logical_ftype.exit
 
-179:                                              ; preds = %176
-  %180 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %181 = extractvalue { i64, i64 } %180, 0
-  %182 = extractvalue { i64, i64 } %180, 1
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %181, i64 %182, ptr noundef nonnull @.str.41) #7
+184:                                              ; preds = %181
+  %185 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %186 = extractvalue { i64, i64 } %185, 0
+  %187 = extractvalue { i64, i64 } %185, 1
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %186, i64 %187, ptr noundef nonnull @.str.41) #7
   unreachable
 
-find_logical_ftype.exit:                          ; preds = %176
-  tail call fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %177)
+find_logical_ftype.exit:                          ; preds = %181
+  tail call fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %182)
   br label %check_relation_LHS_FIELD.specialized.1.exit
 
-183:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
-  %184 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %186, label %find_logical_ftype.exit32
+188:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
+  %189 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %find_logical_ftype.exit32
 
-186:                                              ; preds = %183
-  %187 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %188 = extractvalue { i64, i64 } %187, 0
-  %189 = extractvalue { i64, i64 } %187, 1
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %188, i64 %189, ptr noundef nonnull @.str.41) #7
+191:                                              ; preds = %188
+  %192 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %193 = extractvalue { i64, i64 } %192, 0
+  %194 = extractvalue { i64, i64 } %192, 1
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %193, i64 %194, ptr noundef nonnull @.str.41) #7
   unreachable
 
-find_logical_ftype.exit32:                        ; preds = %183
-  tail call fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %184)
+find_logical_ftype.exit32:                        ; preds = %188
+  tail call fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %189)
   br label %check_relation_LHS_FIELD.specialized.1.exit
 
-190:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
-  %191 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %192 = extractvalue { i64, i64 } %191, 0
-  %193 = extractvalue { i64, i64 } %191, 1
-  %194 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
-  %195 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %192, i64 %193, ptr noundef nonnull @.str.50, ptr noundef %194, ptr noundef %195) #7
+195:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
+  %196 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
+  %197 = extractvalue { i64, i64 } %196, 0
+  %198 = extractvalue { i64, i64 } %196, 1
+  %199 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
+  %200 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %197, i64 %198, ptr noundef nonnull @.str.50, ptr noundef %199, ptr noundef %200) #7
   unreachable
 
-check_relation_LHS_FIELD.specialized.1.exit:      ; preds = %164, %147, %132, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %102, %101, %.critedge.thread49.i, %.critedge.thread.i, %75, %71, %70, %find_logical_ftype.exit32, %find_logical_ftype.exit
+check_relation_LHS_FIELD.specialized.1.exit:      ; preds = %169, %152, %137, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %107, %106, %.critedge.thread47.i, %.critedge.thread.i, %75, %71, %70, %find_logical_ftype.exit32, %find_logical_ftype.exit
   ret void
 }
 
@@ -3650,11 +3654,11 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
 24:                                               ; preds = %11
   call void @stnode_replace(ptr noundef %3, i32 noundef 13, ptr noundef %16) #6
   %25 = call i32 @stnode_type_id(ptr noundef %2) #6
-  switch i32 %25, label %193 [
+  switch i32 %25, label %198 [
     i32 8, label %26
     i32 4, label %26
-    i32 11, label %179
-    i32 10, label %186
+    i32 11, label %184
+    i32 10, label %191
   ]
 
 26:                                               ; preds = %24, %24
@@ -3749,125 +3753,127 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
   br label %check_relation_LHS_FIELD.specialized.2.exit
 
 78:                                               ; preds = %52
-  %.not40.i = icmp eq i32 %54, 5
-  switch i32 %54, label %177 [
+  %79 = icmp eq i32 %54, 5
+  switch i32 %54, label %182 [
     i32 5, label %.preheader.i
     i32 3, label %.preheader.i
-    i32 6, label %104
-    i32 7, label %105
-    i32 10, label %106
-    i32 11, label %138
+    i32 6, label %109
+    i32 7, label %110
+    i32 10, label %111
+    i32 11, label %143
     i32 13, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 14, label %158
-    i32 2, label %175
+    i32 14, label %163
+    i32 2, label %180
   ]
 
 .preheader.i:                                     ; preds = %78, %78
-  %79 = getelementptr inbounds i8, ptr %34, i64 60
-  %80 = load i32, ptr %79, align 4
-  %.not23.i = icmp eq i32 %80, -1
+  %80 = getelementptr inbounds i8, ptr %34, i64 60
+  %81 = load i32, ptr %80, align 4
+  %.not23.i = icmp eq i32 %81, -1
   br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %81 = and i32 %53, -2
-  %switch.us28.i = icmp eq i32 %81, 26
-  br i1 %.not40.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.i
+  br i1 %79, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  br i1 %switch.us28.i, label %.critedge9.us.i, label %.critedge.thread49.i
+  %82 = and i32 %53, -2
+  %83 = icmp eq i32 %82, 26
+  br i1 %83, label %.critedge9.us.i, label %.critedge.thread47.i
 
 .critedge9.us.i:                                  ; preds = %.lr.ph.split.us.i, %.critedge9.us.i
-  %82 = phi i32 [ %87, %.critedge9.us.i ], [ %80, %.lr.ph.split.us.i ]
-  %83 = call ptr @proto_registrar_get_nth(i32 noundef %82) #6
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
-  %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %83, i64 60
-  %87 = load i32, ptr %86, align 4
-  %.not2.us.i = icmp ne i32 %87, -1
-  %88 = and i32 %85, -2
-  %89 = icmp eq i32 %88, 26
-  %or.cond39.i = select i1 %.not2.us.i, i1 %89, i1 false
-  br i1 %or.cond39.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !12
+  %84 = phi i32 [ %89, %.critedge9.us.i ], [ %81, %.lr.ph.split.us.i ]
+  %85 = call ptr @proto_registrar_get_nth(i32 noundef %84) #6
+  %86 = getelementptr inbounds i8, ptr %85, i64 16
+  %87 = load i32, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %85, i64 60
+  %89 = load i32, ptr %88, align 4
+  %.not2.us.i = icmp ne i32 %89, -1
+  %90 = and i32 %87, -2
+  %91 = icmp eq i32 %90, 26
+  %or.cond38.i = select i1 %.not2.us.i, i1 %91, i1 false
+  br i1 %or.cond38.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !12
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i
-  br i1 %switch.us28.i, label %.critedge.thread.i, label %.critedge9.us16.i
+  %92 = add i32 %53, -28
+  %93 = icmp ult i32 %92, -2
+  br i1 %93, label %.critedge9.us16.i, label %.critedge.thread.i
 
 .critedge9.us16.i:                                ; preds = %.lr.ph.split.split.us.i, %.critedge9.us16.i
-  %90 = phi i32 [ %95, %.critedge9.us16.i ], [ %80, %.lr.ph.split.split.us.i ]
-  %91 = call ptr @proto_registrar_get_nth(i32 noundef %90) #6
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
-  %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 60
-  %95 = load i32, ptr %94, align 4
-  %.not2.us17.i = icmp eq i32 %95, -1
-  %96 = and i32 %93, -2
-  %switch.us.i = icmp eq i32 %96, 26
-  %or.cond.i = select i1 %.not2.us17.i, i1 true, i1 %switch.us.i
-  br i1 %or.cond.i, label %.critedge.i, label %.critedge9.us16.i, !llvm.loop !12
+  %94 = phi i32 [ %99, %.critedge9.us16.i ], [ %81, %.lr.ph.split.split.us.i ]
+  %95 = call ptr @proto_registrar_get_nth(i32 noundef %94) #6
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %95, i64 60
+  %99 = load i32, ptr %98, align 4
+  %.not2.us17.i = icmp ne i32 %99, -1
+  %100 = add i32 %97, -28
+  %101 = icmp ult i32 %100, -2
+  %or.cond.i = select i1 %.not2.us17.i, i1 %101, i1 false
+  br i1 %or.cond.i, label %.critedge9.us16.i, label %.critedge.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %.critedge9.us.i, %.critedge9.us16.i, %.preheader.i
-  %.0160.lcssa.i = phi i32 [ %53, %.preheader.i ], [ %93, %.critedge9.us16.i ], [ %85, %.critedge9.us.i ]
-  %.0.lcssa.i = phi ptr [ %34, %.preheader.i ], [ %91, %.critedge9.us16.i ], [ %83, %.critedge9.us.i ]
-  br i1 %.not40.i, label %.critedge.thread.i, label %.critedge.thread49.i
+  %.0160.lcssa.i = phi i32 [ %53, %.preheader.i ], [ %97, %.critedge9.us16.i ], [ %87, %.critedge9.us.i ]
+  %.0.lcssa.i = phi ptr [ %34, %.preheader.i ], [ %95, %.critedge9.us16.i ], [ %85, %.critedge9.us.i ]
+  br i1 %79, label %.critedge.thread.i, label %.critedge.thread47.i
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %.lr.ph.split.split.us.i
-  %.0.lcssa48.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %34, %.lr.ph.split.split.us.i ]
-  %.0160.lcssa47.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %53, %.lr.ph.split.split.us.i ]
-  %97 = call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa47.i, ptr noundef %3, ptr noundef nonnull %.0.lcssa48.i)
-  br i1 %97, label %99, label %check_relation_LHS_FIELD.specialized.2.exit
+  %.0.lcssa46.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %34, %.lr.ph.split.split.us.i ]
+  %.0160.lcssa45.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %53, %.lr.ph.split.split.us.i ]
+  %102 = call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa45.i, ptr noundef %3, ptr noundef nonnull %.0.lcssa46.i)
+  br i1 %102, label %104, label %check_relation_LHS_FIELD.specialized.2.exit
 
-.critedge.thread49.i:                             ; preds = %.critedge.i, %.lr.ph.split.us.i
-  %.0.lcssa53.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %34, %.lr.ph.split.us.i ]
-  %.0160.lcssa52.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %53, %.lr.ph.split.us.i ]
-  %98 = call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa52.i, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %.0.lcssa53.i)
-  br i1 %98, label %99, label %check_relation_LHS_FIELD.specialized.2.exit
+.critedge.thread47.i:                             ; preds = %.critedge.i, %.lr.ph.split.us.i
+  %.0.lcssa51.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %34, %.lr.ph.split.us.i ]
+  %.0160.lcssa50.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %53, %.lr.ph.split.us.i ]
+  %103 = call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa50.i, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %.0.lcssa51.i)
+  br i1 %103, label %104, label %check_relation_LHS_FIELD.specialized.2.exit
 
-99:                                               ; preds = %.critedge.thread49.i, %.critedge.thread.i
+104:                                              ; preds = %.critedge.thread47.i, %.critedge.thread.i
   call void @sttype_field_set_value_string(ptr noundef %2, i1 noundef zeroext true) #6
-  %100 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %101 = extractvalue { i64, i64 } %100, 0
-  %102 = extractvalue { i64, i64 } %100, 1
-  %103 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %101, i64 %102, ptr noundef nonnull @.str.36, ptr noundef %103) #7
+  %105 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %106 = extractvalue { i64, i64 } %105, 0
+  %107 = extractvalue { i64, i64 } %105, 1
+  %108 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %106, i64 %107, ptr noundef nonnull @.str.36, ptr noundef %108) #7
   unreachable
 
-104:                                              ; preds = %78
+109:                                              ; preds = %78
   call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %53, ptr noundef %3)
   br label %check_relation_LHS_FIELD.specialized.2.exit
 
-105:                                              ; preds = %78
+110:                                              ; preds = %78
   call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %53, ptr noundef %3)
   br label %check_relation_LHS_FIELD.specialized.2.exit
 
-106:                                              ; preds = %78
-  %107 = call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %53), !range !10
-  %108 = call zeroext i1 @compatible_ftypes(i32 noundef %53, i32 noundef %107)
-  br i1 %108, label %115, label %109
+111:                                              ; preds = %78
+  %112 = call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %53), !range !10
+  %113 = call zeroext i1 @compatible_ftypes(i32 noundef %53, i32 noundef %112)
+  br i1 %113, label %120, label %114
 
-109:                                              ; preds = %106
-  %110 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %111 = extractvalue { i64, i64 } %110, 0
-  %112 = extractvalue { i64, i64 } %110, 1
-  %113 = call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  %114 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %111, i64 %112, ptr noundef nonnull @.str.34, ptr noundef %113, ptr noundef %114) #7
+114:                                              ; preds = %111
+  %115 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %116 = extractvalue { i64, i64 } %115, 0
+  %117 = extractvalue { i64, i64 } %115, 1
+  %118 = call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
+  %119 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %116, i64 %117, ptr noundef nonnull @.str.34, ptr noundef %118, ptr noundef %119) #7
   unreachable
 
-115:                                              ; preds = %106
-  %116 = call zeroext i1 @ftype_can_matches(i32 noundef %107) #6
-  br i1 %116, label %123, label %117
+120:                                              ; preds = %111
+  %121 = call zeroext i1 @ftype_can_matches(i32 noundef %112) #6
+  br i1 %121, label %128, label %122
 
-117:                                              ; preds = %115
-  %118 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %119 = extractvalue { i64, i64 } %118, 0
-  %120 = extractvalue { i64, i64 } %118, 1
-  %121 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  %122 = call ptr @ftype_pretty_name(i32 noundef %107) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %119, i64 %120, ptr noundef nonnull @.str.35, ptr noundef %121, ptr noundef %122) #7
+122:                                              ; preds = %120
+  %123 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %124 = extractvalue { i64, i64 } %123, 0
+  %125 = extractvalue { i64, i64 } %123, 1
+  %126 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  %127 = call ptr @ftype_pretty_name(i32 noundef %112) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %124, i64 %125, ptr noundef nonnull @.str.35, ptr noundef %126, ptr noundef %127) #7
   unreachable
 
-123:                                              ; preds = %115
-  switch i32 %53, label %126 [
+128:                                              ; preds = %120
+  switch i32 %53, label %131 [
     i32 39, label %check_relation_LHS_FIELD.specialized.2.exit
     i32 40, label %check_relation_LHS_FIELD.specialized.2.exit
     i32 44, label %check_relation_LHS_FIELD.specialized.2.exit
@@ -3914,152 +3920,152 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
     i32 18, label %is_bytes_type.exit.i
     i32 19, label %is_bytes_type.exit.i
     i32 38, label %is_bytes_type.exit.i
-    i32 46, label %124
-    i32 47, label %124
+    i32 46, label %129
+    i32 47, label %129
   ]
 
-124:                                              ; preds = %123, %123
-  %125 = call ptr @ftype_name(i32 noundef %53) #6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %125) #7
+129:                                              ; preds = %128, %128
+  %130 = call ptr @ftype_name(i32 noundef %53) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %130) #7
   unreachable
 
-126:                                              ; preds = %123
+131:                                              ; preds = %128
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 669, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.3) #7
   unreachable
 
-is_bytes_type.exit.i:                             ; preds = %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123
-  %127 = call zeroext i1 @ftype_can_slice(i32 noundef %53) #6
-  br i1 %127, label %135, label %128
+is_bytes_type.exit.i:                             ; preds = %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128
+  %132 = call zeroext i1 @ftype_can_slice(i32 noundef %53) #6
+  br i1 %132, label %140, label %133
 
-128:                                              ; preds = %is_bytes_type.exit.i
-  %129 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %130 = extractvalue { i64, i64 } %129, 0
-  %131 = extractvalue { i64, i64 } %129, 1
-  %132 = getelementptr inbounds i8, ptr %34, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = call ptr @ftype_pretty_name(i32 noundef %53) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %130, i64 %131, ptr noundef nonnull @.str.37, ptr noundef %133, ptr noundef %134) #7
+133:                                              ; preds = %is_bytes_type.exit.i
+  %134 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
+  %135 = extractvalue { i64, i64 } %134, 0
+  %136 = extractvalue { i64, i64 } %134, 1
+  %137 = getelementptr inbounds i8, ptr %34, i64 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = call ptr @ftype_pretty_name(i32 noundef %53) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %135, i64 %136, ptr noundef nonnull @.str.37, ptr noundef %138, ptr noundef %139) #7
   unreachable
 
-135:                                              ; preds = %is_bytes_type.exit.i
-  %136 = call ptr @stnode_dup(ptr noundef %2) #6
-  %137 = call ptr @drange_node_new() #6
-  call void @drange_node_set_start_offset(ptr noundef %137, i32 noundef 0) #6
-  call void @drange_node_set_to_the_end(ptr noundef %137) #6
+140:                                              ; preds = %is_bytes_type.exit.i
+  %141 = call ptr @stnode_dup(ptr noundef %2) #6
+  %142 = call ptr @drange_node_new() #6
+  call void @drange_node_set_start_offset(ptr noundef %142, i32 noundef 0) #6
+  call void @drange_node_set_to_the_end(ptr noundef %142) #6
   call void @stnode_replace(ptr noundef %2, i32 noundef 10, ptr noundef null) #6
-  call void @sttype_slice_set1(ptr noundef %2, ptr noundef %136, ptr noundef %137) #6
+  call void @sttype_slice_set1(ptr noundef %2, ptr noundef %141, ptr noundef %142) #6
   br label %check_relation_LHS_FIELD.specialized.2.exit
 
-138:                                              ; preds = %78
-  %139 = call i32 @check_function(ptr noundef %0, ptr noundef %3, i32 noundef %53)
-  %140 = call zeroext i1 @compatible_ftypes(i32 noundef %53, i32 noundef %139)
-  br i1 %140, label %150, label %141
+143:                                              ; preds = %78
+  %144 = call i32 @check_function(ptr noundef %0, ptr noundef %3, i32 noundef %53)
+  %145 = call zeroext i1 @compatible_ftypes(i32 noundef %53, i32 noundef %144)
+  br i1 %145, label %155, label %146
 
-141:                                              ; preds = %138
-  %142 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %143 = extractvalue { i64, i64 } %142, 0
-  %144 = extractvalue { i64, i64 } %142, 1
-  %145 = getelementptr inbounds i8, ptr %34, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = call ptr @ftype_pretty_name(i32 noundef %53) #6
-  %148 = call ptr @sttype_function_name(ptr noundef %3) #6
-  %149 = call ptr @ftype_pretty_name(i32 noundef %139) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %143, i64 %144, ptr noundef nonnull @.str.38, ptr noundef %146, ptr noundef %147, ptr noundef %148, ptr noundef %149) #7
+146:                                              ; preds = %143
+  %147 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %148 = extractvalue { i64, i64 } %147, 0
+  %149 = extractvalue { i64, i64 } %147, 1
+  %150 = getelementptr inbounds i8, ptr %34, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %152 = call ptr @ftype_pretty_name(i32 noundef %53) #6
+  %153 = call ptr @sttype_function_name(ptr noundef %3) #6
+  %154 = call ptr @ftype_pretty_name(i32 noundef %144) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %148, i64 %149, ptr noundef nonnull @.str.38, ptr noundef %151, ptr noundef %152, ptr noundef %153, ptr noundef %154) #7
   unreachable
 
-150:                                              ; preds = %138
-  %151 = call zeroext i1 @ftype_can_matches(i32 noundef %139) #6
-  br i1 %151, label %check_relation_LHS_FIELD.specialized.2.exit, label %152
+155:                                              ; preds = %143
+  %156 = call zeroext i1 @ftype_can_matches(i32 noundef %144) #6
+  br i1 %156, label %check_relation_LHS_FIELD.specialized.2.exit, label %157
 
-152:                                              ; preds = %150
-  %153 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %154 = extractvalue { i64, i64 } %153, 0
-  %155 = extractvalue { i64, i64 } %153, 1
-  %156 = call ptr @sttype_function_name(ptr noundef %3) #6
-  %157 = call ptr @ftype_pretty_name(i32 noundef %139) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %154, i64 %155, ptr noundef nonnull @.str.39, ptr noundef %156, ptr noundef %157) #7
+157:                                              ; preds = %155
+  %158 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %159 = extractvalue { i64, i64 } %158, 0
+  %160 = extractvalue { i64, i64 } %158, 1
+  %161 = call ptr @sttype_function_name(ptr noundef %3) #6
+  %162 = call ptr @ftype_pretty_name(i32 noundef %144) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %159, i64 %160, ptr noundef nonnull @.str.39, ptr noundef %161, ptr noundef %162) #7
   unreachable
 
-158:                                              ; preds = %78
-  %159 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %3, i32 noundef %53)
-  %160 = call zeroext i1 @compatible_ftypes(i32 noundef %53, i32 noundef %159)
-  br i1 %160, label %167, label %161
+163:                                              ; preds = %78
+  %164 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %3, i32 noundef %53)
+  %165 = call zeroext i1 @compatible_ftypes(i32 noundef %53, i32 noundef %164)
+  br i1 %165, label %172, label %166
 
-161:                                              ; preds = %158
-  %162 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %163 = extractvalue { i64, i64 } %162, 0
-  %164 = extractvalue { i64, i64 } %162, 1
-  %165 = call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  %166 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %163, i64 %164, ptr noundef nonnull @.str.34, ptr noundef %165, ptr noundef %166) #7
+166:                                              ; preds = %163
+  %167 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %168 = extractvalue { i64, i64 } %167, 0
+  %169 = extractvalue { i64, i64 } %167, 1
+  %170 = call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
+  %171 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %168, i64 %169, ptr noundef nonnull @.str.34, ptr noundef %170, ptr noundef %171) #7
   unreachable
 
-167:                                              ; preds = %158
-  %168 = call zeroext i1 @ftype_can_matches(i32 noundef %159) #6
-  br i1 %168, label %check_relation_LHS_FIELD.specialized.2.exit, label %169
+172:                                              ; preds = %163
+  %173 = call zeroext i1 @ftype_can_matches(i32 noundef %164) #6
+  br i1 %173, label %check_relation_LHS_FIELD.specialized.2.exit, label %174
 
-169:                                              ; preds = %167
-  %170 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %171 = extractvalue { i64, i64 } %170, 0
-  %172 = extractvalue { i64, i64 } %170, 1
-  %173 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  %174 = call ptr @ftype_pretty_name(i32 noundef %159) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %171, i64 %172, ptr noundef nonnull @.str.35, ptr noundef %173, ptr noundef %174) #7
+174:                                              ; preds = %172
+  %175 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
+  %176 = extractvalue { i64, i64 } %175, 0
+  %177 = extractvalue { i64, i64 } %175, 1
+  %178 = call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  %179 = call ptr @ftype_pretty_name(i32 noundef %164) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %176, i64 %177, ptr noundef nonnull @.str.35, ptr noundef %178, ptr noundef %179) #7
   unreachable
 
-175:                                              ; preds = %78
+180:                                              ; preds = %78
   call void @resolve_unparsed(ptr noundef %0, ptr noundef %3, i1 noundef zeroext true)
-  %176 = call ptr @sttype_name(i32 noundef 2) #6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %176) #7
+  %181 = call ptr @sttype_name(i32 noundef 2) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %181) #7
   unreachable
 
-177:                                              ; preds = %78
-  %178 = call ptr @sttype_name(i32 noundef %54) #6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %178) #7
+182:                                              ; preds = %78
+  %183 = call ptr @sttype_name(i32 noundef %54) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %183) #7
   unreachable
 
-179:                                              ; preds = %24
-  %180 = call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %2)
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %182, label %find_logical_ftype.exit
+184:                                              ; preds = %24
+  %185 = call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %2)
+  %186 = icmp eq i32 %185, 0
+  br i1 %186, label %187, label %find_logical_ftype.exit
 
-182:                                              ; preds = %179
-  %183 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %184 = extractvalue { i64, i64 } %183, 0
-  %185 = extractvalue { i64, i64 } %183, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %184, i64 %185, ptr noundef nonnull @.str.41) #7
+187:                                              ; preds = %184
+  %188 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
+  %189 = extractvalue { i64, i64 } %188, 0
+  %190 = extractvalue { i64, i64 } %188, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %189, i64 %190, ptr noundef nonnull @.str.41) #7
   unreachable
 
-find_logical_ftype.exit:                          ; preds = %179
-  call fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef nonnull @ftype_can_matches, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %180)
+find_logical_ftype.exit:                          ; preds = %184
+  call fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef nonnull @ftype_can_matches, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %185)
   br label %check_relation_LHS_FIELD.specialized.2.exit
 
-186:                                              ; preds = %24
-  %187 = call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %2)
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %189, label %find_logical_ftype.exit38
+191:                                              ; preds = %24
+  %192 = call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %2)
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %find_logical_ftype.exit38
 
-189:                                              ; preds = %186
-  %190 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %191 = extractvalue { i64, i64 } %190, 0
-  %192 = extractvalue { i64, i64 } %190, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %191, i64 %192, ptr noundef nonnull @.str.41) #7
+194:                                              ; preds = %191
+  %195 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
+  %196 = extractvalue { i64, i64 } %195, 0
+  %197 = extractvalue { i64, i64 } %195, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %196, i64 %197, ptr noundef nonnull @.str.41) #7
   unreachable
 
-find_logical_ftype.exit38:                        ; preds = %186
-  call fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef nonnull @ftype_can_matches, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %187)
+find_logical_ftype.exit38:                        ; preds = %191
+  call fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef nonnull @ftype_can_matches, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %192)
   br label %check_relation_LHS_FIELD.specialized.2.exit
 
-193:                                              ; preds = %24
-  %194 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %195 = extractvalue { i64, i64 } %194, 0
-  %196 = extractvalue { i64, i64 } %194, 1
-  %197 = call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
-  %198 = call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %195, i64 %196, ptr noundef nonnull @.str.50, ptr noundef %197, ptr noundef %198) #7
+198:                                              ; preds = %24
+  %199 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
+  %200 = extractvalue { i64, i64 } %199, 0
+  %201 = extractvalue { i64, i64 } %199, 1
+  %202 = call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
+  %203 = call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %200, i64 %201, ptr noundef nonnull @.str.50, ptr noundef %202, ptr noundef %203) #7
   unreachable
 
-check_relation_LHS_FIELD.specialized.2.exit:      ; preds = %167, %150, %135, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %123, %105, %104, %.critedge.thread49.i, %.critedge.thread.i, %78, %74, %73, %find_logical_ftype.exit38, %find_logical_ftype.exit
+check_relation_LHS_FIELD.specialized.2.exit:      ; preds = %172, %155, %140, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %110, %109, %.critedge.thread47.i, %.critedge.thread.i, %78, %74, %73, %find_logical_ftype.exit38, %find_logical_ftype.exit
   ret void
 }
 
@@ -4160,80 +4166,82 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   br label %op_is_equality.exit.thread
 
 61:                                               ; preds = %35
-  %.not209 = icmp eq i32 %37, 5
-  switch i32 %37, label %160 [
+  %62 = icmp eq i32 %37, 5
+  switch i32 %37, label %165 [
     i32 5, label %.preheader
     i32 3, label %.preheader
-    i32 6, label %87
-    i32 7, label %88
-    i32 10, label %89
-    i32 11, label %121
+    i32 6, label %92
+    i32 7, label %93
+    i32 10, label %94
+    i32 11, label %126
     i32 13, label %op_is_equality.exit.thread
-    i32 14, label %141
-    i32 2, label %158
+    i32 14, label %146
+    i32 2, label %163
   ]
 
 .preheader:                                       ; preds = %61, %61
-  %62 = getelementptr inbounds i8, ptr %15, i64 60
-  %63 = load i32, ptr %62, align 4
-  %.not164172 = icmp eq i32 %63, -1
-  br i1 %.not164172, label %.critedge, label %.lr.ph
+  %63 = getelementptr inbounds i8, ptr %15, i64 60
+  %64 = load i32, ptr %63, align 4
+  %.not164170 = icmp eq i32 %64, -1
+  br i1 %.not164170, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %64 = and i32 %36, -2
-  %switch.us197 = icmp eq i32 %64, 26
-  br i1 %.not209, label %.lr.ph.split.split.us, label %.lr.ph.split.us
+  br i1 %62, label %.lr.ph.split.split.us, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %switch.us197, label %.critedge9.us, label %.critedge.thread218
+  %65 = and i32 %36, -2
+  %66 = icmp eq i32 %65, 26
+  br i1 %66, label %.critedge9.us, label %.critedge.thread214
 
 .critedge9.us:                                    ; preds = %.lr.ph.split.us, %.critedge9.us
-  %65 = phi i32 [ %70, %.critedge9.us ], [ %63, %.lr.ph.split.us ]
-  %66 = tail call ptr @proto_registrar_get_nth(i32 noundef %65) #6
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 60
-  %70 = load i32, ptr %69, align 4
-  %.not164.us = icmp ne i32 %70, -1
-  %71 = and i32 %68, -2
-  %72 = icmp eq i32 %71, 26
-  %or.cond208 = select i1 %.not164.us, i1 %72, i1 false
-  br i1 %or.cond208, label %.critedge9.us, label %.critedge, !llvm.loop !12
+  %67 = phi i32 [ %72, %.critedge9.us ], [ %64, %.lr.ph.split.us ]
+  %68 = tail call ptr @proto_registrar_get_nth(i32 noundef %67) #6
+  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %70 = load i32, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %68, i64 60
+  %72 = load i32, ptr %71, align 4
+  %.not164.us = icmp ne i32 %72, -1
+  %73 = and i32 %70, -2
+  %74 = icmp eq i32 %73, 26
+  %or.cond205 = select i1 %.not164.us, i1 %74, i1 false
+  br i1 %or.cond205, label %.critedge9.us, label %.critedge, !llvm.loop !12
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
-  br i1 %switch.us197, label %.critedge.thread, label %.critedge9.us185
+  %75 = add i32 %36, -28
+  %76 = icmp ult i32 %75, -2
+  br i1 %76, label %.critedge9.us183, label %.critedge.thread
 
-.critedge9.us185:                                 ; preds = %.lr.ph.split.split.us, %.critedge9.us185
-  %73 = phi i32 [ %78, %.critedge9.us185 ], [ %63, %.lr.ph.split.split.us ]
-  %74 = tail call ptr @proto_registrar_get_nth(i32 noundef %73) #6
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %74, i64 60
-  %78 = load i32, ptr %77, align 4
-  %.not164.us186 = icmp eq i32 %78, -1
-  %79 = and i32 %76, -2
-  %switch.us = icmp eq i32 %79, 26
-  %or.cond = select i1 %.not164.us186, i1 true, i1 %switch.us
-  br i1 %or.cond, label %.critedge, label %.critedge9.us185, !llvm.loop !12
+.critedge9.us183:                                 ; preds = %.lr.ph.split.split.us, %.critedge9.us183
+  %77 = phi i32 [ %82, %.critedge9.us183 ], [ %64, %.lr.ph.split.split.us ]
+  %78 = tail call ptr @proto_registrar_get_nth(i32 noundef %77) #6
+  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %78, i64 60
+  %82 = load i32, ptr %81, align 4
+  %.not164.us184 = icmp ne i32 %82, -1
+  %83 = add i32 %80, -28
+  %84 = icmp ult i32 %83, -2
+  %or.cond = select i1 %.not164.us184, i1 %84, i1 false
+  br i1 %or.cond, label %.critedge9.us183, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %.critedge9.us, %.critedge9.us185, %.preheader
-  %.0160.lcssa = phi i32 [ %36, %.preheader ], [ %76, %.critedge9.us185 ], [ %68, %.critedge9.us ]
-  %.0.lcssa = phi ptr [ %15, %.preheader ], [ %74, %.critedge9.us185 ], [ %66, %.critedge9.us ]
-  br i1 %.not209, label %.critedge.thread, label %.critedge.thread218
+.critedge:                                        ; preds = %.critedge9.us, %.critedge9.us183, %.preheader
+  %.0160.lcssa = phi i32 [ %36, %.preheader ], [ %80, %.critedge9.us183 ], [ %70, %.critedge9.us ]
+  %.0.lcssa = phi ptr [ %15, %.preheader ], [ %78, %.critedge9.us183 ], [ %68, %.critedge9.us ]
+  br i1 %62, label %.critedge.thread, label %.critedge.thread214
 
 .critedge.thread:                                 ; preds = %.lr.ph.split.split.us, %.critedge
-  %.0.lcssa217 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.split.us ]
-  %.0160.lcssa216 = phi i32 [ %.0160.lcssa, %.critedge ], [ %36, %.lr.ph.split.split.us ]
-  %80 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa216, ptr noundef %6, ptr noundef nonnull %.0.lcssa217)
-  br i1 %80, label %82, label %op_is_equality.exit.thread
+  %.0.lcssa213 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.split.us ]
+  %.0160.lcssa212 = phi i32 [ %.0160.lcssa, %.critedge ], [ %36, %.lr.ph.split.split.us ]
+  %85 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa212, ptr noundef %6, ptr noundef nonnull %.0.lcssa213)
+  br i1 %85, label %87, label %op_is_equality.exit.thread
 
-.critedge.thread218:                              ; preds = %.lr.ph.split.us, %.critedge
-  %.0.lcssa222 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.us ]
-  %.0160.lcssa221 = phi i32 [ %.0160.lcssa, %.critedge ], [ %36, %.lr.ph.split.us ]
-  %81 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa221, ptr noundef %6, i1 noundef zeroext %3, ptr noundef nonnull %.0.lcssa222)
-  br i1 %81, label %82, label %op_is_equality.exit.thread
+.critedge.thread214:                              ; preds = %.lr.ph.split.us, %.critedge
+  %.0.lcssa218 = phi ptr [ %.0.lcssa, %.critedge ], [ %15, %.lr.ph.split.us ]
+  %.0160.lcssa217 = phi i32 [ %.0160.lcssa, %.critedge ], [ %36, %.lr.ph.split.us ]
+  %86 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa217, ptr noundef %6, i1 noundef zeroext %3, ptr noundef nonnull %.0.lcssa218)
+  br i1 %86, label %87, label %op_is_equality.exit.thread
 
-82:                                               ; preds = %.critedge.thread, %.critedge.thread218
+87:                                               ; preds = %.critedge.thread, %.critedge.thread214
   tail call void @sttype_field_set_value_string(ptr noundef %5, i1 noundef zeroext true) #6
   switch i32 %1, label %op_is_equality.exit [
     i32 4, label %op_is_equality.exit.thread
@@ -4244,51 +4252,51 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
     i32 15, label %op_is_equality.exit.thread
   ]
 
-op_is_equality.exit:                              ; preds = %82
-  %83 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
-  %84 = extractvalue { i64, i64 } %83, 0
-  %85 = extractvalue { i64, i64 } %83, 1
-  %86 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %84, i64 %85, ptr noundef nonnull @.str.36, ptr noundef %86) #7
+op_is_equality.exit:                              ; preds = %87
+  %88 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
+  %89 = extractvalue { i64, i64 } %88, 0
+  %90 = extractvalue { i64, i64 } %88, 1
+  %91 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %89, i64 %90, ptr noundef nonnull @.str.36, ptr noundef %91) #7
   unreachable
 
-87:                                               ; preds = %61
+92:                                               ; preds = %61
   tail call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %36, ptr noundef %6)
   br label %op_is_equality.exit.thread
 
-88:                                               ; preds = %61
+93:                                               ; preds = %61
   tail call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %36, ptr noundef %6)
   br label %op_is_equality.exit.thread
 
-89:                                               ; preds = %61
-  %90 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %6, i32 noundef %36), !range !10
-  %91 = tail call zeroext i1 @compatible_ftypes(i32 noundef %36, i32 noundef %90)
-  br i1 %91, label %98, label %92
+94:                                               ; preds = %61
+  %95 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %6, i32 noundef %36), !range !10
+  %96 = tail call zeroext i1 @compatible_ftypes(i32 noundef %36, i32 noundef %95)
+  br i1 %96, label %103, label %97
 
-92:                                               ; preds = %89
-  %93 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
-  %94 = extractvalue { i64, i64 } %93, 0
-  %95 = extractvalue { i64, i64 } %93, 1
-  %96 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
-  %97 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %94, i64 %95, ptr noundef nonnull @.str.34, ptr noundef %96, ptr noundef %97) #7
+97:                                               ; preds = %94
+  %98 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
+  %99 = extractvalue { i64, i64 } %98, 0
+  %100 = extractvalue { i64, i64 } %98, 1
+  %101 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  %102 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %99, i64 %100, ptr noundef nonnull @.str.34, ptr noundef %101, ptr noundef %102) #7
   unreachable
 
-98:                                               ; preds = %89
-  %99 = tail call zeroext i1 %2(i32 noundef %90) #6, !callees !14
-  br i1 %99, label %106, label %100
+103:                                              ; preds = %94
+  %104 = tail call zeroext i1 %2(i32 noundef %95) #6, !callees !14
+  br i1 %104, label %111, label %105
 
-100:                                              ; preds = %98
-  %101 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
-  %102 = extractvalue { i64, i64 } %101, 0
-  %103 = extractvalue { i64, i64 } %101, 1
-  %104 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
-  %105 = tail call ptr @ftype_pretty_name(i32 noundef %90) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %102, i64 %103, ptr noundef nonnull @.str.35, ptr noundef %104, ptr noundef %105) #7
+105:                                              ; preds = %103
+  %106 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
+  %107 = extractvalue { i64, i64 } %106, 0
+  %108 = extractvalue { i64, i64 } %106, 1
+  %109 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
+  %110 = tail call ptr @ftype_pretty_name(i32 noundef %95) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %107, i64 %108, ptr noundef nonnull @.str.35, ptr noundef %109, ptr noundef %110) #7
   unreachable
 
-106:                                              ; preds = %98
-  switch i32 %36, label %109 [
+111:                                              ; preds = %103
+  switch i32 %36, label %114 [
     i32 39, label %op_is_equality.exit.thread
     i32 40, label %op_is_equality.exit.thread
     i32 44, label %op_is_equality.exit.thread
@@ -4335,111 +4343,111 @@ op_is_equality.exit:                              ; preds = %82
     i32 18, label %is_bytes_type.exit
     i32 19, label %is_bytes_type.exit
     i32 38, label %is_bytes_type.exit
-    i32 46, label %107
-    i32 47, label %107
+    i32 46, label %112
+    i32 47, label %112
   ]
 
-107:                                              ; preds = %106, %106
-  %108 = tail call ptr @ftype_name(i32 noundef %36) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %108) #7
+112:                                              ; preds = %111, %111
+  %113 = tail call ptr @ftype_name(i32 noundef %36) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %113) #7
   unreachable
 
-109:                                              ; preds = %106
+114:                                              ; preds = %111
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 669, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.3) #7
   unreachable
 
-is_bytes_type.exit:                               ; preds = %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106
-  %110 = tail call zeroext i1 @ftype_can_slice(i32 noundef %36) #6
-  br i1 %110, label %118, label %111
+is_bytes_type.exit:                               ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
+  %115 = tail call zeroext i1 @ftype_can_slice(i32 noundef %36) #6
+  br i1 %115, label %123, label %116
 
-111:                                              ; preds = %is_bytes_type.exit
-  %112 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
-  %113 = extractvalue { i64, i64 } %112, 0
-  %114 = extractvalue { i64, i64 } %112, 1
-  %115 = getelementptr inbounds i8, ptr %15, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call ptr @ftype_pretty_name(i32 noundef %36) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %113, i64 %114, ptr noundef nonnull @.str.37, ptr noundef %116, ptr noundef %117) #7
+116:                                              ; preds = %is_bytes_type.exit
+  %117 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %118 = extractvalue { i64, i64 } %117, 0
+  %119 = extractvalue { i64, i64 } %117, 1
+  %120 = getelementptr inbounds i8, ptr %15, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call ptr @ftype_pretty_name(i32 noundef %36) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %118, i64 %119, ptr noundef nonnull @.str.37, ptr noundef %121, ptr noundef %122) #7
   unreachable
 
-118:                                              ; preds = %is_bytes_type.exit
-  %119 = tail call ptr @stnode_dup(ptr noundef %5) #6
-  %120 = tail call ptr @drange_node_new() #6
-  tail call void @drange_node_set_start_offset(ptr noundef %120, i32 noundef 0) #6
-  tail call void @drange_node_set_to_the_end(ptr noundef %120) #6
+123:                                              ; preds = %is_bytes_type.exit
+  %124 = tail call ptr @stnode_dup(ptr noundef %5) #6
+  %125 = tail call ptr @drange_node_new() #6
+  tail call void @drange_node_set_start_offset(ptr noundef %125, i32 noundef 0) #6
+  tail call void @drange_node_set_to_the_end(ptr noundef %125) #6
   tail call void @stnode_replace(ptr noundef %5, i32 noundef 10, ptr noundef null) #6
-  tail call void @sttype_slice_set1(ptr noundef %5, ptr noundef %119, ptr noundef %120) #6
+  tail call void @sttype_slice_set1(ptr noundef %5, ptr noundef %124, ptr noundef %125) #6
   br label %op_is_equality.exit.thread
 
-121:                                              ; preds = %61
-  %122 = tail call i32 @check_function(ptr noundef %0, ptr noundef %6, i32 noundef %36)
-  %123 = tail call zeroext i1 @compatible_ftypes(i32 noundef %36, i32 noundef %122)
-  br i1 %123, label %133, label %124
+126:                                              ; preds = %61
+  %127 = tail call i32 @check_function(ptr noundef %0, ptr noundef %6, i32 noundef %36)
+  %128 = tail call zeroext i1 @compatible_ftypes(i32 noundef %36, i32 noundef %127)
+  br i1 %128, label %138, label %129
 
-124:                                              ; preds = %121
-  %125 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
-  %126 = extractvalue { i64, i64 } %125, 0
-  %127 = extractvalue { i64, i64 } %125, 1
-  %128 = getelementptr inbounds i8, ptr %15, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = tail call ptr @ftype_pretty_name(i32 noundef %36) #6
-  %131 = tail call ptr @sttype_function_name(ptr noundef %6) #6
-  %132 = tail call ptr @ftype_pretty_name(i32 noundef %122) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %126, i64 %127, ptr noundef nonnull @.str.38, ptr noundef %129, ptr noundef %130, ptr noundef %131, ptr noundef %132) #7
+129:                                              ; preds = %126
+  %130 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
+  %131 = extractvalue { i64, i64 } %130, 0
+  %132 = extractvalue { i64, i64 } %130, 1
+  %133 = getelementptr inbounds i8, ptr %15, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = tail call ptr @ftype_pretty_name(i32 noundef %36) #6
+  %136 = tail call ptr @sttype_function_name(ptr noundef %6) #6
+  %137 = tail call ptr @ftype_pretty_name(i32 noundef %127) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %131, i64 %132, ptr noundef nonnull @.str.38, ptr noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137) #7
   unreachable
 
-133:                                              ; preds = %121
-  %134 = tail call zeroext i1 %2(i32 noundef %122) #6, !callees !14
-  br i1 %134, label %op_is_equality.exit.thread, label %135
+138:                                              ; preds = %126
+  %139 = tail call zeroext i1 %2(i32 noundef %127) #6, !callees !14
+  br i1 %139, label %op_is_equality.exit.thread, label %140
 
-135:                                              ; preds = %133
-  %136 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
-  %137 = extractvalue { i64, i64 } %136, 0
-  %138 = extractvalue { i64, i64 } %136, 1
-  %139 = tail call ptr @sttype_function_name(ptr noundef %6) #6
-  %140 = tail call ptr @ftype_pretty_name(i32 noundef %122) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %137, i64 %138, ptr noundef nonnull @.str.39, ptr noundef %139, ptr noundef %140) #7
+140:                                              ; preds = %138
+  %141 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
+  %142 = extractvalue { i64, i64 } %141, 0
+  %143 = extractvalue { i64, i64 } %141, 1
+  %144 = tail call ptr @sttype_function_name(ptr noundef %6) #6
+  %145 = tail call ptr @ftype_pretty_name(i32 noundef %127) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %142, i64 %143, ptr noundef nonnull @.str.39, ptr noundef %144, ptr noundef %145) #7
   unreachable
 
-141:                                              ; preds = %61
-  %142 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %6, i32 noundef %36)
-  %143 = tail call zeroext i1 @compatible_ftypes(i32 noundef %36, i32 noundef %142)
-  br i1 %143, label %150, label %144
+146:                                              ; preds = %61
+  %147 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %6, i32 noundef %36)
+  %148 = tail call zeroext i1 @compatible_ftypes(i32 noundef %36, i32 noundef %147)
+  br i1 %148, label %155, label %149
 
-144:                                              ; preds = %141
-  %145 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
-  %146 = extractvalue { i64, i64 } %145, 0
-  %147 = extractvalue { i64, i64 } %145, 1
-  %148 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
-  %149 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %146, i64 %147, ptr noundef nonnull @.str.34, ptr noundef %148, ptr noundef %149) #7
+149:                                              ; preds = %146
+  %150 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
+  %151 = extractvalue { i64, i64 } %150, 0
+  %152 = extractvalue { i64, i64 } %150, 1
+  %153 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  %154 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %151, i64 %152, ptr noundef nonnull @.str.34, ptr noundef %153, ptr noundef %154) #7
   unreachable
 
-150:                                              ; preds = %141
-  %151 = tail call zeroext i1 %2(i32 noundef %142) #6, !callees !14
-  br i1 %151, label %op_is_equality.exit.thread, label %152
+155:                                              ; preds = %146
+  %156 = tail call zeroext i1 %2(i32 noundef %147) #6, !callees !14
+  br i1 %156, label %op_is_equality.exit.thread, label %157
 
-152:                                              ; preds = %150
-  %153 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
-  %154 = extractvalue { i64, i64 } %153, 0
-  %155 = extractvalue { i64, i64 } %153, 1
-  %156 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
-  %157 = tail call ptr @ftype_pretty_name(i32 noundef %142) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %154, i64 %155, ptr noundef nonnull @.str.35, ptr noundef %156, ptr noundef %157) #7
+157:                                              ; preds = %155
+  %158 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
+  %159 = extractvalue { i64, i64 } %158, 0
+  %160 = extractvalue { i64, i64 } %158, 1
+  %161 = tail call ptr @stnode_tostr(ptr noundef %6, i1 noundef zeroext true) #6
+  %162 = tail call ptr @ftype_pretty_name(i32 noundef %147) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %159, i64 %160, ptr noundef nonnull @.str.35, ptr noundef %161, ptr noundef %162) #7
   unreachable
 
-158:                                              ; preds = %61
+163:                                              ; preds = %61
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %6, i1 noundef zeroext true)
-  %159 = tail call ptr @sttype_name(i32 noundef 2) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %159) #7
+  %164 = tail call ptr @sttype_name(i32 noundef 2) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %164) #7
   unreachable
 
-160:                                              ; preds = %61
-  %161 = tail call ptr @sttype_name(i32 noundef %37) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %161) #7
+165:                                              ; preds = %61
+  %166 = tail call ptr @sttype_name(i32 noundef %37) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %166) #7
   unreachable
 
-op_is_equality.exit.thread:                       ; preds = %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %82, %82, %82, %82, %82, %82, %.critedge.thread, %61, %.critedge.thread218, %88, %133, %150, %118, %87, %56, %57
+op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %87, %87, %87, %87, %87, %87, %.critedge.thread, %61, %.critedge.thread214, %93, %138, %155, %123, %92, %56, %57
   ret void
 }
 

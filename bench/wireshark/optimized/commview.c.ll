@@ -44,7 +44,7 @@ define hidden i32 @commview_ncf_open(ptr nocapture noundef %0, ptr noundef %1, p
   %switch.selectcmp.case2 = icmp ne i32 %8, -12
   %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %9 = sext i1 %switch.selectcmp.not to i32
-  br label %50
+  br label %53
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 4
@@ -52,67 +52,68 @@ define hidden i32 @commview_ncf_open(ptr nocapture noundef %0, ptr noundef %1, p
   %13 = icmp ne i8 %12, 0
   %14 = getelementptr inbounds i8, ptr %4, i64 6
   %15 = load i16, ptr %14, align 2
-  %.fr69 = freeze i16 %15
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load <4 x i8>, ptr %16, align 4
-  %.fr = freeze <4 x i8> %17
-  %18 = icmp ugt <4 x i8> %.fr, <i8 12, i8 31, i8 23, i8 59>
-  %19 = shufflevector <4 x i8> %.fr, <4 x i8> poison, <2 x i32> <i32 0, i32 1>
-  %20 = icmp eq <2 x i8> %19, zeroinitializer
-  %21 = getelementptr inbounds i8, ptr %4, i64 12
-  %22 = load i8, ptr %21, align 4
-  %.fr71 = freeze i8 %22
-  %23 = icmp ugt i8 %.fr71, 60
-  %24 = getelementptr inbounds i8, ptr %4, i64 21
-  %25 = load i8, ptr %24, align 1
-  %26 = icmp ugt i8 %25, 100
-  %27 = bitcast <4 x i1> %18 to i4
-  %28 = icmp ne i4 %27, 0
-  %op.rdx = or i1 %28, %23
-  %29 = extractelement <2 x i1> %20, i64 0
-  %30 = extractelement <2 x i1> %20, i64 1
-  %op.rdx61 = select i1 %29, i1 true, i1 %30
-  %31 = add i16 %.fr69, -2038
-  %op.rdx62 = icmp ult i16 %31, -68
-  %32 = select i1 %op.rdx, i1 true, i1 %13
-  %op.rdx63 = select i1 %32, i1 true, i1 %26
-  %33 = freeze i1 %op.rdx61
-  %op.rdx64 = or i1 %33, %op.rdx62
-  %34 = freeze i1 %op.rdx63
-  %op.rdx65 = or i1 %34, %op.rdx64
-  br i1 %op.rdx65, label %50, label %35
+  %16 = add i16 %15, -2038
+  %17 = icmp ult i16 %16, -68
+  %or.cond7 = select i1 %13, i1 true, i1 %17
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = load i8, ptr %18, align 4
+  %20 = add i8 %19, -13
+  %21 = icmp ult i8 %20, -12
+  %or.cond15 = select i1 %or.cond7, i1 true, i1 %21
+  %22 = getelementptr inbounds i8, ptr %4, i64 9
+  %23 = load i8, ptr %22, align 1
+  %24 = add i8 %23, -32
+  %25 = icmp ult i8 %24, -31
+  %or.cond23 = select i1 %or.cond15, i1 true, i1 %25
+  %26 = getelementptr inbounds i8, ptr %4, i64 10
+  %27 = load i8, ptr %26, align 2
+  %28 = icmp ugt i8 %27, 23
+  %or.cond27 = select i1 %or.cond23, i1 true, i1 %28
+  %29 = getelementptr inbounds i8, ptr %4, i64 11
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp ugt i8 %30, 59
+  %or.cond31 = select i1 %or.cond27, i1 true, i1 %31
+  %32 = getelementptr inbounds i8, ptr %4, i64 12
+  %33 = load i8, ptr %32, align 4
+  %34 = icmp ugt i8 %33, 60
+  %or.cond35 = select i1 %or.cond31, i1 true, i1 %34
+  %35 = getelementptr inbounds i8, ptr %4, i64 21
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp ugt i8 %36, 100
+  %or.cond39 = select i1 %or.cond35, i1 true, i1 %37
+  br i1 %or.cond39, label %53, label %38
 
-35:                                               ; preds = %10
-  %36 = getelementptr inbounds i8, ptr %4, i64 20
-  %37 = load i8, ptr %36, align 4
-  %.not55 = icmp sgt i8 %37, -1
-  %38 = and i8 %37, 15
-  %switch = icmp ult i8 %38, 3
-  %or.cond59 = and i1 %.not55, %switch
-  br i1 %or.cond59, label %39, label %50
+38:                                               ; preds = %10
+  %39 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = load i8, ptr %39, align 4
+  %.not55 = icmp sgt i8 %40, -1
+  %41 = and i8 %40, 15
+  %switch = icmp ult i8 %41, 3
+  %or.cond = and i1 %.not55, %switch
+  br i1 %or.cond, label %42, label %53
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %0, align 8
-  %41 = call i64 @file_seek(ptr noundef %40, i64 noundef 0, i32 noundef 0, ptr noundef %1) #7
-  %42 = icmp eq i64 %41, -1
-  br i1 %42, label %50, label %43
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %0, align 8
+  %44 = call i64 @file_seek(ptr noundef %43, i64 noundef 0, i32 noundef 0, ptr noundef %1) #7
+  %45 = icmp eq i64 %44, -1
+  br i1 %45, label %53, label %46
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @commview_ncf_read, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @commview_ncf_seek_read, ptr %45, align 8
-  %46 = load i32, ptr @commview_ncf_file_type_subtype, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 -1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 6, ptr %49, align 4
-  br label %50
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @commview_ncf_read, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @commview_ncf_seek_read, ptr %48, align 8
+  %49 = load i32, ptr @commview_ncf_file_type_subtype, align 4
+  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 -1, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %52, align 4
+  br label %53
 
-50:                                               ; preds = %7, %39, %10, %35, %43
-  %.0 = phi i32 [ 1, %43 ], [ 0, %35 ], [ 0, %10 ], [ -1, %39 ], [ %9, %7 ]
+53:                                               ; preds = %7, %42, %10, %38, %46
+  %.0 = phi i32 [ 1, %46 ], [ 0, %38 ], [ 0, %10 ], [ -1, %42 ], [ %9, %7 ]
   ret i32 %.0
 }
 
@@ -274,78 +275,82 @@ define hidden i32 @commview_ncfx_open(ptr nocapture noundef %0, ptr noundef %1, 
   %switch.selectcmp.case2 = icmp ne i32 %8, -12
   %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %9 = sext i1 %switch.selectcmp.not to i32
-  br label %50
+  br label %53
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = icmp ult i16 %12, 2000
   %14 = getelementptr inbounds i8, ptr %4, i64 6
-  %15 = load <4 x i8>, ptr %14, align 2
-  %.fr = freeze <4 x i8> %15
-  %16 = icmp ugt <4 x i8> %.fr, <i8 12, i8 31, i8 23, i8 59>
-  %17 = shufflevector <4 x i8> %.fr, <4 x i8> poison, <2 x i32> <i32 0, i32 1>
-  %18 = icmp eq <2 x i8> %17, zeroinitializer
-  %19 = getelementptr inbounds i8, ptr %4, i64 10
-  %20 = load i8, ptr %19, align 2
-  %.fr64 = freeze i8 %20
-  %21 = icmp ugt i8 %.fr64, 60
-  %22 = bitcast <4 x i1> %16 to i4
-  %23 = icmp ne i4 %22, 0
-  %op.rdx = or i1 %23, %21
-  %24 = extractelement <2 x i1> %18, i64 0
-  %25 = extractelement <2 x i1> %18, i64 1
-  %26 = or i1 %13, %op.rdx
-  %27 = select i1 %26, i1 true, i1 %24
-  %op.rdx59 = select i1 %27, i1 true, i1 %25
-  br i1 %op.rdx59, label %50, label %28
+  %15 = load i8, ptr %14, align 2
+  %16 = add i8 %15, -13
+  %17 = icmp ult i8 %16, -12
+  %or.cond7 = select i1 %13, i1 true, i1 %17
+  %18 = getelementptr inbounds i8, ptr %4, i64 7
+  %19 = load i8, ptr %18, align 1
+  %20 = add i8 %19, -32
+  %21 = icmp ult i8 %20, -31
+  %or.cond15 = select i1 %or.cond7, i1 true, i1 %21
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = load i8, ptr %22, align 4
+  %24 = icmp ugt i8 %23, 23
+  %or.cond19 = select i1 %or.cond15, i1 true, i1 %24
+  %25 = getelementptr inbounds i8, ptr %4, i64 9
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp ugt i8 %26, 59
+  %or.cond23 = select i1 %or.cond19, i1 true, i1 %27
+  %28 = getelementptr inbounds i8, ptr %4, i64 10
+  %29 = load i8, ptr %28, align 2
+  %30 = icmp ugt i8 %29, 60
+  %or.cond27 = select i1 %or.cond23, i1 true, i1 %30
+  br i1 %or.cond27, label %53, label %31
 
-28:                                               ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
-  %30 = load i8, ptr %29, align 4
-  switch i8 %30, label %50 [
-    i8 0, label %31
-    i8 1, label %34
+31:                                               ; preds = %10
+  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = load i8, ptr %32, align 4
+  switch i8 %33, label %53 [
+    i8 0, label %34
+    i8 1, label %37
   ]
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %4, i64 18
-  %33 = load i8, ptr %32, align 2
-  %or.cond35 = icmp ugt i8 %33, 2
-  br i1 %or.cond35, label %50, label %39
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %4, i64 18
+  %36 = load i8, ptr %35, align 2
+  %or.cond35 = icmp ugt i8 %36, 2
+  br i1 %or.cond35, label %53, label %42
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %4, i64 17
-  %36 = load i8, ptr %35, align 1
-  %or.cond39 = icmp ult i8 %36, 2
-  %37 = getelementptr inbounds i8, ptr %4, i64 18
-  %38 = load i8, ptr %37, align 2
-  %.not54 = icmp eq i8 %38, 0
-  %or.cond56 = select i1 %or.cond39, i1 %.not54, i1 false
-  br i1 %or.cond56, label %39, label %50
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %4, i64 17
+  %39 = load i8, ptr %38, align 1
+  %or.cond39 = icmp ult i8 %39, 2
+  %40 = getelementptr inbounds i8, ptr %4, i64 18
+  %41 = load i8, ptr %40, align 2
+  %.not54 = icmp eq i8 %41, 0
+  %or.cond = select i1 %or.cond39, i1 %.not54, i1 false
+  br i1 %or.cond, label %42, label %53
 
-39:                                               ; preds = %34, %31
-  %40 = load ptr, ptr %0, align 8
-  %41 = call i64 @file_seek(ptr noundef %40, i64 noundef 0, i32 noundef 0, ptr noundef %1) #7
-  %42 = icmp eq i64 %41, -1
-  br i1 %42, label %50, label %43
+42:                                               ; preds = %37, %34
+  %43 = load ptr, ptr %0, align 8
+  %44 = call i64 @file_seek(ptr noundef %43, i64 noundef 0, i32 noundef 0, ptr noundef %1) #7
+  %45 = icmp eq i64 %44, -1
+  br i1 %45, label %53, label %46
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @commview_ncfx_read, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @commview_ncfx_seek_read, ptr %45, align 8
-  %46 = load i32, ptr @commview_ncfx_file_type_subtype, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 -1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 6, ptr %49, align 4
-  br label %50
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @commview_ncfx_read, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @commview_ncfx_seek_read, ptr %48, align 8
+  %49 = load i32, ptr @commview_ncfx_file_type_subtype, align 4
+  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 -1, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %52, align 4
+  br label %53
 
-50:                                               ; preds = %7, %39, %28, %34, %31, %10, %43
-  %.0 = phi i32 [ 1, %43 ], [ 0, %10 ], [ 0, %31 ], [ 0, %34 ], [ 0, %28 ], [ -1, %39 ], [ %9, %7 ]
+53:                                               ; preds = %7, %42, %31, %37, %34, %10, %46
+  %.0 = phi i32 [ 1, %46 ], [ 0, %10 ], [ 0, %34 ], [ 0, %37 ], [ 0, %31 ], [ -1, %42 ], [ %9, %7 ]
   ret i32 %.0
 }
 

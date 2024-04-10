@@ -4048,36 +4048,36 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %or.cond = or i1 %5, %6
   %7 = icmp eq ptr %1, null
   %or.cond3 = or i1 %7, %or.cond
-  br i1 %or.cond3, label %171, label %8
+  br i1 %or.cond3, label %168, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %1, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %171, label %11
+  br i1 %10, label %168, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %171, label %15
+  br i1 %14, label %168, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load i8, ptr %16, align 4
   %18 = add i8 %17, -5
   %or.cond186 = icmp ult i8 %18, -2
-  br i1 %or.cond186, label %171, label %19
+  br i1 %or.cond186, label %168, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %1, i64 9
   %21 = load i8, ptr %20, align 1
   %22 = icmp ugt i8 %21, 1
-  br i1 %22, label %171, label %23
+  br i1 %22, label %168, label %23
 
 23:                                               ; preds = %19
   %24 = udiv i32 400000000, %9
   %.not = icmp ult i32 %13, %24
-  br i1 %.not, label %25, label %171
+  br i1 %.not, label %25, label %168
 
 25:                                               ; preds = %23
   %26 = mul i32 %13, %9
@@ -4088,7 +4088,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %30 = sext i32 %29 to i64
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #50
   %.not185 = icmp eq ptr %31, null
-  br i1 %.not185, label %171, label %32
+  br i1 %.not185, label %168, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr i8, ptr %31, i64 1
@@ -4143,7 +4143,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %67 = zext nneg i32 %61 to i64
   br label %71
 
-.preheader.loopexit:                              ; preds = %169
+.preheader.loopexit:                              ; preds = %166
   %68 = sext i32 %.2212 to i64
   br label %.preheader
 
@@ -4154,16 +4154,16 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %69 = trunc i64 %.0210.lcssa to i32
   %70 = add i32 %69, 8
   store i32 %70, ptr %2, align 4
-  br label %171
+  br label %168
 
-71:                                               ; preds = %.lr.ph, %169
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %169 ]
-  %.0171233 = phi i32 [ 0, %.lr.ph ], [ %.2, %169 ]
-  %.sroa.24.0231 = phi i8 [ -1, %.lr.ph ], [ %.sroa.24.1, %169 ]
-  %.sroa.0.0230 = phi i8 [ 0, %.lr.ph ], [ %73, %169 ]
-  %.sroa.5.0229 = phi i8 [ 0, %.lr.ph ], [ %75, %169 ]
-  %.sroa.7.0228 = phi i8 [ 0, %.lr.ph ], [ %77, %169 ]
-  %.0210227 = phi i32 [ 14, %.lr.ph ], [ %.2212, %169 ]
+71:                                               ; preds = %.lr.ph, %166
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %166 ]
+  %.0171233 = phi i32 [ 0, %.lr.ph ], [ %.2, %166 ]
+  %.sroa.24.0231 = phi i8 [ -1, %.lr.ph ], [ %.sroa.24.1, %166 ]
+  %.sroa.0.0230 = phi i8 [ 0, %.lr.ph ], [ %73, %166 ]
+  %.sroa.5.0229 = phi i8 [ 0, %.lr.ph ], [ %75, %166 ]
+  %.sroa.7.0228 = phi i8 [ 0, %.lr.ph ], [ %77, %166 ]
+  %.0210227 = phi i32 [ 14, %.lr.ph ], [ %.2212, %166 ]
   %72 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1
   %74 = getelementptr i8, ptr %72, i64 1
@@ -4207,7 +4207,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %85 = icmp eq i32 %84, 62
   %86 = icmp eq i64 %indvars.iv, %66
   %or.cond187 = select i1 %85, i1 true, i1 %86
-  br i1 %or.cond187, label %87, label %169
+  br i1 %or.cond187, label %87, label %166
 
 87:                                               ; preds = %83
   %88 = trunc i32 %.0171233 to i8
@@ -4216,7 +4216,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %91 = sext i32 %.0210227 to i64
   %92 = getelementptr inbounds i8, ptr %31, i64 %91
   store i8 %89, ptr %92, align 1
-  br label %169
+  br label %166
 
 93:                                               ; preds = %81
   %94 = icmp sgt i32 %.0171233, 0
@@ -4255,7 +4255,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %118 = sext i32 %.1211 to i64
   %119 = getelementptr inbounds i8, ptr %31, i64 %118
   store i8 %116, ptr %119, align 1
-  br label %169
+  br label %166
 
 120:                                              ; preds = %102
   store i8 %73, ptr %112, align 4
@@ -4266,7 +4266,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %112, i64 3
   store i8 %.sroa.24.1, ptr %.sroa.24.0..sroa_idx, align 1
   %121 = icmp eq i8 %.sroa.24.1, %.sroa.24.0231
-  br i1 %121, label %122, label %165
+  br i1 %121, label %122, label %162
 
 122:                                              ; preds = %120
   %123 = sub i8 %73, %.sroa.0.0230
@@ -4274,97 +4274,90 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %125 = sub i8 %77, %.sroa.7.0228
   %126 = add i8 %123, 2
   %or.cond6 = icmp ult i8 %126, 4
-  %127 = icmp sgt i8 %124, -3
-  %or.cond9 = select i1 %or.cond6, i1 %127, i1 false
-  %128 = icmp slt i8 %124, 2
-  %or.cond12 = select i1 %or.cond9, i1 %128, i1 false
-  %129 = icmp sgt i8 %125, -3
-  %or.cond15 = select i1 %or.cond12, i1 %129, i1 false
-  %130 = icmp slt i8 %125, 2
-  %or.cond18 = select i1 %or.cond15, i1 %130, i1 false
-  br i1 %or.cond18, label %131, label %143
+  %127 = add i8 %124, 2
+  %128 = icmp ult i8 %127, 4
+  %or.cond12 = select i1 %or.cond6, i1 %128, i1 false
+  %129 = add i8 %125, 2
+  %130 = icmp ult i8 %129, 4
+  %or.cond18 = select i1 %or.cond12, i1 %130, i1 false
+  br i1 %or.cond18, label %131, label %142
 
 131:                                              ; preds = %122
   %132 = shl nsw i8 %123, 4
   %133 = add i8 %132, 32
   %134 = shl nsw i8 %124, 2
   %135 = add i8 %134, 8
-  %136 = add nsw i8 %125, 2
-  %137 = or i8 %133, %135
-  %138 = or i8 %137, %136
-  %139 = or i8 %138, 64
-  %140 = add nsw i32 %.1211, 1
-  %141 = sext i32 %.1211 to i64
-  %142 = getelementptr inbounds i8, ptr %31, i64 %141
-  store i8 %139, ptr %142, align 1
-  br label %169
+  %136 = or i8 %133, %135
+  %137 = or disjoint i8 %136, %129
+  %138 = or i8 %137, 64
+  %139 = add nsw i32 %.1211, 1
+  %140 = sext i32 %.1211 to i64
+  %141 = getelementptr inbounds i8, ptr %31, i64 %140
+  store i8 %138, ptr %141, align 1
+  br label %166
 
-143:                                              ; preds = %122
-  %144 = sub i8 %125, %124
-  %145 = sub i8 %123, %124
-  %146 = add i8 %145, 8
-  %or.cond21 = icmp ult i8 %146, 16
-  %147 = icmp sgt i8 %124, -33
-  %or.cond24 = select i1 %or.cond21, i1 %147, i1 false
-  %148 = icmp slt i8 %124, 32
-  %or.cond27 = select i1 %or.cond24, i1 %148, i1 false
-  %149 = icmp sgt i8 %144, -9
-  %or.cond30 = select i1 %or.cond27, i1 %149, i1 false
-  %150 = icmp slt i8 %144, 8
-  %or.cond33 = select i1 %or.cond30, i1 %150, i1 false
-  br i1 %or.cond33, label %151, label %161
+142:                                              ; preds = %122
+  %143 = sub i8 %125, %124
+  %144 = sub i8 %123, %124
+  %145 = add i8 %144, 8
+  %or.cond21 = icmp ult i8 %145, 16
+  %146 = add i8 %124, 32
+  %147 = icmp ult i8 %146, 64
+  %or.cond27 = select i1 %or.cond21, i1 %147, i1 false
+  %148 = add i8 %143, 8
+  %149 = icmp ult i8 %148, 16
+  %or.cond33 = select i1 %or.cond27, i1 %149, i1 false
+  br i1 %or.cond33, label %150, label %158
 
-151:                                              ; preds = %143
-  %152 = add nsw i8 %124, 32
-  %153 = or i8 %152, -128
-  %154 = sext i32 %.1211 to i64
-  %155 = getelementptr inbounds i8, ptr %31, i64 %154
-  store i8 %153, ptr %155, align 1
-  %156 = shl nsw i8 %145, 4
-  %157 = xor i8 %156, -128
-  %158 = add nsw i8 %144, 8
-  %159 = or i8 %157, %158
-  %160 = add nsw i32 %.1211, 2
-  %gep226 = getelementptr i8, ptr %33, i64 %154
-  store i8 %159, ptr %gep226, align 1
-  br label %169
+150:                                              ; preds = %142
+  %151 = or disjoint i8 %146, -128
+  %152 = sext i32 %.1211 to i64
+  %153 = getelementptr inbounds i8, ptr %31, i64 %152
+  store i8 %151, ptr %153, align 1
+  %154 = shl nsw i8 %144, 4
+  %155 = or disjoint i8 %148, %154
+  %156 = xor i8 %155, -128
+  %157 = add nsw i32 %.1211, 2
+  %gep226 = getelementptr i8, ptr %33, i64 %152
+  store i8 %156, ptr %gep226, align 1
+  br label %166
 
-161:                                              ; preds = %143
-  %162 = sext i32 %.1211 to i64
-  %163 = getelementptr inbounds i8, ptr %31, i64 %162
-  store i8 -2, ptr %163, align 1
-  %gep220 = getelementptr i8, ptr %33, i64 %162
+158:                                              ; preds = %142
+  %159 = sext i32 %.1211 to i64
+  %160 = getelementptr inbounds i8, ptr %31, i64 %159
+  store i8 -2, ptr %160, align 1
+  %gep220 = getelementptr i8, ptr %33, i64 %159
   store i8 %73, ptr %gep220, align 1
-  %gep222 = getelementptr i8, ptr %34, i64 %162
+  %gep222 = getelementptr i8, ptr %34, i64 %159
   store i8 %75, ptr %gep222, align 1
-  %164 = add nsw i32 %.1211, 4
-  %gep224 = getelementptr i8, ptr %35, i64 %162
+  %161 = add nsw i32 %.1211, 4
+  %gep224 = getelementptr i8, ptr %35, i64 %159
   store i8 %77, ptr %gep224, align 1
-  br label %169
+  br label %166
 
-165:                                              ; preds = %120
-  %166 = sext i32 %.1211 to i64
-  %167 = getelementptr inbounds i8, ptr %31, i64 %166
-  store i8 -1, ptr %167, align 1
-  %gep = getelementptr i8, ptr %33, i64 %166
+162:                                              ; preds = %120
+  %163 = sext i32 %.1211 to i64
+  %164 = getelementptr inbounds i8, ptr %31, i64 %163
+  store i8 -1, ptr %164, align 1
+  %gep = getelementptr i8, ptr %33, i64 %163
   store i8 %73, ptr %gep, align 1
-  %gep214 = getelementptr i8, ptr %34, i64 %166
+  %gep214 = getelementptr i8, ptr %34, i64 %163
   store i8 %75, ptr %gep214, align 1
-  %gep216 = getelementptr i8, ptr %35, i64 %166
+  %gep216 = getelementptr i8, ptr %35, i64 %163
   store i8 %77, ptr %gep216, align 1
-  %168 = add nsw i32 %.1211, 5
-  %gep218 = getelementptr i8, ptr %38, i64 %166
+  %165 = add nsw i32 %.1211, 5
+  %gep218 = getelementptr i8, ptr %38, i64 %163
   store i8 %.sroa.24.1, ptr %gep218, align 1
-  br label %169
+  br label %166
 
-169:                                              ; preds = %83, %115, %131, %161, %151, %165, %87
-  %.2212 = phi i32 [ %90, %87 ], [ %.0210227, %83 ], [ %117, %115 ], [ %140, %131 ], [ %160, %151 ], [ %164, %161 ], [ %168, %165 ]
-  %.2 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.1, %115 ], [ %.1, %131 ], [ %.1, %151 ], [ %.1, %161 ], [ %.1, %165 ]
+166:                                              ; preds = %83, %115, %131, %158, %150, %162, %87
+  %.2212 = phi i32 [ %90, %87 ], [ %.0210227, %83 ], [ %117, %115 ], [ %139, %131 ], [ %157, %150 ], [ %161, %158 ], [ %165, %162 ]
+  %.2 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.1, %115 ], [ %.1, %131 ], [ %.1, %150 ], [ %.1, %158 ], [ %.1, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
-  %170 = icmp ult i64 %indvars.iv.next, %67
-  br i1 %170, label %71, label %.preheader.loopexit
+  %167 = icmp ult i64 %indvars.iv.next, %67
+  br i1 %167, label %71, label %.preheader.loopexit
 
-171:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
+168:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
   %.0 = phi ptr [ %31, %.preheader ], [ null, %23 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %25 ]
   ret ptr %.0
 }

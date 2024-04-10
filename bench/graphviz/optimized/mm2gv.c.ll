@@ -102,18 +102,18 @@ openF.exit.i.outer129:                            ; preds = %openF.exit.i.outer1
   %.sroa.3.0.ph130 = phi ptr [ %.sroa.3.0.ph128, %openF.exit.i.outer126 ], [ %10, %8 ]
   br label %openF.exit.i
 
-openF.exit.i:                                     ; preds = %openF.exit.i.outer129, %25
+openF.exit.i:                                     ; preds = %openF.exit.i.outer129, %24
   %7 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #16
-  switch i32 %7, label %43 [
-    i32 -1, label %46
+  switch i32 %7, label %42 [
+    i32 -1, label %45
     i32 111, label %8
     i32 108, label %openF.exit.i.outer122
     i32 117, label %openF.exit.i.outer126
     i32 118, label %openF.exit.i.outer111
     i32 99, label %openF.exit.i.outer117
     i32 85, label %14
-    i32 58, label %25
-    i32 63, label %30
+    i32 58, label %24
+    i32 63, label %29
   ]
 
 8:                                                ; preds = %openF.exit.i
@@ -133,116 +133,114 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
   %16 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %15, ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #16
   %17 = icmp slt i32 %16, 1
   %18 = load i32, ptr %3, align 4
-  %19 = icmp slt i32 %18, 0
-  %or.cond.i = select i1 %17, i1 true, i1 %19
-  %20 = icmp sgt i32 %18, 3
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %20
-  br i1 %or.cond3.i, label %21, label %openF.exit.i.outer
+  %19 = icmp ugt i32 %18, 3
+  %or.cond3.i = select i1 %17, i1 true, i1 %19
+  br i1 %or.cond3.i, label %20, label %openF.exit.i.outer
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr @stderr, align 8
-  %23 = load ptr, ptr @cmd, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, ptr noundef %23) #17
+20:                                               ; preds = %14
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = load ptr, ptr @cmd, align 8
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.14, ptr noundef %22) #17
   call fastcc void @graphviz_exit(i32 noundef 1) #18
   unreachable
 
-25:                                               ; preds = %openF.exit.i
-  %26 = load ptr, ptr @stderr, align 8
-  %27 = load ptr, ptr @cmd, align 8
-  %28 = load i32, ptr @optopt, align 4
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.6, ptr noundef %27, i32 noundef %28) #17
+24:                                               ; preds = %openF.exit.i
+  %25 = load ptr, ptr @stderr, align 8
+  %26 = load ptr, ptr @cmd, align 8
+  %27 = load i32, ptr @optopt, align 4
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.6, ptr noundef %26, i32 noundef %27) #17
   br label %openF.exit.i
 
-30:                                               ; preds = %openF.exit.i
-  %31 = load i32, ptr @optopt, align 4
-  switch i32 %31, label %36 [
-    i32 63, label %32
-    i32 0, label %32
+29:                                               ; preds = %openF.exit.i
+  %30 = load i32, ptr @optopt, align 4
+  switch i32 %30, label %35 [
+    i32 63, label %31
+    i32 0, label %31
   ]
 
-32:                                               ; preds = %30, %30
-  %33 = load ptr, ptr @stderr, align 8
-  %34 = load ptr, ptr @cmd, align 8
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.14, ptr noundef %34) #17
+31:                                               ; preds = %29, %29
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = load ptr, ptr @cmd, align 8
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.14, ptr noundef %33) #17
   call fastcc void @graphviz_exit(i32 noundef 0) #18
   unreachable
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = load ptr, ptr @cmd, align 8
-  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.7, ptr noundef %38, i32 noundef %31) #17
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = load ptr, ptr @cmd, align 8
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.14, ptr noundef %41) #17
+35:                                               ; preds = %29
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = load ptr, ptr @cmd, align 8
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.7, ptr noundef %37, i32 noundef %30) #17
+  %39 = load ptr, ptr @stderr, align 8
+  %40 = load ptr, ptr @cmd, align 8
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.14, ptr noundef %40) #17
   call fastcc void @graphviz_exit(i32 noundef 1) #18
   unreachable
 
-43:                                               ; preds = %openF.exit.i
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 281) #17
+42:                                               ; preds = %openF.exit.i
+  %43 = load ptr, ptr @stderr, align 8
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 281) #17
   call void @abort() #19
   unreachable
 
-46:                                               ; preds = %openF.exit.i
-  %47 = load i32, ptr @optind, align 4
-  %48 = icmp slt i32 %47, %0
-  br i1 %48, label %49, label %init.exit
+45:                                               ; preds = %openF.exit.i
+  %46 = load i32, ptr @optind, align 4
+  %47 = icmp slt i32 %46, %0
+  br i1 %47, label %48, label %init.exit
 
-49:                                               ; preds = %46
-  %50 = sext i32 %47 to i64
-  %51 = getelementptr inbounds ptr, ptr %1, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noalias ptr @fopen(ptr noundef %52, ptr noundef nonnull @.str.10)
-  %.not.i25.i = icmp eq ptr %53, null
-  br i1 %.not.i25.i, label %54, label %init.exit
+48:                                               ; preds = %45
+  %49 = sext i32 %46 to i64
+  %50 = getelementptr inbounds ptr, ptr %1, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef nonnull @.str.10)
+  %.not.i25.i = icmp eq ptr %52, null
+  br i1 %.not.i25.i, label %53, label %init.exit
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr @stderr, align 8
-  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.11, ptr noundef %52, ptr noundef nonnull @.str.12) #17
+53:                                               ; preds = %48
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.11, ptr noundef %51, ptr noundef nonnull @.str.12) #17
   call fastcc void @graphviz_exit(i32 noundef 1) #18
   unreachable
 
-init.exit:                                        ; preds = %49, %46
-  %.sroa.6.0 = phi ptr [ @.str, %46 ], [ %52, %49 ]
-  %.sroa.0.0 = phi ptr [ %4, %46 ], [ %53, %49 ]
+init.exit:                                        ; preds = %48, %45
+  %.sroa.6.0 = phi ptr [ @.str, %45 ], [ %51, %48 ]
+  %.sroa.0.0 = phi ptr [ %4, %45 ], [ %52, %48 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %57 = call ptr @SparseMatrix_import_matrix_market(ptr noundef %.sroa.0.0) #16
-  %.not = icmp eq ptr %57, null
-  br i1 %.not, label %58, label %64
+  %56 = call ptr @SparseMatrix_import_matrix_market(ptr noundef %.sroa.0.0) #16
+  %.not = icmp eq ptr %56, null
+  br i1 %.not, label %57, label %63
 
-58:                                               ; preds = %init.exit
-  %59 = load ptr, ptr @stderr, align 8
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.1, ptr noundef %.sroa.6.0) #17
-  %61 = load ptr, ptr @stderr, align 8
-  %62 = load ptr, ptr @cmd, align 8
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.14, ptr noundef %62) #17
+57:                                               ; preds = %init.exit
+  %58 = load ptr, ptr @stderr, align 8
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.1, ptr noundef %.sroa.6.0) #17
+  %60 = load ptr, ptr @stderr, align 8
+  %61 = load ptr, ptr @cmd, align 8
+  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.14, ptr noundef %61) #17
   call fastcc void @graphviz_exit(i32 noundef 1) #18
   unreachable
 
-64:                                               ; preds = %init.exit
-  %65 = call ptr @SparseMatrix_to_square_matrix(ptr noundef nonnull %57, i32 noundef %.sroa.23.0.ph) #16
-  %.not11 = icmp eq ptr %65, null
-  br i1 %.not11, label %66, label %69
+63:                                               ; preds = %init.exit
+  %64 = call ptr @SparseMatrix_to_square_matrix(ptr noundef nonnull %56, i32 noundef %.sroa.23.0.ph) #16
+  %.not11 = icmp eq ptr %64, null
+  br i1 %.not11, label %65, label %68
 
-66:                                               ; preds = %64
-  %67 = load ptr, ptr @stderr, align 8
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.2, ptr noundef %.sroa.6.0) #17
+65:                                               ; preds = %63
+  %66 = load ptr, ptr @stderr, align 8
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.2, ptr noundef %.sroa.6.0) #17
   call fastcc void @graphviz_exit(i32 noundef 1) #18
   unreachable
 
-69:                                               ; preds = %64
+68:                                               ; preds = %63
   %.not12 = icmp eq i32 %.sroa.11.0.ph127, 0
-  br i1 %.not12, label %72, label %70
+  br i1 %.not12, label %71, label %69
 
-70:                                               ; preds = %69
-  %71 = call ptr @SparseMatrix_make_undirected(ptr noundef nonnull %65) #16
-  call void @SparseMatrix_delete(ptr noundef nonnull %65) #16
-  br label %72
+69:                                               ; preds = %68
+  %70 = call ptr @SparseMatrix_make_undirected(ptr noundef nonnull %64) #16
+  call void @SparseMatrix_delete(ptr noundef nonnull %64) #16
+  br label %71
 
-72:                                               ; preds = %70, %69
-  %.0 = phi ptr [ %71, %70 ], [ %65, %69 ]
-  %73 = call fastcc ptr @makeDotGraph(ptr noundef %.0, ptr noundef %.sroa.6.0, i32 noundef %.sroa.17.0.ph118, i32 noundef %.sroa.14.0.ph123, i32 noundef %.sroa.20.0.ph112)
-  %74 = call i32 @agwrite(ptr noundef %73, ptr noundef %.sroa.3.0.ph130) #16
+71:                                               ; preds = %69, %68
+  %.0 = phi ptr [ %70, %69 ], [ %64, %68 ]
+  %72 = call fastcc ptr @makeDotGraph(ptr noundef %.0, ptr noundef %.sroa.6.0, i32 noundef %.sroa.17.0.ph118, i32 noundef %.sroa.14.0.ph123, i32 noundef %.sroa.20.0.ph112)
+  %73 = call i32 @agwrite(ptr noundef %72, ptr noundef %.sroa.3.0.ph130) #16
   call fastcc void @graphviz_exit(i32 noundef 0) #18
   unreachable
 }

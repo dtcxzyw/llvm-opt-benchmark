@@ -973,15 +973,14 @@ if.end7:                                          ; preds = %sw.bb
 
 sw.bb10:                                          ; preds = %for.cond3
   %cmp11 = icmp eq i32 %ip4OctetsDone.1, 4
-  %cmp13 = icmp eq i32 %digitCount.1, 0
-  %or.cond = select i1 %cmp11, i1 true, i1 %cmp13
-  %cmp16 = icmp eq i32 %digitCount.1, 4
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp16
+  %3 = and i32 %digitCount.1, -5
+  %4 = icmp eq i32 %3, 0
+  %or.cond1 = select i1 %cmp11, i1 true, i1 %4
   br i1 %or.cond1, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %sw.bb10
-  %3 = load ptr, ptr %state, align 8
-  %call.i214 = call i32 @uriFreeUriMembersMmA(ptr noundef %3, ptr noundef %memory), !range !5
+  %5 = load ptr, ptr %state, align 8
+  %call.i214 = call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
   %errorPos1.i215 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i215, align 8
   %errorCode.i216 = getelementptr inbounds i8, ptr %state, i64 8
@@ -990,9 +989,9 @@ if.then18:                                        ; preds = %sw.bb10
 
 if.else:                                          ; preds = %sw.bb10
   %cmp19 = icmp sgt i32 %digitCount.1, 1
-  %4 = load i8, ptr %digitHistory, align 1
-  %conv22 = zext i8 %4 to i32
-  %cmp23 = icmp eq i8 %4, 0
+  %6 = load i8, ptr %digitHistory, align 1
+  %conv22 = zext i8 %6 to i32
+  %cmp23 = icmp eq i8 %6, 0
   %or.cond2 = select i1 %cmp19, i1 %cmp23, i1 false
   br i1 %or.cond2, label %if.then25, label %if.else26
 
@@ -1000,8 +999,8 @@ if.then25:                                        ; preds = %if.else
   %idx.ext = zext nneg i32 %digitCount.1 to i64
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg
-  %5 = load ptr, ptr %state, align 8
-  %call.i217 = call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory), !range !5
+  %7 = load ptr, ptr %state, align 8
+  %call.i217 = call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef %memory), !range !5
   %errorPos1.i218 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i218, align 8
   %errorCode.i219 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1010,9 +1009,9 @@ if.then25:                                        ; preds = %if.else
 
 if.else26:                                        ; preds = %if.else
   %cmp27 = icmp sgt i32 %digitCount.1, 2
-  %6 = load i8, ptr %arrayidx324, align 1
-  %conv31 = zext i8 %6 to i32
-  %cmp32 = icmp eq i8 %6, 0
+  %8 = load i8, ptr %arrayidx324, align 1
+  %conv31 = zext i8 %8 to i32
+  %cmp32 = icmp eq i8 %8, 0
   %or.cond3 = select i1 %cmp27, i1 %cmp32, i1 false
   br i1 %or.cond3, label %if.then34, label %if.else39
 
@@ -1021,8 +1020,8 @@ if.then34:                                        ; preds = %if.else26
   %idx.neg36 = sub nsw i64 0, %idx.ext35
   %add.ptr37 = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg36
   %add.ptr38 = getelementptr inbounds i8, ptr %add.ptr37, i64 1
-  %7 = load ptr, ptr %state, align 8
-  %call.i220 = call i32 @uriFreeUriMembersMmA(ptr noundef %7, ptr noundef %memory), !range !5
+  %9 = load ptr, ptr %state, align 8
+  %call.i220 = call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory), !range !5
   %errorPos1.i221 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr38, ptr %errorPos1.i221, align 8
   %errorCode.i222 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1037,16 +1036,16 @@ land.lhs.true42:                                  ; preds = %if.else39
   %mul = mul nuw nsw i32 %conv22, 100
   %mul47 = mul nuw nsw i32 %conv31, 10
   %add48 = add nuw nsw i32 %mul47, %mul
-  %8 = load i8, ptr %arrayidx344, align 1
-  %conv50 = zext i8 %8 to i32
+  %10 = load i8, ptr %arrayidx344, align 1
+  %conv50 = zext i8 %10 to i32
   %add51 = add nuw nsw i32 %add48, %conv50
   %cmp52 = icmp ugt i32 %add51, 255
   br i1 %cmp52, label %if.then54, label %if.end75
 
 if.then54:                                        ; preds = %land.lhs.true42
-  %cmp57 = icmp ugt i8 %4, 2
-  %9 = load ptr, ptr %state, align 8
-  %call.i223 = call i32 @uriFreeUriMembersMmA(ptr noundef %9, ptr noundef %memory), !range !5
+  %cmp57 = icmp ugt i8 %6, 2
+  %11 = load ptr, ptr %state, align 8
+  %call.i223 = call i32 @uriFreeUriMembersMmA(ptr noundef %11, ptr noundef %memory), !range !5
   %errorPos1.i224 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp57, label %if.then59, label %if.else61
 
@@ -1058,7 +1057,7 @@ if.then59:                                        ; preds = %if.then54
   br label %return
 
 if.else61:                                        ; preds = %if.then54
-  %cmp64 = icmp ugt i8 %6, 5
+  %cmp64 = icmp ugt i8 %8, 5
   %errorCode.i228 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp64, label %if.then66, label %if.else68
 
@@ -1076,40 +1075,37 @@ if.else68:                                        ; preds = %if.else61
 
 if.end75:                                         ; preds = %if.else39, %land.lhs.true42
   %call = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #6
-  %10 = load ptr, ptr %state, align 8
-  %ip6 = getelementptr inbounds i8, ptr %10, i64 56
-  %11 = load ptr, ptr %ip6, align 8
+  %12 = load ptr, ptr %state, align 8
+  %ip6 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = load ptr, ptr %ip6, align 8
   %add76 = add nsw i32 %ip4OctetsDone.1, 12
   %idxprom77 = sext i32 %add76 to i64
-  %arrayidx78 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 %idxprom77
+  %arrayidx78 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 %idxprom77
   store i8 %call, ptr %arrayidx78, align 1
-  %inc79 = add i32 %ip4OctetsDone.1, 1
+  %inc79 = add nsw i32 %ip4OctetsDone.1, 1
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %for.cond3
-  %cmp81.not = icmp eq i32 %ip4OctetsDone.1, 3
-  br i1 %cmp81.not, label %switch.early.test, label %if.then89
+  %cmp81 = icmp ne i32 %ip4OctetsDone.1, 3
+  %14 = and i32 %digitCount.1, -5
+  %15 = icmp eq i32 %14, 0
+  %or.cond5 = select i1 %cmp81, i1 true, i1 %15
+  br i1 %or.cond5, label %if.then89, label %if.else90
 
-switch.early.test:                                ; preds = %sw.bb80
-  switch i32 %digitCount.1, label %if.else90 [
-    i32 4, label %if.then89
-    i32 0, label %if.then89
-  ]
-
-if.then89:                                        ; preds = %switch.early.test, %switch.early.test, %sw.bb80
-  %12 = load ptr, ptr %state, align 8
-  %call.i232 = call i32 @uriFreeUriMembersMmA(ptr noundef %12, ptr noundef %memory), !range !5
+if.then89:                                        ; preds = %sw.bb80
+  %16 = load ptr, ptr %state, align 8
+  %call.i232 = call i32 @uriFreeUriMembersMmA(ptr noundef %16, ptr noundef %memory), !range !5
   %errorPos1.i233 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i233, align 8
   %errorCode.i234 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i234, align 8
   br label %return
 
-if.else90:                                        ; preds = %switch.early.test
+if.else90:                                        ; preds = %sw.bb80
   %cmp91 = icmp sgt i32 %digitCount.1, 1
-  %13 = load i8, ptr %digitHistory, align 1
-  %conv95 = zext i8 %13 to i32
-  %cmp96 = icmp eq i8 %13, 0
+  %17 = load i8, ptr %digitHistory, align 1
+  %conv95 = zext i8 %17 to i32
+  %cmp96 = icmp eq i8 %17, 0
   %or.cond6 = select i1 %cmp91, i1 %cmp96, i1 false
   br i1 %or.cond6, label %if.then98, label %if.else102
 
@@ -1117,8 +1113,8 @@ if.then98:                                        ; preds = %if.else90
   %idx.ext99 = zext nneg i32 %digitCount.1 to i64
   %idx.neg100 = sub nsw i64 0, %idx.ext99
   %add.ptr101 = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg100
-  %14 = load ptr, ptr %state, align 8
-  %call.i235 = call i32 @uriFreeUriMembersMmA(ptr noundef %14, ptr noundef %memory), !range !5
+  %18 = load ptr, ptr %state, align 8
+  %call.i235 = call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory), !range !5
   %errorPos1.i236 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr101, ptr %errorPos1.i236, align 8
   %errorCode.i237 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1127,9 +1123,9 @@ if.then98:                                        ; preds = %if.else90
 
 if.else102:                                       ; preds = %if.else90
   %cmp103 = icmp sgt i32 %digitCount.1, 2
-  %15 = load i8, ptr %arrayidx324, align 1
-  %conv107 = zext i8 %15 to i32
-  %cmp108 = icmp eq i8 %15, 0
+  %19 = load i8, ptr %arrayidx324, align 1
+  %conv107 = zext i8 %19 to i32
+  %cmp108 = icmp eq i8 %19, 0
   %or.cond7 = select i1 %cmp103, i1 %cmp108, i1 false
   br i1 %or.cond7, label %if.then110, label %if.else115
 
@@ -1138,8 +1134,8 @@ if.then110:                                       ; preds = %if.else102
   %idx.neg112 = sub nsw i64 0, %idx.ext111
   %add.ptr113 = getelementptr inbounds i8, ptr %first.addr.1, i64 %idx.neg112
   %add.ptr114 = getelementptr inbounds i8, ptr %add.ptr113, i64 1
-  %16 = load ptr, ptr %state, align 8
-  %call.i238 = call i32 @uriFreeUriMembersMmA(ptr noundef %16, ptr noundef %memory), !range !5
+  %20 = load ptr, ptr %state, align 8
+  %call.i238 = call i32 @uriFreeUriMembersMmA(ptr noundef %20, ptr noundef %memory), !range !5
   %errorPos1.i239 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr114, ptr %errorPos1.i239, align 8
   %errorCode.i240 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1154,16 +1150,16 @@ land.lhs.true118:                                 ; preds = %if.else115
   %mul121 = mul nuw nsw i32 %conv95, 100
   %mul124 = mul nuw nsw i32 %conv107, 10
   %add125 = add nuw nsw i32 %mul124, %mul121
-  %17 = load i8, ptr %arrayidx344, align 1
-  %conv127 = zext i8 %17 to i32
+  %21 = load i8, ptr %arrayidx344, align 1
+  %conv127 = zext i8 %21 to i32
   %add128 = add nuw nsw i32 %add125, %conv127
   %cmp129 = icmp ugt i32 %add128, 255
   br i1 %cmp129, label %if.then131, label %if.end152
 
 if.then131:                                       ; preds = %land.lhs.true118
-  %cmp134 = icmp ugt i8 %13, 2
-  %18 = load ptr, ptr %state, align 8
-  %call.i241 = call i32 @uriFreeUriMembersMmA(ptr noundef %18, ptr noundef %memory), !range !5
+  %cmp134 = icmp ugt i8 %17, 2
+  %22 = load ptr, ptr %state, align 8
+  %call.i241 = call i32 @uriFreeUriMembersMmA(ptr noundef %22, ptr noundef %memory), !range !5
   %errorPos1.i242 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp134, label %if.then136, label %if.else138
 
@@ -1175,7 +1171,7 @@ if.then136:                                       ; preds = %if.then131
   br label %return
 
 if.else138:                                       ; preds = %if.then131
-  %cmp141 = icmp ugt i8 %15, 5
+  %cmp141 = icmp ugt i8 %19, 5
   %errorCode.i246 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp141, label %if.then143, label %if.else145
 
@@ -1192,30 +1188,30 @@ if.else145:                                       ; preds = %if.else138
   br label %return
 
 if.end152:                                        ; preds = %if.else115, %land.lhs.true118
-  %19 = load ptr, ptr %state, align 8
-  %afterLast154 = getelementptr inbounds i8, ptr %19, i64 40
+  %23 = load ptr, ptr %state, align 8
+  %afterLast154 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr %first.addr.1, ptr %afterLast154, align 8
-  %20 = load ptr, ptr %state, align 8
-  %ip6157 = getelementptr inbounds i8, ptr %20, i64 56
-  %21 = load ptr, ptr %ip6157, align 8
-  %add.ptr161 = getelementptr inbounds i8, ptr %21, i64 12
+  %24 = load ptr, ptr %state, align 8
+  %ip6157 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = load ptr, ptr %ip6157, align 8
+  %add.ptr161 = getelementptr inbounds i8, ptr %25, i64 12
   %mul162 = shl nsw i32 %quadsAfterZipperCount.0476, 1
   %idx.ext163 = sext i32 %mul162 to i64
   %idx.neg164 = sub nsw i64 0, %idx.ext163
   %add.ptr165 = getelementptr inbounds i8, ptr %add.ptr161, i64 %idx.neg164
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr165, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext163, i1 false)
   %call170 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #6
-  %22 = load ptr, ptr %state, align 8
-  %ip6173 = getelementptr inbounds i8, ptr %22, i64 56
-  %23 = load ptr, ptr %ip6173, align 8
-  %arrayidx175 = getelementptr inbounds i8, ptr %23, i64 15
+  %26 = load ptr, ptr %state, align 8
+  %ip6173 = getelementptr inbounds i8, ptr %26, i64 56
+  %27 = load ptr, ptr %ip6173, align 8
+  %arrayidx175 = getelementptr inbounds i8, ptr %27, i64 15
   store i8 %call170, ptr %arrayidx175, align 1
   %add.ptr176 = getelementptr inbounds i8, ptr %first.addr.1, i64 1
   br label %return
 
 sw.default:                                       ; preds = %for.cond3
-  %24 = load ptr, ptr %state, align 8
-  %call.i250 = call i32 @uriFreeUriMembersMmA(ptr noundef %24, ptr noundef %memory), !range !5
+  %28 = load ptr, ptr %state, align 8
+  %call.i250 = call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %memory), !range !5
   %errorPos1.i251 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i251, align 8
   %errorCode.i252 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1230,8 +1226,8 @@ sw.epilog:                                        ; preds = %if.end75, %if.end7
   br i1 %cmp177.not, label %for.cond3, label %if.then179
 
 if.then179:                                       ; preds = %sw.epilog
-  %25 = load ptr, ptr %state, align 8
-  %call.i253 = call i32 @uriFreeUriMembersMmA(ptr noundef %25, ptr noundef %memory), !range !5
+  %29 = load ptr, ptr %state, align 8
+  %call.i253 = call i32 @uriFreeUriMembersMmA(ptr noundef %29, ptr noundef %memory), !range !5
   %errorPos1.i254 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i254, align 8
   %errorCode.i255 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1245,8 +1241,8 @@ do.body:                                          ; preds = %if.end, %sw.epilog4
   %digitCount.3 = phi i32 [ %digitCount.5, %sw.epilog429 ], [ 0, %if.end ]
   %quadsAfterZipperCount.1 = phi i32 [ %quadsAfterZipperCount.5, %sw.epilog429 ], [ %quadsAfterZipperCount.0476, %if.end ]
   %letterAmong.0 = phi i32 [ %letterAmong.1, %sw.epilog429 ], [ 0, %if.end ]
-  %26 = load i8, ptr %first.addr.2, align 1
-  switch i8 %26, label %sw.default428 [
+  %30 = load i8, ptr %first.addr.2, align 1
+  switch i8 %30, label %sw.default428 [
     i8 97, label %sw.bb183
     i8 98, label %sw.bb183
     i8 99, label %sw.bb183
@@ -1279,8 +1275,8 @@ sw.bb183:                                         ; preds = %do.body, %do.body, 
   br i1 %cmp184, label %if.then186, label %sw.epilog429.sink.split
 
 if.then186:                                       ; preds = %sw.bb183
-  %27 = load ptr, ptr %state, align 8
-  %call.i256 = call i32 @uriFreeUriMembersMmA(ptr noundef %27, ptr noundef %memory), !range !5
+  %31 = load ptr, ptr %state, align 8
+  %call.i256 = call i32 @uriFreeUriMembersMmA(ptr noundef %31, ptr noundef %memory), !range !5
   %errorPos1.i257 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i257, align 8
   %errorCode.i258 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1292,8 +1288,8 @@ sw.bb195:                                         ; preds = %do.body, %do.body, 
   br i1 %cmp196, label %if.then198, label %sw.epilog429.sink.split
 
 if.then198:                                       ; preds = %sw.bb195
-  %28 = load ptr, ptr %state, align 8
-  %call.i259 = call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %memory), !range !5
+  %32 = load ptr, ptr %state, align 8
+  %call.i259 = call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory), !range !5
   %errorPos1.i260 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i260, align 8
   %errorCode.i261 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1305,8 +1301,8 @@ sw.bb207:                                         ; preds = %do.body, %do.body, 
   br i1 %cmp208, label %if.then210, label %sw.epilog429.sink.split
 
 if.then210:                                       ; preds = %sw.bb207
-  %29 = load ptr, ptr %state, align 8
-  %call.i262 = call i32 @uriFreeUriMembersMmA(ptr noundef %29, ptr noundef %memory), !range !5
+  %33 = load ptr, ptr %state, align 8
+  %call.i262 = call i32 @uriFreeUriMembersMmA(ptr noundef %33, ptr noundef %memory), !range !5
   %errorPos1.i263 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i263, align 8
   %errorCode.i264 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1330,12 +1326,12 @@ if.then223:                                       ; preds = %if.then222
   br label %if.end240
 
 if.else230:                                       ; preds = %if.then222
-  %30 = load ptr, ptr %state, align 8
-  %ip6234 = getelementptr inbounds i8, ptr %30, i64 56
-  %31 = load ptr, ptr %ip6234, align 8
+  %34 = load ptr, ptr %state, align 8
+  %ip6234 = getelementptr inbounds i8, ptr %34, i64 56
+  %35 = load ptr, ptr %ip6234, align 8
   %mul237 = shl nsw i32 %quadsDone.1, 1
   %idx.ext238 = sext i32 %mul237 to i64
-  %add.ptr239 = getelementptr inbounds i8, ptr %31, i64 %idx.ext238
+  %add.ptr239 = getelementptr inbounds i8, ptr %35, i64 %idx.ext238
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef %add.ptr239) #6
   br label %if.end240
 
@@ -1353,8 +1349,8 @@ if.end242:                                        ; preds = %if.end240, %sw.bb21
   br i1 %cmp244.not, label %if.end247, label %if.then246
 
 if.then246:                                       ; preds = %if.end242
-  %32 = load ptr, ptr %state, align 8
-  %call.i265 = call i32 @uriFreeUriMembersMmA(ptr noundef %32, ptr noundef %memory), !range !5
+  %36 = load ptr, ptr %state, align 8
+  %call.i265 = call i32 @uriFreeUriMembersMmA(ptr noundef %36, ptr noundef %memory), !range !5
   %errorPos1.i266 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i266, align 8
   %errorCode.i267 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1367,8 +1363,8 @@ if.end247:                                        ; preds = %if.end242
   br i1 %cmp249.not, label %if.end252, label %if.then251
 
 if.then251:                                       ; preds = %if.end247
-  %33 = load ptr, ptr %state, align 8
-  %call.i268 = call i32 @uriFreeUriMembersMmA(ptr noundef %33, ptr noundef %memory), !range !5
+  %37 = load ptr, ptr %state, align 8
+  %call.i268 = call i32 @uriFreeUriMembersMmA(ptr noundef %37, ptr noundef %memory), !range !5
   %errorPos1.i269 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i269, align 8
   %errorCode.i270 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1376,8 +1372,8 @@ if.then251:                                       ; preds = %if.end247
   br label %return
 
 if.end252:                                        ; preds = %if.end247
-  %34 = load i8, ptr %add.ptr248, align 1
-  %cmp255.not = icmp eq i8 %34, 58
+  %38 = load i8, ptr %add.ptr248, align 1
+  %cmp255.not = icmp eq i8 %38, 58
   br i1 %cmp255.not, label %if.then257, label %sw.epilog429
 
 if.then257:                                       ; preds = %if.end252
@@ -1385,8 +1381,8 @@ if.then257:                                       ; preds = %if.end252
   br i1 %tobool263.not, label %if.end265, label %if.then264
 
 if.then264:                                       ; preds = %if.then257
-  %35 = load ptr, ptr %state, align 8
-  %call.i271 = call i32 @uriFreeUriMembersMmA(ptr noundef %35, ptr noundef %memory), !range !5
+  %39 = load ptr, ptr %state, align 8
+  %call.i271 = call i32 @uriFreeUriMembersMmA(ptr noundef %39, ptr noundef %memory), !range !5
   %errorPos1.i272 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr248, ptr %errorPos1.i272, align 8
   %errorCode.i273 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1395,11 +1391,11 @@ if.then264:                                       ; preds = %if.then257
 
 if.end265:                                        ; preds = %if.then257
   %mul261 = shl nsw i32 %quadsDone.2, 1
-  %36 = load ptr, ptr %state, align 8
-  %ip6268 = getelementptr inbounds i8, ptr %36, i64 56
-  %37 = load ptr, ptr %ip6268, align 8
+  %40 = load ptr, ptr %state, align 8
+  %ip6268 = getelementptr inbounds i8, ptr %40, i64 56
+  %41 = load ptr, ptr %ip6268, align 8
   %idx.ext271 = sext i32 %mul261 to i64
-  %add.ptr272 = getelementptr inbounds i8, ptr %37, i64 %idx.ext271
+  %add.ptr272 = getelementptr inbounds i8, ptr %41, i64 %idx.ext271
   %sub273 = sub nsw i32 16, %mul261
   %conv274 = sext i32 %sub273 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr272, i8 0, i64 %conv274, i1 false)
@@ -1408,8 +1404,8 @@ if.end265:                                        ; preds = %if.then257
   br i1 %cmp276.not, label %if.end279, label %if.then278
 
 if.then278:                                       ; preds = %if.end265
-  %38 = load ptr, ptr %state, align 8
-  %call.i274 = call i32 @uriFreeUriMembersMmA(ptr noundef %38, ptr noundef %memory), !range !5
+  %42 = load ptr, ptr %state, align 8
+  %call.i274 = call i32 @uriFreeUriMembersMmA(ptr noundef %42, ptr noundef %memory), !range !5
   %errorPos1.i275 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i275, align 8
   %errorCode.i276 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1417,13 +1413,13 @@ if.then278:                                       ; preds = %if.end265
   br label %return
 
 if.end279:                                        ; preds = %if.end265
-  %39 = load i8, ptr %add.ptr275, align 1
-  %cmp282 = icmp eq i8 %39, 58
+  %43 = load i8, ptr %add.ptr275, align 1
+  %cmp282 = icmp eq i8 %43, 58
   br i1 %cmp282, label %if.then284, label %sw.epilog429
 
 if.then284:                                       ; preds = %if.end279
-  %40 = load ptr, ptr %state, align 8
-  %call.i277 = call i32 @uriFreeUriMembersMmA(ptr noundef %40, ptr noundef %memory), !range !5
+  %44 = load ptr, ptr %state, align 8
+  %call.i277 = call i32 @uriFreeUriMembersMmA(ptr noundef %44, ptr noundef %memory), !range !5
   %errorPos1.i278 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr275, ptr %errorPos1.i278, align 8
   %errorCode.i279 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1440,15 +1436,14 @@ lor.lhs.false294:                                 ; preds = %sw.bb291
   %or.cond8 = select i1 %tobool295, i1 %cmp297, i1 false
   %tobool300 = icmp ne i32 %letterAmong.0, 0
   %or.cond9 = select i1 %or.cond8, i1 true, i1 %tobool300
-  %cmp302 = icmp eq i32 %digitCount.3, 0
-  %or.cond10 = select i1 %or.cond9, i1 true, i1 %cmp302
-  %cmp305 = icmp eq i32 %digitCount.3, 4
-  %or.cond11 = select i1 %or.cond10, i1 true, i1 %cmp305
+  %45 = and i32 %digitCount.3, -5
+  %46 = icmp eq i32 %45, 0
+  %or.cond11 = select i1 %or.cond9, i1 true, i1 %46
   br i1 %or.cond11, label %if.then307, label %if.else308
 
 if.then307:                                       ; preds = %lor.lhs.false294, %sw.bb291
-  %41 = load ptr, ptr %state, align 8
-  %call.i280 = call i32 @uriFreeUriMembersMmA(ptr noundef %41, ptr noundef %memory), !range !5
+  %47 = load ptr, ptr %state, align 8
+  %call.i280 = call i32 @uriFreeUriMembersMmA(ptr noundef %47, ptr noundef %memory), !range !5
   %errorPos1.i281 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i281, align 8
   %errorCode.i282 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1457,9 +1452,9 @@ if.then307:                                       ; preds = %lor.lhs.false294, %
 
 if.else308:                                       ; preds = %lor.lhs.false294
   %cmp309 = icmp sgt i32 %digitCount.3, 1
-  %42 = load i8, ptr %digitHistory, align 1
-  %conv313 = zext i8 %42 to i32
-  %cmp314 = icmp eq i8 %42, 0
+  %48 = load i8, ptr %digitHistory, align 1
+  %conv313 = zext i8 %48 to i32
+  %cmp314 = icmp eq i8 %48, 0
   %or.cond12 = select i1 %cmp309, i1 %cmp314, i1 false
   br i1 %or.cond12, label %if.then316, label %if.else320
 
@@ -1467,8 +1462,8 @@ if.then316:                                       ; preds = %if.else308
   %idx.ext317 = zext nneg i32 %digitCount.3 to i64
   %idx.neg318 = sub nsw i64 0, %idx.ext317
   %add.ptr319 = getelementptr inbounds i8, ptr %first.addr.2, i64 %idx.neg318
-  %43 = load ptr, ptr %state, align 8
-  %call.i283 = call i32 @uriFreeUriMembersMmA(ptr noundef %43, ptr noundef %memory), !range !5
+  %49 = load ptr, ptr %state, align 8
+  %call.i283 = call i32 @uriFreeUriMembersMmA(ptr noundef %49, ptr noundef %memory), !range !5
   %errorPos1.i284 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr319, ptr %errorPos1.i284, align 8
   %errorCode.i285 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1477,9 +1472,9 @@ if.then316:                                       ; preds = %if.else308
 
 if.else320:                                       ; preds = %if.else308
   %cmp321 = icmp sgt i32 %digitCount.3, 2
-  %44 = load i8, ptr %arrayidx324, align 1
-  %conv325 = zext i8 %44 to i32
-  %cmp326 = icmp eq i8 %44, 0
+  %50 = load i8, ptr %arrayidx324, align 1
+  %conv325 = zext i8 %50 to i32
+  %cmp326 = icmp eq i8 %50, 0
   %or.cond13 = select i1 %cmp321, i1 %cmp326, i1 false
   br i1 %or.cond13, label %if.then328, label %if.else333
 
@@ -1488,8 +1483,8 @@ if.then328:                                       ; preds = %if.else320
   %idx.neg330 = sub nsw i64 0, %idx.ext329
   %add.ptr331 = getelementptr inbounds i8, ptr %first.addr.2, i64 %idx.neg330
   %add.ptr332 = getelementptr inbounds i8, ptr %add.ptr331, i64 1
-  %45 = load ptr, ptr %state, align 8
-  %call.i286 = call i32 @uriFreeUriMembersMmA(ptr noundef %45, ptr noundef %memory), !range !5
+  %51 = load ptr, ptr %state, align 8
+  %call.i286 = call i32 @uriFreeUriMembersMmA(ptr noundef %51, ptr noundef %memory), !range !5
   %errorPos1.i287 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr332, ptr %errorPos1.i287, align 8
   %errorCode.i288 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1504,16 +1499,16 @@ land.lhs.true336:                                 ; preds = %if.else333
   %mul339 = mul nuw nsw i32 %conv313, 100
   %mul342 = mul nuw nsw i32 %conv325, 10
   %add343 = add nuw nsw i32 %mul342, %mul339
-  %46 = load i8, ptr %arrayidx344, align 1
-  %conv345 = zext i8 %46 to i32
+  %52 = load i8, ptr %arrayidx344, align 1
+  %conv345 = zext i8 %52 to i32
   %add346 = add nuw nsw i32 %add343, %conv345
   %cmp347 = icmp ugt i32 %add346, 255
   br i1 %cmp347, label %if.then349, label %sw.epilog429.thread
 
 if.then349:                                       ; preds = %land.lhs.true336
-  %cmp352 = icmp ugt i8 %42, 2
-  %47 = load ptr, ptr %state, align 8
-  %call.i289 = call i32 @uriFreeUriMembersMmA(ptr noundef %47, ptr noundef %memory), !range !5
+  %cmp352 = icmp ugt i8 %48, 2
+  %53 = load ptr, ptr %state, align 8
+  %call.i289 = call i32 @uriFreeUriMembersMmA(ptr noundef %53, ptr noundef %memory), !range !5
   %errorPos1.i290 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp352, label %if.then354, label %if.else356
 
@@ -1525,7 +1520,7 @@ if.then354:                                       ; preds = %if.then349
   br label %return
 
 if.else356:                                       ; preds = %if.then349
-  %cmp359 = icmp ugt i8 %44, 5
+  %cmp359 = icmp ugt i8 %50, 5
   %errorCode.i294 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp359, label %if.then361, label %if.else363
 
@@ -1549,11 +1544,11 @@ land.lhs.true380:                                 ; preds = %sw.bb378
   %cmp381 = icmp eq i32 %quadsDone.1, 7
   %cmp384 = icmp sgt i32 %digitCount.3, 0
   %or.cond14 = select i1 %cmp381, i1 %cmp384, i1 false
-  %48 = load ptr, ptr %state, align 8
+  %54 = load ptr, ptr %state, align 8
   br i1 %or.cond14, label %if.else399, label %if.then386
 
 if.then386:                                       ; preds = %land.lhs.true380
-  %call.i298 = call i32 @uriFreeUriMembersMmA(ptr noundef %48, ptr noundef %memory), !range !5
+  %call.i298 = call i32 @uriFreeUriMembersMmA(ptr noundef %54, ptr noundef %memory), !range !5
   %errorPos1.i299 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i299, align 8
   %errorCode.i300 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1573,32 +1568,32 @@ if.then392:                                       ; preds = %if.end387
   br label %if.end410
 
 if.else399:                                       ; preds = %land.lhs.true380
-  %ip6403 = getelementptr inbounds i8, ptr %48, i64 56
-  %49 = load ptr, ptr %ip6403, align 8
-  %add.ptr408 = getelementptr inbounds i8, ptr %49, i64 14
+  %ip6403 = getelementptr inbounds i8, ptr %54, i64 56
+  %55 = load ptr, ptr %ip6403, align 8
+  %add.ptr408 = getelementptr inbounds i8, ptr %55, i64 14
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr408) #6
   br label %if.end410
 
 if.end410:                                        ; preds = %if.then392, %if.else399, %if.end387
   %quadsAfterZipperCount.4 = phi i32 [ %inc398, %if.then392 ], [ %quadsAfterZipperCount.1, %if.else399 ], [ %quadsAfterZipperCount.1, %if.end387 ]
-  %50 = load ptr, ptr %state, align 8
-  %ip6413 = getelementptr inbounds i8, ptr %50, i64 56
-  %51 = load ptr, ptr %ip6413, align 8
-  %add.ptr416 = getelementptr inbounds i8, ptr %51, i64 16
+  %56 = load ptr, ptr %state, align 8
+  %ip6413 = getelementptr inbounds i8, ptr %56, i64 56
+  %57 = load ptr, ptr %ip6413, align 8
+  %add.ptr416 = getelementptr inbounds i8, ptr %57, i64 16
   %mul417 = shl nsw i32 %quadsAfterZipperCount.4, 1
   %idx.ext418 = sext i32 %mul417 to i64
   %idx.neg419 = sub nsw i64 0, %idx.ext418
   %add.ptr420 = getelementptr inbounds i8, ptr %add.ptr416, i64 %idx.neg419
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr420, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext418, i1 false)
-  %52 = load ptr, ptr %state, align 8
-  %afterLast426 = getelementptr inbounds i8, ptr %52, i64 40
+  %58 = load ptr, ptr %state, align 8
+  %afterLast426 = getelementptr inbounds i8, ptr %58, i64 40
   store ptr %first.addr.2, ptr %afterLast426, align 8
   %add.ptr427 = getelementptr inbounds i8, ptr %first.addr.2, i64 1
   br label %return
 
 sw.default428:                                    ; preds = %do.body
-  %53 = load ptr, ptr %state, align 8
-  %call.i301 = call i32 @uriFreeUriMembersMmA(ptr noundef %53, ptr noundef %memory), !range !5
+  %59 = load ptr, ptr %state, align 8
+  %call.i301 = call i32 @uriFreeUriMembersMmA(ptr noundef %59, ptr noundef %memory), !range !5
   %errorPos1.i302 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i302, align 8
   %errorCode.i303 = getelementptr inbounds i8, ptr %state, i64 8
@@ -1608,7 +1603,7 @@ sw.default428:                                    ; preds = %do.body
 sw.epilog429.sink.split:                          ; preds = %sw.bb207, %sw.bb195, %sw.bb183
   %.sink = phi i8 [ -87, %sw.bb183 ], [ -55, %sw.bb195 ], [ -48, %sw.bb207 ]
   %letterAmong.1.ph = phi i32 [ 1, %sw.bb183 ], [ 1, %sw.bb195 ], [ %letterAmong.0, %sw.bb207 ]
-  %sub214 = add nsw i8 %26, %.sink
+  %sub214 = add nsw i8 %30, %.sink
   %idxprom216 = sext i32 %digitCount.3 to i64
   %arrayidx217 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom216
   store i8 %sub214, ptr %arrayidx217, align 1
@@ -1628,18 +1623,18 @@ sw.epilog429:                                     ; preds = %sw.epilog429.sink.s
 
 sw.epilog429.thread:                              ; preds = %land.lhs.true336, %if.else333
   %call372 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3) #6
-  %54 = load ptr, ptr %state, align 8
-  %ip6375 = getelementptr inbounds i8, ptr %54, i64 56
-  %55 = load ptr, ptr %ip6375, align 8
-  %arrayidx377 = getelementptr inbounds i8, ptr %55, i64 12
+  %60 = load ptr, ptr %state, align 8
+  %ip6375 = getelementptr inbounds i8, ptr %60, i64 56
+  %61 = load ptr, ptr %ip6375, align 8
+  %arrayidx377 = getelementptr inbounds i8, ptr %61, i64 12
   store i8 %call372, ptr %arrayidx377, align 1
   %incdec.ptr430647 = getelementptr inbounds i8, ptr %first.addr.2, i64 1
   %cmp431.not648 = icmp ult ptr %incdec.ptr430647, %afterLast
   br i1 %cmp431.not648, label %if.end, label %if.then433
 
 if.then433:                                       ; preds = %sw.epilog429.thread, %sw.epilog429
-  %56 = load ptr, ptr %state, align 8
-  %call.i304 = call i32 @uriFreeUriMembersMmA(ptr noundef %56, ptr noundef %memory), !range !5
+  %62 = load ptr, ptr %state, align 8
+  %call.i304 = call i32 @uriFreeUriMembersMmA(ptr noundef %62, ptr noundef %memory), !range !5
   %errorPos1.i305 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i305, align 8
   %errorCode.i306 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2613,15 +2608,14 @@ if.end6:                                          ; preds = %sw.bb
 
 sw.bb7:                                           ; preds = %for.cond3
   %cmp8 = icmp eq i32 %ip4OctetsDone.1, 4
-  %cmp10 = icmp eq i32 %digitCount.1, 0
-  %or.cond = select i1 %cmp8, i1 true, i1 %cmp10
-  %cmp13 = icmp eq i32 %digitCount.1, 4
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp13
+  %4 = and i32 %digitCount.1, -5
+  %5 = icmp eq i32 %4, 0
+  %or.cond1 = select i1 %cmp8, i1 true, i1 %5
   br i1 %or.cond1, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %sw.bb7
-  %4 = load ptr, ptr %state, align 8
-  %call.i214 = call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory), !range !5
+  %6 = load ptr, ptr %state, align 8
+  %call.i214 = call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory), !range !5
   %errorPos1.i215 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i215, align 8
   %errorCode.i216 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2630,9 +2624,9 @@ if.then15:                                        ; preds = %sw.bb7
 
 if.else:                                          ; preds = %sw.bb7
   %cmp16 = icmp sgt i32 %digitCount.1, 1
-  %5 = load i8, ptr %digitHistory, align 1
-  %conv19 = zext i8 %5 to i32
-  %cmp20 = icmp eq i8 %5, 0
+  %7 = load i8, ptr %digitHistory, align 1
+  %conv19 = zext i8 %7 to i32
+  %cmp20 = icmp eq i8 %7, 0
   %or.cond2 = select i1 %cmp16, i1 %cmp20, i1 false
   br i1 %or.cond2, label %if.then22, label %if.else23
 
@@ -2640,8 +2634,8 @@ if.then22:                                        ; preds = %if.else
   %idx.ext = zext nneg i32 %digitCount.1 to i64
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg
-  %6 = load ptr, ptr %state, align 8
-  %call.i217 = call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %memory), !range !5
+  %8 = load ptr, ptr %state, align 8
+  %call.i217 = call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef %memory), !range !5
   %errorPos1.i218 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr, ptr %errorPos1.i218, align 8
   %errorCode.i219 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2650,9 +2644,9 @@ if.then22:                                        ; preds = %if.else
 
 if.else23:                                        ; preds = %if.else
   %cmp24 = icmp sgt i32 %digitCount.1, 2
-  %7 = load i8, ptr %arrayidx315, align 1
-  %conv28 = zext i8 %7 to i32
-  %cmp29 = icmp eq i8 %7, 0
+  %9 = load i8, ptr %arrayidx315, align 1
+  %conv28 = zext i8 %9 to i32
+  %cmp29 = icmp eq i8 %9, 0
   %or.cond3 = select i1 %cmp24, i1 %cmp29, i1 false
   br i1 %or.cond3, label %if.then31, label %if.else36
 
@@ -2661,8 +2655,8 @@ if.then31:                                        ; preds = %if.else23
   %idx.neg33 = sub nsw i64 0, %idx.ext32
   %add.ptr34 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg33
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr34, i64 4
-  %8 = load ptr, ptr %state, align 8
-  %call.i220 = call i32 @uriFreeUriMembersMmW(ptr noundef %8, ptr noundef %memory), !range !5
+  %10 = load ptr, ptr %state, align 8
+  %call.i220 = call i32 @uriFreeUriMembersMmW(ptr noundef %10, ptr noundef %memory), !range !5
   %errorPos1.i221 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr35, ptr %errorPos1.i221, align 8
   %errorCode.i222 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2677,16 +2671,16 @@ land.lhs.true39:                                  ; preds = %if.else36
   %mul = mul nuw nsw i32 %conv19, 100
   %mul44 = mul nuw nsw i32 %conv28, 10
   %add45 = add nuw nsw i32 %mul44, %mul
-  %9 = load i8, ptr %arrayidx335, align 1
-  %conv47 = zext i8 %9 to i32
+  %11 = load i8, ptr %arrayidx335, align 1
+  %conv47 = zext i8 %11 to i32
   %add48 = add nuw nsw i32 %add45, %conv47
   %cmp49 = icmp ugt i32 %add48, 255
   br i1 %cmp49, label %if.then51, label %if.end72
 
 if.then51:                                        ; preds = %land.lhs.true39
-  %cmp54 = icmp ugt i8 %5, 2
-  %10 = load ptr, ptr %state, align 8
-  %call.i223 = call i32 @uriFreeUriMembersMmW(ptr noundef %10, ptr noundef %memory), !range !5
+  %cmp54 = icmp ugt i8 %7, 2
+  %12 = load ptr, ptr %state, align 8
+  %call.i223 = call i32 @uriFreeUriMembersMmW(ptr noundef %12, ptr noundef %memory), !range !5
   %errorPos1.i224 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp54, label %if.then56, label %if.else58
 
@@ -2698,7 +2692,7 @@ if.then56:                                        ; preds = %if.then51
   br label %return
 
 if.else58:                                        ; preds = %if.then51
-  %cmp61 = icmp ugt i8 %7, 5
+  %cmp61 = icmp ugt i8 %9, 5
   %errorCode.i228 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp61, label %if.then63, label %if.else65
 
@@ -2716,40 +2710,37 @@ if.else65:                                        ; preds = %if.else58
 
 if.end72:                                         ; preds = %if.else36, %land.lhs.true39
   %call = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #6
-  %11 = load ptr, ptr %state, align 8
-  %ip6 = getelementptr inbounds i8, ptr %11, i64 56
-  %12 = load ptr, ptr %ip6, align 8
+  %13 = load ptr, ptr %state, align 8
+  %ip6 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = load ptr, ptr %ip6, align 8
   %add73 = add nsw i32 %ip4OctetsDone.1, 12
   %idxprom74 = sext i32 %add73 to i64
-  %arrayidx75 = getelementptr inbounds [16 x i8], ptr %12, i64 0, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds [16 x i8], ptr %14, i64 0, i64 %idxprom74
   store i8 %call, ptr %arrayidx75, align 1
-  %inc76 = add i32 %ip4OctetsDone.1, 1
+  %inc76 = add nsw i32 %ip4OctetsDone.1, 1
   br label %sw.epilog
 
 sw.bb77:                                          ; preds = %for.cond3
-  %cmp78.not = icmp eq i32 %ip4OctetsDone.1, 3
-  br i1 %cmp78.not, label %switch.early.test, label %if.then86
+  %cmp78 = icmp ne i32 %ip4OctetsDone.1, 3
+  %15 = and i32 %digitCount.1, -5
+  %16 = icmp eq i32 %15, 0
+  %or.cond5 = select i1 %cmp78, i1 true, i1 %16
+  br i1 %or.cond5, label %if.then86, label %if.else87
 
-switch.early.test:                                ; preds = %sw.bb77
-  switch i32 %digitCount.1, label %if.else87 [
-    i32 4, label %if.then86
-    i32 0, label %if.then86
-  ]
-
-if.then86:                                        ; preds = %switch.early.test, %switch.early.test, %sw.bb77
-  %13 = load ptr, ptr %state, align 8
-  %call.i232 = call i32 @uriFreeUriMembersMmW(ptr noundef %13, ptr noundef %memory), !range !5
+if.then86:                                        ; preds = %sw.bb77
+  %17 = load ptr, ptr %state, align 8
+  %call.i232 = call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %memory), !range !5
   %errorPos1.i233 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i233, align 8
   %errorCode.i234 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i234, align 8
   br label %return
 
-if.else87:                                        ; preds = %switch.early.test
+if.else87:                                        ; preds = %sw.bb77
   %cmp88 = icmp sgt i32 %digitCount.1, 1
-  %14 = load i8, ptr %digitHistory, align 1
-  %conv92 = zext i8 %14 to i32
-  %cmp93 = icmp eq i8 %14, 0
+  %18 = load i8, ptr %digitHistory, align 1
+  %conv92 = zext i8 %18 to i32
+  %cmp93 = icmp eq i8 %18, 0
   %or.cond6 = select i1 %cmp88, i1 %cmp93, i1 false
   br i1 %or.cond6, label %if.then95, label %if.else99
 
@@ -2757,8 +2748,8 @@ if.then95:                                        ; preds = %if.else87
   %idx.ext96 = zext nneg i32 %digitCount.1 to i64
   %idx.neg97 = sub nsw i64 0, %idx.ext96
   %add.ptr98 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg97
-  %15 = load ptr, ptr %state, align 8
-  %call.i235 = call i32 @uriFreeUriMembersMmW(ptr noundef %15, ptr noundef %memory), !range !5
+  %19 = load ptr, ptr %state, align 8
+  %call.i235 = call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory), !range !5
   %errorPos1.i236 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr98, ptr %errorPos1.i236, align 8
   %errorCode.i237 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2767,9 +2758,9 @@ if.then95:                                        ; preds = %if.else87
 
 if.else99:                                        ; preds = %if.else87
   %cmp100 = icmp sgt i32 %digitCount.1, 2
-  %16 = load i8, ptr %arrayidx315, align 1
-  %conv104 = zext i8 %16 to i32
-  %cmp105 = icmp eq i8 %16, 0
+  %20 = load i8, ptr %arrayidx315, align 1
+  %conv104 = zext i8 %20 to i32
+  %cmp105 = icmp eq i8 %20, 0
   %or.cond7 = select i1 %cmp100, i1 %cmp105, i1 false
   br i1 %or.cond7, label %if.then107, label %if.else112
 
@@ -2778,8 +2769,8 @@ if.then107:                                       ; preds = %if.else99
   %idx.neg109 = sub nsw i64 0, %idx.ext108
   %add.ptr110 = getelementptr inbounds i32, ptr %first.addr.1, i64 %idx.neg109
   %add.ptr111 = getelementptr inbounds i8, ptr %add.ptr110, i64 4
-  %17 = load ptr, ptr %state, align 8
-  %call.i238 = call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %memory), !range !5
+  %21 = load ptr, ptr %state, align 8
+  %call.i238 = call i32 @uriFreeUriMembersMmW(ptr noundef %21, ptr noundef %memory), !range !5
   %errorPos1.i239 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr111, ptr %errorPos1.i239, align 8
   %errorCode.i240 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2794,16 +2785,16 @@ land.lhs.true115:                                 ; preds = %if.else112
   %mul118 = mul nuw nsw i32 %conv92, 100
   %mul121 = mul nuw nsw i32 %conv104, 10
   %add122 = add nuw nsw i32 %mul121, %mul118
-  %18 = load i8, ptr %arrayidx335, align 1
-  %conv124 = zext i8 %18 to i32
+  %22 = load i8, ptr %arrayidx335, align 1
+  %conv124 = zext i8 %22 to i32
   %add125 = add nuw nsw i32 %add122, %conv124
   %cmp126 = icmp ugt i32 %add125, 255
   br i1 %cmp126, label %if.then128, label %if.end149
 
 if.then128:                                       ; preds = %land.lhs.true115
-  %cmp131 = icmp ugt i8 %14, 2
-  %19 = load ptr, ptr %state, align 8
-  %call.i241 = call i32 @uriFreeUriMembersMmW(ptr noundef %19, ptr noundef %memory), !range !5
+  %cmp131 = icmp ugt i8 %18, 2
+  %23 = load ptr, ptr %state, align 8
+  %call.i241 = call i32 @uriFreeUriMembersMmW(ptr noundef %23, ptr noundef %memory), !range !5
   %errorPos1.i242 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp131, label %if.then133, label %if.else135
 
@@ -2815,7 +2806,7 @@ if.then133:                                       ; preds = %if.then128
   br label %return
 
 if.else135:                                       ; preds = %if.then128
-  %cmp138 = icmp ugt i8 %16, 5
+  %cmp138 = icmp ugt i8 %20, 5
   %errorCode.i246 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp138, label %if.then140, label %if.else142
 
@@ -2832,30 +2823,30 @@ if.else142:                                       ; preds = %if.else135
   br label %return
 
 if.end149:                                        ; preds = %if.else112, %land.lhs.true115
-  %20 = load ptr, ptr %state, align 8
-  %afterLast151 = getelementptr inbounds i8, ptr %20, i64 40
+  %24 = load ptr, ptr %state, align 8
+  %afterLast151 = getelementptr inbounds i8, ptr %24, i64 40
   store ptr %first.addr.1, ptr %afterLast151, align 8
-  %21 = load ptr, ptr %state, align 8
-  %ip6154 = getelementptr inbounds i8, ptr %21, i64 56
-  %22 = load ptr, ptr %ip6154, align 8
-  %add.ptr158 = getelementptr inbounds i8, ptr %22, i64 12
+  %25 = load ptr, ptr %state, align 8
+  %ip6154 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = load ptr, ptr %ip6154, align 8
+  %add.ptr158 = getelementptr inbounds i8, ptr %26, i64 12
   %mul159 = shl nsw i32 %quadsAfterZipperCount.0476, 1
   %idx.ext160 = sext i32 %mul159 to i64
   %idx.neg161 = sub nsw i64 0, %idx.ext160
   %add.ptr162 = getelementptr inbounds i8, ptr %add.ptr158, i64 %idx.neg161
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr162, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext160, i1 false)
   %call167 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.1) #6
-  %23 = load ptr, ptr %state, align 8
-  %ip6170 = getelementptr inbounds i8, ptr %23, i64 56
-  %24 = load ptr, ptr %ip6170, align 8
-  %arrayidx172 = getelementptr inbounds i8, ptr %24, i64 15
+  %27 = load ptr, ptr %state, align 8
+  %ip6170 = getelementptr inbounds i8, ptr %27, i64 56
+  %28 = load ptr, ptr %ip6170, align 8
+  %arrayidx172 = getelementptr inbounds i8, ptr %28, i64 15
   store i8 %call167, ptr %arrayidx172, align 1
   %add.ptr173 = getelementptr inbounds i8, ptr %first.addr.1, i64 4
   br label %return
 
 sw.default:                                       ; preds = %for.cond3
-  %25 = load ptr, ptr %state, align 8
-  %call.i250 = call i32 @uriFreeUriMembersMmW(ptr noundef %25, ptr noundef %memory), !range !5
+  %29 = load ptr, ptr %state, align 8
+  %call.i250 = call i32 @uriFreeUriMembersMmW(ptr noundef %29, ptr noundef %memory), !range !5
   %errorPos1.i251 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.1, ptr %errorPos1.i251, align 8
   %errorCode.i252 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2870,8 +2861,8 @@ sw.epilog:                                        ; preds = %if.end72, %if.end6
   br i1 %cmp174.not, label %for.cond3, label %if.then176
 
 if.then176:                                       ; preds = %sw.epilog
-  %26 = load ptr, ptr %state, align 8
-  %call.i253 = call i32 @uriFreeUriMembersMmW(ptr noundef %26, ptr noundef %memory), !range !5
+  %30 = load ptr, ptr %state, align 8
+  %call.i253 = call i32 @uriFreeUriMembersMmW(ptr noundef %30, ptr noundef %memory), !range !5
   %errorPos1.i254 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i254, align 8
   %errorCode.i255 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2885,8 +2876,8 @@ do.body:                                          ; preds = %if.end, %sw.epilog4
   %digitCount.3 = phi i32 [ %digitCount.5, %sw.epilog420 ], [ 0, %if.end ]
   %quadsAfterZipperCount.1 = phi i32 [ %quadsAfterZipperCount.5, %sw.epilog420 ], [ %quadsAfterZipperCount.0476, %if.end ]
   %letterAmong.0 = phi i32 [ %letterAmong.1, %sw.epilog420 ], [ 0, %if.end ]
-  %27 = load i32, ptr %first.addr.2, align 4
-  switch i32 %27, label %sw.default419 [
+  %31 = load i32, ptr %first.addr.2, align 4
+  switch i32 %31, label %sw.default419 [
     i32 97, label %sw.bb179
     i32 98, label %sw.bb179
     i32 99, label %sw.bb179
@@ -2919,8 +2910,8 @@ sw.bb179:                                         ; preds = %do.body, %do.body, 
   br i1 %cmp180, label %if.then182, label %sw.epilog420.sink.split
 
 if.then182:                                       ; preds = %sw.bb179
-  %28 = load ptr, ptr %state, align 8
-  %call.i256 = call i32 @uriFreeUriMembersMmW(ptr noundef %28, ptr noundef %memory), !range !5
+  %32 = load ptr, ptr %state, align 8
+  %call.i256 = call i32 @uriFreeUriMembersMmW(ptr noundef %32, ptr noundef %memory), !range !5
   %errorPos1.i257 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i257, align 8
   %errorCode.i258 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2932,8 +2923,8 @@ sw.bb190:                                         ; preds = %do.body, %do.body, 
   br i1 %cmp191, label %if.then193, label %sw.epilog420.sink.split
 
 if.then193:                                       ; preds = %sw.bb190
-  %29 = load ptr, ptr %state, align 8
-  %call.i259 = call i32 @uriFreeUriMembersMmW(ptr noundef %29, ptr noundef %memory), !range !5
+  %33 = load ptr, ptr %state, align 8
+  %call.i259 = call i32 @uriFreeUriMembersMmW(ptr noundef %33, ptr noundef %memory), !range !5
   %errorPos1.i260 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i260, align 8
   %errorCode.i261 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2945,8 +2936,8 @@ sw.bb201:                                         ; preds = %do.body, %do.body, 
   br i1 %cmp202, label %if.then204, label %sw.epilog420.sink.split
 
 if.then204:                                       ; preds = %sw.bb201
-  %30 = load ptr, ptr %state, align 8
-  %call.i262 = call i32 @uriFreeUriMembersMmW(ptr noundef %30, ptr noundef %memory), !range !5
+  %34 = load ptr, ptr %state, align 8
+  %call.i262 = call i32 @uriFreeUriMembersMmW(ptr noundef %34, ptr noundef %memory), !range !5
   %errorPos1.i263 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i263, align 8
   %errorCode.i264 = getelementptr inbounds i8, ptr %state, i64 8
@@ -2970,12 +2961,12 @@ if.then216:                                       ; preds = %if.then215
   br label %if.end233
 
 if.else223:                                       ; preds = %if.then215
-  %31 = load ptr, ptr %state, align 8
-  %ip6227 = getelementptr inbounds i8, ptr %31, i64 56
-  %32 = load ptr, ptr %ip6227, align 8
+  %35 = load ptr, ptr %state, align 8
+  %ip6227 = getelementptr inbounds i8, ptr %35, i64 56
+  %36 = load ptr, ptr %ip6227, align 8
   %mul230 = shl nsw i32 %quadsDone.1, 1
   %idx.ext231 = sext i32 %mul230 to i64
-  %add.ptr232 = getelementptr inbounds i8, ptr %32, i64 %idx.ext231
+  %add.ptr232 = getelementptr inbounds i8, ptr %36, i64 %idx.ext231
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef %add.ptr232) #6
   br label %if.end233
 
@@ -2993,8 +2984,8 @@ if.end235:                                        ; preds = %if.end233, %sw.bb21
   br i1 %cmp237.not, label %if.end240, label %if.then239
 
 if.then239:                                       ; preds = %if.end235
-  %33 = load ptr, ptr %state, align 8
-  %call.i265 = call i32 @uriFreeUriMembersMmW(ptr noundef %33, ptr noundef %memory), !range !5
+  %37 = load ptr, ptr %state, align 8
+  %call.i265 = call i32 @uriFreeUriMembersMmW(ptr noundef %37, ptr noundef %memory), !range !5
   %errorPos1.i266 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i266, align 8
   %errorCode.i267 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3007,8 +2998,8 @@ if.end240:                                        ; preds = %if.end235
   br i1 %cmp242.not, label %if.end245, label %if.then244
 
 if.then244:                                       ; preds = %if.end240
-  %34 = load ptr, ptr %state, align 8
-  %call.i268 = call i32 @uriFreeUriMembersMmW(ptr noundef %34, ptr noundef %memory), !range !5
+  %38 = load ptr, ptr %state, align 8
+  %call.i268 = call i32 @uriFreeUriMembersMmW(ptr noundef %38, ptr noundef %memory), !range !5
   %errorPos1.i269 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i269, align 8
   %errorCode.i270 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3016,8 +3007,8 @@ if.then244:                                       ; preds = %if.end240
   br label %return
 
 if.end245:                                        ; preds = %if.end240
-  %35 = load i32, ptr %add.ptr241, align 4
-  %cmp247.not = icmp eq i32 %35, 58
+  %39 = load i32, ptr %add.ptr241, align 4
+  %cmp247.not = icmp eq i32 %39, 58
   br i1 %cmp247.not, label %if.then249, label %sw.epilog420
 
 if.then249:                                       ; preds = %if.end245
@@ -3025,8 +3016,8 @@ if.then249:                                       ; preds = %if.end245
   br i1 %tobool255.not, label %if.end257, label %if.then256
 
 if.then256:                                       ; preds = %if.then249
-  %36 = load ptr, ptr %state, align 8
-  %call.i271 = call i32 @uriFreeUriMembersMmW(ptr noundef %36, ptr noundef %memory), !range !5
+  %40 = load ptr, ptr %state, align 8
+  %call.i271 = call i32 @uriFreeUriMembersMmW(ptr noundef %40, ptr noundef %memory), !range !5
   %errorPos1.i272 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr241, ptr %errorPos1.i272, align 8
   %errorCode.i273 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3035,11 +3026,11 @@ if.then256:                                       ; preds = %if.then249
 
 if.end257:                                        ; preds = %if.then249
   %mul253 = shl nsw i32 %quadsDone.2, 1
-  %37 = load ptr, ptr %state, align 8
-  %ip6260 = getelementptr inbounds i8, ptr %37, i64 56
-  %38 = load ptr, ptr %ip6260, align 8
+  %41 = load ptr, ptr %state, align 8
+  %ip6260 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = load ptr, ptr %ip6260, align 8
   %idx.ext263 = sext i32 %mul253 to i64
-  %add.ptr264 = getelementptr inbounds i8, ptr %38, i64 %idx.ext263
+  %add.ptr264 = getelementptr inbounds i8, ptr %42, i64 %idx.ext263
   %sub265 = sub nsw i32 16, %mul253
   %conv266 = sext i32 %sub265 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr264, i8 0, i64 %conv266, i1 false)
@@ -3048,8 +3039,8 @@ if.end257:                                        ; preds = %if.then249
   br i1 %cmp268.not, label %if.end271, label %if.then270
 
 if.then270:                                       ; preds = %if.end257
-  %39 = load ptr, ptr %state, align 8
-  %call.i274 = call i32 @uriFreeUriMembersMmW(ptr noundef %39, ptr noundef %memory), !range !5
+  %43 = load ptr, ptr %state, align 8
+  %call.i274 = call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef %memory), !range !5
   %errorPos1.i275 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i275, align 8
   %errorCode.i276 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3057,13 +3048,13 @@ if.then270:                                       ; preds = %if.end257
   br label %return
 
 if.end271:                                        ; preds = %if.end257
-  %40 = load i32, ptr %add.ptr267, align 4
-  %cmp273 = icmp eq i32 %40, 58
+  %44 = load i32, ptr %add.ptr267, align 4
+  %cmp273 = icmp eq i32 %44, 58
   br i1 %cmp273, label %if.then275, label %sw.epilog420
 
 if.then275:                                       ; preds = %if.end271
-  %41 = load ptr, ptr %state, align 8
-  %call.i277 = call i32 @uriFreeUriMembersMmW(ptr noundef %41, ptr noundef %memory), !range !5
+  %45 = load ptr, ptr %state, align 8
+  %call.i277 = call i32 @uriFreeUriMembersMmW(ptr noundef %45, ptr noundef %memory), !range !5
   %errorPos1.i278 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr267, ptr %errorPos1.i278, align 8
   %errorCode.i279 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3080,15 +3071,14 @@ lor.lhs.false285:                                 ; preds = %sw.bb282
   %or.cond8 = select i1 %tobool286, i1 %cmp288, i1 false
   %tobool291 = icmp ne i32 %letterAmong.0, 0
   %or.cond9 = select i1 %or.cond8, i1 true, i1 %tobool291
-  %cmp293 = icmp eq i32 %digitCount.3, 0
-  %or.cond10 = select i1 %or.cond9, i1 true, i1 %cmp293
-  %cmp296 = icmp eq i32 %digitCount.3, 4
-  %or.cond11 = select i1 %or.cond10, i1 true, i1 %cmp296
+  %46 = and i32 %digitCount.3, -5
+  %47 = icmp eq i32 %46, 0
+  %or.cond11 = select i1 %or.cond9, i1 true, i1 %47
   br i1 %or.cond11, label %if.then298, label %if.else299
 
 if.then298:                                       ; preds = %lor.lhs.false285, %sw.bb282
-  %42 = load ptr, ptr %state, align 8
-  %call.i280 = call i32 @uriFreeUriMembersMmW(ptr noundef %42, ptr noundef %memory), !range !5
+  %48 = load ptr, ptr %state, align 8
+  %call.i280 = call i32 @uriFreeUriMembersMmW(ptr noundef %48, ptr noundef %memory), !range !5
   %errorPos1.i281 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i281, align 8
   %errorCode.i282 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3097,9 +3087,9 @@ if.then298:                                       ; preds = %lor.lhs.false285, %
 
 if.else299:                                       ; preds = %lor.lhs.false285
   %cmp300 = icmp sgt i32 %digitCount.3, 1
-  %43 = load i8, ptr %digitHistory, align 1
-  %conv304 = zext i8 %43 to i32
-  %cmp305 = icmp eq i8 %43, 0
+  %49 = load i8, ptr %digitHistory, align 1
+  %conv304 = zext i8 %49 to i32
+  %cmp305 = icmp eq i8 %49, 0
   %or.cond12 = select i1 %cmp300, i1 %cmp305, i1 false
   br i1 %or.cond12, label %if.then307, label %if.else311
 
@@ -3107,8 +3097,8 @@ if.then307:                                       ; preds = %if.else299
   %idx.ext308 = zext nneg i32 %digitCount.3 to i64
   %idx.neg309 = sub nsw i64 0, %idx.ext308
   %add.ptr310 = getelementptr inbounds i32, ptr %first.addr.2, i64 %idx.neg309
-  %44 = load ptr, ptr %state, align 8
-  %call.i283 = call i32 @uriFreeUriMembersMmW(ptr noundef %44, ptr noundef %memory), !range !5
+  %50 = load ptr, ptr %state, align 8
+  %call.i283 = call i32 @uriFreeUriMembersMmW(ptr noundef %50, ptr noundef %memory), !range !5
   %errorPos1.i284 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr310, ptr %errorPos1.i284, align 8
   %errorCode.i285 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3117,9 +3107,9 @@ if.then307:                                       ; preds = %if.else299
 
 if.else311:                                       ; preds = %if.else299
   %cmp312 = icmp sgt i32 %digitCount.3, 2
-  %45 = load i8, ptr %arrayidx315, align 1
-  %conv316 = zext i8 %45 to i32
-  %cmp317 = icmp eq i8 %45, 0
+  %51 = load i8, ptr %arrayidx315, align 1
+  %conv316 = zext i8 %51 to i32
+  %cmp317 = icmp eq i8 %51, 0
   %or.cond13 = select i1 %cmp312, i1 %cmp317, i1 false
   br i1 %or.cond13, label %if.then319, label %if.else324
 
@@ -3128,8 +3118,8 @@ if.then319:                                       ; preds = %if.else311
   %idx.neg321 = sub nsw i64 0, %idx.ext320
   %add.ptr322 = getelementptr inbounds i32, ptr %first.addr.2, i64 %idx.neg321
   %add.ptr323 = getelementptr inbounds i8, ptr %add.ptr322, i64 4
-  %46 = load ptr, ptr %state, align 8
-  %call.i286 = call i32 @uriFreeUriMembersMmW(ptr noundef %46, ptr noundef %memory), !range !5
+  %52 = load ptr, ptr %state, align 8
+  %call.i286 = call i32 @uriFreeUriMembersMmW(ptr noundef %52, ptr noundef %memory), !range !5
   %errorPos1.i287 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %add.ptr323, ptr %errorPos1.i287, align 8
   %errorCode.i288 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3144,16 +3134,16 @@ land.lhs.true327:                                 ; preds = %if.else324
   %mul330 = mul nuw nsw i32 %conv304, 100
   %mul333 = mul nuw nsw i32 %conv316, 10
   %add334 = add nuw nsw i32 %mul333, %mul330
-  %47 = load i8, ptr %arrayidx335, align 1
-  %conv336 = zext i8 %47 to i32
+  %53 = load i8, ptr %arrayidx335, align 1
+  %conv336 = zext i8 %53 to i32
   %add337 = add nuw nsw i32 %add334, %conv336
   %cmp338 = icmp ugt i32 %add337, 255
   br i1 %cmp338, label %if.then340, label %sw.epilog420.thread
 
 if.then340:                                       ; preds = %land.lhs.true327
-  %cmp343 = icmp ugt i8 %43, 2
-  %48 = load ptr, ptr %state, align 8
-  %call.i289 = call i32 @uriFreeUriMembersMmW(ptr noundef %48, ptr noundef %memory), !range !5
+  %cmp343 = icmp ugt i8 %49, 2
+  %54 = load ptr, ptr %state, align 8
+  %call.i289 = call i32 @uriFreeUriMembersMmW(ptr noundef %54, ptr noundef %memory), !range !5
   %errorPos1.i290 = getelementptr inbounds i8, ptr %state, i64 16
   br i1 %cmp343, label %if.then345, label %if.else347
 
@@ -3165,7 +3155,7 @@ if.then345:                                       ; preds = %if.then340
   br label %return
 
 if.else347:                                       ; preds = %if.then340
-  %cmp350 = icmp ugt i8 %45, 5
+  %cmp350 = icmp ugt i8 %51, 5
   %errorCode.i294 = getelementptr inbounds i8, ptr %state, i64 8
   br i1 %cmp350, label %if.then352, label %if.else354
 
@@ -3189,11 +3179,11 @@ land.lhs.true371:                                 ; preds = %sw.bb369
   %cmp372 = icmp eq i32 %quadsDone.1, 7
   %cmp375 = icmp sgt i32 %digitCount.3, 0
   %or.cond14 = select i1 %cmp372, i1 %cmp375, i1 false
-  %49 = load ptr, ptr %state, align 8
+  %55 = load ptr, ptr %state, align 8
   br i1 %or.cond14, label %if.else390, label %if.then377
 
 if.then377:                                       ; preds = %land.lhs.true371
-  %call.i298 = call i32 @uriFreeUriMembersMmW(ptr noundef %49, ptr noundef %memory), !range !5
+  %call.i298 = call i32 @uriFreeUriMembersMmW(ptr noundef %55, ptr noundef %memory), !range !5
   %errorPos1.i299 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i299, align 8
   %errorCode.i300 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3213,32 +3203,32 @@ if.then383:                                       ; preds = %if.end378
   br label %if.end401
 
 if.else390:                                       ; preds = %land.lhs.true371
-  %ip6394 = getelementptr inbounds i8, ptr %49, i64 56
-  %50 = load ptr, ptr %ip6394, align 8
-  %add.ptr399 = getelementptr inbounds i8, ptr %50, i64 14
+  %ip6394 = getelementptr inbounds i8, ptr %55, i64 56
+  %56 = load ptr, ptr %ip6394, align 8
+  %add.ptr399 = getelementptr inbounds i8, ptr %56, i64 14
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr399) #6
   br label %if.end401
 
 if.end401:                                        ; preds = %if.then383, %if.else390, %if.end378
   %quadsAfterZipperCount.4 = phi i32 [ %inc389, %if.then383 ], [ %quadsAfterZipperCount.1, %if.else390 ], [ %quadsAfterZipperCount.1, %if.end378 ]
-  %51 = load ptr, ptr %state, align 8
-  %ip6404 = getelementptr inbounds i8, ptr %51, i64 56
-  %52 = load ptr, ptr %ip6404, align 8
-  %add.ptr407 = getelementptr inbounds i8, ptr %52, i64 16
+  %57 = load ptr, ptr %state, align 8
+  %ip6404 = getelementptr inbounds i8, ptr %57, i64 56
+  %58 = load ptr, ptr %ip6404, align 8
+  %add.ptr407 = getelementptr inbounds i8, ptr %58, i64 16
   %mul408 = shl nsw i32 %quadsAfterZipperCount.4, 1
   %idx.ext409 = sext i32 %mul408 to i64
   %idx.neg410 = sub nsw i64 0, %idx.ext409
   %add.ptr411 = getelementptr inbounds i8, ptr %add.ptr407, i64 %idx.neg410
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr411, ptr nonnull align 1 %quadsAfterZipper, i64 %idx.ext409, i1 false)
-  %53 = load ptr, ptr %state, align 8
-  %afterLast417 = getelementptr inbounds i8, ptr %53, i64 40
+  %59 = load ptr, ptr %state, align 8
+  %afterLast417 = getelementptr inbounds i8, ptr %59, i64 40
   store ptr %first.addr.2, ptr %afterLast417, align 8
   %add.ptr418 = getelementptr inbounds i8, ptr %first.addr.2, i64 4
   br label %return
 
 sw.default419:                                    ; preds = %do.body
-  %54 = load ptr, ptr %state, align 8
-  %call.i301 = call i32 @uriFreeUriMembersMmW(ptr noundef %54, ptr noundef %memory), !range !5
+  %60 = load ptr, ptr %state, align 8
+  %call.i301 = call i32 @uriFreeUriMembersMmW(ptr noundef %60, ptr noundef %memory), !range !5
   %errorPos1.i302 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %first.addr.2, ptr %errorPos1.i302, align 8
   %errorCode.i303 = getelementptr inbounds i8, ptr %state, i64 8
@@ -3248,8 +3238,8 @@ sw.default419:                                    ; preds = %do.body
 sw.epilog420.sink.split:                          ; preds = %sw.bb201, %sw.bb190, %sw.bb179
   %.sink813 = phi i8 [ -87, %sw.bb179 ], [ -55, %sw.bb190 ], [ -48, %sw.bb201 ]
   %letterAmong.1.ph = phi i32 [ 1, %sw.bb179 ], [ 1, %sw.bb190 ], [ %letterAmong.0, %sw.bb201 ]
-  %55 = trunc i32 %27 to i8
-  %conv208 = add nsw i8 %.sink813, %55
+  %61 = trunc i32 %31 to i8
+  %conv208 = add nsw i8 %.sink813, %61
   %idxprom209 = sext i32 %digitCount.3 to i64
   %arrayidx210 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom209
   store i8 %conv208, ptr %arrayidx210, align 1
@@ -3269,18 +3259,18 @@ sw.epilog420:                                     ; preds = %sw.epilog420.sink.s
 
 sw.epilog420.thread:                              ; preds = %land.lhs.true327, %if.else324
   %call363 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3) #6
-  %56 = load ptr, ptr %state, align 8
-  %ip6366 = getelementptr inbounds i8, ptr %56, i64 56
-  %57 = load ptr, ptr %ip6366, align 8
-  %arrayidx368 = getelementptr inbounds i8, ptr %57, i64 12
+  %62 = load ptr, ptr %state, align 8
+  %ip6366 = getelementptr inbounds i8, ptr %62, i64 56
+  %63 = load ptr, ptr %ip6366, align 8
+  %arrayidx368 = getelementptr inbounds i8, ptr %63, i64 12
   store i8 %call363, ptr %arrayidx368, align 1
   %incdec.ptr421647 = getelementptr inbounds i8, ptr %first.addr.2, i64 4
   %cmp422.not648 = icmp ult ptr %incdec.ptr421647, %afterLast
   br i1 %cmp422.not648, label %if.end, label %if.then424
 
 if.then424:                                       ; preds = %sw.epilog420.thread, %sw.epilog420
-  %58 = load ptr, ptr %state, align 8
-  %call.i304 = call i32 @uriFreeUriMembersMmW(ptr noundef %58, ptr noundef %memory), !range !5
+  %64 = load ptr, ptr %state, align 8
+  %call.i304 = call i32 @uriFreeUriMembersMmW(ptr noundef %64, ptr noundef %memory), !range !5
   %errorPos1.i305 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %afterLast, ptr %errorPos1.i305, align 8
   %errorCode.i306 = getelementptr inbounds i8, ptr %state, i64 8

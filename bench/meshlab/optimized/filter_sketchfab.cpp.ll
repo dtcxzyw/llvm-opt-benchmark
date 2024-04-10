@@ -12987,208 +12987,205 @@ mz_zip_reader_is_file_a_directory.exit.thread:    ; preds = %20, %21, %24, %27, 
   %56 = and i32 %4, 1024
   %57 = icmp eq i32 %56, 0
   %58 = getelementptr inbounds i8, ptr %8, i64 14
-  br i1 %57, label %switch.early.test, label %60
-
-switch.early.test:                                ; preds = %55
   %59 = load i16, ptr %58, align 2
-  switch i16 %59, label %mz_zip_reader_is_file_a_directory.exit.thread131 [
-    i16 8, label %60
-    i16 0, label %60
-  ]
+  %60 = and i16 %59, -9
+  %61 = icmp ne i16 %60, 0
+  %or.cond9 = select i1 %57, i1 %61, i1 false
+  br i1 %or.cond9, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %62
 
-60:                                               ; preds = %switch.early.test, %switch.early.test, %55
-  %61 = getelementptr inbounds i8, ptr %8, i64 40
-  %62 = load i64, ptr %61, align 8
-  %63 = select i1 %57, i64 %62, i64 %19
-  %64 = icmp ugt i64 %63, %3
-  br i1 %64, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %65
+62:                                               ; preds = %55
+  %63 = getelementptr inbounds i8, ptr %8, i64 40
+  %64 = load i64, ptr %63, align 8
+  %65 = select i1 %57, i64 %64, i64 %19
+  %66 = icmp ugt i64 %65, %3
+  br i1 %66, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %67
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %8, i64 56
-  %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 64
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 80
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds i8, ptr %8, i64 56
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 64
   %71 = load ptr, ptr %70, align 8
-  %72 = call noundef i64 %69(ptr noundef %71, i64 noundef %67, ptr noundef nonnull %9, i64 noundef 30)
-  %.not116 = icmp eq i64 %72, 30
-  %73 = load i32, ptr %9, align 16
-  %.not117 = icmp eq i32 %73, 67324752
+  %72 = getelementptr inbounds i8, ptr %0, i64 80
+  %73 = load ptr, ptr %72, align 8
+  %74 = call noundef i64 %71(ptr noundef %73, i64 noundef %69, ptr noundef nonnull %9, i64 noundef 30)
+  %.not116 = icmp eq i64 %74, 30
+  %75 = load i32, ptr %9, align 16
+  %.not117 = icmp eq i32 %75, 67324752
   %or.cond128 = select i1 %.not116, i1 %.not117, i1 false
-  br i1 %or.cond128, label %74, label %mz_zip_reader_is_file_a_directory.exit.thread131
+  br i1 %or.cond128, label %76, label %mz_zip_reader_is_file_a_directory.exit.thread131
 
-74:                                               ; preds = %65
-  %75 = getelementptr inbounds i8, ptr %9, i64 26
-  %76 = load i16, ptr %75, align 2
-  %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %9, i64 28
-  %79 = load i16, ptr %78, align 4
-  %80 = zext i16 %79 to i64
-  %81 = add i64 %67, 30
-  %82 = add i64 %81, %77
-  %83 = add i64 %82, %80
-  %84 = load i64, ptr %18, align 8
-  %85 = add i64 %83, %84
-  %86 = load i64, ptr %0, align 8
-  %87 = icmp ugt i64 %85, %86
-  br i1 %87, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %88
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds i8, ptr %9, i64 26
+  %78 = load i16, ptr %77, align 2
+  %79 = zext i16 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %9, i64 28
+  %81 = load i16, ptr %80, align 4
+  %82 = zext i16 %81 to i64
+  %83 = add i64 %69, 30
+  %84 = add i64 %83, %79
+  %85 = add i64 %84, %82
+  %86 = load i64, ptr %18, align 8
+  %87 = add i64 %85, %86
+  %88 = load i64, ptr %0, align 8
+  %89 = icmp ugt i64 %87, %88
+  br i1 %89, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %90
 
-88:                                               ; preds = %74
-  %89 = load i16, ptr %58, align 2
-  %90 = icmp ne i16 %89, 0
-  %or.cond12 = select i1 %57, i1 %90, i1 false
-  br i1 %or.cond12, label %103, label %91
+90:                                               ; preds = %76
+  %91 = load i16, ptr %58, align 2
+  %92 = icmp ne i16 %91, 0
+  %or.cond12 = select i1 %57, i1 %92, i1 false
+  br i1 %or.cond12, label %105, label %93
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %68, align 8
-  %93 = load ptr, ptr %70, align 8
-  %94 = call noundef i64 %92(ptr noundef %93, i64 noundef %83, ptr noundef %2, i64 noundef %63)
-  %.not118 = icmp eq i64 %94, %63
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %70, align 8
+  %95 = load ptr, ptr %72, align 8
+  %96 = call noundef i64 %94(ptr noundef %95, i64 noundef %85, ptr noundef %2, i64 noundef %65)
+  %.not118 = icmp eq i64 %96, %65
   %brmerge.not = and i1 %57, %.not118
   %.mux = zext i1 %.not118 to i32
-  br i1 %brmerge.not, label %95, label %mz_zip_reader_is_file_a_directory.exit.thread131
+  br i1 %brmerge.not, label %97, label %mz_zip_reader_is_file_a_directory.exit.thread131
 
-95:                                               ; preds = %91
-  %96 = load i64, ptr %61, align 8
-  %97 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %2, i64 noundef %96), !range !17
-  %98 = getelementptr inbounds i8, ptr %8, i64 24
-  %99 = load i32, ptr %98, align 8
-  %100 = zext i32 %99 to i64
-  %101 = icmp eq i64 %97, %100
-  %102 = zext i1 %101 to i32
+97:                                               ; preds = %93
+  %98 = load i64, ptr %63, align 8
+  %99 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %2, i64 noundef %98), !range !17
+  %100 = getelementptr inbounds i8, ptr %8, i64 24
+  %101 = load i32, ptr %100, align 8
+  %102 = zext i32 %101 to i64
+  %103 = icmp eq i64 %99, %102
+  %104 = zext i1 %103 to i32
   br label %mz_zip_reader_is_file_a_directory.exit.thread131
 
-103:                                              ; preds = %88
+105:                                              ; preds = %90
   store i32 0, ptr %10, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 88
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 104
+  %106 = getelementptr inbounds i8, ptr %0, i64 88
   %107 = load ptr, ptr %106, align 8
-  %.not119 = icmp eq ptr %107, null
-  br i1 %.not119, label %110, label %108
+  %108 = getelementptr inbounds i8, ptr %107, i64 104
+  %109 = load ptr, ptr %108, align 8
+  %.not119 = icmp eq ptr %109, null
+  br i1 %.not119, label %112, label %110
 
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %107, i64 %83
-  br label %122
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds i8, ptr %109, i64 %85
+  br label %124
 
-110:                                              ; preds = %103
+112:                                              ; preds = %105
   %.not120 = icmp eq ptr %5, null
-  br i1 %.not120, label %112, label %111
+  br i1 %.not120, label %114, label %113
 
-111:                                              ; preds = %110
+113:                                              ; preds = %112
   %.not121 = icmp eq i64 %6, 0
-  br i1 %.not121, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %122
+  br i1 %.not121, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %124
 
-112:                                              ; preds = %110
-  %113 = call i64 @llvm.umin.i64(i64 %84, i64 65536)
-  %114 = getelementptr inbounds i8, ptr %0, i64 32
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 56
+114:                                              ; preds = %112
+  %115 = call i64 @llvm.umin.i64(i64 %86, i64 65536)
+  %116 = getelementptr inbounds i8, ptr %0, i64 32
   %117 = load ptr, ptr %116, align 8
-  %118 = call noundef ptr %115(ptr noundef %117, i64 noundef 1, i64 noundef %113)
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %120
+  %118 = getelementptr inbounds i8, ptr %0, i64 56
+  %119 = load ptr, ptr %118, align 8
+  %120 = call noundef ptr %117(ptr noundef %119, i64 noundef 1, i64 noundef %115)
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %122
 
-120:                                              ; preds = %112
-  %121 = load i64, ptr %18, align 8
-  br label %122
+122:                                              ; preds = %114
+  %123 = load i64, ptr %18, align 8
+  br label %124
 
-122:                                              ; preds = %111, %120, %108
-  %.097 = phi i64 [ 0, %108 ], [ %121, %120 ], [ %84, %111 ]
-  %.094 = phi i64 [ %84, %108 ], [ %113, %120 ], [ %6, %111 ]
-  %.091 = phi i64 [ %84, %108 ], [ 0, %120 ], [ 0, %111 ]
-  %.090 = phi ptr [ %109, %108 ], [ %118, %120 ], [ %5, %111 ]
-  br label %123
+124:                                              ; preds = %113, %122, %110
+  %.097 = phi i64 [ 0, %110 ], [ %123, %122 ], [ %86, %113 ]
+  %.094 = phi i64 [ %86, %110 ], [ %115, %122 ], [ %6, %113 ]
+  %.091 = phi i64 [ %86, %110 ], [ 0, %122 ], [ 0, %113 ]
+  %.090 = phi ptr [ %111, %110 ], [ %120, %122 ], [ %5, %113 ]
+  br label %125
 
-123:                                              ; preds = %138, %122
-  %.0100 = phi i64 [ %83, %122 ], [ %.1101, %138 ]
-  %.198 = phi i64 [ %.097, %122 ], [ %.299, %138 ]
-  %.095 = phi i64 [ 0, %122 ], [ %147, %138 ]
-  %.092 = phi i64 [ 0, %122 ], [ %145, %138 ]
-  %.1 = phi i64 [ %.091, %122 ], [ %144, %138 ]
-  %124 = load i64, ptr %61, align 8
-  %125 = sub i64 %124, %.095
-  store i64 %125, ptr %12, align 8
+125:                                              ; preds = %140, %124
+  %.0100 = phi i64 [ %85, %124 ], [ %.1101, %140 ]
+  %.198 = phi i64 [ %.097, %124 ], [ %.299, %140 ]
+  %.095 = phi i64 [ 0, %124 ], [ %149, %140 ]
+  %.092 = phi i64 [ 0, %124 ], [ %147, %140 ]
+  %.1 = phi i64 [ %.091, %124 ], [ %146, %140 ]
+  %126 = load i64, ptr %63, align 8
+  %127 = sub i64 %126, %.095
+  store i64 %127, ptr %12, align 8
   %.not122 = icmp eq i64 %.1, 0
-  br i1 %.not122, label %126, label %138
+  br i1 %.not122, label %128, label %140
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr %104, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 104
-  %129 = load ptr, ptr %128, align 8
-  %.not123 = icmp eq ptr %129, null
-  br i1 %.not123, label %130, label %138
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %106, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 104
+  %131 = load ptr, ptr %130, align 8
+  %.not123 = icmp eq ptr %131, null
+  br i1 %.not123, label %132, label %140
 
-130:                                              ; preds = %126
-  %131 = call i64 @llvm.umin.i64(i64 %.094, i64 %.198)
-  %132 = load ptr, ptr %68, align 8
-  %133 = load ptr, ptr %70, align 8
-  %134 = call noundef i64 %132(ptr noundef %133, i64 noundef %.0100, ptr noundef %.090, i64 noundef %131)
-  %.not124 = icmp eq i64 %134, %131
-  br i1 %.not124, label %135, label %.thread
+132:                                              ; preds = %128
+  %133 = call i64 @llvm.umin.i64(i64 %.094, i64 %.198)
+  %134 = load ptr, ptr %70, align 8
+  %135 = load ptr, ptr %72, align 8
+  %136 = call noundef i64 %134(ptr noundef %135, i64 noundef %.0100, ptr noundef %.090, i64 noundef %133)
+  %.not124 = icmp eq i64 %136, %133
+  br i1 %.not124, label %137, label %.thread
 
-135:                                              ; preds = %130
-  %136 = add i64 %131, %.0100
-  %137 = sub i64 %.198, %131
-  br label %138
+137:                                              ; preds = %132
+  %138 = add i64 %133, %.0100
+  %139 = sub i64 %.198, %133
+  br label %140
 
-138:                                              ; preds = %135, %126, %123
-  %.1101 = phi i64 [ %.0100, %123 ], [ %.0100, %126 ], [ %136, %135 ]
-  %.299 = phi i64 [ %.198, %123 ], [ %.198, %126 ], [ %137, %135 ]
-  %.193 = phi i64 [ %.092, %123 ], [ %.092, %126 ], [ 0, %135 ]
-  %.2 = phi i64 [ %.1, %123 ], [ 0, %126 ], [ %131, %135 ]
+140:                                              ; preds = %137, %128, %125
+  %.1101 = phi i64 [ %.0100, %125 ], [ %.0100, %128 ], [ %138, %137 ]
+  %.299 = phi i64 [ %.198, %125 ], [ %.198, %128 ], [ %139, %137 ]
+  %.193 = phi i64 [ %.092, %125 ], [ %.092, %128 ], [ 0, %137 ]
+  %.2 = phi i64 [ %.1, %125 ], [ 0, %128 ], [ %133, %137 ]
   store i64 %.2, ptr %11, align 8
-  %139 = getelementptr inbounds i8, ptr %.090, i64 %.193
-  %140 = getelementptr inbounds i8, ptr %2, i64 %.095
+  %141 = getelementptr inbounds i8, ptr %.090, i64 %.193
+  %142 = getelementptr inbounds i8, ptr %2, i64 %.095
   %.not125 = icmp eq i64 %.299, 0
-  %141 = select i1 %.not125, i32 4, i32 6
-  %142 = call i32 @tinfl_decompress(ptr noundef nonnull %10, ptr noundef %139, ptr noundef nonnull %11, ptr noundef %2, ptr noundef %140, ptr noundef nonnull %12, i32 noundef %141)
-  %143 = load i64, ptr %11, align 8
-  %144 = sub i64 %.2, %143
-  %145 = add i64 %143, %.193
-  %146 = load i64, ptr %12, align 8
-  %147 = add i64 %146, %.095
-  switch i32 %142, label %.thread [
-    i32 1, label %123
-    i32 0, label %148
+  %143 = select i1 %.not125, i32 4, i32 6
+  %144 = call i32 @tinfl_decompress(ptr noundef nonnull %10, ptr noundef %141, ptr noundef nonnull %11, ptr noundef %2, ptr noundef %142, ptr noundef nonnull %12, i32 noundef %143)
+  %145 = load i64, ptr %11, align 8
+  %146 = sub i64 %.2, %145
+  %147 = add i64 %145, %.193
+  %148 = load i64, ptr %12, align 8
+  %149 = add i64 %148, %.095
+  switch i32 %144, label %.thread [
+    i32 1, label %125
+    i32 0, label %150
   ]
 
-148:                                              ; preds = %138
-  %149 = load i64, ptr %61, align 8
-  %.not126 = icmp eq i64 %147, %149
-  br i1 %.not126, label %150, label %155
+150:                                              ; preds = %140
+  %151 = load i64, ptr %63, align 8
+  %.not126 = icmp eq i64 %149, %151
+  br i1 %.not126, label %152, label %157
 
-150:                                              ; preds = %148
-  %151 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %2, i64 noundef %147), !range !17
-  %152 = getelementptr inbounds i8, ptr %8, i64 24
-  %153 = load i32, ptr %152, align 8
-  %154 = zext i32 %153 to i64
-  %.not127 = icmp eq i64 %151, %154
-  br i1 %.not127, label %.thread, label %155
+152:                                              ; preds = %150
+  %153 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %2, i64 noundef %149), !range !17
+  %154 = getelementptr inbounds i8, ptr %8, i64 24
+  %155 = load i32, ptr %154, align 8
+  %156 = zext i32 %155 to i64
+  %.not127 = icmp eq i64 %153, %156
+  br i1 %.not127, label %.thread, label %157
 
-155:                                              ; preds = %150, %148
+157:                                              ; preds = %152, %150
   br label %.thread
 
-.thread:                                          ; preds = %138, %130, %150, %155
-  %.1103 = phi i32 [ 0, %155 ], [ 1, %150 ], [ 0, %130 ], [ 0, %138 ]
-  %156 = load ptr, ptr %104, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 104
-  %158 = load ptr, ptr %157, align 8
-  %159 = icmp ne ptr %158, null
-  %160 = icmp ne ptr %5, null
-  %or.cond14 = or i1 %160, %159
-  br i1 %or.cond14, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %161
+.thread:                                          ; preds = %140, %132, %152, %157
+  %.1103 = phi i32 [ 0, %157 ], [ 1, %152 ], [ 0, %132 ], [ 0, %140 ]
+  %158 = load ptr, ptr %106, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 104
+  %160 = load ptr, ptr %159, align 8
+  %161 = icmp ne ptr %160, null
+  %162 = icmp ne ptr %5, null
+  %or.cond14 = or i1 %162, %161
+  br i1 %or.cond14, label %mz_zip_reader_is_file_a_directory.exit.thread131, label %163
 
-161:                                              ; preds = %.thread
-  %162 = getelementptr inbounds i8, ptr %0, i64 40
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 56
+163:                                              ; preds = %.thread
+  %164 = getelementptr inbounds i8, ptr %0, i64 40
   %165 = load ptr, ptr %164, align 8
-  call void %163(ptr noundef %165, ptr noundef %.090)
+  %166 = getelementptr inbounds i8, ptr %0, i64 56
+  %167 = load ptr, ptr %166, align 8
+  call void %165(ptr noundef %167, ptr noundef %.090)
   br label %mz_zip_reader_is_file_a_directory.exit.thread131
 
-mz_zip_reader_is_file_a_directory.exit.thread131: ; preds = %42, %91, %.thread, %161, %112, %111, %95, %74, %65, %60, %switch.early.test, %mz_zip_reader_is_file_a_directory.exit.thread, %mz_zip_reader_is_file_a_directory.exit, %17, %15, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 1, %17 ], [ 1, %mz_zip_reader_is_file_a_directory.exit ], [ 0, %mz_zip_reader_is_file_a_directory.exit.thread ], [ 0, %switch.early.test ], [ 0, %60 ], [ 0, %65 ], [ 0, %74 ], [ %.mux, %91 ], [ %102, %95 ], [ 0, %111 ], [ 0, %112 ], [ %.1103, %161 ], [ %.1103, %.thread ], [ 1, %42 ]
+mz_zip_reader_is_file_a_directory.exit.thread131: ; preds = %42, %93, %.thread, %163, %114, %113, %97, %76, %67, %62, %55, %mz_zip_reader_is_file_a_directory.exit.thread, %mz_zip_reader_is_file_a_directory.exit, %17, %15, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 1, %17 ], [ 1, %mz_zip_reader_is_file_a_directory.exit ], [ 0, %mz_zip_reader_is_file_a_directory.exit.thread ], [ 0, %55 ], [ 0, %62 ], [ 0, %67 ], [ 0, %76 ], [ %.mux, %93 ], [ %104, %97 ], [ 0, %113 ], [ 0, %114 ], [ %.1103, %163 ], [ %.1103, %.thread ], [ 1, %42 ]
   ret i32 %.0
 }
 
@@ -13426,13 +13423,13 @@ define i32 @mz_zip_reader_extract_to_callback(ptr noundef %0, i32 noundef %1, pt
   %10 = alloca i64, align 8
   %11 = call i32 @mz_zip_reader_file_stat(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6), !range !16
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %mz_zip_reader_is_file_a_directory.exit.thread183, label %12
+  br i1 %.not, label %mz_zip_reader_is_file_a_directory.exit.thread182, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %6, i64 32
   %14 = load i64, ptr %13, align 8
   %.not154 = icmp eq i64 %14, 0
-  br i1 %.not154, label %mz_zip_reader_is_file_a_directory.exit.thread183, label %15
+  br i1 %.not154, label %mz_zip_reader_is_file_a_directory.exit.thread182, label %15
 
 15:                                               ; preds = %12
   %.not.i = icmp eq ptr %0, null
@@ -13481,348 +13478,317 @@ define i32 @mz_zip_reader_extract_to_callback(ptr noundef %0, i32 noundef %1, pt
   %41 = getelementptr inbounds i8, ptr %40, i64 -1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 47
-  br i1 %43, label %mz_zip_reader_is_file_a_directory.exit.thread183, label %mz_zip_reader_is_file_a_directory.exit
+  br i1 %43, label %mz_zip_reader_is_file_a_directory.exit.thread182, label %mz_zip_reader_is_file_a_directory.exit
 
 mz_zip_reader_is_file_a_directory.exit:           ; preds = %34, %37
   %44 = getelementptr inbounds i8, ptr %33, i64 38
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 16
   %.not155 = icmp eq i32 %46, 0
-  br i1 %.not155, label %mz_zip_reader_is_file_a_directory.exit.thread, label %mz_zip_reader_is_file_a_directory.exit.thread183
+  br i1 %.not155, label %mz_zip_reader_is_file_a_directory.exit.thread, label %mz_zip_reader_is_file_a_directory.exit.thread182
 
 mz_zip_reader_is_file_a_directory.exit.thread:    ; preds = %15, %16, %19, %22, %25, %mz_zip_reader_is_file_a_directory.exit
   %47 = getelementptr inbounds i8, ptr %6, i64 12
   %48 = load i16, ptr %47, align 4
   %49 = and i16 %48, 33
   %.not156 = icmp eq i16 %49, 0
-  br i1 %.not156, label %50, label %mz_zip_reader_is_file_a_directory.exit.thread183
+  br i1 %.not156, label %50, label %mz_zip_reader_is_file_a_directory.exit.thread182
 
 50:                                               ; preds = %mz_zip_reader_is_file_a_directory.exit.thread
   %51 = and i32 %4, 1024
   %52 = icmp eq i32 %51, 0
   %53 = getelementptr inbounds i8, ptr %6, i64 14
-  br i1 %52, label %switch.early.test, label %55
-
-switch.early.test:                                ; preds = %50
   %54 = load i16, ptr %53, align 2
-  switch i16 %54, label %mz_zip_reader_is_file_a_directory.exit.thread183 [
-    i16 8, label %55
-    i16 0, label %55
-  ]
+  %55 = and i16 %54, -9
+  %56 = icmp ne i16 %55, 0
+  %or.cond7 = select i1 %52, i1 %56, i1 false
+  br i1 %or.cond7, label %mz_zip_reader_is_file_a_directory.exit.thread182, label %57
 
-55:                                               ; preds = %switch.early.test, %switch.early.test, %50
-  %56 = getelementptr inbounds i8, ptr %6, i64 56
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 64
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+57:                                               ; preds = %50
+  %58 = getelementptr inbounds i8, ptr %6, i64 56
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 64
   %61 = load ptr, ptr %60, align 8
-  %62 = call noundef i64 %59(ptr noundef %61, i64 noundef %57, ptr noundef nonnull %7, i64 noundef 30)
-  %.not157 = icmp eq i64 %62, 30
-  %63 = load i32, ptr %7, align 16
-  %.not158 = icmp eq i32 %63, 67324752
+  %62 = getelementptr inbounds i8, ptr %0, i64 80
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef i64 %61(ptr noundef %63, i64 noundef %59, ptr noundef nonnull %7, i64 noundef 30)
+  %.not157 = icmp eq i64 %64, 30
+  %65 = load i32, ptr %7, align 16
+  %.not158 = icmp eq i32 %65, 67324752
   %or.cond179 = select i1 %.not157, i1 %.not158, i1 false
-  br i1 %or.cond179, label %64, label %mz_zip_reader_is_file_a_directory.exit.thread183
+  br i1 %or.cond179, label %66, label %mz_zip_reader_is_file_a_directory.exit.thread182
 
-64:                                               ; preds = %55
-  %65 = getelementptr inbounds i8, ptr %7, i64 26
-  %66 = load i16, ptr %65, align 2
-  %67 = zext i16 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %7, i64 28
-  %69 = load i16, ptr %68, align 4
-  %70 = zext i16 %69 to i64
-  %71 = add i64 %57, 30
-  %72 = add i64 %71, %67
-  %73 = add i64 %72, %70
-  %74 = load i64, ptr %13, align 8
-  %75 = add i64 %73, %74
-  %76 = load i64, ptr %0, align 8
-  %77 = icmp ugt i64 %75, %76
-  br i1 %77, label %mz_zip_reader_is_file_a_directory.exit.thread183, label %78
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds i8, ptr %7, i64 26
+  %68 = load i16, ptr %67, align 2
+  %69 = zext i16 %68 to i64
+  %70 = getelementptr inbounds i8, ptr %7, i64 28
+  %71 = load i16, ptr %70, align 4
+  %72 = zext i16 %71 to i64
+  %73 = add i64 %59, 30
+  %74 = add i64 %73, %69
+  %75 = add i64 %74, %72
+  %76 = load i64, ptr %13, align 8
+  %77 = add i64 %75, %76
+  %78 = load i64, ptr %0, align 8
+  %79 = icmp ugt i64 %77, %78
+  br i1 %79, label %mz_zip_reader_is_file_a_directory.exit.thread182, label %80
 
-78:                                               ; preds = %64
-  %79 = getelementptr inbounds i8, ptr %0, i64 88
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 104
+80:                                               ; preds = %66
+  %81 = getelementptr inbounds i8, ptr %0, i64 88
   %82 = load ptr, ptr %81, align 8
-  %.not159 = icmp eq ptr %82, null
-  br i1 %.not159, label %85, label %83
+  %83 = getelementptr inbounds i8, ptr %82, i64 104
+  %84 = load ptr, ptr %83, align 8
+  %.not159 = icmp eq ptr %84, null
+  br i1 %.not159, label %87, label %85
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %82, i64 %73
-  br label %95
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds i8, ptr %84, i64 %75
+  br label %97
 
-85:                                               ; preds = %78
-  %86 = call i64 @llvm.umin.i64(i64 %74, i64 65536)
-  %87 = getelementptr inbounds i8, ptr %0, i64 32
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 56
+87:                                               ; preds = %80
+  %88 = call i64 @llvm.umin.i64(i64 %76, i64 65536)
+  %89 = getelementptr inbounds i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8
-  %91 = call noundef ptr %88(ptr noundef %90, i64 noundef 1, i64 noundef %86)
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %mz_zip_reader_is_file_a_directory.exit.thread183, label %93
+  %91 = getelementptr inbounds i8, ptr %0, i64 56
+  %92 = load ptr, ptr %91, align 8
+  %93 = call noundef ptr %90(ptr noundef %92, i64 noundef 1, i64 noundef %88)
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %mz_zip_reader_is_file_a_directory.exit.thread182, label %95
 
-93:                                               ; preds = %85
-  %94 = load i64, ptr %13, align 8
-  br label %95
+95:                                               ; preds = %87
+  %96 = load i64, ptr %13, align 8
+  br label %97
 
-95:                                               ; preds = %93, %83
-  %96 = phi i64 [ %74, %83 ], [ %94, %93 ]
-  %.0138 = phi i64 [ %74, %83 ], [ %86, %93 ]
-  %.0133 = phi i64 [ %74, %83 ], [ 0, %93 ]
-  %.0129 = phi i64 [ 0, %83 ], [ %94, %93 ]
-  %.0122 = phi ptr [ %84, %83 ], [ %91, %93 ]
-  %97 = load i16, ptr %53, align 2
-  %98 = icmp ne i16 %97, 0
-  %or.cond10 = select i1 %52, i1 %98, i1 false
-  br i1 %or.cond10, label %129, label %99
+97:                                               ; preds = %95, %85
+  %98 = phi i64 [ %76, %85 ], [ %96, %95 ]
+  %.0138 = phi i64 [ %76, %85 ], [ %88, %95 ]
+  %.0133 = phi i64 [ %76, %85 ], [ 0, %95 ]
+  %.0129 = phi i64 [ 0, %85 ], [ %96, %95 ]
+  %.0122 = phi ptr [ %86, %85 ], [ %93, %95 ]
+  %99 = load i16, ptr %53, align 2
+  %100 = icmp ne i16 %99, 0
+  %or.cond10 = select i1 %52, i1 %100, i1 false
+  br i1 %or.cond10, label %131, label %101
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %79, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 104
-  %102 = load ptr, ptr %101, align 8
-  %.not160 = icmp eq ptr %102, null
-  br i1 %.not160, label %.preheader211, label %114
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %81, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 104
+  %104 = load ptr, ptr %103, align 8
+  %.not160 = icmp eq ptr %104, null
+  br i1 %.not160, label %.preheader210, label %116
 
-.preheader211:                                    ; preds = %99
-  %.not161216 = icmp eq i64 %.0129, 0
-  br i1 %.not161216, label %.thread192, label %.lr.ph
+.preheader210:                                    ; preds = %101
+  %.not161214 = icmp eq i64 %.0129, 0
+  br i1 %.not161214, label %.thread191, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader211
+.lr.ph:                                           ; preds = %.preheader210
   br i1 %52, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %110
-  %.0123220.us = phi i64 [ %111, %110 ], [ %73, %.lr.ph ]
-  %.0126219.us = phi i64 [ %112, %110 ], [ 0, %.lr.ph ]
-  %.1130218.us = phi i64 [ %113, %110 ], [ %.0129, %.lr.ph ]
-  %.1140217.us = phi i64 [ %108, %110 ], [ 0, %.lr.ph ]
-  %103 = call i64 @llvm.umin.i64(i64 %.0138, i64 %.1130218.us)
-  %104 = load ptr, ptr %58, align 8
-  %105 = load ptr, ptr %60, align 8
-  %106 = call noundef i64 %104(ptr noundef %105, i64 noundef %.0123220.us, ptr noundef %.0122, i64 noundef %103)
-  %.not162.us = icmp eq i64 %106, %103
-  br i1 %.not162.us, label %107, label %.thread
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %112
+  %.0123218.us = phi i64 [ %113, %112 ], [ %75, %.lr.ph ]
+  %.0126217.us = phi i64 [ %114, %112 ], [ 0, %.lr.ph ]
+  %.1130216.us = phi i64 [ %115, %112 ], [ %.0129, %.lr.ph ]
+  %.1140215.us = phi i64 [ %110, %112 ], [ 0, %.lr.ph ]
+  %105 = call i64 @llvm.umin.i64(i64 %.0138, i64 %.1130216.us)
+  %106 = load ptr, ptr %60, align 8
+  %107 = load ptr, ptr %62, align 8
+  %108 = call noundef i64 %106(ptr noundef %107, i64 noundef %.0123218.us, ptr noundef %.0122, i64 noundef %105)
+  %.not162.us = icmp eq i64 %108, %105
+  br i1 %.not162.us, label %109, label %.thread
 
-107:                                              ; preds = %.lr.ph.split.us
-  %108 = call i64 @mz_crc32(i64 noundef %.1140217.us, ptr noundef %.0122, i64 noundef %103), !range !17
-  %109 = call noundef i64 %2(ptr noundef %3, i64 noundef %.0126219.us, ptr noundef %.0122, i64 noundef %103)
-  %.not164.us = icmp eq i64 %109, %103
-  br i1 %.not164.us, label %110, label %.thread
+109:                                              ; preds = %.lr.ph.split.us
+  %110 = call i64 @mz_crc32(i64 noundef %.1140215.us, ptr noundef %.0122, i64 noundef %105), !range !17
+  %111 = call noundef i64 %2(ptr noundef %3, i64 noundef %.0126217.us, ptr noundef %.0122, i64 noundef %105)
+  %.not164.us = icmp eq i64 %111, %105
+  br i1 %.not164.us, label %112, label %.thread
 
-110:                                              ; preds = %107
-  %111 = add i64 %.0123220.us, %103
-  %112 = add i64 %.0126219.us, %103
-  %113 = sub i64 %.1130218.us, %103
-  %.not161.us = icmp eq i64 %113, 0
-  br i1 %.not161.us, label %.thread192.loopexit, label %.lr.ph.split.us, !llvm.loop !198
+112:                                              ; preds = %109
+  %113 = add i64 %.0123218.us, %105
+  %114 = add i64 %.0126217.us, %105
+  %115 = sub i64 %.1130216.us, %105
+  %.not161.us = icmp eq i64 %115, 0
+  br i1 %.not161.us, label %.thread191.loopexit, label %.lr.ph.split.us, !llvm.loop !198
 
-114:                                              ; preds = %99
-  %115 = call noundef i64 %2(ptr noundef %3, i64 noundef 0, ptr noundef %.0122, i64 noundef %96)
-  %116 = load i64, ptr %13, align 8
-  %.not165 = icmp eq i64 %115, %116
+116:                                              ; preds = %101
+  %117 = call noundef i64 %2(ptr noundef %3, i64 noundef 0, ptr noundef %.0122, i64 noundef %98)
+  %118 = load i64, ptr %13, align 8
+  %.not165 = icmp eq i64 %117, %118
   %brmerge.not = and i1 %52, %.not165
-  br i1 %brmerge.not, label %.thread192.thread, label %.thread
+  br i1 %brmerge.not, label %.thread191.thread, label %.thread
 
-.thread192.thread:                                ; preds = %114
-  %117 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %.0122, i64 noundef %115), !range !17
-  %118 = trunc i64 %117 to i32
-  br label %193
+.thread191.thread:                                ; preds = %116
+  %119 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %.0122, i64 noundef %117), !range !17
+  %120 = trunc i64 %119 to i32
+  br label %178
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %125
-  %.0123220 = phi i64 [ %126, %125 ], [ %73, %.lr.ph ]
-  %.0126219 = phi i64 [ %127, %125 ], [ 0, %.lr.ph ]
-  %.1130218 = phi i64 [ %128, %125 ], [ %.0129, %.lr.ph ]
-  %119 = call i64 @llvm.umin.i64(i64 %.0138, i64 %.1130218)
-  %120 = load ptr, ptr %58, align 8
-  %121 = load ptr, ptr %60, align 8
-  %122 = call noundef i64 %120(ptr noundef %121, i64 noundef %.0123220, ptr noundef %.0122, i64 noundef %119)
-  %.not162 = icmp eq i64 %122, %119
-  br i1 %.not162, label %123, label %.thread
+.lr.ph.split:                                     ; preds = %.lr.ph, %127
+  %.0123218 = phi i64 [ %128, %127 ], [ %75, %.lr.ph ]
+  %.0126217 = phi i64 [ %129, %127 ], [ 0, %.lr.ph ]
+  %.1130216 = phi i64 [ %130, %127 ], [ %.0129, %.lr.ph ]
+  %121 = call i64 @llvm.umin.i64(i64 %.0138, i64 %.1130216)
+  %122 = load ptr, ptr %60, align 8
+  %123 = load ptr, ptr %62, align 8
+  %124 = call noundef i64 %122(ptr noundef %123, i64 noundef %.0123218, ptr noundef %.0122, i64 noundef %121)
+  %.not162 = icmp eq i64 %124, %121
+  br i1 %.not162, label %125, label %.thread
 
-123:                                              ; preds = %.lr.ph.split
-  %124 = call noundef i64 %2(ptr noundef %3, i64 noundef %.0126219, ptr noundef %.0122, i64 noundef %119)
-  %.not164 = icmp eq i64 %124, %119
-  br i1 %.not164, label %125, label %.thread
+125:                                              ; preds = %.lr.ph.split
+  %126 = call noundef i64 %2(ptr noundef %3, i64 noundef %.0126217, ptr noundef %.0122, i64 noundef %121)
+  %.not164 = icmp eq i64 %126, %121
+  br i1 %.not164, label %127, label %.thread
 
-125:                                              ; preds = %123
-  %126 = add i64 %.0123220, %119
-  %127 = add i64 %.0126219, %119
-  %128 = sub i64 %.1130218, %119
-  %.not161 = icmp eq i64 %128, 0
-  br i1 %.not161, label %.thread192, label %.lr.ph.split, !llvm.loop !198
+127:                                              ; preds = %125
+  %128 = add i64 %.0123218, %121
+  %129 = add i64 %.0126217, %121
+  %130 = sub i64 %.1130216, %121
+  %.not161 = icmp eq i64 %130, 0
+  br i1 %.not161, label %.thread191, label %.lr.ph.split, !llvm.loop !198
 
-129:                                              ; preds = %95
+131:                                              ; preds = %97
   store i32 0, ptr %8, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 56
+  %132 = getelementptr inbounds i8, ptr %0, i64 32
   %133 = load ptr, ptr %132, align 8
-  %134 = call noundef ptr %131(ptr noundef %133, i64 noundef 1, i64 noundef 32768)
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %.thread, label %.preheader
+  %134 = getelementptr inbounds i8, ptr %0, i64 56
+  %135 = load ptr, ptr %134, align 8
+  %136 = call noundef ptr %133(ptr noundef %135, i64 noundef 1, i64 noundef 32768)
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %6, i64 40
-  br label %137
+.preheader:                                       ; preds = %131
+  %138 = getelementptr inbounds i8, ptr %6, i64 40
+  br label %139
 
-137:                                              ; preds = %.preheader, %187
-  %.3142 = phi i32 [ %.4, %187 ], [ 0, %.preheader ]
-  %.0136 = phi i64 [ %159, %187 ], [ 0, %.preheader ]
-  %.1134 = phi i64 [ %158, %187 ], [ %.0133, %.preheader ]
-  %.2131 = phi i64 [ %.3132, %187 ], [ %.0129, %.preheader ]
-  %.1127 = phi i64 [ %.2128, %187 ], [ 0, %.preheader ]
-  %.1124 = phi i64 [ %.2125, %187 ], [ %73, %.preheader ]
-  %138 = and i64 %.1127, 32767
-  %139 = getelementptr inbounds i8, ptr %134, i64 %138
-  %140 = sub nuw nsw i64 32768, %138
-  store i64 %140, ptr %10, align 8
+139:                                              ; preds = %.preheader, %172
+  %.3142 = phi i32 [ %.4, %172 ], [ 0, %.preheader ]
+  %.0136 = phi i64 [ %161, %172 ], [ 0, %.preheader ]
+  %.1134 = phi i64 [ %160, %172 ], [ %.0133, %.preheader ]
+  %.2131 = phi i64 [ %.3132, %172 ], [ %.0129, %.preheader ]
+  %.1127 = phi i64 [ %.2128, %172 ], [ 0, %.preheader ]
+  %.1124 = phi i64 [ %.2125, %172 ], [ %75, %.preheader ]
+  %140 = and i64 %.1127, 32767
+  %141 = getelementptr inbounds i8, ptr %136, i64 %140
+  %142 = sub nuw nsw i64 32768, %140
+  store i64 %142, ptr %10, align 8
   %.not167 = icmp eq i64 %.1134, 0
-  br i1 %.not167, label %141, label %153
+  br i1 %.not167, label %143, label %155
 
-141:                                              ; preds = %137
-  %142 = load ptr, ptr %79, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 104
-  %144 = load ptr, ptr %143, align 8
-  %.not168 = icmp eq ptr %144, null
-  br i1 %.not168, label %145, label %153
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %81, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 104
+  %146 = load ptr, ptr %145, align 8
+  %.not168 = icmp eq ptr %146, null
+  br i1 %.not168, label %147, label %155
 
-145:                                              ; preds = %141
-  %146 = call i64 @llvm.umin.i64(i64 %.0138, i64 %.2131)
-  %147 = load ptr, ptr %58, align 8
-  %148 = load ptr, ptr %60, align 8
-  %149 = call noundef i64 %147(ptr noundef %148, i64 noundef %.1124, ptr noundef %.0122, i64 noundef %146)
-  %.not169 = icmp eq i64 %149, %146
-  br i1 %.not169, label %150, label %.thread
+147:                                              ; preds = %143
+  %148 = call i64 @llvm.umin.i64(i64 %.0138, i64 %.2131)
+  %149 = load ptr, ptr %60, align 8
+  %150 = load ptr, ptr %62, align 8
+  %151 = call noundef i64 %149(ptr noundef %150, i64 noundef %.1124, ptr noundef %.0122, i64 noundef %148)
+  %.not169 = icmp eq i64 %151, %148
+  br i1 %.not169, label %152, label %.thread
 
-150:                                              ; preds = %145
-  %151 = add i64 %.1124, %146
-  %152 = sub i64 %.2131, %146
-  br label %153
+152:                                              ; preds = %147
+  %153 = add i64 %.1124, %148
+  %154 = sub i64 %.2131, %148
+  br label %155
 
-153:                                              ; preds = %150, %141, %137
-  %.1137 = phi i64 [ %.0136, %137 ], [ %.0136, %141 ], [ 0, %150 ]
-  %.2135 = phi i64 [ %.1134, %137 ], [ 0, %141 ], [ %146, %150 ]
-  %.3132 = phi i64 [ %.2131, %137 ], [ %.2131, %141 ], [ %152, %150 ]
-  %.2125 = phi i64 [ %.1124, %137 ], [ %.1124, %141 ], [ %151, %150 ]
+155:                                              ; preds = %152, %143, %139
+  %.1137 = phi i64 [ %.0136, %139 ], [ %.0136, %143 ], [ 0, %152 ]
+  %.2135 = phi i64 [ %.1134, %139 ], [ 0, %143 ], [ %148, %152 ]
+  %.3132 = phi i64 [ %.2131, %139 ], [ %.2131, %143 ], [ %154, %152 ]
+  %.2125 = phi i64 [ %.1124, %139 ], [ %.1124, %143 ], [ %153, %152 ]
   store i64 %.2135, ptr %9, align 8
-  %154 = getelementptr inbounds i8, ptr %.0122, i64 %.1137
+  %156 = getelementptr inbounds i8, ptr %.0122, i64 %.1137
   %.not170 = icmp eq i64 %.3132, 0
-  %155 = select i1 %.not170, i32 0, i32 2
-  %156 = call i32 @tinfl_decompress(ptr noundef nonnull %8, ptr noundef %154, ptr noundef nonnull %9, ptr noundef nonnull %134, ptr noundef nonnull %139, ptr noundef nonnull %10, i32 noundef %155)
-  %157 = load i64, ptr %9, align 8
-  %158 = sub i64 %.2135, %157
-  %159 = add i64 %157, %.1137
-  %160 = load i64, ptr %10, align 8
-  %.not171 = icmp eq i64 %160, 0
-  br i1 %.not171, label %187, label %161
+  %157 = select i1 %.not170, i32 0, i32 2
+  %158 = call i32 @tinfl_decompress(ptr noundef nonnull %8, ptr noundef %156, ptr noundef nonnull %9, ptr noundef nonnull %136, ptr noundef nonnull %141, ptr noundef nonnull %10, i32 noundef %157)
+  %159 = load i64, ptr %9, align 8
+  %160 = sub i64 %.2135, %159
+  %161 = add i64 %159, %.1137
+  %162 = load i64, ptr %10, align 8
+  %.not171 = icmp eq i64 %162, 0
+  br i1 %.not171, label %172, label %163
 
-161:                                              ; preds = %153
-  %162 = call noundef i64 %2(ptr noundef %3, i64 noundef %.1127, ptr noundef nonnull %139, i64 noundef %160)
-  %.not172 = icmp eq i64 %162, %160
-  br i1 %.not172, label %.lr.ph.preheader.i, label %.thread
+163:                                              ; preds = %155
+  %164 = call noundef i64 %2(ptr noundef %3, i64 noundef %.1127, ptr noundef nonnull %141, i64 noundef %162)
+  %.not172 = icmp eq i64 %164, %162
+  br i1 %.not172, label %165, label %.thread
 
-.lr.ph.preheader.i:                               ; preds = %161
-  %163 = xor i32 %.3142, -1
-  br label %.lr.ph.i
+165:                                              ; preds = %163
+  %166 = zext i32 %.3142 to i64
+  %167 = call i64 @mz_crc32(i64 noundef %166, ptr noundef nonnull %141, i64 noundef %162), !range !17
+  %168 = trunc i64 %167 to i32
+  %169 = add i64 %162, %.1127
+  %170 = load i64, ptr %138, align 8
+  %171 = icmp ugt i64 %169, %170
+  br i1 %171, label %.thread, label %172
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.01220.i = phi i32 [ %182, %.lr.ph.i ], [ %163, %.lr.ph.preheader.i ]
-  %.01319.i = phi i64 [ %164, %.lr.ph.i ], [ %160, %.lr.ph.preheader.i ]
-  %.01418.i = phi ptr [ %165, %.lr.ph.i ], [ %139, %.lr.ph.preheader.i ]
-  %164 = add i64 %.01319.i, -1
-  %165 = getelementptr inbounds i8, ptr %.01418.i, i64 1
-  %166 = load i8, ptr %.01418.i, align 1
-  %167 = lshr i32 %.01220.i, 4
-  %168 = zext i8 %166 to i32
-  %169 = xor i32 %.01220.i, %168
-  %170 = and i32 %169, 15
-  %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds [16 x i32], ptr @_ZZ8mz_crc32E7s_crc32, i64 0, i64 %171
-  %173 = load i32, ptr %172, align 4
-  %174 = xor i32 %173, %167
-  %175 = lshr i32 %174, 4
-  %176 = and i32 %174, 15
-  %177 = lshr i32 %168, 4
-  %178 = xor i32 %176, %177
-  %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds [16 x i32], ptr @_ZZ8mz_crc32E7s_crc32, i64 0, i64 %179
-  %181 = load i32, ptr %180, align 4
-  %182 = xor i32 %175, %181
-  %.not16.i = icmp eq i64 %164, 0
-  br i1 %.not16.i, label %mz_crc32.exit, label %.lr.ph.i, !llvm.loop !13
+172:                                              ; preds = %155, %165
+  %.4 = phi i32 [ %168, %165 ], [ %.3142, %155 ]
+  %.2128 = phi i64 [ %169, %165 ], [ %.1127, %155 ]
+  %173 = add i32 %158, -1
+  %174 = icmp ult i32 %173, 2
+  br i1 %174, label %139, label %175, !llvm.loop !199
 
-mz_crc32.exit:                                    ; preds = %.lr.ph.i
-  %183 = xor i32 %182, -1
-  %184 = add i64 %160, %.1127
-  %185 = load i64, ptr %136, align 8
-  %186 = icmp ugt i64 %184, %185
-  br i1 %186, label %.thread, label %187
+175:                                              ; preds = %172
+  %176 = icmp eq i32 %158, 0
+  br i1 %176, label %.thread191, label %.thread
 
-187:                                              ; preds = %153, %mz_crc32.exit
-  %.4 = phi i32 [ %183, %mz_crc32.exit ], [ %.3142, %153 ]
-  %.2128 = phi i64 [ %184, %mz_crc32.exit ], [ %.1127, %153 ]
-  %188 = add i32 %156, -1
-  %189 = icmp ult i32 %188, 2
-  br i1 %189, label %137, label %190, !llvm.loop !199
+.thread191.loopexit:                              ; preds = %112
+  %177 = trunc i64 %110 to i32
+  br label %.thread191
 
-190:                                              ; preds = %187
-  %191 = icmp eq i32 %156, 0
-  br i1 %191, label %.thread192, label %.thread
+.thread191:                                       ; preds = %127, %.thread191.loopexit, %.preheader210, %175
+  %.0121198 = phi ptr [ %136, %175 ], [ null, %.preheader210 ], [ null, %.thread191.loopexit ], [ null, %127 ]
+  %.3197 = phi i64 [ %.2128, %175 ], [ 0, %.preheader210 ], [ %114, %.thread191.loopexit ], [ %129, %127 ]
+  %.5196 = phi i32 [ %.4, %175 ], [ 0, %.preheader210 ], [ %177, %.thread191.loopexit ], [ 0, %127 ]
+  br i1 %52, label %178, label %.thread
 
-.thread192.loopexit:                              ; preds = %110
-  %192 = trunc i64 %108 to i32
-  br label %.thread192
-
-.thread192:                                       ; preds = %125, %.thread192.loopexit, %.preheader211, %190
-  %.0121199 = phi ptr [ %134, %190 ], [ null, %.preheader211 ], [ null, %.thread192.loopexit ], [ null, %125 ]
-  %.3198 = phi i64 [ %.2128, %190 ], [ 0, %.preheader211 ], [ %112, %.thread192.loopexit ], [ %127, %125 ]
-  %.5197 = phi i32 [ %.4, %190 ], [ 0, %.preheader211 ], [ %192, %.thread192.loopexit ], [ 0, %125 ]
-  br i1 %52, label %193, label %.thread
-
-193:                                              ; preds = %.thread192.thread, %.thread192
-  %.5197205 = phi i32 [ %118, %.thread192.thread ], [ %.5197, %.thread192 ]
-  %.3198204 = phi i64 [ %115, %.thread192.thread ], [ %.3198, %.thread192 ]
-  %.0121199203 = phi ptr [ null, %.thread192.thread ], [ %.0121199, %.thread192 ]
-  %194 = getelementptr inbounds i8, ptr %6, i64 40
-  %195 = load i64, ptr %194, align 8
-  %.not174 = icmp eq i64 %.3198204, %195
-  %196 = getelementptr inbounds i8, ptr %6, i64 24
-  %197 = load i32, ptr %196, align 8
-  %.not175 = icmp eq i32 %.5197205, %197
+178:                                              ; preds = %.thread191.thread, %.thread191
+  %.5196204 = phi i32 [ %120, %.thread191.thread ], [ %.5196, %.thread191 ]
+  %.3197203 = phi i64 [ %117, %.thread191.thread ], [ %.3197, %.thread191 ]
+  %.0121198202 = phi ptr [ null, %.thread191.thread ], [ %.0121198, %.thread191 ]
+  %179 = getelementptr inbounds i8, ptr %6, i64 40
+  %180 = load i64, ptr %179, align 8
+  %.not174 = icmp eq i64 %.3197203, %180
+  %181 = getelementptr inbounds i8, ptr %6, i64 24
+  %182 = load i32, ptr %181, align 8
+  %.not175 = icmp eq i32 %.5196204, %182
   %or.cond = select i1 %.not174, i1 %.not175, i1 false
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.split, %123, %107, %.lr.ph.split.us, %mz_crc32.exit, %161, %145, %114, %129, %193, %.thread192, %190
-  %.0121190 = phi ptr [ %.0121199, %.thread192 ], [ %134, %190 ], [ %.0121199203, %193 ], [ null, %114 ], [ null, %129 ], [ %134, %145 ], [ %134, %161 ], [ %134, %mz_crc32.exit ], [ null, %.lr.ph.split.us ], [ null, %107 ], [ null, %123 ], [ null, %.lr.ph.split ]
-  %.2.shrunk = phi i1 [ true, %.thread192 ], [ false, %190 ], [ %or.cond, %193 ], [ %.not165, %114 ], [ false, %129 ], [ false, %145 ], [ false, %161 ], [ false, %mz_crc32.exit ], [ false, %.lr.ph.split.us ], [ false, %107 ], [ false, %123 ], [ false, %.lr.ph.split ]
-  %198 = load ptr, ptr %79, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 104
-  %200 = load ptr, ptr %199, align 8
-  %.not176 = icmp eq ptr %200, null
-  br i1 %.not176, label %201, label %206
+.thread:                                          ; preds = %.lr.ph.split, %125, %109, %.lr.ph.split.us, %165, %163, %147, %116, %131, %178, %.thread191, %175
+  %.0121189 = phi ptr [ %.0121198, %.thread191 ], [ %136, %175 ], [ %.0121198202, %178 ], [ null, %116 ], [ null, %131 ], [ %136, %147 ], [ %136, %163 ], [ %136, %165 ], [ null, %.lr.ph.split.us ], [ null, %109 ], [ null, %125 ], [ null, %.lr.ph.split ]
+  %.2.shrunk = phi i1 [ true, %.thread191 ], [ false, %175 ], [ %or.cond, %178 ], [ %.not165, %116 ], [ false, %131 ], [ false, %147 ], [ false, %163 ], [ false, %165 ], [ false, %.lr.ph.split.us ], [ false, %109 ], [ false, %125 ], [ false, %.lr.ph.split ]
+  %183 = load ptr, ptr %81, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 104
+  %185 = load ptr, ptr %184, align 8
+  %.not176 = icmp eq ptr %185, null
+  br i1 %.not176, label %186, label %191
 
-201:                                              ; preds = %.thread
-  %202 = getelementptr inbounds i8, ptr %0, i64 40
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 56
-  %205 = load ptr, ptr %204, align 8
-  call void %203(ptr noundef %205, ptr noundef %.0122)
-  br label %206
+186:                                              ; preds = %.thread
+  %187 = getelementptr inbounds i8, ptr %0, i64 40
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds i8, ptr %0, i64 56
+  %190 = load ptr, ptr %189, align 8
+  call void %188(ptr noundef %190, ptr noundef %.0122)
+  br label %191
 
-206:                                              ; preds = %201, %.thread
-  %.not177 = icmp eq ptr %.0121190, null
-  br i1 %.not177, label %mz_zip_reader_is_file_a_directory.exit.thread183, label %207
+191:                                              ; preds = %186, %.thread
+  %.not177 = icmp eq ptr %.0121189, null
+  br i1 %.not177, label %mz_zip_reader_is_file_a_directory.exit.thread182, label %192
 
-207:                                              ; preds = %206
-  %208 = getelementptr inbounds i8, ptr %0, i64 40
-  %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 56
-  %211 = load ptr, ptr %210, align 8
-  call void %209(ptr noundef %211, ptr noundef nonnull %.0121190)
-  br label %mz_zip_reader_is_file_a_directory.exit.thread183
+192:                                              ; preds = %191
+  %193 = getelementptr inbounds i8, ptr %0, i64 40
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds i8, ptr %0, i64 56
+  %196 = load ptr, ptr %195, align 8
+  call void %194(ptr noundef %196, ptr noundef nonnull %.0121189)
+  br label %mz_zip_reader_is_file_a_directory.exit.thread182
 
-mz_zip_reader_is_file_a_directory.exit.thread183: ; preds = %37, %206, %207, %85, %64, %55, %switch.early.test, %mz_zip_reader_is_file_a_directory.exit.thread, %mz_zip_reader_is_file_a_directory.exit, %12, %5
-  %.0.shrunk = phi i1 [ false, %5 ], [ true, %12 ], [ true, %mz_zip_reader_is_file_a_directory.exit ], [ false, %mz_zip_reader_is_file_a_directory.exit.thread ], [ false, %switch.early.test ], [ false, %55 ], [ false, %64 ], [ false, %85 ], [ %.2.shrunk, %207 ], [ %.2.shrunk, %206 ], [ true, %37 ]
+mz_zip_reader_is_file_a_directory.exit.thread182: ; preds = %37, %191, %192, %87, %66, %57, %50, %mz_zip_reader_is_file_a_directory.exit.thread, %mz_zip_reader_is_file_a_directory.exit, %12, %5
+  %.0.shrunk = phi i1 [ false, %5 ], [ true, %12 ], [ true, %mz_zip_reader_is_file_a_directory.exit ], [ false, %mz_zip_reader_is_file_a_directory.exit.thread ], [ false, %50 ], [ false, %57 ], [ false, %66 ], [ false, %87 ], [ %.2.shrunk, %192 ], [ %.2.shrunk, %191 ], [ true, %37 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

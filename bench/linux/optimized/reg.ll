@@ -4594,9 +4594,9 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
   %402 = load i32, ptr %401, align 4
   %403 = icmp eq i32 %402, 2
   %404 = icmp ne ptr %84, null
-  %405 = select i1 %403, i1 %404, i1 false
-  %406 = icmp eq ptr %84, %0
-  %407 = select i1 %405, i1 %406, i1 false
+  %405 = icmp eq ptr %84, %0
+  %406 = and i1 %404, %405
+  %407 = select i1 %403, i1 %406, i1 false
   br i1 %407, label %408, label %416
 
 408:                                              ; preds = %400

@@ -29314,21 +29314,17 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.372", align 1
   %call = tail call noundef nonnull align 8 dereferenceable(800) ptr @_ZNK3smt6theory11get_fparamsEv(ptr noundef nonnull align 8 dereferenceable(53) %this)
-  %m_has_seq = getelementptr inbounds i8, ptr %this, i64 4200
-  %0 = load i8, ptr %m_has_seq, align 8
-  %.fr = freeze i8 %0
-  %tobool = trunc i8 %.fr to i1
-  br i1 %tobool, label %switch.early.test, label %if.end
-
-switch.early.test:                                ; preds = %entry
   %m_arith_mode = getelementptr inbounds i8, ptr %call, i64 252
-  %1 = load i32, ptr %m_arith_mode, align 4
-  switch i32 %1, label %if.then [
-    i32 6, label %if.end
-    i32 2, label %if.end
-  ]
+  %0 = load i32, ptr %m_arith_mode, align 4
+  %m_has_seq = getelementptr inbounds i8, ptr %this, i64 4200
+  %1 = load i8, ptr %m_has_seq, align 8
+  %tobool = trunc i8 %1 to i1
+  %2 = and i32 %0, -5
+  %3 = icmp ne i32 %2, 2
+  %or.cond1 = select i1 %tobool, i1 %3, i1 false
+  br i1 %or.cond1, label %if.then, label %if.end
 
-if.then:                                          ; preds = %switch.early.test
+if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.77, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
@@ -29342,24 +29338,24 @@ invoke.cont:                                      ; preds = %if.then
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   call void @__cxa_free_exception(ptr %exception) #23
   br label %eh.resume
 
-if.end:                                           ; preds = %switch.early.test, %switch.early.test, %entry
+if.end:                                           ; preds = %entry
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
-  %.pn6 = phi { ptr, i32 } [ %2, %ehcleanup ], [ %3, %cleanup.action ]
+  %.pn6 = phi { ptr, i32 } [ %4, %ehcleanup ], [ %5, %cleanup.action ]
   resume { ptr, i32 } %.pn6
 
 unreachable:                                      ; preds = %invoke.cont

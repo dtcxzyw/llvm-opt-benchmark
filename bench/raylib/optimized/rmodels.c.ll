@@ -23414,8 +23414,8 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %173 = load i32, ptr %153, align 4
   %174 = load i32, ptr %154, align 4
   %.not200213.i = icmp sgt i32 %173, %174
-  %or.cond310.i = select i1 %.not199218.i, i1 true, i1 %.not200213.i
-  br i1 %or.cond310.i, label %.loopexit204.i, label %.lr.ph223.preheader.i
+  %or.cond.i = select i1 %.not199218.i, i1 true, i1 %.not200213.i
+  br i1 %or.cond.i, label %.loopexit204.i, label %.lr.ph223.preheader.i
 
 .lr.ph223.preheader.i:                            ; preds = %.lr.ph231.i
   %175 = sext i32 %173 to i64
@@ -23681,12 +23681,12 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %300 = load ptr, ptr %103, align 8
   br label %.lr.ph266.i
 
-.lr.ph266.i:                                      ; preds = %321, %.lr.ph266.preheader.i
-  %301 = phi i32 [ %322, %321 ], [ %298, %.lr.ph266.preheader.i ]
-  %.0160264.i = phi i32 [ %323, %321 ], [ 0, %.lr.ph266.preheader.i ]
-  %.0161263.i = phi i32 [ %.1.i, %321 ], [ 0, %.lr.ph266.preheader.i ]
-  %.0162262.i = phi ptr [ %.1163.i, %321 ], [ %300, %.lr.ph266.preheader.i ]
-  %.0164261.i = phi ptr [ %324, %321 ], [ %300, %.lr.ph266.preheader.i ]
+.lr.ph266.i:                                      ; preds = %322, %.lr.ph266.preheader.i
+  %301 = phi i32 [ %323, %322 ], [ %298, %.lr.ph266.preheader.i ]
+  %.0160264.i = phi i32 [ %324, %322 ], [ 0, %.lr.ph266.preheader.i ]
+  %.0161263.i = phi i32 [ %.1.i, %322 ], [ 0, %.lr.ph266.preheader.i ]
+  %.0162262.i = phi ptr [ %.1163.i, %322 ], [ %300, %.lr.ph266.preheader.i ]
+  %.0164261.i = phi ptr [ %325, %322 ], [ %300, %.lr.ph266.preheader.i ]
   %302 = load i16, ptr %.0164261.i, align 2
   %303 = zext i16 %302 to i64
   %304 = getelementptr inbounds i16, ptr %.045, i64 %303
@@ -23703,101 +23703,101 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %315 = load i16, ptr %314, align 2
   %.not.i = icmp eq i16 %305, %310
   %.not192.i = icmp eq i16 %305, %315
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not192.i
   %.not193.i = icmp eq i16 %310, %315
-  %or.cond203.i = select i1 %or.cond.i, i1 true, i1 %.not193.i
-  br i1 %or.cond203.i, label %321, label %316
+  %316 = or i1 %.not192.i, %.not193.i
+  %or.cond203.i = select i1 %.not.i, i1 true, i1 %316
+  br i1 %or.cond203.i, label %322, label %317
 
-316:                                              ; preds = %.lr.ph266.i
-  %317 = getelementptr inbounds i8, ptr %.0162262.i, i64 2
+317:                                              ; preds = %.lr.ph266.i
+  %318 = getelementptr inbounds i8, ptr %.0162262.i, i64 2
   store i16 %305, ptr %.0162262.i, align 2
-  %318 = getelementptr inbounds i8, ptr %.0162262.i, i64 4
-  store i16 %310, ptr %317, align 2
-  %319 = getelementptr inbounds i8, ptr %.0162262.i, i64 6
-  store i16 %315, ptr %318, align 2
-  %320 = add nsw i32 %.0161263.i, 1
+  %319 = getelementptr inbounds i8, ptr %.0162262.i, i64 4
+  store i16 %310, ptr %318, align 2
+  %320 = getelementptr inbounds i8, ptr %.0162262.i, i64 6
+  store i16 %315, ptr %319, align 2
+  %321 = add nsw i32 %.0161263.i, 1
   %.pre305.i = load i32, ptr %97, align 8
-  br label %321
+  br label %322
 
-321:                                              ; preds = %316, %.lr.ph266.i
-  %322 = phi i32 [ %.pre305.i, %316 ], [ %301, %.lr.ph266.i ]
-  %.1163.i = phi ptr [ %319, %316 ], [ %.0162262.i, %.lr.ph266.i ]
-  %.1.i = phi i32 [ %320, %316 ], [ %.0161263.i, %.lr.ph266.i ]
-  %323 = add nuw nsw i32 %.0160264.i, 1
-  %324 = getelementptr inbounds i8, ptr %.0164261.i, i64 6
-  %325 = icmp slt i32 %323, %322
-  br i1 %325, label %.lr.ph266.i, label %par_shapes__weld_points.exit
+322:                                              ; preds = %317, %.lr.ph266.i
+  %323 = phi i32 [ %.pre305.i, %317 ], [ %301, %.lr.ph266.i ]
+  %.1163.i = phi ptr [ %320, %317 ], [ %.0162262.i, %.lr.ph266.i ]
+  %.1.i = phi i32 [ %321, %317 ], [ %.0161263.i, %.lr.ph266.i ]
+  %324 = add nuw nsw i32 %.0160264.i, 1
+  %325 = getelementptr inbounds i8, ptr %.0164261.i, i64 6
+  %326 = icmp slt i32 %324, %323
+  br i1 %326, label %.lr.ph266.i, label %par_shapes__weld_points.exit
 
-par_shapes__weld_points.exit:                     ; preds = %321, %._crit_edge260.i
-  %.0161.lcssa.i = phi i32 [ 0, %._crit_edge260.i ], [ %.1.i, %321 ]
+par_shapes__weld_points.exit:                     ; preds = %322, %._crit_edge260.i
+  %.0161.lcssa.i = phi i32 [ 0, %._crit_edge260.i ], [ %.1.i, %322 ]
   store i32 %.0161.lcssa.i, ptr %97, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  br i1 %.not, label %338, label %326
+  br i1 %.not, label %339, label %327
 
-326:                                              ; preds = %par_shapes__weld_points.exit
-  %327 = load i32, ptr %60, align 8
-  %328 = sext i32 %327 to i64
-  %329 = shl nsw i64 %328, 1
-  %330 = tail call noalias ptr @malloc(i64 noundef %329) #55
-  %331 = icmp sgt i32 %327, 0
-  br i1 %331, label %.lr.ph89.preheader, label %._crit_edge90
+327:                                              ; preds = %par_shapes__weld_points.exit
+  %328 = load i32, ptr %60, align 8
+  %329 = sext i32 %328 to i64
+  %330 = shl nsw i64 %329, 1
+  %331 = tail call noalias ptr @malloc(i64 noundef %330) #55
+  %332 = icmp sgt i32 %328, 0
+  br i1 %332, label %.lr.ph89.preheader, label %._crit_edge90
 
-.lr.ph89.preheader:                               ; preds = %326
-  %wide.trip.count = zext nneg i32 %327 to i64
+.lr.ph89.preheader:                               ; preds = %327
+  %wide.trip.count = zext nneg i32 %328 to i64
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv100 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next101, %.lr.ph89 ]
-  %332 = getelementptr inbounds i16, ptr %64, i64 %indvars.iv100
-  %333 = load i16, ptr %332, align 2
-  %334 = zext i16 %333 to i64
-  %335 = getelementptr inbounds i16, ptr %.045, i64 %334
-  %336 = load i16, ptr %335, align 2
-  %337 = getelementptr inbounds i16, ptr %330, i64 %indvars.iv100
-  store i16 %336, ptr %337, align 2
+  %333 = getelementptr inbounds i16, ptr %64, i64 %indvars.iv100
+  %334 = load i16, ptr %333, align 2
+  %335 = zext i16 %334 to i64
+  %336 = getelementptr inbounds i16, ptr %.045, i64 %335
+  %337 = load i16, ptr %336, align 2
+  %338 = getelementptr inbounds i16, ptr %331, i64 %indvars.iv100
+  store i16 %337, ptr %338, align 2
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
   br i1 %exitcond103.not, label %._crit_edge90, label %.lr.ph89
 
-._crit_edge90:                                    ; preds = %.lr.ph89, %326
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.045, ptr align 2 %330, i64 %329, i1 false)
-  br label %338
+._crit_edge90:                                    ; preds = %.lr.ph89, %327
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.045, ptr align 2 %331, i64 %330, i1 false)
+  br label %339
 
-338:                                              ; preds = %par_shapes__weld_points.exit, %._crit_edge90
-  %.sink = phi ptr [ %330, %._crit_edge90 ], [ %.045, %par_shapes__weld_points.exit ]
+339:                                              ; preds = %par_shapes__weld_points.exit, %._crit_edge90
+  %.sink = phi ptr [ %331, %._crit_edge90 ], [ %.045, %par_shapes__weld_points.exit ]
   tail call void @free(ptr noundef %.sink) #53
   tail call void @free(ptr noundef %64) #53
-  %339 = fdiv float 1.000000e+00, %39
-  %340 = fdiv float 1.000000e+00, %45
-  %341 = fdiv float 1.000000e+00, %49
-  tail call void @par_shapes_scale(ptr noundef nonnull %7, float noundef %339, float noundef %340, float noundef %341)
-  %342 = load i32, ptr %12, align 8
-  %343 = icmp sgt i32 %342, 0
-  br i1 %343, label %.lr.ph.preheader.i67, label %par_shapes_translate.exit71
+  %340 = fdiv float 1.000000e+00, %39
+  %341 = fdiv float 1.000000e+00, %45
+  %342 = fdiv float 1.000000e+00, %49
+  tail call void @par_shapes_scale(ptr noundef nonnull %7, float noundef %340, float noundef %341, float noundef %342)
+  %343 = load i32, ptr %12, align 8
+  %344 = icmp sgt i32 %343, 0
+  br i1 %344, label %.lr.ph.preheader.i67, label %par_shapes_translate.exit71
 
-.lr.ph.preheader.i67:                             ; preds = %338
-  %344 = load ptr, ptr %7, align 8
+.lr.ph.preheader.i67:                             ; preds = %339
+  %345 = load ptr, ptr %7, align 8
   br label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i67
-  %.011.i69 = phi i32 [ %351, %.lr.ph.i68 ], [ 0, %.lr.ph.preheader.i67 ]
-  %.0910.i70 = phi ptr [ %348, %.lr.ph.i68 ], [ %344, %.lr.ph.preheader.i67 ]
-  %345 = getelementptr inbounds i8, ptr %.0910.i70, i64 8
-  %346 = load <2 x float>, ptr %.0910.i70, align 4
-  %347 = fadd <2 x float> %31, %346
-  store <2 x float> %347, ptr %.0910.i70, align 4
-  %348 = getelementptr inbounds i8, ptr %.0910.i70, i64 12
-  %349 = load float, ptr %345, align 4
-  %350 = fadd float %.sroa.10.0, %349
-  store float %350, ptr %345, align 4
-  %351 = add nuw nsw i32 %.011.i69, 1
-  %352 = load i32, ptr %12, align 8
-  %353 = icmp slt i32 %351, %352
-  br i1 %353, label %.lr.ph.i68, label %par_shapes_translate.exit71
+  %.011.i69 = phi i32 [ %352, %.lr.ph.i68 ], [ 0, %.lr.ph.preheader.i67 ]
+  %.0910.i70 = phi ptr [ %349, %.lr.ph.i68 ], [ %345, %.lr.ph.preheader.i67 ]
+  %346 = getelementptr inbounds i8, ptr %.0910.i70, i64 8
+  %347 = load <2 x float>, ptr %.0910.i70, align 4
+  %348 = fadd <2 x float> %31, %347
+  store <2 x float> %348, ptr %.0910.i70, align 4
+  %349 = getelementptr inbounds i8, ptr %.0910.i70, i64 12
+  %350 = load float, ptr %346, align 4
+  %351 = fadd float %.sroa.10.0, %350
+  store float %351, ptr %346, align 4
+  %352 = add nuw nsw i32 %.011.i69, 1
+  %353 = load i32, ptr %12, align 8
+  %354 = icmp slt i32 %352, %353
+  br i1 %354, label %.lr.ph.i68, label %par_shapes_translate.exit71
 
-par_shapes_translate.exit71:                      ; preds = %.lr.ph.i68, %338
+par_shapes_translate.exit71:                      ; preds = %.lr.ph.i68, %339
   ret ptr %7
 }
 

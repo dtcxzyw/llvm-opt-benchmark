@@ -1044,27 +1044,23 @@ if.then.i:                                        ; preds = %while.end.i
   %call15.i = call i64 @strtol(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %endp.i, i32 noundef 10) #7
   %9 = load ptr, ptr %endp.i, align 8
   %cmp16.i = icmp ne ptr %add.ptr.i, %9
-  %cmp18.i = icmp sgt i64 %call15.i, -1
-  %or.cond.i = select i1 %cmp16.i, i1 %cmp18.i, i1 false
-  %cmp21.i = icmp slt i64 %call15.i, 256
-  %or.cond1.i = select i1 %or.cond.i, i1 %cmp21.i, i1 false
+  %10 = icmp ult i64 %call15.i, 256
+  %or.cond1.i = select i1 %cmp16.i, i1 %10, i1 false
   br i1 %or.cond1.i, label %if.then23.i, label %do.body51.i
 
 if.then23.i:                                      ; preds = %if.then.i
   %rtp_channel_mask24.i = getelementptr inbounds i8, ptr %data, i64 4568
-  %10 = load i8, ptr %9, align 1
-  %cmp26.i = icmp eq i8 %10, 45
+  %11 = load i8, ptr %9, align 1
+  %cmp26.i = icmp eq i8 %11, 45
   br i1 %cmp26.i, label %if.then28.i, label %for.body.preheader.i
 
 if.then28.i:                                      ; preds = %if.then23.i
   %add.ptr29.i = getelementptr inbounds i8, ptr %9, i64 1
   %call30.i = call i64 @strtol(ptr noundef nonnull %add.ptr29.i, ptr noundef nonnull %endp.i, i32 noundef 10) #7
-  %11 = load ptr, ptr %endp.i, align 8
-  %cmp31.i = icmp eq ptr %add.ptr29.i, %11
-  %cmp33.i = icmp slt i64 %call30.i, 0
-  %or.cond2.i = select i1 %cmp31.i, i1 true, i1 %cmp33.i
-  %cmp36.i = icmp sgt i64 %call30.i, 255
-  %or.cond3.i = select i1 %or.cond2.i, i1 true, i1 %cmp36.i
+  %12 = load ptr, ptr %endp.i, align 8
+  %cmp31.i = icmp eq ptr %add.ptr29.i, %12
+  %13 = icmp ugt i64 %call30.i, 255
+  %or.cond3.i = select i1 %cmp31.i, i1 true, i1 %13
   br i1 %or.cond3.i, label %do.body.i, label %if.end44.i
 
 do.body.i:                                        ; preds = %if.then28.i
@@ -1074,8 +1070,8 @@ do.body.i:                                        ; preds = %if.then28.i
 land.lhs.true40.i:                                ; preds = %do.body.i
   %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i = load i64, ptr %verbose.i, align 2
-  %12 = and i64 %bf.load.i, 536870912
-  %tobool41.not.i = icmp eq i64 %12, 0
+  %14 = and i64 %bf.load.i, 536870912
+  %tobool41.not.i = icmp eq i64 %14, 0
   br i1 %tobool41.not.i, label %for.body.preheader.i, label %if.then42.i
 
 if.then42.i:                                      ; preds = %land.lhs.true40.i
@@ -1093,12 +1089,12 @@ for.body.preheader.i:                             ; preds = %if.end44.i, %if.the
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %chan.040.i = phi i64 [ %inc.i, %for.body.i ], [ %call15.i, %for.body.preheader.i ]
   %div34.i = lshr i64 %chan.040.i, 3
-  %13 = trunc i64 %chan.040.i to i8
-  %sh_prom.i = and i8 %13, 7
+  %15 = trunc i64 %chan.040.i to i8
+  %sh_prom.i = and i8 %15, 7
   %shl.i = shl nuw i8 1, %sh_prom.i
   %arrayidx.i = getelementptr inbounds i8, ptr %rtp_channel_mask24.i, i64 %div34.i
-  %14 = load i8, ptr %arrayidx.i, align 1
-  %or35.i = or i8 %shl.i, %14
+  %16 = load i8, ptr %arrayidx.i, align 1
+  %or35.i = or i8 %shl.i, %16
   store i8 %or35.i, ptr %arrayidx.i, align 1
   %inc.i = add i64 %chan.040.i, 1
   %exitcond.not.i = icmp eq i64 %chan.040.i, %chan2.044.i
@@ -1111,8 +1107,8 @@ do.body51.i:                                      ; preds = %if.then.i
 land.lhs.true53.i:                                ; preds = %do.body51.i
   %verbose55.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load56.i = load i64, ptr %verbose55.i, align 2
-  %15 = and i64 %bf.load56.i, 536870912
-  %tobool60.not.i = icmp eq i64 %15, 0
+  %17 = and i64 %bf.load56.i, 536870912
+  %tobool60.not.i = icmp eq i64 %17, 0
   br i1 %tobool60.not.i, label %rtsp_parse_transport.exit, label %if.then61.i
 
 if.then61.i:                                      ; preds = %land.lhs.true53.i

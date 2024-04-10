@@ -277,17 +277,17 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
   store i32 %100, ptr %9, align 8, !tbaa !23
   %106 = icmp eq i16 %43, 13
   %107 = icmp eq i16 %31, -14796
-  %108 = select i1 %106, i1 true, i1 %107
-  %109 = icmp eq i16 %31, -28036
-  %110 = select i1 %108, i1 true, i1 %109
-  %111 = icmp eq i16 %31, 46
-  %112 = select i1 %110, i1 true, i1 %111
-  %113 = icmp eq i16 %31, -4096
-  %114 = select i1 %112, i1 true, i1 %113
-  %115 = icmp eq i16 %31, 330
-  %116 = select i1 %114, i1 true, i1 %115
-  %117 = icmp eq i16 %31, -30871
-  %118 = select i1 %116, i1 true, i1 %117
+  %108 = icmp eq i16 %31, -28036
+  %109 = or i1 %107, %108
+  %110 = icmp eq i16 %31, 46
+  %111 = or i1 %110, %109
+  %112 = icmp eq i16 %31, -4096
+  %113 = or i1 %112, %111
+  %114 = icmp eq i16 %31, 330
+  %115 = or i1 %114, %113
+  %116 = icmp eq i16 %31, -30871
+  %117 = or i1 %116, %115
+  %118 = select i1 %106, i1 true, i1 %117
   br i1 %118, label %119, label %136
 
 119:                                              ; preds = %99

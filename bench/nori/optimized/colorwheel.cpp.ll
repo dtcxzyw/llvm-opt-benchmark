@@ -613,7 +613,7 @@ define hidden noundef i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayI
   %46 = getelementptr inbounds i8, ptr %0, i64 176
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.not = icmp eq ptr %47, null
-  br i1 %.not.i.i.not, label %117, label %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit
+  br i1 %.not.i.i.not, label %119, label %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit
 
 _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit: ; preds = %39
   %48 = getelementptr inbounds i8, ptr %0, i64 160
@@ -626,7 +626,7 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit: ; preds = %39
   %53 = getelementptr inbounds i8, ptr %0, i64 184
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %4)
-  br label %117
+  br label %119
 
 55:                                               ; preds = %35, %38, %3
   %56 = getelementptr inbounds i8, ptr %0, i64 140
@@ -663,58 +663,58 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit: ; preds = %39
   %87 = fcmp ole float %82, 1.000000e+00
   %or.cond4 = and i1 %86, %87
   %88 = fcmp oge float %84, 0.000000e+00
-  %or.cond7 = select i1 %or.cond4, i1 %88, i1 false
   %89 = fcmp ole float %84, 1.000000e+00
-  %or.cond10 = select i1 %or.cond7, i1 %89, i1 false
-  %90 = fcmp oge float %85, 0.000000e+00
-  %or.cond13 = select i1 %or.cond10, i1 %90, i1 false
-  %91 = fcmp ole float %85, 1.000000e+00
-  %spec.select = select i1 %or.cond13, i1 %91, i1 false
-  %92 = and i32 %2, 1
-  %.not67 = icmp ne i32 %92, 0
-  %93 = icmp eq i32 %2, 1
-  %or.cond16 = or i1 %93, %spec.select
+  %90 = and i1 %88, %89
+  %or.cond10 = select i1 %or.cond4, i1 %90, i1 false
+  %91 = fcmp oge float %85, 0.000000e+00
+  %92 = fcmp ole float %85, 1.000000e+00
+  %93 = and i1 %91, %92
+  %spec.select = select i1 %or.cond10, i1 %93, i1 false
+  %94 = and i32 %2, 1
+  %.not67 = icmp ne i32 %94, 0
+  %95 = icmp eq i32 %2, 1
+  %or.cond16 = or i1 %95, %spec.select
   %or.cond68 = select i1 %.not67, i1 %or.cond16, i1 false
-  br i1 %or.cond68, label %94, label %117
+  br i1 %or.cond68, label %96, label %119
 
-94:                                               ; preds = %55
-  %95 = fcmp ogt <2 x float> %81, zeroinitializer
-  %96 = fcmp ogt float %85, 0.000000e+00
-  %.sroa.speculated78 = select i1 %96, float %85, float 0.000000e+00
-  %97 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
-  %.sroa.speculated = select i1 %97, float 1.000000e+00, float %.sroa.speculated78
-  %98 = getelementptr inbounds i8, ptr %0, i64 144
-  %99 = select <2 x i1> %95, <2 x float> %81, <2 x float> zeroinitializer
-  %100 = fcmp ogt <2 x float> %99, <float 1.000000e+00, float 1.000000e+00>
-  %101 = select <2 x i1> %100, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %99
-  %shift = shufflevector <2 x float> %101, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %102 = fadd <2 x float> %101, %shift
-  %103 = extractelement <2 x float> %102, i64 0
-  %104 = fadd float %103, %.sroa.speculated
-  %105 = insertelement <2 x float> poison, float %104, i64 0
-  %106 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> zeroinitializer
-  %107 = fdiv <2 x float> %101, %106
-  store <2 x float> %107, ptr %98, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 176
-  %109 = load ptr, ptr %108, align 8
-  %.not.i.i75.not = icmp eq ptr %109, null
-  br i1 %.not.i.i75.not, label %117, label %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77
+96:                                               ; preds = %55
+  %97 = fcmp ogt <2 x float> %81, zeroinitializer
+  %98 = fcmp ogt float %85, 0.000000e+00
+  %.sroa.speculated78 = select i1 %98, float %85, float 0.000000e+00
+  %99 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
+  %.sroa.speculated = select i1 %99, float 1.000000e+00, float %.sroa.speculated78
+  %100 = getelementptr inbounds i8, ptr %0, i64 144
+  %101 = select <2 x i1> %97, <2 x float> %81, <2 x float> zeroinitializer
+  %102 = fcmp ogt <2 x float> %101, <float 1.000000e+00, float 1.000000e+00>
+  %103 = select <2 x i1> %102, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %101
+  %shift = shufflevector <2 x float> %103, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %104 = fadd <2 x float> %103, %shift
+  %105 = extractelement <2 x float> %104, i64 0
+  %106 = fadd float %105, %.sroa.speculated
+  %107 = insertelement <2 x float> poison, float %106, i64 0
+  %108 = shufflevector <2 x float> %107, <2 x float> poison, <2 x i32> zeroinitializer
+  %109 = fdiv <2 x float> %103, %108
+  store <2 x float> %109, ptr %100, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 176
+  %111 = load ptr, ptr %110, align 8
+  %.not.i.i75.not = icmp eq ptr %111, null
+  br i1 %.not.i.i75.not, label %119, label %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77
 
-_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77: ; preds = %94
-  %110 = getelementptr inbounds i8, ptr %0, i64 160
-  %111 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %112 = extractvalue { <2 x float>, <2 x float> } %111, 0
-  store <2 x float> %112, ptr %5, align 8
-  %113 = getelementptr inbounds i8, ptr %5, i64 8
-  %114 = extractvalue { <2 x float>, <2 x float> } %111, 1
-  store <2 x float> %114, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 184
-  %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  br label %117
+_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77: ; preds = %96
+  %112 = getelementptr inbounds i8, ptr %0, i64 160
+  %113 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
+  %114 = extractvalue { <2 x float>, <2 x float> } %113, 0
+  store <2 x float> %114, ptr %5, align 8
+  %115 = getelementptr inbounds i8, ptr %5, i64 8
+  %116 = extractvalue { <2 x float>, <2 x float> } %113, 1
+  store <2 x float> %116, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 184
+  %118 = load ptr, ptr %117, align 8
+  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 4 dereferenceable(16) %5)
+  br label %119
 
-117:                                              ; preds = %55, %94, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77, %39, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit
-  %.0 = phi i32 [ 2, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit ], [ 2, %39 ], [ 1, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77 ], [ 1, %94 ], [ 0, %55 ]
+119:                                              ; preds = %55, %96, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77, %39, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit
+  %.0 = phi i32 [ 2, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit ], [ 2, %39 ], [ 1, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77 ], [ 1, %96 ], [ 0, %55 ]
   ret i32 %.0
 }
 

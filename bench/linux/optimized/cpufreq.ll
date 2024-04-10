@@ -4001,28 +4001,26 @@ define internal noundef i64 @store_boost(ptr nocapture readnone %0, ptr nocaptur
   %6 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.27, ptr noundef nonnull %5)
   %7 = icmp ne i32 %6, 1
   %8 = load i32, ptr %5, align 4
-  %9 = icmp slt i32 %8, 0
+  %9 = icmp ugt i32 %8, 1
   %10 = select i1 %7, i1 true, i1 %9
-  %11 = icmp sgt i32 %8, 1
-  %12 = select i1 %10, i1 true, i1 %11
-  br i1 %12, label %21, label %13
+  br i1 %10, label %19, label %11
 
-13:                                               ; preds = %4
-  %14 = call i32 @cpufreq_boost_trigger_state(i32 noundef %8)
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %21, label %16
+11:                                               ; preds = %4
+  %12 = call i32 @cpufreq_boost_trigger_state(i32 noundef %8)
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %19, label %14
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr %5, align 4
-  %18 = icmp eq i32 %17, 0
-  %19 = select i1 %18, ptr @.str.14, ptr @.str.13
-  %20 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.store_boost, ptr noundef nonnull %19) #22
-  br label %21
+14:                                               ; preds = %11
+  %15 = load i32, ptr %5, align 4
+  %16 = icmp eq i32 %15, 0
+  %17 = select i1 %16, ptr @.str.14, ptr @.str.13
+  %18 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.store_boost, ptr noundef nonnull %17) #22
+  br label %19
 
-21:                                               ; preds = %16, %13, %4
-  %22 = phi i64 [ -22, %16 ], [ -22, %4 ], [ %3, %13 ]
+19:                                               ; preds = %14, %11, %4
+  %20 = phi i64 [ -22, %14 ], [ -22, %4 ], [ %3, %11 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
-  ret i64 %22
+  ret i64 %20
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
@@ -5735,52 +5733,50 @@ define internal i64 @store_local_boost(ptr noundef %0, ptr noundef %1, i64 nound
   %5 = call i32 @kstrtoint(ptr noundef %1, i32 noundef 10, ptr noundef nonnull %4) #21
   %6 = icmp ne i32 %5, 0
   %7 = load i32, ptr %4, align 4
-  %8 = icmp slt i32 %7, 0
+  %8 = icmp ugt i32 %7, 1
   %9 = select i1 %6, i1 true, i1 %8
-  %10 = icmp sgt i32 %7, 1
-  %11 = select i1 %9, i1 true, i1 %10
-  br i1 %11, label %35, label %12
+  br i1 %9, label %33, label %10
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr @cpufreq_driver, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 184
-  %15 = load i8, ptr %14, align 8, !range !20, !noundef !21
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %35, label %17
+10:                                               ; preds = %3
+  %11 = load ptr, ptr @cpufreq_driver, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 184
+  %13 = load i8, ptr %12, align 8, !range !20, !noundef !21
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %33, label %15
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 513
-  %19 = load i8, ptr %18, align 1, !range !20, !noundef !21
-  %20 = zext nneg i8 %19 to i32
-  %21 = icmp eq i32 %7, %20
-  br i1 %21, label %35, label %22
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %0, i64 513
+  %17 = load i8, ptr %16, align 1, !range !20, !noundef !21
+  %18 = zext nneg i8 %17 to i32
+  %19 = icmp eq i32 %7, %18
+  br i1 %19, label %33, label %20
 
-22:                                               ; preds = %17
+20:                                               ; preds = %15
   call void @cpus_read_lock() #21
-  %23 = load ptr, ptr @cpufreq_driver, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 192
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %4, align 4
-  %27 = call i32 %25(ptr noundef %0, i32 noundef %26) #21
+  %21 = load ptr, ptr @cpufreq_driver, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 192
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = call i32 %23(ptr noundef %0, i32 noundef %24) #21
   call void @cpus_read_unlock() #21
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %31, label %29
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %29, label %27
 
-29:                                               ; preds = %22
-  %30 = sext i32 %27 to i64
-  br label %35
+27:                                               ; preds = %20
+  %28 = sext i32 %25 to i64
+  br label %33
 
-31:                                               ; preds = %22
-  %32 = load i32, ptr %4, align 4
-  %33 = icmp ne i32 %32, 0
-  %34 = zext i1 %33 to i8
-  store i8 %34, ptr %18, align 1
-  br label %35
+29:                                               ; preds = %20
+  %30 = load i32, ptr %4, align 4
+  %31 = icmp ne i32 %30, 0
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %16, align 1
+  br label %33
 
-35:                                               ; preds = %31, %29, %17, %12, %3
-  %36 = phi i64 [ %30, %29 ], [ %2, %31 ], [ -22, %3 ], [ -22, %12 ], [ %2, %17 ]
+33:                                               ; preds = %29, %27, %15, %10, %3
+  %34 = phi i64 [ %28, %27 ], [ %2, %29 ], [ -22, %3 ], [ -22, %10 ], [ %2, %15 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  ret i64 %36
+  ret i64 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1054,10 +1054,8 @@ if.then33:                                        ; preds = %sw.bb29
   br label %return
 
 sw.bb37:                                          ; preds = %if.end
-  %cmp40 = icmp sgt i32 %value.0, -1
-  %or.cond4 = select i1 %cmp, i1 %cmp40, i1 false
-  %cmp42 = icmp slt i32 %value.0, 4
-  %or.cond5 = select i1 %or.cond4, i1 %cmp42, i1 false
+  %0 = icmp ult i32 %value.0, 4
+  %or.cond5 = select i1 %cmp, i1 %0, i1 false
   br i1 %or.cond5, label %if.then43, label %sw.epilog
 
 if.then43:                                        ; preds = %sw.bb37

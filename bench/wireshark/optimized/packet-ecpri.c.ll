@@ -381,7 +381,7 @@ define internal i32 @dissect_ecpri(ptr noundef %0, ptr noundef %1, ptr noundef %
   %74 = sub i32 %15, %66
   %75 = load i32, ptr @pref_message_type_decoding, align 4
   %.not421 = icmp eq i32 %75, 0
-  br i1 %.not421, label %349, label %76
+  br i1 %.not421, label %350, label %76
 
 76:                                               ; preds = %69
   %77 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %66, i32 noundef %35) #2
@@ -405,10 +405,10 @@ define internal i32 @dissect_ecpri(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 5, label %185
     i32 6, label %245
     i32 7, label %266
-    i32 8, label %347
-    i32 9, label %347
-    i32 10, label %347
-    i32 11, label %347
+    i32 8, label %348
+    i32 9, label %348
+    i32 10, label %348
+    i32 11, label %348
   ]
 
 84:                                               ; preds = %82, %82
@@ -696,7 +696,7 @@ define internal i32 @dissect_ecpri(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 266:                                              ; preds = %82
   %267 = icmp ugt i16 %34, 3
-  br i1 %267, label %268, label %345
+  br i1 %267, label %268, label %346
 
 268:                                              ; preds = %266
   %269 = and i32 %74, 65532
@@ -719,22 +719,22 @@ define internal i32 @dissect_ecpri(ptr noundef %0, ptr noundef %1, ptr noundef %
   %283 = load i32, ptr %6, align 4
   %284 = and i32 %283, -3
   %or.cond15 = icmp eq i32 %284, 0
-  br i1 %or.cond15, label %285, label %333
+  br i1 %or.cond15, label %285, label %334
 
 285:                                              ; preds = %270
   %286 = load i32, ptr %8, align 4
   %.not428 = icmp eq i32 %286, 0
-  br i1 %.not428, label %331, label %287
+  br i1 %.not428, label %332, label %287
 
 287:                                              ; preds = %285
   %288 = shl i32 %286, 3
   %289 = or disjoint i32 %288, 4
   %290 = icmp eq i32 %289, %35
-  br i1 %290, label %.lr.ph, label %323
+  br i1 %290, label %.lr.ph, label %324
 
-.lr.ph:                                           ; preds = %287, %316
-  %.0374444 = phi i32 [ %293, %316 ], [ 0, %287 ]
-  %.2443 = phi i32 [ %320, %316 ], [ %282, %287 ]
+.lr.ph:                                           ; preds = %287, %317
+  %.0374444 = phi i32 [ %293, %317 ], [ 0, %287 ]
+  %.2443 = phi i32 [ %321, %317 ], [ %282, %287 ]
   %291 = load i32, ptr @hf_element, align 4
   %292 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %291, ptr noundef %0, i32 noundef %.2443, i32 noundef 8, i32 noundef 0) #2
   %293 = add nuw i32 %.0374444, 1
@@ -752,151 +752,151 @@ define internal i32 @dissect_ecpri(ptr noundef %0, ptr noundef %1, ptr noundef %
   %304 = icmp ne i32 %303, 0
   %305 = load i32, ptr %10, align 4
   %306 = icmp ult i32 %305, 1024
-  %or.cond17 = select i1 %304, i1 true, i1 %306
   %307 = and i32 %305, -2048
   %or.cond19 = icmp eq i32 %307, 2048
-  %or.cond439 = select i1 %or.cond17, i1 true, i1 %or.cond19
-  br i1 %or.cond439, label %310, label %308
+  %308 = or i1 %306, %or.cond19
+  %or.cond439 = select i1 %304, i1 true, i1 %308
+  br i1 %or.cond439, label %311, label %309
 
-308:                                              ; preds = %.lr.ph
-  %309 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.159, i32 noundef 0) #2
-  br label %316
+309:                                              ; preds = %.lr.ph
+  %310 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.159, i32 noundef 0) #2
+  br label %317
 
-310:                                              ; preds = %.lr.ph
-  %311 = icmp eq i32 %303, 2
-  br i1 %311, label %312, label %316
+311:                                              ; preds = %.lr.ph
+  %312 = icmp eq i32 %303, 2
+  br i1 %312, label %313, label %317
 
-312:                                              ; preds = %310
-  %313 = and i32 %305, -1024
-  %or.cond21 = icmp eq i32 %313, 1024
+313:                                              ; preds = %311
+  %314 = and i32 %305, -1024
+  %or.cond21 = icmp eq i32 %314, 1024
   %or.cond440 = or i1 %or.cond21, %or.cond19
-  br i1 %or.cond440, label %316, label %314
+  br i1 %or.cond440, label %317, label %315
 
-314:                                              ; preds = %312
-  %315 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.160, i32 noundef 2) #2
-  br label %316
+315:                                              ; preds = %313
+  %316 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.160, i32 noundef 2) #2
+  br label %317
 
-316:                                              ; preds = %310, %314, %312, %308
-  %317 = add i32 %.2443, 4
-  %318 = load i32, ptr @hf_add_info, align 4
-  %319 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %318, ptr noundef %0, i32 noundef %317, i32 noundef 4, i32 noundef 0) #2
-  %320 = add i32 %.2443, 8
-  %321 = load i32, ptr %8, align 4
-  %322 = icmp ult i32 %293, %321
-  br i1 %322, label %.lr.ph, label %.loopexit, !llvm.loop !4
+317:                                              ; preds = %311, %315, %313, %309
+  %318 = add i32 %.2443, 4
+  %319 = load i32, ptr @hf_add_info, align 4
+  %320 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %319, ptr noundef %0, i32 noundef %318, i32 noundef 4, i32 noundef 0) #2
+  %321 = add i32 %.2443, 8
+  %322 = load i32, ptr %8, align 4
+  %323 = icmp ult i32 %293, %322
+  br i1 %323, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
-323:                                              ; preds = %287
-  %324 = icmp ugt i32 %289, %35
-  br i1 %324, label %325, label %328
+324:                                              ; preds = %287
+  %325 = icmp ugt i32 %289, %35
+  br i1 %325, label %326, label %329
 
-325:                                              ; preds = %323
-  %326 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.161, i32 noundef %286) #2
-  %327 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.162) #2
+326:                                              ; preds = %324
+  %327 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.161, i32 noundef %286) #2
+  %328 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.162) #2
   br label %.loopexit
 
-328:                                              ; preds = %323
-  %329 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.163, i32 noundef %286) #2
-  %330 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.164) #2
+329:                                              ; preds = %324
+  %330 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.163, i32 noundef %286) #2
+  %331 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.164) #2
   br label %.loopexit
 
-331:                                              ; preds = %285
-  %332 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.165, i32 noundef 0) #2
+332:                                              ; preds = %285
+  %333 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.165, i32 noundef 0) #2
   br label %.loopexit
 
-333:                                              ; preds = %270
-  switch i32 %283, label %341 [
-    i32 5, label %334
-    i32 4, label %334
-    i32 3, label %334
-    i32 1, label %334
+334:                                              ; preds = %270
+  switch i32 %283, label %342 [
+    i32 5, label %335
+    i32 4, label %335
+    i32 3, label %335
+    i32 1, label %335
   ]
 
-334:                                              ; preds = %333, %333, %333, %333
+335:                                              ; preds = %334, %334, %334, %334
   %.not426 = icmp eq i16 %34, 4
-  br i1 %.not426, label %337, label %335
+  br i1 %.not426, label %338, label %336
 
-335:                                              ; preds = %334
-  %336 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.166, i32 noundef %35) #2
-  br label %337
+336:                                              ; preds = %335
+  %337 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.166, i32 noundef %35) #2
+  br label %338
 
-337:                                              ; preds = %335, %334
-  %338 = load i32, ptr %8, align 4
-  %.not427 = icmp eq i32 %338, 0
-  br i1 %.not427, label %.loopexit, label %339
+338:                                              ; preds = %336, %335
+  %339 = load i32, ptr %8, align 4
+  %.not427 = icmp eq i32 %339, 0
+  br i1 %.not427, label %.loopexit, label %340
 
-339:                                              ; preds = %337
-  %340 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.167, i32 noundef %338) #2
+340:                                              ; preds = %338
+  %341 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.167, i32 noundef %339) #2
   br label %.loopexit
 
-341:                                              ; preds = %333
-  %342 = load i32, ptr %8, align 4
-  %.not425 = icmp eq i32 %342, 0
-  br i1 %.not425, label %.loopexit, label %343
+342:                                              ; preds = %334
+  %343 = load i32, ptr %8, align 4
+  %.not425 = icmp eq i32 %343, 0
+  br i1 %.not425, label %.loopexit, label %344
 
-343:                                              ; preds = %341
-  %344 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.168, i32 noundef %342) #2
+344:                                              ; preds = %342
+  %345 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %281, ptr noundef nonnull @ei_number_faults, ptr noundef nonnull @.str.168, i32 noundef %343) #2
   br label %.loopexit
 
-345:                                              ; preds = %266
-  %346 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.150, i32 noundef %35, i32 noundef 7, i32 noundef 4) #2
+346:                                              ; preds = %266
+  %347 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull @ei_payload_size, ptr noundef nonnull @.str.150, i32 noundef %35, i32 noundef 7, i32 noundef 4) #2
   br label %.loopexit
 
-347:                                              ; preds = %82, %82, %82, %82
-  %348 = call ptr @proto_tree_add_expert(ptr noundef %73, ptr noundef nonnull %1, ptr noundef nonnull @ei_ecpri_not_dis_yet, ptr noundef %0, i32 noundef %66, i32 noundef -1) #2
+348:                                              ; preds = %82, %82, %82, %82
+  %349 = call ptr @proto_tree_add_expert(ptr noundef %73, ptr noundef nonnull %1, ptr noundef nonnull @ei_ecpri_not_dis_yet, ptr noundef %0, i32 noundef %66, i32 noundef -1) #2
   br label %.loopexit
 
-349:                                              ; preds = %69
-  %350 = add i32 %66, %35
-  %.not422 = icmp slt i32 %16, %350
-  %spec.select = select i1 %.not422, i32 %66, i32 %350
+350:                                              ; preds = %69
+  %351 = add i32 %66, %35
+  %.not422 = icmp slt i32 %16, %351
+  %spec.select = select i1 %.not422, i32 %66, i32 %351
   br label %.loopexit
 
-.loopexit:                                        ; preds = %316, %349, %347, %86, %98, %88, %102, %106, %118, %108, %122, %126, %138, %128, %142, %146, %173, %181, %179, %149, %183, %187, %239, %234, %243, %247, %260, %250, %264, %268, %339, %337, %343, %341, %331, %325, %328, %345, %82, %80
-  %.3 = phi i32 [ %81, %80 ], [ %66, %82 ], [ %66, %347 ], [ %282, %325 ], [ %282, %328 ], [ %282, %331 ], [ %282, %339 ], [ %282, %337 ], [ %282, %343 ], [ %282, %341 ], [ %66, %268 ], [ %66, %345 ], [ %263, %260 ], [ %256, %250 ], [ %66, %247 ], [ %66, %264 ], [ %242, %239 ], [ %235, %234 ], [ %66, %187 ], [ %66, %243 ], [ %176, %173 ], [ %166, %179 ], [ %166, %181 ], [ %166, %149 ], [ %66, %146 ], [ %66, %183 ], [ %141, %138 ], [ %134, %128 ], [ %66, %126 ], [ %66, %142 ], [ %121, %118 ], [ %114, %108 ], [ %66, %106 ], [ %66, %122 ], [ %101, %98 ], [ %94, %88 ], [ %66, %86 ], [ %66, %102 ], [ %spec.select, %349 ], [ %320, %316 ]
-  %351 = load i32, ptr %7, align 4
-  %352 = icmp ne i32 %351, 0
-  %353 = sub i32 %16, %.3
-  %354 = icmp sgt i32 %353, 3
-  %355 = select i1 %352, i1 %354, i1 false
-  br i1 %355, label %29, label %356, !llvm.loop !6
+.loopexit:                                        ; preds = %317, %350, %348, %86, %98, %88, %102, %106, %118, %108, %122, %126, %138, %128, %142, %146, %173, %181, %179, %149, %183, %187, %239, %234, %243, %247, %260, %250, %264, %268, %340, %338, %344, %342, %332, %326, %329, %346, %82, %80
+  %.3 = phi i32 [ %81, %80 ], [ %66, %82 ], [ %66, %348 ], [ %282, %326 ], [ %282, %329 ], [ %282, %332 ], [ %282, %340 ], [ %282, %338 ], [ %282, %344 ], [ %282, %342 ], [ %66, %268 ], [ %66, %346 ], [ %263, %260 ], [ %256, %250 ], [ %66, %247 ], [ %66, %264 ], [ %242, %239 ], [ %235, %234 ], [ %66, %187 ], [ %66, %243 ], [ %176, %173 ], [ %166, %179 ], [ %166, %181 ], [ %166, %149 ], [ %66, %146 ], [ %66, %183 ], [ %141, %138 ], [ %134, %128 ], [ %66, %126 ], [ %66, %142 ], [ %121, %118 ], [ %114, %108 ], [ %66, %106 ], [ %66, %122 ], [ %101, %98 ], [ %94, %88 ], [ %66, %86 ], [ %66, %102 ], [ %spec.select, %350 ], [ %321, %317 ]
+  %352 = load i32, ptr %7, align 4
+  %353 = icmp ne i32 %352, 0
+  %354 = sub i32 %16, %.3
+  %355 = icmp sgt i32 %354, 3
+  %356 = select i1 %353, i1 %355, i1 false
+  br i1 %356, label %29, label %357, !llvm.loop !6
 
-356:                                              ; preds = %.loopexit
-  br i1 %352, label %357, label %359
+357:                                              ; preds = %.loopexit
+  br i1 %353, label %358, label %360
 
-357:                                              ; preds = %356
-  %358 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %55, ptr noundef nonnull @ei_c_bit, ptr noundef nonnull @.str.169) #2
-  br label %359
+358:                                              ; preds = %357
+  %359 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %55, ptr noundef nonnull @ei_c_bit, ptr noundef nonnull @.str.169) #2
+  br label %360
 
-359:                                              ; preds = %357, %356
+360:                                              ; preds = %358, %357
   %.not438 = icmp eq i32 %.3, 0
-  br i1 %.not438, label %363, label %360
+  br i1 %.not438, label %364, label %361
 
-360:                                              ; preds = %359
-  %361 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3) #2
-  %362 = call i32 @call_data_dissector(ptr noundef %361, ptr noundef %1, ptr noundef %2) #2
-  br label %363
+361:                                              ; preds = %360
+  %362 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3) #2
+  %363 = call i32 @call_data_dissector(ptr noundef %362, ptr noundef %1, ptr noundef %2) #2
+  br label %364
 
-363:                                              ; preds = %360, %359
-  %364 = load i32, ptr @hf_ecpri_length, align 4
-  %365 = call ptr @proto_tree_add_uint(ptr noundef %45, i32 noundef %364, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %16) #2
-  %.not.i = icmp eq ptr %365, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %366
+364:                                              ; preds = %361, %360
+  %365 = load i32, ptr @hf_ecpri_length, align 4
+  %366 = call ptr @proto_tree_add_uint(ptr noundef %45, i32 noundef %365, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %16) #2
+  %.not.i = icmp eq ptr %366, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %367
 
-366:                                              ; preds = %363
-  %367 = getelementptr inbounds i8, ptr %365, i64 32
-  %368 = load ptr, ptr %367, align 8
-  %.not5.i = icmp eq ptr %368, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %369
+367:                                              ; preds = %364
+  %368 = getelementptr inbounds i8, ptr %366, i64 32
+  %369 = load ptr, ptr %368, align 8
+  %.not5.i = icmp eq ptr %369, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %370
 
-369:                                              ; preds = %366
-  %370 = getelementptr inbounds i8, ptr %368, i64 28
-  %371 = load i32, ptr %370, align 4
-  %372 = or i32 %371, 2
-  store i32 %372, ptr %370, align 4
+370:                                              ; preds = %367
+  %371 = getelementptr inbounds i8, ptr %369, i64 28
+  %372 = load i32, ptr %371, align 4
+  %373 = or i32 %372, 2
+  store i32 %373, ptr %371, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %369, %366, %363, %4
-  %.0 = phi i32 [ 0, %4 ], [ %16, %363 ], [ %16, %366 ], [ %16, %369 ]
+proto_item_set_generated.exit:                    ; preds = %370, %367, %364, %4
+  %.0 = phi i32 [ 0, %4 ], [ %16, %364 ], [ %16, %367 ], [ %16, %370 ]
   ret i32 %.0
 }
 

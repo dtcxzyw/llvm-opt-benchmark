@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
 define dso_local zeroext i1 @cpc_supported_by_cpu() local_unnamed_addr #0 align 16 {
   %1 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
-  switch i8 %1, label %21 [
+  switch i8 %1, label %19 [
     i8 2, label %2
     i8 9, label %2
   ]
@@ -39,26 +39,24 @@ define dso_local zeroext i1 @cpc_supported_by_cpu() local_unnamed_addr #0 align 
   %8 = and i8 %6, -16
   %9 = icmp eq i8 %8, 32
   %10 = or i1 %7, %9
-  br i1 %10, label %21, label %.thread
+  br i1 %10, label %19, label %.thread
 
 11:                                               ; preds = %2
   %12 = icmp eq i8 %3, 23
   %13 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
-  %14 = icmp ugt i8 %13, 111
+  %14 = icmp sgt i8 %13, 111
   %15 = select i1 %12, i1 %14, i1 false
-  %16 = icmp sgt i8 %13, -1
-  %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %21, label %.thread
+  br i1 %15, label %19, label %.thread
 
 .thread:                                          ; preds = %5, %11
-  %18 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 40), align 8
-  %19 = and i64 %18, 576460752303423488
-  %20 = icmp ne i64 %19, 0
-  br label %21
+  %16 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 40), align 8
+  %17 = and i64 %16, 576460752303423488
+  %18 = icmp ne i64 %17, 0
+  br label %19
 
-21:                                               ; preds = %.thread, %11, %5, %0
-  %22 = phi i1 [ %20, %.thread ], [ true, %5 ], [ true, %11 ], [ false, %0 ]
-  ret i1 %22
+19:                                               ; preds = %.thread, %11, %5, %0
+  %20 = phi i1 [ %18, %.thread ], [ true, %5 ], [ true, %11 ], [ false, %0 ]
+  ret i1 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

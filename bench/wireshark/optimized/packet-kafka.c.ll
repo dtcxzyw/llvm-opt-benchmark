@@ -13682,7 +13682,7 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
   %37 = sext i16 %9 to i32
   %38 = call ptr @val_to_str(i32 noundef %37, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
   %39 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %36, ptr noundef nonnull @ei_kafka_unknown_api_key, ptr noundef nonnull @.str.537, ptr noundef %38) #6
-  br label %68
+  br label %69
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds i8, ptr %32, i64 16
@@ -13690,67 +13690,67 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
   %43 = icmp eq i16 %42, -1
   %44 = icmp sgt i16 %42, %13
   %or.cond.i71 = or i1 %43, %44
-  br i1 %or.cond.i71, label %48, label %kafka_is_api_version_supported.exit
+  br i1 %or.cond.i71, label %49, label %kafka_is_api_version_supported.exit
 
 kafka_is_api_version_supported.exit:              ; preds = %40
   %45 = getelementptr inbounds i8, ptr %32, i64 18
   %46 = load i16, ptr %45, align 2
   %.not76 = icmp slt i16 %46, %13
   %47 = icmp sgt i16 %42, %17
-  %or.cond = select i1 %.not76, i1 true, i1 %47
   %.not77 = icmp slt i16 %46, %17
-  %or.cond78 = select i1 %or.cond, i1 true, i1 %.not77
-  br i1 %or.cond78, label %.thread, label %68
+  %48 = or i1 %47, %.not77
+  %or.cond78 = select i1 %.not76, i1 true, i1 %48
+  br i1 %or.cond78, label %.thread, label %69
 
-48:                                               ; preds = %40
-  br i1 %43, label %49, label %..thread_crit_edge
+49:                                               ; preds = %40
+  br i1 %43, label %50, label %..thread_crit_edge
 
-..thread_crit_edge:                               ; preds = %48
+..thread_crit_edge:                               ; preds = %49
   %.phi.trans.insert = getelementptr inbounds i8, ptr %32, i64 18
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   br label %.thread
 
-49:                                               ; preds = %48
+50:                                               ; preds = %49
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.538) #6
-  %50 = load ptr, ptr %6, align 8
-  %51 = zext nneg i16 %9 to i32
-  %52 = call ptr @val_to_str(i32 noundef %51, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
-  %53 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.539, ptr noundef %52) #6
-  br label %68
+  %51 = load ptr, ptr %6, align 8
+  %52 = zext nneg i16 %9 to i32
+  %53 = call ptr @val_to_str(i32 noundef %52, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
+  %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %51, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.539, ptr noundef %53) #6
+  br label %69
 
 .thread:                                          ; preds = %..thread_crit_edge, %kafka_is_api_version_supported.exit
-  %54 = phi i16 [ %.pre, %..thread_crit_edge ], [ %46, %kafka_is_api_version_supported.exit ]
-  %55 = sext i16 %42 to i32
-  %56 = icmp eq i16 %42, %54
-  br i1 %56, label %57, label %62
+  %55 = phi i16 [ %.pre, %..thread_crit_edge ], [ %46, %kafka_is_api_version_supported.exit ]
+  %56 = sext i16 %42 to i32
+  %57 = icmp eq i16 %42, %55
+  br i1 %57, label %58, label %63
 
-57:                                               ; preds = %.thread
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.665, i32 noundef %55) #6
-  %58 = load ptr, ptr %6, align 8
-  %59 = zext nneg i16 %9 to i32
-  %60 = call ptr @val_to_str(i32 noundef %59, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
-  %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %58, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.540, ptr noundef %60, i32 noundef %55) #6
-  br label %68
+58:                                               ; preds = %.thread
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.665, i32 noundef %56) #6
+  %59 = load ptr, ptr %6, align 8
+  %60 = zext nneg i16 %9 to i32
+  %61 = call ptr @val_to_str(i32 noundef %60, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
+  %62 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %59, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.540, ptr noundef %61, i32 noundef %56) #6
+  br label %69
 
-62:                                               ; preds = %.thread
-  %63 = sext i16 %54 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.666, i32 noundef %55, i32 noundef %63) #6
-  %64 = load ptr, ptr %6, align 8
-  %65 = zext nneg i16 %9 to i32
-  %66 = call ptr @val_to_str(i32 noundef %65, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
-  %67 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.541, ptr noundef %66, i32 noundef %55, i32 noundef %63) #6
-  br label %68
+63:                                               ; preds = %.thread
+  %64 = sext i16 %55 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.666, i32 noundef %56, i32 noundef %64) #6
+  %65 = load ptr, ptr %6, align 8
+  %66 = zext nneg i16 %9 to i32
+  %67 = call ptr @val_to_str(i32 noundef %66, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
+  %68 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %65, ptr noundef nonnull @ei_kafka_unsupported_api_version, ptr noundef nonnull @.str.541, ptr noundef %67, i32 noundef %56, i32 noundef %64) #6
+  br label %69
 
-68:                                               ; preds = %kafka_is_api_version_supported.exit, %57, %62, %49, %35
-  %69 = icmp sgt i16 %4, 2
-  br i1 %69, label %70, label %72
+69:                                               ; preds = %kafka_is_api_version_supported.exit, %58, %63, %50, %35
+  %70 = icmp sgt i16 %4, 2
+  br i1 %70, label %71, label %73
 
-70:                                               ; preds = %68
-  %71 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
-  br label %72
+71:                                               ; preds = %69
+  %72 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
+  br label %73
 
-72:                                               ; preds = %70, %68
-  %.0 = phi i32 [ %71, %70 ], [ %20, %68 ]
+73:                                               ; preds = %71, %69
+  %.0 = phi i32 [ %72, %71 ], [ %20, %69 ]
   ret i32 %.0
 }
 

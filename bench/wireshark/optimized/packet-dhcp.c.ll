@@ -4347,15 +4347,14 @@ define internal i32 @dissect_dhcpopt_vendor_class_identifier(ptr noundef %0, ptr
 define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %.thread150
+  br i1 %6, label %7, label %.thread149
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %9 = icmp eq i32 %5, 7
-  %10 = icmp ne i8 %8, 0
-  %or.cond = select i1 %9, i1 %10, i1 false
-  %11 = icmp ult i8 %8, 48
-  %or.cond5 = select i1 %or.cond, i1 %11, i1 false
+  %10 = add i8 %8, -1
+  %11 = icmp ult i8 %10, 47
+  %or.cond5 = select i1 %9, i1 %11, i1 false
   br i1 %or.cond5, label %12, label %25
 
 12:                                               ; preds = %7
@@ -4369,7 +4368,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
 15:                                               ; preds = %12, %12
   %16 = load i32, ptr @hf_dhcp_hw_ether_addr, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 6, i32 noundef 0) #9
-  br label %.thread150
+  br label %.thread149
 
 18:                                               ; preds = %12
   %19 = load i32, ptr @hf_dhcp_client_hardware_address, align 4
@@ -4378,7 +4377,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   %22 = zext nneg i8 %8 to i16
   %23 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 6, i16 noundef zeroext %22) #9
   %24 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 6, ptr noundef %23) #9
-  br label %.thread150
+  br label %.thread149
 
 25:                                               ; preds = %7
   %26 = icmp eq i32 %5, 17
@@ -4390,7 +4389,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   %29 = load i32, ptr @hf_dhcp_client_identifier_uuid, align 4
   %30 = load i32, ptr @dhcp_uuid_endian, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef %30) #9
-  br label %.thread150
+  br label %.thread149
 
 32:                                               ; preds = %25
   %33 = icmp eq i8 %8, -1
@@ -4405,7 +4404,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   %40 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 5) #9
   %41 = load i32, ptr @hf_dhcp_client_id_duid_type, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0) #9
-  switch i16 %40, label %.thread150 [
+  switch i16 %40, label %.thread149 [
     i16 1, label %43
     i16 2, label %64
     i16 3, label %75
@@ -4417,7 +4416,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
 
 45:                                               ; preds = %43
   %46 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_mal_duid) #9
-  br label %.thread150
+  br label %.thread149
 
 47:                                               ; preds = %43
   %48 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 7) #9
@@ -4426,7 +4425,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   %51 = load i32, ptr @hf_dhcp_client_identifier_time, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0) #9
   %.not139 = icmp eq i32 %5, 8
-  br i1 %.not139, label %.thread150, label %53
+  br i1 %.not139, label %.thread149, label %53
 
 53:                                               ; preds = %47
   %54 = load i32, ptr @hf_dhcp_client_identifier_link_layer_address, align 4
@@ -4434,19 +4433,19 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   %56 = load ptr, ptr %36, align 8
   %57 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %56, ptr noundef %0, i32 noundef 13, i32 noundef %55, i16 noundef zeroext %48) #9
   %58 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef 13, i32 noundef %55, ptr noundef %57) #9
-  switch i16 %48, label %.thread150 [
+  switch i16 %48, label %.thread149 [
     i16 6, label %59
     i16 1, label %59
   ]
 
 59:                                               ; preds = %53, %53
   %60 = icmp eq i32 %55, 6
-  br i1 %60, label %61, label %.thread150
+  br i1 %60, label %61, label %.thread149
 
 61:                                               ; preds = %59
   %62 = load i32, ptr @hf_dhcp_client_identifier_link_layer_address_ether, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef 13, i32 noundef 6, i32 noundef 0) #9
-  br label %.thread150
+  br label %.thread149
 
 64:                                               ; preds = %34
   %65 = icmp ult i32 %5, 6
@@ -4454,19 +4453,19 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
 
 66:                                               ; preds = %64
   %67 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_mal_duid) #9
-  br label %.thread150
+  br label %.thread149
 
 68:                                               ; preds = %64
   %69 = load i32, ptr @hf_dhcp_client_identifier_enterprise_num, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef 7, i32 noundef 4, i32 noundef 0) #9
   %.not138 = icmp eq i32 %5, 6
-  br i1 %.not138, label %.thread150, label %71
+  br i1 %.not138, label %.thread149, label %71
 
 71:                                               ; preds = %68
   %72 = load i32, ptr @hf_dhcp_client_identifier, align 4
   %73 = add nsw i32 %5, -11
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef 11, i32 noundef %73, i32 noundef 0) #9
-  br label %.thread150
+  br label %.thread149
 
 75:                                               ; preds = %34
   %76 = icmp ult i32 %5, 4
@@ -4474,14 +4473,14 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
 
 77:                                               ; preds = %75
   %78 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_mal_duid) #9
-  br label %.thread150
+  br label %.thread149
 
 79:                                               ; preds = %75
   %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 7) #9
   %81 = load i32, ptr @hf_dhcp_client_identifier_duid_ll_hw_type, align 4
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0) #9
   %.not = icmp eq i32 %5, 4
-  br i1 %.not, label %.thread150, label %83
+  br i1 %.not, label %.thread149, label %83
 
 83:                                               ; preds = %79
   %84 = load i32, ptr @hf_dhcp_client_identifier_link_layer_address, align 4
@@ -4489,24 +4488,24 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   %86 = load ptr, ptr %36, align 8
   %87 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %86, ptr noundef %0, i32 noundef 9, i32 noundef %85, i16 noundef zeroext %80) #9
   %88 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef 9, i32 noundef %85, ptr noundef %87) #9
-  switch i16 %80, label %.thread150 [
+  switch i16 %80, label %.thread149 [
     i16 6, label %89
     i16 1, label %89
   ]
 
 89:                                               ; preds = %83, %83
   %90 = icmp eq i32 %85, 6
-  br i1 %90, label %91, label %.thread150
+  br i1 %90, label %91, label %.thread149
 
 91:                                               ; preds = %89
   %92 = load i32, ptr @hf_dhcp_client_identifier_link_layer_address_ether, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef 9, i32 noundef 6, i32 noundef 0) #9
-  br label %.thread150
+  br label %.thread149
 
 94:                                               ; preds = %32
   %95 = icmp ne i32 %5, 1
   %or.cond19 = and i1 %95, %27
-  br i1 %or.cond19, label %96, label %.thread150
+  br i1 %or.cond19, label %96, label %.thread149
 
 96:                                               ; preds = %94
   %97 = load i32, ptr @hf_dhcp_client_identifier_type, align 4
@@ -4514,9 +4513,9 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   %99 = load i32, ptr @hf_dhcp_client_identifier_undef, align 4
   %100 = add nsw i32 %5, -1
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %99, ptr noundef %0, i32 noundef 1, i32 noundef %100, i32 noundef 0) #9
-  br label %.thread150
+  br label %.thread149
 
-.thread150:                                       ; preds = %4, %83, %53, %28, %96, %94, %34, %45, %66, %77, %59, %61, %47, %71, %68, %89, %91, %79, %15, %18
+.thread149:                                       ; preds = %4, %83, %53, %28, %96, %94, %34, %45, %66, %77, %59, %61, %47, %71, %68, %89, %91, %79, %15, %18
   %102 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
   ret i32 %102
 }
@@ -5479,15 +5478,14 @@ define internal i32 @dissect_dhcpopt_client_network_interface_id(ptr noundef %0,
 define internal i32 @dissect_dhcpopt_client_identifier_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %.thread43
+  br i1 %6, label %7, label %.thread42
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %9 = icmp eq i32 %5, 7
-  %10 = icmp ne i8 %8, 0
-  %or.cond = select i1 %9, i1 %10, i1 false
-  %11 = icmp ult i8 %8, 48
-  %or.cond5 = select i1 %or.cond, i1 %11, i1 false
+  %10 = add i8 %8, -1
+  %11 = icmp ult i8 %10, 47
+  %or.cond5 = select i1 %9, i1 %11, i1 false
   br i1 %or.cond5, label %12, label %25
 
 12:                                               ; preds = %7
@@ -5501,7 +5499,7 @@ define internal i32 @dissect_dhcpopt_client_identifier_uuid(ptr noundef %0, ptr 
 15:                                               ; preds = %12, %12
   %16 = load i32, ptr @hf_dhcp_hw_ether_addr, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 6, i32 noundef 0) #9
-  br label %.thread43
+  br label %.thread42
 
 18:                                               ; preds = %12
   %19 = load i32, ptr @hf_dhcp_client_hardware_address, align 4
@@ -5510,21 +5508,21 @@ define internal i32 @dissect_dhcpopt_client_identifier_uuid(ptr noundef %0, ptr 
   %22 = zext nneg i8 %8 to i16
   %23 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 6, i16 noundef zeroext %22) #9
   %24 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 6, ptr noundef %23) #9
-  br label %.thread43
+  br label %.thread42
 
 25:                                               ; preds = %7
   %26 = icmp eq i32 %5, 17
   %27 = icmp eq i8 %8, 0
   %or.cond11 = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond11, label %28, label %.thread43
+  br i1 %or.cond11, label %28, label %.thread42
 
 28:                                               ; preds = %25
   %29 = load i32, ptr @hf_dhcp_client_identifier_uuid, align 4
   %30 = load i32, ptr @dhcp_uuid_endian, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef %30) #9
-  br label %.thread43
+  br label %.thread42
 
-.thread43:                                        ; preds = %4, %28, %25, %15, %18
+.thread42:                                        ; preds = %4, %28, %25, %15, %18
   %32 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
   ret i32 %32
 }
@@ -7641,10 +7639,9 @@ define internal noundef i32 @dissect_packetcable_mta_vendor_id_heur(ptr noundef 
   %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %45, ptr noundef nonnull @.str.2101, ptr noundef nonnull %5) #9
   %47 = icmp ne i32 %46, 1
   %48 = load i32, ptr %5, align 4
-  %49 = icmp eq i32 %48, 0
-  %or.cond3.i = select i1 %47, i1 true, i1 %49
-  %50 = icmp ugt i32 %48, 65535
-  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %50
+  %49 = add i32 %48, -65536
+  %50 = icmp ult i32 %49, -65535
+  %or.cond5.i = select i1 %47, i1 true, i1 %50
   br i1 %or.cond5.i, label %51, label %56
 
 51:                                               ; preds = %41

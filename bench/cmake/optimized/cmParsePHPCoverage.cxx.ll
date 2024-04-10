@@ -491,9 +491,9 @@ define dso_local noundef zeroext i1 @_ZN18cmParsePHPCoverage7ReadIntERSiRi(ptr n
   store i8 0, ptr %5, align 1
   br label %6
 
-6:                                                ; preds = %17, %3
+6:                                                ; preds = %18, %3
   %7 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi3getERc(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %8 unwind label %19
+          to label %8 unwind label %20
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %7, align 8
@@ -501,29 +501,29 @@ define dso_local noundef zeroext i1 @_ZN18cmParsePHPCoverage7ReadIntERSiRi(ptr n
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
-          to label %14 unwind label %19
+          to label %14 unwind label %20
 
 14:                                               ; preds = %8
   %15 = load i8, ptr %5, align 1
-  %16 = and i8 %15, -2
-  %switch = icmp ne i8 %16, 58
-  %or.cond.not = select i1 %13, i1 %switch, i1 false
-  br i1 %or.cond.not, label %17, label %.critedge
+  %16 = add i8 %15, -60
+  %17 = icmp ult i8 %16, -2
+  %or.cond5 = select i1 %13, i1 %17, i1 false
+  br i1 %or.cond5, label %18, label %.critedge
 
-17:                                               ; preds = %14
-  %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %15)
-          to label %6 unwind label %19, !llvm.loop !10
+18:                                               ; preds = %14
+  %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %15)
+          to label %6 unwind label %20, !llvm.loop !10
 
-19:                                               ; preds = %17, %8, %6
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %18, %8, %6
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 
 .critedge:                                        ; preds = %14
-  %21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  %22 = call i32 @atoi(ptr nocapture noundef %21) #23
-  store i32 %22, ptr %2, align 4
+  %22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  %23 = call i32 @atoi(ptr nocapture noundef %22) #23
+  store i32 %23, ptr %2, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   ret i1 true
 }

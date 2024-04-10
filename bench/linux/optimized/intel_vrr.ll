@@ -349,9 +349,9 @@ define dso_local void @intel_vrr_compute_config(ptr noundef %0, ptr nocapture no
   %47 = sub nsw i32 %44, %46
   %48 = icmp sgt i32 %47, 10
   %49 = icmp sge i32 %12, %46
-  %50 = select i1 %48, i1 %49, i1 false
-  %51 = icmp sle i32 %12, %44
-  %52 = select i1 %50, i1 %51, i1 false
+  %50 = icmp sle i32 %12, %44
+  %51 = and i1 %50, %49
+  %52 = select i1 %48, i1 %51, i1 false
   %53 = getelementptr inbounds i8, ptr %0, i64 4932
   %54 = getelementptr inbounds i8, ptr %0, i64 4933
   %55 = zext i1 %52 to i8

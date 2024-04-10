@@ -15865,9 +15865,9 @@ define internal fastcc <2 x float> @_extract_patches(ptr noalias nocapture nound
   %198 = fcmp reassoc nsz arcp contract afn ogt float %195, %42
   %199 = and i1 %197, %198
   %200 = fcmp reassoc nsz arcp contract afn olt float %196, %23
-  %201 = select i1 %199, i1 %200, i1 false
-  %202 = fcmp reassoc nsz arcp contract afn ogt float %196, %43
-  %203 = select i1 %201, i1 %202, i1 false
+  %201 = fcmp reassoc nsz arcp contract afn ogt float %196, %43
+  %202 = and i1 %200, %201
+  %203 = select i1 %199, i1 %202, i1 false
   br i1 %203, label %210, label %204
 
 204:                                              ; preds = %210, %184

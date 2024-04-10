@@ -1604,17 +1604,16 @@ define internal fastcc noundef i32 @intpoint(ptr noundef readonly %0, ptr nounde
 
 115:                                              ; preds = %113
   %116 = fcmp olt double %95, %.sroa.0.0.i127
-  %or.cond227 = fcmp ogt double %.sroa.0.0.i127, %.sroa.05.0.copyload.i124
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %115
+  %or.cond227 = fcmp ogt double %.sroa.0.0.i127, %.sroa.05.0.copyload.i124
   br i1 %or.cond227, label %121, label %online.exit136.thread
 
 118:                                              ; preds = %115
   %119 = fcmp ule double %95, %.sroa.0.0.i127
-  %or.cond208 = select i1 %119, i1 true, i1 %or.cond227
   %120 = fcmp uge double %.sroa.0.0.i127, %.sroa.05.0.copyload.i124
-  %or.cond228.not = select i1 %or.cond208, i1 true, i1 %120
+  %or.cond228.not = select i1 %119, i1 true, i1 %120
   br i1 %or.cond228.not, label %online.exit136.thread, label %121
 
 121:                                              ; preds = %118, %117
@@ -1699,17 +1698,16 @@ online.exit.thread:                               ; preds = %90, %98, %97
 
 156:                                              ; preds = %154
   %157 = fcmp olt double %92, %.sroa.0.0.i161
-  %or.cond229 = fcmp ogt double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
   br i1 %157, label %158, label %159
 
 158:                                              ; preds = %156
+  %or.cond229 = fcmp ogt double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
   br i1 %or.cond229, label %162, label %online.exit170.thread
 
 159:                                              ; preds = %156
   %160 = fcmp ule double %92, %.sroa.0.0.i161
-  %or.cond210 = select i1 %160, i1 true, i1 %or.cond229
   %161 = fcmp uge double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
-  %or.cond230.not = select i1 %or.cond210, i1 true, i1 %161
+  %or.cond230.not = select i1 %160, i1 true, i1 %161
   br i1 %or.cond230.not, label %online.exit170.thread, label %162
 
 162:                                              ; preds = %159, %158

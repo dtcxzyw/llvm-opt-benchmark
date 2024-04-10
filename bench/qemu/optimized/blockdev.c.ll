@@ -5998,10 +5998,9 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit
   %call6 = call i32 @parse_uint_full(ptr noundef %call5, i32 noundef 10, ptr noundef nonnull %length) #13
   %cmp = icmp eq i32 %call6, 0
   %2 = load i64, ptr %length, align 8
-  %cmp7 = icmp ne i64 %2, 0
-  %or.cond = select i1 %cmp, i1 %cmp7, i1 false
-  %cmp9 = icmp ult i64 %2, 4294967296
-  %or.cond1 = select i1 %or.cond, i1 %cmp9, i1 false
+  %3 = add i64 %2, -1
+  %4 = icmp ult i64 %3, 4294967295
+  %or.cond1 = select i1 %cmp, i1 %4, i1 false
   br i1 %or.cond1, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %qobject_check_type.exit
@@ -6010,8 +6009,8 @@ if.else:                                          ; preds = %qobject_check_type.
 
 qobject_check_type.exit24:                        ; preds = %qobject_type.exit
   %call14 = call i64 @qnum_get_int(ptr noundef nonnull %0) #13
-  %3 = add i64 %call14, -1
-  %or.cond2 = icmp ult i64 %3, 4294967295
+  %5 = add i64 %call14, -1
+  %or.cond2 = icmp ult i64 %5, 4294967295
   br i1 %or.cond2, label %for.inc, label %if.else22
 
 if.else22:                                        ; preds = %qobject_check_type.exit24
@@ -6026,8 +6025,8 @@ for.inc:                                          ; preds = %qobject_check_type.
   %.sink = phi i64 [ %2, %qobject_check_type.exit ], [ %call14, %qobject_check_type.exit24 ]
   %conv = trunc i64 %.sink to i32
   call void @block_acct_add_interval(ptr noundef %stats, i32 noundef %conv) #13
-  %4 = getelementptr i8, ptr %entry1.07, i64 8
-  %entry1.0.val = load ptr, ptr %4, align 8
+  %6 = getelementptr i8, ptr %entry1.07, i64 8
+  %entry1.0.val = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %entry1.0.val, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !25
 

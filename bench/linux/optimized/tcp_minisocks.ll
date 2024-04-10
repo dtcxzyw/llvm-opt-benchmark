@@ -194,9 +194,9 @@ define dso_local noundef i32 @tcp_timewait_state_process(ptr noundef %0, ptr nou
   %100 = icmp eq i16 %99, 0
   %101 = sub i32 %69, %67
   %102 = icmp sgt i32 %101, -1
-  %103 = select i1 %100, i1 true, i1 %102
-  %104 = icmp eq i32 %67, %61
-  %105 = select i1 %103, i1 true, i1 %104
+  %103 = icmp eq i32 %67, %61
+  %104 = or i1 %103, %102
+  %105 = select i1 %100, i1 true, i1 %104
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %98

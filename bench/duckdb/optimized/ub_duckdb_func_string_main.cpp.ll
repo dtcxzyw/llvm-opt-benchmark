@@ -40919,10 +40919,8 @@ cleanup81:                                        ; preds = %for.inc79, %if.else
   %start_pos.2.lcssa = phi i64 [ %start_pos.4, %for.inc79 ], [ %start_pos.2234, %if.else72 ]
   %end_pos.4 = phi i64 [ %conv.i, %for.inc79 ], [ %i62.0236, %if.else72 ]
   %cmp83 = icmp ne i64 %start_pos.2.lcssa, -1
-  %cmp84 = icmp ne i64 %end52.0, 0
-  %or.cond.not231 = select i1 %cmp83, i1 %cmp84, i1 false
   %cmp86.not = icmp sgt i64 %end52.0, %start51.0
-  %or.cond164 = select i1 %or.cond.not231, i1 %cmp86.not, i1 false
+  %or.cond164 = select i1 %cmp83, i1 %cmp86.not, i1 false
   br i1 %or.cond164, label %if.end97, label %if.then87
 
 if.then87:                                        ; preds = %cleanup81, %if.end60

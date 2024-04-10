@@ -5908,10 +5908,9 @@ define internal fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, 
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %16) #7
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #7
   %19 = icmp eq i8 %18, 95
-  %20 = icmp ugt i16 %17, 12343
-  %or.cond = select i1 %19, i1 %20, i1 false
-  %21 = icmp ult i16 %17, 12359
-  %or.cond5 = select i1 %or.cond, i1 %21, i1 false
+  %20 = add i16 %17, -12344
+  %21 = icmp ult i16 %20, 15
+  %or.cond5 = select i1 %19, i1 %21, i1 false
   br i1 %or.cond5, label %22, label %59
 
 22:                                               ; preds = %15

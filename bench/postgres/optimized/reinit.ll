@@ -142,8 +142,8 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 
 34:                                               ; preds = %25, %2
   %35 = tail call ptr @ReadDir(ptr noundef %23, ptr noundef %0) #9
-  %.not97 = icmp eq ptr %35, null
-  br i1 %.not97, label %._crit_edge, label %.lr.ph
+  %.not91 = icmp eq ptr %35, null
+  br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34
   %36 = and i32 %1, 2
@@ -184,9 +184,9 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   br label %67
 
 57:                                               ; preds = %46
-  br i1 %.not14, label %.thread99, label %58
+  br i1 %.not14, label %.thread93, label %58
 
-.thread99:                                        ; preds = %57
+.thread93:                                        ; preds = %57
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
@@ -230,7 +230,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %17)
-  br i1 %.not14, label %.thread100, label %68
+  br i1 %.not14, label %.thread94, label %68
 
 68:                                               ; preds = %.thread, %67
   store i64 4, ptr %38, align 8
@@ -251,30 +251,29 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   store i32 0, ptr %13, align 4
   %75 = load i8, ptr %74, align 1
   %76 = add i8 %75, -58
-  %or.cond47.i49 = icmp ult i8 %76, -9
-  br i1 %or.cond47.i49, label %parse_filename_for_nontemp_relation.exit65.thread, label %77
+  %or.cond.i45 = icmp ult i8 %76, -9
+  br i1 %or.cond.i45, label %parse_filename_for_nontemp_relation.exit59.thread, label %77
 
 77:                                               ; preds = %.lr.ph.i
   %78 = tail call ptr @__errno_location() #11
   store i32 0, ptr %78, align 4
   %79 = call i64 @strtoul(ptr noundef nonnull %74, ptr noundef nonnull %4, i32 noundef 10) #9
   %80 = load i32, ptr %78, align 4
-  %.not.i50 = icmp eq i32 %80, 0
-  br i1 %.not.i50, label %81, label %parse_filename_for_nontemp_relation.exit65.thread
+  %.not.i46 = icmp eq i32 %80, 0
+  br i1 %.not.i46, label %81, label %parse_filename_for_nontemp_relation.exit59.thread
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %4, align 8
   %83 = icmp eq ptr %82, %74
-  %84 = icmp eq i64 %79, 0
-  %or.cond.i52 = select i1 %83, i1 true, i1 %84
-  %85 = icmp ugt i64 %79, 4294967295
-  %or.cond3.i53 = select i1 %or.cond.i52, i1 true, i1 %85
-  br i1 %or.cond3.i53, label %parse_filename_for_nontemp_relation.exit65.thread, label %86
+  %84 = add i64 %79, -4294967296
+  %85 = icmp ult i64 %84, -4294967295
+  %or.cond3.i48 = select i1 %83, i1 true, i1 %85
+  br i1 %or.cond3.i48, label %parse_filename_for_nontemp_relation.exit59.thread, label %86
 
 86:                                               ; preds = %81
   %87 = load i8, ptr %82, align 1
-  %.not43.i54 = icmp eq i8 %87, 95
-  br i1 %.not43.i54, label %89, label %88
+  %.not43.i49 = icmp eq i8 %87, 95
+  br i1 %.not43.i49, label %89, label %88
 
 88:                                               ; preds = %86
   store i32 0, ptr %3, align 4
@@ -284,59 +283,58 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   %90 = getelementptr i8, ptr %82, i64 1
   %91 = call i32 @forkname_chars(ptr noundef %90, ptr noundef nonnull %3) #9
   %92 = icmp slt i32 %91, 1
-  br i1 %92, label %parse_filename_for_nontemp_relation.exit65.thread, label %93
+  br i1 %92, label %parse_filename_for_nontemp_relation.exit59.thread, label %93
 
 93:                                               ; preds = %89
   %94 = add nuw i32 %91, 1
   %95 = sext i32 %94 to i64
   %96 = getelementptr i8, ptr %82, i64 %95
-  %.pre.i64 = load i8, ptr %96, align 1
+  %.pre.i58 = load i8, ptr %96, align 1
   br label %97
 
 97:                                               ; preds = %93, %88
-  %98 = phi i8 [ %87, %88 ], [ %.pre.i64, %93 ]
-  %.035.i55 = phi ptr [ %82, %88 ], [ %96, %93 ]
-  %.not44.i56 = icmp eq i8 %98, 46
-  br i1 %.not44.i56, label %99, label %112
+  %98 = phi i8 [ %87, %88 ], [ %.pre.i58, %93 ]
+  %.035.i50 = phi ptr [ %82, %88 ], [ %96, %93 ]
+  %.not44.i51 = icmp eq i8 %98, 46
+  br i1 %.not44.i51, label %99, label %112
 
 99:                                               ; preds = %97
-  %100 = getelementptr i8, ptr %.035.i55, i64 1
+  %100 = getelementptr i8, ptr %.035.i50, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = add i8 %101, -58
-  %or.cond48.i59 = icmp ult i8 %102, -9
-  br i1 %or.cond48.i59, label %parse_filename_for_nontemp_relation.exit65.thread, label %103
+  %or.cond47.i54 = icmp ult i8 %102, -9
+  br i1 %or.cond47.i54, label %parse_filename_for_nontemp_relation.exit59.thread, label %103
 
 103:                                              ; preds = %99
   store i32 0, ptr %78, align 4
   %104 = call i64 @strtoul(ptr noundef nonnull %100, ptr noundef nonnull %4, i32 noundef 10) #9
   %105 = load i32, ptr %78, align 4
-  %.not45.i60 = icmp eq i32 %105, 0
-  br i1 %.not45.i60, label %106, label %parse_filename_for_nontemp_relation.exit65.thread
+  %.not45.i55 = icmp eq i32 %105, 0
+  br i1 %.not45.i55, label %106, label %parse_filename_for_nontemp_relation.exit59.thread
 
 106:                                              ; preds = %103
   %107 = load ptr, ptr %4, align 8
   %108 = icmp eq ptr %100, %107
-  %109 = icmp eq i64 %104, 0
-  %or.cond5.i61 = select i1 %108, i1 true, i1 %109
-  %110 = icmp ugt i64 %104, 4294967295
-  %or.cond7.i62 = select i1 %or.cond5.i61, i1 true, i1 %110
-  br i1 %or.cond7.i62, label %parse_filename_for_nontemp_relation.exit65.thread, label %111
+  %109 = add i64 %104, -4294967296
+  %110 = icmp ult i64 %109, -4294967295
+  %or.cond7.i56 = select i1 %108, i1 true, i1 %110
+  br i1 %or.cond7.i56, label %parse_filename_for_nontemp_relation.exit59.thread, label %111
 
 111:                                              ; preds = %106
-  %.pr.i63 = load i8, ptr %107, align 1
+  %.pr.i57 = load i8, ptr %107, align 1
   br label %112
 
 112:                                              ; preds = %111, %97
-  %113 = phi i8 [ %98, %97 ], [ %.pr.i63, %111 ]
-  %.not46.i58 = icmp eq i8 %113, 0
-  br i1 %.not46.i58, label %parse_filename_for_nontemp_relation.exit65, label %parse_filename_for_nontemp_relation.exit65.thread
+  %113 = phi i8 [ %98, %97 ], [ %.pr.i57, %111 ]
+  %.not46.i53 = icmp eq i8 %113, 0
+  br i1 %.not46.i53, label %parse_filename_for_nontemp_relation.exit59, label %parse_filename_for_nontemp_relation.exit59.thread
 
-parse_filename_for_nontemp_relation.exit65.thread: ; preds = %.lr.ph.i, %81, %77, %89, %99, %106, %103, %112
+parse_filename_for_nontemp_relation.exit59.thread: ; preds = %.lr.ph.i, %81, %77, %89, %99, %106, %103, %112
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.backedge63.i
 
-parse_filename_for_nontemp_relation.exit65:       ; preds = %112
+parse_filename_for_nontemp_relation.exit59:       ; preds = %112
   %114 = trunc i64 %79 to i32
   store i32 %114, ptr %13, align 4
   %115 = load i32, ptr %3, align 4
@@ -345,11 +343,11 @@ parse_filename_for_nontemp_relation.exit65:       ; preds = %112
   %116 = icmp eq i32 %115, 3
   br i1 %116, label %117, label %.backedge63.i
 
-117:                                              ; preds = %parse_filename_for_nontemp_relation.exit65
+117:                                              ; preds = %parse_filename_for_nontemp_relation.exit59
   %118 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null) #9
   br label %.backedge63.i
 
-.backedge63.i:                                    ; preds = %parse_filename_for_nontemp_relation.exit65.thread, %117, %parse_filename_for_nontemp_relation.exit65
+.backedge63.i:                                    ; preds = %parse_filename_for_nontemp_relation.exit59.thread, %117, %parse_filename_for_nontemp_relation.exit59
   %119 = call ptr @ReadDir(ptr noundef %71, ptr noundef nonnull %18) #9
   %.not51.i = icmp eq ptr %119, null
   br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -378,30 +376,29 @@ parse_filename_for_nontemp_relation.exit65:       ; preds = %112
   store i32 0, ptr %14, align 4
   %129 = load i8, ptr %128, align 1
   %130 = add i8 %129, -58
-  %or.cond47.i32 = icmp ult i8 %130, -9
-  br i1 %or.cond47.i32, label %parse_filename_for_nontemp_relation.exit48.thread, label %131
+  %or.cond.i30 = icmp ult i8 %130, -9
+  br i1 %or.cond.i30, label %parse_filename_for_nontemp_relation.exit44.thread, label %131
 
 131:                                              ; preds = %.lr.ph67.i
   %132 = tail call ptr @__errno_location() #11
   store i32 0, ptr %132, align 4
   %133 = call i64 @strtoul(ptr noundef nonnull %128, ptr noundef nonnull %6, i32 noundef 10) #9
   %134 = load i32, ptr %132, align 4
-  %.not.i33 = icmp eq i32 %134, 0
-  br i1 %.not.i33, label %135, label %parse_filename_for_nontemp_relation.exit48.thread
+  %.not.i31 = icmp eq i32 %134, 0
+  br i1 %.not.i31, label %135, label %parse_filename_for_nontemp_relation.exit44.thread
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr %6, align 8
   %137 = icmp eq ptr %136, %128
-  %138 = icmp eq i64 %133, 0
-  %or.cond.i35 = select i1 %137, i1 true, i1 %138
-  %139 = icmp ugt i64 %133, 4294967295
-  %or.cond3.i36 = select i1 %or.cond.i35, i1 true, i1 %139
-  br i1 %or.cond3.i36, label %parse_filename_for_nontemp_relation.exit48.thread, label %140
+  %138 = add i64 %133, -4294967296
+  %139 = icmp ult i64 %138, -4294967295
+  %or.cond3.i33 = select i1 %137, i1 true, i1 %139
+  br i1 %or.cond3.i33, label %parse_filename_for_nontemp_relation.exit44.thread, label %140
 
 140:                                              ; preds = %135
   %141 = load i8, ptr %136, align 1
-  %.not43.i37 = icmp eq i8 %141, 95
-  br i1 %.not43.i37, label %143, label %142
+  %.not43.i34 = icmp eq i8 %141, 95
+  br i1 %.not43.i34, label %143, label %142
 
 142:                                              ; preds = %140
   store i32 0, ptr %5, align 4
@@ -411,68 +408,67 @@ parse_filename_for_nontemp_relation.exit65:       ; preds = %112
   %144 = getelementptr i8, ptr %136, i64 1
   %145 = call i32 @forkname_chars(ptr noundef %144, ptr noundef nonnull %5) #9
   %146 = icmp slt i32 %145, 1
-  br i1 %146, label %parse_filename_for_nontemp_relation.exit48.thread, label %147
+  br i1 %146, label %parse_filename_for_nontemp_relation.exit44.thread, label %147
 
 147:                                              ; preds = %143
   %148 = add nuw i32 %145, 1
   %149 = sext i32 %148 to i64
   %150 = getelementptr i8, ptr %136, i64 %149
-  %.pre.i47 = load i8, ptr %150, align 1
+  %.pre.i43 = load i8, ptr %150, align 1
   br label %151
 
 151:                                              ; preds = %147, %142
-  %152 = phi i8 [ %141, %142 ], [ %.pre.i47, %147 ]
-  %.035.i38 = phi ptr [ %136, %142 ], [ %150, %147 ]
-  %.not44.i39 = icmp eq i8 %152, 46
-  br i1 %.not44.i39, label %153, label %166
+  %152 = phi i8 [ %141, %142 ], [ %.pre.i43, %147 ]
+  %.035.i35 = phi ptr [ %136, %142 ], [ %150, %147 ]
+  %.not44.i36 = icmp eq i8 %152, 46
+  br i1 %.not44.i36, label %153, label %166
 
 153:                                              ; preds = %151
-  %154 = getelementptr i8, ptr %.035.i38, i64 1
+  %154 = getelementptr i8, ptr %.035.i35, i64 1
   %155 = load i8, ptr %154, align 1
   %156 = add i8 %155, -58
-  %or.cond48.i42 = icmp ult i8 %156, -9
-  br i1 %or.cond48.i42, label %parse_filename_for_nontemp_relation.exit48.thread, label %157
+  %or.cond47.i39 = icmp ult i8 %156, -9
+  br i1 %or.cond47.i39, label %parse_filename_for_nontemp_relation.exit44.thread, label %157
 
 157:                                              ; preds = %153
   store i32 0, ptr %132, align 4
   %158 = call i64 @strtoul(ptr noundef nonnull %154, ptr noundef nonnull %6, i32 noundef 10) #9
   %159 = load i32, ptr %132, align 4
-  %.not45.i43 = icmp eq i32 %159, 0
-  br i1 %.not45.i43, label %160, label %parse_filename_for_nontemp_relation.exit48.thread
+  %.not45.i40 = icmp eq i32 %159, 0
+  br i1 %.not45.i40, label %160, label %parse_filename_for_nontemp_relation.exit44.thread
 
 160:                                              ; preds = %157
   %161 = load ptr, ptr %6, align 8
   %162 = icmp eq ptr %154, %161
-  %163 = icmp eq i64 %158, 0
-  %or.cond5.i44 = select i1 %162, i1 true, i1 %163
-  %164 = icmp ugt i64 %158, 4294967295
-  %or.cond7.i45 = select i1 %or.cond5.i44, i1 true, i1 %164
-  br i1 %or.cond7.i45, label %parse_filename_for_nontemp_relation.exit48.thread, label %165
+  %163 = add i64 %158, -4294967296
+  %164 = icmp ult i64 %163, -4294967295
+  %or.cond7.i41 = select i1 %162, i1 true, i1 %164
+  br i1 %or.cond7.i41, label %parse_filename_for_nontemp_relation.exit44.thread, label %165
 
 165:                                              ; preds = %160
-  %.pr.i46 = load i8, ptr %161, align 1
+  %.pr.i42 = load i8, ptr %161, align 1
   br label %166
 
 166:                                              ; preds = %165, %151
-  %167 = phi i8 [ %152, %151 ], [ %.pr.i46, %165 ]
-  %.not46.i41 = icmp eq i8 %167, 0
-  br i1 %.not46.i41, label %parse_filename_for_nontemp_relation.exit48, label %parse_filename_for_nontemp_relation.exit48.thread
+  %167 = phi i8 [ %152, %151 ], [ %.pr.i42, %165 ]
+  %.not46.i38 = icmp eq i8 %167, 0
+  br i1 %.not46.i38, label %parse_filename_for_nontemp_relation.exit44, label %parse_filename_for_nontemp_relation.exit44.thread
 
-parse_filename_for_nontemp_relation.exit48.thread: ; preds = %.lr.ph67.i, %135, %131, %143, %153, %160, %157, %166
+parse_filename_for_nontemp_relation.exit44.thread: ; preds = %.lr.ph67.i, %135, %131, %143, %153, %160, %157, %166
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.backedge62.i
 
-parse_filename_for_nontemp_relation.exit48:       ; preds = %166
+parse_filename_for_nontemp_relation.exit44:       ; preds = %166
   %168 = trunc i64 %133 to i32
   store i32 %168, ptr %14, align 4
   %169 = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not96 = icmp eq i32 %169, 3
-  br i1 %.not96, label %.backedge62.i, label %170
+  %.not90 = icmp eq i32 %169, 3
+  br i1 %.not90, label %.backedge62.i, label %170
 
-170:                                              ; preds = %parse_filename_for_nontemp_relation.exit48
+170:                                              ; preds = %parse_filename_for_nontemp_relation.exit44
   %171 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null) #9
   %.not59.i = icmp eq ptr %171, null
   br i1 %.not59.i, label %.backedge62.i, label %172
@@ -500,7 +496,7 @@ parse_filename_for_nontemp_relation.exit48:       ; preds = %166
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef nonnull @__func__.ResetUnloggedRelationsInDbspaceDir) #9
   br label %.backedge62.i
 
-.backedge62.i:                                    ; preds = %parse_filename_for_nontemp_relation.exit48.thread, %182, %180, %170, %parse_filename_for_nontemp_relation.exit48
+.backedge62.i:                                    ; preds = %parse_filename_for_nontemp_relation.exit44.thread, %182, %180, %170, %parse_filename_for_nontemp_relation.exit44
   %184 = call ptr @ReadDir(ptr noundef %125, ptr noundef nonnull %18) #9
   %.not52.i = icmp eq ptr %184, null
   br i1 %.not52.i, label %.loopexit, label %.lr.ph67.i, !llvm.loop !8
@@ -508,23 +504,23 @@ parse_filename_for_nontemp_relation.exit48:       ; preds = %166
 .loopexit:                                        ; preds = %.backedge62.i, %124
   %185 = call i32 @FreeDir(ptr noundef %125) #9
   call void @hash_destroy(ptr noundef %70) #9
-  br i1 %.not13, label %ResetUnloggedRelationsInDbspaceDir.exit, label %.thread100
+  br i1 %.not13, label %ResetUnloggedRelationsInDbspaceDir.exit, label %.thread94
 
-.thread100:                                       ; preds = %67, %.loopexit
+.thread94:                                        ; preds = %67, %.loopexit
   %186 = call ptr @AllocateDir(ptr noundef nonnull %18) #9
   %187 = call ptr @ReadDir(ptr noundef %186, ptr noundef nonnull %18) #9
   %.not5469.i = icmp eq ptr %187, null
   br i1 %.not5469.i, label %._crit_edge72.i, label %.lr.ph71.i
 
-.lr.ph71.i:                                       ; preds = %.thread100, %.backedge61.i
-  %188 = phi ptr [ %245, %.backedge61.i ], [ %187, %.thread100 ]
+.lr.ph71.i:                                       ; preds = %.thread94, %.backedge61.i
+  %188 = phi ptr [ %245, %.backedge61.i ], [ %187, %.thread94 ]
   %189 = getelementptr inbounds i8, ptr %188, i64 19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %190 = load i8, ptr %189, align 1
   %191 = add i8 %190, -58
-  %or.cond47.i15 = icmp ult i8 %191, -9
-  br i1 %or.cond47.i15, label %parse_filename_for_nontemp_relation.exit31.thread, label %192
+  %or.cond.i15 = icmp ult i8 %191, -9
+  br i1 %or.cond.i15, label %parse_filename_for_nontemp_relation.exit29.thread, label %192
 
 192:                                              ; preds = %.lr.ph71.i
   %193 = tail call ptr @__errno_location() #11
@@ -532,21 +528,20 @@ parse_filename_for_nontemp_relation.exit48:       ; preds = %166
   %194 = call i64 @strtoul(ptr noundef nonnull %189, ptr noundef nonnull %8, i32 noundef 10) #9
   %195 = load i32, ptr %193, align 4
   %.not.i16 = icmp eq i32 %195, 0
-  br i1 %.not.i16, label %196, label %parse_filename_for_nontemp_relation.exit31.thread
+  br i1 %.not.i16, label %196, label %parse_filename_for_nontemp_relation.exit29.thread
 
 196:                                              ; preds = %192
   %197 = load ptr, ptr %8, align 8
   %198 = icmp eq ptr %197, %189
-  %199 = icmp eq i64 %194, 0
-  %or.cond.i18 = select i1 %198, i1 true, i1 %199
-  %200 = icmp ugt i64 %194, 4294967295
-  %or.cond3.i19 = select i1 %or.cond.i18, i1 true, i1 %200
-  br i1 %or.cond3.i19, label %parse_filename_for_nontemp_relation.exit31.thread, label %201
+  %199 = add i64 %194, -4294967296
+  %200 = icmp ult i64 %199, -4294967295
+  %or.cond3.i18 = select i1 %198, i1 true, i1 %200
+  br i1 %or.cond3.i18, label %parse_filename_for_nontemp_relation.exit29.thread, label %201
 
 201:                                              ; preds = %196
   %202 = load i8, ptr %197, align 1
-  %.not43.i20 = icmp eq i8 %202, 95
-  br i1 %.not43.i20, label %204, label %203
+  %.not43.i19 = icmp eq i8 %202, 95
+  br i1 %.not43.i19, label %204, label %203
 
 203:                                              ; preds = %201
   store i32 0, ptr %7, align 4
@@ -556,61 +551,60 @@ parse_filename_for_nontemp_relation.exit48:       ; preds = %166
   %205 = getelementptr i8, ptr %197, i64 1
   %206 = call i32 @forkname_chars(ptr noundef %205, ptr noundef nonnull %7) #9
   %207 = icmp slt i32 %206, 1
-  br i1 %207, label %parse_filename_for_nontemp_relation.exit31.thread, label %208
+  br i1 %207, label %parse_filename_for_nontemp_relation.exit29.thread, label %208
 
 208:                                              ; preds = %204
   %209 = add nuw i32 %206, 1
   %210 = sext i32 %209 to i64
   %211 = getelementptr i8, ptr %197, i64 %210
-  %.pre.i30 = load i8, ptr %211, align 1
+  %.pre.i28 = load i8, ptr %211, align 1
   br label %212
 
 212:                                              ; preds = %208, %203
-  %213 = phi i8 [ %202, %203 ], [ %.pre.i30, %208 ]
-  %.035.i21 = phi ptr [ %197, %203 ], [ %211, %208 ]
-  %.not44.i22 = icmp eq i8 %213, 46
-  br i1 %.not44.i22, label %214, label %228
+  %213 = phi i8 [ %202, %203 ], [ %.pre.i28, %208 ]
+  %.035.i20 = phi ptr [ %197, %203 ], [ %211, %208 ]
+  %.not44.i21 = icmp eq i8 %213, 46
+  br i1 %.not44.i21, label %214, label %228
 
 214:                                              ; preds = %212
-  %215 = getelementptr i8, ptr %.035.i21, i64 1
+  %215 = getelementptr i8, ptr %.035.i20, i64 1
   %216 = load i8, ptr %215, align 1
   %217 = add i8 %216, -58
-  %or.cond48.i25 = icmp ult i8 %217, -9
-  br i1 %or.cond48.i25, label %parse_filename_for_nontemp_relation.exit31.thread, label %218
+  %or.cond47.i24 = icmp ult i8 %217, -9
+  br i1 %or.cond47.i24, label %parse_filename_for_nontemp_relation.exit29.thread, label %218
 
 218:                                              ; preds = %214
   store i32 0, ptr %193, align 4
   %219 = call i64 @strtoul(ptr noundef nonnull %215, ptr noundef nonnull %8, i32 noundef 10) #9
   %220 = load i32, ptr %193, align 4
-  %.not45.i26 = icmp eq i32 %220, 0
-  br i1 %.not45.i26, label %221, label %parse_filename_for_nontemp_relation.exit31.thread
+  %.not45.i25 = icmp eq i32 %220, 0
+  br i1 %.not45.i25, label %221, label %parse_filename_for_nontemp_relation.exit29.thread
 
 221:                                              ; preds = %218
   %222 = load ptr, ptr %8, align 8
   %223 = icmp eq ptr %215, %222
-  %224 = icmp eq i64 %219, 0
-  %or.cond5.i27 = select i1 %223, i1 true, i1 %224
-  %225 = icmp ugt i64 %219, 4294967295
-  %or.cond7.i28 = select i1 %or.cond5.i27, i1 true, i1 %225
-  br i1 %or.cond7.i28, label %parse_filename_for_nontemp_relation.exit31.thread, label %226
+  %224 = add i64 %219, -4294967296
+  %225 = icmp ult i64 %224, -4294967295
+  %or.cond7.i26 = select i1 %223, i1 true, i1 %225
+  br i1 %or.cond7.i26, label %parse_filename_for_nontemp_relation.exit29.thread, label %226
 
 226:                                              ; preds = %221
   %227 = trunc i64 %219 to i32
-  %.pr.i29 = load i8, ptr %222, align 1
+  %.pr.i27 = load i8, ptr %222, align 1
   br label %228
 
 228:                                              ; preds = %226, %212
-  %229 = phi i8 [ %213, %212 ], [ %.pr.i29, %226 ]
-  %.034.i23 = phi i32 [ 0, %212 ], [ %227, %226 ]
-  %.not46.i24 = icmp eq i8 %229, 0
-  br i1 %.not46.i24, label %parse_filename_for_nontemp_relation.exit31, label %parse_filename_for_nontemp_relation.exit31.thread
+  %229 = phi i8 [ %213, %212 ], [ %.pr.i27, %226 ]
+  %.034.i22 = phi i32 [ 0, %212 ], [ %227, %226 ]
+  %.not46.i23 = icmp eq i8 %229, 0
+  br i1 %.not46.i23, label %parse_filename_for_nontemp_relation.exit29, label %parse_filename_for_nontemp_relation.exit29.thread
 
-parse_filename_for_nontemp_relation.exit31.thread: ; preds = %.lr.ph71.i, %196, %192, %204, %214, %221, %218, %228
+parse_filename_for_nontemp_relation.exit29.thread: ; preds = %.lr.ph71.i, %196, %192, %204, %214, %221, %218, %228
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.backedge61.i
 
-parse_filename_for_nontemp_relation.exit31:       ; preds = %228
+parse_filename_for_nontemp_relation.exit29:       ; preds = %228
   %230 = trunc i64 %194 to i32
   %231 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -618,9 +612,9 @@ parse_filename_for_nontemp_relation.exit31:       ; preds = %228
   %232 = icmp eq i32 %231, 3
   br i1 %232, label %233, label %.backedge61.i
 
-233:                                              ; preds = %parse_filename_for_nontemp_relation.exit31
+233:                                              ; preds = %parse_filename_for_nontemp_relation.exit29
   %234 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %189) #9
-  %235 = icmp eq i32 %.034.i23, 0
+  %235 = icmp eq i32 %.034.i22, 0
   br i1 %235, label %236, label %238
 
 236:                                              ; preds = %233
@@ -628,7 +622,7 @@ parse_filename_for_nontemp_relation.exit31:       ; preds = %228
   br label %240
 
 238:                                              ; preds = %233
-  %239 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %230, i32 noundef %.034.i23) #9
+  %239 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %230, i32 noundef %.034.i22) #9
   br label %240
 
 240:                                              ; preds = %238, %236
@@ -644,12 +638,12 @@ parse_filename_for_nontemp_relation.exit31:       ; preds = %228
   call void @copy_file(ptr noundef nonnull %15, ptr noundef nonnull %16) #9
   br label %.backedge61.i
 
-.backedge61.i:                                    ; preds = %parse_filename_for_nontemp_relation.exit31.thread, %244, %parse_filename_for_nontemp_relation.exit31
+.backedge61.i:                                    ; preds = %parse_filename_for_nontemp_relation.exit29.thread, %244, %parse_filename_for_nontemp_relation.exit29
   %245 = call ptr @ReadDir(ptr noundef %186, ptr noundef nonnull %18) #9
   %.not54.i = icmp eq ptr %245, null
   br i1 %.not54.i, label %._crit_edge72.i, label %.lr.ph71.i, !llvm.loop !9
 
-._crit_edge72.i:                                  ; preds = %.backedge61.i, %.thread100
+._crit_edge72.i:                                  ; preds = %.backedge61.i, %.thread94
   %246 = call i32 @FreeDir(ptr noundef %186) #9
   %247 = call ptr @AllocateDir(ptr noundef nonnull %18) #9
   %248 = call ptr @ReadDir(ptr noundef %247, ptr noundef nonnull %18) #9
@@ -663,8 +657,8 @@ parse_filename_for_nontemp_relation.exit31:       ; preds = %228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %251 = load i8, ptr %250, align 1
   %252 = add i8 %251, -58
-  %or.cond47.i = icmp ult i8 %252, -9
-  br i1 %or.cond47.i, label %parse_filename_for_nontemp_relation.exit.thread, label %253
+  %or.cond.i = icmp ult i8 %252, -9
+  br i1 %or.cond.i, label %parse_filename_for_nontemp_relation.exit.thread, label %253
 
 253:                                              ; preds = %.lr.ph75.i
   %254 = tail call ptr @__errno_location() #11
@@ -677,10 +671,9 @@ parse_filename_for_nontemp_relation.exit31:       ; preds = %228
 257:                                              ; preds = %253
   %258 = load ptr, ptr %10, align 8
   %259 = icmp eq ptr %258, %250
-  %260 = icmp eq i64 %255, 0
-  %or.cond.i = select i1 %259, i1 true, i1 %260
-  %261 = icmp ugt i64 %255, 4294967295
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %261
+  %260 = add i64 %255, -4294967296
+  %261 = icmp ult i64 %260, -4294967295
+  %or.cond3.i = select i1 %259, i1 true, i1 %261
   br i1 %or.cond3.i, label %parse_filename_for_nontemp_relation.exit.thread, label %262
 
 262:                                              ; preds = %257
@@ -715,8 +708,8 @@ parse_filename_for_nontemp_relation.exit31:       ; preds = %228
   %276 = getelementptr i8, ptr %.035.i, i64 1
   %277 = load i8, ptr %276, align 1
   %278 = add i8 %277, -58
-  %or.cond48.i = icmp ult i8 %278, -9
-  br i1 %or.cond48.i, label %parse_filename_for_nontemp_relation.exit.thread, label %279
+  %or.cond47.i = icmp ult i8 %278, -9
+  br i1 %or.cond47.i, label %parse_filename_for_nontemp_relation.exit.thread, label %279
 
 279:                                              ; preds = %275
   store i32 0, ptr %254, align 4
@@ -728,10 +721,9 @@ parse_filename_for_nontemp_relation.exit31:       ; preds = %228
 282:                                              ; preds = %279
   %283 = load ptr, ptr %10, align 8
   %284 = icmp eq ptr %276, %283
-  %285 = icmp eq i64 %280, 0
-  %or.cond5.i = select i1 %284, i1 true, i1 %285
-  %286 = icmp ugt i64 %280, 4294967295
-  %or.cond7.i = select i1 %or.cond5.i, i1 true, i1 %286
+  %285 = add i64 %280, -4294967296
+  %286 = icmp ult i64 %285, -4294967295
+  %or.cond7.i = select i1 %284, i1 true, i1 %286
   br i1 %or.cond7.i, label %parse_filename_for_nontemp_relation.exit.thread, label %287
 
 287:                                              ; preds = %282
@@ -784,7 +776,7 @@ parse_filename_for_nontemp_relation.exit:         ; preds = %289
   call void @fsync_fname(ptr noundef nonnull %18, i1 noundef zeroext true) #9
   br label %ResetUnloggedRelationsInDbspaceDir.exit
 
-ResetUnloggedRelationsInDbspaceDir.exit:          ; preds = %.thread99, %123, %.loopexit, %._crit_edge76.i
+ResetUnloggedRelationsInDbspaceDir.exit:          ; preds = %.thread93, %123, %.loopexit, %._crit_edge76.i
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -829,8 +821,8 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   store i32 0, ptr %3, align 4
   %7 = load i8, ptr %0, align 1
   %8 = add i8 %7, -58
-  %or.cond47 = icmp ult i8 %8, -9
-  br i1 %or.cond47, label %50, label %9
+  %or.cond = icmp ult i8 %8, -9
+  br i1 %or.cond, label %50, label %9
 
 9:                                                ; preds = %4
   %10 = tail call ptr @__errno_location() #11
@@ -843,10 +835,9 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
 13:                                               ; preds = %9
   %14 = load ptr, ptr %6, align 8
   %15 = icmp eq ptr %14, %0
-  %16 = icmp eq i64 %11, 0
-  %or.cond = select i1 %15, i1 true, i1 %16
-  %17 = icmp ugt i64 %11, 4294967295
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %17
+  %16 = add i64 %11, -4294967296
+  %17 = icmp ult i64 %16, -4294967295
+  %or.cond3 = select i1 %15, i1 true, i1 %17
   br i1 %or.cond3, label %50, label %18
 
 18:                                               ; preds = %13
@@ -881,8 +872,8 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   %32 = getelementptr i8, ptr %.035, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = add i8 %33, -58
-  %or.cond48 = icmp ult i8 %34, -9
-  br i1 %or.cond48, label %50, label %35
+  %or.cond47 = icmp ult i8 %34, -9
+  br i1 %or.cond47, label %50, label %35
 
 35:                                               ; preds = %31
   store i32 0, ptr %10, align 4
@@ -894,10 +885,9 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
 38:                                               ; preds = %35
   %39 = load ptr, ptr %6, align 8
   %40 = icmp eq ptr %32, %39
-  %41 = icmp eq i64 %36, 0
-  %or.cond5 = select i1 %40, i1 true, i1 %41
-  %42 = icmp ugt i64 %36, 4294967295
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %42
+  %41 = add i64 %36, -4294967296
+  %42 = icmp ult i64 %41, -4294967295
+  %or.cond7 = select i1 %40, i1 true, i1 %42
   br i1 %or.cond7, label %50, label %43
 
 43:                                               ; preds = %38

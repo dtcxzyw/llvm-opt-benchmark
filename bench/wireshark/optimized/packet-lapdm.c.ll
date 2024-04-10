@@ -208,7 +208,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0147 = phi i32 [ %6, %5 ], [ 0, %4 ]
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %9 = icmp ult i32 %8, 2
-  br i1 %9, label %197, label %10
+  br i1 %9, label %195, label %10
 
 10:                                               ; preds = %7
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
@@ -227,7 +227,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
 19:                                               ; preds = %15, %10
   %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %21 = icmp ult i32 %20, 3
-  br i1 %21, label %197, label %22
+  br i1 %21, label %195, label %22
 
 22:                                               ; preds = %19
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4
@@ -341,11 +341,11 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 93:                                               ; preds = %83
   %.not165 = icmp eq i8 %.0150, 0
-  br i1 %.not165, label %197, label %95
+  br i1 %.not165, label %195, label %95
 
 94:                                               ; preds = %83
   %.not164 = icmp eq i32 %89, %.0146
-  br i1 %.not164, label %197, label %95
+  br i1 %.not164, label %195, label %95
 
 95:                                               ; preds = %94, %93
   %96 = tail call i32 @llvm.smin.i32(i32 %90, i32 %91)
@@ -449,7 +449,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 162:                                              ; preds = %121, %158, %153, %148
   store i32 %108, ptr %107, align 8
-  br label %195
+  br label %193
 
 163:                                              ; preds = %102, %95
   br i1 %25, label %164, label %167
@@ -457,7 +457,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
 164:                                              ; preds = %163
   %165 = load ptr, ptr @b4_info_handle, align 8
   %166 = tail call i32 @call_dissector(ptr noundef %165, ptr noundef %97, ptr noundef nonnull %1, ptr noundef %2) #4
-  br label %195
+  br label %193
 
 167:                                              ; preds = %163
   %168 = getelementptr inbounds i8, ptr %1, i64 80
@@ -466,45 +466,42 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %171 = load i16, ptr %170, align 2
   %172 = and i16 %171, 8
   %.not172 = icmp eq i16 %172, 0
-  %173 = and i32 %84, 3
-  %174 = icmp eq i32 %173, 3
-  %or.cond175 = select i1 %.not172, i1 %174, i1 false
-  %175 = and i32 %84, 236
-  %176 = icmp eq i32 %175, 44
-  %or.cond177 = select i1 %or.cond175, i1 %176, i1 false
-  br i1 %or.cond177, label %177, label %189
+  %173 = and i32 %84, 239
+  %174 = icmp eq i32 %173, 47
+  %or.cond177 = select i1 %.not172, i1 %174, i1 false
+  br i1 %or.cond177, label %175, label %187
 
-177:                                              ; preds = %167
-  %178 = tail call i32 @conversation_get_id_from_elements(ptr noundef nonnull %1, i32 noundef 26, i32 noundef 8) #4
-  %179 = shl i32 %178, 4
-  %180 = shl nuw nsw i8 %86, 1
-  %181 = zext nneg i8 %180 to i32
-  %182 = or disjoint i32 %179, %181
-  %183 = load i32, ptr %31, align 4
-  %184 = or i32 %182, %183
-  %185 = load ptr, ptr @lapdm_last_n_s_map, align 8
-  %186 = zext i32 %184 to i64
-  %187 = inttoptr i64 %186 to ptr
-  %188 = tail call ptr @wmem_map_insert(ptr noundef %185, ptr noundef %187, ptr noundef null) #4
-  br label %189
+175:                                              ; preds = %167
+  %176 = tail call i32 @conversation_get_id_from_elements(ptr noundef nonnull %1, i32 noundef 26, i32 noundef 8) #4
+  %177 = shl i32 %176, 4
+  %178 = shl nuw nsw i8 %86, 1
+  %179 = zext nneg i8 %178 to i32
+  %180 = or disjoint i32 %177, %179
+  %181 = load i32, ptr %31, align 4
+  %182 = or i32 %180, %181
+  %183 = load ptr, ptr @lapdm_last_n_s_map, align 8
+  %184 = zext i32 %182 to i64
+  %185 = inttoptr i64 %184 to ptr
+  %186 = tail call ptr @wmem_map_insert(ptr noundef %183, ptr noundef %185, ptr noundef null) #4
+  br label %187
 
-189:                                              ; preds = %177, %167
-  %190 = load ptr, ptr @lapdm_sapi_dissector_table, align 8
-  %191 = zext nneg i8 %86 to i32
-  %192 = tail call i32 @dissector_try_uint(ptr noundef %190, i32 noundef %191, ptr noundef %97, ptr noundef nonnull %1, ptr noundef %2) #4
-  %.not173 = icmp eq i32 %192, 0
-  br i1 %.not173, label %193, label %195
+187:                                              ; preds = %175, %167
+  %188 = load ptr, ptr @lapdm_sapi_dissector_table, align 8
+  %189 = zext nneg i8 %86 to i32
+  %190 = tail call i32 @dissector_try_uint(ptr noundef %188, i32 noundef %189, ptr noundef %97, ptr noundef nonnull %1, ptr noundef %2) #4
+  %.not173 = icmp eq i32 %190, 0
+  br i1 %.not173, label %191, label %193
 
-193:                                              ; preds = %189
-  %194 = tail call i32 @call_data_dissector(ptr noundef %97, ptr noundef nonnull %1, ptr noundef %2) #4
+191:                                              ; preds = %187
+  %192 = tail call i32 @call_data_dissector(ptr noundef %97, ptr noundef nonnull %1, ptr noundef %2) #4
+  br label %193
+
+193:                                              ; preds = %164, %191, %187, %162
+  %194 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %195
 
-195:                                              ; preds = %164, %193, %189, %162
-  %196 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %197
-
-197:                                              ; preds = %93, %94, %19, %7, %195
-  %.0 = phi i32 [ %196, %195 ], [ 0, %7 ], [ 0, %19 ], [ 2, %94 ], [ 2, %93 ]
+195:                                              ; preds = %93, %94, %19, %7, %193
+  %.0 = phi i32 [ %194, %193 ], [ 0, %7 ], [ 0, %19 ], [ 2, %94 ], [ 2, %93 ]
   ret i32 %.0
 }
 

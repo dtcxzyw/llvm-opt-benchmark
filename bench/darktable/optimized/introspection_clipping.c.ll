@@ -9469,10 +9469,10 @@ define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float nound
   %100 = and i1 %97, %99
   %101 = fsub reassoc nsz arcp contract afn float %88, %95
   %102 = fcmp reassoc nsz arcp contract afn ogt float %68, %101
-  %103 = select i1 %100, i1 %102, i1 false
-  %104 = fadd reassoc nsz arcp contract afn float %88, %95
-  %105 = fcmp reassoc nsz arcp contract afn olt float %68, %104
-  %106 = select i1 %103, i1 %105, i1 false
+  %103 = fadd reassoc nsz arcp contract afn float %88, %95
+  %104 = fcmp reassoc nsz arcp contract afn olt float %68, %103
+  %105 = and i1 %102, %104
+  %106 = select i1 %100, i1 %105, i1 false
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %36
@@ -9498,10 +9498,10 @@ define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float nound
   %119 = and i1 %116, %118
   %120 = fsub reassoc nsz arcp contract afn float %114, %95
   %121 = fcmp reassoc nsz arcp contract afn ogt float %68, %120
-  %122 = select i1 %119, i1 %121, i1 false
-  %123 = fadd reassoc nsz arcp contract afn float %114, %95
-  %124 = fcmp reassoc nsz arcp contract afn olt float %68, %123
-  %125 = select i1 %122, i1 %124, i1 false
+  %122 = fadd reassoc nsz arcp contract afn float %114, %95
+  %123 = fcmp reassoc nsz arcp contract afn olt float %68, %122
+  %124 = and i1 %121, %123
+  %125 = select i1 %119, i1 %124, i1 false
   br i1 %125, label %126, label %136
 
 126:                                              ; preds = %110
@@ -9549,10 +9549,10 @@ define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float nound
   %145 = and i1 %142, %144
   %146 = fsub reassoc nsz arcp contract afn float %140, %95
   %147 = fcmp reassoc nsz arcp contract afn ogt float %68, %146
-  %148 = select i1 %145, i1 %147, i1 false
-  %149 = fadd reassoc nsz arcp contract afn float %140, %95
-  %150 = fcmp reassoc nsz arcp contract afn olt float %68, %149
-  %151 = select i1 %148, i1 %150, i1 false
+  %148 = fadd reassoc nsz arcp contract afn float %140, %95
+  %149 = fcmp reassoc nsz arcp contract afn olt float %68, %148
+  %150 = and i1 %147, %149
+  %151 = select i1 %145, i1 %150, i1 false
   br i1 %151, label %152, label %162
 
 152:                                              ; preds = %136
@@ -9600,10 +9600,10 @@ define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float nound
   %171 = and i1 %168, %170
   %172 = fsub reassoc nsz arcp contract afn float %166, %95
   %173 = fcmp reassoc nsz arcp contract afn ogt float %68, %172
-  %174 = select i1 %171, i1 %173, i1 false
-  %175 = fadd reassoc nsz arcp contract afn float %166, %95
-  %176 = fcmp reassoc nsz arcp contract afn olt float %68, %175
-  %177 = select i1 %174, i1 %176, i1 false
+  %174 = fadd reassoc nsz arcp contract afn float %166, %95
+  %175 = fcmp reassoc nsz arcp contract afn olt float %68, %174
+  %176 = and i1 %173, %175
+  %177 = select i1 %171, i1 %176, i1 false
   br i1 %177, label %178, label %190
 
 178:                                              ; preds = %162
@@ -9650,10 +9650,10 @@ define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float nound
   %199 = and i1 %196, %198
   %200 = fsub reassoc nsz arcp contract afn float %194, %95
   %201 = fcmp reassoc nsz arcp contract afn ogt float %68, %200
-  %202 = select i1 %199, i1 %201, i1 false
-  %203 = fadd reassoc nsz arcp contract afn float %194, %95
-  %204 = fcmp reassoc nsz arcp contract afn olt float %68, %203
-  %205 = select i1 %202, i1 %204, i1 false
+  %202 = fadd reassoc nsz arcp contract afn float %194, %95
+  %203 = fcmp reassoc nsz arcp contract afn olt float %68, %202
+  %204 = and i1 %201, %203
+  %205 = select i1 %199, i1 %204, i1 false
   br i1 %205, label %206, label %218
 
 206:                                              ; preds = %190

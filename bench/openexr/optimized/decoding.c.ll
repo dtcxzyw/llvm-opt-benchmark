@@ -385,9 +385,9 @@ land.lhs.true219:                                 ; preds = %for.end
   %cmp226 = icmp eq i32 %hastypechange.0.lcssa, 0
   %or.cond8 = select i1 %or.cond7, i1 %cmp226, i1 false
   %cmp229 = icmp sgt i32 %chanstofill.0.lcssa, 0
-  %or.cond9 = select i1 %or.cond8, i1 %cmp229, i1 false
   %cmp234 = icmp eq i32 %chanstofill.0.lcssa, %conv31
-  %or.cond126 = select i1 %or.cond9, i1 %cmp234, i1 false
+  %33 = and i1 %cmp229, %cmp234
+  %or.cond126 = select i1 %or.cond8, i1 %33, i1 false
   br i1 %or.cond126, label %if.then236, label %if.end237
 
 if.then236:                                       ; preds = %land.lhs.true219
@@ -403,8 +403,8 @@ if.end237:                                        ; preds = %for.end, %land.lhs.
   %read_fn238 = getelementptr inbounds i8, ptr %decode, i64 208
   store ptr @default_read_chunk, ptr %read_fn238, align 8
   %comp_type239 = getelementptr inbounds i8, ptr %5, i64 176
-  %33 = load i32, ptr %comp_type239, align 8
-  %cmp240.not = icmp eq i32 %33, 0
+  %34 = load i32, ptr %comp_type239, align 8
+  %cmp240.not = icmp eq i32 %34, 0
   br i1 %cmp240.not, label %if.end244, label %if.then242
 
 if.then242:                                       ; preds = %if.end237
@@ -421,8 +421,8 @@ if.end244:                                        ; preds = %if.then242, %if.end
 
 if.then249:                                       ; preds = %if.end244
   %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
-  %34 = load ptr, ptr %report_error, align 8
-  %call250 = tail call i32 %34(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str.4) #4
+  %35 = load ptr, ptr %report_error, align 8
+  %call250 = tail call i32 %35(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str.4) #4
   br label %return
 
 return:                                           ; preds = %if.end244, %entry, %if.then249, %if.then236, %if.then66, %if.then47, %if.then22, %if.then12, %if.then8, %if.then2
@@ -1279,7 +1279,7 @@ for.end29:                                        ; preds = %for.cond9.for.end25
   store i32 %totsamp.0.lcssa, ptr %arrayidx32, align 4
   br label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %for.cond40.for.end60_crit_edge.us, %for.end29, %for.cond34.preheader
+lor.lhs.false:                                    ; preds = %for.cond40.for.end60_crit_edge.us, %for.cond34.preheader, %for.end29
   %totsamp.2 = phi i32 [ %totsamp.0.lcssa, %for.end29 ], [ 0, %for.cond34.preheader ], [ %add61.us, %for.cond40.for.end60_crit_edge.us ]
   %conv68 = zext nneg i32 %totsamp.2 to i64
   %mul69 = mul i64 %combSampSize.0.lcssa, %conv68

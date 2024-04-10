@@ -8233,317 +8233,317 @@ ZSTD_overrideCParams.exit:                        ; preds = %ZSTD_dedicatedDictS
   %138 = add i32 %.sroa.13.1, -6
   %or.cond.i = icmp ult i32 %138, -3
   %139 = icmp ule i32 %.sroa.8.1, %.sroa.6.1
-  %or.cond.not174 = select i1 %or.cond.i, i1 true, i1 %139
   %140 = icmp ugt i32 %.sroa.6.1, 24
-  %or.cond171 = select i1 %or.cond.not174, i1 true, i1 %140
+  %141 = or i1 %139, %140
+  %or.cond171 = select i1 %or.cond.i, i1 true, i1 %141
   br i1 %or.cond171, label %ZSTD_dedicatedDictSearch_isSupported.exit.thread, label %ZSTD_overrideCParams.exit._crit_edge
 
 ZSTD_overrideCParams.exit._crit_edge:             ; preds = %ZSTD_overrideCParams.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 144
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %141 = icmp eq i32 %17, 0
-  br label %210
+  %142 = icmp eq i32 %17, 0
+  br label %211
 
 ZSTD_dedicatedDictSearch_isSupported.exit.thread: ; preds = %ZSTD_overrideCParams.exit
   store i32 0, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7)
-  %142 = getelementptr inbounds i8, ptr %9, i64 64
-  %143 = load i32, ptr %142, align 8, !noalias !67
-  %144 = icmp slt i32 %143, 1
-  %145 = zext nneg i32 %143 to i64
-  %146 = select i1 %144, i64 -1, i64 %145
-  call fastcc void @ZSTD_getCParams_internal(ptr dead_on_unwind noalias nonnull writable align 4 %7, i32 noundef %136, i64 noundef %146, i64 noundef %1, i32 noundef 2), !noalias !67
-  %147 = getelementptr inbounds i8, ptr %9, i64 96
-  %148 = load i32, ptr %147, align 8, !noalias !67
-  %.not180 = icmp eq i32 %148, 1
+  %143 = getelementptr inbounds i8, ptr %9, i64 64
+  %144 = load i32, ptr %143, align 8, !noalias !67
+  %145 = icmp slt i32 %144, 1
+  %146 = zext nneg i32 %144 to i64
+  %147 = select i1 %145, i64 -1, i64 %146
+  call fastcc void @ZSTD_getCParams_internal(ptr dead_on_unwind noalias nonnull writable align 4 %7, i32 noundef %136, i64 noundef %147, i64 noundef %1, i32 noundef 2), !noalias !67
+  %148 = getelementptr inbounds i8, ptr %9, i64 96
+  %149 = load i32, ptr %148, align 8, !noalias !67
+  %.not180 = icmp eq i32 %149, 1
   %.not.i.i18 = icmp ne i32 %135, 0
-  %149 = or i1 %.not180, %.not.i.i18
-  br i1 %149, label %150, label %151
+  %150 = or i1 %.not180, %.not.i.i18
+  br i1 %150, label %151, label %152
 
-150:                                              ; preds = %ZSTD_dedicatedDictSearch_isSupported.exit.thread
+151:                                              ; preds = %ZSTD_dedicatedDictSearch_isSupported.exit.thread
   %spec.select178 = select i1 %.not.i.i18, i32 %135, i32 27
   store i32 %spec.select178, ptr %7, align 8, !noalias !67
-  br label %151
+  br label %152
 
-151:                                              ; preds = %ZSTD_dedicatedDictSearch_isSupported.exit.thread, %150
+152:                                              ; preds = %ZSTD_dedicatedDictSearch_isSupported.exit.thread, %151
   %.not27.i.i19 = icmp eq i32 %134, 0
-  br i1 %.not27.i.i19, label %154, label %152
+  br i1 %.not27.i.i19, label %155, label %153
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %134, ptr %153, align 8, !noalias !67
-  br label %154
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %134, ptr %154, align 8, !noalias !67
+  br label %155
 
-154:                                              ; preds = %152, %151
+155:                                              ; preds = %153, %152
   %.not28.i.i20 = icmp eq i32 %133, 0
-  br i1 %.not28.i.i20, label %157, label %155
+  br i1 %.not28.i.i20, label %158, label %156
 
-155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %133, ptr %156, align 4, !noalias !67
-  br label %157
+156:                                              ; preds = %155
+  %157 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %133, ptr %157, align 4, !noalias !67
+  br label %158
 
-157:                                              ; preds = %155, %154
+158:                                              ; preds = %156, %155
   %.not29.i.i21 = icmp eq i32 %132, 0
-  br i1 %.not29.i.i21, label %160, label %158
+  br i1 %.not29.i.i21, label %161, label %159
 
-158:                                              ; preds = %157
-  %159 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 %132, ptr %159, align 4, !noalias !67
-  br label %160
+159:                                              ; preds = %158
+  %160 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 %132, ptr %160, align 4, !noalias !67
+  br label %161
 
-160:                                              ; preds = %158, %157
+161:                                              ; preds = %159, %158
   %.not30.i.i22 = icmp eq i32 %131, 0
-  br i1 %.not30.i.i22, label %163, label %161
+  br i1 %.not30.i.i22, label %164, label %162
 
-161:                                              ; preds = %160
-  %162 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 %131, ptr %162, align 8, !noalias !67
-  br label %163
+162:                                              ; preds = %161
+  %163 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %131, ptr %163, align 8, !noalias !67
+  br label %164
 
-163:                                              ; preds = %161, %160
+164:                                              ; preds = %162, %161
   %.not31.i.i23 = icmp eq i32 %130, 0
-  br i1 %.not31.i.i23, label %ZSTD_getCParamsFromCCtxParams.exit25, label %164
+  br i1 %.not31.i.i23, label %ZSTD_getCParamsFromCCtxParams.exit25, label %165
 
-164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 %130, ptr %165, align 4, !noalias !67
+165:                                              ; preds = %164
+  %166 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 %130, ptr %166, align 4, !noalias !67
   br label %ZSTD_getCParamsFromCCtxParams.exit25
 
-ZSTD_getCParamsFromCCtxParams.exit25:             ; preds = %164, %163
+ZSTD_getCParamsFromCCtxParams.exit25:             ; preds = %165, %164
   %.not32.i.i24 = icmp eq i32 %129, 0
   %.sroa.24140.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 24
   %.sroa.24140.0.copyload.pre = load i32, ptr %.sroa.24140.0..sroa_idx.phi.trans.insert, align 8
   %.sroa.24140.0.copyload = select i1 %.not32.i.i24, i32 %.sroa.24140.0.copyload.pre, i32 %129
-  %166 = getelementptr inbounds i8, ptr %9, i64 144
-  %167 = load i32, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %9, i64 144
+  %168 = load i32, ptr %167, align 8
   %.sroa.0131.0.copyload = load i32, ptr %7, align 8
   %.sroa.8132.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
   %.sroa.8132.0.copyload = load i32, ptr %.sroa.8132.0..sroa_idx, align 4
   %.sroa.13134.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.13134.0.copyload = load i32, ptr %.sroa.13134.0..sroa_idx, align 8
   %.sroa.20137.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 12
-  %168 = load <2 x i32>, ptr %.sroa.20137.0..sroa_idx, align 4
+  %169 = load <2 x i32>, ptr %.sroa.20137.0..sroa_idx, align 4
   %.sroa.23139.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 20
   %.sroa.23139.0.copyload = load i32, ptr %.sroa.23139.0..sroa_idx, align 4
   %.not170 = icmp eq i64 %1, 0
   %spec.select.i17 = select i1 %.not170, i64 -1, i64 513
-  %spec.store.select4.i41 = select i1 %144, i64 %spec.select.i17, i64 %145
-  %169 = icmp ult i64 %spec.store.select4.i41, 1073741825
-  %170 = icmp ult i64 %1, 1073741825
-  %or.cond3.i43 = and i1 %170, %169
-  br i1 %or.cond3.i43, label %171, label %179
+  %spec.store.select4.i41 = select i1 %145, i64 %spec.select.i17, i64 %146
+  %170 = icmp ult i64 %spec.store.select4.i41, 1073741825
+  %171 = icmp ult i64 %1, 1073741825
+  %or.cond3.i43 = and i1 %171, %170
+  br i1 %or.cond3.i43, label %172, label %180
 
-171:                                              ; preds = %ZSTD_getCParamsFromCCtxParams.exit25
-  %172 = add nuw nsw i64 %spec.store.select4.i41, %1
-  %173 = trunc i64 %172 to i32
-  %174 = icmp ult i32 %173, 64
-  %175 = add i32 %173, -1
-  %176 = tail call i32 @llvm.ctlz.i32(i32 %175, i1 true), !range !9
-  %177 = sub nuw nsw i32 32, %176
-  %178 = select i1 %174, i32 6, i32 %177
-  %spec.select160 = tail call i32 @llvm.umin.i32(i32 %.sroa.0131.0.copyload, i32 %178)
+172:                                              ; preds = %ZSTD_getCParamsFromCCtxParams.exit25
+  %173 = add nuw nsw i64 %spec.store.select4.i41, %1
+  %174 = trunc i64 %173 to i32
+  %175 = icmp ult i32 %174, 64
+  %176 = add i32 %174, -1
+  %177 = tail call i32 @llvm.ctlz.i32(i32 %176, i1 true), !range !9
+  %178 = sub nuw nsw i32 32, %177
+  %179 = select i1 %175, i32 6, i32 %178
+  %spec.select160 = tail call i32 @llvm.umin.i32(i32 %.sroa.0131.0.copyload, i32 %179)
   br label %.thread.i46
 
-179:                                              ; preds = %ZSTD_getCParamsFromCCtxParams.exit25
-  %.not.i44 = and i1 %.not170, %144
-  br i1 %.not.i44, label %198, label %.thread.i46
+180:                                              ; preds = %ZSTD_getCParamsFromCCtxParams.exit25
+  %.not.i44 = and i1 %.not170, %145
+  br i1 %.not.i44, label %199, label %.thread.i46
 
-.thread.i46:                                      ; preds = %171, %179
-  %.sroa.0131.0 = phi i32 [ %.sroa.0131.0.copyload, %179 ], [ %spec.select160, %171 ]
-  br i1 %.not170, label %ZSTD_dictAndWindowLog.exit.i48, label %180
+.thread.i46:                                      ; preds = %172, %180
+  %.sroa.0131.0 = phi i32 [ %.sroa.0131.0.copyload, %180 ], [ %spec.select160, %172 ]
+  br i1 %.not170, label %ZSTD_dictAndWindowLog.exit.i48, label %181
 
-180:                                              ; preds = %.thread.i46
-  %181 = zext nneg i32 %.sroa.0131.0 to i64
-  %182 = shl nuw i64 1, %181
-  %183 = add i64 %182, %1
-  %184 = add i64 %spec.store.select4.i41, %1
-  %.not.i.i47 = icmp ult i64 %182, %184
-  br i1 %.not.i.i47, label %185, label %ZSTD_dictAndWindowLog.exit.i48
+181:                                              ; preds = %.thread.i46
+  %182 = zext nneg i32 %.sroa.0131.0 to i64
+  %183 = shl nuw i64 1, %182
+  %184 = add i64 %183, %1
+  %185 = add i64 %spec.store.select4.i41, %1
+  %.not.i.i47 = icmp ult i64 %183, %185
+  br i1 %.not.i.i47, label %186, label %ZSTD_dictAndWindowLog.exit.i48
 
-185:                                              ; preds = %180
-  %186 = icmp ugt i64 %183, 2147483647
-  br i1 %186, label %ZSTD_dictAndWindowLog.exit.i48, label %187
+186:                                              ; preds = %181
+  %187 = icmp ugt i64 %184, 2147483647
+  br i1 %187, label %ZSTD_dictAndWindowLog.exit.i48, label %188
 
-187:                                              ; preds = %185
-  %188 = trunc i64 %183 to i32
-  %189 = add nsw i32 %188, -1
-  %190 = tail call i32 @llvm.ctlz.i32(i32 %189, i1 true), !range !9
-  %191 = sub nuw nsw i32 32, %190
+188:                                              ; preds = %186
+  %189 = trunc i64 %184 to i32
+  %190 = add nsw i32 %189, -1
+  %191 = tail call i32 @llvm.ctlz.i32(i32 %190, i1 true), !range !9
+  %192 = sub nuw nsw i32 32, %191
   br label %ZSTD_dictAndWindowLog.exit.i48
 
-ZSTD_dictAndWindowLog.exit.i48:                   ; preds = %187, %185, %180, %.thread.i46
-  %.0.i.i49 = phi i32 [ %191, %187 ], [ %.sroa.0131.0, %.thread.i46 ], [ %.sroa.0131.0, %180 ], [ 31, %185 ]
-  %192 = icmp ugt i32 %.sroa.24140.0.copyload, 5
-  %.neg.i.i50 = sext i1 %192 to i32
-  %193 = add i32 %.sroa.8132.0.copyload, %.neg.i.i50
-  %194 = add i32 %.0.i.i49, 1
-  %spec.select162 = tail call i32 @llvm.umin.i32(i32 %.sroa.13134.0.copyload, i32 %194)
-  %195 = icmp ugt i32 %193, %.0.i.i49
-  br i1 %195, label %196, label %198
+ZSTD_dictAndWindowLog.exit.i48:                   ; preds = %188, %186, %181, %.thread.i46
+  %.0.i.i49 = phi i32 [ %192, %188 ], [ %.sroa.0131.0, %.thread.i46 ], [ %.sroa.0131.0, %181 ], [ 31, %186 ]
+  %193 = icmp ugt i32 %.sroa.24140.0.copyload, 5
+  %.neg.i.i50 = sext i1 %193 to i32
+  %194 = add i32 %.sroa.8132.0.copyload, %.neg.i.i50
+  %195 = add i32 %.0.i.i49, 1
+  %spec.select162 = tail call i32 @llvm.umin.i32(i32 %.sroa.13134.0.copyload, i32 %195)
+  %196 = icmp ugt i32 %194, %.0.i.i49
+  br i1 %196, label %197, label %199
 
-196:                                              ; preds = %ZSTD_dictAndWindowLog.exit.i48
-  %.neg.i.i50.neg = zext i1 %192 to i32
-  %197 = add nuw i32 %.0.i.i49, %.neg.i.i50.neg
-  br label %198
+197:                                              ; preds = %ZSTD_dictAndWindowLog.exit.i48
+  %.neg.i.i50.neg = zext i1 %193 to i32
+  %198 = add nuw i32 %.0.i.i49, %.neg.i.i50.neg
+  br label %199
 
-198:                                              ; preds = %196, %ZSTD_dictAndWindowLog.exit.i48, %179
-  %.sroa.0131.1 = phi i32 [ %.sroa.0131.0, %196 ], [ %.sroa.0131.0, %ZSTD_dictAndWindowLog.exit.i48 ], [ %.sroa.0131.0.copyload, %179 ]
-  %.sroa.8132.0 = phi i32 [ %197, %196 ], [ %.sroa.8132.0.copyload, %ZSTD_dictAndWindowLog.exit.i48 ], [ %.sroa.8132.0.copyload, %179 ]
-  %.sroa.13134.1 = phi i32 [ %spec.select162, %196 ], [ %spec.select162, %ZSTD_dictAndWindowLog.exit.i48 ], [ %.sroa.13134.0.copyload, %179 ]
+199:                                              ; preds = %197, %ZSTD_dictAndWindowLog.exit.i48, %180
+  %.sroa.0131.1 = phi i32 [ %.sroa.0131.0, %197 ], [ %.sroa.0131.0, %ZSTD_dictAndWindowLog.exit.i48 ], [ %.sroa.0131.0.copyload, %180 ]
+  %.sroa.8132.0 = phi i32 [ %198, %197 ], [ %.sroa.8132.0.copyload, %ZSTD_dictAndWindowLog.exit.i48 ], [ %.sroa.8132.0.copyload, %180 ]
+  %.sroa.13134.1 = phi i32 [ %spec.select162, %197 ], [ %spec.select162, %ZSTD_dictAndWindowLog.exit.i48 ], [ %.sroa.13134.0.copyload, %180 ]
   %spec.select163 = tail call i32 @llvm.umax.i32(i32 %.sroa.0131.1, i32 10)
-  %199 = add i32 %.sroa.24140.0.copyload, -3
-  %narrow.i.i52 = icmp ult i32 %199, -2
-  br i1 %narrow.i.i52, label %201, label %200
+  %200 = add i32 %.sroa.24140.0.copyload, -3
+  %narrow.i.i52 = icmp ult i32 %200, -2
+  br i1 %narrow.i.i52, label %202, label %201
 
-200:                                              ; preds = %198
+201:                                              ; preds = %199
   %spec.select164 = tail call i32 @llvm.umin.i32(i32 %.sroa.13134.1, i32 24)
   %spec.select167 = tail call i32 @llvm.umin.i32(i32 %.sroa.8132.0, i32 24)
   br label %ZSTD_adjustCParams_internal.exit55
 
-201:                                              ; preds = %198
-  %202 = add i32 %.sroa.24140.0.copyload, -6
-  %203 = icmp ult i32 %202, -3
-  %204 = icmp ugt i32 %167, 1
-  %.not42.i53 = or i1 %204, %203
-  br i1 %.not42.i53, label %ZSTD_adjustCParams_internal.exit55, label %205
+202:                                              ; preds = %199
+  %203 = add i32 %.sroa.24140.0.copyload, -6
+  %204 = icmp ult i32 %203, -3
+  %205 = icmp ugt i32 %168, 1
+  %.not42.i53 = or i1 %205, %204
+  br i1 %.not42.i53, label %ZSTD_adjustCParams_internal.exit55, label %206
 
-205:                                              ; preds = %201
-  %206 = extractelement <2 x i32> %168, i64 0
-  %207 = tail call i32 @llvm.umin.i32(i32 %206, i32 6)
-  %208 = tail call i32 @llvm.umax.i32(i32 %207, i32 4)
-  %209 = or disjoint i32 %208, 24
-  %spec.select165 = tail call i32 @llvm.umin.i32(i32 %.sroa.13134.1, i32 %209)
+206:                                              ; preds = %202
+  %207 = extractelement <2 x i32> %169, i64 0
+  %208 = tail call i32 @llvm.umin.i32(i32 %207, i32 6)
+  %209 = tail call i32 @llvm.umax.i32(i32 %208, i32 4)
+  %210 = or disjoint i32 %209, 24
+  %spec.select165 = tail call i32 @llvm.umin.i32(i32 %.sroa.13134.1, i32 %210)
   br label %ZSTD_adjustCParams_internal.exit55
 
-ZSTD_adjustCParams_internal.exit55:               ; preds = %200, %205, %201
-  %.sroa.8132.1153 = phi i32 [ %.sroa.8132.0, %201 ], [ %.sroa.8132.0, %205 ], [ %spec.select167, %200 ]
-  %.sroa.13134.4 = phi i32 [ %.sroa.13134.1, %201 ], [ %spec.select165, %205 ], [ %spec.select164, %200 ]
+ZSTD_adjustCParams_internal.exit55:               ; preds = %201, %206, %202
+  %.sroa.8132.1153 = phi i32 [ %.sroa.8132.0, %202 ], [ %.sroa.8132.0, %206 ], [ %spec.select167, %201 ]
+  %.sroa.13134.4 = phi i32 [ %.sroa.13134.1, %202 ], [ %spec.select165, %206 ], [ %spec.select164, %201 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7)
-  br label %210
+  br label %211
 
-210:                                              ; preds = %ZSTD_overrideCParams.exit._crit_edge, %ZSTD_adjustCParams_internal.exit55
-  %211 = phi i1 [ true, %ZSTD_adjustCParams_internal.exit55 ], [ %141, %ZSTD_overrideCParams.exit._crit_edge ]
-  %212 = phi i32 [ %167, %ZSTD_adjustCParams_internal.exit55 ], [ %.pre, %ZSTD_overrideCParams.exit._crit_edge ]
+211:                                              ; preds = %ZSTD_overrideCParams.exit._crit_edge, %ZSTD_adjustCParams_internal.exit55
+  %212 = phi i1 [ true, %ZSTD_adjustCParams_internal.exit55 ], [ %142, %ZSTD_overrideCParams.exit._crit_edge ]
+  %213 = phi i32 [ %168, %ZSTD_adjustCParams_internal.exit55 ], [ %.pre, %ZSTD_overrideCParams.exit._crit_edge ]
   %.sroa.13.2 = phi i32 [ %.sroa.24140.0.copyload, %ZSTD_adjustCParams_internal.exit55 ], [ %.sroa.13.1, %ZSTD_overrideCParams.exit._crit_edge ]
   %.sroa.12.2 = phi i32 [ %.sroa.23139.0.copyload, %ZSTD_adjustCParams_internal.exit55 ], [ %.sroa.12.1, %ZSTD_overrideCParams.exit._crit_edge ]
   %.sroa.8.2 = phi i32 [ %.sroa.13134.4, %ZSTD_adjustCParams_internal.exit55 ], [ %.sroa.8.1, %ZSTD_overrideCParams.exit._crit_edge ]
   %.sroa.6.2 = phi i32 [ %.sroa.8132.1153, %ZSTD_adjustCParams_internal.exit55 ], [ %.sroa.6.1, %ZSTD_overrideCParams.exit._crit_edge ]
   %.sroa.0.2 = phi i32 [ %spec.select163, %ZSTD_adjustCParams_internal.exit55 ], [ %.sroa.0.1, %ZSTD_overrideCParams.exit._crit_edge ]
-  %213 = phi <2 x i32> [ %168, %ZSTD_adjustCParams_internal.exit55 ], [ %137, %ZSTD_overrideCParams.exit._crit_edge ]
-  %214 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.sroa.0.2, ptr %214, align 4
+  %214 = phi <2 x i32> [ %169, %ZSTD_adjustCParams_internal.exit55 ], [ %137, %ZSTD_overrideCParams.exit._crit_edge ]
+  %215 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %.sroa.0.2, ptr %215, align 4
   %.sroa.6.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %.sroa.6.2, ptr %.sroa.6.0..sroa_idx63, align 8
   %.sroa.8.0..sroa_idx69 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %.sroa.8.2, ptr %.sroa.8.0..sroa_idx69, align 4
   %.sroa.10.0..sroa_idx75 = getelementptr inbounds i8, ptr %9, i64 16
-  store <2 x i32> %213, ptr %.sroa.10.0..sroa_idx75, align 8
+  store <2 x i32> %214, ptr %.sroa.10.0..sroa_idx75, align 8
   %.sroa.12.0..sroa_idx87 = getelementptr inbounds i8, ptr %9, i64 24
   store i32 %.sroa.12.2, ptr %.sroa.12.0..sroa_idx87, align 8
   %.sroa.13.0..sroa_idx93 = getelementptr inbounds i8, ptr %9, i64 28
   store i32 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx93, align 4
-  %215 = getelementptr inbounds i8, ptr %9, i64 144
-  %.not.i26 = icmp eq i32 %212, 0
-  br i1 %.not.i26, label %216, label %221
+  %216 = getelementptr inbounds i8, ptr %9, i64 144
+  %.not.i26 = icmp eq i32 %213, 0
+  br i1 %.not.i26, label %217, label %222
 
-216:                                              ; preds = %210
-  %217 = add i32 %.sroa.13.2, -6
-  %218 = icmp ult i32 %217, -3
-  br i1 %218, label %221, label %219
+217:                                              ; preds = %211
+  %218 = add i32 %.sroa.13.2, -6
+  %219 = icmp ult i32 %218, -3
+  br i1 %219, label %222, label %220
 
-219:                                              ; preds = %216
-  %220 = icmp ugt i32 %.sroa.0.2, 14
-  %spec.select.i27 = select i1 %220, i32 1, i32 2
-  br label %221
+220:                                              ; preds = %217
+  %221 = icmp ugt i32 %.sroa.0.2, 14
+  %spec.select.i27 = select i1 %221, i32 1, i32 2
+  br label %222
 
-221:                                              ; preds = %219, %216, %210
-  %.0.i = phi i32 [ %spec.select.i27, %219 ], [ %212, %210 ], [ 2, %216 ]
-  store i32 %.0.i, ptr %215, align 8
+222:                                              ; preds = %220, %217, %211
+  %.0.i = phi i32 [ %spec.select.i27, %220 ], [ %213, %211 ], [ 2, %217 ]
+  store i32 %.0.i, ptr %216, align 8
   %.sroa.6120.0..sroa_idx121 = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.6120.0.copyload122 = load ptr, ptr %.sroa.6120.0..sroa_idx121, align 8
-  br i1 %211, label %222, label %ZSTD_allocateChainTable.exit.thread29.i.i
+  br i1 %212, label %223, label %ZSTD_allocateChainTable.exit.thread29.i.i
 
-222:                                              ; preds = %221
+223:                                              ; preds = %222
   %.not4.i.i.i = icmp eq i32 %.sroa.13.2, 1
   br i1 %.not4.i.i.i, label %ZSTD_sizeof_matchState.exit.i, label %ZSTD_allocateChainTable.exit.i.i
 
-ZSTD_allocateChainTable.exit.i.i:                 ; preds = %222
-  %223 = add i32 %.sroa.13.2, -3
-  %224 = icmp ult i32 %223, 3
-  %225 = icmp eq i32 %.0.i, 1
-  %.not8.i.not.i.i = and i1 %224, %225
+ZSTD_allocateChainTable.exit.i.i:                 ; preds = %223
+  %224 = add i32 %.sroa.13.2, -3
+  %225 = icmp ult i32 %224, 3
+  %226 = icmp eq i32 %.0.i, 1
+  %.not8.i.not.i.i = and i1 %225, %226
   br i1 %.not8.i.not.i.i, label %ZSTD_sizeof_matchState.exit.i, label %ZSTD_allocateChainTable.exit.thread29.i.i
 
-ZSTD_allocateChainTable.exit.thread29.i.i:        ; preds = %ZSTD_allocateChainTable.exit.i.i, %221
-  %226 = zext nneg i32 %.sroa.6.2 to i64
-  %227 = shl i64 4, %226
-  %228 = add nuw i64 %227, 128
+ZSTD_allocateChainTable.exit.thread29.i.i:        ; preds = %ZSTD_allocateChainTable.exit.i.i, %222
+  %227 = zext nneg i32 %.sroa.6.2 to i64
+  %228 = shl i64 4, %227
+  %229 = add nuw i64 %228, 128
   br label %ZSTD_sizeof_matchState.exit.i
 
-ZSTD_sizeof_matchState.exit.i:                    ; preds = %ZSTD_allocateChainTable.exit.thread29.i.i, %ZSTD_allocateChainTable.exit.i.i, %222
-  %229 = phi i64 [ %228, %ZSTD_allocateChainTable.exit.thread29.i.i ], [ 128, %ZSTD_allocateChainTable.exit.i.i ], [ 128, %222 ]
-  %230 = zext nneg i32 %.sroa.8.2 to i64
-  %231 = shl nuw i64 1, %230
-  %232 = add i32 %.sroa.13.2, -6
-  %233 = icmp ult i32 %232, -3
-  %234 = icmp ne i32 %.0.i, 1
-  %.not37.i.i = or i1 %233, %234
-  %235 = add nuw i64 %231, 63
-  %236 = and i64 %235, -64
-  %237 = select i1 %.not37.i.i, i64 0, i64 %236
-  %238 = shl i64 4, %230
-  %239 = icmp eq i32 %2, 1
-  %240 = add i64 %1, 7
-  %241 = and i64 %240, -8
-  %242 = add i64 %241, 14784
-  %243 = select i1 %239, i64 14784, i64 %242
-  %244 = add i64 %238, %243
-  %245 = add i64 %244, %237
-  %246 = add i64 %245, %229
-  br i1 %.not, label %249, label %247
+ZSTD_sizeof_matchState.exit.i:                    ; preds = %ZSTD_allocateChainTable.exit.thread29.i.i, %ZSTD_allocateChainTable.exit.i.i, %223
+  %230 = phi i64 [ %229, %ZSTD_allocateChainTable.exit.thread29.i.i ], [ 128, %ZSTD_allocateChainTable.exit.i.i ], [ 128, %223 ]
+  %231 = zext nneg i32 %.sroa.8.2 to i64
+  %232 = shl nuw i64 1, %231
+  %233 = add i32 %.sroa.13.2, -6
+  %234 = icmp ult i32 %233, -3
+  %235 = icmp ne i32 %.0.i, 1
+  %.not37.i.i = or i1 %234, %235
+  %236 = add nuw i64 %232, 63
+  %237 = and i64 %236, -64
+  %238 = select i1 %.not37.i.i, i64 0, i64 %237
+  %239 = shl i64 4, %231
+  %240 = icmp eq i32 %2, 1
+  %241 = add i64 %1, 7
+  %242 = and i64 %241, -8
+  %243 = add i64 %242, 14784
+  %244 = select i1 %240, i64 14784, i64 %243
+  %245 = add i64 %239, %244
+  %246 = add i64 %245, %238
+  %247 = add i64 %246, %230
+  br i1 %.not, label %250, label %248
 
-247:                                              ; preds = %ZSTD_sizeof_matchState.exit.i
-  %248 = tail call ptr %11(ptr noundef %.sroa.6120.0.copyload122, i64 noundef %246) #27
+248:                                              ; preds = %ZSTD_sizeof_matchState.exit.i
+  %249 = tail call ptr %11(ptr noundef %.sroa.6120.0.copyload122, i64 noundef %247) #27
   br label %ZSTD_customMalloc.exit.i
 
-249:                                              ; preds = %ZSTD_sizeof_matchState.exit.i
-  %250 = tail call noalias ptr @malloc(i64 noundef %246) #28
+250:                                              ; preds = %ZSTD_sizeof_matchState.exit.i
+  %251 = tail call noalias ptr @malloc(i64 noundef %247) #28
   br label %ZSTD_customMalloc.exit.i
 
-ZSTD_customMalloc.exit.i:                         ; preds = %249, %247
-  %.0.i.i = phi ptr [ %248, %247 ], [ %250, %249 ]
+ZSTD_customMalloc.exit.i:                         ; preds = %250, %248
+  %.0.i.i = phi ptr [ %249, %248 ], [ %251, %250 ]
   %.not17.i = icmp eq ptr %.0.i.i, null
   br i1 %.not17.i, label %ZSTD_createCDict_advanced_internal.exit, label %ZSTD_createCDict_advanced_internal.exit.thread
 
 ZSTD_createCDict_advanced_internal.exit:          ; preds = %ZSTD_customMalloc.exit.i
-  %251 = tail call fastcc i64 @ZSTD_initCDict_internal(ptr noundef %.0.i.i, ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_CCtx_params_s) align 8 %9)
-  %252 = icmp ult i64 %251, -119
-  %spec.select179 = select i1 %252, ptr %.0.i.i, ptr null
+  %252 = tail call fastcc i64 @ZSTD_initCDict_internal(ptr noundef %.0.i.i, ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_CCtx_params_s) align 8 %9)
+  %253 = icmp ult i64 %252, -119
+  %spec.select179 = select i1 %253, ptr %.0.i.i, ptr null
   br label %ZSTD_freeCDict.exit
 
 ZSTD_createCDict_advanced_internal.exit.thread:   ; preds = %ZSTD_customMalloc.exit.i
-  %253 = getelementptr inbounds i8, ptr %.0.i.i, i64 %246
-  %254 = ptrtoint ptr %253 to i64
-  %255 = and i64 %254, -64
-  %256 = inttoptr i64 %255 to ptr
-  %257 = getelementptr inbounds i8, ptr %.0.i.i, i64 6080
-  %258 = icmp sgt i64 %246, 6079
-  tail call void @llvm.assume(i1 %258)
-  %259 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
-  store ptr %.0.i.i, ptr %259, align 8
+  %254 = getelementptr inbounds i8, ptr %.0.i.i, i64 %247
+  %255 = ptrtoint ptr %254 to i64
+  %256 = and i64 %255, -64
+  %257 = inttoptr i64 %256 to ptr
+  %258 = getelementptr inbounds i8, ptr %.0.i.i, i64 6080
+  %259 = icmp sgt i64 %247, 6079
+  tail call void @llvm.assume(i1 %259)
+  %260 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  store ptr %.0.i.i, ptr %260, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 40
-  store ptr %253, ptr %.sroa.3.0..sroa_idx.i, align 8
+  store ptr %254, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 48
-  store ptr %257, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store ptr %258, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 56
-  store ptr %257, ptr %.sroa.8.0..sroa_idx.i, align 8
+  store ptr %258, ptr %.sroa.8.0..sroa_idx.i, align 8
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 64
-  store ptr %257, ptr %.sroa.10.0..sroa_idx.i, align 8
+  store ptr %258, ptr %.sroa.10.0..sroa_idx.i, align 8
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 72
-  store ptr %256, ptr %.sroa.12.0..sroa_idx.i, align 8
+  store ptr %257, ptr %.sroa.12.0..sroa_idx.i, align 8
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 80
-  store ptr %256, ptr %.sroa.13.0..sroa_idx.i, align 8
+  store ptr %257, ptr %.sroa.13.0..sroa_idx.i, align 8
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 88
   store i8 0, ptr %.sroa.14.0..sroa_idx.i, align 8
   %.sroa.1623.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 92
@@ -8552,71 +8552,71 @@ ZSTD_createCDict_advanced_internal.exit.thread:   ; preds = %ZSTD_customMalloc.e
   store i32 0, ptr %.sroa.17.0..sroa_idx.i, align 8
   %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 100
   store i32 0, ptr %.sroa.19.0..sroa_idx.i, align 4
-  %260 = getelementptr inbounds i8, ptr %.0.i.i, i64 6040
-  store ptr %11, ptr %260, align 8
+  %261 = getelementptr inbounds i8, ptr %.0.i.i, i64 6040
+  store ptr %11, ptr %261, align 8
   %.sroa.5117.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 6048
   store ptr %13, ptr %.sroa.5117.0..sroa_idx, align 8
   %.sroa.6120.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.i, i64 6056
   store ptr %.sroa.6120.0.copyload122, ptr %.sroa.6120.0..sroa_idx, align 8
-  %261 = getelementptr inbounds i8, ptr %.0.i.i, i64 6068
-  store i32 0, ptr %261, align 4
-  %262 = getelementptr inbounds i8, ptr %.0.i.i, i64 6072
-  store i32 %.0.i, ptr %262, align 8
-  %263 = tail call fastcc i64 @ZSTD_initCDict_internal(ptr noundef nonnull %.0.i.i, ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_CCtx_params_s) align 8 %9)
-  %264 = icmp ult i64 %263, -119
-  br i1 %264, label %ZSTD_freeCDict.exit, label %265
+  %262 = getelementptr inbounds i8, ptr %.0.i.i, i64 6068
+  store i32 0, ptr %262, align 4
+  %263 = getelementptr inbounds i8, ptr %.0.i.i, i64 6072
+  store i32 %.0.i, ptr %263, align 8
+  %264 = tail call fastcc i64 @ZSTD_initCDict_internal(ptr noundef nonnull %.0.i.i, ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ZSTD_CCtx_params_s) align 8 %9)
+  %265 = icmp ult i64 %264, -119
+  br i1 %265, label %ZSTD_freeCDict.exit, label %266
 
-265:                                              ; preds = %ZSTD_createCDict_advanced_internal.exit.thread
+266:                                              ; preds = %ZSTD_createCDict_advanced_internal.exit.thread
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0.i.i, i64 6048
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %.0.i.i, i64 6056
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i30, align 8
-  %266 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
-  %267 = load ptr, ptr %266, align 8
-  %.not.i.i31 = icmp ugt ptr %267, %.0.i.i
-  br i1 %.not.i.i31, label %ZSTD_cwksp_owns_buffer.exit.i, label %268
+  %267 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %268 = load ptr, ptr %267, align 8
+  %.not.i.i31 = icmp ugt ptr %268, %.0.i.i
+  br i1 %.not.i.i31, label %ZSTD_cwksp_owns_buffer.exit.i, label %269
 
-268:                                              ; preds = %265
-  %269 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
-  %270 = load ptr, ptr %269, align 8
-  %271 = icmp ule ptr %270, %.0.i.i
+269:                                              ; preds = %266
+  %270 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %271 = load ptr, ptr %270, align 8
+  %272 = icmp ule ptr %271, %.0.i.i
   br label %ZSTD_cwksp_owns_buffer.exit.i
 
-ZSTD_cwksp_owns_buffer.exit.i:                    ; preds = %268, %265
-  %.not.i32 = phi i1 [ true, %265 ], [ %271, %268 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %266, i8 0, i64 72, i1 false)
-  %.not.i.i.i = icmp eq ptr %267, null
-  br i1 %.not.i.i.i, label %ZSTD_cwksp_free.exit.i, label %272
+ZSTD_cwksp_owns_buffer.exit.i:                    ; preds = %269, %266
+  %.not.i32 = phi i1 [ true, %266 ], [ %272, %269 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %267, i8 0, i64 72, i1 false)
+  %.not.i.i.i = icmp eq ptr %268, null
+  br i1 %.not.i.i.i, label %ZSTD_cwksp_free.exit.i, label %273
 
-272:                                              ; preds = %ZSTD_cwksp_owns_buffer.exit.i
+273:                                              ; preds = %ZSTD_cwksp_owns_buffer.exit.i
   %.not4.i.i.i33 = icmp eq ptr %.sroa.1.0.copyload.i, null
-  br i1 %.not4.i.i.i33, label %ZSTD_cwksp_free.exit.thread.i, label %273
+  br i1 %.not4.i.i.i33, label %ZSTD_cwksp_free.exit.thread.i, label %274
 
-273:                                              ; preds = %272
-  tail call void %.sroa.1.0.copyload.i(ptr noundef %.sroa.3.0.copyload.i, ptr noundef nonnull %267) #27
+274:                                              ; preds = %273
+  tail call void %.sroa.1.0.copyload.i(ptr noundef %.sroa.3.0.copyload.i, ptr noundef nonnull %268) #27
   br label %ZSTD_cwksp_free.exit.i
 
-ZSTD_cwksp_free.exit.i:                           ; preds = %273, %ZSTD_cwksp_owns_buffer.exit.i
-  br i1 %.not.i32, label %274, label %ZSTD_freeCDict.exit
+ZSTD_cwksp_free.exit.i:                           ; preds = %274, %ZSTD_cwksp_owns_buffer.exit.i
+  br i1 %.not.i32, label %275, label %ZSTD_freeCDict.exit
 
-ZSTD_cwksp_free.exit.thread.i:                    ; preds = %272
-  tail call void @free(ptr noundef nonnull %267) #27
+ZSTD_cwksp_free.exit.thread.i:                    ; preds = %273
+  tail call void @free(ptr noundef nonnull %268) #27
   br i1 %.not.i32, label %.thread.i, label %ZSTD_freeCDict.exit
 
-274:                                              ; preds = %ZSTD_cwksp_free.exit.i
+275:                                              ; preds = %ZSTD_cwksp_free.exit.i
   %.not4.i.i = icmp eq ptr %.sroa.1.0.copyload.i, null
-  br i1 %.not4.i.i, label %.thread.i, label %275
+  br i1 %.not4.i.i, label %.thread.i, label %276
 
-275:                                              ; preds = %274
+276:                                              ; preds = %275
   tail call void %.sroa.1.0.copyload.i(ptr noundef %.sroa.3.0.copyload.i, ptr noundef nonnull %.0.i.i) #27
   br label %ZSTD_freeCDict.exit
 
-.thread.i:                                        ; preds = %274, %ZSTD_cwksp_free.exit.thread.i
+.thread.i:                                        ; preds = %275, %ZSTD_cwksp_free.exit.thread.i
   tail call void @free(ptr noundef nonnull %.0.i.i) #27
   br label %ZSTD_freeCDict.exit
 
-ZSTD_freeCDict.exit:                              ; preds = %ZSTD_createCDict_advanced_internal.exit, %ZSTD_createCDict_advanced_internal.exit.thread, %.thread.i, %275, %ZSTD_cwksp_free.exit.thread.i, %ZSTD_cwksp_free.exit.i, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %ZSTD_cwksp_free.exit.i ], [ null, %ZSTD_cwksp_free.exit.thread.i ], [ null, %275 ], [ null, %.thread.i ], [ %.0.i.i, %ZSTD_createCDict_advanced_internal.exit.thread ], [ %spec.select179, %ZSTD_createCDict_advanced_internal.exit ]
+ZSTD_freeCDict.exit:                              ; preds = %ZSTD_createCDict_advanced_internal.exit, %ZSTD_createCDict_advanced_internal.exit.thread, %.thread.i, %276, %ZSTD_cwksp_free.exit.thread.i, %ZSTD_cwksp_free.exit.i, %6
+  %.0 = phi ptr [ null, %6 ], [ null, %ZSTD_cwksp_free.exit.i ], [ null, %ZSTD_cwksp_free.exit.thread.i ], [ null, %276 ], [ null, %.thread.i ], [ %.0.i.i, %ZSTD_createCDict_advanced_internal.exit.thread ], [ %spec.select179, %ZSTD_createCDict_advanced_internal.exit ]
   ret ptr %.0
 }
 

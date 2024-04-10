@@ -3192,10 +3192,9 @@ if.end18:                                         ; preds = %if.end13
 
 invoke.cont19:                                    ; preds = %if.end18
   %14 = load i64, ptr %l, align 8
-  %cmp21 = icmp sgt i64 %14, -2147483649
-  %or.cond = select i1 %call20, i1 %cmp21, i1 false
-  %cmp23 = icmp slt i64 %14, 2147483648
-  %or.cond1 = select i1 %or.cond, i1 %cmp23, i1 false
+  %15 = add i64 %14, 2147483648
+  %16 = icmp ult i64 %15, 4294967296
+  %or.cond1 = select i1 %call20, i1 %16, i1 false
   br i1 %or.cond1, label %if.then24, label %cleanup
 
 if.then24:                                        ; preds = %invoke.cont19
@@ -3212,7 +3211,7 @@ if.then.i16:                                      ; preds = %cleanup
   br label %return
 
 lpad26:                                           ; preds = %catch
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -3222,14 +3221,14 @@ return:                                           ; preds = %if.then.i16, %clean
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %lpad26, %_ZN10z3_log_ctxD2Ev.exit
-  %lpad.val34.merged = phi { ptr, i32 } [ %15, %lpad26 ], [ %8, %_ZN10z3_log_ctxD2Ev.exit ]
+  %lpad.val34.merged = phi { ptr, i32 } [ %17, %lpad26 ], [ %8, %_ZN10z3_log_ctxD2Ev.exit ]
   resume { ptr, i32 } %lpad.val34.merged
 
 terminate.lpad:                                   ; preds = %lpad26
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #11
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #11
   unreachable
 }
 

@@ -2637,10 +2637,9 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %69, %70, %63, 
   %86 = icmp eq i32 %83, 172
   %87 = getelementptr inbounds i8, ptr %5, i64 4
   %88 = load i32, ptr %87, align 4
-  %89 = icmp sgt i32 %88, 15
-  %or.cond6 = select i1 %86, i1 %89, i1 false
-  %90 = icmp slt i32 %88, 32
-  %or.cond9 = select i1 %or.cond6, i1 %90, i1 false
+  %89 = and i32 %88, -16
+  %90 = icmp eq i32 %89, 16
+  %or.cond9 = select i1 %86, i1 %90, i1 false
   br i1 %or.cond9, label %94, label %91
 
 91:                                               ; preds = %85
@@ -2719,10 +2718,9 @@ switch.early.test:                                ; preds = %103
 
 119:                                              ; preds = %118
   %120 = icmp eq i32 %.fr, 100
-  %121 = icmp sgt i32 %109, 63
-  %or.cond24 = select i1 %120, i1 %121, i1 false
-  %122 = icmp slt i32 %109, 128
-  %or.cond27 = select i1 %or.cond24, i1 %122, i1 false
+  %121 = and i32 %109, -64
+  %122 = icmp eq i32 %121, 64
+  %or.cond27 = select i1 %120, i1 %122, i1 false
   br i1 %or.cond27, label %142, label %123
 
 123:                                              ; preds = %119
@@ -2738,10 +2736,9 @@ switch.early.test:                                ; preds = %103
 
 130:                                              ; preds = %123
   %131 = icmp eq i32 %.fr, 198
-  %132 = icmp sgt i32 %109, 17
-  %or.cond42 = select i1 %131, i1 %132, i1 false
-  %133 = icmp slt i32 %109, 20
-  %or.cond45 = select i1 %or.cond42, i1 %133, i1 false
+  %132 = and i32 %109, -2
+  %133 = icmp eq i32 %132, 18
+  %or.cond45 = select i1 %131, i1 %133, i1 false
   br i1 %or.cond45, label %142, label %134
 
 134:                                              ; preds = %130

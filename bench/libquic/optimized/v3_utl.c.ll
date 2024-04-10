@@ -1746,38 +1746,32 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a3.i)
   %call.i5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %ipasc, ptr noundef nonnull @.str.17, ptr noundef nonnull %a0.i, ptr noundef nonnull %a1.i, ptr noundef nonnull %a2.i, ptr noundef nonnull %a3.i) #19
   %cmp.not.i = icmp eq i32 %call.i5, 4
-  br i1 %cmp.not.i, label %if.end.i7, label %8
+  br i1 %cmp.not.i, label %if.end.i7, label %11
 
 if.end.i7:                                        ; preds = %if.else
   %4 = load i32, ptr %a0.i, align 4
   %or.cond.i8 = icmp ugt i32 %4, 255
   %5 = load i32, ptr %a1.i, align 4
-  %cmp4.i = icmp slt i32 %5, 0
-  %or.cond1.i = select i1 %or.cond.i8, i1 true, i1 %cmp4.i
-  %cmp6.i = icmp sgt i32 %5, 255
-  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp6.i
-  %6 = load i32, ptr %a2.i, align 4
-  %cmp8.i = icmp slt i32 %6, 0
-  %or.cond3.i = select i1 %or.cond2.i, i1 true, i1 %cmp8.i
-  %cmp10.i = icmp sgt i32 %6, 255
-  %or.cond4.i = select i1 %or.cond3.i, i1 true, i1 %cmp10.i
-  %7 = load i32, ptr %a3.i, align 4
-  %cmp12.i9 = icmp slt i32 %7, 0
-  %or.cond5.i = select i1 %or.cond4.i, i1 true, i1 %cmp12.i9
-  %cmp14.i = icmp sgt i32 %7, 255
-  %or.cond6.i = select i1 %or.cond5.i, i1 true, i1 %cmp14.i
-  br i1 %or.cond6.i, label %8, label %ipv4_from_asc.exit
+  %6 = icmp ugt i32 %5, 255
+  %or.cond2.i = select i1 %or.cond.i8, i1 true, i1 %6
+  %7 = load i32, ptr %a2.i, align 4
+  %8 = icmp ugt i32 %7, 255
+  %or.cond4.i = select i1 %or.cond2.i, i1 true, i1 %8
+  %9 = load i32, ptr %a3.i, align 4
+  %10 = icmp ugt i32 %9, 255
+  %or.cond6.i = select i1 %or.cond4.i, i1 true, i1 %10
+  br i1 %or.cond6.i, label %11, label %ipv4_from_asc.exit
 
 ipv4_from_asc.exit:                               ; preds = %if.end.i7
-  %conv.i10 = trunc i32 %4 to i8
-  store i8 %conv.i10, ptr %ipout, align 1
+  %conv.i9 = trunc i32 %4 to i8
+  store i8 %conv.i9, ptr %ipout, align 1
   %conv17.i = trunc i32 %5 to i8
   %arrayidx18.i = getelementptr inbounds i8, ptr %ipout, i64 1
   store i8 %conv17.i, ptr %arrayidx18.i, align 1
-  %conv19.i = trunc i32 %6 to i8
+  %conv19.i = trunc i32 %7 to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %ipout, i64 2
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
-  %conv21.i = trunc i32 %7 to i8
+  %conv21.i = trunc i32 %9 to i8
   %arrayidx22.i = getelementptr inbounds i8, ptr %ipout, i64 3
   store i8 %conv21.i, ptr %arrayidx22.i, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
@@ -1786,15 +1780,15 @@ ipv4_from_asc.exit:                               ; preds = %if.end.i7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a3.i)
   br label %return
 
-8:                                                ; preds = %if.else, %if.end.i7
+11:                                               ; preds = %if.else, %if.end.i7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a1.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a3.i)
   br label %return
 
-return:                                           ; preds = %8, %ipv4_from_asc.exit, %3, %ipv6_from_asc.exit
-  %retval.0 = phi i32 [ 0, %3 ], [ 16, %ipv6_from_asc.exit ], [ 0, %8 ], [ 4, %ipv4_from_asc.exit ]
+return:                                           ; preds = %11, %ipv4_from_asc.exit, %3, %ipv6_from_asc.exit
+  %retval.0 = phi i32 [ 0, %3 ], [ 16, %ipv6_from_asc.exit ], [ 0, %11 ], [ 4, %ipv4_from_asc.exit ]
   ret i32 %retval.0
 }
 
@@ -2817,20 +2811,14 @@ if.end.i:                                         ; preds = %if.end21
   %4 = load i32, ptr %a0.i, align 4
   %or.cond.i = icmp ugt i32 %4, 255
   %5 = load i32, ptr %a1.i, align 4
-  %cmp4.i = icmp slt i32 %5, 0
-  %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i
-  %cmp6.i = icmp sgt i32 %5, 255
-  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp6.i
-  %6 = load i32, ptr %a2.i, align 4
-  %cmp8.i = icmp slt i32 %6, 0
-  %or.cond3.i = select i1 %or.cond2.i, i1 true, i1 %cmp8.i
-  %cmp10.i = icmp sgt i32 %6, 255
-  %or.cond4.i = select i1 %or.cond3.i, i1 true, i1 %cmp10.i
-  %7 = load i32, ptr %a3.i, align 4
-  %cmp12.i = icmp slt i32 %7, 0
-  %or.cond5.i = select i1 %or.cond4.i, i1 true, i1 %cmp12.i
-  %cmp14.i = icmp sgt i32 %7, 255
-  %or.cond6.i = select i1 %or.cond5.i, i1 true, i1 %cmp14.i
+  %6 = icmp ugt i32 %5, 255
+  %or.cond2.i = select i1 %or.cond.i, i1 true, i1 %6
+  %7 = load i32, ptr %a2.i, align 4
+  %8 = icmp ugt i32 %7, 255
+  %or.cond4.i = select i1 %or.cond2.i, i1 true, i1 %8
+  %9 = load i32, ptr %a3.i, align 4
+  %10 = icmp ugt i32 %9, 255
+  %or.cond6.i = select i1 %or.cond4.i, i1 true, i1 %10
   br i1 %or.cond6.i, label %ipv4_from_asc.exit.thread, label %if.end25
 
 ipv4_from_asc.exit.thread:                        ; preds = %if.end21, %if.end.i
@@ -2846,18 +2834,18 @@ if.end25:                                         ; preds = %if.end.i
   %conv17.i = trunc i32 %5 to i8
   %arrayidx18.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 %conv17.i, ptr %arrayidx18.i, align 1
-  %conv19.i = trunc i32 %6 to i8
+  %conv19.i = trunc i32 %7 to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
-  %conv21.i = trunc i32 %7 to i8
+  %conv21.i = trunc i32 %9 to i8
   %arrayidx22.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
   store i8 %conv21.i, ptr %arrayidx22.i, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a1.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a3.i)
-  %8 = load i32, ptr %total, align 4
-  %add = add nsw i32 %8, 4
+  %11 = load i32, ptr %total, align 4
+  %add = add nsw i32 %11, 4
   store i32 %add, ptr %total, align 4
   br label %return
 
@@ -2872,22 +2860,22 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %in.addr.021.i = phi ptr [ %incdec.ptr.i, %if.end35.i ], [ %elem, %while.cond.preheader.i ]
   %dec23.i = add nsw i32 %dec23.in.i, -1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %in.addr.021.i, i64 1
-  %9 = load i8, ptr %in.addr.021.i, align 1
+  %12 = load i8, ptr %in.addr.021.i, align 1
   %shl.i = shl i32 %num.022.i, 4
-  %conv.i20 = zext i8 %9 to i32
-  %10 = add i8 %9, -48
-  %or.cond.i21 = icmp ult i8 %10, 10
+  %conv.i20 = zext i8 %12 to i32
+  %13 = add i8 %12, -48
+  %or.cond.i21 = icmp ult i8 %13, 10
   br i1 %or.cond.i21, label %if.end35.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %11 = add i8 %9, -65
-  %or.cond1.i22 = icmp ult i8 %11, 6
-  br i1 %or.cond1.i22, label %if.end35.i, label %if.else19.i
+  %14 = add i8 %12, -65
+  %or.cond1.i = icmp ult i8 %14, 6
+  br i1 %or.cond1.i, label %if.end35.i, label %if.else19.i
 
 if.else19.i:                                      ; preds = %if.else.i
-  %12 = add i8 %9, -97
-  %or.cond2.i23 = icmp ult i8 %12, 6
-  br i1 %or.cond2.i23, label %if.end35.i, label %return
+  %15 = add i8 %12, -97
+  %or.cond2.i22 = icmp ult i8 %15, 6
+  br i1 %or.cond2.i22, label %if.end35.i, label %return
 
 if.end35.i:                                       ; preds = %if.else19.i, %if.else.i, %while.body.i
   %.sink.i = phi i32 [ -48, %while.body.i ], [ -55, %if.else.i ], [ -87, %if.else19.i ]
@@ -2903,8 +2891,8 @@ if.end36:                                         ; preds = %if.end35.i
   %conv37.i = trunc i32 %num.1.i to i8
   %arrayidx38.i = getelementptr inbounds i8, ptr %add.ptr32, i64 1
   store i8 %conv37.i, ptr %arrayidx38.i, align 1
-  %13 = load i32, ptr %total, align 4
-  %add38 = add nsw i32 %13, 2
+  %16 = load i32, ptr %total, align 4
+  %add38 = add nsw i32 %16, 2
   store i32 %add38, ptr %total, align 4
   br label %return
 

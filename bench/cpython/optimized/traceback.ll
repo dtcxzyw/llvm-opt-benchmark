@@ -1102,10 +1102,8 @@ entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
   %cmp = icmp eq ptr %kwargs, null
-  %cmp1 = icmp sgt i64 %args.val, 3
-  %or.cond = select i1 %cmp, i1 %cmp1, i1 false
-  %cmp3 = icmp slt i64 %args.val, 5
-  %or.cond1 = select i1 %or.cond, i1 %cmp3, i1 false
+  %1 = icmp eq i64 %args.val, 4
+  %or.cond1 = select i1 %cmp, i1 %1, i1 false
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end
 
@@ -1116,11 +1114,11 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %entry, %cond.end
   %cond21 = phi ptr [ %call11, %cond.end ], [ %ob_item, %entry ]
-  %1 = load ptr, ptr %cond21, align 8
+  %2 = load ptr, ptr %cond21, align 8
   %arrayidx12 = getelementptr i8, ptr %cond21, i64 8
-  %2 = load ptr, ptr %arrayidx12, align 8
-  %3 = getelementptr i8, ptr %2, i64 8
-  %.val = load ptr, ptr %3, align 8
+  %3 = load ptr, ptr %arrayidx12, align 8
+  %4 = getelementptr i8, ptr %3, i64 8
+  %.val = load ptr, ptr %4, align 8
   %cmp.i.not.i = icmp eq ptr %.val, @PyFrame_Type
   br i1 %cmp.i.not.i, label %if.end17, label %PyObject_TypeCheck.exit
 
@@ -1131,15 +1129,15 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end
   br i1 %tobool3.i.not, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %PyObject_TypeCheck.exit
-  %4 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrame_Type, i64 0, i32 1), align 8
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %4, ptr noundef %.pre) #10
+  %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFrame_Type, i64 0, i32 1), align 8
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %5, ptr noundef %.pre) #10
   br label %exit
 
 if.end17:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
-  %5 = phi ptr [ %2, %if.end ], [ %.pre, %PyObject_TypeCheck.exit ]
+  %6 = phi ptr [ %3, %if.end ], [ %.pre, %PyObject_TypeCheck.exit ]
   %arrayidx19 = getelementptr i8, ptr %cond21, i64 16
-  %6 = load ptr, ptr %arrayidx19, align 8
-  %call20 = call i32 @PyLong_AsInt(ptr noundef %6) #10
+  %7 = load ptr, ptr %arrayidx19, align 8
+  %call20 = call i32 @PyLong_AsInt(ptr noundef %7) #10
   %cmp21 = icmp eq i32 %call20, -1
   br i1 %cmp21, label %land.lhs.true22, label %if.end26
 
@@ -1150,13 +1148,13 @@ land.lhs.true22:                                  ; preds = %if.end17
 
 if.end26:                                         ; preds = %land.lhs.true22, %if.end17
   %arrayidx27 = getelementptr i8, ptr %cond21, i64 24
-  %7 = load ptr, ptr %arrayidx27, align 8
-  %call28 = call i32 @PyLong_AsInt(ptr noundef %7) #10
+  %8 = load ptr, ptr %arrayidx27, align 8
+  %call28 = call i32 @PyLong_AsInt(ptr noundef %8) #10
   %cmp29 = icmp eq i32 %call28, -1
   br i1 %cmp29, label %land.lhs.true30, label %if.end26.split
 
 if.end26.split:                                   ; preds = %if.end26
-  %call3517 = call fastcc ptr @tb_new_impl(ptr noundef %1, ptr noundef %5, i32 noundef %call20, i32 noundef %call28)
+  %call3517 = call fastcc ptr @tb_new_impl(ptr noundef %2, ptr noundef %6, i32 noundef %call20, i32 noundef %call28)
   br label %exit
 
 land.lhs.true30:                                  ; preds = %if.end26
@@ -1165,7 +1163,7 @@ land.lhs.true30:                                  ; preds = %if.end26
   br i1 %tobool32.not, label %land.lhs.true30.split, label %exit
 
 land.lhs.true30.split:                            ; preds = %land.lhs.true30
-  %call3518 = call fastcc ptr @tb_new_impl(ptr noundef %1, ptr noundef %5, i32 noundef %call20, i32 noundef -1)
+  %call3518 = call fastcc ptr @tb_new_impl(ptr noundef %2, ptr noundef %6, i32 noundef %call20, i32 noundef -1)
   br label %exit
 
 exit:                                             ; preds = %if.end26.split, %land.lhs.true30.split, %land.lhs.true30, %land.lhs.true22, %cond.end, %if.then15

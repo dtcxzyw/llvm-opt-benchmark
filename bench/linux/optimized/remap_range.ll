@@ -190,10 +190,10 @@ define dso_local i32 @__generic_remap_file_range_prep(ptr noundef %0, i64 nounde
   %118 = icmp eq ptr %55, %58
   %119 = add i64 %117, %3
   %120 = icmp ugt i64 %119, %1
-  %121 = select i1 %118, i1 %120, i1 false
-  %122 = add i64 %117, %1
-  %123 = icmp ugt i64 %122, %3
-  %124 = select i1 %121, i1 %123, i1 false
+  %121 = add i64 %117, %1
+  %122 = icmp ugt i64 %121, %3
+  %123 = and i1 %120, %122
+  %124 = select i1 %118, i1 %123, i1 false
   br i1 %124, label %.thread16, label %125
 
 125:                                              ; preds = %115

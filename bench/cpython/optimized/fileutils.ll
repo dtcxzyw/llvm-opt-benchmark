@@ -1046,26 +1046,29 @@ for.body31:                                       ; preds = %for.body, %for.inc4
   %conv32 = trunc i32 %i.013 to i8
   store i8 %conv32, ptr %ch, align 1
   %call.i = call i64 @mbstowcs(ptr noundef nonnull %wch, ptr noundef nonnull %ch, i64 noundef 1) #16
-  switch i64 %call.i, label %for.body.i.preheader [
-    i64 -1, label %for.inc43
-    i64 0, label %return
-  ]
+  %3 = add i64 %call.i, -1
+  %4 = icmp ult i64 %3, -2
+  br i1 %4, label %for.body.i.preheader, label %_Py_mbstowcs.exit
 
 for.body.i.preheader:                             ; preds = %for.body31
-  %3 = load i32, ptr %wch, align 4
-  %4 = and i32 %3, -2048
-  %.not.i.i = icmp eq i32 %4, 55296
-  %cmp.i.i = icmp sgt i32 %3, 1114111
+  %5 = load i32, ptr %wch, align 4
+  %6 = and i32 %5, -2048
+  %.not.i.i = icmp eq i32 %6, 55296
+  %cmp.i.i = icmp sgt i32 %5, 1114111
   %narrow.i.not.i = or i1 %cmp.i.i, %.not.i.i
   br i1 %narrow.i.not.i, label %for.inc43, label %return
 
-for.inc43:                                        ; preds = %for.body.i.preheader, %for.body31
+_Py_mbstowcs.exit:                                ; preds = %for.body31
+  %cmp39.not = icmp eq i64 %call.i, -1
+  br i1 %cmp39.not, label %for.inc43, label %return
+
+for.inc43:                                        ; preds = %for.body.i.preheader, %_Py_mbstowcs.exit
   %inc = add nuw nsw i32 %i.013, 1
   %exitcond.not = icmp eq i32 %inc, 256
   br i1 %exitcond.not, label %return, label %for.body31, !llvm.loop !9
 
-return:                                           ; preds = %for.cond, %for.body31, %for.inc43, %for.body.i.preheader, %entry, %lor.lhs.false, %if.end6, %if.end11, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end11 ], [ 1, %if.end6 ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %for.body.i.preheader ], [ 1, %for.body31 ], [ 0, %for.inc43 ], [ 0, %for.cond ]
+return:                                           ; preds = %for.cond, %for.body.i.preheader, %for.inc43, %_Py_mbstowcs.exit, %entry, %lor.lhs.false, %if.end6, %if.end11, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end11 ], [ 1, %if.end6 ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %for.body.i.preheader ], [ 0, %for.inc43 ], [ 1, %_Py_mbstowcs.exit ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -1250,10 +1253,9 @@ if.end6:                                          ; preds = %if.then3
 
 if.end9:                                          ; preds = %if.end6
   %call.i41 = tail call i64 @mbstowcs(ptr noundef nonnull %call7, ptr noundef %arg, i64 noundef %add) #16
-  switch i64 %call.i41, label %for.body.i [
-    i64 -1, label %if.end17
-    i64 0, label %if.then13
-  ]
+  %0 = add i64 %call.i41, -1
+  %1 = icmp ult i64 %0, -2
+  br i1 %1, label %for.body.i, label %_Py_mbstowcs.exit
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
@@ -1263,18 +1265,18 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %if.end9, %for.cond.i
   %i.08.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end9 ]
   %arrayidx.i = getelementptr i32, ptr %call7, i64 %i.08.i
-  %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = and i32 %0, -2048
-  %.not.i.i = icmp eq i32 %1, 55296
-  %cmp.i.i = icmp sgt i32 %0, 1114111
+  %2 = load i32, ptr %arrayidx.i, align 4
+  %3 = and i32 %2, -2048
+  %.not.i.i = icmp eq i32 %3, 55296
+  %cmp.i.i = icmp sgt i32 %2, 1114111
   %narrow.i.not.i = or i1 %cmp.i.i, %.not.i.i
   br i1 %narrow.i.not.i, label %if.end17, label %for.cond.i
 
-_Py_mbstowcs.exit:                                ; preds = %for.cond.i
+_Py_mbstowcs.exit:                                ; preds = %for.cond.i, %if.end9
   %cmp12.not = icmp eq i64 %call.i41, -1
   br i1 %cmp12.not, label %if.end17, label %if.then13
 
-if.then13:                                        ; preds = %if.end9, %_Py_mbstowcs.exit
+if.then13:                                        ; preds = %_Py_mbstowcs.exit
   store ptr %call7, ptr %wstr, align 8
   %cmp14.not = icmp eq ptr %wlen, null
   br i1 %cmp14.not, label %return, label %if.then15
@@ -1283,7 +1285,7 @@ if.then15:                                        ; preds = %if.then13
   store i64 %call.i41, ptr %wlen, align 8
   br label %return
 
-if.end17:                                         ; preds = %for.body.i, %if.end9, %_Py_mbstowcs.exit
+if.end17:                                         ; preds = %for.body.i, %_Py_mbstowcs.exit
   tail call void @PyMem_RawFree(ptr noundef nonnull %call7) #16
   br label %if.end18
 
@@ -1301,91 +1303,91 @@ if.end23:                                         ; preds = %if.end18
 
 if.end28:                                         ; preds = %if.end23
   store i64 0, ptr %mbs, align 8
-  %tobool29.not59 = icmp eq i64 %add20, 0
-  br i1 %tobool29.not59, label %while.end, label %while.body.lr.ph
+  %tobool29.not57 = icmp eq i64 %add20, 0
+  br i1 %tobool29.not57, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end28
   br i1 %tobool39.not, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end44.us
-  %out.062.us = phi ptr [ %incdec.ptr45.us, %if.end44.us ], [ %call25, %while.body.lr.ph ]
-  %in.061.us = phi ptr [ %add.ptr.us, %if.end44.us ], [ %arg, %while.body.lr.ph ]
-  %argsize.060.us = phi i64 [ %sub.us, %if.end44.us ], [ %add20, %while.body.lr.ph ]
-  %call.i45.us = call i64 @mbrtowc(ptr noundef %out.062.us, ptr noundef %in.061.us, i64 noundef %argsize.060.us, ptr noundef nonnull %mbs) #16
-  %2 = add i64 %call.i45.us, -1
-  %or.cond1.i.us = icmp ult i64 %2, -3
+  %out.060.us = phi ptr [ %incdec.ptr45.us, %if.end44.us ], [ %call25, %while.body.lr.ph ]
+  %in.059.us = phi ptr [ %add.ptr.us, %if.end44.us ], [ %arg, %while.body.lr.ph ]
+  %argsize.058.us = phi i64 [ %sub.us, %if.end44.us ], [ %add20, %while.body.lr.ph ]
+  %call.i43.us = call i64 @mbrtowc(ptr noundef %out.060.us, ptr noundef %in.059.us, i64 noundef %argsize.058.us, ptr noundef nonnull %mbs) #16
+  %4 = add i64 %call.i43.us, -1
+  %or.cond1.i.us = icmp ult i64 %4, -3
   br i1 %or.cond1.i.us, label %if.then.i.us, label %_Py_mbrtowc.exit.us
 
 if.then.i.us:                                     ; preds = %while.body.us
-  %3 = load i32, ptr %out.062.us, align 4
-  %4 = and i32 %3, -2048
-  %.not.i.i47.us = icmp eq i32 %4, 55296
-  %cmp.i.i48.us = icmp sgt i32 %3, 1114111
-  %narrow.i.not.i49.us = or i1 %cmp.i.i48.us, %.not.i.i47.us
-  br i1 %narrow.i.not.i49.us, label %decode_error, label %_Py_mbrtowc.exit.us
+  %5 = load i32, ptr %out.060.us, align 4
+  %6 = and i32 %5, -2048
+  %.not.i.i45.us = icmp eq i32 %6, 55296
+  %cmp.i.i46.us = icmp sgt i32 %5, 1114111
+  %narrow.i.not.i47.us = or i1 %cmp.i.i46.us, %.not.i.i45.us
+  br i1 %narrow.i.not.i47.us, label %decode_error, label %_Py_mbrtowc.exit.us
 
 _Py_mbrtowc.exit.us:                              ; preds = %if.then.i.us, %while.body.us
-  switch i64 %call.i45.us, label %if.end44.us [
+  switch i64 %call.i43.us, label %if.end44.us [
     i64 0, label %while.end
     i64 -2, label %decode_error
     i64 -1, label %decode_error
   ]
 
 if.end44.us:                                      ; preds = %_Py_mbrtowc.exit.us
-  %add.ptr.us = getelementptr i8, ptr %in.061.us, i64 %call.i45.us
-  %sub.us = sub i64 %argsize.060.us, %call.i45.us
-  %incdec.ptr45.us = getelementptr i8, ptr %out.062.us, i64 4
+  %add.ptr.us = getelementptr i8, ptr %in.059.us, i64 %call.i43.us
+  %sub.us = sub i64 %argsize.058.us, %call.i43.us
+  %incdec.ptr45.us = getelementptr i8, ptr %out.060.us, i64 4
   %tobool29.not.us = icmp eq i64 %sub.us, 0
   br i1 %tobool29.not.us, label %while.end, label %while.body.us, !llvm.loop !12
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %out.062 = phi ptr [ %out.0.be, %while.cond.backedge ], [ %call25, %while.body.lr.ph ]
-  %in.061 = phi ptr [ %in.0.be, %while.cond.backedge ], [ %arg, %while.body.lr.ph ]
-  %argsize.060 = phi i64 [ %argsize.0.be, %while.cond.backedge ], [ %add20, %while.body.lr.ph ]
-  %call.i45 = call i64 @mbrtowc(ptr noundef %out.062, ptr noundef %in.061, i64 noundef %argsize.060, ptr noundef nonnull %mbs) #16
-  %5 = add i64 %call.i45, -1
-  %or.cond1.i = icmp ult i64 %5, -3
+  %out.060 = phi ptr [ %out.0.be, %while.cond.backedge ], [ %call25, %while.body.lr.ph ]
+  %in.059 = phi ptr [ %in.0.be, %while.cond.backedge ], [ %arg, %while.body.lr.ph ]
+  %argsize.058 = phi i64 [ %argsize.0.be, %while.cond.backedge ], [ %add20, %while.body.lr.ph ]
+  %call.i43 = call i64 @mbrtowc(ptr noundef %out.060, ptr noundef %in.059, i64 noundef %argsize.058, ptr noundef nonnull %mbs) #16
+  %7 = add i64 %call.i43, -1
+  %or.cond1.i = icmp ult i64 %7, -3
   br i1 %or.cond1.i, label %if.then.i, label %_Py_mbrtowc.exit
 
 if.then.i:                                        ; preds = %while.body
-  %6 = load i32, ptr %out.062, align 4
-  %7 = and i32 %6, -2048
-  %.not.i.i47 = icmp eq i32 %7, 55296
-  %cmp.i.i48 = icmp sgt i32 %6, 1114111
-  %narrow.i.not.i49 = or i1 %cmp.i.i48, %.not.i.i47
-  br i1 %narrow.i.not.i49, label %if.then38, label %_Py_mbrtowc.exit
+  %8 = load i32, ptr %out.060, align 4
+  %9 = and i32 %8, -2048
+  %.not.i.i45 = icmp eq i32 %9, 55296
+  %cmp.i.i46 = icmp sgt i32 %8, 1114111
+  %narrow.i.not.i47 = or i1 %cmp.i.i46, %.not.i.i45
+  br i1 %narrow.i.not.i47, label %if.then38, label %_Py_mbrtowc.exit
 
 _Py_mbrtowc.exit:                                 ; preds = %while.body, %if.then.i
-  switch i64 %call.i45, label %if.end44 [
+  switch i64 %call.i43, label %if.end44 [
     i64 0, label %while.end
     i64 -2, label %decode_error
     i64 -1, label %if.then38
   ]
 
 if.then38:                                        ; preds = %if.then.i, %_Py_mbrtowc.exit
-  %incdec.ptr = getelementptr i8, ptr %in.061, i64 1
-  %8 = load i8, ptr %in.061, align 1
-  %conv = zext i8 %8 to i32
+  %incdec.ptr = getelementptr i8, ptr %in.059, i64 1
+  %10 = load i8, ptr %in.059, align 1
+  %conv = zext i8 %10 to i32
   %add42 = or disjoint i32 %conv, 56320
-  store i32 %add42, ptr %out.062, align 4
-  %dec = add i64 %argsize.060, -1
+  store i32 %add42, ptr %out.060, align 4
+  %dec = add i64 %argsize.058, -1
   store i64 0, ptr %mbs, align 8
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then38, %if.end44
   %argsize.0.be = phi i64 [ %dec, %if.then38 ], [ %sub, %if.end44 ]
   %in.0.be = phi ptr [ %incdec.ptr, %if.then38 ], [ %add.ptr, %if.end44 ]
-  %out.0.be = getelementptr i8, ptr %out.062, i64 4
+  %out.0.be = getelementptr i8, ptr %out.060, i64 4
   %tobool29.not = icmp eq i64 %argsize.0.be, 0
   br i1 %tobool29.not, label %while.end, label %while.body, !llvm.loop !12
 
 if.end44:                                         ; preds = %_Py_mbrtowc.exit
-  %add.ptr = getelementptr i8, ptr %in.061, i64 %call.i45
-  %sub = sub i64 %argsize.060, %call.i45
+  %add.ptr = getelementptr i8, ptr %in.059, i64 %call.i43
+  %sub = sub i64 %argsize.058, %call.i43
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %_Py_mbrtowc.exit, %if.end44.us, %_Py_mbrtowc.exit.us, %if.end28
-  %out.0.lcssa = phi ptr [ %call25, %if.end28 ], [ %out.062.us, %_Py_mbrtowc.exit.us ], [ %incdec.ptr45.us, %if.end44.us ], [ %out.062, %_Py_mbrtowc.exit ], [ %out.0.be, %while.cond.backedge ]
+  %out.0.lcssa = phi ptr [ %call25, %if.end28 ], [ %out.060.us, %_Py_mbrtowc.exit.us ], [ %incdec.ptr45.us, %if.end44.us ], [ %out.060, %_Py_mbrtowc.exit ], [ %out.0.be, %while.cond.backedge ]
   %cmp46.not = icmp eq ptr %wlen, null
   br i1 %cmp46.not, label %if.end49, label %if.then48
 
@@ -1402,13 +1404,13 @@ if.end49:                                         ; preds = %if.then48, %while.e
   br label %return
 
 decode_error:                                     ; preds = %_Py_mbrtowc.exit, %_Py_mbrtowc.exit.us, %_Py_mbrtowc.exit.us, %if.then.i.us
-  %.us-phi64 = phi ptr [ %in.061.us, %if.then.i.us ], [ %in.061.us, %_Py_mbrtowc.exit.us ], [ %in.061.us, %_Py_mbrtowc.exit.us ], [ %in.061, %_Py_mbrtowc.exit ]
+  %.us-phi62 = phi ptr [ %in.059.us, %if.then.i.us ], [ %in.059.us, %_Py_mbrtowc.exit.us ], [ %in.059.us, %_Py_mbrtowc.exit.us ], [ %in.059, %_Py_mbrtowc.exit ]
   call void @PyMem_RawFree(ptr noundef nonnull %call25) #16
   %tobool50.not = icmp eq ptr %wlen, null
   br i1 %tobool50.not, label %if.end55, label %if.then51
 
 if.then51:                                        ; preds = %decode_error
-  %sub.ptr.lhs.cast52 = ptrtoint ptr %.us-phi64 to i64
+  %sub.ptr.lhs.cast52 = ptrtoint ptr %.us-phi62 to i64
   %sub.ptr.rhs.cast53 = ptrtoint ptr %arg to i64
   %sub.ptr.sub54 = sub i64 %sub.ptr.lhs.cast52, %sub.ptr.rhs.cast53
   store i64 %sub.ptr.sub54, ptr %wlen, align 8

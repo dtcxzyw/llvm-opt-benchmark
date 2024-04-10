@@ -187,32 +187,32 @@ define dso_local zeroext i1 @message_level_is_interesting(i32 noundef %0) local_
 8:                                                ; preds = %3
   %9 = icmp eq i32 %0, 20
   %10 = icmp eq i32 %4, 15
-  %or.cond = select i1 %9, i1 true, i1 %10
   %.not.i.i = icmp sgt i32 %4, %0
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %.not.i.i
+  %11 = or i1 %10, %.not.i.i
+  %or.cond5 = select i1 %9, i1 true, i1 %11
   br i1 %or.cond5, label %should_output_to_server.exit, label %should_output_to_client.exit
 
 should_output_to_server.exit:                     ; preds = %6, %8
-  %11 = load i32, ptr @whereToSendOutput, align 4
-  %12 = icmp eq i32 %11, 2
-  %13 = icmp ne i32 %0, 16
-  %or.cond.i = and i1 %13, %12
-  br i1 %or.cond.i, label %14, label %should_output_to_client.exit
+  %12 = load i32, ptr @whereToSendOutput, align 4
+  %13 = icmp eq i32 %12, 2
+  %14 = icmp ne i32 %0, 16
+  %or.cond.i = and i1 %14, %13
+  br i1 %or.cond.i, label %15, label %should_output_to_client.exit
 
-14:                                               ; preds = %should_output_to_server.exit
-  %15 = load i8, ptr @ClientAuthInProgress, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %should_output_to_client.exit, label %17
+15:                                               ; preds = %should_output_to_server.exit
+  %16 = load i8, ptr @ClientAuthInProgress, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %should_output_to_client.exit, label %18
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr @client_min_messages, align 4
-  %19 = icmp sle i32 %18, %0
-  %20 = icmp eq i32 %0, 17
-  %21 = or i1 %20, %19
+18:                                               ; preds = %15
+  %19 = load i32, ptr @client_min_messages, align 4
+  %20 = icmp sle i32 %19, %0
+  %21 = icmp eq i32 %0, 17
+  %22 = or i1 %21, %20
   br label %should_output_to_client.exit
 
-should_output_to_client.exit:                     ; preds = %8, %6, %17, %should_output_to_server.exit, %14, %1
-  %.0 = phi i1 [ true, %1 ], [ %21, %17 ], [ false, %should_output_to_server.exit ], [ false, %14 ], [ true, %6 ], [ true, %8 ]
+should_output_to_client.exit:                     ; preds = %8, %6, %18, %should_output_to_server.exit, %15, %1
+  %.0 = phi i1 [ true, %1 ], [ %22, %18 ], [ false, %should_output_to_server.exit ], [ false, %15 ], [ true, %6 ], [ true, %8 ]
   ret i1 %.0
 }
 

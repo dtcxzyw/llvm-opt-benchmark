@@ -7873,10 +7873,9 @@ for.body:                                         ; preds = %entry, %if.end12
   %1 = load ptr, ptr %eptr, align 8
   %2 = load i8, ptr %1, align 1
   %cmp2 = icmp ne i8 %2, 0
-  %cmp4 = icmp slt i64 %call, -2000
-  %or.cond = select i1 %cmp2, i1 true, i1 %cmp4
-  %cmp7 = icmp sgt i64 %call, 2000
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp7
+  %3 = add i64 %call, -2001
+  %4 = icmp ult i64 %3, -4001
+  %or.cond1 = select i1 %cmp2, i1 true, i1 %4
   br i1 %or.cond1, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %for.body
@@ -7897,17 +7896,17 @@ if.end12:                                         ; preds = %for.body
 
 for.end:                                          ; preds = %if.end12
   %arrayidx16 = getelementptr inbounds i8, ptr %values, i64 4
-  %3 = load i32, ptr %arrayidx16, align 4
-  %4 = load i32, ptr %values, align 4
-  %cmp18 = icmp slt i32 %3, %4
+  %5 = load i32, ptr %arrayidx16, align 4
+  %6 = load i32, ptr %values, align 4
+  %cmp18 = icmp slt i32 %5, %6
   br i1 %cmp18, label %do.body, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %for.end
   %arrayidx21 = getelementptr inbounds i8, ptr %values, i64 8
-  %5 = load i32, ptr %arrayidx21, align 4
-  %cmp23 = icmp sge i32 %5, %3
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
-  %cmp26 = icmp sgt i32 %6, 3
+  %7 = load i32, ptr %arrayidx21, align 4
+  %cmp23 = icmp sge i32 %7, %5
+  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %cmp26 = icmp sgt i32 %8, 3
   %or.cond2 = select i1 %cmp23, i1 true, i1 %cmp26
   br i1 %or.cond2, label %for.body34.preheader, label %if.end29
 
@@ -7927,14 +7926,14 @@ for.body34:                                       ; preds = %for.body34.preheade
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.inc47 ], [ 0, %for.body34.preheader ]
   %change.019 = phi i32 [ %change.1, %for.inc47 ], [ 0, %for.body34.preheader ]
   %arrayidx36 = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 322, i64 %indvars.iv21
-  %7 = load i32, ptr %arrayidx36, align 4
+  %9 = load i32, ptr %arrayidx36, align 4
   %arrayidx38 = getelementptr inbounds [3 x i32], ptr %values, i64 0, i64 %indvars.iv21
-  %8 = load i32, ptr %arrayidx38, align 4
-  %cmp39.not = icmp eq i32 %7, %8
+  %10 = load i32, ptr %arrayidx38, align 4
+  %cmp39.not = icmp eq i32 %9, %10
   br i1 %cmp39.not, label %for.inc47, label %if.then41
 
 if.then41:                                        ; preds = %for.body34
-  store i32 %8, ptr %arrayidx36, align 4
+  store i32 %10, ptr %arrayidx36, align 4
   br label %for.inc47
 
 for.inc47:                                        ; preds = %for.body34, %if.then41

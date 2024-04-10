@@ -1176,16 +1176,16 @@ mm_alloc.exit75:                                  ; preds = %24
   %.1.lcssa = phi ptr [ %.062, %44 ], [ %.2, %67 ]
   %69 = icmp ne ptr %5, null
   %70 = icmp ne ptr %.1.lcssa, null
-  %or.cond3 = select i1 %69, i1 %70, i1 false
   %71 = icmp ne ptr %.1.lcssa, @struct_no_indicator
-  %or.cond5 = select i1 %or.cond3, i1 %71, i1 false
-  br i1 %or.cond5, label %72, label %73
+  %72 = and i1 %70, %71
+  %or.cond5 = select i1 %69, i1 %72, i1 false
+  br i1 %or.cond5, label %73, label %74
 
-72:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef %2) #11
-  br label %73
+  br label %74
 
-73:                                               ; preds = %72, %._crit_edge
+74:                                               ; preds = %73, %._crit_edge
   tail call void @free(ptr noundef %17) #11
   tail call void @free(ptr noundef %28) #11
   ret void

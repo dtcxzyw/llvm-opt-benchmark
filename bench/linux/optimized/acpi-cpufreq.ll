@@ -1192,13 +1192,13 @@ define internal fastcc i64 @get_max_boost_ratio(i32 noundef %0) unnamed_addr #2 
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #16
   %3 = load i32, ptr @acpi_pstate_strict, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %30
+  br i1 %4, label %5, label %29
 
 5:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false), !annotation !19
   %6 = call i32 @cppc_get_perf_caps(i32 noundef %0, ptr noundef nonnull %2) #16
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %30
+  br i1 %7, label %8, label %29
 
 8:                                                ; preds = %5
   %9 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
@@ -1219,23 +1219,22 @@ define internal fastcc i64 @get_max_boost_ratio(i32 noundef %0) unnamed_addr #2 
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, 0
-  %21 = icmp eq i32 %19, 0
-  %22 = select i1 %20, i1 true, i1 %21
-  %23 = icmp ult i32 %17, %19
-  %24 = select i1 %22, i1 true, i1 %23
-  br i1 %24, label %30, label %25
+  %21 = add i32 %19, -1
+  %22 = icmp uge i32 %21, %17
+  %23 = select i1 %20, i1 true, i1 %22
+  br i1 %23, label %29, label %24
 
-25:                                               ; preds = %16
-  %26 = zext i32 %17 to i64
-  %27 = shl nuw nsw i64 %26, 10
-  %28 = zext i32 %19 to i64
-  %29 = udiv i64 %27, %28
-  br label %30
+24:                                               ; preds = %16
+  %25 = zext i32 %17 to i64
+  %26 = shl nuw nsw i64 %25, 10
+  %27 = zext i32 %19 to i64
+  %28 = udiv i64 %26, %27
+  br label %29
 
-30:                                               ; preds = %25, %16, %5, %1
-  %31 = phi i64 [ %29, %25 ], [ 0, %1 ], [ 0, %5 ], [ 0, %16 ]
+29:                                               ; preds = %24, %16, %5, %1
+  %30 = phi i64 [ %28, %24 ], [ 0, %1 ], [ 0, %5 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #16
-  ret i64 %31
+  ret i64 %30
 }
 
 ; Function Attrs: null_pointer_is_valid

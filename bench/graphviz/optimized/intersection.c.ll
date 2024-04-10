@@ -494,7 +494,7 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
 
 298:                                              ; preds = %line_segments_distance.exit
   %. = select i1 %293, double 1.000000e+00, double -2.000000e+00
-  br label %372
+  br label %373
 
 .preheader104:                                    ; preds = %line_segments_distance.exit
   %299 = load <2 x double>, ptr %2, align 8
@@ -521,94 +521,94 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
   %or.cond = and i1 %316, %318
   %319 = extractelement <2 x double> %314, i64 0
   %320 = fcmp oge double %319, 0.000000e+00
-  %or.cond3 = select i1 %or.cond, i1 %320, i1 false
   %321 = extractelement <2 x i1> %317, i64 0
-  %or.cond5 = select i1 %or.cond3, i1 %321, i1 false
+  %322 = and i1 %320, %321
+  %or.cond5 = select i1 %or.cond, i1 %322, i1 false
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %293
-  br i1 %or.cond7, label %322, label %372
+  br i1 %or.cond7, label %323, label %373
 
-322:                                              ; preds = %.preheader104
-  %323 = fmul double %14, %24
-  %324 = fcmp olt double %323, 0x3C9CD2B297D889BC
-  br i1 %324, label %372, label %.preheader
+323:                                              ; preds = %.preheader104
+  %324 = fmul double %14, %24
+  %325 = fcmp olt double %324, 0x3C9CD2B297D889BC
+  br i1 %325, label %373, label %.preheader
 
-.preheader:                                       ; preds = %322, %.preheader
-  %325 = phi i1 [ false, %.preheader ], [ true, %322 ]
-  %indvars.iv168.sroa.phi = phi ptr [ %.sroa.3, %.preheader ], [ %.sroa.0247, %322 ]
-  %indvars.iv168.sroa.phi249 = phi ptr [ %.sroa.3252, %.preheader ], [ %.sroa.0251, %322 ]
-  %.0134 = phi double [ %328, %.preheader ], [ 0.000000e+00, %322 ]
-  %326 = load double, ptr %indvars.iv168.sroa.phi249, align 8
-  %327 = load double, ptr %indvars.iv168.sroa.phi, align 8
-  %328 = tail call double @llvm.fmuladd.f64(double %326, double %327, double %.0134)
-  br i1 %325, label %.preheader, label %329
+.preheader:                                       ; preds = %323, %.preheader
+  %326 = phi i1 [ false, %.preheader ], [ true, %323 ]
+  %indvars.iv168.sroa.phi = phi ptr [ %.sroa.3, %.preheader ], [ %.sroa.0247, %323 ]
+  %indvars.iv168.sroa.phi249 = phi ptr [ %.sroa.3252, %.preheader ], [ %.sroa.0251, %323 ]
+  %.0134 = phi double [ %329, %.preheader ], [ 0.000000e+00, %323 ]
+  %327 = load double, ptr %indvars.iv168.sroa.phi249, align 8
+  %328 = load double, ptr %indvars.iv168.sroa.phi, align 8
+  %329 = tail call double @llvm.fmuladd.f64(double %327, double %328, double %.0134)
+  br i1 %326, label %.preheader, label %330
 
-329:                                              ; preds = %.preheader
-  %330 = fdiv double %328, %323
-  %331 = load double, ptr %0, align 8
-  %332 = load double, ptr %2, align 8
-  %333 = fcmp oeq double %331, %332
-  br i1 %333, label %334, label %340
+330:                                              ; preds = %.preheader
+  %331 = fdiv double %329, %324
+  %332 = load double, ptr %0, align 8
+  %333 = load double, ptr %2, align 8
+  %334 = fcmp oeq double %332, %333
+  br i1 %334, label %335, label %341
 
-334:                                              ; preds = %329
-  %335 = getelementptr inbounds i8, ptr %0, i64 8
-  %336 = load double, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %2, i64 8
-  %338 = load double, ptr %337, align 8
-  %339 = fcmp oeq double %336, %338
-  br i1 %339, label %372, label %340
+335:                                              ; preds = %330
+  %336 = getelementptr inbounds i8, ptr %0, i64 8
+  %337 = load double, ptr %336, align 8
+  %338 = getelementptr inbounds i8, ptr %2, i64 8
+  %339 = load double, ptr %338, align 8
+  %340 = fcmp oeq double %337, %339
+  br i1 %340, label %373, label %341
 
-340:                                              ; preds = %334, %329
-  %341 = load double, ptr %3, align 8
-  %342 = fcmp oeq double %331, %341
-  br i1 %342, label %343, label %351
+341:                                              ; preds = %335, %330
+  %342 = load double, ptr %3, align 8
+  %343 = fcmp oeq double %332, %342
+  br i1 %343, label %344, label %352
 
-343:                                              ; preds = %340
-  %344 = getelementptr inbounds i8, ptr %0, i64 8
-  %345 = load double, ptr %344, align 8
-  %346 = getelementptr inbounds i8, ptr %3, i64 8
-  %347 = load double, ptr %346, align 8
-  %348 = fcmp oeq double %345, %347
-  br i1 %348, label %349, label %351
+344:                                              ; preds = %341
+  %345 = getelementptr inbounds i8, ptr %0, i64 8
+  %346 = load double, ptr %345, align 8
+  %347 = getelementptr inbounds i8, ptr %3, i64 8
+  %348 = load double, ptr %347, align 8
+  %349 = fcmp oeq double %346, %348
+  br i1 %349, label %350, label %352
 
-349:                                              ; preds = %343
-  %350 = fneg double %330
-  br label %372
+350:                                              ; preds = %344
+  %351 = fneg double %331
+  br label %373
 
-351:                                              ; preds = %343, %340
-  %352 = load double, ptr %1, align 8
-  %353 = fcmp oeq double %352, %332
-  br i1 %353, label %354, label %362
+352:                                              ; preds = %344, %341
+  %353 = load double, ptr %1, align 8
+  %354 = fcmp oeq double %353, %333
+  br i1 %354, label %355, label %363
 
-354:                                              ; preds = %351
-  %355 = getelementptr inbounds i8, ptr %1, i64 8
-  %356 = load double, ptr %355, align 8
-  %357 = getelementptr inbounds i8, ptr %2, i64 8
-  %358 = load double, ptr %357, align 8
-  %359 = fcmp oeq double %356, %358
-  br i1 %359, label %360, label %362
+355:                                              ; preds = %352
+  %356 = getelementptr inbounds i8, ptr %1, i64 8
+  %357 = load double, ptr %356, align 8
+  %358 = getelementptr inbounds i8, ptr %2, i64 8
+  %359 = load double, ptr %358, align 8
+  %360 = fcmp oeq double %357, %359
+  br i1 %360, label %361, label %363
 
-360:                                              ; preds = %354
-  %361 = fneg double %330
-  br label %372
+361:                                              ; preds = %355
+  %362 = fneg double %331
+  br label %373
 
-362:                                              ; preds = %354, %351
-  %363 = fcmp oeq double %352, %341
-  br i1 %363, label %364, label %370
+363:                                              ; preds = %355, %352
+  %364 = fcmp oeq double %353, %342
+  br i1 %364, label %365, label %371
 
-364:                                              ; preds = %362
-  %365 = getelementptr inbounds i8, ptr %1, i64 8
-  %366 = load double, ptr %365, align 8
-  %367 = getelementptr inbounds i8, ptr %3, i64 8
-  %368 = load double, ptr %367, align 8
-  %369 = fcmp oeq double %366, %368
-  br i1 %369, label %372, label %370
+365:                                              ; preds = %363
+  %366 = getelementptr inbounds i8, ptr %1, i64 8
+  %367 = load double, ptr %366, align 8
+  %368 = getelementptr inbounds i8, ptr %3, i64 8
+  %369 = load double, ptr %368, align 8
+  %370 = fcmp oeq double %367, %369
+  br i1 %370, label %373, label %371
 
-370:                                              ; preds = %362, %364
-  %371 = tail call double @llvm.fabs.f64(double %330)
-  br label %372
+371:                                              ; preds = %363, %365
+  %372 = tail call double @llvm.fabs.f64(double %331)
+  br label %373
 
-372:                                              ; preds = %.preheader104, %364, %334, %322, %298, %370, %360, %349
-  %.088 = phi double [ %350, %349 ], [ %361, %360 ], [ %371, %370 ], [ %., %298 ], [ 0.000000e+00, %322 ], [ %330, %334 ], [ %330, %364 ], [ -2.000000e+00, %.preheader104 ]
+373:                                              ; preds = %.preheader104, %365, %335, %323, %298, %371, %361, %350
+  %.088 = phi double [ %351, %350 ], [ %362, %361 ], [ %372, %371 ], [ %., %298 ], [ 0.000000e+00, %323 ], [ %331, %335 ], [ %331, %365 ], [ -2.000000e+00, %.preheader104 ]
   ret double %.088
 }
 

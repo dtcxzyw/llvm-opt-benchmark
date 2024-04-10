@@ -2562,9 +2562,9 @@ define internal void @ssh_debug_printf(ptr nocapture noundef readonly %0, ...) u
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %5 = call i32 @vfprintf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %2) #21
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -2850,14 +2850,8 @@ ssh_kex_make_bignum.exit160:                      ; preds = %ssh_kex_make_bignum
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2869,10 +2863,10 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2881,7 +2875,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
@@ -4518,9 +4512,9 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
   %9 = getelementptr i8, ptr %0, i64 400
   br label %10
 
-10:                                               ; preds = %1, %77
-  %11 = phi i1 [ true, %1 ], [ false, %77 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 1, %77 ]
+10:                                               ; preds = %1, %78
+  %11 = phi i1 [ true, %1 ], [ false, %78 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 1, %78 ]
   %12 = getelementptr [2 x %struct.ssh_peer_data], ptr %3, i64 0, i64 %indvars.iv
   %13 = getelementptr [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
@@ -4551,7 +4545,7 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
   store i32 16, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %12, i64 112
   store i32 1, ptr %30, align 8
-  br label %77
+  br label %78
 
 31:                                               ; preds = %22
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(30) @.str.427) #22
@@ -4565,7 +4559,7 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %12, i64 56
   store i32 16, ptr %38, align 8
-  br label %77
+  br label %78
 
 .thread:                                          ; preds = %10, %31
   %39 = getelementptr [2 x ptr], ptr %6, i64 0, i64 %indvars.iv
@@ -4604,110 +4598,110 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
 52:                                               ; preds = %.sink.split.i, %50
   %53 = call ptr @g_strrstr(ptr noundef %46, ptr noundef nonnull @.str.431) #21
   %.not30.i = icmp eq ptr %53, null
-  br i1 %.not30.i, label %63, label %54
+  br i1 %.not30.i, label %64, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr i8, ptr %53, i64 1
   %56 = call zeroext i1 @ws_strtou32(ptr noundef %55, ptr noundef null, ptr noundef nonnull %2) #21
   %57 = load i32, ptr %2, align 4
   %58 = icmp ne i32 %57, 0
-  %or.cond.i = select i1 %56, i1 %58, i1 false
   %59 = and i32 %57, 7
   %60 = icmp eq i32 %59, 0
-  %or.cond32.i = select i1 %or.cond.i, i1 %60, i1 false
-  br i1 %or.cond32.i, label %61, label %63
+  %61 = and i1 %58, %60
+  %or.cond32.i = select i1 %56, i1 %61, i1 false
+  br i1 %or.cond32.i, label %62, label %64
 
-61:                                               ; preds = %54
-  %62 = lshr exact i32 %57, 3
+62:                                               ; preds = %54
+  %63 = lshr exact i32 %57, 3
   br label %.sink.split33.i
 
-63:                                               ; preds = %54, %52
-  %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(10) @.str.432) #22
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.sink.split33.i, label %66
+64:                                               ; preds = %54, %52
+  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(10) @.str.432) #22
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %.sink.split33.i, label %67
 
-66:                                               ; preds = %63
-  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(9) @.str.433) #22
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.sink.split33.i, label %69
+67:                                               ; preds = %64
+  %68 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(9) @.str.433) #22
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %.sink.split33.i, label %70
 
-69:                                               ; preds = %66
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(15) @.str.434) #22
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.sink.split33.i, label %72
+70:                                               ; preds = %67
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(15) @.str.434) #22
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %.sink.split33.i, label %73
 
-72:                                               ; preds = %69
-  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(5) @.str.435) #22
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.sink.split33.i, label %76
+73:                                               ; preds = %70
+  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(5) @.str.435) #22
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %.sink.split33.i, label %77
 
-.sink.split33.i:                                  ; preds = %72, %69, %66, %63, %61
-  %.sink34.i = phi i32 [ %62, %61 ], [ 20, %63 ], [ 16, %66 ], [ 20, %69 ], [ 0, %72 ]
-  %75 = getelementptr inbounds i8, ptr %12, i64 56
-  store i32 %.sink34.i, ptr %75, align 8
-  br label %76
+.sink.split33.i:                                  ; preds = %73, %70, %67, %64, %62
+  %.sink34.i = phi i32 [ %63, %62 ], [ 20, %64 ], [ 16, %67 ], [ 20, %70 ], [ 0, %73 ]
+  %76 = getelementptr inbounds i8, ptr %12, i64 56
+  store i32 %.sink34.i, ptr %76, align 8
+  br label %77
 
-76:                                               ; preds = %.sink.split33.i, %72
+77:                                               ; preds = %.sink.split33.i, %73
   call void @wmem_free(ptr noundef null, ptr noundef %46) #21
   br label %ssh_set_mac_length.exit
 
-ssh_set_mac_length.exit:                          ; preds = %.thread, %76
+ssh_set_mac_length.exit:                          ; preds = %.thread, %77
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %77
+  br label %78
 
-77:                                               ; preds = %34, %ssh_set_mac_length.exit, %25
-  %78 = getelementptr [2 x ptr], ptr %8, i64 0, i64 %indvars.iv
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr [2 x ptr], ptr %9, i64 0, i64 %indvars.iv
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %12, i64 104
-  call fastcc void @ssh_choose_algo(ptr noundef %79, ptr noundef %81, ptr noundef nonnull %82)
-  br i1 %11, label %10, label %83, !llvm.loop !15
+78:                                               ; preds = %34, %ssh_set_mac_length.exit, %25
+  %79 = getelementptr [2 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr [2 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %12, i64 104
+  call fastcc void @ssh_choose_algo(ptr noundef %80, ptr noundef %82, ptr noundef nonnull %83)
+  br i1 %11, label %10, label %84, !llvm.loop !15
 
-83:                                               ; preds = %77
+84:                                               ; preds = %78
   call fastcc void @ssh_decryption_set_cipher_id(ptr noundef nonnull %3)
-  %84 = getelementptr inbounds i8, ptr %0, i64 72
-  %85 = load ptr, ptr %84, align 8
-  %.not.i36 = icmp eq ptr %85, null
-  br i1 %.not.i36, label %ssh_decryption_set_mac_id.exit, label %86
+  %85 = getelementptr inbounds i8, ptr %0, i64 72
+  %86 = load ptr, ptr %85, align 8
+  %.not.i36 = icmp eq ptr %86, null
+  br i1 %.not.i36, label %ssh_decryption_set_mac_id.exit, label %87
 
-86:                                               ; preds = %83
-  %87 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(14) @.str.444) #22
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %91
+87:                                               ; preds = %84
+  %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(14) @.str.444) #22
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 131073, ptr %90, align 8
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 131073, ptr %91, align 8
   br label %ssh_decryption_set_mac_id.exit
 
-91:                                               ; preds = %86
-  store ptr null, ptr %84, align 8
+92:                                               ; preds = %87
+  store ptr null, ptr %85, align 8
   br label %ssh_decryption_set_mac_id.exit
 
-ssh_decryption_set_mac_id.exit:                   ; preds = %83, %89, %91
-  %92 = getelementptr i8, ptr %0, i64 312
-  call fastcc void @ssh_decryption_set_cipher_id(ptr noundef %92)
-  %93 = getelementptr i8, ptr %0, i64 360
-  %94 = load ptr, ptr %93, align 8
-  %.not.i37 = icmp eq ptr %94, null
-  br i1 %.not.i37, label %ssh_decryption_set_mac_id.exit38, label %95
+ssh_decryption_set_mac_id.exit:                   ; preds = %84, %90, %92
+  %93 = getelementptr i8, ptr %0, i64 312
+  call fastcc void @ssh_decryption_set_cipher_id(ptr noundef %93)
+  %94 = getelementptr i8, ptr %0, i64 360
+  %95 = load ptr, ptr %94, align 8
+  %.not.i37 = icmp eq ptr %95, null
+  br i1 %.not.i37, label %ssh_decryption_set_mac_id.exit38, label %96
 
-95:                                               ; preds = %ssh_decryption_set_mac_id.exit
-  %96 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(14) @.str.444) #22
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %100
+96:                                               ; preds = %ssh_decryption_set_mac_id.exit
+  %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(14) @.str.444) #22
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %101
 
-98:                                               ; preds = %95
-  %99 = getelementptr i8, ptr %0, i64 432
-  store i32 131073, ptr %99, align 8
+99:                                               ; preds = %96
+  %100 = getelementptr i8, ptr %0, i64 432
+  store i32 131073, ptr %100, align 8
   br label %ssh_decryption_set_mac_id.exit38
 
-100:                                              ; preds = %95
-  store ptr null, ptr %93, align 8
+101:                                              ; preds = %96
+  store ptr null, ptr %94, align 8
   br label %ssh_decryption_set_mac_id.exit38
 
-ssh_decryption_set_mac_id.exit38:                 ; preds = %ssh_decryption_set_mac_id.exit, %98, %100
+ssh_decryption_set_mac_id.exit38:                 ; preds = %ssh_decryption_set_mac_id.exit, %99, %101
   ret void
 }
 
@@ -5804,7 +5798,7 @@ define internal fastcc void @ssh_choose_algo(ptr noundef %0, ptr noundef %1, ptr
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef %0) unnamed_addr #11 {
+define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -5939,7 +5933,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ssh_gslist_compare_strings(ptr noundef readonly %0, ptr noundef readonly %1) #12 {
+define internal i32 @ssh_gslist_compare_strings(ptr noundef readonly %0, ptr noundef readonly %1) #11 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = and i1 %3, %4
@@ -6237,26 +6231,26 @@ declare void @gcry_md_close(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @file_needs_reopen(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 
 declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #14
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #13
 
 declare i32 @gcry_mpi_scan(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6271,10 +6265,10 @@ declare void @gcry_mpi_release(ptr noundef) local_unnamed_addr #1
 declare i32 @crypto_scalarmult_curve25519(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 declare i32 @gcry_md_get_algo_dlen(i32 noundef) local_unnamed_addr #1
 
@@ -6351,7 +6345,7 @@ declare i32 @tvb_raw_offset(ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -7530,10 +7524,10 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #16
+declare i32 @g_direct_hash(ptr noundef) #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #16
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #15
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8475,14 +8469,20 @@ define internal noundef zeroext i1 @gcry_cipher_destroy_cb(ptr nocapture readnon
 declare i32 @gcry_cipher_setctr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @gnutls_check_version(ptr noundef) local_unnamed_addr #16
+declare ptr @gnutls_check_version(ptr noundef) local_unnamed_addr #15
 
 declare ptr @gcry_check_version(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
@@ -8517,17 +8517,17 @@ attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 attributes #3 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

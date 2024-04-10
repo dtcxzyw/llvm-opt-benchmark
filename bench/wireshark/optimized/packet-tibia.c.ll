@@ -1710,10 +1710,9 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   %94 = load i32, ptr %62, align 8
   %95 = and i32 %94, 1
   %96 = icmp eq i32 %95, 0
-  %97 = icmp ugt i16 %19, 24
-  %or.cond5 = select i1 %96, i1 %97, i1 false
-  %98 = icmp ult i16 %19, 55
-  %or.cond8 = select i1 %or.cond5, i1 %98, i1 false
+  %97 = add i16 %18, -23
+  %98 = icmp ult i16 %97, 30
+  %or.cond8 = select i1 %96, i1 %98, i1 false
   br i1 %or.cond8, label %106, label %99
 
 99:                                               ; preds = %93, %91
@@ -1747,10 +1746,9 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   %113 = load i32, ptr %62, align 8
   %114 = and i32 %113, 1
   %115 = icmp eq i32 %114, 0
-  %116 = icmp ugt i16 %19, 24
-  %or.cond14 = select i1 %115, i1 %116, i1 false
-  %117 = icmp ult i16 %19, 55
-  %or.cond17 = select i1 %or.cond14, i1 %117, i1 false
+  %116 = add i16 %18, -23
+  %117 = icmp ult i16 %116, 30
+  %or.cond17 = select i1 %115, i1 %117, i1 false
   br i1 %or.cond17, label %130, label %118
 
 118:                                              ; preds = %112, %110

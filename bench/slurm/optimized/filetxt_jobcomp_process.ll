@@ -176,7 +176,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
   call void @list_iterator_destroy(ptr noundef %43) #7
   br label %_open_log_file.exit.backedge
 
-_open_log_file.exit.backedge:                     ; preds = %50, %65, %292, %40, %56
+_open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40, %56
   %51 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 4096, ptr noundef nonnull %5)
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %_open_log_file.exit._crit_edge, label %11, !llvm.loop !9
@@ -223,7 +223,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %292, %40,
   %68 = call ptr @list_iterator_create(ptr noundef %14) #7
   %69 = call ptr @list_next(ptr noundef %68) #7
   %.not135.i = icmp eq ptr %69, null
-  br i1 %.not135.i, label %292, label %.lr.ph.i
+  br i1 %.not135.i, label %293, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %66
   %70 = getelementptr inbounds i8, ptr %67, i64 248
@@ -618,42 +618,42 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %292, %40,
 ._crit_edge.i:                                    ; preds = %286
   %288 = icmp ne i64 %.1.i, 0
   %289 = icmp ne i64 %.1103.i, 0
-  %or.cond.i = select i1 %288, i1 %289, i1 false
   %290 = icmp slt i64 %.1103.i, %.1.i
-  %or.cond134.i = select i1 %or.cond.i, i1 %290, i1 false
-  %291 = sub nsw i64 %.1.i, %.1103.i
-  %spec.select.i = select i1 %or.cond134.i, i64 %291, i64 0
-  br label %292
+  %291 = and i1 %289, %290
+  %or.cond134.i = select i1 %288, i1 %291, i1 false
+  %292 = sub nsw i64 %.1.i, %.1103.i
+  %spec.select.i = select i1 %or.cond134.i, i64 %292, i64 0
+  br label %293
 
-292:                                              ; preds = %66, %._crit_edge.i
+293:                                              ; preds = %66, %._crit_edge.i
   %.sink.i = phi i64 [ 0, %66 ], [ %spec.select.i, %._crit_edge.i ]
-  %293 = getelementptr inbounds i8, ptr %67, i64 32
-  store i64 %.sink.i, ptr %293, align 8
+  %294 = getelementptr inbounds i8, ptr %67, i64 32
+  store i64 %.sink.i, ptr %294, align 8
   call void @list_iterator_destroy(ptr noundef %68) #7
   call void @list_append(ptr noundef %3, ptr noundef nonnull %67) #7
   br label %_open_log_file.exit.backedge
 
 _open_log_file.exit._crit_edge:                   ; preds = %_open_log_file.exit.backedge
   %.not64 = icmp eq ptr %14, null
-  br i1 %.not64, label %_open_log_file.exit._crit_edge.thread, label %294
+  br i1 %.not64, label %_open_log_file.exit._crit_edge.thread, label %295
 
-294:                                              ; preds = %_open_log_file.exit._crit_edge
+295:                                              ; preds = %_open_log_file.exit._crit_edge
   call void @list_destroy(ptr noundef nonnull %14) #7
   br label %_open_log_file.exit._crit_edge.thread
 
-_open_log_file.exit._crit_edge.thread:            ; preds = %_open_log_file.exit.preheader, %294, %_open_log_file.exit._crit_edge
-  %295 = call i32 @ferror(ptr noundef nonnull %5) #7
-  %.not65 = icmp eq i32 %295, 0
-  br i1 %.not65, label %298, label %296
+_open_log_file.exit._crit_edge.thread:            ; preds = %_open_log_file.exit.preheader, %295, %_open_log_file.exit._crit_edge
+  %296 = call i32 @ferror(ptr noundef nonnull %5) #7
+  %.not65 = icmp eq i32 %296, 0
+  br i1 %.not65, label %299, label %297
 
-296:                                              ; preds = %_open_log_file.exit._crit_edge.thread
-  %297 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
-  call void @perror(ptr noundef %297) #8
+297:                                              ; preds = %_open_log_file.exit._crit_edge.thread
+  %298 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
+  call void @perror(ptr noundef %298) #8
   call void @exit(i32 noundef 1) #9
   unreachable
 
-298:                                              ; preds = %_open_log_file.exit._crit_edge.thread
-  %299 = call i32 @fclose(ptr noundef nonnull %5)
+299:                                              ; preds = %_open_log_file.exit._crit_edge.thread
+  %300 = call i32 @fclose(ptr noundef nonnull %5)
   ret ptr %3
 }
 

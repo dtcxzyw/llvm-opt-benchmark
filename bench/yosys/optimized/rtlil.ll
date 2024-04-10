@@ -13567,10 +13567,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 82:                                               ; preds = %72
   %83 = load i32, ptr %64, align 4
   %84 = icmp eq i32 %83, 34
-  %85 = icmp slt i64 %76, -2147483648
-  %or.cond = select i1 %84, i1 true, i1 %85
-  %86 = icmp sgt i64 %76, 2147483647
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %86
+  %85 = add i64 %76, -2147483648
+  %86 = icmp ult i64 %85, -4294967296
+  %or.cond3 = select i1 %84, i1 true, i1 %86
   br i1 %or.cond3, label %.invoke, label %87
 
 87:                                               ; preds = %82
@@ -104675,17 +104674,17 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit35:              ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit37:              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit35, %198, %205
-  %209 = icmp eq i32 %119, %120
-  %210 = icmp eq i32 %119, %121
-  %or.cond = select i1 %209, i1 true, i1 %210
-  %211 = icmp eq i32 %119, %122
-  %or.cond41 = select i1 %or.cond, i1 true, i1 %211
-  %212 = icmp eq i32 %119, %123
-  %or.cond43 = select i1 %or.cond41, i1 true, i1 %212
-  %213 = icmp eq i32 %119, %124
-  %or.cond45 = select i1 %or.cond43, i1 true, i1 %213
-  %214 = icmp eq i32 %119, %110
-  %spec.select = select i1 %or.cond45, i1 true, i1 %214
+  %209 = icmp eq i32 %119, %110
+  %210 = icmp eq i32 %119, %124
+  %211 = icmp eq i32 %119, %120
+  %212 = icmp eq i32 %119, %121
+  %or.cond = select i1 %211, i1 true, i1 %212
+  %213 = icmp eq i32 %119, %122
+  %or.cond41 = select i1 %or.cond, i1 true, i1 %213
+  %214 = icmp eq i32 %119, %123
+  %or.cond43 = select i1 %or.cond41, i1 true, i1 %214
+  %215 = or i1 %209, %210
+  %spec.select = select i1 %or.cond43, i1 true, i1 %215
   ret i1 %spec.select
 
 .body22:                                          ; preds = %98, %.body26

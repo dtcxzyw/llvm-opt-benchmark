@@ -1766,12 +1766,12 @@ if.end400:                                        ; preds = %if.then396, %if.the
   %879 = insertelement <2 x float> poison, float %sub329, i64 0
   %880 = shufflevector <2 x float> %879, <2 x float> poison, <2 x i32> zeroinitializer
   %881 = fcmp ogt <2 x float> %880, %873
-  %882 = extractelement <2 x i1> %881, i64 1
-  %or.cond60 = select i1 %tobool402, i1 %882, i1 false
-  %883 = extractelement <2 x i1> %881, i64 0
-  %or.cond61 = select i1 %or.cond60, i1 %883, i1 false
+  %shift = shufflevector <2 x i1> %881, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %882 = and <2 x i1> %881, %shift
+  %883 = extractelement <2 x i1> %882, i64 0
   %cmp408 = fcmp ogt float %sub329, %distance.1892
-  %or.cond62 = select i1 %or.cond61, i1 %cmp408, i1 false
+  %884 = and i1 %cmp408, %883
+  %or.cond62 = select i1 %tobool402, i1 %884, i1 false
   br i1 %or.cond62, label %if.then409, label %if.end411
 
 if.then409:                                       ; preds = %if.end400
@@ -1782,19 +1782,19 @@ if.then409:                                       ; preds = %if.end400
 
 if.end411:                                        ; preds = %if.then409, %if.end400
   %distance.2 = phi float [ %sub329, %if.then409 ], [ %distance.1892, %if.end400 ]
-  %884 = load <2 x float>, ptr %pointOnB, align 8
-  %885 = fadd <2 x float> %5, %884
+  %885 = load <2 x float>, ptr %pointOnB, align 8
+  %886 = fadd <2 x float> %5, %885
   %arrayidx11.i788 = getelementptr inbounds i8, ptr %pointOnB, i64 8
-  %886 = load float, ptr %arrayidx11.i788, align 8
-  %add14.i790 = fadd float %mul8.i, %886
+  %887 = load float, ptr %arrayidx11.i788, align 8
+  %add14.i790 = fadd float %mul8.i, %887
   %retval.sroa.3.12.vec.insert.i793 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i790, i64 0
-  store <2 x float> %885, ptr %ref.tmp412, align 8
-  %887 = getelementptr inbounds i8, ptr %ref.tmp412, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i793, ptr %887, align 8
+  store <2 x float> %886, ptr %ref.tmp412, align 8
+  %888 = getelementptr inbounds i8, ptr %ref.tmp412, i64 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i793, ptr %888, align 8
   %vtable415 = load ptr, ptr %output, align 8
   %vfn416 = getelementptr inbounds i8, ptr %vtable415, i64 32
-  %888 = load ptr, ptr %vfn416, align 8
-  call void %888(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull align 4 dereferenceable(16) %normalInB, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp412, float noundef %distance.2)
+  %889 = load ptr, ptr %vfn416, align 8
+  call void %889(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull align 4 dereferenceable(16) %normalInB, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp412, float noundef %distance.2)
   br label %if.end418
 
 if.end418:                                        ; preds = %if.end289, %lor.lhs.false293, %if.end411

@@ -11803,9 +11803,9 @@ if.end133:                                        ; preds = %if.else125, %if.the
   %tobool134 = icmp ne i32 %33, 0
   %34 = load i32, ptr @tick_dec_ret, align 4
   %cmp136 = icmp eq i32 %34, 2
-  %or.cond8 = select i1 %tobool134, i1 true, i1 %cmp136
   %cmp138 = icmp eq i32 %34, 4
-  %narrow = select i1 %or.cond8, i1 true, i1 %cmp138
+  %35 = or i1 %cmp136, %cmp138
+  %narrow = select i1 %tobool134, i1 true, i1 %35
   %cond140 = zext i1 %narrow to i32
   %call141 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 8281, ptr noundef nonnull @.str.840, ptr noundef nonnull @.str.843, i32 noundef %32, i32 noundef %cond140) #23
   %tobool142.not = icmp eq i32 %call141, 0
@@ -11813,12 +11813,12 @@ if.end133:                                        ; preds = %if.else125, %if.the
 
 lor.lhs.false143:                                 ; preds = %if.end133
   %.b = load i1, ptr @dec_tick_called, align 4
-  %35 = zext i1 %.b to i32
+  %36 = zext i1 %.b to i32
   %cmp144 = icmp ne i32 %tst, 13
   %cmp147 = icmp ne i32 %tst, 19
   %.not = and i1 %cmp144, %cmp147
   %cond150 = zext i1 %.not to i32
-  %call151 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 8283, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.844, i32 noundef %35, i32 noundef %cond150) #23
+  %call151 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 8283, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.844, i32 noundef %36, i32 noundef %cond150) #23
   %tobool152.not = icmp ne i32 %call151, 0
   %spec.select = zext i1 %tobool152.not to i32
   br label %end
@@ -11827,14 +11827,14 @@ end:                                              ; preds = %lor.lhs.false143, %
   %clntsess.0 = phi ptr [ %call87, %if.end133 ], [ %call87, %if.then117 ], [ %call87, %if.else125 ], [ %call87, %lor.lhs.false101 ], [ %call87, %lor.lhs.false95 ], [ %call87, %if.end86 ], [ null, %lor.lhs.false78 ], [ null, %if.end75 ], [ null, %lor.lhs.false68 ], [ null, %if.end62 ], [ null, %if.then42 ], [ null, %if.then53 ], [ null, %if.end32 ], [ null, %if.end25 ], [ null, %sw.epilog ], [ %call87, %lor.lhs.false143 ]
   %testresult.0 = phi i32 [ 0, %if.end133 ], [ 0, %if.then117 ], [ 0, %if.else125 ], [ 0, %lor.lhs.false101 ], [ 0, %lor.lhs.false95 ], [ 0, %if.end86 ], [ 0, %lor.lhs.false78 ], [ 0, %if.end75 ], [ 0, %lor.lhs.false68 ], [ 0, %if.end62 ], [ 0, %if.then42 ], [ 0, %if.then53 ], [ 0, %if.end32 ], [ 0, %if.end25 ], [ 0, %sw.epilog ], [ %spec.select, %lor.lhs.false143 ]
   call void @SSL_SESSION_free(ptr noundef %clntsess.0) #23
-  %36 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %36) #23
-  %37 = load ptr, ptr %clientssl, align 8
+  %37 = load ptr, ptr %serverssl, align 8
   call void @SSL_free(ptr noundef %37) #23
-  %38 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %38) #23
-  %39 = load ptr, ptr %cctx, align 8
+  %38 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %38) #23
+  %39 = load ptr, ptr %sctx, align 8
   call void @SSL_CTX_free(ptr noundef %39) #23
+  %40 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %40) #23
   ret i32 %testresult.0
 }
 

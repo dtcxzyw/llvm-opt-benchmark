@@ -237,10 +237,9 @@ define dso_local noundef i64 @int2vectorin(ptr nocapture noundef readonly %0) lo
 38:                                               ; preds = %28
   %39 = load i32, ptr %29, align 4
   %40 = icmp eq i32 %39, 34
-  %41 = icmp slt i64 %30, -32768
-  %or.cond = select i1 %40, i1 true, i1 %41
-  %42 = icmp sgt i64 %30, 32767
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %42
+  %41 = add i64 %30, -32768
+  %42 = icmp ult i64 %41, -65536
+  %or.cond3 = select i1 %40, i1 true, i1 %42
   br i1 %or.cond3, label %43, label %48
 
 43:                                               ; preds = %38

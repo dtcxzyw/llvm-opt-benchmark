@@ -9300,140 +9300,140 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %5, %.pre
   %31 = icmp ne i64 %2, 0
   %32 = and i64 %2, 1023
   %33 = icmp eq i64 %32, 0
-  %or.cond2021.i = and i1 %31, %33
-  br i1 %or.cond2021.i, label %.lr.ph.i63, label %_gres_scale_value.exit
+  %34 = and i1 %31, %33
+  br i1 %34, label %.lr.ph.i63, label %_gres_scale_value.exit
 
 .lr.ph.i63:                                       ; preds = %.loopexit, %.lr.ph.i63
-  %.023.i = phi i32 [ %35, %.lr.ph.i63 ], [ 0, %.loopexit ]
-  %.01822.i = phi i64 [ %34, %.lr.ph.i63 ], [ %2, %.loopexit ]
-  %34 = lshr exact i64 %.01822.i, 10
-  %35 = add nuw nsw i32 %.023.i, 1
-  %36 = icmp ult i32 %.023.i, 3
-  %37 = icmp ne i64 %.01822.i, 0
-  %or.cond.i = select i1 %36, i1 %37, i1 false
-  %38 = and i64 %.01822.i, 1047552
-  %39 = icmp eq i64 %38, 0
-  %or.cond20.i = select i1 %or.cond.i, i1 %39, i1 false
+  %.022.i = phi i32 [ %36, %.lr.ph.i63 ], [ 0, %.loopexit ]
+  %.01821.i = phi i64 [ %35, %.lr.ph.i63 ], [ %2, %.loopexit ]
+  %35 = lshr exact i64 %.01821.i, 10
+  %36 = add nuw nsw i32 %.022.i, 1
+  %37 = icmp ult i32 %.022.i, 3
+  %38 = icmp ne i64 %.01821.i, 0
+  %39 = and i64 %.01821.i, 1047552
+  %40 = icmp eq i64 %39, 0
+  %41 = and i1 %38, %40
+  %or.cond20.i = select i1 %37, i1 %41, i1 false
   br i1 %or.cond20.i, label %.lr.ph.i63, label %._crit_edge.i, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i63
-  switch i32 %.023.i, label %42 [
-    i32 2, label %41
+  switch i32 %.022.i, label %44 [
+    i32 2, label %43
     i32 0, label %_gres_scale_value.exit
-    i32 1, label %40
+    i32 1, label %42
   ]
-
-40:                                               ; preds = %._crit_edge.i
-  br label %_gres_scale_value.exit
-
-41:                                               ; preds = %._crit_edge.i
-  br label %_gres_scale_value.exit
 
 42:                                               ; preds = %._crit_edge.i
   br label %_gres_scale_value.exit
 
-_gres_scale_value.exit:                           ; preds = %.loopexit, %._crit_edge.i, %40, %41, %42
-  %.064 = phi i64 [ %34, %42 ], [ %34, %40 ], [ %34, %._crit_edge.i ], [ %34, %41 ], [ %2, %.loopexit ]
-  %.str.217.sink.i = phi ptr [ @.str.220, %42 ], [ @.str.218, %40 ], [ @.str.217, %._crit_edge.i ], [ @.str.219, %41 ], [ @.str.5, %.loopexit ]
+43:                                               ; preds = %._crit_edge.i
+  br label %_gres_scale_value.exit
+
+44:                                               ; preds = %._crit_edge.i
+  br label %_gres_scale_value.exit
+
+_gres_scale_value.exit:                           ; preds = %.loopexit, %._crit_edge.i, %42, %43, %44
+  %.064 = phi i64 [ %35, %44 ], [ %35, %42 ], [ %35, %._crit_edge.i ], [ %35, %43 ], [ %2, %.loopexit ]
+  %.str.217.sink.i = phi ptr [ @.str.220, %44 ], [ @.str.218, %42 ], [ @.str.217, %._crit_edge.i ], [ @.str.219, %43 ], [ @.str.5, %.loopexit ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.60, ptr noundef %.2, ptr noundef %1, i64 noundef %.064, ptr noundef nonnull %.str.217.sink.i) #25
   call void @slurm_xfree(ptr noundef nonnull %3) #25
-  %43 = load ptr, ptr %6, align 8
-  store ptr %43, ptr %3, align 8
-  %44 = call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
-  %.not59 = icmp eq i32 %44, 0
-  br i1 %.not59, label %47, label %45
+  %45 = load ptr, ptr %6, align 8
+  store ptr %45, ptr %3, align 8
+  %46 = call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
+  %.not59 = icmp eq i32 %46, 0
+  br i1 %.not59, label %49, label %47
 
-45:                                               ; preds = %_gres_scale_value.exit
-  %46 = tail call ptr @__errno_location() #26
-  store i32 %44, ptr %46, align 4
+47:                                               ; preds = %_gres_scale_value.exit
+  %48 = tail call ptr @__errno_location() #26
+  store i32 %46, ptr %48, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 4179, ptr noundef nonnull @__func__.gres_node_feature) #27
   unreachable
 
-47:                                               ; preds = %_gres_scale_value.exit
-  %48 = load i32, ptr @gres_context_cnt, align 4
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %87
+49:                                               ; preds = %_gres_scale_value.exit
+  %50 = load i32, ptr @gres_context_cnt, align 4
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %52, label %89
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %4, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %55
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %4, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %57
 
-53:                                               ; preds = %50
-  %54 = call ptr @list_create(ptr noundef nonnull @_gres_node_list_delete) #25
-  store ptr %54, ptr %4, align 8
-  br label %55
+55:                                               ; preds = %52
+  %56 = call ptr @list_create(ptr noundef nonnull @_gres_node_list_delete) #25
+  store ptr %56, ptr %4, align 8
+  br label %57
 
-55:                                               ; preds = %53, %50
-  %56 = phi ptr [ %54, %53 ], [ %51, %50 ]
-  %57 = call ptr @list_find_first(ptr noundef %56, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %8) #25
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %71
+57:                                               ; preds = %55, %52
+  %58 = phi ptr [ %56, %55 ], [ %53, %52 ]
+  %59 = call ptr @list_find_first(ptr noundef %58, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %8) #25
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %73
 
-59:                                               ; preds = %55
-  %60 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 4186, ptr noundef nonnull @__func__.gres_node_feature) #25
-  %61 = load i32, ptr %8, align 4
-  %62 = getelementptr inbounds i8, ptr %60, i64 4
-  store i32 %61, ptr %62, align 4
-  %63 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3213, ptr noundef nonnull @__func__._build_gres_node_state) #25
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
-  store i64 -2, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
-  store i64 -2, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %60, i64 8
-  store ptr %63, ptr %66, align 8
-  %67 = call ptr @xstrdup(ptr noundef %1) #25
-  %68 = getelementptr inbounds i8, ptr %60, i64 16
-  store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %60, i64 24
-  store i32 1, ptr %69, align 8
-  %70 = load ptr, ptr %4, align 8
-  call void @list_append(ptr noundef %70, ptr noundef %60) #25
-  br label %71
+61:                                               ; preds = %57
+  %62 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 4186, ptr noundef nonnull @__func__.gres_node_feature) #25
+  %63 = load i32, ptr %8, align 4
+  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  store i32 %63, ptr %64, align 4
+  %65 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3213, ptr noundef nonnull @__func__._build_gres_node_state) #25
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  store i64 -2, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  store i64 -2, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %62, i64 8
+  store ptr %65, ptr %68, align 8
+  %69 = call ptr @xstrdup(ptr noundef %1) #25
+  %70 = getelementptr inbounds i8, ptr %62, i64 16
+  store ptr %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %62, i64 24
+  store i32 1, ptr %71, align 8
+  %72 = load ptr, ptr %4, align 8
+  call void @list_append(ptr noundef %72, ptr noundef %62) #25
+  br label %73
 
-71:                                               ; preds = %59, %55
-  %.049 = phi ptr [ %60, %59 ], [ %57, %55 ]
-  %72 = getelementptr inbounds i8, ptr %.049, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 48
-  %75 = load i64, ptr %74, align 8
-  %.not60 = icmp ugt i64 %75, %2
-  br i1 %.not60, label %79, label %76
+73:                                               ; preds = %61, %57
+  %.049 = phi ptr [ %62, %61 ], [ %59, %57 ]
+  %74 = getelementptr inbounds i8, ptr %.049, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  %77 = load i64, ptr %76, align 8
+  %.not60 = icmp ugt i64 %77, %2
+  br i1 %.not60, label %81, label %78
 
-76:                                               ; preds = %71
-  %77 = sub i64 %2, %75
-  %78 = getelementptr inbounds i8, ptr %73, i64 32
-  store i64 %77, ptr %78, align 8
-  br label %83
+78:                                               ; preds = %73
+  %79 = sub i64 %2, %77
+  %80 = getelementptr inbounds i8, ptr %75, i64 32
+  store i64 %79, ptr %80, align 8
+  br label %85
 
-79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %73, i64 32
-  %81 = load i64, ptr %80, align 8
-  %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.gres_node_feature, ptr noundef %1, i64 noundef %81, i64 noundef %2) #25
-  store i64 0, ptr %80, align 8
-  br label %83
+81:                                               ; preds = %73
+  %82 = getelementptr inbounds i8, ptr %75, i64 32
+  %83 = load i64, ptr %82, align 8
+  %84 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.gres_node_feature, ptr noundef %1, i64 noundef %83, i64 noundef %2) #25
+  store i64 0, ptr %82, align 8
+  br label %85
 
-83:                                               ; preds = %79, %76
-  %84 = getelementptr inbounds i8, ptr %73, i64 16
-  store i64 %2, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %73, i64 8
-  store i64 %2, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %73, i64 25
-  store i8 1, ptr %86, align 1
-  br label %87
+85:                                               ; preds = %81, %78
+  %86 = getelementptr inbounds i8, ptr %75, i64 16
+  store i64 %2, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %75, i64 8
+  store i64 %2, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %75, i64 25
+  store i8 1, ptr %88, align 1
+  br label %89
 
-87:                                               ; preds = %47, %83
-  %88 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
-  %.not61 = icmp eq i32 %88, 0
-  br i1 %.not61, label %91, label %89
+89:                                               ; preds = %49, %85
+  %90 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
+  %.not61 = icmp eq i32 %90, 0
+  br i1 %.not61, label %93, label %91
 
-89:                                               ; preds = %87
-  %90 = tail call ptr @__errno_location() #26
-  store i32 %88, ptr %90, align 4
+91:                                               ; preds = %89
+  %92 = tail call ptr @__errno_location() #26
+  store i32 %90, ptr %92, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 4210, ptr noundef nonnull @__func__.gres_node_feature) #27
   unreachable
 
-91:                                               ; preds = %87
+93:                                               ; preds = %89
   ret void
 }
 
