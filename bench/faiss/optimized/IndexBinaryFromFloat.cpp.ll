@@ -79,10 +79,9 @@ define void @_ZN5faiss20IndexBinaryFromFloat3addElPKh(ptr nocapture noundef nonn
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = and i64 %6, 422212465065984
-  %.not = icmp eq i64 %7, 0
+  %7 = icmp slt i32 %5, 0
   %8 = shl nsw i64 %6, 17
-  %9 = select i1 %.not, i64 %8, i64 -1
+  %9 = select i1 %7, i64 -1, i64 %8
   %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #11
   %11 = icmp sgt i64 %1, 0
   br i1 %11, label %.lr.ph, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit14
@@ -180,7 +179,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   br label %25
 
 25:                                               ; preds = %23, %21
-  %.pn43 = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ]
+  %.pn42 = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #9
   br label %92
 
@@ -231,47 +230,46 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
-  %48 = and i64 %47, 422212465065984
-  %.not39 = icmp eq i64 %48, 0
+  %48 = icmp slt i32 %46, 0
   %49 = shl nsw i64 %47, 17
-  %50 = select i1 %.not39, i64 %49, i64 -1
+  %50 = select i1 %48, i64 -1, i64 %49
   %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #11
   %52 = and i64 %3, 422212465065984
-  %.not40 = icmp eq i64 %52, 0
+  %.not39 = icmp eq i64 %52, 0
   %53 = shl i64 %3, 17
-  %54 = select i1 %.not40, i64 %53, i64 -1
+  %54 = select i1 %.not39, i64 %53, i64 -1
   %55 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %54) #11
-          to label %.preheader65 unwind label %87
+          to label %.preheader64 unwind label %87
 
-.preheader65:                                     ; preds = %44
+.preheader64:                                     ; preds = %44
   %56 = icmp sgt i64 %1, 0
-  br i1 %56, label %.lr.ph68, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51
+  br i1 %56, label %.lr.ph67, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit50
 
-.lr.ph68:                                         ; preds = %.preheader65
+.lr.ph67:                                         ; preds = %.preheader64
   %57 = getelementptr inbounds i8, ptr %0, i64 12
   %58 = getelementptr inbounds i8, ptr %0, i64 32
   br label %59
 
-59:                                               ; preds = %.lr.ph68, %._crit_edge
-  %indvars.iv70 = phi i64 [ %1, %.lr.ph68 ], [ %indvars.iv.next71, %._crit_edge ]
-  %.03067 = phi i64 [ 0, %.lr.ph68 ], [ %90, %._crit_edge ]
-  %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv70, i64 32768)
+59:                                               ; preds = %.lr.ph67, %._crit_edge
+  %indvars.iv69 = phi i64 [ %1, %.lr.ph67 ], [ %indvars.iv.next70, %._crit_edge ]
+  %.03066 = phi i64 [ 0, %.lr.ph67 ], [ %90, %._crit_edge ]
+  %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv69, i64 32768)
   %60 = mul i64 %smin, %3
-  %61 = sub nsw i64 %1, %.03067
+  %61 = sub nsw i64 %1, %.03066
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %61, i64 32768)
   %62 = load i32, ptr %45, align 8
   %63 = sext i32 %62 to i64
   %64 = mul nsw i64 %.sroa.speculated, %63
   %65 = load i32, ptr %57, align 4
   %66 = sext i32 %65 to i64
-  %67 = mul nsw i64 %.03067, %66
+  %67 = mul nsw i64 %.03066, %66
   %68 = getelementptr inbounds i8, ptr %2, i64 %67
   invoke void @_ZN5faiss14binary_to_realEmPKhPf(i64 noundef %64, ptr noundef %68, ptr noundef nonnull %51)
           to label %69 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 69:                                               ; preds = %59
   %70 = load ptr, ptr %58, align 8
-  %71 = mul nsw i64 %.03067, %3
+  %71 = mul nsw i64 %.03066, %3
   %72 = getelementptr inbounds i64, ptr %5, i64 %71
   %73 = load ptr, ptr %70, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 40
@@ -305,33 +303,33 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
 87:                                               ; preds = %44
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54
+  br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit53
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %69, %59
   %89 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %55) #10
-  br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54
+  br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit53
 
 ._crit_edge:                                      ; preds = %79, %.preheader
-  %90 = add nuw nsw i64 %.03067, 32768
+  %90 = add nuw nsw i64 %.03066, 32768
   %91 = icmp slt i64 %90, %1
-  %indvars.iv.next71 = add i64 %indvars.iv70, -32768
-  br i1 %91, label %59, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51, !llvm.loop !8
+  %indvars.iv.next70 = add i64 %indvars.iv69, -32768
+  br i1 %91, label %59, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit50, !llvm.loop !8
 
-_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51: ; preds = %._crit_edge, %.preheader65
+_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit50: ; preds = %._crit_edge, %.preheader64
   tail call void @_ZdaPv(ptr noundef nonnull %55) #10
   tail call void @_ZdaPv(ptr noundef nonnull %51) #10
   ret void
 
-_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %87
-  %.pn41 = phi { ptr, i32 } [ %89, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %88, %87 ]
+_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit53: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %87
+  %.pn40 = phi { ptr, i32 } [ %89, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %88, %87 ]
   tail call void @_ZdaPv(ptr noundef nonnull %51) #10
   br label %92
 
-92:                                               ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54, %43, %25
-  %.pn43.pn = phi { ptr, i32 } [ %.pn43, %25 ], [ %.pn41, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54 ], [ %.pn, %43 ]
-  resume { ptr, i32 } %.pn43.pn
+92:                                               ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit53, %43, %25
+  %.pn42.pn = phi { ptr, i32 } [ %.pn42, %25 ], [ %.pn40, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit53 ], [ %.pn, %43 ]
+  resume { ptr, i32 } %.pn42.pn
 
 93:                                               ; preds = %38, %20
   unreachable

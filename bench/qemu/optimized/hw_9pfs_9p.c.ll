@@ -9175,10 +9175,9 @@ entry:
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.omode_to_uflags, i64 0, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   %and5 = shl nsw i32 %conv, 5
-  %and7 = shl nsw i32 %conv, 3
-  %1 = and i32 %and7, 1024
+  %1 = and i32 %conv, 1024
   %2 = and i32 %and5, 640
-  %ret.2 = or disjoint i32 %1, %2
+  %ret.2 = or disjoint i32 %2, %1
   %ret.3 = or disjoint i32 %ret.2, %switch.load
   ret i32 %ret.3
 }

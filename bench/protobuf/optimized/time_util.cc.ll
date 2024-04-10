@@ -1024,7 +1024,7 @@ entry:
   %cmp2.i = icmp slt i32 %conv, 0
   %add4.i = add nsw i32 %conv, 1000000000
   %nanos.addr.1.i = select i1 %cmp2.i, i32 %add4.i, i32 %conv
-  %sub.i = ashr i64 %rem, 31
+  %sub.i = ashr i64 %rem, 63
   %seconds.addr.1.i = add nsw i64 %sub.i, %div
   tail call void @_ZN6google8protobuf9TimestampC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef null)
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
