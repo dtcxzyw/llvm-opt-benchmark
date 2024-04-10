@@ -166,7 +166,7 @@ RSTRING_PTR.exit1207:                             ; preds = %RSTRING_PTR.exit, %
 
 .preheader1632:                                   ; preds = %.preheader1632.lr.ph, %rbimpl_rstring_getmem.exit
   %.08673131 = phi ptr [ %24, %.preheader1632.lr.ph ], [ %.2, %rbimpl_rstring_getmem.exit ]
-  %.08683130 = phi ptr [ %.sroa.2.0.i, %.preheader1632.lr.ph ], [ %1561, %rbimpl_rstring_getmem.exit ]
+  %.08683130 = phi ptr [ %.sroa.2.0.i, %.preheader1632.lr.ph ], [ %1557, %rbimpl_rstring_getmem.exit ]
   %.08793129 = phi i64 [ 0, %.preheader1632.lr.ph ], [ %.18, %rbimpl_rstring_getmem.exit ]
   %.08883128 = phi i64 [ 120, %.preheader1632.lr.ph ], [ %.24, %rbimpl_rstring_getmem.exit ]
   %.09083127 = phi i64 [ 0, %.preheader1632.lr.ph ], [ %.3911, %rbimpl_rstring_getmem.exit ]
@@ -3457,7 +3457,7 @@ rb_float_value_inline.exit1431:                   ; preds = %1425, %1431
   %1444 = select i1 %.not1081, i8 32, i8 43
   br label %1445
 
-1445:                                             ; preds = %1442, %1440, %1437
+1445:                                             ; preds = %1437, %1440, %1442
   %.0871 = phi i8 [ %1444, %1442 ], [ 0, %1440 ], [ 45, %1437 ]
   %.not1082 = icmp eq i8 %.0871, 0
   %spec.select1199 = select i1 %.not1082, i32 3, i32 4
@@ -3494,309 +3494,306 @@ rb_float_value_inline.exit1431:                   ; preds = %1425, %1431
   store i64 %1462, ptr %38, align 8
   %1463 = and i64 %1460, 8192
   %.not.i.i1432 = icmp eq i64 %1463, 0
-  br i1 %.not.i.i1432, label %1465, label %1464
+  br i1 %.not.i.i1432, label %RSTRING_PTR.exit1435, label %1464
 
 1464:                                             ; preds = %1458
   %.sroa.2.0.copyload.i1433 = load ptr, ptr %41, align 8
-  br label %1465
+  br label %RSTRING_PTR.exit1435
 
-1465:                                             ; preds = %1464, %1458
+RSTRING_PTR.exit1435:                             ; preds = %1458, %1464
   %.sroa.2.0.i1434 = phi ptr [ %.sroa.2.0.copyload.i1433, %1464 ], [ %41, %1458 ]
-  %1466 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %84
-  call void @llvm.memset.p0.i64(ptr align 1 %1466, i8 32, i64 %1450, i1 false)
-  %1467 = add i64 %84, %1450
-  %1468 = and i32 %.1930, 2
-  %.not1085 = icmp eq i32 %1468, 0
-  br i1 %.not1085, label %1479, label %1469
+  %1465 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1465, i8 32, i64 %1450, i1 false)
+  %1466 = add i64 %84, %1450
+  %1467 = and i32 %.1930, 2
+  %.not1085 = icmp eq i32 %1467, 0
+  br i1 %.not1085, label %1475, label %1468
 
-1469:                                             ; preds = %1465
-  br i1 %.not1082, label %1475, label %1470
+1468:                                             ; preds = %RSTRING_PTR.exit1435
+  br i1 %.not1082, label %1471, label %1469
 
-1470:                                             ; preds = %1469
-  %1471 = add nsw i32 %.1876, -1
-  %1472 = zext nneg i32 %.1876 to i64
-  %1473 = sub i64 %1467, %1472
+1469:                                             ; preds = %1468
+  %1470 = add nsw i32 %.1876, -1
+  store i8 %.0871, ptr %1465, align 1
+  br label %1471
+
+1471:                                             ; preds = %1469, %1468
+  %.2877 = phi i32 [ %1470, %1469 ], [ %.1876, %1468 ]
+  %1472 = zext nneg i32 %.2877 to i64
+  %1473 = sub i64 %1466, %1472
   %1474 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1473
-  store i8 %.0871, ptr %1474, align 1
-  br label %1475
-
-1475:                                             ; preds = %1470, %1469
-  %.2877 = phi i32 [ %1471, %1470 ], [ %.1876, %1469 ]
-  %1476 = zext nneg i32 %.2877 to i64
-  %1477 = sub i64 %1467, %1476
-  %1478 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1477
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1478, ptr noundef nonnull align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1474, ptr noundef nonnull align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
   br label %rbimpl_rstring_getmem.exit
 
-1479:                                             ; preds = %1465
-  br i1 %.not1082, label %1483, label %1480
+1475:                                             ; preds = %RSTRING_PTR.exit1435
+  br i1 %.not1082, label %1479, label %1476
 
-1480:                                             ; preds = %1479
-  %1481 = add i64 %1467, -4
-  %1482 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1481
-  store i8 %.0871, ptr %1482, align 1
-  br label %1483
+1476:                                             ; preds = %1475
+  %1477 = add i64 %1466, -4
+  %1478 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1477
+  store i8 %.0871, ptr %1478, align 1
+  br label %1479
 
-1483:                                             ; preds = %1480, %1479
-  %1484 = add i64 %1467, -3
-  %1485 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1484
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1485, ptr noundef nonnull align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
+1479:                                             ; preds = %1476, %1475
+  %1480 = add i64 %1466, -3
+  %1481 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1480
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1481, ptr noundef nonnull align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
   br label %rbimpl_rstring_getmem.exit
 
 rb_float_value_inline.exit1431.thread:            ; preds = %1424, %rb_float_value_inline.exit1431
   %.0.i14281598 = phi double [ %.0.i1428, %rb_float_value_inline.exit1431 ], [ 0.000000e+00, %1424 ]
-  %1486 = load i64, ptr %38, align 8
-  %1487 = and i64 %1486, 3145728
-  %1488 = load i8, ptr %.1869, align 1
+  %1482 = load i64, ptr %38, align 8
+  %1483 = and i64 %1482, 3145728
+  %1484 = load i8, ptr %.1869, align 1
   store i8 0, ptr %47, align 1
-  store i8 %1488, ptr %48, align 4
-  %1489 = and i32 %.1930, 64
-  %.not.i1436 = icmp eq i32 %1489, 0
-  br i1 %.not.i1436, label %1510, label %1490
+  store i8 %1484, ptr %48, align 4
+  %1485 = and i32 %.1930, 64
+  %.not.i1436 = icmp eq i32 %1485, 0
+  br i1 %.not.i1436, label %1506, label %1486
 
-1490:                                             ; preds = %rb_float_value_inline.exit1431.thread
-  %1491 = sext i32 %.0 to i64
-  %1492 = icmp ult i32 %.0, 10
-  br i1 %1492, label %1493, label %1496
+1486:                                             ; preds = %rb_float_value_inline.exit1431.thread
+  %1487 = sext i32 %.0 to i64
+  %1488 = icmp ult i32 %.0, 10
+  br i1 %1488, label %1489, label %1492
 
-1493:                                             ; preds = %1490
-  %1494 = trunc i32 %.0 to i8
-  %1495 = or disjoint i8 %1494, 48
-  store i8 %1495, ptr %49, align 1
+1489:                                             ; preds = %1486
+  %1490 = trunc i32 %.0 to i8
+  %1491 = or disjoint i8 %1490, 48
+  store i8 %1491, ptr %49, align 1
   br label %ruby_ultoa.exit.i
 
-1496:                                             ; preds = %1490
-  %1497 = icmp slt i32 %.0, 0
-  br i1 %1497, label %1498, label %.preheader6579
+1492:                                             ; preds = %1486
+  %1493 = icmp slt i32 %.0, 0
+  br i1 %1493, label %1494, label %.preheader6579
 
-1498:                                             ; preds = %1496
-  %1499 = urem i64 %1491, 10
-  %1500 = trunc i64 %1499 to i8
-  %1501 = or disjoint i8 %1500, 48
-  store i8 %1501, ptr %49, align 1
-  %1502 = udiv i64 %1491, 10
+1494:                                             ; preds = %1492
+  %1495 = urem i64 %1487, 10
+  %1496 = trunc i64 %1495 to i8
+  %1497 = or disjoint i8 %1496, 48
+  store i8 %1497, ptr %49, align 1
+  %1498 = udiv i64 %1487, 10
   br label %.preheader6579
 
-.preheader6579:                                   ; preds = %1498, %1496
-  %.129.i.i.i.ph = phi ptr [ %48, %1496 ], [ %49, %1498 ]
-  %.1.i.i.i.ph = phi i64 [ %1491, %1496 ], [ %1502, %1498 ]
-  br label %1503
+.preheader6579:                                   ; preds = %1494, %1492
+  %.129.i.i.i.ph = phi ptr [ %48, %1492 ], [ %49, %1494 ]
+  %.1.i.i.i.ph = phi i64 [ %1487, %1492 ], [ %1498, %1494 ]
+  br label %1499
 
-1503:                                             ; preds = %.preheader6579, %1503
-  %.129.i.i.i = phi ptr [ %1507, %1503 ], [ %.129.i.i.i.ph, %.preheader6579 ]
-  %.1.i.i.i = phi i64 [ %1508, %1503 ], [ %.1.i.i.i.ph, %.preheader6579 ]
-  %1504 = urem i64 %.1.i.i.i, 10
-  %1505 = trunc i64 %1504 to i8
-  %1506 = or disjoint i8 %1505, 48
-  %1507 = getelementptr i8, ptr %.129.i.i.i, i64 -1
-  store i8 %1506, ptr %1507, align 1
-  %1508 = udiv i64 %.1.i.i.i, 10
+1499:                                             ; preds = %.preheader6579, %1499
+  %.129.i.i.i = phi ptr [ %1503, %1499 ], [ %.129.i.i.i.ph, %.preheader6579 ]
+  %.1.i.i.i = phi i64 [ %1504, %1499 ], [ %.1.i.i.i.ph, %.preheader6579 ]
+  %1500 = urem i64 %.1.i.i.i, 10
+  %1501 = trunc i64 %1500 to i8
+  %1502 = or disjoint i8 %1501, 48
+  %1503 = getelementptr i8, ptr %.129.i.i.i, i64 -1
+  store i8 %1502, ptr %1503, align 1
+  %1504 = udiv i64 %.1.i.i.i, 10
   %.not38.i.i.i = icmp ult i64 %.1.i.i.i, 10
-  br i1 %.not38.i.i.i, label %ruby_ultoa.exit.i, label %1503, !llvm.loop !55
+  br i1 %.not38.i.i.i, label %ruby_ultoa.exit.i, label %1499, !llvm.loop !55
 
-ruby_ultoa.exit.i:                                ; preds = %1503, %1493
-  %.030.i.i.i = phi ptr [ %49, %1493 ], [ %1507, %1503 ]
-  %1509 = getelementptr i8, ptr %.030.i.i.i, i64 -1
-  store i8 46, ptr %1509, align 1
-  br label %1510
+ruby_ultoa.exit.i:                                ; preds = %1499, %1489
+  %.030.i.i.i = phi ptr [ %49, %1489 ], [ %1503, %1499 ]
+  %1505 = getelementptr i8, ptr %.030.i.i.i, i64 -1
+  store i8 46, ptr %1505, align 1
+  br label %1506
 
-1510:                                             ; preds = %ruby_ultoa.exit.i, %rb_float_value_inline.exit1431.thread
-  %.0.i1437 = phi ptr [ %1509, %ruby_ultoa.exit.i ], [ %48, %rb_float_value_inline.exit1431.thread ]
-  %1511 = and i32 %.1930, 32
-  %.not23.i = icmp eq i32 %1511, 0
-  br i1 %.not23.i, label %ruby_ultoa.exit35.i, label %1512
+1506:                                             ; preds = %ruby_ultoa.exit.i, %rb_float_value_inline.exit1431.thread
+  %.0.i1437 = phi ptr [ %1505, %ruby_ultoa.exit.i ], [ %48, %rb_float_value_inline.exit1431.thread ]
+  %1507 = and i32 %.1930, 32
+  %.not23.i = icmp eq i32 %1507, 0
+  br i1 %.not23.i, label %ruby_ultoa.exit35.i, label %1508
 
-1512:                                             ; preds = %1510
-  %1513 = sext i32 %.0918 to i64
-  %1514 = icmp ult i32 %.0918, 10
-  br i1 %1514, label %1515, label %1519
+1508:                                             ; preds = %1506
+  %1509 = sext i32 %.0918 to i64
+  %1510 = icmp ult i32 %.0918, 10
+  br i1 %1510, label %1511, label %1515
 
-1515:                                             ; preds = %1512
-  %1516 = trunc i32 %.0918 to i8
-  %1517 = or disjoint i8 %1516, 48
-  %1518 = getelementptr i8, ptr %.0.i1437, i64 -1
-  store i8 %1517, ptr %1518, align 1
+1511:                                             ; preds = %1508
+  %1512 = trunc i32 %.0918 to i8
+  %1513 = or disjoint i8 %1512, 48
+  %1514 = getelementptr i8, ptr %.0.i1437, i64 -1
+  store i8 %1513, ptr %1514, align 1
   br label %ruby_ultoa.exit35.i
 
-1519:                                             ; preds = %1512
-  %1520 = icmp slt i32 %.0918, 0
-  br i1 %1520, label %1521, label %.preheader6578
+1515:                                             ; preds = %1508
+  %1516 = icmp slt i32 %.0918, 0
+  br i1 %1516, label %1517, label %.preheader6578
 
-1521:                                             ; preds = %1519
-  %1522 = urem i64 %1513, 10
-  %1523 = trunc i64 %1522 to i8
-  %1524 = or disjoint i8 %1523, 48
-  %1525 = getelementptr i8, ptr %.0.i1437, i64 -1
-  store i8 %1524, ptr %1525, align 1
-  %1526 = udiv i64 %1513, 10
+1517:                                             ; preds = %1515
+  %1518 = urem i64 %1509, 10
+  %1519 = trunc i64 %1518 to i8
+  %1520 = or disjoint i8 %1519, 48
+  %1521 = getelementptr i8, ptr %.0.i1437, i64 -1
+  store i8 %1520, ptr %1521, align 1
+  %1522 = udiv i64 %1509, 10
   br label %.preheader6578
 
-.preheader6578:                                   ; preds = %1521, %1519
-  %.129.i.i31.i.ph = phi ptr [ %.0.i1437, %1519 ], [ %1525, %1521 ]
-  %.1.i.i32.i.ph = phi i64 [ %1513, %1519 ], [ %1526, %1521 ]
-  br label %1527
+.preheader6578:                                   ; preds = %1517, %1515
+  %.129.i.i31.i.ph = phi ptr [ %.0.i1437, %1515 ], [ %1521, %1517 ]
+  %.1.i.i32.i.ph = phi i64 [ %1509, %1515 ], [ %1522, %1517 ]
+  br label %1523
 
-1527:                                             ; preds = %.preheader6578, %1527
-  %.129.i.i31.i = phi ptr [ %1531, %1527 ], [ %.129.i.i31.i.ph, %.preheader6578 ]
-  %.1.i.i32.i = phi i64 [ %1532, %1527 ], [ %.1.i.i32.i.ph, %.preheader6578 ]
-  %1528 = urem i64 %.1.i.i32.i, 10
-  %1529 = trunc i64 %1528 to i8
-  %1530 = or disjoint i8 %1529, 48
-  %1531 = getelementptr i8, ptr %.129.i.i31.i, i64 -1
-  store i8 %1530, ptr %1531, align 1
-  %1532 = udiv i64 %.1.i.i32.i, 10
+1523:                                             ; preds = %.preheader6578, %1523
+  %.129.i.i31.i = phi ptr [ %1527, %1523 ], [ %.129.i.i31.i.ph, %.preheader6578 ]
+  %.1.i.i32.i = phi i64 [ %1528, %1523 ], [ %.1.i.i32.i.ph, %.preheader6578 ]
+  %1524 = urem i64 %.1.i.i32.i, 10
+  %1525 = trunc i64 %1524 to i8
+  %1526 = or disjoint i8 %1525, 48
+  %1527 = getelementptr i8, ptr %.129.i.i31.i, i64 -1
+  store i8 %1526, ptr %1527, align 1
+  %1528 = udiv i64 %.1.i.i32.i, 10
   %.not38.i.i33.i = icmp ult i64 %.1.i.i32.i, 10
-  br i1 %.not38.i.i33.i, label %ruby_ultoa.exit35.i, label %1527, !llvm.loop !55
+  br i1 %.not38.i.i33.i, label %ruby_ultoa.exit35.i, label %1523, !llvm.loop !55
 
-ruby_ultoa.exit35.i:                              ; preds = %1527, %1515, %1510
-  %.1.i = phi ptr [ %.0.i1437, %1510 ], [ %1518, %1515 ], [ %1531, %1527 ]
-  %1533 = and i32 %.1930, 16
-  %.not24.i = icmp eq i32 %1533, 0
-  br i1 %.not24.i, label %1536, label %1534
+ruby_ultoa.exit35.i:                              ; preds = %1523, %1511, %1506
+  %.1.i = phi ptr [ %.0.i1437, %1506 ], [ %1514, %1511 ], [ %1527, %1523 ]
+  %1529 = and i32 %.1930, 16
+  %.not24.i = icmp eq i32 %1529, 0
+  br i1 %.not24.i, label %1532, label %1530
 
-1534:                                             ; preds = %ruby_ultoa.exit35.i
-  %1535 = getelementptr i8, ptr %.1.i, i64 -1
-  store i8 32, ptr %1535, align 1
+1530:                                             ; preds = %ruby_ultoa.exit35.i
+  %1531 = getelementptr i8, ptr %.1.i, i64 -1
+  store i8 32, ptr %1531, align 1
+  br label %1532
+
+1532:                                             ; preds = %1530, %ruby_ultoa.exit35.i
+  %.2.i = phi ptr [ %1531, %1530 ], [ %.1.i, %ruby_ultoa.exit35.i ]
+  %1533 = and i32 %.1930, 8
+  %.not25.i = icmp eq i32 %1533, 0
+  br i1 %.not25.i, label %1536, label %1534
+
+1534:                                             ; preds = %1532
+  %1535 = getelementptr i8, ptr %.2.i, i64 -1
+  store i8 48, ptr %1535, align 1
   br label %1536
 
-1536:                                             ; preds = %1534, %ruby_ultoa.exit35.i
-  %.2.i = phi ptr [ %1535, %1534 ], [ %.1.i, %ruby_ultoa.exit35.i ]
-  %1537 = and i32 %.1930, 8
-  %.not25.i = icmp eq i32 %1537, 0
-  br i1 %.not25.i, label %1540, label %1538
+1536:                                             ; preds = %1534, %1532
+  %.3.i = phi ptr [ %1535, %1534 ], [ %.2.i, %1532 ]
+  %1537 = and i32 %.1930, 2
+  %.not26.i = icmp eq i32 %1537, 0
+  br i1 %.not26.i, label %1540, label %1538
 
 1538:                                             ; preds = %1536
-  %1539 = getelementptr i8, ptr %.2.i, i64 -1
-  store i8 48, ptr %1539, align 1
+  %1539 = getelementptr i8, ptr %.3.i, i64 -1
+  store i8 45, ptr %1539, align 1
   br label %1540
 
 1540:                                             ; preds = %1538, %1536
-  %.3.i = phi ptr [ %1539, %1538 ], [ %.2.i, %1536 ]
-  %1541 = and i32 %.1930, 2
-  %.not26.i = icmp eq i32 %1541, 0
-  br i1 %.not26.i, label %1544, label %1542
+  %.4.i = phi ptr [ %1539, %1538 ], [ %.3.i, %1536 ]
+  %1541 = and i32 %.1930, 4
+  %.not27.i = icmp eq i32 %1541, 0
+  br i1 %.not27.i, label %1544, label %1542
 
 1542:                                             ; preds = %1540
-  %1543 = getelementptr i8, ptr %.3.i, i64 -1
-  store i8 45, ptr %1543, align 1
+  %1543 = getelementptr i8, ptr %.4.i, i64 -1
+  store i8 43, ptr %1543, align 1
   br label %1544
 
 1544:                                             ; preds = %1542, %1540
-  %.4.i = phi ptr [ %1543, %1542 ], [ %.3.i, %1540 ]
-  %1545 = and i32 %.1930, 4
-  %.not27.i = icmp eq i32 %1545, 0
-  br i1 %.not27.i, label %1548, label %1546
+  %.5.i = phi ptr [ %1543, %1542 ], [ %.4.i, %1540 ]
+  %1545 = and i32 %.1930, 1
+  %.not28.i = icmp eq i32 %1545, 0
+  br i1 %.not28.i, label %fmt_setup.exit, label %1546
 
 1546:                                             ; preds = %1544
-  %1547 = getelementptr i8, ptr %.4.i, i64 -1
-  store i8 43, ptr %1547, align 1
-  br label %1548
-
-1548:                                             ; preds = %1546, %1544
-  %.5.i = phi ptr [ %1547, %1546 ], [ %.4.i, %1544 ]
-  %1549 = and i32 %.1930, 1
-  %.not28.i = icmp eq i32 %1549, 0
-  br i1 %.not28.i, label %fmt_setup.exit, label %1550
-
-1550:                                             ; preds = %1548
-  %1551 = getelementptr i8, ptr %.5.i, i64 -1
-  store i8 35, ptr %1551, align 1
+  %1547 = getelementptr i8, ptr %.5.i, i64 -1
+  store i8 35, ptr %1547, align 1
   br label %fmt_setup.exit
 
-fmt_setup.exit:                                   ; preds = %1548, %1550
-  %.6.i = phi ptr [ %1551, %1550 ], [ %.5.i, %1548 ]
-  %1552 = getelementptr i8, ptr %.6.i, i64 -1
-  store i8 37, ptr %1552, align 1
+fmt_setup.exit:                                   ; preds = %1544, %1546
+  %.6.i = phi ptr [ %1547, %1546 ], [ %.5.i, %1544 ]
+  %1548 = getelementptr i8, ptr %.6.i, i64 -1
+  store i8 37, ptr %1548, align 1
   call void @rb_str_set_len(i64 noundef %36, i64 noundef %84) #18
-  %1553 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %36, ptr noundef %1552, double noundef %.0.i14281598)
-  %1554 = load i64, ptr %38, align 8
-  %1555 = and i64 %1554, -3145729
-  %1556 = or disjoint i64 %1555, %1487
-  store i64 %1556, ptr %38, align 8
-  %1557 = call i64 @rb_str_capacity(i64 noundef %36) #19
-  %1558 = and i64 %1554, 8192
-  %.not.i1438 = icmp eq i64 %1558, 0
-  %1559 = load i64, ptr %.sroa.1.0..sroa_idx, align 8
-  br i1 %.not.i1438, label %rbimpl_rstring_getmem.exit, label %1560
+  %1549 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %36, ptr noundef %1548, double noundef %.0.i14281598)
+  %1550 = load i64, ptr %38, align 8
+  %1551 = and i64 %1550, -3145729
+  %1552 = or disjoint i64 %1551, %1483
+  store i64 %1552, ptr %38, align 8
+  %1553 = call i64 @rb_str_capacity(i64 noundef %36) #19
+  %1554 = and i64 %1550, 8192
+  %.not.i1438 = icmp eq i64 %1554, 0
+  %1555 = load i64, ptr %.sroa.1.0..sroa_idx, align 8
+  br i1 %.not.i1438, label %rbimpl_rstring_getmem.exit, label %1556
 
-1560:                                             ; preds = %fmt_setup.exit
+1556:                                             ; preds = %fmt_setup.exit
   %.sroa.3.0.copyload = load ptr, ptr %41, align 8
   br label %rbimpl_rstring_getmem.exit
 
-rbimpl_rstring_getmem.exit:                       ; preds = %fmt_setup.exit, %1560, %1475, %1483, %RSTRING_PTR.exit1408, %ruby_nonempty_memcpy.exit1404, %RSTRING_PTR.exit1258, %RSTRING_PTR.exit1262, %576, %598, %1403, %ruby_nonempty_memcpy.exit1306, %730, %RSTRING_PTR.exit1250
-  %.12967 = phi i32 [ %.11966, %1475 ], [ %.11966, %1483 ], [ %.9964, %1403 ], [ %.8963, %ruby_nonempty_memcpy.exit1404 ], [ %.8963, %RSTRING_PTR.exit1408 ], [ %.7962, %730 ], [ %.7962, %ruby_nonempty_memcpy.exit1306 ], [ %.4959, %576 ], [ %.4959, %RSTRING_PTR.exit1262 ], [ %.4959, %598 ], [ %.4959, %RSTRING_PTR.exit1258 ], [ %.1956, %RSTRING_PTR.exit1250 ], [ %.11966, %1560 ], [ %.11966, %fmt_setup.exit ]
-  %.11954 = phi i32 [ %.10953, %1475 ], [ %.10953, %1483 ], [ %.8951, %1403 ], [ %.7950, %ruby_nonempty_memcpy.exit1404 ], [ %.7950, %RSTRING_PTR.exit1408 ], [ %.6949, %730 ], [ %.6949, %ruby_nonempty_memcpy.exit1306 ], [ %.4947, %576 ], [ %.4947, %RSTRING_PTR.exit1262 ], [ %.4947, %598 ], [ %.4947, %RSTRING_PTR.exit1258 ], [ %.1944, %RSTRING_PTR.exit1250 ], [ %.10953, %1560 ], [ %.10953, %fmt_setup.exit ]
-  %.5917 = phi i32 [ %.1913, %1475 ], [ %.1913, %1483 ], [ %.1913, %1403 ], [ %.1913, %ruby_nonempty_memcpy.exit1404 ], [ %.1913, %RSTRING_PTR.exit1408 ], [ %.4916, %730 ], [ %.4916, %ruby_nonempty_memcpy.exit1306 ], [ %.2914, %576 ], [ %.2914, %RSTRING_PTR.exit1262 ], [ %.2914, %598 ], [ %.2914, %RSTRING_PTR.exit1258 ], [ %.1913, %RSTRING_PTR.exit1250 ], [ %.1913, %1560 ], [ %.1913, %fmt_setup.exit ]
-  %.3911 = phi i64 [ %.1909, %1475 ], [ %.1909, %1483 ], [ %.1909, %1403 ], [ %.1909, %ruby_nonempty_memcpy.exit1404 ], [ %.1909, %RSTRING_PTR.exit1408 ], [ %.2910, %730 ], [ %.2910, %ruby_nonempty_memcpy.exit1306 ], [ %.1909, %576 ], [ %.1909, %RSTRING_PTR.exit1262 ], [ %.1909, %598 ], [ %.1909, %RSTRING_PTR.exit1258 ], [ %.1909, %RSTRING_PTR.exit1250 ], [ %.1909, %1560 ], [ %.1909, %fmt_setup.exit ]
-  %.24 = phi i64 [ %.22, %1475 ], [ %.22, %1483 ], [ %.21, %1403 ], [ %.19907, %ruby_nonempty_memcpy.exit1404 ], [ %.20, %RSTRING_PTR.exit1408 ], [ %.6894, %730 ], [ %.7895, %ruby_nonempty_memcpy.exit1306 ], [ %.4892, %576 ], [ %.4892, %RSTRING_PTR.exit1262 ], [ %.5893, %598 ], [ %.3891, %RSTRING_PTR.exit1258 ], [ %.2890, %RSTRING_PTR.exit1250 ], [ %1557, %1560 ], [ %1557, %fmt_setup.exit ]
-  %.18 = phi i64 [ %1467, %1475 ], [ %1467, %1483 ], [ %.16, %1403 ], [ %1229, %ruby_nonempty_memcpy.exit1404 ], [ %1252, %RSTRING_PTR.exit1408 ], [ %.3882, %730 ], [ %757, %ruby_nonempty_memcpy.exit1306 ], [ %579, %576 ], [ %575, %RSTRING_PTR.exit1262 ], [ %604, %598 ], [ %547, %RSTRING_PTR.exit1258 ], [ %482, %RSTRING_PTR.exit1250 ], [ %1559, %1560 ], [ %1559, %fmt_setup.exit ]
-  %.2874 = phi ptr [ %.sroa.2.0.i1434, %1475 ], [ %.sroa.2.0.i1434, %1483 ], [ %.sroa.2.0.i1415, %1403 ], [ %.sroa.2.0.i1401, %ruby_nonempty_memcpy.exit1404 ], [ %.sroa.2.0.i1407, %RSTRING_PTR.exit1408 ], [ %.sroa.2.0.i1289, %730 ], [ %.sroa.2.0.i1299, %ruby_nonempty_memcpy.exit1306 ], [ %.sroa.2.0.i1261, %576 ], [ %.sroa.2.0.i1261, %RSTRING_PTR.exit1262 ], [ %.sroa.2.0.i1265, %598 ], [ %.sroa.2.0.i1257, %RSTRING_PTR.exit1258 ], [ %.sroa.2.0.i1249, %RSTRING_PTR.exit1250 ], [ %.sroa.3.0.copyload, %1560 ], [ %41, %fmt_setup.exit ]
-  %.8 = phi ptr [ %.1869, %1475 ], [ %.1869, %1483 ], [ %.1869, %1403 ], [ %.1869, %ruby_nonempty_memcpy.exit1404 ], [ %.1869, %RSTRING_PTR.exit1408 ], [ %.7, %730 ], [ %.7, %ruby_nonempty_memcpy.exit1306 ], [ %.1869, %576 ], [ %.1869, %RSTRING_PTR.exit1262 ], [ %.1869, %598 ], [ %.1869, %RSTRING_PTR.exit1258 ], [ %.5, %RSTRING_PTR.exit1250 ], [ %.1869, %1560 ], [ %.1869, %fmt_setup.exit ]
-  %.2 = phi ptr [ %.08673131, %1475 ], [ %.08673131, %1483 ], [ %.08673131, %1403 ], [ %.08673131, %ruby_nonempty_memcpy.exit1404 ], [ %.08673131, %RSTRING_PTR.exit1408 ], [ %649, %730 ], [ %649, %ruby_nonempty_memcpy.exit1306 ], [ %.1, %576 ], [ %.1, %RSTRING_PTR.exit1262 ], [ %.1, %598 ], [ %.1, %RSTRING_PTR.exit1258 ], [ %.08673131, %RSTRING_PTR.exit1250 ], [ %.08673131, %1560 ], [ %.08673131, %fmt_setup.exit ]
-  %1561 = getelementptr i8, ptr %.8, i64 1
-  %1562 = icmp ult ptr %1561, %35
-  br i1 %1562, label %.preheader1632, label %._crit_edge3133, !llvm.loop !71
+rbimpl_rstring_getmem.exit:                       ; preds = %fmt_setup.exit, %1556, %1471, %1479, %RSTRING_PTR.exit1408, %ruby_nonempty_memcpy.exit1404, %RSTRING_PTR.exit1258, %RSTRING_PTR.exit1262, %576, %598, %1403, %ruby_nonempty_memcpy.exit1306, %730, %RSTRING_PTR.exit1250
+  %.12967 = phi i32 [ %.11966, %1471 ], [ %.11966, %1479 ], [ %.9964, %1403 ], [ %.8963, %ruby_nonempty_memcpy.exit1404 ], [ %.8963, %RSTRING_PTR.exit1408 ], [ %.7962, %730 ], [ %.7962, %ruby_nonempty_memcpy.exit1306 ], [ %.4959, %576 ], [ %.4959, %RSTRING_PTR.exit1262 ], [ %.4959, %598 ], [ %.4959, %RSTRING_PTR.exit1258 ], [ %.1956, %RSTRING_PTR.exit1250 ], [ %.11966, %1556 ], [ %.11966, %fmt_setup.exit ]
+  %.11954 = phi i32 [ %.10953, %1471 ], [ %.10953, %1479 ], [ %.8951, %1403 ], [ %.7950, %ruby_nonempty_memcpy.exit1404 ], [ %.7950, %RSTRING_PTR.exit1408 ], [ %.6949, %730 ], [ %.6949, %ruby_nonempty_memcpy.exit1306 ], [ %.4947, %576 ], [ %.4947, %RSTRING_PTR.exit1262 ], [ %.4947, %598 ], [ %.4947, %RSTRING_PTR.exit1258 ], [ %.1944, %RSTRING_PTR.exit1250 ], [ %.10953, %1556 ], [ %.10953, %fmt_setup.exit ]
+  %.5917 = phi i32 [ %.1913, %1471 ], [ %.1913, %1479 ], [ %.1913, %1403 ], [ %.1913, %ruby_nonempty_memcpy.exit1404 ], [ %.1913, %RSTRING_PTR.exit1408 ], [ %.4916, %730 ], [ %.4916, %ruby_nonempty_memcpy.exit1306 ], [ %.2914, %576 ], [ %.2914, %RSTRING_PTR.exit1262 ], [ %.2914, %598 ], [ %.2914, %RSTRING_PTR.exit1258 ], [ %.1913, %RSTRING_PTR.exit1250 ], [ %.1913, %1556 ], [ %.1913, %fmt_setup.exit ]
+  %.3911 = phi i64 [ %.1909, %1471 ], [ %.1909, %1479 ], [ %.1909, %1403 ], [ %.1909, %ruby_nonempty_memcpy.exit1404 ], [ %.1909, %RSTRING_PTR.exit1408 ], [ %.2910, %730 ], [ %.2910, %ruby_nonempty_memcpy.exit1306 ], [ %.1909, %576 ], [ %.1909, %RSTRING_PTR.exit1262 ], [ %.1909, %598 ], [ %.1909, %RSTRING_PTR.exit1258 ], [ %.1909, %RSTRING_PTR.exit1250 ], [ %.1909, %1556 ], [ %.1909, %fmt_setup.exit ]
+  %.24 = phi i64 [ %.22, %1471 ], [ %.22, %1479 ], [ %.21, %1403 ], [ %.19907, %ruby_nonempty_memcpy.exit1404 ], [ %.20, %RSTRING_PTR.exit1408 ], [ %.6894, %730 ], [ %.7895, %ruby_nonempty_memcpy.exit1306 ], [ %.4892, %576 ], [ %.4892, %RSTRING_PTR.exit1262 ], [ %.5893, %598 ], [ %.3891, %RSTRING_PTR.exit1258 ], [ %.2890, %RSTRING_PTR.exit1250 ], [ %1553, %1556 ], [ %1553, %fmt_setup.exit ]
+  %.18 = phi i64 [ %1466, %1471 ], [ %1466, %1479 ], [ %.16, %1403 ], [ %1229, %ruby_nonempty_memcpy.exit1404 ], [ %1252, %RSTRING_PTR.exit1408 ], [ %.3882, %730 ], [ %757, %ruby_nonempty_memcpy.exit1306 ], [ %579, %576 ], [ %575, %RSTRING_PTR.exit1262 ], [ %604, %598 ], [ %547, %RSTRING_PTR.exit1258 ], [ %482, %RSTRING_PTR.exit1250 ], [ %1555, %1556 ], [ %1555, %fmt_setup.exit ]
+  %.2874 = phi ptr [ %.sroa.2.0.i1434, %1471 ], [ %.sroa.2.0.i1434, %1479 ], [ %.sroa.2.0.i1415, %1403 ], [ %.sroa.2.0.i1401, %ruby_nonempty_memcpy.exit1404 ], [ %.sroa.2.0.i1407, %RSTRING_PTR.exit1408 ], [ %.sroa.2.0.i1289, %730 ], [ %.sroa.2.0.i1299, %ruby_nonempty_memcpy.exit1306 ], [ %.sroa.2.0.i1261, %576 ], [ %.sroa.2.0.i1261, %RSTRING_PTR.exit1262 ], [ %.sroa.2.0.i1265, %598 ], [ %.sroa.2.0.i1257, %RSTRING_PTR.exit1258 ], [ %.sroa.2.0.i1249, %RSTRING_PTR.exit1250 ], [ %.sroa.3.0.copyload, %1556 ], [ %41, %fmt_setup.exit ]
+  %.8 = phi ptr [ %.1869, %1471 ], [ %.1869, %1479 ], [ %.1869, %1403 ], [ %.1869, %ruby_nonempty_memcpy.exit1404 ], [ %.1869, %RSTRING_PTR.exit1408 ], [ %.7, %730 ], [ %.7, %ruby_nonempty_memcpy.exit1306 ], [ %.1869, %576 ], [ %.1869, %RSTRING_PTR.exit1262 ], [ %.1869, %598 ], [ %.1869, %RSTRING_PTR.exit1258 ], [ %.5, %RSTRING_PTR.exit1250 ], [ %.1869, %1556 ], [ %.1869, %fmt_setup.exit ]
+  %.2 = phi ptr [ %.08673131, %1471 ], [ %.08673131, %1479 ], [ %.08673131, %1403 ], [ %.08673131, %ruby_nonempty_memcpy.exit1404 ], [ %.08673131, %RSTRING_PTR.exit1408 ], [ %649, %730 ], [ %649, %ruby_nonempty_memcpy.exit1306 ], [ %.1, %576 ], [ %.1, %RSTRING_PTR.exit1262 ], [ %.1, %598 ], [ %.1, %RSTRING_PTR.exit1258 ], [ %.08673131, %RSTRING_PTR.exit1250 ], [ %.08673131, %1556 ], [ %.08673131, %fmt_setup.exit ]
+  %1557 = getelementptr i8, ptr %.8, i64 1
+  %1558 = icmp ult ptr %1557, %35
+  br i1 %1558, label %.preheader1632, label %._crit_edge3133, !llvm.loop !71
 
 ._crit_edge3133:                                  ; preds = %rbimpl_rstring_getmem.exit
   %.not1071 = icmp ne i32 %.5917, 3145728
-  %1563 = icmp slt i64 %.3911, %.18
-  %or.cond1201 = select i1 %.not1071, i1 %1563, i1 false
-  br i1 %or.cond1201, label %1564, label %.loopexit1633
+  %1559 = icmp slt i64 %.3911, %.18
+  %or.cond1201 = select i1 %.not1071, i1 %1559, i1 false
+  br i1 %or.cond1201, label %1560, label %.loopexit1633
 
-1564:                                             ; preds = %._crit_edge3133
-  %1565 = call i32 @rb_enc_to_index(ptr noundef %.2) #19
-  %.not1072 = icmp eq i32 %1565, 0
-  br i1 %.not1072, label %.loopexit1633, label %1566
+1560:                                             ; preds = %._crit_edge3133
+  %1561 = call i32 @rb_enc_to_index(ptr noundef %.2) #19
+  %.not1072 = icmp eq i32 %1561, 0
+  br i1 %.not1072, label %.loopexit1633, label %1562
 
-1566:                                             ; preds = %1564
+1562:                                             ; preds = %1560
   store i32 %.5917, ptr %19, align 4
-  %1567 = getelementptr i8, ptr %.2874, i64 %.3911
-  %1568 = getelementptr i8, ptr %.2874, i64 %.18
-  %1569 = call i64 @rb_str_coderange_scan_restartable(ptr noundef %1567, ptr noundef %1568, ptr noundef %.2, ptr noundef nonnull %19) #18
-  %1570 = load i32, ptr %19, align 4
-  %1571 = load i64, ptr %38, align 8
-  %1572 = and i64 %1571, -3145729
-  %1573 = zext i32 %1570 to i64
-  %1574 = or i64 %1572, %1573
-  store i64 %1574, ptr %38, align 8
+  %1563 = getelementptr i8, ptr %.2874, i64 %.3911
+  %1564 = getelementptr i8, ptr %.2874, i64 %.18
+  %1565 = call i64 @rb_str_coderange_scan_restartable(ptr noundef %1563, ptr noundef %1564, ptr noundef %.2, ptr noundef nonnull %19) #18
+  %1566 = load i32, ptr %19, align 4
+  %1567 = load i64, ptr %38, align 8
+  %1568 = and i64 %1567, -3145729
+  %1569 = zext i32 %1566 to i64
+  %1570 = or i64 %1568, %1569
+  store i64 %1570, ptr %38, align 8
   br label %.loopexit1633
 
-.loopexit1633:                                    ; preds = %99, %RSTRING_PTR.exit1207, %1566, %1564, %._crit_edge3133
-  %.09553008 = phi i32 [ %.12967, %1566 ], [ %.12967, %1564 ], [ %.12967, %._crit_edge3133 ], [ 0, %RSTRING_PTR.exit1207 ], [ %.09553124, %99 ]
-  %.09432912 = phi i32 [ %.11954, %1566 ], [ %.11954, %1564 ], [ %.11954, %._crit_edge3133 ], [ 1, %RSTRING_PTR.exit1207 ], [ %.09433125, %99 ]
-  %.19 = phi i64 [ %.18, %1566 ], [ %.18, %1564 ], [ %.18, %._crit_edge3133 ], [ 0, %RSTRING_PTR.exit1207 ], [ %84, %99 ]
-  %1575 = load i64, ptr %4, align 8
-  call void @rb_str_tmp_frozen_release(i64 noundef %26, i64 noundef %1575) #18
-  %1576 = icmp sgt i32 %.09553008, -1
-  %1577 = icmp slt i32 %.09432912, %20
-  %or.cond1202 = select i1 %1576, i1 %1577, i1 false
-  br i1 %or.cond1202, label %1578, label %1589
+.loopexit1633:                                    ; preds = %99, %RSTRING_PTR.exit1207, %1562, %1560, %._crit_edge3133
+  %.09553008 = phi i32 [ %.12967, %1562 ], [ %.12967, %1560 ], [ %.12967, %._crit_edge3133 ], [ 0, %RSTRING_PTR.exit1207 ], [ %.09553124, %99 ]
+  %.09432912 = phi i32 [ %.11954, %1562 ], [ %.11954, %1560 ], [ %.11954, %._crit_edge3133 ], [ 1, %RSTRING_PTR.exit1207 ], [ %.09433125, %99 ]
+  %.19 = phi i64 [ %.18, %1562 ], [ %.18, %1560 ], [ %.18, %._crit_edge3133 ], [ 0, %RSTRING_PTR.exit1207 ], [ %84, %99 ]
+  %1571 = load i64, ptr %4, align 8
+  call void @rb_str_tmp_frozen_release(i64 noundef %26, i64 noundef %1571) #18
+  %1572 = icmp sgt i32 %.09553008, -1
+  %1573 = icmp slt i32 %.09432912, %20
+  %or.cond1202 = select i1 %1572, i1 %1573, i1 false
+  br i1 %or.cond1202, label %1574, label %1585
 
-1578:                                             ; preds = %.loopexit1633
-  %1579 = call ptr @rb_ruby_debug_ptr() #18
-  %1580 = load i64, ptr %1579, align 8
-  %1581 = and i64 %1580, -5
-  %.not1612 = icmp eq i64 %1581, 0
-  br i1 %.not1612, label %1584, label %1582
+1574:                                             ; preds = %.loopexit1633
+  %1575 = call ptr @rb_ruby_debug_ptr() #18
+  %1576 = load i64, ptr %1575, align 8
+  %1577 = and i64 %1576, -5
+  %.not1612 = icmp eq i64 %1577, 0
+  br i1 %.not1612, label %1580, label %1578
 
-1582:                                             ; preds = %1578
-  %1583 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %1583, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31) #17
+1578:                                             ; preds = %1574
+  %1579 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %1579, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31) #17
   unreachable
 
-1584:                                             ; preds = %1578
-  %1585 = call ptr @rb_ruby_verbose_ptr() #18
-  %1586 = load i64, ptr %1585, align 8
-  %1587 = and i64 %1586, -5
-  %.not1613 = icmp eq i64 %1587, 0
-  br i1 %.not1613, label %1589, label %1588
+1580:                                             ; preds = %1574
+  %1581 = call ptr @rb_ruby_verbose_ptr() #18
+  %1582 = load i64, ptr %1581, align 8
+  %1583 = and i64 %1582, -5
+  %.not1613 = icmp eq i64 %1583, 0
+  br i1 %.not1613, label %1585, label %1584
 
-1588:                                             ; preds = %1584
+1584:                                             ; preds = %1580
   call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31) #23
-  br label %1589
+  br label %1585
 
-1589:                                             ; preds = %1584, %1588, %.loopexit1633
-  %1590 = call i64 @rb_str_resize(i64 noundef %36, i64 noundef %.19) #18
+1585:                                             ; preds = %1580, %1584, %.loopexit1633
+  %1586 = call i64 @rb_str_resize(i64 noundef %36, i64 noundef %.19) #18
   ret i64 %36
 }
 
@@ -3856,7 +3853,7 @@ define internal fastcc void @rb_key_err_raise(i64 noundef %0, i64 noundef %1, i6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_enc_sprintf(ptr noundef %0, ptr noundef nonnull %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i64 @rb_str_buf_new(i64 noundef 120) #18
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %13, label %5
@@ -3893,7 +3890,7 @@ define dso_local i64 @rb_enc_sprintf(ptr noundef %0, ptr noundef nonnull %1, ...
 rb_enc_vsprintf.exit:                             ; preds = %13, %18
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ %17, %13 ]
   call fastcc void @ruby_vsprintf0(i64 noundef %4, ptr noundef %.sroa.2.0.i.i, ptr noundef nonnull %1, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret i64 %4
 }
 
@@ -3965,7 +3962,7 @@ declare i64 @rb_Float(i64 noundef) local_unnamed_addr #2
 define dso_local i64 @rb_str_catf(i64 noundef %0, ptr noundef nonnull %1, ...) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %0, ptr %3, align 8
   %5 = call i64 @rb_string_value(ptr noundef nonnull %3) #18
@@ -3991,7 +3988,7 @@ rb_str_vcatf.exit:                                ; preds = %2, %12
   call fastcc void @ruby_vsprintf0(i64 noundef %7, ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %14 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret i64 %14
 }
 
@@ -4063,7 +4060,7 @@ define dso_local i32 @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %or.cond, label %22, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 520, ptr %9, align 8
@@ -4094,19 +4091,13 @@ ruby_do_vsnprintf.exit:                           ; preds = %8, %18
   %21 = trunc i64 %17 to i32
   %.0.i = select i1 %20, i32 2147483647, i32 %21
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   br label %22
 
 22:                                               ; preds = %3, %ruby_do_vsnprintf.exit
   %.0 = phi i32 [ %.0.i, %ruby_do_vsnprintf.exit ], [ -1, %3 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_enc_vsprintf(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4261,7 +4252,7 @@ rb_enc_vsprintf.exit:                             ; preds = %2, %8
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_sprintf(ptr noundef nonnull %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call i64 @rb_str_buf_new(i64 noundef 120) #18
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8, !noalias !87
@@ -4277,7 +4268,7 @@ define dso_local i64 @rb_sprintf(ptr noundef nonnull %0, ...) local_unnamed_addr
 rb_vsprintf.exit:                                 ; preds = %1, %8
   %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i, %8 ], [ %7, %1 ]
   call fastcc void @ruby_vsprintf0(i64 noundef %3, ptr noundef %.sroa.2.0.i.i.i, ptr noundef nonnull %0, ptr noundef nonnull %2)
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   ret i64 %3
 }
 
@@ -4313,7 +4304,7 @@ RSTRING_END.exit:                                 ; preds = %3, %12
 declare void @rb_str_modify(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 declare ptr @onigenc_get_right_adjust_char_head(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4329,10 +4320,10 @@ declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #11
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @BSD__sfvwrite(ptr nocapture noundef %0, ptr nocapture noundef %1) #12 {
+define internal noundef i32 @BSD__sfvwrite(ptr nocapture noundef %0, ptr nocapture noundef %1) #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -7825,7 +7816,7 @@ BSD__sprint.exit874:                              ; preds = %.loopexit1036
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #13
+declare double @llvm.fabs.f64(double) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
@@ -7837,7 +7828,7 @@ declare ptr @ruby_hdtoa(double noundef, ptr noundef, i32 noundef, ptr noundef, p
 declare ptr @ruby_dtoa(double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @ruby__sfvwrite(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
@@ -8125,6 +8116,12 @@ declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #2
 
 declare i64 @rb_str_quote_unprintable(i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
@@ -8164,12 +8161,12 @@ attributes #5 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { noreturn nounwind }
