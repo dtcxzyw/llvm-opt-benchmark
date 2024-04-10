@@ -1867,7 +1867,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  %tobool56.i = icmp ne i32 %or, 0
+  %tobool56.i = or i1 %do_in, %do_out
   %cmp60.i = icmp ult i32 %0, 5
   %or.cond.i = and i1 %tobool56.i, %cmp60.i
   br i1 %or.cond.i, label %if.then62.i, label %Curl_pollset_change.exit

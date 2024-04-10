@@ -528,22 +528,23 @@ define dso_local i32 @snd_pcm_rate_range_to_bits(i32 noundef %0, i32 noundef %1)
   %15 = or i1 %13, %14
   %16 = shl nuw i32 1, %8
   %17 = select i1 %15, i32 0, i32 %16
-  %.fr2 = freeze i32 %17
-  %18 = or i32 %.fr2, %9
+  %18 = or i32 %17, %9
   %19 = add nuw i32 %8, 1
   %20 = icmp eq i32 %19, %3
   br i1 %20, label %21, label %7, !llvm.loop !15
 
 21:                                               ; preds = %7
-  %22 = icmp eq i32 %18, 0
-  br i1 %22, label %.thread, label %23
+  %22 = icmp eq i32 %9, 0
+  %23 = and i1 %22, %15
+  %cond.fr = freeze i1 %23
+  br i1 %cond.fr, label %.thread, label %24
 
 .thread:                                          ; preds = %2, %21
-  br label %23
+  br label %24
 
-23:                                               ; preds = %21, %.thread
-  %24 = phi i32 [ -2147483648, %.thread ], [ %18, %21 ]
-  ret i32 %24
+24:                                               ; preds = %21, %.thread
+  %25 = phi i32 [ -2147483648, %.thread ], [ %18, %21 ]
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

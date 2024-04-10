@@ -156,22 +156,23 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @probe_sched_wakeup(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr @sched_tgid_ref, align 4
-  %4 = icmp eq i32 %3, 0
-  %5 = select i1 %4, i32 0, i32 2
-  %6 = load i32, ptr @sched_cmdline_ref, align 4
-  %7 = icmp ne i32 %6, 0
-  %8 = zext i1 %7 to i32
-  %9 = or disjoint i32 %5, %8
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %14, label %11
+  %4 = load i32, ptr @sched_cmdline_ref, align 4
+  %5 = or i32 %4, %3
+  %.not1.not = icmp eq i32 %5, 0
+  br i1 %.not1.not, label %13, label %6
 
-11:                                               ; preds = %2
-  %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #5, !srcloc !5
-  %13 = inttoptr i64 %12 to ptr
-  tail call void @tracing_record_taskinfo_sched_switch(ptr noundef %13, ptr noundef %1, i32 noundef %9) #3
-  br label %14
+6:                                                ; preds = %2
+  %7 = icmp ne i32 %4, 0
+  %.not = icmp eq i32 %3, 0
+  %8 = select i1 %.not, i32 0, i32 2
+  %9 = zext i1 %7 to i32
+  %10 = or disjoint i32 %8, %9
+  %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #5, !srcloc !5
+  %12 = inttoptr i64 %11 to ptr
+  tail call void @tracing_record_taskinfo_sched_switch(ptr noundef %12, ptr noundef %1, i32 noundef %10) #3
+  br label %13
 
-14:                                               ; preds = %11, %2
+13:                                               ; preds = %6, %2
   ret void
 }
 
@@ -181,20 +182,21 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @probe_sched_switch(ptr nocapture readnone %0, i1 zeroext %1, ptr noundef %2, ptr noundef %3, i32 %4) #0 align 16 {
   %6 = load i32, ptr @sched_tgid_ref, align 4
-  %7 = icmp eq i32 %6, 0
-  %8 = select i1 %7, i32 0, i32 2
-  %9 = load i32, ptr @sched_cmdline_ref, align 4
-  %10 = icmp ne i32 %9, 0
-  %11 = zext i1 %10 to i32
-  %12 = or disjoint i32 %8, %11
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %15, label %14
+  %7 = load i32, ptr @sched_cmdline_ref, align 4
+  %8 = or i32 %7, %6
+  %.not1.not = icmp eq i32 %8, 0
+  br i1 %.not1.not, label %14, label %9
 
-14:                                               ; preds = %5
-  tail call void @tracing_record_taskinfo_sched_switch(ptr noundef %2, ptr noundef %3, i32 noundef %12) #3
-  br label %15
+9:                                                ; preds = %5
+  %10 = icmp ne i32 %7, 0
+  %.not = icmp eq i32 %6, 0
+  %11 = select i1 %.not, i32 0, i32 2
+  %12 = zext i1 %10 to i32
+  %13 = or disjoint i32 %11, %12
+  tail call void @tracing_record_taskinfo_sched_switch(ptr noundef %2, ptr noundef %3, i32 noundef %13) #3
+  br label %14
 
-15:                                               ; preds = %14, %5
+14:                                               ; preds = %9, %5
   ret void
 }
 

@@ -120,104 +120,105 @@ define dso_local noundef ptr @inv_open(i32 noundef %0, i32 noundef %1, ptr nound
   %6 = lshr i32 %1, 18
   %7 = and i32 %6, 1
   %.1 = or i32 %spec.select, %7
-  %8 = icmp eq i32 %.1, 0
-  br i1 %8, label %9, label %13
+  %8 = or disjoint i32 %7, %5
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %3
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %1) #9
+10:                                               ; preds = %3
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %11)
+  %12 = tail call i32 @errcode(i32 noundef 50856066) #9
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %1) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__func__.inv_open) #9
   unreachable
 
-13:                                               ; preds = %3
-  br i1 %.not, label %14, label %16
+14:                                               ; preds = %3
+  br i1 %.not, label %15, label %17
 
-14:                                               ; preds = %13
-  %15 = tail call ptr @GetActiveSnapshot() #9
-  br label %16
+15:                                               ; preds = %14
+  %16 = tail call ptr @GetActiveSnapshot() #9
+  br label %17
 
-16:                                               ; preds = %13, %14
-  %.027 = phi ptr [ %15, %14 ], [ null, %13 ]
+17:                                               ; preds = %14, %15
+  %.027 = phi ptr [ %16, %15 ], [ null, %14 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %17 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #9
-  %18 = call ptr @table_open(i32 noundef 2995, i32 noundef 1) #9
-  %19 = call ptr @systable_beginscan(ptr noundef %18, i32 noundef 2996, i1 noundef zeroext true, ptr noundef %.027, i32 noundef 1, ptr noundef nonnull %4) #9
-  %20 = call ptr @systable_getnext(ptr noundef %19) #9
-  %.not.i.not = icmp eq ptr %20, null
-  call void @systable_endscan(ptr noundef %19) #9
-  call void @table_close(ptr noundef %18, i32 noundef 1) #9
+  %18 = zext i32 %0 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %18) #9
+  %19 = call ptr @table_open(i32 noundef 2995, i32 noundef 1) #9
+  %20 = call ptr @systable_beginscan(ptr noundef %19, i32 noundef 2996, i1 noundef zeroext true, ptr noundef %.027, i32 noundef 1, ptr noundef nonnull %4) #9
+  %21 = call ptr @systable_getnext(ptr noundef %20) #9
+  %.not.i.not = icmp eq ptr %21, null
+  call void @systable_endscan(ptr noundef %20) #9
+  call void @table_close(ptr noundef %19, i32 noundef 1) #9
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  br i1 %.not.i.not, label %21, label %25
+  br i1 %.not.i.not, label %22, label %26
 
-21:                                               ; preds = %16
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %22)
-  %23 = call i32 @errcode(i32 noundef 67137668) #9
-  %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %0) #9
+22:                                               ; preds = %17
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %23)
+  %24 = call i32 @errcode(i32 noundef 67137668) #9
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %0) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.inv_open) #9
   unreachable
 
-25:                                               ; preds = %16
-  %26 = and i32 %.1, 1
-  %.not30 = icmp eq i32 %26, 0
-  br i1 %.not30, label %37, label %27
+26:                                               ; preds = %17
+  %27 = and i32 %.1, 1
+  %.not30 = icmp eq i32 %27, 0
+  br i1 %.not30, label %38, label %28
 
-27:                                               ; preds = %25
-  %28 = load i8, ptr @lo_compat_privileges, align 1
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %37, label %30
+28:                                               ; preds = %26
+  %29 = load i8, ptr @lo_compat_privileges, align 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %38, label %31
 
-30:                                               ; preds = %27
-  %31 = call i32 @GetUserId() #9
-  %32 = call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %31, i64 noundef 2, ptr noundef %.027) #9
-  %.not31 = icmp eq i32 %32, 0
-  br i1 %.not31, label %37, label %33
+31:                                               ; preds = %28
+  %32 = call i32 @GetUserId() #9
+  %33 = call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %32, i64 noundef 2, ptr noundef %.027) #9
+  %.not31 = icmp eq i32 %33, 0
+  br i1 %.not31, label %38, label %34
 
-33:                                               ; preds = %30
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %34)
-  %35 = call i32 @errcode(i32 noundef 16797828) #9
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %0) #9
+34:                                               ; preds = %31
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %35)
+  %36 = call i32 @errcode(i32 noundef 16797828) #9
+  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %0) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 299, ptr noundef nonnull @__func__.inv_open) #9
   unreachable
 
-37:                                               ; preds = %27, %30, %25
-  br i1 %.not, label %48, label %38
+38:                                               ; preds = %28, %31, %26
+  br i1 %.not, label %49, label %39
 
-38:                                               ; preds = %37
-  %39 = load i8, ptr @lo_compat_privileges, align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %48, label %41
+39:                                               ; preds = %38
+  %40 = load i8, ptr @lo_compat_privileges, align 1
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %49, label %42
 
-41:                                               ; preds = %38
-  %42 = call i32 @GetUserId() #9
-  %43 = call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %42, i64 noundef 4, ptr noundef %.027) #9
-  %.not32 = icmp eq i32 %43, 0
-  br i1 %.not32, label %48, label %44
+42:                                               ; preds = %39
+  %43 = call i32 @GetUserId() #9
+  %44 = call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %43, i64 noundef 4, ptr noundef %.027) #9
+  %.not32 = icmp eq i32 %44, 0
+  br i1 %.not32, label %49, label %45
 
-44:                                               ; preds = %41
-  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %45)
-  %46 = call i32 @errcode(i32 noundef 16797828) #9
-  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %0) #9
+45:                                               ; preds = %42
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %46)
+  %47 = call i32 @errcode(i32 noundef 16797828) #9
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %0) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__func__.inv_open) #9
   unreachable
 
-48:                                               ; preds = %38, %41, %37
-  %49 = call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 40) #9
-  store i32 %0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
-  store i64 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
-  store i32 %.1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 16
-  store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %.027, ptr %53, align 8
-  ret ptr %49
+49:                                               ; preds = %39, %42, %38
+  %50 = call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 40) #9
+  store i32 %0, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  store i64 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  store i32 %.1, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  store i32 0, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %.027, ptr %54, align 8
+  ret ptr %50
 }
 
 ; Function Attrs: cold

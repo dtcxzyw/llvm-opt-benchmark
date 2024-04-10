@@ -13438,11 +13438,12 @@ if.end22:                                         ; preds = %if.end18
   %or11.i.i = or i8 %or8.i.i, %45
   %or12.i.i = or i8 %or11.i.i, %cond10.i.i
   store i8 %or12.i.i, ptr @malloc_slow_flags, align 1
-  %cmp.i.i62 = icmp ne i8 %or12.i.i, 0
+  %46 = icmp ne i8 %or11.i.i, 0
+  %cmp.i.i62 = or i1 %46, %tobool9.i.i
   %frombool.i.i = zext i1 %cmp.i.i62 to i8
   store i8 %frombool.i.i, ptr @malloc_slow, align 1
-  %46 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  %dec.i.i = add i8 %46, -1
+  %47 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
+  %dec.i.i = add i8 %47, -1
   store i8 %dec.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %cmp.i.i64 = icmp eq i8 %dec.i.i, 0
   br i1 %cmp.i.i64, label %if.then.i.i65, label %post_reentrancy.exit
@@ -13455,20 +13456,20 @@ post_reentrancy.exit:                             ; preds = %if.end22, %if.then.
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 2, i32 0) monotonic, align 8
   %call1.i66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @init_lock, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)) #19
   call void @malloc_tsd_boot1() #19
-  %47 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i = getelementptr inbounds i8, ptr %47, i64 832
-  %48 = load i8, ptr %state.i.i, align 8
-  %cmp6.i.not = icmp eq i8 %48, 0
+  %48 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i.i = getelementptr inbounds i8, ptr %48, i64 832
+  %49 = load i8, ptr %state.i.i, align 8
+  %cmp6.i.not = icmp eq i8 %49, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %post_reentrancy.exit
-  %call13.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %47, i1 noundef zeroext false) #19
+  %call13.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %48, i1 noundef zeroext false) #19
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exit, %if.then11.i
-  %retval.i.0 = phi ptr [ %call13.i, %if.then11.i ], [ %47, %post_reentrancy.exit ]
-  %49 = load i8, ptr @opt_background_thread, align 1
-  %tobool = trunc i8 %49 to i1
+  %retval.i.0 = phi ptr [ %call13.i, %if.then11.i ], [ %48, %post_reentrancy.exit ]
+  %50 = load i8, ptr @opt_background_thread, align 1
+  %tobool = trunc i8 %50 to i1
   br i1 %tobool, label %do.end, label %if.end32
 
 do.end:                                           ; preds = %tsd_fetch_impl.exit

@@ -61776,14 +61776,14 @@ sqlite3OsSync.exit.thread:                        ; preds = %92, %sqlite3OsSync.
 111:                                              ; preds = %108
   %112 = getelementptr inbounds i8, ptr %0, i64 14
   %113 = load i8, ptr %112, align 2
-  %114 = zext i8 %113 to i32
-  %115 = icmp eq i8 %113, 3
-  %116 = select i1 %115, i32 16, i32 0
-  %117 = or i32 %116, %114
-  %.not.i69 = icmp eq i32 %117, 0
-  br i1 %.not.i69, label %sqlite3OsSync.exit70.thread, label %sqlite3OsSync.exit70
+  %114 = icmp eq i8 %113, 0
+  br i1 %114, label %sqlite3OsSync.exit70.thread, label %sqlite3OsSync.exit70
 
 sqlite3OsSync.exit70:                             ; preds = %111
+  %.not = icmp eq i8 %113, 3
+  %115 = select i1 %.not, i32 16, i32 0
+  %116 = zext i8 %113 to i32
+  %117 = or i32 %115, %116
   %118 = load ptr, ptr %34, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 40

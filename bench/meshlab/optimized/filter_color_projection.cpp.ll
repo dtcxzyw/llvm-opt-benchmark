@@ -5473,12 +5473,12 @@ define void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 deref
   %19 = add nuw nsw i32 %18, %17
   %20 = select i1 %.not51, i32 0, i32 255
   %21 = add nuw nsw i32 %19, %20
-  %22 = select i1 %.not52, i32 0, i32 255
-  %23 = or i32 %21, %22
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %95, label %24
+  %22 = icmp eq i32 %21, 0
+  %.not = and i1 %.not52, %22
+  br i1 %.not, label %95, label %23
 
-24:                                               ; preds = %10
+23:                                               ; preds = %10
+  %24 = select i1 %.not52, i32 0, i32 255
   %25 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %11, i32 noundef %8)
   %26 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %13, i32 noundef %8)
   %27 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %11, i32 noundef %9)
@@ -5496,9 +5496,9 @@ define void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 deref
   %39 = add nuw nsw i32 %38, %37
   %40 = mul nuw nsw i32 %34, %20
   %41 = add nuw nsw i32 %39, %40
-  %42 = mul nuw nsw i32 %36, %22
+  %42 = mul nuw nsw i32 %36, %24
   %43 = add nuw nsw i32 %41, %42
-  %44 = add nuw nsw i32 %21, %22
+  %44 = add nuw nsw i32 %21, %24
   %45 = udiv i32 %43, %44
   %46 = lshr i32 %25, 8
   %47 = and i32 %46, 255
@@ -5513,7 +5513,7 @@ define void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 deref
   %56 = add nuw nsw i32 %55, %54
   %57 = mul nuw nsw i32 %51, %20
   %58 = add nuw nsw i32 %56, %57
-  %59 = mul nuw nsw i32 %53, %22
+  %59 = mul nuw nsw i32 %53, %24
   %60 = add nuw nsw i32 %58, %59
   %61 = udiv i32 %60, %44
   %62 = and i32 %25, 255
@@ -5525,7 +5525,7 @@ define void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 deref
   %68 = add nuw nsw i32 %67, %66
   %69 = mul nuw nsw i32 %64, %20
   %70 = add nuw nsw i32 %68, %69
-  %71 = mul nuw nsw i32 %65, %22
+  %71 = mul nuw nsw i32 %65, %24
   %72 = add nuw nsw i32 %70, %71
   %73 = udiv i32 %72, %44
   %74 = lshr i32 %25, 24
@@ -5537,7 +5537,7 @@ define void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 deref
   %80 = add nuw nsw i32 %79, %78
   %81 = mul nuw nsw i32 %76, %20
   %82 = add nuw nsw i32 %80, %81
-  %83 = mul nuw nsw i32 %77, %22
+  %83 = mul nuw nsw i32 %77, %24
   %84 = add nuw nsw i32 %82, %83
   %85 = udiv i32 %84, %44
   %86 = shl i32 %85, 24
@@ -5552,7 +5552,7 @@ define void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 deref
   tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.04453, i32 noundef %.054, i32 noundef %94)
   br label %95
 
-95:                                               ; preds = %10, %24
+95:                                               ; preds = %10, %23
   %96 = add nuw nsw i32 %.04453, 1
   %97 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %98 = icmp slt i32 %96, %97

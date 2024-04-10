@@ -1706,16 +1706,16 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   %481 = add nuw nsw i32 %480, %479
   %482 = select i1 %.not51.i.i, i32 0, i32 255
   %483 = add nuw nsw i32 %481, %482
-  %484 = select i1 %.not52.i.i, i32 0, i32 255
-  %485 = or i32 %484, %483
-  %.not.i105.i = icmp eq i32 %485, 0
-  br i1 %.not.i105.i, label %.noexc116.i, label %486
+  %484 = icmp eq i32 %483, 0
+  %.not.i105.i = and i1 %484, %.not52.i.i
+  br i1 %.not.i105.i, label %.noexc116.i, label %485
 
-486:                                              ; preds = %.noexc111.i
+485:                                              ; preds = %.noexc111.i
+  %486 = select i1 %.not52.i.i, i32 0, i32 255
   %487 = invoke noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %465, i32 noundef %473, i32 noundef %470)
           to label %.noexc112.i unwind label %.loopexit.split-lp.i.loopexit.i, !noalias !13
 
-.noexc112.i:                                      ; preds = %486
+.noexc112.i:                                      ; preds = %485
   %488 = invoke noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %465, i32 noundef %475, i32 noundef %470)
           to label %.noexc113.i unwind label %.loopexit.split-lp.i.loopexit.i, !noalias !13
 
@@ -1741,9 +1741,9 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   %501 = add nuw nsw i32 %500, %499
   %502 = mul nuw nsw i32 %496, %482
   %503 = add nuw nsw i32 %501, %502
-  %504 = mul nuw nsw i32 %498, %484
+  %504 = mul nuw nsw i32 %498, %486
   %505 = add nuw nsw i32 %503, %504
-  %506 = add nuw nsw i32 %484, %483
+  %506 = add nuw nsw i32 %486, %483
   %507 = udiv i32 %505, %506
   %508 = lshr i32 %487, 8
   %509 = and i32 %508, 255
@@ -1758,7 +1758,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   %518 = add nuw nsw i32 %517, %516
   %519 = mul nuw nsw i32 %513, %482
   %520 = add nuw nsw i32 %518, %519
-  %521 = mul nuw nsw i32 %515, %484
+  %521 = mul nuw nsw i32 %515, %486
   %522 = add nuw nsw i32 %520, %521
   %523 = udiv i32 %522, %506
   %524 = and i32 %487, 255
@@ -1770,7 +1770,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   %530 = add nuw nsw i32 %529, %528
   %531 = mul nuw nsw i32 %526, %482
   %532 = add nuw nsw i32 %530, %531
-  %533 = mul nuw nsw i32 %527, %484
+  %533 = mul nuw nsw i32 %527, %486
   %534 = add nuw nsw i32 %532, %533
   %535 = udiv i32 %534, %506
   %536 = lshr i32 %487, 24
@@ -1782,7 +1782,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   %542 = add nuw nsw i32 %541, %540
   %543 = mul nuw nsw i32 %538, %482
   %544 = add nuw nsw i32 %542, %543
-  %545 = mul nuw nsw i32 %539, %484
+  %545 = mul nuw nsw i32 %539, %486
   %546 = add nuw nsw i32 %544, %545
   %547 = udiv i32 %546, %506
   %548 = shl i32 %547, 24
@@ -1825,7 +1825,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
           cleanup
   br label %.loopexit.i.i
 
-.loopexit.split-lp.i.loopexit.i:                  ; preds = %.noexc116.i, %.noexc115.i, %.noexc114.i, %.noexc113.i, %.noexc112.i, %486, %.noexc110.i, %.noexc109.i, %.noexc108.i, %472
+.loopexit.split-lp.i.loopexit.i:                  ; preds = %.noexc116.i, %.noexc115.i, %.noexc114.i, %.noexc113.i, %.noexc112.i, %485, %.noexc110.i, %.noexc109.i, %.noexc108.i, %472
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i

@@ -4905,9 +4905,9 @@ define internal fastcc void @hsw_wait_for_power_well_disable(ptr noundef %0, ptr
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.thread2, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %67
-  %.pn = phi i64 [ %71, %67 ], [ %26, %2 ]
-  %32 = phi i64 [ %70, %67 ], [ 10, %2 ]
+.lr.ph:                                           ; preds = %2, %65
+  %.pn = phi i64 [ %69, %65 ], [ %26, %2 ]
+  %32 = phi i64 [ %68, %65 ], [ 10, %2 ]
   %33 = icmp sgt i64 %.pn, %16
   %34 = load i32, ptr %5, align 4
   %35 = load ptr, ptr %20, align 8
@@ -4941,38 +4941,39 @@ define internal fastcc void @hsw_wait_for_power_well_disable(ptr noundef %0, ptr
   %59 = load ptr, ptr %20, align 8
   %60 = tail call i32 %59(ptr noundef %19, i32 %58, i1 noundef zeroext true) #9
   %61 = and i32 %60, %23
-  %62 = icmp eq i32 %61, 0
-  %63 = select i1 %62, i32 0, i32 8
-  %64 = or i32 %63, %57
-  %65 = icmp ne i32 %64, 0
-  %66 = select i1 %65, i1 true, i1 %33
-  br i1 %66, label %77, label %67
+  %62 = or i32 %61, %57
+  %63 = icmp ne i32 %62, 0
+  %64 = select i1 %63, i1 true, i1 %33
+  br i1 %64, label %75, label %65
 
-67:                                               ; preds = %56
-  %68 = shl i64 %32, 1
-  tail call void @usleep_range_state(i64 noundef %32, i64 noundef %68, i32 noundef 2) #9
-  %69 = icmp slt i64 %32, 1000
-  %70 = select i1 %69, i64 %68, i64 %32
-  %71 = tail call i64 @ktime_get_raw() #9
+65:                                               ; preds = %56
+  %66 = shl i64 %32, 1
+  tail call void @usleep_range_state(i64 noundef %32, i64 noundef %66, i32 noundef 2) #9
+  %67 = icmp slt i64 %32, 1000
+  %68 = select i1 %67, i64 %66, i64 %32
+  %69 = tail call i64 @ktime_get_raw() #9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !183
-  %72 = load i32, ptr %18, align 4
-  %73 = load ptr, ptr %20, align 8
-  %74 = tail call i32 %73(ptr noundef %19, i32 %72, i1 noundef zeroext true) #9
-  %75 = and i32 %74, %22
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.thread2, label %.lr.ph
+  %70 = load i32, ptr %18, align 4
+  %71 = load ptr, ptr %20, align 8
+  %72 = tail call i32 %71(ptr noundef %19, i32 %70, i1 noundef zeroext true) #9
+  %73 = and i32 %72, %22
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.thread2, label %.lr.ph
 
-77:                                               ; preds = %56
+75:                                               ; preds = %56
+  %.not.le = icmp eq i32 %61, 0
+  %76 = select i1 %.not.le, i32 0, i32 8
+  %77 = or i32 %76, %57
   %78 = icmp eq ptr %0, null
   br i1 %78, label %82, label %79
 
-79:                                               ; preds = %77
+79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %0, i64 8
   %81 = load ptr, ptr %80, align 8
   br label %82
 
-82:                                               ; preds = %79, %77
-  %83 = phi ptr [ %81, %79 ], [ null, %77 ]
+82:                                               ; preds = %79, %75
+  %83 = phi ptr [ %81, %79 ], [ null, %75 ]
   %84 = load ptr, ptr %1, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
@@ -4985,11 +4986,11 @@ define internal fastcc void @hsw_wait_for_power_well_disable(ptr noundef %0, ptr
   %93 = lshr i32 %57, 1
   %94 = and i32 %93, 1
   %95 = lshr i32 %57, 2
-  %96 = lshr i32 %64, 3
+  %96 = lshr i32 %77, 3
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %83, i32 noundef 2, ptr noundef nonnull @.str.55, ptr noundef %91, i32 noundef %92, i32 noundef %94, i32 noundef %95, i32 noundef %96) #9
   br label %.thread2
 
-.thread2:                                         ; preds = %67, %2, %82
+.thread2:                                         ; preds = %65, %2, %82
   ret void
 }
 

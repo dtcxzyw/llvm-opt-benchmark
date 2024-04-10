@@ -284,8 +284,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %or.i.i = zext nneg i8 %or.i.i19 to i16
   store i16 %or.i.i, ptr %events18.i.i, align 4
   %cmp4.i.i = icmp slt i32 %.sink.i.i, 0
-  %cmp9.not.i.i = icmp eq i8 %or.i.i19, 0
-  %or.cond.i.i = select i1 %cmp4.i.i, i1 true, i1 %cmp9.not.i.i
+  %10 = or i8 %bf.clear.i11, %bf.clear.i8
+  %cmp9.not.not.not.i.i = icmp eq i8 %10, 0
+  %or.cond.i.i = or i1 %cmp9.not.not.not.i.i, %cmp4.i.i
   br i1 %or.cond.i.i, label %lor.rhs.i.i, label %if.end60.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -297,8 +298,8 @@ if.else.i.i:                                      ; preds = %if.end.i
   %npfd.0.i.i = zext i1 %narrow.i.i to i64
   %arrayidx30.i.i = getelementptr inbounds [2 x %struct.pollfd], ptr %pfds.i.i, i64 0, i64 %npfd.0.i.i
   store i32 %.sink.i7.i, ptr %arrayidx30.i.i, align 8
-  %10 = shl nuw nsw i8 %bf.clear.i11, 2
-  %conv34.i.i = zext nneg i8 %10 to i16
+  %11 = shl nuw nsw i8 %bf.clear.i11, 2
+  %conv34.i.i = zext nneg i8 %11 to i16
   %events36.i.i = getelementptr inbounds i8, ptr %arrayidx30.i.i, i64 4
   store i16 %conv34.i.i, ptr %events36.i.i, align 4
   %cmp37.i.i = icmp sgt i32 %.sink.i7.i, -1
@@ -307,8 +308,8 @@ if.else.i.i:                                      ; preds = %if.end.i
 land.lhs.true39.i.i:                              ; preds = %if.else.i.i
   %tobool32.not.i.i = icmp ne i8 %bf.clear.i11, 0
   %brmerge.i.i = or i1 %tobool32.not.i.i, %narrow.i.i
-  %11 = and i1 %tobool32.not.i.i, %narrow.i.i
-  %inc46.mux.i.i = select i1 %11, i64 2, i64 1
+  %12 = and i1 %tobool32.not.i.i, %narrow.i.i
+  %inc46.mux.i.i = select i1 %12, i64 2, i64 1
   br i1 %brmerge.i.i, label %if.end60.i.i, label %lor.rhs.i.i
 
 if.end48.i.i:                                     ; preds = %if.else.i.i
@@ -341,8 +342,8 @@ do.body.us.i.i:                                   ; preds = %if.end64.i.i, %land
 
 land.rhs.us.i.i:                                  ; preds = %do.body.us.i.i
   %call84.us.i.i = tail call ptr @__errno_location() #11
-  %12 = load i32, ptr %call84.us.i.i, align 4
-  %cmp85.us.i.i = icmp eq i32 %12, 4
+  %13 = load i32, ptr %call84.us.i.i, align 4
+  %cmp85.us.i.i = icmp eq i32 %13, 4
   br i1 %cmp85.us.i.i, label %do.body.us.i.i, label %do.end.i.i, !llvm.loop !4
 
 do.body.i.i:                                      ; preds = %if.end64.i.i, %land.rhs.i.i
@@ -356,8 +357,8 @@ do.body.i.i:                                      ; preds = %if.end64.i.i, %land
 
 land.rhs.i.i:                                     ; preds = %do.body.i.i
   %call84.i.i = tail call ptr @__errno_location() #11
-  %13 = load i32, ptr %call84.i.i, align 4
-  %cmp85.i.i = icmp eq i32 %13, 4
+  %14 = load i32, ptr %call84.i.i, align 4
+  %cmp85.i.i = icmp eq i32 %14, 4
   br i1 %cmp85.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !4
 
 do.end.i.i:                                       ; preds = %land.rhs.i.i, %do.body.i.i, %land.rhs.us.i.i, %do.body.us.i.i

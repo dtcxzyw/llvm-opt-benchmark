@@ -426,7 +426,7 @@ define internal fastcc ptr @__vga_tryget(ptr noundef %0, i32 noundef %1) unnamed
   %63 = select i1 %62, i32 0, i32 2
   %64 = and i32 %61, 1
   %65 = or disjoint i32 %63, %64
-  %66 = icmp eq i32 %65, 0
+  %66 = icmp eq i32 %61, 0
   %67 = select i1 %66, i32 0, i32 2
   br label %68
 
