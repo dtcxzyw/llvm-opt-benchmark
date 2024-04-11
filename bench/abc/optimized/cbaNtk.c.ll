@@ -4728,7 +4728,7 @@ Cba_ObjRight.exit1162:                            ; preds = %Cba_ObjRangeSize.ex
   %2574 = getelementptr inbounds i64, ptr %.val457, i64 %indvars.iv1232
   %2575 = load i64, ptr %2574, align 8
   %2576 = lshr i64 %2575, 42
-  %2577 = trunc i64 %2576 to i32
+  %2577 = trunc nuw nsw i64 %2576 to i32
   %2578 = lshr i64 %2575, 21
   %2579 = trunc i64 %2578 to i32
   %2580 = and i32 %2579, 2097151
@@ -13911,11 +13911,11 @@ Cba_NtkCleanObjNames.exit:                        ; preds = %65, %Vec_IntGrow.ex
   %136 = shl nsw i32 %133, 1
   %137 = or disjoint i32 %136, %135
   %138 = lshr i64 %.val135, 32
-  %139 = trunc i64 %138 to i32
+  %139 = trunc nuw i64 %138 to i32
   %140 = and i32 %139, 536870911
   %141 = sub nsw i32 %132, %140
   %142 = lshr i64 %.val135, 61
-  %143 = trunc i64 %142 to i32
+  %143 = trunc nuw nsw i64 %142 to i32
   %144 = and i32 %143, 1
   %145 = shl nsw i32 %141, 1
   %146 = or disjoint i32 %145, %144
@@ -13923,7 +13923,7 @@ Cba_NtkCleanObjNames.exit:                        ; preds = %65, %Vec_IntGrow.ex
   br i1 %or.cond.i.i145, label %147, label %149
 
 147:                                              ; preds = %129
-  %148 = xor i32 %137, -1
+  %148 = xor i32 %135, -1
   br label %Cba_NtkInsertGiaLit.exit.i
 
 149:                                              ; preds = %129
@@ -13990,7 +13990,7 @@ Cba_NtkInsertGiaLit.exit.i:                       ; preds = %179, %149, %147
   br i1 %or.cond.i63.i, label %184, label %186
 
 184:                                              ; preds = %Cba_NtkInsertGiaLit.exit.i
-  %185 = xor i32 %146, -1
+  %185 = xor i32 %144, -1
   br label %Cba_NtkInsertGiaLit.exit79.i
 
 186:                                              ; preds = %Cba_NtkInsertGiaLit.exit.i
@@ -14176,7 +14176,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %281 = trunc i64 %.val62.i to i32
   %282 = and i32 %281, 536870911
   %283 = lshr i64 %.val62.i, 32
-  %284 = trunc i64 %283 to i32
+  %284 = trunc nuw i64 %283 to i32
   %285 = and i32 %284, 536870911
   %286 = icmp uge i32 %282, %285
   %cond.fr.i = freeze i1 %286
@@ -14362,7 +14362,7 @@ Cba_NtkInsertGiaLit.exit:                         ; preds = %.lr.ph225, %323, %3
   br i1 %or.cond.i152, label %384, label %386
 
 384:                                              ; preds = %374
-  %385 = xor i32 %383, -1
+  %385 = xor i32 %381, -1
   br label %Cba_NtkInsertGiaLit.exit168
 
 386:                                              ; preds = %374

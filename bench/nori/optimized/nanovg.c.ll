@@ -14278,7 +14278,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef %0, ptr 
   %27 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv.i
   %28 = load i16, ptr %27, align 2
   %29 = lshr i16 %28, 8
-  %30 = trunc i16 %29 to i8
+  %30 = trunc nuw i16 %29 to i8
   %31 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i
   store i8 %30, ptr %31, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -15824,7 +15824,7 @@ stbi__zget8.exit11.i.i:                           ; preds = %26, %stbi__zget8.ex
   %.0.i10.i.i = phi i32 [ %29, %26 ], [ 0, %stbi__zget8.exit.i.i ]
   %30 = shl nuw nsw i32 %.0.i.i.i, 8
   %31 = or disjoint i32 %.0.i10.i.i, %30
-  %.lhs.trunc.i.i = trunc i32 %31 to i16
+  %.lhs.trunc.i.i = trunc nuw i32 %31 to i16
   %32 = urem i16 %.lhs.trunc.i.i, 31
   %.not.i.i = icmp eq i16 %32, 0
   br i1 %.not.i.i, label %33, label %stbi__parse_zlib_header.exit.thread.i
@@ -16448,7 +16448,7 @@ stbi__zhuffman_decode.exit.i.i:                   ; preds = %314, %299
   br i1 %333, label %334, label %339
 
 334:                                              ; preds = %332
-  %335 = trunc i32 %.0.i.i47.i to i8
+  %335 = trunc nuw i32 %.0.i.i47.i to i8
   %336 = add nsw i32 %.045142.i.i, 1
   %337 = sext i32 %.045142.i.i to i64
   %338 = getelementptr inbounds [455 x i8], ptr %7, i64 0, i64 %337
@@ -16825,7 +16825,7 @@ stbi__zhuffman_decode.exit.i58.i:                 ; preds = %473, %458
 
 517:                                              ; preds = %513, %492
   %.155.i.i = phi ptr [ %515, %513 ], [ %.054.i.i, %492 ]
-  %518 = trunc i32 %.0.i.i60.i to i8
+  %518 = trunc nuw i32 %.0.i.i60.i to i8
   %519 = getelementptr inbounds i8, ptr %.155.i.i, i64 1
   store i8 %518, ptr %.155.i.i, align 1
   br label %.loopexit.i.i.backedge
@@ -27929,7 +27929,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %366, %358
 .lr.ph.i.us.i.i.i.i:                              ; preds = %559
   %sext137.i.us.i.i.i.i = shl i32 65536, %556
   %562 = ashr exact i32 %sext137.i.us.i.i.i.i, 16
-  %563 = trunc i32 %562 to i16
+  %563 = trunc nsw i32 %562 to i16
   %564 = sext i32 %547 to i64
   %565 = sub i16 0, %563
   br label %566
@@ -27993,7 +27993,7 @@ stbi__jpeg_get_bit.exit.i.us.i.i.i.i:             ; preds = %575, %572
   %sext127.i.us.i.i.i.i = shl i32 65536, %556
   %593 = ashr exact i32 %sext127.i.us.i.i.i.i, 16
   %594 = sub nsw i32 0, %593
-  %595 = trunc i32 %593 to i16
+  %595 = trunc nsw i32 %593 to i16
   br label %596
 
 596:                                              ; preds = %.loopexit156.i.us.i.i.i.i, %.preheader157.i.us.i.i.i.i
@@ -33285,7 +33285,7 @@ stbi__get16be.exit234:                            ; preds = %174, %177, %stbi__r
   %199 = shl nuw nsw i32 %198, 8
   %200 = zext i8 %.0.i6.i233 to i32
   %201 = or disjoint i32 %199, %200
-  %trunc = trunc i32 %201 to i16
+  %trunc = trunc nuw i32 %201 to i16
   switch i16 %trunc, label %202 [
     i16 16, label %203
     i16 8, label %203
@@ -33724,7 +33724,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   br label %508
 
 413:                                              ; preds = %404
-  %414 = shl nuw nsw i32 %140, 1
+  %414 = shl nuw nsw i32 %139, 1
   %415 = mul i32 %414, %144
   tail call fastcc void @stbi__skip(ptr noundef nonnull %0, i32 noundef %415)
   %416 = icmp sgt i32 %.fr363, 0
@@ -40216,12 +40216,12 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %0
   %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 255)
   %88 = tail call i32 @llvm.smax.i32(i32 %83, i32 0)
   %89 = tail call i32 @llvm.umin.i32(i32 %88, i32 255)
-  %90 = trunc i32 %85 to i8
+  %90 = trunc nuw i32 %85 to i8
   store i8 %90, ptr %.2315, align 1
-  %91 = trunc i32 %87 to i8
+  %91 = trunc nuw i32 %87 to i8
   %92 = getelementptr inbounds i8, ptr %.2315, i64 1
   store i8 %91, ptr %92, align 1
-  %93 = trunc i32 %89 to i8
+  %93 = trunc nuw i32 %89 to i8
   %94 = getelementptr inbounds i8, ptr %.2315, i64 2
   store i8 %93, ptr %94, align 1
   %95 = getelementptr inbounds i8, ptr %.2315, i64 3
@@ -40288,7 +40288,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %40 = shl nuw nsw <8 x i16> %38, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %41 = add nsw <8 x i16> %40, %39
   %42 = shufflevector <8 x i16> %41, <8 x i16> poison, <8 x i32> <i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6>
-  %43 = trunc i32 %.0146148 to i16
+  %43 = trunc nsw i32 %.0146148 to i16
   %44 = insertelement <8 x i16> %42, i16 %43, i64 0
   %45 = shufflevector <8 x i16> %41, <8 x i16> poison, <8 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
@@ -44974,7 +44974,7 @@ stbi__get8.exit297.thread:                        ; preds = %193, %stbi__get8.ex
   br label %.loopexit
 
 235:                                              ; preds = %232
-  %.lhs.trunc = trunc i32 %52 to i16
+  %.lhs.trunc = trunc nuw i32 %52 to i16
   %236 = udiv i16 %.lhs.trunc, 3
   %.zext = zext nneg i16 %236 to i32
   %237 = mul nuw nsw i32 %.zext, 3
@@ -45779,7 +45779,7 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
 
 572:                                              ; preds = %569
   %573 = lshr i32 %53, 24
-  %574 = trunc i32 %573 to i8
+  %574 = trunc nuw i32 %573 to i8
   store i8 %574, ptr @stbi__parse_png_file.invalid_chunk, align 16
   %575 = lshr i32 %53, 16
   %576 = trunc i32 %575 to i8
@@ -47747,7 +47747,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %156 = zext i8 %155 to i16
   %157 = add nuw nsw i16 %156, %152
   %158 = lshr i16 %157, 1
-  %.tr635 = trunc i16 %158 to i8
+  %.tr635 = trunc nuw i16 %158 to i8
   %.narrow636 = add i8 %149, %.tr635
   %159 = getelementptr inbounds i8, ptr %.1541, i64 %indvars.iv944
   store i8 %.narrow636, ptr %159, align 1
@@ -47995,7 +47995,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %236 = zext i8 %235 to i16
   %237 = add nuw nsw i16 %236, %232
   %238 = lshr i16 %237, 1
-  %.tr620 = trunc i16 %238 to i8
+  %.tr620 = trunc nuw i16 %238 to i8
   %.narrow621 = add i8 %229, %.tr620
   %239 = getelementptr inbounds i8, ptr %.5545768, i64 %indvars.iv908
   store i8 %.narrow621, ptr %239, align 1

@@ -41,12 +41,12 @@ define internal noundef i32 @pci_conf1_read(i32 noundef %0, i32 noundef %1, i32 
 14:                                               ; preds = %6
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
   %16 = and i32 %3, 3840
-  %17 = or i32 %16, %1
+  %17 = or disjoint i32 %16, %1
   %18 = shl nuw nsw i32 %17, 16
   %19 = shl nuw nsw i32 %2, 8
   %20 = and i32 %3, 252
   %21 = or disjoint i32 %20, %19
-  %22 = or i32 %21, %18
+  %22 = or disjoint i32 %18, %21
   %23 = or disjoint i32 %22, -2147483648
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %23, i16 3320) #5, !srcloc !5
   switch i32 %4, label %40 [
@@ -102,12 +102,12 @@ define internal noundef i32 @pci_conf1_write(i32 noundef %0, i32 noundef %1, i32
 13:                                               ; preds = %6
   %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
   %15 = and i32 %3, 3840
-  %16 = or i32 %15, %1
+  %16 = or disjoint i32 %15, %1
   %17 = shl nuw nsw i32 %16, 16
   %18 = shl nuw nsw i32 %2, 8
   %19 = and i32 %3, 252
   %20 = or disjoint i32 %19, %18
-  %21 = or i32 %20, %17
+  %21 = or disjoint i32 %17, %20
   %22 = or disjoint i32 %21, -2147483648
   tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %22, i16 3320) #5, !srcloc !5
   switch i32 %4, label %34 [
@@ -360,67 +360,66 @@ define internal noundef i32 @pci_conf2_read(i32 noundef %0, i32 noundef %1, i32 
 
 14:                                               ; preds = %9
   store i32 -1, ptr %5, align 4
-  br label %48
+  br label %47
 
 15:                                               ; preds = %9
   %16 = lshr i32 %2, 3
-  %17 = and i32 %2, 128
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %48
+  %17 = icmp ult i32 %2, 128
+  br i1 %17, label %18, label %47
 
-19:                                               ; preds = %15
-  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
-  %21 = trunc i32 %2 to i8
-  %22 = shl nuw i8 %21, 1
-  %23 = or i8 %22, -16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %23, i16 3320) #5, !srcloc !9
-  %24 = trunc i32 %1 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %24, i16 3322) #5, !srcloc !9
-  switch i32 %4, label %47 [
-    i32 1, label %25
-    i32 2, label %32
-    i32 4, label %39
+18:                                               ; preds = %15
+  %19 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
+  %20 = trunc nuw i32 %2 to i8
+  %21 = shl nuw i8 %20, 1
+  %22 = or i8 %21, -16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 3320) #5, !srcloc !9
+  %23 = trunc nuw i32 %1 to i8
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %23, i16 3322) #5, !srcloc !9
+  switch i32 %4, label %46 [
+    i32 1, label %24
+    i32 2, label %31
+    i32 4, label %38
   ]
 
-25:                                               ; preds = %19
-  %26 = shl nuw nsw i32 %16, 8
-  %27 = or i32 %26, %3
-  %28 = trunc i32 %27 to i16
-  %29 = or i16 %28, -16384
-  %30 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %29) #5, !srcloc !6
-  %31 = zext i8 %30 to i32
-  br label %45
+24:                                               ; preds = %18
+  %25 = shl nuw nsw i32 %16, 8
+  %26 = or i32 %25, %3
+  %27 = trunc i32 %26 to i16
+  %28 = or i16 %27, -16384
+  %29 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %28) #5, !srcloc !6
+  %30 = zext i8 %29 to i32
+  br label %44
 
-32:                                               ; preds = %19
-  %33 = shl nuw nsw i32 %16, 8
-  %34 = or i32 %33, %3
-  %35 = trunc i32 %34 to i16
-  %36 = or i16 %35, -16384
-  %37 = tail call i16 asm sideeffect "inw ${1:w}, ${0:w}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %36) #5, !srcloc !7
-  %38 = zext i16 %37 to i32
-  br label %45
+31:                                               ; preds = %18
+  %32 = shl nuw nsw i32 %16, 8
+  %33 = or i32 %32, %3
+  %34 = trunc i32 %33 to i16
+  %35 = or i16 %34, -16384
+  %36 = tail call i16 asm sideeffect "inw ${1:w}, ${0:w}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %35) #5, !srcloc !7
+  %37 = zext i16 %36 to i32
+  br label %44
 
-39:                                               ; preds = %19
-  %40 = shl nuw nsw i32 %16, 8
-  %41 = or i32 %40, %3
-  %42 = trunc i32 %41 to i16
-  %43 = or i16 %42, -16384
-  %44 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %43) #5, !srcloc !8
-  br label %45
+38:                                               ; preds = %18
+  %39 = shl nuw nsw i32 %16, 8
+  %40 = or i32 %39, %3
+  %41 = trunc i32 %40 to i16
+  %42 = or i16 %41, -16384
+  %43 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %42) #5, !srcloc !8
+  br label %44
 
-45:                                               ; preds = %39, %32, %25
-  %46 = phi i32 [ %44, %39 ], [ %38, %32 ], [ %31, %25 ]
-  store i32 %46, ptr %5, align 4
+44:                                               ; preds = %38, %31, %24
+  %45 = phi i32 [ %43, %38 ], [ %37, %31 ], [ %30, %24 ]
+  store i32 %45, ptr %5, align 4
+  br label %46
+
+46:                                               ; preds = %44, %18
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 3320) #5, !srcloc !9
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pci_config_lock, i64 noundef %19) #5
   br label %47
 
-47:                                               ; preds = %45, %19
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 3320) #5, !srcloc !9
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pci_config_lock, i64 noundef %20) #5
-  br label %48
-
-48:                                               ; preds = %47, %15, %14
-  %49 = phi i32 [ -22, %14 ], [ 0, %47 ], [ 134, %15 ]
-  ret i32 %49
+47:                                               ; preds = %46, %15, %14
+  %48 = phi i32 [ -22, %14 ], [ 0, %46 ], [ 134, %15 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -439,62 +438,61 @@ define internal noundef i32 @pci_conf2_write(i32 noundef %0, i32 noundef %1, i32
   %11 = icmp ugt i32 %10, 255
   %12 = icmp sgt i32 %3, 255
   %13 = or i1 %11, %12
-  br i1 %13, label %42, label %14
+  br i1 %13, label %41, label %14
 
 14:                                               ; preds = %9
   %15 = lshr i32 %2, 3
-  %16 = and i32 %2, 128
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %42
+  %16 = icmp ult i32 %2, 128
+  br i1 %16, label %17, label %41
 
-18:                                               ; preds = %14
-  %19 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
-  %20 = trunc i32 %2 to i8
-  %21 = shl nuw i8 %20, 1
-  %22 = or i8 %21, -16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 3320) #5, !srcloc !9
-  %23 = trunc i32 %1 to i8
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %23, i16 3322) #5, !srcloc !9
-  switch i32 %4, label %41 [
-    i32 1, label %24
-    i32 2, label %30
-    i32 4, label %36
+17:                                               ; preds = %14
+  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
+  %19 = trunc nuw i32 %2 to i8
+  %20 = shl nuw i8 %19, 1
+  %21 = or i8 %20, -16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %21, i16 3320) #5, !srcloc !9
+  %22 = trunc nuw i32 %1 to i8
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 3322) #5, !srcloc !9
+  switch i32 %4, label %40 [
+    i32 1, label %23
+    i32 2, label %29
+    i32 4, label %35
   ]
 
-24:                                               ; preds = %18
-  %25 = trunc i32 %5 to i8
-  %26 = shl nuw nsw i32 %15, 8
-  %27 = or i32 %26, %3
-  %28 = trunc i32 %27 to i16
-  %29 = or i16 %28, -16384
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %25, i16 %29) #5, !srcloc !9
-  br label %41
+23:                                               ; preds = %17
+  %24 = trunc i32 %5 to i8
+  %25 = shl nuw nsw i32 %15, 8
+  %26 = or i32 %25, %3
+  %27 = trunc i32 %26 to i16
+  %28 = or i16 %27, -16384
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %24, i16 %28) #5, !srcloc !9
+  br label %40
 
-30:                                               ; preds = %18
-  %31 = trunc i32 %5 to i16
-  %32 = shl nuw nsw i32 %15, 8
-  %33 = or i32 %32, %3
-  %34 = trunc i32 %33 to i16
-  %35 = or i16 %34, -16384
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %31, i16 %35) #5, !srcloc !10
-  br label %41
+29:                                               ; preds = %17
+  %30 = trunc i32 %5 to i16
+  %31 = shl nuw nsw i32 %15, 8
+  %32 = or i32 %31, %3
+  %33 = trunc i32 %32 to i16
+  %34 = or i16 %33, -16384
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %30, i16 %34) #5, !srcloc !10
+  br label %40
 
-36:                                               ; preds = %18
-  %37 = shl nuw nsw i32 %15, 8
-  %38 = or i32 %37, %3
-  %39 = trunc i32 %38 to i16
-  %40 = or i16 %39, -16384
-  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %5, i16 %40) #5, !srcloc !5
-  br label %41
+35:                                               ; preds = %17
+  %36 = shl nuw nsw i32 %15, 8
+  %37 = or i32 %36, %3
+  %38 = trunc i32 %37 to i16
+  %39 = or i16 %38, -16384
+  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %5, i16 %39) #5, !srcloc !5
+  br label %40
 
-41:                                               ; preds = %36, %30, %24, %18
+40:                                               ; preds = %35, %29, %23, %17
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 3320) #5, !srcloc !9
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pci_config_lock, i64 noundef %19) #5
-  br label %42
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pci_config_lock, i64 noundef %18) #5
+  br label %41
 
-42:                                               ; preds = %41, %14, %9
-  %43 = phi i32 [ 0, %41 ], [ -22, %9 ], [ 134, %14 ]
-  ret i32 %43
+41:                                               ; preds = %40, %14, %9
+  %42 = phi i32 [ 0, %40 ], [ -22, %9 ], [ 134, %14 ]
+  ret i32 %42
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
