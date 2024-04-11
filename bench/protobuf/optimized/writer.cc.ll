@@ -326,9 +326,9 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZN6google8protobuf
   %range.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc i64 %__first.addr.0.val.i.i.i.i.i.i.i to i32
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp uge i32 %10, %range.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i
   %range.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i.i = lshr i64 %__first.addr.0.val.i.i.i.i.i.i.i, 32
-  %range.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc i64 %range.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i.i to i32
+  %range.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %range.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i.i to i32
   %cmp2.i.i.i.i.i.i.i.i.i = icmp ule i32 %10, %range.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i.i
-  %11 = and i1 %cmp.not.i.i.i.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i.i.i.i
+  %11 = select i1 %cmp.not.i.i.i.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %11, label %if.end6, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i
@@ -338,9 +338,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %range.sroa.0.0.extract.trunc.i.i33.i.i.i.i.i.i.i = trunc i64 %incdec.ptr.val.i.i.i.i.i.i.i to i32
   %cmp.not.i.i34.i.i.i.i.i.i.i = icmp uge i32 %10, %range.sroa.0.0.extract.trunc.i.i33.i.i.i.i.i.i.i
   %range.sroa.2.0.extract.shift.i.i35.i.i.i.i.i.i.i = lshr i64 %incdec.ptr.val.i.i.i.i.i.i.i, 32
-  %range.sroa.2.0.extract.trunc.i.i36.i.i.i.i.i.i.i = trunc i64 %range.sroa.2.0.extract.shift.i.i35.i.i.i.i.i.i.i to i32
+  %range.sroa.2.0.extract.trunc.i.i36.i.i.i.i.i.i.i = trunc nuw i64 %range.sroa.2.0.extract.shift.i.i35.i.i.i.i.i.i.i to i32
   %cmp2.i.i37.i.i.i.i.i.i.i = icmp ule i32 %10, %range.sroa.2.0.extract.trunc.i.i36.i.i.i.i.i.i.i
-  %12 = and i1 %cmp.not.i.i34.i.i.i.i.i.i.i, %cmp2.i.i37.i.i.i.i.i.i.i
+  %12 = select i1 %cmp.not.i.i34.i.i.i.i.i.i.i, i1 %cmp2.i.i37.i.i.i.i.i.i.i, i1 false
   br i1 %12, label %_ZN6google8protobuf13json_internalL10MustEscapeEjRSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end4.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i
@@ -350,9 +350,9 @@ if.end4.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.
   %range.sroa.0.0.extract.trunc.i.i38.i.i.i.i.i.i.i = trunc i64 %incdec.ptr5.val.i.i.i.i.i.i.i to i32
   %cmp.not.i.i39.i.i.i.i.i.i.i = icmp uge i32 %10, %range.sroa.0.0.extract.trunc.i.i38.i.i.i.i.i.i.i
   %range.sroa.2.0.extract.shift.i.i40.i.i.i.i.i.i.i = lshr i64 %incdec.ptr5.val.i.i.i.i.i.i.i, 32
-  %range.sroa.2.0.extract.trunc.i.i41.i.i.i.i.i.i.i = trunc i64 %range.sroa.2.0.extract.shift.i.i40.i.i.i.i.i.i.i to i32
+  %range.sroa.2.0.extract.trunc.i.i41.i.i.i.i.i.i.i = trunc nuw i64 %range.sroa.2.0.extract.shift.i.i40.i.i.i.i.i.i.i to i32
   %cmp2.i.i42.i.i.i.i.i.i.i = icmp ule i32 %10, %range.sroa.2.0.extract.trunc.i.i41.i.i.i.i.i.i.i
-  %13 = and i1 %cmp.not.i.i39.i.i.i.i.i.i.i, %cmp2.i.i42.i.i.i.i.i.i.i
+  %13 = select i1 %cmp.not.i.i39.i.i.i.i.i.i.i, i1 %cmp2.i.i42.i.i.i.i.i.i.i, i1 false
   br i1 %13, label %if.end6, label %if.end8.i.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i.i:                            ; preds = %if.end4.i.i.i.i.i.i.i
@@ -362,9 +362,9 @@ if.end8.i.i.i.i.i.i.i:                            ; preds = %if.end4.i.i.i.i.i.i
   %range.sroa.0.0.extract.trunc.i.i43.i.i.i.i.i.i.i = trunc i64 %incdec.ptr9.val.i.i.i.i.i.i.i to i32
   %cmp.not.i.i44.i.i.i.i.i.i.i = icmp uge i32 %10, %range.sroa.0.0.extract.trunc.i.i43.i.i.i.i.i.i.i
   %range.sroa.2.0.extract.shift.i.i45.i.i.i.i.i.i.i = lshr i64 %incdec.ptr9.val.i.i.i.i.i.i.i, 32
-  %range.sroa.2.0.extract.trunc.i.i46.i.i.i.i.i.i.i = trunc i64 %range.sroa.2.0.extract.shift.i.i45.i.i.i.i.i.i.i to i32
+  %range.sroa.2.0.extract.trunc.i.i46.i.i.i.i.i.i.i = trunc nuw i64 %range.sroa.2.0.extract.shift.i.i45.i.i.i.i.i.i.i to i32
   %cmp2.i.i47.i.i.i.i.i.i.i = icmp ule i32 %10, %range.sroa.2.0.extract.trunc.i.i46.i.i.i.i.i.i.i
-  %14 = and i1 %cmp.not.i.i44.i.i.i.i.i.i.i, %cmp2.i.i47.i.i.i.i.i.i.i
+  %14 = select i1 %cmp.not.i.i44.i.i.i.i.i.i.i, i1 %cmp2.i.i47.i.i.i.i.i.i.i, i1 false
   br i1 %14, label %if.end6, label %if.end12.i.i.i.i.i.i.i
 
 if.end12.i.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i.i

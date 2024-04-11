@@ -621,12 +621,12 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 41:                                               ; preds = %38
   %42 = call i64 @llvm.umin.i64(i64 %39, i64 2147483647)
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   br label %47
 
 44:                                               ; preds = %38
   %45 = call i64 @llvm.umax.i64(i64 %39, i64 -2147483648)
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nsw i64 %45 to i32
   br label %47
 
 47:                                               ; preds = %41, %44, %.thread187
@@ -649,7 +649,7 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
   %55 = load i8, ptr %54, align 8
   %switch158 = icmp eq i8 %55, 4
   %56 = icmp sgt i32 %.0144, -1
-  %or.cond159 = and i1 %56, %switch158
+  %or.cond159 = select i1 %switch158, i1 %56, i1 false
   br i1 %or.cond159, label %57, label %60
 
 57:                                               ; preds = %52
@@ -2860,7 +2860,7 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
 
 17:                                               ; preds = %.thread164
   %18 = call i64 @llvm.ctlz.i64(i64 %15, i1 true), !range !4
-  %19 = trunc i64 %18 to i8
+  %19 = trunc nuw nsw i64 %18 to i8
   %.lhs.trunc = sub nuw nsw i8 66, %19
   %20 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %20 to i64
@@ -3169,7 +3169,7 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %4, align 8
-  %47 = trunc i64 %34 to i32
+  %47 = trunc nuw i64 %34 to i32
   call void @_php_math_basetozval(ptr noundef %46, i32 noundef %47, ptr noundef nonnull %3)
   %48 = load i64, ptr %6, align 8
   %49 = trunc i64 %48 to i32
@@ -3458,7 +3458,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
   %.lobit = lshr i64 %0, 63
-  %.0180 = trunc i64 %.lobit to i32
+  %.0180 = trunc nuw nsw i64 %.lobit to i32
   %.0177 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
   %7 = icmp slt i64 %1, 0
   br i1 %7, label %8, label %.thread
@@ -3873,7 +3873,7 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
 
 98:                                               ; preds = %96, %94
   %.0194.in = phi i64 [ %95, %94 ], [ %97, %96 ]
-  %.0194 = trunc i64 %.0194.in to i32
+  %.0194 = trunc nsw i64 %.0194.in to i32
   %99 = call ptr @_php_math_number_format_ex(double noundef %78, i32 noundef %.0194, ptr noundef nonnull %spec.select245, i64 noundef %spec.select, ptr noundef nonnull %.3218, i64 noundef %.3222)
   store ptr %99, ptr %1, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 4

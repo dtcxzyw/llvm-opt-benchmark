@@ -14270,7 +14270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc i32 %.0.lcssa.i to i8
+  %60 = trunc nuw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -21849,7 +21849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 54:                                               ; preds = %._crit_edge.i
-  %55 = trunc i64 %.0.lcssa.i to i8
+  %55 = trunc nuw i64 %.0.lcssa.i to i8
   %56 = or disjoint i8 %55, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -117670,7 +117670,7 @@ _ZN8pybind116detail11as_unsignedImEET_P7_object.exit: ; preds = %15
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %_ZN8pybind116detail11as_unsignedImEET_P7_object.exit
-  %38 = trunc i64 %16 to i8
+  %38 = trunc nuw i64 %16 to i8
   store i8 %38, ptr %0, align 1
   br label %_ZN8pybind116objectD2Ev.exit
 
@@ -148399,11 +148399,11 @@ _ZZN8pybind116detail16vector_modifiersISt6vectorIbSaIbEENS_6class_IS4_JSt10uniqu
   %26 = add nuw nsw i64 %25, 1
   %27 = lshr i64 %26, 6
   %28 = getelementptr inbounds i64, ptr %24, i64 %27
-  %29 = trunc i64 %26 to i32
+  %29 = trunc nuw nsw i64 %26 to i32
   %30 = and i32 %29, 63
   %31 = icmp ne ptr %28, %5
   %32 = icmp ne i32 %30, %7
-  %.not3.i.i.i = or i1 %31, %32
+  %.not3.i.i.i = select i1 %31, i1 true, i1 %32
   br i1 %.not3.i.i.i, label %33, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.i.i
 
 33:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersISt6vectorIbSaIbEENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit
@@ -148859,7 +148859,7 @@ _ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit:    ; preds = %3
   %35 = add nuw nsw i64 %34, 1
   %36 = lshr i64 %35, 6
   %37 = getelementptr inbounds i64, ptr %storemerge.i.i.i, i64 %36
-  %38 = trunc i64 %35 to i32
+  %38 = trunc nuw nsw i64 %35 to i32
   %39 = and i32 %38, 63
   %.sroa.0.0.copyload.i9.i.i = load ptr, ptr %7, align 8
   %40 = icmp ne ptr %37, %.sroa.0.0.copyload.i9.i.i

@@ -802,7 +802,7 @@ _RNvXsJ_CsdF516cSs19B_10rustc_spanNtB5_12RealFileNameNtNtCs9nhK3FOW46N_4core5clo
 define hidden void @"_ZN107_$LT$rustc_data_structures..sync..lock..maybe_sync..LockGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2915aa3ce1f3687bE.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !range !13, !noundef !8
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %4 = load ptr, ptr %0, align 8, !nonnull !8, !align !56, !noundef !8
   %5 = getelementptr inbounds i8, ptr %4, i64 232
   br i1 %trunc, label %7, label %6
@@ -828,7 +828,7 @@ _RNvXNtCsk4EvSGnPk56_11parking_lot9raw_mutexNtB2_8RawMutexNtNtCsbvU9jXyUdHf_8loc
 define hidden void @"_ZN107_$LT$rustc_data_structures..sync..lock..maybe_sync..LockGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2bb4bedbcb6699a4E.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !range !13, !noundef !8
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %4 = load ptr, ptr %0, align 8, !nonnull !8, !align !56, !noundef !8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   br i1 %trunc, label %7, label %6
@@ -854,13 +854,13 @@ _RNvXNtCsk4EvSGnPk56_11parking_lot9raw_mutexNtB2_8RawMutexNtNtCsbvU9jXyUdHf_8loc
 define hidden noundef i32 @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h2b7b932080d629f4E.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 169
   %4 = load i8, ptr %3, align 1, !range !13, !noundef !8
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 168
   br i1 %5, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %6, align 8, !range !13, !noalias !57, !noundef !8
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   store i8 1, ptr %6, align 8, !noalias !57
   br i1 %9, label %14, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17h62466843401a930aE.llvm.17476841346288807550.exit.thread"
 
@@ -972,13 +972,13 @@ define hidden noundef i32 @"_ZN10rustc_span13span_encoding18with_span_interner28
 define hidden void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias nocapture noundef writeonly sret({ i32, i32, i32, i32 }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %2, i64 169
   %5 = load i8, ptr %4, align 1, !range !13, !noundef !8
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   br i1 %6, label %11, label %8
 
 8:                                                ; preds = %3
   %9 = load i8, ptr %7, align 8, !range !13, !noalias !89, !noundef !8
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   store i8 1, ptr %7, align 8, !noalias !89
   br i1 %10, label %15, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17h62466843401a930aE.llvm.17476841346288807550.exit"
 
@@ -1069,13 +1069,13 @@ define hidden void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$
 define hidden void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17hc0915df1332daf42E.llvm.17476841346288807550"(ptr noalias nocapture noundef writeonly sret({ i32, i32, i32, i32 }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %2, i64 169
   %5 = load i8, ptr %4, align 1, !range !13, !noundef !8
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds i8, ptr %2, i64 168
   br i1 %6, label %11, label %8
 
 8:                                                ; preds = %3
   %9 = load i8, ptr %7, align 8, !range !13, !noalias !117, !noundef !8
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   store i8 1, ptr %7, align 8, !noalias !117
   br i1 %10, label %15, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17h62466843401a930aE.llvm.17476841346288807550.exit"
 
@@ -1175,13 +1175,13 @@ define hidden noundef i32 @"_ZN10rustc_span13span_encoding18with_span_interner28
   %4 = getelementptr inbounds i8, ptr %1, i64 112
   %5 = getelementptr inbounds i8, ptr %1, i64 169
   %6 = load i8, ptr %5, align 1, !range !13, !noundef !8
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds i8, ptr %1, i64 168
   br i1 %7, label %12, label %9
 
 9:                                                ; preds = %2
   %10 = load i8, ptr %8, align 8, !range !13, !noalias !145, !noundef !8
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   store i8 1, ptr %8, align 8, !noalias !145
   br i1 %11, label %16, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17h62466843401a930aE.llvm.17476841346288807550.exit"
 
@@ -1560,13 +1560,13 @@ define hidden void @"_ZN10rustc_span7hygiene11HygieneData4with28_$u7b$$u7b$closu
   %4 = getelementptr inbounds i8, ptr %2, i64 176
   %5 = getelementptr inbounds i8, ptr %2, i64 409
   %6 = load i8, ptr %5, align 1, !range !13, !noundef !8
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds i8, ptr %2, i64 408
   br i1 %7, label %12, label %9
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %8, align 8, !range !13, !noalias !219, !noundef !8
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   store i8 1, ptr %8, align 8, !noalias !219
   br i1 %11, label %16, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17hcc859dcf3d38d3d2E.llvm.17476841346288807550.exit"
 
@@ -1905,13 +1905,13 @@ define hidden void @"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h512398c5af3285ac
   %13 = getelementptr inbounds i8, ptr %.0.val.i, i64 176
   %14 = getelementptr inbounds i8, ptr %.0.val.i, i64 409
   %15 = load i8, ptr %14, align 1, !range !13, !noalias !266, !noundef !8
-  %16 = trunc i8 %15 to i1
+  %16 = trunc nuw i8 %15 to i1
   %17 = getelementptr inbounds i8, ptr %.0.val.i, i64 408
   br i1 %16, label %21, label %18
 
 18:                                               ; preds = %12
   %19 = load i8, ptr %17, align 1, !range !13, !noalias !270, !noundef !8
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   store i8 1, ptr %17, align 1, !noalias !270
   br i1 %20, label %25, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17hcc859dcf3d38d3d2E.llvm.17476841346288807550.exit.i"
 
@@ -2036,13 +2036,13 @@ define hidden void @"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
   %13 = getelementptr inbounds i8, ptr %.0.val.i, i64 169
   %14 = load i8, ptr %13, align 1, !range !13, !noalias !292, !noundef !8
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %.0.val.i, i64 168
   br i1 %15, label %20, label %17
 
 17:                                               ; preds = %12
   %18 = load i8, ptr %16, align 1, !range !13, !noalias !294, !noundef !8
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   store i8 1, ptr %16, align 1, !noalias !294
   br i1 %19, label %24, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17h62466843401a930aE.llvm.17476841346288807550.exit.i"
 
@@ -2241,13 +2241,13 @@ define hidden void @"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17hf95fa1612d49ac9b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   %13 = getelementptr inbounds i8, ptr %.0.val.i, i64 169
   %14 = load i8, ptr %13, align 1, !range !13, !noalias !335, !noundef !8
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %.0.val.i, i64 168
   br i1 %15, label %20, label %17
 
 17:                                               ; preds = %12
   %18 = load i8, ptr %16, align 1, !range !13, !noalias !337, !noundef !8
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   store i8 1, ptr %16, align 1, !noalias !337
   br i1 %19, label %24, label %"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lock$LT$T$GT$11lock_assume17h62466843401a930aE.llvm.17476841346288807550.exit.i"
 
@@ -2365,7 +2365,7 @@ define hidden { ptr, i8 } @"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lo
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %4, align 8, !range !13, !noundef !8
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   store i8 1, ptr %4, align 8
   br i1 %7, label %12, label %_RNvXNtCsk4EvSGnPk56_11parking_lot9raw_mutexNtB2_8RawMutexNtNtCsbvU9jXyUdHf_8lock_api5mutex8RawMutex4lock.llvm.17476841346288807550.exit
 
@@ -2396,7 +2396,7 @@ define hidden { ptr, i8 } @"_ZN21rustc_data_structures4sync4lock10maybe_sync13Lo
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %4, align 8, !range !13, !noundef !8
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   store i8 1, ptr %4, align 8
   br i1 %7, label %12, label %_RNvXNtCsk4EvSGnPk56_11parking_lot9raw_mutexNtB2_8RawMutexNtNtCsbvU9jXyUdHf_8lock_api5mutex8RawMutex4lock.llvm.17476841346288807550.exit
 
@@ -2605,7 +2605,7 @@ _ZN4core3ops8function6FnOnce9call_once17h148a166bc205137dE.exit.i.i: ; preds = %
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN3std11collections4hash3map20HashMap$LT$K$C$V$GT$3new17h0bf58bc7ecff73ecE.llvm.17476841346288807550"(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }) align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h55a642b04532a853E, align 8, !range !379, !noalias !380, !noundef !8
-  %trunc.i.i = trunc i64 %2 to i1
+  %trunc.i.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i.i, label %"._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge", label %3
 
 "._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge": ; preds = %1
@@ -2671,7 +2671,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h602b3ceeb0265c64E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %trunc, label %12, label %5
 
@@ -2715,7 +2715,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 define hidden noundef nonnull align 8 ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit17h74be3b52806deb4cE.llvm.17476841346288807550(ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h55a642b04532a853E, align 8, !range !379, !noalias !415, !noundef !8
-  %trunc.i = trunc i64 %2 to i1
+  %trunc.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h602b3ceeb0265c64E.exit", label %3
 
 3:                                                ; preds = %1
@@ -3055,7 +3055,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h893b5c8be62ce227E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !8, !align !451, !noundef !8
   %.val = load i8, ptr %3, align 1, !range !13, !noundef !8
-  %trunc.i = trunc i8 %.val to i1
+  %trunc.i = trunc nuw i8 %.val to i1
   %..i = select i1 %trunc.i, i64 4, i64 5
   %anon.ac9b56db96481140084a14b3a62254c9.384.llvm.17476841346288807550.anon.ac9b56db96481140084a14b3a62254c9.386.llvm.17476841346288807550.i = select i1 %trunc.i, ptr @anon.ac9b56db96481140084a14b3a62254c9.386.llvm.17476841346288807550, ptr @anon.ac9b56db96481140084a14b3a62254c9.384.llvm.17476841346288807550
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h3ae05f1225cf0e93E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.ac9b56db96481140084a14b3a62254c9.384.llvm.17476841346288807550.anon.ac9b56db96481140084a14b3a62254c9.386.llvm.17476841346288807550.i, i64 noundef %..i)
@@ -3320,7 +3320,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117hf40ea9300502eef6E.llvm.17476
 define hidden noundef i32 @_ZN4core3ops8function5FnMut8call_mut17h20babdcdb271fefeE.llvm.17476841346288807550(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
   %3 = load i8, ptr %1, align 8, !range !13, !alias.scope !494, !noundef !8
-  %trunc.i = trunc i8 %3 to i1
+  %trunc.i = trunc nuw i8 %3 to i1
   br i1 %trunc.i, label %_ZN15rustfmt_nightly7modules10path_value17hfd25802a0d71e90cE.exit, label %4
 
 4:                                                ; preds = %2
@@ -3381,7 +3381,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %3 = load ptr, ptr %1, align 8, !alias.scope !510, !nonnull !8, !align !56, !noundef !8
   %4 = getelementptr inbounds i8, ptr %3, i64 28
   %5 = load i8, ptr %4, align 4, !range !13, !noalias !510, !noundef !8
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   ret i1 %6
 }
 
@@ -3390,7 +3390,7 @@ define hidden noundef i32 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
   tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !516)
   %3 = load i8, ptr %1, align 8, !range !13, !alias.scope !519, !noundef !8
-  %trunc.i.i = trunc i8 %3 to i1
+  %trunc.i.i = trunc nuw i8 %3 to i1
   br i1 %trunc.i.i, label %_ZN4core3ops8function5FnMut8call_mut17h20babdcdb271fefeE.llvm.17476841346288807550.exit, label %4
 
 4:                                                ; preds = %2
@@ -3455,7 +3455,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hcbd17435785fb78bE.l
 define hidden void @_ZN4core3ops8function6FnOnce9call_once17he997ffa56272424dE.llvm.17476841346288807550(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }) align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h55a642b04532a853E, align 8, !range !379, !noalias !539, !noundef !8
-  %trunc.i.i.i = trunc i64 %2 to i1
+  %trunc.i.i.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i.i.i, label %"._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge.i", label %3
 
 "._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge.i": ; preds = %1
@@ -3538,7 +3538,7 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$rustc_data_structures..sync
   tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !558, !noundef !8
-  %trunc.i = trunc i8 %3 to i1
+  %trunc.i = trunc nuw i8 %3 to i1
   %4 = load ptr, ptr %0, align 8, !alias.scope !558, !nonnull !8, !align !56, !noundef !8
   %5 = getelementptr inbounds i8, ptr %4, i64 232
   br i1 %trunc.i, label %7, label %6
@@ -3597,7 +3597,7 @@ define hidden void @"_ZN4core3ptr124drop_in_place$LT$rustc_data_structures..sync
   tail call void @llvm.experimental.noalias.scope.decl(metadata !572)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !572, !noundef !8
-  %trunc.i = trunc i8 %3 to i1
+  %trunc.i = trunc nuw i8 %3 to i1
   %4 = load ptr, ptr %0, align 8, !alias.scope !572, !nonnull !8, !align !56, !noundef !8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   br i1 %trunc.i, label %7, label %6
@@ -4782,7 +4782,7 @@ define hidden { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h3e5e61aa
   store i32 %.sroa.0.0.i, ptr %30, align 8, !alias.scope !901, !noalias !904
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h71e9cbe3299e3f90E.llvm.17476841346288807550"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
   %31 = load i64, ptr %5, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %31 to i1
+  %trunc = trunc nuw i64 %31 to i1
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load i64, ptr %32, align 8
   %.sroa.3.0 = select i1 %trunc, i64 %33, i64 undef
@@ -4798,13 +4798,13 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !13, !noundef !8
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load i8, ptr %7, align 8, !range !13, !noundef !8
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
@@ -4823,12 +4823,12 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17hc468a0bc1ce7888eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %15)
   %16 = load i64, ptr %2, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %16 to i1
+  %trunc = trunc nuw i64 %16 to i1
   br i1 %trunc, label %28, label %23
 
 17:                                               ; preds = %10
   %18 = load i8, ptr %3, align 1, !range !13, !noundef !8
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %14
 
 20:                                               ; preds = %17, %10, %1, %36
@@ -5284,7 +5284,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hd036586f943
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc i32 %0 to i8
+  %32 = trunc nuw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdd276d020ccd7ce2E.exit"
 
@@ -5297,7 +5297,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hd036586f943
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc i32 %37 to i8
+  %38 = trunc nuw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -5309,7 +5309,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hd036586f943
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc i32 %45 to i8
+  %46 = trunc nuw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -6385,7 +6385,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option1
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = load i64, ptr %0, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %6 to i1
+  %trunc = trunc nuw i64 %6 to i1
   br i1 %trunc, label %14, label %7
 
 7:                                                ; preds = %4
@@ -6575,14 +6575,14 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern.
 
 10:                                               ; preds = %6
   %11 = lshr i32 %0, 6
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %4, align 4, !alias.scope !1138
   br label %_ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.llvm.17476841346288807550.exit
 
 14:                                               ; preds = %8
   %15 = lshr i32 %0, 12
-  %16 = trunc i32 %15 to i8
+  %16 = trunc nuw i32 %15 to i8
   %17 = or disjoint i8 %16, -32
   store i8 %17, ptr %4, align 4, !alias.scope !1138
   %18 = lshr i32 %0, 6
@@ -6625,7 +6625,7 @@ _ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.llvm.1747684134628880
   br label %_ZN4core5slice6memchr12memchr_naive17h80d69771a2a986d1E.llvm.17476841346288807550.exit
 
 43:                                               ; preds = %3
-  %44 = trunc i32 %0 to i8
+  %44 = trunc nuw i32 %0 to i8
   %45 = icmp ult i64 %2, 16
   br i1 %45, label %50, label %46
 
@@ -6939,7 +6939,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %40, %19
   call void @_ZN4core3str7pattern11StrSearcher3new17h093aebd81d9eb1ebE(ptr noalias nocapture noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   call fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(104) %7)
   %133 = load i64, ptr %8, align 8, !range !379, !noundef !8
-  %134 = trunc i64 %133 to i8
+  %134 = trunc nuw nsw i64 %133 to i8
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
@@ -8226,7 +8226,7 @@ define hidden void @_ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.174768
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !1273
   %12 = trunc i32 %1 to i8
@@ -8238,7 +8238,7 @@ define hidden void @_ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.174768
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !1273
   %19 = lshr i32 %1, 6
@@ -8306,7 +8306,7 @@ _ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.llvm.1747684134628880
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !1286, !noundef !8
   %58 = load i64, ptr %0, align 8, !alias.scope !1286, !noundef !8
@@ -8586,7 +8586,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd30a7b63917c01b7E.llvm.1747684
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(104) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %76, label %.critedge
 
 .critedge:                                        ; preds = %2
@@ -8594,7 +8594,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 26
   %6 = load i8, ptr %5, align 2, !range !13, !alias.scope !1362, !noalias !1365, !noundef !8
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h0ee59216da30f3fdE.exit.thread7", label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.critedge
@@ -8616,7 +8616,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
 14:                                               ; preds = %.loopexit, %.lr.ph125
   %15 = phi i8 [ %.pre, %.lr.ph125 ], [ %18, %.loopexit ]
   %16 = phi i64 [ %.promoted124, %.lr.ph125 ], [ %13, %.loopexit ]
-  %17 = trunc i8 %15 to i1
+  %17 = trunc nuw i8 %15 to i1
   %18 = xor i8 %15, 1
   %19 = icmp eq i64 %16, 0
   br i1 %19, label %29, label %20
@@ -9086,7 +9086,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @"_ZN8type_map10concurrent
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1401)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   %16 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h55a642b04532a853E, align 8, !range !379, !noalias !1407, !noundef !8
-  %trunc.i.i.i.i = trunc i64 %16 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %16 to i1
   br i1 %trunc.i.i.i.i, label %"._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge.i.i", label %17
 
 "._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge.i.i": ; preds = %14
@@ -9263,8 +9263,8 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   br i1 %5, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %2
-  %6 = trunc i8 %4 to i1
-  %trunc = trunc i8 %3 to i1
+  %6 = trunc nuw i8 %4 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %7 = icmp eq i8 %3, 0
   %spec.select = select i1 %trunc, i1 %6, i1 %7
   tail call void @llvm.assume(i1 %spec.select)
@@ -9823,18 +9823,18 @@ define internal fastcc { ptr, i64 } @_ZN15rustfmt_nightly7comment13custom_opener
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1476
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h71e9cbe3299e3f90E.llvm.17476841346288807550"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.5.0..sroa_idx)
   %7 = load i64, ptr %5, align 8, !range !379, !noalias !1476, !noundef !8
-  %trunc.i.i.i = trunc i64 %7 to i1
+  %trunc.i.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i.i, label %16, label %8
 
 8:                                                ; preds = %2
   %9 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !range !13, !alias.scope !1477, !noundef !8
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1db8df403c19b0aE.exit.thread", label %11
 
 11:                                               ; preds = %8
   store i8 1, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !alias.scope !1477
   %12 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8, !range !13, !alias.scope !1477, !noundef !8
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   %.pre.i.i.i.i = load i64, ptr %6, align 8, !alias.scope !1477
   %.pre5.i.i.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !1477
   %.not.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i, %.pre.i.i.i.i
@@ -9891,7 +9891,7 @@ define internal fastcc { ptr, i64 } @_ZN15rustfmt_nightly7comment13custom_opener
   store i32 32, ptr %33, align 8, !alias.scope !1489, !noalias !1492
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h71e9cbe3299e3f90E.llvm.17476841346288807550"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
   %34 = load i64, ptr %4, align 8, !range !379, !noalias !1486, !noundef !8
-  %trunc.i.i.i1 = trunc i64 %34 to i1
+  %trunc.i.i.i1 = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   %36 = load i64, ptr %35, align 8, !noalias !1486
   %.sroa.3.0.i.i.i = select i1 %trunc.i.i.i1, i64 %36, i64 undef
@@ -10773,17 +10773,17 @@ _ZN15rustfmt_nightly5utils23trimmed_last_line_width17ha767721a6d860234E.exit: ; 
 
 .noexc144:                                        ; preds = %164
   %167 = load i64, ptr %21, align 8, !range !379, !noalias !1694, !noundef !8
-  %trunc.i.i.i = trunc i64 %167 to i1
+  %trunc.i.i.i = trunc nuw i64 %167 to i1
   br i1 %trunc.i.i.i, label %176, label %168
 
 168:                                              ; preds = %.noexc144
   %169 = load i8, ptr %.sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.i, align 1, !range !13, !alias.scope !1695, !noalias !1685, !noundef !8
-  %170 = trunc i8 %169 to i1
+  %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h533073beb2bc84f9E.exit.i", label %171
 
 171:                                              ; preds = %168
   %172 = load i8, ptr %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !range !13, !alias.scope !1695, !noalias !1685, !noundef !8
-  %173 = trunc i8 %172 to i1
+  %173 = trunc nuw i8 %172 to i1
   %.pre.i.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i142, align 8, !alias.scope !1695, !noalias !1685
   %.pre5.i.i.i.i = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1695, !noalias !1685
   %.not.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i, %.pre.i.i.i.i
@@ -11060,7 +11060,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 
 277:                                              ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit
   %278 = load i64, ptr %18, align 8, !range !379, !noalias !1753, !noundef !8
-  %trunc.i = trunc i64 %278 to i1
+  %trunc.i = trunc nuw i64 %278 to i1
   %279 = getelementptr inbounds i8, ptr %18, i64 8
   %280 = load i64, ptr %279, align 8, !noalias !1753
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !1753
@@ -11241,17 +11241,17 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 
 .noexc225:                                        ; preds = %326
   %329 = load i64, ptr %14, align 8, !range !379, !noalias !1798, !noundef !8
-  %trunc.i.i.i213 = trunc i64 %329 to i1
+  %trunc.i.i.i213 = trunc nuw i64 %329 to i1
   br i1 %trunc.i.i.i213, label %338, label %330
 
 330:                                              ; preds = %.noexc225
   %331 = load i8, ptr %.sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.i212, align 1, !range !13, !alias.scope !1799, !noalias !1789, !noundef !8
-  %332 = trunc i8 %331 to i1
+  %332 = trunc nuw i8 %331 to i1
   br i1 %332, label %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h533073beb2bc84f9E.exit.i218", label %333
 
 333:                                              ; preds = %330
   %334 = load i8, ptr %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx.i211, align 8, !range !13, !alias.scope !1799, !noalias !1789, !noundef !8
-  %335 = trunc i8 %334 to i1
+  %335 = trunc nuw i8 %334 to i1
   %.pre.i.i.i.i214 = load i64, ptr %.sroa.4.0..sroa_idx.i202, align 8, !alias.scope !1799, !noalias !1789
   %.pre5.i.i.i.i215 = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i203, align 8, !alias.scope !1799, !noalias !1789
   %.not.i.i.i.i216 = icmp ne i64 %.pre5.i.i.i.i215, %.pre.i.i.i.i214
@@ -11841,7 +11841,7 @@ _ZN15rustfmt_nightly7comment12CommentStyle10line_start17h4a0602fcbf52a401E.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !1932
   call fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef nonnull align 8 dereferenceable(104) %46)
   %73 = load i64, ptr %34, align 8, !range !379, !noalias !1932, !noundef !8
-  %trunc.i.i.i = trunc i64 %73 to i1
+  %trunc.i.i.i = trunc nuw i64 %73 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !1932
   %74 = add i64 %.0.i, 1
   br i1 %trunc.i.i.i, label %72, label %.lr.ph
@@ -11996,7 +11996,7 @@ _ZN15rustfmt_nightly7comment12CommentStyle10line_start17h4a0602fcbf52a401E.exit:
   store i8 1, ptr %121, align 2
   %122 = getelementptr inbounds i8, ptr %5, i64 625
   %123 = load i8, ptr %122, align 1, !range !13, !noundef !8
-  %124 = trunc i8 %123 to i1
+  %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %249, label %232
 
 125:                                              ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit.thread"
@@ -12011,18 +12011,18 @@ _ZN15rustfmt_nightly7comment12CommentStyle10line_start17h4a0602fcbf52a401E.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !1975
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h71e9cbe3299e3f90E.llvm.17476841346288807550"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %32, ptr noalias noundef nonnull align 8 dereferenceable(48) %.sroa.08.sroa.3.0..sroa_idx)
   %126 = load i64, ptr %32, align 8, !range !379, !noalias !1975, !noundef !8
-  %trunc.i.i.i108 = trunc i64 %126 to i1
+  %trunc.i.i.i108 = trunc nuw i64 %126 to i1
   br i1 %trunc.i.i.i108, label %135, label %127
 
 127:                                              ; preds = %125
   %128 = load i8, ptr %.sroa.08.sroa.11.0..sroa_idx, align 1, !range !13, !alias.scope !1976, !noundef !8
-  %129 = trunc i8 %128 to i1
+  %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i", label %130
 
 130:                                              ; preds = %127
   store i8 1, ptr %.sroa.08.sroa.11.0..sroa_idx, align 1, !alias.scope !1976
   %131 = load i8, ptr %.sroa.08.sroa.10.0..sroa_idx, align 8, !range !13, !alias.scope !1976, !noundef !8
-  %132 = trunc i8 %131 to i1
+  %132 = trunc nuw i8 %131 to i1
   %.pre.i.i.i.i = load i64, ptr %45, align 8, !alias.scope !1976
   %.pre5.i.i.i.i = load i64, ptr %.sroa.08.sroa.2.0..sroa_idx, align 8, !alias.scope !1976
   %.not.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i, %.pre.i.i.i.i
@@ -12326,7 +12326,7 @@ _ZN15rustfmt_nightly7comment12CommentStyle6opener17he7a7842757ff4332E.exit: ; pr
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit.thread": ; preds = %182, %229, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit"
   %.169 = phi i64 [ %230, %229 ], [ %.068287, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit" ], [ %.068287, %182 ]
   %227 = load i8, ptr %.sroa.08.sroa.11.0..sroa_idx, align 1, !range !13, !alias.scope !2046, !noundef !8
-  %228 = trunc i8 %227 to i1
+  %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1db8df403c19b0aE.exit.thread", label %125
 
 229:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit"
@@ -12377,7 +12377,7 @@ _ZN15rustfmt_nightly7comment12CommentStyle6opener17he7a7842757ff4332E.exit: ; pr
   store i8 1, ptr %245, align 2
   %246 = getelementptr inbounds i8, ptr %5, i64 617
   %247 = load i8, ptr %246, align 1, !range !13, !noundef !8
-  %248 = trunc i8 %247 to i1
+  %248 = trunc nuw i8 %247 to i1
   br i1 %248, label %249, label %250
 
 249:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$8split_at17h791fbdd55f2c5e01E.exit", %244
@@ -12593,7 +12593,7 @@ _ZN15rustfmt_nightly7comment21light_rewrite_comment17h998ccfc293d90490E.exit: ; 
   store i8 1, ptr %304, align 2
   %305 = getelementptr inbounds i8, ptr %5, i64 621
   %306 = load i8, ptr %305, align 1, !range !13, !noundef !8
-  %307 = trunc i8 %306 to i1
+  %307 = trunc nuw i8 %306 to i1
   br i1 %307, label %.thread233, label %251
 
 .thread233:                                       ; preds = %303
@@ -12960,18 +12960,18 @@ define internal fastcc { i8, i64 } @_ZN15rustfmt_nightly7comment16identify_comme
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2162
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h71e9cbe3299e3f90E.llvm.17476841346288807550"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %.sroa.01.sroa.3.0..sroa_idx)
   %20 = load i64, ptr %6, align 8, !range !379, !noalias !2162, !noundef !8
-  %trunc.i.i.i = trunc i64 %20 to i1
+  %trunc.i.i.i = trunc nuw i64 %20 to i1
   br i1 %trunc.i.i.i, label %29, label %21
 
 21:                                               ; preds = %19
   %22 = load i8, ptr %.sroa.01.sroa.11.0..sroa_idx, align 1, !range !13, !alias.scope !2163, !noundef !8
-  %23 = trunc i8 %22 to i1
+  %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i", label %24
 
 24:                                               ; preds = %21
   store i8 1, ptr %.sroa.01.sroa.11.0..sroa_idx, align 1, !alias.scope !2163
   %25 = load i8, ptr %.sroa.01.sroa.10.0..sroa_idx, align 8, !range !13, !alias.scope !2163, !noundef !8
-  %26 = trunc i8 %25 to i1
+  %26 = trunc nuw i8 %25 to i1
   %.pre.i.i.i.i = load i64, ptr %8, align 8, !alias.scope !2163
   %.pre5.i.i.i.i = load i64, ptr %.sroa.01.sroa.2.0..sroa_idx, align 8, !alias.scope !2163
   %.not.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i, %.pre.i.i.i.i
@@ -13149,7 +13149,7 @@ _ZN15rustfmt_nightly7comment16identify_comment11compute_len17h0747ca6b6e16dae3E.
   %.0.i20 = phi i64 [ %79, %78 ], [ %81, %80 ], [ %36, %70 ]
   %82 = add i64 %.0.i20, %.032
   %83 = load i8, ptr %.sroa.01.sroa.11.0..sroa_idx, align 1, !range !13, !alias.scope !2204, !noundef !8
-  %84 = trunc i8 %83 to i1
+  %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1db8df403c19b0aE.exit.thread", label %19
 }
 
@@ -13229,7 +13229,7 @@ define internal fastcc { i64, i64 } @_ZN15rustfmt_nightly7comment13ItemizedBlock
   call void @_ZN4core3str7pattern11StrSearcher3new17h093aebd81d9eb1ebE(ptr noalias nocapture noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %22)
   call fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(104) %3)
   %23 = load i64, ptr %4, align 8, !range !379, !noalias !2223, !noundef !8
-  %trunc.i = trunc i64 %23 to i1
+  %trunc.i = trunc nuw i64 %23 to i1
   %24 = load i64, ptr %16, align 8, !noalias !2223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2223
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !2223
@@ -13409,7 +13409,7 @@ define internal fastcc void @_ZN15rustfmt_nightly7comment14CommentRewrite10join_
   call void @llvm.experimental.noalias.scope.decl(metadata !2238)
   call void @llvm.experimental.noalias.scope.decl(metadata !2241)
   %23 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !range !13, !alias.scope !2244, !noundef !8
-  %24 = trunc i8 %23 to i1
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %.thread75, label %25
 
 25:                                               ; preds = %22
@@ -13420,18 +13420,18 @@ define internal fastcc void @_ZN15rustfmt_nightly7comment14CommentRewrite10join_
 
 .noexc:                                           ; preds = %25
   %26 = load i64, ptr %8, align 8, !range !379, !noalias !2244, !noundef !8
-  %trunc.i.i.i = trunc i64 %26 to i1
+  %trunc.i.i.i = trunc nuw i64 %26 to i1
   br i1 %trunc.i.i.i, label %35, label %27
 
 27:                                               ; preds = %.noexc
   %28 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !range !13, !alias.scope !2245, !noundef !8
-  %29 = trunc i8 %28 to i1
+  %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i", label %30
 
 30:                                               ; preds = %27
   store i8 1, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !alias.scope !2245
   %31 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8, !range !13, !alias.scope !2245, !noundef !8
-  %32 = trunc i8 %31 to i1
+  %32 = trunc nuw i8 %31 to i1
   %.pre.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !2245
   %.pre5.i.i.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !2245
   %.not.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i, %.pre.i.i.i.i
@@ -13516,7 +13516,7 @@ define internal fastcc void @_ZN15rustfmt_nightly7comment14CommentRewrite10join_
   call void @llvm.experimental.noalias.scope.decl(metadata !2272)
   call void @llvm.experimental.noalias.scope.decl(metadata !2275)
   %60 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !range !13, !alias.scope !2278, !noalias !2258, !noundef !8
-  %61 = trunc i8 %60 to i1
+  %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h05617de813ba26e9E.exit.i", label %62
 
 62:                                               ; preds = %59
@@ -13527,18 +13527,18 @@ define internal fastcc void @_ZN15rustfmt_nightly7comment14CommentRewrite10join_
 
 .noexc29:                                         ; preds = %62
   %63 = load i64, ptr %7, align 8, !range !379, !noalias !2279, !noundef !8
-  %trunc.i.i.i.i.i.i = trunc i64 %63 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i64 %63 to i1
   br i1 %trunc.i.i.i.i.i.i, label %72, label %64
 
 64:                                               ; preds = %.noexc29
   %65 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !range !13, !alias.scope !2280, !noalias !2258, !noundef !8
-  %66 = trunc i8 %65 to i1
+  %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i.i", label %67
 
 67:                                               ; preds = %64
   store i8 1, ptr %.sroa.0.sroa.13.0..sroa_idx, align 1, !alias.scope !2280, !noalias !2258
   %68 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8, !range !13, !alias.scope !2280, !noalias !2258, !noundef !8
-  %69 = trunc i8 %68 to i1
+  %69 = trunc nuw i8 %68 to i1
   %.pre.i.i.i.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !2280, !noalias !2258
   %.pre5.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !2280, !noalias !2258
   %.not.i.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i.i
@@ -13852,7 +13852,7 @@ define internal fastcc void @_ZN15rustfmt_nightly7comment21rewrite_comment_inner
   store i8 1, ptr %123, align 2, !noalias !2319
   %124 = getelementptr inbounds i8, ptr %6, i64 625
   %125 = load i8, ptr %124, align 1, !range !13, !noalias !2319, !noundef !8
-  %126 = trunc i8 %125 to i1
+  %126 = trunc nuw i8 %125 to i1
   call fastcc void @_ZN15rustfmt_nightly7comment13comment_style17h3f8dcc299ad4433dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %114, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %126), !noalias !2322
   %127 = load i64, ptr %114, align 8, !range !1512, !noalias !2319, !noundef !8
   switch i64 %127, label %default.unreachable [
@@ -14622,18 +14622,18 @@ _ZN15rustfmt_nightly7comment14CommentRewrite3new17h37ff30337f22813aE.exit: ; pre
 
 .noexc28:                                         ; preds = %374
   %375 = load i64, ptr %95, align 8, !range !379, !noalias !2422, !noundef !8
-  %trunc.i.i.i.i.i.i.i.i.i = trunc i64 %375 to i1
+  %trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %375 to i1
   br i1 %trunc.i.i.i.i.i.i.i.i.i, label %384, label %376
 
 376:                                              ; preds = %.noexc28
   %377 = load i8, ptr %.sroa.10.sroa.11.0..sroa.10.0..sroa_idx.sroa_idx, align 1, !range !13, !alias.scope !2423, !noalias !2417, !noundef !8
-  %378 = trunc i8 %377 to i1
+  %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i.i.i.i.i", label %379
 
 379:                                              ; preds = %376
   store i8 1, ptr %.sroa.10.sroa.11.0..sroa.10.0..sroa_idx.sroa_idx, align 1, !alias.scope !2423, !noalias !2417
   %380 = load i8, ptr %.sroa.10.sroa.10.0..sroa.10.0..sroa_idx.sroa_idx, align 8, !range !13, !alias.scope !2423, !noalias !2417, !noundef !8
-  %381 = trunc i8 %380 to i1
+  %381 = trunc nuw i8 %380 to i1
   %.pre.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !2423, !noalias !2417
   %.pre5.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.10.sroa.2.0..sroa.10.0..sroa_idx.sroa_idx, align 8, !alias.scope !2423, !noalias !2417
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i.i.i.i.i
@@ -15730,9 +15730,9 @@ _ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit.i
   store i64 %822, ptr %117, align 8, !alias.scope !2389, !noalias !2695
   %823 = icmp ne ptr %.sroa.016.i.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %823)
-  %824 = trunc i8 %.sroa.4.0.copyload.i to i1
+  %824 = trunc nuw i8 %.sroa.4.0.copyload.i to i1
   %825 = load i8, ptr %120, align 1, !range !13, !noundef !8
-  %826 = trunc i8 %825 to i1
+  %826 = trunc nuw i8 %825 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !2696)
   call void @llvm.experimental.noalias.scope.decl(metadata !2699)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7.i)
@@ -16628,7 +16628,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.17476841346288807550.exit.
   store i8 1, ptr %1111, align 2
   %1112 = getelementptr inbounds i8, ptr %1110, i64 621
   %1113 = load i8, ptr %1112, align 1, !range !13, !noundef !8
-  %1114 = trunc i8 %1113 to i1
+  %1114 = trunc nuw i8 %1113 to i1
   br i1 %1114, label %1118, label %1115
 
 1115:                                             ; preds = %.noexc112, %1109, %1107
@@ -16755,7 +16755,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.17476841346288807550.exit.
   br i1 %.not167.i, label %.noexc114, label %1156
 
 1156:                                             ; preds = %1154
-  %1157 = trunc i8 %.2.i to i1
+  %1157 = trunc nuw i8 %.2.i to i1
   br i1 %1157, label %1158, label %.noexc114
 
 .noexc114:                                        ; preds = %1158, %1156, %1154
@@ -16986,18 +16986,18 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.17476841346288807550.exit.
 
 .noexc117:                                        ; preds = %1240
   %1241 = load i64, ptr %25, align 8, !range !379, !noalias !2999, !noundef !8
-  %trunc.i.i.i = trunc i64 %1241 to i1
+  %trunc.i.i.i = trunc nuw i64 %1241 to i1
   br i1 %trunc.i.i.i, label %1250, label %1242
 
 1242:                                             ; preds = %.noexc117
   %1243 = load i8, ptr %.sroa.11.0..sroa_idx.i.i, align 1, !range !13, !alias.scope !3000, !noalias !2993, !noundef !8
-  %1244 = trunc i8 %1243 to i1
+  %1244 = trunc nuw i8 %1243 to i1
   br i1 %1244, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc0fae092690cca47E.exit.i.i", label %1245
 
 1245:                                             ; preds = %1242
   store i8 1, ptr %.sroa.11.0..sroa_idx.i.i, align 1, !alias.scope !3000, !noalias !2993
   %1246 = load i8, ptr %.sroa.10.0..sroa_idx.i269.i, align 8, !range !13, !alias.scope !3000, !noalias !2993, !noundef !8
-  %1247 = trunc i8 %1246 to i1
+  %1247 = trunc nuw i8 %1246 to i1
   %.pre.i.i.i.i = load i64, ptr %26, align 8, !alias.scope !3000, !noalias !2993
   %.pre5.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !3000, !noalias !2993
   %.not.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i, %.pre.i.i.i.i
@@ -17054,7 +17054,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.17476841346288807550.exit.
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.i270.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit64.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit60.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit56.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit52.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit48.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit44.i.i", %.noexc118
   %1262 = load i8, ptr %.sroa.11.0..sroa_idx.i.i, align 1, !range !13, !alias.scope !3007, !noalias !2993, !noundef !8
-  %1263 = trunc i8 %1262 to i1
+  %1263 = trunc nuw i8 %1262 to i1
   br i1 %1263, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc0fae092690cca47E.exit.thread.i.i", label %1240
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit48.i.i": ; preds = %.noexc118
@@ -17097,7 +17097,7 @@ _ZN15rustfmt_nightly7comment18CodeBlockAttribute3new17h8d707a7a5ddda6ccE.exit.i:
   store i8 1, ptr %1272, align 2
   %1273 = getelementptr inbounds i8, ptr %1271, i64 617
   %1274 = load i8, ptr %1273, align 1, !range !13, !noundef !8
-  %1275 = trunc i8 %1274 to i1
+  %1275 = trunc nuw i8 %1274 to i1
   br i1 %1275, label %1277, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..comment..ItemizedBlock$GT$$GT$17hb24d04b1e97165f4E.exit305.i"
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..comment..ItemizedBlock$GT$$GT$17hb24d04b1e97165f4E.exit305.i": ; preds = %_ZN15rustfmt_nightly7comment13ItemizedBlock3new17h145fb3d3dc619581E.exit.i, %.noexc122, %1270, %_ZN15rustfmt_nightly7comment18CodeBlockAttribute3new17h8d707a7a5ddda6ccE.exit.i
@@ -17811,7 +17811,7 @@ _ZN15rustfmt_nightly7comment13ItemizedBlock3new17h145fb3d3dc619581E.exit.i: ; pr
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..comment..ItemizedBlock$GT$$GT$17hb24d04b1e97165f4E.exit305.i"
   %1524 = load i8, ptr %275, align 8, !range !13, !alias.scope !2696, !noalias !2701, !noundef !8
-  %1525 = trunc i8 %1524 to i1
+  %1525 = trunc nuw i8 %1524 to i1
   %.not1.i = xor i1 %1525, true
   %1526 = icmp eq i64 %.sroa.016.i.sroa.5.0.copyload, 0
   %or.cond.i71 = or i1 %1526, %.not1.i
@@ -17983,7 +17983,7 @@ _ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit.i
   store i8 1, ptr %1587, align 2
   %1588 = getelementptr inbounds i8, ptr %1586, i64 617
   %1589 = load i8, ptr %1588, align 1, !range !13, !noundef !8
-  %1590 = trunc i8 %1589 to i1
+  %1590 = trunc nuw i8 %1589 to i1
   %.not184.i = xor i1 %1590, true
   %brmerge185.i = or i1 %.0157.i, %.not184.i
   br i1 %brmerge185.i, label %.critedge.i, label %1591
@@ -18138,7 +18138,7 @@ _ZN15rustfmt_nightly7comment13is_table_item17h03831349033bb090E.exit.i: ; preds 
 
 .noexc138:                                        ; preds = %_ZN15rustfmt_nightly7comment13is_table_item17h03831349033bb090E.exit.i
   %1622 = load i64, ptr %15, align 8, !range !379, !noalias !3177, !noundef !8
-  %trunc.i.i349.i = trunc i64 %1622 to i1
+  %trunc.i.i349.i = trunc nuw i64 %1622 to i1
   %1623 = load i64, ptr %366, align 8, !noalias !3177
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !3177
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !3177
@@ -18217,7 +18217,7 @@ _ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit36
 
 1649:                                             ; preds = %.noexc139
   %1650 = load i8, ptr %275, align 8, !range !13, !alias.scope !2696, !noalias !2701, !noundef !8
-  %1651 = trunc i8 %1650 to i1
+  %1651 = trunc nuw i8 %1650 to i1
   br i1 %1651, label %1665, label %.invoke.i
 
 1652:                                             ; preds = %.noexc139
@@ -18297,7 +18297,7 @@ _ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit36
 .noexc141:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit.i", %1672
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44), !noalias !2737
   %1680 = load i8, ptr %275, align 8, !range !13, !alias.scope !2696, !noalias !2701, !noundef !8
-  %1681 = trunc i8 %1680 to i1
+  %1681 = trunc nuw i8 %1680 to i1
   br i1 %1681, label %1722, label %1719
 
 1682:                                             ; preds = %1665
@@ -18458,7 +18458,7 @@ _ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i.i)
   %1740 = load i8, ptr %.sroa.10.sroa.11.0..sroa.10.0..sroa_idx.sroa_idx, align 1, !range !13, !alias.scope !3232, !noalias !2417, !noundef !8
-  %1741 = trunc i8 %1740 to i1
+  %1741 = trunc nuw i8 %1740 to i1
   br i1 %1741, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h958d7734447a4134E.exit.thread.i", label %374
 
 1742:                                             ; preds = %815, %.noexc48
@@ -18737,7 +18737,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 
 49:                                               ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit
   %50 = load i64, ptr %10, align 8, !range !379, !noalias !3266, !noundef !8
-  %trunc.i = trunc i64 %50 to i1
+  %trunc.i = trunc nuw i64 %50 to i1
   %51 = getelementptr inbounds i8, ptr %10, i64 8
   %52 = load i64, ptr %51, align 8, !noalias !3266
   %.sroa.3.0.i = select i1 %trunc.i, i64 %52, i64 undef
@@ -21231,7 +21231,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !3649
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !3649
   %.pre.i = load i8, ptr %20, align 1, !range !13, !noalias !3649
-  %107 = trunc i8 %.pre.i to i1
+  %107 = trunc nuw i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20), !noalias !3649
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
@@ -21260,7 +21260,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
   store i8 1, ptr %115, align 2
   %116 = getelementptr inbounds i8, ptr %114, i64 825
   %117 = load i8, ptr %116, align 1, !range !13, !noundef !8
-  %118 = trunc i8 %117 to i1
+  %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %140, %112
@@ -21508,7 +21508,7 @@ define noundef i32 @"_ZN99_$LT$rustfmt_nightly..comment..CommentReducer$u20$as$u
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !range !13
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds i8, ptr %0, i64 17
   %.promoted = load i8, ptr %8, align 1
   br label %9
@@ -21583,7 +21583,7 @@ define noundef i32 @"_ZN99_$LT$rustfmt_nightly..comment..CommentReducer$u20$as$u
   br i1 %49, label %.thread77, label %.critedge40.thread
 
 50:                                               ; preds = %.thread74
-  %51 = trunc i8 %10 to i1
+  %51 = trunc nuw i8 %10 to i1
   br i1 %51, label %.preheader, label %48
 
 .preheader:                                       ; preds = %50, %113
@@ -22145,7 +22145,7 @@ define noundef zeroext i1 @"_ZN84_$LT$rustfmt_nightly..config..file_lines..FileN
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN3std3sys4unix6os_str5Slice6to_str17h563dd71f003e3daeE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14)
   %15 = load i64, ptr %3, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %15 to i1
+  %trunc = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !8, !align !451
   %18 = getelementptr inbounds i8, ptr %3, i64 16
@@ -23045,7 +23045,7 @@ define void @"_ZN93_$LT$rustfmt_nightly..config..file_lines..FileLines$u20$as$u2
   store i64 %.sroa.9.8.copyload73, ptr %.sroa.5112.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
   %26 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h55a642b04532a853E, align 8, !range !379, !noalias !4007, !noundef !8
-  %trunc.i.i = trunc i64 %26 to i1
+  %trunc.i.i = trunc nuw i64 %26 to i1
   br i1 %trunc.i.i, label %._crit_edge, label %27
 
 ._crit_edge:                                      ; preds = %25
@@ -23298,7 +23298,7 @@ define void @"_ZN93_$LT$rustfmt_nightly..config..file_lines..FileLines$u20$as$u2
 
 87:                                               ; preds = %83
   %88 = load i64, ptr %11, align 8, !range !379, !noundef !8
-  %trunc36 = trunc i64 %88 to i1
+  %trunc36 = trunc nuw i64 %88 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.594, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   %.sroa.4127.0.copyload = load ptr, ptr %.sroa.4124.0..sroa_idx, align 8
   %.sroa.5128.0.copyload = load i64, ptr %.sroa.5125.0..sroa_idx, align 8
@@ -24087,10 +24087,10 @@ switch.lookup:                                    ; preds = %190
   %..i = zext i1 %switch1.i to i8
   %201 = getelementptr inbounds i8, ptr %.sroa.0186.0338, i64 104
   %202 = load i8, ptr %201, align 8, !range !13, !alias.scope !4226, !noundef !8
-  %203 = trunc i8 %202 to i1
+  %203 = trunc nuw i8 %202 to i1
   %204 = getelementptr inbounds i8, ptr %.sroa.0186.0338, i64 105
   %205 = load i8, ptr %204, align 1, !range !13, !alias.scope !4226
-  %206 = trunc i8 %205 to i1
+  %206 = trunc nuw i8 %205 to i1
   %207 = select i1 %203, i1 true, i1 %206
   %spec.select = select i1 %207, i8 3, i8 5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
@@ -24516,7 +24516,7 @@ define hidden void @"_ZN15rustfmt_nightly10formatting51_$LT$impl$u20$rustfmt_nig
   store i8 1, ptr %15, align 2
   %16 = getelementptr inbounds i8, ptr %14, i64 805
   %17 = load i8, ptr %16, align 1, !range !13, !noundef !8
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %3
@@ -24536,7 +24536,7 @@ define hidden void @"_ZN15rustfmt_nightly10formatting51_$LT$impl$u20$rustfmt_nig
   %24 = getelementptr inbounds i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !nonnull !8, !align !451, !noundef !8
   %26 = load i8, ptr %25, align 1, !range !13, !noundef !8
-  %27 = trunc i8 %26 to i1
+  %27 = trunc nuw i8 %26 to i1
   invoke void @_ZN15rustfmt_nightly10formatting14format_project17h43ce6862d854198fE(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 %11, ptr noalias noundef nonnull align 8 dereferenceable(904) %23, i1 noundef zeroext %27)
           to label %30 unwind label %28
 
@@ -25147,7 +25147,7 @@ define hidden noundef zeroext i1 @"_ZN15rustfmt_nightly7modules6Module3new28_$u7
   %3 = load ptr, ptr %1, align 8, !nonnull !8, !align !56, !noundef !8
   %4 = getelementptr inbounds i8, ptr %3, i64 28
   %5 = load i8, ptr %4, align 4, !range !13, !noundef !8
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   ret i1 %6
 }
 
@@ -25358,7 +25358,7 @@ define internal fastcc void @_ZN15rustfmt_nightly8overflow7Context13rewrite_item
   %.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.01.0.copyload.i, 32
   %.sroa.4.0.extract.trunc.i.i = trunc i64 %.sroa.4.0.extract.shift.i.i to i16
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.01.0.copyload.i, 48
-  %.sroa.5.0.extract.trunc.i.i = trunc i64 %.sroa.5.0.extract.shift.i.i to i32
+  %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
   %.not.i.i = icmp eq i16 %.sroa.4.0.extract.trunc.i.i, -1
   br i1 %.not.i.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.i, label %80
 
@@ -25368,7 +25368,7 @@ define internal fastcc void @_ZN15rustfmt_nightly8overflow7Context13rewrite_item
   br i1 %81, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread4.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i: ; preds = %80
-  %83 = trunc i64 %.sroa.4.0.extract.shift.i.i to i32
+  %83 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i to i32
   %84 = and i32 %83, 32767
   %85 = add i32 %84, %.sroa.09.0.extract.trunc.i.i
   store i32 %85, ptr %82, align 4, !alias.scope !4467, !noalias !4450
@@ -25448,7 +25448,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
   %.sroa.4.0.extract.shift.i = lshr i64 %97, 32
   %.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.4.0.extract.shift.i to i16
   %.sroa.5.0.extract.shift.i = lshr i64 %97, 48
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
   %.not.i84 = icmp eq i16 %.sroa.4.0.extract.trunc.i, -1
   br i1 %.not.i84, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit, label %117
 
@@ -25552,7 +25552,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   br i1 %.not.i84, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit91, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit91.thread174
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit91.thread: ; preds = %117
-  %144 = trunc i64 %.sroa.4.0.extract.shift.i to i32
+  %144 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %145 = and i32 %144, 32767
   %146 = add i32 %145, %.sroa.09.0.extract.trunc.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
@@ -25811,13 +25811,13 @@ tailrecurse.i.i.i.i.i.i:                          ; preds = %241, %226
   store i8 1, ptr %233, align 2, !noalias !4509
   %234 = getelementptr inbounds i8, ptr %232, i64 609
   %235 = load i8, ptr %234, align 1, !range !13, !noalias !4509, !noundef !8
-  %236 = trunc i8 %235 to i1
+  %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i.i.i.i.i.i, label %237
 
 237:                                              ; preds = %230
   %238 = getelementptr inbounds i8, ptr %57, i64 169
   %239 = load i8, ptr %238, align 1, !range !13, !noalias !4509, !noundef !8
-  %240 = trunc i8 %239 to i1
+  %240 = trunc nuw i8 %239 to i1
   br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i.i.i.i.i.i
 
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i.i.i.i.i.i: ; preds = %237, %230
@@ -25869,13 +25869,13 @@ tailrecurse.i1.i.i.i.i.i:                         ; preds = %263, %248
   store i8 1, ptr %255, align 2, !noalias !4512
   %256 = getelementptr inbounds i8, ptr %254, i64 609
   %257 = load i8, ptr %256, align 1, !range !13, !noalias !4512, !noundef !8
-  %258 = trunc i8 %257 to i1
+  %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i3.i.i.i.i.i, label %259
 
 259:                                              ; preds = %252
   %260 = getelementptr inbounds i8, ptr %57, i64 169
   %261 = load i8, ptr %260, align 1, !range !13, !noalias !4512, !noundef !8
-  %262 = trunc i8 %261 to i1
+  %262 = trunc nuw i8 %261 to i1
   br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i3.i.i.i.i.i
 
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i3.i.i.i.i.i: ; preds = %259, %252
@@ -25926,13 +25926,13 @@ tailrecurse.i9.i.i.i.i.i:                         ; preds = %285, %270
   store i8 1, ptr %277, align 2, !noalias !4515
   %278 = getelementptr inbounds i8, ptr %276, i64 609
   %279 = load i8, ptr %278, align 1, !range !13, !noalias !4515, !noundef !8
-  %280 = trunc i8 %279 to i1
+  %280 = trunc nuw i8 %279 to i1
   br i1 %280, label %_ZN15rustfmt_nightly8overflow17can_be_overflowed17hd384a48ae44d6db2E.exit.i, label %281
 
 281:                                              ; preds = %274
   %282 = getelementptr inbounds i8, ptr %57, i64 169
   %283 = load i8, ptr %282, align 1, !range !13, !noalias !4515, !noundef !8
-  %284 = trunc i8 %283 to i1
+  %284 = trunc nuw i8 %283 to i1
   br label %_ZN15rustfmt_nightly8overflow17can_be_overflowed17hd384a48ae44d6db2E.exit.i
 
 285:                                              ; preds = %273, %tailrecurse.i9.i.i.i.i.i
@@ -26128,7 +26128,7 @@ tailrecurse.i191.i.backedge:                      ; preds = %tailrecurse.i191.i,
   store i8 1, ptr %338, align 2, !noalias !4491
   %339 = getelementptr inbounds i8, ptr %337, i64 769
   %340 = load i8, ptr %339, align 1, !range !13, !noalias !4491, !noundef !8
-  %341 = trunc i8 %340 to i1
+  %341 = trunc nuw i8 %340 to i1
   br i1 %341, label %_ZN15rustfmt_nightly4expr14is_method_call17hfbffb6f488bc783bE.exit.sink.split.i, label %_ZN15rustfmt_nightly4expr14is_method_call17hfbffb6f488bc783bE.exit.i
 
 .loopexit407.i:                                   ; preds = %tailrecurse.i1.i.i.i, %tailrecurse.i.i.i.i, %324, %315, %308
@@ -26342,17 +26342,17 @@ tailrecurse.i191.i.backedge:                      ; preds = %tailrecurse.i191.i,
 
 .noexc.i.i.i:                                     ; preds = %392
   %397 = load i64, ptr %11, align 8, !range !379, !noalias !4570, !noundef !8
-  %trunc.i.i.i.i.i = trunc i64 %397 to i1
+  %trunc.i.i.i.i.i = trunc nuw i64 %397 to i1
   br i1 %trunc.i.i.i.i.i, label %406, label %398
 
 398:                                              ; preds = %.noexc.i.i.i
   %399 = load i8, ptr %.sroa.415.sroa.13.0..sroa.415.0..sroa_idx.sroa_idx.i.i.i, align 1, !range !13, !alias.scope !4572, !noalias !4530, !noundef !8
-  %400 = trunc i8 %399 to i1
+  %400 = trunc nuw i8 %399 to i1
   br i1 %400, label %.thread54.i.i.i, label %401
 
 401:                                              ; preds = %398
   %402 = load i8, ptr %.sroa.415.sroa.12.0..sroa.415.0..sroa_idx.sroa_idx.i.i.i, align 8, !range !13, !alias.scope !4572, !noalias !4530, !noundef !8
-  %403 = trunc i8 %402 to i1
+  %403 = trunc nuw i8 %402 to i1
   %.pre.i.i.i.i.i.i = load i64, ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !alias.scope !4572, !noalias !4530
   %.pre5.i.i.i.i.i.i = load i64, ptr %.sroa.415.sroa.4.0..sroa.415.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !4572, !noalias !4530
   %.not.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i, %.pre.i.i.i.i.i.i
@@ -27066,7 +27066,7 @@ _ZN15rustfmt_nightly8overflow7Context14default_tactic17h3f5443461f686be4E.exit.i
   store i8 1, ptr %638, align 2, !noalias !4689
   %639 = getelementptr inbounds i8, ptr %633, i64 769
   %640 = load i8, ptr %639, align 1, !range !13, !noalias !4689, !noundef !8
-  %641 = trunc i8 %640 to i1
+  %641 = trunc nuw i8 %640 to i1
   %642 = icmp eq i64 %.019.val.i.i, 2
   %brmerge.not.i.i.i = and i1 %642, %641
   %.sroa.03.0.i.i.i = select i1 %brmerge.not.i.i.i, ptr @anon.ac9b56db96481140084a14b3a62254c9.301, ptr @anon.ac9b56db96481140084a14b3a62254c9.35.llvm.17476841346288807550
@@ -27358,7 +27358,7 @@ thread-pre-split.i:                               ; preds = %699, %696, %687, %6
   store i8 1, ptr %745, align 2
   %746 = getelementptr inbounds i8, ptr %744, i64 609
   %747 = load i8, ptr %746, align 1, !range !13, !noundef !8
-  %748 = trunc i8 %747 to i1
+  %748 = trunc nuw i8 %747 to i1
   br i1 %748, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit
 
 749:                                              ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit, %739
@@ -27371,7 +27371,7 @@ thread-pre-split.i:                               ; preds = %699, %696, %687, %6
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit: ; preds = %742
   %750 = getelementptr inbounds i8, ptr %57, i64 169
   %751 = load i8, ptr %750, align 1, !range !13, !noundef !8
-  %752 = trunc i8 %751 to i1
+  %752 = trunc nuw i8 %751 to i1
   br i1 %752, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread, label %749
 
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread: ; preds = %742, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit
@@ -27389,7 +27389,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   store i8 1, ptr %760, align 2
   %761 = getelementptr inbounds i8, ptr %759, i64 609
   %762 = load i8, ptr %761, align 1, !range !13, !noundef !8
-  %763 = trunc i8 %762 to i1
+  %763 = trunc nuw i8 %762 to i1
   br i1 %763, label %767, label %764
 
 764:                                              ; preds = %757
@@ -27510,7 +27510,7 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context7rewrite17hf6171a372e04
   store i8 1, ptr %29, align 2
   %30 = getelementptr inbounds i8, ptr %28, i64 609
   %31 = load i8, ptr %30, align 1, !range !13, !noundef !8
-  %32 = trunc i8 %31 to i1
+  %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit
 
 33:                                               ; preds = %3
@@ -27536,7 +27536,7 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context7rewrite17hf6171a372e04
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit: ; preds = %23
   %34 = getelementptr inbounds i8, ptr %26, i64 169
   %35 = load i8, ptr %34, align 1, !range !13, !noundef !8
-  %36 = trunc i8 %35 to i1
+  %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread, label %37
 
 37:                                               ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit
@@ -27584,7 +27584,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 
 .noexc:                                           ; preds = %37
   %44 = load i64, ptr %15, align 8, !range !379, !noalias !4783, !noundef !8
-  %trunc.i.i.i.i.i7.i.i = trunc i64 %44 to i1
+  %trunc.i.i.i.i.i7.i.i = trunc nuw i64 %44 to i1
   br i1 %trunc.i.i.i.i.i7.i.i, label %148, label %140
 
 45:                                               ; preds = %.noexc19
@@ -27599,7 +27599,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   call void @llvm.experimental.noalias.scope.decl(metadata !4793)
   call void @llvm.experimental.noalias.scope.decl(metadata !4796)
   %49 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx.i, align 1, !range !13, !alias.scope !4799, !noalias !4800, !noundef !8
-  %50 = trunc i8 %49 to i1
+  %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %48
@@ -27610,18 +27610,18 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 
 .noexc17:                                         ; preds = %51
   %52 = load i64, ptr %16, align 8, !range !379, !noalias !4802, !noundef !8
-  %trunc.i.i.i.i.i.i.i = trunc i64 %52 to i1
+  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %52 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %61, label %53
 
 53:                                               ; preds = %.noexc17
   %54 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx.i, align 1, !range !13, !alias.scope !4803, !noalias !4800, !noundef !8
-  %55 = trunc i8 %54 to i1
+  %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i.i.i", label %56
 
 56:                                               ; preds = %53
   store i8 1, ptr %.sroa.0.sroa.13.0..sroa_idx.i, align 1, !alias.scope !4803, !noalias !4800
   %57 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx.i, align 8, !range !13, !alias.scope !4803, !noalias !4800, !noundef !8
-  %58 = trunc i8 %57 to i1
+  %58 = trunc nuw i8 %57 to i1
   %.pre.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8, !alias.scope !4803, !noalias !4800
   %.pre5.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4803, !noalias !4800
   %.not.i.i.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i.i.i
@@ -27799,13 +27799,13 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 
 140:                                              ; preds = %.noexc
   %141 = load i8, ptr %.sroa.0.sroa.13.0..sroa_idx.i, align 1, !range !13, !alias.scope !4828, !noalias !4762, !noundef !8
-  %142 = trunc i8 %141 to i1
+  %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddfe8b31815138d6E.exit.thread6.i.i.i12.i.i", label %143
 
 143:                                              ; preds = %140
   store i8 1, ptr %.sroa.0.sroa.13.0..sroa_idx.i, align 1, !alias.scope !4828, !noalias !4762
   %144 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx.i, align 8, !range !13, !alias.scope !4828, !noalias !4762, !noundef !8
-  %145 = trunc i8 %144 to i1
+  %145 = trunc nuw i8 %144 to i1
   %.pre.i.i.i.i.i.i8.i.i = load i64, ptr %42, align 8, !alias.scope !4828, !noalias !4762
   %.pre5.i.i.i.i.i.i9.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4828, !noalias !4762
   %.not.i.i.i.i.i.i10.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i9.i.i, %.pre.i.i.i.i.i.i8.i.i
@@ -27957,17 +27957,17 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 
 .noexc23:                                         ; preds = %183
   %184 = load i64, ptr %8, align 8, !range !379, !noalias !4857, !noundef !8
-  %trunc.i.i.i.i = trunc i64 %184 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %184 to i1
   br i1 %trunc.i.i.i.i, label %193, label %185
 
 185:                                              ; preds = %.noexc23
   %186 = load i8, ptr %.sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 1, !range !13, !alias.scope !4858, !noalias !4848, !noundef !8
-  %187 = trunc i8 %186 to i1
+  %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %_ZN15rustfmt_nightly5utils16first_line_width17h902357b3d49bd533E.exit.i, label %188
 
 188:                                              ; preds = %185
   %189 = load i8, ptr %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !range !13, !alias.scope !4858, !noalias !4848, !noundef !8
-  %190 = trunc i8 %189 to i1
+  %190 = trunc nuw i8 %189 to i1
   %.pre.i.i.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !4858, !noalias !4848
   %.pre5.i.i.i.i.i = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !4858, !noalias !4848
   %.not.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i, %.pre.i.i.i.i.i
@@ -28122,7 +28122,7 @@ _ZN15rustfmt_nightly5utils16first_line_width17h902357b3d49bd533E.exit.i: ; preds
   store i8 1, ptr %246, align 2, !noalias !4862
   %247 = getelementptr inbounds i8, ptr %245, i64 769
   %248 = load i8, ptr %247, align 1, !range !13, !noalias !4862, !noundef !8
-  %249 = trunc i8 %248 to i1
+  %249 = trunc nuw i8 %248 to i1
   br i1 %249, label %250, label %256
 
 250:                                              ; preds = %239
@@ -28131,7 +28131,7 @@ _ZN15rustfmt_nightly5utils16first_line_width17h902357b3d49bd533E.exit.i: ; preds
   store i8 1, ptr %252, align 2, !noalias !4862
   %253 = getelementptr inbounds i8, ptr %251, i64 609
   %254 = load i8, ptr %253, align 1, !range !13, !noalias !4862, !noundef !8
-  %255 = trunc i8 %254 to i1
+  %255 = trunc nuw i8 %254 to i1
   br i1 %255, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread.i, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i
 
 256:                                              ; preds = %239
@@ -28141,13 +28141,13 @@ _ZN15rustfmt_nightly5utils16first_line_width17h902357b3d49bd533E.exit.i: ; preds
   store i8 1, ptr %258, align 2, !noalias !4862
   %259 = getelementptr inbounds i8, ptr %257, i64 609
   %260 = load i8, ptr %259, align 1, !range !13, !noalias !4862, !noundef !8
-  %261 = trunc i8 %260 to i1
+  %261 = trunc nuw i8 %260 to i1
   br i1 %261, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit27.thread.i, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit27.i
 
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.i: ; preds = %250
   %262 = getelementptr inbounds i8, ptr %26, i64 169
   %263 = load i8, ptr %262, align 1, !range !13, !noalias !4862, !noundef !8
-  %264 = trunc i8 %263 to i1
+  %264 = trunc nuw i8 %263 to i1
   %.not.i = xor i1 %264, true
   %265 = icmp ule i64 %.0.i20, %169
   %or.cond.i = and i1 %265, %24
@@ -28162,7 +28162,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit27.i: ; preds = %256
   %266 = getelementptr inbounds i8, ptr %26, i64 169
   %267 = load i8, ptr %266, align 1, !range !13, !noalias !4862, !noundef !8
-  %268 = trunc i8 %267 to i1
+  %268 = trunc nuw i8 %267 to i1
   br i1 %268, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit27.thread.i, label %.critedge17.i
 
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit27.thread.i: ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit27.i, %256
@@ -28170,7 +28170,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   %270 = load ptr, ptr %269, align 8, !noalias !4862, !nonnull !8, !noundef !8
   %271 = getelementptr inbounds i8, ptr %270, i64 16
   %272 = load i8, ptr %271, align 1, !range !13, !noalias !4862, !noundef !8
-  %273 = trunc i8 %272 to i1
+  %273 = trunc nuw i8 %272 to i1
   br i1 %273, label %274, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.17476841346288807550.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.17476841346288807550.exit.thread.i": ; preds = %.lr.ph.i.i.i, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit27.thread.i
@@ -28482,13 +28482,13 @@ define hidden void @_ZN15rustfmt_nightly8overflow23shape_from_indent_style17h626
   store i8 1, ptr %8, align 2
   %9 = getelementptr inbounds i8, ptr %7, i64 609
   %10 = load i8, ptr %9, align 1, !range !13, !noundef !8
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit
 
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit: ; preds = %5
   %12 = getelementptr inbounds i8, ptr %1, i64 169
   %13 = load i8, ptr %12, align 1, !range !13, !noundef !8
-  %14 = trunc i8 %13 to i1
+  %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit.thread, label %15
 
 15:                                               ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit
@@ -28950,7 +28950,7 @@ define hidden void @_ZN15rustfmt_nightly5parse6parser6Parser17parse_crate_inner1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
   store i8 %.sroa.546.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !5076
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5080)
-  %trunc.i.i = trunc i64 %.sroa.045.0.copyload to i1
+  %trunc.i.i = trunc nuw i64 %.sroa.045.0.copyload to i1
   br i1 %trunc.i.i, label %25, label %19
 
 19:                                               ; preds = %18
@@ -29234,7 +29234,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i, 
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %.sroa.14.sroa.8.i)
   %.sroa.7.sroa.0.0.extract.trunc = trunc i64 %55 to i8
   %.sroa.7.sroa.8.0.extract.shift = lshr i64 %55, 8
-  %.sroa.7.sroa.8.0.extract.trunc = trunc i64 %.sroa.7.sroa.8.0.extract.shift to i56
+  %.sroa.7.sroa.8.0.extract.trunc = trunc nuw i64 %.sroa.7.sroa.8.0.extract.shift to i56
   store i64 %.sroa.0.1.i, ptr %16, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
   store i8 %.sroa.7.sroa.0.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
@@ -29793,7 +29793,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %64
   %.sroa.4.0.extract.shift.i = lshr i64 %6, 32
   %.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.4.0.extract.shift.i to i16
   %.sroa.5.0.extract.shift.i = lshr i64 %6, 48
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
   %.not.i76 = icmp eq i16 %.sroa.4.0.extract.trunc.i, -1
   br i1 %.not.i76, label %104, label %105
 
@@ -29812,7 +29812,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %64
   br i1 %106, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread171
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %105
-  %110 = trunc i64 %.sroa.4.0.extract.shift.i to i32
+  %110 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %111 = and i32 %110, 32767
   %112 = add i32 %111, %.sroa.09.0.extract.trunc.i
   store i32 %112, ptr %108, align 4, !alias.scope !5221
@@ -29893,7 +29893,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   store i8 1, ptr %140, align 2, !noalias !5232
   %141 = getelementptr inbounds i8, ptr %139, i64 609
   %142 = load i8, ptr %141, align 1, !range !13, !noalias !5232, !noundef !8
-  %143 = trunc i8 %142 to i1
+  %143 = trunc nuw i8 %142 to i1
   %144 = icmp ne i64 %136, 1
   %or.cond.not.i = or i1 %144, %143
   br i1 %or.cond.not.i, label %145, label %151
@@ -29904,7 +29904,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   store i8 1, ptr %147, align 2, !noalias !5232
   %148 = getelementptr inbounds i8, ptr %146, i64 653
   %149 = load i8, ptr %148, align 1, !range !13, !noalias !5232, !noundef !8
-  %150 = trunc i8 %149 to i1
+  %150 = trunc nuw i8 %149 to i1
   %..i = select i1 %150, i64 2, i64 0
   br label %151
 
@@ -29945,7 +29945,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %157
-  %trunc.i = trunc i64 %79 to i1
+  %trunc.i = trunc nuw i64 %79 to i1
   br i1 %trunc.i, label %161, label %160
 
 160:                                              ; preds = %159
@@ -29975,7 +29975,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   store i8 1, ptr %169, align 2, !noalias !5244
   %170 = getelementptr inbounds i8, ptr %168, i64 757
   %171 = load i8, ptr %170, align 1, !range !9, !noalias !5244, !noundef !8
-  %172 = trunc i8 %167 to i1
+  %172 = trunc nuw i8 %167 to i1
   %173 = icmp eq i64 %.sroa.0.0.i, 0
   %narrow.i = and i1 %173, %172
   %.0.i = zext i1 %narrow.i to i8
@@ -30032,7 +30032,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.424.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.444.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   store i64 %186, ptr %32, align 8
-  %trunc.i85 = trunc i64 %79 to i1
+  %trunc.i85 = trunc nuw i64 %79 to i1
   %193 = extractelement <2 x i64> %82, i64 0
   %.0.i86 = select i1 %trunc.i85, i64 %193, i64 0
   %194 = load i8, ptr %178, align 1, !range !9, !alias.scope !5247, !noundef !8
@@ -30057,7 +30057,7 @@ default.unreachable:                              ; preds = %192
 
 201:                                              ; preds = %195
   %202 = load i8, ptr %179, align 8, !range !13, !alias.scope !5247, !noundef !8
-  %203 = trunc i8 %202 to i1
+  %203 = trunc nuw i8 %202 to i1
   %204 = xor i1 %203, true
   br label %_ZN15rustfmt_nightly5lists14ListFormatting24needs_trailing_separator17h48e9967d1f864e8fE.exit
 
@@ -30371,7 +30371,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit102: ; preds = %262
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN94_$LT$rustfmt_nightly..patterns..TuplePatField$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17h82f093a61a1de585E"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %1, align 8, !range !5316, !noundef !8
-  %trunc = trunc i32 %5 to i1
+  %trunc = trunc nuw i32 %5 to i1
   br i1 %trunc, label %10, label %6
 
 6:                                                ; preds = %4
@@ -30402,7 +30402,7 @@ define void @"_ZN94_$LT$rustfmt_nightly..patterns..TuplePatField$u20$as$u20$rust
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @"_ZN94_$LT$rustfmt_nightly..patterns..TuplePatField$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span17hc34bb278ca4ef80bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #32 {
   %2 = load i32, ptr %0, align 8, !range !5316, !noundef !8
-  %trunc = trunc i32 %2 to i1
+  %trunc = trunc nuw i32 %2 to i1
   br i1 %trunc, label %8, label %3
 
 3:                                                ; preds = %1
@@ -30426,7 +30426,7 @@ define i64 @"_ZN94_$LT$rustfmt_nightly..patterns..TuplePatField$u20$as$u20$rustf
 define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly8patterns21can_be_overflowed_pat17h4ac2f4b0f0937e1aE(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = load i32, ptr %1, align 8, !range !5316, !noundef !8
-  %trunc = trunc i32 %5 to i1
+  %trunc = trunc nuw i32 %5 to i1
   br i1 %trunc, label %27, label %6
 
 6:                                                ; preds = %3
@@ -30451,13 +30451,13 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly8patterns21can_be
   store i8 1, ptr %14, align 2
   %15 = getelementptr inbounds i8, ptr %13, i64 609
   %16 = load i8, ptr %15, align 1, !range !13, !noundef !8
-  %17 = trunc i8 %16 to i1
+  %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %0, i64 169
   %20 = load i8, ptr %19, align 1, !range !13, !noundef !8
-  %21 = trunc i8 %20 to i1
+  %21 = trunc nuw i8 %20 to i1
   br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit
 
 _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit: ; preds = %11, %18
@@ -30694,7 +30694,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %39
   %.sroa.4.0.extract.shift.i.i = lshr i64 %4, 32
   %.sroa.4.0.extract.trunc.i.i = trunc i64 %.sroa.4.0.extract.shift.i.i to i16
   %.sroa.5.0.extract.shift.i.i = lshr i64 %4, 48
-  %.sroa.5.0.extract.trunc.i.i = trunc i64 %.sroa.5.0.extract.shift.i.i to i32
+  %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
   %.not.i.i = icmp eq i16 %.sroa.4.0.extract.trunc.i.i, -1
   br i1 %.not.i.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.i, label %78
 
@@ -30704,7 +30704,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %39
   br i1 %79, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread26.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i: ; preds = %78
-  %81 = trunc i64 %.sroa.4.0.extract.shift.i.i to i32
+  %81 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i to i32
   %82 = and i32 %81, 32767
   %83 = add i32 %82, %.sroa.09.0.extract.trunc.i.i
   store i32 %83, ptr %80, align 4, !alias.scope !5359, !noalias !5342
@@ -30844,7 +30844,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   store i8 1, ptr %134, align 2
   %135 = getelementptr inbounds i8, ptr %133, i64 793
   %136 = load i8, ptr %135, align 1, !range !13, !noundef !8
-  %137 = trunc i8 %136 to i1
+  %137 = trunc nuw i8 %136 to i1
   %138 = icmp ugt i64 %.1.i, 1
   %or.cond = and i1 %138, %137
   br i1 %or.cond, label %139, label %_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit
@@ -30867,7 +30867,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %131
   %143 = getelementptr inbounds [0 x { i32, [3 x i32] }], ptr %.val88, i64 0, i64 %reass.sub
   call void @llvm.experimental.noalias.scope.decl(metadata !5377)
   %144 = load i32, ptr %143, align 8, !range !5316, !alias.scope !5377, !noundef !8
-  %trunc.i = trunc i32 %144 to i1
+  %trunc.i = trunc nuw i32 %144 to i1
   br i1 %trunc.i, label %150, label %145
 
 145:                                              ; preds = %142
@@ -30910,7 +30910,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %.sroa.4.0.extract.shift.i = lshr i64 %.sroa.0.0.i, 32
   %.sroa.4.0.extract.trunc.i = trunc i64 %.sroa.4.0.extract.shift.i to i16
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.0.0.i, 48
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
   %.not.i110 = icmp eq i16 %.sroa.4.0.extract.trunc.i, -1
   br i1 %.not.i110, label %159, label %160
 
@@ -30929,7 +30929,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   br i1 %161, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread145
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %160
-  %165 = trunc i64 %.sroa.4.0.extract.shift.i to i32
+  %165 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
   %166 = and i32 %165, 32767
   %167 = add i32 %166, %.sroa.09.0.extract.trunc.i
   store i32 %167, ptr %163, align 4, !alias.scope !5380
@@ -31070,7 +31070,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit.thread: ; preds = %_RN
   %209 = getelementptr inbounds [0 x { i32, [3 x i32] }], ptr %.val.pn162, i64 0, i64 %208
   call void @llvm.experimental.noalias.scope.decl(metadata !5386)
   %.val.i = load i32, ptr %209, align 8, !range !5316, !alias.scope !5386, !noundef !8
-  %trunc.i.i.i = trunc i32 %.val.i to i1
+  %trunc.i.i.i = trunc nuw i32 %.val.i to i1
   br i1 %trunc.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf41c44b6942641bbE.exit", label %210
 
 210:                                              ; preds = %_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit.thread
@@ -31305,7 +31305,7 @@ define hidden noundef zeroext i1 @"_ZN15rustfmt_nightly16FormattedSnippet21is_li
 define void @_ZN15rustfmt_nightly12FormatReport3new17h92af0939ed195f59E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i8, i8, i8, i8, i8, i8, i8 }, [1 x i8] } } } }, align 8
   %3 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h55a642b04532a853E, align 8, !range !379, !noalias !5424, !noundef !8
-  %trunc.i.i = trunc i64 %3 to i1
+  %trunc.i.i = trunc nuw i64 %3 to i1
   br i1 %trunc.i.i, label %"._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge", label %4
 
 "._ZN4core6result19Result$LT$T$C$E$GT$6expect17h22745780a1b77b69E.llvm.17476841346288807550.exit_crit_edge": ; preds = %1
@@ -31496,7 +31496,7 @@ define hidden void @_ZN15rustfmt_nightly12FormatReport6append17h87255c5d0b740dc9
 24:                                               ; preds = %22, %19
   %25 = getelementptr inbounds i8, ptr %.val, i64 72
   %26 = load i8, ptr %25, align 8, !range !13, !noalias !5459, !noundef !8
-  %27 = trunc i8 %26 to i1
+  %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %36, %32, %24
@@ -31511,13 +31511,13 @@ define hidden void @_ZN15rustfmt_nightly12FormatReport6append17h87255c5d0b740dc9
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %.val, i64 76
   %34 = load i8, ptr %33, align 4, !range !13, !noalias !5459, !noundef !8
-  %35 = trunc i8 %34 to i1
+  %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %28
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %.val, i64 78
   %38 = load i8, ptr %37, align 2, !range !13, !noalias !5459, !noundef !8
-  %39 = trunc i8 %38 to i1
+  %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %.loopexit, label %28
 
 40:                                               ; preds = %47, %.lr.ph.i
@@ -31589,7 +31589,7 @@ define hidden void @_ZN15rustfmt_nightly12FormatReport6append17h87255c5d0b740dc9
 
 58:                                               ; preds = %.loopexit
   %59 = load i64, ptr %9, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %59 to i1
+  %trunc = trunc nuw i64 %59 to i1
   %60 = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
   %.sroa.542.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
@@ -31879,7 +31879,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly12FormatReport12has_warnings17h68
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 74
   %9 = load i8, ptr %8, align 2, !range !13, !noundef !8
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   ret i1 %10
 
 11:                                               ; preds = %1
@@ -32203,7 +32203,7 @@ define hidden void @_ZN15rustfmt_nightly17format_code_block17h07c98fdf1c2552d5E(
   store i8 1, ptr %43, align 2, !noalias !5584
   %44 = getelementptr inbounds i8, ptr %3, i64 601
   %45 = load i8, ptr %44, align 1, !range !13, !noalias !5584, !noundef !8
-  %46 = trunc i8 %45 to i1
+  %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %_ZN15rustfmt_nightly5shape6Indent10from_width17h95e3c1231b9d5a9fE.exit.i
 
 47:                                               ; preds = %5
@@ -32501,13 +32501,13 @@ _ZN15rustfmt_nightly5shape6Indent10from_width17h95e3c1231b9d5a9fE.exit.i: ; pred
 152:                                              ; preds = %144
   store i8 1, ptr %72, align 2, !noalias !5656
   %153 = load i8, ptr %73, align 1, !range !13, !noalias !5656, !noundef !8
-  %154 = trunc i8 %153 to i1
+  %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %158, label %_ZN15rustfmt_nightly5utils16indent_next_line17h6bdec64a42dd4121E.exit.i
 
 155:                                              ; preds = %144, %144
   store i8 1, ptr %70, align 2, !noalias !5656
   %156 = load i8, ptr %71, align 1, !range !13, !noalias !5656, !noundef !8
-  %157 = trunc i8 %156 to i1
+  %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %160, label %_ZN15rustfmt_nightly5utils16indent_next_line17h6bdec64a42dd4121E.exit.i
 
 158:                                              ; preds = %152
@@ -32720,7 +32720,7 @@ _ZN15rustfmt_nightly16FormattedSnippet17unwrap_code_block17h7909d7195ee88b36E.ex
 
 226:                                              ; preds = %_ZN15rustfmt_nightly16FormattedSnippet17unwrap_code_block17h7909d7195ee88b36E.exit
   %227 = load i64, ptr %18, align 8, !range !379, !noalias !5679, !noundef !8
-  %trunc.i = trunc i64 %227 to i1
+  %trunc.i = trunc nuw i64 %227 to i1
   %228 = getelementptr inbounds i8, ptr %18, i64 8
   %229 = load i64, ptr %228, align 8, !noalias !5679
   %.sroa.3.0.i = select i1 %trunc.i, i64 %229, i64 undef
@@ -32736,7 +32736,7 @@ _ZN15rustfmt_nightly16FormattedSnippet17unwrap_code_block17h7909d7195ee88b36E.ex
   %231 = load i64, ptr %40, align 8, !noundef !8
   store i8 1, ptr %43, align 2
   %232 = load i8, ptr %44, align 1, !range !13, !noundef !8
-  %233 = trunc i8 %232 to i1
+  %233 = trunc nuw i8 %232 to i1
   br i1 %233, label %234, label %237
 
 234:                                              ; preds = %226
@@ -33114,7 +33114,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.17476841346288807550.exit:
 349:                                              ; preds = %346
   store i8 1, ptr %43, align 2
   %350 = load i8, ptr %44, align 1, !range !13, !noundef !8
-  %351 = trunc i8 %350 to i1
+  %351 = trunc nuw i8 %350 to i1
   br i1 %351, label %.thread141, label %352
 
 352:                                              ; preds = %349
@@ -33171,13 +33171,13 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.17476841346288807550.exit:
 373:                                              ; preds = %365
   store i8 1, ptr %72, align 2, !noalias !5781
   %374 = load i8, ptr %73, align 1, !range !13, !noalias !5781, !noundef !8
-  %375 = trunc i8 %374 to i1
+  %375 = trunc nuw i8 %374 to i1
   br i1 %375, label %379, label %_ZN15rustfmt_nightly5utils16indent_next_line17h6bdec64a42dd4121E.exit
 
 376:                                              ; preds = %365, %365
   store i8 1, ptr %70, align 2, !noalias !5781
   %377 = load i8, ptr %71, align 1, !range !13, !noalias !5781, !noundef !8
-  %378 = trunc i8 %377 to i1
+  %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %381, label %_ZN15rustfmt_nightly5utils16indent_next_line17h6bdec64a42dd4121E.exit
 
 379:                                              ; preds = %373
@@ -33402,7 +33402,7 @@ default.unreachable7:                             ; preds = %1
   store i8 1, ptr %8, align 2
   %9 = getelementptr inbounds i8, ptr %0, i64 837
   %10 = load i8, ptr %9, align 1, !range !13, !noundef !8
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %47, label %39
 
 12:                                               ; preds = %1, %1
@@ -33527,7 +33527,7 @@ _ZN5alloc5alloc15exchange_malloc17hf73c64118470f50eE.llvm.17476841346288807550.e
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN15rustfmt_nightly5Input9file_name17hda97db058fee7097E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %13, label %4
 
 4:                                                ; preds = %2
@@ -33720,7 +33720,7 @@ _ZN3std4path4Path4join17hc3c790f3947376f3E.exit:  ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN3std3sys4unix6os_str5Slice6to_str17h563dd71f003e3daeE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
   %70 = load i64, ptr %8, align 8, !range !379, !noundef !8
-  %trunc = trunc i64 %70 to i1
+  %trunc = trunc nuw i64 %70 to i1
   %71 = getelementptr inbounds i8, ptr %8, i64 8
   %72 = load ptr, ptr %71, align 8, !nonnull !8, !align !451
   %73 = getelementptr inbounds i8, ptr %8, i64 16
@@ -33951,7 +33951,7 @@ define noundef zeroext i1 @"_ZN200_$LT$rustfmt_nightly..config..file_lines.._..$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN133_$LT$rustfmt_nightly..config..lists..__define_config_type_on_enum_SeparatorPlace..SeparatorPlace$u20$as$u20$serde..ser..Serialize$GT$9serialize17h9c99f1d3fb2dc6bfE"(ptr noalias nocapture noundef sret({ i64, [21 x i64] }) align 8 dereferenceable(176) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !13, !noundef !8
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   br i1 %trunc, label %5, label %4
 
 4:                                                ; preds = %2
@@ -35141,7 +35141,7 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
 635:                                              ; preds = %600, %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4131282f514a096E.exit.i.i"
   %.sroa.0.0.i.i = phi ptr [ null, %600 ], [ %.sroa.0.i.sroa.0.0.i.i, %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4131282f514a096E.exit.i.i" ]
   %636 = phi <2 x i64> [ undef, %600 ], [ %622, %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4131282f514a096E.exit.i.i" ]
-  %637 = trunc i8 %613 to i1
+  %637 = trunc nuw i8 %613 to i1
   %.sroa.4.0.insert.shift.i686 = select i1 %637, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i687 = zext nneg i8 %.val.i683 to i32
   %.sroa.3.0.insert.shift.i688 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i687, 16
@@ -35151,77 +35151,77 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i692 = or disjoint i32 %.sroa.3.0.insert.insert.i689, %.sroa.2.0.insert.shift.i691
   %.sroa.0.0.insert.ext.i684 = zext nneg i8 %610 to i32
   %.sroa.0.0.insert.insert.i693 = or disjoint i32 %.sroa.2.0.insert.insert.i692, %.sroa.0.0.insert.ext.i684
-  %638 = trunc i8 %568 to i1
+  %638 = trunc nuw i8 %568 to i1
   %.sroa.4.0.insert.shift.i675 = select i1 %638, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i676 = zext nneg i8 %.val.i673 to i32
   %.sroa.3.0.insert.shift.i677 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i676, 16
   %.sroa.3.0.insert.insert.i678 = or disjoint i32 %.sroa.4.0.insert.shift.i675, %.sroa.3.0.insert.shift.i677
-  %639 = trunc i8 %566 to i1
+  %639 = trunc nuw i8 %566 to i1
   %.sroa.2.0.insert.shift.i679 = select i1 %639, i32 256, i32 0
   %.sroa.2.0.insert.insert.i680 = or disjoint i32 %.sroa.3.0.insert.insert.i678, %.sroa.2.0.insert.shift.i679
   %.sroa.0.0.insert.ext.i674 = zext nneg i8 %564 to i32
   %.sroa.0.0.insert.insert.i681 = or disjoint i32 %.sroa.2.0.insert.insert.i680, %.sroa.0.0.insert.ext.i674
-  %640 = trunc i8 %561 to i1
+  %640 = trunc nuw i8 %561 to i1
   %.sroa.4.0.insert.shift.i666 = select i1 %640, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i667 = zext nneg i8 %.val.i664 to i32
   %.sroa.3.0.insert.shift.i668 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i667, 16
   %.sroa.3.0.insert.insert.i669 = or disjoint i32 %.sroa.4.0.insert.shift.i666, %.sroa.3.0.insert.shift.i668
-  %641 = trunc i8 %559 to i1
+  %641 = trunc nuw i8 %559 to i1
   %.sroa.2.0.insert.shift.i670 = select i1 %641, i32 256, i32 0
   %.sroa.2.0.insert.insert.i671 = or disjoint i32 %.sroa.3.0.insert.insert.i669, %.sroa.2.0.insert.shift.i670
   %.sroa.0.0.insert.ext.i665 = zext nneg i8 %557 to i32
   %.sroa.0.0.insert.insert.i672 = or disjoint i32 %.sroa.2.0.insert.insert.i671, %.sroa.0.0.insert.ext.i665
-  %642 = trunc i8 %554 to i1
+  %642 = trunc nuw i8 %554 to i1
   %.sroa.4.0.insert.shift.i657 = select i1 %642, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i658 = zext nneg i8 %.val.i655 to i32
   %.sroa.3.0.insert.shift.i659 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i658, 16
   %.sroa.3.0.insert.insert.i660 = or disjoint i32 %.sroa.4.0.insert.shift.i657, %.sroa.3.0.insert.shift.i659
-  %643 = trunc i8 %552 to i1
+  %643 = trunc nuw i8 %552 to i1
   %.sroa.2.0.insert.shift.i661 = select i1 %643, i32 256, i32 0
   %.sroa.2.0.insert.insert.i662 = or disjoint i32 %.sroa.3.0.insert.insert.i660, %.sroa.2.0.insert.shift.i661
   %.sroa.0.0.insert.ext.i656 = zext nneg i8 %550 to i32
   %.sroa.0.0.insert.insert.i663 = or disjoint i32 %.sroa.2.0.insert.insert.i662, %.sroa.0.0.insert.ext.i656
-  %644 = trunc i8 %547 to i1
+  %644 = trunc nuw i8 %547 to i1
   %.sroa.4.0.insert.shift.i648 = select i1 %644, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i649 = zext nneg i8 %.val.i646 to i32
   %.sroa.3.0.insert.shift.i650 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i649, 16
   %.sroa.3.0.insert.insert.i651 = or disjoint i32 %.sroa.4.0.insert.shift.i648, %.sroa.3.0.insert.shift.i650
-  %645 = trunc i8 %545 to i1
+  %645 = trunc nuw i8 %545 to i1
   %.sroa.2.0.insert.shift.i652 = select i1 %645, i32 256, i32 0
   %.sroa.2.0.insert.insert.i653 = or disjoint i32 %.sroa.3.0.insert.insert.i651, %.sroa.2.0.insert.shift.i652
   %.sroa.0.0.insert.ext.i647 = zext nneg i8 %543 to i32
   %.sroa.0.0.insert.insert.i654 = or disjoint i32 %.sroa.2.0.insert.insert.i653, %.sroa.0.0.insert.ext.i647
-  %646 = trunc i8 %540 to i1
+  %646 = trunc nuw i8 %540 to i1
   %.sroa.4.0.insert.shift.i639 = select i1 %646, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i640 = zext nneg i8 %.val.i637 to i32
   %.sroa.3.0.insert.shift.i641 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i640, 16
   %.sroa.3.0.insert.insert.i642 = or disjoint i32 %.sroa.4.0.insert.shift.i639, %.sroa.3.0.insert.shift.i641
-  %647 = trunc i8 %538 to i1
+  %647 = trunc nuw i8 %538 to i1
   %.sroa.2.0.insert.shift.i643 = select i1 %647, i32 256, i32 0
   %.sroa.2.0.insert.insert.i644 = or disjoint i32 %.sroa.3.0.insert.insert.i642, %.sroa.2.0.insert.shift.i643
   %.sroa.0.0.insert.ext.i638 = zext nneg i8 %536 to i32
   %.sroa.0.0.insert.insert.i645 = or disjoint i32 %.sroa.2.0.insert.insert.i644, %.sroa.0.0.insert.ext.i638
-  %648 = trunc i8 %533 to i1
+  %648 = trunc nuw i8 %533 to i1
   %.sroa.4.0.insert.shift.i630 = select i1 %648, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i631 = zext nneg i8 %.val.i628 to i32
   %.sroa.3.0.insert.shift.i632 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i631, 16
   %.sroa.3.0.insert.insert.i633 = or disjoint i32 %.sroa.4.0.insert.shift.i630, %.sroa.3.0.insert.shift.i632
-  %649 = trunc i8 %531 to i1
+  %649 = trunc nuw i8 %531 to i1
   %.sroa.2.0.insert.shift.i634 = select i1 %649, i32 256, i32 0
   %.sroa.2.0.insert.insert.i635 = or disjoint i32 %.sroa.3.0.insert.insert.i633, %.sroa.2.0.insert.shift.i634
   %.sroa.0.0.insert.ext.i629 = zext nneg i8 %529 to i32
   %.sroa.0.0.insert.insert.i636 = or disjoint i32 %.sroa.2.0.insert.insert.i635, %.sroa.0.0.insert.ext.i629
-  %650 = trunc i8 %526 to i1
+  %650 = trunc nuw i8 %526 to i1
   %.sroa.4.0.insert.shift.i621 = select i1 %650, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i622 = zext nneg i8 %.val.i619 to i32
   %.sroa.3.0.insert.shift.i623 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i622, 16
   %.sroa.3.0.insert.insert.i624 = or disjoint i32 %.sroa.4.0.insert.shift.i621, %.sroa.3.0.insert.shift.i623
-  %651 = trunc i8 %524 to i1
+  %651 = trunc nuw i8 %524 to i1
   %.sroa.2.0.insert.shift.i625 = select i1 %651, i32 256, i32 0
   %.sroa.2.0.insert.insert.i626 = or disjoint i32 %.sroa.3.0.insert.insert.i624, %.sroa.2.0.insert.shift.i625
   %.sroa.0.0.insert.ext.i620 = zext nneg i8 %522 to i32
   %.sroa.0.0.insert.insert.i627 = or disjoint i32 %.sroa.2.0.insert.insert.i626, %.sroa.0.0.insert.ext.i620
-  %652 = trunc i8 %504 to i1
+  %652 = trunc nuw i8 %504 to i1
   %.sroa.4.0.insert.shift.i610 = select i1 %652, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i611 = zext nneg i8 %.val.i607 to i32
   %.sroa.3.0.insert.shift.i612 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i611, 16
@@ -35231,77 +35231,77 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i616 = or disjoint i32 %.sroa.3.0.insert.insert.i613, %.sroa.2.0.insert.shift.i615
   %.sroa.0.0.insert.ext.i608 = zext nneg i8 %501 to i32
   %.sroa.0.0.insert.insert.i617 = or disjoint i32 %.sroa.2.0.insert.insert.i616, %.sroa.0.0.insert.ext.i608
-  %653 = trunc i8 %498 to i1
+  %653 = trunc nuw i8 %498 to i1
   %.sroa.4.0.insert.shift.i600 = select i1 %653, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i601 = zext nneg i8 %.val.i598 to i32
   %.sroa.3.0.insert.shift.i602 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i601, 16
   %.sroa.3.0.insert.insert.i603 = or disjoint i32 %.sroa.4.0.insert.shift.i600, %.sroa.3.0.insert.shift.i602
-  %654 = trunc i8 %496 to i1
+  %654 = trunc nuw i8 %496 to i1
   %.sroa.2.0.insert.shift.i604 = select i1 %654, i32 256, i32 0
   %.sroa.2.0.insert.insert.i605 = or disjoint i32 %.sroa.3.0.insert.insert.i603, %.sroa.2.0.insert.shift.i604
   %.sroa.0.0.insert.ext.i599 = zext nneg i8 %494 to i32
   %.sroa.0.0.insert.insert.i606 = or disjoint i32 %.sroa.2.0.insert.insert.i605, %.sroa.0.0.insert.ext.i599
-  %655 = trunc i8 %491 to i1
+  %655 = trunc nuw i8 %491 to i1
   %.sroa.4.0.insert.shift.i591 = select i1 %655, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i592 = zext nneg i8 %.val.i589 to i32
   %.sroa.3.0.insert.shift.i593 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i592, 16
   %.sroa.3.0.insert.insert.i594 = or disjoint i32 %.sroa.4.0.insert.shift.i591, %.sroa.3.0.insert.shift.i593
-  %656 = trunc i8 %489 to i1
+  %656 = trunc nuw i8 %489 to i1
   %.sroa.2.0.insert.shift.i595 = select i1 %656, i32 256, i32 0
   %.sroa.2.0.insert.insert.i596 = or disjoint i32 %.sroa.3.0.insert.insert.i594, %.sroa.2.0.insert.shift.i595
   %.sroa.0.0.insert.ext.i590 = zext nneg i8 %487 to i32
   %.sroa.0.0.insert.insert.i597 = or disjoint i32 %.sroa.2.0.insert.insert.i596, %.sroa.0.0.insert.ext.i590
-  %657 = trunc i8 %484 to i1
+  %657 = trunc nuw i8 %484 to i1
   %.sroa.4.0.insert.shift.i582 = select i1 %657, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i583 = zext nneg i8 %.val.i580 to i32
   %.sroa.3.0.insert.shift.i584 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i583, 16
   %.sroa.3.0.insert.insert.i585 = or disjoint i32 %.sroa.4.0.insert.shift.i582, %.sroa.3.0.insert.shift.i584
-  %658 = trunc i8 %482 to i1
+  %658 = trunc nuw i8 %482 to i1
   %.sroa.2.0.insert.shift.i586 = select i1 %658, i32 256, i32 0
   %.sroa.2.0.insert.insert.i587 = or disjoint i32 %.sroa.3.0.insert.insert.i585, %.sroa.2.0.insert.shift.i586
   %.sroa.0.0.insert.ext.i581 = zext nneg i8 %480 to i32
   %.sroa.0.0.insert.insert.i588 = or disjoint i32 %.sroa.2.0.insert.insert.i587, %.sroa.0.0.insert.ext.i581
-  %659 = trunc i8 %477 to i1
+  %659 = trunc nuw i8 %477 to i1
   %.sroa.4.0.insert.shift.i573 = select i1 %659, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i574 = zext nneg i8 %.val.i571 to i32
   %.sroa.3.0.insert.shift.i575 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i574, 16
   %.sroa.3.0.insert.insert.i576 = or disjoint i32 %.sroa.4.0.insert.shift.i573, %.sroa.3.0.insert.shift.i575
-  %660 = trunc i8 %475 to i1
+  %660 = trunc nuw i8 %475 to i1
   %.sroa.2.0.insert.shift.i577 = select i1 %660, i32 256, i32 0
   %.sroa.2.0.insert.insert.i578 = or disjoint i32 %.sroa.3.0.insert.insert.i576, %.sroa.2.0.insert.shift.i577
   %.sroa.0.0.insert.ext.i572 = zext nneg i8 %473 to i32
   %.sroa.0.0.insert.insert.i579 = or disjoint i32 %.sroa.2.0.insert.insert.i578, %.sroa.0.0.insert.ext.i572
-  %661 = trunc i8 %470 to i1
+  %661 = trunc nuw i8 %470 to i1
   %.sroa.4.0.insert.shift.i564 = select i1 %661, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i565 = zext nneg i8 %.val.i562 to i32
   %.sroa.3.0.insert.shift.i566 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i565, 16
   %.sroa.3.0.insert.insert.i567 = or disjoint i32 %.sroa.4.0.insert.shift.i564, %.sroa.3.0.insert.shift.i566
-  %662 = trunc i8 %468 to i1
+  %662 = trunc nuw i8 %468 to i1
   %.sroa.2.0.insert.shift.i568 = select i1 %662, i32 256, i32 0
   %.sroa.2.0.insert.insert.i569 = or disjoint i32 %.sroa.3.0.insert.insert.i567, %.sroa.2.0.insert.shift.i568
   %.sroa.0.0.insert.ext.i563 = zext nneg i8 %466 to i32
   %.sroa.0.0.insert.insert.i570 = or disjoint i32 %.sroa.2.0.insert.insert.i569, %.sroa.0.0.insert.ext.i563
-  %663 = trunc i8 %456 to i1
+  %663 = trunc nuw i8 %456 to i1
   %.sroa.4.0.insert.shift.i554 = select i1 %663, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i555 = zext nneg i8 %.val.i552 to i32
   %.sroa.3.0.insert.shift.i556 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i555, 16
   %.sroa.3.0.insert.insert.i557 = or disjoint i32 %.sroa.4.0.insert.shift.i554, %.sroa.3.0.insert.shift.i556
-  %664 = trunc i8 %454 to i1
+  %664 = trunc nuw i8 %454 to i1
   %.sroa.2.0.insert.shift.i558 = select i1 %664, i32 256, i32 0
   %.sroa.2.0.insert.insert.i559 = or disjoint i32 %.sroa.3.0.insert.insert.i557, %.sroa.2.0.insert.shift.i558
   %.sroa.0.0.insert.ext.i553 = zext nneg i8 %452 to i32
   %.sroa.0.0.insert.insert.i560 = or disjoint i32 %.sroa.2.0.insert.insert.i559, %.sroa.0.0.insert.ext.i553
-  %665 = trunc i8 %442 to i1
+  %665 = trunc nuw i8 %442 to i1
   %.sroa.4.0.insert.shift.i544 = select i1 %665, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i545 = zext nneg i8 %.val.i541 to i32
   %.sroa.3.0.insert.shift.i546 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i545, 16
   %.sroa.3.0.insert.insert.i547 = or disjoint i32 %.sroa.4.0.insert.shift.i544, %.sroa.3.0.insert.shift.i546
-  %666 = trunc i8 %.val3.i543 to i1
+  %666 = trunc nuw i8 %.val3.i543 to i1
   %.sroa.2.0.insert.shift.i548 = select i1 %666, i32 256, i32 0
   %.sroa.2.0.insert.insert.i549 = or disjoint i32 %.sroa.3.0.insert.insert.i547, %.sroa.2.0.insert.shift.i548
   %.sroa.0.0.insert.ext.i542 = zext nneg i8 %439 to i32
   %.sroa.0.0.insert.insert.i550 = or disjoint i32 %.sroa.2.0.insert.insert.i549, %.sroa.0.0.insert.ext.i542
-  %667 = trunc i8 %436 to i1
+  %667 = trunc nuw i8 %436 to i1
   %.sroa.4.0.insert.shift.i533 = select i1 %667, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i534 = zext nneg i8 %.val.i530 to i32
   %.sroa.3.0.insert.shift.i535 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i534, 16
@@ -35311,17 +35311,17 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i539 = or disjoint i32 %.sroa.3.0.insert.insert.i536, %.sroa.2.0.insert.shift.i538
   %.sroa.0.0.insert.ext.i531 = zext nneg i8 %433 to i32
   %.sroa.0.0.insert.insert.i540 = or disjoint i32 %.sroa.2.0.insert.insert.i539, %.sroa.0.0.insert.ext.i531
-  %668 = trunc i8 %416 to i1
+  %668 = trunc nuw i8 %416 to i1
   %.sroa.4.0.insert.shift.i521 = select i1 %668, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i522 = zext nneg i8 %.val.i519 to i32
   %.sroa.3.0.insert.shift.i523 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i522, 16
   %.sroa.3.0.insert.insert.i524 = or disjoint i32 %.sroa.4.0.insert.shift.i521, %.sroa.3.0.insert.shift.i523
-  %669 = trunc i8 %414 to i1
+  %669 = trunc nuw i8 %414 to i1
   %.sroa.2.0.insert.shift.i525 = select i1 %669, i32 256, i32 0
   %.sroa.2.0.insert.insert.i526 = or disjoint i32 %.sroa.3.0.insert.insert.i524, %.sroa.2.0.insert.shift.i525
   %.sroa.0.0.insert.ext.i520 = zext nneg i8 %412 to i32
   %.sroa.0.0.insert.insert.i527 = or disjoint i32 %.sroa.2.0.insert.insert.i526, %.sroa.0.0.insert.ext.i520
-  %670 = trunc i8 %409 to i1
+  %670 = trunc nuw i8 %409 to i1
   %.sroa.4.0.insert.shift.i511 = select i1 %670, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i512 = zext nneg i8 %.val.i508 to i32
   %.sroa.3.0.insert.shift.i513 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i512, 16
@@ -35331,17 +35331,17 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i517 = or disjoint i32 %.sroa.3.0.insert.insert.i514, %.sroa.2.0.insert.shift.i516
   %.sroa.0.0.insert.ext.i509 = zext nneg i8 %406 to i32
   %.sroa.0.0.insert.insert.i518 = or disjoint i32 %.sroa.2.0.insert.insert.i517, %.sroa.0.0.insert.ext.i509
-  %671 = trunc i8 %403 to i1
+  %671 = trunc nuw i8 %403 to i1
   %.sroa.4.0.insert.shift.i501 = select i1 %671, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i502 = zext nneg i8 %.val.i499 to i32
   %.sroa.3.0.insert.shift.i503 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i502, 16
   %.sroa.3.0.insert.insert.i504 = or disjoint i32 %.sroa.4.0.insert.shift.i501, %.sroa.3.0.insert.shift.i503
-  %672 = trunc i8 %401 to i1
+  %672 = trunc nuw i8 %401 to i1
   %.sroa.2.0.insert.shift.i505 = select i1 %672, i32 256, i32 0
   %.sroa.2.0.insert.insert.i506 = or disjoint i32 %.sroa.3.0.insert.insert.i504, %.sroa.2.0.insert.shift.i505
   %.sroa.0.0.insert.ext.i500 = zext nneg i8 %399 to i32
   %.sroa.0.0.insert.insert.i507 = or disjoint i32 %.sroa.2.0.insert.insert.i506, %.sroa.0.0.insert.ext.i500
-  %673 = trunc i8 %396 to i1
+  %673 = trunc nuw i8 %396 to i1
   %.sroa.4.0.insert.shift.i491 = select i1 %673, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i492 = zext nneg i8 %.val.i488 to i32
   %.sroa.3.0.insert.shift.i493 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i492, 16
@@ -35351,7 +35351,7 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i497 = or disjoint i32 %.sroa.3.0.insert.insert.i494, %.sroa.2.0.insert.shift.i496
   %.sroa.0.0.insert.ext.i489 = zext nneg i8 %393 to i32
   %.sroa.0.0.insert.insert.i498 = or disjoint i32 %.sroa.2.0.insert.insert.i497, %.sroa.0.0.insert.ext.i489
-  %674 = trunc i8 %390 to i1
+  %674 = trunc nuw i8 %390 to i1
   %.sroa.4.0.insert.shift.i480 = select i1 %674, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i481 = zext nneg i8 %.val.i477 to i32
   %.sroa.3.0.insert.shift.i482 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i481, 16
@@ -35361,7 +35361,7 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i486 = or disjoint i32 %.sroa.3.0.insert.insert.i483, %.sroa.2.0.insert.shift.i485
   %.sroa.0.0.insert.ext.i478 = zext nneg i8 %387 to i32
   %.sroa.0.0.insert.insert.i487 = or disjoint i32 %.sroa.2.0.insert.insert.i486, %.sroa.0.0.insert.ext.i478
-  %675 = trunc i8 %384 to i1
+  %675 = trunc nuw i8 %384 to i1
   %.sroa.4.0.insert.shift.i469 = select i1 %675, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i470 = zext nneg i8 %.val.i466 to i32
   %.sroa.3.0.insert.shift.i471 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i470, 16
@@ -35371,7 +35371,7 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i475 = or disjoint i32 %.sroa.3.0.insert.insert.i472, %.sroa.2.0.insert.shift.i474
   %.sroa.0.0.insert.ext.i467 = zext nneg i8 %381 to i32
   %.sroa.0.0.insert.insert.i476 = or disjoint i32 %.sroa.2.0.insert.insert.i475, %.sroa.0.0.insert.ext.i467
-  %676 = trunc i8 %378 to i1
+  %676 = trunc nuw i8 %378 to i1
   %.sroa.4.0.insert.shift.i458 = select i1 %676, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i459 = zext nneg i8 %.val.i455 to i32
   %.sroa.3.0.insert.shift.i460 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i459, 16
@@ -35381,17 +35381,17 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i464 = or disjoint i32 %.sroa.3.0.insert.insert.i461, %.sroa.2.0.insert.shift.i463
   %.sroa.0.0.insert.ext.i456 = zext nneg i8 %375 to i32
   %.sroa.0.0.insert.insert.i465 = or disjoint i32 %.sroa.2.0.insert.insert.i464, %.sroa.0.0.insert.ext.i456
-  %677 = trunc i8 %372 to i1
+  %677 = trunc nuw i8 %372 to i1
   %.sroa.4.0.insert.shift.i448 = select i1 %677, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i449 = zext nneg i8 %.val.i446 to i32
   %.sroa.3.0.insert.shift.i450 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i449, 16
   %.sroa.3.0.insert.insert.i451 = or disjoint i32 %.sroa.4.0.insert.shift.i448, %.sroa.3.0.insert.shift.i450
-  %678 = trunc i8 %370 to i1
+  %678 = trunc nuw i8 %370 to i1
   %.sroa.2.0.insert.shift.i452 = select i1 %678, i32 256, i32 0
   %.sroa.2.0.insert.insert.i453 = or disjoint i32 %.sroa.3.0.insert.insert.i451, %.sroa.2.0.insert.shift.i452
   %.sroa.0.0.insert.ext.i447 = zext nneg i8 %368 to i32
   %.sroa.0.0.insert.insert.i454 = or disjoint i32 %.sroa.2.0.insert.insert.i453, %.sroa.0.0.insert.ext.i447
-  %679 = trunc i8 %365 to i1
+  %679 = trunc nuw i8 %365 to i1
   %.sroa.4.0.insert.shift.i438 = select i1 %679, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i439 = zext nneg i8 %.val.i435 to i32
   %.sroa.3.0.insert.shift.i440 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i439, 16
@@ -35401,137 +35401,137 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i444 = or disjoint i32 %.sroa.3.0.insert.insert.i441, %.sroa.2.0.insert.shift.i443
   %.sroa.0.0.insert.ext.i436 = zext nneg i8 %362 to i32
   %.sroa.0.0.insert.insert.i445 = or disjoint i32 %.sroa.2.0.insert.insert.i444, %.sroa.0.0.insert.ext.i436
-  %680 = trunc i8 %359 to i1
+  %680 = trunc nuw i8 %359 to i1
   %.sroa.4.0.insert.shift.i428 = select i1 %680, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i429 = zext nneg i8 %.val.i426 to i32
   %.sroa.3.0.insert.shift.i430 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i429, 16
   %.sroa.3.0.insert.insert.i431 = or disjoint i32 %.sroa.4.0.insert.shift.i428, %.sroa.3.0.insert.shift.i430
-  %681 = trunc i8 %357 to i1
+  %681 = trunc nuw i8 %357 to i1
   %.sroa.2.0.insert.shift.i432 = select i1 %681, i32 256, i32 0
   %.sroa.2.0.insert.insert.i433 = or disjoint i32 %.sroa.3.0.insert.insert.i431, %.sroa.2.0.insert.shift.i432
   %.sroa.0.0.insert.ext.i427 = zext nneg i8 %355 to i32
   %.sroa.0.0.insert.insert.i434 = or disjoint i32 %.sroa.2.0.insert.insert.i433, %.sroa.0.0.insert.ext.i427
-  %682 = trunc i8 %338 to i1
+  %682 = trunc nuw i8 %338 to i1
   %.sroa.4.0.insert.shift.i417 = select i1 %682, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i418 = zext nneg i8 %.val.i415 to i32
   %.sroa.3.0.insert.shift.i419 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i418, 16
   %.sroa.3.0.insert.insert.i420 = or disjoint i32 %.sroa.4.0.insert.shift.i417, %.sroa.3.0.insert.shift.i419
-  %683 = trunc i8 %336 to i1
+  %683 = trunc nuw i8 %336 to i1
   %.sroa.2.0.insert.shift.i421 = select i1 %683, i32 256, i32 0
   %.sroa.2.0.insert.insert.i422 = or disjoint i32 %.sroa.3.0.insert.insert.i420, %.sroa.2.0.insert.shift.i421
   %.sroa.0.0.insert.ext.i416 = zext nneg i8 %334 to i32
   %.sroa.0.0.insert.insert.i423 = or disjoint i32 %.sroa.2.0.insert.insert.i422, %.sroa.0.0.insert.ext.i416
-  %684 = trunc i8 %324 to i1
+  %684 = trunc nuw i8 %324 to i1
   %.sroa.4.0.insert.shift.i407 = select i1 %684, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i408 = zext nneg i8 %.val.i405 to i32
   %.sroa.3.0.insert.shift.i409 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i408, 16
   %.sroa.3.0.insert.insert.i410 = or disjoint i32 %.sroa.4.0.insert.shift.i407, %.sroa.3.0.insert.shift.i409
-  %685 = trunc i8 %322 to i1
+  %685 = trunc nuw i8 %322 to i1
   %.sroa.2.0.insert.shift.i411 = select i1 %685, i32 256, i32 0
   %.sroa.2.0.insert.insert.i412 = or disjoint i32 %.sroa.3.0.insert.insert.i410, %.sroa.2.0.insert.shift.i411
   %.sroa.0.0.insert.ext.i406 = zext nneg i8 %320 to i32
   %.sroa.0.0.insert.insert.i413 = or disjoint i32 %.sroa.2.0.insert.insert.i412, %.sroa.0.0.insert.ext.i406
-  %686 = trunc i8 %317 to i1
+  %686 = trunc nuw i8 %317 to i1
   %.sroa.4.0.insert.shift.i398 = select i1 %686, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i399 = zext nneg i8 %.val.i396 to i32
   %.sroa.3.0.insert.shift.i400 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i399, 16
   %.sroa.3.0.insert.insert.i401 = or disjoint i32 %.sroa.4.0.insert.shift.i398, %.sroa.3.0.insert.shift.i400
-  %687 = trunc i8 %315 to i1
+  %687 = trunc nuw i8 %315 to i1
   %.sroa.2.0.insert.shift.i402 = select i1 %687, i32 256, i32 0
   %.sroa.2.0.insert.insert.i403 = or disjoint i32 %.sroa.3.0.insert.insert.i401, %.sroa.2.0.insert.shift.i402
   %.sroa.0.0.insert.ext.i397 = zext nneg i8 %313 to i32
   %.sroa.0.0.insert.insert.i404 = or disjoint i32 %.sroa.2.0.insert.insert.i403, %.sroa.0.0.insert.ext.i397
-  %688 = trunc i8 %310 to i1
+  %688 = trunc nuw i8 %310 to i1
   %.sroa.4.0.insert.shift.i389 = select i1 %688, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i390 = zext nneg i8 %.val.i386 to i32
   %.sroa.3.0.insert.shift.i391 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i390, 16
   %.sroa.3.0.insert.insert.i392 = or disjoint i32 %.sroa.4.0.insert.shift.i389, %.sroa.3.0.insert.shift.i391
-  %689 = trunc i8 %.val3.i388 to i1
+  %689 = trunc nuw i8 %.val3.i388 to i1
   %.sroa.2.0.insert.shift.i393 = select i1 %689, i32 256, i32 0
   %.sroa.2.0.insert.insert.i394 = or disjoint i32 %.sroa.3.0.insert.insert.i392, %.sroa.2.0.insert.shift.i393
   %.sroa.0.0.insert.ext.i387 = zext nneg i8 %307 to i32
   %.sroa.0.0.insert.insert.i395 = or disjoint i32 %.sroa.2.0.insert.insert.i394, %.sroa.0.0.insert.ext.i387
-  %690 = trunc i8 %304 to i1
+  %690 = trunc nuw i8 %304 to i1
   %.sroa.4.0.insert.shift.i379 = select i1 %690, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i380 = zext nneg i8 %.val.i377 to i32
   %.sroa.3.0.insert.shift.i381 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i380, 16
   %.sroa.3.0.insert.insert.i382 = or disjoint i32 %.sroa.4.0.insert.shift.i379, %.sroa.3.0.insert.shift.i381
-  %691 = trunc i8 %302 to i1
+  %691 = trunc nuw i8 %302 to i1
   %.sroa.2.0.insert.shift.i383 = select i1 %691, i32 256, i32 0
   %.sroa.2.0.insert.insert.i384 = or disjoint i32 %.sroa.3.0.insert.insert.i382, %.sroa.2.0.insert.shift.i383
   %.sroa.0.0.insert.ext.i378 = zext nneg i8 %300 to i32
   %.sroa.0.0.insert.insert.i385 = or disjoint i32 %.sroa.2.0.insert.insert.i384, %.sroa.0.0.insert.ext.i378
-  %692 = trunc i8 %297 to i1
+  %692 = trunc nuw i8 %297 to i1
   %.sroa.4.0.insert.shift.i370 = select i1 %692, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i371 = zext nneg i8 %.val.i368 to i32
   %.sroa.3.0.insert.shift.i372 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i371, 16
   %.sroa.3.0.insert.insert.i373 = or disjoint i32 %.sroa.4.0.insert.shift.i370, %.sroa.3.0.insert.shift.i372
-  %693 = trunc i8 %295 to i1
+  %693 = trunc nuw i8 %295 to i1
   %.sroa.2.0.insert.shift.i374 = select i1 %693, i32 256, i32 0
   %.sroa.2.0.insert.insert.i375 = or disjoint i32 %.sroa.3.0.insert.insert.i373, %.sroa.2.0.insert.shift.i374
   %.sroa.0.0.insert.ext.i369 = zext nneg i8 %293 to i32
   %.sroa.0.0.insert.insert.i376 = or disjoint i32 %.sroa.2.0.insert.insert.i375, %.sroa.0.0.insert.ext.i369
-  %694 = trunc i8 %290 to i1
+  %694 = trunc nuw i8 %290 to i1
   %.sroa.4.0.insert.shift.i361 = select i1 %694, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i362 = zext nneg i8 %.val.i359 to i32
   %.sroa.3.0.insert.shift.i363 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i362, 16
   %.sroa.3.0.insert.insert.i364 = or disjoint i32 %.sroa.4.0.insert.shift.i361, %.sroa.3.0.insert.shift.i363
-  %695 = trunc i8 %288 to i1
+  %695 = trunc nuw i8 %288 to i1
   %.sroa.2.0.insert.shift.i365 = select i1 %695, i32 256, i32 0
   %.sroa.2.0.insert.insert.i366 = or disjoint i32 %.sroa.3.0.insert.insert.i364, %.sroa.2.0.insert.shift.i365
   %.sroa.0.0.insert.ext.i360 = zext nneg i8 %286 to i32
   %.sroa.0.0.insert.insert.i367 = or disjoint i32 %.sroa.2.0.insert.insert.i366, %.sroa.0.0.insert.ext.i360
-  %696 = trunc i8 %283 to i1
+  %696 = trunc nuw i8 %283 to i1
   %.sroa.4.0.insert.shift.i352 = select i1 %696, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i353 = zext nneg i8 %.val.i349 to i32
   %.sroa.3.0.insert.shift.i354 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i353, 16
   %.sroa.3.0.insert.insert.i355 = or disjoint i32 %.sroa.4.0.insert.shift.i352, %.sroa.3.0.insert.shift.i354
-  %697 = trunc i8 %.val3.i351 to i1
+  %697 = trunc nuw i8 %.val3.i351 to i1
   %.sroa.2.0.insert.shift.i356 = select i1 %697, i32 256, i32 0
   %.sroa.2.0.insert.insert.i357 = or disjoint i32 %.sroa.3.0.insert.insert.i355, %.sroa.2.0.insert.shift.i356
   %.sroa.0.0.insert.ext.i350 = zext nneg i8 %280 to i32
   %.sroa.0.0.insert.insert.i358 = or disjoint i32 %.sroa.2.0.insert.insert.i357, %.sroa.0.0.insert.ext.i350
-  %698 = trunc i8 %277 to i1
+  %698 = trunc nuw i8 %277 to i1
   %.sroa.4.0.insert.shift.i342 = select i1 %698, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i343 = zext nneg i8 %.val.i340 to i32
   %.sroa.3.0.insert.shift.i344 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i343, 16
   %.sroa.3.0.insert.insert.i345 = or disjoint i32 %.sroa.4.0.insert.shift.i342, %.sroa.3.0.insert.shift.i344
-  %699 = trunc i8 %275 to i1
+  %699 = trunc nuw i8 %275 to i1
   %.sroa.2.0.insert.shift.i346 = select i1 %699, i32 256, i32 0
   %.sroa.2.0.insert.insert.i347 = or disjoint i32 %.sroa.3.0.insert.insert.i345, %.sroa.2.0.insert.shift.i346
   %.sroa.0.0.insert.ext.i341 = zext nneg i8 %273 to i32
   %.sroa.0.0.insert.insert.i348 = or disjoint i32 %.sroa.2.0.insert.insert.i347, %.sroa.0.0.insert.ext.i341
-  %700 = trunc i8 %270 to i1
+  %700 = trunc nuw i8 %270 to i1
   %.sroa.4.0.insert.shift.i333 = select i1 %700, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i334 = zext nneg i8 %.val.i331 to i32
   %.sroa.3.0.insert.shift.i335 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i334, 16
   %.sroa.3.0.insert.insert.i336 = or disjoint i32 %.sroa.4.0.insert.shift.i333, %.sroa.3.0.insert.shift.i335
-  %701 = trunc i8 %268 to i1
+  %701 = trunc nuw i8 %268 to i1
   %.sroa.2.0.insert.shift.i337 = select i1 %701, i32 256, i32 0
   %.sroa.2.0.insert.insert.i338 = or disjoint i32 %.sroa.3.0.insert.insert.i336, %.sroa.2.0.insert.shift.i337
   %.sroa.0.0.insert.ext.i332 = zext nneg i8 %266 to i32
   %.sroa.0.0.insert.insert.i339 = or disjoint i32 %.sroa.2.0.insert.insert.i338, %.sroa.0.0.insert.ext.i332
-  %702 = trunc i8 %263 to i1
+  %702 = trunc nuw i8 %263 to i1
   %.sroa.4.0.insert.shift.i324 = select i1 %702, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i325 = zext nneg i8 %.val.i322 to i32
   %.sroa.3.0.insert.shift.i326 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i325, 16
   %.sroa.3.0.insert.insert.i327 = or disjoint i32 %.sroa.4.0.insert.shift.i324, %.sroa.3.0.insert.shift.i326
-  %703 = trunc i8 %261 to i1
+  %703 = trunc nuw i8 %261 to i1
   %.sroa.2.0.insert.shift.i328 = select i1 %703, i32 256, i32 0
   %.sroa.2.0.insert.insert.i329 = or disjoint i32 %.sroa.3.0.insert.insert.i327, %.sroa.2.0.insert.shift.i328
   %.sroa.0.0.insert.ext.i323 = zext nneg i8 %259 to i32
   %.sroa.0.0.insert.insert.i330 = or disjoint i32 %.sroa.2.0.insert.insert.i329, %.sroa.0.0.insert.ext.i323
-  %704 = trunc i8 %256 to i1
+  %704 = trunc nuw i8 %256 to i1
   %.sroa.4.0.insert.shift.i315 = select i1 %704, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i316 = zext nneg i8 %.val.i313 to i32
   %.sroa.3.0.insert.shift.i317 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i316, 16
   %.sroa.3.0.insert.insert.i318 = or disjoint i32 %.sroa.4.0.insert.shift.i315, %.sroa.3.0.insert.shift.i317
-  %705 = trunc i8 %254 to i1
+  %705 = trunc nuw i8 %254 to i1
   %.sroa.2.0.insert.shift.i319 = select i1 %705, i32 256, i32 0
   %.sroa.2.0.insert.insert.i320 = or disjoint i32 %.sroa.3.0.insert.insert.i318, %.sroa.2.0.insert.shift.i319
   %.sroa.0.0.insert.ext.i314 = zext nneg i8 %252 to i32
   %.sroa.0.0.insert.insert.i321 = or disjoint i32 %.sroa.2.0.insert.insert.i320, %.sroa.0.0.insert.ext.i314
-  %706 = trunc i8 %249 to i1
+  %706 = trunc nuw i8 %249 to i1
   %.sroa.4.0.insert.shift.i305 = select i1 %706, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i306 = zext nneg i8 %.val.i302 to i32
   %.sroa.3.0.insert.shift.i307 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i306, 16
@@ -35541,7 +35541,7 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i311 = or disjoint i32 %.sroa.3.0.insert.insert.i308, %.sroa.2.0.insert.shift.i310
   %.sroa.0.0.insert.ext.i303 = zext nneg i8 %246 to i32
   %.sroa.0.0.insert.insert.i312 = or disjoint i32 %.sroa.2.0.insert.insert.i311, %.sroa.0.0.insert.ext.i303
-  %707 = trunc i8 %243 to i1
+  %707 = trunc nuw i8 %243 to i1
   %.sroa.4.0.insert.shift.i294 = select i1 %707, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i295 = zext nneg i8 %.val.i291 to i32
   %.sroa.3.0.insert.shift.i296 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i295, 16
@@ -35551,57 +35551,57 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i300 = or disjoint i32 %.sroa.3.0.insert.insert.i297, %.sroa.2.0.insert.shift.i299
   %.sroa.0.0.insert.ext.i292 = zext nneg i8 %240 to i32
   %.sroa.0.0.insert.insert.i301 = or disjoint i32 %.sroa.2.0.insert.insert.i300, %.sroa.0.0.insert.ext.i292
-  %708 = trunc i8 %231 to i1
+  %708 = trunc nuw i8 %231 to i1
   %.sroa.4.0.insert.shift.i283 = select i1 %708, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i284 = zext nneg i8 %.val.i280 to i32
   %.sroa.3.0.insert.shift.i285 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i284, 16
   %.sroa.3.0.insert.insert.i286 = or disjoint i32 %.sroa.4.0.insert.shift.i283, %.sroa.3.0.insert.shift.i285
-  %709 = trunc i8 %.val3.i282 to i1
+  %709 = trunc nuw i8 %.val3.i282 to i1
   %.sroa.2.0.insert.shift.i287 = select i1 %709, i32 256, i32 0
   %.sroa.2.0.insert.insert.i288 = or disjoint i32 %.sroa.3.0.insert.insert.i286, %.sroa.2.0.insert.shift.i287
   %.sroa.0.0.insert.ext.i281 = zext nneg i8 %228 to i32
   %.sroa.0.0.insert.insert.i289 = or disjoint i32 %.sroa.2.0.insert.insert.i288, %.sroa.0.0.insert.ext.i281
-  %710 = trunc i8 %225 to i1
+  %710 = trunc nuw i8 %225 to i1
   %.sroa.4.0.insert.shift.i273 = select i1 %710, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i274 = zext nneg i8 %.val.i271 to i32
   %.sroa.3.0.insert.shift.i275 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i274, 16
   %.sroa.3.0.insert.insert.i276 = or disjoint i32 %.sroa.4.0.insert.shift.i273, %.sroa.3.0.insert.shift.i275
-  %711 = trunc i8 %223 to i1
+  %711 = trunc nuw i8 %223 to i1
   %.sroa.2.0.insert.shift.i277 = select i1 %711, i32 256, i32 0
   %.sroa.2.0.insert.insert.i278 = or disjoint i32 %.sroa.3.0.insert.insert.i276, %.sroa.2.0.insert.shift.i277
   %.sroa.0.0.insert.ext.i272 = zext nneg i8 %221 to i32
   %.sroa.0.0.insert.insert.i279 = or disjoint i32 %.sroa.2.0.insert.insert.i278, %.sroa.0.0.insert.ext.i272
-  %712 = trunc i8 %218 to i1
+  %712 = trunc nuw i8 %218 to i1
   %.sroa.4.0.insert.shift.i264 = select i1 %712, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i265 = zext nneg i8 %.val.i262 to i32
   %.sroa.3.0.insert.shift.i266 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i265, 16
   %.sroa.3.0.insert.insert.i267 = or disjoint i32 %.sroa.4.0.insert.shift.i264, %.sroa.3.0.insert.shift.i266
-  %713 = trunc i8 %216 to i1
+  %713 = trunc nuw i8 %216 to i1
   %.sroa.2.0.insert.shift.i268 = select i1 %713, i32 256, i32 0
   %.sroa.2.0.insert.insert.i269 = or disjoint i32 %.sroa.3.0.insert.insert.i267, %.sroa.2.0.insert.shift.i268
   %.sroa.0.0.insert.ext.i263 = zext nneg i8 %214 to i32
   %.sroa.0.0.insert.insert.i270 = or disjoint i32 %.sroa.2.0.insert.insert.i269, %.sroa.0.0.insert.ext.i263
-  %714 = trunc i8 %211 to i1
+  %714 = trunc nuw i8 %211 to i1
   %.sroa.4.0.insert.shift.i255 = select i1 %714, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i256 = zext nneg i8 %.val.i253 to i32
   %.sroa.3.0.insert.shift.i257 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i256, 16
   %.sroa.3.0.insert.insert.i258 = or disjoint i32 %.sroa.4.0.insert.shift.i255, %.sroa.3.0.insert.shift.i257
-  %715 = trunc i8 %209 to i1
+  %715 = trunc nuw i8 %209 to i1
   %.sroa.2.0.insert.shift.i259 = select i1 %715, i32 256, i32 0
   %.sroa.2.0.insert.insert.i260 = or disjoint i32 %.sroa.3.0.insert.insert.i258, %.sroa.2.0.insert.shift.i259
   %.sroa.0.0.insert.ext.i254 = zext nneg i8 %207 to i32
   %.sroa.0.0.insert.insert.i261 = or disjoint i32 %.sroa.2.0.insert.insert.i260, %.sroa.0.0.insert.ext.i254
-  %716 = trunc i8 %204 to i1
+  %716 = trunc nuw i8 %204 to i1
   %.sroa.4.0.insert.shift.i246 = select i1 %716, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i247 = zext nneg i8 %.val.i244 to i32
   %.sroa.3.0.insert.shift.i248 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i247, 16
   %.sroa.3.0.insert.insert.i249 = or disjoint i32 %.sroa.4.0.insert.shift.i246, %.sroa.3.0.insert.shift.i248
-  %717 = trunc i8 %202 to i1
+  %717 = trunc nuw i8 %202 to i1
   %.sroa.2.0.insert.shift.i250 = select i1 %717, i32 256, i32 0
   %.sroa.2.0.insert.insert.i251 = or disjoint i32 %.sroa.3.0.insert.insert.i249, %.sroa.2.0.insert.shift.i250
   %.sroa.0.0.insert.ext.i245 = zext nneg i8 %200 to i32
   %.sroa.0.0.insert.insert.i252 = or disjoint i32 %.sroa.2.0.insert.insert.i251, %.sroa.0.0.insert.ext.i245
-  %718 = trunc i8 %197 to i1
+  %718 = trunc nuw i8 %197 to i1
   %.sroa.4.0.insert.shift.i236 = select i1 %718, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i237 = zext nneg i8 %.val.i233 to i32
   %.sroa.3.0.insert.shift.i238 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i237, 16
@@ -35611,77 +35611,77 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i242 = or disjoint i32 %.sroa.3.0.insert.insert.i239, %.sroa.2.0.insert.shift.i241
   %.sroa.0.0.insert.ext.i234 = zext nneg i8 %194 to i32
   %.sroa.0.0.insert.insert.i243 = or disjoint i32 %.sroa.2.0.insert.insert.i242, %.sroa.0.0.insert.ext.i234
-  %719 = trunc i8 %181 to i1
+  %719 = trunc nuw i8 %181 to i1
   %.sroa.4.0.insert.shift.i224 = select i1 %719, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i225 = zext nneg i8 %.val.i222 to i32
   %.sroa.3.0.insert.shift.i226 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i225, 16
   %.sroa.3.0.insert.insert.i227 = or disjoint i32 %.sroa.4.0.insert.shift.i224, %.sroa.3.0.insert.shift.i226
-  %720 = trunc i8 %179 to i1
+  %720 = trunc nuw i8 %179 to i1
   %.sroa.2.0.insert.shift.i228 = select i1 %720, i32 256, i32 0
   %.sroa.2.0.insert.insert.i229 = or disjoint i32 %.sroa.3.0.insert.insert.i227, %.sroa.2.0.insert.shift.i228
   %.sroa.0.0.insert.ext.i223 = zext nneg i8 %177 to i32
   %.sroa.0.0.insert.insert.i230 = or disjoint i32 %.sroa.2.0.insert.insert.i229, %.sroa.0.0.insert.ext.i223
-  %721 = trunc i8 %174 to i1
+  %721 = trunc nuw i8 %174 to i1
   %.sroa.4.0.insert.shift.i215 = select i1 %721, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i216 = zext nneg i8 %.val.i213 to i32
   %.sroa.3.0.insert.shift.i217 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i216, 16
   %.sroa.3.0.insert.insert.i218 = or disjoint i32 %.sroa.4.0.insert.shift.i215, %.sroa.3.0.insert.shift.i217
-  %722 = trunc i8 %172 to i1
+  %722 = trunc nuw i8 %172 to i1
   %.sroa.2.0.insert.shift.i219 = select i1 %722, i32 256, i32 0
   %.sroa.2.0.insert.insert.i220 = or disjoint i32 %.sroa.3.0.insert.insert.i218, %.sroa.2.0.insert.shift.i219
   %.sroa.0.0.insert.ext.i214 = zext nneg i8 %170 to i32
   %.sroa.0.0.insert.insert.i221 = or disjoint i32 %.sroa.2.0.insert.insert.i220, %.sroa.0.0.insert.ext.i214
-  %723 = trunc i8 %167 to i1
+  %723 = trunc nuw i8 %167 to i1
   %.sroa.4.0.insert.shift.i206 = select i1 %723, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i207 = zext nneg i8 %.val.i204 to i32
   %.sroa.3.0.insert.shift.i208 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i207, 16
   %.sroa.3.0.insert.insert.i209 = or disjoint i32 %.sroa.4.0.insert.shift.i206, %.sroa.3.0.insert.shift.i208
-  %724 = trunc i8 %165 to i1
+  %724 = trunc nuw i8 %165 to i1
   %.sroa.2.0.insert.shift.i210 = select i1 %724, i32 256, i32 0
   %.sroa.2.0.insert.insert.i211 = or disjoint i32 %.sroa.3.0.insert.insert.i209, %.sroa.2.0.insert.shift.i210
   %.sroa.0.0.insert.ext.i205 = zext nneg i8 %163 to i32
   %.sroa.0.0.insert.insert.i212 = or disjoint i32 %.sroa.2.0.insert.insert.i211, %.sroa.0.0.insert.ext.i205
-  %725 = trunc i8 %160 to i1
+  %725 = trunc nuw i8 %160 to i1
   %.sroa.4.0.insert.shift.i197 = select i1 %725, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i198 = zext nneg i8 %.val.i195 to i32
   %.sroa.3.0.insert.shift.i199 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i198, 16
   %.sroa.3.0.insert.insert.i200 = or disjoint i32 %.sroa.4.0.insert.shift.i197, %.sroa.3.0.insert.shift.i199
-  %726 = trunc i8 %158 to i1
+  %726 = trunc nuw i8 %158 to i1
   %.sroa.2.0.insert.shift.i201 = select i1 %726, i32 256, i32 0
   %.sroa.2.0.insert.insert.i202 = or disjoint i32 %.sroa.3.0.insert.insert.i200, %.sroa.2.0.insert.shift.i201
   %.sroa.0.0.insert.ext.i196 = zext nneg i8 %156 to i32
   %.sroa.0.0.insert.insert.i203 = or disjoint i32 %.sroa.2.0.insert.insert.i202, %.sroa.0.0.insert.ext.i196
-  %727 = trunc i8 %153 to i1
+  %727 = trunc nuw i8 %153 to i1
   %.sroa.4.0.insert.shift.i188 = select i1 %727, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i189 = zext nneg i8 %.val.i186 to i32
   %.sroa.3.0.insert.shift.i190 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i189, 16
   %.sroa.3.0.insert.insert.i191 = or disjoint i32 %.sroa.4.0.insert.shift.i188, %.sroa.3.0.insert.shift.i190
-  %728 = trunc i8 %151 to i1
+  %728 = trunc nuw i8 %151 to i1
   %.sroa.2.0.insert.shift.i192 = select i1 %728, i32 256, i32 0
   %.sroa.2.0.insert.insert.i193 = or disjoint i32 %.sroa.3.0.insert.insert.i191, %.sroa.2.0.insert.shift.i192
   %.sroa.0.0.insert.ext.i187 = zext nneg i8 %149 to i32
   %.sroa.0.0.insert.insert.i194 = or disjoint i32 %.sroa.2.0.insert.insert.i193, %.sroa.0.0.insert.ext.i187
-  %729 = trunc i8 %132 to i1
+  %729 = trunc nuw i8 %132 to i1
   %.sroa.4.0.insert.shift.i177 = select i1 %729, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i178 = zext nneg i8 %.val.i175 to i32
   %.sroa.3.0.insert.shift.i179 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i178, 16
   %.sroa.3.0.insert.insert.i180 = or disjoint i32 %.sroa.4.0.insert.shift.i177, %.sroa.3.0.insert.shift.i179
-  %730 = trunc i8 %130 to i1
+  %730 = trunc nuw i8 %130 to i1
   %.sroa.2.0.insert.shift.i181 = select i1 %730, i32 256, i32 0
   %.sroa.2.0.insert.insert.i182 = or disjoint i32 %.sroa.3.0.insert.insert.i180, %.sroa.2.0.insert.shift.i181
   %.sroa.0.0.insert.ext.i176 = zext nneg i8 %128 to i32
   %.sroa.0.0.insert.insert.i183 = or disjoint i32 %.sroa.2.0.insert.insert.i182, %.sroa.0.0.insert.ext.i176
-  %731 = trunc i8 %125 to i1
+  %731 = trunc nuw i8 %125 to i1
   %.sroa.4.0.insert.shift.i168 = select i1 %731, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i169 = zext nneg i8 %.val.i166 to i32
   %.sroa.3.0.insert.shift.i170 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i169, 16
   %.sroa.3.0.insert.insert.i171 = or disjoint i32 %.sroa.4.0.insert.shift.i168, %.sroa.3.0.insert.shift.i170
-  %732 = trunc i8 %123 to i1
+  %732 = trunc nuw i8 %123 to i1
   %.sroa.2.0.insert.shift.i172 = select i1 %732, i32 256, i32 0
   %.sroa.2.0.insert.insert.i173 = or disjoint i32 %.sroa.3.0.insert.insert.i171, %.sroa.2.0.insert.shift.i172
   %.sroa.0.0.insert.ext.i167 = zext nneg i8 %121 to i32
   %.sroa.0.0.insert.insert.i174 = or disjoint i32 %.sroa.2.0.insert.insert.i173, %.sroa.0.0.insert.ext.i167
-  %733 = trunc i8 %49 to i1
+  %733 = trunc nuw i8 %49 to i1
   %.sroa.4.0.insert.shift.i149 = select i1 %733, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i150 = zext nneg i8 %.val.i146 to i32
   %.sroa.3.0.insert.shift.i151 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i150, 16
@@ -35691,17 +35691,17 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i155 = or disjoint i32 %.sroa.3.0.insert.insert.i152, %.sroa.2.0.insert.shift.i154
   %.sroa.0.0.insert.ext.i147 = zext nneg i8 %46 to i32
   %.sroa.0.0.insert.insert.i156 = or disjoint i32 %.sroa.2.0.insert.insert.i155, %.sroa.0.0.insert.ext.i147
-  %734 = trunc i8 %43 to i1
+  %734 = trunc nuw i8 %43 to i1
   %.sroa.4.0.insert.shift.i139 = select i1 %734, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i140 = zext nneg i8 %.val.i136 to i32
   %.sroa.3.0.insert.shift.i141 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i140, 16
   %.sroa.3.0.insert.insert.i142 = or disjoint i32 %.sroa.4.0.insert.shift.i139, %.sroa.3.0.insert.shift.i141
-  %735 = trunc i8 %.val3.i138 to i1
+  %735 = trunc nuw i8 %.val3.i138 to i1
   %.sroa.2.0.insert.shift.i143 = select i1 %735, i32 256, i32 0
   %.sroa.2.0.insert.insert.i144 = or disjoint i32 %.sroa.3.0.insert.insert.i142, %.sroa.2.0.insert.shift.i143
   %.sroa.0.0.insert.ext.i137 = zext nneg i8 %40 to i32
   %.sroa.0.0.insert.insert.i145 = or disjoint i32 %.sroa.2.0.insert.insert.i144, %.sroa.0.0.insert.ext.i137
-  %736 = trunc i8 %37 to i1
+  %736 = trunc nuw i8 %37 to i1
   %.sroa.4.0.insert.shift.i129 = select i1 %736, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i130 = zext nneg i8 %.val.i127 to i32
   %.sroa.3.0.insert.shift.i131 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i130, 16
@@ -35711,12 +35711,12 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.2.0.insert.insert.i134 = or disjoint i32 %.sroa.3.0.insert.insert.i132, %.sroa.2.0.insert.shift.i133
   %.sroa.0.0.insert.ext.i128 = zext nneg i8 %34 to i32
   %.sroa.0.0.insert.insert.i135 = or disjoint i32 %.sroa.2.0.insert.insert.i134, %.sroa.0.0.insert.ext.i128
-  %737 = trunc i8 %24 to i1
+  %737 = trunc nuw i8 %24 to i1
   %.sroa.4.0.insert.shift.i = select i1 %737, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i = zext nneg i8 %.val.i125 to i32
   %.sroa.3.0.insert.shift.i = shl nuw nsw i32 %.sroa.3.0.insert.ext.i, 16
   %.sroa.3.0.insert.insert.i = or disjoint i32 %.sroa.4.0.insert.shift.i, %.sroa.3.0.insert.shift.i
-  %738 = trunc i8 %22 to i1
+  %738 = trunc nuw i8 %22 to i1
   %.sroa.2.0.insert.shift.i = select i1 %738, i32 256, i32 0
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.2.0.insert.shift.i
   %.sroa.0.0.insert.ext.i = zext nneg i8 %20 to i32
@@ -35732,7 +35732,7 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.val3.i701 = load i8, ptr %744, align 1, !range !5850, !noundef !8
   %745 = getelementptr inbounds i8, ptr %1, i64 835
   %746 = load i8, ptr %745, align 1, !range !13, !alias.scope !6818, !noundef !8
-  %747 = trunc i8 %746 to i1
+  %747 = trunc nuw i8 %746 to i1
   %.sroa.4.0.insert.shift.i702 = select i1 %747, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i703 = zext nneg i8 %.val.i699 to i32
   %.sroa.3.0.insert.shift.i704 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i703, 16
@@ -35748,10 +35748,10 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.0.0.insert.ext.i711 = zext nneg i8 %750 to i32
   %751 = getelementptr inbounds i8, ptr %1, i64 837
   %752 = load i8, ptr %751, align 1, !range !13, !alias.scope !6824, !noundef !8
-  %753 = trunc i8 %752 to i1
+  %753 = trunc nuw i8 %752 to i1
   %754 = getelementptr inbounds i8, ptr %1, i64 839
   %755 = load i8, ptr %754, align 1, !range !13, !alias.scope !6827, !noundef !8
-  %756 = trunc i8 %755 to i1
+  %756 = trunc nuw i8 %755 to i1
   %.sroa.4.0.insert.shift.i712 = select i1 %756, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i713 = zext nneg i8 %.val.i710 to i32
   %.sroa.3.0.insert.shift.i714 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i713, 16
@@ -35766,10 +35766,10 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.0.0.insert.ext.i720 = zext nneg i8 %759 to i32
   %760 = getelementptr inbounds i8, ptr %1, i64 841
   %761 = load i8, ptr %760, align 1, !range !13, !alias.scope !6833, !noundef !8
-  %762 = trunc i8 %761 to i1
+  %762 = trunc nuw i8 %761 to i1
   %763 = getelementptr inbounds i8, ptr %1, i64 843
   %764 = load i8, ptr %763, align 1, !range !13, !alias.scope !6836, !noundef !8
-  %765 = trunc i8 %764 to i1
+  %765 = trunc nuw i8 %764 to i1
   %.sroa.4.0.insert.shift.i721 = select i1 %765, i32 16777216, i32 0
   %.sroa.3.0.insert.ext.i722 = zext nneg i8 %.val.i719 to i32
   %.sroa.3.0.insert.shift.i723 = shl nuw nsw i32 %.sroa.3.0.insert.ext.i722, 16

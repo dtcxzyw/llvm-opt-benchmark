@@ -4030,7 +4030,7 @@ define dso_local void @rcu_barrier() #1 align 16 {
   %108 = getelementptr inbounds i8, ptr %103, i64 192
   %109 = getelementptr inbounds i8, ptr %103, i64 32
   %110 = getelementptr inbounds i8, ptr %103, i64 24
-  %111 = trunc i64 %97 to i32
+  %111 = trunc nuw i64 %97 to i32
   %112 = inttoptr i64 %97 to ptr
   br label %113
 
@@ -11859,7 +11859,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
 
 89:                                               ; preds = %.thread
   %90 = tail call i64 @llvm.umin.i64(i64 %26, i64 9)
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw nsw i64 %90 to i32
   %92 = or disjoint i32 %91, 48
   br label %99
 

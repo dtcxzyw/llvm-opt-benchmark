@@ -1624,9 +1624,9 @@ if.then.i43:                                      ; preds = %sw.bb19
   %8 = load i8, ptr %eecs2.i.i, align 2
   %eesk3.i.i = getelementptr inbounds i8, ptr %opaque, i64 11111
   %9 = load i8, ptr %eesk3.i.i, align 1
-  %conv.i.i = trunc i32 %and7.lobit.i to i8
+  %conv.i.i = trunc nuw nsw i32 %and7.lobit.i to i8
   store i8 %conv.i.i, ptr %eecs2.i.i, align 2
-  %conv5.i.i = trunc i32 %and8.lobit.i to i8
+  %conv5.i.i = trunc nuw nsw i32 %and8.lobit.i to i8
   store i8 %conv5.i.i, ptr %eesk3.i.i, align 1
   %10 = lshr i8 %7, 1
   %conv7.i.i = and i8 %10, 1
@@ -1737,7 +1737,7 @@ sw.bb22.i.i.i:                                    ; preds = %if.then25.i.i
   %output.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11108
   %15 = load i16, ptr %output.i.i.i, align 4
   %.lobit.i.i.i = lshr i16 %15, 15
-  %conv27.i.i.i = trunc i16 %.lobit.i.i.i to i8
+  %conv27.i.i.i = trunc nuw nsw i16 %.lobit.i.i.i to i8
   store i8 %conv27.i.i.i, ptr %eedo.i.i.i, align 1
   %shl31.i.i.i = shl i16 %15, 1
   store i16 %shl31.i.i.i, ptr %output.i.i.i, align 4
@@ -2132,7 +2132,7 @@ if.end153.i:                                      ; preds = %if.end142.i
   br i1 %or.cond216.i, label %skip_offload.i, label %if.end163.i
 
 if.end163.i:                                      ; preds = %if.end153.i
-  %24 = trunc i32 %shl.i to i16
+  %24 = trunc nuw nsw i32 %shl.i to i16
   %conv166.i = sub i16 %23, %24
   %and167.i = and i32 %6, 134217728
   %tobool168.i = icmp ne i32 %and167.i, 0
@@ -2175,7 +2175,7 @@ if.end197.i:                                      ; preds = %if.end191.i
   %conv213.i = zext nneg i16 %28 to i64
   %cmp214.i = icmp ult i16 %28, 20
   %cmp218.i = icmp ugt i16 %28, %conv166.i
-  %or.cond218.i = or i1 %cmp214.i, %cmp218.i
+  %or.cond218.i = select i1 %cmp214.i, i1 true, i1 %cmp218.i
   br i1 %or.cond218.i, label %skip_offload.i, label %if.end221.i
 
 if.end221.i:                                      ; preds = %if.end197.i
@@ -2448,7 +2448,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 
 ones_complement_sum.exit:                         ; preds = %while.body.i, %if.end.i
   %result.2.lcssa.i = phi i32 [ %result.1.i, %if.end.i ], [ %add5.i, %while.body.i ]
-  %conv6.i = trunc i32 %result.2.lcssa.i to i16
+  %conv6.i = trunc nuw i32 %result.2.lcssa.i to i16
   %not = xor i16 %conv6.i, -1
   ret i16 %not
 }

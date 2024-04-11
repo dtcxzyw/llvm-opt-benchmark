@@ -3626,7 +3626,7 @@ _ZN4CGAL6Random7get_intEii.exit:
   %9 = add i64 %8, 48083817484545
   %10 = and i64 %9, 281474976665857
   %sum.shift = lshr i64 %10, 33
-  %11 = trunc i64 %sum.shift to i32
+  %11 = trunc nuw nsw i64 %sum.shift to i32
   store i64 %10, ptr %3, align 8
   store i32 %11, ptr %0, align 8
   ret void
@@ -15642,7 +15642,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrap
 21:                                               ; preds = %3
   %22 = and i64 %10, 4503599627370495
   %23 = or disjoint i64 %22, 4503599627370496
-  %24 = trunc i64 %12 to i32
+  %24 = trunc nuw nsw i64 %12 to i32
   %25 = add nuw nsw i32 %24, 13
   br label %26
 
@@ -15731,7 +15731,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrap
 66:                                               ; preds = %50
   %67 = and i64 %55, 4503599627370495
   %68 = or disjoint i64 %67, 4503599627370496
-  %69 = trunc i64 %57 to i32
+  %69 = trunc nuw nsw i64 %57 to i32
   %70 = add nuw nsw i32 %69, 13
   br label %71
 
@@ -15820,7 +15820,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrap
 111:                                              ; preds = %95
   %112 = and i64 %100, 4503599627370495
   %113 = or disjoint i64 %112, 4503599627370496
-  %114 = trunc i64 %102 to i32
+  %114 = trunc nuw nsw i64 %102 to i32
   %115 = add nuw nsw i32 %114, 13
   br label %116
 
@@ -17058,7 +17058,7 @@ _ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeE
   %90 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.5.0.i.i.i.i
   %91 = zext i1 %90 to i16
   %92 = or disjoint i16 %91, 256
-  %93 = trunc i16 %92 to i9
+  %93 = trunc nuw i16 %92 to i9
   %94 = xor i9 %93, -255
   %95 = select i1 %or.cond.i.i, i9 -255, i9 %94
   %96 = tail call i9 @llvm.bitreverse.i9(i9 %95)
@@ -22266,7 +22266,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23Cartes
 63:                                               ; preds = %4
   %.sroa.0.0.extract.trunc.i = trunc i64 %62 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %62, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %64 = icmp ne i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br label %73
 
@@ -22587,7 +22587,7 @@ _ZN4CGAL13orientationC2INS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4Si
   %.sroa.5.0.i.i.i.i.i = phi i64 [ 4294967296, %9 ], [ -4294967296, %80 ], [ %87, %84 ]
   %.sroa.0.0.i.i.i.i.i = phi i64 [ 1, %9 ], [ 4294967295, %80 ], [ %88, %84 ]
   %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i64 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.i.i.i.i.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc nuw i64 %.sroa.0.0.i.i.i.i.i to i32
   %.sroa.3.0.extract.shift.i.i = lshr exact i64 %.sroa.5.0.i.i.i.i.i, 32
   %89 = icmp slt i64 %.sroa.5.0.i.i.i.i.i, 0
   %90 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, 0
@@ -22595,7 +22595,7 @@ _ZN4CGAL13orientationC2INS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4Si
   %91 = icmp eq i64 %.sroa.0.0.i.i.i.i.i, %.sroa.3.0.extract.shift.i.i
   %92 = zext i1 %91 to i16
   %93 = or disjoint i16 %92, 256
-  %94 = trunc i16 %93 to i9
+  %94 = trunc nuw i16 %93 to i9
   %95 = xor i9 %94, -255
   %96 = select i1 %or.cond.i.i, i9 -255, i9 %95
   %97 = tail call i9 @llvm.bitreverse.i9(i9 %96)
@@ -22694,7 +22694,7 @@ _ZN4CGAL13orientationC2INS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4Si
   %.sroa.5.0.i.i.i.i.i24 = phi i64 [ 4294967296, %99 ], [ -4294967296, %168 ], [ %175, %172 ]
   %.sroa.0.0.i.i.i.i.i25 = phi i64 [ 1, %99 ], [ 4294967295, %168 ], [ %176, %172 ]
   %.sroa.0.0.insert.insert.i.i.i.i.i26 = or disjoint i64 %.sroa.0.0.i.i.i.i.i25, %.sroa.5.0.i.i.i.i.i24
-  %.sroa.0.0.extract.trunc.i.i28 = trunc i64 %.sroa.0.0.i.i.i.i.i25 to i32
+  %.sroa.0.0.extract.trunc.i.i28 = trunc nuw i64 %.sroa.0.0.i.i.i.i.i25 to i32
   %.sroa.3.0.extract.shift.i.i29 = lshr exact i64 %.sroa.5.0.i.i.i.i.i24, 32
   %177 = icmp slt i64 %.sroa.5.0.i.i.i.i.i24, 0
   %178 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i28, 0
@@ -22702,7 +22702,7 @@ _ZN4CGAL13orientationC2INS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4Si
   %179 = icmp eq i64 %.sroa.0.0.i.i.i.i.i25, %.sroa.3.0.extract.shift.i.i29
   %180 = zext i1 %179 to i16
   %181 = or disjoint i16 %180, 256
-  %182 = trunc i16 %181 to i9
+  %182 = trunc nuw i16 %181 to i9
   %183 = xor i9 %182, -255
   %184 = select i1 %or.cond.i.i31, i9 -255, i9 %183
   %185 = call i9 @llvm.bitreverse.i9(i9 %184)
@@ -23972,7 +23972,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = trunc i32 %.0.lcssa.i to i8
+  %58 = trunc nuw i32 %.0.lcssa.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -24153,7 +24153,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23Cartes
 79:                                               ; preds = %5
   %.sroa.0.0.extract.trunc.i = trunc i64 %78 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %78, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %80 = icmp ne i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br label %89
 
@@ -31219,7 +31219,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23Cartes
 95:                                               ; preds = %6
   %.sroa.0.0.extract.trunc.i = trunc i64 %94 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %94, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %96 = icmp ne i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br label %105
 
@@ -50802,7 +50802,7 @@ define linkonce_odr ptr @_ZN4CGAL25Triangulation_hierarchy_3INS_24Delaunay_trian
   %15 = add i64 %14, 11
   %16 = and i64 %15, 281474976710655
   %17 = lshr i64 %16, 17
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = uitofp i32 %18 to double
   %20 = fmul double %19, 0x3E00000000000000
   %21 = fcmp olt double %20, 1.000000e+00
@@ -57399,7 +57399,7 @@ _ZNK4CGAL28Triangulation_ds_cell_base_3INS_30Triangulation_data_structure_3INS_3
   %46 = icmp eq <4 x i32> %45, zeroinitializer
   %47 = bitcast <4 x i1> %46 to i4
   %48 = call i4 @llvm.ctpop.i4(i4 %47), !range !1268
-  %trunc = trunc i4 %48 to i3
+  %trunc = trunc nuw i4 %48 to i3
   switch i3 %trunc, label %285 [
     i3 0, label %94
     i3 1, label %95
@@ -57618,7 +57618,7 @@ _ZN5boost6random17variate_generatorIRNS0_6rand48ENS0_16uniform_smallintIiEEEclEv
   %155 = add i64 %154, 11
   %156 = and i64 %155, 281474976710655
   %157 = lshr i64 %156, 17
-  %158 = trunc i64 %157 to i32
+  %158 = trunc nuw nsw i64 %157 to i32
   %159 = urem i32 %158, 3
   %160 = zext nneg i32 %159 to i64
   %161 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1119"], ptr %138, i64 0, i64 %160
@@ -58230,7 +58230,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23Cartes
 63:                                               ; preds = %4
   %.sroa.0.0.extract.trunc.i = trunc i64 %62 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %62, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %64 = icmp ne i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br label %73
 
@@ -74685,7 +74685,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23Cartes
 27:                                               ; preds = %12
   %28 = and i64 %16, 4503599627370495
   %29 = or disjoint i64 %28, 4503599627370496
-  %30 = trunc i64 %18 to i32
+  %30 = trunc nuw nsw i64 %18 to i32
   %31 = add nuw nsw i32 %30, 13
   br label %32
 
@@ -80156,7 +80156,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23Cartes
 30:                                               ; preds = %15
   %31 = and i64 %19, 4503599627370495
   %32 = or disjoint i64 %31, 4503599627370496
-  %33 = trunc i64 %21 to i32
+  %33 = trunc nuw nsw i64 %21 to i32
   %34 = add nuw nsw i32 %33, 13
   br label %35
 
@@ -85306,7 +85306,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %cond.fr.i.i25 = freeze i1 %or.cond.not.i.i.i.not.i.i24
   %123 = zext i1 %cond.fr.i.i25 to i16
   %124 = or disjoint i16 %123, 256
-  %125 = trunc i16 %124 to i9
+  %125 = trunc nuw i16 %124 to i9
   %126 = xor i9 %125, -255
   br i1 %cond.fr.i.i25, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i
 
@@ -85348,7 +85348,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %cond.fr.i.i.i.i29 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i28
   %146 = zext i1 %cond.fr.i.i.i.i29 to i16
   %147 = or disjoint i16 %146, 256
-  %148 = trunc i16 %147 to i9
+  %148 = trunc nuw i16 %147 to i9
   %149 = xor i9 %148, -255
   br i1 %cond.fr.i.i.i.i29, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i
 
@@ -85390,7 +85390,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %cond.fr.i.i.i.i.i.i34 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i.i.i33
   %169 = zext i1 %cond.fr.i.i.i.i.i.i34 to i16
   %170 = or disjoint i16 %169, 256
-  %171 = trunc i16 %170 to i9
+  %171 = trunc nuw i16 %170 to i9
   %172 = xor i9 %171, -255
   br i1 %cond.fr.i.i.i.i.i.i34, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i35, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i
 
@@ -85445,7 +85445,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %cond.fr.i.i38 = freeze i1 %or.cond.not.i.i.i.not.i.i37
   %195 = zext i1 %cond.fr.i.i38 to i16
   %196 = or disjoint i16 %195, 256
-  %197 = trunc i16 %196 to i9
+  %197 = trunc nuw i16 %196 to i9
   %198 = xor i9 %197, -255
   br i1 %cond.fr.i.i38, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i64, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread11.i.i39
 
@@ -85487,7 +85487,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %cond.fr.i.i.i.i47 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i46
   %218 = zext i1 %cond.fr.i.i.i.i47 to i16
   %219 = or disjoint i16 %218, 256
-  %220 = trunc i16 %219 to i9
+  %220 = trunc nuw i16 %219 to i9
   %221 = xor i9 %220, -255
   br i1 %cond.fr.i.i.i.i47, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i63, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread6.i.i.i.i48
 
@@ -85529,7 +85529,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %cond.fr.i.i.i.i.i.i58 = freeze i1 %or.cond.not.i.i.i.not.i.i.i.i.i.i57
   %241 = zext i1 %cond.fr.i.i.i.i.i.i58 to i16
   %242 = or disjoint i16 %241, 256
-  %243 = trunc i16 %242 to i9
+  %243 = trunc nuw i16 %242 to i9
   %244 = xor i9 %243, -255
   br i1 %cond.fr.i.i.i.i.i.i58, label %_ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS5_RKS6_.exit.thread.i.i.i.i.i.i62, label %_ZZZN4CGAL11dominanceC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_ENKUlvE_clEvENKUlvE_clEv.exit.i.i.i.i.i59
 
@@ -85996,7 +85996,7 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   store ptr %5, ptr %52, align 8
   %.sroa.2.0.insert.ext = zext i1 %.0.i.i.i to i16
   %53 = lshr i32 %.0.i.i.i.in, 23
-  %54 = trunc i32 %53 to i16
+  %54 = trunc nuw nsw i32 %53 to i16
   %55 = and i16 %54, 256
   %56 = or disjoint i16 %55, %.sroa.2.0.insert.ext
   %.sroa.0.0.insert.insert = xor i16 %56, 256
@@ -86107,7 +86107,7 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   %49 = load ptr, ptr %48, align 8
   %.sroa.22.0.insert.ext = zext i1 %.0.i.i.i to i16
   %50 = lshr i32 %.0.i.i.i.in, 23
-  %51 = trunc i32 %50 to i16
+  %51 = trunc nuw nsw i32 %50 to i16
   %52 = and i16 %51, 256
   %53 = or disjoint i16 %52, %.sroa.22.0.insert.ext
   %.sroa.01.0.insert.insert = xor i16 %53, 256
@@ -86198,7 +86198,7 @@ _ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S
   %.0.i.i.i.i.i = icmp sgt i32 %.0.i.i.i.in.i.i, -1
   %.sroa.2.0.insert.ext.i.i = zext i1 %.0.i.i.i.i.i to i16
   %97 = lshr i32 %.0.i.i.i.in.i.i, 23
-  %98 = trunc i32 %97 to i16
+  %98 = trunc nuw nsw i32 %97 to i16
   %99 = and i16 %98, 256
   %100 = or disjoint i16 %99, %.sroa.2.0.insert.ext.i.i
   %.sroa.0.0.insert.insert.i.i = xor i16 %100, 256
@@ -95156,7 +95156,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrap
 22:                                               ; preds = %3
   %23 = and i64 %11, 4503599627370495
   %24 = or disjoint i64 %23, 4503599627370496
-  %25 = trunc i64 %13 to i32
+  %25 = trunc nuw nsw i64 %13 to i32
   %26 = add nuw nsw i32 %25, 13
   br label %27
 
@@ -95505,7 +95505,7 @@ _ZNK4CGAL8Sphere_3INS_16Simple_cartesianINS_4MpzfEEEE14squared_radiusEv.exit: ; 
 90:                                               ; preds = %75
   %91 = and i64 %79, 4503599627370495
   %92 = or disjoint i64 %91, 4503599627370496
-  %93 = trunc i64 %81 to i32
+  %93 = trunc nuw nsw i64 %81 to i32
   %94 = add nuw nsw i32 %93, 13
   br label %95
 
@@ -96246,7 +96246,7 @@ _ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKS1_.exit80: ; preds = %_ZN4CGAL4
 411:                                              ; preds = %_ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKS1_.exit80
   %412 = and i64 %400, 4503599627370495
   %413 = or disjoint i64 %412, 4503599627370496
-  %414 = trunc i64 %402 to i32
+  %414 = trunc nuw nsw i64 %402 to i32
   %415 = add nuw nsw i32 %414, 13
   br label %416
 
@@ -96894,7 +96894,7 @@ _ZN4CGAL4Mpzf4initEj.exit.i149.invoke:            ; preds = %652, %659, %.noexc1
 690:                                              ; preds = %675
   %691 = and i64 %679, 4503599627370495
   %692 = or disjoint i64 %691, 4503599627370496
-  %693 = trunc i64 %681 to i32
+  %693 = trunc nuw nsw i64 %681 to i32
   %694 = add nuw nsw i32 %693, 13
   br label %695
 
@@ -97571,7 +97571,7 @@ _ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKS1_.exit232: ; preds = %_ZN4CGAL
 986:                                              ; preds = %_ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKS1_.exit232
   %987 = and i64 %975, 4503599627370495
   %988 = or disjoint i64 %987, 4503599627370496
-  %989 = trunc i64 %977 to i32
+  %989 = trunc nuw nsw i64 %977 to i32
   %990 = add nuw nsw i32 %989, 13
   br label %991
 
@@ -98154,7 +98154,7 @@ _ZN4CGAL4MpzfD2Ev.exit295:                        ; preds = %1211, %1209
 1241:                                             ; preds = %1226
   %1242 = and i64 %1230, 4503599627370495
   %1243 = or disjoint i64 %1242, 4503599627370496
-  %1244 = trunc i64 %1232 to i32
+  %1244 = trunc nuw nsw i64 %1232 to i32
   %1245 = add nuw nsw i32 %1244, 13
   br label %1246
 
@@ -98706,7 +98706,7 @@ _ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKS1_.exit353: ; preds = %_ZN4CGAL
 1476:                                             ; preds = %_ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKS1_.exit353
   %1477 = and i64 %1465, 4503599627370495
   %1478 = or disjoint i64 %1477, 4503599627370496
-  %1479 = trunc i64 %1467 to i32
+  %1479 = trunc nuw nsw i64 %1467 to i32
   %1480 = add nuw nsw i32 %1479, 13
   br label %1481
 
@@ -99425,7 +99425,7 @@ define linkonce_odr noundef i32 @_ZN4CGAL7compareINS_4MpzfEdEENS_22Real_embeddab
 17:                                               ; preds = %2
   %18 = and i64 %6, 4503599627370495
   %19 = or disjoint i64 %18, 4503599627370496
-  %20 = trunc i64 %8 to i32
+  %20 = trunc nuw nsw i64 %8 to i32
   %21 = add nuw nsw i32 %20, 13
   br label %22
 
@@ -99626,7 +99626,7 @@ define linkonce_odr void @_ZNK4CGAL15Coercion_traitsINS_4MpzfEdE4CastclERKd(ptr 
 18:                                               ; preds = %3
   %19 = and i64 %7, 4503599627370495
   %20 = or disjoint i64 %19, 4503599627370496
-  %21 = trunc i64 %9 to i32
+  %21 = trunc nuw nsw i64 %9 to i32
   %22 = add nuw nsw i32 %21, 13
   br label %23
 
@@ -102462,7 +102462,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %92 to i32
   %.sroa.3.0.extract.shift.i.i.i = lshr i64 %92, 32
-  %.sroa.3.0.extract.trunc.i.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i32
   %94 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i.i, 1
   %95 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i.i, 1
   %or.cond.i.i.i = or i1 %95, %94
@@ -109190,7 +109190,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL8internal25Static_filters_predi
   %43 = call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %.sroa.0.0, double noundef %.sroa.9.0, double noundef %.sroa.18.0)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %43 to i32
   %.sroa.2.0.extract.shift.i.i = lshr i64 %43, 32
-  %.sroa.2.0.extract.trunc.i.i = trunc i64 %.sroa.2.0.extract.shift.i.i to i32
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
   %.not.i = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.2.0.extract.trunc.i.i
   br i1 %.not.i, label %44, label %46
 
@@ -109225,7 +109225,7 @@ _ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_ker
   %52 = call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %.sroa.0210.0, double noundef %.sroa.9211.0, double noundef %.sroa.18212.0)
   %.sroa.0.0.extract.trunc.i.i162 = trunc i64 %52 to i32
   %.sroa.2.0.extract.shift.i.i163 = lshr i64 %52, 32
-  %.sroa.2.0.extract.trunc.i.i164 = trunc i64 %.sroa.2.0.extract.shift.i.i163 to i32
+  %.sroa.2.0.extract.trunc.i.i164 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i163 to i32
   %.not.i165 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i162, %.sroa.2.0.extract.trunc.i.i164
   br i1 %.not.i165, label %53, label %55
 
@@ -109266,7 +109266,7 @@ _ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_ker
   %67 = call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %65, double noundef %66, double noundef %64)
   %.sroa.0.0.extract.trunc.i.i170 = trunc i64 %67 to i32
   %.sroa.2.0.extract.shift.i.i171 = lshr i64 %67, 32
-  %.sroa.2.0.extract.trunc.i.i172 = trunc i64 %.sroa.2.0.extract.shift.i.i171 to i32
+  %.sroa.2.0.extract.trunc.i.i172 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i171 to i32
   %.not.i173 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i170, %.sroa.2.0.extract.trunc.i.i172
   br i1 %.not.i173, label %68, label %70
 
@@ -109306,7 +109306,7 @@ _ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_ker
   %83 = call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %81, double noundef %82, double noundef %80)
   %.sroa.0.0.extract.trunc.i.i178 = trunc i64 %83 to i32
   %.sroa.2.0.extract.shift.i.i179 = lshr i64 %83, 32
-  %.sroa.2.0.extract.trunc.i.i180 = trunc i64 %.sroa.2.0.extract.shift.i.i179 to i32
+  %.sroa.2.0.extract.trunc.i.i180 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i179 to i32
   %.not.i181 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i178, %.sroa.2.0.extract.trunc.i.i180
   br i1 %.not.i181, label %84, label %86
 
@@ -109343,7 +109343,7 @@ _ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_ker
   %95 = call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %93, double noundef %94, double noundef %92)
   %.sroa.0.0.extract.trunc.i.i186 = trunc i64 %95 to i32
   %.sroa.2.0.extract.shift.i.i187 = lshr i64 %95, 32
-  %.sroa.2.0.extract.trunc.i.i188 = trunc i64 %.sroa.2.0.extract.shift.i.i187 to i32
+  %.sroa.2.0.extract.trunc.i.i188 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i187 to i32
   %.not.i189 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i186, %.sroa.2.0.extract.trunc.i.i188
   br i1 %.not.i189, label %96, label %98
 
@@ -109380,7 +109380,7 @@ _ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_ker
   %107 = call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %105, double noundef %106, double noundef %104)
   %.sroa.0.0.extract.trunc.i.i194 = trunc i64 %107 to i32
   %.sroa.2.0.extract.shift.i.i195 = lshr i64 %107, 32
-  %.sroa.2.0.extract.trunc.i.i196 = trunc i64 %.sroa.2.0.extract.shift.i.i195 to i32
+  %.sroa.2.0.extract.trunc.i.i196 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i195 to i32
   %.not.i197 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i194, %.sroa.2.0.extract.trunc.i.i196
   br i1 %.not.i197, label %108, label %110
 
@@ -109416,7 +109416,7 @@ _ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_ker
   %118 = call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %115, double noundef %116, double noundef %117)
   %.sroa.0.0.extract.trunc.i.i202 = trunc i64 %118 to i32
   %.sroa.2.0.extract.shift.i.i203 = lshr i64 %118, 32
-  %.sroa.2.0.extract.trunc.i.i204 = trunc i64 %.sroa.2.0.extract.shift.i.i203 to i32
+  %.sroa.2.0.extract.trunc.i.i204 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i203 to i32
   %.not.i205 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i202, %.sroa.2.0.extract.trunc.i.i204
   br i1 %.not.i205, label %119, label %121
 
@@ -112812,7 +112812,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %115
   %120 = zext i1 %118 to i16
   %121 = or disjoint i16 %120, 256
-  %122 = trunc i16 %121 to i9
+  %122 = trunc nuw i16 %121 to i9
   %123 = xor i9 %122, -255
   br label %124
 
@@ -112902,7 +112902,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %188, %127
   %193 = zext i1 %187 to i16
   %194 = or disjoint i16 %193, 256
-  %195 = trunc i16 %194 to i9
+  %195 = trunc nuw i16 %194 to i9
   %196 = xor i9 %195, -255
   br label %197
 
@@ -112990,7 +112990,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %262
   %267 = zext i1 %265 to i16
   %268 = or disjoint i16 %267, 256
-  %269 = trunc i16 %268 to i9
+  %269 = trunc nuw i16 %268 to i9
   %270 = xor i9 %269, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
 
@@ -113185,7 +113185,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %115
   %120 = zext i1 %118 to i16
   %121 = or disjoint i16 %120, 256
-  %122 = trunc i16 %121 to i9
+  %122 = trunc nuw i16 %121 to i9
   %123 = xor i9 %122, -255
   br label %124
 
@@ -113275,7 +113275,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %188, %127
   %193 = zext i1 %187 to i16
   %194 = or disjoint i16 %193, 256
-  %195 = trunc i16 %194 to i9
+  %195 = trunc nuw i16 %194 to i9
   %196 = xor i9 %195, -255
   br label %197
 
@@ -113363,7 +113363,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %262
   %267 = zext i1 %265 to i16
   %268 = or disjoint i16 %267, 256
-  %269 = trunc i16 %268 to i9
+  %269 = trunc nuw i16 %268 to i9
   %270 = xor i9 %269, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
 
@@ -113559,7 +113559,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %116
   %121 = zext i1 %119 to i16
   %122 = or disjoint i16 %121, 256
-  %123 = trunc i16 %122 to i9
+  %123 = trunc nuw i16 %122 to i9
   %124 = xor i9 %123, -255
   br label %125
 
@@ -113649,7 +113649,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %189, %128
   %194 = zext i1 %188 to i16
   %195 = or disjoint i16 %194, 256
-  %196 = trunc i16 %195 to i9
+  %196 = trunc nuw i16 %195 to i9
   %197 = xor i9 %196, -255
   br label %198
 
@@ -113737,7 +113737,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %263
   %268 = zext i1 %266 to i16
   %269 = or disjoint i16 %268, 256
-  %270 = trunc i16 %269 to i9
+  %270 = trunc nuw i16 %269 to i9
   %271 = xor i9 %270, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi0ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE_clEv.exit.i
 
@@ -113934,7 +113934,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %117
   %122 = zext i1 %120 to i16
   %123 = or disjoint i16 %122, 256
-  %124 = trunc i16 %123 to i9
+  %124 = trunc nuw i16 %123 to i9
   %125 = xor i9 %124, -255
   br label %126
 
@@ -114023,7 +114023,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %189, %129
   %194 = zext i1 %188 to i16
   %195 = or disjoint i16 %194, 256
-  %196 = trunc i16 %195 to i9
+  %196 = trunc nuw i16 %195 to i9
   %197 = xor i9 %196, -255
   br label %198
 
@@ -114110,7 +114110,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %262
   %267 = zext i1 %265 to i16
   %268 = or disjoint i16 %267, 256
-  %269 = trunc i16 %268 to i9
+  %269 = trunc nuw i16 %268 to i9
   %270 = xor i9 %269, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
 
@@ -114308,7 +114308,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %118
   %123 = zext i1 %121 to i16
   %124 = or disjoint i16 %123, 256
-  %125 = trunc i16 %124 to i9
+  %125 = trunc nuw i16 %124 to i9
   %126 = xor i9 %125, -255
   br label %127
 
@@ -114397,7 +114397,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %190, %130
   %195 = zext i1 %189 to i16
   %196 = or disjoint i16 %195, 256
-  %197 = trunc i16 %196 to i9
+  %197 = trunc nuw i16 %196 to i9
   %198 = xor i9 %197, -255
   br label %199
 
@@ -114484,7 +114484,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %263
   %268 = zext i1 %266 to i16
   %269 = or disjoint i16 %268, 256
-  %270 = trunc i16 %269 to i9
+  %270 = trunc nuw i16 %269 to i9
   %271 = xor i9 %270, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
 
@@ -114683,7 +114683,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %119
   %124 = zext i1 %122 to i16
   %125 = or disjoint i16 %124, 256
-  %126 = trunc i16 %125 to i9
+  %126 = trunc nuw i16 %125 to i9
   %127 = xor i9 %126, -255
   br label %128
 
@@ -114772,7 +114772,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %191, %131
   %196 = zext i1 %190 to i16
   %197 = or disjoint i16 %196, 256
-  %198 = trunc i16 %197 to i9
+  %198 = trunc nuw i16 %197 to i9
   %199 = xor i9 %198, -255
   br label %200
 
@@ -114859,7 +114859,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %264
   %269 = zext i1 %267 to i16
   %270 = or disjoint i16 %269, 256
-  %271 = trunc i16 %270 to i9
+  %271 = trunc nuw i16 %270 to i9
   %272 = xor i9 %271, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi1ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE0_clEv.exit.i
 
@@ -115056,7 +115056,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %117
   %122 = zext i1 %120 to i16
   %123 = or disjoint i16 %122, 256
-  %124 = trunc i16 %123 to i9
+  %124 = trunc nuw i16 %123 to i9
   %125 = xor i9 %124, -255
   br label %126
 
@@ -115145,7 +115145,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %189, %129
   %194 = zext i1 %188 to i16
   %195 = or disjoint i16 %194, 256
-  %196 = trunc i16 %195 to i9
+  %196 = trunc nuw i16 %195 to i9
   %197 = xor i9 %196, -255
   br label %198
 
@@ -115232,7 +115232,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %262
   %267 = zext i1 %265 to i16
   %268 = or disjoint i16 %267, 256
-  %269 = trunc i16 %268 to i9
+  %269 = trunc nuw i16 %268 to i9
   %270 = xor i9 %269, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi0EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
 
@@ -115430,7 +115430,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %118
   %123 = zext i1 %121 to i16
   %124 = or disjoint i16 %123, 256
-  %125 = trunc i16 %124 to i9
+  %125 = trunc nuw i16 %124 to i9
   %126 = xor i9 %125, -255
   br label %127
 
@@ -115519,7 +115519,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %190, %130
   %195 = zext i1 %189 to i16
   %196 = or disjoint i16 %195, 256
-  %197 = trunc i16 %196 to i9
+  %197 = trunc nuw i16 %196 to i9
   %198 = xor i9 %197, -255
   br label %199
 
@@ -115606,7 +115606,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %263
   %268 = zext i1 %266 to i16
   %269 = or disjoint i16 %268, 256
-  %270 = trunc i16 %269 to i9
+  %270 = trunc nuw i16 %269 to i9
   %271 = xor i9 %270, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi1EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
 
@@ -115805,7 +115805,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxINS_11Interval_ntILb0EEENS_6Bbox_3E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit: ; preds = %119
   %124 = zext i1 %122 to i16
   %125 = or disjoint i16 %124, 256
-  %126 = trunc i16 %125 to i9
+  %126 = trunc nuw i16 %125 to i9
   %127 = xor i9 %126, -255
   br label %128
 
@@ -115894,7 +115894,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit20: ; preds = %191, %131
   %196 = zext i1 %190 to i16
   %197 = or disjoint i16 %196, 256
-  %198 = trunc i16 %197 to i9
+  %198 = trunc nuw i16 %197 to i9
   %199 = xor i9 %198, -255
   br label %200
 
@@ -115981,7 +115981,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0E
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2INS_11Interval_ntILb0EEELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EENS_6Bbox_3EEENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainINS_4SignEEESI_SI_RKSt5arrayISP_IS9_Lm3EELm3EET1_.exit.i.i: ; preds = %264
   %269 = zext i1 %267 to i16
   %270 = or disjoint i16 %269, 256
-  %271 = trunc i16 %270 to i9
+  %271 = trunc nuw i16 %270 to i9
   %272 = xor i9 %271, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectINS_11Interval_ntILb0EEENS_6Bbox_3ELi2ELi2EZNS1_31do_intersect_bbox_or_iso_cuboidINS_16Simple_cartesianIS4_EES5_EENT_7BooleanERKNS9_10Triangle_3ERKT0_RKS9_EUlRKS4_SK_SK_SK_E_EENS_9UncertainIbEERKSt5arrayISO_IS9_Lm3EELm3EESS_SG_T3_ENKUlvE1_clEv.exit.i
 
@@ -117254,7 +117254,7 @@ _ZN4CGALleERKNS_4MpzfES2_.exit142.thread691:      ; preds = %186, %211, %182, %_
 225:                                              ; preds = %_ZN4CGALleERKNS_4MpzfES2_.exit142.thread691
   %226 = and i64 %216, 4503599627370495
   %227 = or disjoint i64 %226, 4503599627370496
-  %228 = trunc i64 %218 to i32
+  %228 = trunc nuw nsw i64 %218 to i32
   %229 = add nuw nsw i32 %228, 13
   br label %230
 
@@ -117483,7 +117483,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit145: ; preds = %253
 325:                                              ; preds = %315
   %326 = and i64 %316, 4503599627370495
   %327 = or disjoint i64 %326, 4503599627370496
-  %328 = trunc i64 %318 to i32
+  %328 = trunc nuw nsw i64 %318 to i32
   %329 = add nuw nsw i32 %328, 13
   br label %330
 
@@ -117896,7 +117896,7 @@ _ZN4CGALleERKNS_4MpzfES2_.exit194.thread722:      ; preds = %465, %490, %461, %_
 504:                                              ; preds = %_ZN4CGALleERKNS_4MpzfES2_.exit194.thread722
   %505 = and i64 %495, 4503599627370495
   %506 = or disjoint i64 %505, 4503599627370496
-  %507 = trunc i64 %497 to i32
+  %507 = trunc nuw nsw i64 %497 to i32
   %508 = add nuw nsw i32 %507, 13
   br label %509
 
@@ -118125,7 +118125,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit208: ; preds = %532
 604:                                              ; preds = %594
   %605 = and i64 %595, 4503599627370495
   %606 = or disjoint i64 %605, 4503599627370496
-  %607 = trunc i64 %597 to i32
+  %607 = trunc nuw nsw i64 %597 to i32
   %608 = add nuw nsw i32 %607, 13
   br label %609
 
@@ -118394,7 +118394,7 @@ _ZN4CGALleERKNS_4MpzfES2_.exit194.thread:         ; preds = %490, %461, %467, %4
 717:                                              ; preds = %_ZN4CGALleERKNS_4MpzfES2_.exit194.thread
   %718 = and i64 %708, 4503599627370495
   %719 = or disjoint i64 %718, 4503599627370496
-  %720 = trunc i64 %710 to i32
+  %720 = trunc nuw nsw i64 %710 to i32
   %721 = add nuw nsw i32 %720, 13
   br label %722
 
@@ -118623,7 +118623,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit292: ; preds = %745
 817:                                              ; preds = %807
   %818 = and i64 %808, 4503599627370495
   %819 = or disjoint i64 %818, 4503599627370496
-  %820 = trunc i64 %810 to i32
+  %820 = trunc nuw nsw i64 %810 to i32
   %821 = add nuw nsw i32 %820, 13
   br label %822
 
@@ -119036,7 +119036,7 @@ _ZN4CGALleERKNS_4MpzfES2_.exit389.thread775:      ; preds = %957, %982, %953, %_
 996:                                              ; preds = %_ZN4CGALleERKNS_4MpzfES2_.exit389.thread775
   %997 = and i64 %987, 4503599627370495
   %998 = or disjoint i64 %997, 4503599627370496
-  %999 = trunc i64 %989 to i32
+  %999 = trunc nuw nsw i64 %989 to i32
   %1000 = add nuw nsw i32 %999, 13
   br label %1001
 
@@ -119265,7 +119265,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit403: ; preds = %102
 1096:                                             ; preds = %1086
   %1097 = and i64 %1087, 4503599627370495
   %1098 = or disjoint i64 %1097, 4503599627370496
-  %1099 = trunc i64 %1089 to i32
+  %1099 = trunc nuw nsw i64 %1089 to i32
   %1100 = add nuw nsw i32 %1099, 13
   br label %1101
 
@@ -119678,7 +119678,7 @@ _ZN4CGALleERKNS_4MpzfES2_.exit500.thread808:      ; preds = %1236, %1261, %1232,
 1275:                                             ; preds = %_ZN4CGALleERKNS_4MpzfES2_.exit500.thread808
   %1276 = and i64 %1266, 4503599627370495
   %1277 = or disjoint i64 %1276, 4503599627370496
-  %1278 = trunc i64 %1268 to i32
+  %1278 = trunc nuw nsw i64 %1268 to i32
   %1279 = add nuw nsw i32 %1278, 13
   br label %1280
 
@@ -119907,7 +119907,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit514: ; preds = %130
 1375:                                             ; preds = %1365
   %1376 = and i64 %1366, 4503599627370495
   %1377 = or disjoint i64 %1376, 4503599627370496
-  %1378 = trunc i64 %1368 to i32
+  %1378 = trunc nuw nsw i64 %1368 to i32
   %1379 = add nuw nsw i32 %1378, 13
   br label %1380
 
@@ -120176,7 +120176,7 @@ _ZN4CGALleERKNS_4MpzfES2_.exit500.thread:         ; preds = %1261, %1232, %1238,
 1488:                                             ; preds = %_ZN4CGALleERKNS_4MpzfES2_.exit500.thread
   %1489 = and i64 %1479, 4503599627370495
   %1490 = or disjoint i64 %1489, 4503599627370496
-  %1491 = trunc i64 %1481 to i32
+  %1491 = trunc nuw nsw i64 %1481 to i32
   %1492 = add nuw nsw i32 %1491, 13
   br label %1493
 
@@ -120405,7 +120405,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit598: ; preds = %151
 1588:                                             ; preds = %1578
   %1589 = and i64 %1579, 4503599627370495
   %1590 = or disjoint i64 %1589, 4503599627370496
-  %1591 = trunc i64 %1581 to i32
+  %1591 = trunc nuw nsw i64 %1581 to i32
   %1592 = add nuw nsw i32 %1591, 13
   br label %1593
 
@@ -124169,7 +124169,7 @@ define linkonce_odr void @_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEC2I
 23:                                               ; preds = %4
   %24 = and i64 %12, 4503599627370495
   %25 = or disjoint i64 %24, 4503599627370496
-  %26 = trunc i64 %14 to i32
+  %26 = trunc nuw nsw i64 %14 to i32
   %27 = add nuw nsw i32 %26, 13
   br label %28
 
@@ -124256,7 +124256,7 @@ _ZN4CGAL4MpzfC2Ed.exit:                           ; preds = %18, %49, %50
 66:                                               ; preds = %_ZN4CGAL4MpzfC2Ed.exit
   %67 = and i64 %55, 4503599627370495
   %68 = or disjoint i64 %67, 4503599627370496
-  %69 = trunc i64 %57 to i32
+  %69 = trunc nuw nsw i64 %57 to i32
   %70 = add nuw nsw i32 %69, 13
   br label %71
 
@@ -124343,7 +124343,7 @@ _ZN4CGAL4MpzfC2Ed.exit15:                         ; preds = %93, %92, %61
 109:                                              ; preds = %_ZN4CGAL4MpzfC2Ed.exit15
   %110 = and i64 %98, 4503599627370495
   %111 = or disjoint i64 %110, 4503599627370496
-  %112 = trunc i64 %100 to i32
+  %112 = trunc nuw nsw i64 %100 to i32
   %113 = add nuw nsw i32 %112, 13
   br label %114
 
@@ -127374,14 +127374,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %117 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %117, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %119 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %120 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %120, %119
   %121 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %122 = zext i1 %121 to i16
   %123 = or disjoint i16 %122, 256
-  %124 = trunc i16 %123 to i9
+  %124 = trunc nuw i16 %123 to i9
   %125 = xor i9 %124, -255
   %126 = select i1 %or.cond.i.i, i9 -255, i9 %125
   %127 = call i9 @llvm.bitreverse.i9(i9 %126)
@@ -127614,14 +127614,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %212 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %212, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %214 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %215 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %215, %214
   %216 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %217 = zext i1 %216 to i16
   %218 = or disjoint i16 %217, 256
-  %219 = trunc i16 %218 to i9
+  %219 = trunc nuw i16 %218 to i9
   %220 = xor i9 %219, -255
   %221 = select i1 %or.cond.i.i80, i9 -255, i9 %220
   %222 = call i9 @llvm.bitreverse.i9(i9 %221)
@@ -128074,14 +128074,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %117 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %117, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %119 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %120 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %120, %119
   %121 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %122 = zext i1 %121 to i16
   %123 = or disjoint i16 %122, 256
-  %124 = trunc i16 %123 to i9
+  %124 = trunc nuw i16 %123 to i9
   %125 = xor i9 %124, -255
   %126 = select i1 %or.cond.i.i, i9 -255, i9 %125
   %127 = call i9 @llvm.bitreverse.i9(i9 %126)
@@ -128314,14 +128314,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %212 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %212, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %214 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %215 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %215, %214
   %216 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %217 = zext i1 %216 to i16
   %218 = or disjoint i16 %217, 256
-  %219 = trunc i16 %218 to i9
+  %219 = trunc nuw i16 %218 to i9
   %220 = xor i9 %219, -255
   %221 = select i1 %or.cond.i.i80, i9 -255, i9 %220
   %222 = call i9 @llvm.bitreverse.i9(i9 %221)
@@ -128775,14 +128775,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %118 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %118, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %120 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %121 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %121, %120
   %122 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %123 = zext i1 %122 to i16
   %124 = or disjoint i16 %123, 256
-  %125 = trunc i16 %124 to i9
+  %125 = trunc nuw i16 %124 to i9
   %126 = xor i9 %125, -255
   %127 = select i1 %or.cond.i.i, i9 -255, i9 %126
   %128 = call i9 @llvm.bitreverse.i9(i9 %127)
@@ -129015,14 +129015,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %213 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %213, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %215 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %216 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %216, %215
   %217 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %218 = zext i1 %217 to i16
   %219 = or disjoint i16 %218, 256
-  %220 = trunc i16 %219 to i9
+  %220 = trunc nuw i16 %219 to i9
   %221 = xor i9 %220, -255
   %222 = select i1 %or.cond.i.i80, i9 -255, i9 %221
   %223 = call i9 @llvm.bitreverse.i9(i9 %222)
@@ -129472,14 +129472,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %114 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %114, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %116 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %117 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %117, %116
   %118 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %119 = zext i1 %118 to i16
   %120 = or disjoint i16 %119, 256
-  %121 = trunc i16 %120 to i9
+  %121 = trunc nuw i16 %120 to i9
   %122 = xor i9 %121, -255
   %123 = select i1 %or.cond.i.i, i9 -255, i9 %122
   %124 = call i9 @llvm.bitreverse.i9(i9 %123)
@@ -129704,14 +129704,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %205 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %205, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %207 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %208 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %208, %207
   %209 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %210 = zext i1 %209 to i16
   %211 = or disjoint i16 %210, 256
-  %212 = trunc i16 %211 to i9
+  %212 = trunc nuw i16 %211 to i9
   %213 = xor i9 %212, -255
   %214 = select i1 %or.cond.i.i80, i9 -255, i9 %213
   %215 = call i9 @llvm.bitreverse.i9(i9 %214)
@@ -130162,14 +130162,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %115 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %115, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %117 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %118 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %118, %117
   %119 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %120 = zext i1 %119 to i16
   %121 = or disjoint i16 %120, 256
-  %122 = trunc i16 %121 to i9
+  %122 = trunc nuw i16 %121 to i9
   %123 = xor i9 %122, -255
   %124 = select i1 %or.cond.i.i, i9 -255, i9 %123
   %125 = call i9 @llvm.bitreverse.i9(i9 %124)
@@ -130394,14 +130394,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %206 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %206, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %208 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %209 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %209, %208
   %210 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %211 = zext i1 %210 to i16
   %212 = or disjoint i16 %211, 256
-  %213 = trunc i16 %212 to i9
+  %213 = trunc nuw i16 %212 to i9
   %214 = xor i9 %213, -255
   %215 = select i1 %or.cond.i.i80, i9 -255, i9 %214
   %216 = call i9 @llvm.bitreverse.i9(i9 %215)
@@ -130853,14 +130853,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %116 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %116, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %118 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %119 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %119, %118
   %120 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %121 = zext i1 %120 to i16
   %122 = or disjoint i16 %121, 256
-  %123 = trunc i16 %122 to i9
+  %123 = trunc nuw i16 %122 to i9
   %124 = xor i9 %123, -255
   %125 = select i1 %or.cond.i.i, i9 -255, i9 %124
   %126 = call i9 @llvm.bitreverse.i9(i9 %125)
@@ -131085,14 +131085,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %207 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %207, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %209 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %210 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %210, %209
   %211 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %212 = zext i1 %211 to i16
   %213 = or disjoint i16 %212, 256
-  %214 = trunc i16 %213 to i9
+  %214 = trunc nuw i16 %213 to i9
   %215 = xor i9 %214, -255
   %216 = select i1 %or.cond.i.i80, i9 -255, i9 %215
   %217 = call i9 @llvm.bitreverse.i9(i9 %216)
@@ -131542,14 +131542,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %114 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %114, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %116 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %117 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %117, %116
   %118 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %119 = zext i1 %118 to i16
   %120 = or disjoint i16 %119, 256
-  %121 = trunc i16 %120 to i9
+  %121 = trunc nuw i16 %120 to i9
   %122 = xor i9 %121, -255
   %123 = select i1 %or.cond.i.i, i9 -255, i9 %122
   %124 = call i9 @llvm.bitreverse.i9(i9 %123)
@@ -131774,14 +131774,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %205 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %205, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %207 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %208 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %208, %207
   %209 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %210 = zext i1 %209 to i16
   %211 = or disjoint i16 %210, 256
-  %212 = trunc i16 %211 to i9
+  %212 = trunc nuw i16 %211 to i9
   %213 = xor i9 %212, -255
   %214 = select i1 %or.cond.i.i80, i9 -255, i9 %213
   %215 = call i9 @llvm.bitreverse.i9(i9 %214)
@@ -132232,14 +132232,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %115 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %115, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %117 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %118 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %118, %117
   %119 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %120 = zext i1 %119 to i16
   %121 = or disjoint i16 %120, 256
-  %122 = trunc i16 %121 to i9
+  %122 = trunc nuw i16 %121 to i9
   %123 = xor i9 %122, -255
   %124 = select i1 %or.cond.i.i, i9 -255, i9 %123
   %125 = call i9 @llvm.bitreverse.i9(i9 %124)
@@ -132464,14 +132464,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %206 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %206, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %208 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %209 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %209, %208
   %210 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %211 = zext i1 %210 to i16
   %212 = or disjoint i16 %211, 256
-  %213 = trunc i16 %212 to i9
+  %213 = trunc nuw i16 %212 to i9
   %214 = xor i9 %213, -255
   %215 = select i1 %or.cond.i.i80, i9 -255, i9 %214
   %216 = call i9 @llvm.bitreverse.i9(i9 %215)
@@ -132923,14 +132923,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit47:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %116 to i32
   %.sroa.3.0.extract.shift.i.i = lshr i64 %116, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %118 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %119 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %119, %118
   %120 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %121 = zext i1 %120 to i16
   %122 = or disjoint i16 %121, 256
-  %123 = trunc i16 %122 to i9
+  %123 = trunc nuw i16 %122 to i9
   %124 = xor i9 %123, -255
   %125 = select i1 %or.cond.i.i, i9 -255, i9 %124
   %126 = call i9 @llvm.bitreverse.i9(i9 %125)
@@ -133155,14 +133155,14 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit74:                 ; preds = %_ZN4CGALmiERKNS_4Mp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i.i77 = trunc i64 %207 to i32
   %.sroa.3.0.extract.shift.i.i78 = lshr i64 %207, 32
-  %.sroa.3.0.extract.trunc.i.i79 = trunc i64 %.sroa.3.0.extract.shift.i.i78 to i32
+  %.sroa.3.0.extract.trunc.i.i79 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i78 to i32
   %209 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i79, 1
   %210 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i77, 1
   %or.cond.i.i80 = or i1 %210, %209
   %211 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i77, %.sroa.3.0.extract.trunc.i.i79
   %212 = zext i1 %211 to i16
   %213 = or disjoint i16 %212, 256
-  %214 = trunc i16 %213 to i9
+  %214 = trunc nuw i16 %213 to i9
   %215 = xor i9 %214, -255
   %216 = select i1 %or.cond.i.i80, i9 -255, i9 %215
   %217 = call i9 @llvm.bitreverse.i9(i9 %216)
@@ -133498,7 +133498,7 @@ _ZN4CGAL4MpzfD2Ev.exit63:                         ; preds = %62, %64
 80:                                               ; preds = %70
   %81 = and i64 %66, 4503599627370495
   %82 = or disjoint i64 %81, 4503599627370496
-  %83 = trunc i64 %68 to i32
+  %83 = trunc nuw nsw i64 %68 to i32
   %84 = add nuw nsw i32 %83, 13
   br label %85
 
@@ -133725,7 +133725,7 @@ _ZN4CGAL4MpzfD2Ev.exit68:                         ; preds = %162, %164
 180:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit68
   %181 = and i64 %169, 4503599627370495
   %182 = or disjoint i64 %181, 4503599627370496
-  %183 = trunc i64 %171 to i32
+  %183 = trunc nuw nsw i64 %171 to i32
   %184 = add nuw nsw i32 %183, 13
   br label %185
 
@@ -133989,7 +133989,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit91:         ; preds = %_ZN4CGAL4MpzfD2Ev.e
 293:                                              ; preds = %283
   %294 = and i64 %66, 4503599627370495
   %295 = or disjoint i64 %294, 4503599627370496
-  %296 = trunc i64 %68 to i32
+  %296 = trunc nuw nsw i64 %68 to i32
   %297 = add nuw nsw i32 %296, 13
   br label %298
 
@@ -134216,7 +134216,7 @@ _ZN4CGAL4MpzfD2Ev.exit132:                        ; preds = %375, %377
 393:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit132
   %394 = and i64 %382, 4503599627370495
   %395 = or disjoint i64 %394, 4503599627370496
-  %396 = trunc i64 %384 to i32
+  %396 = trunc nuw nsw i64 %384 to i32
   %397 = add nuw nsw i32 %396, 13
   br label %398
 
@@ -134519,7 +134519,7 @@ _ZN4CGAL4MpzfD2Ev.exit190:                        ; preds = %504, %506
 522:                                              ; preds = %512
   %523 = and i64 %508, 4503599627370495
   %524 = or disjoint i64 %523, 4503599627370496
-  %525 = trunc i64 %510 to i32
+  %525 = trunc nuw nsw i64 %510 to i32
   %526 = add nuw nsw i32 %525, 13
   br label %527
 
@@ -134746,7 +134746,7 @@ _ZN4CGAL4MpzfD2Ev.exit216:                        ; preds = %604, %606
 622:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit216
   %623 = and i64 %611, 4503599627370495
   %624 = or disjoint i64 %623, 4503599627370496
-  %625 = trunc i64 %613 to i32
+  %625 = trunc nuw nsw i64 %613 to i32
   %626 = add nuw nsw i32 %625, 13
   br label %627
 
@@ -135010,7 +135010,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit239:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
 735:                                              ; preds = %725
   %736 = and i64 %508, 4503599627370495
   %737 = or disjoint i64 %736, 4503599627370496
-  %738 = trunc i64 %510 to i32
+  %738 = trunc nuw nsw i64 %510 to i32
   %739 = add nuw nsw i32 %738, 13
   br label %740
 
@@ -135237,7 +135237,7 @@ _ZN4CGAL4MpzfD2Ev.exit277:                        ; preds = %817, %819
 835:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit277
   %836 = and i64 %824, 4503599627370495
   %837 = or disjoint i64 %836, 4503599627370496
-  %838 = trunc i64 %826 to i32
+  %838 = trunc nuw nsw i64 %826 to i32
   %839 = add nuw nsw i32 %838, 13
   br label %840
 
@@ -135568,7 +135568,7 @@ _ZN4CGAL4MpzfC2ERKS0_.exit:                       ; preds = %22, %_ZN4CGAL4Mpzf4
 40:                                               ; preds = %_ZN4CGAL4MpzfC2ERKS0_.exit
   %41 = and i64 %29, 4503599627370495
   %42 = or disjoint i64 %41, 4503599627370496
-  %43 = trunc i64 %31 to i32
+  %43 = trunc nuw nsw i64 %31 to i32
   %44 = add nuw nsw i32 %43, 13
   br label %45
 
@@ -135656,7 +135656,7 @@ _ZN4CGAL4MpzfC2Ed.exit:                           ; preds = %67, %66, %35
 84:                                               ; preds = %_ZN4CGAL4MpzfC2Ed.exit
   %85 = and i64 %73, 4503599627370495
   %86 = or disjoint i64 %85, 4503599627370496
-  %87 = trunc i64 %75 to i32
+  %87 = trunc nuw nsw i64 %75 to i32
   %88 = add nuw nsw i32 %87, 13
   br label %89
 
@@ -136047,13 +136047,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %40, %43
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %26 to i32
   %44 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %26, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %45 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %44, %45
   %46 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %47 = zext i1 %46 to i16
   %48 = or disjoint i16 %47, 256
-  %49 = trunc i16 %48 to i9
+  %49 = trunc nuw i16 %48 to i9
   %50 = xor i9 %49, -255
   %51 = select i1 %or.cond.i.i, i9 -255, i9 %50
   %52 = call i9 @llvm.bitreverse.i9(i9 %51)
@@ -136200,13 +136200,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %40, %43
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %26 to i32
   %44 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %26, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %45 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %44, %45
   %46 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %47 = zext i1 %46 to i16
   %48 = or disjoint i16 %47, 256
-  %49 = trunc i16 %48 to i9
+  %49 = trunc nuw i16 %48 to i9
   %50 = xor i9 %49, -255
   %51 = select i1 %or.cond.i.i, i9 -255, i9 %50
   %52 = call i9 @llvm.bitreverse.i9(i9 %51)
@@ -136353,13 +136353,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %40, %43
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %26 to i32
   %44 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %26, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %45 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %44, %45
   %46 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %47 = zext i1 %46 to i16
   %48 = or disjoint i16 %47, 256
-  %49 = trunc i16 %48 to i9
+  %49 = trunc nuw i16 %48 to i9
   %50 = xor i9 %49, -255
   %51 = select i1 %or.cond.i.i, i9 -255, i9 %50
   %52 = call i9 @llvm.bitreverse.i9(i9 %51)
@@ -136558,7 +136558,7 @@ _ZN4CGAL4MpzfD2Ev.exit63:                         ; preds = %62, %64
 80:                                               ; preds = %70
   %81 = and i64 %66, 4503599627370495
   %82 = or disjoint i64 %81, 4503599627370496
-  %83 = trunc i64 %68 to i32
+  %83 = trunc nuw nsw i64 %68 to i32
   %84 = add nuw nsw i32 %83, 13
   br label %85
 
@@ -136785,7 +136785,7 @@ _ZN4CGAL4MpzfD2Ev.exit68:                         ; preds = %162, %164
 180:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit68
   %181 = and i64 %169, 4503599627370495
   %182 = or disjoint i64 %181, 4503599627370496
-  %183 = trunc i64 %171 to i32
+  %183 = trunc nuw nsw i64 %171 to i32
   %184 = add nuw nsw i32 %183, 13
   br label %185
 
@@ -137049,7 +137049,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit91:         ; preds = %_ZN4CGAL4MpzfD2Ev.e
 293:                                              ; preds = %283
   %294 = and i64 %66, 4503599627370495
   %295 = or disjoint i64 %294, 4503599627370496
-  %296 = trunc i64 %68 to i32
+  %296 = trunc nuw nsw i64 %68 to i32
   %297 = add nuw nsw i32 %296, 13
   br label %298
 
@@ -137276,7 +137276,7 @@ _ZN4CGAL4MpzfD2Ev.exit132:                        ; preds = %375, %377
 393:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit132
   %394 = and i64 %382, 4503599627370495
   %395 = or disjoint i64 %394, 4503599627370496
-  %396 = trunc i64 %384 to i32
+  %396 = trunc nuw nsw i64 %384 to i32
   %397 = add nuw nsw i32 %396, 13
   br label %398
 
@@ -137580,7 +137580,7 @@ _ZN4CGAL4MpzfD2Ev.exit190:                        ; preds = %504, %506
 523:                                              ; preds = %513
   %524 = and i64 %509, 4503599627370495
   %525 = or disjoint i64 %524, 4503599627370496
-  %526 = trunc i64 %511 to i32
+  %526 = trunc nuw nsw i64 %511 to i32
   %527 = add nuw nsw i32 %526, 13
   br label %528
 
@@ -137806,7 +137806,7 @@ _ZN4CGAL4MpzfD2Ev.exit216:                        ; preds = %605, %607
 622:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit216
   %623 = and i64 %611, 4503599627370495
   %624 = or disjoint i64 %623, 4503599627370496
-  %625 = trunc i64 %613 to i32
+  %625 = trunc nuw nsw i64 %613 to i32
   %626 = add nuw nsw i32 %625, 13
   br label %627
 
@@ -138070,7 +138070,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit239:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
 735:                                              ; preds = %725
   %736 = and i64 %509, 4503599627370495
   %737 = or disjoint i64 %736, 4503599627370496
-  %738 = trunc i64 %511 to i32
+  %738 = trunc nuw nsw i64 %511 to i32
   %739 = add nuw nsw i32 %738, 13
   br label %740
 
@@ -138296,7 +138296,7 @@ _ZN4CGAL4MpzfD2Ev.exit277:                        ; preds = %817, %819
 834:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit277
   %835 = and i64 %823, 4503599627370495
   %836 = or disjoint i64 %835, 4503599627370496
-  %837 = trunc i64 %825 to i32
+  %837 = trunc nuw nsw i64 %825 to i32
   %838 = add nuw nsw i32 %837, 13
   br label %839
 
@@ -138635,13 +138635,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %37, %40
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %23 to i32
   %41 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %23, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %42 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %41, %42
   %43 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %44 = zext i1 %43 to i16
   %45 = or disjoint i16 %44, 256
-  %46 = trunc i16 %45 to i9
+  %46 = trunc nuw i16 %45 to i9
   %47 = xor i9 %46, -255
   %48 = select i1 %or.cond.i.i, i9 -255, i9 %47
   %49 = call i9 @llvm.bitreverse.i9(i9 %48)
@@ -138786,13 +138786,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %24 to i32
   %42 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %24, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %43 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %42, %43
   %44 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %45 = zext i1 %44 to i16
   %46 = or disjoint i16 %45, 256
-  %47 = trunc i16 %46 to i9
+  %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
   %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
   %50 = call i9 @llvm.bitreverse.i9(i9 %49)
@@ -138937,13 +138937,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %24 to i32
   %42 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %24, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %43 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %42, %43
   %44 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %45 = zext i1 %44 to i16
   %46 = or disjoint i16 %45, 256
-  %47 = trunc i16 %46 to i9
+  %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
   %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
   %50 = call i9 @llvm.bitreverse.i9(i9 %49)
@@ -139142,7 +139142,7 @@ _ZN4CGAL4MpzfD2Ev.exit63:                         ; preds = %62, %64
 80:                                               ; preds = %70
   %81 = and i64 %66, 4503599627370495
   %82 = or disjoint i64 %81, 4503599627370496
-  %83 = trunc i64 %68 to i32
+  %83 = trunc nuw nsw i64 %68 to i32
   %84 = add nuw nsw i32 %83, 13
   br label %85
 
@@ -139369,7 +139369,7 @@ _ZN4CGAL4MpzfD2Ev.exit68:                         ; preds = %162, %164
 180:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit68
   %181 = and i64 %169, 4503599627370495
   %182 = or disjoint i64 %181, 4503599627370496
-  %183 = trunc i64 %171 to i32
+  %183 = trunc nuw nsw i64 %171 to i32
   %184 = add nuw nsw i32 %183, 13
   br label %185
 
@@ -139633,7 +139633,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit91:         ; preds = %_ZN4CGAL4MpzfD2Ev.e
 293:                                              ; preds = %283
   %294 = and i64 %66, 4503599627370495
   %295 = or disjoint i64 %294, 4503599627370496
-  %296 = trunc i64 %68 to i32
+  %296 = trunc nuw nsw i64 %68 to i32
   %297 = add nuw nsw i32 %296, 13
   br label %298
 
@@ -139860,7 +139860,7 @@ _ZN4CGAL4MpzfD2Ev.exit132:                        ; preds = %375, %377
 393:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit132
   %394 = and i64 %382, 4503599627370495
   %395 = or disjoint i64 %394, 4503599627370496
-  %396 = trunc i64 %384 to i32
+  %396 = trunc nuw nsw i64 %384 to i32
   %397 = add nuw nsw i32 %396, 13
   br label %398
 
@@ -140164,7 +140164,7 @@ _ZN4CGAL4MpzfD2Ev.exit190:                        ; preds = %504, %506
 523:                                              ; preds = %513
   %524 = and i64 %509, 4503599627370495
   %525 = or disjoint i64 %524, 4503599627370496
-  %526 = trunc i64 %511 to i32
+  %526 = trunc nuw nsw i64 %511 to i32
   %527 = add nuw nsw i32 %526, 13
   br label %528
 
@@ -140390,7 +140390,7 @@ _ZN4CGAL4MpzfD2Ev.exit216:                        ; preds = %605, %607
 622:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit216
   %623 = and i64 %611, 4503599627370495
   %624 = or disjoint i64 %623, 4503599627370496
-  %625 = trunc i64 %613 to i32
+  %625 = trunc nuw nsw i64 %613 to i32
   %626 = add nuw nsw i32 %625, 13
   br label %627
 
@@ -140654,7 +140654,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit239:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
 735:                                              ; preds = %725
   %736 = and i64 %509, 4503599627370495
   %737 = or disjoint i64 %736, 4503599627370496
-  %738 = trunc i64 %511 to i32
+  %738 = trunc nuw nsw i64 %511 to i32
   %739 = add nuw nsw i32 %738, 13
   br label %740
 
@@ -140880,7 +140880,7 @@ _ZN4CGAL4MpzfD2Ev.exit277:                        ; preds = %817, %819
 834:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit277
   %835 = and i64 %823, 4503599627370495
   %836 = or disjoint i64 %835, 4503599627370496
-  %837 = trunc i64 %825 to i32
+  %837 = trunc nuw nsw i64 %825 to i32
   %838 = add nuw nsw i32 %837, 13
   br label %839
 
@@ -141219,13 +141219,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %37, %40
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %23 to i32
   %41 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %23, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %42 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %41, %42
   %43 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %44 = zext i1 %43 to i16
   %45 = or disjoint i16 %44, 256
-  %46 = trunc i16 %45 to i9
+  %46 = trunc nuw i16 %45 to i9
   %47 = xor i9 %46, -255
   %48 = select i1 %or.cond.i.i, i9 -255, i9 %47
   %49 = call i9 @llvm.bitreverse.i9(i9 %48)
@@ -141370,13 +141370,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %24 to i32
   %42 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %24, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %43 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %42, %43
   %44 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %45 = zext i1 %44 to i16
   %46 = or disjoint i16 %45, 256
-  %47 = trunc i16 %46 to i9
+  %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
   %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
   %50 = call i9 @llvm.bitreverse.i9(i9 %49)
@@ -141521,13 +141521,13 @@ _ZN4CGAL4MpzfD2Ev.exit7:                          ; preds = %38, %41
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %24 to i32
   %42 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -1
   %.sroa.3.0.extract.shift.i.i = lshr i64 %24, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
   %43 = icmp slt i32 %.sroa.3.0.extract.trunc.i.i, -1
   %or.cond.i.i = or i1 %42, %43
   %44 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i.i
   %45 = zext i1 %44 to i16
   %46 = or disjoint i16 %45, 256
-  %47 = trunc i16 %46 to i9
+  %47 = trunc nuw i16 %46 to i9
   %48 = xor i9 %47, -255
   %49 = select i1 %or.cond.i.i, i9 -255, i9 %48
   %50 = call i9 @llvm.bitreverse.i9(i9 %49)
@@ -141979,7 +141979,7 @@ define linkonce_odr noundef i32 @_ZZNK4CGAL8internal25Static_filters_predicates1
   %10 = tail call i64 @_ZZNK4CGAL8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEE34do_intersect_supporting_plane_bboxERKNS_10Triangle_3IS6_EERKSt5arrayISH_IdLm3EELm3EERKNS_6Bbox_3EENKUlSL_dddE_clESL_ddd(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %3, double noundef %4, double noundef %5)
   %.sroa.0.0.extract.trunc.i = trunc i64 %10 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %10, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %.not = icmp eq i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br i1 %.not, label %11, label %13
 
@@ -142204,7 +142204,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal17do_axis_intersectIdNS
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %57, %47, %54
   %58 = phi i16 [ 257, %54 ], [ 256, %47 ], [ 256, %57 ]
-  %59 = trunc i16 %58 to i9
+  %59 = trunc nuw i16 %58 to i9
   %60 = xor i9 %59, -255
   br label %61
 
@@ -142274,7 +142274,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %91, %94, %98
   %101 = phi i16 [ 257, %94 ], [ 256, %91 ], [ 256, %98 ]
-  %102 = trunc i16 %101 to i9
+  %102 = trunc nuw i16 %101 to i9
   %103 = xor i9 %102, -255
   br label %104
 
@@ -142338,7 +142338,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %137, %134, %127
   %138 = phi i16 [ 257, %134 ], [ 256, %127 ], [ 256, %137 ]
-  %139 = trunc i16 %138 to i9
+  %139 = trunc nuw i16 %138 to i9
   %140 = xor i9 %139, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i
 
@@ -142434,7 +142434,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal17do_axis_intersectIdNS
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %57, %47, %54
   %58 = phi i16 [ 257, %54 ], [ 256, %47 ], [ 256, %57 ]
-  %59 = trunc i16 %58 to i9
+  %59 = trunc nuw i16 %58 to i9
   %60 = xor i9 %59, -255
   br label %61
 
@@ -142504,7 +142504,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %91, %94, %98
   %101 = phi i16 [ 257, %94 ], [ 256, %91 ], [ 256, %98 ]
-  %102 = trunc i16 %101 to i9
+  %102 = trunc nuw i16 %101 to i9
   %103 = xor i9 %102, -255
   br label %104
 
@@ -142568,7 +142568,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %137, %134, %127
   %138 = phi i16 [ 257, %134 ], [ 256, %127 ], [ 256, %137 ]
-  %139 = trunc i16 %138 to i9
+  %139 = trunc nuw i16 %138 to i9
   %140 = xor i9 %139, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i
 
@@ -142665,7 +142665,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal17do_axis_intersectIdNS
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %58, %48, %55
   %59 = phi i16 [ 257, %55 ], [ 256, %48 ], [ 256, %58 ]
-  %60 = trunc i16 %59 to i9
+  %60 = trunc nuw i16 %59 to i9
   %61 = xor i9 %60, -255
   br label %62
 
@@ -142735,7 +142735,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %92, %95, %99
   %102 = phi i16 [ 257, %95 ], [ 256, %92 ], [ 256, %99 ]
-  %103 = trunc i16 %102 to i9
+  %103 = trunc nuw i16 %102 to i9
   %104 = xor i9 %103, -255
   br label %105
 
@@ -142799,7 +142799,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %138, %135, %128
   %139 = phi i16 [ 257, %135 ], [ 256, %128 ], [ 256, %138 ]
-  %140 = trunc i16 %139 to i9
+  %140 = trunc nuw i16 %139 to i9
   %141 = xor i9 %140, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i
 
@@ -142894,7 +142894,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %52, %42, %49
   %53 = phi i16 [ 257, %49 ], [ 256, %42 ], [ 256, %52 ]
-  %54 = trunc i16 %53 to i9
+  %54 = trunc nuw i16 %53 to i9
   %55 = xor i9 %54, -255
   br label %56
 
@@ -142963,7 +142963,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %85, %88, %92
   %95 = phi i16 [ 257, %88 ], [ 256, %85 ], [ 256, %92 ]
-  %96 = trunc i16 %95 to i9
+  %96 = trunc nuw i16 %95 to i9
   %97 = xor i9 %96, -255
   br label %98
 
@@ -143024,7 +143024,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %128, %125, %118
   %129 = phi i16 [ 257, %125 ], [ 256, %118 ], [ 256, %128 ]
-  %130 = trunc i16 %129 to i9
+  %130 = trunc nuw i16 %129 to i9
   %131 = xor i9 %130, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i
 
@@ -143120,7 +143120,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %53, %43, %50
   %54 = phi i16 [ 257, %50 ], [ 256, %43 ], [ 256, %53 ]
-  %55 = trunc i16 %54 to i9
+  %55 = trunc nuw i16 %54 to i9
   %56 = xor i9 %55, -255
   br label %57
 
@@ -143189,7 +143189,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %86, %89, %93
   %96 = phi i16 [ 257, %89 ], [ 256, %86 ], [ 256, %93 ]
-  %97 = trunc i16 %96 to i9
+  %97 = trunc nuw i16 %96 to i9
   %98 = xor i9 %97, -255
   br label %99
 
@@ -143250,7 +143250,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %129, %126, %119
   %130 = phi i16 [ 257, %126 ], [ 256, %119 ], [ 256, %129 ]
-  %131 = trunc i16 %130 to i9
+  %131 = trunc nuw i16 %130 to i9
   %132 = xor i9 %131, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i
 
@@ -143347,7 +143347,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi1EEEvRKT_S6_S6_RKT0_
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %54, %44, %51
   %55 = phi i16 [ 257, %51 ], [ 256, %44 ], [ 256, %54 ]
-  %56 = trunc i16 %55 to i9
+  %56 = trunc nuw i16 %55 to i9
   %57 = xor i9 %56, -255
   br label %58
 
@@ -143416,7 +143416,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %87, %90, %94
   %97 = phi i16 [ 257, %90 ], [ 256, %87 ], [ 256, %94 ]
-  %98 = trunc i16 %97 to i9
+  %98 = trunc nuw i16 %97 to i9
   %99 = xor i9 %98, -255
   br label %100
 
@@ -143477,7 +143477,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %130, %127, %120
   %131 = phi i16 [ 257, %127 ], [ 256, %120 ], [ 256, %130 ]
-  %132 = trunc i16 %131 to i9
+  %132 = trunc nuw i16 %131 to i9
   %133 = xor i9 %132, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i
 
@@ -143572,7 +143572,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %52, %42, %49
   %53 = phi i16 [ 257, %49 ], [ 256, %42 ], [ 256, %52 ]
-  %54 = trunc i16 %53 to i9
+  %54 = trunc nuw i16 %53 to i9
   %55 = xor i9 %54, -255
   br label %56
 
@@ -143640,7 +143640,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %85, %88, %92
   %95 = phi i16 [ 257, %88 ], [ 256, %85 ], [ 256, %92 ]
-  %96 = trunc i16 %95 to i9
+  %96 = trunc nuw i16 %95 to i9
   %97 = xor i9 %96, -255
   br label %98
 
@@ -143705,7 +143705,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %130, %127, %120
   %131 = phi i16 [ 257, %127 ], [ 256, %120 ], [ 256, %130 ]
-  %132 = trunc i16 %131 to i9
+  %132 = trunc nuw i16 %131 to i9
   %133 = xor i9 %132, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i
 
@@ -143801,7 +143801,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %53, %43, %50
   %54 = phi i16 [ 257, %50 ], [ 256, %43 ], [ 256, %53 ]
-  %55 = trunc i16 %54 to i9
+  %55 = trunc nuw i16 %54 to i9
   %56 = xor i9 %55, -255
   br label %57
 
@@ -143869,7 +143869,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %86, %89, %93
   %96 = phi i16 [ 257, %89 ], [ 256, %86 ], [ 256, %93 ]
-  %97 = trunc i16 %96 to i9
+  %97 = trunc nuw i16 %96 to i9
   %98 = xor i9 %97, -255
   br label %99
 
@@ -143934,7 +143934,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %131, %128, %121
   %132 = phi i16 [ 257, %128 ], [ 256, %121 ], [ 256, %131 ]
-  %133 = trunc i16 %132 to i9
+  %133 = trunc nuw i16 %132 to i9
   %134 = xor i9 %133, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i
 
@@ -144031,7 +144031,7 @@ _ZN4CGAL13Intersections8internal11get_min_maxIdNS_6Bbox_3ELi2EEEvRKT_S6_S6_RKT0_
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread: ; preds = %54, %44, %51
   %55 = phi i16 [ 257, %51 ], [ 256, %44 ], [ 256, %54 ]
-  %56 = trunc i16 %55 to i9
+  %56 = trunc nuw i16 %55 to i9
   %57 = xor i9 %56, -255
   br label %58
 
@@ -144099,7 +144099,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread: ; preds = %87, %90, %94
   %97 = phi i16 [ 257, %90 ], [ 256, %87 ], [ 256, %94 ]
-  %98 = trunc i16 %97 to i9
+  %98 = trunc nuw i16 %97 to i9
   %99 = xor i9 %98, -255
   br label %100
 
@@ -144164,7 +144164,7 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25
 
 _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i: ; preds = %132, %129, %122
   %133 = phi i16 [ 257, %129 ], [ 256, %122 ], [ 256, %132 ]
-  %134 = trunc i16 %133 to i9
+  %134 = trunc nuw i16 %133 to i9
   %135 = xor i9 %134, -255
   br label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i
 
@@ -144656,7 +144656,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23Cartes
 79:                                               ; preds = %5
   %.sroa.0.0.extract.trunc.i = trunc i64 %78 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %78, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %80 = icmp ne i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br label %89
 
@@ -160679,14 +160679,14 @@ _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69: ; preds = %
   %359 = call i64 @_ZN4CGAL17compare_quotientsINS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4SignET_E4typeERKS5_S9_S9_S9_(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %13)
   %.sroa.0.0.extract.trunc.i76 = trunc i64 %359 to i32
   %.sroa.3.0.extract.shift.i77 = lshr i64 %359, 32
-  %.sroa.3.0.extract.trunc.i78 = trunc i64 %.sroa.3.0.extract.shift.i77 to i32
+  %.sroa.3.0.extract.trunc.i78 = trunc nuw i64 %.sroa.3.0.extract.shift.i77 to i32
   %360 = icmp slt i32 %.sroa.3.0.extract.trunc.i78, 1
   %361 = icmp sgt i32 %.sroa.0.0.extract.trunc.i76, 1
   %or.cond.i79 = or i1 %361, %360
   %362 = icmp eq i32 %.sroa.0.0.extract.trunc.i76, %.sroa.3.0.extract.trunc.i78
   %363 = zext i1 %362 to i16
   %364 = or disjoint i16 %363, 256
-  %365 = trunc i16 %364 to i9
+  %365 = trunc nuw i16 %364 to i9
   %366 = xor i9 %365, -255
   %367 = select i1 %or.cond.i79, i9 -255, i9 %366
   %368 = call i9 @llvm.bitreverse.i9(i9 %367)
@@ -160753,9 +160753,9 @@ _ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11resu
   %.sroa.5.0.i.i.i26 = phi i64 [ 4294967296, %29 ], [ 4294967296, %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit ], [ -4294967296, %25 ], [ 0, %27 ]
   %.sroa.0.0.i.i.i27 = phi i64 [ 4294967295, %29 ], [ 1, %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit ], [ 4294967295, %25 ], [ 0, %27 ]
   %.sroa.0.0.insert.insert.i.i.i28 = or disjoint i64 %.sroa.0.0.i.i.i27, %.sroa.5.0.i.i.i26
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.i.i.i27 to i32
+  %.sroa.0.0.extract.trunc.i = trunc nuw i64 %.sroa.0.0.i.i.i27 to i32
   %.sroa.10.0.extract.shift.i = lshr exact i64 %.sroa.5.0.i.i.i26, 32
-  %.sroa.10.0.extract.trunc.i = trunc i64 %.sroa.10.0.extract.shift.i to i32
+  %.sroa.10.0.extract.trunc.i = trunc nuw i64 %.sroa.10.0.extract.shift.i to i32
   br i1 %19, label %30, label %36
 
 30:                                               ; preds = %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit29
@@ -160862,9 +160862,9 @@ _ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11resu
   %.sroa.5.0.i.i.i34 = phi i64 [ 4294967296, %80 ], [ 4294967296, %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit33 ], [ -4294967296, %76 ], [ 0, %78 ]
   %.sroa.0.0.i.i.i35 = phi i64 [ 4294967295, %80 ], [ 1, %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit33 ], [ 4294967295, %76 ], [ 0, %78 ]
   %.sroa.0.0.insert.insert.i.i.i36 = or disjoint i64 %.sroa.0.0.i.i.i35, %.sroa.5.0.i.i.i34
-  %.sroa.0.0.extract.trunc.i41 = trunc i64 %.sroa.0.0.i.i.i35 to i32
+  %.sroa.0.0.extract.trunc.i41 = trunc nuw i64 %.sroa.0.0.i.i.i35 to i32
   %.sroa.10.0.extract.shift.i42 = lshr exact i64 %.sroa.5.0.i.i.i34, 32
-  %.sroa.10.0.extract.trunc.i43 = trunc i64 %.sroa.10.0.extract.shift.i42 to i32
+  %.sroa.10.0.extract.trunc.i43 = trunc nuw i64 %.sroa.10.0.extract.shift.i42 to i32
   br i1 %70, label %81, label %87
 
 81:                                               ; preds = %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit37
@@ -160987,9 +160987,9 @@ _ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11resu
   %.sroa.5.0.i.i.i61 = phi i64 [ 4294967296, %139 ], [ 4294967296, %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit60 ], [ -4294967296, %135 ], [ 0, %137 ]
   %.sroa.0.0.i.i.i62 = phi i64 [ 4294967295, %139 ], [ 1, %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit60 ], [ 4294967295, %135 ], [ 0, %137 ]
   %.sroa.0.0.insert.insert.i.i.i63 = or disjoint i64 %.sroa.0.0.i.i.i62, %.sroa.5.0.i.i.i61
-  %.sroa.0.0.extract.trunc.i68 = trunc i64 %.sroa.0.0.i.i.i62 to i32
+  %.sroa.0.0.extract.trunc.i68 = trunc nuw i64 %.sroa.0.0.i.i.i62 to i32
   %.sroa.10.0.extract.shift.i69 = lshr exact i64 %.sroa.5.0.i.i.i61, 32
-  %.sroa.10.0.extract.trunc.i70 = trunc i64 %.sroa.10.0.extract.shift.i69 to i32
+  %.sroa.10.0.extract.trunc.i70 = trunc nuw i64 %.sroa.10.0.extract.shift.i69 to i32
   br i1 %129, label %140, label %146
 
 140:                                              ; preds = %_ZN4CGAL4signINS_11Interval_ntILb0EEEEENS_22Real_embeddable_traitsIT_E3Sgn11result_typeERKS4_.exit64
@@ -161432,7 +161432,7 @@ _ZN4CGALeqINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_7BooleanERKNS_8Ve
   %217 = call i64 @_ZN4CGAL17compare_quotientsINS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4SignET_E4typeERKS5_S9_S9_S9_(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6)
   %.sroa.0.0.extract.trunc.i = trunc i64 %217 to i32
   %.sroa.3.0.extract.shift.i = lshr i64 %217, 32
-  %.sroa.3.0.extract.trunc.i = trunc i64 %.sroa.3.0.extract.shift.i to i32
+  %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %218 = icmp slt i32 %.sroa.3.0.extract.trunc.i, -1
   %219 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, -1
   %or.cond.i = or i1 %219, %218
@@ -161460,7 +161460,7 @@ _ZN4CGALeqINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_7BooleanERKNS_8Ve
   %226 = call i64 @_ZN4CGAL17compare_quotientsINS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4SignET_E4typeERKS5_S9_S9_S9_(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6)
   %.sroa.0.0.extract.trunc.i129 = trunc i64 %226 to i32
   %.sroa.3.0.extract.shift.i130 = lshr i64 %226, 32
-  %.sroa.3.0.extract.trunc.i131 = trunc i64 %.sroa.3.0.extract.shift.i130 to i32
+  %.sroa.3.0.extract.trunc.i131 = trunc nuw i64 %.sroa.3.0.extract.shift.i130 to i32
   %227 = icmp slt i32 %.sroa.3.0.extract.trunc.i131, -1
   %228 = icmp sgt i32 %.sroa.0.0.extract.trunc.i129, -1
   %or.cond.i132 = or i1 %228, %227
@@ -161503,7 +161503,7 @@ _ZN4CGALeqINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_7BooleanERKNS_8Ve
   %239 = call i64 @_ZN4CGAL17compare_quotientsINS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4SignET_E4typeERKS5_S9_S9_S9_(ptr noundef nonnull align 16 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %23, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6)
   %.sroa.0.0.extract.trunc.i138 = trunc i64 %239 to i32
   %.sroa.3.0.extract.shift.i139 = lshr i64 %239, 32
-  %.sroa.3.0.extract.trunc.i140 = trunc i64 %.sroa.3.0.extract.shift.i139 to i32
+  %.sroa.3.0.extract.trunc.i140 = trunc nuw i64 %.sroa.3.0.extract.shift.i139 to i32
   %240 = icmp slt i32 %.sroa.3.0.extract.trunc.i140, -1
   %241 = icmp sgt i32 %.sroa.0.0.extract.trunc.i138, -1
   %or.cond.i141 = or i1 %241, %240
@@ -161542,7 +161542,7 @@ _ZN4CGALeqINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_7BooleanERKNS_8Ve
   %250 = call i64 @_ZN4CGAL17compare_quotientsINS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4SignET_E4typeERKS5_S9_S9_S9_(ptr noundef nonnull align 16 dereferenceable(16) %27, ptr noundef nonnull align 16 dereferenceable(16) %28, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6)
   %.sroa.0.0.extract.trunc.i147 = trunc i64 %250 to i32
   %.sroa.3.0.extract.shift.i148 = lshr i64 %250, 32
-  %.sroa.3.0.extract.trunc.i149 = trunc i64 %.sroa.3.0.extract.shift.i148 to i32
+  %.sroa.3.0.extract.trunc.i149 = trunc nuw i64 %.sroa.3.0.extract.shift.i148 to i32
   %251 = icmp slt i32 %.sroa.3.0.extract.trunc.i149, -1
   %252 = icmp sgt i32 %.sroa.0.0.extract.trunc.i147, -1
   %or.cond.i150 = or i1 %252, %251
@@ -161594,7 +161594,7 @@ _ZN4CGALeqINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENT_7BooleanERKNS_8Ve
   %263 = call i64 @_ZN4CGAL17compare_quotientsINS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4SignET_E4typeERKS5_S9_S9_S9_(ptr noundef nonnull align 16 dereferenceable(16) %33, ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6)
   %.sroa.0.0.extract.trunc.i158 = trunc i64 %263 to i32
   %.sroa.3.0.extract.shift.i159 = lshr i64 %263, 32
-  %.sroa.3.0.extract.trunc.i160 = trunc i64 %.sroa.3.0.extract.shift.i159 to i32
+  %.sroa.3.0.extract.trunc.i160 = trunc nuw i64 %.sroa.3.0.extract.shift.i159 to i32
   %264 = icmp slt i32 %.sroa.3.0.extract.trunc.i160, -1
   %265 = icmp sgt i32 %.sroa.0.0.extract.trunc.i158, -1
   %or.cond.i161 = or i1 %265, %264
@@ -170103,7 +170103,7 @@ define linkonce_odr ptr @_ZN4CGAL25Triangulation_hierarchy_3INS_24Delaunay_trian
   %18 = add i64 %17, 11
   %19 = and i64 %18, 281474976710655
   %20 = lshr i64 %19, 17
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = uitofp i32 %21 to double
   %23 = fmul double %22, 0x3E00000000000000
   %24 = fcmp olt double %23, 1.000000e+00
@@ -188009,7 +188009,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_20Common
 80:                                               ; preds = %5
   %.sroa.0.0.extract.trunc.i = trunc i64 %79 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %79, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %81 = icmp ne i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br label %90
 
@@ -190609,7 +190609,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrap
 20:                                               ; preds = %3
   %21 = and i64 %9, 4503599627370495
   %22 = or disjoint i64 %21, 4503599627370496
-  %23 = trunc i64 %11 to i32
+  %23 = trunc nuw nsw i64 %11 to i32
   %24 = add nuw nsw i32 %23, 13
   br label %25
 
@@ -190698,7 +190698,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrap
 65:                                               ; preds = %49
   %66 = and i64 %54, 4503599627370495
   %67 = or disjoint i64 %66, 4503599627370496
-  %68 = trunc i64 %56 to i32
+  %68 = trunc nuw nsw i64 %56 to i32
   %69 = add nuw nsw i32 %68, 13
   br label %70
 
@@ -194248,7 +194248,7 @@ _ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11
   %38 = add i64 %37, 11
   %39 = and i64 %38, 281474976710655
   %40 = lshr i64 %39, 17
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %42 = uitofp i32 %41 to double
   %43 = fmul double %42, 0x3E00000000000000
   %44 = fadd double %43, 0.000000e+00
@@ -194261,7 +194261,7 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.
   %48 = add i64 %47, 11
   %49 = and i64 %48, 281474976710655
   %50 = lshr i64 %49, 17
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = uitofp i32 %51 to double
   %53 = fmul double %52, 0x3E00000000000000
   %54 = fadd double %53, 0.000000e+00
@@ -195249,7 +195249,7 @@ define linkonce_odr void @_ZN4CGAL8internal33Ray_3_Triangle_3_traversal_traitsIN
 
 40:                                               ; preds = %3
   %.sroa.22.0.extract.shift = lshr i64 %38, 32
-  %.sroa.22.0.extract.trunc = trunc i64 %.sroa.22.0.extract.shift to i32
+  %.sroa.22.0.extract.trunc = trunc nuw i64 %.sroa.22.0.extract.shift to i32
   %41 = load ptr, ptr %0, align 8
   switch i32 %.sroa.22.0.extract.trunc, label %48 [
     i32 0, label %42
@@ -196387,13 +196387,13 @@ _ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1
   %.sroa.0.0.i387 = phi i16 [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit ], [ 1, %145 ]
   %.sroa.4.0.i386 = phi i16 [ %.sroa.4.0.i, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit ], [ 256, %145 ]
   %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.0.0.i387, %.sroa.4.0.i386
-  %trunc.i = trunc i16 %.sroa.0.0.insert.insert.i to i9
+  %trunc.i = trunc nuw i16 %.sroa.0.0.insert.insert.i to i9
   %152 = xor i9 %trunc.i, -255
   %153 = tail call i9 @llvm.bitreverse.i9(i9 %152)
   %.sroa.01.0.insert.insert.i = zext i9 %153 to i16
   %.sroa.0354.0.extract.trunc = trunc i9 %153 to i8
   %.sroa.20.0.extract.shift = lshr i16 %.sroa.01.0.insert.insert.i, 8
-  %.sroa.20.0.extract.trunc = trunc i16 %.sroa.20.0.extract.shift to i8
+  %.sroa.20.0.extract.trunc = trunc nuw nsw i16 %.sroa.20.0.extract.shift to i8
   br label %213
 
 154:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit
@@ -196413,13 +196413,13 @@ _ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1
   %.sroa.0.0.i235393 = phi i16 [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit237 ], [ 1, %154 ]
   %.sroa.4.0.i234392 = phi i16 [ %.sroa.4.0.i234, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit237 ], [ 256, %154 ]
   %.sroa.0.0.insert.insert.i236 = or disjoint i16 %.sroa.0.0.i235393, %.sroa.4.0.i234392
-  %trunc.i240 = trunc i16 %.sroa.0.0.insert.insert.i236 to i9
+  %trunc.i240 = trunc nuw i16 %.sroa.0.0.insert.insert.i236 to i9
   %161 = xor i9 %trunc.i240, -255
   %162 = tail call i9 @llvm.bitreverse.i9(i9 %161)
   %.sroa.01.0.insert.insert.i241 = zext i9 %162 to i16
   %.sroa.0354.0.extract.trunc355 = trunc i9 %162 to i8
   %.sroa.20.0.extract.shift360 = lshr i16 %.sroa.01.0.insert.insert.i241, 8
-  %.sroa.20.0.extract.trunc361 = trunc i16 %.sroa.20.0.extract.shift360 to i8
+  %.sroa.20.0.extract.trunc361 = trunc nuw nsw i16 %.sroa.20.0.extract.shift360 to i8
   br label %213
 
 163:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit237, %143
@@ -196523,13 +196523,13 @@ _ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1
   %.sroa.0.0.i258409 = phi i16 [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit260 ], [ 1, %195 ]
   %.sroa.4.0.i257408 = phi i16 [ %.sroa.4.0.i257, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit260 ], [ 256, %195 ]
   %.sroa.0.0.insert.insert.i259 = or disjoint i16 %.sroa.0.0.i258409, %.sroa.4.0.i257408
-  %trunc.i263 = trunc i16 %.sroa.0.0.insert.insert.i259 to i9
+  %trunc.i263 = trunc nuw i16 %.sroa.0.0.insert.insert.i259 to i9
   %202 = xor i9 %trunc.i263, -255
   %203 = tail call i9 @llvm.bitreverse.i9(i9 %202)
   %.sroa.01.0.insert.insert.i264 = zext i9 %203 to i16
   %.sroa.0354.0.extract.trunc356 = trunc i9 %203 to i8
   %.sroa.20.0.extract.shift362 = lshr i16 %.sroa.01.0.insert.insert.i264, 8
-  %.sroa.20.0.extract.trunc363 = trunc i16 %.sroa.20.0.extract.shift362 to i8
+  %.sroa.20.0.extract.trunc363 = trunc nuw nsw i16 %.sroa.20.0.extract.shift362 to i8
   br label %213
 
 204:                                              ; preds = %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit260
@@ -196549,13 +196549,13 @@ _ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1
   %.sroa.0.0.i266415 = phi i16 [ 0, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit268 ], [ 1, %204 ]
   %.sroa.4.0.i265414 = phi i16 [ %.sroa.4.0.i265, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit268 ], [ 256, %204 ]
   %.sroa.0.0.insert.insert.i267 = or disjoint i16 %.sroa.0.0.i266415, %.sroa.4.0.i265414
-  %trunc.i271 = trunc i16 %.sroa.0.0.insert.insert.i267 to i9
+  %trunc.i271 = trunc nuw i16 %.sroa.0.0.insert.insert.i267 to i9
   %211 = xor i9 %trunc.i271, -255
   %212 = tail call i9 @llvm.bitreverse.i9(i9 %211)
   %.sroa.01.0.insert.insert.i272 = zext i9 %212 to i16
   %.sroa.0354.0.extract.trunc357 = trunc i9 %212 to i8
   %.sroa.20.0.extract.shift364 = lshr i16 %.sroa.01.0.insert.insert.i272, 8
-  %.sroa.20.0.extract.trunc365 = trunc i16 %.sroa.20.0.extract.shift364 to i8
+  %.sroa.20.0.extract.trunc365 = trunc nuw nsw i16 %.sroa.20.0.extract.shift364 to i8
   br label %213
 
 213:                                              ; preds = %.critedge6, %.critedge2, %180, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit268, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit255, %191, %_ZN4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EE25register_new_input_valuesEdd.exit, %137, %122, %108, %100, %93, %79, %71, %64, %54, %48, %24, %40, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit268.thread, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit260.thread, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit237.thread, %_ZNK4CGAL13Intersections8internal40Do_intersect_bbox_segment_aux_is_greaterIdLb1ELb1EEclERKdS5_.exit.thread
@@ -198026,7 +198026,7 @@ _ZN4CGALeqERKNS_11Interval_ntILb0EEES3_.exit:     ; preds = %2, %10, %15
   %.sroa.4.0.i = phi i16 [ 0, %10 ], [ 0, %2 ], [ 256, %15 ]
   %.sroa.0.0.i = phi i16 [ 0, %10 ], [ 0, %2 ], [ %18, %15 ]
   %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.0.0.i, %.sroa.4.0.i
-  %trunc.i = trunc i16 %.sroa.0.0.insert.insert.i to i9
+  %trunc.i = trunc nuw i16 %.sroa.0.0.insert.insert.i to i9
   %19 = xor i9 %trunc.i, -255
   %20 = tail call i9 @llvm.bitreverse.i9(i9 %19)
   %.sroa.01.0.insert.insert.i = zext i9 %20 to i16
@@ -198384,7 +198384,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Intersections8internal29do_int
 111:                                              ; preds = %12
   %112 = and i64 %100, 4503599627370495
   %113 = or disjoint i64 %112, 4503599627370496
-  %114 = trunc i64 %102 to i32
+  %114 = trunc nuw nsw i64 %102 to i32
   %115 = add nuw nsw i32 %114, 13
   br label %116
 
@@ -198590,7 +198590,7 @@ _ZN4CGAL4MpzfC2Ed.exit:                           ; preds = %106, %137, %140
 214:                                              ; preds = %.thread1344
   %215 = and i64 %206, 4503599627370495
   %216 = or disjoint i64 %215, 4503599627370496
-  %217 = trunc i64 %208 to i32
+  %217 = trunc nuw nsw i64 %208 to i32
   %218 = add nuw nsw i32 %217, 13
   br label %219
 
@@ -198804,7 +198804,7 @@ _ZN4CGAL4MpzfC2Ed.exit292.thread:                 ; preds = %210
 317:                                              ; preds = %.thread1355
   %318 = and i64 %306, 4503599627370495
   %319 = or disjoint i64 %318, 4503599627370496
-  %320 = trunc i64 %308 to i32
+  %320 = trunc nuw nsw i64 %308 to i32
   %321 = add nuw nsw i32 %320, 13
   br label %322
 
@@ -199010,7 +199010,7 @@ _ZN4CGAL4MpzfC2Ed.exit299:                        ; preds = %346, %343, %312
 420:                                              ; preds = %.thread1365
   %421 = and i64 %412, 4503599627370495
   %422 = or disjoint i64 %421, 4503599627370496
-  %423 = trunc i64 %414 to i32
+  %423 = trunc nuw nsw i64 %414 to i32
   %424 = add nuw nsw i32 %423, 13
   br label %425
 
@@ -199224,7 +199224,7 @@ _ZN4CGAL4MpzfC2Ed.exit329.thread:                 ; preds = %416
 523:                                              ; preds = %.thread1375
   %524 = and i64 %512, 4503599627370495
   %525 = or disjoint i64 %524, 4503599627370496
-  %526 = trunc i64 %514 to i32
+  %526 = trunc nuw nsw i64 %514 to i32
   %527 = add nuw nsw i32 %526, 13
   br label %528
 
@@ -199430,7 +199430,7 @@ _ZN4CGAL4MpzfC2Ed.exit359:                        ; preds = %552, %549, %518
 626:                                              ; preds = %.thread1385
   %627 = and i64 %618, 4503599627370495
   %628 = or disjoint i64 %627, 4503599627370496
-  %629 = trunc i64 %620 to i32
+  %629 = trunc nuw nsw i64 %620 to i32
   %630 = add nuw nsw i32 %629, 13
   br label %631
 
@@ -199644,7 +199644,7 @@ _ZN4CGAL4MpzfC2Ed.exit389.thread:                 ; preds = %622
 724:                                              ; preds = %.thread
   %725 = and i64 %100, 4503599627370495
   %726 = or disjoint i64 %725, 4503599627370496
-  %727 = trunc i64 %102 to i32
+  %727 = trunc nuw nsw i64 %102 to i32
   %728 = add nuw nsw i32 %727, 13
   br label %729
 
@@ -199850,7 +199850,7 @@ _ZN4CGAL4MpzfC2Ed.exit419:                        ; preds = %753, %750, %719
 827:                                              ; preds = %.thread1405
   %828 = and i64 %819, 4503599627370495
   %829 = or disjoint i64 %828, 4503599627370496
-  %830 = trunc i64 %821 to i32
+  %830 = trunc nuw nsw i64 %821 to i32
   %831 = add nuw nsw i32 %830, 13
   br label %832
 
@@ -200064,7 +200064,7 @@ _ZN4CGAL4MpzfC2Ed.exit449.thread:                 ; preds = %823
 930:                                              ; preds = %.thread1415
   %931 = and i64 %919, 4503599627370495
   %932 = or disjoint i64 %931, 4503599627370496
-  %933 = trunc i64 %921 to i32
+  %933 = trunc nuw nsw i64 %921 to i32
   %934 = add nuw nsw i32 %933, 13
   br label %935
 
@@ -200270,7 +200270,7 @@ _ZN4CGAL4MpzfC2Ed.exit479:                        ; preds = %959, %956, %925
 1033:                                             ; preds = %.thread1425
   %1034 = and i64 %1025, 4503599627370495
   %1035 = or disjoint i64 %1034, 4503599627370496
-  %1036 = trunc i64 %1027 to i32
+  %1036 = trunc nuw nsw i64 %1027 to i32
   %1037 = add nuw nsw i32 %1036, 13
   br label %1038
 
@@ -200484,7 +200484,7 @@ _ZN4CGAL4MpzfC2Ed.exit509.thread:                 ; preds = %1029
 1136:                                             ; preds = %.thread1435
   %1137 = and i64 %1125, 4503599627370495
   %1138 = or disjoint i64 %1137, 4503599627370496
-  %1139 = trunc i64 %1127 to i32
+  %1139 = trunc nuw nsw i64 %1127 to i32
   %1140 = add nuw nsw i32 %1139, 13
   br label %1141
 
@@ -200690,7 +200690,7 @@ _ZN4CGAL4MpzfC2Ed.exit539:                        ; preds = %1165, %1162, %1131
 1238:                                             ; preds = %.thread1445
   %1239 = and i64 %1230, 4503599627370495
   %1240 = or disjoint i64 %1239, 4503599627370496
-  %1241 = trunc i64 %1232 to i32
+  %1241 = trunc nuw nsw i64 %1232 to i32
   %1242 = add nuw nsw i32 %1241, 13
   br label %1243
 
@@ -201392,7 +201392,7 @@ _ZN4CGAL4MpzfD2Ev.exit625:                        ; preds = %1432, %1434
 1538:                                             ; preds = %1523
   %1539 = and i64 %1527, 4503599627370495
   %1540 = or disjoint i64 %1539, 4503599627370496
-  %1541 = trunc i64 %1529 to i32
+  %1541 = trunc nuw nsw i64 %1529 to i32
   %1542 = add nuw nsw i32 %1541, 13
   br label %1543
 
@@ -201684,7 +201684,7 @@ _ZN4CGAL4MpzfD2Ev.exit704:                        ; preds = %1639, %1641
 1656:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit704
   %1657 = and i64 %1645, 4503599627370495
   %1658 = or disjoint i64 %1657, 4503599627370496
-  %1659 = trunc i64 %1647 to i32
+  %1659 = trunc nuw nsw i64 %1647 to i32
   %1660 = add nuw nsw i32 %1659, 13
   br label %1661
 
@@ -202030,7 +202030,7 @@ _ZN4CGAL4MpzfaSEOS0_.exit733:                     ; preds = %._ZN4CGAL4MpzfaSEOS
 1796:                                             ; preds = %1781
   %1797 = and i64 %1785, 4503599627370495
   %1798 = or disjoint i64 %1797, 4503599627370496
-  %1799 = trunc i64 %1787 to i32
+  %1799 = trunc nuw nsw i64 %1787 to i32
   %1800 = add nuw nsw i32 %1799, 13
   br label %1801
 
@@ -202324,7 +202324,7 @@ _ZN4CGAL4MpzfD2Ev.exit774:                        ; preds = %1898, %1900
 1915:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit774
   %1916 = and i64 %1904, 4503599627370495
   %1917 = or disjoint i64 %1916, 4503599627370496
-  %1918 = trunc i64 %1906 to i32
+  %1918 = trunc nuw nsw i64 %1906 to i32
   %1919 = add nuw nsw i32 %1918, 13
   br label %1920
 
@@ -203030,7 +203030,7 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit.thread:            ; preds = %_ZN4CGAL4MpzfD2Ev.e
 2217:                                             ; preds = %2202
   %2218 = and i64 %2206, 4503599627370495
   %2219 = or disjoint i64 %2218, 4503599627370496
-  %2220 = trunc i64 %2208 to i32
+  %2220 = trunc nuw nsw i64 %2208 to i32
   %2221 = add nuw nsw i32 %2220, 13
   br label %2222
 
@@ -203323,7 +203323,7 @@ _ZN4CGAL4MpzfD2Ev.exit885:                        ; preds = %2318, %2320
 2335:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit885
   %2336 = and i64 %2324, 4503599627370495
   %2337 = or disjoint i64 %2336, 4503599627370496
-  %2338 = trunc i64 %2326 to i32
+  %2338 = trunc nuw nsw i64 %2326 to i32
   %2339 = add nuw nsw i32 %2338, 13
   br label %2340
 
@@ -203669,7 +203669,7 @@ _ZN4CGAL4MpzfaSEOS0_.exit914:                     ; preds = %._ZN4CGAL4MpzfaSEOS
 2475:                                             ; preds = %2460
   %2476 = and i64 %2464, 4503599627370495
   %2477 = or disjoint i64 %2476, 4503599627370496
-  %2478 = trunc i64 %2466 to i32
+  %2478 = trunc nuw nsw i64 %2466 to i32
   %2479 = add nuw nsw i32 %2478, 13
   br label %2480
 
@@ -203962,7 +203962,7 @@ _ZN4CGAL4MpzfD2Ev.exit955:                        ; preds = %2577, %2579
 2594:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit955
   %2595 = and i64 %2583, 4503599627370495
   %2596 = or disjoint i64 %2595, 4503599627370496
-  %2597 = trunc i64 %2585 to i32
+  %2597 = trunc nuw nsw i64 %2585 to i32
   %2598 = add nuw nsw i32 %2597, 13
   br label %2599
 
@@ -204447,7 +204447,7 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit1011.thread1608:    ; preds = %2769, %_ZN4CGALeqER
 2787:                                             ; preds = %_ZN4CGALeqERKNS_4MpzfES2_.exit1011.thread1608
   %2788 = and i64 %2779, 4503599627370495
   %2789 = or disjoint i64 %2788, 4503599627370496
-  %2790 = trunc i64 %2781 to i32
+  %2790 = trunc nuw nsw i64 %2781 to i32
   %2791 = add nuw nsw i32 %2790, 13
   br label %2792
 
@@ -205151,7 +205151,7 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit1094:               ; preds = %_ZN4CGAL4MpzfD2Ev.e
 3092:                                             ; preds = %3077
   %3093 = and i64 %3081, 4503599627370495
   %3094 = or disjoint i64 %3093, 4503599627370496
-  %3095 = trunc i64 %3083 to i32
+  %3095 = trunc nuw nsw i64 %3083 to i32
   %3096 = add nuw nsw i32 %3095, 13
   br label %3097
 
@@ -205445,7 +205445,7 @@ _ZN4CGAL4MpzfD2Ev.exit1135:                       ; preds = %3194, %3196
 3211:                                             ; preds = %_ZN4CGAL4MpzfD2Ev.exit1135
   %3212 = and i64 %3200, 4503599627370495
   %3213 = or disjoint i64 %3212, 4503599627370496
-  %3214 = trunc i64 %3202 to i32
+  %3214 = trunc nuw nsw i64 %3202 to i32
   %3215 = add nuw nsw i32 %3214, 13
   br label %3216
 
@@ -210770,7 +210770,7 @@ define linkonce_odr void @_ZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision1
 
 23:                                               ; preds = %11
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %15, i32 67108864)
-  %24 = trunc i8 %20 to i1
+  %24 = trunc nuw i8 %20 to i1
   %25 = select i1 %24, i32 2, i32 0
   %26 = icmp ugt i32 %15, %25
   br i1 %26, label %.noexc, label %38
@@ -210788,7 +210788,7 @@ define linkonce_odr void @_ZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision1
   %34 = load ptr, ptr %32, align 8
   tail call void @_ZdlPv(ptr noundef %34) #36
   %.pre29.pre = load i32, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_maxILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 1), align 16
-  %35 = trunc i8 %20 to i1
+  %35 = trunc nuw i8 %20 to i1
   br label %37
 
 36:                                               ; preds = %.noexc
@@ -210874,7 +210874,7 @@ define linkonce_odr void @_ZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision1
 
 23:                                               ; preds = %11
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %15, i32 67108864)
-  %24 = trunc i8 %20 to i1
+  %24 = trunc nuw i8 %20 to i1
   %25 = select i1 %24, i32 2, i32 0
   %26 = icmp ugt i32 %15, %25
   br i1 %26, label %.noexc, label %38
@@ -210892,7 +210892,7 @@ define linkonce_odr void @_ZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision1
   %34 = load ptr, ptr %32, align 8
   tail call void @_ZdlPv(ptr noundef %34) #36
   %.pre29.pre = load i32, ptr getelementptr inbounds (%"class.boost::multiprecision::number.2456", ptr @_ZZNSt6detail7get_minILj0ELj0ELN5boost14multiprecision16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyELNS2_26expression_template_optionE1ELb0EEENS2_6numberINS2_8backends15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEXT4_EEERKN4mpl_5bool_ILb0EEERKNSE_ILb1EEERKNSE_IXT5_EEEE3val, i64 0, i32 0, i32 0, i32 1), align 16
-  %35 = trunc i8 %20 to i1
+  %35 = trunc nuw i8 %20 to i1
   br label %37
 
 36:                                               ; preds = %.noexc

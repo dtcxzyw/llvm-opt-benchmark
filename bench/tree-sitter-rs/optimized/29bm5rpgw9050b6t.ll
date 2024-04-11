@@ -1111,7 +1111,7 @@ _ZN3std2fs14read_to_string17h9448c279a23251f3E.exit: ; preds = %22
   br i1 %.not65, label %89, label %87
 
 87:                                               ; preds = %85
-  %88 = trunc i8 %.059 to i1
+  %88 = trunc nuw i8 %.059 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %109, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcbab172fb28d8c7eE.exit87", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcbab172fb28d8c7eE.exit", %87, %85
@@ -1158,7 +1158,7 @@ _ZN3std2fs14read_to_string17h9448c279a23251f3E.exit: ; preds = %22
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcbab172fb28d8c7eE.exit83": ; preds = %101, %.noexc81
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !297
-  %105 = trunc i8 %.059 to i1
+  %105 = trunc nuw i8 %.059 to i1
   %106 = xor i1 %105, true
   br label %109
 
@@ -1173,7 +1173,7 @@ _ZN3std2fs14read_to_string17h9448c279a23251f3E.exit: ; preds = %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %110 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %.not70 = icmp eq i64 %110, -9223372036854775808
-  %brmerge = or i1 %.3, %.not70
+  %brmerge = select i1 %.not70, i1 true, i1 %.3
   br i1 %brmerge, label %89, label %113
 
 .thread96:                                        ; preds = %.body72, %49, %.thread99
@@ -1399,7 +1399,7 @@ define void @_ZN18tree_sitter_config6Config7initial17hc63bf940bd9c2f90E(ptr noal
 "_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hd46d6e353befab86E.exit29": ; preds = %17, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h050b1693565cf5afE.exit.i.i23", %59, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %71 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !19, !noalias !368, !noundef !5
-  %trunc.i.i.i = trunc i64 %71 to i1
+  %trunc.i.i.i = trunc nuw i64 %71 to i1
   br i1 %trunc.i.i.i, label %85, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hd46d6e353befab86E.exit29"
@@ -1567,7 +1567,7 @@ default.unreachable:                              ; preds = %48, %1
 32:                                               ; preds = %1
   %33 = getelementptr inbounds i8, ptr %0, i64 32
   %34 = load i8, ptr %33, align 8, !range !417, !alias.scope !402, !noalias !403, !noundef !5
-  %35 = trunc i8 %34 to i1
+  %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.split.i.i.i.i.i, label %.split2.i.i.i.i.i
 
 .split2.i.i.i.i.i:                                ; preds = %32
@@ -1647,7 +1647,7 @@ default.unreachable:                              ; preds = %48, %1
   %.02836.i.i.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i.i.i ], [ 20, %52 ]
   %56 = urem i64 %.137.i.i.i.i.i.i.i, 10000
   %57 = udiv i64 %.137.i.i.i.i.i.i.i, 10000
-  %.lhs.trunc.i.i.i.i.i.i.i = trunc i64 %56 to i16
+  %.lhs.trunc.i.i.i.i.i.i.i = trunc nuw nsw i64 %56 to i16
   %58 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i, 100
   %59 = shl nuw nsw i16 %58, 1
   %60 = zext nneg i16 %59 to i64
@@ -1667,7 +1667,7 @@ default.unreachable:                              ; preds = %48, %1
   br i1 %70, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 71:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %.lhs.trunc32.i.i.i.i.i.i.i = trunc i64 %.1.lcssa.i.i.i.i.i.i.i to i16
+  %.lhs.trunc32.i.i.i.i.i.i.i = trunc nuw i64 %.1.lcssa.i.i.i.i.i.i.i to i16
   %72 = urem i16 %.lhs.trunc32.i.i.i.i.i.i.i, 100
   %73 = shl nuw nsw i16 %72, 1
   %74 = zext nneg i16 %73 to i64
@@ -1697,7 +1697,7 @@ default.unreachable:                              ; preds = %48, %1
 
 88:                                               ; preds = %80
   %89 = add i64 %.129.i.i.i.i.i.i.i, -1
-  %90 = trunc i64 %.027.i.i.i.i.i.i.i to i8
+  %90 = trunc nuw i64 %.027.i.i.i.i.i.i.i to i8
   %91 = getelementptr inbounds i8, ptr %8, i64 %89
   %92 = or disjoint i8 %90, 48
   store i8 %92, ptr %91, align 1, !alias.scope !448, !noalias !447
@@ -1751,7 +1751,7 @@ default.unreachable:                              ; preds = %48, %1
   %.02636.i.i.i.i.i.i.i = phi i64 [ %115, %.lr.ph.i.i.i10.i.i.i.i ], [ 20, %102 ]
   %107 = urem i64 %.137.i.i.i11.i.i.i.i, 10000
   %108 = udiv i64 %.137.i.i.i11.i.i.i.i, 10000
-  %.lhs.trunc.i.i.i12.i.i.i.i = trunc i64 %107 to i16
+  %.lhs.trunc.i.i.i12.i.i.i.i = trunc nuw nsw i64 %107 to i16
   %109 = udiv i16 %.lhs.trunc.i.i.i12.i.i.i.i, 100
   %110 = shl nuw nsw i16 %109, 1
   %111 = zext nneg i16 %110 to i64
@@ -1771,7 +1771,7 @@ default.unreachable:                              ; preds = %48, %1
   br i1 %121, label %.lr.ph.i.i.i10.i.i.i.i, label %._crit_edge.i.i.i4.i.i.i.i
 
 122:                                              ; preds = %._crit_edge.i.i.i4.i.i.i.i
-  %.lhs.trunc32.i.i.i8.i.i.i.i = trunc i64 %.1.lcssa.i.i.i5.i.i.i.i to i16
+  %.lhs.trunc32.i.i.i8.i.i.i.i = trunc nuw i64 %.1.lcssa.i.i.i5.i.i.i.i to i16
   %123 = urem i16 %.lhs.trunc32.i.i.i8.i.i.i.i, 100
   %124 = shl nuw nsw i16 %123, 1
   %125 = zext nneg i16 %124 to i64
@@ -1801,7 +1801,7 @@ default.unreachable:                              ; preds = %48, %1
 
 139:                                              ; preds = %131
   %140 = add i64 %.127.i.i.i.i.i.i.i, -1
-  %141 = trunc i64 %.025.i.i.i.i.i.i.i to i8
+  %141 = trunc nuw i64 %.025.i.i.i.i.i.i.i to i8
   %142 = getelementptr inbounds i8, ptr %7, i64 %140
   %143 = or disjoint i8 %141, 48
   store i8 %143, ptr %142, align 1, !alias.scope !465, !noalias !447
@@ -2067,7 +2067,7 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i.i.i.i: ; preds = %216
   store i64 %243, ptr %241, align 8, !alias.scope !609, !noalias !605
   %244 = getelementptr inbounds i8, ptr %237, i64 32
   %245 = load i8, ptr %244, align 8, !range !417, !alias.scope !609, !noalias !605, !noundef !5
-  %246 = trunc i8 %245 to i1
+  %246 = trunc nuw i8 %245 to i1
   br i1 %246, label %252, label %._ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit_crit_edge.i.i.i.i.i
 
 ._ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit_crit_edge.i.i.i.i.i: ; preds = %239

@@ -1880,7 +1880,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -1980,7 +1980,7 @@ _ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit.thread
 
 _ZN4node22SocketAddressBlockList4Rule10ToV8StringEPNS_11EnvironmentE.exit: ; preds = %for.body
   %6 = extractvalue { i64, ptr } %call5.i, 1
-  %conv.i.i = trunc i64 %5 to i32
+  %conv.i.i = trunc nuw i64 %5 to i32
   %call11.i.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.i, ptr noundef %6, i32 noundef 0, i32 noundef %conv.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %str.i)
@@ -3742,7 +3742,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %call2.i = tail call ptr %56(ptr noundef nonnull align 8 dereferenceable(872) %55) #21
   %call73 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i124.sroa.0.0, ptr %call2.i) #21
   %ref.tmp58.sroa.325.0.extract.shift = lshr i64 %call73, 32
-  %ref.tmp58.sroa.325.0.extract.trunc = trunc i64 %ref.tmp58.sroa.325.0.extract.shift to i32
+  %ref.tmp58.sroa.325.0.extract.trunc = trunc nuw i64 %ref.tmp58.sroa.325.0.extract.shift to i32
   %tobool.i436 = trunc i64 %call73 to i1
   br i1 %tobool.i436, label %do.body78, label %return
 
@@ -3753,7 +3753,7 @@ do.body78:                                        ; preds = %_ZNK2v820FunctionCa
   %58 = load i16, ptr %address_.i44, align 8
   %cmp82 = icmp eq i16 %58, 2
   %cmp83 = icmp sgt i32 %ref.tmp58.sroa.325.0.extract.trunc, 32
-  %.not = and i1 %cmp83, %cmp82
+  %.not = select i1 %cmp82, i1 %cmp83, i1 false
   br i1 %.not, label %do.body88, label %do.body92
 
 do.body88:                                        ; preds = %do.body78
@@ -3764,7 +3764,7 @@ do.body88:                                        ; preds = %do.body78
 do.body92:                                        ; preds = %do.body78
   %cmp96 = icmp eq i16 %58, 10
   %cmp98 = icmp sgt i32 %ref.tmp58.sroa.325.0.extract.trunc, 128
-  %.not30 = and i1 %cmp98, %cmp96
+  %.not30 = select i1 %cmp96, i1 %cmp98, i1 false
   br i1 %.not30, label %do.body104, label %do.body108
 
 do.body104:                                       ; preds = %do.body92
@@ -5142,7 +5142,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %do.end34
   %38 = extractvalue { i64, ptr } %call44, 1
-  %conv.i = trunc i64 %37 to i32
+  %conv.i = trunc nuw i64 %37 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %38, i32 noundef 0, i32 noundef %conv.i) #21
   %cmp.i.i452 = icmp eq ptr %call11.i, null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #21

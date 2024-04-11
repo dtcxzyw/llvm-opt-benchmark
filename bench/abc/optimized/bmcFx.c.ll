@@ -1021,10 +1021,10 @@ Vec_IntPush.exit.i:                               ; preds = %209, %Vec_IntGrow.e
 232:                                              ; preds = %.lr.ph44.i
   %233 = lshr i32 %229, 17
   %234 = lshr i64 %228, 32
-  %235 = trunc i64 %234 to i32
+  %235 = trunc nuw i64 %234 to i32
   %236 = and i32 %235, 32767
   %237 = lshr i64 %228, 47
-  %238 = trunc i64 %237 to i32
+  %238 = trunc nuw nsw i64 %237 to i32
   %239 = and i32 %238, 32767
   %240 = lshr i64 %228, 62
   %241 = getelementptr inbounds [5 x ptr], ptr @__const.Tab_TabFindBest.pNames, i64 0, i64 %240
@@ -1032,16 +1032,16 @@ Vec_IntPush.exit.i:                               ; preds = %209, %Vec_IntGrow.e
   %243 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %233, i32 noundef %236, i32 noundef %239, ptr noundef %242, i32 noundef %230)
   %244 = load i64, ptr %227, align 4
   %245 = lshr i64 %244, 62
-  %246 = trunc i64 %245 to i32
+  %246 = trunc nuw nsw i64 %245 to i32
   %247 = trunc i64 %244 to i32
   %248 = lshr i32 %247, 17
   tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %166, i32 noundef %246, i32 noundef %248)
   %249 = load i64, ptr %227, align 4
   %250 = lshr i64 %249, 32
-  %251 = trunc i64 %250 to i32
+  %251 = trunc nuw i64 %250 to i32
   %252 = and i32 %251, 32767
   %253 = lshr i64 %249, 47
-  %254 = trunc i64 %253 to i32
+  %254 = trunc nuw nsw i64 %253 to i32
   %255 = and i32 %254, 32767
   tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %166, i32 noundef %252, i32 noundef %255)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1157,13 +1157,13 @@ define internal fastcc void @Tab_TabHashAdd(ptr nocapture noundef %0, ptr nocapt
   %39 = trunc i64 %38 to i32
   %40 = lshr i32 %39, 17
   %41 = lshr i64 %38, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = and i32 %42, 32767
   %44 = lshr i64 %38, 47
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = and i32 %45, 32767
   %47 = lshr i64 %38, 62
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = load i32, ptr %0, align 8
   %50 = mul nsw i32 %40, 50331653
   %51 = mul nsw i32 %43, 100663319
@@ -1229,20 +1229,20 @@ Tab_TabRehash.exit:                               ; preds = %Tab_TabRehash.exit.
 
 92:                                               ; preds = %.lr.ph
   %93 = lshr i64 %88, 32
-  %94 = trunc i64 %93 to i32
+  %94 = trunc nuw i64 %93 to i32
   %95 = and i32 %94, 32767
   %96 = icmp eq i32 %95, %73
   br i1 %96, label %97, label %Tab_TabEntry.exit45
 
 97:                                               ; preds = %92
   %98 = lshr i64 %88, 47
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw nsw i64 %98 to i32
   %100 = and i32 %99, 32767
   %101 = icmp eq i32 %100, %75
   %102 = lshr i64 %88, 62
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw nsw i64 %102 to i32
   %104 = icmp eq i32 %103, %2
-  %or.cond = and i1 %104, %101
+  %or.cond = select i1 %101, i1 %104, i1 false
   br i1 %or.cond, label %105, label %Tab_TabEntry.exit45
 
 105:                                              ; preds = %97
@@ -2446,7 +2446,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .preheader:                                       ; preds = %.preheader49, %76
   %59 = phi i1 [ true, %.preheader49 ], [ false, %76 ]
   %indvars.iv57 = phi i64 [ 0, %.preheader49 ], [ 1, %76 ]
-  %60 = trunc i64 %indvars.iv57 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv57 to i32
   %61 = mul nuw nsw i32 %factor.op.mul52, %60
   %62 = add nsw i32 %61, %14
   br label %63

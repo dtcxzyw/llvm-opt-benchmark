@@ -1442,7 +1442,7 @@ addresses_equal.exit.i:                           ; preds = %202, %194, %virtual
   call void @col_append_str(ptr noundef %283, i32 noundef 25, ptr noundef nonnull @.str.669) #9
   %284 = call zeroext i16 @tvb_get_ntohs(ptr noundef %282, i32 noundef 0) #9
   %285 = lshr i16 %284, 12
-  %286 = trunc i16 %285 to i8
+  %286 = trunc nuw nsw i16 %285 to i8
   %287 = and i8 %286, 3
   %288 = icmp slt i16 %284, 0
   br i1 %288, label %299, label %289
@@ -1450,7 +1450,7 @@ addresses_equal.exit.i:                           ; preds = %202, %194, %virtual
 289:                                              ; preds = %280
   %290 = icmp ult i16 %284, 16384
   %291 = icmp eq i8 %287, 0
-  %or.cond.i.i = and i1 %290, %291
+  %or.cond.i.i = select i1 %290, i1 %291, i1 false
   br i1 %or.cond.i.i, label %292, label %299
 
 292:                                              ; preds = %289

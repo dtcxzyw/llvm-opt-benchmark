@@ -988,7 +988,7 @@ entry:
   %ref.tmp22 = alloca %"struct.pbrt::DisplayItem::ImageChannelBuffer", align 8
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.3.0.extract.shift = lshr i64 %resolution.coerce, 32
-  %resolution.sroa.3.0.extract.trunc = trunc i64 %resolution.sroa.3.0.extract.shift to i32
+  %resolution.sroa.3.0.extract.trunc = trunc nuw i64 %resolution.sroa.3.0.extract.shift to i32
   store i8 0, ptr %this, align 8
   %title = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title) #20
@@ -5268,14 +5268,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %v.i.i.i)
   %b.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %b.sroa.4.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %b.sroa.4.0.extract.trunc.i.i.i = trunc i64 %b.sroa.4.0.extract.shift.i.i.i to i32
+  %b.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.4.0.extract.shift.i.i.i to i32
   %b.sroa.5.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %b.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %b.sroa.8.8.extract.trunc.i.i.i = trunc i64 %b.sroa.8.8.extract.shift.i.i.i to i32
+  %b.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
   %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i31.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i31.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i31.i.not1.i.i
+  %cmp4.i.i31.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i31.i.not1.i.i
   br i1 %cmp4.i.i31.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ImageEN4pstd8optionalINS0_16ImageChannelDescEEEE3$_0JNS0_7Bounds2IiEENSC_4spanINSK_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry

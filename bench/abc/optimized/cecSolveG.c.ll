@@ -1058,7 +1058,7 @@ define void @CecG_CnfNodeAddToSolver(ptr nocapture noundef readonly %0, ptr noun
   %15 = getelementptr inbounds i32, ptr %.val102, i64 %14
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %239
+  br i1 %.not, label %17, label %238
 
 17:                                               ; preds = %2
   %.val111 = load i64, ptr %1, align 4
@@ -1149,7 +1149,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %60 = ashr exact i64 %sext.i117, 32
   %61 = getelementptr inbounds i32, ptr %.val115, i64 %60
   store i32 %55, ptr %61, align 4
-  br label %239
+  br label %238
 
 62:                                               ; preds = %17
   %63 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
@@ -1425,25 +1425,25 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   %223 = getelementptr inbounds i32, ptr %.val100, i64 %222
   %224 = load i32, ptr %223, align 4
   %225 = lshr i64 %200, 61
-  %226 = trunc i64 %225 to i32
+  %226 = trunc nuw nsw i64 %225 to i32
   %227 = and i32 %226, 1
   %228 = shl nsw i32 %224, 1
   %229 = or disjoint i32 %228, %227
   %230 = and i64 %200, 2147483648
   %.not.i.i = icmp eq i64 %230, 0
   %231 = icmp ne i64 %201, 536870911
+  %narrow.i.not.i.not = and i1 %.not.i.i, %231
   %232 = and i32 %210, 536870911
-  %233 = trunc i64 %215 to i32
+  %233 = trunc nuw i64 %215 to i32
   %234 = and i32 %233, 536870911
   %235 = icmp ult i32 %232, %234
-  %236 = and i1 %231, %235
-  %narrow = and i1 %.not.i.i, %236
-  %237 = icmp sle i32 %214, %229
-  %.not93 = xor i1 %237, %narrow
+  %narrow = select i1 %narrow.i.not.i.not, i1 %235, i1 false
+  %236 = icmp sle i32 %214, %229
+  %.not93 = xor i1 %narrow, %236
   %spec.select = select i1 %.not93, i32 %214, i32 %229
   %spec.select95 = select i1 %.not93, i32 %229, i32 %214
-  %238 = load ptr, ptr %189, align 8
-  tail call void @bmcg2_sat_solver_set_var_fanin_lit(ptr noundef %238, i32 noundef %199, i32 noundef %spec.select, i32 noundef %spec.select95) #8
+  %237 = load ptr, ptr %189, align 8
+  tail call void @bmcg2_sat_solver_set_var_fanin_lit(ptr noundef %237, i32 noundef %199, i32 noundef %spec.select, i32 noundef %spec.select95) #8
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count
   br i1 %exitcond.not, label %.critedge6.thread, label %Gia_ObjIsXor.exit, !llvm.loop !11
@@ -1460,9 +1460,9 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge6, %.critedge6.thread
   tail call void @free(ptr noundef nonnull %63) #8
-  br label %239
+  br label %238
 
-239:                                              ; preds = %2, %Vec_PtrFree.exit, %Vec_PtrPush.exit
+238:                                              ; preds = %2, %Vec_PtrFree.exit, %Vec_PtrPush.exit
   ret void
 }
 

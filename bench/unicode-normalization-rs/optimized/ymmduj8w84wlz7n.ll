@@ -18,10 +18,10 @@ define noundef i32 @_ZN21unicode_normalization9normalize7compose17h4f064d4953ae0
   %6 = add i32 %1, -4520
   %7 = icmp ult i32 %6, 27
   %or.cond3.i = and i1 %or.cond1.i, %7
-  %.lhs.trunc = trunc i32 %5 to i16
+  %.lhs.trunc = trunc nuw i32 %5 to i16
   %8 = urem i16 %.lhs.trunc, 28
   %9 = icmp eq i16 %8, 0
-  %or.cond = and i1 %or.cond3.i, %9
+  %or.cond = select i1 %or.cond3.i, i1 %9, i1 false
   br i1 %or.cond, label %12, label %20
 
 10:                                               ; preds = %2

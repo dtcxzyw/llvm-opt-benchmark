@@ -2298,15 +2298,13 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %cmp.i = icmp eq ptr %call.i.i.i9, %add.ptr.i
-  %frombool4 = zext i1 %cmp.i to i8
   br i1 %type_deduction, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %cmp = icmp eq i8 %manual_type, 2
-  %spec.select = select i1 %cmp, i8 0, i8 %frombool4
+  %cmp = icmp ne i8 %manual_type, 2
+  %spec.select = and i1 %cmp, %cmp.i
   %cmp6 = icmp ne i8 %manual_type, 1
-  %tobool7 = trunc i8 %spec.select to i1
-  %.not = or i1 %cmp6, %tobool7
+  %.not = or i1 %cmp6, %cmp.i
   br i1 %.not, label %if.end18, label %if.then10
 
 lpad.loopexit:                                    ; preds = %if.end.i
@@ -2353,9 +2351,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %ehcleanup54
 
 if.end18:                                         ; preds = %if.then, %invoke.cont
-  %is_an_object.1 = phi i8 [ %frombool4, %invoke.cont ], [ %spec.select, %if.then ]
-  %tobool19 = trunc i8 %is_an_object.1 to i1
-  br i1 %tobool19, label %if.then20, label %if.else
+  %is_an_object.1 = phi i1 [ %cmp.i, %invoke.cont ], [ %spec.select, %if.then ]
+  br i1 %is_an_object.1, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18
   store i8 1, ptr %this, align 8
@@ -5019,7 +5016,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -7319,7 +7316,7 @@ if.else29.i:                                      ; preds = %while.end.i149, %wh
   %buffer_ptr.0.lcssa68.i = phi ptr [ %add.ptr58.i, %while.end.thread.i155 ], [ %buffer_ptr.0.lcssa.i, %while.end.i149 ]
   %abs_value.1.lcssa67.i = phi i64 [ %128, %while.end.thread.i155 ], [ %abs_value.1.lcssa.i, %while.end.i149 ]
   %idx.ext6066.i = phi i64 [ 1, %while.end.thread.i155 ], [ %idx.ext.i, %while.end.i149 ]
-  %135 = trunc i64 %abs_value.1.lcssa67.i to i8
+  %135 = trunc nuw i64 %abs_value.1.lcssa67.i to i8
   %conv31.i = or disjoint i8 %135, 48
   %incdec.ptr32.i = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa68.i, i64 -1
   store i8 %conv31.i, ptr %incdec.ptr32.i, align 1
@@ -7626,7 +7623,7 @@ if.else29.i271:                                   ; preds = %while.end.i267, %wh
   %buffer_ptr.0.lcssa68.i272 = phi ptr [ %add.ptr58.i303, %while.end.thread.i302 ], [ %buffer_ptr.0.lcssa.i269, %while.end.i267 ]
   %abs_value.1.lcssa67.i273 = phi i64 [ %175, %while.end.thread.i302 ], [ %abs_value.1.lcssa.i268, %while.end.i267 ]
   %idx.ext6066.i274 = phi i64 [ 1, %while.end.thread.i302 ], [ %idx.ext.i264, %while.end.i267 ]
-  %182 = trunc i64 %abs_value.1.lcssa67.i273 to i8
+  %182 = trunc nuw i64 %abs_value.1.lcssa67.i273 to i8
   %conv31.i275 = or disjoint i8 %182, 48
   %incdec.ptr32.i276 = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa68.i272, i64 -1
   store i8 %conv31.i275, ptr %incdec.ptr32.i276, align 1
@@ -7778,7 +7775,7 @@ if.else29.i332:                                   ; preds = %while.end.i328, %wh
   %buffer_ptr.0.lcssa68.i333 = phi ptr [ %add.ptr58.i364, %while.end.thread.i363 ], [ %buffer_ptr.0.lcssa.i330, %while.end.i328 ]
   %abs_value.1.lcssa67.i334 = phi i64 [ %193, %while.end.thread.i363 ], [ %abs_value.1.lcssa.i329, %while.end.i328 ]
   %idx.ext6066.i335 = phi i64 [ 1, %while.end.thread.i363 ], [ %idx.ext.i325, %while.end.i328 ]
-  %200 = trunc i64 %abs_value.1.lcssa67.i334 to i8
+  %200 = trunc nuw i64 %abs_value.1.lcssa67.i334 to i8
   %conv31.i336 = or disjoint i8 %200, 48
   %incdec.ptr32.i337 = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa68.i333, i64 -1
   store i8 %conv31.i336, ptr %incdec.ptr32.i337, align 1
@@ -8600,7 +8597,7 @@ if.else29:                                        ; preds = %while.end.thread, %
   %buffer_ptr.0.lcssa76 = phi ptr [ %add.ptr66, %while.end.thread ], [ %buffer_ptr.0.lcssa, %while.end ]
   %abs_value.1.lcssa75 = phi i64 [ %x, %while.end.thread ], [ %abs_value.1.lcssa, %while.end ]
   %idx.ext6874 = phi i64 [ 1, %while.end.thread ], [ %idx.ext, %while.end ]
-  %6 = trunc i64 %abs_value.1.lcssa75 to i8
+  %6 = trunc nuw i64 %abs_value.1.lcssa75 to i8
   %conv31 = or disjoint i8 %6, 48
   %incdec.ptr32 = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa76, i64 -1
   store i8 %conv31, ptr %incdec.ptr32, align 1
@@ -8765,7 +8762,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -8923,7 +8920,7 @@ cond.end.thread.i.i:                              ; preds = %if.end5
 cond.end.i.i:                                     ; preds = %if.end5
   %shr.i.i = lshr i64 %2, 52
   %add.i.i = or disjoint i64 %and.i.i, 4503599627370496
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i, -1075
   %cmp1.i.i = icmp eq i64 %and.i.i, 0
   %cmp2.i.i = icmp ugt i64 %2, 9007199254740991
@@ -9073,7 +9070,7 @@ if.end60.i:                                       ; preds = %if.else.i, %if.end4
 if.then3.i.i:                                     ; preds = %if.end60.i
   %incdec.ptr4.i.i = getelementptr i8, ptr %buf.pn.i, i64 4
   store i8 48, ptr %buf.addr.0.i.i, align 1
-  %12 = trunc i32 %e.addr.0.i.i to i8
+  %12 = trunc nuw i32 %e.addr.0.i.i to i8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl15append_exponentEPci.exit.i
 
 if.else6.i.i:                                     ; preds = %if.end60.i
@@ -9082,7 +9079,7 @@ if.else6.i.i:                                     ; preds = %if.end60.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else15.i.i
 
 if.then8.i.i:                                     ; preds = %if.else6.i.i
-  %div.lhs.trunc.i.i = trunc i32 %e.addr.0.i.i to i8
+  %div.lhs.trunc.i.i = trunc nuw i32 %e.addr.0.i.i to i8
   %div22.i.i = udiv i8 %div.lhs.trunc.i.i, 10
   %conv10.i.i = or disjoint i8 %div22.i.i, 48
   store i8 %conv10.i.i, ptr %buf.addr.0.i.i, align 1
@@ -9095,7 +9092,7 @@ if.else15.i.i:                                    ; preds = %if.else6.i.i
   %conv18.i.i = add i8 %13, 48
   store i8 %conv18.i.i, ptr %buf.addr.0.i.i, align 1
   %rem20.i.i = urem i32 %e.addr.0.i.i, 100
-  %div21.lhs.trunc.i.i = trunc i32 %rem20.i.i to i8
+  %div21.lhs.trunc.i.i = trunc nuw nsw i32 %rem20.i.i to i8
   %div2124.i.i = udiv i8 %div21.lhs.trunc.i.i, 10
   %conv23.i.i = or disjoint i8 %div2124.i.i, 48
   %incdec.ptr24.i.i = getelementptr i8, ptr %buf.pn.i, i64 5
@@ -9130,7 +9127,7 @@ entry:
   %cmp.i = icmp sgt i32 %sub1.i, 0
   %conv.i = zext i1 %cmp.i to i32
   %add.i = add nsw i32 %div.i, %conv.i
-  %1 = trunc i32 %add.i to i16
+  %1 = trunc nsw i32 %add.i to i16
   %div4.lhs.trunc.i = add nsw i16 %1, 307
   %div42.i = sdiv i16 %div4.lhs.trunc.i, 8
   %conv5.i = sext i16 %div42.i to i64
@@ -9140,7 +9137,7 @@ entry:
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
   %cached.sroa.2.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i to i32
   %cached.sroa.4.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i, 32
-  %cached.sroa.4.8.extract.trunc = trunc i64 %cached.sroa.4.8.extract.shift to i32
+  %cached.sroa.4.8.extract.trunc = trunc nuw i64 %cached.sroa.4.8.extract.shift to i32
   %2 = load i64, ptr %v, align 8
   %and.i = and i64 %2, 4294967295
   %shr.i = lshr i64 %2, 32
@@ -25710,7 +25707,7 @@ return.sink.split:                                ; preds = %while.body5, %while
   br label %return
 
 switch.hole_check:                                ; preds = %while.body
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 18435, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %return, label %while.body.backedge
@@ -26109,7 +26106,7 @@ if.else59:                                        ; preds = %if.end56
 
 if.then61:                                        ; preds = %if.else59
   %shr = lshr i32 %codepoint.1.i, 6
-  %15 = trunc i32 %shr to i8
+  %15 = trunc nuw i32 %shr to i8
   %conv.i33 = or disjoint i8 %15, -64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i, i8 noundef signext %conv.i33)
   %16 = trunc i32 %codepoint.1.i to i8
@@ -26123,7 +26120,7 @@ if.else63:                                        ; preds = %if.else59
 
 if.then65:                                        ; preds = %if.else63
   %shr66 = lshr i32 %codepoint.1.i, 12
-  %18 = trunc i32 %shr66 to i8
+  %18 = trunc nuw i32 %shr66 to i8
   %conv.i37 = or disjoint i8 %18, -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i, i8 noundef signext %conv.i37)
   %shr68 = lshr i32 %codepoint.1.i, 6
@@ -26375,7 +26372,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br i1 %or.cond, label %return.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3getEv.exit
-  %conv.i5.i = trunc i32 %.pr.i to i8
+  %conv.i5.i = trunc nuw i32 %.pr.i to i8
   br label %sw.epilog249.sink.split
 
 sw.bb160:                                         ; preds = %while.body
@@ -38219,7 +38216,7 @@ if.then:                                          ; preds = %sw.bb11
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.then
-  %conv = trunc i64 %6 to i8
+  %conv = trunc nuw i64 %6 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i)
   store i8 %conv, ptr %vec.i, align 1
   %oa.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -38539,7 +38536,7 @@ sw.bb175:                                         ; preds = %entry
   br i1 %cmp178, label %if.then179, label %if.else183
 
 if.then179:                                       ; preds = %sw.bb175
-  %conv182 = trunc i64 %71 to i8
+  %conv182 = trunc nuw i64 %71 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i156)
   store i8 %conv182, ptr %vec.i156, align 1
   %oa.i157 = getelementptr inbounds i8, ptr %this, i64 8
@@ -38788,7 +38785,7 @@ sw.bb249:                                         ; preds = %entry
   br i1 %cmp253, label %if.then254, label %if.else256
 
 if.then254:                                       ; preds = %sw.bb249
-  %123 = trunc i64 %call252 to i8
+  %123 = trunc nuw i64 %call252 to i8
   %conv255 = or disjoint i8 %123, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i206)
   store i8 %conv255, ptr %vec.i206, align 1
@@ -38811,7 +38808,7 @@ if.then260:                                       ; preds = %if.else256
   %vtable264 = load ptr, ptr %126, align 8
   %127 = load ptr, ptr %vtable264, align 8
   tail call void %127(ptr noundef nonnull align 8 dereferenceable(8) %126, i8 noundef zeroext -39)
-  %conv266 = trunc i64 %call252 to i8
+  %conv266 = trunc nuw i64 %call252 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i210)
   store i8 %conv266, ptr %vec.i210, align 1
   %128 = load ptr, ptr %oa261, align 8
@@ -38832,7 +38829,7 @@ if.then271:                                       ; preds = %if.else267
   %vtable275 = load ptr, ptr %130, align 8
   %131 = load ptr, ptr %vtable275, align 8
   tail call void %131(ptr noundef nonnull align 8 dereferenceable(8) %130, i8 noundef zeroext -38)
-  %conv277 = trunc i64 %call252 to i16
+  %conv277 = trunc nuw i64 %call252 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i214)
   store i16 %conv277, ptr %vec.i214, align 2
   %132 = load i8, ptr %this, align 8
@@ -38874,7 +38871,7 @@ if.then282:                                       ; preds = %if.else278
   %vtable286 = load ptr, ptr %138, align 8
   %139 = load ptr, ptr %vtable286, align 8
   tail call void %139(ptr noundef nonnull align 8 dereferenceable(8) %138, i8 noundef zeroext -37)
-  %conv288 = trunc i64 %call252 to i32
+  %conv288 = trunc nuw i64 %call252 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i227)
   store i32 %conv288, ptr %vec.i227, align 4
   %140 = load i8, ptr %this, align 8
@@ -38933,7 +38930,7 @@ sw.bb303:                                         ; preds = %entry
   br i1 %cmp308, label %if.then309, label %if.else312
 
 if.then309:                                       ; preds = %sw.bb303
-  %153 = trunc i64 %sub.ptr.div.i to i8
+  %153 = trunc nuw i64 %sub.ptr.div.i to i8
   %conv311 = or disjoint i8 %153, -112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i240)
   store i8 %conv311, ptr %vec.i240, align 1
@@ -38956,7 +38953,7 @@ if.then316:                                       ; preds = %if.else312
   %vtable320 = load ptr, ptr %156, align 8
   %157 = load ptr, ptr %vtable320, align 8
   tail call void %157(ptr noundef nonnull align 8 dereferenceable(8) %156, i8 noundef zeroext -36)
-  %conv322 = trunc i64 %sub.ptr.div.i to i16
+  %conv322 = trunc nuw i64 %sub.ptr.div.i to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i244)
   store i16 %conv322, ptr %vec.i244, align 2
   %158 = load i8, ptr %this, align 8
@@ -38998,7 +38995,7 @@ if.then327:                                       ; preds = %if.else323
   %vtable331 = load ptr, ptr %164, align 8
   %165 = load ptr, ptr %vtable331, align 8
   tail call void %165(ptr noundef nonnull align 8 dereferenceable(8) %164, i8 noundef zeroext -35)
-  %conv333 = trunc i64 %sub.ptr.div.i to i32
+  %conv333 = trunc nuw i64 %sub.ptr.div.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i257)
   store i32 %conv333, ptr %vec.i257, align 4
   %166 = load i8, ptr %this, align 8
@@ -39061,7 +39058,7 @@ sw.bb345:                                         ; preds = %entry
   br i1 %cmp355.not, label %if.else375, label %if.then356
 
 if.then356:                                       ; preds = %sw.bb345
-  %trunc = trunc i64 %sub.ptr.sub.i274 to i8
+  %trunc = trunc nuw i64 %sub.ptr.sub.i274 to i8
   br i1 %tobool.i, label %if.then358, label %if.then372.critedge
 
 if.then358:                                       ; preds = %if.then356
@@ -39122,7 +39119,7 @@ if.then379:                                       ; preds = %if.else375
   %vtable387 = load ptr, ptr %185, align 8
   %186 = load ptr, ptr %vtable387, align 8
   tail call void %186(ptr noundef nonnull align 8 dereferenceable(8) %185, i8 noundef zeroext %conv383)
-  %conv389 = trunc i64 %sub.ptr.sub.i274 to i16
+  %conv389 = trunc nuw i64 %sub.ptr.sub.i274 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i279)
   store i16 %conv389, ptr %vec.i279, align 2
   %187 = load i8, ptr %this, align 8
@@ -39165,7 +39162,7 @@ if.then394:                                       ; preds = %if.else390
   %vtable402 = load ptr, ptr %193, align 8
   %194 = load ptr, ptr %vtable402, align 8
   tail call void %194(ptr noundef nonnull align 8 dereferenceable(8) %193, i8 noundef zeroext %conv398)
-  %conv404 = trunc i64 %sub.ptr.sub.i274 to i32
+  %conv404 = trunc nuw i64 %sub.ptr.sub.i274 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i292)
   store i32 %conv404, ptr %vec.i292, align 4
   %195 = load i8, ptr %this, align 8
@@ -39240,7 +39237,7 @@ sw.bb422:                                         ; preds = %entry
   br i1 %cmp427, label %if.then428, label %if.else431
 
 if.then428:                                       ; preds = %sw.bb422
-  %213 = trunc i64 %212 to i8
+  %213 = trunc nuw i64 %212 to i8
   %conv430 = or disjoint i8 %213, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i311)
   store i8 %conv430, ptr %vec.i311, align 1
@@ -39263,7 +39260,7 @@ if.then435:                                       ; preds = %if.else431
   %vtable439 = load ptr, ptr %216, align 8
   %217 = load ptr, ptr %vtable439, align 8
   tail call void %217(ptr noundef nonnull align 8 dereferenceable(8) %216, i8 noundef zeroext -34)
-  %conv441 = trunc i64 %212 to i16
+  %conv441 = trunc nuw i64 %212 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i315)
   store i16 %conv441, ptr %vec.i315, align 2
   %218 = load i8, ptr %this, align 8
@@ -39305,7 +39302,7 @@ if.then446:                                       ; preds = %if.else442
   %vtable450 = load ptr, ptr %224, align 8
   %225 = load ptr, ptr %vtable450, align 8
   tail call void %225(ptr noundef nonnull align 8 dereferenceable(8) %224, i8 noundef zeroext -33)
-  %conv452 = trunc i64 %212 to i32
+  %conv452 = trunc nuw i64 %212 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i328)
   store i32 %conv452, ptr %vec.i328, align 4
   %226 = load i8, ptr %this, align 8
@@ -40435,7 +40432,7 @@ if.then22:                                        ; preds = %_ZN8nlohmann16json_
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %cr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cr.i, i8 0, i64 3, i1 false), !noalias !469
-  %conv.i = trunc i64 %16 to i32
+  %conv.i = trunc nuw nsw i64 %16 to i32
   %call4.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cr.i, i64 noundef 3, ptr noundef nonnull @.str.218, i32 noundef %conv.i) #21, !noalias !469
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #21, !noalias !469
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %cr.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
@@ -41695,8 +41692,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   br i1 %call255, label %if.end261, label %return
 
 if.end261:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_19json_sax_dom_parserISF_EEE3getEv.exit121
-  %conv262 = trunc i64 %retval.0.i.i109 to i32
-  %conv263 = trunc i64 %retval.0.i.i119 to i32
+  %conv262 = trunc nsw i64 %retval.0.i.i109 to i32
+  %conv263 = trunc nsw i64 %retval.0.i.i119 to i32
   %conv264 = shl nsw i32 %conv262, 8
   %shl = and i32 %conv264, 65280
   %conv265 = and i32 %conv263, 255
@@ -48754,8 +48751,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   br i1 %call100, label %if.end106, label %return
 
 if.end106:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_19json_sax_dom_parserISF_EEE3getEv.exit198
-  %conv107 = trunc i64 %retval.0.i.i to i32
-  %conv108 = trunc i64 %retval.0.i.i196 to i32
+  %conv107 = trunc nsw i64 %retval.0.i.i to i32
+  %conv108 = trunc nsw i64 %retval.0.i.i196 to i32
   %conv109 = shl nsw i32 %conv108, 8
   %shl = and i32 %conv109, 65280
   %conv110 = and i32 %conv107, 255
@@ -49120,7 +49117,7 @@ ehcleanup217:                                     ; preds = %ehcleanup215, %lpad
   br label %common.resume
 
 if.end218:                                        ; preds = %if.end187
-  %conv220 = trunc i64 %130 to i8
+  %conv220 = trunc nuw i64 %130 to i8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp221) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef 1, i8 noundef signext %conv220, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp221)
           to label %invoke.cont223 unwind label %lpad222
@@ -54943,7 +54940,7 @@ return.sink.split:                                ; preds = %while.body5, %while
   br label %return
 
 switch.hole_check:                                ; preds = %while.body
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 18435, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %return, label %while.body.backedge
@@ -55342,7 +55339,7 @@ if.else59:                                        ; preds = %if.end56
 
 if.then61:                                        ; preds = %if.else59
   %shr = lshr i32 %codepoint.1.i, 6
-  %15 = trunc i32 %shr to i8
+  %15 = trunc nuw i32 %shr to i8
   %conv.i33 = or disjoint i8 %15, -64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i, i8 noundef signext %conv.i33)
   %16 = trunc i32 %codepoint.1.i to i8
@@ -55356,7 +55353,7 @@ if.else63:                                        ; preds = %if.else59
 
 if.then65:                                        ; preds = %if.else63
   %shr66 = lshr i32 %codepoint.1.i, 12
-  %18 = trunc i32 %shr66 to i8
+  %18 = trunc nuw i32 %shr66 to i8
   %conv.i37 = or disjoint i8 %18, -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %token_buffer.i, i8 noundef signext %conv.i37)
   %shr68 = lshr i32 %codepoint.1.i, 6
@@ -55608,7 +55605,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br i1 %or.cond, label %return.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE3getEv.exit
-  %conv.i5.i = trunc i32 %.pr.i to i8
+  %conv.i5.i = trunc nuw i32 %.pr.i to i8
   br label %sw.epilog249.sink.split
 
 sw.bb160:                                         ; preds = %while.body
@@ -58118,7 +58115,7 @@ if.then:                                          ; preds = %sw.bb11
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.then
-  %conv = trunc i64 %6 to i8
+  %conv = trunc nuw i64 %6 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i)
   store i8 %conv, ptr %vec.i, align 1
   %oa.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -58301,7 +58298,7 @@ if.then87:                                        ; preds = %if.else83
   %vtable91 = load ptr, ptr %42, align 8
   %43 = load ptr, ptr %vtable91, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42, i8 noundef zeroext 56)
-  %conv93 = trunc i64 %sub to i8
+  %conv93 = trunc nuw i64 %sub to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i129)
   store i8 %conv93, ptr %vec.i129, align 1
   %44 = load ptr, ptr %oa88, align 8
@@ -58322,7 +58319,7 @@ if.then98:                                        ; preds = %if.else94
   %vtable102 = load ptr, ptr %46, align 8
   %47 = load ptr, ptr %vtable102, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %46, i8 noundef zeroext 57)
-  %conv104 = trunc i64 %sub to i16
+  %conv104 = trunc nuw i64 %sub to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i133)
   store i16 %conv104, ptr %vec.i133, align 2
   %48 = load i8, ptr %this, align 8
@@ -58364,7 +58361,7 @@ if.else105:                                       ; preds = %if.else94
 
 if.then109:                                       ; preds = %if.else105
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %54, i8 noundef zeroext 58)
-  %conv115 = trunc i64 %sub to i32
+  %conv115 = trunc nuw i64 %sub to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i146)
   store i32 %conv115, ptr %vec.i146, align 4
   %56 = load i8, ptr %this, align 8
@@ -58436,7 +58433,7 @@ sw.bb127:                                         ; preds = %entry
   br i1 %cmp130, label %if.then131, label %if.else135
 
 if.then131:                                       ; preds = %sw.bb127
-  %conv134 = trunc i64 %68 to i8
+  %conv134 = trunc nuw i64 %68 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i172)
   store i8 %conv134, ptr %vec.i172, align 1
   %oa.i173 = getelementptr inbounds i8, ptr %this, i64 8
@@ -58728,7 +58725,7 @@ sw.bb242:                                         ; preds = %entry
   br i1 %cmp246, label %if.then247, label %if.else250
 
 if.then247:                                       ; preds = %sw.bb242
-  %135 = trunc i64 %call245 to i8
+  %135 = trunc nuw i64 %call245 to i8
   %conv249 = or disjoint i8 %135, 96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i222)
   store i8 %conv249, ptr %vec.i222, align 1
@@ -58751,7 +58748,7 @@ if.then254:                                       ; preds = %if.else250
   %vtable258 = load ptr, ptr %138, align 8
   %139 = load ptr, ptr %vtable258, align 8
   tail call void %139(ptr noundef nonnull align 8 dereferenceable(8) %138, i8 noundef zeroext 120)
-  %conv260 = trunc i64 %call245 to i8
+  %conv260 = trunc nuw i64 %call245 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i226)
   store i8 %conv260, ptr %vec.i226, align 1
   %140 = load ptr, ptr %oa255, align 8
@@ -58772,7 +58769,7 @@ if.then265:                                       ; preds = %if.else261
   %vtable269 = load ptr, ptr %142, align 8
   %143 = load ptr, ptr %vtable269, align 8
   tail call void %143(ptr noundef nonnull align 8 dereferenceable(8) %142, i8 noundef zeroext 121)
-  %conv271 = trunc i64 %call245 to i16
+  %conv271 = trunc nuw i64 %call245 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i230)
   store i16 %conv271, ptr %vec.i230, align 2
   %144 = load i8, ptr %this, align 8
@@ -58814,7 +58811,7 @@ if.else272:                                       ; preds = %if.else261
 
 if.then276:                                       ; preds = %if.else272
   tail call void %151(ptr noundef nonnull align 8 dereferenceable(8) %150, i8 noundef zeroext 122)
-  %conv282 = trunc i64 %call245 to i32
+  %conv282 = trunc nuw i64 %call245 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i243)
   store i32 %conv282, ptr %vec.i243, align 4
   %152 = load i8, ptr %this, align 8
@@ -58906,7 +58903,7 @@ sw.bb307:                                         ; preds = %entry
   br i1 %cmp312, label %if.then313, label %if.else316
 
 if.then313:                                       ; preds = %sw.bb307
-  %171 = trunc i64 %sub.ptr.div.i to i8
+  %171 = trunc nuw i64 %sub.ptr.div.i to i8
   %conv315 = or disjoint i8 %171, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i269)
   store i8 %conv315, ptr %vec.i269, align 1
@@ -58929,7 +58926,7 @@ if.then320:                                       ; preds = %if.else316
   %vtable324 = load ptr, ptr %174, align 8
   %175 = load ptr, ptr %vtable324, align 8
   tail call void %175(ptr noundef nonnull align 8 dereferenceable(8) %174, i8 noundef zeroext -104)
-  %conv326 = trunc i64 %sub.ptr.div.i to i8
+  %conv326 = trunc nuw i64 %sub.ptr.div.i to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i273)
   store i8 %conv326, ptr %vec.i273, align 1
   %176 = load ptr, ptr %oa321, align 8
@@ -58950,7 +58947,7 @@ if.then331:                                       ; preds = %if.else327
   %vtable335 = load ptr, ptr %178, align 8
   %179 = load ptr, ptr %vtable335, align 8
   tail call void %179(ptr noundef nonnull align 8 dereferenceable(8) %178, i8 noundef zeroext -103)
-  %conv337 = trunc i64 %sub.ptr.div.i to i16
+  %conv337 = trunc nuw i64 %sub.ptr.div.i to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i277)
   store i16 %conv337, ptr %vec.i277, align 2
   %180 = load i8, ptr %this, align 8
@@ -58992,7 +58989,7 @@ if.else338:                                       ; preds = %if.else327
 
 if.then342:                                       ; preds = %if.else338
   tail call void %187(ptr noundef nonnull align 8 dereferenceable(8) %186, i8 noundef zeroext -102)
-  %conv348 = trunc i64 %sub.ptr.div.i to i32
+  %conv348 = trunc nuw i64 %sub.ptr.div.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i290)
   store i32 %conv348, ptr %vec.i290, align 4
   %188 = load i8, ptr %this, align 8
@@ -59279,7 +59276,7 @@ if.end425:                                        ; preds = %if.then382, %_ZN8nl
   br i1 %cmp430, label %if.then431, label %if.else434
 
 if.then431:                                       ; preds = %if.end425
-  %252 = trunc i64 %sub.ptr.sub.i409 to i8
+  %252 = trunc nuw i64 %sub.ptr.sub.i409 to i8
   %conv433 = or disjoint i8 %252, 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i410)
   store i8 %conv433, ptr %vec.i410, align 1
@@ -59302,7 +59299,7 @@ if.then438:                                       ; preds = %if.else434
   %vtable442 = load ptr, ptr %255, align 8
   %256 = load ptr, ptr %vtable442, align 8
   call void %256(ptr noundef nonnull align 8 dereferenceable(8) %255, i8 noundef zeroext 88)
-  %conv444 = trunc i64 %sub.ptr.sub.i409 to i8
+  %conv444 = trunc nuw i64 %sub.ptr.sub.i409 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i414)
   store i8 %conv444, ptr %vec.i414, align 1
   %257 = load ptr, ptr %oa439, align 8
@@ -59323,7 +59320,7 @@ if.then449:                                       ; preds = %if.else445
   %vtable453 = load ptr, ptr %259, align 8
   %260 = load ptr, ptr %vtable453, align 8
   call void %260(ptr noundef nonnull align 8 dereferenceable(8) %259, i8 noundef zeroext 89)
-  %conv455 = trunc i64 %sub.ptr.sub.i409 to i16
+  %conv455 = trunc nuw i64 %sub.ptr.sub.i409 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i418)
   store i16 %conv455, ptr %vec.i418, align 2
   %261 = load i8, ptr %this, align 8
@@ -59365,7 +59362,7 @@ if.else456:                                       ; preds = %if.else445
 
 if.then460:                                       ; preds = %if.else456
   call void %268(ptr noundef nonnull align 8 dereferenceable(8) %267, i8 noundef zeroext 90)
-  %conv466 = trunc i64 %sub.ptr.sub.i409 to i32
+  %conv466 = trunc nuw i64 %sub.ptr.sub.i409 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i431)
   store i32 %conv466, ptr %vec.i431, align 4
   %269 = load i8, ptr %this, align 8
@@ -59450,7 +59447,7 @@ sw.bb488:                                         ; preds = %entry
   br i1 %cmp493, label %if.then494, label %if.else497
 
 if.then494:                                       ; preds = %sw.bb488
-  %287 = trunc i64 %286 to i8
+  %287 = trunc nuw i64 %286 to i8
   %conv496 = or disjoint i8 %287, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i457)
   store i8 %conv496, ptr %vec.i457, align 1
@@ -59473,7 +59470,7 @@ if.then501:                                       ; preds = %if.else497
   %vtable505 = load ptr, ptr %290, align 8
   %291 = load ptr, ptr %vtable505, align 8
   tail call void %291(ptr noundef nonnull align 8 dereferenceable(8) %290, i8 noundef zeroext -72)
-  %conv507 = trunc i64 %286 to i8
+  %conv507 = trunc nuw i64 %286 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i461)
   store i8 %conv507, ptr %vec.i461, align 1
   %292 = load ptr, ptr %oa502, align 8
@@ -59494,7 +59491,7 @@ if.then512:                                       ; preds = %if.else508
   %vtable516 = load ptr, ptr %294, align 8
   %295 = load ptr, ptr %vtable516, align 8
   tail call void %295(ptr noundef nonnull align 8 dereferenceable(8) %294, i8 noundef zeroext -71)
-  %conv518 = trunc i64 %286 to i16
+  %conv518 = trunc nuw i64 %286 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i465)
   store i16 %conv518, ptr %vec.i465, align 2
   %296 = load i8, ptr %this, align 8
@@ -59536,7 +59533,7 @@ if.else519:                                       ; preds = %if.else508
 
 if.then523:                                       ; preds = %if.else519
   tail call void %303(ptr noundef nonnull align 8 dereferenceable(8) %302, i8 noundef zeroext -70)
-  %conv529 = trunc i64 %286 to i32
+  %conv529 = trunc nuw i64 %286 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i478)
   store i32 %conv529, ptr %vec.i478, align 4
   %304 = load i8, ptr %this, align 8
@@ -60839,7 +60836,7 @@ if.then20:                                        ; preds = %if.then18
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then20, %if.then18
-  %conv27 = trunc i64 %n to i8
+  %conv27 = trunc nuw i64 %n to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i26)
   store i8 %conv27, ptr %vec.i26, align 1
   %oa.i27 = getelementptr inbounds i8, ptr %this, i64 8
@@ -60924,7 +60921,7 @@ if.then60:                                        ; preds = %if.then58
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then60, %if.then58
-  %conv67 = trunc i64 %n to i16
+  %conv67 = trunc nuw i64 %n to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i34)
   store i16 %conv67, ptr %vec.i34, align 2
   %19 = load i8, ptr %this, align 8
@@ -61031,7 +61028,7 @@ if.then100:                                       ; preds = %if.then98
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then100, %if.then98
-  %conv107 = trunc i64 %n to i32
+  %conv107 = trunc nuw i64 %n to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i58)
   store i32 %conv107, ptr %vec.i58, align 4
   %36 = load i8, ptr %this, align 8
@@ -61140,7 +61137,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %conv6 = trunc i64 %n to i8
+  %conv6 = trunc nuw i64 %n to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i)
   store i8 %conv6, ptr %vec.i, align 1
   %oa.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -61168,7 +61165,7 @@ if.then13:                                        ; preds = %if.then11
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then13, %if.then11
-  %conv20 = trunc i64 %n to i8
+  %conv20 = trunc nuw i64 %n to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i23)
   store i8 %conv20, ptr %vec.i23, align 1
   %oa.i24 = getelementptr inbounds i8, ptr %this, i64 8
@@ -61196,7 +61193,7 @@ if.then28:                                        ; preds = %if.then26
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then28, %if.then26
-  %conv35 = trunc i64 %n to i16
+  %conv35 = trunc nuw i64 %n to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i27)
   store i16 %conv35, ptr %vec.i27, align 2
   %10 = load i8, ptr %this, align 8
@@ -61249,7 +61246,7 @@ if.then44:                                        ; preds = %if.then42
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then44, %if.then42
-  %conv51 = trunc i64 %n to i16
+  %conv51 = trunc nuw i64 %n to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i31)
   store i16 %conv51, ptr %vec.i31, align 2
   %19 = load i8, ptr %this, align 8
@@ -61352,7 +61349,7 @@ if.then76:                                        ; preds = %if.then74
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then76, %if.then74
-  %conv83 = trunc i64 %n to i32
+  %conv83 = trunc nuw i64 %n to i32
   tail call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIjEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv83, i1 noundef zeroext true)
   br label %if.end142
 

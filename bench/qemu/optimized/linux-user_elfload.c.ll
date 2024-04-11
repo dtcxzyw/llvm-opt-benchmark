@@ -1976,9 +1976,9 @@ if.end33.i:                                       ; preds = %if.end27.i
   %63 = load i64, ptr %sh_offset36.i, align 8
   %call37.i = call zeroext i1 @imgsrc_read(ptr noundef nonnull %call30.i, i64 noundef %63, i64 noundef %62, ptr noundef %src, ptr noundef null) #19
   %div.i = udiv i64 %62, 24
-  %conv29.i = trunc i64 %div.i to i32
+  %conv29.i = trunc nuw i64 %div.i to i32
   %cmp416.i = icmp ne i32 %conv29.i, 0
-  %or.cond17.i = and i1 %cmp416.i, %call37.i
+  %or.cond17.i = select i1 %call37.i, i1 %cmp416.i, i1 false
   br i1 %or.cond17.i, label %for.body43.i, label %give_up.i
 
 for.body43.i:                                     ; preds = %if.end33.i, %if.end73.i

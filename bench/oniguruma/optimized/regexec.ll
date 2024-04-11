@@ -2298,7 +2298,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 201:                                              ; preds = %198
   %202 = icmp ult i64 %indvars.iv2408, 32
   %203 = load i32, ptr %110, align 4
-  %204 = trunc i64 %indvars.iv2408 to i32
+  %204 = trunc nuw i64 %indvars.iv2408 to i32
   %205 = shl nuw i32 1, %204
   %.sink = select i1 %202, i32 %205, i32 1
   %206 = and i32 %203, %.sink
@@ -2321,7 +2321,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %217 = getelementptr inbounds i32, ptr %216, i64 %indvars.iv2408
   store i32 %215, ptr %217, align 4
   %218 = load i32, ptr %111, align 8
-  %219 = trunc i64 %indvars.iv2408 to i32
+  %219 = trunc nuw i64 %indvars.iv2408 to i32
   %220 = shl nuw i32 1, %219
   %.sink2578 = select i1 %202, i32 %220, i32 1
   %221 = and i32 %218, %.sink2578

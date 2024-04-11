@@ -316,11 +316,11 @@ define void @Dar_LibAddNode(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   store i64 %29, ptr %14, align 4
   %30 = load i64, ptr %7, align 4
   %31 = lshr i64 %30, 34
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw nsw i64 %31 to i32
   %33 = xor i32 %32, %3
   %34 = load i64, ptr %9, align 4
   %35 = lshr i64 %34, 34
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = xor i32 %36, %4
   %38 = and i32 %33, 1
   %39 = and i32 %38, %37
@@ -351,9 +351,9 @@ define void @Dar_LibSetup_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %6 = and i64 %5, 34359738368
   %.not = icmp ne i64 %6, 0
   %7 = lshr i64 %5, 36
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = icmp eq i32 %8, %2
-  %or.cond = or i1 %.not, %9
+  %or.cond = select i1 %.not, i1 true, i1 %9
   br i1 %or.cond, label %45, label %10
 
 10:                                               ; preds = %4
@@ -451,7 +451,7 @@ define void @Dar_LibSetup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %17 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val217, i64 %16
   %.val226 = load i64, ptr %17, align 4
   %18 = lshr i64 %.val226, 36
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 65535
   %21 = xor i32 %20, 65535
   %..i = tail call i32 @llvm.umin.i32(i32 %21, i32 %19)
@@ -534,7 +534,7 @@ define void @Dar_LibSetup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %62 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val216, i64 %61
   %.val227 = load i64, ptr %62, align 4
   %63 = lshr i64 %.val227, 36
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = and i32 %64, 65535
   %66 = xor i32 %65, 65535
   %..i228 = tail call i32 @llvm.umin.i32(i32 %66, i32 %64)
@@ -830,9 +830,9 @@ define void @Dar_LibSetup0_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %6 = and i64 %5, 34359738368
   %.not = icmp ne i64 %6, 0
   %7 = lshr i64 %5, 36
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = icmp eq i32 %8, %2
-  %or.cond = or i1 %.not, %9
+  %or.cond = select i1 %.not, i1 true, i1 %9
   br i1 %or.cond, label %45, label %10
 
 10:                                               ; preds = %4
@@ -1238,11 +1238,11 @@ Dar_LibAlloc.exit:                                ; preds = %.lr.ph, %Dar_LibAll
   store i64 %65, ptr %52, align 4
   %66 = load i64, ptr %46, align 4
   %67 = lshr i64 %66, 34
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw nsw i64 %67 to i32
   %69 = xor i32 %37, %68
   %70 = load i64, ptr %48, align 4
   %71 = lshr i64 %70, 34
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw nsw i64 %71 to i32
   %73 = xor i32 %44, %72
   %74 = and i32 %69, 1
   %75 = and i32 %74, %73
@@ -1534,7 +1534,7 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = load i64, ptr %53, align 8
   %55 = lshr i64 %54, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = and i32 %56, 16777215
   %58 = load ptr, ptr %24, align 8
   %59 = getelementptr inbounds %struct.Dar_LibDat_t_, ptr %58, i64 %indvars.iv, i32 1
@@ -1820,7 +1820,7 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %81 = getelementptr inbounds i8, ptr %80, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = lshr i64 %82, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   %85 = and i32 %84, 16777215
   store i32 %85, ptr %50, align 8
   %86 = load ptr, ptr %10, align 8
@@ -1944,7 +1944,7 @@ define i32 @Dar_LibEval_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %42 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val67, i64 %41
   %43 = add nsw i32 %3, 1
   %. = select i1 %.not, ptr null, ptr %6
-  %44 = call i32 @Dar_LibEval_rec(ptr noundef %42, i32 noundef %1, i32 noundef %40, i32 noundef %43, ptr noundef %.)
+  %44 = call i32 @Dar_LibEval_rec(ptr noundef %42, i32 noundef %1, i32 noundef %40, i32 noundef %43, ptr noundef %.), !range !39
   %.not61 = icmp slt i32 %44, %2
   br i1 %.not61, label %45, label %105
 
@@ -1956,7 +1956,7 @@ define i32 @Dar_LibEval_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %49 = and i64 %48, 65535
   %50 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val66, i64 %49
   %.1 = select i1 %.not, ptr null, ptr %7
-  %51 = call i32 @Dar_LibEval_rec(ptr noundef %50, i32 noundef %1, i32 noundef %40, i32 noundef %43, ptr noundef %.1)
+  %51 = call i32 @Dar_LibEval_rec(ptr noundef %50, i32 noundef %1, i32 noundef %40, i32 noundef %43, ptr noundef %.1), !range !39
   %52 = add nsw i32 %51, %44
   %.not62 = icmp slt i32 %52, %2
   br i1 %.not62, label %53, label %105
@@ -2062,7 +2062,7 @@ Abc_Clock.exit:                                   ; preds = %5, %12
   br i1 %.not, label %18, label %230
 
 18:                                               ; preds = %Abc_Clock.exit
-  %19 = call i32 @Dar_LibCutMatch(ptr noundef %0, ptr noundef nonnull %2), !range !39
+  %19 = call i32 @Dar_LibCutMatch(ptr noundef %0, ptr noundef nonnull %2), !range !40
   %.not75 = icmp eq i32 %19, 0
   br i1 %.not75, label %230, label %20
 
@@ -2209,7 +2209,7 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.th
   %.not78 = icmp eq i32 %116, 0
   %.1 = select i1 %.not78, ptr null, ptr %9
   %117 = trunc i64 %indvars.iv94 to i32
-  %118 = call i32 @Dar_LibEval_rec(ptr noundef nonnull %99, i32 noundef %117, i32 noundef %114, i32 noundef %3, ptr noundef %.1)
+  %118 = call i32 @Dar_LibEval_rec(ptr noundef nonnull %99, i32 noundef %117, i32 noundef %114, i32 noundef %3, ptr noundef %.1), !range !39
   %119 = sub nsw i32 %61, %118
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 24
@@ -2347,7 +2347,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %190 = lshr i32 %189, 29
   %191 = zext nneg i32 %190 to i64
   %192 = icmp ult i64 %indvars.iv.next, %191
-  br i1 %192, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %192, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %148
   %193 = load ptr, ptr @s_DarLib, align 8
@@ -2378,7 +2378,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %209 = load i32, ptr %208, align 4
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next95, %210
-  br i1 %211, label %91, label %._crit_edge91, !llvm.loop !41
+  br i1 %211, label %91, label %._crit_edge91, !llvm.loop !42
 
 ._crit_edge91:                                    ; preds = %205, %Dar_LibCutMarkMffc.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -2541,7 +2541,7 @@ define ptr @Dar_LibBuildBest(ptr noundef %0) local_unnamed_addr #0 {
   %.val10 = load i32, ptr %16, align 4
   %17 = sext i32 %.val10 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %8, label %._crit_edge, !llvm.loop !42
+  br i1 %18, label %8, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %8, %1
   %19 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2635,7 +2635,7 @@ define noundef i32 @Dar2_LibCutMatch(ptr nocapture noundef readonly %0, ptr noca
   %.val = load i32, ptr %20, align 4
   %60 = sext i32 %.val to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %25, label %._crit_edge, !llvm.loop !43
+  br i1 %61, label %25, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %25, %3
   ret i32 1
@@ -2656,9 +2656,9 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %10 = getelementptr i8, ptr %0, i64 160
   br label %11
 
-11:                                               ; preds = %.lr.ph, %111
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %12 = phi ptr [ %4, %.lr.ph ], [ %112, %111 ]
+11:                                               ; preds = %.lr.ph, %112
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
+  %12 = phi ptr [ %4, %.lr.ph ], [ %113, %112 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 11624
   %14 = getelementptr inbounds [222 x ptr], ptr %13, i64 0, i64 %3
   %15 = load ptr, ptr %14, align 8
@@ -2706,112 +2706,112 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   store i32 %49, ptr %50, align 8
   %51 = load i32, ptr %37, align 8
   %52 = icmp eq i32 %51, -1
-  br i1 %52, label %111, label %53
+  br i1 %52, label %112, label %53
 
 53:                                               ; preds = %11
   %54 = load i32, ptr %43, align 8
   %55 = icmp eq i32 %54, -1
-  br i1 %55, label %111, label %56
+  br i1 %55, label %112, label %56
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %19, align 4
   %58 = lshr i64 %57, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   %60 = and i32 %59, 1
   %61 = xor i32 %60, %51
   %62 = lshr i64 %57, 33
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   %64 = and i32 %63, 1
   %65 = xor i32 %64, %54
   %66 = icmp eq i32 %61, 0
   %67 = icmp eq i32 %65, 0
-  %or.cond = or i1 %66, %67
   %68 = xor i32 %65, %61
   %69 = icmp eq i32 %68, 1
-  %or.cond62 = or i1 %or.cond, %69
-  br i1 %or.cond62, label %.thread, label %70
+  %70 = or i1 %67, %69
+  %or.cond62 = select i1 %66, i1 true, i1 %70
+  br i1 %or.cond62, label %.thread, label %71
 
-70:                                               ; preds = %56
-  %71 = icmp eq i32 %61, 1
-  %72 = icmp eq i32 %61, %65
-  %or.cond49 = or i1 %71, %72
-  br i1 %or.cond49, label %94, label %73
+71:                                               ; preds = %56
+  %72 = icmp eq i32 %61, 1
+  %73 = icmp eq i32 %61, %65
+  %or.cond49 = select i1 %72, i1 true, i1 %73
+  br i1 %or.cond49, label %95, label %74
 
-73:                                               ; preds = %70
-  %74 = icmp eq i32 %65, 1
-  br i1 %74, label %94, label %75
+74:                                               ; preds = %71
+  %75 = icmp eq i32 %65, 1
+  br i1 %75, label %95, label %76
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   %.val54 = load ptr, ptr %9, align 8
-  %76 = ashr i32 %51, 1
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %77
-  %79 = and i32 %61, 1
-  %80 = ptrtoint ptr %78 to i64
-  %81 = zext nneg i32 %79 to i64
-  %82 = xor i64 %80, %81
-  %83 = inttoptr i64 %82 to ptr
-  %84 = ashr i32 %54, 1
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %85
-  %87 = and i32 %65, 1
-  %88 = ptrtoint ptr %86 to i64
-  %89 = zext nneg i32 %87 to i64
-  %90 = xor i64 %88, %89
-  %91 = inttoptr i64 %90 to ptr
-  %92 = tail call i32 @Gia_ManHashLookup(ptr noundef %0, ptr noundef %83, ptr noundef %91) #20
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.thread59, label %94
+  %77 = ashr i32 %51, 1
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %78
+  %80 = and i32 %61, 1
+  %81 = ptrtoint ptr %79 to i64
+  %82 = zext nneg i32 %80 to i64
+  %83 = xor i64 %81, %82
+  %84 = inttoptr i64 %83 to ptr
+  %85 = ashr i32 %54, 1
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %86
+  %88 = and i32 %65, 1
+  %89 = ptrtoint ptr %87 to i64
+  %90 = zext nneg i32 %88 to i64
+  %91 = xor i64 %89, %90
+  %92 = inttoptr i64 %91 to ptr
+  %93 = tail call i32 @Gia_ManHashLookup(ptr noundef %0, ptr noundef %84, ptr noundef %92) #20
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %.thread59, label %95
 
-.thread59:                                        ; preds = %75
+.thread59:                                        ; preds = %76
   store i32 -1, ptr %28, align 8
-  br label %111
+  br label %112
 
 .thread:                                          ; preds = %56
   store i32 0, ptr %28, align 8
-  br label %96
+  br label %97
 
-94:                                               ; preds = %75, %73, %70
-  %.0 = phi i32 [ %92, %75 ], [ %65, %70 ], [ %61, %73 ]
+95:                                               ; preds = %76, %74, %71
+  %.0 = phi i32 [ %93, %76 ], [ %65, %71 ], [ %61, %74 ]
   store i32 %.0, ptr %28, align 8
-  %95 = icmp sgt i32 %.0, -1
-  br i1 %95, label %96, label %111
+  %96 = icmp sgt i32 %.0, -1
+  br i1 %96, label %97, label %112
 
-96:                                               ; preds = %.thread, %94
-  %.058 = phi i32 [ 0, %.thread ], [ %.0, %94 ]
+97:                                               ; preds = %.thread, %95
+  %.058 = phi i32 [ 0, %.thread ], [ %.0, %95 ]
   %.val52 = load ptr, ptr %9, align 8
-  %97 = lshr i32 %.058, 1
-  %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val52, i64 %98
-  %100 = ptrtoint ptr %99 to i64
-  %101 = and i64 %100, -2
+  %98 = lshr i32 %.058, 1
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val52, i64 %99
+  %101 = ptrtoint ptr %100 to i64
+  %102 = and i64 %101, -2
   %.val56 = load ptr, ptr %10, align 8
-  %102 = ptrtoint ptr %.val52 to i64
-  %103 = sub i64 %101, %102
-  %104 = sdiv exact i64 %103, 12
-  %105 = trunc i64 %104 to i32
-  %106 = add nsw i32 %105, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val56, i32 noundef %106)
-  %107 = getelementptr i8, ptr %.val56, i64 8
-  %.val.i.i.i = load ptr, ptr %107, align 8
-  %sext.i = shl i64 %104, 32
-  %108 = ashr exact i64 %sext.i, 32
-  %109 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %108
-  %110 = load i32, ptr %109, align 4
-  store i32 %110, ptr %50, align 8
-  br label %111
+  %103 = ptrtoint ptr %.val52 to i64
+  %104 = sub i64 %102, %103
+  %105 = sdiv exact i64 %104, 12
+  %106 = trunc i64 %105 to i32
+  %107 = add nsw i32 %106, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val56, i32 noundef %107)
+  %108 = getelementptr i8, ptr %.val56, i64 8
+  %.val.i.i.i = load ptr, ptr %108, align 8
+  %sext.i = shl i64 %105, 32
+  %109 = ashr exact i64 %sext.i, 32
+  %110 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %109
+  %111 = load i32, ptr %110, align 4
+  store i32 %111, ptr %50, align 8
+  br label %112
 
-111:                                              ; preds = %.thread59, %94, %96, %11, %53
+112:                                              ; preds = %.thread59, %95, %97, %11, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %112 = load ptr, ptr @s_DarLib, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 10732
-  %114 = getelementptr inbounds [222 x i32], ptr %113, i64 0, i64 %3
-  %115 = load i32, ptr %114, align 4
-  %116 = sext i32 %115 to i64
-  %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %11, label %._crit_edge, !llvm.loop !44
+  %113 = load ptr, ptr @s_DarLib, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 10732
+  %115 = getelementptr inbounds [222 x i32], ptr %114, i64 0, i64 %3
+  %116 = load i32, ptr %115, align 4
+  %117 = sext i32 %116 to i64
+  %118 = icmp slt i64 %indvars.iv.next, %117
+  br i1 %118, label %11, label %._crit_edge, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %111, %2
+._crit_edge:                                      ; preds = %112, %2
   ret void
 }
 
@@ -2943,7 +2943,7 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr nocapture noundef readonly %1, i32 
   %.val.i = load i32, ptr %22, align 4
   %62 = sext i32 %.val.i to i64
   %63 = icmp slt i64 %indvars.iv.next.i, %62
-  br i1 %63, label %27, label %Dar2_LibCutMatch.exit, !llvm.loop !43
+  br i1 %63, label %27, label %Dar2_LibCutMatch.exit, !llvm.loop !44
 
 Dar2_LibCutMatch.exit:                            ; preds = %27, %5
   %64 = phi ptr [ %6, %5 ], [ %58, %27 ]
@@ -3112,7 +3112,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val52 = load i32, ptr %22, align 4
   %146 = sext i32 %.val52 to i64
   %147 = icmp slt i64 %indvars.iv.next, %146
-  br i1 %147, label %thread-pre-split, label %._crit_edge, !llvm.loop !45
+  br i1 %147, label %thread-pre-split, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %111
   %148 = getelementptr inbounds i8, ptr %.pre, i64 14304
@@ -3139,7 +3139,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next63, %164
-  br i1 %165, label %77, label %._crit_edge60, !llvm.loop !46
+  br i1 %165, label %77, label %._crit_edge60, !llvm.loop !47
 
 ._crit_edge60:                                    ; preds = %159, %Dar2_LibCutMatch.exit
   %.041.lcssa = phi i32 [ -1, %Dar2_LibCutMatch.exit ], [ %.1, %159 ]
@@ -3218,11 +3218,11 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr nocapture noundef readonly
   %20 = tail call i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef %19)
   %21 = load i64, ptr %1, align 4
   %22 = lshr i64 %21, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 1
   %25 = xor i32 %24, %14
   %26 = lshr i64 %21, 33
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = and i32 %27, 1
   %29 = xor i32 %28, %20
   %30 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %25, i32 noundef %29) #20
@@ -3338,7 +3338,7 @@ define i32 @Dar2_LibBuildBest(ptr noundef %0, ptr nocapture noundef readonly %1,
   %.val10 = load i32, ptr %5, align 4
   %14 = sext i32 %.val10 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %9, label %.critedge, !llvm.loop !47
+  br i1 %15, label %9, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %9, %3
   %.val9 = load ptr, ptr %.pre, align 8
@@ -3380,7 +3380,7 @@ define i32 @Dar_LibEvalBuild(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %.val10.i = load i32, ptr %8, align 4
   %17 = sext i32 %.val10.i to i64
   %18 = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %18, label %12, label %Dar2_LibBuildBest.exit, !llvm.loop !47
+  br i1 %18, label %12, label %Dar2_LibBuildBest.exit, !llvm.loop !48
 
 Dar2_LibBuildBest.exit:                           ; preds = %12, %5
   %.val9.i = load ptr, ptr %.pre.i, align 8
@@ -3485,7 +3485,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -3581,8 +3581,8 @@ attributes #22 = { nounwind allocsize(1) }
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
-!39 = !{i32 0, i32 2}
-!40 = distinct !{!40, !5}
+!39 = !{i32 -2147483647, i32 -2147483648}
+!40 = !{i32 0, i32 2}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
@@ -3591,3 +3591,4 @@ attributes #22 = { nounwind allocsize(1) }
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
+!49 = distinct !{!49, !5}

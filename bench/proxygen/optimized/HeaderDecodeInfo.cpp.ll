@@ -239,7 +239,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %9 = add nsw i64 %sub.ptr.div.i.i, -2
   %or.cond.i.i = icmp ult i64 %9, 87
-  %conv.i.i = trunc i64 %sub.ptr.div.i.i to i8
+  %conv.i.i = trunc nuw i64 %sub.ptr.div.i.i to i8
   %spec.select.i.i = select i1 %or.cond.i.i, i8 %conv.i.i, i8 1
   %.pre = load ptr, ptr %name, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.pre) #18
@@ -421,10 +421,10 @@ if.end85:                                         ; preds = %if.then76
   %ref.tmp87.sroa.384.0.extract.shift = lshr i64 %call89, 32
   %25 = and i64 %call89, 255
   %cmp.i.i26 = icmp eq i64 %25, 1
-  %ref.tmp87.sroa.384.0.extract.trunc = trunc i64 %ref.tmp87.sroa.384.0.extract.shift to i32
+  %ref.tmp87.sroa.384.0.extract.trunc = trunc nuw i64 %ref.tmp87.sroa.384.0.extract.shift to i32
   %26 = add i32 %ref.tmp87.sroa.384.0.extract.trunc, -100
   %or.cond = icmp ult i32 %26, 900
-  %or.cond96 = and i1 %cmp.i.i26, %or.cond
+  %or.cond96 = select i1 %cmp.i.i26, i1 %or.cond, i1 false
   br i1 %or.cond96, label %if.then95, label %if.else103
 
 if.then95:                                        ; preds = %if.end85
@@ -541,7 +541,7 @@ _ZN5folly5tryToIjEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_
   %retval.sroa.3.0.insert.ext.i.i.i = and i64 %retval.sroa.3.0.i.i.in.in.i, 65280
   %retval.sroa.0.0.insert.insert.i.i.i = add nuw i64 %retval.sroa.3.0.insert.insert.i.i.i, %retval.sroa.3.0.insert.ext.i.i.i
   %ref.tmp125.sroa.383.0.extract.shift = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i, 32
-  %ref.tmp125.sroa.383.0.extract.trunc = trunc i64 %ref.tmp125.sroa.383.0.extract.shift to i32
+  %ref.tmp125.sroa.383.0.extract.trunc = trunc nuw i64 %ref.tmp125.sroa.383.0.extract.shift to i32
   %36 = and i64 %retval.sroa.3.0.insert.insert.i.i.i, 255
   %cmp.i.i34 = icmp eq i64 %36, 1
   %cl.0 = select i1 %cmp.i.i34, i32 %ref.tmp125.sroa.383.0.extract.trunc, i32 0
@@ -3216,7 +3216,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3278,7 +3278,7 @@ if.then.i.i.i.i.i.i41:                            ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i38:                            ; preds = %while.end.i.i.i.i.i.i32
   %12 = lshr i16 %11, 8
-  %conv4.i.i.i.i.i.i39 = trunc i16 %12 to i8
+  %conv4.i.i.i.i.i.i39 = trunc nuw i16 %12 to i8
   store i8 %conv4.i.i.i.i.i.i39, ptr %buffer.i.i14, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit47
 
@@ -3340,7 +3340,7 @@ if.then.i.i.i.i.i.i75:                            ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i72:                            ; preds = %while.end.i.i.i.i.i.i66
   %18 = lshr i16 %17, 8
-  %conv4.i.i.i.i.i.i73 = trunc i16 %18 to i8
+  %conv4.i.i.i.i.i.i73 = trunc nuw i16 %18 to i8
   store i8 %conv4.i.i.i.i.i.i73, ptr %buffer.i.i48, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit81
 
@@ -3402,7 +3402,7 @@ if.then.i.i.i.i.i.i109:                           ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i106:                           ; preds = %while.end.i.i.i.i.i.i100
   %24 = lshr i16 %23, 8
-  %conv4.i.i.i.i.i.i107 = trunc i16 %24 to i8
+  %conv4.i.i.i.i.i.i107 = trunc nuw i16 %24 to i8
   store i8 %conv4.i.i.i.i.i.i107, ptr %buffer.i.i82, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit115
 
@@ -3464,7 +3464,7 @@ if.then.i.i.i.i.i.i143:                           ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i140:                           ; preds = %while.end.i.i.i.i.i.i134
   %30 = lshr i16 %29, 8
-  %conv4.i.i.i.i.i.i141 = trunc i16 %30 to i8
+  %conv4.i.i.i.i.i.i141 = trunc nuw i16 %30 to i8
   store i8 %conv4.i.i.i.i.i.i141, ptr %buffer.i.i116, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit149
 
@@ -3697,7 +3697,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3759,7 +3759,7 @@ if.then.i.i.i.i.i.i41:                            ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i38:                            ; preds = %while.end.i.i.i.i.i.i32
   %12 = lshr i16 %11, 8
-  %conv4.i.i.i.i.i.i39 = trunc i16 %12 to i8
+  %conv4.i.i.i.i.i.i39 = trunc nuw i16 %12 to i8
   store i8 %conv4.i.i.i.i.i.i39, ptr %buffer.i.i14, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit47
 
@@ -3821,7 +3821,7 @@ if.then.i.i.i.i.i.i75:                            ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i72:                            ; preds = %while.end.i.i.i.i.i.i66
   %18 = lshr i16 %17, 8
-  %conv4.i.i.i.i.i.i73 = trunc i16 %18 to i8
+  %conv4.i.i.i.i.i.i73 = trunc nuw i16 %18 to i8
   store i8 %conv4.i.i.i.i.i.i73, ptr %buffer.i.i48, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit81
 
@@ -3883,7 +3883,7 @@ if.then.i.i.i.i.i.i109:                           ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i106:                           ; preds = %while.end.i.i.i.i.i.i100
   %24 = lshr i16 %23, 8
-  %conv4.i.i.i.i.i.i107 = trunc i16 %24 to i8
+  %conv4.i.i.i.i.i.i107 = trunc nuw i16 %24 to i8
   store i8 %conv4.i.i.i.i.i.i107, ptr %buffer.i.i82, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit115
 
@@ -3945,7 +3945,7 @@ if.then.i.i.i.i.i.i143:                           ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i140:                           ; preds = %while.end.i.i.i.i.i.i134
   %30 = lshr i16 %29, 8
-  %conv4.i.i.i.i.i.i141 = trunc i16 %30 to i8
+  %conv4.i.i.i.i.i.i141 = trunc nuw i16 %30 to i8
   store i8 %conv4.i.i.i.i.i.i141, ptr %buffer.i.i116, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit149
 

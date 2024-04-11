@@ -18092,15 +18092,13 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %cmp.i = icmp eq ptr %call.i.i.i9, %add.ptr.i
-  %frombool4 = zext i1 %cmp.i to i8
   br i1 %type_deduction, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %cmp = icmp eq i8 %manual_type, 2
-  %spec.select = select i1 %cmp, i8 0, i8 %frombool4
+  %cmp = icmp ne i8 %manual_type, 2
+  %spec.select = and i1 %cmp, %cmp.i
   %cmp6 = icmp ne i8 %manual_type, 1
-  %tobool7 = trunc i8 %spec.select to i1
-  %.not = or i1 %cmp6, %tobool7
+  %.not = or i1 %cmp6, %cmp.i
   br i1 %.not, label %if.end18, label %if.then10
 
 lpad.loopexit:                                    ; preds = %if.end.i
@@ -18147,9 +18145,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %ehcleanup54
 
 if.end18:                                         ; preds = %if.then, %invoke.cont
-  %is_an_object.1 = phi i8 [ %frombool4, %invoke.cont ], [ %spec.select, %if.then ]
-  %tobool19 = trunc i8 %is_an_object.1 to i1
-  br i1 %tobool19, label %if.then20, label %if.else
+  %is_an_object.1 = phi i1 [ %cmp.i, %invoke.cont ], [ %spec.select, %if.then ]
+  br i1 %is_an_object.1, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18
   store i8 1, ptr %this, align 8
@@ -21192,7 +21189,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -24736,7 +24733,7 @@ if.else29.i:                                      ; preds = %while.end.i149, %wh
   %buffer_ptr.0.lcssa68.i = phi ptr [ %add.ptr58.i, %while.end.thread.i155 ], [ %buffer_ptr.0.lcssa.i, %while.end.i149 ]
   %abs_value.1.lcssa67.i = phi i64 [ %128, %while.end.thread.i155 ], [ %abs_value.1.lcssa.i, %while.end.i149 ]
   %idx.ext6066.i = phi i64 [ 1, %while.end.thread.i155 ], [ %idx.ext.i, %while.end.i149 ]
-  %135 = trunc i64 %abs_value.1.lcssa67.i to i8
+  %135 = trunc nuw i64 %abs_value.1.lcssa67.i to i8
   %conv31.i = or disjoint i8 %135, 48
   %incdec.ptr32.i = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa68.i, i64 -1
   store i8 %conv31.i, ptr %incdec.ptr32.i, align 1
@@ -25043,7 +25040,7 @@ if.else29.i271:                                   ; preds = %while.end.i267, %wh
   %buffer_ptr.0.lcssa68.i272 = phi ptr [ %add.ptr58.i303, %while.end.thread.i302 ], [ %buffer_ptr.0.lcssa.i269, %while.end.i267 ]
   %abs_value.1.lcssa67.i273 = phi i64 [ %175, %while.end.thread.i302 ], [ %abs_value.1.lcssa.i268, %while.end.i267 ]
   %idx.ext6066.i274 = phi i64 [ 1, %while.end.thread.i302 ], [ %idx.ext.i264, %while.end.i267 ]
-  %182 = trunc i64 %abs_value.1.lcssa67.i273 to i8
+  %182 = trunc nuw i64 %abs_value.1.lcssa67.i273 to i8
   %conv31.i275 = or disjoint i8 %182, 48
   %incdec.ptr32.i276 = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa68.i272, i64 -1
   store i8 %conv31.i275, ptr %incdec.ptr32.i276, align 1
@@ -25195,7 +25192,7 @@ if.else29.i332:                                   ; preds = %while.end.i328, %wh
   %buffer_ptr.0.lcssa68.i333 = phi ptr [ %add.ptr58.i364, %while.end.thread.i363 ], [ %buffer_ptr.0.lcssa.i330, %while.end.i328 ]
   %abs_value.1.lcssa67.i334 = phi i64 [ %193, %while.end.thread.i363 ], [ %abs_value.1.lcssa.i329, %while.end.i328 ]
   %idx.ext6066.i335 = phi i64 [ 1, %while.end.thread.i363 ], [ %idx.ext.i325, %while.end.i328 ]
-  %200 = trunc i64 %abs_value.1.lcssa67.i334 to i8
+  %200 = trunc nuw i64 %abs_value.1.lcssa67.i334 to i8
   %conv31.i336 = or disjoint i8 %200, 48
   %incdec.ptr32.i337 = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa68.i333, i64 -1
   store i8 %conv31.i336, ptr %incdec.ptr32.i337, align 1
@@ -26017,7 +26014,7 @@ if.else29:                                        ; preds = %while.end.thread, %
   %buffer_ptr.0.lcssa76 = phi ptr [ %add.ptr66, %while.end.thread ], [ %buffer_ptr.0.lcssa, %while.end ]
   %abs_value.1.lcssa75 = phi i64 [ %x, %while.end.thread ], [ %abs_value.1.lcssa, %while.end ]
   %idx.ext6874 = phi i64 [ 1, %while.end.thread ], [ %idx.ext, %while.end ]
-  %6 = trunc i64 %abs_value.1.lcssa75 to i8
+  %6 = trunc nuw i64 %abs_value.1.lcssa75 to i8
   %conv31 = or disjoint i8 %6, 48
   %incdec.ptr32 = getelementptr inbounds i8, ptr %buffer_ptr.0.lcssa76, i64 -1
   store i8 %conv31, ptr %incdec.ptr32, align 1
@@ -26182,7 +26179,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -26337,7 +26334,7 @@ cond.end.thread.i.i:                              ; preds = %if.end5
 cond.end.i.i:                                     ; preds = %if.end5
   %shr.i.i = lshr i64 %2, 52
   %add.i.i = or disjoint i64 %and.i.i, 4503599627370496
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i, -1075
   %cmp1.i.i = icmp eq i64 %and.i.i, 0
   %cmp2.i.i = icmp ugt i64 %2, 9007199254740991
@@ -26487,7 +26484,7 @@ if.end60.i:                                       ; preds = %if.else.i, %if.end4
 if.then3.i.i:                                     ; preds = %if.end60.i
   %incdec.ptr4.i.i = getelementptr i8, ptr %buf.pn.i, i64 4
   store i8 48, ptr %buf.addr.0.i.i, align 1
-  %12 = trunc i32 %e.addr.0.i.i to i8
+  %12 = trunc nuw i32 %e.addr.0.i.i to i8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl15append_exponentEPci.exit.i
 
 if.else6.i.i:                                     ; preds = %if.end60.i
@@ -26496,7 +26493,7 @@ if.else6.i.i:                                     ; preds = %if.end60.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else15.i.i
 
 if.then8.i.i:                                     ; preds = %if.else6.i.i
-  %div.lhs.trunc.i.i = trunc i32 %e.addr.0.i.i to i8
+  %div.lhs.trunc.i.i = trunc nuw i32 %e.addr.0.i.i to i8
   %div22.i.i = udiv i8 %div.lhs.trunc.i.i, 10
   %conv10.i.i = or disjoint i8 %div22.i.i, 48
   store i8 %conv10.i.i, ptr %buf.addr.0.i.i, align 1
@@ -26509,7 +26506,7 @@ if.else15.i.i:                                    ; preds = %if.else6.i.i
   %conv18.i.i = add i8 %13, 48
   store i8 %conv18.i.i, ptr %buf.addr.0.i.i, align 1
   %rem20.i.i = urem i32 %e.addr.0.i.i, 100
-  %div21.lhs.trunc.i.i = trunc i32 %rem20.i.i to i8
+  %div21.lhs.trunc.i.i = trunc nuw nsw i32 %rem20.i.i to i8
   %div2124.i.i = udiv i8 %div21.lhs.trunc.i.i, 10
   %conv23.i.i = or disjoint i8 %div2124.i.i, 48
   %incdec.ptr24.i.i = getelementptr i8, ptr %buf.pn.i, i64 5
@@ -26544,7 +26541,7 @@ entry:
   %cmp.i = icmp sgt i32 %sub1.i, 0
   %conv.i = zext i1 %cmp.i to i32
   %add.i = add nsw i32 %div.i, %conv.i
-  %1 = trunc i32 %add.i to i16
+  %1 = trunc nsw i32 %add.i to i16
   %div4.lhs.trunc.i = add nsw i16 %1, 307
   %div42.i = sdiv i16 %div4.lhs.trunc.i, 8
   %conv5.i = sext i16 %div42.i to i64
@@ -26554,7 +26551,7 @@ entry:
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
   %cached.sroa.2.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i to i32
   %cached.sroa.4.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i, 32
-  %cached.sroa.4.8.extract.trunc = trunc i64 %cached.sroa.4.8.extract.shift to i32
+  %cached.sroa.4.8.extract.trunc = trunc nuw i64 %cached.sroa.4.8.extract.shift to i32
   %2 = load i64, ptr %v, align 8
   %and.i = and i64 %2, 4294967295
   %shr.i = lshr i64 %2, 32

@@ -224,7 +224,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 4, !range !46, !noundef !47
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   %.sroa.05.0.copyload.pre = load i32, ptr %1, align 4
   %.sroa.57.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.57.0.copyload.pre = load i32, ptr %.sroa.57.0..sroa_idx.phi.trans.insert, align 4
@@ -934,7 +934,7 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
 
 19:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  %20 = trunc i8 %.val3.i to i1
+  %20 = trunc nuw i8 %.val3.i to i1
   br i1 %20, label %21, label %"_ZN112_$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place..Reset$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h93b2fd18406af0baE.llvm.9340333246167201960.exit.i.i.i"
 
 21:                                               ; preds = %19
@@ -3895,7 +3895,7 @@ define hidden void @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async
 
 31:                                               ; preds = %11
   %32 = load i64, ptr %8, align 8, !range !152, !noundef !47
-  %trunc = trunc i64 %32 to i1
+  %trunc = trunc nuw i64 %32 to i1
   br i1 %trunc, label %48, label %33
 
 33:                                               ; preds = %31
@@ -4043,7 +4043,7 @@ define hidden void @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async
 
 31:                                               ; preds = %11
   %32 = load i64, ptr %8, align 8, !range !152, !noundef !47
-  %trunc = trunc i64 %32 to i1
+  %trunc = trunc nuw i64 %32 to i1
   br i1 %trunc, label %48, label %33
 
 33:                                               ; preds = %31
@@ -5105,7 +5105,7 @@ define hidden void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$12rea
 
 76:                                               ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %77 = trunc i8 %.351 to i1
+  %77 = trunc nuw i8 %.351 to i1
   br i1 %77, label %.critedge, label %"_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit"
 
 "_ZN4core3ptr112drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17ha0337a5df5a64f47E.exit": ; preds = %.noexc33, %82, %.thread52, %76
@@ -5239,9 +5239,9 @@ define internal fastcc void @_ZN5tokio7process3imp6orphan18drain_orphan_queue17h
 
 "_ZN5tokio7process3imp83_$LT$impl$u20$tokio..process..imp..orphan..Wait$u20$for$u20$std..process..Child$GT$8try_wait17hbf1231ecf2a565dbE.exit": ; preds = %22
   %24 = load i32, ptr %4, align 8, !range !958, !noundef !47
-  %trunc = trunc i32 %24 to i1
+  %trunc = trunc nuw i32 %24 to i1
   %25 = load i32, ptr %8, align 4, !range !958
-  %trunc4 = trunc i32 %25 to i1
+  %trunc4 = trunc nuw i32 %25 to i1
   %26 = select i1 %trunc, i1 true, i1 %trunc4
   br i1 %26, label %27, label %30
 
@@ -5435,7 +5435,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
 20:                                               ; preds = %18
   store i8 %14, ptr getelementptr inbounds (<{ [16 x i8], [8 x i8], [16 x i8], [8 x i8], [20 x i8], [8 x i8], [1 x i8], [1 x i8], [1 x i8], [1 x i8] }>, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 0, i32 8, i64 0), align 2, !noalias !991
   %21 = load i64, ptr %0, align 8, !range !152, !alias.scope !997, !noalias !1000, !noundef !47
-  %trunc.i.i.i = trunc i64 %21 to i1
+  %trunc.i.i.i = trunc nuw i64 %21 to i1
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !997, !noalias !1000, !nonnull !47
   %.0.v.i.i.i = select i1 %trunc.i.i.i, i64 512, i64 416
@@ -5456,7 +5456,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
 
 .noexc11:                                         ; preds = %27
   %29 = lshr i64 %28, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = trunc i64 %28 to i32
   %spec.store.select.i.i.i.i.i.i = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
   br label %33
@@ -7277,7 +7277,7 @@ define hidden void @"_ZN112_$LT$tokio..runtime..scheduler..multi_thread..worker.
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1, !range !46, !noundef !47
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %15, label %9
 
 8:                                                ; preds = %9, %3
@@ -7428,7 +7428,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl
   %27 = getelementptr inbounds i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !47, !align !180, !noundef !47
   %29 = load i8, ptr %28, align 1, !range !46, !noundef !47
-  %30 = trunc i8 %29 to i1
+  %30 = trunc nuw i8 %29 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1358)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %26, ptr %3, align 8, !noalias !1358
@@ -7444,7 +7444,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl
 34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %21, i64 72
   %36 = load i8, ptr %35, align 8, !range !46, !alias.scope !1358, !noundef !47
-  %37 = trunc i8 %36 to i1
+  %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %39, label %.critedge.i
 
 .critedge.i:                                      ; preds = %34, %24
@@ -7784,7 +7784,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit": ; preds = %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 224
   %7 = load i8, ptr %6, align 8, !range !46, !noundef !47
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit"
@@ -8300,7 +8300,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_curr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1472)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1475)
   %8 = load i8, ptr %0, align 1, !range !46, !alias.scope !1472, !noalias !1475, !noundef !47
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %"_ZN112_$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place..Reset$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h93b2fd18406af0baE.llvm.9340333246167201960.exit"
 
 10:                                               ; preds = %7
@@ -8472,7 +8472,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time6source10TimeSource16deadline_t
   %20 = zext nneg i32 %19 to i128
   %21 = add nuw nsw i128 %18, %20
   %22 = icmp ult i128 %21, 18446744073709551616
-  %23 = trunc i128 %21 to i64
+  %23 = trunc nuw i128 %21 to i64
   %spec.select.i = select i1 %22, i64 %23, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret i64 %spec.select.i
@@ -8499,7 +8499,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time6source10TimeSource15instant_to
   %17 = zext nneg i32 %16 to i128
   %18 = add nuw nsw i128 %15, %17
   %19 = icmp ult i128 %18, 18446744073709551616
-  %20 = trunc i128 %18 to i64
+  %20 = trunc nuw i128 %18 to i64
   %spec.select = select i1 %19, i64 %20, i64 -3
   ret i64 %spec.select
 }
@@ -8530,7 +8530,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time6source10TimeSource3now17h2bfa2
   %19 = zext nneg i32 %18 to i128
   %20 = add nuw nsw i128 %17, %19
   %21 = icmp ult i128 %20, 18446744073709551616
-  %22 = trunc i128 %20 to i64
+  %22 = trunc nuw i128 %20 to i64
   %spec.select.i = select i1 %21, i64 %22, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i64 %spec.select.i
@@ -8692,7 +8692,7 @@ _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %4
 
 .noexc:                                           ; preds = %20
   %24 = load i64, ptr %7, align 8, !range !152, !noalias !1520, !noundef !47
-  %trunc.i = trunc i64 %24 to i1
+  %trunc.i = trunc nuw i64 %24 to i1
   %25 = getelementptr inbounds i8, ptr %7, i64 24
   %26 = load i64, ptr %25, align 8, !noalias !1520
   %.sroa.3.0.i = select i1 %trunc.i, i64 %26, i64 undef
@@ -8779,17 +8779,17 @@ _ZN5tokio7runtime7process6Driver4park17hdad69bc4fe2e7f2eE.exit.i: ; preds = %37
   %62 = zext nneg i32 %61 to i128
   %63 = add nuw nsw i128 %60, %62
   %64 = icmp ult i128 %63, 18446744073709551616
-  %65 = trunc i128 %63 to i64
+  %65 = trunc nuw i128 %63 to i64
   %spec.select.i.i = select i1 %64, i64 %65, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1538
   %66 = call i64 @llvm.usub.sat.i64(i64 %.sroa.3.0.i, i64 %spec.select.i.i)
   %67 = udiv i64 %66, 1000
   %68 = urem i64 %66, 1000
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw nsw i64 %68 to i32
   %70 = mul nuw nsw i32 %69, 1000000
   %71 = icmp ult i64 %66, 1000
   %.not62 = icmp eq i32 %69, 0
-  %or.cond = and i1 %71, %.not62
+  %or.cond = select i1 %71, i1 %.not62, i1 false
   br i1 %or.cond, label %72, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread"
 
 "_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread": ; preds = %.noexc41
@@ -8870,7 +8870,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i: ; preds = %86
   %105 = zext nneg i32 %104 to i128
   %106 = add nuw nsw i128 %103, %105
   %107 = icmp ult i128 %106, 18446744073709551616
-  %108 = trunc i128 %106 to i64
+  %108 = trunc nuw i128 %106 to i64
   %spec.select.i.i.i = select i1 %107, i64 %108, i64 -3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1560
   call void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time..handle..Handle$GT$15process_at_time17hd73cb274f296017eE"(ptr noundef nonnull align 8 %13, i64 noundef %spec.select.i.i.i)
@@ -10755,7 +10755,7 @@ define hidden { ptr, i64 } @_ZN5tokio4time5clock5Clock5pause17hbdfa1f0ed8730fe6E
   store ptr %0, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i8, ptr %6, align 8, !range !46, !noundef !47
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %12, label %.noexc
 
 .noexc:                                           ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9340333246167201960.exit"

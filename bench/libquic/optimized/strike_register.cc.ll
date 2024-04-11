@@ -541,9 +541,9 @@ _ZNK3net14StrikeRegister13GetValidRangeEj.exit:   ; preds = %if.end, %if.end.i58
   %valid_range.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.insert.insert.i to i32
   %cmp7 = icmp ult i32 %sub.i55, %valid_range.sroa.0.0.extract.trunc
   %valid_range.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.insert.insert.i, 32
-  %valid_range.sroa.2.0.extract.trunc = trunc i64 %valid_range.sroa.2.0.extract.shift to i32
+  %valid_range.sroa.2.0.extract.trunc = trunc nuw i64 %valid_range.sroa.2.0.extract.shift to i32
   %cmp8 = icmp ugt i32 %sub.i55, %valid_range.sroa.2.0.extract.trunc
-  %or.cond52 = or i1 %cmp7, %cmp8
+  %or.cond52 = select i1 %cmp7, i1 true, i1 %cmp8
   br i1 %or.cond52, label %return, label %if.end10
 
 if.end10:                                         ; preds = %_ZNK3net14StrikeRegister13GetValidRangeEj.exit
@@ -1094,7 +1094,7 @@ _ZNK3net14StrikeRegister13GetValidRangeEj.exit:   ; preds = %entry, %if.end.i
   %retval.sroa.0.0.insert.insert.i = phi i64 [ %6, %if.end.i ], [ 4294967295, %entry ]
   %valid_range.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.insert.insert.i to i32
   %valid_range.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.insert.insert.i, 32
-  %valid_range.sroa.2.0.extract.trunc = trunc i64 %valid_range.sroa.2.0.extract.shift to i32
+  %valid_range.sroa.2.0.extract.trunc = trunc nuw i64 %valid_range.sroa.2.0.extract.shift to i32
   %cmp.not = icmp ult i32 %valid_range.sroa.2.0.extract.trunc, %valid_range.sroa.0.0.extract.trunc
   %reass.sub = sub i32 %valid_range.sroa.2.0.extract.trunc, %sub.i
   %add = add i32 %reass.sub, 1

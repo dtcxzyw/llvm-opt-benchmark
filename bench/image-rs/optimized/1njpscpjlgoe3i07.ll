@@ -1027,7 +1027,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$12seek_read_to17h733faf
   br i1 %13, label %29, label %24
 
 14:                                               ; preds = %2
-  %15 = trunc i128 %10 to i64
+  %15 = trunc nuw i128 %10 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !105
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !105
@@ -1036,7 +1036,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$12seek_read_to17h733faf
   store i64 %15, ptr %16, align 8, !noalias !105
   call void @_ZN3std2io4copy17stack_buffer_copy17h62023b5b37b0f99aE.llvm.7602948157661992270(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %3)
   %17 = load i64, ptr %5, align 8, !range !19, !noalias !105, !noundef !5
-  %trunc.i = trunc i64 %17 to i1
+  %trunc.i = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !105
@@ -1101,7 +1101,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$12seek_read_to17h841406
   br i1 %15, label %35, label %26
 
 16:                                               ; preds = %2
-  %17 = trunc i128 %12 to i64
+  %17 = trunc nuw i128 %12 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !114
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !114
@@ -1110,7 +1110,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$12seek_read_to17h841406
   store i64 %17, ptr %18, align 8, !noalias !114
   call void @_ZN3std2io4copy17stack_buffer_copy17h75a3ed6b7de6eb86E.llvm.7602948157661992270(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %3)
   %19 = load i64, ptr %5, align 8, !range !19, !noalias !114, !noundef !5
-  %trunc.i = trunc i64 %19 to i1
+  %trunc.i = trunc nuw i64 %19 to i1
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !114
@@ -1146,7 +1146,7 @@ _ZN3exr2io10skip_bytes17hfbc8518820523f01E.exit:  ; preds = %16
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Seek$GT$4seek17hd5d457b22e72b7fcE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %28 = load i64, ptr %7, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %28 to i1
+  %trunc = trunc nuw i64 %28 to i1
   %29 = getelementptr inbounds i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1205,7 +1205,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$13seek_write_to17hb93f2
   %.pre = load i64, ptr %6, align 8, !range !19
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre22 = load ptr, ptr %.phi.trans.insert, align 8
-  %17 = trunc i64 %.pre to i1
+  %17 = trunc nuw i64 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %17, label %25, label %24
@@ -1219,7 +1219,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$13seek_write_to17hb93f2
   store i64 %19, ptr %3, align 8
   call void @_ZN3std2io4copy17stack_buffer_copy17h12eb5c09002381b9E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   %21 = load i64, ptr %4, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %21 to i1
+  %trunc = trunc nuw i64 %21 to i1
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -1314,7 +1314,7 @@ define hidden noundef ptr @"_ZN3exr2io42PeekRead$LT$exr..io..Tracking$LT$T$GT$$G
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = trunc i128 %11 to i64
+  %17 = trunc nuw i128 %11 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !149
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !152
@@ -1323,7 +1323,7 @@ define hidden noundef ptr @"_ZN3exr2io42PeekRead$LT$exr..io..Tracking$LT$T$GT$$G
   store i64 %17, ptr %18, align 8, !noalias !152
   call void @_ZN3std2io4copy17stack_buffer_copy17h62023b5b37b0f99aE.llvm.7602948157661992270(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %3)
   %19 = load i64, ptr %6, align 8, !range !19, !noalias !152, !noundef !5
-  %trunc.i.i = trunc i64 %19 to i1
+  %trunc.i.i = trunc nuw i64 %19 to i1
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !152
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !152
@@ -1774,7 +1774,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hff15f0bbd5347798E(ptr no
   call void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_cold17h44ddcdec382dda78E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %.sroa.0.048, i64 noundef %.sroa.4.047), !noalias !305
   %.pre.i = load i64, ptr %5, align 8, !range !19, !noalias !288
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !288
-  %22 = trunc i64 %.pre.i to i1
+  %22 = trunc nuw i64 %.pre.i to i1
   %23 = ptrtoint ptr %.pre4.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !288
   br i1 %22, label %27, label %24
@@ -1803,7 +1803,7 @@ default.unreachable:                              ; preds = %27
 
 29:                                               ; preds = %27
   %30 = lshr i64 %23, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   switch i32 %31, label %.thread30 [
     i32 0, label %.thread30.loopexit
     i32 1, label %.thread30.loopexit
@@ -2672,7 +2672,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !434, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !474)
   %6 = load i8, ptr %5, align 4, !range !477, !alias.scope !474, !noalias !478, !noundef !5
-  %trunc.i = trunc i8 %6 to i1
+  %trunc.i = trunc nuw i8 %6 to i1
   br i1 %trunc.i, label %11, label %7
 
 7:                                                ; preds = %2
@@ -3393,7 +3393,7 @@ default.unreachable:                              ; preds = %2
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc48f1e0b86bd2f4bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !32, !noundef !5
   %.val = load i8, ptr %3, align 1, !range !477, !noundef !5
-  %trunc.i = trunc i8 %.val to i1
+  %trunc.i = trunc nuw i8 %.val to i1
   %anon.1fb7ff8ae5a2b866dafd4482df872917.244.anon.1fb7ff8ae5a2b866dafd4482df872917.245.i = select i1 %trunc.i, ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.245, ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.244
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.1fb7ff8ae5a2b866dafd4482df872917.244.anon.1fb7ff8ae5a2b866dafd4482df872917.245.i, i64 noundef 6)
   ret i1 %4
@@ -4619,7 +4619,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9d5b3f0f7c86a23bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #7 {
   %3 = load i8, ptr %1, align 8, !range !477, !alias.scope !645, !noundef !5
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
 
@@ -5661,7 +5661,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00
 36:                                               ; preds = %.noexc
   %37 = getelementptr inbounds i8, ptr %16, i64 32
   %38 = load i8, ptr %37, align 8, !range !477, !alias.scope !862, !noundef !5
-  %39 = trunc i8 %38 to i1
+  %39 = trunc nuw i8 %38 to i1
   %40 = load i32, ptr %14, align 4, !noalias !858
   %41 = call i32 @llvm.bswap.i32(i32 %40)
   %.08.i = select i1 %39, i32 %41, i32 %40
@@ -5748,7 +5748,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00
 68:                                               ; preds = %.noexc69
   %69 = getelementptr inbounds i8, ptr %17, i64 32
   %70 = load i8, ptr %69, align 8, !range !477, !alias.scope !891, !noundef !5
-  %71 = trunc i8 %70 to i1
+  %71 = trunc nuw i8 %70 to i1
   %72 = load i64, ptr %13, align 8, !noalias !887
   %73 = call i64 @llvm.bswap.i64(i64 %72)
   %.08.i68 = select i1 %71, i64 %73, i64 %72
@@ -5865,10 +5865,10 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00
 
 106:                                              ; preds = %.noexc89
   %107 = call i32 @llvm.bswap.i32(i32 %100)
-  %108 = trunc i8 %99 to i1
+  %108 = trunc nuw i8 %99 to i1
   %.08.i.i = select i1 %108, i32 %107, i32 %100
   %109 = load i8, ptr %92, align 8, !range !477, !alias.scope !940, !noalias !943, !noundef !5
-  %110 = trunc i8 %109 to i1
+  %110 = trunc nuw i8 %109 to i1
   %111 = load i32, ptr %7, align 4, !noalias !936
   %112 = call i32 @llvm.bswap.i32(i32 %111)
   %.08.i26.i = select i1 %110, i32 %112, i32 %111
@@ -6014,7 +6014,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !953, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !949
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -6111,7 +6111,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !985, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !981
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -6165,7 +6165,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !978
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !1010, !noalias !978, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !1010, !noalias !978, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !978
@@ -6218,7 +6218,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !1021, !noalias !1024, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i64, ptr %7, align 8, !noalias !1016
   %109 = call i64 @llvm.bswap.i64(i64 %108)
   %.08.i.i = select i1 %107, i64 %109, i64 %108
@@ -6358,7 +6358,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !1034, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !1030
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -6455,7 +6455,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !1066, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !1062
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -6509,7 +6509,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1059
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !1091, !noalias !1059, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !1091, !noalias !1059, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1059
@@ -6561,7 +6561,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !1102, !noalias !1105, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i32, ptr %7, align 4, !noalias !1097
   %109 = call i32 @llvm.bswap.i32(i32 %108)
   %.08.i.i = select i1 %107, i32 %109, i32 %108
@@ -6704,7 +6704,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !1115, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !1111
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -6801,7 +6801,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !1147, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !1143
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -6855,7 +6855,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1140
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !1172, !noalias !1140, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !1172, !noalias !1140, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1140
@@ -6907,7 +6907,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !1183, !noalias !1186, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i32, ptr %7, align 4, !noalias !1178
   %109 = call i32 @llvm.bswap.i32(i32 %108)
   %.08.i.i = select i1 %107, i32 %109, i32 %108
@@ -7050,7 +7050,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaa
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !1196, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !1192
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -7147,7 +7147,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaa
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !1228, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !1224
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -7201,7 +7201,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaa
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1221
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !1253, !noalias !1221, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !1253, !noalias !1221, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1221
@@ -7253,7 +7253,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaa
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !1264, !noalias !1267, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i32, ptr %7, align 4, !noalias !1259
   %109 = call i32 @llvm.bswap.i32(i32 %108)
   %.08.i.i = select i1 %107, i32 %109, i32 %108
@@ -7394,7 +7394,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16d
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !1277, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !1273
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -7481,7 +7481,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16d
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !1306, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !1302
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -7576,7 +7576,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16d
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !1347, !noalias !1350, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i16, ptr %7, align 2, !noalias !1342
   %102 = call i16 @llvm.bswap.i16(i16 %101)
   %.08.i.i = select i1 %100, i16 %102, i16 %101
@@ -7717,7 +7717,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfe
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !1360, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !1356
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -7814,7 +7814,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfe
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !1392, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !1388
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -7868,7 +7868,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfe
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1385
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !1417, !noalias !1385, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !1417, !noalias !1385, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1385
@@ -8054,7 +8054,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !1433, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !1429
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -8141,7 +8141,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !1462, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !1458
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -8235,7 +8235,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !1503, !noalias !1506, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i32, ptr %7, align 4, !noalias !1498
   %102 = call i32 @llvm.bswap.i32(i32 %101)
   %.08.i.i = select i1 %100, i32 %102, i32 %101
@@ -8378,7 +8378,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !1516, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !1512
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -8475,7 +8475,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !1548, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !1544
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -8529,7 +8529,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1541
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !1573, !noalias !1541, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !1573, !noalias !1541, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1541
@@ -8582,7 +8582,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !1584, !noalias !1587, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i64, ptr %7, align 8, !noalias !1579
   %109 = call i64 @llvm.bswap.i64(i64 %108)
   %.08.i.i = select i1 %107, i64 %109, i64 %108
@@ -8720,7 +8720,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !1597, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !1593
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -8807,7 +8807,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !1626, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !1622
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -9035,7 +9035,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !1675, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !1671
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -9122,7 +9122,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !1704, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !1700
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -9350,7 +9350,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225
 38:                                               ; preds = %.noexc
   %39 = getelementptr inbounds i8, ptr %18, i64 32
   %40 = load i8, ptr %39, align 8, !range !477, !alias.scope !1750, !noundef !5
-  %41 = trunc i8 %40 to i1
+  %41 = trunc nuw i8 %40 to i1
   %42 = load i32, ptr %16, align 4, !noalias !1746
   %43 = call i32 @llvm.bswap.i32(i32 %42)
   %.08.i = select i1 %41, i32 %43, i32 %42
@@ -9447,7 +9447,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225
 72:                                               ; preds = %.noexc69
   %73 = getelementptr inbounds i8, ptr %19, i64 32
   %74 = load i8, ptr %73, align 8, !range !477, !alias.scope !1782, !noundef !5
-  %75 = trunc i8 %74 to i1
+  %75 = trunc nuw i8 %74 to i1
   %76 = load i64, ptr %15, align 8, !noalias !1778
   %77 = call i64 @llvm.bswap.i64(i64 %76)
   %.08.i68 = select i1 %75, i64 %77, i64 %76
@@ -9501,7 +9501,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225
 94:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1775
   %95 = load i64, ptr %12, align 8, !range !19, !alias.scope !1807, !noalias !1775, !noundef !5
-  %trunc.i.i = trunc i64 %95 to i1
+  %trunc.i.i = trunc nuw i64 %95 to i1
   %96 = getelementptr inbounds i8, ptr %12, i64 8
   %97 = load ptr, ptr %96, align 8, !alias.scope !1807, !noalias !1775, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1775
@@ -9576,10 +9576,10 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225
 
 113:                                              ; preds = %.noexc90
   %114 = call i32 @llvm.bswap.i32(i32 %107)
-  %115 = trunc i8 %106 to i1
+  %115 = trunc nuw i8 %106 to i1
   %.09.i.i = select i1 %115, i32 %114, i32 %107
   %116 = load i8, ptr %98, align 8, !range !477, !alias.scope !1826, !noalias !1829, !noundef !5
-  %117 = trunc i8 %116 to i1
+  %117 = trunc nuw i8 %116 to i1
   %118 = load i32, ptr %7, align 4, !noalias !1822
   %119 = call i32 @llvm.bswap.i32(i32 %118)
   %.09.i26.i = select i1 %117, i32 %119, i32 %118
@@ -9723,7 +9723,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab4
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !1839, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !1835
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -9810,7 +9810,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab4
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !1868, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !1864
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -9904,7 +9904,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab4
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !1909, !noalias !1912, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i32, ptr %7, align 4, !noalias !1904
   %102 = call i32 @llvm.bswap.i32(i32 %101)
   %.08.i.i = select i1 %100, i32 %102, i32 %101
@@ -10048,7 +10048,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c61267
 38:                                               ; preds = %.noexc
   %39 = getelementptr inbounds i8, ptr %18, i64 32
   %40 = load i8, ptr %39, align 8, !range !477, !alias.scope !1922, !noundef !5
-  %41 = trunc i8 %40 to i1
+  %41 = trunc nuw i8 %40 to i1
   %42 = load i32, ptr %16, align 4, !noalias !1918
   %43 = call i32 @llvm.bswap.i32(i32 %42)
   %.08.i = select i1 %41, i32 %43, i32 %42
@@ -10145,7 +10145,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c61267
 72:                                               ; preds = %.noexc69
   %73 = getelementptr inbounds i8, ptr %19, i64 32
   %74 = load i8, ptr %73, align 8, !range !477, !alias.scope !1954, !noundef !5
-  %75 = trunc i8 %74 to i1
+  %75 = trunc nuw i8 %74 to i1
   %76 = load i64, ptr %15, align 8, !noalias !1950
   %77 = call i64 @llvm.bswap.i64(i64 %76)
   %.08.i68 = select i1 %75, i64 %77, i64 %76
@@ -10199,7 +10199,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c61267
 94:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1947
   %95 = load i64, ptr %12, align 8, !range !19, !alias.scope !1979, !noalias !1947, !noundef !5
-  %trunc.i.i = trunc i64 %95 to i1
+  %trunc.i.i = trunc nuw i64 %95 to i1
   %96 = getelementptr inbounds i8, ptr %12, i64 8
   %97 = load ptr, ptr %96, align 8, !alias.scope !1979, !noalias !1947, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1947
@@ -10274,10 +10274,10 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c61267
 
 113:                                              ; preds = %.noexc90
   %114 = call i32 @llvm.bswap.i32(i32 %107)
-  %115 = trunc i8 %106 to i1
+  %115 = trunc nuw i8 %106 to i1
   %.08.i.i = select i1 %115, i32 %114, i32 %107
   %116 = load i8, ptr %98, align 8, !range !477, !alias.scope !1998, !noalias !2001, !noundef !5
-  %117 = trunc i8 %116 to i1
+  %117 = trunc nuw i8 %116 to i1
   %118 = load i32, ptr %7, align 4, !noalias !1994
   %119 = call i32 @llvm.bswap.i32(i32 %118)
   %.08.i26.i = select i1 %117, i32 %119, i32 %118
@@ -10421,7 +10421,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d0
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !2011, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !2007
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -10508,7 +10508,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d0
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !2040, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !2036
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -10603,7 +10603,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d0
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !2081, !noalias !2084, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i64, ptr %7, align 8, !noalias !2076
   %102 = call i64 @llvm.bswap.i64(i64 %101)
   %.08.i.i = select i1 %100, i64 %102, i64 %101
@@ -10743,7 +10743,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8303929
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !2094, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !2090
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -10840,7 +10840,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8303929
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !2126, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !2122
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -10894,7 +10894,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8303929
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2119
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !2151, !noalias !2119, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !2151, !noalias !2119, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2119
@@ -11080,7 +11080,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !2170, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !2166
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -11167,7 +11167,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !2199, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !2195
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -11397,7 +11397,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a34
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !2245, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !2241
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -11494,7 +11494,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a34
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !2277, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !2273
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -11548,7 +11548,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a34
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2270
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !2302, !noalias !2270, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !2302, !noalias !2270, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2270
@@ -11601,7 +11601,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a34
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !2313, !noalias !2316, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i16, ptr %7, align 2, !noalias !2308
   %109 = call i16 @llvm.bswap.i16(i16 %108)
   %.09.i.i = select i1 %107, i16 %109, i16 %108
@@ -11740,7 +11740,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f6
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !2326, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !2322
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -11827,7 +11827,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f6
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !2355, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !2351
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -11922,7 +11922,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f6
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !2396, !noalias !2399, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i64, ptr %7, align 8, !noalias !2391
   %102 = call i64 @llvm.bswap.i64(i64 %101)
   %.08.i.i = select i1 %100, i64 %102, i64 %101
@@ -12060,7 +12060,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !2409, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !2405
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -12147,7 +12147,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !2438, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !2434
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -12242,7 +12242,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !2479, !noalias !2482, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i16, ptr %7, align 2, !noalias !2474
   %102 = call i16 @llvm.bswap.i16(i16 %101)
   %.09.i.i = select i1 %100, i16 %102, i16 %101
@@ -12383,7 +12383,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !2492, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !2488
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -12480,7 +12480,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !2524, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !2520
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -12534,7 +12534,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2517
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !2549, !noalias !2517, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !2549, !noalias !2517, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2517
@@ -12717,7 +12717,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92d
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !2565, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !2561
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -12804,7 +12804,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92d
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !2594, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !2590
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -12899,7 +12899,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92d
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !2635, !noalias !2638, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i64, ptr %7, align 8, !noalias !2630
   %102 = call i64 @llvm.bswap.i64(i64 %101)
   %.09.i.i = select i1 %100, i64 %102, i64 %101
@@ -13039,7 +13039,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !2648, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !2644
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -13136,7 +13136,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !2680, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !2676
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -13190,7 +13190,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2673
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !2705, !noalias !2673, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !2705, !noalias !2673, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2673
@@ -13242,7 +13242,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !2716, !noalias !2719, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i32, ptr %7, align 4, !noalias !2711
   %109 = call i32 @llvm.bswap.i32(i32 %108)
   %.09.i.i = select i1 %107, i32 %109, i32 %108
@@ -13383,7 +13383,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !2729, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !2725
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -13470,7 +13470,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !2758, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !2754
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -13564,7 +13564,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !2799, !noalias !2802, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i32, ptr %7, align 4, !noalias !2794
   %102 = call i32 @llvm.bswap.i32(i32 %101)
   %.09.i.i = select i1 %100, i32 %102, i32 %101
@@ -13707,7 +13707,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !2812, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !2808
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -13804,7 +13804,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !2844, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !2840
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -13858,7 +13858,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2837
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !2869, !noalias !2837, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !2869, !noalias !2837, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2837
@@ -13911,7 +13911,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !2880, !noalias !2883, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i64, ptr %7, align 8, !noalias !2875
   %109 = call i64 @llvm.bswap.i64(i64 %108)
   %.08.i.i = select i1 %107, i64 %109, i64 %108
@@ -14051,7 +14051,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fd
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !2893, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !2889
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -14148,7 +14148,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fd
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !2925, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !2921
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -14202,7 +14202,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fd
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2918
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !2950, !noalias !2918, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !2950, !noalias !2918, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2918
@@ -14255,7 +14255,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fd
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !2961, !noalias !2964, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i64, ptr %7, align 8, !noalias !2956
   %109 = call i64 @llvm.bswap.i64(i64 %108)
   %.09.i.i = select i1 %107, i64 %109, i64 %108
@@ -14393,7 +14393,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !2974, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !2970
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -14480,7 +14480,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !3003, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !2999
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -14575,7 +14575,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !3044, !noalias !3047, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i64, ptr %7, align 8, !noalias !3039
   %102 = call i64 @llvm.bswap.i64(i64 %101)
   %.08.i.i = select i1 %100, i64 %102, i64 %101
@@ -14715,7 +14715,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds i8, ptr %17, i64 32
   %39 = load i8, ptr %38, align 8, !range !477, !alias.scope !3057, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   %41 = load i32, ptr %15, align 4, !noalias !3053
   %42 = call i32 @llvm.bswap.i32(i32 %41)
   %.08.i = select i1 %40, i32 %42, i32 %41
@@ -14812,7 +14812,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb
 71:                                               ; preds = %.noexc69
   %72 = getelementptr inbounds i8, ptr %18, i64 32
   %73 = load i8, ptr %72, align 8, !range !477, !alias.scope !3089, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %14, align 8, !noalias !3085
   %76 = call i64 @llvm.bswap.i64(i64 %75)
   %.08.i68 = select i1 %74, i64 %76, i64 %75
@@ -14866,7 +14866,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb
 93:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !3082
   %94 = load i64, ptr %11, align 8, !range !19, !alias.scope !3114, !noalias !3082, !noundef !5
-  %trunc.i.i = trunc i64 %94 to i1
+  %trunc.i.i = trunc nuw i64 %94 to i1
   %95 = getelementptr inbounds i8, ptr %11, i64 8
   %96 = load ptr, ptr %95, align 8, !alias.scope !3114, !noalias !3082, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !3082
@@ -14919,7 +14919,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb
 
 105:                                              ; preds = %.noexc89
   %106 = load i8, ptr %97, align 8, !range !477, !alias.scope !3125, !noalias !3128, !noundef !5
-  %107 = trunc i8 %106 to i1
+  %107 = trunc nuw i8 %106 to i1
   %108 = load i16, ptr %7, align 2, !noalias !3120
   %109 = call i16 @llvm.bswap.i16(i16 %108)
   %.08.i.i = select i1 %107, i16 %109, i16 %108
@@ -15059,7 +15059,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df8
 36:                                               ; preds = %.noexc
   %37 = getelementptr inbounds i8, ptr %16, i64 32
   %38 = load i8, ptr %37, align 8, !range !477, !alias.scope !3138, !noundef !5
-  %39 = trunc i8 %38 to i1
+  %39 = trunc nuw i8 %38 to i1
   %40 = load i32, ptr %14, align 4, !noalias !3134
   %41 = call i32 @llvm.bswap.i32(i32 %40)
   %.08.i = select i1 %39, i32 %41, i32 %40
@@ -15146,7 +15146,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df8
 68:                                               ; preds = %.noexc69
   %69 = getelementptr inbounds i8, ptr %17, i64 32
   %70 = load i8, ptr %69, align 8, !range !477, !alias.scope !3167, !noundef !5
-  %71 = trunc i8 %70 to i1
+  %71 = trunc nuw i8 %70 to i1
   %72 = load i64, ptr %13, align 8, !noalias !3163
   %73 = call i64 @llvm.bswap.i64(i64 %72)
   %.08.i68 = select i1 %71, i64 %73, i64 %72
@@ -15263,10 +15263,10 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df8
 
 106:                                              ; preds = %.noexc89
   %107 = call i32 @llvm.bswap.i32(i32 %100)
-  %108 = trunc i8 %99 to i1
+  %108 = trunc nuw i8 %99 to i1
   %.09.i.i = select i1 %108, i32 %107, i32 %100
   %109 = load i8, ptr %92, align 8, !range !477, !alias.scope !3216, !noalias !3219, !noundef !5
-  %110 = trunc i8 %109 to i1
+  %110 = trunc nuw i8 %109 to i1
   %111 = load i32, ptr %7, align 4, !noalias !3212
   %112 = call i32 @llvm.bswap.i32(i32 %111)
   %.09.i26.i = select i1 %110, i32 %112, i32 %111
@@ -15410,7 +15410,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c
 35:                                               ; preds = %.noexc
   %36 = getelementptr inbounds i8, ptr %15, i64 32
   %37 = load i8, ptr %36, align 8, !range !477, !alias.scope !3229, !noundef !5
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %13, align 4, !noalias !3225
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   %.08.i = select i1 %38, i32 %40, i32 %39
@@ -15497,7 +15497,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c
 67:                                               ; preds = %.noexc69
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   %69 = load i8, ptr %68, align 8, !range !477, !alias.scope !3258, !noundef !5
-  %70 = trunc i8 %69 to i1
+  %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %12, align 8, !noalias !3254
   %72 = call i64 @llvm.bswap.i64(i64 %71)
   %.08.i68 = select i1 %70, i64 %72, i64 %71
@@ -15591,7 +15591,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c
 
 98:                                               ; preds = %.noexc88
   %99 = load i8, ptr %91, align 8, !range !477, !alias.scope !3299, !noalias !3302, !noundef !5
-  %100 = trunc i8 %99 to i1
+  %100 = trunc nuw i8 %99 to i1
   %101 = load i32, ptr %7, align 4, !noalias !3294
   %102 = call i32 @llvm.bswap.i32(i32 %101)
   %.08.i.i = select i1 %100, i32 %102, i32 %101
@@ -15769,7 +15769,7 @@ define hidden void @_ZN4tiff7decoder3ifd5Entry3val17h5ed7e0eec4087546E(ptr noali
 switch.lookup:                                    ; preds = %5
   %95 = getelementptr inbounds i8, ptr %4, i64 24
   %96 = load i8, ptr %95, align 8, !range !477, !noundef !5
-  %97 = trunc i8 %96 to i1
+  %97 = trunc nuw i8 %96 to i1
   %98 = getelementptr inbounds i8, ptr %1, i64 16
   %99 = load i8, ptr %98, align 8, !range !545, !noundef !5
   %100 = zext nneg i8 %99 to i64
@@ -16061,7 +16061,7 @@ default.unreachable1579:                          ; preds = %458, %457, %115, %1
 177:                                              ; preds = %.noexc954
   %178 = getelementptr inbounds i8, ptr %84, i64 32
   %179 = load i8, ptr %178, align 8, !range !477, !alias.scope !3360, !noundef !5
-  %180 = trunc i8 %179 to i1
+  %180 = trunc nuw i8 %179 to i1
   %181 = load i16, ptr %27, align 2, !noalias !3308
   %182 = call i16 @llvm.bswap.i16(i16 %181)
   %.08.i953 = select i1 %180, i16 %182, i16 %181
@@ -16099,7 +16099,7 @@ default.unreachable1579:                          ; preds = %458, %457, %115, %1
 190:                                              ; preds = %.noexc968
   %191 = getelementptr inbounds i8, ptr %82, i64 32
   %192 = load i8, ptr %191, align 8, !range !477, !alias.scope !3363, !noundef !5
-  %193 = trunc i8 %192 to i1
+  %193 = trunc nuw i8 %192 to i1
   %194 = load i32, ptr %23, align 4, !noalias !3312
   %195 = call i32 @llvm.bswap.i32(i32 %194)
   %.08.i967 = select i1 %193, i32 %195, i32 %194
@@ -16126,7 +16126,7 @@ default.unreachable1579:                          ; preds = %458, %457, %115, %1
 199:                                              ; preds = %.noexc972
   %200 = getelementptr inbounds i8, ptr %76, i64 32
   %201 = load i8, ptr %200, align 8, !range !477, !alias.scope !3366, !noundef !5
-  %202 = trunc i8 %201 to i1
+  %202 = trunc nuw i8 %201 to i1
   %203 = load i32, ptr %22, align 4, !noalias !3316
   %204 = call i32 @llvm.bswap.i32(i32 %203)
   %.08.i971 = select i1 %202, i32 %204, i32 %203
@@ -16154,10 +16154,10 @@ default.unreachable1579:                          ; preds = %458, %457, %115, %1
 
 _ZN4tiff7decoder6stream12EndianReader8read_u3217h3cdc3fb1e94eacb4E.exit965.thread: ; preds = %209
   %214 = call i32 @llvm.bswap.i32(i32 %211)
-  %215 = trunc i8 %210 to i1
+  %215 = trunc nuw i8 %210 to i1
   %.08.i962 = select i1 %215, i32 %214, i32 %211
   %216 = load i8, ptr %95, align 8, !range !477, !alias.scope !3390, !noalias !3389, !noundef !5
-  %217 = trunc i8 %216 to i1
+  %217 = trunc nuw i8 %216 to i1
   %218 = load i32, ptr %24, align 4, !noalias !3385
   %219 = call i32 @llvm.bswap.i32(i32 %218)
   %.08.i964 = select i1 %217, i32 %219, i32 %218
@@ -16196,7 +16196,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217h3cdc3fb1e94eacb4E.exit965.threa
 225:                                              ; preds = %.noexc915
   %226 = getelementptr inbounds i8, ptr %83, i64 32
   %227 = load i8, ptr %226, align 8, !range !477, !alias.scope !3393, !noundef !5
-  %228 = trunc i8 %227 to i1
+  %228 = trunc nuw i8 %227 to i1
   %229 = load i16, ptr %37, align 2, !noalias !3320
   %230 = call i16 @llvm.bswap.i16(i16 %229)
   %.09.i = select i1 %228, i16 %230, i16 %229
@@ -16224,7 +16224,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217h3cdc3fb1e94eacb4E.exit965.threa
 235:                                              ; preds = %.noexc929
   %236 = getelementptr inbounds i8, ptr %81, i64 32
   %237 = load i8, ptr %236, align 8, !range !477, !alias.scope !3396, !noundef !5
-  %238 = trunc i8 %237 to i1
+  %238 = trunc nuw i8 %237 to i1
   %239 = load i32, ptr %33, align 4, !noalias !3324
   %240 = call i32 @llvm.bswap.i32(i32 %239)
   %.09.i928 = select i1 %238, i32 %240, i32 %239
@@ -16251,7 +16251,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217h3cdc3fb1e94eacb4E.exit965.threa
 244:                                              ; preds = %.noexc977
   %245 = getelementptr inbounds i8, ptr %75, i64 32
   %246 = load i8, ptr %245, align 8, !range !477, !alias.scope !3399, !noundef !5
-  %247 = trunc i8 %246 to i1
+  %247 = trunc nuw i8 %246 to i1
   %248 = load i32, ptr %21, align 4, !noalias !3328
   %249 = call i32 @llvm.bswap.i32(i32 %248)
   %.08.i976 = select i1 %247, i32 %249, i32 %248
@@ -16279,10 +16279,10 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217h3cdc3fb1e94eacb4E.exit965.threa
 
 _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.thread: ; preds = %254
   %259 = call i32 @llvm.bswap.i32(i32 %256)
-  %260 = trunc i8 %255 to i1
+  %260 = trunc nuw i8 %255 to i1
   %.09.i923 = select i1 %260, i32 %259, i32 %256
   %261 = load i8, ptr %95, align 8, !range !477, !alias.scope !3423, !noalias !3422, !noundef !5
-  %262 = trunc i8 %261 to i1
+  %262 = trunc nuw i8 %261 to i1
   %263 = load i32, ptr %34, align 4, !noalias !3418
   %264 = call i32 @llvm.bswap.i32(i32 %263)
   %.09.i925 = select i1 %262, i32 %264, i32 %263
@@ -16321,7 +16321,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 270:                                              ; preds = %.noexc
   %271 = getelementptr inbounds i8, ptr %80, i64 32
   %272 = load i8, ptr %271, align 8, !range !477, !alias.scope !3426, !noundef !5
-  %273 = trunc i8 %272 to i1
+  %273 = trunc nuw i8 %272 to i1
   %274 = load i32, ptr %41, align 4, !noalias !3332
   %275 = call i32 @llvm.bswap.i32(i32 %274)
   %.08.i = select i1 %273, i32 %275, i32 %274
@@ -16348,7 +16348,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 279:                                              ; preds = %.noexc982
   %280 = getelementptr inbounds i8, ptr %77, i64 32
   %281 = load i8, ptr %280, align 8, !range !477, !alias.scope !3429, !noundef !5
-  %282 = trunc i8 %281 to i1
+  %282 = trunc nuw i8 %281 to i1
   %283 = load i32, ptr %20, align 4, !noalias !3336
   %284 = call i32 @llvm.bswap.i32(i32 %283)
   %.08.i981 = select i1 %282, i32 %284, i32 %283
@@ -16366,7 +16366,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 289:                                              ; preds = %279
   %290 = load i8, ptr %95, align 8, !range !477, !alias.scope !3445, !noalias !3444, !noundef !5
-  %291 = trunc i8 %290 to i1
+  %291 = trunc nuw i8 %290 to i1
   %292 = load i64, ptr %39, align 8, !noalias !3440
   %293 = call i64 @llvm.bswap.i64(i64 %292)
   %.08.i909 = select i1 %291, i64 %293, i64 %292
@@ -16400,7 +16400,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 298:                                              ; preds = %.noexc987
   %299 = getelementptr inbounds i8, ptr %74, i64 32
   %300 = load i8, ptr %299, align 8, !range !477, !alias.scope !3448, !noundef !5
-  %301 = trunc i8 %300 to i1
+  %301 = trunc nuw i8 %300 to i1
   %302 = load i32, ptr %19, align 4, !noalias !3340
   %303 = call i32 @llvm.bswap.i32(i32 %302)
   %.08.i986 = select i1 %301, i32 %303, i32 %302
@@ -16427,7 +16427,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 307:                                              ; preds = %.noexc992
   %308 = getelementptr inbounds i8, ptr %79, i64 32
   %309 = load i8, ptr %308, align 8, !range !477, !alias.scope !3451, !noundef !5
-  %310 = trunc i8 %309 to i1
+  %310 = trunc nuw i8 %309 to i1
   %311 = load i32, ptr %18, align 4, !noalias !3344
   %312 = call i32 @llvm.bswap.i32(i32 %311)
   %.08.i991 = select i1 %310, i32 %312, i32 %311
@@ -16445,7 +16445,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 317:                                              ; preds = %307
   %318 = load i8, ptr %95, align 8, !range !477, !alias.scope !3467, !noalias !3466, !noundef !5
-  %319 = trunc i8 %318 to i1
+  %319 = trunc nuw i8 %318 to i1
   %320 = load i64, ptr %10, align 8, !noalias !3462
   %321 = call i64 @llvm.bswap.i64(i64 %320)
   %.08.i1031 = select i1 %319, i64 %321, i64 %320
@@ -16479,7 +16479,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 326:                                              ; preds = %.noexc997
   %327 = getelementptr inbounds i8, ptr %78, i64 32
   %328 = load i8, ptr %327, align 8, !range !477, !alias.scope !3470, !noundef !5
-  %329 = trunc i8 %328 to i1
+  %329 = trunc nuw i8 %328 to i1
   %330 = load i32, ptr %17, align 4, !noalias !3348
   %331 = call i32 @llvm.bswap.i32(i32 %330)
   %.08.i996 = select i1 %329, i32 %331, i32 %330
@@ -16497,7 +16497,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 336:                                              ; preds = %326
   %337 = load i8, ptr %95, align 8, !range !477, !alias.scope !3486, !noalias !3485, !noundef !5
-  %338 = trunc i8 %337 to i1
+  %338 = trunc nuw i8 %337 to i1
   %339 = load i64, ptr %28, align 8, !noalias !3481
   %340 = call i64 @llvm.bswap.i64(i64 %339)
   %.09.i951 = select i1 %338, i64 %340, i64 %339
@@ -16531,7 +16531,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 345:                                              ; preds = %.noexc1002
   %346 = getelementptr inbounds i8, ptr %73, i64 32
   %347 = load i8, ptr %346, align 8, !range !477, !alias.scope !3489, !noundef !5
-  %348 = trunc i8 %347 to i1
+  %348 = trunc nuw i8 %347 to i1
   %349 = load i32, ptr %16, align 4, !noalias !3352
   %350 = call i32 @llvm.bswap.i32(i32 %349)
   %.08.i1001 = select i1 %348, i32 %350, i32 %349
@@ -16549,7 +16549,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 355:                                              ; preds = %345
   %356 = load i8, ptr %95, align 8, !range !477, !alias.scope !3505, !noalias !3504, !noundef !5
-  %357 = trunc i8 %356 to i1
+  %357 = trunc nuw i8 %356 to i1
   %358 = load i64, ptr %9, align 8, !noalias !3500
   %359 = call i64 @llvm.bswap.i64(i64 %358)
   %.08.i1033 = select i1 %357, i64 %359, i64 %358
@@ -16659,7 +16659,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 383:                                              ; preds = %.noexc1007
   %384 = getelementptr inbounds i8, ptr %87, i64 32
   %385 = load i8, ptr %384, align 8, !range !477, !alias.scope !3532, !noundef !5
-  %386 = trunc i8 %385 to i1
+  %386 = trunc nuw i8 %385 to i1
   %387 = load i32, ptr %15, align 4, !noalias !3508
   %388 = call i32 @llvm.bswap.i32(i32 %387)
   %.08.i1006 = select i1 %386, i32 %388, i32 %387
@@ -16690,7 +16690,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 394:                                              ; preds = %.noexc1012
   %395 = load i8, ptr %384, align 8, !range !477, !alias.scope !3539, !noundef !5
-  %396 = trunc i8 %395 to i1
+  %396 = trunc nuw i8 %395 to i1
   %397 = load i32, ptr %14, align 4, !noalias !3535
   %398 = call i32 @llvm.bswap.i32(i32 %397)
   %.08.i1011 = select i1 %396, i32 %398, i32 %397
@@ -16733,7 +16733,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 404:                                              ; preds = %.noexc933
   %405 = getelementptr inbounds i8, ptr %86, i64 32
   %406 = load i8, ptr %405, align 8, !range !477, !alias.scope !3542, !noundef !5
-  %407 = trunc i8 %406 to i1
+  %407 = trunc nuw i8 %406 to i1
   %408 = load i32, ptr %32, align 4, !noalias !3512
   %409 = call i32 @llvm.bswap.i32(i32 %408)
   %.09.i932 = select i1 %407, i32 %409, i32 %408
@@ -16764,7 +16764,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 415:                                              ; preds = %.noexc938
   %416 = load i8, ptr %405, align 8, !range !477, !alias.scope !3549, !noundef !5
-  %417 = trunc i8 %416 to i1
+  %417 = trunc nuw i8 %416 to i1
   %418 = load i32, ptr %31, align 4, !noalias !3545
   %419 = call i32 @llvm.bswap.i32(i32 %418)
   %.09.i937 = select i1 %417, i32 %419, i32 %418
@@ -16791,7 +16791,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 423:                                              ; preds = %.noexc912
   %424 = getelementptr inbounds i8, ptr %88, i64 32
   %425 = load i8, ptr %424, align 8, !range !477, !alias.scope !3552, !noundef !5
-  %426 = trunc i8 %425 to i1
+  %426 = trunc nuw i8 %425 to i1
   %427 = load i64, ptr %38, align 8, !noalias !3516
   %428 = call i64 @llvm.bswap.i64(i64 %427)
   %.08.i911 = select i1 %426, i64 %428, i64 %427
@@ -16820,7 +16820,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 432:                                              ; preds = %.noexc1037
   %433 = getelementptr inbounds i8, ptr %90, i64 32
   %434 = load i8, ptr %433, align 8, !range !477, !alias.scope !3555, !noundef !5
-  %435 = trunc i8 %434 to i1
+  %435 = trunc nuw i8 %434 to i1
   %436 = load i64, ptr %8, align 8, !noalias !3520
   %437 = call i64 @llvm.bswap.i64(i64 %436)
   %.08.i1036 = select i1 %435, i64 %437, i64 %436
@@ -16849,7 +16849,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 441:                                              ; preds = %.noexc948
   %442 = getelementptr inbounds i8, ptr %89, i64 32
   %443 = load i8, ptr %442, align 8, !range !477, !alias.scope !3558, !noundef !5
-  %444 = trunc i8 %443 to i1
+  %444 = trunc nuw i8 %443 to i1
   %445 = load i64, ptr %29, align 8, !noalias !3524
   %446 = call i64 @llvm.bswap.i64(i64 %445)
   %.09.i947 = select i1 %444, i64 %446, i64 %445
@@ -16878,7 +16878,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 450:                                              ; preds = %.noexc1041
   %451 = getelementptr inbounds i8, ptr %85, i64 32
   %452 = load i8, ptr %451, align 8, !range !477, !alias.scope !3561, !noundef !5
-  %453 = trunc i8 %452 to i1
+  %453 = trunc nuw i8 %452 to i1
   %454 = load i64, ptr %7, align 8, !noalias !3528
   %455 = call i64 @llvm.bswap.i64(i64 %454)
   %.08.i1040 = select i1 %453, i64 %455, i64 %454
@@ -17058,7 +17058,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 487:                                              ; preds = %.noexc1017
   %488 = getelementptr inbounds i8, ptr %49, i64 32
   %489 = load i8, ptr %488, align 8, !range !477, !alias.scope !3572, !noundef !5
-  %490 = trunc i8 %489 to i1
+  %490 = trunc nuw i8 %489 to i1
   %491 = load i32, ptr %13, align 4, !noalias !3564
   %492 = call i32 @llvm.bswap.i32(i32 %491)
   %.08.i1016 = select i1 %490, i32 %492, i32 %491
@@ -17102,7 +17102,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 505:                                              ; preds = %.noexc1046
   %506 = getelementptr inbounds i8, ptr %50, i64 32
   %507 = load i8, ptr %506, align 8, !range !477, !alias.scope !3586, !noundef !5
-  %508 = trunc i8 %507 to i1
+  %508 = trunc nuw i8 %507 to i1
   %509 = load i64, ptr %6, align 8, !noalias !3568
   %510 = call i64 @llvm.bswap.i64(i64 %509)
   %.08.i1045 = select i1 %508, i64 %510, i64 %509
@@ -17436,7 +17436,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 611:                                              ; preds = %610
   %612 = load i64, ptr %70, align 8, !range !19, !noundef !5
-  %trunc673 = trunc i64 %612 to i1
+  %trunc673 = trunc nuw i64 %612 to i1
   %613 = getelementptr inbounds i8, ptr %70, i64 8
   %.sroa.0540.0.copyload = load ptr, ptr %613, align 8
   %.sroa.4541.0..sroa_idx = getelementptr inbounds i8, ptr %70, i64 16
@@ -17527,7 +17527,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 636:                                              ; preds = %.noexc958
   %637 = load i8, ptr %553, align 8, !range !477, !alias.scope !3610, !noundef !5
-  %638 = trunc i8 %637 to i1
+  %638 = trunc nuw i8 %637 to i1
   %639 = load i16, ptr %26, align 2, !noalias !3606
   %640 = call i16 @llvm.bswap.i16(i16 %639)
   %.08.i957 = select i1 %638, i16 %640, i16 %639
@@ -17632,7 +17632,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 666:                                              ; preds = %.noexc1022
   %667 = load i8, ptr %557, align 8, !range !477, !alias.scope !3622, !noundef !5
-  %668 = trunc i8 %667 to i1
+  %668 = trunc nuw i8 %667 to i1
   %669 = load i32, ptr %12, align 4, !noalias !3618
   %670 = call i32 @llvm.bswap.i32(i32 %669)
   %.08.i1021 = select i1 %668, i32 %670, i32 %669
@@ -17737,7 +17737,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 696:                                              ; preds = %.noexc919
   %697 = load i8, ptr %578, align 8, !range !477, !alias.scope !3634, !noundef !5
-  %698 = trunc i8 %697 to i1
+  %698 = trunc nuw i8 %697 to i1
   %699 = load i16, ptr %36, align 2, !noalias !3630
   %700 = call i16 @llvm.bswap.i16(i16 %699)
   %.09.i918 = select i1 %698, i16 %700, i16 %699
@@ -17843,7 +17843,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 727:                                              ; preds = %.noexc943
   %728 = load i8, ptr %582, align 8, !range !477, !alias.scope !3646, !noundef !5
-  %729 = trunc i8 %728 to i1
+  %729 = trunc nuw i8 %728 to i1
   %730 = load i32, ptr %30, align 4, !noalias !3642
   %731 = call i32 @llvm.bswap.i32(i32 %730)
   %.09.i942 = select i1 %729, i32 %731, i32 %730
@@ -17948,7 +17948,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 757:                                              ; preds = %.noexc905
   %758 = load i8, ptr %586, align 8, !range !477, !alias.scope !3658, !noundef !5
-  %759 = trunc i8 %758 to i1
+  %759 = trunc nuw i8 %758 to i1
   %760 = load i32, ptr %40, align 4, !noalias !3654
   %761 = call i32 @llvm.bswap.i32(i32 %760)
   %.08.i904 = select i1 %759, i32 %761, i32 %760
@@ -18053,7 +18053,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 787:                                              ; preds = %.noexc1027
   %788 = load i8, ptr %590, align 8, !range !477, !alias.scope !3670, !noundef !5
-  %789 = trunc i8 %788 to i1
+  %789 = trunc nuw i8 %788 to i1
   %790 = load i32, ptr %11, align 4, !noalias !3666
   %791 = call i32 @llvm.bswap.i32(i32 %790)
   %.08.i1026 = select i1 %789, i32 %791, i32 %790
@@ -18256,7 +18256,7 @@ define hidden void @_ZN4tiff7decoder3ifd5Entry3val17h90e771915f7c14d9E(ptr noali
 switch.lookup:                                    ; preds = %5
   %111 = getelementptr inbounds i8, ptr %4, i64 48
   %112 = load i8, ptr %111, align 8, !range !477, !noundef !5
-  %113 = trunc i8 %112 to i1
+  %113 = trunc nuw i8 %112 to i1
   %114 = getelementptr inbounds i8, ptr %1, i64 16
   %115 = load i8, ptr %114, align 8, !range !545, !noundef !5
   %116 = zext nneg i8 %115 to i64
@@ -18548,7 +18548,7 @@ default.unreachable1608:                          ; preds = %510, %509, %131, %1
 193:                                              ; preds = %.noexc954
   %194 = getelementptr inbounds i8, ptr %100, i64 32
   %195 = load i8, ptr %194, align 8, !range !477, !alias.scope !3730, !noundef !5
-  %196 = trunc i8 %195 to i1
+  %196 = trunc nuw i8 %195 to i1
   %197 = load i16, ptr %43, align 2, !noalias !3678
   %198 = call i16 @llvm.bswap.i16(i16 %197)
   %.08.i953 = select i1 %196, i16 %198, i16 %197
@@ -18586,7 +18586,7 @@ default.unreachable1608:                          ; preds = %510, %509, %131, %1
 206:                                              ; preds = %.noexc963
   %207 = getelementptr inbounds i8, ptr %98, i64 32
   %208 = load i8, ptr %207, align 8, !range !477, !alias.scope !3733, !noundef !5
-  %209 = trunc i8 %208 to i1
+  %209 = trunc nuw i8 %208 to i1
   %210 = load i32, ptr %41, align 4, !noalias !3682
   %211 = call i32 @llvm.bswap.i32(i32 %210)
   %.08.i962 = select i1 %209, i32 %211, i32 %210
@@ -18613,7 +18613,7 @@ default.unreachable1608:                          ; preds = %510, %509, %131, %1
 215:                                              ; preds = %.noexc967
   %216 = getelementptr inbounds i8, ptr %92, i64 32
   %217 = load i8, ptr %216, align 8, !range !477, !alias.scope !3736, !noundef !5
-  %218 = trunc i8 %217 to i1
+  %218 = trunc nuw i8 %217 to i1
   %219 = load i32, ptr %40, align 4, !noalias !3686
   %220 = call i32 @llvm.bswap.i32(i32 %219)
   %.08.i966 = select i1 %218, i32 %220, i32 %219
@@ -18634,7 +18634,7 @@ default.unreachable1608:                          ; preds = %510, %509, %131, %1
 224:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !3739
   %225 = load i64, ptr %21, align 8, !range !19, !alias.scope !3742, !noalias !3739, !noundef !5
-  %trunc.i.i = trunc i64 %225 to i1
+  %trunc.i.i = trunc nuw i64 %225 to i1
   %226 = getelementptr inbounds i8, ptr %21, i64 8
   %227 = load ptr, ptr %226, align 8, !alias.scope !3742, !noalias !3739, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !3739
@@ -18661,10 +18661,10 @@ default.unreachable1608:                          ; preds = %510, %509, %131, %1
 
 _ZN4tiff7decoder6stream12EndianReader8read_u3217he5c05beef8ec0ff9E.exit1029.thread: ; preds = %231
   %236 = call i32 @llvm.bswap.i32(i32 %233)
-  %237 = trunc i8 %232 to i1
+  %237 = trunc nuw i8 %232 to i1
   %.08.i1026 = select i1 %237, i32 %236, i32 %233
   %238 = load i8, ptr %111, align 8, !range !477, !alias.scope !3758, !noalias !3757, !noundef !5
-  %239 = trunc i8 %238 to i1
+  %239 = trunc nuw i8 %238 to i1
   %240 = load i32, ptr %27, align 4, !noalias !3753
   %241 = call i32 @llvm.bswap.i32(i32 %240)
   %.08.i1028 = select i1 %239, i32 %241, i32 %240
@@ -18703,7 +18703,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217he5c05beef8ec0ff9E.exit1029.thre
 247:                                              ; preds = %.noexc915
   %248 = getelementptr inbounds i8, ptr %99, i64 32
   %249 = load i8, ptr %248, align 8, !range !477, !alias.scope !3761, !noundef !5
-  %250 = trunc i8 %249 to i1
+  %250 = trunc nuw i8 %249 to i1
   %251 = load i16, ptr %53, align 2, !noalias !3690
   %252 = call i16 @llvm.bswap.i16(i16 %251)
   %.09.i = select i1 %250, i16 %252, i16 %251
@@ -18731,7 +18731,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217he5c05beef8ec0ff9E.exit1029.thre
 257:                                              ; preds = %.noexc924
   %258 = getelementptr inbounds i8, ptr %97, i64 32
   %259 = load i8, ptr %258, align 8, !range !477, !alias.scope !3764, !noundef !5
-  %260 = trunc i8 %259 to i1
+  %260 = trunc nuw i8 %259 to i1
   %261 = load i32, ptr %51, align 4, !noalias !3694
   %262 = call i32 @llvm.bswap.i32(i32 %261)
   %.09.i923 = select i1 %260, i32 %262, i32 %261
@@ -18758,7 +18758,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217he5c05beef8ec0ff9E.exit1029.thre
 266:                                              ; preds = %.noexc972
   %267 = getelementptr inbounds i8, ptr %91, i64 32
   %268 = load i8, ptr %267, align 8, !range !477, !alias.scope !3767, !noundef !5
-  %269 = trunc i8 %268 to i1
+  %269 = trunc nuw i8 %268 to i1
   %270 = load i32, ptr %39, align 4, !noalias !3698
   %271 = call i32 @llvm.bswap.i32(i32 %270)
   %.08.i971 = select i1 %269, i32 %271, i32 %270
@@ -18779,7 +18779,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217he5c05beef8ec0ff9E.exit1029.thre
 275:                                              ; preds = %266
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !3770
   %276 = load i64, ptr %19, align 8, !range !19, !alias.scope !3773, !noalias !3770, !noundef !5
-  %trunc.i.i1087 = trunc i64 %276 to i1
+  %trunc.i.i1087 = trunc nuw i64 %276 to i1
   %277 = getelementptr inbounds i8, ptr %19, i64 8
   %278 = load ptr, ptr %277, align 8, !alias.scope !3773, !noalias !3770, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !3770
@@ -18806,10 +18806,10 @@ _ZN4tiff7decoder6stream12EndianReader8read_u3217he5c05beef8ec0ff9E.exit1029.thre
 
 _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.thread: ; preds = %282
   %287 = call i32 @llvm.bswap.i32(i32 %284)
-  %288 = trunc i8 %283 to i1
+  %288 = trunc nuw i8 %283 to i1
   %.09.i942 = select i1 %288, i32 %287, i32 %284
   %289 = load i8, ptr %111, align 8, !range !477, !alias.scope !3789, !noalias !3788, !noundef !5
-  %290 = trunc i8 %289 to i1
+  %290 = trunc nuw i8 %289 to i1
   %291 = load i32, ptr %46, align 4, !noalias !3784
   %292 = call i32 @llvm.bswap.i32(i32 %291)
   %.09.i944 = select i1 %290, i32 %292, i32 %291
@@ -18848,7 +18848,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 298:                                              ; preds = %.noexc
   %299 = getelementptr inbounds i8, ptr %96, i64 32
   %300 = load i8, ptr %299, align 8, !range !477, !alias.scope !3792, !noundef !5
-  %301 = trunc i8 %300 to i1
+  %301 = trunc nuw i8 %300 to i1
   %302 = load i32, ptr %57, align 4, !noalias !3702
   %303 = call i32 @llvm.bswap.i32(i32 %302)
   %.08.i = select i1 %301, i32 %303, i32 %302
@@ -18875,7 +18875,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 307:                                              ; preds = %.noexc977
   %308 = getelementptr inbounds i8, ptr %93, i64 32
   %309 = load i8, ptr %308, align 8, !range !477, !alias.scope !3795, !noundef !5
-  %310 = trunc i8 %309 to i1
+  %310 = trunc nuw i8 %309 to i1
   %311 = load i32, ptr %38, align 4, !noalias !3706
   %312 = call i32 @llvm.bswap.i32(i32 %311)
   %.08.i976 = select i1 %310, i32 %312, i32 %311
@@ -18896,7 +18896,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 316:                                              ; preds = %307
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !3798
   %317 = load i64, ptr %17, align 8, !range !19, !alias.scope !3801, !noalias !3798, !noundef !5
-  %trunc.i.i1091 = trunc i64 %317 to i1
+  %trunc.i.i1091 = trunc nuw i64 %317 to i1
   %318 = getelementptr inbounds i8, ptr %17, i64 8
   %319 = load ptr, ptr %318, align 8, !alias.scope !3801, !noalias !3798, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !3798
@@ -18913,7 +18913,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 323:                                              ; preds = %320
   %324 = load i8, ptr %111, align 8, !range !477, !alias.scope !3809, !noalias !3808, !noundef !5
-  %325 = trunc i8 %324 to i1
+  %325 = trunc nuw i8 %324 to i1
   %326 = load i64, ptr %54, align 8, !noalias !3804
   %327 = call i64 @llvm.bswap.i64(i64 %326)
   %.08.i913 = select i1 %325, i64 %327, i64 %326
@@ -18947,7 +18947,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 332:                                              ; preds = %.noexc982
   %333 = getelementptr inbounds i8, ptr %90, i64 32
   %334 = load i8, ptr %333, align 8, !range !477, !alias.scope !3812, !noundef !5
-  %335 = trunc i8 %334 to i1
+  %335 = trunc nuw i8 %334 to i1
   %336 = load i32, ptr %37, align 4, !noalias !3710
   %337 = call i32 @llvm.bswap.i32(i32 %336)
   %.08.i981 = select i1 %335, i32 %337, i32 %336
@@ -18974,7 +18974,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 341:                                              ; preds = %.noexc987
   %342 = getelementptr inbounds i8, ptr %95, i64 32
   %343 = load i8, ptr %342, align 8, !range !477, !alias.scope !3815, !noundef !5
-  %344 = trunc i8 %343 to i1
+  %344 = trunc nuw i8 %343 to i1
   %345 = load i32, ptr %36, align 4, !noalias !3714
   %346 = call i32 @llvm.bswap.i32(i32 %345)
   %.08.i986 = select i1 %344, i32 %346, i32 %345
@@ -18995,7 +18995,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 350:                                              ; preds = %341
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !3818
   %351 = load i64, ptr %15, align 8, !range !19, !alias.scope !3821, !noalias !3818, !noundef !5
-  %trunc.i.i1095 = trunc i64 %351 to i1
+  %trunc.i.i1095 = trunc nuw i64 %351 to i1
   %352 = getelementptr inbounds i8, ptr %15, i64 8
   %353 = load ptr, ptr %352, align 8, !alias.scope !3821, !noalias !3818, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !3818
@@ -19012,7 +19012,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 357:                                              ; preds = %354
   %358 = load i8, ptr %111, align 8, !range !477, !alias.scope !3829, !noalias !3828, !noundef !5
-  %359 = trunc i8 %358 to i1
+  %359 = trunc nuw i8 %358 to i1
   %360 = load i64, ptr %26, align 8, !noalias !3824
   %361 = call i64 @llvm.bswap.i64(i64 %360)
   %.08.i1031 = select i1 %359, i64 %361, i64 %360
@@ -19046,7 +19046,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 366:                                              ; preds = %.noexc992
   %367 = getelementptr inbounds i8, ptr %94, i64 32
   %368 = load i8, ptr %367, align 8, !range !477, !alias.scope !3832, !noundef !5
-  %369 = trunc i8 %368 to i1
+  %369 = trunc nuw i8 %368 to i1
   %370 = load i32, ptr %35, align 4, !noalias !3718
   %371 = call i32 @llvm.bswap.i32(i32 %370)
   %.08.i991 = select i1 %369, i32 %371, i32 %370
@@ -19067,7 +19067,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 375:                                              ; preds = %366
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !3835
   %376 = load i64, ptr %13, align 8, !range !19, !alias.scope !3838, !noalias !3835, !noundef !5
-  %trunc.i.i1099 = trunc i64 %376 to i1
+  %trunc.i.i1099 = trunc nuw i64 %376 to i1
   %377 = getelementptr inbounds i8, ptr %13, i64 8
   %378 = load ptr, ptr %377, align 8, !alias.scope !3838, !noalias !3835, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !3835
@@ -19084,7 +19084,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 382:                                              ; preds = %379
   %383 = load i8, ptr %111, align 8, !range !477, !alias.scope !3846, !noalias !3845, !noundef !5
-  %384 = trunc i8 %383 to i1
+  %384 = trunc nuw i8 %383 to i1
   %385 = load i64, ptr %44, align 8, !noalias !3841
   %386 = call i64 @llvm.bswap.i64(i64 %385)
   %.09.i951 = select i1 %384, i64 %386, i64 %385
@@ -19118,7 +19118,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 391:                                              ; preds = %.noexc997
   %392 = getelementptr inbounds i8, ptr %89, i64 32
   %393 = load i8, ptr %392, align 8, !range !477, !alias.scope !3849, !noundef !5
-  %394 = trunc i8 %393 to i1
+  %394 = trunc nuw i8 %393 to i1
   %395 = load i32, ptr %34, align 4, !noalias !3722
   %396 = call i32 @llvm.bswap.i32(i32 %395)
   %.08.i996 = select i1 %394, i32 %396, i32 %395
@@ -19139,7 +19139,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 400:                                              ; preds = %391
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !3852
   %401 = load i64, ptr %11, align 8, !range !19, !alias.scope !3855, !noalias !3852, !noundef !5
-  %trunc.i.i1103 = trunc i64 %401 to i1
+  %trunc.i.i1103 = trunc nuw i64 %401 to i1
   %402 = getelementptr inbounds i8, ptr %11, i64 8
   %403 = load ptr, ptr %402, align 8, !alias.scope !3855, !noalias !3852, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !3852
@@ -19156,7 +19156,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 407:                                              ; preds = %404
   %408 = load i8, ptr %111, align 8, !range !477, !alias.scope !3863, !noalias !3862, !noundef !5
-  %409 = trunc i8 %408 to i1
+  %409 = trunc nuw i8 %408 to i1
   %410 = load i64, ptr %25, align 8, !noalias !3858
   %411 = call i64 @llvm.bswap.i64(i64 %410)
   %.08.i1033 = select i1 %409, i64 %411, i64 %410
@@ -19266,7 +19266,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 435:                                              ; preds = %.noexc1002
   %436 = getelementptr inbounds i8, ptr %103, i64 32
   %437 = load i8, ptr %436, align 8, !range !477, !alias.scope !3890, !noundef !5
-  %438 = trunc i8 %437 to i1
+  %438 = trunc nuw i8 %437 to i1
   %439 = load i32, ptr %33, align 4, !noalias !3866
   %440 = call i32 @llvm.bswap.i32(i32 %439)
   %.08.i1001 = select i1 %438, i32 %440, i32 %439
@@ -19297,7 +19297,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 446:                                              ; preds = %.noexc1007
   %447 = load i8, ptr %436, align 8, !range !477, !alias.scope !3897, !noundef !5
-  %448 = trunc i8 %447 to i1
+  %448 = trunc nuw i8 %447 to i1
   %449 = load i32, ptr %32, align 4, !noalias !3893
   %450 = call i32 @llvm.bswap.i32(i32 %449)
   %.08.i1006 = select i1 %448, i32 %450, i32 %449
@@ -19340,7 +19340,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 456:                                              ; preds = %.noexc928
   %457 = getelementptr inbounds i8, ptr %102, i64 32
   %458 = load i8, ptr %457, align 8, !range !477, !alias.scope !3900, !noundef !5
-  %459 = trunc i8 %458 to i1
+  %459 = trunc nuw i8 %458 to i1
   %460 = load i32, ptr %50, align 4, !noalias !3870
   %461 = call i32 @llvm.bswap.i32(i32 %460)
   %.09.i927 = select i1 %459, i32 %461, i32 %460
@@ -19371,7 +19371,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 467:                                              ; preds = %.noexc933
   %468 = load i8, ptr %457, align 8, !range !477, !alias.scope !3907, !noundef !5
-  %469 = trunc i8 %468 to i1
+  %469 = trunc nuw i8 %468 to i1
   %470 = load i32, ptr %49, align 4, !noalias !3903
   %471 = call i32 @llvm.bswap.i32(i32 %470)
   %.09.i932 = select i1 %469, i32 %471, i32 %470
@@ -19398,7 +19398,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 475:                                              ; preds = %.noexc910
   %476 = getelementptr inbounds i8, ptr %104, i64 32
   %477 = load i8, ptr %476, align 8, !range !477, !alias.scope !3910, !noundef !5
-  %478 = trunc i8 %477 to i1
+  %478 = trunc nuw i8 %477 to i1
   %479 = load i64, ptr %55, align 8, !noalias !3874
   %480 = call i64 @llvm.bswap.i64(i64 %479)
   %.08.i909 = select i1 %478, i64 %480, i64 %479
@@ -19427,7 +19427,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 484:                                              ; preds = %.noexc1037
   %485 = getelementptr inbounds i8, ptr %106, i64 32
   %486 = load i8, ptr %485, align 8, !range !477, !alias.scope !3913, !noundef !5
-  %487 = trunc i8 %486 to i1
+  %487 = trunc nuw i8 %486 to i1
   %488 = load i64, ptr %24, align 8, !noalias !3878
   %489 = call i64 @llvm.bswap.i64(i64 %488)
   %.08.i1036 = select i1 %487, i64 %489, i64 %488
@@ -19456,7 +19456,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 493:                                              ; preds = %.noexc948
   %494 = getelementptr inbounds i8, ptr %105, i64 32
   %495 = load i8, ptr %494, align 8, !range !477, !alias.scope !3916, !noundef !5
-  %496 = trunc i8 %495 to i1
+  %496 = trunc nuw i8 %495 to i1
   %497 = load i64, ptr %45, align 8, !noalias !3882
   %498 = call i64 @llvm.bswap.i64(i64 %497)
   %.09.i947 = select i1 %496, i64 %498, i64 %497
@@ -19485,7 +19485,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 502:                                              ; preds = %.noexc1041
   %503 = getelementptr inbounds i8, ptr %101, i64 32
   %504 = load i8, ptr %503, align 8, !range !477, !alias.scope !3919, !noundef !5
-  %505 = trunc i8 %504 to i1
+  %505 = trunc nuw i8 %504 to i1
   %506 = load i64, ptr %23, align 8, !noalias !3886
   %507 = call i64 @llvm.bswap.i64(i64 %506)
   %.08.i1040 = select i1 %505, i64 %507, i64 %506
@@ -19665,7 +19665,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 539:                                              ; preds = %.noexc1012
   %540 = getelementptr inbounds i8, ptr %65, i64 32
   %541 = load i8, ptr %540, align 8, !range !477, !alias.scope !3930, !noundef !5
-  %542 = trunc i8 %541 to i1
+  %542 = trunc nuw i8 %541 to i1
   %543 = load i32, ptr %31, align 4, !noalias !3922
   %544 = call i32 @llvm.bswap.i32(i32 %543)
   %.08.i1011 = select i1 %542, i32 %544, i32 %543
@@ -19686,7 +19686,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 548:                                              ; preds = %539
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !3933
   %549 = load i64, ptr %9, align 8, !range !19, !alias.scope !3936, !noalias !3933, !noundef !5
-  %trunc.i.i1127 = trunc i64 %549 to i1
+  %trunc.i.i1127 = trunc nuw i64 %549 to i1
   %550 = getelementptr inbounds i8, ptr %9, i64 8
   %551 = load ptr, ptr %550, align 8, !alias.scope !3936, !noalias !3933, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !3933
@@ -19729,7 +19729,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 563:                                              ; preds = %.noexc1046
   %564 = getelementptr inbounds i8, ptr %66, i64 32
   %565 = load i8, ptr %564, align 8, !range !477, !alias.scope !3942, !noundef !5
-  %566 = trunc i8 %565 to i1
+  %566 = trunc nuw i8 %565 to i1
   %567 = load i64, ptr %22, align 8, !noalias !3926
   %568 = call i64 @llvm.bswap.i64(i64 %567)
   %.08.i1045 = select i1 %566, i64 %568, i64 %567
@@ -19749,7 +19749,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 571:                                              ; preds = %563
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !3945
   %572 = load i64, ptr %7, align 8, !range !19, !alias.scope !3948, !noalias !3945, !noundef !5
-  %trunc.i.i1131 = trunc i64 %572 to i1
+  %trunc.i.i1131 = trunc nuw i64 %572 to i1
   %573 = getelementptr inbounds i8, ptr %7, i64 8
   %574 = load ptr, ptr %573, align 8, !alias.scope !3948, !noalias !3945, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !3945
@@ -20083,7 +20083,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 675:                                              ; preds = %674
   %676 = load i64, ptr %86, align 8, !range !19, !noundef !5
-  %trunc673 = trunc i64 %676 to i1
+  %trunc673 = trunc nuw i64 %676 to i1
   %677 = getelementptr inbounds i8, ptr %86, i64 8
   %.sroa.0540.0.copyload = load ptr, ptr %677, align 8
   %.sroa.4541.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 16
@@ -20174,7 +20174,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 700:                                              ; preds = %.noexc958
   %701 = load i8, ptr %617, align 8, !range !477, !alias.scope !3964, !noundef !5
-  %702 = trunc i8 %701 to i1
+  %702 = trunc nuw i8 %701 to i1
   %703 = load i16, ptr %42, align 2, !noalias !3960
   %704 = call i16 @llvm.bswap.i16(i16 %703)
   %.08.i957 = select i1 %702, i16 %704, i16 %703
@@ -20279,7 +20279,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 730:                                              ; preds = %.noexc1017
   %731 = load i8, ptr %621, align 8, !range !477, !alias.scope !3976, !noundef !5
-  %732 = trunc i8 %731 to i1
+  %732 = trunc nuw i8 %731 to i1
   %733 = load i32, ptr %30, align 4, !noalias !3972
   %734 = call i32 @llvm.bswap.i32(i32 %733)
   %.08.i1016 = select i1 %732, i32 %734, i32 %733
@@ -20384,7 +20384,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 760:                                              ; preds = %.noexc919
   %761 = load i8, ptr %642, align 8, !range !477, !alias.scope !3988, !noundef !5
-  %762 = trunc i8 %761 to i1
+  %762 = trunc nuw i8 %761 to i1
   %763 = load i16, ptr %52, align 2, !noalias !3984
   %764 = call i16 @llvm.bswap.i16(i16 %763)
   %.09.i918 = select i1 %762, i16 %764, i16 %763
@@ -20490,7 +20490,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 791:                                              ; preds = %.noexc938
   %792 = load i8, ptr %646, align 8, !range !477, !alias.scope !4000, !noundef !5
-  %793 = trunc i8 %792 to i1
+  %793 = trunc nuw i8 %792 to i1
   %794 = load i32, ptr %48, align 4, !noalias !3996
   %795 = call i32 @llvm.bswap.i32(i32 %794)
   %.09.i937 = select i1 %793, i32 %795, i32 %794
@@ -20595,7 +20595,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 821:                                              ; preds = %.noexc905
   %822 = load i8, ptr %650, align 8, !range !477, !alias.scope !4012, !noundef !5
-  %823 = trunc i8 %822 to i1
+  %823 = trunc nuw i8 %822 to i1
   %824 = load i32, ptr %56, align 4, !noalias !4008
   %825 = call i32 @llvm.bswap.i32(i32 %824)
   %.08.i904 = select i1 %823, i32 %825, i32 %824
@@ -20700,7 +20700,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 851:                                              ; preds = %.noexc1022
   %852 = load i8, ptr %654, align 8, !range !477, !alias.scope !4024, !noundef !5
-  %853 = trunc i8 %852 to i1
+  %853 = trunc nuw i8 %852 to i1
   %854 = load i32, ptr %29, align 4, !noalias !4020
   %855 = call i32 @llvm.bswap.i32(i32 %854)
   %.08.i1021 = select i1 %853, i32 %855, i32 %854
@@ -21187,7 +21187,7 @@ define internal fastcc void @_ZN5alloc6string6String9from_utf817ha56d2fd69a46ed8
 
 11:                                               ; preds = %2
   %12 = load i64, ptr %4, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %12 to i1
+  %trunc = trunc nuw i64 %12 to i1
   br i1 %trunc, label %15, label %13
 
 13:                                               ; preds = %11
@@ -21251,7 +21251,7 @@ define hidden void @"_ZN60_$LT$exr..io..PeekRead$LT$T$GT$$u20$as$u20$std..io..Re
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4122
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %13, ptr noalias noundef nonnull align 1 %2, i64 noundef %3), !noalias !4117
   %14 = load i64, ptr %6, align 8, !range !19, !noalias !4122, !noundef !5
-  %trunc.i = trunc i64 %14 to i1
+  %trunc.i = trunc nuw i64 %14 to i1
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !4122
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !4122
@@ -21290,7 +21290,7 @@ define hidden void @"_ZN60_$LT$exr..io..PeekRead$LT$T$GT$$u20$as$u20$std..io..Re
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4129
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %26, ptr noalias noundef nonnull align 1 %28, i64 noundef %27), !noalias !4132
   %29 = load i64, ptr %5, align 8, !range !19, !noalias !4129, !noundef !5
-  %trunc.i22 = trunc i64 %29 to i1
+  %trunc.i22 = trunc nuw i64 %29 to i1
   %30 = getelementptr inbounds i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8, !noalias !4129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4129
@@ -21581,7 +21581,7 @@ define hidden void @"_ZN60_$LT$exr..io..Tracking$LT$T$GT$$u20$as$u20$std..io..Re
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %6 = load i64, ptr %5, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %6 to i1
+  %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -21606,7 +21606,7 @@ define hidden void @"_ZN60_$LT$exr..io..Tracking$LT$T$GT$$u20$as$u20$std..io..Re
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN61_$LT$tiff..decoder..ChunkType$u20$as$u20$core..fmt..Debug$GT$3fmt17had3b71f3101190feE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !477, !noundef !5
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %. = select i1 %trunc, i64 4, i64 5
   %anon.1fb7ff8ae5a2b866dafd4482df872917.160.anon.1fb7ff8ae5a2b866dafd4482df872917.161 = select i1 %trunc, ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.161, ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.160
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.1fb7ff8ae5a2b866dafd4482df872917.160.anon.1fb7ff8ae5a2b866dafd4482df872917.161, i64 noundef %.)
@@ -22503,7 +22503,7 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %15, label %8
 
 7:                                                ; preds = %2, %15, %8
@@ -22633,8 +22633,8 @@ define hidden { i32, i32 } @_ZN5image4math5utils17resize_dimensions17hc7ef2b668d
   br label %39
 
 31:                                               ; preds = %24
-  %32 = trunc i64 %.0.sroa.speculated.i to i32
-  %33 = trunc i64 %.0.sroa.speculated.i8 to i32
+  %32 = trunc nuw i64 %.0.sroa.speculated.i to i32
+  %33 = trunc nuw i64 %.0.sroa.speculated.i8 to i32
   br label %39
 
 34:                                               ; preds = %24
@@ -22699,16 +22699,16 @@ define void @_ZN5image8imageops18overlay_bounds_ext17h2c74f5ee07cfece4E(ptr noal
 
 20:                                               ; preds = %16
   %.0.in.sroa.speculate.load.4.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %8)
-  %21 = trunc i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i to i32
+  %21 = trunc nuw i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i to i32
   %.0.in.sroa.speculate.load.4.sroa.speculated.i10 = tail call i64 @llvm.umin.i64(i64 %18, i64 %10)
-  %22 = trunc i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i10 to i32
+  %22 = trunc nuw i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i10 to i32
   %23 = icmp slt i64 %5, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i12 = tail call i64 @llvm.umin.i64(i64 %5, i64 %8)
-  %24 = trunc i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i12 to i32
+  %24 = trunc nuw i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i12 to i32
   %25 = select i1 %23, i32 0, i32 %24
   %26 = icmp slt i64 %6, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i14 = tail call i64 @llvm.umin.i64(i64 %6, i64 %10)
-  %27 = trunc i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i14 to i32
+  %27 = trunc nuw i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i14 to i32
   %28 = select i1 %26, i32 0, i32 %27
   %29 = sub i32 %21, %25
   %30 = sub i32 %22, %28
@@ -22717,14 +22717,14 @@ define void @_ZN5image8imageops18overlay_bounds_ext17h2c74f5ee07cfece4E(ptr noal
   %.0.i = select i1 %.not.i, i64 9223372036854775807, i64 %31
   %32 = icmp slt i64 %.0.i, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i16 = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %13)
-  %33 = trunc i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i16 to i32
+  %33 = trunc nuw i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i16 to i32
   %34 = select i1 %32, i32 0, i32 %33
   %35 = sub i64 0, %6
   %.not.i18 = icmp eq i64 %6, -9223372036854775808
   %.0.i19 = select i1 %.not.i18, i64 9223372036854775807, i64 %35
   %36 = icmp slt i64 %.0.i19, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i20 = tail call i64 @llvm.umin.i64(i64 %.0.i19, i64 %17)
-  %37 = trunc i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i20 to i32
+  %37 = trunc nuw i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i20 to i32
   %38 = select i1 %36, i32 0, i32 %37
   store i32 %25, ptr %0, align 4
   %39 = getelementptr inbounds i8, ptr %0, i64 4
@@ -23496,7 +23496,7 @@ define void @_ZN5image6codecs3gif9FrameInfo14new_from_frame17hb96f3576314dc13aE(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i16, i16 } @_ZN5image6codecs3gif6Repeat11to_gif_enum17hec37d9fa9a5d5aabE(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #7 {
   %2 = load i16, ptr %0, align 2, !range !4690, !noundef !5
-  %trunc = trunc i16 %2 to i1
+  %trunc = trunc nuw i16 %2 to i1
   %3 = getelementptr inbounds i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %.sroa.3.0 = select i1 %trunc, i16 undef, i16 %4
@@ -23507,15 +23507,17 @@ define { i16, i16 } @_ZN5image6codecs3gif6Repeat11to_gif_enum17hec37d9fa9a5d5aab
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define i48 @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$14gif_dimensions16inner_dimensions17hd3657403bd0340d1E"(i32 noundef %0, i32 noundef %1) unnamed_addr #18 {
-  %3 = or i32 %1, %0
-  %narrow = icmp ult i32 %3, 65536
-  %.mask = and i32 %1, 65535
-  %.sroa.5.0.insert.ext = zext nneg i32 %.mask to i48
+  %3 = icmp ult i32 %0, 65536
+  %4 = or i32 %0, %1
+  %5 = icmp ult i32 %4, 65536
+  %narrow19 = select i1 %5, i32 %1, i32 0
+  %.sroa.5.0.insert.ext = zext nneg i32 %narrow19 to i48
   %.sroa.5.0.insert.shift = shl nuw i48 %.sroa.5.0.insert.ext, 32
-  %4 = shl i32 %0, 16
-  %.sroa.4.0.insert.shift = zext i32 %4 to i48
+  %6 = shl i32 %0, 16
+  %7 = select i1 %3, i32 %6, i32 0
+  %.sroa.4.0.insert.shift = zext i32 %7 to i48
   %.sroa.4.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i1 %narrow to i48
+  %.sroa.0.0.insert.ext = zext i1 %5 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.4.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }
@@ -24467,7 +24469,7 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
 
 "_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h4a038e8b3fc52d71E.exit.i": ; preds = %72
   %.sroa.38.sroa.16.0.extract.shift226 = lshr i64 %.sroa.17.i.sroa.6.0, 32
-  %.sroa.38.sroa.16.0.extract.trunc227 = trunc i64 %.sroa.38.sroa.16.0.extract.shift226 to i32
+  %.sroa.38.sroa.16.0.extract.trunc227 = trunc nuw i64 %.sroa.38.sroa.16.0.extract.shift226 to i32
   %.sroa.38.sroa.15.0.extract.shift212 = lshr i64 %.sroa.17.i.sroa.6.0, 8
   %.sroa.38.sroa.15.0.extract.trunc213 = trunc i64 %.sroa.38.sroa.15.0.extract.shift212 to i24
   %.sroa.38.sroa.0.0.extract.trunc200 = trunc i64 %.sroa.17.i.sroa.6.0 to i8
@@ -24586,7 +24588,7 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
   %.sroa.38.sroa.15.0.extract.shift206 = lshr i64 %.sroa.342.i.sroa.7.0.copyload, 8
   %.sroa.38.sroa.15.0.extract.trunc207 = trunc i64 %.sroa.38.sroa.15.0.extract.shift206 to i24
   %.sroa.38.sroa.16.0.extract.shift220 = lshr i64 %.sroa.342.i.sroa.7.0.copyload, 32
-  %.sroa.38.sroa.16.0.extract.trunc221 = trunc i64 %.sroa.38.sroa.16.0.extract.shift220 to i32
+  %.sroa.38.sroa.16.0.extract.trunc221 = trunc nuw i64 %.sroa.38.sroa.16.0.extract.shift220 to i32
   br label %109
 
 109:                                              ; preds = %106, %96
@@ -24621,7 +24623,7 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
 "_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h4a038e8b3fc52d71E.exit.i58": ; preds = %109
   %.sroa.35.sroa.0.1 = trunc i32 %.sroa.35.sroa.11.sroa.0.1.in.in to i8
   %.sroa.35.sroa.11.sroa.0.1.in = lshr i32 %.sroa.35.sroa.11.sroa.0.1.in.in, 8
-  %.sroa.35.sroa.11.sroa.0.1 = trunc i32 %.sroa.35.sroa.11.sroa.0.1.in to i24
+  %.sroa.35.sroa.11.sroa.0.1 = trunc nuw i32 %.sroa.35.sroa.11.sroa.0.1.in to i24
   %119 = getelementptr inbounds i8, ptr %26, i64 40
   %120 = load i32, ptr %119, align 8, !alias.scope !4834, !noalias !4807, !noundef !5
   %121 = call noundef i32 @close(i32 noundef %120)
@@ -24740,7 +24742,7 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
   %.sroa.38.sroa.15.0.extract.shift208 = lshr i64 %.sroa.342.i64.sroa.7.0.copyload, 8
   %.sroa.38.sroa.15.0.extract.trunc209 = trunc i64 %.sroa.38.sroa.15.0.extract.shift208 to i24
   %.sroa.38.sroa.16.0.extract.shift222 = lshr i64 %.sroa.342.i64.sroa.7.0.copyload, 32
-  %.sroa.38.sroa.16.0.extract.trunc223 = trunc i64 %.sroa.38.sroa.16.0.extract.shift222 to i32
+  %.sroa.38.sroa.16.0.extract.trunc223 = trunc nuw i64 %.sroa.38.sroa.16.0.extract.shift222 to i32
   br label %146
 
 146:                                              ; preds = %143, %133
@@ -24775,7 +24777,7 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
 "_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h4a038e8b3fc52d71E.exit.i70": ; preds = %146
   %.sroa.35.sroa.0.3 = trunc i32 %.sroa.35.sroa.11.sroa.0.3.in.in to i8
   %.sroa.35.sroa.11.sroa.0.3.in = lshr i32 %.sroa.35.sroa.11.sroa.0.3.in.in, 8
-  %.sroa.35.sroa.11.sroa.0.3 = trunc i32 %.sroa.35.sroa.11.sroa.0.3.in to i24
+  %.sroa.35.sroa.11.sroa.0.3 = trunc nuw i32 %.sroa.35.sroa.11.sroa.0.3.in to i24
   %156 = getelementptr inbounds i8, ptr %25, i64 40
   %157 = load i32, ptr %156, align 8, !alias.scope !4864, !noalias !4845, !noundef !5
   %158 = call noundef i32 @close(i32 noundef %157)
@@ -24965,7 +24967,7 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
 "_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h4a038e8b3fc52d71E.exit.i85": ; preds = %"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..header..ArbitraryHeader$GT$17hb33185c4103c75e7E.exit.i"
   %.sroa.35.sroa.0.5 = trunc i32 %.sroa.35.sroa.11.sroa.0.5.in.in to i8
   %.sroa.35.sroa.11.sroa.0.5.in = lshr i32 %.sroa.35.sroa.11.sroa.0.5.in.in, 8
-  %.sroa.35.sroa.11.sroa.0.5 = trunc i32 %.sroa.35.sroa.11.sroa.0.5.in to i24
+  %.sroa.35.sroa.11.sroa.0.5 = trunc nuw i32 %.sroa.35.sroa.11.sroa.0.5.in to i24
   %204 = getelementptr inbounds i8, ptr %24, i64 40
   %205 = load i32, ptr %204, align 8, !alias.scope !4913, !noalias !4875, !noundef !5
   %206 = call noundef i32 @close(i32 noundef %205)
@@ -25070,7 +25072,7 @@ define hidden void @"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$3new17h4b1
   %224 = phi <2 x i32> [ %183, %182 ], [ %196, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h4a038e8b3fc52d71E.exit.i85" ]
   %.sroa.38.sroa.0.6 = trunc i64 %.sroa.38.sroa.15.sroa.0.6.in.in to i8
   %.sroa.38.sroa.16.6.in = lshr i64 %.sroa.38.sroa.15.sroa.0.6.in.in, 32
-  %.sroa.38.sroa.16.6 = trunc i64 %.sroa.38.sroa.16.6.in to i32
+  %.sroa.38.sroa.16.6 = trunc nuw i64 %.sroa.38.sroa.16.6.in to i32
   %.sroa.38.sroa.15.sroa.0.6.in = lshr i64 %.sroa.38.sroa.15.sroa.0.6.in.in, 8
   %.sroa.38.sroa.15.sroa.0.6 = trunc i64 %.sroa.38.sroa.15.sroa.0.6.in to i24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.329.i)
@@ -25612,7 +25614,7 @@ common.resume:                                    ; preds = %560, %.body.i.i.i.i
   %.sroa.39.sroa.15.0.extract.shift233 = lshr i64 %.sroa.17.i.sroa.6.0, 8
   %.sroa.39.sroa.15.0.extract.trunc234 = trunc i64 %.sroa.39.sroa.15.0.extract.shift233 to i24
   %.sroa.39.sroa.16.0.extract.shift247 = lshr i64 %.sroa.17.i.sroa.6.0, 32
-  %.sroa.39.sroa.16.0.extract.trunc248 = trunc i64 %.sroa.39.sroa.16.0.extract.shift247 to i32
+  %.sroa.39.sroa.16.0.extract.trunc248 = trunc nuw i64 %.sroa.39.sroa.16.0.extract.shift247 to i32
   %.sroa.53.sroa.15.0.extract.shift202 = and i32 %.sroa.17.i.sroa.9.0, -256
   br label %"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$18read_bitmap_header17h83ec3694798d8ff6E.exit"
 
@@ -25711,7 +25713,7 @@ common.resume:                                    ; preds = %560, %.body.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37), !noalias !5056
   %.sroa.33.sroa.11.sroa.0.0.extract.trunc282 = trunc i32 %.sroa.949.0.copyload.i to i8
   %.sroa.33.sroa.11.sroa.11.0.extract.shift295 = lshr i32 %.sroa.949.0.copyload.i, 8
-  %.sroa.33.sroa.11.sroa.11.0.extract.trunc296 = trunc i32 %.sroa.33.sroa.11.sroa.11.0.extract.shift295 to i24
+  %.sroa.33.sroa.11.sroa.11.0.extract.trunc296 = trunc nuw i32 %.sroa.33.sroa.11.sroa.11.0.extract.shift295 to i24
   br label %112
 
 109:                                              ; preds = %101
@@ -25749,12 +25751,12 @@ common.resume:                                    ; preds = %560, %.body.i.i.i.i
   %.sroa.33.sroa.11.0.extract.shift267 = lshr i64 %.sroa.342.i.sroa.5.0.copyload, 32
   %.sroa.33.sroa.11.sroa.0.0.extract.trunc278 = trunc i64 %.sroa.33.sroa.11.0.extract.shift267 to i8
   %sum.shift = lshr i64 %.sroa.342.i.sroa.5.0.copyload, 40
-  %.sroa.33.sroa.11.sroa.11.0.extract.trunc288 = trunc i64 %sum.shift to i24
+  %.sroa.33.sroa.11.sroa.11.0.extract.trunc288 = trunc nuw i64 %sum.shift to i24
   %.sroa.39.sroa.0.0.extract.trunc = trunc i64 %.sroa.342.i.sroa.6.0.copyload to i8
   %.sroa.39.sroa.15.0.extract.shift = lshr i64 %.sroa.342.i.sroa.6.0.copyload, 8
   %.sroa.39.sroa.15.0.extract.trunc = trunc i64 %.sroa.39.sroa.15.0.extract.shift to i24
   %.sroa.39.sroa.16.0.extract.shift = lshr i64 %.sroa.342.i.sroa.6.0.copyload, 32
-  %.sroa.39.sroa.16.0.extract.trunc = trunc i64 %.sroa.39.sroa.16.0.extract.shift to i32
+  %.sroa.39.sroa.16.0.extract.trunc = trunc nuw i64 %.sroa.39.sroa.16.0.extract.shift to i32
   br label %112
 
 112:                                              ; preds = %110, %107
@@ -25872,7 +25874,7 @@ common.resume:                                    ; preds = %560, %.body.i.i.i.i
 
 126:                                              ; preds = %118
   %127 = lshr i64 %.sroa.7.i.sroa.8.3.copyload, 32
-  %128 = trunc i64 %127 to i32
+  %128 = trunc nuw i64 %127 to i32
   %129 = trunc i64 %.sroa.7.i.sroa.8.3.copyload to i32
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34), !noalias !5070
   %.sroa.55.32.copyload161 = load i32, ptr %.sroa.7.i.sroa.9.3..sroa_idx368, align 4, !noalias !5068
@@ -25908,7 +25910,7 @@ common.resume:                                    ; preds = %560, %.body.i.i.i.i
   %.sroa.39.sroa.15.0.extract.shift229 = lshr i64 %.sroa.342.i49.sroa.6.0.copyload, 8
   %.sroa.39.sroa.15.0.extract.trunc230 = trunc i64 %.sroa.39.sroa.15.0.extract.shift229 to i24
   %.sroa.39.sroa.16.0.extract.shift243 = lshr i64 %.sroa.342.i49.sroa.6.0.copyload, 32
-  %.sroa.39.sroa.16.0.extract.trunc244 = trunc i64 %.sroa.39.sroa.16.0.extract.shift243 to i32
+  %.sroa.39.sroa.16.0.extract.trunc244 = trunc nuw i64 %.sroa.39.sroa.16.0.extract.shift243 to i32
   br label %132
 
 132:                                              ; preds = %130, %124
@@ -25930,7 +25932,7 @@ common.resume:                                    ; preds = %560, %.body.i.i.i.i
   %.sroa.33.sroa.11.sroa.0.3.in = lshr i64 %.sroa.33.sroa.11.sroa.11.sroa.0.3.in.in, 32
   %.sroa.33.sroa.11.sroa.0.3 = trunc i64 %.sroa.33.sroa.11.sroa.0.3.in to i8
   %.sroa.33.sroa.11.sroa.11.sroa.0.3.in = lshr i64 %.sroa.33.sroa.11.sroa.11.sroa.0.3.in.in, 40
-  %.sroa.33.sroa.11.sroa.11.sroa.0.3 = trunc i64 %.sroa.33.sroa.11.sroa.11.sroa.0.3.in to i24
+  %.sroa.33.sroa.11.sroa.11.sroa.0.3 = trunc nuw i64 %.sroa.33.sroa.11.sroa.11.sroa.0.3.in to i24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !5070
   br label %"_ZN5image6codecs3pnm7decoder19PnmDecoder$LT$R$GT$18read_pixmap_header17h824ccd0b6f62435aE.exit"
 
@@ -26084,7 +26086,7 @@ common.resume:                                    ; preds = %560, %.body.i.i.i.i
 
 _ZN3std2io7BufRead9read_line17h2f86f39e78fc2343E.exit.i.i: ; preds = %.backedge.i.i
   %161 = load i64, ptr %25, align 8, !range !19, !noalias !5105, !noundef !5
-  %trunc220.i.i = trunc i64 %161 to i1
+  %trunc220.i.i = trunc nuw i64 %161 to i1
   %162 = load ptr, ptr %147, align 8, !noalias !5105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !5105
   br i1 %trunc220.i.i, label %498, label %163
@@ -27140,7 +27142,7 @@ _ZN5image6codecs3pnm7decoder12HeaderReader21read_arbitrary_header17h9cfc6e636420
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32), !noalias !5076
   %518 = trunc i64 %.sroa.26.i.sroa.0.3 to i32
   %519 = lshr i64 %.sroa.26.i.sroa.0.3, 32
-  %520 = trunc i64 %519 to i32
+  %520 = trunc nuw i64 %519 to i32
   invoke void @"_ZN113_$LT$image..codecs..pnm..header..ArbitraryHeader$u20$as$u20$image..codecs..pnm..decoder..DecodableImageHeader$GT$10tuple_type17h02db595f0ffa9f32E"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %33)
           to label %523 unwind label %521, !noalias !5071
 
@@ -27222,7 +27224,7 @@ _ZN5image6codecs3pnm7decoder12HeaderReader21read_arbitrary_header17h9cfc6e636420
   %.sroa.33.sroa.11.sroa.0.5.in = lshr i64 %.sroa.33.sroa.11.sroa.11.sroa.0.5.in.in, 32
   %.sroa.33.sroa.11.sroa.0.5 = trunc i64 %.sroa.33.sroa.11.sroa.0.5.in to i8
   %.sroa.33.sroa.11.sroa.11.sroa.0.5.in = lshr i64 %.sroa.33.sroa.11.sroa.11.sroa.0.5.in.in, 40
-  %.sroa.33.sroa.11.sroa.11.sroa.0.5 = trunc i64 %.sroa.33.sroa.11.sroa.11.sroa.0.5.in to i24
+  %.sroa.33.sroa.11.sroa.11.sroa.0.5 = trunc nuw i64 %.sroa.33.sroa.11.sroa.11.sroa.0.5.in to i24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33), !noalias !5076
   %545 = extractelement <2 x i32> %544, i64 0
   %546 = extractelement <2 x i32> %544, i64 1
@@ -27254,7 +27256,7 @@ _ZN5image6codecs3pnm7decoder12HeaderReader21read_arbitrary_header17h9cfc6e636420
   %.sroa.53.sroa.15.sroa.0.6.in = and i32 %551, -256
   %.sroa.39.sroa.0.6 = trunc i64 %.sroa.39.sroa.15.sroa.0.6.in.in to i8
   %.sroa.39.sroa.16.6.in = lshr i64 %.sroa.39.sroa.15.sroa.0.6.in.in, 32
-  %.sroa.39.sroa.16.6 = trunc i64 %.sroa.39.sroa.16.6.in to i32
+  %.sroa.39.sroa.16.6 = trunc nuw i64 %.sroa.39.sroa.16.6.in to i32
   %.sroa.39.sroa.15.sroa.0.6.in = lshr i64 %.sroa.39.sroa.15.sroa.0.6.in.in, 8
   %.sroa.39.sroa.15.sroa.0.6 = trunc i64 %.sroa.39.sroa.15.sroa.0.6.in to i24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
@@ -27465,7 +27467,7 @@ switch.lookup:                                    ; preds = %553
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN5image6codecs3pnm7decoder12HeaderReader16read_next_string28_$u7b$$u7b$closure$u7d$$u7d$17hb69fe5104cc502daE.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #9 {
   %3 = load i8, ptr %1, align 8, !range !477, !noundef !5
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
 
@@ -27528,20 +27530,20 @@ define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_ne
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc.i, %.noexc16.i
   %30 = phi i8 [ %44, %.noexc16.i ], [ %29, %.noexc.i ]
   %.sroa.410.0.copyload.i.i.i.i = load ptr, ptr %.sroa.410.0..sroa_idx.i.i.i.i, align 8, !noalias !5385
-  %trunc.i.i.i.i.i.i = trunc i8 %30 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i8 %30 to i1
   br i1 %trunc.i.i.i.i.i.i, label %31, label %.thread.i.i.i.i
 
 31:                                               ; preds = %.lr.ph.i.i.i.i
   %32 = icmp ne ptr %.sroa.410.0.copyload.i.i.i.i, null
   call void @llvm.assume(i1 %32)
   %33 = load i8, ptr %26, align 8, !range !477, !alias.scope !5392, !noalias !5395, !noundef !5
-  %34 = trunc i8 %33 to i1
+  %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %50, label %41
 
 .thread.i.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 1, !noalias !5385
   %35 = load i8, ptr %26, align 8, !range !477, !alias.scope !5392, !noalias !5395, !noundef !5
-  %36 = trunc i8 %35 to i1
+  %36 = trunc nuw i8 %35 to i1
   %37 = icmp ne i8 %.sroa.2.0.copyload.i.i.i.i, 35
   %.0.i.i.i.i.i.i = and i1 %37, %36
   %38 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i, 13
@@ -27847,7 +27849,7 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread86.i: ; preds = %.p
 
 127:                                              ; preds = %_ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread86.i
   %128 = load i64, ptr %9, align 8, !range !19, !noalias !5477, !noundef !5
-  %trunc.i.i = trunc i64 %128 to i1
+  %trunc.i.i = trunc nuw i64 %128 to i1
   br i1 %trunc.i.i, label %136, label %.thread88.i
 
 .thread88.i:                                      ; preds = %127
@@ -28050,7 +28052,7 @@ common.resume:                                    ; preds = %178, %.body.i.i.i.i
 
 .noexc:                                           ; preds = %160
   %.sroa.6.0.extract.shift.i = lshr i64 %158, 32
-  %.sroa.6.0.extract.trunc.i = trunc i64 %.sroa.6.0.extract.shift.i to i32
+  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   %169 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.6.0.extract.trunc.i, ptr %169, align 4, !alias.scope !5496, !noalias !5524
   store i8 10, ptr %0, align 8, !alias.scope !5496, !noalias !5524
@@ -28287,7 +28289,7 @@ common.resume:                                    ; preds = %.body.i.i21, %.body
 
 25:                                               ; preds = %19
   %.sroa.6.0.extract.shift.i = lshr i64 %23, 32
-  %.sroa.6.0.extract.trunc.i = trunc i64 %.sroa.6.0.extract.shift.i to i32
+  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   store i32 1, ptr %1, align 4
   %26 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %.sroa.6.0.extract.trunc.i, ptr %26, align 4
@@ -28712,7 +28714,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %18 ], [ 44, %19 ], [ 40, %5 ]
   %20 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %20, align 4, !range !477, !alias.scope !5650, !noundef !5
-  %21 = trunc i8 %.0.i to i1
+  %21 = trunc nuw i8 %.0.i to i1
   br i1 %21, label %22, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 22:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -28761,7 +28763,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 37:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %38 = load i64, ptr %12, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %38 to i1
+  %trunc = trunc nuw i64 %38 to i1
   %39 = getelementptr inbounds i8, ptr %12, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -28988,7 +28990,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %19 ], [ 44, %20 ], [ 40, %5 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %21, align 4, !range !477, !alias.scope !5706, !noundef !5
-  %22 = trunc i8 %.0.i to i1
+  %22 = trunc nuw i8 %.0.i to i1
   br i1 %22, label %23, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 23:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -29042,7 +29044,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 43:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %44 = load i64, ptr %13, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %44 to i1
+  %trunc = trunc nuw i64 %44 to i1
   %45 = getelementptr inbounds i8, ptr %13, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -29280,7 +29282,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %19 ], [ 44, %20 ], [ 40, %5 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %21, align 4, !range !477, !alias.scope !5752, !noundef !5
-  %22 = trunc i8 %.0.i to i1
+  %22 = trunc nuw i8 %.0.i to i1
   br i1 %22, label %23, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 23:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -29330,7 +29332,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 39:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %40 = load i64, ptr %13, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %40 to i1
+  %trunc = trunc nuw i64 %40 to i1
   %41 = getelementptr inbounds i8, ptr %13, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -29567,7 +29569,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %20 ], [ 44, %21 ], [ 40, %5 ]
   %22 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %22, align 4, !range !477, !alias.scope !5803, !noundef !5
-  %23 = trunc i8 %.0.i to i1
+  %23 = trunc nuw i8 %.0.i to i1
   br i1 %23, label %24, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 24:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -29623,7 +29625,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 40:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %41 = load i64, ptr %14, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %41 to i1
+  %trunc = trunc nuw i64 %41 to i1
   %42 = getelementptr inbounds i8, ptr %14, i64 8
   %43 = load ptr, ptr %42, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
@@ -29842,7 +29844,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %19 ], [ 44, %20 ], [ 40, %5 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %21, align 4, !range !477, !alias.scope !5855, !noundef !5
-  %22 = trunc i8 %.0.i to i1
+  %22 = trunc nuw i8 %.0.i to i1
   br i1 %22, label %23, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 23:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -29892,7 +29894,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 39:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %40 = load i64, ptr %13, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %40 to i1
+  %trunc = trunc nuw i64 %40 to i1
   %41 = getelementptr inbounds i8, ptr %13, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -30129,7 +30131,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %20 ], [ 44, %21 ], [ 40, %5 ]
   %22 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %22, align 4, !range !477, !alias.scope !5906, !noundef !5
-  %23 = trunc i8 %.0.i to i1
+  %23 = trunc nuw i8 %.0.i to i1
   br i1 %23, label %24, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 24:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -30185,7 +30187,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 40:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %41 = load i64, ptr %14, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %41 to i1
+  %trunc = trunc nuw i64 %41 to i1
   %42 = getelementptr inbounds i8, ptr %14, i64 8
   %43 = load ptr, ptr %42, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
@@ -30404,7 +30406,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %19 ], [ 44, %20 ], [ 40, %5 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %21, align 4, !range !477, !alias.scope !5958, !noundef !5
-  %22 = trunc i8 %.0.i to i1
+  %22 = trunc nuw i8 %.0.i to i1
   br i1 %22, label %23, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 23:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -30458,7 +30460,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 43:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %44 = load i64, ptr %13, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %44 to i1
+  %trunc = trunc nuw i64 %44 to i1
   %45 = getelementptr inbounds i8, ptr %13, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -30694,7 +30696,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
   %.sink = phi i64 [ 44, %18 ], [ 44, %19 ], [ 40, %5 ]
   %20 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %.0.i = load i8, ptr %20, align 4, !range !477, !alias.scope !6004, !noundef !5
-  %21 = trunc i8 %.0.i to i1
+  %21 = trunc nuw i8 %.0.i to i1
   br i1 %21, label %22, label %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
 
 22:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit
@@ -30743,7 +30745,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 
 37:                                               ; preds = %_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exit.thread
   %38 = load i64, ptr %12, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %38 to i1
+  %trunc = trunc nuw i64 %38 to i1
   %39 = getelementptr inbounds i8, ptr %12, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -31172,7 +31174,7 @@ _ZN5image6codecs3pnm7decoder20read_separated_ascii17h0e4f109266798222E.exit.thre
 
 75:                                               ; preds = %_ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread48.i
   %76 = load i64, ptr %14, align 8, !range !19, !noalias !6068, !noundef !5
-  %trunc.i = trunc i64 %76 to i1
+  %trunc.i = trunc nuw i64 %76 to i1
   br i1 %trunc.i, label %101, label %77
 
 77:                                               ; preds = %75
@@ -31579,7 +31581,7 @@ _ZN5image6codecs3pnm7decoder20read_separated_ascii17h6e474279e5996281E.exit.thre
 
 76:                                               ; preds = %_ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread49.i
   %77 = load i64, ptr %14, align 8, !range !19, !noalias !6163, !noundef !5
-  %trunc.i = trunc i64 %77 to i1
+  %trunc.i = trunc nuw i64 %77 to i1
   br i1 %trunc.i, label %100, label %78
 
 78:                                               ; preds = %76
@@ -31595,7 +31597,7 @@ _ZN5image6codecs3pnm7decoder20read_separated_ascii17h6e474279e5996281E.exit.thre
 
 83:                                               ; preds = %82
   %.sroa.5.0.extract.shift.i.i = lshr i32 %81, 16
-  %.sroa.5.0.extract.trunc.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i to i16
+  %.sroa.5.0.extract.trunc.i.i = trunc nuw i32 %.sroa.5.0.extract.shift.i.i to i16
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9daaae1a2556bba5E.exit.i"
 
 84:                                               ; preds = %82
@@ -31759,7 +31761,7 @@ define void @"_ZN91_$LT$image..codecs..pnm..decoder..PbmBit$u20$as$u20$image..co
   br i1 %10, label %.split, label %.split14
 
 .split14:                                         ; preds = %6
-  %11 = trunc i64 %3 to i32
+  %11 = trunc nuw i64 %3 to i32
   call void @_ZN5image5utils11expand_bits17h1ac1b81ed26fb6c4E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %9, i8 noundef 1, i32 noundef %11, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
@@ -31878,7 +31880,7 @@ define void @"_ZN91_$LT$image..codecs..pnm..decoder..PbmBit$u20$as$u20$image..co
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !6264
   call void %16(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 1 %12, i64 noundef 1), !noalias !6264
   %21 = load i64, ptr %11, align 8, !range !19, !noalias !6264, !noundef !5
-  %trunc6.i = trunc i64 %21 to i1
+  %trunc6.i = trunc nuw i64 %21 to i1
   br i1 %trunc6.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h2b04dcda5e196089E.exit.i", %.backedge
@@ -31902,7 +31904,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 26:                                               ; preds = %.lr.ph.i
   %27 = lshr i64 %24, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   switch i32 %28, label %.thread.i.loopexit [
     i32 0, label %.thread.i
     i32 1, label %.thread.i
@@ -31996,7 +31998,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i: ; preds = %.l
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !6264
   call void %16(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 1 %12, i64 noundef 1), !noalias !6264
   %45 = load i64, ptr %11, align 8, !range !19, !noalias !6264, !noundef !5
-  %trunc.i = trunc i64 %45 to i1
+  %trunc.i = trunc nuw i64 %45 to i1
   br i1 %trunc.i, label %.lr.ph.i, label %._crit_edge.i
 
 46:                                               ; preds = %._crit_edge.i
@@ -32887,7 +32889,7 @@ define noundef i8 @_ZN5image5image11ImageFormat14from_extension5inner17hac98f552
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std3sys4unix6os_str5Slice6to_str17hb7eb6028d668e4c5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   %6 = load i64, ptr %4, align 8, !range !19, !noundef !5
-  %trunc = trunc i64 %6 to i1
+  %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !32
   %9 = getelementptr inbounds i8, ptr %4, i64 16

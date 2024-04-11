@@ -78,7 +78,7 @@ define dso_local noundef i32 @lockref_get_not_zero(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %3
   %.in = lshr exact i64 %.in.in, 32
-  %7 = trunc i64 %.in to i32
+  %7 = trunc nuw i64 %.in to i32
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %.loopexit, label %9
 
@@ -133,7 +133,7 @@ define dso_local noundef i32 @lockref_put_not_zero(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %3
   %.in = lshr exact i64 %.in.in, 32
-  %7 = trunc i64 %.in to i32
+  %7 = trunc nuw i64 %.in to i32
   %8 = icmp slt i32 %7, 2
   br i1 %8, label %.loopexit, label %9
 
@@ -183,11 +183,11 @@ define dso_local i32 @lockref_put_return(ptr noundef %0) #0 align 16 {
   %.in.in = phi i64 [ %2, %1 ], [ %18, %17 ]
   %4 = phi i32 [ 100, %1 ], [ %19, %17 ]
   %.in = lshr i64 %.in.in, 32
-  %5 = trunc i64 %.in to i32
+  %5 = trunc nuw i64 %.in to i32
   %6 = and i64 %.in.in, 4294967295
   %7 = icmp ne i64 %6, 0
   %8 = icmp slt i32 %5, 1
-  %or.cond = or i1 %7, %8
+  %or.cond = select i1 %7, i1 true, i1 %8
   br i1 %or.cond, label %.thread2, label %9, !prof !10
 
 9:                                                ; preds = %3
@@ -221,11 +221,11 @@ define dso_local noundef i32 @lockref_put_or_lock(ptr noundef %0) #0 align 16 {
   %.in.in = phi i64 [ %2, %1 ], [ %16, %15 ]
   %4 = phi i32 [ 100, %1 ], [ %17, %15 ]
   %.in = lshr i64 %.in.in, 32
-  %5 = trunc i64 %.in to i32
+  %5 = trunc nuw i64 %.in to i32
   %6 = and i64 %.in.in, 4294967295
   %7 = icmp ne i64 %6, 0
   %8 = icmp slt i32 %5, 2
-  %or.cond = or i1 %7, %8
+  %or.cond = select i1 %7, i1 true, i1 %8
   br i1 %or.cond, label %.thread, label %9, !prof !10
 
 9:                                                ; preds = %3

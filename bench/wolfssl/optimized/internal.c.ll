@@ -1864,7 +1864,7 @@ if.end:                                           ; preds = %entry
   %call1 = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %in, i32 noundef %inSz, ptr noundef nonnull %outTmp, ptr noundef %key) #27
   %sub1.i = add i32 %call1, -1
   %shr.i = lshr i32 %sub1.i, 31
-  %2 = trunc i32 %shr.i to i8
+  %2 = trunc nuw nsw i32 %shr.i to i8
   %conv.i = add nsw i8 %2, -1
   %conv = sext i8 %conv.i to i32
   %and = and i32 %call1, %conv
@@ -3118,7 +3118,7 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i.i
   %seq.sroa.4.2.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %6, %if.else.i.i ], [ %4, %if.then.i.i ]
   %seq.sroa.0.2.i = phi i32 [ 0, %entry ], [ %7, %if.end24.sink.split.i.i ], [ %5, %if.else.i.i ], [ %3, %if.then.i.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.2.i, 24
-  %conv.i.i = trunc i32 %shr.i.i to i8
+  %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %seq, align 1
   %shr1.i.i = lshr i32 %seq.sroa.0.2.i, 16
   %conv3.i.i = trunc i32 %shr1.i.i to i8
@@ -3133,7 +3133,7 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i.i
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %seq, i64 4
   %shr.i4.i = lshr i32 %seq.sroa.4.2.i, 24
-  %conv.i5.i = trunc i32 %shr.i4.i to i8
+  %conv.i5.i = trunc nuw i32 %shr.i4.i to i8
   store i8 %conv.i5.i, ptr %add.ptr.i, align 1
   %shr1.i6.i = lshr i32 %seq.sroa.4.2.i, 16
   %conv3.i7.i = trunc i32 %shr1.i6.i to i8
@@ -5010,7 +5010,7 @@ if.end:                                           ; preds = %if.end24.sink.split
   %seq.sroa.4.2 = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i ], [ %4, %if.else.i ], [ %2, %if.then.i ]
   %seq.sroa.0.2 = phi i32 [ 0, %entry ], [ %5, %if.end24.sink.split.i ], [ %3, %if.else.i ], [ %1, %if.then.i ]
   %shr.i = lshr i32 %seq.sroa.0.2, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   store i8 %conv.i, ptr %out, align 1
   %shr1.i = lshr i32 %seq.sroa.0.2, 16
   %conv3.i = trunc i32 %shr1.i to i8
@@ -5025,7 +5025,7 @@ if.end:                                           ; preds = %if.end24.sink.split
   store i8 %conv10.i, ptr %arrayidx11.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr.i4 = lshr i32 %seq.sroa.4.2, 24
-  %conv.i5 = trunc i32 %shr.i4 to i8
+  %conv.i5 = trunc nuw i32 %shr.i4 to i8
   store i8 %conv.i5, ptr %add.ptr, align 1
   %shr1.i6 = lshr i32 %seq.sroa.4.2, 16
   %conv3.i7 = trunc i32 %shr1.i6 to i8
@@ -6195,43 +6195,43 @@ if.end392:                                        ; preds = %sw.bb375, %sw.bb362
   br label %return
 
 switch.lookup:                                    ; preds = %sw.bb11
-  %switch.cast = trunc i32 %requirement to i7
+  %switch.cast = trunc nuw i32 %requirement to i7
   %switch.downshift = lshr i7 -61, %switch.cast
   %switch.masked = trunc i7 %switch.downshift to i1
   br label %return
 
 switch.lookup126:                                 ; preds = %sw.bb30
-  %switch.cast127 = trunc i32 %requirement to i7
+  %switch.cast127 = trunc nuw i32 %requirement to i7
   %switch.downshift129 = lshr i7 -61, %switch.cast127
   %switch.masked130 = trunc i7 %switch.downshift129 to i1
   br label %return
 
 switch.lookup131:                                 ; preds = %sw.bb49
-  %switch.cast132 = trunc i32 %requirement to i7
+  %switch.cast132 = trunc nuw i32 %requirement to i7
   %switch.downshift134 = lshr i7 -46, %switch.cast132
   %switch.masked135 = trunc i7 %switch.downshift134 to i1
   br label %return
 
 switch.lookup136:                                 ; preds = %sw.bb170
-  %switch.cast137 = trunc i32 %requirement to i7
+  %switch.cast137 = trunc nuw i32 %requirement to i7
   %switch.downshift139 = lshr i7 -24, %switch.cast137
   %switch.masked140 = trunc i7 %switch.downshift139 to i1
   br label %return
 
 switch.lookup141:                                 ; preds = %sw.bb183
-  %switch.cast142 = trunc i32 %requirement to i7
+  %switch.cast142 = trunc nuw i32 %requirement to i7
   %switch.downshift144 = lshr i7 -24, %switch.cast142
   %switch.masked145 = trunc i7 %switch.downshift144 to i1
   br label %return
 
 switch.lookup146:                                 ; preds = %sw.bb362
-  %switch.cast147 = trunc i32 %requirement to i7
+  %switch.cast147 = trunc nuw i32 %requirement to i7
   %switch.downshift149 = lshr i7 -61, %switch.cast147
   %switch.masked150 = trunc i7 %switch.downshift149 to i1
   br label %return
 
 switch.lookup151:                                 ; preds = %sw.bb375
-  %switch.cast152 = trunc i32 %requirement to i6
+  %switch.cast152 = trunc nuw i32 %requirement to i6
   %switch.downshift154 = lshr i6 -29, %switch.cast152
   %switch.masked155 = trunc i6 %switch.downshift154 to i1
   br label %return
@@ -11806,7 +11806,7 @@ if.end.i:                                         ; preds = %sw.bb334
   %call1.i = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %add.ptr339, i32 noundef %45, ptr noundef nonnull %outTmp.i, ptr noundef %49) #27
   %sub1.i.i = add i32 %call1.i, -1
   %shr.i.i = lshr i32 %sub1.i.i, 31
-  %51 = trunc i32 %shr.i.i to i8
+  %51 = trunc nuw nsw i32 %shr.i.i to i8
   %conv.i.i = add nsw i8 %51, -1
   %conv.i155 = sext i8 %conv.i.i to i32
   %and.i = and i32 %call1.i, %conv.i155
@@ -11965,7 +11965,7 @@ sw.bb420:                                         ; preds = %sw.bb416
   %lastErr427 = getelementptr inbounds i8, ptr %args, i64 24
   store i32 0, ptr %lastErr427, align 8
   %shr.neg = ashr i32 %.fr193, 31
-  %.neg = trunc i32 %shr.neg to i8
+  %.neg = trunc nsw i32 %shr.neg to i8
   %chVersion = getelementptr inbounds i8, ptr %ssl, i64 696
   %73 = load i8, ptr %chVersion, align 8
   %74 = load ptr, ptr %arrays, align 16
@@ -12726,7 +12726,7 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, 
   %seq.sroa.4.2.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %4, %if.then.i ]
   %seq.sroa.0.2.i = phi i32 [ 0, %entry ], [ %3, %if.end24.sink.split.i.i ], [ %3, %if.then.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.2.i, 24
-  %conv.i.i = trunc i32 %shr.i.i to i8
+  %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %add, align 8
   %shr1.i.i = lshr i32 %seq.sroa.0.2.i, 16
   %conv3.i.i = trunc i32 %shr1.i.i to i8
@@ -12741,7 +12741,7 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, 
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add, i64 4
   %shr.i4.i = lshr i32 %seq.sroa.4.2.i, 24
-  %conv.i5.i = trunc i32 %shr.i4.i to i8
+  %conv.i5.i = trunc nuw i32 %shr.i4.i to i8
   store i8 %conv.i5.i, ptr %add.ptr.i, align 4
   %shr1.i6.i = lshr i32 %seq.sroa.4.2.i, 16
   %conv3.i7.i = trunc i32 %shr1.i6.i to i8
@@ -13198,7 +13198,7 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, 
   %seq.sroa.4.2.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %4, %if.then.i ]
   %seq.sroa.0.2.i = phi i32 [ 0, %entry ], [ %3, %if.end24.sink.split.i.i ], [ %3, %if.then.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.2.i, 24
-  %conv.i.i = trunc i32 %shr.i.i to i8
+  %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %add, align 8
   %shr1.i.i = lshr i32 %seq.sroa.0.2.i, 16
   %conv3.i.i = trunc i32 %shr1.i.i to i8
@@ -13213,7 +13213,7 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, 
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add, i64 4
   %shr.i4.i = lshr i32 %seq.sroa.4.2.i, 24
-  %conv.i5.i = trunc i32 %shr.i4.i to i8
+  %conv.i5.i = trunc nuw i32 %shr.i4.i to i8
   store i8 %conv.i5.i, ptr %add.ptr.i, align 4
   %shr1.i6.i = lshr i32 %seq.sroa.4.2.i, 16
   %conv3.i7.i = trunc i32 %shr1.i6.i to i8
@@ -13631,7 +13631,7 @@ entry:
   %1 = sub i32 %macSz, %pLen
   %sub1.i.i = add i32 %1, %conv.i
   %shr.i.i = lshr i32 %sub1.i.i, 31
-  %2 = trunc i32 %shr.i.i to i8
+  %2 = trunc nuw nsw i32 %shr.i.i to i8
   %conv.i.i = add nsw i8 %2, -1
   %cmp517.i = icmp sgt i32 %pLen, 1
   br i1 %cmp517.i, label %for.body.preheader.i, label %MaskPadding.exit
@@ -13739,7 +13739,7 @@ for.body38.us.i:                                  ; preds = %land.rhs.us.i
   %17 = xor i32 %15, -1
   %sub1.i79.us.i = add i32 %sub5.i, %17
   %shr.i80.us.i = lshr i32 %sub1.i79.us.i, 31
-  %18 = trunc i32 %shr.i80.us.i to i8
+  %18 = trunc nuw nsw i32 %shr.i80.us.i to i8
   %conv.i81.us.i = add nsw i8 %18, -1
   %.not.i25 = icmp sgt i32 %sub6.i, %15
   %and4573.us.i = select i1 %.not.i25, i8 0, i8 %conv.i81.us.i
@@ -14669,12 +14669,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv242 = zext i8 %74 to i32
   %sub1.i.i = add nsw i32 %conv242, %71
   %shr.i.i = lshr i32 %sub1.i.i, 31
-  %75 = trunc i32 %shr.i.i to i8
+  %75 = trunc nuw nsw i32 %shr.i.i to i8
   %conv.i.i361 = add nsw i8 %75, -1
   %76 = xor i32 %conv242, -1
   %sub1.i4.i = add nsw i32 %76, %conv223
   %shr.i5.i = lshr i32 %sub1.i4.i, 31
-  %77 = trunc i32 %shr.i5.i to i8
+  %77 = trunc nuw nsw i32 %shr.i5.i to i8
   %conv.i6.i = add nsw i8 %77, -1
   %or3.i = or i8 %conv.i.i361, %conv.i6.i
   %78 = and i8 %or3.i, %and
@@ -16170,7 +16170,7 @@ WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split
   %seq.sroa.4.2.i.i = phi i32 [ 0, %sw.bb2.i ], [ -1, %if.end24.sink.split.i.i.i ], [ %12, %if.then.i.i ]
   %seq.sroa.0.2.i.i = phi i32 [ 0, %sw.bb2.i ], [ %11, %if.end24.sink.split.i.i.i ], [ %11, %if.then.i.i ]
   %shr.i.i.i = lshr i32 %seq.sroa.0.2.i.i, 24
-  %conv.i.i.i = trunc i32 %shr.i.i.i to i8
+  %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i8
   store i8 %conv.i.i.i, ptr %9, align 1
   %shr1.i.i.i = lshr i32 %seq.sroa.0.2.i.i, 16
   %conv3.i.i.i = trunc i32 %shr1.i.i.i to i8
@@ -16185,7 +16185,7 @@ WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split
   store i8 %conv10.i.i.i, ptr %arrayidx11.i.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 4
   %shr.i4.i.i = lshr i32 %seq.sroa.4.2.i.i, 24
-  %conv.i5.i.i = trunc i32 %shr.i4.i.i to i8
+  %conv.i5.i.i = trunc nuw i32 %shr.i4.i.i to i8
   store i8 %conv.i5.i.i, ptr %add.ptr.i.i, align 1
   %shr1.i6.i.i = lshr i32 %seq.sroa.4.2.i.i, 16
   %conv3.i7.i.i = trunc i32 %shr1.i6.i.i to i8
@@ -16222,7 +16222,7 @@ WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split
   %21 = load ptr, ptr %additional.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %21, i64 11
   %shr.i.i = lshr i16 %conv20.i, 8
-  %conv1.i.i = trunc i16 %shr.i.i to i8
+  %conv1.i.i = trunc nuw i16 %shr.i.i to i8
   store i8 %conv1.i.i, ptr %add.ptr.i, align 1
   %conv4.i.i = trunc i16 %conv20.i to i8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %21, i64 12
@@ -16665,7 +16665,7 @@ if.end.i:                                         ; preds = %if.end6.thread, %if
   %cmp3.i.i = icmp ult i16 %13, 1024
   %.not.i = or i1 %cmp3.i.i, %cmp.i.i29
   %15 = lshr i16 %13, 8
-  %16 = trunc i16 %15 to i8
+  %16 = trunc nuw i16 %15 to i8
   %.sink.i = select i1 %.not.i, i8 %16, i8 3
   %17 = getelementptr inbounds i8, ptr %add.ptr6.i52, i64 2
   store i8 %.sink.i, ptr %17, align 1
@@ -16765,7 +16765,7 @@ if.end:                                           ; preds = %entry
   %cmp3.i = icmp ult i16 %1, 1024
   %.not = or i1 %cmp3.i, %cmp.i
   %3 = lshr i16 %1, 8
-  %4 = trunc i16 %3 to i8
+  %4 = trunc nuw i16 %3 to i8
   %.sink = select i1 %.not, i8 %4, i8 3
   %5 = getelementptr inbounds i8, ptr %output, i64 2
   store i8 %.sink, ptr %5, align 1
@@ -17549,7 +17549,7 @@ WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split
   %seq.sroa.4.2.i.i = phi i32 [ 0, %sw.bb2.i ], [ -1, %if.end24.sink.split.i.i.i ], [ %13, %if.then.i.i ]
   %seq.sroa.0.2.i.i = phi i32 [ 0, %sw.bb2.i ], [ %12, %if.end24.sink.split.i.i.i ], [ %12, %if.then.i.i ]
   %shr.i.i.i = lshr i32 %seq.sroa.0.2.i.i, 24
-  %conv.i.i.i = trunc i32 %shr.i.i.i to i8
+  %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i8
   store i8 %conv.i.i.i, ptr %10, align 1
   %shr1.i.i.i = lshr i32 %seq.sroa.0.2.i.i, 16
   %conv3.i.i.i = trunc i32 %shr1.i.i.i to i8
@@ -17564,7 +17564,7 @@ WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split
   store i8 %conv10.i.i.i, ptr %arrayidx11.i.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 4
   %shr.i4.i.i = lshr i32 %seq.sroa.4.2.i.i, 24
-  %conv.i5.i.i = trunc i32 %shr.i4.i.i to i8
+  %conv.i5.i.i = trunc nuw i32 %shr.i4.i.i to i8
   store i8 %conv.i5.i.i, ptr %add.ptr.i.i, align 1
   %shr1.i6.i.i = lshr i32 %seq.sroa.4.2.i.i, 16
   %conv3.i7.i.i = trunc i32 %shr1.i6.i.i to i8
@@ -17589,7 +17589,7 @@ WriteSEQ.exit.i:                                  ; preds = %if.end24.sink.split
   %17 = load ptr, ptr %additional.i, align 8
   %add.ptr16.i = getelementptr inbounds i8, ptr %17, i64 11
   %shr.i.i = lshr i16 %conv13.i, 8
-  %conv1.i.i = trunc i16 %shr.i.i to i8
+  %conv1.i.i = trunc nuw i16 %shr.i.i to i8
   store i8 %conv1.i.i, ptr %add.ptr16.i, align 1
   %conv4.i.i = trunc i16 %conv13.i to i8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %17, i64 12
@@ -17789,7 +17789,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   store i8 0, ptr %length2.i, align 1
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %input, i64 2
   store i8 0, ptr %arrayidx4.i.i, align 2
-  %conv6.i.i = trunc i32 %cond to i8
+  %conv6.i.i = trunc nuw nsw i32 %cond to i8
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 3
   store i8 %conv6.i.i, ptr %arrayidx7.i.i, align 1
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 4
@@ -18167,7 +18167,7 @@ if.end.i.i177:                                    ; preds = %if.then112
   %cmp3.i.i.i = icmp ult i16 %30, 1024
   %.not.i.i = or i1 %cmp3.i.i.i, %cmp.i.i.i
   %32 = lshr i16 %30, 8
-  %33 = trunc i16 %32 to i8
+  %33 = trunc nuw i16 %32 to i8
   %.sink.i.i = select i1 %.not.i.i, i8 %33, i8 3
   %34 = getelementptr inbounds i8, ptr %add.ptr6.i, i64 2
   store i8 %.sink.i.i, ptr %34, align 1
@@ -18317,7 +18317,7 @@ if.end.i220:                                      ; preds = %if.else187
   %cmp3.i.i = icmp ult i16 %48, 1024
   %.not.i = or i1 %cmp3.i.i, %cmp.i.i221
   %50 = lshr i16 %48, 8
-  %51 = trunc i16 %50 to i8
+  %51 = trunc nuw i16 %50 to i8
   %.sink.i = select i1 %.not.i, i8 %51, i8 3
   %52 = getelementptr inbounds i8, ptr %add.ptr6.i, i64 2
   store i8 %.sink.i, ptr %52, align 1
@@ -18706,7 +18706,7 @@ if.end.i.i94:                                     ; preds = %if.end47.thread, %i
   %cmp3.i.i.i = icmp ult i16 %26, 1024
   %.not.i.i = or i1 %cmp3.i.i.i, %cmp.i.i.i
   %28 = lshr i16 %26, 8
-  %29 = trunc i16 %28 to i8
+  %29 = trunc nuw i16 %28 to i8
   %.sink.i.i = select i1 %.not.i.i, i8 %29, i8 3
   %30 = getelementptr inbounds i8, ptr %add.ptr6.i149, i64 2
   store i8 %.sink.i.i, ptr %30, align 1
@@ -18778,7 +18778,7 @@ if.then74:                                        ; preds = %land.lhs.true.i100
   %36 = load i16, ptr %hashSigAlgoSz75, align 2
   %arrayidx77 = getelementptr inbounds i8, ptr %add.ptr6.i150, i64 11
   %shr.i = lshr i16 %36, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   store i8 %conv1.i, ptr %arrayidx77, align 1
   %conv4.i = trunc i16 %36 to i8
   %arrayidx5.i = getelementptr inbounds i8, ptr %add.ptr6.i150, i64 12
@@ -18893,7 +18893,7 @@ if.end.i:                                         ; preds = %entry
   %cmp3.i.i = icmp ult i16 %1, 1024
   %.not.i = or i1 %cmp3.i.i, %cmp.i.i
   %3 = lshr i16 %1, 8
-  %4 = trunc i16 %3 to i8
+  %4 = trunc nuw i16 %3 to i8
   %.sink.i = select i1 %.not.i, i8 %4, i8 3
   %5 = getelementptr inbounds i8, ptr %output, i64 2
   store i8 %.sink.i, ptr %5, align 1
@@ -19630,7 +19630,7 @@ if.end.i:                                         ; preds = %if.end17, %IsEncryp
   %cmp3.i.i = icmp ult i16 %15, 1024
   %.not.i = or i1 %cmp3.i.i, %cmp.i.i28
   %17 = lshr i16 %15, 8
-  %18 = trunc i16 %17 to i8
+  %18 = trunc nuw i16 %17 to i8
   %.sink.i = select i1 %.not.i, i8 %18, i8 3
   %19 = getelementptr inbounds i8, ptr %add.ptr6.i, i64 2
   store i8 %.sink.i, ptr %19, align 1
@@ -20819,7 +20819,7 @@ entry:
   %2 = and i1 %cmp3.i, %cmp.i
   %3 = trunc i16 %0 to i8
   %4 = lshr i16 %0, 8
-  %5 = trunc i16 %4 to i8
+  %5 = trunc nuw i16 %4 to i8
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -20852,8 +20852,8 @@ if.end9:                                          ; preds = %if.end
   %cmp3.i.i = icmp ugt i16 %0, 1023
   %.not.i.not65 = and i1 %cmp3.i.i, %cmp.i.i
   %cmp4.i.i = icmp ugt i8 %5, 2
-  %or.cond.i = and i1 %cmp.i, %cmp4.i.i
-  %9 = or i1 %.not.i.not65, %or.cond.i
+  %or.cond.i = select i1 %cmp.i, i1 %cmp4.i.i, i1 false
+  %9 = select i1 %.not.i.not65, i1 true, i1 %or.cond.i
   %retval.0.i = select i1 %9, i8 4, i8 2
   %hashAlgo12 = getelementptr inbounds i8, ptr %ssl, i64 1019
   store i8 %retval.0.i, ptr %hashAlgo12, align 1
@@ -20956,7 +20956,7 @@ sw.bb:                                            ; preds = %if.end50
 
 if.end62:                                         ; preds = %sw.bb
   %cmp.i38 = icmp ne i8 %10, 3
-  %brmerge = or i1 %cmp.i38, %cmp4.i
+  %brmerge = select i1 %cmp.i38, i1 true, i1 %cmp4.i
   %brmerge64 = or i1 %brmerge, %.not.i.not65
   %.mux.mux = select i1 %brmerge, i8 %10, i8 %3
   br i1 %brmerge64, label %if.end94, label %land.lhs.true69
@@ -21388,7 +21388,7 @@ if.end81:                                         ; preds = %if.then76
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end64, %if.end81
-  %conv88 = trunc i32 %cond to i8
+  %conv88 = trunc nuw i32 %cond to i8
   %arrayidx91 = getelementptr inbounds i8, ptr %add.ptr6.i, i64 43
   store i8 %conv88, ptr %arrayidx91, align 1
   %tobool92.not = icmp eq i32 %cond, 0
@@ -21416,7 +21416,7 @@ if.end105:                                        ; preds = %if.then93, %if.end8
   %idx.ext122 = zext nneg i32 %idx.0 to i64
   %add.ptr123 = getelementptr inbounds i8, ptr %add.ptr6.i, i64 %idx.ext122
   %shr.i = lshr i16 %27, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   store i8 %conv1.i, ptr %add.ptr123, align 1
   %conv4.i = trunc i16 %27 to i8
   %arrayidx5.i = getelementptr inbounds i8, ptr %add.ptr123, i64 1
@@ -21527,7 +21527,7 @@ declare i32 @TLSX_WriteRequest(ptr noundef, ptr noundef, i8 noundef zeroext, ptr
 define noundef i32 @CheckVersion(ptr nocapture noundef %ssl, i16 %pv.coerce) local_unnamed_addr #8 {
 entry:
   %pv.sroa.3.0.extract.shift = lshr i16 %pv.coerce, 8
-  %pv.sroa.3.0.extract.trunc = trunc i16 %pv.sroa.3.0.extract.shift to i8
+  %pv.sroa.3.0.extract.trunc = trunc nuw i16 %pv.sroa.3.0.extract.shift to i8
   %options = getelementptr inbounds i8, ptr %ssl, i64 1000
   %dtls = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %dtls, align 8
@@ -22473,7 +22473,7 @@ if.end.i.i234:                                    ; preds = %if.end394.thread, %
   %cmp3.i.i.i = icmp ult i16 %91, 1024
   %.not.i.i = or i1 %cmp3.i.i.i, %cmp.i.i.i
   %93 = lshr i16 %91, 8
-  %94 = trunc i16 %93 to i8
+  %94 = trunc nuw i16 %93 to i8
   %.sink.i.i = select i1 %.not.i.i, i8 %94, i8 3
   %95 = getelementptr inbounds i8, ptr %add.ptr6.i319, i64 2
   store i8 %.sink.i.i, ptr %95, align 1
@@ -23125,7 +23125,7 @@ if.end209.sink.split:                             ; preds = %TypeHash.exit, %if.
   %idx.ext = zext i32 %42 to i64
   %add.ptr = getelementptr inbounds i8, ptr %41, i64 %idx.ext
   %shr.i196 = lshr i16 %40, 8
-  %conv1.i197 = trunc i16 %shr.i196 to i8
+  %conv1.i197 = trunc nuw i16 %shr.i196 to i8
   store i8 %conv1.i197, ptr %add.ptr, align 1
   %conv4.i198 = trunc i16 %40 to i8
   %arrayidx5.i199 = getelementptr inbounds i8, ptr %add.ptr, i64 1
@@ -23365,7 +23365,7 @@ if.end.i.i:                                       ; preds = %sw.bb356
   %cmp3.i.i.i = icmp ult i16 %89, 1024
   %.not.i.i = or i1 %cmp3.i.i.i, %cmp.i.i.i
   %91 = lshr i16 %89, 8
-  %92 = trunc i16 %91 to i8
+  %92 = trunc nuw i16 %91 to i8
   %.sink.i.i = select i1 %.not.i.i, i8 %92, i8 3
   %93 = getelementptr inbounds i8, ptr %85, i64 2
   store i8 %.sink.i.i, ptr %93, align 1
@@ -23506,7 +23506,7 @@ entry:
   br i1 %0, label %switch.hole_check, label %sw.epilog
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.epilog
@@ -23752,7 +23752,7 @@ if.end.i76:                                       ; preds = %if.end52, %IsEncryp
   %cmp3.i.i = icmp ult i16 %27, 1024
   %.not.i = or i1 %cmp3.i.i, %cmp.i.i77
   %29 = lshr i16 %27, 8
-  %30 = trunc i16 %29 to i8
+  %30 = trunc nuw i16 %29 to i8
   %.sink.i = select i1 %.not.i, i8 %30, i8 3
   %31 = getelementptr inbounds i8, ptr %add.ptr6.i, i64 2
   store i8 %.sink.i, ptr %31, align 1
@@ -24019,7 +24019,7 @@ if.end.i.i117:                                    ; preds = %if.end27.thread, %i
   %cmp3.i.i.i = icmp ult i16 %17, 1024
   %.not.i.i = or i1 %cmp3.i.i.i, %cmp.i.i.i
   %19 = lshr i16 %17, 8
-  %20 = trunc i16 %19 to i8
+  %20 = trunc nuw i16 %19 to i8
   %.sink.i.i = select i1 %.not.i.i, i8 %20, i8 3
   %21 = getelementptr inbounds i8, ptr %add.ptr6.i167, i64 2
   store i8 %.sink.i.i, ptr %21, align 1
@@ -24047,7 +24047,7 @@ AddHeaders.exit:                                  ; preds = %if.end27, %if.end.i
   %length2.i.i = getelementptr inbounds i8, ptr %add.ptr6.i168, i64 6
   store i8 0, ptr %length2.i.i, align 1
   %shr1.i.i.i = lshr i16 %23, 8
-  %conv3.i.i.i = trunc i16 %shr1.i.i.i to i8
+  %conv3.i.i.i = trunc nuw i16 %shr1.i.i.i to i8
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %add.ptr6.i168, i64 7
   store i8 %conv3.i.i.i, ptr %arrayidx4.i.i.i, align 1
   %conv6.i.i.i = trunc i16 %23 to i8
@@ -25509,7 +25509,7 @@ if.end.i.i:                                       ; preds = %if.then998
   %cmp3.i.i.i = icmp ult i16 %216, 1024
   %.not.i.i = or i1 %cmp3.i.i.i, %cmp.i.i.i
   %218 = lshr i16 %216, 8
-  %219 = trunc i16 %218 to i8
+  %219 = trunc nuw i16 %218 to i8
   %.sink.i.i = select i1 %.not.i.i, i8 %219, i8 3
   %220 = getelementptr inbounds i8, ptr %213, i64 2
   store i8 %.sink.i.i, ptr %220, align 1
@@ -26169,7 +26169,7 @@ if.else:                                          ; preds = %if.end
   %haveEMS11 = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load12 = load i64, ptr %haveEMS11, align 8
   %bf.lshr = lshr i64 %bf.load12, 43
-  %4 = trunc i64 %bf.lshr to i32
+  %4 = trunc nuw nsw i64 %bf.lshr to i32
   %bf.cast = and i32 %4, 1
   %cmp15.not = icmp eq i32 %bf.cast, %conv
   br i1 %cmp15.not, label %for.cond.preheader, label %if.then17
@@ -26538,7 +26538,7 @@ if.end.i.i39:                                     ; preds = %if.end5.thread, %if
   %cmp3.i.i.i = icmp ult i16 %14, 1024
   %.not.i.i = or i1 %cmp3.i.i.i, %cmp.i.i.i
   %16 = lshr i16 %14, 8
-  %17 = trunc i16 %16 to i8
+  %17 = trunc nuw i16 %16 to i8
   %.sink.i.i = select i1 %.not.i.i, i8 %17, i8 3
   %18 = getelementptr inbounds i8, ptr %add.ptr6.i67, i64 2
   store i8 %.sink.i.i, ptr %18, align 1

@@ -2231,7 +2231,7 @@ return:                                           ; preds = %entry, %if.end
 define hidden ptr @_ZN6hermes18SourceErrorManager19findSMLocFromCoordsENS0_12SourceCoordsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this, i64 %coords.coerce0, i32 %coords.coerce1) local_unnamed_addr #10 align 2 {
 entry:
   %coords.sroa.3.0.extract.shift = lshr i64 %coords.coerce0, 32
-  %coords.sroa.3.0.extract.trunc = trunc i64 %coords.sroa.3.0.extract.shift to i32
+  %coords.sroa.3.0.extract.trunc = trunc nuw i64 %coords.sroa.3.0.extract.shift to i32
   %0 = and i64 %coords.coerce0, 4294967295
   %cmp.i.not = icmp eq i64 %0, 0
   br i1 %cmp.i.not, label %return, label %if.end
@@ -2256,7 +2256,7 @@ if.end4:                                          ; preds = %if.end
   %call741 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 10, i64 noundef %sub.ptr.sub40) #25
   %cmp42 = icmp ne ptr %call741, null
   %cmp843 = icmp ne i32 %coords.sroa.3.0.extract.trunc, 1
-  %5 = and i1 %cmp42, %cmp843
+  %5 = select i1 %cmp42, i1 %cmp843, i1 false
   br i1 %5, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end4, %while.body

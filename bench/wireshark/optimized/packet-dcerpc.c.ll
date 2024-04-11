@@ -2674,7 +2674,7 @@ define internal fastcc i32 @dissect_ndr_ucvarray_core(ptr noundef %0, i32 nounde
   unreachable
 
 23:                                               ; preds = %17
-  %24 = trunc i64 %20 to i32
+  %24 = trunc nuw i64 %20 to i32
   %25 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 %24, ptr %25, align 8
   %26 = sub i32 %19, %spec.store.select
@@ -2691,7 +2691,7 @@ define internal fastcc i32 @dissect_ndr_ucvarray_core(ptr noundef %0, i32 nounde
   unreachable
 
 33:                                               ; preds = %23
-  %34 = trunc i64 %30 to i32
+  %34 = trunc nuw i64 %30 to i32
   %35 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 %34, ptr %35, align 8
   %36 = sub i32 %29, %spec.store.select
@@ -2708,7 +2708,7 @@ define internal fastcc i32 @dissect_ndr_ucvarray_core(ptr noundef %0, i32 nounde
   unreachable
 
 43:                                               ; preds = %33
-  %44 = trunc i64 %40 to i32
+  %44 = trunc nuw i64 %40 to i32
   %45 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 %44, ptr %45, align 8
   %46 = sub i32 %39, %spec.store.select
@@ -2808,7 +2808,7 @@ define hidden i32 @dissect_ndr_uvarray(ptr noundef %0, i32 noundef %1, ptr nound
   unreachable
 
 22:                                               ; preds = %16
-  %23 = trunc i64 %19 to i32
+  %23 = trunc nuw i64 %19 to i32
   %24 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 %23, ptr %24, align 8
   %25 = sub i32 %18, %spec.store.select
@@ -2825,7 +2825,7 @@ define hidden i32 @dissect_ndr_uvarray(ptr noundef %0, i32 noundef %1, ptr nound
   unreachable
 
 32:                                               ; preds = %22
-  %33 = trunc i64 %29 to i32
+  %33 = trunc nuw i64 %29 to i32
   %34 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 %33, ptr %34, align 8
   %35 = sub i32 %28, %spec.store.select
@@ -2900,7 +2900,7 @@ define hidden i32 @dissect_ndr_byte_array(ptr noundef %0, i32 noundef %1, ptr no
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %4, i64 64
   %23 = load i32, ptr %22, align 8
-  %24 = trunc i64 %17 to i32
+  %24 = trunc nuw i64 %17 to i32
   %25 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %16, i32 noundef %24, i32 noundef 0) #16
   %.pre = load i64, ptr %7, align 8
   %26 = trunc i64 %.pre to i32
@@ -3224,7 +3224,7 @@ define hidden noundef i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %1, p
   unreachable
 
 37:                                               ; preds = %29
-  %38 = trunc i64 %34 to i32
+  %38 = trunc nuw i64 %34 to i32
   %39 = mul i32 %38, %6
   %40 = getelementptr inbounds i8, ptr %4, i64 32
   %41 = load i32, ptr %40, align 8
@@ -3268,7 +3268,7 @@ define hidden noundef i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %1, p
   %61 = call ptr @tvb_get_string_enc(ptr noundef %50, ptr noundef %0, i32 noundef %.065, i32 noundef %39, i32 noundef %.sink) #16
   %62 = icmp ne ptr %3, null
   %63 = icmp ne i32 %39, 0
-  %or.cond = and i1 %62, %63
+  %or.cond = select i1 %62, i1 %63, i1 false
   br i1 %or.cond, label %64, label %66
 
 64:                                               ; preds = %60
@@ -5117,7 +5117,7 @@ define internal i32 @dcerpcstat_param(ptr noundef %0, ptr nocapture noundef read
   br label %92
 
 30:                                               ; preds = %26
-  %31 = trunc i32 %23 to i16
+  %31 = trunc nuw i32 %23 to i16
   %32 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   %33 = load i32, ptr %7, align 4
   %34 = getelementptr inbounds i8, ptr %32, i64 8

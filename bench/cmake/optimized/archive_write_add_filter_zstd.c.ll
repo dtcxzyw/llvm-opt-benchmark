@@ -438,12 +438,12 @@ string_to_number.exit47.thread:                   ; preds = %121, %119, %130, %1
 141:                                              ; preds = %134
   %142 = extractvalue { i64, i64 } %135, 1
   %.sroa.4.8.extract.shift = lshr i64 %142, 32
-  %.sroa.4.8.extract.trunc = trunc i64 %.sroa.4.8.extract.shift to i32
+  %.sroa.4.8.extract.trunc = trunc nuw i64 %.sroa.4.8.extract.shift to i32
   %.sroa.2.8.extract.trunc = trunc i64 %142 to i32
   %143 = trunc i64 %125 to i32
   %144 = icmp slt i32 %143, %.sroa.2.8.extract.trunc
   %145 = icmp sgt i32 %143, %.sroa.4.8.extract.trunc
-  %or.cond35 = or i1 %144, %145
+  %or.cond35 = select i1 %144, i1 true, i1 %145
   br i1 %or.cond35, label %148, label %146
 
 146:                                              ; preds = %141, %138

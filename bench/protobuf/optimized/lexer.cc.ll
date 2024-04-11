@@ -375,7 +375,7 @@ lor.lhs.false.i:                                  ; preds = %.noexc6
   %shr2.i15.i = xor i64 %15, %16
   %conv.i16.i = trunc i64 %shr2.i15.i to i32
   %shr3.i17.i = lshr i64 %add.i14.i, 59
-  %conv4.i18.i = trunc i64 %shr3.i17.i to i32
+  %conv4.i18.i = trunc nuw nsw i64 %shr3.i17.i to i32
   %or.i.i.i19.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i16.i, i32 %conv.i16.i, i32 %conv4.i18.i)
   %rem.i = urem i32 %or.i.i.i19.i, 3
   %cmp11.not.i = icmp eq i32 %rem.i, 0
@@ -389,7 +389,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %shr2.i22.i = xor i64 %17, %18
   %conv.i23.i = trunc i64 %shr2.i22.i to i32
   %shr3.i24.i = lshr i64 %add.i21.i, 59
-  %conv4.i25.i = trunc i64 %shr3.i24.i to i32
+  %conv4.i25.i = trunc nuw nsw i64 %shr3.i24.i to i32
   %or.i.i.i26.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i23.i, i32 %conv.i23.i, i32 %conv4.i25.i)
   %rem13.i = and i32 %or.i.i.i26.i, 1
   %add14.i = add nuw nsw i32 %rem13.i, 1
@@ -5781,7 +5781,7 @@ if.end82:                                         ; preds = %invoke.cont7, %_ZN4
   br i1 %cmp83, label %if.then84, label %if.else88
 
 if.then84:                                        ; preds = %if.end82
-  %conv85 = trunc i32 %rune.1 to i8
+  %conv85 = trunc nuw i32 %rune.1 to i8
   store i8 %conv85, ptr %out_utf8, align 1
   br label %cleanup157.sink.split.sink.split
 
@@ -5791,7 +5791,7 @@ if.else88:                                        ; preds = %if.end82
 
 if.then90:                                        ; preds = %if.else88
   %shr = lshr i32 %rune.1, 6
-  %45 = trunc i32 %shr to i8
+  %45 = trunc nuw i32 %shr to i8
   %conv93 = or disjoint i8 %45, -64
   store i8 %conv93, ptr %out_utf8, align 1
   %46 = trunc i32 %rune.1 to i8
@@ -5808,7 +5808,7 @@ if.else102:                                       ; preds = %if.else88
 
 if.then104:                                       ; preds = %if.else102
   %shr105 = lshr i32 %rune.1, 12
-  %48 = trunc i32 %shr105 to i8
+  %48 = trunc nuw i32 %shr105 to i8
   %conv108 = or disjoint i8 %48, -32
   store i8 %conv108, ptr %out_utf8, align 1
   %shr110 = lshr i32 %rune.1, 6

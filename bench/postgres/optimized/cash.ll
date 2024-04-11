@@ -565,7 +565,7 @@ define dso_local i64 @cash_out(ptr nocapture noundef readonly %0) local_unnamed_
 48:                                               ; preds = %44, %41, %.split.us
   %.1113.us = phi ptr [ %47, %44 ], [ %.0112.us, %41 ], [ %.0112.us, %.split.us ]
   %49 = urem i64 %.1.us, 10
-  %50 = trunc i64 %49 to i8
+  %50 = trunc nuw nsw i64 %49 to i8
   %51 = or disjoint i8 %50, 48
   %52 = getelementptr i8, ptr %.1113.us, i64 -1
   store i8 %51, ptr %52, align 1
@@ -607,7 +607,7 @@ define dso_local i64 @cash_out(ptr nocapture noundef readonly %0) local_unnamed_
 70:                                               ; preds = %61, %63, %66, %59
   %.1113 = phi ptr [ %60, %59 ], [ %69, %66 ], [ %.0112, %63 ], [ %.0112, %61 ]
   %71 = urem i64 %.1, 10
-  %72 = trunc i64 %71 to i8
+  %72 = trunc nuw nsw i64 %71 to i8
   %73 = or disjoint i8 %72, 48
   %74 = getelementptr i8, ptr %.1113, i64 -1
   store i8 %73, ptr %74, align 1
@@ -1189,11 +1189,11 @@ define dso_local i64 @cash_words(ptr nocapture noundef readonly %0) local_unname
   %16 = udiv i64 %.0, 100000000
   %17 = urem i64 %16, 1000
   %18 = udiv i64 %.0, 100000000000
-  %.lhs.trunc = trunc i64 %18 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %18 to i32
   %19 = urem i32 %.lhs.trunc, 1000
   %.zext = zext nneg i32 %19 to i64
   %20 = udiv i64 %.0, 100000000000000
-  %.lhs.trunc51 = trunc i64 %20 to i32
+  %.lhs.trunc51 = trunc nuw nsw i64 %20 to i32
   %21 = urem i32 %.lhs.trunc51, 1000
   %.zext52 = zext nneg i32 %21 to i64
   %.not = icmp ult i64 %.0, 100000000000000000
@@ -1301,7 +1301,7 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef 
 define internal fastcc ptr @num_word(i64 noundef %0) unnamed_addr #0 {
   %2 = urem i64 %0, 100
   %3 = udiv i64 %0, 100
-  %4 = trunc i64 %2 to i32
+  %4 = trunc nuw nsw i64 %2 to i32
   %5 = icmp slt i64 %0, 21
   br i1 %5, label %6, label %9
 
@@ -1329,14 +1329,14 @@ define internal fastcc ptr @num_word(i64 noundef %0) unnamed_addr #0 {
   %18 = urem i64 %0, 10
   %19 = icmp eq i64 %18, 0
   %20 = icmp ugt i32 %4, 10
-  %or.cond = and i1 %19, %20
+  %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %21, label %30
 
 21:                                               ; preds = %17
   %22 = udiv i64 %0, 100
   %23 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %.lhs.trunc = trunc i64 %2 to i8
+  %.lhs.trunc = trunc nuw nsw i64 %2 to i8
   %25 = udiv i8 %.lhs.trunc, 10
   %26 = zext nneg i8 %25 to i64
   %27 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %26
@@ -1357,7 +1357,7 @@ define internal fastcc ptr @num_word(i64 noundef %0) unnamed_addr #0 {
   br label %74
 
 38:                                               ; preds = %30
-  %.lhs.trunc32 = trunc i64 %2 to i8
+  %.lhs.trunc32 = trunc nuw nsw i64 %2 to i8
   %39 = udiv i8 %.lhs.trunc32, 10
   %40 = zext nneg i8 %39 to i64
   %41 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %40
@@ -1370,15 +1370,15 @@ define internal fastcc ptr @num_word(i64 noundef %0) unnamed_addr #0 {
   br label %74
 
 48:                                               ; preds = %15
-  %.lhs.trunc36 = trunc i64 %0 to i8
+  %.lhs.trunc36 = trunc nuw i64 %0 to i8
   %49 = urem i8 %.lhs.trunc36, 10
   %50 = icmp eq i8 %49, 0
   %51 = icmp ugt i32 %4, 10
-  %or.cond3 = and i1 %50, %51
+  %or.cond3 = select i1 %50, i1 %51, i1 false
   br i1 %or.cond3, label %52, label %58
 
 52:                                               ; preds = %48
-  %.lhs.trunc38 = trunc i64 %2 to i8
+  %.lhs.trunc38 = trunc nuw nsw i64 %2 to i8
   %53 = udiv i8 %.lhs.trunc38, 10
   %54 = zext nneg i8 %53 to i64
   %55 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %54
@@ -1397,7 +1397,7 @@ define internal fastcc ptr @num_word(i64 noundef %0) unnamed_addr #0 {
   br label %74
 
 64:                                               ; preds = %58
-  %.lhs.trunc40 = trunc i64 %2 to i8
+  %.lhs.trunc40 = trunc nuw nsw i64 %2 to i8
   %65 = udiv i8 %.lhs.trunc40, 10
   %66 = zext nneg i8 %65 to i64
   %67 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %66

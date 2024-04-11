@@ -6989,7 +6989,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit:       ; preds = %2, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.sroa.0.0.extract.trunc = trunc i64 %20 to i32
   %.sroa.5.0.extract.shift = lshr i64 %20, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %21 = icmp eq i32 %.sroa.5.0.extract.trunc, %.sroa.0.0.extract.trunc
   br i1 %21, label %22, label %30
 
@@ -8144,7 +8144,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI12QCPDataRangeEED2Ev.exit: ; preds = %._
   %12 = load i64, ptr %.sroa.9.015, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %12 to i32
   %.sroa.2.0.extract.shift = lshr i64 %12, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %13 = sub i32 %.016, %.sroa.0.0.extract.trunc
   %14 = add i32 %13, %.sroa.2.0.extract.trunc
   %15 = getelementptr i8, ptr %.sroa.9.015, i64 8
@@ -8686,7 +8686,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i7: ; preds = %22
   %27 = load i64, ptr %.sroa.9.024, align 4
   %.sroa.016.0.extract.trunc = trunc i64 %27 to i32
   %.sroa.2.0.extract.shift = lshr i64 %27, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %28 = load i32, ptr %2, align 4
@@ -8936,7 +8936,7 @@ _ZNK16QCPDataSelection4spanEv.exit:               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.sroa.0.0.extract.trunc = trunc i64 %19 to i32
   %.sroa.2.0.extract.shift = lshr i64 %19, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %20 = load i32, ptr %2, align 4
   %21 = call i32 @llvm.smin.i32(i32 %20, i32 %.sroa.0.0.extract.trunc)
@@ -8948,7 +8948,7 @@ _ZNK16QCPDataSelection4spanEv.exit:               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.sroa.033.0.extract.trunc = trunc i64 %25 to i32
   %.sroa.3.0.extract.shift = lshr i64 %25, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   call void @_ZN16QCPDataSelectionC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %26 = load ptr, ptr %13, align 8
   %27 = load i32, ptr %26, align 4
@@ -10921,12 +10921,12 @@ _ZN17QArrayDataPointerIP16QCPLayoutElementE5derefEv.exit.i.i.i27: ; preds = %18
 
 39:                                               ; preds = %34
   %.sroa.2.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i31, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   br label %_ZN3QCP14getMarginValueERK8QMarginsNS_10MarginSideE.exit
 
 40:                                               ; preds = %34
   %.sroa.5.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   br label %_ZN3QCP14getMarginValueERK8QMarginsNS_10MarginSideE.exit
 
 _ZN3QCP14getMarginValueERK8QMarginsNS_10MarginSideE.exit: ; preds = %34, %37, %38, %39, %40
@@ -15529,7 +15529,7 @@ define i64 @_ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement(ptr nou
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
   %.sroa.031.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.6.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %7 = icmp sgt i32 %.sroa.031.0.extract.trunc, 0
   br i1 %7, label %8, label %16
 
@@ -15567,9 +15567,9 @@ define i64 @_ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement(ptr nou
   %.sroa.2.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %0, i64 132
   %.sroa.2.0.copyload.i16 = load i64, ptr %.sroa.2.0..sroa_idx.i15, align 4
   %.sroa.125.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i14, 32
-  %.sroa.125.0.extract.trunc = trunc i64 %.sroa.125.0.extract.shift to i32
+  %.sroa.125.0.extract.trunc = trunc nuw i64 %.sroa.125.0.extract.shift to i32
   %.sroa.2.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i16, 32
-  %.sroa.2.8.extract.trunc = trunc i64 %.sroa.2.8.extract.shift to i32
+  %.sroa.2.8.extract.trunc = trunc nuw i64 %.sroa.2.8.extract.shift to i32
   %24 = add i32 %.sroa.125.0.extract.trunc, %.sroa.6.0.extract.trunc
   %25 = add i32 %24, %.sroa.2.8.extract.trunc
   br label %26
@@ -15577,7 +15577,7 @@ define i64 @_ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement(ptr nou
 26:                                               ; preds = %22, %18, %16
   %.sroa.6.0 = phi i32 [ %25, %22 ], [ %.sroa.6.0.extract.trunc, %18 ], [ %.sroa.6.0.extract.trunc, %16 ]
   %.sroa.239.0.extract.shift = lshr i64 %5, 32
-  %.sroa.239.0.extract.trunc = trunc i64 %.sroa.239.0.extract.shift to i32
+  %.sroa.239.0.extract.trunc = trunc nuw i64 %.sroa.239.0.extract.shift to i32
   %.sroa.038.0.extract.trunc = trunc i64 %5 to i32
   %27 = icmp sgt i32 %.sroa.031.0, 0
   %spec.select = select i1 %27, i32 %.sroa.031.0, i32 %.sroa.038.0.extract.trunc
@@ -15600,7 +15600,7 @@ define i64 @_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement(ptr nou
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
   %.sroa.031.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.6.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %7 = icmp slt i32 %.sroa.031.0.extract.trunc, 16777215
   br i1 %7, label %8, label %16
 
@@ -15638,9 +15638,9 @@ define i64 @_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement(ptr nou
   %.sroa.2.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %0, i64 132
   %.sroa.2.0.copyload.i16 = load i64, ptr %.sroa.2.0..sroa_idx.i15, align 4
   %.sroa.125.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i14, 32
-  %.sroa.125.0.extract.trunc = trunc i64 %.sroa.125.0.extract.shift to i32
+  %.sroa.125.0.extract.trunc = trunc nuw i64 %.sroa.125.0.extract.shift to i32
   %.sroa.2.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i16, 32
-  %.sroa.2.8.extract.trunc = trunc i64 %.sroa.2.8.extract.shift to i32
+  %.sroa.2.8.extract.trunc = trunc nuw i64 %.sroa.2.8.extract.shift to i32
   %24 = add i32 %.sroa.125.0.extract.trunc, %.sroa.6.0.extract.trunc
   %25 = add i32 %24, %.sroa.2.8.extract.trunc
   br label %26
@@ -15648,7 +15648,7 @@ define i64 @_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement(ptr nou
 26:                                               ; preds = %22, %18, %16
   %.sroa.6.0 = phi i32 [ %25, %22 ], [ %.sroa.6.0.extract.trunc, %18 ], [ %.sroa.6.0.extract.trunc, %16 ]
   %.sroa.239.0.extract.shift = lshr i64 %5, 32
-  %.sroa.239.0.extract.trunc = trunc i64 %.sroa.239.0.extract.shift to i32
+  %.sroa.239.0.extract.trunc = trunc nuw i64 %.sroa.239.0.extract.shift to i32
   %.sroa.038.0.extract.trunc = trunc i64 %5 to i32
   %27 = icmp slt i32 %.sroa.031.0, 16777215
   %spec.select = select i1 %27, i32 %.sroa.031.0, i32 %.sroa.038.0.extract.trunc
@@ -19122,7 +19122,7 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit34:        ; preds = %43, %46
   %.sroa.0.0.copyload.i.i = load i64, ptr %64, align 8
   %.sroa.031.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %.sroa.6.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.6.0.extract.trunc.i = trunc i64 %.sroa.6.0.extract.shift.i to i32
+  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   %65 = icmp sgt i32 %.sroa.031.0.extract.trunc.i, 0
   br i1 %65, label %66, label %74
 
@@ -19160,9 +19160,9 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit34:        ; preds = %43, %46
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %58, i64 132
   %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 4
   %.sroa.125.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i14.i, 32
-  %.sroa.125.0.extract.trunc.i = trunc i64 %.sroa.125.0.extract.shift.i to i32
+  %.sroa.125.0.extract.trunc.i = trunc nuw i64 %.sroa.125.0.extract.shift.i to i32
   %.sroa.2.8.extract.shift.i = lshr i64 %.sroa.2.0.copyload.i16.i, 32
-  %.sroa.2.8.extract.trunc.i = trunc i64 %.sroa.2.8.extract.shift.i to i32
+  %.sroa.2.8.extract.trunc.i = trunc nuw i64 %.sroa.2.8.extract.shift.i to i32
   %82 = add i32 %.sroa.125.0.extract.trunc.i, %.sroa.6.0.extract.trunc.i
   %83 = add i32 %82, %.sroa.2.8.extract.trunc.i
   br label %_ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement.exit
@@ -19170,7 +19170,7 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit34:        ; preds = %43, %46
 _ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %74, %76, %80
   %.sroa.6.0.i = phi i32 [ %83, %80 ], [ %.sroa.6.0.extract.trunc.i, %76 ], [ %.sroa.6.0.extract.trunc.i, %74 ]
   %.sroa.239.0.extract.shift.i = lshr i64 %63, 32
-  %.sroa.239.0.extract.trunc.i = trunc i64 %.sroa.239.0.extract.shift.i to i32
+  %.sroa.239.0.extract.trunc.i = trunc nuw i64 %.sroa.239.0.extract.shift.i to i32
   %.sroa.038.0.extract.trunc.i = trunc i64 %63 to i32
   %84 = icmp sgt i32 %.sroa.031.0.i, 0
   %spec.select.i = select i1 %84, i32 %.sroa.031.0.i, i32 %.sroa.038.0.extract.trunc.i
@@ -19965,7 +19965,7 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit34:        ; preds = %45, %48
   %.sroa.0.0.copyload.i.i = load i64, ptr %66, align 8
   %.sroa.031.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %.sroa.6.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.6.0.extract.trunc.i = trunc i64 %.sroa.6.0.extract.shift.i to i32
+  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   %67 = icmp slt i32 %.sroa.031.0.extract.trunc.i, 16777215
   br i1 %67, label %68, label %76
 
@@ -20003,9 +20003,9 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit34:        ; preds = %45, %48
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %60, i64 132
   %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 4
   %.sroa.125.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i14.i, 32
-  %.sroa.125.0.extract.trunc.i = trunc i64 %.sroa.125.0.extract.shift.i to i32
+  %.sroa.125.0.extract.trunc.i = trunc nuw i64 %.sroa.125.0.extract.shift.i to i32
   %.sroa.2.8.extract.shift.i = lshr i64 %.sroa.2.0.copyload.i16.i, 32
-  %.sroa.2.8.extract.trunc.i = trunc i64 %.sroa.2.8.extract.shift.i to i32
+  %.sroa.2.8.extract.trunc.i = trunc nuw i64 %.sroa.2.8.extract.shift.i to i32
   %84 = add i32 %.sroa.125.0.extract.trunc.i, %.sroa.6.0.extract.trunc.i
   %85 = add i32 %84, %.sroa.2.8.extract.trunc.i
   br label %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit
@@ -20013,7 +20013,7 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit34:        ; preds = %45, %48
 _ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %76, %78, %82
   %.sroa.6.0.i = phi i32 [ %85, %82 ], [ %.sroa.6.0.extract.trunc.i, %78 ], [ %.sroa.6.0.extract.trunc.i, %76 ]
   %.sroa.239.0.extract.shift.i = lshr i64 %65, 32
-  %.sroa.239.0.extract.trunc.i = trunc i64 %.sroa.239.0.extract.shift.i to i32
+  %.sroa.239.0.extract.trunc.i = trunc nuw i64 %.sroa.239.0.extract.shift.i to i32
   %.sroa.038.0.extract.trunc.i = trunc i64 %65 to i32
   %86 = icmp slt i32 %.sroa.031.0.i, 16777215
   %spec.select.i = select i1 %86, i32 %.sroa.031.0.i, i32 %.sroa.038.0.extract.trunc.i
@@ -22696,7 +22696,7 @@ define void @_ZN14QCPLayoutInset12updateLayoutEv(ptr nocapture noundef nonnull r
   %.sroa.0.0.copyload.i.i = load i64, ptr %19, align 8
   %.sroa.031.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %.sroa.6.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.6.0.extract.trunc.i = trunc i64 %.sroa.6.0.extract.shift.i to i32
+  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   %20 = icmp sgt i32 %.sroa.031.0.extract.trunc.i, 0
   br i1 %20, label %21, label %29
 
@@ -22734,9 +22734,9 @@ define void @_ZN14QCPLayoutInset12updateLayoutEv(ptr nocapture noundef nonnull r
   %.sroa.2.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %14, i64 132
   %.sroa.2.0.copyload.i16.i = load i64, ptr %.sroa.2.0..sroa_idx.i15.i, align 4
   %.sroa.125.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i14.i, 32
-  %.sroa.125.0.extract.trunc.i = trunc i64 %.sroa.125.0.extract.shift.i to i32
+  %.sroa.125.0.extract.trunc.i = trunc nuw i64 %.sroa.125.0.extract.shift.i to i32
   %.sroa.2.8.extract.shift.i = lshr i64 %.sroa.2.0.copyload.i16.i, 32
-  %.sroa.2.8.extract.trunc.i = trunc i64 %.sroa.2.8.extract.shift.i to i32
+  %.sroa.2.8.extract.trunc.i = trunc nuw i64 %.sroa.2.8.extract.shift.i to i32
   %37 = add i32 %.sroa.125.0.extract.trunc.i, %.sroa.6.0.extract.trunc.i
   %38 = add i32 %37, %.sroa.2.8.extract.trunc.i
   br label %_ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement.exit
@@ -22759,7 +22759,7 @@ _ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %29
   %.sroa.0.0.copyload.i.i14 = load i64, ptr %50, align 8
   %.sroa.031.0.extract.trunc.i15 = trunc i64 %.sroa.0.0.copyload.i.i14 to i32
   %.sroa.6.0.extract.shift.i16 = lshr i64 %.sroa.0.0.copyload.i.i14, 32
-  %.sroa.6.0.extract.trunc.i17 = trunc i64 %.sroa.6.0.extract.shift.i16 to i32
+  %.sroa.6.0.extract.trunc.i17 = trunc nuw i64 %.sroa.6.0.extract.shift.i16 to i32
   %51 = icmp slt i32 %.sroa.031.0.extract.trunc.i15, 16777215
   br i1 %51, label %52, label %60
 
@@ -22797,9 +22797,9 @@ _ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %29
   %.sroa.2.0..sroa_idx.i15.i29 = getelementptr inbounds i8, ptr %14, i64 132
   %.sroa.2.0.copyload.i16.i30 = load i64, ptr %.sroa.2.0..sroa_idx.i15.i29, align 4
   %.sroa.125.0.extract.shift.i31 = lshr i64 %.sroa.0.0.copyload.i14.i28, 32
-  %.sroa.125.0.extract.trunc.i32 = trunc i64 %.sroa.125.0.extract.shift.i31 to i32
+  %.sroa.125.0.extract.trunc.i32 = trunc nuw i64 %.sroa.125.0.extract.shift.i31 to i32
   %.sroa.2.8.extract.shift.i33 = lshr i64 %.sroa.2.0.copyload.i16.i30, 32
-  %.sroa.2.8.extract.trunc.i34 = trunc i64 %.sroa.2.8.extract.shift.i33 to i32
+  %.sroa.2.8.extract.trunc.i34 = trunc nuw i64 %.sroa.2.8.extract.shift.i33 to i32
   %68 = add i32 %.sroa.125.0.extract.trunc.i32, %.sroa.6.0.extract.trunc.i17
   %69 = add i32 %68, %.sroa.2.8.extract.trunc.i34
   br label %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit
@@ -22807,7 +22807,7 @@ _ZN9QCPLayout24getFinalMinimumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %29
 _ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %60, %62, %66
   %.sroa.6.0.i19 = phi i32 [ %69, %66 ], [ %.sroa.6.0.extract.trunc.i17, %62 ], [ %.sroa.6.0.extract.trunc.i17, %60 ]
   %.sroa.239.0.extract.shift.i20 = lshr i64 %49, 32
-  %.sroa.239.0.extract.trunc.i21 = trunc i64 %.sroa.239.0.extract.shift.i20 to i32
+  %.sroa.239.0.extract.trunc.i21 = trunc nuw i64 %.sroa.239.0.extract.shift.i20 to i32
   %70 = icmp slt i32 %.sroa.6.0.i19, 16777215
   %71 = select i1 %70, i32 %.sroa.6.0.i19, i32 %.sroa.239.0.extract.trunc.i21
   %72 = load ptr, ptr %6, align 8
@@ -22929,7 +22929,7 @@ _ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %60
 146:                                              ; preds = %144
   %.sroa.0.0.copyload.i102 = load i64, ptr %8, align 4
   %.sroa.1139.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i102, 32
-  %.sroa.1139.0.extract.trunc = trunc i64 %.sroa.1139.0.extract.shift to i32
+  %.sroa.1139.0.extract.trunc = trunc nuw i64 %.sroa.1139.0.extract.shift to i32
   %147 = add i32 %122, %.sroa.1139.0.extract.trunc
   br label %163
 
@@ -22941,7 +22941,7 @@ _ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %60
 150:                                              ; preds = %148
   %.sroa.2.0.copyload.i109 = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %.sroa.3134.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i109, 32
-  %.sroa.3134.8.extract.trunc = trunc i64 %.sroa.3134.8.extract.shift to i32
+  %.sroa.3134.8.extract.trunc = trunc nuw i64 %.sroa.3134.8.extract.shift to i32
   %151 = add i32 %.sroa.3134.8.extract.trunc, 1
   %152 = sub i32 %151, %122
   br label %163
@@ -22950,10 +22950,10 @@ _ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %60
   %.sroa.0.0.copyload.i117 = load i64, ptr %8, align 4
   %.sroa.2.0.copyload.i119 = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %.sroa.1129.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i117, 32
-  %.sroa.1129.0.extract.trunc = trunc i64 %.sroa.1129.0.extract.shift to i32
+  %.sroa.1129.0.extract.trunc = trunc nuw i64 %.sroa.1129.0.extract.shift to i32
   %154 = sitofp i32 %.sroa.1129.0.extract.trunc to double
   %.sroa.3.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i119, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %reass.sub242 = sub i32 %.sroa.3.8.extract.trunc, %.sroa.1129.0.extract.trunc
   %155 = add i32 %reass.sub242, 1
   %156 = sitofp i32 %155 to double
@@ -25275,10 +25275,10 @@ define void @_ZN22QCPLabelPainterPrivate18analyzeFontMetricsEv(ptr noundef nonnu
 7:                                                ; preds = %5
   %8 = extractvalue { i64, i64 } %6, 0
   %.sroa.1.0.extract.shift = lshr i64 %8, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %9 = extractvalue { i64, i64 } %6, 1
   %.sroa.3.8.extract.shift = lshr i64 %9, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %10 = add i32 %.sroa.3.8.extract.trunc, 1
   %11 = sub i32 %10, %.sroa.1.0.extract.trunc
   %12 = getelementptr inbounds i8, ptr %0, i64 248
@@ -28062,7 +28062,7 @@ _ZN7QStringD2Ev.exit104:                          ; preds = %_ZN7QStringD2Ev.exi
   %264 = extractvalue { i64, i64 } %261, 1
   %265 = trunc i64 %264 to i32
   %266 = lshr i64 %264, 32
-  %267 = trunc i64 %266 to i32
+  %267 = trunc nuw i64 %266 to i32
   br label %268
 
 268:                                              ; preds = %262, %242
@@ -28071,7 +28071,7 @@ _ZN7QStringD2Ev.exit104:                          ; preds = %_ZN7QStringD2Ev.exi
   %270 = phi i32 [ %265, %262 ], [ %255, %242 ]
   %271 = trunc i64 %.in.in to i32
   %.in = lshr i64 %.in.in, 32
-  %272 = trunc i64 %.in to i32
+  %272 = trunc nuw i64 %.in to i32
   %273 = getelementptr inbounds i8, ptr %0, i64 216
   %274 = getelementptr inbounds i8, ptr %0, i64 224
   %275 = sub i32 %270, %271
@@ -29806,7 +29806,7 @@ define noundef double @_ZNK13QCPAxisTicker11getMantissaEdPd(ptr nocapture nounde
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13QCPAxisTicker12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i16 %4, i32 noundef %5) unnamed_addr #2 align 2 {
   %7 = icmp ugt i16 %4, 255
-  %8 = trunc i16 %4 to i8
+  %8 = trunc nuw i16 %4 to i8
   %spec.select.i = select i1 %7, i8 0, i8 %8
   tail call void @_ZNK7QLocale8toStringEdci(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %2, i8 noundef signext %spec.select.i, i32 noundef %5)
   ret void
@@ -34790,7 +34790,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62:    ; preds = %_ZN7QStringD2Ev.exi
 
 140:                                              ; preds = %99
   %141 = icmp ugt i16 %4, 255
-  %142 = trunc i16 %4 to i8
+  %142 = trunc nuw i16 %4 to i8
   %spec.select.i.i = select i1 %141, i8 0, i8 %142
   call void @_ZNK7QLocale8toStringEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %.0, i8 noundef signext %spec.select.i.i, i32 noundef %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
@@ -35587,7 +35587,7 @@ _ZNK15QCPAxisTickerPi18unicodeSuperscriptEi.exit.thread: ; preds = %10
   %15 = udiv i32 %.016.i, 10
   %switch.tableidx = add nsw i32 %14, -1
   %16 = icmp ult i32 %switch.tableidx, 3
-  %17 = trunc i32 %14 to i16
+  %17 = trunc nuw nsw i32 %14 to i16
   %18 = or disjoint i16 %17, 8304
   %switch.cast = zext i32 %switch.tableidx to i48
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 4
@@ -35677,7 +35677,7 @@ _ZplRK7QString5QChar.exit:                        ; preds = %_ZN7QStringC2ERKS_.
   %.08.i = phi i32 [ %41, %_ZN7QString7prependE5QChar.exit.i9 ], [ %3, %38 ]
   %40 = urem i32 %.08.i, 10
   %41 = udiv i32 %.08.i, 10
-  %42 = trunc i32 %40 to i16
+  %42 = trunc nuw nsw i32 %40 to i16
   %43 = or disjoint i16 %42, 8320
   %44 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6insertEx5QChar(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 0, i16 %43)
           to label %_ZN7QString7prependE5QChar.exit.i9 unwind label %45
@@ -35844,7 +35844,7 @@ define void @_ZNK15QCPAxisTickerPi18unicodeSuperscriptEi(ptr dead_on_unwind noal
   %9 = udiv i32 %.016, 10
   %switch.tableidx = add nsw i32 %8, -1
   %10 = icmp ult i32 %switch.tableidx, 3
-  %11 = trunc i32 %8 to i16
+  %11 = trunc nuw nsw i32 %8 to i16
   %12 = or disjoint i16 %11, 8304
   %switch.cast = zext i32 %switch.tableidx to i48
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 4
@@ -35886,7 +35886,7 @@ define void @_ZNK15QCPAxisTickerPi16unicodeSubscriptEi(ptr dead_on_unwind noalia
   %.08 = phi i32 [ %9, %_ZN7QString7prependE5QChar.exit ], [ %2, %6 ]
   %8 = urem i32 %.08, 10
   %9 = udiv i32 %.08, 10
-  %10 = trunc i32 %8 to i16
+  %10 = trunc nuw nsw i32 %8 to i16
   %11 = or disjoint i16 %10, 8320
   %12 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6insertEx5QChar(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0, i16 %11)
           to label %_ZN7QString7prependE5QChar.exit unwind label %13
@@ -39765,7 +39765,7 @@ define void @_ZN7QCPAxis15setNumberFormatERK7QString(ptr nocapture noundef nonnu
   %32 = load ptr, ptr %26, align 8
   %33 = load i16, ptr %32, align 2
   %34 = icmp ugt i16 %33, 255
-  %35 = trunc i16 %33 to i8
+  %35 = trunc nuw i16 %33 to i8
   %spec.select.i = select i1 %34, i8 0, i8 %35
   %36 = getelementptr inbounds i8, ptr %0, i64 268
   store i8 %spec.select.i, ptr %36, align 4
@@ -41785,7 +41785,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %18
   resume { ptr, i32 } %21
 
 switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %5
@@ -41834,7 +41834,7 @@ define noundef i32 @_ZN7QCPAxis8oppositeENS_8AxisTypeE(i32 noundef %0) local_unn
   resume { ptr, i32 } %13
 
 switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %5
@@ -42661,7 +42661,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit.thread:             ; preds = %8, %2, %39, %_ZN5QL
   %43 = getelementptr inbounds i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i11 = load i64, ptr %43, align 8
   %.sroa.1.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i11, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %44 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %45 = getelementptr inbounds i8, ptr %1, i64 48
   %46 = load ptr, ptr %45, align 8
@@ -44653,7 +44653,7 @@ define void @_ZN21QCPAxisPainterPrivate4drawEP10QCPPainter(ptr noundef nonnull a
   %76 = load i64, ptr %75, align 8
   %.sroa.0514.0.extract.trunc = trunc i64 %76 to i32
   %.sroa.2515.0.extract.shift = lshr i64 %76, 32
-  %.sroa.2515.0.extract.trunc = trunc i64 %.sroa.2515.0.extract.shift to i32
+  %.sroa.2515.0.extract.trunc = trunc nuw i64 %.sroa.2515.0.extract.shift to i32
   %77 = getelementptr inbounds i8, ptr %0, i64 272
   %78 = load i32, ptr %77, align 8
   %79 = add i32 %78, %.sroa.0514.0.extract.trunc
@@ -44663,7 +44663,7 @@ define void @_ZN21QCPAxisPainterPrivate4drawEP10QCPPainter(ptr noundef nonnull a
   %80 = getelementptr inbounds i8, ptr %0, i64 240
   %81 = load i64, ptr %80, align 8
   %.sroa.2511.0.extract.shift = lshr i64 %81, 32
-  %.sroa.2511.0.extract.trunc = trunc i64 %.sroa.2511.0.extract.shift to i32
+  %.sroa.2511.0.extract.trunc = trunc nuw i64 %.sroa.2511.0.extract.shift to i32
   %82 = getelementptr inbounds i8, ptr %0, i64 272
   %83 = load i32, ptr %82, align 8
   %84 = sub i32 %.sroa.2511.0.extract.trunc, %83
@@ -45660,7 +45660,7 @@ _ZNK13QCPLineEnding10realLengthEv.exit346:        ; preds = %523, %525, %528, %5
   br i1 %556, label %557, label %_ZN10QCPPainter15setAntialiasingEb.exit371
 
 557:                                              ; preds = %.noexc368
-  %558 = trunc i32 %425 to i8
+  %558 = trunc nuw nsw i32 %425 to i8
   store i8 %558, ptr %157, align 4
   %559 = load i32, ptr %95, align 4
   %560 = and i32 %559, 1
@@ -45902,9 +45902,9 @@ _ZN10QCPPainter6setPenERK4QPen.exit379:           ; preds = %.noexc377, %649
   %653 = extractvalue { i64, i64 } %651, 0
   %654 = extractvalue { i64, i64 } %651, 1
   %.sroa.2.0.extract.shift = lshr i64 %653, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %.sroa.13.8.extract.shift = lshr i64 %654, 32
-  %.sroa.13.8.extract.trunc = trunc i64 %.sroa.13.8.extract.shift to i32
+  %.sroa.13.8.extract.trunc = trunc nuw i64 %.sroa.13.8.extract.shift to i32
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #47
   %655 = load i32, ptr %65, align 8
   switch i32 %655, label %737 [
@@ -46635,9 +46635,9 @@ _ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit: ; preds = %._crit_e
   %99 = extractvalue { i64, i64 } %97, 0
   %100 = extractvalue { i64, i64 } %97, 1
   %.sroa.2.0.extract.shift = lshr i64 %99, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %.sroa.6.8.extract.shift = lshr i64 %100, 32
-  %.sroa.6.8.extract.trunc = trunc i64 %.sroa.6.8.extract.shift to i32
+  %.sroa.6.8.extract.trunc = trunc nuw i64 %.sroa.6.8.extract.shift to i32
   %101 = getelementptr inbounds i8, ptr %0, i64 88
   %102 = load i32, ptr %101, align 8
   %103 = add i32 %.1, 1
@@ -47433,7 +47433,7 @@ _ZN21QCPAxisPainterPrivate11CachedLabelC2Ev.exit: ; preds = %_ZN6QCacheI7QString
   %84 = load i64, ptr %83, align 8
   %.sroa.097.0.extract.trunc = trunc i64 %84 to i32
   %.sroa.298.0.extract.shift = lshr i64 %84, 32
-  %.sroa.298.0.extract.trunc = trunc i64 %.sroa.298.0.extract.shift to i32
+  %.sroa.298.0.extract.trunc = trunc nuw i64 %.sroa.298.0.extract.shift to i32
   %85 = sitofp i32 %.sroa.097.0.extract.trunc to double
   %86 = sitofp i32 %.sroa.298.0.extract.trunc to double
   %87 = fadd double %81, %85
@@ -47584,7 +47584,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %155
   %.sroa.294.0.extract.shift = lshr i64 %156, 32
   %157 = sub i32 0, %.sroa.093.0.extract.trunc
   %158 = sitofp i32 %157 to double
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.294.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.294.0.extract.shift to i32
   %159 = sub i32 0, %.sroa.1.0.extract.trunc
   %160 = sitofp i32 %159 to double
   %161 = load ptr, ptr %0, align 8
@@ -48883,7 +48883,7 @@ _ZN7QStringD2Ev.exit109:                          ; preds = %_ZN7QStringD2Ev.exi
   %272 = getelementptr inbounds i8, ptr %0, i64 84
   %273 = trunc i64 %265 to i32
   %274 = lshr i64 %265, 32
-  %275 = trunc i64 %274 to i32
+  %275 = trunc nuw i64 %274 to i32
   br label %286
 
 276:                                              ; preds = %90
@@ -57045,7 +57045,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit59.thread:    ; preds = %_ZNK8QPointerI7QCPA
   %.phi.trans.insert132 = getelementptr inbounds i8, ptr %.pre131, i64 80
   %.sroa.0.0.copyload.i67.pre = load i64, ptr %.phi.trans.insert132, align 8
   %.pre134 = lshr i64 %.sroa.0.0.copyload.i67.pre, 32
-  %.pre135 = trunc i64 %.pre134 to i32
+  %.pre135 = trunc nuw i64 %.pre134 to i32
   br label %159
 
 154:                                              ; preds = %145
@@ -57054,7 +57054,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit59.thread:    ; preds = %_ZNK8QPointerI7QCPA
   %157 = getelementptr inbounds i8, ptr %156, i64 80
   %.sroa.0.0.copyload.i62 = load i64, ptr %157, align 8
   %.sroa.184.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i62, 32
-  %.sroa.184.0.extract.trunc = trunc i64 %.sroa.184.0.extract.shift to i32
+  %.sroa.184.0.extract.trunc = trunc nuw i64 %.sroa.184.0.extract.shift to i32
   %158 = sitofp i32 %.sroa.184.0.extract.trunc to double
   br label %159
 
@@ -57066,7 +57066,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit59.thread:    ; preds = %_ZNK8QPointerI7QCPA
   %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds i8, ptr %160, i64 88
   %.sroa.2.0.copyload.i69 = load i64, ptr %.sroa.2.0..sroa_idx.i68, align 8
   %.sroa.3.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i69, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %reass.sub119 = sub i32 %.sroa.3.8.extract.trunc, %.sroa.182.0.extract.trunc.pre-phi
   %161 = add i32 %reass.sub119, 1
   %162 = sitofp i32 %161 to double
@@ -57559,9 +57559,9 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit28.thread:    ; preds = %_ZNK8QPointerI7QCPA
   %.sroa.2.0..sroa_idx.i32 = getelementptr inbounds i8, ptr %154, i64 88
   %.sroa.2.0.copyload.i33 = load i64, ptr %.sroa.2.0..sroa_idx.i32, align 8
   %.sroa.155.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i31, 32
-  %.sroa.155.0.extract.trunc = trunc i64 %.sroa.155.0.extract.shift to i32
+  %.sroa.155.0.extract.trunc = trunc nuw i64 %.sroa.155.0.extract.shift to i32
   %.sroa.3.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i33, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %reass.sub97 = sub i32 %.sroa.3.8.extract.trunc, %.sroa.155.0.extract.trunc
   %156 = add i32 %reass.sub97, 1
   %157 = sitofp i32 %156 to double
@@ -66152,9 +66152,9 @@ _ZN14QSharedPointerI22QCPAbstractPaintBufferEC2ERKS1_.exit: ; preds = %183, %188
   %.sroa.0.0.copyload.i = load i64, ptr %161, align 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.2.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %.sroa.5.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %reass.sub = sub i64 %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
   %194 = add i64 %reass.sub, 1
   %reass.sub77 = sub i32 %.sroa.5.8.extract.trunc, %.sroa.2.0.extract.trunc
@@ -68847,9 +68847,9 @@ _ZN11QCustomPlot11setViewportERK5QRect.exit:      ; preds = %55, %_ZneRK5QRectS1
   %.sroa.0.0.copyload.i26 = load i64, ptr %56, align 8
   %.sroa.2.0.copyload.i28 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.2.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i26, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %.sroa.5.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i28, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %reass.sub = sub i64 %.sroa.2.0.copyload.i28, %.sroa.0.0.copyload.i26
   %reass.sub82 = sub i32 %.sroa.5.8.extract.trunc, %.sroa.2.0.extract.trunc
   %88 = trunc i64 %reass.sub to i32
@@ -69047,9 +69047,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41:    ; preds = %147
   %161 = trunc i64 %.sroa.0.0.copyload.i to i32
   %162 = trunc i64 %.sroa.2.0.copyload.i to i32
   %163 = lshr i64 %.sroa.0.0.copyload.i, 32
-  %164 = trunc i64 %163 to i32
+  %164 = trunc nuw i64 %163 to i32
   %165 = lshr i64 %.sroa.2.0.copyload.i, 32
-  %166 = trunc i64 %165 to i32
+  %166 = trunc nuw i64 %165 to i32
   br i1 %.not.i44, label %_ZN11QCustomPlot11setViewportERK5QRect.exit60, label %167
 
 167:                                              ; preds = %159
@@ -69614,7 +69614,7 @@ define void @_ZN11QCustomPlot14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   %38 = call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %37)
   %.sroa.015.0.extract.trunc = trunc i64 %38 to i32
   %.sroa.216.0.extract.shift = lshr i64 %38, 32
-  %.sroa.216.0.extract.trunc = trunc i64 %.sroa.216.0.extract.shift to i32
+  %.sroa.216.0.extract.trunc = trunc nuw i64 %.sroa.216.0.extract.shift to i32
   %39 = load i32, ptr %8, align 8
   %.not.i = icmp ne i32 %39, %.sroa.015.0.extract.trunc
   %40 = getelementptr inbounds i8, ptr %8, i64 4
@@ -69659,7 +69659,7 @@ define void @_ZN11QCustomPlot14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   %60 = load i64, ptr %22, align 8
   %.sroa.013.0.extract.trunc = trunc i64 %60 to i32
   %.sroa.214.0.extract.shift = lshr i64 %60, 32
-  %.sroa.214.0.extract.trunc = trunc i64 %.sroa.214.0.extract.shift to i32
+  %.sroa.214.0.extract.trunc = trunc nuw i64 %.sroa.214.0.extract.shift to i32
   %61 = load i32, ptr %23, align 8
   %62 = load i32, ptr %28, align 4
   store i32 0, ptr %12, align 4
@@ -69681,11 +69681,11 @@ define void @_ZN11QCustomPlot14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   %73 = extractvalue { i64, i64 } %72, 0
   %.sroa.011.0.extract.trunc = trunc i64 %73 to i32
   %.sroa.212.0.extract.shift = lshr i64 %73, 32
-  %.sroa.212.0.extract.trunc = trunc i64 %.sroa.212.0.extract.shift to i32
+  %.sroa.212.0.extract.trunc = trunc nuw i64 %.sroa.212.0.extract.shift to i32
   %74 = extractvalue { i64, i64 } %72, 1
   %.sroa.3.8.extract.trunc = trunc i64 %74 to i32
   %.sroa.5.8.extract.shift = lshr i64 %74, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %75 = sitofp i32 %.sroa.013.0.extract.trunc to double
@@ -69720,7 +69720,7 @@ define void @_ZN11QCustomPlot14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   %90 = load i64, ptr %89, align 8
   %.sroa.09.0.extract.trunc = trunc i64 %90 to i32
   %.sroa.210.0.extract.shift = lshr i64 %90, 32
-  %.sroa.210.0.extract.trunc = trunc i64 %.sroa.210.0.extract.shift to i32
+  %.sroa.210.0.extract.trunc = trunc nuw i64 %.sroa.210.0.extract.shift to i32
   %91 = getelementptr inbounds i8, ptr %0, i64 88
   %92 = load i32, ptr %91, align 8
   %93 = add i32 %92, 1
@@ -71979,11 +71979,11 @@ define void @_ZN11QCustomPlot20processRectSelectionE5QRectP11QMouseEvent(ptr nou
   %22 = extractvalue { i64, i64 } %21, 0
   %.sroa.0156.0.extract.trunc = trunc i64 %22 to i32
   %.sroa.3.0.extract.shift = lshr i64 %22, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %23 = extractvalue { i64, i64 } %21, 1
   %.sroa.5159.8.extract.trunc = trunc i64 %23 to i32
   %.sroa.7160.8.extract.shift = lshr i64 %23, 32
-  %.sroa.7160.8.extract.trunc = trunc i64 %.sroa.7160.8.extract.shift to i32
+  %.sroa.7160.8.extract.trunc = trunc nuw i64 %.sroa.7160.8.extract.shift to i32
   %24 = sitofp i32 %.sroa.0156.0.extract.trunc to double
   store double %24, ptr %7, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 8
@@ -72136,7 +72136,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i.i: ; preds = %._crit_e
   %78 = load i64, ptr %.sroa.9.015.i, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %78 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %78, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %79 = sub i32 %.016.i, %.sroa.0.0.extract.trunc.i
   %80 = add i32 %79, %.sroa.2.0.extract.trunc.i
   %81 = getelementptr i8, ptr %.sroa.9.015.i, i64 8
@@ -72972,10 +72972,10 @@ define void @_ZN11QCustomPlot15processRectZoomE5QRectP11QMouseEvent(ptr noundef 
   %12 = alloca %class.QRectF, align 8
   %.sroa.044.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.4.0.extract.shift = lshr i64 %1, 32
-  %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %.sroa.6.8.extract.trunc = trunc i64 %2 to i32
   %.sroa.8.8.extract.shift = lshr i64 %2, 32
-  %.sroa.8.8.extract.trunc = trunc i64 %.sroa.8.8.extract.shift to i32
+  %.sroa.8.8.extract.trunc = trunc nuw i64 %.sroa.8.8.extract.shift to i32
   %13 = sitofp i32 %.sroa.044.0.extract.trunc to double
   store double %13, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 8
@@ -74081,9 +74081,9 @@ _ZN10QCPPainter7setModeENS_11PainterModeEb.exit28: ; preds = %101, %98
   %118 = trunc i64 %.sroa.0.0.copyload.i to i32
   %119 = trunc i64 %.sroa.2.0.copyload.i to i32
   %120 = lshr i64 %.sroa.0.0.copyload.i, 32
-  %121 = trunc i64 %120 to i32
+  %121 = trunc nuw i64 %120 to i32
   %122 = lshr i64 %.sroa.2.0.copyload.i, 32
-  %123 = trunc i64 %122 to i32
+  %123 = trunc nuw i64 %122 to i32
   br i1 %.not.i29, label %_ZN11QCustomPlot11setViewportERK5QRect.exit45, label %124
 
 124:                                              ; preds = %116
@@ -74371,9 +74371,9 @@ _ZN10QCPPainter7setModeENS_11PainterModeEb.exit:  ; preds = %_ZN11QCustomPlot11s
   %69 = trunc i64 %.sroa.0.0.copyload.i to i32
   %70 = trunc i64 %.sroa.2.0.copyload.i to i32
   %71 = lshr i64 %.sroa.0.0.copyload.i, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = lshr i64 %.sroa.2.0.copyload.i, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   br i1 %.not.i16, label %_ZN11QCustomPlot11setViewportERK5QRect.exit32, label %75
 
 75:                                               ; preds = %64
@@ -84508,7 +84508,7 @@ _ZN17QArrayDataPointerIP7QCPAxisE5derefEv.exit.i.i.i14: ; preds = %12
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.0.sroa.3.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.0.sroa.3.0.extract.trunc = trunc i64 %.sroa.0.sroa.3.0.extract.shift to i32
+  %.sroa.0.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.3.0.extract.shift to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 108
   %24 = load i32, ptr %23, align 4
   %.not.i.i17 = icmp eq i32 %24, %.sroa.0.sroa.0.0.extract.trunc
@@ -84535,7 +84535,7 @@ _ZneRK5QRectS1_.exit.i:                           ; preds = %28
   %31 = getelementptr inbounds i8, ptr %21, i64 120
   %32 = load i32, ptr %31, align 4
   %.sroa.4.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
-  %.sroa.4.12.extract.trunc = trunc i64 %.sroa.4.12.extract.shift to i32
+  %.sroa.4.12.extract.trunc = trunc nuw i64 %.sroa.4.12.extract.shift to i32
   %.not.i = icmp eq i32 %32, %.sroa.4.12.extract.trunc
   br i1 %.not.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPAxisEED2Ev.exit, label %_ZneRK5QRectS1_.exit.thread.i
 
@@ -84556,7 +84556,7 @@ _ZneRK5QRectS1_.exit.thread.i:                    ; preds = %._ZneRK5QRectS1_.ex
   %42 = add i32 %36, %.sroa.0.sroa.3.0.extract.trunc
   %43 = sub i32 %.pre-phi, %38
   %44 = lshr i64 %.sroa.2.0.copyload.i, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = sub i32 %45, %40
   %.sroa.27.0.insert.ext.i.i = zext i32 %42 to i64
   %.sroa.27.0.insert.shift.i.i = shl nuw i64 %.sroa.27.0.insert.ext.i.i, 32
@@ -84770,7 +84770,7 @@ define void @_ZN11QCPAxisRect14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   %47 = call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %46)
   %.sroa.033.0.extract.trunc = trunc i64 %47 to i32
   %.sroa.234.0.extract.shift = lshr i64 %47, 32
-  %.sroa.234.0.extract.trunc = trunc i64 %.sroa.234.0.extract.shift to i32
+  %.sroa.234.0.extract.trunc = trunc nuw i64 %.sroa.234.0.extract.shift to i32
   %48 = load i32, ptr %9, align 8
   %.not.i = icmp ne i32 %48, %.sroa.033.0.extract.trunc
   %49 = getelementptr inbounds i8, ptr %9, i64 4
@@ -84814,7 +84814,7 @@ define void @_ZN11QCPAxisRect14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
 68:                                               ; preds = %53, %29
   %69 = load i64, ptr %31, align 4
   %.sroa.230.0.extract.shift = lshr i64 %69, 32
-  %.sroa.230.0.extract.trunc = trunc i64 %.sroa.230.0.extract.shift to i32
+  %.sroa.230.0.extract.trunc = trunc nuw i64 %.sroa.230.0.extract.shift to i32
   %70 = add i32 %.sroa.230.0.extract.trunc, -1
   %.sroa.031.0.extract.trunc = trunc i64 %69 to i32
   %71 = load i32, ptr %32, align 4
@@ -84838,11 +84838,11 @@ define void @_ZN11QCPAxisRect14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   %83 = extractvalue { i64, i64 } %82, 0
   %.sroa.025.0.extract.trunc = trunc i64 %83 to i32
   %.sroa.226.0.extract.shift = lshr i64 %83, 32
-  %.sroa.226.0.extract.trunc = trunc i64 %.sroa.226.0.extract.shift to i32
+  %.sroa.226.0.extract.trunc = trunc nuw i64 %.sroa.226.0.extract.shift to i32
   %84 = extractvalue { i64, i64 } %82, 1
   %.sroa.3.8.extract.trunc = trunc i64 %84 to i32
   %.sroa.5.8.extract.shift = lshr i64 %84, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %85 = sitofp i32 %.sroa.031.0.extract.trunc to double
@@ -84876,7 +84876,7 @@ define void @_ZN11QCPAxisRect14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
   %99 = getelementptr inbounds i8, ptr %0, i64 92
   %100 = load i64, ptr %99, align 4
   %.sroa.222.0.extract.shift = lshr i64 %100, 32
-  %.sroa.222.0.extract.trunc = trunc i64 %.sroa.222.0.extract.shift to i32
+  %.sroa.222.0.extract.trunc = trunc nuw i64 %.sroa.222.0.extract.shift to i32
   %101 = add i32 %.sroa.222.0.extract.trunc, -1
   %.sroa.023.0.extract.trunc = trunc i64 %100 to i32
   %102 = getelementptr inbounds i8, ptr %0, i64 100
@@ -87987,7 +87987,7 @@ define void @_ZN11QCPAxisRect10wheelEventEP11QWheelEvent(ptr nocapture noundef n
   %5 = getelementptr inbounds i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i = load i64, ptr %5, align 8
   %.sroa.1.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %6 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %7 = getelementptr inbounds i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -88808,7 +88808,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %32
   %.sroa.0.0.copyload.i25 = load i64, ptr %35, align 8
   %.sroa.056.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i25 to i32
   %.sroa.358.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i25, 32
-  %.sroa.358.0.extract.trunc = trunc i64 %.sroa.358.0.extract.shift to i32
+  %.sroa.358.0.extract.trunc = trunc nuw i64 %.sroa.358.0.extract.shift to i32
   call void @_ZNK8QPainter11fontMetricsEv(ptr dead_on_unwind nonnull writable sret(%class.QFontMetrics) align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %36 = load ptr, ptr %17, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !807)
@@ -88848,11 +88848,11 @@ _ZNK20QCPAbstractPlottable4nameEv.exit:           ; preds = %_ZN10QCPPainter6set
   %53 = extractvalue { i64, i64 } %51, 0
   %.sroa.054.0.extract.trunc = trunc i64 %53 to i32
   %.sroa.2.0.extract.shift = lshr i64 %53, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %54 = extractvalue { i64, i64 } %51, 1
   %.sroa.355.8.extract.trunc = trunc i64 %54 to i32
   %.sroa.5.8.extract.shift = lshr i64 %54, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %55 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -88873,7 +88873,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %52, %_ZN17QArrayDat
   %60 = load i64, ptr %59, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %60 to i32
   %.sroa.3.0.extract.shift = lshr i64 %60, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   store i32 %.sroa.0.0.extract.trunc, ptr %11, align 8
   %61 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %.sroa.3.0.extract.trunc, ptr %61, align 4
@@ -89144,7 +89144,7 @@ define i64 @_ZNK22QCPPlottableLegendItem20minimumOuterSizeHintEv(ptr noundef non
   %.sroa.0.0.copyload.i = load i64, ptr %16, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.2.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %17 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !822)
   %18 = getelementptr inbounds i8, ptr %17, i64 64
@@ -89184,10 +89184,10 @@ _ZNK20QCPAbstractPlottable4nameEv.exit:           ; preds = %13, %26
   %35 = extractvalue { i64, i64 } %32, 1
   %.sroa.012.0.extract.trunc = trunc i64 %34 to i32
   %.sroa.3.0.extract.shift = lshr i64 %34, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %.sroa.5.8.extract.trunc = trunc i64 %35 to i32
   %.sroa.8.8.extract.shift = lshr i64 %35, 32
-  %.sroa.8.8.extract.trunc = trunc i64 %.sroa.8.8.extract.shift to i32
+  %.sroa.8.8.extract.trunc = trunc nuw i64 %.sroa.8.8.extract.shift to i32
   %36 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -92118,10 +92118,10 @@ define i64 @_ZNK14QCPTextElement20minimumOuterSizeHintEv(ptr noundef nonnull ali
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %8 = extractvalue { i64, i64 } %6, 0
   %.sroa.2.0.extract.shift = lshr i64 %8, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %9 = extractvalue { i64, i64 } %6, 1
   %.sroa.5.8.extract.shift = lshr i64 %9, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %10 = add i64 %9, 1
   %11 = sub i64 %10, %8
   %.sroa.02.0.extract.trunc = trunc i64 %11 to i32
@@ -92169,10 +92169,10 @@ define i64 @_ZNK14QCPTextElement20maximumOuterSizeHintEv(ptr noundef nonnull ali
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %8 = extractvalue { i64, i64 } %6, 0
   %.sroa.2.0.extract.shift = lshr i64 %8, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %9 = extractvalue { i64, i64 } %6, 1
   %.sroa.5.8.extract.shift = lshr i64 %9, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %10 = getelementptr inbounds i8, ptr %0, i64 128
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 136
@@ -95179,7 +95179,7 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit6: ; preds = %27, %27
   %37 = getelementptr inbounds i8, ptr %36, i64 124
   %.sroa.0.0.copyload.i110 = load i64, ptr %37, align 4
   %.sroa.1107.0.extract.shift115 = lshr i64 %.sroa.0.0.copyload.i110, 32
-  %.sroa.1107.0.extract.trunc116 = trunc i64 %.sroa.1107.0.extract.shift115 to i32
+  %.sroa.1107.0.extract.trunc116 = trunc nuw i64 %.sroa.1107.0.extract.shift115 to i32
   %38 = add i32 %31, %.sroa.1107.0.extract.trunc116
   %39 = load atomic i32, ptr %33 monotonic, align 4
   %40 = icmp ne i32 %39, 0
@@ -95187,7 +95187,7 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit6: ; preds = %27, %27
   %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %36, i64 132
   %.sroa.2.0.copyload.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i8, align 4
   %.sroa.2105.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i9, 32
-  %.sroa.2105.8.extract.trunc = trunc i64 %.sroa.2105.8.extract.shift to i32
+  %.sroa.2105.8.extract.trunc = trunc nuw i64 %.sroa.2105.8.extract.shift to i32
   %41 = add i32 %38, %.sroa.2105.8.extract.trunc
   %42 = getelementptr inbounds i8, ptr %0, i64 80
   %43 = load i32, ptr %42, align 8
@@ -95246,7 +95246,7 @@ _ZN16QCPLayoutElement14setMaximumSizeEii.exit:    ; preds = %select.unfold.i.i.i
   %68 = getelementptr inbounds i8, ptr %67, i64 124
   %.sroa.0.0.copyload.i13118 = load i64, ptr %68, align 4
   %.sroa.1101.0.extract.shift123 = lshr i64 %.sroa.0.0.copyload.i13118, 32
-  %.sroa.1101.0.extract.trunc124 = trunc i64 %.sroa.1101.0.extract.shift123 to i32
+  %.sroa.1101.0.extract.trunc124 = trunc nuw i64 %.sroa.1101.0.extract.shift123 to i32
   %69 = add i32 %62, %.sroa.1101.0.extract.trunc124
   %70 = load atomic i32, ptr %64 monotonic, align 4
   %71 = icmp ne i32 %70, 0
@@ -95254,7 +95254,7 @@ _ZN16QCPLayoutElement14setMaximumSizeEii.exit:    ; preds = %select.unfold.i.i.i
   %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %67, i64 132
   %.sroa.2.0.copyload.i21 = load i64, ptr %.sroa.2.0..sroa_idx.i20, align 4
   %.sroa.2.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i21, 32
-  %.sroa.2.8.extract.trunc = trunc i64 %.sroa.2.8.extract.shift to i32
+  %.sroa.2.8.extract.trunc = trunc nuw i64 %.sroa.2.8.extract.shift to i32
   %72 = add i32 %69, %.sroa.2.8.extract.trunc
   %73 = getelementptr inbounds i8, ptr %0, i64 72
   %74 = load i32, ptr %73, align 8
@@ -95450,7 +95450,7 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit81: ; preds = %159, %15
   %.sroa.2.0.copyload.i84 = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i82 to i32
   %.sroa.0.sroa.3.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i82, 32
-  %.sroa.0.sroa.3.0.extract.trunc = trunc i64 %.sroa.0.sroa.3.0.extract.shift to i32
+  %.sroa.0.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.3.0.extract.shift to i32
   %166 = getelementptr inbounds i8, ptr %164, i64 108
   %167 = load i32, ptr %166, align 4
   %.not.i.i87 = icmp eq i32 %167, %.sroa.0.sroa.0.0.extract.trunc
@@ -95477,7 +95477,7 @@ _ZneRK5QRectS1_.exit.i:                           ; preds = %171
   %174 = getelementptr inbounds i8, ptr %164, i64 120
   %175 = load i32, ptr %174, align 4
   %.sroa.4.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i84, 32
-  %.sroa.4.12.extract.trunc = trunc i64 %.sroa.4.12.extract.shift to i32
+  %.sroa.4.12.extract.trunc = trunc nuw i64 %.sroa.4.12.extract.shift to i32
   %.not.i = icmp eq i32 %175, %.sroa.4.12.extract.trunc
   br i1 %.not.i, label %_ZN16QCPLayoutElement14setMinimumSizeEii.exit, label %_ZneRK5QRectS1_.exit.thread.i
 
@@ -95498,7 +95498,7 @@ _ZneRK5QRectS1_.exit.thread.i:                    ; preds = %_ZNK8QPointerI28QCP
   %185 = add i32 %179, %.sroa.0.sroa.3.0.extract.trunc
   %186 = sub i32 %.pre-phi, %181
   %187 = lshr i64 %.sroa.2.0.copyload.i84, 32
-  %188 = trunc i64 %187 to i32
+  %188 = trunc nuw i64 %187 to i32
   %189 = sub i32 %188, %183
   %.sroa.27.0.insert.ext.i.i = zext i32 %185 to i64
   %.sroa.27.0.insert.shift.i.i = shl nuw i64 %.sroa.27.0.insert.ext.i.i, 32
@@ -96274,9 +96274,9 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %_ZNK8QPointerI7QCPA
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 100
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.2.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %.sroa.5.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %.sroa.012.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.314.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i to i32
   %40 = getelementptr inbounds i8, ptr %0, i64 440
@@ -96347,13 +96347,13 @@ define void @_ZN28QCPColorScaleAxisRectPrivate19updateGradientImageEv(ptr nounde
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.090.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.291.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.291.0.extract.trunc = trunc i64 %.sroa.291.0.extract.shift to i32
+  %.sroa.291.0.extract.trunc = trunc nuw i64 %.sroa.291.0.extract.shift to i32
   %.sroa.392.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i to i32
   %.sroa.5.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %13 = icmp sgt i32 %.sroa.090.0.extract.trunc, %.sroa.392.8.extract.trunc
   %14 = icmp sgt i32 %.sroa.291.0.extract.trunc, %.sroa.5.8.extract.trunc
-  %15 = or i1 %13, %14
+  %15 = select i1 %13, i1 true, i1 %14
   br i1 %15, label %_ZN5QListIdED2Ev.exit, label %16
 
 16:                                               ; preds = %1
@@ -96455,9 +96455,9 @@ _ZNK17QArrayDataPointerIdE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
   %.sroa.0.0.copyload.i49 = load i64, ptr %12, align 4
   %.sroa.2.0.copyload.i51 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.1.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i49, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %.sroa.3.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i51, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %reass.sub = sub i32 %.sroa.3.8.extract.trunc, %.sroa.1.0.extract.trunc
   %43 = add i32 %reass.sub, 1
   invoke void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %20, i32 noundef %43, i32 noundef 6)
@@ -102573,7 +102573,7 @@ _ZNK15QCPScatterStyle6pixmapEv.exit:              ; preds = %98
 
 100:                                              ; preds = %_ZNK15QCPScatterStyle6pixmapEv.exit
   %.sroa.1.0.extract.shift = lshr i64 %99, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %101 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %102 = getelementptr inbounds i8, ptr %2, i64 24
   %103 = load double, ptr %102, align 8
@@ -106341,7 +106341,7 @@ define void @_ZNK8QCPGraph14getFillPolygonEPK5QListI7QPointFE12QCPDataRange(ptr 
   %5 = alloca ptr, align 8
   %.sroa.034.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.5.0.extract.shift = lshr i64 %3, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %6 = sub i32 %.sroa.5.0.extract.trunc, %.sroa.034.0.extract.trunc
   %7 = icmp slt i32 %6, 2
   br i1 %7, label %8, label %.lr.ph.i.preheader.i.i
@@ -109354,7 +109354,7 @@ define linkonce_odr void @_ZNK16QCPDataContainerI12QCPGraphDataE25limitIterators
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.sroa.027.0.extract.trunc = trunc i64 %37 to i32
   %.sroa.3.0.extract.shift = lshr i64 %37, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -109384,7 +109384,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i:     ; preds = %47, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.sroa.0.0.extract.trunc.i = trunc i64 %48 to i32
   %.sroa.5.0.extract.shift.i = lshr i64 %48, 32
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %49 = icmp eq i32 %.sroa.5.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br i1 %49, label %50, label %_ZNK12QCPDataRange7boundedERKS_.exit
 
@@ -109411,7 +109411,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit:             ; preds = %_ZNK12QCPDataRange1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %.sroa.030.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
-  %.sroa.332.0.extract.trunc = trunc i64 %.sroa.5.0.i to i32
+  %.sroa.332.0.extract.trunc = trunc nuw i64 %.sroa.5.0.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -109441,7 +109441,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i12:   ; preds = %65, %_ZNK12QCPDataR
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i14 = trunc i64 %66 to i32
   %.sroa.5.0.extract.shift.i15 = lshr i64 %66, 32
-  %.sroa.5.0.extract.trunc.i16 = trunc i64 %.sroa.5.0.extract.shift.i15 to i32
+  %.sroa.5.0.extract.trunc.i16 = trunc nuw i64 %.sroa.5.0.extract.shift.i15 to i32
   %67 = icmp eq i32 %.sroa.5.0.extract.trunc.i16, %.sroa.0.0.extract.trunc.i14
   br i1 %67, label %68, label %_ZNK12QCPDataRange7boundedERKS_.exit25
 
@@ -115294,7 +115294,7 @@ _ZNK15QCPScatterStyle6pixmapEv.exit:              ; preds = %98
 
 100:                                              ; preds = %_ZNK15QCPScatterStyle6pixmapEv.exit
   %.sroa.1.0.extract.shift = lshr i64 %99, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %101 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %102 = getelementptr inbounds i8, ptr %2, i64 24
   %103 = load double, ptr %102, align 8
@@ -115902,7 +115902,7 @@ define linkonce_odr void @_ZNK16QCPDataContainerI12QCPCurveDataE25limitIterators
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.sroa.027.0.extract.trunc = trunc i64 %37 to i32
   %.sroa.3.0.extract.shift = lshr i64 %37, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -115932,7 +115932,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i:     ; preds = %47, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.sroa.0.0.extract.trunc.i = trunc i64 %48 to i32
   %.sroa.5.0.extract.shift.i = lshr i64 %48, 32
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %49 = icmp eq i32 %.sroa.5.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br i1 %49, label %50, label %_ZNK12QCPDataRange7boundedERKS_.exit
 
@@ -115959,7 +115959,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit:             ; preds = %_ZNK12QCPDataRange1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %.sroa.030.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
-  %.sroa.332.0.extract.trunc = trunc i64 %.sroa.5.0.i to i32
+  %.sroa.332.0.extract.trunc = trunc nuw i64 %.sroa.5.0.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -115989,7 +115989,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i12:   ; preds = %65, %_ZNK12QCPDataR
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i14 = trunc i64 %66 to i32
   %.sroa.5.0.extract.shift.i15 = lshr i64 %66, 32
-  %.sroa.5.0.extract.trunc.i16 = trunc i64 %.sroa.5.0.extract.shift.i15 to i32
+  %.sroa.5.0.extract.trunc.i16 = trunc nuw i64 %.sroa.5.0.extract.shift.i15 to i32
   %67 = icmp eq i32 %.sroa.5.0.extract.trunc.i16, %.sroa.0.0.extract.trunc.i14
   br i1 %67, label %68, label %_ZNK12QCPDataRange7boundedERKS_.exit25
 
@@ -118177,25 +118177,25 @@ define noundef zeroext i1 @_ZNK8QCPCurve11mayTraverseEii(ptr nocapture noundef n
   br label %19
 
 switch.lookup:                                    ; preds = %4
-  %switch.cast = trunc i32 %2 to i8
+  %switch.cast = trunc nuw i32 %2 to i8
   %switch.downshift = lshr i8 99, %switch.cast
   %switch.masked = trunc i8 %switch.downshift to i1
   br label %19
 
 switch.lookup15:                                  ; preds = %8
-  %switch.cast16 = trunc i32 %2 to i10
+  %switch.cast16 = trunc nuw i32 %2 to i10
   %switch.downshift18 = lshr i10 441, %switch.cast16
   %switch.masked19 = trunc i10 %switch.downshift18 to i1
   br label %19
 
 switch.lookup20:                                  ; preds = %12
-  %switch.cast21 = trunc i32 %2 to i10
+  %switch.cast21 = trunc nuw i32 %2 to i10
   %switch.downshift23 = lshr i10 237, %switch.cast21
   %switch.masked24 = trunc i10 %switch.downshift23 to i1
   br label %19
 
 switch.lookup25:                                  ; preds = %16
-  %switch.cast26 = trunc i32 %2 to i9
+  %switch.cast26 = trunc nuw i32 %2 to i9
   %switch.downshift28 = lshr i9 55, %switch.cast26
   %switch.masked29 = trunc i9 %switch.downshift28 to i1
   br label %19
@@ -126278,7 +126278,7 @@ define linkonce_odr void @_ZNK16QCPDataContainerI11QCPBarsDataE25limitIteratorsT
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.sroa.027.0.extract.trunc = trunc i64 %37 to i32
   %.sroa.3.0.extract.shift = lshr i64 %37, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -126308,7 +126308,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i:     ; preds = %47, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.sroa.0.0.extract.trunc.i = trunc i64 %48 to i32
   %.sroa.5.0.extract.shift.i = lshr i64 %48, 32
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %49 = icmp eq i32 %.sroa.5.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br i1 %49, label %50, label %_ZNK12QCPDataRange7boundedERKS_.exit
 
@@ -126335,7 +126335,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit:             ; preds = %_ZNK12QCPDataRange1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %.sroa.030.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
-  %.sroa.332.0.extract.trunc = trunc i64 %.sroa.5.0.i to i32
+  %.sroa.332.0.extract.trunc = trunc nuw i64 %.sroa.5.0.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -126365,7 +126365,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i12:   ; preds = %65, %_ZNK12QCPDataR
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i14 = trunc i64 %66 to i32
   %.sroa.5.0.extract.shift.i15 = lshr i64 %66, 32
-  %.sroa.5.0.extract.trunc.i16 = trunc i64 %.sroa.5.0.extract.shift.i15 to i32
+  %.sroa.5.0.extract.trunc.i16 = trunc nuw i64 %.sroa.5.0.extract.shift.i15 to i32
   %67 = icmp eq i32 %.sroa.5.0.extract.trunc.i16, %.sroa.0.0.extract.trunc.i14
   br i1 %67, label %68, label %_ZNK12QCPDataRange7boundedERKS_.exit25
 
@@ -131129,7 +131129,7 @@ define linkonce_odr void @_ZNK16QCPDataContainerI21QCPStatisticalBoxDataE25limit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.sroa.027.0.extract.trunc = trunc i64 %37 to i32
   %.sroa.3.0.extract.shift = lshr i64 %37, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -131159,7 +131159,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i:     ; preds = %47, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.sroa.0.0.extract.trunc.i = trunc i64 %48 to i32
   %.sroa.5.0.extract.shift.i = lshr i64 %48, 32
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %49 = icmp eq i32 %.sroa.5.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br i1 %49, label %50, label %_ZNK12QCPDataRange7boundedERKS_.exit
 
@@ -131186,7 +131186,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit:             ; preds = %_ZNK12QCPDataRange1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %.sroa.030.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
-  %.sroa.332.0.extract.trunc = trunc i64 %.sroa.5.0.i to i32
+  %.sroa.332.0.extract.trunc = trunc nuw i64 %.sroa.5.0.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -131216,7 +131216,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i12:   ; preds = %65, %_ZNK12QCPDataR
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i14 = trunc i64 %66 to i32
   %.sroa.5.0.extract.shift.i15 = lshr i64 %66, 32
-  %.sroa.5.0.extract.trunc.i16 = trunc i64 %.sroa.5.0.extract.shift.i15 to i32
+  %.sroa.5.0.extract.trunc.i16 = trunc nuw i64 %.sroa.5.0.extract.shift.i15 to i32
   %67 = icmp eq i32 %.sroa.5.0.extract.trunc.i16, %.sroa.0.0.extract.trunc.i14
   br i1 %67, label %68, label %_ZNK12QCPDataRange7boundedERKS_.exit25
 
@@ -140254,7 +140254,7 @@ define linkonce_odr void @_ZNK16QCPDataContainerI16QCPFinancialDataE25limitItera
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.sroa.027.0.extract.trunc = trunc i64 %37 to i32
   %.sroa.3.0.extract.shift = lshr i64 %37, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -140284,7 +140284,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i:     ; preds = %47, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.sroa.0.0.extract.trunc.i = trunc i64 %48 to i32
   %.sroa.5.0.extract.shift.i = lshr i64 %48, 32
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %49 = icmp eq i32 %.sroa.5.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br i1 %49, label %50, label %_ZNK12QCPDataRange7boundedERKS_.exit
 
@@ -140311,7 +140311,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit:             ; preds = %_ZNK12QCPDataRange1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %.sroa.030.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
-  %.sroa.332.0.extract.trunc = trunc i64 %.sroa.5.0.i to i32
+  %.sroa.332.0.extract.trunc = trunc nuw i64 %.sroa.5.0.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -140341,7 +140341,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i12:   ; preds = %65, %_ZNK12QCPDataR
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i14 = trunc i64 %66 to i32
   %.sroa.5.0.extract.shift.i15 = lshr i64 %66, 32
-  %.sroa.5.0.extract.trunc.i16 = trunc i64 %.sroa.5.0.extract.shift.i15 to i32
+  %.sroa.5.0.extract.trunc.i16 = trunc nuw i64 %.sroa.5.0.extract.shift.i15 to i32
   %67 = icmp eq i32 %.sroa.5.0.extract.trunc.i16, %.sroa.0.0.extract.trunc.i14
   br i1 %67, label %68, label %_ZNK12QCPDataRange7boundedERKS_.exit25
 
@@ -145310,7 +145310,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i:     ; preds = %108, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %.sroa.0.0.extract.trunc.i = trunc i64 %109 to i32
   %.sroa.5.0.extract.shift.i = lshr i64 %109, 32
-  %.sroa.5.0.extract.trunc.i = trunc i64 %.sroa.5.0.extract.shift.i to i32
+  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %110 = icmp eq i32 %.sroa.5.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br i1 %110, label %111, label %_ZNK12QCPDataRange7boundedERKS_.exit
 
@@ -145485,7 +145485,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i71:   ; preds = %205, %.critedge3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.sroa.0.0.extract.trunc.i73 = trunc i64 %206 to i32
   %.sroa.5.0.extract.shift.i74 = lshr i64 %206, 32
-  %.sroa.5.0.extract.trunc.i75 = trunc i64 %.sroa.5.0.extract.shift.i74 to i32
+  %.sroa.5.0.extract.trunc.i75 = trunc nuw i64 %.sroa.5.0.extract.shift.i74 to i32
   %207 = icmp eq i32 %.sroa.5.0.extract.trunc.i75, %.sroa.0.0.extract.trunc.i73
   br i1 %207, label %208, label %_ZNK12QCPDataRange7boundedERKS_.exit84
 
@@ -145514,7 +145514,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit84:           ; preds = %_ZNK12QCPDataRange1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %.sroa.0102.0.extract.trunc = trunc i64 %.sroa.0.0.i77 to i32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.5.0.i76 to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.5.0.i76 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -145544,7 +145544,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit.i87:   ; preds = %225, %_ZNK12QCPData
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i89 = trunc i64 %226 to i32
   %.sroa.5.0.extract.shift.i90 = lshr i64 %226, 32
-  %.sroa.5.0.extract.trunc.i91 = trunc i64 %.sroa.5.0.extract.shift.i90 to i32
+  %.sroa.5.0.extract.trunc.i91 = trunc nuw i64 %.sroa.5.0.extract.shift.i90 to i32
   %227 = icmp eq i32 %.sroa.5.0.extract.trunc.i91, %.sroa.0.0.extract.trunc.i89
   br i1 %227, label %228, label %_ZNK12QCPDataRange7boundedERKS_.exit100
 
@@ -149239,11 +149239,11 @@ define void @_ZN19QCPItemStraightLine4drawEP10QCPPainter(ptr noundef nonnull ali
   %53 = extractvalue { i64, i64 } %52, 0
   %.sroa.0.0.extract.trunc = trunc i64 %53 to i32
   %.sroa.2.0.extract.shift = lshr i64 %53, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %54 = extractvalue { i64, i64 } %52, 1
   %.sroa.3.8.extract.trunc = trunc i64 %54 to i32
   %.sroa.5.8.extract.shift = lshr i64 %54, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %55 = sub i32 %.sroa.0.0.extract.trunc, %39
   %56 = sub i32 %.sroa.2.0.extract.trunc, %39
   %57 = add i32 %.sroa.3.8.extract.trunc, %39
@@ -150278,11 +150278,11 @@ _ZNK13QCPLineEnding16boundingDistanceEv.exit12:   ; preds = %_ZNK13QCPLineEnding
   %90 = extractvalue { i64, i64 } %89, 0
   %.sroa.0.0.extract.trunc = trunc i64 %90 to i32
   %.sroa.2.0.extract.shift = lshr i64 %90, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %91 = extractvalue { i64, i64 } %89, 1
   %.sroa.3.8.extract.trunc = trunc i64 %91 to i32
   %.sroa.5.8.extract.shift = lshr i64 %91, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %92 = sub i32 %.sroa.0.0.extract.trunc, %.sroa.speculated
   %93 = sub i32 %.sroa.2.0.extract.trunc, %.sroa.speculated
   %94 = add i32 %.sroa.speculated, %.sroa.3.8.extract.trunc
@@ -151655,11 +151655,11 @@ define void @_ZN12QCPItemCurve4drawEP10QCPPainter(ptr noundef nonnull align 8 de
   %90 = extractvalue { i64, i64 } %86, 0
   %.sroa.0.0.extract.trunc = trunc i64 %90 to i32
   %.sroa.2.0.extract.shift = lshr i64 %90, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %91 = extractvalue { i64, i64 } %86, 1
   %.sroa.3.8.extract.trunc = trunc i64 %91 to i32
   %.sroa.5.8.extract.shift = lshr i64 %91, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %92 = sub i32 %.sroa.0.0.extract.trunc, %89
   %93 = sub i32 %.sroa.2.0.extract.trunc, %89
   %94 = add i32 %.sroa.3.8.extract.trunc, %89
@@ -152527,11 +152527,11 @@ define void @_ZN11QCPItemRect4drawEP10QCPPainter(ptr noundef nonnull align 8 der
   %68 = extractvalue { i64, i64 } %67, 0
   %.sroa.0.0.extract.trunc = trunc i64 %68 to i32
   %.sroa.3.0.extract.shift = lshr i64 %68, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %69 = extractvalue { i64, i64 } %67, 1
   %.sroa.5.8.extract.trunc = trunc i64 %69 to i32
   %.sroa.7.8.extract.shift = lshr i64 %69, 32
-  %.sroa.7.8.extract.trunc = trunc i64 %.sroa.7.8.extract.shift to i32
+  %.sroa.7.8.extract.trunc = trunc nuw i64 %.sroa.7.8.extract.shift to i32
   %70 = sitofp i32 %.sroa.0.0.extract.trunc to double
   store double %70, ptr %7, align 8
   %71 = getelementptr inbounds i8, ptr %7, i64 8
@@ -153530,11 +153530,11 @@ define noundef double @_ZNK11QCPItemText10selectTestERK7QPointFbP8QVariant(ptr n
   %43 = extractvalue { i64, i64 } %41, 0
   %.sroa.026.0.extract.trunc = trunc i64 %43 to i32
   %.sroa.227.0.extract.shift = lshr i64 %43, 32
-  %.sroa.227.0.extract.trunc = trunc i64 %.sroa.227.0.extract.shift to i32
+  %.sroa.227.0.extract.trunc = trunc nuw i64 %.sroa.227.0.extract.shift to i32
   %44 = extractvalue { i64, i64 } %41, 1
   %.sroa.3.8.extract.trunc = trunc i64 %44 to i32
   %.sroa.528.8.extract.shift = lshr i64 %44, 32
-  %.sroa.528.8.extract.trunc = trunc i64 %.sroa.528.8.extract.shift to i32
+  %.sroa.528.8.extract.trunc = trunc nuw i64 %.sroa.528.8.extract.shift to i32
   %45 = getelementptr inbounds i8, ptr %0, i64 344
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 348
@@ -153792,13 +153792,13 @@ define void @_ZN11QCPItemText4drawEP10QCPPainter(ptr noundef nonnull align 8 der
   %.neg = sub i32 %57, %64
   %65 = getelementptr inbounds i8, ptr %6, i64 4
   %66 = lshr i64 %53, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %.neg109 = sub i32 %59, %67
   %68 = trunc i64 %55 to i32
   %69 = add i32 %61, %68
   %70 = getelementptr inbounds i8, ptr %6, i64 12
   %71 = lshr i64 %55, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = add i32 %63, %72
   %74 = getelementptr inbounds i8, ptr %8, i64 8
   %reass.sub = add i32 %.neg, %69
@@ -154260,11 +154260,11 @@ define { double, double } @_ZNK11QCPItemText19anchorPixelPositionEi(ptr noundef 
   %42 = extractvalue { i64, i64 } %40, 0
   %.sroa.058.0.extract.trunc = trunc i64 %42 to i32
   %.sroa.259.0.extract.shift = lshr i64 %42, 32
-  %.sroa.259.0.extract.trunc = trunc i64 %.sroa.259.0.extract.shift to i32
+  %.sroa.259.0.extract.trunc = trunc nuw i64 %.sroa.259.0.extract.shift to i32
   %43 = extractvalue { i64, i64 } %40, 1
   %.sroa.360.8.extract.trunc = trunc i64 %43 to i32
   %.sroa.561.8.extract.shift = lshr i64 %43, 32
-  %.sroa.561.8.extract.trunc = trunc i64 %.sroa.561.8.extract.shift to i32
+  %.sroa.561.8.extract.trunc = trunc nuw i64 %.sroa.561.8.extract.shift to i32
   %44 = getelementptr inbounds i8, ptr %0, i64 344
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 348
@@ -155411,11 +155411,11 @@ define void @_ZN14QCPItemEllipse4drawEP10QCPPainter(ptr noundef nonnull align 8 
   %62 = extractvalue { i64, i64 } %61, 0
   %.sroa.0.0.extract.trunc = trunc i64 %62 to i32
   %.sroa.2.0.extract.shift = lshr i64 %62, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %63 = extractvalue { i64, i64 } %61, 1
   %.sroa.3.8.extract.trunc = trunc i64 %63 to i32
   %.sroa.5.8.extract.shift = lshr i64 %63, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %64 = sub i32 %.sroa.0.0.extract.trunc, %57
   %65 = sub i32 %.sroa.2.0.extract.trunc, %57
   %66 = sitofp i32 %64 to double
@@ -156284,11 +156284,11 @@ define noundef double @_ZNK13QCPItemPixmap10selectTestERK7QPointFbP8QVariant(ptr
   %12 = extractvalue { i64, i64 } %11, 0
   %.sroa.0.0.extract.trunc = trunc i64 %12 to i32
   %.sroa.3.0.extract.shift = lshr i64 %12, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %13 = extractvalue { i64, i64 } %11, 1
   %.sroa.5.8.extract.trunc = trunc i64 %13 to i32
   %.sroa.7.8.extract.shift = lshr i64 %13, 32
-  %.sroa.7.8.extract.trunc = trunc i64 %.sroa.7.8.extract.shift to i32
+  %.sroa.7.8.extract.trunc = trunc nuw i64 %.sroa.7.8.extract.shift to i32
   %14 = sitofp i32 %.sroa.0.0.extract.trunc to double
   store double %14, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -156409,9 +156409,9 @@ define { i64, i64 } @_ZNK13QCPItemPixmap12getFinalRectEPbS0_(ptr noundef nonnull
   %82 = add <2 x i32> %78, <i32 -1, i32 -1>
   %83 = add <2 x i32> %82, %81
   %.lobit = lshr i32 %46, 31
-  %84 = trunc i32 %.lobit to i8
+  %84 = trunc nuw nsw i32 %.lobit to i8
   %.lobit11 = lshr i32 %47, 31
-  %85 = trunc i32 %.lobit11 to i8
+  %85 = trunc nuw nsw i32 %.lobit11 to i8
   br label %102
 
 86:                                               ; preds = %40
@@ -156501,10 +156501,10 @@ define void @_ZN13QCPItemPixmap4drawEP10QCPPainter(ptr noundef nonnull align 8 d
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %19) #47
   %20 = trunc i64 %13 to i32
   %21 = lshr i64 %13, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = trunc i64 %15 to i32
   %24 = lshr i64 %15, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = invoke noundef i32 @_ZNK4QPen5styleEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %27 unwind label %73
 
@@ -156667,10 +156667,10 @@ define void @_ZN13QCPItemPixmap18updateScaledPixmapE5QRectbb(ptr noundef nonnull
   %16 = alloca %class.QPixmap, align 8
   %.sroa.026.0.extract.trunc29 = trunc i64 %1 to i32
   %.sroa.5.0.extract.shift30 = lshr i64 %1, 32
-  %.sroa.5.0.extract.trunc31 = trunc i64 %.sroa.5.0.extract.shift30 to i32
+  %.sroa.5.0.extract.trunc31 = trunc nuw i64 %.sroa.5.0.extract.shift30 to i32
   %.sroa.8.8.extract.trunc36 = trunc i64 %2 to i32
   %.sroa.13.8.extract.shift37 = lshr i64 %2, 32
-  %.sroa.13.8.extract.trunc38 = trunc i64 %.sroa.13.8.extract.shift37 to i32
+  %.sroa.13.8.extract.trunc38 = trunc nuw i64 %.sroa.13.8.extract.shift37 to i32
   %17 = zext i1 %3 to i8
   store i8 %17, ptr %9, align 1
   %18 = zext i1 %4 to i8
@@ -156700,10 +156700,10 @@ define void @_ZN13QCPItemPixmap18updateScaledPixmapE5QRectbb(ptr noundef nonnull
   %35 = extractvalue { i64, i64 } %33, 1
   %.sroa.026.0.extract.trunc = trunc i64 %34 to i32
   %.sroa.5.0.extract.shift = lshr i64 %34, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %.sroa.8.8.extract.trunc = trunc i64 %35 to i32
   %.sroa.13.8.extract.shift = lshr i64 %35, 32
-  %.sroa.13.8.extract.trunc = trunc i64 %.sroa.13.8.extract.shift to i32
+  %.sroa.13.8.extract.trunc = trunc nuw i64 %.sroa.13.8.extract.shift to i32
   br label %36
 
 36:                                               ; preds = %32, %25
@@ -156725,7 +156725,7 @@ define void @_ZN13QCPItemPixmap18updateScaledPixmapE5QRectbb(ptr noundef nonnull
   %44 = call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %43)
   %.sroa.020.0.extract.trunc = trunc i64 %44 to i32
   %.sroa.221.0.extract.shift = lshr i64 %44, 32
-  %.sroa.221.0.extract.trunc = trunc i64 %.sroa.221.0.extract.shift to i32
+  %.sroa.221.0.extract.trunc = trunc nuw i64 %.sroa.221.0.extract.shift to i32
   %45 = sitofp i32 %.sroa.020.0.extract.trunc to double
   %46 = fdiv double %45, %26
   %47 = call double @llvm.copysign.f64(double 5.000000e-01, double %46)
@@ -156893,11 +156893,11 @@ define { double, double } @_ZNK13QCPItemPixmap19anchorPixelPositionEi(ptr nounde
   %8 = extractvalue { i64, i64 } %7, 0
   %.sroa.091.0.extract.trunc = trunc i64 %8 to i32
   %.sroa.12.0.extract.shift = lshr i64 %8, 32
-  %.sroa.12.0.extract.trunc = trunc i64 %.sroa.12.0.extract.shift to i32
+  %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
   %9 = extractvalue { i64, i64 } %7, 1
   %.sroa.21.8.extract.trunc = trunc i64 %9 to i32
   %.sroa.33.8.extract.shift = lshr i64 %9, 32
-  %.sroa.33.8.extract.trunc = trunc i64 %.sroa.33.8.extract.shift to i32
+  %.sroa.33.8.extract.trunc = trunc nuw i64 %.sroa.33.8.extract.shift to i32
   %10 = load i8, ptr %3, align 1
   %11 = trunc i8 %10 to i1
   %12 = add i32 %.sroa.21.8.extract.trunc, 1
@@ -158743,9 +158743,9 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit58:        ; preds = %119, %120
 
 128:                                              ; preds = %34
   %129 = lshr i64 %52, 32
-  %130 = trunc i64 %129 to i32
+  %130 = trunc nuw i64 %129 to i32
   %131 = lshr i64 %50, 32
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nuw i64 %131 to i32
   %133 = sitofp i32 %132 to double
   %134 = fcmp ogt double %42, %133
   %135 = sitofp i32 %130 to double
@@ -160150,11 +160150,11 @@ _ZN5QListI6QPointElsEOS0_.exit90:                 ; preds = %215
   %232 = extractvalue { i64, i64 } %228, 0
   %.sroa.0814.0.extract.trunc = trunc i64 %232 to i32
   %.sroa.2815.0.extract.shift = lshr i64 %232, 32
-  %.sroa.2815.0.extract.trunc = trunc i64 %.sroa.2815.0.extract.shift to i32
+  %.sroa.2815.0.extract.trunc = trunc nuw i64 %.sroa.2815.0.extract.shift to i32
   %233 = extractvalue { i64, i64 } %228, 1
   %.sroa.3.8.extract.trunc = trunc i64 %233 to i32
   %.sroa.5.8.extract.shift = lshr i64 %233, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   %234 = sub i32 %.sroa.0814.0.extract.trunc, %231
   %235 = sub i32 %.sroa.2815.0.extract.trunc, %231
   %236 = add i32 %.sroa.3.8.extract.trunc, %231
@@ -163184,7 +163184,7 @@ define void @_ZN18QCPPolarAxisRadial15setNumberFormatERK7QString(ptr nocapture n
   %31 = load ptr, ptr %25, align 8
   %32 = load i16, ptr %31, align 2
   %33 = icmp ugt i16 %32, 255
-  %34 = trunc i16 %32 to i8
+  %34 = trunc nuw i16 %32 to i8
   %spec.select.i = select i1 %33, i8 0, i8 %34
   %35 = getelementptr inbounds i8, ptr %0, i64 292
   store i8 %spec.select.i, ptr %35, align 4
@@ -167638,8 +167638,8 @@ _ZN18QCPPolarAxisRadial16setupTickVectorsEv.exit: ; preds = %9, %21, %25, %53
   %74 = sext i32 %73 to i64
   %75 = add nsw i64 %74, %71
   %76 = sdiv i64 %75, 2
-  %.sroa.0.0.extract.trunc = trunc i64 %68 to i32
-  %.sroa.2.0.extract.trunc = trunc i64 %76 to i32
+  %.sroa.0.0.extract.trunc = trunc nsw i64 %68 to i32
+  %.sroa.2.0.extract.trunc = trunc nsw i64 %76 to i32
   %77 = sitofp i32 %.sroa.0.0.extract.trunc to double
   %78 = sitofp i32 %.sroa.2.0.extract.trunc to double
   %79 = getelementptr inbounds i8, ptr %0, i64 552
@@ -167694,7 +167694,7 @@ _ZN18QCPPolarAxisRadial16setupTickVectorsEv.exit: ; preds = %9, %21, %25, %53
   %.sroa.2.0.copyload.i = load i64, ptr %64, align 4
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i12 to i32
   %.sroa.0.sroa.3.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i12, 32
-  %.sroa.0.sroa.3.0.extract.trunc = trunc i64 %.sroa.0.sroa.3.0.extract.shift to i32
+  %.sroa.0.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.3.0.extract.shift to i32
   %107 = getelementptr inbounds i8, ptr %106, i64 108
   %108 = load i32, ptr %107, align 4
   %.not.i.i = icmp eq i32 %108, %.sroa.0.sroa.0.0.extract.trunc
@@ -167721,7 +167721,7 @@ _ZneRK5QRectS1_.exit.i:                           ; preds = %112
   %115 = getelementptr inbounds i8, ptr %106, i64 120
   %116 = load i32, ptr %115, align 4
   %.sroa.4.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
-  %.sroa.4.12.extract.trunc = trunc i64 %.sroa.4.12.extract.shift to i32
+  %.sroa.4.12.extract.trunc = trunc nuw i64 %.sroa.4.12.extract.shift to i32
   %.not.i14 = icmp eq i32 %116, %.sroa.4.12.extract.trunc
   br i1 %.not.i14, label %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit, label %_ZneRK5QRectS1_.exit.thread.i
 
@@ -167742,7 +167742,7 @@ _ZneRK5QRectS1_.exit.thread.i:                    ; preds = %._crit_edge._ZneRK5
   %126 = add i32 %120, %.sroa.0.sroa.3.0.extract.trunc
   %127 = sub i32 %.pre-phi, %122
   %128 = lshr i64 %.sroa.2.0.copyload.i, 32
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nuw i64 %128 to i32
   %130 = sub i32 %129, %124
   %.sroa.27.0.insert.ext.i.i = zext i32 %126 to i64
   %.sroa.27.0.insert.shift.i.i = shl nuw i64 %.sroa.27.0.insert.ext.i.i, 32
@@ -168836,7 +168836,7 @@ define void @_ZN19QCPPolarAxisAngular14drawBackgroundEP10QCPPainterRK7QPointFd(p
 78:                                               ; preds = %60
   %.sroa.050.0.extract.trunc = trunc i64 %77 to i32
   %.sroa.251.0.extract.shift = lshr i64 %77, 32
-  %.sroa.251.0.extract.trunc = trunc i64 %.sroa.251.0.extract.shift to i32
+  %.sroa.251.0.extract.trunc = trunc nuw i64 %.sroa.251.0.extract.shift to i32
   %79 = load i32, ptr %15, align 8
   %.not.i = icmp ne i32 %79, %.sroa.050.0.extract.trunc
   %80 = getelementptr inbounds i8, ptr %15, i64 4
@@ -168897,7 +168897,7 @@ define void @_ZN19QCPPolarAxisAngular14drawBackgroundEP10QCPPainterRK7QPointFd(p
   %107 = trunc i64 %105 to i32
   %108 = load i32, ptr %67, align 8
   %109 = lshr i64 %105, 32
-  %110 = trunc i64 %109 to i32
+  %110 = trunc nuw i64 %109 to i32
   store i32 0, ptr %19, align 4
   %111 = getelementptr inbounds i8, ptr %19, i64 4
   store i32 0, ptr %111, align 4
@@ -168921,11 +168921,11 @@ define void @_ZN19QCPPolarAxisAngular14drawBackgroundEP10QCPPainterRK7QPointFd(p
   %123 = extractvalue { i64, i64 } %122, 0
   %.sroa.042.0.extract.trunc = trunc i64 %123 to i32
   %.sroa.243.0.extract.shift = lshr i64 %123, 32
-  %.sroa.243.0.extract.trunc = trunc i64 %.sroa.243.0.extract.shift to i32
+  %.sroa.243.0.extract.trunc = trunc nuw i64 %.sroa.243.0.extract.shift to i32
   %124 = extractvalue { i64, i64 } %122, 1
   %.sroa.3.8.extract.trunc = trunc i64 %124 to i32
   %.sroa.5.8.extract.shift = lshr i64 %124, 32
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %125 = sitofp i32 %107 to double
@@ -168962,7 +168962,7 @@ _ZN8QPainter10drawPixmapERK6QPointRK7QPixmapRK5QRect.exit: ; preds = %117
   %139 = getelementptr inbounds i8, ptr %0, i64 92
   %140 = load i64, ptr %139, align 4
   %.sroa.239.0.extract.shift = lshr i64 %140, 32
-  %.sroa.239.0.extract.trunc = trunc i64 %.sroa.239.0.extract.shift to i32
+  %.sroa.239.0.extract.trunc = trunc nuw i64 %.sroa.239.0.extract.shift to i32
   %141 = add i32 %.sroa.239.0.extract.trunc, -1
   %.sroa.040.0.extract.trunc = trunc i64 %140 to i32
   %142 = getelementptr inbounds i8, ptr %0, i64 100
@@ -169601,7 +169601,7 @@ define void @_ZN19QCPPolarAxisAngular15setNumberFormatERK7QString(ptr nocapture 
   %31 = load ptr, ptr %25, align 8
   %32 = load i16, ptr %31, align 2
   %33 = icmp ugt i16 %32, 255
-  %34 = trunc i16 %32 to i8
+  %34 = trunc nuw i16 %32 to i8
   %spec.select.i = select i1 %33, i8 0, i8 %34
   %35 = getelementptr inbounds i8, ptr %0, i64 468
   store i8 %spec.select.i, ptr %35, align 4
@@ -170548,7 +170548,7 @@ define void @_ZN19QCPPolarAxisAngular10wheelEventEP11QWheelEvent(ptr noundef non
   %12 = getelementptr inbounds i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i18 = load i64, ptr %12, align 8
   %.sroa.1.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i18, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %13 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %15 = load ptr, ptr %14, align 8
@@ -171806,7 +171806,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %31
   %.sroa.0.0.copyload.i25 = load i64, ptr %34, align 8
   %.sroa.056.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i25 to i32
   %.sroa.257.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i25, 32
-  %.sroa.257.0.extract.trunc = trunc i64 %.sroa.257.0.extract.shift to i32
+  %.sroa.257.0.extract.trunc = trunc nuw i64 %.sroa.257.0.extract.shift to i32
   %35 = sitofp i32 %.sroa.056.0.extract.trunc to double
   %36 = sitofp i32 %.sroa.257.0.extract.trunc to double
   call void @_ZNK8QPainter11fontMetricsEv(ptr dead_on_unwind nonnull writable sret(%class.QFontMetrics) align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -171848,11 +171848,11 @@ _ZNK13QCPPolarGraph4nameEv.exit:                  ; preds = %_ZN10QCPPainter6set
   %54 = extractvalue { i64, i64 } %52, 0
   %.sroa.051.0.extract.trunc = trunc i64 %54 to i32
   %.sroa.3.0.extract.shift = lshr i64 %54, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %55 = extractvalue { i64, i64 } %52, 1
   %.sroa.5.8.extract.trunc = trunc i64 %55 to i32
   %.sroa.7.8.extract.shift = lshr i64 %55, 32
-  %.sroa.7.8.extract.trunc = trunc i64 %.sroa.7.8.extract.shift to i32
+  %.sroa.7.8.extract.trunc = trunc nuw i64 %.sroa.7.8.extract.shift to i32
   %56 = add i32 %.sroa.7.8.extract.trunc, 1
   %57 = sub i32 %56, %.sroa.3.0.extract.trunc
   %58 = sitofp i32 %57 to double
@@ -171876,7 +171876,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %53, %_ZN17QArrayDat
   %64 = load i64, ptr %63, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %64 to i32
   %.sroa.2.0.extract.shift = lshr i64 %64, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %65 = sitofp i32 %.sroa.0.0.extract.trunc to double
   %66 = sitofp i32 %.sroa.2.0.extract.trunc to double
   store double %65, ptr %11, align 8
@@ -172176,7 +172176,7 @@ define i64 @_ZNK18QCPPolarLegendItem20minimumOuterSizeHintEv(ptr noundef nonnull
   %.sroa.0.0.copyload.i = load i64, ptr %16, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.2.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %17 = load ptr, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1430)
   %18 = getelementptr inbounds i8, ptr %17, i64 160
@@ -172216,10 +172216,10 @@ _ZNK13QCPPolarGraph4nameEv.exit:                  ; preds = %13, %26
   %35 = extractvalue { i64, i64 } %32, 1
   %.sroa.012.0.extract.trunc = trunc i64 %34 to i32
   %.sroa.3.0.extract.shift = lshr i64 %34, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %.sroa.5.8.extract.trunc = trunc i64 %35 to i32
   %.sroa.8.8.extract.shift = lshr i64 %35, 32
-  %.sroa.8.8.extract.trunc = trunc i64 %.sroa.8.8.extract.shift to i32
+  %.sroa.8.8.extract.trunc = trunc nuw i64 %.sroa.8.8.extract.shift to i32
   %36 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -177610,7 +177610,7 @@ _ZNK15QCPScatterStyle6pixmapEv.exit:              ; preds = %98
 
 100:                                              ; preds = %_ZNK15QCPScatterStyle6pixmapEv.exit
   %.sroa.1.0.extract.shift = lshr i64 %99, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %101 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %102 = getelementptr inbounds i8, ptr %2, i64 24
   %103 = load double, ptr %102, align 8

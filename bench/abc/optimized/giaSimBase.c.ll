@@ -257,7 +257,7 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %25, %28, %Vec_WrdSt
 
 .lr.ph:                                           ; preds = %Gia_ManSimPatAssignInputs.exit
   %37 = icmp sgt i32 %.fr67, 0
-  %wide.trip.count15.i = zext nneg i32 %.fr67 to i64
+  %wide.trip.count14.i = zext nneg i32 %.fr67 to i64
   br i1 %37, label %.lr.ph.split.us.preheader, label %.critedge
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
@@ -298,7 +298,7 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %25, %28, %Vec_WrdSt
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i64, ptr %.val47.us, i64 %59
   %61 = lshr i64 %.val41.us, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = and i32 %62, 536870911
   %64 = sub nsw i32 %56, %63
   %65 = mul nsw i32 %64, %.fr67
@@ -307,25 +307,25 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %25, %28, %Vec_WrdSt
   %68 = mul nsw i64 %indvars.iv, %38
   %69 = getelementptr inbounds i64, ptr %.val47.us, i64 %68
   %.not58.us = icmp ult i32 %55, %63
-  br i1 %.not58.us, label %.preheader5.i.us, label %.lr.ph9.i.us
+  br i1 %.not58.us, label %.preheader4.i.us, label %.lr.ph8.i.us
 
-.lr.ph9.i.us:                                     ; preds = %45, %.lr.ph9.i.us
-  %indvars.iv12.i.us = phi i64 [ %indvars.iv.next13.i.us, %.lr.ph9.i.us ], [ 0, %45 ]
-  %70 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv12.i.us
+.lr.ph8.i.us:                                     ; preds = %45, %.lr.ph8.i.us
+  %indvars.iv11.i.us = phi i64 [ %indvars.iv.next12.i.us, %.lr.ph8.i.us ], [ 0, %45 ]
+  %70 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv11.i.us
   %71 = load i64, ptr %70, align 8
   %72 = xor i64 %71, %50
-  %73 = getelementptr inbounds i64, ptr %67, i64 %indvars.iv12.i.us
+  %73 = getelementptr inbounds i64, ptr %67, i64 %indvars.iv11.i.us
   %74 = load i64, ptr %73, align 8
   %75 = xor i64 %74, %54
   %76 = and i64 %75, %72
-  %77 = getelementptr inbounds i64, ptr %69, i64 %indvars.iv12.i.us
+  %77 = getelementptr inbounds i64, ptr %69, i64 %indvars.iv11.i.us
   store i64 %76, ptr %77, align 8
-  %indvars.iv.next13.i.us = add nuw nsw i64 %indvars.iv12.i.us, 1
-  %exitcond16.not.i.us = icmp eq i64 %indvars.iv.next13.i.us, %wide.trip.count15.i
-  br i1 %exitcond16.not.i.us, label %Gia_ManSimPatSimAnd.exit.us, label %.lr.ph9.i.us, !llvm.loop !6
+  %indvars.iv.next12.i.us = add nuw nsw i64 %indvars.iv11.i.us, 1
+  %exitcond15.not.i.us = icmp eq i64 %indvars.iv.next12.i.us, %wide.trip.count14.i
+  br i1 %exitcond15.not.i.us, label %Gia_ManSimPatSimAnd.exit.us, label %.lr.ph8.i.us, !llvm.loop !6
 
-.preheader5.i.us:                                 ; preds = %45, %.preheader5.i.us
-  %indvars.iv.i50.us = phi i64 [ %indvars.iv.next.i51.us, %.preheader5.i.us ], [ 0, %45 ]
+.preheader4.i.us:                                 ; preds = %45, %.preheader4.i.us
+  %indvars.iv.i50.us = phi i64 [ %indvars.iv.next.i51.us, %.preheader4.i.us ], [ 0, %45 ]
   %78 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv.i50.us
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i64, ptr %67, i64 %indvars.iv.i50.us
@@ -336,10 +336,10 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %25, %28, %Vec_WrdSt
   %85 = getelementptr inbounds i64, ptr %69, i64 %indvars.iv.i50.us
   store i64 %84, ptr %85, align 8
   %indvars.iv.next.i51.us = add nuw nsw i64 %indvars.iv.i50.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i51.us, %wide.trip.count15.i
-  br i1 %exitcond.not.i.us, label %Gia_ManSimPatSimAnd.exit.us, label %.preheader5.i.us, !llvm.loop !7
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i51.us, %wide.trip.count14.i
+  br i1 %exitcond.not.i.us, label %Gia_ManSimPatSimAnd.exit.us, label %.preheader4.i.us, !llvm.loop !7
 
-Gia_ManSimPatSimAnd.exit.us:                      ; preds = %.lr.ph9.i.us, %.preheader5.i.us, %40
+Gia_ManSimPatSimAnd.exit.us:                      ; preds = %.lr.ph8.i.us, %.preheader4.i.us, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = icmp ult i64 %indvars.iv.next, %39
   br i1 %86, label %.lr.ph.split.us, label %.critedge, !llvm.loop !8
@@ -521,7 +521,7 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %43, %46, %Vec_WrdSt
 
 .lr.ph:                                           ; preds = %Gia_ManSimPatAssignInputs.exit
   %55 = icmp sgt i32 %.fr108, 0
-  %wide.trip.count15.i = zext nneg i32 %.fr108 to i64
+  %wide.trip.count14.i = zext nneg i32 %.fr108 to i64
   %56 = sext i32 %.fr108 to i64
   %.val63.pre = load ptr, ptr %53, align 8
   %.not58 = icmp eq ptr %.val63.pre, null
@@ -559,7 +559,7 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %43, %46, %Vec_WrdSt
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i64, ptr %33, i64 %78
   %80 = lshr i64 %.val71, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   %82 = and i32 %81, 536870911
   %83 = sub nsw i32 %75, %82
   %84 = mul nsw i32 %83, %.fr108
@@ -568,16 +568,16 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %43, %46, %Vec_WrdSt
   %87 = mul nsw i64 %indvars.iv, %56
   %88 = getelementptr inbounds i64, ptr %33, i64 %87
   %.not96 = icmp ult i32 %74, %82
-  br i1 %.not96, label %.preheader5.i, label %.preheader.i
+  br i1 %.not96, label %.preheader4.i, label %.preheader.i
 
-.preheader5.i:                                    ; preds = %64
+.preheader4.i:                                    ; preds = %64
   br i1 %55, label %.lr.ph.i86, label %Gia_ManSimPatSimAnd.exit
 
 .preheader.i:                                     ; preds = %64
-  br i1 %55, label %.lr.ph9.i, label %Gia_ManSimPatSimAnd.exit
+  br i1 %55, label %.lr.ph8.i, label %Gia_ManSimPatSimAnd.exit
 
-.lr.ph.i86:                                       ; preds = %.preheader5.i, %.lr.ph.i86
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %.lr.ph.i86 ], [ 0, %.preheader5.i ]
+.lr.ph.i86:                                       ; preds = %.preheader4.i, %.lr.ph.i86
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %.lr.ph.i86 ], [ 0, %.preheader4.i ]
   %89 = getelementptr inbounds i64, ptr %79, i64 %indvars.iv.i87
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds i64, ptr %86, i64 %indvars.iv.i87
@@ -588,25 +588,25 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %43, %46, %Vec_WrdSt
   %96 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv.i87
   store i64 %95, ptr %96, align 8
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count15.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count14.i
   br i1 %exitcond.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph.i86, !llvm.loop !7
 
-.lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %97 = getelementptr inbounds i64, ptr %79, i64 %indvars.iv12.i
+.lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %.lr.ph8.i ], [ 0, %.preheader.i ]
+  %97 = getelementptr inbounds i64, ptr %79, i64 %indvars.iv11.i
   %98 = load i64, ptr %97, align 8
   %99 = xor i64 %98, %69
-  %100 = getelementptr inbounds i64, ptr %86, i64 %indvars.iv12.i
+  %100 = getelementptr inbounds i64, ptr %86, i64 %indvars.iv11.i
   %101 = load i64, ptr %100, align 8
   %102 = xor i64 %101, %73
   %103 = and i64 %102, %99
-  %104 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv12.i
+  %104 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv11.i
   store i64 %103, ptr %104, align 8
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count15.i
-  br i1 %exitcond16.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph9.i, !llvm.loop !6
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
+  %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count14.i
+  br i1 %exitcond15.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph8.i, !llvm.loop !6
 
-Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph9.i, %.lr.ph.i86, %.preheader.i, %.preheader5.i, %59
+Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %.lr.ph.i86, %.preheader.i, %.preheader4.i, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = icmp ult i64 %indvars.iv.next, %57
   br i1 %105, label %58, label %.critedge, !llvm.loop !11
@@ -876,7 +876,7 @@ Vec_WrdStart.exit94:                              ; preds = %23, %27
 .lr.ph109:                                        ; preds = %.critedge
   %72 = getelementptr i8, ptr %1, i64 8
   %73 = icmp sgt i32 %7, 0
-  %wide.trip.count17.i = zext nneg i32 %7 to i64
+  %wide.trip.count16.i = zext nneg i32 %7 to i64
   %74 = zext nneg i32 %.val83 to i64
   %75 = sext i32 %7 to i64
   %.val72.pre = load ptr, ptr %70, align 8
@@ -916,7 +916,7 @@ Vec_WrdStart.exit94:                              ; preds = %23, %27
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i64, ptr %.val89, i64 %96
   %98 = lshr i64 %.val84, 32
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw i64 %98 to i32
   %100 = and i32 %99, 536870911
   %101 = sub nsw i32 %93, %100
   %102 = mul nsw i32 %101, %7
@@ -928,16 +928,16 @@ Vec_WrdStart.exit94:                              ; preds = %23, %27
   %108 = getelementptr inbounds i64, ptr %31, i64 %103
   %109 = getelementptr inbounds i64, ptr %31, i64 %105
   %.not97 = icmp ult i32 %92, %100
-  br i1 %.not97, label %.preheader7.i, label %.preheader.i
+  br i1 %.not97, label %.preheader6.i, label %.preheader.i
 
-.preheader7.i:                                    ; preds = %82
+.preheader6.i:                                    ; preds = %82
   br i1 %73, label %.lr.ph.i, label %Gia_ManSimPatSimAnd3.exit
 
 .preheader.i:                                     ; preds = %82
-  br i1 %73, label %.lr.ph11.i, label %Gia_ManSimPatSimAnd3.exit
+  br i1 %73, label %.lr.ph10.i, label %Gia_ManSimPatSimAnd3.exit
 
-.lr.ph.i:                                         ; preds = %.preheader7.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader7.i ]
+.lr.ph.i:                                         ; preds = %.preheader6.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader6.i ]
   %110 = getelementptr inbounds i64, ptr %109, i64 %indvars.iv.i
   %111 = load i64, ptr %110, align 8
   %112 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv.i
@@ -950,40 +950,40 @@ Vec_WrdStart.exit94:                              ; preds = %23, %27
   %118 = or i64 %117, %115
   store i64 %118, ptr %116, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count17.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count16.i
   br i1 %exitcond.not.i, label %Gia_ManSimPatSimAnd3.exit, label %.lr.ph.i, !llvm.loop !16
 
-.lr.ph11.i:                                       ; preds = %.preheader.i, %.lr.ph11.i
-  %indvars.iv14.i = phi i64 [ %indvars.iv.next15.i, %.lr.ph11.i ], [ 0, %.preheader.i ]
-  %119 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv14.i
+.lr.ph10.i:                                       ; preds = %.preheader.i, %.lr.ph10.i
+  %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %.lr.ph10.i ], [ 0, %.preheader.i ]
+  %119 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv13.i
   %120 = load i64, ptr %119, align 8
-  %121 = getelementptr inbounds i64, ptr %97, i64 %indvars.iv14.i
+  %121 = getelementptr inbounds i64, ptr %97, i64 %indvars.iv13.i
   %122 = load i64, ptr %121, align 8
   %123 = xor i64 %122, %87
   %124 = or i64 %123, %120
-  %125 = getelementptr inbounds i64, ptr %109, i64 %indvars.iv14.i
+  %125 = getelementptr inbounds i64, ptr %109, i64 %indvars.iv13.i
   %126 = load i64, ptr %125, align 8
   %127 = and i64 %124, %126
-  %128 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv14.i
+  %128 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv13.i
   %129 = load i64, ptr %128, align 8
   %130 = or i64 %127, %129
   store i64 %130, ptr %128, align 8
   %131 = load i64, ptr %119, align 8
-  %132 = getelementptr inbounds i64, ptr %104, i64 %indvars.iv14.i
+  %132 = getelementptr inbounds i64, ptr %104, i64 %indvars.iv13.i
   %133 = load i64, ptr %132, align 8
   %134 = xor i64 %133, %91
   %135 = or i64 %134, %131
   %136 = load i64, ptr %125, align 8
   %137 = and i64 %135, %136
-  %138 = getelementptr inbounds i64, ptr %108, i64 %indvars.iv14.i
+  %138 = getelementptr inbounds i64, ptr %108, i64 %indvars.iv13.i
   %139 = load i64, ptr %138, align 8
   %140 = or i64 %137, %139
   store i64 %140, ptr %138, align 8
-  %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
-  %exitcond18.not.i = icmp eq i64 %indvars.iv.next15.i, %wide.trip.count17.i
-  br i1 %exitcond18.not.i, label %Gia_ManSimPatSimAnd3.exit, label %.lr.ph11.i, !llvm.loop !17
+  %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
+  %exitcond17.not.i = icmp eq i64 %indvars.iv.next14.i, %wide.trip.count16.i
+  br i1 %exitcond17.not.i, label %Gia_ManSimPatSimAnd3.exit, label %.lr.ph10.i, !llvm.loop !17
 
-Gia_ManSimPatSimAnd3.exit:                        ; preds = %.lr.ph11.i, %.lr.ph.i, %.preheader.i, %.preheader7.i, %77
+Gia_ManSimPatSimAnd3.exit:                        ; preds = %.lr.ph10.i, %.lr.ph.i, %.preheader.i, %.preheader6.i, %77
   %141 = icmp sgt i64 %indvars.iv121, 2
   br i1 %141, label %76, label %.critedge4, !llvm.loop !18
 
@@ -1282,7 +1282,7 @@ Vec_WrdStart.exit:                                ; preds = %3, %9
 .lr.ph57:                                         ; preds = %.critedge
   %38 = getelementptr i8, ptr %1, i64 8
   %39 = icmp sgt i32 %.fr59, 0
-  %wide.trip.count17.i = zext nneg i32 %.fr59 to i64
+  %wide.trip.count16.i = zext nneg i32 %.fr59 to i64
   br i1 %39, label %.lr.ph57.split.us.preheader, label %.critedge2
 
 .lr.ph57.split.us.preheader:                      ; preds = %.lr.ph57
@@ -1323,7 +1323,7 @@ Vec_WrdStart.exit:                                ; preds = %3, %9
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i64, ptr %.val48.us, i64 %60
   %62 = lshr i64 %.val46.us, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   %64 = and i32 %63, 536870911
   %65 = sub nsw i32 %57, %64
   %66 = mul nsw i32 %65, %.fr59
@@ -1334,29 +1334,29 @@ Vec_WrdStart.exit:                                ; preds = %3, %9
   %71 = mul nsw i64 %indvars.iv63, %17
   %72 = getelementptr inbounds i64, ptr %.val49.us, i64 %71
   %.not51.us = icmp ult i32 %56, %64
-  br i1 %.not51.us, label %.lr.ph.i.us, label %.lr.ph11.i.us
+  br i1 %.not51.us, label %.lr.ph.i.us, label %.lr.ph10.i.us
 
-.lr.ph11.i.us:                                    ; preds = %46, %.lr.ph11.i.us
-  %indvars.iv14.i.us = phi i64 [ %indvars.iv.next15.i.us, %.lr.ph11.i.us ], [ 0, %46 ]
-  %73 = getelementptr inbounds i64, ptr %69, i64 %indvars.iv14.i.us
+.lr.ph10.i.us:                                    ; preds = %46, %.lr.ph10.i.us
+  %indvars.iv13.i.us = phi i64 [ %indvars.iv.next14.i.us, %.lr.ph10.i.us ], [ 0, %46 ]
+  %73 = getelementptr inbounds i64, ptr %69, i64 %indvars.iv13.i.us
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i64, ptr %70, i64 %indvars.iv14.i.us
+  %75 = getelementptr inbounds i64, ptr %70, i64 %indvars.iv13.i.us
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv14.i.us
+  %77 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv13.i.us
   %78 = load i64, ptr %77, align 8
   %79 = xor i64 %78, %51
   %80 = or i64 %79, %76
   %81 = and i64 %80, %74
-  %82 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv14.i.us
+  %82 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv13.i.us
   %83 = load i64, ptr %82, align 8
   %84 = xor i64 %83, %55
   %85 = and i64 %84, %76
   %86 = or i64 %81, %85
-  %87 = getelementptr inbounds i64, ptr %72, i64 %indvars.iv14.i.us
+  %87 = getelementptr inbounds i64, ptr %72, i64 %indvars.iv13.i.us
   store i64 %86, ptr %87, align 8
-  %indvars.iv.next15.i.us = add nuw nsw i64 %indvars.iv14.i.us, 1
-  %exitcond18.not.i.us = icmp eq i64 %indvars.iv.next15.i.us, %wide.trip.count17.i
-  br i1 %exitcond18.not.i.us, label %Gia_ManSimPatSimAnd4.exit.us, label %.lr.ph11.i.us, !llvm.loop !23
+  %indvars.iv.next14.i.us = add nuw nsw i64 %indvars.iv13.i.us, 1
+  %exitcond17.not.i.us = icmp eq i64 %indvars.iv.next14.i.us, %wide.trip.count16.i
+  br i1 %exitcond17.not.i.us, label %Gia_ManSimPatSimAnd4.exit.us, label %.lr.ph10.i.us, !llvm.loop !23
 
 .lr.ph.i.us:                                      ; preds = %46, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %46 ]
@@ -1368,10 +1368,10 @@ Vec_WrdStart.exit:                                ; preds = %3, %9
   %93 = getelementptr inbounds i64, ptr %72, i64 %indvars.iv.i.us
   store i64 %92, ptr %93, align 8
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count17.i
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count16.i
   br i1 %exitcond.not.i.us, label %Gia_ManSimPatSimAnd4.exit.us, label %.lr.ph.i.us, !llvm.loop !24
 
-Gia_ManSimPatSimAnd4.exit.us:                     ; preds = %.lr.ph11.i.us, %.lr.ph.i.us, %41
+Gia_ManSimPatSimAnd4.exit.us:                     ; preds = %.lr.ph10.i.us, %.lr.ph.i.us, %41
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %94 = icmp ult i64 %indvars.iv.next64, %40
   br i1 %94, label %.lr.ph57.split.us, label %.critedge2, !llvm.loop !25
@@ -1624,7 +1624,7 @@ define void @Gia_ManSimPatResim(ptr nocapture noundef readonly %0, ptr nocapture
   %8 = getelementptr i8, ptr %0, i64 32
   %9 = getelementptr i8, ptr %3, i64 8
   %10 = icmp sgt i32 %2, 0
-  %wide.trip.count15.i = zext nneg i32 %2 to i64
+  %wide.trip.count14.i = zext nneg i32 %2 to i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %Gia_ManSimPatSimNot.exit
@@ -1656,7 +1656,7 @@ define void @Gia_ManSimPatResim(ptr nocapture noundef readonly %0, ptr nocapture
   %24 = xor i64 %23, -1
   store i64 %24, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count15.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count14.i
   br i1 %exitcond.not.i, label %Gia_ManSimPatSimNot.exit, label %.lr.ph.i, !llvm.loop !26
 
 25:                                               ; preds = %16
@@ -1685,7 +1685,7 @@ define void @Gia_ManSimPatResim(ptr nocapture noundef readonly %0, ptr nocapture
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i64, ptr %.val28, i64 %42
   %44 = lshr i64 %.val26, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = and i32 %45, 536870911
   %47 = sub nsw i32 %13, %46
   %48 = mul nsw i32 %47, %2
@@ -1695,16 +1695,16 @@ define void @Gia_ManSimPatResim(ptr nocapture noundef readonly %0, ptr nocapture
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i64, ptr %.val28, i64 %52
   %.not39 = icmp ult i32 %39, %46
-  br i1 %.not39, label %.preheader5.i, label %.preheader.i
+  br i1 %.not39, label %.preheader4.i, label %.preheader.i
 
-.preheader5.i:                                    ; preds = %29
+.preheader4.i:                                    ; preds = %29
   br i1 %10, label %.lr.ph.i31, label %Gia_ManSimPatSimNot.exit
 
 .preheader.i:                                     ; preds = %29
-  br i1 %10, label %.lr.ph9.i, label %Gia_ManSimPatSimNot.exit
+  br i1 %10, label %.lr.ph8.i, label %Gia_ManSimPatSimNot.exit
 
-.lr.ph.i31:                                       ; preds = %.preheader5.i, %.lr.ph.i31
-  %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %.lr.ph.i31 ], [ 0, %.preheader5.i ]
+.lr.ph.i31:                                       ; preds = %.preheader4.i, %.lr.ph.i31
+  %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %.lr.ph.i31 ], [ 0, %.preheader4.i ]
   %54 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv.i33
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv.i33
@@ -1715,25 +1715,25 @@ define void @Gia_ManSimPatResim(ptr nocapture noundef readonly %0, ptr nocapture
   %61 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv.i33
   store i64 %60, ptr %61, align 8
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
-  %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count15.i
+  %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count14.i
   br i1 %exitcond.not.i35, label %Gia_ManSimPatSimNot.exit, label %.lr.ph.i31, !llvm.loop !7
 
-.lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %62 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv12.i
+.lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %.lr.ph8.i ], [ 0, %.preheader.i ]
+  %62 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv11.i
   %63 = load i64, ptr %62, align 8
   %64 = xor i64 %63, %34
-  %65 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv12.i
+  %65 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv11.i
   %66 = load i64, ptr %65, align 8
   %67 = xor i64 %66, %38
   %68 = and i64 %67, %64
-  %69 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv12.i
+  %69 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv11.i
   store i64 %68, ptr %69, align 8
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count15.i
-  br i1 %exitcond16.not.i, label %Gia_ManSimPatSimNot.exit, label %.lr.ph9.i, !llvm.loop !6
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
+  %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count14.i
+  br i1 %exitcond15.not.i, label %Gia_ManSimPatSimNot.exit, label %.lr.ph8.i, !llvm.loop !6
 
-Gia_ManSimPatSimNot.exit:                         ; preds = %.lr.ph9.i, %.lr.ph.i31, %.lr.ph.i, %25, %.preheader.i, %.preheader5.i, %18
+Gia_ManSimPatSimNot.exit:                         ; preds = %.lr.ph8.i, %.lr.ph.i31, %.lr.ph.i, %25, %.preheader.i, %.preheader4.i, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %6, align 4
   %70 = sext i32 %.val to i64
@@ -2103,7 +2103,7 @@ Abc_TtConst.exit.loopexit.us:                     ; preds = %89
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i64, ptr %28, i64 %111
   %113 = lshr i64 %.val106, 32
-  %114 = trunc i64 %113 to i32
+  %114 = trunc nuw i64 %113 to i32
   %115 = and i32 %114, 536870911
   %116 = sub nsw i32 %108, %115
   %117 = shl i32 %116, %21
@@ -2113,16 +2113,16 @@ Abc_TtConst.exit.loopexit.us:                     ; preds = %89
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i64, ptr %28, i64 %121
   %.not139 = icmp ult i32 %107, %115
-  br i1 %.not139, label %.preheader5.i, label %.preheader.i
+  br i1 %.not139, label %.preheader4.i, label %.preheader.i
 
-.preheader5.i:                                    ; preds = %97
+.preheader4.i:                                    ; preds = %97
   br i1 %75, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph.i119
 
 .preheader.i:                                     ; preds = %97
-  br i1 %75, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph9.i
+  br i1 %75, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph8.i
 
-.lr.ph.i119:                                      ; preds = %.preheader5.i, %.lr.ph.i119
-  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i122, %.lr.ph.i119 ], [ 0, %.preheader5.i ]
+.lr.ph.i119:                                      ; preds = %.preheader4.i, %.lr.ph.i119
+  %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i122, %.lr.ph.i119 ], [ 0, %.preheader4.i ]
   %123 = getelementptr inbounds i64, ptr %112, i64 %indvars.iv.i121
   %124 = load i64, ptr %123, align 8
   %125 = getelementptr inbounds i64, ptr %119, i64 %indvars.iv.i121
@@ -2136,22 +2136,22 @@ Abc_TtConst.exit.loopexit.us:                     ; preds = %89
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count.i
   br i1 %exitcond.not.i123, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph.i119, !llvm.loop !7
 
-.lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %131 = getelementptr inbounds i64, ptr %112, i64 %indvars.iv12.i
+.lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %.lr.ph8.i ], [ 0, %.preheader.i ]
+  %131 = getelementptr inbounds i64, ptr %112, i64 %indvars.iv11.i
   %132 = load i64, ptr %131, align 8
   %133 = xor i64 %132, %102
-  %134 = getelementptr inbounds i64, ptr %119, i64 %indvars.iv12.i
+  %134 = getelementptr inbounds i64, ptr %119, i64 %indvars.iv11.i
   %135 = load i64, ptr %134, align 8
   %136 = xor i64 %135, %106
   %137 = and i64 %136, %133
-  %138 = getelementptr inbounds i64, ptr %122, i64 %indvars.iv12.i
+  %138 = getelementptr inbounds i64, ptr %122, i64 %indvars.iv11.i
   store i64 %137, ptr %138, align 8
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count.i
-  br i1 %exitcond16.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph9.i, !llvm.loop !6
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
+  %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count.i
+  br i1 %exitcond15.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph8.i, !llvm.loop !6
 
-Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph9.i, %.lr.ph.i119, %.preheader.i, %.preheader5.i, %92
+Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %.lr.ph.i119, %.preheader.i, %.preheader4.i, %92
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %139 = load i32, ptr %20, align 8
   %140 = sext i32 %139 to i64
@@ -2922,7 +2922,7 @@ define noundef i32 @Gia_ManComputeTfos_rec(ptr noundef %0, i32 noundef %1, i32 n
   %22 = tail call i32 @Gia_ManComputeTfos_rec(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %2, ptr noundef %3), !range !46
   %.val28 = load i64, ptr %14, align 4
   %23 = lshr i64 %.val28, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 536870911
   %26 = sub nsw i32 %1, %25
   %27 = tail call i32 @Gia_ManComputeTfos_rec(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %2, ptr noundef %3), !range !46
@@ -3825,7 +3825,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %100
 
 .lr.ph197:                                        ; preds = %Vec_PtrFree.exit
   %104 = icmp sgt i32 %41, 0
-  %wide.trip.count15.i = zext nneg i32 %41 to i64
+  %wide.trip.count14.i = zext nneg i32 %41 to i64
   %.val114.pre = load ptr, ptr %101, align 8
   %.not = icmp eq ptr %.val114.pre, null
   %105 = zext nneg i32 %102 to i64
@@ -3862,7 +3862,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %100
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i64, ptr %51, i64 %126
   %128 = lshr i64 %.val122, 32
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nuw i64 %128 to i32
   %130 = and i32 %129, 536870911
   %131 = sub nsw i32 %123, %130
   %132 = shl i32 %131, %43
@@ -3872,16 +3872,16 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %100
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i64, ptr %51, i64 %136
   %.not190 = icmp ult i32 %122, %130
-  br i1 %.not190, label %.preheader5.i, label %.preheader.i
+  br i1 %.not190, label %.preheader4.i, label %.preheader.i
 
-.preheader5.i:                                    ; preds = %112
+.preheader4.i:                                    ; preds = %112
   br i1 %104, label %.lr.ph.i135, label %Gia_ManSimPatSimAnd.exit
 
 .preheader.i:                                     ; preds = %112
-  br i1 %104, label %.lr.ph9.i, label %Gia_ManSimPatSimAnd.exit
+  br i1 %104, label %.lr.ph8.i, label %Gia_ManSimPatSimAnd.exit
 
-.lr.ph.i135:                                      ; preds = %.preheader5.i, %.lr.ph.i135
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i135 ], [ 0, %.preheader5.i ]
+.lr.ph.i135:                                      ; preds = %.preheader4.i, %.lr.ph.i135
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i135 ], [ 0, %.preheader4.i ]
   %138 = getelementptr inbounds i64, ptr %127, i64 %indvars.iv.i
   %139 = load i64, ptr %138, align 8
   %140 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv.i
@@ -3892,25 +3892,25 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %100
   %145 = getelementptr inbounds i64, ptr %137, i64 %indvars.iv.i
   store i64 %144, ptr %145, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i136 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count15.i
+  %exitcond.not.i136 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count14.i
   br i1 %exitcond.not.i136, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph.i135, !llvm.loop !7
 
-.lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %146 = getelementptr inbounds i64, ptr %127, i64 %indvars.iv12.i
+.lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %.lr.ph8.i ], [ 0, %.preheader.i ]
+  %146 = getelementptr inbounds i64, ptr %127, i64 %indvars.iv11.i
   %147 = load i64, ptr %146, align 8
   %148 = xor i64 %147, %117
-  %149 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv12.i
+  %149 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv11.i
   %150 = load i64, ptr %149, align 8
   %151 = xor i64 %150, %121
   %152 = and i64 %151, %148
-  %153 = getelementptr inbounds i64, ptr %137, i64 %indvars.iv12.i
+  %153 = getelementptr inbounds i64, ptr %137, i64 %indvars.iv11.i
   store i64 %152, ptr %153, align 8
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count15.i
-  br i1 %exitcond16.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph9.i, !llvm.loop !6
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
+  %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count14.i
+  br i1 %exitcond15.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph8.i, !llvm.loop !6
 
-Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph9.i, %.lr.ph.i135, %.preheader.i, %.preheader5.i, %107
+Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %.lr.ph.i135, %.preheader.i, %.preheader4.i, %107
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %154 = icmp ult i64 %indvars.iv.next217, %105
   br i1 %154, label %106, label %.critedge2, !llvm.loop !54
@@ -4083,7 +4083,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i146, %Abc_T
   %228 = sext i32 %227 to i64
   %229 = getelementptr inbounds i64, ptr %51, i64 %228
   %230 = lshr i64 %.val123, 32
-  %231 = trunc i64 %230 to i32
+  %231 = trunc nuw i64 %230 to i32
   %232 = and i32 %231, 536870911
   %233 = sub nsw i32 %211, %232
   %234 = shl i32 %233, %43
@@ -4096,19 +4096,19 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i146, %Abc_T
   %.not.i.i.i150 = icmp ne i64 %240, 0
   %241 = and i64 %.val123, 536870911
   %242 = icmp eq i64 %241, 536870911
+  %narrow.i.not.i.not.not3.i151 = or i1 %.not.i.i.i150, %242
   %243 = icmp uge i32 %225, %232
-  %.not4.i151 = or i1 %242, %243
-  %narrow.not.i152 = or i1 %.not.i.i.i150, %.not4.i151
-  br i1 %narrow.not.i152, label %.preheader.i159, label %.preheader5.i153
+  %narrow.not.i152 = select i1 %narrow.i.not.i.not.not3.i151, i1 true, i1 %243
+  br i1 %narrow.not.i152, label %.preheader.i159, label %.preheader4.i153
 
-.preheader5.i153:                                 ; preds = %213
+.preheader4.i153:                                 ; preds = %213
   br i1 %160, label %.lr.ph.i154, label %Gia_ManSimPatSimAnd.exit166
 
 .preheader.i159:                                  ; preds = %213
-  br i1 %160, label %.lr.ph9.i162, label %Gia_ManSimPatSimAnd.exit166
+  br i1 %160, label %.lr.ph8.i162, label %Gia_ManSimPatSimAnd.exit166
 
-.lr.ph.i154:                                      ; preds = %.preheader5.i153, %.lr.ph.i154
-  %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i157, %.lr.ph.i154 ], [ 0, %.preheader5.i153 ]
+.lr.ph.i154:                                      ; preds = %.preheader4.i153, %.lr.ph.i154
+  %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i157, %.lr.ph.i154 ], [ 0, %.preheader4.i153 ]
   %244 = getelementptr inbounds i64, ptr %229, i64 %indvars.iv.i156
   %245 = load i64, ptr %244, align 8
   %246 = getelementptr inbounds i64, ptr %236, i64 %indvars.iv.i156
@@ -4122,20 +4122,20 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i146, %Abc_T
   %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, %wide.trip.count.i145
   br i1 %exitcond.not.i158, label %Gia_ManSimPatSimAnd.exit166, label %.lr.ph.i154, !llvm.loop !7
 
-.lr.ph9.i162:                                     ; preds = %.preheader.i159, %.lr.ph9.i162
-  %indvars.iv12.i163 = phi i64 [ %indvars.iv.next13.i164, %.lr.ph9.i162 ], [ 0, %.preheader.i159 ]
-  %252 = getelementptr inbounds i64, ptr %229, i64 %indvars.iv12.i163
+.lr.ph8.i162:                                     ; preds = %.preheader.i159, %.lr.ph8.i162
+  %indvars.iv11.i163 = phi i64 [ %indvars.iv.next12.i164, %.lr.ph8.i162 ], [ 0, %.preheader.i159 ]
+  %252 = getelementptr inbounds i64, ptr %229, i64 %indvars.iv11.i163
   %253 = load i64, ptr %252, align 8
   %254 = xor i64 %253, %220
-  %255 = getelementptr inbounds i64, ptr %236, i64 %indvars.iv12.i163
+  %255 = getelementptr inbounds i64, ptr %236, i64 %indvars.iv11.i163
   %256 = load i64, ptr %255, align 8
   %257 = xor i64 %256, %224
   %258 = and i64 %257, %254
-  %259 = getelementptr inbounds i64, ptr %239, i64 %indvars.iv12.i163
+  %259 = getelementptr inbounds i64, ptr %239, i64 %indvars.iv11.i163
   store i64 %258, ptr %259, align 8
-  %indvars.iv.next13.i164 = add nuw nsw i64 %indvars.iv12.i163, 1
-  %exitcond16.not.i165 = icmp eq i64 %indvars.iv.next13.i164, %wide.trip.count.i145
-  br i1 %exitcond16.not.i165, label %Gia_ManSimPatSimAnd.exit166, label %.lr.ph9.i162, !llvm.loop !6
+  %indvars.iv.next12.i164 = add nuw nsw i64 %indvars.iv11.i163, 1
+  %exitcond15.not.i165 = icmp eq i64 %indvars.iv.next12.i164, %wide.trip.count.i145
+  br i1 %exitcond15.not.i165, label %Gia_ManSimPatSimAnd.exit166, label %.lr.ph8.i162, !llvm.loop !6
 
 260:                                              ; preds = %.lr.ph205
   %261 = sub nsw i32 %211, %.val120
@@ -4178,7 +4178,7 @@ Vec_WecFree.exit174:                              ; preds = %272, %263
   %.not.i175 = icmp eq ptr %51, null
   br i1 %.not.i175, label %Vec_WrdFree.exit, label %Vec_WrdFree.exit.sink.split
 
-Gia_ManSimPatSimAnd.exit166:                      ; preds = %.lr.ph.i154, %.lr.ph9.i162, %.preheader.i159, %.preheader5.i153, %260
+Gia_ManSimPatSimAnd.exit166:                      ; preds = %.lr.ph.i154, %.lr.ph8.i162, %.preheader.i159, %.preheader4.i153, %260
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %.val = load i32, ptr %208, align 4
   %273 = sext i32 %.val to i64
@@ -4513,11 +4513,11 @@ Gia_ManSimPatAssignInputs2.exit:                  ; preds = %.lr.ph.split.us.i, 
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i64, ptr %.val47.us, i64 %62
   %64 = lshr i64 %.val41.us, 32
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw i64 %64 to i32
   %66 = and i32 %65, 536870911
   %67 = sub nsw i32 %55, %66
   %68 = lshr i64 %.val41.us, 61
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw nsw i64 %68 to i32
   %70 = and i32 %69, 1
   %71 = shl nsw i32 %67, 1
   %72 = or disjoint i32 %71, %70
@@ -6304,7 +6304,7 @@ define noundef ptr @Gia_ManSimPatGenMiter(ptr nocapture noundef readonly %0, ptr
   %47 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %31, i64 %46, i32 1
   %48 = load i32, ptr %47, align 4
   %49 = lshr i64 %.val63, 61
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw nsw i64 %49 to i32
   %51 = and i32 %50, 1
   %52 = xor i32 %48, %51
   %53 = tail call i32 @Gia_ManHashAnd(ptr noundef %9, i32 noundef %43, i32 noundef %52) #30
@@ -7391,7 +7391,7 @@ Abc_TtClear.exit:                                 ; preds = %Abc_TtCopy.exit.thr
   %.not.i53 = icmp eq i32 %60, %.val49
   %61 = select i1 %.not.i53, ptr %44, ptr %43
   %62 = lshr i64 %.val45, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   %64 = and i32 %63, 536870911
   %65 = sub nsw i32 %33, %64
   %66 = sext i32 %65 to i64
@@ -7654,7 +7654,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 65:                                               ; preds = %62
   %66 = lshr i64 %.val46, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = and i32 %67, 536870911
   %69 = sub nsw i32 %13, %68
   %70 = getelementptr i8, ptr %.pre92, i64 176
@@ -8932,7 +8932,7 @@ Gia_ManSimRelAssignInputs.exit:                   ; preds = %.lr.ph30.split.us.i
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds i64, ptr %33, i64 %113
   %115 = lshr i64 %.val123, 32
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nuw i64 %115 to i32
   %117 = and i32 %116, 536870911
   %118 = sub nsw i32 %110, %117
   %119 = mul nsw i32 %118, %12
@@ -8941,16 +8941,16 @@ Gia_ManSimRelAssignInputs.exit:                   ; preds = %.lr.ph30.split.us.i
   %122 = mul nsw i64 %indvars.iv180, %22
   %123 = getelementptr inbounds i64, ptr %33, i64 %122
   %.not170 = icmp ult i32 %109, %117
-  br i1 %.not170, label %.preheader5.i, label %.preheader.i
+  br i1 %.not170, label %.preheader4.i, label %.preheader.i
 
-.preheader5.i:                                    ; preds = %99
+.preheader4.i:                                    ; preds = %99
   br i1 %90, label %.lr.ph.i, label %Gia_ManSimPatSimAnd.exit
 
 .preheader.i:                                     ; preds = %99
-  br i1 %90, label %.lr.ph9.i, label %Gia_ManSimPatSimAnd.exit
+  br i1 %90, label %.lr.ph8.i, label %Gia_ManSimPatSimAnd.exit
 
-.lr.ph.i:                                         ; preds = %.preheader5.i, %.lr.ph.i
-  %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i136, %.lr.ph.i ], [ 0, %.preheader5.i ]
+.lr.ph.i:                                         ; preds = %.preheader4.i, %.lr.ph.i
+  %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i136, %.lr.ph.i ], [ 0, %.preheader4.i ]
   %124 = getelementptr inbounds i64, ptr %114, i64 %indvars.iv.i135
   %125 = load i64, ptr %124, align 8
   %126 = getelementptr inbounds i64, ptr %121, i64 %indvars.iv.i135
@@ -8964,22 +8964,22 @@ Gia_ManSimRelAssignInputs.exit:                   ; preds = %.lr.ph30.split.us.i
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %wide.trip.count.i134
   br i1 %exitcond.not.i137, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph.i, !llvm.loop !7
 
-.lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %132 = getelementptr inbounds i64, ptr %114, i64 %indvars.iv12.i
+.lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %.lr.ph8.i ], [ 0, %.preheader.i ]
+  %132 = getelementptr inbounds i64, ptr %114, i64 %indvars.iv11.i
   %133 = load i64, ptr %132, align 8
   %134 = xor i64 %133, %104
-  %135 = getelementptr inbounds i64, ptr %121, i64 %indvars.iv12.i
+  %135 = getelementptr inbounds i64, ptr %121, i64 %indvars.iv11.i
   %136 = load i64, ptr %135, align 8
   %137 = xor i64 %136, %108
   %138 = and i64 %137, %134
-  %139 = getelementptr inbounds i64, ptr %123, i64 %indvars.iv12.i
+  %139 = getelementptr inbounds i64, ptr %123, i64 %indvars.iv11.i
   store i64 %138, ptr %139, align 8
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count.i134
-  br i1 %exitcond16.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph9.i, !llvm.loop !6
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
+  %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count.i134
+  br i1 %exitcond15.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph8.i, !llvm.loop !6
 
-Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph9.i, %.lr.ph.i, %.preheader.i, %.preheader5.i, %93
+Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %.lr.ph.i, %.preheader.i, %.preheader4.i, %93
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %140 = icmp ult i64 %indvars.iv.next181, %91
   br i1 %140, label %92, label %.critedge4, !llvm.loop !119
@@ -17220,7 +17220,7 @@ Vec_WrdStartRandom.exit:                          ; preds = %.lr.ph.i, %Vec_WrdS
   %.not87 = icmp eq i64 %61, 0
   %62 = select i1 %.not87, i32 126, i32 32
   %63 = lshr i64 %.val97, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   %65 = and i32 %64, 536870911
   %66 = sub nsw i32 %55, %65
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.63, i32 noundef %55, i32 noundef %.2114, i32 noundef %58, i32 noundef %60, i32 noundef %.2114, i32 noundef %62, i32 noundef %66, i32 noundef %.2114) #30
@@ -18190,7 +18190,7 @@ Vec_WecDumpBin.exit:                              ; preds = %18, %39
   br i1 %.not.i46, label %58, label %54
 
 54:                                               ; preds = %52
-  %55 = trunc i64 %53 to i32
+  %55 = trunc nuw nsw i64 %53 to i32
   %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %55)
   %57 = tail call i32 @fclose(ptr noundef nonnull %41)
   br label %Vec_WecReadBin.exit
@@ -18907,7 +18907,7 @@ Vec_WecStart.exit:                                ; preds = %Vec_IntAlloc.exit, 
   %33 = trunc i64 %.val73 to i32
   %34 = and i32 %33, 536870911
   %35 = lshr i64 %.val73, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = and i32 %36, 536870911
   %38 = icmp ne i32 %34, %37
   %.not.i74 = icmp eq i32 %34, 536870911
@@ -19896,7 +19896,7 @@ Abc_TtNot.exit198:                                ; preds = %.lr.ph.i194, %Vec_M
   %231 = trunc i64 %.val122 to i32
   %232 = and i32 %231, 536870911
   %233 = lshr i64 %.val122, 32
-  %234 = trunc i64 %233 to i32
+  %234 = trunc nuw i64 %233 to i32
   %235 = and i32 %234, 536870911
   %236 = icmp eq i32 %232, %235
   %.not.i199 = icmp ne i32 %232, 536870911
@@ -20602,7 +20602,7 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdDup.exit, %2
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i64, ptr %18, i64 %97
   %99 = lshr i64 %79, 32
-  %100 = trunc i64 %99 to i32
+  %100 = trunc nuw i64 %99 to i32
   %101 = and i32 %100, 536870911
   %102 = sub nsw i32 %76, %101
   %103 = mul nsw i32 %102, %9
@@ -20615,19 +20615,19 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdDup.exit, %2
   %.not.i.i.i = icmp ne i64 %109, 0
   %110 = and i64 %79, 536870911
   %111 = icmp eq i64 %110, 536870911
+  %narrow.i.not.i.not.not3.i = or i1 %.not.i.i.i, %111
   %112 = icmp uge i32 %94, %101
-  %.not4.i = or i1 %111, %112
-  %narrow.not.i = or i1 %.not.i.i.i, %.not4.i
-  br i1 %narrow.not.i, label %.preheader.i, label %.preheader5.i
+  %narrow.not.i = select i1 %narrow.i.not.i.not.not3.i, i1 true, i1 %112
+  br i1 %narrow.not.i, label %.preheader.i, label %.preheader4.i
 
-.preheader5.i:                                    ; preds = %84
+.preheader4.i:                                    ; preds = %84
   br i1 %71, label %.lr.ph.i173, label %Abc_TtClear.exit
 
 .preheader.i:                                     ; preds = %84
-  br i1 %71, label %.lr.ph9.i, label %Abc_TtClear.exit
+  br i1 %71, label %.lr.ph8.i, label %Abc_TtClear.exit
 
-.lr.ph.i173:                                      ; preds = %.preheader5.i, %.lr.ph.i173
-  %indvars.iv.i174 = phi i64 [ %indvars.iv.next.i175, %.lr.ph.i173 ], [ 0, %.preheader5.i ]
+.lr.ph.i173:                                      ; preds = %.preheader4.i, %.lr.ph.i173
+  %indvars.iv.i174 = phi i64 [ %indvars.iv.next.i175, %.lr.ph.i173 ], [ 0, %.preheader4.i ]
   %113 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv.i174
   %114 = load i64, ptr %113, align 8
   %115 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv.i174
@@ -20641,22 +20641,22 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdDup.exit, %2
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i175, %72
   br i1 %exitcond.not.i, label %Abc_TtClear.exit, label %.lr.ph.i173, !llvm.loop !7
 
-.lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %121 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv12.i
+.lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %.lr.ph8.i ], [ 0, %.preheader.i ]
+  %121 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv11.i
   %122 = load i64, ptr %121, align 8
   %123 = xor i64 %122, %89
-  %124 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv12.i
+  %124 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv11.i
   %125 = load i64, ptr %124, align 8
   %126 = xor i64 %125, %93
   %127 = and i64 %126, %123
-  %128 = getelementptr inbounds i64, ptr %108, i64 %indvars.iv12.i
+  %128 = getelementptr inbounds i64, ptr %108, i64 %indvars.iv11.i
   store i64 %127, ptr %128, align 8
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %72
-  br i1 %exitcond16.not.i, label %Abc_TtClear.exit, label %.lr.ph9.i, !llvm.loop !6
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
+  %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %72
+  br i1 %exitcond15.not.i, label %Abc_TtClear.exit, label %.lr.ph8.i, !llvm.loop !6
 
-Abc_TtClear.exit:                                 ; preds = %.lr.ph.i173, %.lr.ph9.i, %.preheader.i, %.preheader5.i, %.lr.ph.preheader.i, %80
+Abc_TtClear.exit:                                 ; preds = %.lr.ph.i173, %.lr.ph8.i, %.preheader.i, %.preheader4.i, %.lr.ph.preheader.i, %80
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %129 = icmp ult i64 %indvars.iv.next251, %74
   br i1 %129, label %.lr.ph227.split, label %.critedge4, !llvm.loop !248
@@ -20849,7 +20849,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i190, %Abc_T
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds i64, ptr %18, i64 %217
   %219 = lshr i64 %203, 32
-  %220 = trunc i64 %219 to i32
+  %220 = trunc nuw i64 %219 to i32
   %221 = and i32 %220, 536870911
   %222 = sub nsw i32 %200, %221
   %223 = mul nsw i32 %222, %9
@@ -20862,19 +20862,19 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i190, %Abc_T
   %.not.i.i.i194 = icmp ne i64 %229, 0
   %230 = and i64 %203, 536870911
   %231 = icmp eq i64 %230, 536870911
+  %narrow.i.not.i.not.not3.i195 = or i1 %.not.i.i.i194, %231
   %232 = icmp uge i32 %214, %221
-  %.not4.i195 = or i1 %231, %232
-  %narrow.not.i196 = or i1 %.not.i.i.i194, %.not4.i195
-  br i1 %narrow.not.i196, label %.preheader.i203, label %.preheader5.i197
+  %narrow.not.i196 = select i1 %narrow.i.not.i.not.not3.i195, i1 true, i1 %232
+  br i1 %narrow.not.i196, label %.preheader.i203, label %.preheader4.i197
 
-.preheader5.i197:                                 ; preds = %204
+.preheader4.i197:                                 ; preds = %204
   br i1 %130, label %.lr.ph.i198, label %Gia_ManSimPatSimAnd.exit210
 
 .preheader.i203:                                  ; preds = %204
-  br i1 %130, label %.lr.ph9.i206, label %Gia_ManSimPatSimAnd.exit210
+  br i1 %130, label %.lr.ph8.i206, label %Gia_ManSimPatSimAnd.exit210
 
-.lr.ph.i198:                                      ; preds = %.preheader5.i197, %.lr.ph.i198
-  %indvars.iv.i200 = phi i64 [ %indvars.iv.next.i201, %.lr.ph.i198 ], [ 0, %.preheader5.i197 ]
+.lr.ph.i198:                                      ; preds = %.preheader4.i197, %.lr.ph.i198
+  %indvars.iv.i200 = phi i64 [ %indvars.iv.next.i201, %.lr.ph.i198 ], [ 0, %.preheader4.i197 ]
   %233 = getelementptr inbounds i64, ptr %218, i64 %indvars.iv.i200
   %234 = load i64, ptr %233, align 8
   %235 = getelementptr inbounds i64, ptr %225, i64 %indvars.iv.i200
@@ -20888,22 +20888,22 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i190, %Abc_T
   %exitcond.not.i202 = icmp eq i64 %indvars.iv.next.i201, %wide.trip.count.i178
   br i1 %exitcond.not.i202, label %Gia_ManSimPatSimAnd.exit210, label %.lr.ph.i198, !llvm.loop !7
 
-.lr.ph9.i206:                                     ; preds = %.preheader.i203, %.lr.ph9.i206
-  %indvars.iv12.i207 = phi i64 [ %indvars.iv.next13.i208, %.lr.ph9.i206 ], [ 0, %.preheader.i203 ]
-  %241 = getelementptr inbounds i64, ptr %218, i64 %indvars.iv12.i207
+.lr.ph8.i206:                                     ; preds = %.preheader.i203, %.lr.ph8.i206
+  %indvars.iv11.i207 = phi i64 [ %indvars.iv.next12.i208, %.lr.ph8.i206 ], [ 0, %.preheader.i203 ]
+  %241 = getelementptr inbounds i64, ptr %218, i64 %indvars.iv11.i207
   %242 = load i64, ptr %241, align 8
   %243 = xor i64 %242, %209
-  %244 = getelementptr inbounds i64, ptr %225, i64 %indvars.iv12.i207
+  %244 = getelementptr inbounds i64, ptr %225, i64 %indvars.iv11.i207
   %245 = load i64, ptr %244, align 8
   %246 = xor i64 %245, %213
   %247 = and i64 %246, %243
-  %248 = getelementptr inbounds i64, ptr %228, i64 %indvars.iv12.i207
+  %248 = getelementptr inbounds i64, ptr %228, i64 %indvars.iv11.i207
   store i64 %247, ptr %248, align 8
-  %indvars.iv.next13.i208 = add nuw nsw i64 %indvars.iv12.i207, 1
-  %exitcond16.not.i209 = icmp eq i64 %indvars.iv.next13.i208, %wide.trip.count.i178
-  br i1 %exitcond16.not.i209, label %Gia_ManSimPatSimAnd.exit210, label %.lr.ph9.i206, !llvm.loop !6
+  %indvars.iv.next12.i208 = add nuw nsw i64 %indvars.iv11.i207, 1
+  %exitcond15.not.i209 = icmp eq i64 %indvars.iv.next12.i208, %wide.trip.count.i178
+  br i1 %exitcond15.not.i209, label %Gia_ManSimPatSimAnd.exit210, label %.lr.ph8.i206, !llvm.loop !6
 
-Gia_ManSimPatSimAnd.exit210:                      ; preds = %.lr.ph.i198, %.lr.ph9.i206, %.preheader.i203, %.preheader5.i197, %.lr.ph236.split
+Gia_ManSimPatSimAnd.exit210:                      ; preds = %.lr.ph.i198, %.lr.ph8.i206, %.preheader.i203, %.preheader4.i197, %.lr.ph236.split
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %249 = icmp ult i64 %indvars.iv.next257, %198
   br i1 %249, label %.lr.ph236.split, label %.critedge8, !llvm.loop !252
@@ -21120,7 +21120,7 @@ Vec_IntFind.exit.thread:                          ; preds = %52, %55, %Vec_IntFi
   %.val73 = phi i64 [ %64, %55 ], [ %.val71, %Vec_IntFind.exit ], [ %.val71, %52 ]
   %.pr = phi i32 [ %.pr.pre, %55 ], [ %45, %Vec_IntFind.exit ], [ %45, %52 ]
   %65 = lshr i64 %.val73, 32
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw i64 %65 to i32
   %67 = and i32 %66, 536870911
   %68 = sub nsw i32 %indvars108, %67
   %69 = icmp sgt i32 %.pr, 0
@@ -21155,7 +21155,7 @@ Vec_IntFind.exit85:                               ; preds = %71
   %82 = or disjoint i64 %81, %80
   %83 = lshr i32 %.056100, %76
   %84 = lshr i64 %.val73, 61
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw nsw i64 %84 to i32
   %86 = xor i32 %83, %85
   %87 = and i32 %86, 1
   %88 = zext nneg i32 %87 to i64
@@ -23642,7 +23642,7 @@ define void @Gia_ManSimPatSimTfo(ptr nocapture noundef readonly %0, ptr nocaptur
   %13 = getelementptr i8, ptr %0, i64 32
   %14 = getelementptr i8, ptr %1, i64 8
   %15 = icmp sgt i32 %9, 0
-  %wide.trip.count15.i = zext nneg i32 %9 to i64
+  %wide.trip.count14.i = zext nneg i32 %9 to i64
   br label %16
 
 16:                                               ; preds = %.lr.ph, %Gia_ManSimPatSimAnd.exit
@@ -23682,7 +23682,7 @@ define void @Gia_ManSimPatSimTfo(ptr nocapture noundef readonly %0, ptr nocaptur
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i64, ptr %.val32, i64 %38
   %40 = lshr i64 %.val28, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   %42 = and i32 %41, 536870911
   %43 = sub nsw i32 %18, %42
   %44 = mul nsw i32 %43, %9
@@ -23692,16 +23692,16 @@ define void @Gia_ManSimPatSimTfo(ptr nocapture noundef readonly %0, ptr nocaptur
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i64, ptr %.val32, i64 %48
   %.not39 = icmp ult i32 %35, %42
-  br i1 %.not39, label %.preheader5.i, label %.preheader.i
+  br i1 %.not39, label %.preheader4.i, label %.preheader.i
 
-.preheader5.i:                                    ; preds = %28
+.preheader4.i:                                    ; preds = %28
   br i1 %15, label %.lr.ph.i, label %Gia_ManSimPatSimAnd.exit
 
 .preheader.i:                                     ; preds = %28
-  br i1 %15, label %.lr.ph9.i, label %Gia_ManSimPatSimAnd.exit
+  br i1 %15, label %.lr.ph8.i, label %Gia_ManSimPatSimAnd.exit
 
-.lr.ph.i:                                         ; preds = %.preheader5.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader5.i ]
+.lr.ph.i:                                         ; preds = %.preheader4.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader4.i ]
   %50 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv.i
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i64, ptr %46, i64 %indvars.iv.i
@@ -23712,23 +23712,23 @@ define void @Gia_ManSimPatSimTfo(ptr nocapture noundef readonly %0, ptr nocaptur
   %57 = getelementptr inbounds i64, ptr %49, i64 %indvars.iv.i
   store i64 %56, ptr %57, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count15.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count14.i
   br i1 %exitcond.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph.i, !llvm.loop !7
 
-.lr.ph9.i:                                        ; preds = %.preheader.i, %.lr.ph9.i
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %.lr.ph9.i ], [ 0, %.preheader.i ]
-  %58 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv12.i
+.lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
+  %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %.lr.ph8.i ], [ 0, %.preheader.i ]
+  %58 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv11.i
   %59 = load i64, ptr %58, align 8
   %60 = xor i64 %59, %30
-  %61 = getelementptr inbounds i64, ptr %46, i64 %indvars.iv12.i
+  %61 = getelementptr inbounds i64, ptr %46, i64 %indvars.iv11.i
   %62 = load i64, ptr %61, align 8
   %63 = xor i64 %62, %34
   %64 = and i64 %63, %60
-  %65 = getelementptr inbounds i64, ptr %49, i64 %indvars.iv12.i
+  %65 = getelementptr inbounds i64, ptr %49, i64 %indvars.iv11.i
   store i64 %64, ptr %65, align 8
-  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count15.i
-  br i1 %exitcond16.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph9.i, !llvm.loop !6
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
+  %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count14.i
+  br i1 %exitcond15.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph8.i, !llvm.loop !6
 
 66:                                               ; preds = %19
   %67 = getelementptr inbounds [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %27
@@ -23751,10 +23751,10 @@ define void @Gia_ManSimPatSimTfo(ptr nocapture noundef readonly %0, ptr nocaptur
   %80 = getelementptr inbounds i64, ptr %76, i64 %indvars.iv.i35
   store i64 %79, ptr %80, align 8
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
-  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count15.i
+  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count14.i
   br i1 %exitcond.not.i37, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph.i34, !llvm.loop !9
 
-Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph9.i, %.lr.ph.i, %.lr.ph.i34, %66, %.preheader.i, %.preheader5.i
+Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %.lr.ph.i, %.lr.ph.i34, %66, %.preheader.i, %.preheader4.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %11, align 4
   %81 = sext i32 %.val to i64
@@ -25791,7 +25791,7 @@ Abc_TtNot.exit102:                                ; preds = %Abc_TtNot.exit102.l
   %81 = load i64, ptr %68, align 4
   %82 = xor i64 %81, %80
   %83 = lshr i64 %82, 63
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw nsw i64 %83 to i32
   %85 = trunc i64 %indvars.iv158 to i32
   %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.107, i32 noundef %85, i32 noundef %84)
   %.pre165 = load i32, ptr %12, align 8
@@ -25834,7 +25834,7 @@ Abc_TtEqual.exit:                                 ; preds = %92, %.lr.ph186
   %96 = load i64, ptr %91, align 4
   %97 = xor i64 %96, %95
   %98 = lshr i64 %97, 63
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw nsw i64 %98 to i32
   %100 = trunc i64 %indvars.iv156183 to i32
   %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.107, i32 noundef %100, i32 noundef %99)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156183, 1
@@ -26120,7 +26120,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #30
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #30
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -26139,7 +26139,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -26150,16 +26150,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #7
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #24
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #24
+declare void @llvm.va_start.p0(ptr) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #25

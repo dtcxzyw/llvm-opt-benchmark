@@ -723,8 +723,8 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %or.cond, label %_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4ImpleqERKS1_.exit, label %for.body.i
 
 _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4ImpleqERKS1_.exit: ; preds = %for.body.i, %entry, %if.end.i, %for.cond.preheader.i
-  %retval.0.i = phi i1 [ false, %entry ], [ true, %if.end.i ], [ false, %for.cond.preheader.i ], [ %cmp.i10.not.not.i, %for.body.i ]
-  ret i1 %retval.0.i
+  %lnot = phi i1 [ false, %entry ], [ true, %if.end.i ], [ false, %for.cond.preheader.i ], [ %cmp.i10.not.not.i, %for.body.i ]
+  ret i1 %lnot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1216,7 +1216,7 @@ if.end49:                                         ; preds = %invoke.cont16, %if.
   br i1 %cmp5276.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end49
-  %conv57 = trunc i64 %replaceIdx.0 to i32
+  %conv57 = trunc nsw i64 %replaceIdx.0 to i32
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1231,7 +1231,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call55 = call noundef i32 @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl8getIndexEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %call54)
   %cmp56.not = icmp eq i32 %call55, -1
   %cmp58.not = icmp eq i32 %call55, %conv57
-  %or.cond = or i1 %cmp56.not, %cmp58.not
+  %or.cond = select i1 %cmp56.not, i1 true, i1 %cmp58.not
   br i1 %or.cond, label %for.cond, label %if.then59
 
 if.then59:                                        ; preds = %for.body

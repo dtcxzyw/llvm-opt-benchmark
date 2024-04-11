@@ -1222,7 +1222,7 @@ thread-pre-split.i:                               ; preds = %391, %389, %379
 406:                                              ; preds = %403, %395
   %407 = load i32, ptr %.082.sroa.gep.i, align 8
   %408 = and i32 %407, 61440
-  %trunc.i = trunc i32 %408 to i16
+  %trunc.i = trunc nuw i32 %408 to i16
   switch i16 %trunc.i, label %.thread.i54 [
     i16 -32768, label %409
     i16 -24576, label %412
@@ -3474,7 +3474,7 @@ thread-pre-split:                                 ; preds = %2, %9
   %17 = udiv i64 -9223372036854775808, %15
   %.neg = sub i64 0, %17
   %18 = urem i64 -9223372036854775808, %15
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %20, ptr %0, align 8
   %21 = load i8, ptr %20, align 1
@@ -3565,7 +3565,7 @@ parsedigit.exit56:                                ; preds = %48, %52, %54
 60:                                               ; preds = %11
   %61 = udiv i64 9223372036854775807, %15
   %62 = urem i64 9223372036854775807, %15
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   %64 = sext i8 %12 to i32
   %65 = add i8 %12, -48
   %or.cond.i57 = icmp ult i8 %65, 10
@@ -3619,7 +3619,7 @@ parsedigit.exit62:                                ; preds = %.thread91, %74, %76
 88:                                               ; preds = %.lr.ph
   %89 = icmp eq i64 %.14273, %80
   %90 = icmp sgt i32 %.174, %79
-  %or.cond50 = and i1 %89, %90
+  %or.cond50 = select i1 %89, i1 %90, i1 false
   br i1 %or.cond50, label %.loopexit, label %91
 
 91:                                               ; preds = %88

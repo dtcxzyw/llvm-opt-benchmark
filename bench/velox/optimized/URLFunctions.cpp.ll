@@ -7362,7 +7362,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb8, %
   br i1 %cmp.not.i, label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.epilog
-  %frombool.i25 = trunc i32 %and.lobit.i to i8
+  %frombool.i25 = trunc nuw nsw i32 %and.lobit.i to i8
   store i8 %frombool.i25, ptr %m_icase.i, align 8
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit
 
@@ -9038,7 +9038,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false
   %6 = load ptr, ptr %2, align 8
   %m_pctype.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %m_pctype.i, align 8
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %_M_table.i.i, align 8
   %idxprom.i.i = zext i8 %4 to i64
@@ -10389,7 +10389,7 @@ if.end66:                                         ; preds = %if.end57.if.end66_c
   br i1 %cmp.not.i, label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end66
-  %frombool.i = trunc i32 %and.lobit.i to i8
+  %frombool.i = trunc nuw nsw i32 %and.lobit.i to i8
   store i8 %frombool.i, ptr %m_icase.i, align 8
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit
 
@@ -12095,7 +12095,7 @@ land.lhs.true339:                                 ; preds = %if.end331
   br i1 %call340, label %land.lhs.true339.if.then355_crit_edge, label %if.else366
 
 land.lhs.true339.if.then355_crit_edge:            ; preds = %land.lhs.true339
-  %.pre392 = trunc i64 %i.1 to i32
+  %.pre392 = trunc nuw i64 %i.1 to i32
   br label %if.then355
 
 lor.lhs.false341:                                 ; preds = %if.end331
@@ -12266,7 +12266,7 @@ land.rhs.lr.ph:                                   ; preds = %if.then
   %.fr = freeze i32 %5
   %and.i = and i32 %.fr, 32518
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %and10.i = and i32 %.fr, 33554432
   %tobool11.i = icmp ne i32 %and10.i, 0
   %and16.i = and i32 %.fr, 16777216
@@ -12944,7 +12944,7 @@ do.body.preheader:                                ; preds = %if.then96
   %123 = load i32, ptr %m_mask_space112, align 4
   %and.i116 = and i32 %123, 32518
   %tobool.not.i117 = icmp eq i32 %and.i116, 0
-  %conv.i120 = trunc i32 %and.i116 to i16
+  %conv.i120 = trunc nuw nsw i32 %and.i116 to i16
   %and10.i128 = and i32 %123, 33554432
   %tobool11.i129 = icmp ne i32 %and10.i128, 0
   %and16.i133 = and i32 %123, 16777216
@@ -13356,7 +13356,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %2 = load i32, ptr %m_mask_space, align 4
   %and.i = and i32 %2, 32518
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %and10.i = and i32 %2, 33554432
   %tobool11.i = icmp ne i32 %and10.i, 0
   %and16.i = and i32 %2, 16777216
@@ -13554,7 +13554,7 @@ land.rhs70.lr.ph:                                 ; preds = %while.cond66.prehea
   %30 = load i32, ptr %m_mask_space, align 4
   %and.i68 = and i32 %30, 32518
   %tobool.not.i69 = icmp eq i32 %and.i68, 0
-  %conv.i72 = trunc i32 %and.i68 to i16
+  %conv.i72 = trunc nuw nsw i32 %and.i68 to i16
   %and10.i80 = and i32 %30, 33554432
   %tobool11.i81 = icmp ne i32 %and10.i80, 0
   %and16.i85 = and i32 %30, 16777216
@@ -14000,7 +14000,7 @@ land.rhs187.lr.ph:                                ; preds = %if.end182
   %92 = load i32, ptr %m_mask_space, align 4
   %and.i184 = and i32 %92, 32518
   %tobool.not.i185 = icmp eq i32 %and.i184, 0
-  %conv.i188 = trunc i32 %and.i184 to i16
+  %conv.i188 = trunc nuw nsw i32 %and.i184 to i16
   %and10.i196 = and i32 %92, 33554432
   %tobool11.i197 = icmp ne i32 %and10.i196, 0
   %and16.i201 = and i32 %92, 16777216
@@ -14286,7 +14286,7 @@ while.cond303.preheader:                          ; preds = %if.then282
   %128 = load i32, ptr %m_word_mask, align 8
   %and.i256 = and i32 %128, 32518
   %tobool.not.i257 = icmp eq i32 %and.i256, 0
-  %conv.i260 = trunc i32 %and.i256 to i16
+  %conv.i260 = trunc nuw nsw i32 %and.i256 to i16
   %and10.i268 = and i32 %128, 33554432
   %tobool11.i269 = icmp ne i32 %and10.i268, 0
   %and16.i273 = and i32 %128, 16777216
@@ -16452,7 +16452,7 @@ for.body.i.i477:                                  ; preds = %if.end518, %for.bod
 
 _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i490: ; preds = %for.body.i.i477
   %246 = urem i64 %add.i.i.i.i487, 2147483647
-  %247 = trunc i64 %246 to i32
+  %247 = trunc nuw nsw i64 %246 to i32
   %248 = or i32 %247, 1073741824
   br label %_ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit492
 
@@ -17382,7 +17382,7 @@ if.then1206:                                      ; preds = %if.end1193
   br i1 %cmp.not.i, label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then1206
-  %frombool.i = trunc i32 %and.lobit.i to i8
+  %frombool.i = trunc nuw nsw i32 %and.lobit.i to i8
   store i8 %frombool.i, ptr %m_icase.i, align 8
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit
 
@@ -17405,7 +17405,7 @@ if.then1220:                                      ; preds = %if.end1193
   br i1 %cmp.not.i646, label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649, label %if.then.i647
 
 if.then.i647:                                     ; preds = %if.then1220
-  %frombool.i648 = trunc i32 %and.lobit.i645 to i8
+  %frombool.i648 = trunc nuw nsw i32 %and.lobit.i645 to i8
   store i8 %frombool.i648, ptr %m_icase.i642, align 8
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649
 
@@ -17449,7 +17449,7 @@ if.then1245:                                      ; preds = %if.end1242
   %call1248 = tail call noundef ptr @_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm(ptr noundef nonnull align 8 dereferenceable(156) %this, i32 noundef 28, i64 noundef 24)
   %icase1249 = getelementptr inbounds i8, ptr %call1248, i64 16
   %and1194.lobit = lshr exact i32 %and1194, 20
-  %frombool1250 = trunc i32 %and1194.lobit to i8
+  %frombool1250 = trunc nuw nsw i32 %and1194.lobit to i8
   store i8 %frombool1250, ptr %icase1249, align 8
   br label %sw.epilog
 
@@ -17610,7 +17610,7 @@ if.end1315:                                       ; preds = %if.then1306.if.end1
   br i1 %cmp.not.i672, label %if.end1316, label %if.then.i673
 
 if.then.i673:                                     ; preds = %if.end1315
-  %frombool.i674 = trunc i32 %and.lobit.i671 to i8
+  %frombool.i674 = trunc nuw nsw i32 %and.lobit.i671 to i8
   store i8 %frombool.i674, ptr %m_icase.i668, align 8
   br label %if.end1316
 
@@ -20641,7 +20641,7 @@ ehcleanup206:                                     ; preds = %lpad203, %lpad201
 
 if.end209:                                        ; preds = %if.else, %if.end161
   %result.0.in = phi i64 [ %call120, %if.end161 ], [ %call177, %if.else ]
-  %result.0 = trunc i64 %result.0.in to i8
+  %result.0 = trunc nuw i64 %result.0.in to i8
   br label %return
 
 sw.bb210:                                         ; preds = %if.end
@@ -20801,7 +20801,7 @@ ehcleanup285:                                     ; preds = %lpad282, %lpad280
   br label %eh.resume
 
 if.end286:                                        ; preds = %if.end249
-  %conv287 = trunc i64 %call254 to i8
+  %conv287 = trunc nuw i64 %call254 to i8
   br label %return
 
 sw.bb288:                                         ; preds = %if.end
@@ -22604,7 +22604,7 @@ for.cond111.preheader:                            ; preds = %if.end107
   %m_traits114 = getelementptr inbounds i8, ptr %this, i64 8
   %and.i = and i32 %m.0, 32518
   %tobool.not.i89 = icmp eq i32 %and.i, 0
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %and10.i = and i32 %m.0, 33554432
   %tobool11.i = icmp ne i32 %and10.i, 0
   %and16.i = and i32 %m.0, 16777216
@@ -22684,7 +22684,7 @@ land.lhs.true37.i:                                ; preds = %if.else34.i
   %tobool.i.i.not.i = icmp ne i16 %and1.i.i.i, 0
   %76 = add i8 %conv115, -14
   %switch35.i = icmp ult i8 %76, -4
-  %or.cond = and i1 %switch35.i, %tobool.i.i.not.i
+  %or.cond = and i1 %tobool.i.i.not.i, %switch35.i
   br i1 %or.cond, label %if.then117, label %for.inc122
 
 if.then117:                                       ; preds = %land.lhs.true37.i, %if.else26.i, %land.lhs.true23.i, %if.else9.i, %land.lhs.true.i
@@ -22740,7 +22740,7 @@ for.cond148.preheader:                            ; preds = %if.end144
   %m_traits151 = getelementptr inbounds i8, ptr %this, i64 8
   %and.i93 = and i32 %m.1, 32518
   %tobool.not.i94 = icmp eq i32 %and.i93, 0
-  %conv.i97 = trunc i32 %and.i93 to i16
+  %conv.i97 = trunc nuw nsw i32 %and.i93 to i16
   %and10.i105 = and i32 %m.1, 33554432
   %tobool11.i106 = icmp ne i32 %and10.i105, 0
   %and16.i110 = and i32 %m.1, 16777216
@@ -22820,7 +22820,7 @@ land.lhs.true37.i129:                             ; preds = %if.else34.i126
   %tobool.i.i.not.i135 = icmp ne i16 %and1.i.i.i134, 0
   %94 = add i8 %conv152, -14
   %switch35.i137 = icmp ult i8 %94, -4
-  %or.cond171 = and i1 %switch35.i137, %tobool.i.i.not.i135
+  %or.cond171 = and i1 %tobool.i.i.not.i135, %switch35.i137
   br i1 %or.cond171, label %for.inc161, label %if.then156
 
 if.then156:                                       ; preds = %if.else34.i126, %land.lhs.true37.i129
@@ -28095,7 +28095,7 @@ land.lhs.true.i:                                  ; preds = %for.body123
   %56 = load ptr, ptr %54, align 8
   %m_pctype.i190 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %m_pctype.i190, align 8
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %57, i64 48
   %58 = load ptr, ptr %_M_table.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i16, ptr %58, i64 %indvars.iv535
@@ -28160,7 +28160,7 @@ land.lhs.true37.i:                                ; preds = %if.else34.i
   %tobool.i.i.not.i = icmp ne i16 %and1.i.i.i, 0
   %68 = add i8 %conv125, -14
   %switch35.i = icmp ult i8 %68, -4
-  %or.cond348 = and i1 %switch35.i, %tobool.i.i.not.i
+  %or.cond348 = and i1 %tobool.i.i.not.i, %switch35.i
   br i1 %or.cond348, label %for.inc138, label %if.then128
 
 if.then128:                                       ; preds = %if.else34.i, %land.lhs.true37.i
@@ -28206,7 +28206,7 @@ land.lhs.true.i194:                               ; preds = %for.body154
   %75 = load ptr, ptr %73, align 8
   %m_pctype.i195 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %m_pctype.i195, align 8
-  %conv.i196 = trunc i32 %and.i192 to i16
+  %conv.i196 = trunc nuw nsw i32 %and.i192 to i16
   %_M_table.i.i197 = getelementptr inbounds i8, ptr %76, i64 48
   %77 = load ptr, ptr %_M_table.i.i197, align 8
   %arrayidx.i.i199 = getelementptr inbounds i16, ptr %77, i64 %indvars.iv531
@@ -28271,7 +28271,7 @@ land.lhs.true37.i228:                             ; preds = %if.else34.i225
   %tobool.i.i.not.i234 = icmp ne i16 %and1.i.i.i233, 0
   %87 = add i8 %conv156, -14
   %switch35.i236 = icmp ult i8 %87, -4
-  %or.cond349 = and i1 %switch35.i236, %tobool.i.i.not.i234
+  %or.cond349 = and i1 %tobool.i.i.not.i234, %switch35.i236
   br i1 %or.cond349, label %if.then160, label %for.inc171
 
 if.then160:                                       ; preds = %land.lhs.true37.i228, %if.else26.i219, %land.lhs.true23.i218, %if.else9.i203, %land.lhs.true.i194
@@ -29420,7 +29420,7 @@ land.lhs.true.i124:                               ; preds = %if.end140
   %52 = load ptr, ptr %0, align 8
   %m_pctype.i125 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load ptr, ptr %m_pctype.i125, align 8
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %53, i64 48
   %54 = load ptr, ptr %_M_table.i.i, align 8
   %idxprom.i.i = zext i8 %cond.i91 to i64
@@ -29515,7 +29515,7 @@ land.lhs.true.i130:                               ; preds = %land.lhs.true
   %69 = load ptr, ptr %0, align 8
   %m_pctype.i131 = getelementptr inbounds i8, ptr %69, i64 8
   %70 = load ptr, ptr %m_pctype.i131, align 8
-  %conv.i132 = trunc i32 %and.i128 to i16
+  %conv.i132 = trunc nuw nsw i32 %and.i128 to i16
   %_M_table.i.i133 = getelementptr inbounds i8, ptr %70, i64 48
   %71 = load ptr, ptr %_M_table.i.i133, align 8
   %idxprom.i.i134 = zext i8 %cond.i91 to i64
@@ -34071,7 +34071,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   %5 = load ptr, ptr %2, align 8
   %m_pctype.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %m_pctype.i, align 8
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_M_table.i.i, align 8
   %idxprom.i.i = zext i8 %3 to i64
@@ -34187,7 +34187,7 @@ land.lhs.true.i9:                                 ; preds = %if.else21
   %24 = load ptr, ptr %21, align 8
   %m_pctype.i10 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %m_pctype.i10, align 8
-  %conv.i11 = trunc i32 %and.i7 to i16
+  %conv.i11 = trunc nuw nsw i32 %and.i7 to i16
   %_M_table.i.i12 = getelementptr inbounds i8, ptr %25, i64 48
   %26 = load ptr, ptr %_M_table.i.i12, align 8
   %idxprom.i.i13 = zext i8 %22 to i64
@@ -34307,7 +34307,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %5 = load ptr, ptr %2, align 8
   %m_pctype.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %m_pctype.i, align 8
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_M_table.i.i, align 8
   %idxprom.i.i = zext i8 %3 to i64
@@ -34404,7 +34404,7 @@ land.lhs.true.i4:                                 ; preds = %if.else
   %21 = load ptr, ptr %2, align 8
   %m_pctype.i5 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %m_pctype.i5, align 8
-  %conv.i6 = trunc i32 %and.i to i16
+  %conv.i6 = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i7 = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load ptr, ptr %_M_table.i.i7, align 8
   %idxprom.i.i8 = zext i8 %20 to i64
@@ -34524,7 +34524,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %5 = load ptr, ptr %2, align 8
   %m_pctype.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %m_pctype.i, align 8
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_M_table.i.i, align 8
   %idxprom.i.i = zext i8 %3 to i64
@@ -34622,7 +34622,7 @@ land.lhs.true.i6:                                 ; preds = %if.else
   %21 = load ptr, ptr %2, align 8
   %m_pctype.i7 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %m_pctype.i7, align 8
-  %conv.i8 = trunc i32 %and.i to i16
+  %conv.i8 = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i9 = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load ptr, ptr %_M_table.i.i9, align 8
   %idxprom.i.i10 = zext i8 %20 to i64
@@ -34738,7 +34738,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %6 = load ptr, ptr %3, align 8
   %m_pctype.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %m_pctype.i, align 8
-  %conv.i = trunc i32 %and.i2 to i16
+  %conv.i = trunc nuw nsw i32 %and.i2 to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %_M_table.i.i, align 8
   %idxprom.i.i = zext i8 %4 to i64
@@ -34842,7 +34842,7 @@ if.else.land.lhs.true.i6_crit_edge:               ; preds = %if.else
   %.pre61 = load ptr, ptr %m_pctype.i7.phi.trans.insert, align 8
   %_M_table.i.i9.phi.trans.insert = getelementptr inbounds i8, ptr %.pre61, i64 48
   %.pre62 = load ptr, ptr %_M_table.i.i9.phi.trans.insert, align 8
-  %.pre63 = trunc i32 %and.i2 to i16
+  %.pre63 = trunc nuw nsw i32 %and.i2 to i16
   br label %land.lhs.true.i6
 
 land.lhs.true.i6:                                 ; preds = %if.else.land.lhs.true.i6_crit_edge, %if.else.thread
@@ -38735,7 +38735,7 @@ land.lhs.true.i124:                               ; preds = %if.end137
   %52 = load ptr, ptr %0, align 8
   %m_pctype.i125 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load ptr, ptr %m_pctype.i125, align 8
-  %conv.i = trunc i32 %and.i to i16
+  %conv.i = trunc nuw nsw i32 %and.i to i16
   %_M_table.i.i = getelementptr inbounds i8, ptr %53, i64 48
   %54 = load ptr, ptr %_M_table.i.i, align 8
   %idxprom.i.i = zext i8 %cond.i91 to i64
@@ -38830,7 +38830,7 @@ land.lhs.true.i130:                               ; preds = %land.lhs.true
   %69 = load ptr, ptr %0, align 8
   %m_pctype.i131 = getelementptr inbounds i8, ptr %69, i64 8
   %70 = load ptr, ptr %m_pctype.i131, align 8
-  %conv.i132 = trunc i32 %and.i128 to i16
+  %conv.i132 = trunc nuw nsw i32 %and.i128 to i16
   %_M_table.i.i133 = getelementptr inbounds i8, ptr %70, i64 48
   %71 = load ptr, ptr %_M_table.i.i133, align 8
   %idxprom.i.i134 = zext i8 %cond.i91 to i64

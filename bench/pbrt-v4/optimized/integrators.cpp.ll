@@ -2048,7 +2048,7 @@ invoke.cont19:                                    ; preds = %invoke.cont16
   %and.i.i.i = and i64 %18, 144115188075855871
   %19 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %18, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS5_Pvi(ptr noundef nonnull align 8 dereferenceable(24) %start.i, ptr noundef %19, i32 noundef %sub.i.i)
           to label %invoke.cont25 unwind label %lpad18
@@ -2200,7 +2200,7 @@ invoke.cont46:                                    ; preds = %invoke.cont41, %if.
   %and.i.i.i54 = and i64 %41, 144115188075855871
   %42 = inttoptr i64 %and.i.i.i54 to ptr
   %shr.i.i.i55 = lshr i64 %41, 57
-  %conv.i.i.i56 = trunc i64 %shr.i.i.i55 to i32
+  %conv.i.i.i56 = trunc nuw nsw i64 %shr.i.i.i55 to i32
   %43 = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
   switch i32 %conv.i.i.i56, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
@@ -2473,7 +2473,7 @@ invoke.cont104:                                   ; preds = %invoke.cont92
   %retval.sroa.0.0.copyload.i = load i64, ptr %resolution.i, align 4
   %t1.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.copyload.i to i32
   %t1.sroa.3.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %t1.sroa.3.0.extract.trunc.i.i = trunc i64 %t1.sroa.3.0.extract.shift.i.i to i32
+  %t1.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %t1.sroa.3.0.extract.shift.i.i to i32
   %.sroa.speculated5.i.i = call i32 @llvm.smin.i32(i32 %t1.sroa.0.0.extract.trunc.i.i, i32 0)
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %t1.sroa.3.0.extract.trunc.i.i, i32 0)
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.speculated.i.i to i64
@@ -2551,7 +2551,7 @@ invoke.cont141:                                   ; preds = %_ZN4pbrt6InsideIiEE
   %agg.tmp119.sroa.0.0.copyload = load i64, ptr %msePixelBounds, align 8
   %p.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp119.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp119.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i = trunc i64 %p.sroa.2.0.extract.shift.i to i32
+  %p.sroa.2.0.extract.trunc.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i to i32
   %sub.i = sub nsw i32 %84, %p.sroa.0.0.extract.trunc.i
   %sub4.i = sub nsw i32 %87, %p.sroa.2.0.extract.trunc.i
   %sub.i102 = sub nsw i32 %85, %p.sroa.0.0.extract.trunc.i
@@ -2636,7 +2636,7 @@ invoke.cont158:                                   ; preds = %invoke.cont149
   %agg.tmp.sroa.0.0.copyload.i153 = load i64, ptr %pixelBounds, align 8
   %p.sroa.0.0.extract.trunc.i.i154 = trunc i64 %agg.tmp.sroa.0.0.copyload.i153 to i32
   %p.sroa.2.0.extract.shift.i.i155 = lshr i64 %agg.tmp.sroa.0.0.copyload.i153, 32
-  %p.sroa.2.0.extract.trunc.i.i156 = trunc i64 %p.sroa.2.0.extract.shift.i.i155 to i32
+  %p.sroa.2.0.extract.trunc.i.i156 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i155 to i32
   %96 = load i32, ptr %40, align 8
   %sub.i.i157 = sub nsw i32 %96, %p.sroa.0.0.extract.trunc.i.i154
   %97 = load i32, ptr %y.i.i, align 4
@@ -2742,7 +2742,7 @@ invoke.cont198:                                   ; preds = %invoke.cont192
   %agg.tmp.sroa.0.0.copyload.i171 = load i64, ptr %pixelBounds, align 8
   %p.sroa.0.0.extract.trunc.i.i172 = trunc i64 %agg.tmp.sroa.0.0.copyload.i171 to i32
   %p.sroa.2.0.extract.shift.i.i173 = lshr i64 %agg.tmp.sroa.0.0.copyload.i171, 32
-  %p.sroa.2.0.extract.trunc.i.i174 = trunc i64 %p.sroa.2.0.extract.shift.i.i173 to i32
+  %p.sroa.2.0.extract.trunc.i.i174 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i173 to i32
   %108 = load i32, ptr %40, align 8
   %sub.i.i175 = sub nsw i32 %108, %p.sroa.0.0.extract.trunc.i.i172
   %109 = load i32, ptr %y.i.i, align 4
@@ -5067,7 +5067,7 @@ entry:
   %and.i.i.i = and i64 %0, 144115188075855871
   %1 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %0, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %1, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -5089,7 +5089,7 @@ entry:
   %and.i.i.i2 = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i.i2 to ptr
   %shr.i.i.i3 = lshr i64 %6, 57
-  %conv.i.i.i4 = trunc i64 %shr.i.i.i3 to i32
+  %conv.i.i.i4 = trunc nuw nsw i64 %shr.i.i.i3 to i32
   %sub.i.i5 = add nsw i32 %conv.i.i.i4, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %7, i32 noundef %sub.i.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -5109,7 +5109,7 @@ entry:
   %and.i.i.i.i = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %13, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler10GetPixel2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i.i, ptr noundef %14, i32 noundef %sub.i.i.i), !noalias !101
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i.i), !noalias !101
@@ -5120,7 +5120,7 @@ entry:
   %and.i.i.i1.i = and i64 %12, 144115188075855871
   %15 = inttoptr i64 %and.i.i.i1.i to ptr
   %shr.i.i.i2.i = lshr i64 %12, 57
-  %conv.i.i.i3.i = trunc i64 %shr.i.i.i2.i to i32
+  %conv.i.i.i3.i = trunc nuw nsw i64 %shr.i.i.i2.i to i32
   %sub.i.i4.i = add nsw i32 %conv.i.i.i3.i, -1
   %call3.i.i5.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i.i, ptr noundef %15, i32 noundef %sub.i.i4.i), !noalias !101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i.i), !noalias !101
@@ -5179,7 +5179,7 @@ do.end15:                                         ; preds = %_ZN4pbrt15GetCamera
   %and.i.i.i10 = and i64 %27, 144115188075855871
   %28 = inttoptr i64 %and.i.i.i10 to ptr
   %shr.i.i.i11 = lshr i64 %27, 57
-  %conv.i.i.i12 = trunc i64 %shr.i.i.i11 to i32
+  %conv.i.i.i12 = trunc nuw nsw i64 %shr.i.i.i11 to i32
   switch i32 %conv.i.i.i12, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb1.i.i.i
@@ -5489,7 +5489,7 @@ invoke.cont80:                                    ; preds = %invoke.cont80.sink.
   %and.i.i.i64 = and i64 %92, 144115188075855871
   %93 = inttoptr i64 %and.i.i.i64 to ptr
   %shr.i.i.i65 = lshr i64 %92, 57
-  %conv.i.i.i66 = trunc i64 %shr.i.i.i65 to i32
+  %conv.i.i.i66 = trunc nuw nsw i64 %shr.i.i.i65 to i32
   switch i32 %conv.i.i.i66, label %sw.default.i.i.i69 [
     i32 1, label %sw.bb.i.i.i68
     i32 2, label %sw.bb3.i.i.i67
@@ -6207,14 +6207,14 @@ invoke.cont42:                                    ; preds = %if.end19.thread, %i
   %shr3.i.i = xor i64 %109, %110
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %rng.sroa.0.0, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i172 = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i172 to float
   %mul.i = fmul float %conv.i, 0x3DF0000000000000
   %cmp.i.i173 = fcmp olt float %mul.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %cmp.i.i173, float %mul.i, float 0x3FEFFFFFE0000000
   %shr.i.i.i = lshr i64 %100, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb4.i.i.i
@@ -6390,7 +6390,7 @@ invoke.cont51.i.i.i.i.i:                          ; preds = %invoke.cont9.i.i.i.
   %shr3.i.i.i.i.i.i.i = xor i64 %131, %132
   %conv.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i.i = lshr i64 %rng.sroa.0.2, 59
-  %conv5.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i.i to i32
   %or.i.i57.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i = uitofp i32 %or.i.i57.i.i.i.i.i to float
   %mul.i58.i.i.i.i.i = fmul float %conv.i.i.i.i.i.i, 0x3DF0000000000000
@@ -6835,7 +6835,7 @@ invoke.cont48.i.i.i.i.i:                          ; preds = %invoke.cont93.i.i.i
   %shr3.i.i.i.i79.i.i.i = xor i64 %185, %186
   %conv.i.i.i.i80.i.i.i = trunc i64 %shr3.i.i.i.i79.i.i.i to i32
   %shr4.i.i.i.i81.i.i.i = lshr i64 %rng.sroa.0.6, 59
-  %conv5.i.i.i.i82.i.i.i = trunc i64 %shr4.i.i.i.i81.i.i.i to i32
+  %conv5.i.i.i.i82.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i81.i.i.i to i32
   %or.i.i56.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i80.i.i.i, i32 %conv.i.i.i.i80.i.i.i, i32 %conv5.i.i.i.i82.i.i.i)
   %conv.i.i.i83.i.i.i = uitofp i32 %or.i.i56.i.i.i.i.i to float
   %mul.i57.i.i.i.i.i = fmul float %conv.i.i.i83.i.i.i, 0x3DF0000000000000
@@ -7299,7 +7299,7 @@ invoke.cont48.i.i220.i.i.i:                       ; preds = %invoke.cont93.i.i35
   %shr3.i.i.i.i228.i.i.i = xor i64 %244, %245
   %conv.i.i.i.i229.i.i.i = trunc i64 %shr3.i.i.i.i228.i.i.i to i32
   %shr4.i.i.i.i230.i.i.i = lshr i64 %rng.sroa.0.10, 59
-  %conv5.i.i.i.i231.i.i.i = trunc i64 %shr4.i.i.i.i230.i.i.i to i32
+  %conv5.i.i.i.i231.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i230.i.i.i to i32
   %or.i.i56.i.i232.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i229.i.i.i, i32 %conv.i.i.i.i229.i.i.i, i32 %conv5.i.i.i.i231.i.i.i)
   %conv.i.i.i233.i.i.i = uitofp i32 %or.i.i56.i.i232.i.i.i to float
   %mul.i57.i.i234.i.i.i = fmul float %conv.i.i.i233.i.i.i, 0x3DF0000000000000
@@ -7749,7 +7749,7 @@ invoke.cont50.i.i495.i.i.i:                       ; preds = %invoke.cont.i.i487.
   %shr3.i.i.i.i502.i.i.i = xor i64 %298, %299
   %conv.i.i.i.i503.i.i.i = trunc i64 %shr3.i.i.i.i502.i.i.i to i32
   %shr4.i.i.i.i504.i.i.i = lshr i64 %rng.sroa.0.14, 59
-  %conv5.i.i.i.i505.i.i.i = trunc i64 %shr4.i.i.i.i504.i.i.i to i32
+  %conv5.i.i.i.i505.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i504.i.i.i to i32
   %or.i.i57.i.i506.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i503.i.i.i, i32 %conv.i.i.i.i503.i.i.i, i32 %conv5.i.i.i.i505.i.i.i)
   %conv.i.i.i507.i.i.i = uitofp i32 %or.i.i57.i.i506.i.i.i to float
   %mul.i58.i.i508.i.i.i = fmul float %conv.i.i.i507.i.i.i, 0x3DF0000000000000
@@ -8190,7 +8190,7 @@ invoke.cont48.i.i779.i.i.i:                       ; preds = %invoke.cont93.i.i91
   %shr3.i.i.i.i787.i.i.i = xor i64 %352, %353
   %conv.i.i.i.i788.i.i.i = trunc i64 %shr3.i.i.i.i787.i.i.i to i32
   %shr4.i.i.i.i789.i.i.i = lshr i64 %rng.sroa.0.18, 59
-  %conv5.i.i.i.i790.i.i.i = trunc i64 %shr4.i.i.i.i789.i.i.i to i32
+  %conv5.i.i.i.i790.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i789.i.i.i to i32
   %or.i.i56.i.i791.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i788.i.i.i, i32 %conv.i.i.i.i788.i.i.i, i32 %conv5.i.i.i.i790.i.i.i)
   %conv.i.i.i792.i.i.i = uitofp i32 %or.i.i56.i.i791.i.i.i to float
   %mul.i57.i.i793.i.i.i = fmul float %conv.i.i.i792.i.i.i, 0x3DF0000000000000
@@ -9464,7 +9464,7 @@ for.body:                                         ; preds = %if.then4, %_ZN4pbrt
   %and.i.i.i = and i64 %24, 144115188075855871
   %25 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %24, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %invoke.cont11
     i32 2, label %invoke.cont11
@@ -9636,7 +9636,7 @@ if.then67:                                        ; preds = %invoke.cont61
   %and.i.i.i91 = and i64 %52, 144115188075855871
   %53 = inttoptr i64 %and.i.i.i91 to ptr
   %shr.i.i.i92 = lshr i64 %52, 57
-  %conv.i.i.i93 = trunc i64 %shr.i.i.i92 to i32
+  %conv.i.i.i93 = trunc nuw nsw i64 %shr.i.i.i92 to i32
   %sub.i.i = add nsw i32 %conv.i.i.i93, -1
   %call3.i.i94 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %53, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -9661,7 +9661,7 @@ if.then74:                                        ; preds = %if.then67
   %and.i.i.i101 = and i64 %58, 144115188075855871
   %59 = inttoptr i64 %and.i.i.i101 to ptr
   %shr.i.i.i102 = lshr i64 %58, 57
-  %conv.i.i.i103 = trunc i64 %shr.i.i.i102 to i32
+  %conv.i.i.i103 = trunc nuw nsw i64 %shr.i.i.i102 to i32
   %sub.i.i104 = add nsw i32 %conv.i.i.i103, -1
   %call3.i.i105 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i100, ptr noundef %59, i32 noundef %sub.i.i104)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i100)
@@ -9684,7 +9684,7 @@ if.then74:                                        ; preds = %if.then67
   %and.i.i.i112 = and i64 %57, 144115188075855871
   %60 = inttoptr i64 %and.i.i.i112 to ptr
   %shr.i.i.i113 = lshr i64 %57, 57
-  %conv.i.i.i114 = trunc i64 %shr.i.i.i113 to i32
+  %conv.i.i.i114 = trunc nuw nsw i64 %shr.i.i.i113 to i32
   %sub.i.i115 = add nsw i32 %conv.i.i.i114, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.127") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %60, i32 noundef %sub.i.i115)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp81110)
@@ -9803,7 +9803,7 @@ if.end.i145:                                      ; preds = %invoke.cont99
   %and.i.i.i.i = and i64 %92, 144115188075855871
   %93 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %92, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i148 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i, ptr noundef %93, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -9988,7 +9988,7 @@ if.then155:                                       ; preds = %if.end153
   %and.i.i.i248 = and i64 %115, 144115188075855871
   %116 = inttoptr i64 %and.i.i.i248 to ptr
   %shr.i.i.i249 = lshr i64 %115, 57
-  %conv.i.i.i250 = trunc i64 %shr.i.i.i249 to i32
+  %conv.i.i.i250 = trunc nuw nsw i64 %shr.i.i.i249 to i32
   %sub.i.i251 = add nsw i32 %conv.i.i.i250, -1
   %call3.i.i252 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i247, ptr noundef %116, i32 noundef %sub.i.i251)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i247)
@@ -9997,7 +9997,7 @@ if.then155:                                       ; preds = %if.end153
   %and.i.i.i255 = and i64 %117, 144115188075855871
   %118 = inttoptr i64 %and.i.i.i255 to ptr
   %shr.i.i.i256 = lshr i64 %117, 57
-  %conv.i.i.i257 = trunc i64 %shr.i.i.i256 to i32
+  %conv.i.i.i257 = trunc nuw nsw i64 %shr.i.i.i256 to i32
   %sub.i.i258 = add nsw i32 %conv.i.i.i257, -1
   %call3.i.i259 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i254, ptr noundef %118, i32 noundef %sub.i.i258)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i254)
@@ -10142,7 +10142,7 @@ if.else:                                          ; preds = %if.end153
   %and.i.i.i.i340 = and i64 %138, 144115188075855871
   %139 = inttoptr i64 %and.i.i.i.i340 to ptr
   %shr.i.i.i.i341 = lshr i64 %138, 57
-  %conv.i.i.i.i342 = trunc i64 %shr.i.i.i.i341 to i32
+  %conv.i.i.i.i342 = trunc nuw nsw i64 %shr.i.i.i.i341 to i32
   %sub.i.i.i343 = add nsw i32 %conv.i.i.i.i342, -1
   %call3.i.i.i345 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %139, i32 noundef %sub.i.i.i343)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -10156,7 +10156,7 @@ if.then219:                                       ; preds = %if.else
   %and.i.i.i351 = and i64 %141, 144115188075855871
   %142 = inttoptr i64 %and.i.i.i351 to ptr
   %shr.i.i.i352 = lshr i64 %141, 57
-  %conv.i.i.i353 = trunc i64 %shr.i.i.i352 to i32
+  %conv.i.i.i353 = trunc nuw nsw i64 %shr.i.i.i352 to i32
   %sub.i.i354 = add nsw i32 %conv.i.i.i353, -1
   %call3.i.i355 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i350, ptr noundef %142, i32 noundef %sub.i.i354)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i350)
@@ -10186,7 +10186,7 @@ if.else232:                                       ; preds = %if.else
   %and.i.i.i364 = and i64 %143, 144115188075855871
   %144 = inttoptr i64 %and.i.i.i364 to ptr
   %shr.i.i.i365 = lshr i64 %143, 57
-  %conv.i.i.i366 = trunc i64 %shr.i.i.i365 to i32
+  %conv.i.i.i366 = trunc nuw nsw i64 %shr.i.i.i365 to i32
   %sub.i.i367 = add nsw i32 %conv.i.i.i366, -1
   %call3.i.i368 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i363, ptr noundef %144, i32 noundef %sub.i.i367)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i363)
@@ -10352,7 +10352,7 @@ if.end.i448:                                      ; preds = %if.end290
   %and.i.i.i.i494 = and i64 %200, 144115188075855871
   %201 = inttoptr i64 %and.i.i.i.i494 to ptr
   %shr.i.i.i.i495 = lshr i64 %200, 57
-  %conv.i.i.i.i496 = trunc i64 %shr.i.i.i.i495 to i32
+  %conv.i.i.i.i496 = trunc nuw nsw i64 %shr.i.i.i.i495 to i32
   %sub.i.i.i497 = add nsw i32 %conv.i.i.i.i496, -1
   %call3.i.i.i503 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i433, ptr noundef %201, i32 noundef %sub.i.i.i497)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i430)
@@ -10691,7 +10691,7 @@ lor.lhs.false:                                    ; preds = %entry
   %and.i.i.i = and i64 %15, 144115188075855871
   %16 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %15, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i, ptr noundef %16, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i)
@@ -10730,7 +10730,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %and.i.i.i2 = and i64 %21, 144115188075855871
   %22 = inttoptr i64 %and.i.i.i2 to ptr
   %shr.i.i.i3 = lshr i64 %21, 57
-  %conv.i.i.i4 = trunc i64 %shr.i.i.i3 to i32
+  %conv.i.i.i4 = trunc nuw nsw i64 %shr.i.i.i3 to i32
   %sub.i.i5 = add nsw i32 %conv.i.i.i4, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_N4pstd8optionalINS_10BSDFSampleEEENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS9_PKvi(ptr nonnull sret(%"class.pstd::optional.129") align 4 %bs, ptr noundef nonnull align 8 dereferenceable(40) %sample_f.i, ptr noundef %22, i32 noundef %sub.i.i5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i)
@@ -11443,7 +11443,7 @@ entry:
   %and.i.i.i = and i64 %0, 144115188075855871
   %1 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %0, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %1, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -11465,7 +11465,7 @@ entry:
   %and.i.i.i15 = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i.i15 to ptr
   %shr.i.i.i16 = lshr i64 %6, 57
-  %conv.i.i.i17 = trunc i64 %shr.i.i.i16 to i32
+  %conv.i.i.i17 = trunc nuw nsw i64 %shr.i.i.i16 to i32
   %sub.i.i18 = add nsw i32 %conv.i.i.i17, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %7, i32 noundef %sub.i.i18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -11475,7 +11475,7 @@ entry:
   %and.i.i.i20 = and i64 %8, 144115188075855871
   %9 = inttoptr i64 %and.i.i.i20 to ptr
   %shr.i.i.i21 = lshr i64 %8, 57
-  %conv.i.i.i22 = trunc i64 %shr.i.i.i21 to i32
+  %conv.i.i.i22 = trunc nuw nsw i64 %shr.i.i.i21 to i32
   %sub.i.i23 = add nsw i32 %conv.i.i.i22, -1
   %call3.i.i24 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i19, ptr noundef %9, i32 noundef %sub.i.i23)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i19)
@@ -11501,7 +11501,7 @@ invoke.cont10:                                    ; preds = %entry
   %and.i.i.i31 = and i64 %14, 144115188075855871
   %15 = inttoptr i64 %and.i.i.i31 to ptr
   %shr.i.i.i32 = lshr i64 %14, 57
-  %conv.i.i.i33 = trunc i64 %shr.i.i.i32 to i32
+  %conv.i.i.i33 = trunc nuw nsw i64 %shr.i.i.i32 to i32
   %sub.i.i34 = add nsw i32 %conv.i.i.i33, -1
   %call3.i.i3536 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i30, ptr noundef %15, i32 noundef %sub.i.i34)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i30)
@@ -11521,7 +11521,7 @@ invoke.cont10:                                    ; preds = %entry
   %and.i.i.i39 = and i64 %20, 144115188075855871
   %21 = inttoptr i64 %and.i.i.i39 to ptr
   %shr.i.i.i40 = lshr i64 %20, 57
-  %conv.i.i.i41 = trunc i64 %shr.i.i.i40 to i32
+  %conv.i.i.i41 = trunc nuw nsw i64 %shr.i.i.i40 to i32
   %sub.i.i42 = add nsw i32 %conv.i.i.i41, -1
   %call3.i.i4344 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i38, ptr noundef %21, i32 noundef %sub.i.i42)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i38)
@@ -11530,7 +11530,7 @@ invoke.cont10:                                    ; preds = %entry
   %and.i.i.i46 = and i64 %22, 144115188075855871
   %23 = inttoptr i64 %and.i.i.i46 to ptr
   %shr.i.i.i47 = lshr i64 %22, 57
-  %conv.i.i.i48 = trunc i64 %shr.i.i.i47 to i32
+  %conv.i.i.i48 = trunc nuw nsw i64 %shr.i.i.i47 to i32
   %sub.i.i49 = add nsw i32 %conv.i.i.i48, -1
   %call3.i.i5051 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i45, ptr noundef %23, i32 noundef %sub.i.i49)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i45)
@@ -11586,7 +11586,7 @@ invoke.cont52:                                    ; preds = %invoke.cont43
   %and.i.i.i87 = and i64 %30, 144115188075855871
   %31 = inttoptr i64 %and.i.i.i87 to ptr
   %shr.i.i.i88 = lshr i64 %30, 57
-  %conv.i.i.i89 = trunc i64 %shr.i.i.i88 to i32
+  %conv.i.i.i89 = trunc nuw nsw i64 %shr.i.i.i88 to i32
   %sub.i.i90 = add nsw i32 %conv.i.i.i89, -1
   %call3.i.i9192 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i86, ptr noundef %31, i32 noundef %sub.i.i90)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i86)
@@ -11631,7 +11631,7 @@ invoke.cont75:                                    ; preds = %invoke.cont63
   %and.i.i.i111 = and i64 %39, 144115188075855871
   %40 = inttoptr i64 %and.i.i.i111 to ptr
   %shr.i.i.i112 = lshr i64 %39, 57
-  %conv.i.i.i113 = trunc i64 %shr.i.i.i112 to i32
+  %conv.i.i.i113 = trunc nuw nsw i64 %shr.i.i.i112 to i32
   %sub.i.i114 = add nsw i32 %conv.i.i.i113, -1
   %call3.i.i115116 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i, ptr noundef %40, i32 noundef %sub.i.i114)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp68110)
@@ -12056,7 +12056,7 @@ if.end229:                                        ; preds = %if.end226
   %and.i.i.i342 = and i64 %86, 144115188075855871
   %87 = inttoptr i64 %and.i.i.i342 to ptr
   %shr.i.i.i343 = lshr i64 %86, 57
-  %conv.i.i.i344 = trunc i64 %shr.i.i.i343 to i32
+  %conv.i.i.i344 = trunc nuw nsw i64 %shr.i.i.i343 to i32
   %sub.i.i345 = add nsw i32 %conv.i.i.i344, -1
   %call3.i.i346347 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i341, ptr noundef %87, i32 noundef %sub.i.i345)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i341)
@@ -12131,7 +12131,7 @@ if.end.i362:                                      ; preds = %invoke.cont254
   %and.i.i.i.i = and i64 %115, 144115188075855871
   %116 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %115, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i367 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i, ptr noundef %116, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -12302,7 +12302,7 @@ if.end314:                                        ; preds = %invoke.cont307, %fo
   %and.i.i.i467 = and i64 %137, 144115188075855871
   %138 = inttoptr i64 %and.i.i.i467 to ptr
   %shr.i.i.i468 = lshr i64 %137, 57
-  %conv.i.i.i469 = trunc i64 %shr.i.i.i468 to i32
+  %conv.i.i.i469 = trunc nuw nsw i64 %shr.i.i.i468 to i32
   %sub.i.i470 = add nsw i32 %conv.i.i.i469, -1
   %call3.i.i471472 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i466, ptr noundef %138, i32 noundef %sub.i.i470)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i466)
@@ -12313,7 +12313,7 @@ if.end314:                                        ; preds = %invoke.cont307, %fo
   %and.i.i.i475 = and i64 %139, 144115188075855871
   %140 = inttoptr i64 %and.i.i.i475 to ptr
   %shr.i.i.i476 = lshr i64 %139, 57
-  %conv.i.i.i477 = trunc i64 %shr.i.i.i476 to i32
+  %conv.i.i.i477 = trunc nuw nsw i64 %shr.i.i.i476 to i32
   %sub.i.i478 = add nsw i32 %conv.i.i.i477, -1
   %call3.i.i479480 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i474, ptr noundef %140, i32 noundef %sub.i.i478)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i474)
@@ -13025,7 +13025,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and.i.i.i = and i64 %30, 144115188075855871
   %31 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %30, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %invoke.cont7
     i32 2, label %invoke.cont7
@@ -13105,7 +13105,7 @@ if.else:                                          ; preds = %invoke.cont7
   %and.i.i.i42 = and i64 %39, 144115188075855871
   %40 = inttoptr i64 %and.i.i.i42 to ptr
   %shr.i.i.i43 = lshr i64 %39, 57
-  %conv.i.i.i44 = trunc i64 %shr.i.i.i43 to i32
+  %conv.i.i.i44 = trunc nuw nsw i64 %shr.i.i.i43 to i32
   switch i32 %conv.i.i.i44, label %sw.default.i.i.i45 [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb3.i.i.i
@@ -13159,7 +13159,7 @@ invoke.cont19:                                    ; preds = %sw.bb3.i.i.i, %sw.d
   %and.i.i.i52 = and i64 %42, 144115188075855871
   %43 = inttoptr i64 %and.i.i.i52 to ptr
   %shr.i.i.i53 = lshr i64 %42, 57
-  %conv.i.i.i54 = trunc i64 %shr.i.i.i53 to i32
+  %conv.i.i.i54 = trunc nuw nsw i64 %shr.i.i.i53 to i32
   %sub.i.i = add nsw i32 %conv.i.i.i54, -1
   %call3.i.i55 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i51, ptr noundef %43, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2150)
@@ -13321,7 +13321,7 @@ invoke.cont68:                                    ; preds = %if.else67
   %and.i.i.i125 = and i64 %62, 144115188075855871
   %63 = inttoptr i64 %and.i.i.i125 to ptr
   %shr.i.i.i126 = lshr i64 %62, 57
-  %conv.i.i.i127 = trunc i64 %shr.i.i.i126 to i32
+  %conv.i.i.i127 = trunc nuw nsw i64 %shr.i.i.i126 to i32
   switch i32 %conv.i.i.i127, label %sw.default.i.i.i137 [
     i32 1, label %sw.bb.i.i.i131
     i32 2, label %sw.bb3.i.i.i130
@@ -13374,7 +13374,7 @@ invoke.cont77:                                    ; preds = %sw.bb3.i.i.i130, %s
   %and.i.i.i150 = and i64 %61, 144115188075855871
   %65 = inttoptr i64 %and.i.i.i150 to ptr
   %shr.i.i.i151 = lshr i64 %61, 57
-  %conv.i.i.i152 = trunc i64 %shr.i.i.i151 to i32
+  %conv.i.i.i152 = trunc nuw nsw i64 %shr.i.i.i151 to i32
   %sub.i.i153 = add nsw i32 %conv.i.i.i152, -1
   %call3.i.i154 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i148, ptr noundef %65, i32 noundef %sub.i.i153)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp79145)
@@ -13533,7 +13533,7 @@ if.then165:                                       ; preds = %if.end161
   %and.i.i.i.i = and i64 %99, 144115188075855871
   %100 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %99, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %100, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -13554,7 +13554,7 @@ if.end172:                                        ; preds = %if.end167
   %and.i.i.i.i227 = and i64 %103, 144115188075855871
   %104 = inttoptr i64 %and.i.i.i.i227 to ptr
   %shr.i.i.i.i228 = lshr i64 %103, 57
-  %conv.i.i.i.i229 = trunc i64 %shr.i.i.i.i228 to i32
+  %conv.i.i.i.i229 = trunc nuw nsw i64 %shr.i.i.i.i228 to i32
   %sub.i.i.i230 = add nsw i32 %conv.i.i.i.i229, -1
   %call3.i.i.i231 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %104, i32 noundef %sub.i.i.i230)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -13646,7 +13646,7 @@ invoke.cont200:                                   ; preds = %for.body.i259, %if.
   %and.i.i.i276 = and i64 %119, 144115188075855871
   %120 = inttoptr i64 %and.i.i.i276 to ptr
   %shr.i.i.i277 = lshr i64 %119, 57
-  %conv.i.i.i278 = trunc i64 %shr.i.i.i277 to i32
+  %conv.i.i.i278 = trunc nuw nsw i64 %shr.i.i.i277 to i32
   %sub.i.i279 = add nsw i32 %conv.i.i.i278, -1
   %call3.i.i280 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %120, i32 noundef %sub.i.i279)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -13655,7 +13655,7 @@ invoke.cont200:                                   ; preds = %for.body.i259, %if.
   %and.i.i.i282 = and i64 %121, 144115188075855871
   %122 = inttoptr i64 %and.i.i.i282 to ptr
   %shr.i.i.i283 = lshr i64 %121, 57
-  %conv.i.i.i284 = trunc i64 %shr.i.i.i283 to i32
+  %conv.i.i.i284 = trunc nuw nsw i64 %shr.i.i.i283 to i32
   %sub.i.i285 = add nsw i32 %conv.i.i.i284, -1
   %call3.i.i286 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i281, ptr noundef %122, i32 noundef %sub.i.i285)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i281)
@@ -13810,7 +13810,7 @@ if.end.i360:                                      ; preds = %invoke.cont245
   %and.i.i.i.i385 = and i64 %162, 144115188075855871
   %163 = inttoptr i64 %and.i.i.i.i385 to ptr
   %shr.i.i.i.i386 = lshr i64 %162, 57
-  %conv.i.i.i.i387 = trunc i64 %shr.i.i.i.i386 to i32
+  %conv.i.i.i.i387 = trunc nuw nsw i64 %shr.i.i.i.i386 to i32
   %sub.i.i.i388 = add nsw i32 %conv.i.i.i.i387, -1
   %call3.i.i.i390 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i.i, ptr noundef %163, i32 noundef %sub.i.i.i388)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -13836,7 +13836,7 @@ invoke.cont265:                                   ; preds = %cond.end
   %and.i.i.i401 = and i32 %165, 16
   %tobool.i.i402.not = icmp eq i32 %and.i.i.i401, 0
   %and.i.i.i401.lobit = lshr exact i32 %and.i.i.i401, 4
-  %frombool = trunc i32 %and.i.i.i401.lobit to i8
+  %frombool = trunc nuw nsw i32 %and.i.i.i401.lobit to i8
   %166 = or i1 %anyNonSpecularBounces.0, %tobool.i.i402.not
   %and.i.i.i417 = and i32 %165, 2
   %tobool.i.i418.not = icmp eq i32 %and.i.i.i417, 0
@@ -13920,7 +13920,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit472: ; preds = %for.body.i46
   %and.i.i.i475 = and i64 %174, 144115188075855871
   %175 = inttoptr i64 %and.i.i.i475 to ptr
   %shr.i.i.i476 = lshr i64 %174, 57
-  %conv.i.i.i477 = trunc i64 %shr.i.i.i476 to i32
+  %conv.i.i.i477 = trunc nuw nsw i64 %shr.i.i.i476 to i32
   %sub.i.i478 = add nsw i32 %conv.i.i.i477, -1
   %call3.i.i479 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i474, ptr noundef %175, i32 noundef %sub.i.i478)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i474)
@@ -14038,7 +14038,7 @@ entry:
   %and.i.i.i.i = and i64 %0, 144115188075855871
   %1 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %0, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %1, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -14099,7 +14099,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
   %and.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %6, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -14114,7 +14114,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
   %and.i.i.i43 = and i64 %8, 144115188075855871
   %9 = inttoptr i64 %and.i.i.i43 to ptr
   %shr.i.i.i44 = lshr i64 %8, 57
-  %conv.i.i.i45 = trunc i64 %shr.i.i.i44 to i32
+  %conv.i.i.i45 = trunc nuw nsw i64 %shr.i.i.i44 to i32
   %sub.i.i46 = add nsw i32 %conv.i.i.i45, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.124") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %9, i32 noundef %sub.i.i46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -14124,7 +14124,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
   %and.i.i.i48 = and i64 %10, 144115188075855871
   %11 = inttoptr i64 %and.i.i.i48 to ptr
   %shr.i.i.i49 = lshr i64 %10, 57
-  %conv.i.i.i50 = trunc i64 %shr.i.i.i49 to i32
+  %conv.i.i.i50 = trunc nuw nsw i64 %shr.i.i.i49 to i32
   %sub.i.i51 = add nsw i32 %conv.i.i.i50, -1
   %call3.i.i5253 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i47, ptr noundef %11, i32 noundef %sub.i.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i47)
@@ -14154,7 +14154,7 @@ invoke.cont29:                                    ; preds = %if.end21
   %and.i.i.i57 = and i64 %13, 144115188075855871
   %17 = inttoptr i64 %and.i.i.i57 to ptr
   %shr.i.i.i58 = lshr i64 %13, 57
-  %conv.i.i.i59 = trunc i64 %shr.i.i.i58 to i32
+  %conv.i.i.i59 = trunc nuw nsw i64 %shr.i.i.i58 to i32
   %sub.i.i60 = add nsw i32 %conv.i.i.i59, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.127") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %17, i32 noundef %sub.i.i60)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp3355)
@@ -14279,7 +14279,7 @@ if.end.i:                                         ; preds = %invoke.cont52
   %and.i.i.i.i81 = and i64 %51, 144115188075855871
   %52 = inttoptr i64 %and.i.i.i.i81 to ptr
   %shr.i.i.i.i82 = lshr i64 %51, 57
-  %conv.i.i.i.i83 = trunc i64 %shr.i.i.i.i82 to i32
+  %conv.i.i.i.i83 = trunc nuw nsw i64 %shr.i.i.i.i82 to i32
   %sub.i.i.i84 = add nsw i32 %conv.i.i.i.i83, -1
   %call3.i.i.i8588 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i, ptr noundef %52, i32 noundef %sub.i.i.i84)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -14592,7 +14592,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i = and i64 %28, 144115188075855871
   %29 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %28, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i, ptr noundef %29, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i)
@@ -15443,7 +15443,7 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %and.i.i.i = and i64 %42, 144115188075855871
   %43 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %42, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i8 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %43, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -15452,7 +15452,7 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %and.i.i.i10 = and i64 %44, 144115188075855871
   %45 = inttoptr i64 %and.i.i.i10 to ptr
   %shr.i.i.i11 = lshr i64 %44, 57
-  %conv.i.i.i12 = trunc i64 %shr.i.i.i11 to i32
+  %conv.i.i.i12 = trunc nuw nsw i64 %shr.i.i.i11 to i32
   %sub.i.i13 = add nsw i32 %conv.i.i.i12, -1
   %call3.i.i14 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i9, ptr noundef %45, i32 noundef %sub.i.i13)
   %46 = bitcast float %call3.i.i8 to i32
@@ -15490,7 +15490,7 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %and.i.i.i24 = and i64 %52, 144115188075855871
   %53 = inttoptr i64 %and.i.i.i24 to ptr
   %shr.i.i.i25 = lshr i64 %52, 57
-  %conv.i.i.i26 = trunc i64 %shr.i.i.i25 to i32
+  %conv.i.i.i26 = trunc nuw nsw i64 %shr.i.i.i25 to i32
   %sub.i.i27 = add nsw i32 %conv.i.i.i26, -1
   %call3.i.i28 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i23, ptr noundef %53, i32 noundef %sub.i.i27)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i23)
@@ -15499,7 +15499,7 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %and.i.i.i31 = and i64 %54, 144115188075855871
   %55 = inttoptr i64 %and.i.i.i31 to ptr
   %shr.i.i.i32 = lshr i64 %54, 57
-  %conv.i.i.i33 = trunc i64 %shr.i.i.i32 to i32
+  %conv.i.i.i33 = trunc nuw nsw i64 %shr.i.i.i32 to i32
   %sub.i.i34 = add nsw i32 %conv.i.i.i33, -1
   %call3.i.i35 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i30, ptr noundef %55, i32 noundef %sub.i.i34)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i30)
@@ -15511,7 +15511,7 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %agg.tmp.sroa.6.0.copyload = load float, ptr %agg.tmp.sroa.6.0.ray.sroa_idx, align 8
   %57 = load i64, ptr %medium, align 8
   %shr.i.i.i39 = lshr i64 %57, 57
-  %conv.i.i.i40 = trunc i64 %shr.i.i.i39 to i32
+  %conv.i.i.i40 = trunc nuw nsw i64 %shr.i.i.i39 to i32
   switch i32 %conv.i.i.i40, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb4.i.i.i
@@ -15696,7 +15696,7 @@ invoke.cont50.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   %shr3.i.i.i.i.i.i.i = xor i64 %80, %81
   %conv.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i.i = lshr i64 %78, 59
-  %conv5.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i.i to i32
   %or.i.i57.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i = uitofp i32 %or.i.i57.i.i.i.i.i to float
   %mul.i58.i.i.i.i.i = fmul float %conv.i.i.i.i.i.i, 0x3DF0000000000000
@@ -16119,7 +16119,7 @@ invoke.cont48.i.i.i.i.i:                          ; preds = %invoke.cont93.i.i11
   %shr3.i.i.i.i83.i.i.i = xor i64 %136, %137
   %conv.i.i.i.i84.i.i.i = trunc i64 %shr3.i.i.i.i83.i.i.i to i32
   %shr4.i.i.i.i85.i.i.i = lshr i64 %134, 59
-  %conv5.i.i.i.i86.i.i.i = trunc i64 %shr4.i.i.i.i85.i.i.i to i32
+  %conv5.i.i.i.i86.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i85.i.i.i to i32
   %or.i.i56.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i84.i.i.i, i32 %conv.i.i.i.i84.i.i.i, i32 %conv5.i.i.i.i86.i.i.i)
   %conv.i.i.i87.i.i.i = uitofp i32 %or.i.i56.i.i.i.i.i to float
   %mul.i57.i.i.i.i.i = fmul float %conv.i.i.i87.i.i.i, 0x3DF0000000000000
@@ -16586,7 +16586,7 @@ invoke.cont48.i.i241.i.i.i:                       ; preds = %invoke.cont93.i.i37
   %shr3.i.i.i.i249.i.i.i = xor i64 %198, %199
   %conv.i.i.i.i250.i.i.i = trunc i64 %shr3.i.i.i.i249.i.i.i to i32
   %shr4.i.i.i.i251.i.i.i = lshr i64 %196, 59
-  %conv5.i.i.i.i252.i.i.i = trunc i64 %shr4.i.i.i.i251.i.i.i to i32
+  %conv5.i.i.i.i252.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i251.i.i.i to i32
   %or.i.i56.i.i253.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i250.i.i.i, i32 %conv.i.i.i.i250.i.i.i, i32 %conv5.i.i.i.i252.i.i.i)
   %conv.i.i.i254.i.i.i = uitofp i32 %or.i.i56.i.i253.i.i.i to float
   %mul.i57.i.i255.i.i.i = fmul float %conv.i.i.i254.i.i.i, 0x3DF0000000000000
@@ -17186,7 +17186,7 @@ invoke.cont50.i.i513.i.i.i:                       ; preds = %invoke.cont.i.i505.
   %shr3.i.i.i.i521.i.i.i = xor i64 %275, %276
   %conv.i.i.i.i522.i.i.i = trunc i64 %shr3.i.i.i.i521.i.i.i to i32
   %shr4.i.i.i.i523.i.i.i = lshr i64 %273, 59
-  %conv5.i.i.i.i524.i.i.i = trunc i64 %shr4.i.i.i.i523.i.i.i to i32
+  %conv5.i.i.i.i524.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i523.i.i.i to i32
   %or.i.i57.i.i525.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i522.i.i.i, i32 %conv.i.i.i.i522.i.i.i, i32 %conv5.i.i.i.i524.i.i.i)
   %conv.i.i.i526.i.i.i = uitofp i32 %or.i.i57.i.i525.i.i.i to float
   %mul.i58.i.i527.i.i.i = fmul float %conv.i.i.i526.i.i.i, 0x3DF0000000000000
@@ -17609,7 +17609,7 @@ invoke.cont48.i.i795.i.i.i:                       ; preds = %invoke.cont93.i.i92
   %shr3.i.i.i.i803.i.i.i = xor i64 %331, %332
   %conv.i.i.i.i804.i.i.i = trunc i64 %shr3.i.i.i.i803.i.i.i to i32
   %shr4.i.i.i.i805.i.i.i = lshr i64 %329, 59
-  %conv5.i.i.i.i806.i.i.i = trunc i64 %shr4.i.i.i.i805.i.i.i to i32
+  %conv5.i.i.i.i806.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i805.i.i.i to i32
   %or.i.i56.i.i807.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i804.i.i.i, i32 %conv.i.i.i.i804.i.i.i, i32 %conv5.i.i.i.i806.i.i.i)
   %conv.i.i.i808.i.i.i = uitofp i32 %or.i.i56.i.i807.i.i.i to float
   %mul.i57.i.i809.i.i.i = fmul float %conv.i.i.i808.i.i.i, 0x3DF0000000000000
@@ -17948,7 +17948,7 @@ for.body:                                         ; preds = %if.else, %_ZN4pbrt1
   %and.i.i.i83 = and i64 %381, 144115188075855871
   %382 = inttoptr i64 %and.i.i.i83 to ptr
   %shr.i.i.i84 = lshr i64 %381, 57
-  %conv.i.i.i85 = trunc i64 %shr.i.i.i84 to i32
+  %conv.i.i.i85 = trunc nuw nsw i64 %shr.i.i.i84 to i32
   switch i32 %conv.i.i.i85, label %sw.default.i.i.i86 [
     i32 1, label %invoke.cont57
     i32 2, label %invoke.cont57
@@ -18047,7 +18047,7 @@ if.else87:                                        ; preds = %invoke.cont75
   %and.i.i.i123 = and i64 %393, 144115188075855871
   %394 = inttoptr i64 %and.i.i.i123 to ptr
   %shr.i.i.i124 = lshr i64 %393, 57
-  %conv.i.i.i125 = trunc i64 %shr.i.i.i124 to i32
+  %conv.i.i.i125 = trunc nuw nsw i64 %shr.i.i.i124 to i32
   %sub.i.i126 = add nsw i32 %conv.i.i.i125, -1
   %call3.i.i127 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i122, ptr noundef %394, i32 noundef %sub.i.i126)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i122)
@@ -18056,7 +18056,7 @@ if.else87:                                        ; preds = %invoke.cont75
   %and.i.i.i130 = and i64 %395, 144115188075855871
   %396 = inttoptr i64 %and.i.i.i130 to ptr
   %shr.i.i.i131 = lshr i64 %395, 57
-  %conv.i.i.i132 = trunc i64 %shr.i.i.i131 to i32
+  %conv.i.i.i132 = trunc nuw nsw i64 %shr.i.i.i131 to i32
   %sub.i.i133 = add nsw i32 %conv.i.i.i132, -1
   %call3.i.i134 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i129, ptr noundef %396, i32 noundef %sub.i.i133)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i129)
@@ -18973,7 +18973,7 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %and.i.i.i = and i64 %69, 144115188075855871
   %70 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %69, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i58 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %70, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -18982,7 +18982,7 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %and.i.i.i60 = and i64 %71, 144115188075855871
   %72 = inttoptr i64 %and.i.i.i60 to ptr
   %shr.i.i.i61 = lshr i64 %71, 57
-  %conv.i.i.i62 = trunc i64 %shr.i.i.i61 to i32
+  %conv.i.i.i62 = trunc nuw nsw i64 %shr.i.i.i61 to i32
   %sub.i.i63 = add nsw i32 %conv.i.i.i62, -1
   %call3.i.i64 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i59, ptr noundef %72, i32 noundef %sub.i.i63)
   %73 = bitcast float %call3.i.i58 to i32
@@ -19022,12 +19022,12 @@ if.then:                                          ; preds = %_ZNK4pbrt10Integrat
   %and.i.i.i74 = and i64 %79, 144115188075855871
   %80 = inttoptr i64 %and.i.i.i74 to ptr
   %shr.i.i.i75 = lshr i64 %79, 57
-  %conv.i.i.i76 = trunc i64 %shr.i.i.i75 to i32
+  %conv.i.i.i76 = trunc nuw nsw i64 %shr.i.i.i75 to i32
   %sub.i.i77 = add nsw i32 %conv.i.i.i76, -1
   %call3.i.i78 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i73, ptr noundef %80, i32 noundef %sub.i.i77)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i73)
   %shr.i.i.i82 = lshr i64 %78, 57
-  %conv.i.i.i83 = trunc i64 %shr.i.i.i82 to i32
+  %conv.i.i.i83 = trunc nuw nsw i64 %shr.i.i.i82 to i32
   switch i32 %conv.i.i.i83, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb4.i.i.i
@@ -19219,7 +19219,7 @@ invoke.cont50.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   %shr3.i.i.i.i.i.i.i = xor i64 %103, %104
   %conv.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i.i = lshr i64 %101, 59
-  %conv5.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i.i to i32
   %or.i.i57.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i = uitofp i32 %or.i.i57.i.i.i.i.i to float
   %mul.i58.i.i.i.i.i = fmul float %conv.i.i.i.i.i.i, 0x3DF0000000000000
@@ -19674,7 +19674,7 @@ invoke.cont48.i.i.i.i.i:                          ; preds = %invoke.cont93.i.i11
   %shr3.i.i.i.i83.i.i.i = xor i64 %159, %160
   %conv.i.i.i.i84.i.i.i = trunc i64 %shr3.i.i.i.i83.i.i.i to i32
   %shr4.i.i.i.i85.i.i.i = lshr i64 %157, 59
-  %conv5.i.i.i.i86.i.i.i = trunc i64 %shr4.i.i.i.i85.i.i.i to i32
+  %conv5.i.i.i.i86.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i85.i.i.i to i32
   %or.i.i56.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i84.i.i.i, i32 %conv.i.i.i.i84.i.i.i, i32 %conv5.i.i.i.i86.i.i.i)
   %conv.i.i.i87.i.i.i = uitofp i32 %or.i.i56.i.i.i.i.i to float
   %mul.i57.i.i.i.i.i = fmul float %conv.i.i.i87.i.i.i, 0x3DF0000000000000
@@ -20170,7 +20170,7 @@ invoke.cont48.i.i241.i.i.i:                       ; preds = %invoke.cont93.i.i37
   %shr3.i.i.i.i249.i.i.i = xor i64 %221, %222
   %conv.i.i.i.i250.i.i.i = trunc i64 %shr3.i.i.i.i249.i.i.i to i32
   %shr4.i.i.i.i251.i.i.i = lshr i64 %219, 59
-  %conv5.i.i.i.i252.i.i.i = trunc i64 %shr4.i.i.i.i251.i.i.i to i32
+  %conv5.i.i.i.i252.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i251.i.i.i to i32
   %or.i.i56.i.i253.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i250.i.i.i, i32 %conv.i.i.i.i250.i.i.i, i32 %conv5.i.i.i.i252.i.i.i)
   %conv.i.i.i254.i.i.i = uitofp i32 %or.i.i56.i.i253.i.i.i to float
   %mul.i57.i.i255.i.i.i = fmul float %conv.i.i.i254.i.i.i, 0x3DF0000000000000
@@ -20795,7 +20795,7 @@ invoke.cont50.i.i513.i.i.i:                       ; preds = %invoke.cont.i.i505.
   %shr3.i.i.i.i521.i.i.i = xor i64 %298, %299
   %conv.i.i.i.i522.i.i.i = trunc i64 %shr3.i.i.i.i521.i.i.i to i32
   %shr4.i.i.i.i523.i.i.i = lshr i64 %296, 59
-  %conv5.i.i.i.i524.i.i.i = trunc i64 %shr4.i.i.i.i523.i.i.i to i32
+  %conv5.i.i.i.i524.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i523.i.i.i to i32
   %or.i.i57.i.i525.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i522.i.i.i, i32 %conv.i.i.i.i522.i.i.i, i32 %conv5.i.i.i.i524.i.i.i)
   %conv.i.i.i526.i.i.i = uitofp i32 %or.i.i57.i.i525.i.i.i to float
   %mul.i58.i.i527.i.i.i = fmul float %conv.i.i.i526.i.i.i, 0x3DF0000000000000
@@ -21250,7 +21250,7 @@ invoke.cont48.i.i795.i.i.i:                       ; preds = %invoke.cont93.i.i92
   %shr3.i.i.i.i803.i.i.i = xor i64 %354, %355
   %conv.i.i.i.i804.i.i.i = trunc i64 %shr3.i.i.i.i803.i.i.i to i32
   %shr4.i.i.i.i805.i.i.i = lshr i64 %352, 59
-  %conv5.i.i.i.i806.i.i.i = trunc i64 %shr4.i.i.i.i805.i.i.i to i32
+  %conv5.i.i.i.i806.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i805.i.i.i to i32
   %or.i.i56.i.i807.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i804.i.i.i, i32 %conv.i.i.i.i804.i.i.i, i32 %conv5.i.i.i.i806.i.i.i)
   %conv.i.i.i808.i.i.i = uitofp i32 %or.i.i56.i.i807.i.i.i to float
   %mul.i57.i.i809.i.i.i = fmul float %conv.i.i.i808.i.i.i, 0x3DF0000000000000
@@ -21714,7 +21714,7 @@ for.body:                                         ; preds = %if.then60, %for.inc
   %and.i.i.i172 = and i64 %406, 144115188075855871
   %407 = inttoptr i64 %and.i.i.i172 to ptr
   %shr.i.i.i173 = lshr i64 %406, 57
-  %conv.i.i.i174 = trunc i64 %shr.i.i.i173 to i32
+  %conv.i.i.i174 = trunc nuw nsw i64 %shr.i.i.i173 to i32
   switch i32 %conv.i.i.i174, label %sw.default.i.i.i175 [
     i32 1, label %invoke.cont67
     i32 2, label %invoke.cont67
@@ -21856,7 +21856,7 @@ if.else:                                          ; preds = %lor.lhs.false74
   %and.i.i.i226 = and i64 %422, 144115188075855871
   %423 = inttoptr i64 %and.i.i.i226 to ptr
   %shr.i.i.i227 = lshr i64 %422, 57
-  %conv.i.i.i228 = trunc i64 %shr.i.i.i227 to i32
+  %conv.i.i.i228 = trunc nuw nsw i64 %shr.i.i.i227 to i32
   switch i32 %conv.i.i.i228, label %sw.default.i.i.i232 [
     i32 1, label %sw.bb.i.i.i229
     i32 2, label %sw.bb3.i.i.i
@@ -21910,7 +21910,7 @@ invoke.cont93:                                    ; preds = %sw.bb3.i.i.i, %sw.d
   %and.i.i.i239 = and i64 %425, 144115188075855871
   %426 = inttoptr i64 %and.i.i.i239 to ptr
   %shr.i.i.i240 = lshr i64 %425, 57
-  %conv.i.i.i241 = trunc i64 %shr.i.i.i240 to i32
+  %conv.i.i.i241 = trunc nuw nsw i64 %shr.i.i.i240 to i32
   %sub.i.i242 = add nsw i32 %conv.i.i.i241, -1
   %call3.i.i243 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i238, ptr noundef %426, i32 noundef %sub.i.i242)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp95237)
@@ -22149,7 +22149,7 @@ if.else157:                                       ; preds = %lor.lhs.false140
   %and.i.i.i372 = and i64 %454, 144115188075855871
   %455 = inttoptr i64 %and.i.i.i372 to ptr
   %shr.i.i.i373 = lshr i64 %454, 57
-  %conv.i.i.i374 = trunc i64 %shr.i.i.i373 to i32
+  %conv.i.i.i374 = trunc nuw nsw i64 %shr.i.i.i373 to i32
   switch i32 %conv.i.i.i374, label %sw.default.i.i.i384 [
     i32 1, label %sw.bb.i.i.i378
     i32 2, label %sw.bb3.i.i.i377
@@ -22202,7 +22202,7 @@ invoke.cont164:                                   ; preds = %sw.bb3.i.i.i377, %s
   %and.i.i.i397 = and i64 %453, 144115188075855871
   %457 = inttoptr i64 %and.i.i.i397 to ptr
   %shr.i.i.i398 = lshr i64 %453, 57
-  %conv.i.i.i399 = trunc i64 %shr.i.i.i398 to i32
+  %conv.i.i.i399 = trunc nuw nsw i64 %shr.i.i.i398 to i32
   %sub.i.i400 = add nsw i32 %conv.i.i.i399, -1
   %call3.i.i401 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i395, ptr noundef %457, i32 noundef %sub.i.i400)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp166392)
@@ -22416,7 +22416,7 @@ if.then261:                                       ; preds = %land.lhs.true259
   %and.i.i.i.i = and i64 %497, 144115188075855871
   %498 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %497, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %498, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -22428,7 +22428,7 @@ if.end264:                                        ; preds = %if.then261, %land.l
   %and.i.i.i.i492 = and i64 %499, 144115188075855871
   %500 = inttoptr i64 %and.i.i.i.i492 to ptr
   %shr.i.i.i.i493 = lshr i64 %499, 57
-  %conv.i.i.i.i494 = trunc i64 %shr.i.i.i.i493 to i32
+  %conv.i.i.i.i494 = trunc nuw nsw i64 %shr.i.i.i.i493 to i32
   %sub.i.i.i495 = add nsw i32 %conv.i.i.i.i494, -1
   %call3.i.i.i496 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %500, i32 noundef %sub.i.i.i495)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -22474,7 +22474,7 @@ if.end281:                                        ; preds = %for.body.i499, %if.
   %and.i.i.i508 = and i64 %506, 144115188075855871
   %507 = inttoptr i64 %and.i.i.i508 to ptr
   %shr.i.i.i509 = lshr i64 %506, 57
-  %conv.i.i.i510 = trunc i64 %shr.i.i.i509 to i32
+  %conv.i.i.i510 = trunc nuw nsw i64 %shr.i.i.i509 to i32
   %sub.i.i511 = add nsw i32 %conv.i.i.i510, -1
   %call3.i.i512 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i507, ptr noundef %507, i32 noundef %sub.i.i511)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i507)
@@ -22483,7 +22483,7 @@ if.end281:                                        ; preds = %for.body.i499, %if.
   %and.i.i.i515 = and i64 %508, 144115188075855871
   %509 = inttoptr i64 %and.i.i.i515 to ptr
   %shr.i.i.i516 = lshr i64 %508, 57
-  %conv.i.i.i517 = trunc i64 %shr.i.i.i516 to i32
+  %conv.i.i.i517 = trunc nuw nsw i64 %shr.i.i.i516 to i32
   %sub.i.i518 = add nsw i32 %conv.i.i.i517, -1
   %call3.i.i519 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i514, ptr noundef %509, i32 noundef %sub.i.i518)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i514)
@@ -22629,7 +22629,7 @@ if.end.i:                                         ; preds = %invoke.cont329
   %and.i.i.i.i613 = and i64 %548, 144115188075855871
   %549 = inttoptr i64 %and.i.i.i.i613 to ptr
   %shr.i.i.i.i614 = lshr i64 %548, 57
-  %conv.i.i.i.i615 = trunc i64 %shr.i.i.i.i614 to i32
+  %conv.i.i.i.i615 = trunc nuw nsw i64 %shr.i.i.i.i614 to i32
   %sub.i.i.i616 = add nsw i32 %conv.i.i.i.i615, -1
   %call3.i.i.i617 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i.i, ptr noundef %549, i32 noundef %sub.i.i.i616)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -22701,7 +22701,7 @@ invoke.cont363:                                   ; preds = %do.end350
   %and.i.i.i654 = and i32 %553, 16
   %tobool.i.i655.not = icmp eq i32 %and.i.i.i654, 0
   %and.i.i.i654.lobit = lshr exact i32 %and.i.i.i654, 4
-  %frombool = trunc i32 %and.i.i.i654.lobit to i8
+  %frombool = trunc nuw nsw i32 %and.i.i.i654.lobit to i8
   store i8 %frombool, ptr %specularBounce, align 1
   %554 = load i8, ptr %anyNonSpecularBounces, align 1
   %555 = and i8 %554, 1
@@ -22746,7 +22746,7 @@ if.then398:                                       ; preds = %invoke.cont394
   %and.i.i.i704 = and i64 %564, 144115188075855871
   %565 = inttoptr i64 %and.i.i.i704 to ptr
   %shr.i.i.i705 = lshr i64 %564, 57
-  %conv.i.i.i706 = trunc i64 %shr.i.i.i705 to i32
+  %conv.i.i.i706 = trunc nuw nsw i64 %shr.i.i.i705 to i32
   %sub.i.i707 = add nsw i32 %conv.i.i.i706, -1
   %call3.i.i708 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i703, ptr noundef %565, i32 noundef %sub.i.i707)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i703)
@@ -22755,7 +22755,7 @@ if.then398:                                       ; preds = %invoke.cont394
   %and.i.i.i711 = and i64 %566, 144115188075855871
   %567 = inttoptr i64 %and.i.i.i711 to ptr
   %shr.i.i.i712 = lshr i64 %566, 57
-  %conv.i.i.i713 = trunc i64 %shr.i.i.i712 to i32
+  %conv.i.i.i713 = trunc nuw nsw i64 %shr.i.i.i712 to i32
   %sub.i.i714 = add nsw i32 %conv.i.i.i713, -1
   %call3.i.i715 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i710, ptr noundef %567, i32 noundef %sub.i.i714)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i710)
@@ -22773,7 +22773,7 @@ if.end411:                                        ; preds = %if.then398
   %and.i.i.i722 = and i64 %571, 144115188075855871
   %572 = inttoptr i64 %and.i.i.i722 to ptr
   %shr.i.i.i723 = lshr i64 %571, 57
-  %conv.i.i.i724 = trunc i64 %shr.i.i.i723 to i32
+  %conv.i.i.i724 = trunc nuw nsw i64 %shr.i.i.i723 to i32
   %sub.i.i725 = add nsw i32 %conv.i.i.i724, -1
   %call3.i.i726 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i721, ptr noundef %572, i32 noundef %sub.i.i725)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i721)
@@ -22938,7 +22938,7 @@ invoke.cont458:                                   ; preds = %invoke.cont450
   %shr3.i.i.i = xor i64 %601, %602
   %conv.i.i.i796 = trunc i64 %shr3.i.i.i to i32
   %shr4.i.i.i = lshr i64 %interactionSampler.sroa.0.01385, 59
-  %conv5.i.i.i = trunc i64 %shr4.i.i.i to i32
+  %conv5.i.i.i = trunc nuw nsw i64 %shr4.i.i.i to i32
   %or.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i796, i32 %conv.i.i.i796, i32 %conv5.i.i.i)
   %conv.i.i = uitofp i32 %or.i.i.i to float
   %mul.i.i797 = fmul float %conv.i.i, 0x3DF0000000000000
@@ -23116,7 +23116,7 @@ if.then515:                                       ; preds = %invoke.cont507
   %and.i.i.i.i891 = and i64 %618, 144115188075855871
   %619 = inttoptr i64 %and.i.i.i.i891 to ptr
   %shr.i.i.i.i892 = lshr i64 %618, 57
-  %conv.i.i.i.i893 = trunc i64 %shr.i.i.i.i892 to i32
+  %conv.i.i.i.i893 = trunc nuw nsw i64 %shr.i.i.i.i892 to i32
   %sub.i.i.i894 = add nsw i32 %conv.i.i.i.i893, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i890, ptr noundef %619, i32 noundef %sub.i.i.i894)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i890)
@@ -23160,7 +23160,7 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit904:        ; preds = %for.body.i897
   %and.i.i.i906 = and i64 %626, 144115188075855871
   %627 = inttoptr i64 %and.i.i.i906 to ptr
   %shr.i.i.i907 = lshr i64 %626, 57
-  %conv.i.i.i908 = trunc i64 %shr.i.i.i907 to i32
+  %conv.i.i.i908 = trunc nuw nsw i64 %shr.i.i.i907 to i32
   %sub.i.i909 = add nsw i32 %conv.i.i.i908, -1
   %call3.i.i910 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i905, ptr noundef %627, i32 noundef %sub.i.i909)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i905)
@@ -23171,7 +23171,7 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit904:        ; preds = %for.body.i897
   %and.i.i.i913 = and i64 %628, 144115188075855871
   %629 = inttoptr i64 %and.i.i.i913 to ptr
   %shr.i.i.i914 = lshr i64 %628, 57
-  %conv.i.i.i915 = trunc i64 %shr.i.i.i914 to i32
+  %conv.i.i.i915 = trunc nuw nsw i64 %shr.i.i.i914 to i32
   %sub.i.i916 = add nsw i32 %conv.i.i.i915, -1
   %call3.i.i917 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i912, ptr noundef %629, i32 noundef %sub.i.i916)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i912)
@@ -23389,7 +23389,7 @@ invoke.cont616:                                   ; preds = %for.body.i.i1058
   %and.i.i.i1071 = and i64 %653, 144115188075855871
   %654 = inttoptr i64 %and.i.i.i1071 to ptr
   %shr.i.i.i1072 = lshr i64 %653, 57
-  %conv.i.i.i1073 = trunc i64 %shr.i.i.i1072 to i32
+  %conv.i.i.i1073 = trunc nuw nsw i64 %shr.i.i.i1072 to i32
   %sub.i.i1074 = add nsw i32 %conv.i.i.i1073, -1
   %655 = extractelement <2 x float> %retval.sroa.0.0.copyload.i1064, i64 0
   %call3.i.i1075 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i1070, ptr noundef %654, i32 noundef %sub.i.i1074)
@@ -23687,7 +23687,7 @@ _ZNK4pbrt11Interaction9AsSurfaceEv.exit:          ; preds = %if.then
   %and.i.i.i.i = and i64 %3, 144115188075855871
   %4 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %3, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %4, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -23760,7 +23760,7 @@ if.end27:                                         ; preds = %land.lhs.true, %if.
   %and.i.i.i = and i64 %8, 144115188075855871
   %9 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %8, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %9, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -23775,7 +23775,7 @@ if.end27:                                         ; preds = %land.lhs.true, %if.
   %and.i.i.i53 = and i64 %11, 144115188075855871
   %12 = inttoptr i64 %and.i.i.i53 to ptr
   %shr.i.i.i54 = lshr i64 %11, 57
-  %conv.i.i.i55 = trunc i64 %shr.i.i.i54 to i32
+  %conv.i.i.i55 = trunc nuw nsw i64 %shr.i.i.i54 to i32
   %sub.i.i56 = add nsw i32 %conv.i.i.i55, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.124") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %12, i32 noundef %sub.i.i56)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -23785,7 +23785,7 @@ if.end27:                                         ; preds = %land.lhs.true, %if.
   %and.i.i.i58 = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i58 to ptr
   %shr.i.i.i59 = lshr i64 %13, 57
-  %conv.i.i.i60 = trunc i64 %shr.i.i.i59 to i32
+  %conv.i.i.i60 = trunc nuw nsw i64 %shr.i.i.i59 to i32
   %sub.i.i61 = add nsw i32 %conv.i.i.i60, -1
   %call3.i.i6263 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i57, ptr noundef %14, i32 noundef %sub.i.i61)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i57)
@@ -23815,7 +23815,7 @@ invoke.cont36:                                    ; preds = %if.end27
   %and.i.i.i67 = and i64 %16, 144115188075855871
   %20 = inttoptr i64 %and.i.i.i67 to ptr
   %shr.i.i.i68 = lshr i64 %16, 57
-  %conv.i.i.i69 = trunc i64 %shr.i.i.i68 to i32
+  %conv.i.i.i69 = trunc nuw nsw i64 %shr.i.i.i68 to i32
   %sub.i.i70 = add nsw i32 %conv.i.i.i69, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.127") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %20, i32 noundef %sub.i.i70)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp4065)
@@ -23947,7 +23947,7 @@ if.end.i:                                         ; preds = %if.then69
   %and.i.i.i.i108 = and i64 %53, 144115188075855871
   %54 = inttoptr i64 %and.i.i.i.i108 to ptr
   %shr.i.i.i.i109 = lshr i64 %53, 57
-  %conv.i.i.i.i110 = trunc i64 %shr.i.i.i.i109 to i32
+  %conv.i.i.i.i110 = trunc nuw nsw i64 %shr.i.i.i.i109 to i32
   %sub.i.i.i111 = add nsw i32 %conv.i.i.i.i110, -1
   %call3.i.i.i112115 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i, ptr noundef %54, i32 noundef %sub.i.i.i111)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -24088,7 +24088,7 @@ if.end.i151:                                      ; preds = %_ZNK4pbrt15SampledS
   %and.i.i.i.i197 = and i64 %95, 144115188075855871
   %96 = inttoptr i64 %and.i.i.i.i197 to ptr
   %shr.i.i.i.i198 = lshr i64 %95, 57
-  %conv.i.i.i.i199 = trunc i64 %shr.i.i.i.i198 to i32
+  %conv.i.i.i.i199 = trunc nuw nsw i64 %shr.i.i.i.i198 to i32
   %sub.i.i.i200 = add nsw i32 %conv.i.i.i.i199, -1
   %call3.i.i.i201202 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i.i, ptr noundef %96, i32 noundef %sub.i.i.i200)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i134)
@@ -24586,7 +24586,7 @@ invoke.cont158:                                   ; preds = %if.end146.thread, %
   %shr3.i.i = xor i64 %178, %179
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %176, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i313 = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i313 to float
   %mul.i314 = fmul float %conv.i, 0x3DF0000000000000
@@ -24598,7 +24598,7 @@ invoke.cont158:                                   ; preds = %if.end146.thread, %
   %agg.tmp157.sroa.5.0.copyload = load float, ptr %d.sroa.2.0.d4.sroa_idx.i.i.i, align 4
   %agg.tmp157.sroa.6.0.copyload = load float, ptr %time5.i.i.i, align 8
   %shr.i.i.i318 = lshr i64 %175, 57
-  %conv.i.i.i319 = trunc i64 %shr.i.i.i318 to i32
+  %conv.i.i.i319 = trunc nuw nsw i64 %shr.i.i.i318 to i32
   switch i32 %conv.i.i.i319, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb4.i.i.i
@@ -24778,7 +24778,7 @@ invoke.cont50.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   %shr3.i.i.i.i.i.i.i = xor i64 %203, %204
   %conv.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i.i = lshr i64 %201, 59
-  %conv5.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i.i to i32
   %or.i.i57.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i = uitofp i32 %or.i.i57.i.i.i.i.i to float
   %mul.i58.i.i.i.i.i = fmul float %conv.i.i.i.i.i.i, 0x3DF0000000000000
@@ -25225,7 +25225,7 @@ invoke.cont48.i.i.i.i.i:                          ; preds = %invoke.cont93.i.i11
   %shr3.i.i.i.i83.i.i.i = xor i64 %259, %260
   %conv.i.i.i.i84.i.i.i = trunc i64 %shr3.i.i.i.i83.i.i.i to i32
   %shr4.i.i.i.i85.i.i.i = lshr i64 %257, 59
-  %conv5.i.i.i.i86.i.i.i = trunc i64 %shr4.i.i.i.i85.i.i.i to i32
+  %conv5.i.i.i.i86.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i85.i.i.i to i32
   %or.i.i56.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i84.i.i.i, i32 %conv.i.i.i.i84.i.i.i, i32 %conv5.i.i.i.i86.i.i.i)
   %conv.i.i.i87.i.i.i = uitofp i32 %or.i.i56.i.i.i.i.i to float
   %mul.i57.i.i.i.i.i = fmul float %conv.i.i.i87.i.i.i, 0x3DF0000000000000
@@ -25691,7 +25691,7 @@ invoke.cont48.i.i241.i.i.i:                       ; preds = %invoke.cont93.i.i37
   %shr3.i.i.i.i249.i.i.i = xor i64 %320, %321
   %conv.i.i.i.i250.i.i.i = trunc i64 %shr3.i.i.i.i249.i.i.i to i32
   %shr4.i.i.i.i251.i.i.i = lshr i64 %318, 59
-  %conv5.i.i.i.i252.i.i.i = trunc i64 %shr4.i.i.i.i251.i.i.i to i32
+  %conv5.i.i.i.i252.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i251.i.i.i to i32
   %or.i.i56.i.i253.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i250.i.i.i, i32 %conv.i.i.i.i250.i.i.i, i32 %conv5.i.i.i.i252.i.i.i)
   %conv.i.i.i254.i.i.i = uitofp i32 %or.i.i56.i.i253.i.i.i to float
   %mul.i57.i.i255.i.i.i = fmul float %conv.i.i.i254.i.i.i, 0x3DF0000000000000
@@ -26143,7 +26143,7 @@ invoke.cont50.i.i513.i.i.i:                       ; preds = %invoke.cont.i.i505.
   %shr3.i.i.i.i521.i.i.i = xor i64 %376, %377
   %conv.i.i.i.i522.i.i.i = trunc i64 %shr3.i.i.i.i521.i.i.i to i32
   %shr4.i.i.i.i523.i.i.i = lshr i64 %374, 59
-  %conv5.i.i.i.i524.i.i.i = trunc i64 %shr4.i.i.i.i523.i.i.i to i32
+  %conv5.i.i.i.i524.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i523.i.i.i to i32
   %or.i.i57.i.i525.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i522.i.i.i, i32 %conv.i.i.i.i522.i.i.i, i32 %conv5.i.i.i.i524.i.i.i)
   %conv.i.i.i526.i.i.i = uitofp i32 %or.i.i57.i.i525.i.i.i to float
   %mul.i58.i.i527.i.i.i = fmul float %conv.i.i.i526.i.i.i, 0x3DF0000000000000
@@ -26586,7 +26586,7 @@ invoke.cont48.i.i795.i.i.i:                       ; preds = %invoke.cont93.i.i92
   %shr3.i.i.i.i803.i.i.i = xor i64 %432, %433
   %conv.i.i.i.i804.i.i.i = trunc i64 %shr3.i.i.i.i803.i.i.i to i32
   %shr4.i.i.i.i805.i.i.i = lshr i64 %430, 59
-  %conv5.i.i.i.i806.i.i.i = trunc i64 %shr4.i.i.i.i805.i.i.i to i32
+  %conv5.i.i.i.i806.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i805.i.i.i to i32
   %or.i.i56.i.i807.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i804.i.i.i, i32 %conv.i.i.i.i804.i.i.i, i32 %conv5.i.i.i.i806.i.i.i)
   %conv.i.i.i808.i.i.i = uitofp i32 %or.i.i56.i.i807.i.i.i to float
   %mul.i57.i.i809.i.i.i = fmul float %conv.i.i.i808.i.i.i, 0x3DF0000000000000
@@ -28165,7 +28165,7 @@ invoke.cont23:                                    ; preds = %invoke.cont10
   %and.i.i.i = and i64 %23, 144115188075855871
   %24 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %23, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i30 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %24, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -28352,7 +28352,7 @@ if.then69:                                        ; preds = %invoke.cont66, %if.
   %and.i.i.i64 = and i64 %48, 144115188075855871
   %49 = inttoptr i64 %and.i.i.i64 to ptr
   %shr.i.i.i65 = lshr i64 %48, 57
-  %conv.i.i.i66 = trunc i64 %shr.i.i.i65 to i32
+  %conv.i.i.i66 = trunc nuw nsw i64 %shr.i.i.i65 to i32
   %sub.i.i67 = add nsw i32 %conv.i.i.i66, -1
   %call3.i.i68 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i, ptr noundef %49, i32 noundef %sub.i.i67)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i)
@@ -29268,7 +29268,7 @@ invoke.cont16:                                    ; preds = %while.body.i.i
   %and.i.i.i = and i64 %51, 144115188075855871
   %52 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %51, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i34 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %52, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -29279,7 +29279,7 @@ invoke.cont16:                                    ; preds = %while.body.i.i
   %agg.tmp19.sroa.6.0.copyload = load float, ptr %agg.tmp19.sroa.6.0.ray.sroa_idx, align 8
   %54 = load i64, ptr %medium, align 8
   %shr.i.i.i37 = lshr i64 %54, 57
-  %conv.i.i.i38 = trunc i64 %shr.i.i.i37 to i32
+  %conv.i.i.i38 = trunc nuw nsw i64 %shr.i.i.i37 to i32
   switch i32 %conv.i.i.i38, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb4.i.i.i
@@ -29466,7 +29466,7 @@ invoke.cont50.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   %shr3.i.i.i.i.i.i.i = xor i64 %75, %76
   %conv.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i.i = lshr i64 %rng.sroa.0.1, 59
-  %conv5.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i.i to i32
   %or.i.i57.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i = uitofp i32 %or.i.i57.i.i.i.i.i to float
   %mul.i58.i.i.i.i.i = fmul float %conv.i.i.i.i.i.i, 0x3DF0000000000000
@@ -29920,7 +29920,7 @@ invoke.cont48.i.i.i.i.i:                          ; preds = %invoke.cont93.i.i11
   %shr3.i.i.i.i83.i.i.i = xor i64 %129, %130
   %conv.i.i.i.i84.i.i.i = trunc i64 %shr3.i.i.i.i83.i.i.i to i32
   %shr4.i.i.i.i85.i.i.i = lshr i64 %rng.sroa.0.3, 59
-  %conv5.i.i.i.i86.i.i.i = trunc i64 %shr4.i.i.i.i85.i.i.i to i32
+  %conv5.i.i.i.i86.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i85.i.i.i to i32
   %or.i.i56.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i84.i.i.i, i32 %conv.i.i.i.i84.i.i.i, i32 %conv5.i.i.i.i86.i.i.i)
   %conv.i.i.i87.i.i.i = uitofp i32 %or.i.i56.i.i.i.i.i to float
   %mul.i57.i.i.i.i.i = fmul float %conv.i.i.i87.i.i.i, 0x3DF0000000000000
@@ -30394,7 +30394,7 @@ invoke.cont48.i.i241.i.i.i:                       ; preds = %invoke.cont93.i.i37
   %shr3.i.i.i.i249.i.i.i = xor i64 %188, %189
   %conv.i.i.i.i250.i.i.i = trunc i64 %shr3.i.i.i.i249.i.i.i to i32
   %shr4.i.i.i.i251.i.i.i = lshr i64 %rng.sroa.0.6, 59
-  %conv5.i.i.i.i252.i.i.i = trunc i64 %shr4.i.i.i.i251.i.i.i to i32
+  %conv5.i.i.i.i252.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i251.i.i.i to i32
   %or.i.i56.i.i253.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i250.i.i.i, i32 %conv.i.i.i.i250.i.i.i, i32 %conv5.i.i.i.i252.i.i.i)
   %conv.i.i.i254.i.i.i = uitofp i32 %or.i.i56.i.i253.i.i.i to float
   %mul.i57.i.i255.i.i.i = fmul float %conv.i.i.i254.i.i.i, 0x3DF0000000000000
@@ -30854,7 +30854,7 @@ invoke.cont50.i.i513.i.i.i:                       ; preds = %invoke.cont.i.i505.
   %shr3.i.i.i.i521.i.i.i = xor i64 %242, %243
   %conv.i.i.i.i522.i.i.i = trunc i64 %shr3.i.i.i.i521.i.i.i to i32
   %shr4.i.i.i.i523.i.i.i = lshr i64 %rng.sroa.0.9, 59
-  %conv5.i.i.i.i524.i.i.i = trunc i64 %shr4.i.i.i.i523.i.i.i to i32
+  %conv5.i.i.i.i524.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i523.i.i.i to i32
   %or.i.i57.i.i525.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i522.i.i.i, i32 %conv.i.i.i.i522.i.i.i, i32 %conv5.i.i.i.i524.i.i.i)
   %conv.i.i.i526.i.i.i = uitofp i32 %or.i.i57.i.i525.i.i.i to float
   %mul.i58.i.i527.i.i.i = fmul float %conv.i.i.i526.i.i.i, 0x3DF0000000000000
@@ -31304,7 +31304,7 @@ invoke.cont48.i.i795.i.i.i:                       ; preds = %invoke.cont93.i.i92
   %shr3.i.i.i.i803.i.i.i = xor i64 %296, %297
   %conv.i.i.i.i804.i.i.i = trunc i64 %shr3.i.i.i.i803.i.i.i to i32
   %shr4.i.i.i.i805.i.i.i = lshr i64 %rng.sroa.0.11, 59
-  %conv5.i.i.i.i806.i.i.i = trunc i64 %shr4.i.i.i.i805.i.i.i to i32
+  %conv5.i.i.i.i806.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i805.i.i.i to i32
   %or.i.i56.i.i807.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i804.i.i.i, i32 %conv.i.i.i.i804.i.i.i, i32 %conv5.i.i.i.i806.i.i.i)
   %conv.i.i.i808.i.i.i = uitofp i32 %or.i.i56.i.i807.i.i.i to float
   %mul.i57.i.i809.i.i.i = fmul float %conv.i.i.i808.i.i.i, 0x3DF0000000000000
@@ -31755,7 +31755,7 @@ if.then72:                                        ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %358, 144115188075855871
   %359 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %358, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %359, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -31891,7 +31891,7 @@ if.end84:                                         ; preds = %invoke.cont78
   %and.i.i.i90 = and i64 %388, 144115188075855871
   %389 = inttoptr i64 %and.i.i.i90 to ptr
   %shr.i.i.i91 = lshr i64 %388, 57
-  %conv.i.i.i92 = trunc i64 %shr.i.i.i91 to i32
+  %conv.i.i.i92 = trunc nuw nsw i64 %shr.i.i.i91 to i32
   %sub.i.i93 = add nsw i32 %conv.i.i.i92, -1
   %call3.i.i94 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i89, ptr noundef %389, i32 noundef %sub.i.i93)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i89)
@@ -31900,7 +31900,7 @@ if.end84:                                         ; preds = %invoke.cont78
   %and.i.i.i97 = and i64 %390, 144115188075855871
   %391 = inttoptr i64 %and.i.i.i97 to ptr
   %shr.i.i.i98 = lshr i64 %390, 57
-  %conv.i.i.i99 = trunc i64 %shr.i.i.i98 to i32
+  %conv.i.i.i99 = trunc nuw nsw i64 %shr.i.i.i98 to i32
   %sub.i.i100 = add nsw i32 %conv.i.i.i99, -1
   %call3.i.i101 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i96, ptr noundef %391, i32 noundef %sub.i.i100)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i96)
@@ -31978,7 +31978,7 @@ if.end.i:                                         ; preds = %invoke.cont107
   %and.i.i.i.i119 = and i64 %419, 144115188075855871
   %420 = inttoptr i64 %and.i.i.i.i119 to ptr
   %shr.i.i.i.i120 = lshr i64 %419, 57
-  %conv.i.i.i.i121 = trunc i64 %shr.i.i.i.i120 to i32
+  %conv.i.i.i.i121 = trunc nuw nsw i64 %shr.i.i.i.i120 to i32
   %sub.i.i.i122 = add nsw i32 %conv.i.i.i.i121, -1
   %call3.i.i.i123 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i.i, ptr noundef %420, i32 noundef %sub.i.i.i122)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i115)
@@ -32157,7 +32157,7 @@ if.end.i221:                                      ; preds = %invoke.cont162
   %and.i.i.i.i267 = and i64 %465, 144115188075855871
   %466 = inttoptr i64 %and.i.i.i.i267 to ptr
   %shr.i.i.i.i268 = lshr i64 %465, 57
-  %conv.i.i.i.i269 = trunc i64 %shr.i.i.i.i268 to i32
+  %conv.i.i.i.i269 = trunc nuw nsw i64 %shr.i.i.i.i268 to i32
   %sub.i.i.i270 = add nsw i32 %conv.i.i.i.i269, -1
   %call3.i.i.i273 = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i.i206, ptr noundef %466, i32 noundef %sub.i.i.i270)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i202)
@@ -32266,7 +32266,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i = and i64 %0, 144115188075855871
   %1 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %0, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %1, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -32278,7 +32278,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i15 = and i64 %2, 144115188075855871
   %3 = inttoptr i64 %and.i.i.i15 to ptr
   %shr.i.i.i16 = lshr i64 %2, 57
-  %conv.i.i.i17 = trunc i64 %shr.i.i.i16 to i32
+  %conv.i.i.i17 = trunc nuw nsw i64 %shr.i.i.i16 to i32
   %sub.i.i18 = add nsw i32 %conv.i.i.i17, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS3_PKvi(ptr nonnull sret(%"class.pstd::optional.124") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %3, i32 noundef %sub.i.i18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -32298,7 +32298,7 @@ invoke.cont8:                                     ; preds = %if.end
   %and.i.i.i25 = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i.i25 to ptr
   %shr.i.i.i26 = lshr i64 %7, 57
-  %conv.i.i.i27 = trunc i64 %shr.i.i.i26 to i32
+  %conv.i.i.i27 = trunc nuw nsw i64 %shr.i.i.i26 to i32
   %sub.i.i28 = add nsw i32 %conv.i.i.i27, -1
   %call3.i.i2930 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i24, ptr noundef %8, i32 noundef %sub.i.i28)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i24)
@@ -32307,7 +32307,7 @@ invoke.cont8:                                     ; preds = %if.end
   %and.i.i.i32 = and i64 %9, 144115188075855871
   %10 = inttoptr i64 %and.i.i.i32 to ptr
   %shr.i.i.i33 = lshr i64 %9, 57
-  %conv.i.i.i34 = trunc i64 %shr.i.i.i33 to i32
+  %conv.i.i.i34 = trunc nuw nsw i64 %shr.i.i.i33 to i32
   %sub.i.i35 = add nsw i32 %conv.i.i.i34, -1
   %call3.i.i3637 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i31, ptr noundef %10, i32 noundef %sub.i.i35)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i31)
@@ -32639,7 +32639,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %and.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i, ptr noundef %6, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp4)
@@ -32654,7 +32654,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %and.i.i.i6 = and i64 %8, 144115188075855871
   %9 = inttoptr i64 %and.i.i.i6 to ptr
   %shr.i.i.i7 = lshr i64 %8, 57
-  %conv.i.i.i8 = trunc i64 %shr.i.i.i7 to i32
+  %conv.i.i.i8 = trunc nuw nsw i64 %shr.i.i.i7 to i32
   switch i32 %conv.i.i.i8, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb3.i.i.i
@@ -33282,7 +33282,7 @@ invoke.cont142:                                   ; preds = %if.end116, %_ZN4pbr
   %ref.tmp131.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.i.i.i to i32
   %conv = sitofp i32 %ref.tmp131.sroa.0.0.extract.trunc to float
   %ref.tmp134.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.i.i.i, 32
-  %ref.tmp134.sroa.1.0.extract.trunc = trunc i64 %ref.tmp134.sroa.1.0.extract.shift to i32
+  %ref.tmp134.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp134.sroa.1.0.extract.shift to i32
   %conv138 = sitofp i32 %ref.tmp134.sroa.1.0.extract.trunc to float
   %mul = fmul float %conv, %conv138
   %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
@@ -33291,10 +33291,10 @@ invoke.cont142:                                   ; preds = %if.end116, %_ZN4pbr
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %ref.tmp139.sroa.2.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %ref.tmp139.sroa.4.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %ref.tmp139.sroa.4.8.extract.trunc = trunc i64 %ref.tmp139.sroa.4.8.extract.shift to i32
+  %ref.tmp139.sroa.4.8.extract.trunc = trunc nuw i64 %ref.tmp139.sroa.4.8.extract.shift to i32
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub.i.i = sub nsw i32 %ref.tmp139.sroa.2.8.extract.trunc, %p.sroa.0.0.extract.trunc.i.i
   %sub4.i.i = sub nsw i32 %ref.tmp139.sroa.4.8.extract.trunc, %p.sroa.2.0.extract.trunc.i.i
   %mul.i = mul nsw i32 %sub4.i.i, %sub.i.i
@@ -33846,7 +33846,7 @@ if.end.i:                                         ; preds = %if.then53
   %and.i.i.i.i = and i64 %66, 144115188075855871
   %67 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %66, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i.i, ptr noundef %67, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -34013,7 +34013,7 @@ if.else:                                          ; preds = %if.end.if.else_crit
   %and.i.i.i = and i64 %25, 144115188075855871
   %26 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %25, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb3.i.i.i
@@ -34452,7 +34452,7 @@ invoke.cont29:                                    ; preds = %if.end
   %retval.sroa.0.0.i.i.i = load i64, ptr %11, align 8
   %t1.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.i.i.i to i32
   %t1.sroa.3.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.i.i.i, 32
-  %t1.sroa.3.0.extract.trunc.i.i = trunc i64 %t1.sroa.3.0.extract.shift.i.i to i32
+  %t1.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %t1.sroa.3.0.extract.shift.i.i to i32
   %.sroa.speculated5.i.i = call i32 @llvm.smin.i32(i32 %t1.sroa.0.0.extract.trunc.i.i, i32 0)
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %t1.sroa.3.0.extract.trunc.i.i, i32 0)
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.speculated.i.i to i64
@@ -34618,7 +34618,7 @@ if.then84:                                        ; preds = %lor.lhs.false81, %i
   %and.i.i.i26 = and i64 %31, 144115188075855871
   %32 = inttoptr i64 %and.i.i.i26 to ptr
   %shr.i.i.i = lshr i64 %31, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb1.i.i.i
@@ -35283,7 +35283,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 8
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -35531,7 +35531,7 @@ sw.bb4.i:                                         ; preds = %if.then21
   %and.i.i.i.i.i = and i64 %15, 144115188075855871
   %16 = inttoptr i64 %and.i.i.i.i.i to ptr
   %shr.i.i.i.i.i = lshr i64 %15, 57
-  %conv.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i to i32
   %sub.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, -1
   %call3.i.i.i.i = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i.i, ptr noundef %16, i32 noundef %sub.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i.i)
@@ -35559,7 +35559,7 @@ if.then26:                                        ; preds = %if.then21, %if.then
   %and.i.i.i81 = and i64 %20, 144115188075855871
   %21 = inttoptr i64 %and.i.i.i81 to ptr
   %shr.i.i.i = lshr i64 %20, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %21, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -35803,7 +35803,7 @@ invoke.cont116:                                   ; preds = %for.body.i166
   %ref.tmp104.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.i.i.i to i32
   %conv = sitofp i32 %ref.tmp104.sroa.0.0.extract.trunc to float
   %ref.tmp108.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.i.i.i, 32
-  %ref.tmp108.sroa.1.0.extract.trunc = trunc i64 %ref.tmp108.sroa.1.0.extract.shift to i32
+  %ref.tmp108.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp108.sroa.1.0.extract.shift to i32
   %conv112 = sitofp i32 %ref.tmp108.sroa.1.0.extract.trunc to float
   %mul = fmul float %conv, %conv112
   %retval.sroa.2.0.copyload.i.i15.pn.in.i.i.i = getelementptr inbounds i8, ptr %58, i64 16
@@ -35812,10 +35812,10 @@ invoke.cont116:                                   ; preds = %for.body.i166
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %ref.tmp113.sroa.2.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %ref.tmp113.sroa.4.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %ref.tmp113.sroa.4.8.extract.trunc = trunc i64 %ref.tmp113.sroa.4.8.extract.shift to i32
+  %ref.tmp113.sroa.4.8.extract.trunc = trunc nuw i64 %ref.tmp113.sroa.4.8.extract.shift to i32
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub.i.i177 = sub nsw i32 %ref.tmp113.sroa.2.8.extract.trunc, %p.sroa.0.0.extract.trunc.i.i
   %sub4.i.i = sub nsw i32 %ref.tmp113.sroa.4.8.extract.trunc, %p.sroa.2.0.extract.trunc.i.i
   %mul.i179 = mul nsw i32 %sub4.i.i, %sub.i.i177
@@ -35865,7 +35865,7 @@ sw.bb4.i192:                                      ; preds = %if.then126
   %and.i.i.i.i.i194 = and i64 %64, 144115188075855871
   %65 = inttoptr i64 %and.i.i.i.i.i194 to ptr
   %shr.i.i.i.i.i195 = lshr i64 %64, 57
-  %conv.i.i.i.i.i196 = trunc i64 %shr.i.i.i.i.i195 to i32
+  %conv.i.i.i.i.i196 = trunc nuw nsw i64 %shr.i.i.i.i.i195 to i32
   %sub.i.i.i.i197 = add nsw i32 %conv.i.i.i.i.i196, -1
   %call3.i.i.i.i198 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i.i191, ptr noundef %65, i32 noundef %sub.i.i.i.i197)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i.i191)
@@ -35892,7 +35892,7 @@ if.then132:                                       ; preds = %if.then126, %if.the
   %and.i.i.i209 = and i64 %69, 144115188075855871
   %70 = inttoptr i64 %and.i.i.i209 to ptr
   %shr.i.i.i210 = lshr i64 %69, 57
-  %conv.i.i.i211 = trunc i64 %shr.i.i.i210 to i32
+  %conv.i.i.i211 = trunc nuw nsw i64 %shr.i.i.i210 to i32
   %sub.i.i212 = add nsw i32 %conv.i.i.i211, -1
   %call3.i.i213 = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i208, ptr noundef %70, i32 noundef %sub.i.i212)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i208)
@@ -35904,7 +35904,7 @@ if.then132:                                       ; preds = %if.then126, %if.the
   %and.i.i.i214 = and i64 %71, 144115188075855871
   %72 = inttoptr i64 %and.i.i.i214 to ptr
   %shr.i.i.i215 = lshr i64 %71, 57
-  %conv.i.i.i216 = trunc i64 %shr.i.i.i215 to i32
+  %conv.i.i.i216 = trunc nuw nsw i64 %shr.i.i.i215 to i32
   %sub.i.i217 = add nsw i32 %conv.i.i.i216, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS3_PKvi(ptr nonnull sret(%"class.pstd::optional.124") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %72, i32 noundef %sub.i.i217)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -35953,7 +35953,7 @@ if.then146:                                       ; preds = %invoke.cont142, %in
   %and.i.i.i.i239 = and i64 %79, 144115188075855871
   %80 = inttoptr i64 %and.i.i.i.i239 to ptr
   %shr.i.i.i.i = lshr i64 %79, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i240 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %80, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -36024,7 +36024,7 @@ if.end196:                                        ; preds = %land.lhs.true157, %
   %and.i.i.i274 = and i64 %84, 144115188075855871
   %85 = inttoptr i64 %and.i.i.i274 to ptr
   %shr.i.i.i275 = lshr i64 %84, 57
-  %conv.i.i.i276 = trunc i64 %shr.i.i.i275 to i32
+  %conv.i.i.i276 = trunc nuw nsw i64 %shr.i.i.i275 to i32
   %sub.i.i277 = add nsw i32 %conv.i.i.i276, -1
   %call3.i.i278279 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i273, ptr noundef %85, i32 noundef %sub.i.i277)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i273)
@@ -36053,7 +36053,7 @@ if.end196:                                        ; preds = %land.lhs.true157, %
   %and.i.i.i283 = and i64 %74, 144115188075855871
   %89 = inttoptr i64 %and.i.i.i283 to ptr
   %shr.i.i.i284 = lshr i64 %74, 57
-  %conv.i.i.i285 = trunc i64 %shr.i.i.i284 to i32
+  %conv.i.i.i285 = trunc nuw nsw i64 %shr.i.i.i284 to i32
   %sub.i.i286 = add nsw i32 %conv.i.i.i285, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.127") align 8 %lightWeight, ptr noundef nonnull align 8 dereferenceable(32) %sample.i282, ptr noundef %89, i32 noundef %sub.i.i286)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp197280)
@@ -36342,7 +36342,7 @@ sw.bb4.i450:                                      ; preds = %if.else297
   %and.i.i.i.i.i452 = and i64 %130, 144115188075855871
   %131 = inttoptr i64 %and.i.i.i.i.i452 to ptr
   %shr.i.i.i.i.i453 = lshr i64 %130, 57
-  %conv.i.i.i.i.i454 = trunc i64 %shr.i.i.i.i.i453 to i32
+  %conv.i.i.i.i.i454 = trunc nuw nsw i64 %shr.i.i.i.i.i453 to i32
   %sub.i.i.i.i455 = add nsw i32 %conv.i.i.i.i.i454, -1
   %call3.i.i.i.i456 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i.i449, ptr noundef %131, i32 noundef %sub.i.i.i.i455)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i.i449)
@@ -36379,7 +36379,7 @@ sw.bb4.i467:                                      ; preds = %land.lhs.true307
   %and.i.i.i.i.i469 = and i64 %136, 144115188075855871
   %137 = inttoptr i64 %and.i.i.i.i.i469 to ptr
   %shr.i.i.i.i.i470 = lshr i64 %136, 57
-  %conv.i.i.i.i.i471 = trunc i64 %shr.i.i.i.i.i470 to i32
+  %conv.i.i.i.i.i471 = trunc nuw nsw i64 %shr.i.i.i.i.i470 to i32
   %sub.i.i.i.i472 = add nsw i32 %conv.i.i.i.i.i471, -1
   %call3.i.i.i.i473 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i.i466, ptr noundef %137, i32 noundef %sub.i.i.i.i472)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i.i466)
@@ -36804,7 +36804,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %and.i.i.i = and i64 %34, 144115188075855871
   %35 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %34, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %_ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit
     i32 2, label %_ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit
@@ -37054,7 +37054,7 @@ if.end.i:                                         ; preds = %sw.bb
   %and.i.i.i.i = and i64 %53, 144115188075855871
   %54 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %53, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i, ptr noundef %54, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -37546,7 +37546,7 @@ if.then9:                                         ; preds = %if.end8
   %and.i.i.i37 = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i.i37 to ptr
   %shr.i.i.i = lshr i64 %7, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %8, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -37562,7 +37562,7 @@ if.else12:                                        ; preds = %if.end8
   %and.i.i.i42 = and i64 %7, 144115188075855871
   %9 = inttoptr i64 %and.i.i.i42 to ptr
   %shr.i.i.i43 = lshr i64 %7, 57
-  %conv.i.i.i44 = trunc i64 %shr.i.i.i43 to i32
+  %conv.i.i.i44 = trunc nuw nsw i64 %shr.i.i.i43 to i32
   %sub.i.i45 = add nsw i32 %conv.i.i.i44, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %sample.i41, ptr noundef %9, i32 noundef %sub.i.i45)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i40)
@@ -39819,7 +39819,7 @@ if.end:                                           ; preds = %invoke.cont7, %entr
   %and.i.i.i61 = and i64 %9, 144115188075855871
   %10 = inttoptr i64 %and.i.i.i61 to ptr
   %shr.i.i.i = lshr i64 %9, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb1.i.i.i
@@ -39931,17 +39931,17 @@ invoke.cont26:                                    ; preds = %invoke.cont12
   store i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i67, ptr %28, align 8
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i69 to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i69, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %29 = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i67 to i32
   %sub.i.i = sub nsw i32 %29, %p.sroa.0.0.extract.trunc.i.i
   %y.i.i = getelementptr inbounds i8, ptr %pixelBounds, i64 12
   %30 = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i67, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   %sub4.i.i = sub nsw i32 %31, %p.sroa.2.0.extract.trunc.i.i
   %mul.i = mul nsw i32 %sub4.i.i, %sub.i.i
   %cmp.not.i = icmp sge i32 %p.sroa.0.0.extract.trunc.i.i, %29
   %cmp6.i = icmp sge i32 %p.sroa.2.0.extract.trunc.i.i, %31
-  %32 = or i1 %cmp.not.i, %cmp6.i
+  %32 = select i1 %cmp.not.i, i1 true, i1 %cmp6.i
   br i1 %32, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %invoke.cont26
@@ -40047,7 +40047,7 @@ invoke.cont33:                                    ; preds = %invoke.cont33.loope
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %pixels, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i to i32
   %p.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i to i32
   %39 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %sub.i.i.i.i = sub nsw i32 %39, %p.sroa.0.0.extract.trunc.i.i.i.i
   %y.i.i.i.i = getelementptr inbounds i8, ptr %pixels, i64 12
@@ -40082,7 +40082,7 @@ invoke.cont39.loopexit:                           ; preds = %for.body
   %.pre984 = load i32, ptr %y.i.i.i.i, align 4
   %.pre988 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.pre to i32
   %.pre989 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.pre, 32
-  %.pre990 = trunc i64 %.pre989 to i32
+  %.pre990 = trunc nuw i64 %.pre989 to i32
   %.pre991 = sub nsw i32 %.pre983, %.pre988
   %.pre992 = sub nsw i32 %.pre984, %.pre990
   %.pre993 = mul nsw i32 %.pre992, %.pre991
@@ -40307,7 +40307,7 @@ invoke.cont79:                                    ; preds = %if.then73
   %agg.tmp.sroa.0.0.copyload.i104 = load i64, ptr %pixelBounds, align 8
   %p.sroa.0.0.extract.trunc.i.i105 = trunc i64 %agg.tmp.sroa.0.0.copyload.i104 to i32
   %p.sroa.2.0.extract.shift.i.i106 = lshr i64 %agg.tmp.sroa.0.0.copyload.i104, 32
-  %p.sroa.2.0.extract.trunc.i.i107 = trunc i64 %p.sroa.2.0.extract.shift.i.i106 to i32
+  %p.sroa.2.0.extract.trunc.i.i107 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i106 to i32
   %72 = load i32, ptr %28, align 8
   %sub.i.i108 = sub nsw i32 %72, %p.sroa.0.0.extract.trunc.i.i105
   %73 = load i32, ptr %y.i.i, align 4
@@ -40711,7 +40711,7 @@ cond.end:                                         ; preds = %_ZN4pbrt14RadicalIn
   %and.i.i.i167 = and i64 %114, 144115188075855871
   %115 = inttoptr i64 %and.i.i.i167 to ptr
   %shr.i.i.i168 = lshr i64 %114, 57
-  %conv.i.i.i169 = trunc i64 %shr.i.i.i168 to i32
+  %conv.i.i.i169 = trunc nuw nsw i64 %shr.i.i.i168 to i32
   %sub.i.i170 = add nsw i32 %conv.i.i.i169, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %passLambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %115, i32 noundef %sub.i.i170)
           to label %invoke.cont133 unwind label %lpad65.loopexit
@@ -40821,7 +40821,7 @@ invoke.cont149:                                   ; preds = %_ZNSt12_Vector_base
   %agg.tmp.sroa.0.0.copyload.i.i.i192 = load i64, ptr %pixels, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i193 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i192 to i32
   %p.sroa.2.0.extract.shift.i.i.i.i194 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i192, 32
-  %p.sroa.2.0.extract.trunc.i.i.i.i195 = trunc i64 %p.sroa.2.0.extract.shift.i.i.i.i194 to i32
+  %p.sroa.2.0.extract.trunc.i.i.i.i195 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i194 to i32
   %122 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %sub.i.i.i.i196 = sub nsw i32 %122, %p.sroa.0.0.extract.trunc.i.i.i.i193
   %123 = load i32, ptr %y.i.i.i.i, align 4
@@ -41299,7 +41299,7 @@ invoke.cont248:                                   ; preds = %lor.lhs.false, %_ZN
   %agg.tmp.sroa.0.0.copyload.i292 = load i64, ptr %pixelBounds, align 8
   %p.sroa.0.0.extract.trunc.i.i293 = trunc i64 %agg.tmp.sroa.0.0.copyload.i292 to i32
   %p.sroa.2.0.extract.shift.i.i294 = lshr i64 %agg.tmp.sroa.0.0.copyload.i292, 32
-  %p.sroa.2.0.extract.trunc.i.i295 = trunc i64 %p.sroa.2.0.extract.shift.i.i294 to i32
+  %p.sroa.2.0.extract.trunc.i.i295 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i294 to i32
   %189 = load i32, ptr %28, align 8
   %sub.i.i296 = sub nsw i32 %189, %p.sroa.0.0.extract.trunc.i.i293
   %190 = load i32, ptr %y.i.i, align 4
@@ -41554,7 +41554,7 @@ invoke.cont356:                                   ; preds = %invoke.cont348
   %agg.tmp.sroa.0.0.copyload.i381 = load i64, ptr %pixelBounds, align 8
   %p.sroa.0.0.extract.trunc.i.i382 = trunc i64 %agg.tmp.sroa.0.0.copyload.i381 to i32
   %p.sroa.2.0.extract.shift.i.i383 = lshr i64 %agg.tmp.sroa.0.0.copyload.i381, 32
-  %p.sroa.2.0.extract.trunc.i.i384 = trunc i64 %p.sroa.2.0.extract.shift.i.i383 to i32
+  %p.sroa.2.0.extract.trunc.i.i384 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i383 to i32
   %215 = load i32, ptr %28, align 8
   %sub.i.i385 = sub nsw i32 %215, %p.sroa.0.0.extract.trunc.i.i382
   %216 = load i32, ptr %y.i.i, align 4
@@ -41595,7 +41595,7 @@ arraydestroy.body383.preheader:                   ; preds = %invoke.cont376
   %agg.tmp.sroa.0.0.copyload.i.i.i408 = load i64, ptr %pixels, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i409 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i408 to i32
   %p.sroa.2.0.extract.shift.i.i.i.i410 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i408, 32
-  %p.sroa.2.0.extract.trunc.i.i.i.i411 = trunc i64 %p.sroa.2.0.extract.shift.i.i.i.i410 to i32
+  %p.sroa.2.0.extract.trunc.i.i.i.i411 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i410 to i32
   %219 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %sub.i.i.i.i412 = sub nsw i32 %219, %p.sroa.0.0.extract.trunc.i.i.i.i409
   %220 = load i32, ptr %y.i.i.i.i, align 4
@@ -41842,7 +41842,7 @@ invoke.cont436:                                   ; preds = %cond.false.i454, %_
   %255 = load i64, ptr %pixelBounds, align 8
   %__begin4432.sroa.0.0.extract.trunc = trunc i64 %255 to i32
   %__begin4432.sroa.7.0.extract.shift = lshr i64 %255, 32
-  %__begin4432.sroa.7.0.extract.trunc = trunc i64 %__begin4432.sroa.7.0.extract.shift to i32
+  %__begin4432.sroa.7.0.extract.trunc = trunc nuw i64 %__begin4432.sroa.7.0.extract.shift to i32
   %256 = load i32, ptr %y.i.i, align 4
   %257 = load i32, ptr %28, align 8
   %cmp.not.i469 = icmp sle i32 %257, %__begin4432.sroa.0.0.extract.trunc
@@ -41873,7 +41873,7 @@ invoke.cont457:                                   ; preds = %invoke.cont457.lr.p
   %agg.tmp455.sroa.0.0.copyload = load i64, ptr %pixelBounds, align 8
   %p.sroa.0.0.extract.trunc.i481 = trunc i64 %agg.tmp455.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp455.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i = trunc i64 %p.sroa.2.0.extract.shift.i to i32
+  %p.sroa.2.0.extract.trunc.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i to i32
   %sub.i482 = sub nsw i32 %__begin4432.sroa.0.0972, %p.sroa.0.0.extract.trunc.i481
   %sub4.i = sub nsw i32 %__begin4432.sroa.7.0973, %p.sroa.2.0.extract.trunc.i
   %retval.sroa.2.0.insert.ext.i = zext i32 %sub4.i to i64
@@ -42300,7 +42300,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4pbrt11ThreadLoc
   %309 = load i32, ptr %y.i.i.i.i, align 4
   %agg.tmp.sroa.0.0.copyload.i.i592 = load i64, ptr %pixels, align 8
   %p.sroa.2.0.extract.shift.i.i.i593 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i592, 32
-  %p.sroa.2.0.extract.trunc.i.i.i594 = trunc i64 %p.sroa.2.0.extract.shift.i.i.i593 to i32
+  %p.sroa.2.0.extract.trunc.i.i.i594 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i593 to i32
   %sub4.i.i.i595 = sub nsw i32 %309, %p.sroa.2.0.extract.trunc.i.i.i594
   %310 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %p.sroa.0.0.extract.trunc.i.i.i597 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i592 to i32
@@ -42474,7 +42474,7 @@ sw.bb:                                            ; preds = %if.end
   %agg.tmp3.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp3.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp3.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i = trunc i64 %p.sroa.2.0.extract.shift.i to i32
+  %p.sroa.2.0.extract.trunc.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i to i32
   %nStored.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %nStored.i.i.i, align 8
   %conv.i.i = trunc i64 %6 to i32
@@ -42494,7 +42494,7 @@ sw.bb:                                            ; preds = %if.end
   %and.i.i.i = and i64 %11, 144115188075855871
   %12 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %11, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %for.body.i.i.i.i.i.preheader
     i32 2, label %sw.bb3.i.i.i
@@ -42557,7 +42557,7 @@ _ZN4pbrt4HalfC2Ef.exit:                           ; preds = %if.then.i, %if.then
   %agg.tmp8.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i4 = trunc i64 %agg.tmp8.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i5 = lshr i64 %agg.tmp8.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i6 = trunc i64 %p.sroa.2.0.extract.shift.i5 to i32
+  %p.sroa.2.0.extract.trunc.i6 = trunc nuw i64 %p.sroa.2.0.extract.shift.i5 to i32
   %nStored.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load i64, ptr %nStored.i.i.i7, align 8
   %conv.i.i8 = trunc i64 %16 to i32
@@ -42580,7 +42580,7 @@ sw.bb14:                                          ; preds = %if.end
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i16 = trunc i64 %agg.tmp15.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i17 = lshr i64 %agg.tmp15.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i18 = trunc i64 %p.sroa.2.0.extract.shift.i17 to i32
+  %p.sroa.2.0.extract.trunc.i18 = trunc nuw i64 %p.sroa.2.0.extract.shift.i17 to i32
   %nStored.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load i64, ptr %nStored.i.i.i19, align 8
   %conv.i.i20 = trunc i64 %21 to i32
@@ -42877,7 +42877,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %1 = load i32, ptr %y.i.i, align 4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %this, align 8
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub4.i.i = sub nsw i32 %1, %p.sroa.2.0.extract.trunc.i.i
   %pMax.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %pMax.i, align 8
@@ -42944,7 +42944,7 @@ entry:
   %and.i.i.i.i = and i64 %0, 144115188075855871
   %1 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %0, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %1, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -43005,7 +43005,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
   %and.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %6, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -43019,7 +43019,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
   %and.i.i.i43 = and i64 %8, 144115188075855871
   %9 = inttoptr i64 %and.i.i.i43 to ptr
   %shr.i.i.i44 = lshr i64 %8, 57
-  %conv.i.i.i45 = trunc i64 %shr.i.i.i44 to i32
+  %conv.i.i.i45 = trunc nuw nsw i64 %shr.i.i.i44 to i32
   %sub.i.i46 = add nsw i32 %conv.i.i.i45, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.124") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %9, i32 noundef %sub.i.i46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -43029,7 +43029,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
   %and.i.i.i48 = and i64 %10, 144115188075855871
   %11 = inttoptr i64 %and.i.i.i48 to ptr
   %shr.i.i.i49 = lshr i64 %10, 57
-  %conv.i.i.i50 = trunc i64 %shr.i.i.i49 to i32
+  %conv.i.i.i50 = trunc nuw nsw i64 %shr.i.i.i49 to i32
   %sub.i.i51 = add nsw i32 %conv.i.i.i50, -1
   %call3.i.i5253 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i47, ptr noundef %11, i32 noundef %sub.i.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i47)
@@ -43059,7 +43059,7 @@ invoke.cont29:                                    ; preds = %if.end21
   %and.i.i.i57 = and i64 %13, 144115188075855871
   %17 = inttoptr i64 %and.i.i.i57 to ptr
   %shr.i.i.i58 = lshr i64 %13, 57
-  %conv.i.i.i59 = trunc i64 %shr.i.i.i58 to i32
+  %conv.i.i.i59 = trunc nuw nsw i64 %shr.i.i.i58 to i32
   %sub.i.i60 = add nsw i32 %conv.i.i.i59, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.127") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %17, i32 noundef %sub.i.i60)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp3355)
@@ -43184,7 +43184,7 @@ if.end.i:                                         ; preds = %invoke.cont52
   %and.i.i.i.i81 = and i64 %52, 144115188075855871
   %53 = inttoptr i64 %and.i.i.i.i81 to ptr
   %shr.i.i.i.i82 = lshr i64 %52, 57
-  %conv.i.i.i.i83 = trunc i64 %shr.i.i.i.i82 to i32
+  %conv.i.i.i.i83 = trunc nuw nsw i64 %shr.i.i.i.i82 to i32
   %sub.i.i.i84 = add nsw i32 %conv.i.i.i.i83, -1
   %call3.i.i.i8588 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i, ptr noundef %53, i32 noundef %sub.i.i.i84)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i)
@@ -45091,11 +45091,11 @@ invoke.cont3:
   store i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, ptr %4, align 8
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %5 = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %sub.i.i = sub i32 %5, %p.sroa.0.0.extract.trunc.i.i
   %6 = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %sub4.i.i = sub i32 %7, %p.sroa.2.0.extract.trunc.i.i
   %mul.i = mul i32 %sub4.i.i, %sub.i.i
   %call.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #31
@@ -45149,7 +45149,7 @@ invoke.cont6:                                     ; preds = %for.body.i, %call.i
   %and.i.i.i61 = and i64 %10, 144115188075855871
   %11 = inttoptr i64 %and.i.i.i61 to ptr
   %shr.i.i.i = lshr i64 %10, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb1.i.i.i
@@ -45295,7 +45295,7 @@ invoke.cont70.us:                                 ; preds = %for.cond54.preheade
   %36 = xor <2 x i64> %34, %35
   %37 = trunc <2 x i64> %36 to <2 x i32>
   %38 = lshr <2 x i64> %33, <i64 59, i64 59>
-  %39 = trunc <2 x i64> %38 to <2 x i32>
+  %39 = trunc nuw nsw <2 x i64> %38 to <2 x i32>
   %40 = call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %37, <2 x i32> %37, <2 x i32> %39)
   %41 = uitofp <2 x i32> %40 to <2 x float>
   %42 = fmul <2 x float> %41, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -45517,7 +45517,7 @@ for.body142:                                      ; preds = %_ZNSt6vectorIN4pbrt
   %shr3.i = xor i64 %64, %65
   %conv.i118 = trunc i64 %shr3.i to i32
   %shr4.i = lshr i64 %rng129.sroa.0.1337, 59
-  %conv5.i = trunc i64 %shr4.i to i32
+  %conv5.i = trunc nuw nsw i64 %shr4.i to i32
   %or.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i118, i32 %conv.i118, i32 %conv5.i)
   %call.i119 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #31
   invoke void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp143, i32 noundef %cmp144, i32 noundef %or.i, ptr %call.i119)
@@ -45631,7 +45631,7 @@ for.body175:                                      ; preds = %_ZNSt6vectorImSaImE
   %shr3.i.i139 = xor i64 %72, %73
   %conv.i.i140 = trunc i64 %shr3.i.i139 to i32
   %shr4.i.i141 = lshr i64 %rng129.sroa.0.4342, 59
-  %conv5.i.i142 = trunc i64 %shr4.i.i141 to i32
+  %conv5.i.i142 = trunc nuw nsw i64 %shr4.i.i141 to i32
   %or.i.i143 = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i140, i32 %conv.i.i140, i32 %conv5.i.i142)
   %conv.i144 = zext i32 %or.i.i143 to i64
   %mul.i1.i = mul i64 %add.i.i138, 6364136223846793005
@@ -45641,7 +45641,7 @@ for.body175:                                      ; preds = %_ZNSt6vectorImSaImE
   %shr3.i4.i = xor i64 %74, %75
   %conv.i5.i = trunc i64 %shr3.i4.i to i32
   %shr4.i6.i = lshr i64 %add.i.i138, 59
-  %conv5.i7.i = trunc i64 %shr4.i6.i to i32
+  %conv5.i7.i = trunc nuw nsw i64 %shr4.i6.i to i32
   %or.i8.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i5.i, i32 %conv.i5.i, i32 %conv5.i7.i)
   %conv3.i = zext i32 %or.i8.i to i64
   %shl.i = shl nuw i64 %conv.i144, 32
@@ -45999,7 +45999,7 @@ if.then268:                                       ; preds = %if.end266
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %sumv, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i to i32
   %p.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i to i32
   %119 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %sub.i.i.i.i = sub nsw i32 %119, %p.sroa.0.0.extract.trunc.i.i.i.i
   %120 = load i32, ptr %y.i.i.i.i, align 4
@@ -46081,7 +46081,7 @@ invoke.cont302:                                   ; preds = %for.inc296, %_ZNSt8
   %agg.tmp.sroa.0.0.copyload.i.i.i207 = load i64, ptr %sumv, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i208 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i207 to i32
   %p.sroa.2.0.extract.shift.i.i.i.i209 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i207, 32
-  %p.sroa.2.0.extract.trunc.i.i.i.i210 = trunc i64 %p.sroa.2.0.extract.shift.i.i.i.i209 to i32
+  %p.sroa.2.0.extract.trunc.i.i.i.i210 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i209 to i32
   %130 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %sub.i.i.i.i211 = sub nsw i32 %130, %p.sroa.0.0.extract.trunc.i.i.i.i208
   %y.i.i.i.i212 = getelementptr inbounds i8, ptr %sumv, i64 12
@@ -46258,7 +46258,7 @@ if.end.i.i.i.i:                                   ; preds = %arraydestroy.done34
   %146 = load i32, ptr %y.i.i.i.i212, align 4
   %agg.tmp.sroa.0.0.copyload.i.i245 = load i64, ptr %sumv, align 8
   %p.sroa.2.0.extract.shift.i.i.i246 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i245, 32
-  %p.sroa.2.0.extract.trunc.i.i.i247 = trunc i64 %p.sroa.2.0.extract.shift.i.i.i246 to i32
+  %p.sroa.2.0.extract.trunc.i.i.i247 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i246 to i32
   %sub4.i.i.i248 = sub nsw i32 %146, %p.sroa.2.0.extract.trunc.i.i.i247
   %147 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %p.sroa.0.0.extract.trunc.i.i.i250 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i245 to i32
@@ -46345,7 +46345,7 @@ if.end.i.i.i.i268:                                ; preds = %ehcleanup352
   %156 = load i32, ptr %y.i.i.i269, align 4
   %agg.tmp.sroa.0.0.copyload.i.i270 = load i64, ptr %sumv, align 8
   %p.sroa.2.0.extract.shift.i.i.i271 = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i270, 32
-  %p.sroa.2.0.extract.trunc.i.i.i272 = trunc i64 %p.sroa.2.0.extract.shift.i.i.i271 to i32
+  %p.sroa.2.0.extract.trunc.i.i.i272 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i271 to i32
   %sub4.i.i.i273 = sub nsw i32 %156, %p.sroa.2.0.extract.trunc.i.i.i272
   %157 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %p.sroa.0.0.extract.trunc.i.i.i275 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i270 to i32
@@ -50426,7 +50426,7 @@ sw.bb1:                                           ; preds = %entry
   %shr3.i.i.i.i = xor i64 %2, %3
   %conv.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
   %shr4.i.i.i.i = lshr i64 %0, 59
-  %conv5.i.i.i.i = trunc i64 %shr4.i.i.i.i to i32
+  %conv5.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i to i32
   %or.i.i.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i, i32 %conv.i.i.i.i, i32 %conv5.i.i.i.i)
   %conv.i.i.i = uitofp i32 %or.i.i.i.i to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3DF0000000000000
@@ -50935,7 +50935,7 @@ cond.true:                                        ; preds = %_ZN4pbrt18Permutati
   %shr3.i.i = xor i64 %9, %10
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %7, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i2 = fmul float %conv.i, 0x3DF0000000000000
@@ -51298,7 +51298,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %dimension, align 4
   %shr = lshr i64 %mul41.i.i, 32
-  %conv4 = trunc i64 %shr to i32
+  %conv4 = trunc nuw i64 %shr to i32
   %call5 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 0, i32 noundef %rem.i, i32 noundef %conv4)
   ret float %call5
 }
@@ -52235,7 +52235,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %pixels = getelementptr inbounds i8, ptr %this, i64 136
   %p.sroa.0.0.extract.trunc.i = trunc i64 %pFilm.coerce to i32
   %p.sroa.4.0.extract.shift.i = lshr i64 %pFilm.coerce, 32
-  %p.sroa.4.0.extract.trunc.i = trunc i64 %p.sroa.4.0.extract.shift.i to i32
+  %p.sroa.4.0.extract.trunc.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i to i32
   %9 = load i32, ptr %pixels, align 8
   %sub.i = sub i32 %p.sroa.0.0.extract.trunc.i, %9
   %y.i = getelementptr inbounds i8, ptr %this, i64 140
@@ -52665,7 +52665,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %pixels = getelementptr inbounds i8, ptr %this, i64 112
   %p.sroa.0.0.extract.trunc.i = trunc i64 %pFilm.coerce to i32
   %p.sroa.4.0.extract.shift.i = lshr i64 %pFilm.coerce, 32
-  %p.sroa.4.0.extract.trunc.i = trunc i64 %p.sroa.4.0.extract.shift.i to i32
+  %p.sroa.4.0.extract.trunc.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i to i32
   %11 = load i32, ptr %pixels, align 8
   %sub.i = sub i32 %p.sroa.0.0.extract.trunc.i, %11
   %y.i = getelementptr inbounds i8, ptr %this, i64 116
@@ -53380,7 +53380,7 @@ sw.bb:                                            ; preds = %if.end
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp9.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp9.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i = trunc i64 %p.sroa.2.0.extract.shift.i to i32
+  %p.sroa.2.0.extract.trunc.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i to i32
   %nStored.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %nStored.i.i.i, align 8
   %conv.i.i = trunc i64 %1 to i32
@@ -53398,7 +53398,7 @@ sw.bb:                                            ; preds = %if.end
   %and.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %for.body.i.i.i.i.i.preheader
     i32 2, label %sw.bb3.i.i.i
@@ -53427,7 +53427,7 @@ sw.bb14:                                          ; preds = %if.end
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i4 = trunc i64 %agg.tmp15.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i5 = lshr i64 %agg.tmp15.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i6 = trunc i64 %p.sroa.2.0.extract.shift.i5 to i32
+  %p.sroa.2.0.extract.trunc.i6 = trunc nuw i64 %p.sroa.2.0.extract.shift.i5 to i32
   %nStored.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i64, ptr %nStored.i.i.i7, align 8
   %conv.i.i8 = trunc i64 %9 to i32
@@ -53477,7 +53477,7 @@ sw.bb22:                                          ; preds = %if.end
   %agg.tmp23.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i18 = trunc i64 %agg.tmp23.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i19 = lshr i64 %agg.tmp23.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i20 = trunc i64 %p.sroa.2.0.extract.shift.i19 to i32
+  %p.sroa.2.0.extract.trunc.i20 = trunc nuw i64 %p.sroa.2.0.extract.shift.i19 to i32
   %nStored.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load i64, ptr %nStored.i.i.i21, align 8
   %conv.i.i22 = trunc i64 %17 to i32
@@ -53510,11 +53510,11 @@ entry:
   %wrapMode.sroa.2 = alloca i32, align 4
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.9.0.extract.shift = lshr i64 %resolution.coerce, 32
-  %resolution.sroa.9.0.extract.trunc = trunc i64 %resolution.sroa.9.0.extract.shift to i32
+  %resolution.sroa.9.0.extract.trunc = trunc nuw i64 %resolution.sroa.9.0.extract.shift to i32
   %wrapMode.sroa.0.0.extract.trunc = trunc i64 %wrapMode.coerce to i32
   store i32 %wrapMode.sroa.0.0.extract.trunc, ptr %wrapMode.sroa.0, align 8
   %wrapMode.sroa.2.0.extract.shift = lshr i64 %wrapMode.coerce, 32
-  %wrapMode.sroa.2.0.extract.trunc = trunc i64 %wrapMode.sroa.2.0.extract.shift to i32
+  %wrapMode.sroa.2.0.extract.trunc = trunc nuw i64 %wrapMode.sroa.2.0.extract.shift to i32
   store i32 %wrapMode.sroa.2.0.extract.trunc, ptr %wrapMode.sroa.2, align 4
   %0 = and i64 %wrapMode.coerce, 4294967295
   %cmp = icmp eq i64 %0, 3
@@ -53897,7 +53897,7 @@ sw.bb1:                                           ; preds = %entry
   %6 = xor <2 x i64> %4, %5
   %7 = trunc <2 x i64> %6 to <2 x i32>
   %8 = lshr <2 x i64> %3, <i64 59, i64 59>
-  %9 = trunc <2 x i64> %8 to <2 x i32>
+  %9 = trunc nuw nsw <2 x i64> %8 to <2 x i32>
   %10 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %7, <2 x i32> %7, <2 x i32> %9)
   %11 = uitofp <2 x i32> %10 to <2 x float>
   %12 = fmul <2 x float> %11, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -54276,7 +54276,7 @@ cond.true9:                                       ; preds = %_ZN4pbrt18Permutati
   %14 = xor <2 x i64> %12, %13
   %15 = trunc <2 x i64> %14 to <2 x i32>
   %16 = lshr <2 x i64> %11, <i64 59, i64 59>
-  %17 = trunc <2 x i64> %16 to <2 x i32>
+  %17 = trunc nuw nsw <2 x i64> %16 to <2 x i32>
   %18 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %15, <2 x i32> %15, <2 x i32> %17)
   %19 = uitofp <2 x i32> %18 to <2 x float>
   %20 = fmul <2 x float> %19, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -54402,7 +54402,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   store i32 %add, ptr %dimension, align 4
   %call6 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 0, i32 noundef %rem.i, i32 noundef %conv)
   %shr = lshr i64 %mul41.i.i, 32
-  %conv7 = trunc i64 %shr to i32
+  %conv7 = trunc nuw i64 %shr to i32
   %call8 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 1, i32 noundef %rem.i, i32 noundef %conv7)
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call6, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call8, i64 1
@@ -54518,7 +54518,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   %conv = trunc i64 %xor43.i.i to i32
   %shr = lshr i64 %mul41.i.i, 32
-  %conv4 = trunc i64 %shr to i32
+  %conv4 = trunc nuw i64 %shr to i32
   %17 = load i32, ptr %this, align 8
   %cmp.not6.i154 = icmp eq i64 %sampleIndex.1.i, 0
   switch i32 %17, label %if.else29 [
@@ -60975,7 +60975,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %2 = trunc i64 %rem.i to i32
+  %2 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %1, %2
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -63657,14 +63657,14 @@ entry:
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 4
   %b.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i to i32
   %b.sroa.4.0.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i, 32
-  %b.sroa.4.0.extract.trunc.i.i.i = trunc i64 %b.sroa.4.0.extract.shift.i.i.i to i32
+  %b.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.4.0.extract.shift.i.i.i to i32
   %b.sroa.5.8.extract.trunc.i.i.i = trunc i64 %agg.tmp.sroa.2.0.copyload.i.i to i32
   %b.sroa.8.8.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 32
-  %b.sroa.8.8.extract.trunc.i.i.i = trunc i64 %b.sroa.8.8.extract.shift.i.i.i to i32
+  %b.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
   %0 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i19.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i19.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i19.i.not1.i.i
+  %cmp4.i.i19.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i19.i.not1.i.i
   br i1 %cmp4.i.i19.i.not.i.i, label %_ZSt10__invoke_rIvRZN4pbrt13ParallelFor2DERKNS0_7Bounds2IiEESt8functionIFvNS0_6Point2IiEEEEEUlS2_E_JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZNKSt8functionIFvN4pbrt6Point2IiEEEEclES2_.exit.i.i.i
@@ -65599,7 +65599,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %and.i.i.i = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %6, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %invoke.cont9
     i32 2, label %invoke.cont9
@@ -65724,7 +65724,7 @@ if.end34:                                         ; preds = %invoke.cont31
   %and.i.i.i20 = and i64 %22, 144115188075855871
   %23 = inttoptr i64 %and.i.i.i20 to ptr
   %shr.i.i.i21 = lshr i64 %22, 57
-  %conv.i.i.i22 = trunc i64 %shr.i.i.i21 to i32
+  %conv.i.i.i22 = trunc nuw nsw i64 %shr.i.i.i21 to i32
   %sub.i.i = add nsw i32 %conv.i.i.i22, -1
   %call3.i.i23 = invoke <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %23, i32 noundef %sub.i.i)
           to label %invoke.cont40 unwind label %lpad.loopexit.split-lp
@@ -65823,7 +65823,7 @@ if.end.i:                                         ; preds = %invoke.cont40
   %and.i.i.i.i = and i64 %32, 144115188075855871
   %33 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %32, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i31 = invoke { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i, ptr noundef %33, i32 noundef %sub.i.i.i)
           to label %call3.i.i.i.noexc unwind label %lpad.loopexit.split-lp
@@ -70012,14 +70012,14 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %b.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %b.sroa.4.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %b.sroa.4.0.extract.trunc.i.i.i = trunc i64 %b.sroa.4.0.extract.shift.i.i.i to i32
+  %b.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.4.0.extract.shift.i.i.i to i32
   %b.sroa.5.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %b.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %b.sroa.8.8.extract.trunc.i.i.i = trunc i64 %b.sroa.8.8.extract.shift.i.i.i to i32
+  %b.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
   %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i26.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i26.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i26.i.not1.i.i
+  %cmp4.i.i26.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i26.i.not1.i.i
   br i1 %cmp4.i.i26.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -70054,7 +70054,7 @@ for.body.i.i.i:                                   ; preds = %for.end.i.i.i, %for
   %and.i.i.i.i.i.i = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i = lshr i64 %13, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i.i.i
@@ -70166,7 +70166,7 @@ entry:
   %pixels = getelementptr inbounds i8, ptr %this, i64 136
   %p.sroa.0.0.extract.trunc.i = trunc i64 %p.coerce to i32
   %p.sroa.4.0.extract.shift.i = lshr i64 %p.coerce, 32
-  %p.sroa.4.0.extract.trunc.i = trunc i64 %p.sroa.4.0.extract.shift.i to i32
+  %p.sroa.4.0.extract.trunc.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i to i32
   %0 = load i32, ptr %pixels, align 8
   %sub.i = sub i32 %p.sroa.0.0.extract.trunc.i, %0
   %y.i = getelementptr inbounds i8, ptr %this, i64 140
@@ -70383,7 +70383,7 @@ entry:
   %pixels = getelementptr inbounds i8, ptr %this, i64 784
   %p.sroa.0.0.extract.trunc.i = trunc i64 %p.coerce to i32
   %p.sroa.4.0.extract.shift.i = lshr i64 %p.coerce, 32
-  %p.sroa.4.0.extract.trunc.i = trunc i64 %p.sroa.4.0.extract.shift.i to i32
+  %p.sroa.4.0.extract.trunc.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i to i32
   %0 = load i32, ptr %pixels, align 8
   %sub.i = sub i32 %p.sroa.0.0.extract.trunc.i, %0
   %y.i = getelementptr inbounds i8, ptr %this, i64 788
@@ -70483,10 +70483,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp13.i.i.i)
   %tileBounds.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %tileBounds.sroa.6.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %tileBounds.sroa.6.0.extract.trunc.i.i.i = trunc i64 %tileBounds.sroa.6.0.extract.shift.i.i.i to i32
+  %tileBounds.sroa.6.0.extract.trunc.i.i.i = trunc nuw i64 %tileBounds.sroa.6.0.extract.shift.i.i.i to i32
   %tileBounds.sroa.7.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %tileBounds.sroa.11.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %tileBounds.sroa.11.8.extract.trunc.i.i.i = trunc i64 %tileBounds.sroa.11.8.extract.shift.i.i.i to i32
+  %tileBounds.sroa.11.8.extract.trunc.i.i.i = trunc nuw i64 %tileBounds.sroa.11.8.extract.shift.i.i.i to i32
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %__functor.val, align 8
@@ -70546,7 +70546,7 @@ for.body9.i.i.i:                                  ; preds = %for.body.i.i.i, %_Z
   %and.i.i.i.i.i.i = and i64 %17, 144115188075855871
   %18 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i = lshr i64 %17, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   %sub.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS5_Pvi(ptr noundef nonnull align 8 dereferenceable(24) %start.i.i.i.i, ptr noundef %18, i32 noundef %sub.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i.i.i)
@@ -70724,7 +70724,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %entry
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 192
   %conv4 = and i64 %call.i.i1.i, 4294967295
   %rem = urem i64 %conv4, %sub.ptr.div.i
-  %conv5 = trunc i64 %rem to i32
+  %conv5 = trunc nuw i64 %rem to i32
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit
@@ -71025,7 +71025,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %entry
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %conv4 = and i64 %call.i.i1.i, 4294967295
   %rem = urem i64 %conv4, %sub.ptr.div.i
-  %conv5 = trunc i64 %rem to i32
+  %conv5 = trunc nuw i64 %rem to i32
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit
@@ -72260,7 +72260,7 @@ sw.bb3:                                           ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload.i.i.i = load i64, ptr %pi.i.i.i, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i to i32
   %p.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, 32
-  %p.sroa.4.0.extract.trunc.i.i.i.i = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i to i32
+  %p.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i.i to i32
   %6 = load i32, ptr %f.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i, %6
   %y.i.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 44
@@ -72294,7 +72294,7 @@ sw.bb6:                                           ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload.i.i.i17 = load i64, ptr %pi.i.i.i12, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i18 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i17 to i32
   %p.sroa.4.0.extract.shift.i.i.i.i19 = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i17, 32
-  %p.sroa.4.0.extract.trunc.i.i.i.i20 = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i19 to i32
+  %p.sroa.4.0.extract.trunc.i.i.i.i20 = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i.i19 to i32
   %12 = load i32, ptr %f.i.i.i16, align 8
   %sub.i.i.i.i21 = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i18, %12
   %y.i.i.i.i22 = getelementptr inbounds i8, ptr %ptr, i64 36
@@ -72328,7 +72328,7 @@ sw.bb9:                                           ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload.i.i.i40 = load i64, ptr %pi.i.i.i35, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i41 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i40 to i32
   %p.sroa.4.0.extract.shift.i.i.i.i42 = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i40, 32
-  %p.sroa.4.0.extract.trunc.i.i.i.i43 = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i42 to i32
+  %p.sroa.4.0.extract.trunc.i.i.i.i43 = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i.i42 to i32
   %18 = load i32, ptr %f.i.i.i39, align 8
   %sub.i.i.i.i44 = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i41, %18
   %y.i.i.i.i45 = getelementptr inbounds i8, ptr %ptr, i64 36
@@ -72619,7 +72619,7 @@ sw.bb1:                                           ; preds = %entry
   %13 = xor <2 x i64> %11, %12
   %14 = trunc <2 x i64> %13 to <2 x i32>
   %15 = lshr <2 x i64> %10, <i64 59, i64 59>
-  %16 = trunc <2 x i64> %15 to <2 x i32>
+  %16 = trunc nuw nsw <2 x i64> %15 to <2 x i32>
   %17 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %14, <2 x i32> %14, <2 x i32> %16)
   %18 = uitofp <2 x i32> %17 to <2 x float>
   %19 = fmul <2 x float> %18, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -80154,7 +80154,7 @@ invoke.cont13:                                    ; preds = %if.then12
   %1 = inttoptr i64 %and.i.i.i to ptr
   store ptr %1, ptr %ref.tmp.i.i, align 8, !noalias !956
   %shr.i.i.i = lshr i64 %v.val, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   store i32 %conv.i.i.i, ptr %ref.tmp2.i.i, align 4, !noalias !956
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #31
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIPKvJjEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.197, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.i.i)
@@ -82921,7 +82921,7 @@ _ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit40: ; preds = %if.then18
   %45 = xor <2 x i64> %43, %44
   %46 = trunc <2 x i64> %45 to <2 x i32>
   %47 = lshr <2 x i64> %42, <i64 59, i64 59>
-  %48 = trunc <2 x i64> %47 to <2 x i32>
+  %48 = trunc nuw nsw <2 x i64> %47 to <2 x i32>
   %49 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %46, <2 x i32> %46, <2 x i32> %48)
   %50 = uitofp <2 x i32> %49 to <2 x float>
   %51 = fmul <2 x float> %50, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -82980,7 +82980,7 @@ if.else40:                                        ; preds = %_ZN4pbrt14SampleDis
   %shr3.i.i44 = xor i64 %74, %75
   %conv.i.i45 = trunc i64 %shr3.i.i44 to i32
   %shr4.i.i46 = lshr i64 %72, 59
-  %conv5.i.i47 = trunc i64 %shr4.i.i46 to i32
+  %conv5.i.i47 = trunc nuw nsw i64 %shr4.i.i46 to i32
   %or.i.i48 = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i45, i32 %conv.i.i45, i32 %conv5.i.i47)
   %conv.i49 = uitofp i32 %or.i.i48 to float
   %mul.i50 = fmul float %conv.i49, 0x3DF0000000000000
@@ -83382,7 +83382,7 @@ for.body.preheader.i:                             ; preds = %if.end40
   %shr3.i.i = xor i64 %56, %57
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %54, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i = fmul float %conv.i, 0x3DF0000000000000
@@ -83710,7 +83710,7 @@ invoke.cont:                                      ; preds = %for.body.i241
   %and.i.i.i = and i64 %113, 144115188075855871
   %114 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %113, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %114, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -85588,7 +85588,7 @@ if.then:                                          ; preds = %_ZNK4pbrt15SampledS
   %shr3.i.i = xor i64 %48, %49
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %46, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i157 = fmul float %conv.i, 0x3DF0000000000000
@@ -86228,7 +86228,7 @@ for.body.preheader.i:
   %and.i.i.i = and i64 %3, 144115188075855871
   %4 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %3, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %4, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -86522,7 +86522,7 @@ invoke.cont:                                      ; preds = %if.end.i
   %and.i.i.i34 = and i64 %71, 144115188075855871
   %72 = inttoptr i64 %and.i.i.i34 to ptr
   %shr.i.i.i35 = lshr i64 %71, 57
-  %conv.i.i.i36 = trunc i64 %shr.i.i.i35 to i32
+  %conv.i.i.i36 = trunc nuw nsw i64 %shr.i.i.i35 to i32
   %sub.i.i37 = add nsw i32 %conv.i.i.i36, -1
   %call3.i.i38 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i33, ptr noundef %72, i32 noundef %sub.i.i37)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i33)
@@ -88196,10 +88196,10 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %bounds.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %bounds.sroa.4.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %bounds.sroa.4.0.extract.trunc.i.i.i = trunc i64 %bounds.sroa.4.0.extract.shift.i.i.i to i32
+  %bounds.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %bounds.sroa.4.0.extract.shift.i.i.i to i32
   %bounds.sroa.5.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %bounds.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %bounds.sroa.8.8.extract.trunc.i.i.i = trunc i64 %bounds.sroa.8.8.extract.shift.i.i.i to i32
+  %bounds.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %bounds.sroa.8.8.extract.shift.i.i.i to i32
   %1 = load ptr, ptr %__functor.val, align 8
   %camera.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load i64, ptr %camera.i.i.i, align 8, !noalias !1021
@@ -88213,11 +88213,11 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i.i.i.i to i32
   %pixelBounds.sroa.2.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i.i.i.i, 32
-  %pixelBounds.sroa.2.0.extract.trunc.i.i.i = trunc i64 %pixelBounds.sroa.2.0.extract.shift.i.i.i to i32
+  %pixelBounds.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %pixelBounds.sroa.2.0.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %bounds.sroa.0.0.extract.trunc.i.i.i, %bounds.sroa.5.8.extract.trunc.i.i.i
   %6 = tail call i32 @llvm.smax.i32(i32 %bounds.sroa.4.0.extract.trunc.i.i.i, i32 %bounds.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i31.i.not1.i.i = icmp sge i32 %bounds.sroa.4.0.extract.trunc.i.i.i, %bounds.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i31.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i31.i.not1.i.i
+  %cmp4.i.i31.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i31.i.not1.i.i
   br i1 %cmp4.i.i31.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -88226,7 +88226,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %entry
   %mutationsPerPixel.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
   %8 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %shr.i.i.i.i.i.i = lshr i64 %4, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.end.i.i.i, %for.body.lr.ph.i.i.i
@@ -88420,7 +88420,7 @@ entry:
   %shr3.i.i.i.i.i = xor i64 %9, %10
   %conv.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i to i32
   %shr4.i.i.i.i.i = lshr i64 %add.i3.i.i.i.i.i.i, 59
-  %conv5.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i to i32
   %or.i.i.i.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i, i32 %conv.i.i.i.i.i, i32 %conv5.i.i.i.i.i)
   %conv.i.i.i.i = uitofp i32 %or.i.i.i.i.i to float
   %mul.i.i.i.i = fmul float %conv.i.i.i.i, 0x3DF0000000000000
@@ -88680,7 +88680,7 @@ invoke.cont61.i.i.i:                              ; preds = %invoke.cont55.i.i.i
   %shr3.i.i54.i.i.i = xor i64 %37, %38
   %conv.i.i55.i.i.i = trunc i64 %shr3.i.i54.i.i.i to i32
   %shr4.i.i56.i.i.i = lshr i64 %rng.sroa.0.096.i.i.i, 59
-  %conv5.i.i57.i.i.i = trunc i64 %shr4.i.i56.i.i.i to i32
+  %conv5.i.i57.i.i.i = trunc nuw nsw i64 %shr4.i.i56.i.i.i to i32
   %or.i.i58.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i55.i.i.i, i32 %conv.i.i55.i.i.i, i32 %conv5.i.i57.i.i.i)
   %conv.i59.i.i.i = uitofp i32 %or.i.i58.i.i.i to float
   %mul.i60.i.i.i = fmul float %conv.i59.i.i.i, 0x3DF0000000000000
@@ -90429,14 +90429,14 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %b.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %b.sroa.4.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %b.sroa.4.0.extract.trunc.i.i.i = trunc i64 %b.sroa.4.0.extract.shift.i.i.i to i32
+  %b.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.4.0.extract.shift.i.i.i to i32
   %b.sroa.5.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %b.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %b.sroa.8.8.extract.trunc.i.i.i = trunc i64 %b.sroa.8.8.extract.shift.i.i.i to i32
+  %b.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
   %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i54.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i54.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i54.i.not1.i.i
+  %cmp4.i.i54.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i54.i.not1.i.i
   br i1 %cmp4.i.i54.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -90693,10 +90693,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp309.i.i.i)
   %tileBounds.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %tileBounds.sroa.5.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %tileBounds.sroa.5.0.extract.trunc.i.i.i = trunc i64 %tileBounds.sroa.5.0.extract.shift.i.i.i to i32
+  %tileBounds.sroa.5.0.extract.trunc.i.i.i = trunc nuw i64 %tileBounds.sroa.5.0.extract.shift.i.i.i to i32
   %tileBounds.sroa.6.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %tileBounds.sroa.9.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %tileBounds.sroa.9.8.extract.trunc.i.i.i = trunc i64 %tileBounds.sroa.9.8.extract.shift.i.i.i to i32
+  %tileBounds.sroa.9.8.extract.trunc.i.i.i = trunc nuw i64 %tileBounds.sroa.9.8.extract.shift.i.i.i to i32
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 40
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %__functor.val, align 8
@@ -90718,7 +90718,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %entry
   %and.i.i.i.i.i.i = and i64 %6, 144115188075855871
   %11 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i = lshr i64 %6, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   %sub.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -1
   %12 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %13 = getelementptr inbounds i8, ptr %__functor.val, i64 32
@@ -90868,7 +90868,7 @@ for.body.i.i.i:                                   ; preds = %_ZN4pstd8optionalIN
   %and.i.i.i1.i.i.i.i = and i64 %43, 144115188075855871
   %44 = inttoptr i64 %and.i.i.i1.i.i.i.i to ptr
   %shr.i.i.i2.i.i.i.i = lshr i64 %43, 57
-  %conv.i.i.i3.i.i.i.i = trunc i64 %shr.i.i.i2.i.i.i.i to i32
+  %conv.i.i.i3.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i2.i.i.i.i to i32
   %sub.i.i4.i.i.i.i = add nsw i32 %conv.i.i.i3.i.i.i.i, -1
   %call3.i.i5.i.i.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i.i.i.i.i, ptr noundef %44, i32 noundef %sub.i.i4.i.i.i.i), !noalias !1054
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i.i.i.i.i), !noalias !1054
@@ -91077,7 +91077,7 @@ for.body39.i.i.i:                                 ; preds = %for.inc.i.i.i, %for
   %and.i.i.i65.i.i.i = and i64 %88, 144115188075855871
   %89 = inttoptr i64 %and.i.i.i65.i.i.i to ptr
   %shr.i.i.i66.i.i.i = lshr i64 %88, 57
-  %conv.i.i.i67.i.i.i = trunc i64 %shr.i.i.i66.i.i.i to i32
+  %conv.i.i.i67.i.i.i = trunc nuw nsw i64 %shr.i.i.i66.i.i.i to i32
   switch i32 %conv.i.i.i67.i.i.i, label %sw.default.i.i.i.i.i.i [
     i32 1, label %invoke.cont41.i.i.i
     i32 2, label %invoke.cont41.i.i.i
@@ -91433,7 +91433,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont41.i.i.i
   %and.i.i.i86.i.i.i = and i64 %162, 144115188075855871
   %163 = inttoptr i64 %and.i.i.i86.i.i.i to ptr
   %shr.i.i.i87.i.i.i = lshr i64 %162, 57
-  %conv.i.i.i88.i.i.i = trunc i64 %shr.i.i.i87.i.i.i to i32
+  %conv.i.i.i88.i.i.i = trunc nuw nsw i64 %shr.i.i.i87.i.i.i to i32
   %sub.i.i89.i.i.i = add nsw i32 %conv.i.i.i88.i.i.i, -1
   %call3.i.i90.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i.i.i.i, ptr noundef %163, i32 noundef %sub.i.i89.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp5785.i.i.i)
@@ -91518,7 +91518,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
   %and.i.i.i123.i.i.i = and i64 %170, 144115188075855871
   %171 = inttoptr i64 %and.i.i.i123.i.i.i to ptr
   %shr.i.i.i124.i.i.i = lshr i64 %170, 57
-  %conv.i.i.i125.i.i.i = trunc i64 %shr.i.i.i124.i.i.i to i32
+  %conv.i.i.i125.i.i.i = trunc nuw nsw i64 %shr.i.i.i124.i.i.i to i32
   switch i32 %conv.i.i.i125.i.i.i, label %sw.default.i.i.i126.invoke.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i.i.i
@@ -91913,7 +91913,7 @@ invoke.cont131.i.i.i:                             ; preds = %if.else130.i.i.i
   %and.i.i.i210.i.i.i = and i64 %217, 144115188075855871
   %219 = inttoptr i64 %and.i.i.i210.i.i.i to ptr
   %shr.i.i.i211.i.i.i = lshr i64 %217, 57
-  %conv.i.i.i212.i.i.i = trunc i64 %shr.i.i.i211.i.i.i to i32
+  %conv.i.i.i212.i.i.i = trunc nuw nsw i64 %shr.i.i.i211.i.i.i to i32
   %sub.i.i213.i.i.i = add nsw i32 %conv.i.i.i212.i.i.i, -1
   %call3.i.i214.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i208.i.i.i, ptr noundef %219, i32 noundef %sub.i.i213.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp141205.i.i.i)
@@ -91991,7 +91991,7 @@ if.end160.i.i.i:                                  ; preds = %for.cond.i172.i.i.i
   %and.i.i.i260.i.i.i = and i64 %228, 144115188075855871
   %229 = inttoptr i64 %and.i.i.i260.i.i.i to ptr
   %shr.i.i.i261.i.i.i = lshr i64 %228, 57
-  %conv.i.i.i262.i.i.i = trunc i64 %shr.i.i.i261.i.i.i to i32
+  %conv.i.i.i262.i.i.i = trunc nuw nsw i64 %shr.i.i.i261.i.i.i to i32
   switch i32 %conv.i.i.i262.i.i.i, label %sw.default.i.i.i126.invoke.i.i.i [
     i32 1, label %sw.bb.i.i.i270.i.i.i
     i32 2, label %sw.bb3.i.i.i263.i.i.i
@@ -92113,7 +92113,7 @@ if.end196.i.i.i:                                  ; preds = %for.cond.i299.i.i.i
   %and.i.i.i.i326.i.i.i = and i64 %248, 144115188075855871
   %249 = inttoptr i64 %and.i.i.i.i326.i.i.i to ptr
   %shr.i.i.i.i327.i.i.i = lshr i64 %248, 57
-  %conv.i.i.i.i328.i.i.i = trunc i64 %shr.i.i.i.i327.i.i.i to i32
+  %conv.i.i.i.i328.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i327.i.i.i to i32
   %sub.i.i.i329.i.i.i = add nsw i32 %conv.i.i.i.i328.i.i.i, -1
   %call3.i.i.i330331.i.i.i = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i.i.i.i, ptr noundef %249, i32 noundef %sub.i.i.i329.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i.i.i.i)
@@ -92346,7 +92346,7 @@ if.end.i444.i.i.i:                                ; preds = %invoke.cont269.i.i.
   %and.i.i.i.i447.i.i.i = and i64 %303, 144115188075855871
   %304 = inttoptr i64 %and.i.i.i.i447.i.i.i to ptr
   %shr.i.i.i.i448.i.i.i = lshr i64 %303, 57
-  %conv.i.i.i.i449.i.i.i = trunc i64 %shr.i.i.i.i448.i.i.i to i32
+  %conv.i.i.i.i449.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i448.i.i.i to i32
   %sub.i.i.i450.i.i.i = add nsw i32 %conv.i.i.i.i449.i.i.i, -1
   %call3.i.i.i451453.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF3PDFENS_7Vector3IfEES4_NS_13TransportModeENS_18BxDFReflTransFlagsEEUlT_E_fNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS7_PKvi(ptr noundef nonnull align 8 dereferenceable(32) %pdf.i.i.i.i.i, ptr noundef %304, i32 noundef %sub.i.i.i450.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i.i.i.i)
@@ -92593,7 +92593,7 @@ entry:
   %and.i.i = and i64 %0, 144115188075855871
   %1 = inttoptr i64 %and.i.i to ptr
   %shr.i.i = lshr i64 %0, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -92663,10 +92663,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vb.i.i.i)
   %tileBounds.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %tileBounds.sroa.4.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %tileBounds.sroa.4.0.extract.trunc.i.i.i = trunc i64 %tileBounds.sroa.4.0.extract.shift.i.i.i to i32
+  %tileBounds.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %tileBounds.sroa.4.0.extract.shift.i.i.i to i32
   %tileBounds.sroa.5.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %tileBounds.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %tileBounds.sroa.8.8.extract.trunc.i.i.i = trunc i64 %tileBounds.sroa.8.8.extract.shift.i.i.i to i32
+  %tileBounds.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %tileBounds.sroa.8.8.extract.shift.i.i.i to i32
   %1 = load ptr, ptr %__functor.val, align 8
   %call.i.i.i = tail call noundef nonnull align 64 dereferenceable(40) ptr @_ZN4pbrt11ThreadLocalINS_13ScratchBufferEE3GetEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
   %cmp.not.i.i.i.i = icmp sge i32 %tileBounds.sroa.0.0.extract.trunc.i.i.i, %tileBounds.sroa.5.8.extract.trunc.i.i.i
@@ -92959,7 +92959,7 @@ do.end.i.i.i:                                     ; preds = %for.body37.i.i.i
   br i1 %cmp.not.i.i125.i.i.i, label %if.end.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end.i.i.i
-  %46 = trunc i64 %rem.i.i.i.i.i to i32
+  %46 = trunc nuw nsw i64 %rem.i.i.i.i.i to i32
   %reass.sub.i.i.i.i = sub i32 %45, %46
   %conv7.i.i.i.i.i = add i32 %reass.sub.i.i.i.i, 8
   store i32 %conv7.i.i.i.i.i, ptr %offset.i.i.i.i.i, align 4
@@ -94656,7 +94656,7 @@ if.end.i199.i.i.i:                                ; preds = %invoke.cont119.i.i.
   %and.i.i.i.i.i.i.i = and i64 %144, 144115188075855871
   %145 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i.i = lshr i64 %144, 57
-  %conv.i.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i to i32
   %sub.i.i.i204.i.i.i = add nsw i32 %conv.i.i.i.i.i.i.i, -1
   %call3.i.i.i207.i.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF1fENS_7Vector3IfEES4_NS_13TransportModeEEUlT_E_NS_15SampledSpectrumENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %f.i.i.i.i.i, ptr noundef %145, i32 noundef %sub.i.i.i204.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %wo.i.i.i.i.i)
@@ -95448,7 +95448,7 @@ entry:
   %0 = load ptr, ptr %__functor, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i to i32
   %p.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i, 32
-  %p.sroa.4.0.extract.trunc.i.i.i.i = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i to i32
+  %p.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i.i to i32
   %1 = load i32, ptr %0, align 8
   %sub.i.i.i.i = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i, %1
   %y.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -95568,7 +95568,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp21.i.i.i)
   %pPixel.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %pPixel.sroa.2.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %pPixel.sroa.2.0.extract.trunc.i.i.i = trunc i64 %pPixel.sroa.2.0.extract.shift.i.i.i to i32
+  %pPixel.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %pPixel.sroa.2.0.extract.shift.i.i.i to i32
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i32, ptr %0, align 8
   %sub.i.i.i.i = sub i32 %pPixel.sroa.0.0.extract.trunc.i.i.i, %1
@@ -96586,10 +96586,10 @@ invoke.cont12:                                    ; preds = %invoke.cont7
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %ref.tmp.sroa.2.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %ref.tmp.sroa.4.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %ref.tmp.sroa.4.8.extract.trunc = trunc i64 %ref.tmp.sroa.4.8.extract.shift to i32
+  %ref.tmp.sroa.4.8.extract.trunc = trunc nuw i64 %ref.tmp.sroa.4.8.extract.shift to i32
   %p.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub.i.i = sub nsw i32 %ref.tmp.sroa.2.8.extract.trunc, %p.sroa.0.0.extract.trunc.i.i
   %sub4.i.i = sub nsw i32 %ref.tmp.sroa.4.8.extract.trunc, %p.sroa.2.0.extract.trunc.i.i
   %mul.i = mul nsw i32 %sub4.i.i, %sub.i.i
@@ -97252,7 +97252,7 @@ entry:
   %__args.val = load i64, ptr %__args, align 4
   %pPixel.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %pPixel.sroa.3.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %pPixel.sroa.3.0.extract.trunc.i.i.i = trunc i64 %pPixel.sroa.3.0.extract.shift.i.i.i to i32
+  %pPixel.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %pPixel.sroa.3.0.extract.shift.i.i.i to i32
   %0 = load ptr, ptr %__functor.val, align 8
   %1 = load i32, ptr %0, align 4
   %sub.i.i.i = sub i32 %pPixel.sroa.0.0.extract.trunc.i.i.i, %1
@@ -97330,7 +97330,7 @@ for.body16.us.i.i.i:                              ; preds = %_ZNKSt8functionIFdN
   %23 = xor <2 x i64> %21, %22
   %24 = trunc <2 x i64> %23 to <2 x i32>
   %25 = lshr <2 x i64> %20, <i64 59, i64 59>
-  %26 = trunc <2 x i64> %25 to <2 x i32>
+  %26 = trunc nuw nsw <2 x i64> %25 to <2 x i32>
   %27 = call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %24, <2 x i32> %24, <2 x i32> %26)
   %28 = uitofp <2 x i32> %27 to <2 x float>
   %29 = fmul <2 x float> %28, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -97452,14 +97452,14 @@ entry:
   %__args.val1 = load i64, ptr %0, align 4
   %bounds.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %bounds.sroa.4.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %bounds.sroa.4.0.extract.trunc.i.i.i = trunc i64 %bounds.sroa.4.0.extract.shift.i.i.i to i32
+  %bounds.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %bounds.sroa.4.0.extract.shift.i.i.i to i32
   %bounds.sroa.5.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %bounds.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %bounds.sroa.8.8.extract.trunc.i.i.i = trunc i64 %bounds.sroa.8.8.extract.shift.i.i.i to i32
+  %bounds.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %bounds.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %bounds.sroa.0.0.extract.trunc.i.i.i, %bounds.sroa.5.8.extract.trunc.i.i.i
   %1 = tail call i32 @llvm.smax.i32(i32 %bounds.sroa.4.0.extract.trunc.i.i.i, i32 %bounds.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i374.i.not1.i.i = icmp sge i32 %bounds.sroa.4.0.extract.trunc.i.i.i, %bounds.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i374.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i374.i.not1.i.i
+  %cmp4.i.i374.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i374.i.not1.i.i
   br i1 %cmp4.i.i374.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -98171,7 +98171,7 @@ if.else133.i.i.i:                                 ; preds = %if.else.i.i.i
   %and.i.i.i.i.i.i = and i64 %106, 144115188075855871
   %109 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %shr.i.i.i306.i.i.i = lshr i64 %106, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i306.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i306.i.i.i to i32
   %sub.i.i307.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_7Sampler16StartPixelSampleENS_6Point2IiEEiiEUlT_E_vNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS5_Pvi(ptr noundef nonnull align 8 dereferenceable(24) %start.i.i.i.i, ptr noundef %109, i32 noundef %sub.i.i307.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i.i.i)

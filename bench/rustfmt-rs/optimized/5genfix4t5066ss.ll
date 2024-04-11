@@ -2388,7 +2388,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h37009720d1005d9fE.exit": ; preds = %32
   %42 = getelementptr inbounds i8, ptr %5, i64 8
   %43 = load i8, ptr %42, align 8, !range !440, !alias.scope !437, !noundef !5
-  %44 = trunc i8 %43 to i1
+  %44 = trunc nuw i8 %43 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
@@ -2457,11 +2457,11 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
   %86 = getelementptr inbounds i8, ptr %1, i64 104
   %87 = load i8, ptr %86, align 8, !range !440, !alias.scope !444, !noalias !441, !noundef !5
   %88 = xor i8 %87, %85
-  %89 = trunc i8 %88 to i1
+  %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %90
 
 90:                                               ; preds = %83
-  %trunc.i = trunc i64 %7 to i1
+  %trunc.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i, label %91, label %92
 
 91:                                               ; preds = %90
@@ -2469,7 +2469,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
   br i1 %.not11.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %94
 
 92:                                               ; preds = %90
-  %93 = trunc i64 %17 to i1
+  %93 = trunc nuw i64 %17 to i1
   br i1 %93, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %100
 
 94:                                               ; preds = %91
@@ -2483,7 +2483,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
 100:                                              ; preds = %94, %92
   %101 = getelementptr inbounds i8, ptr %0, i64 16
   %102 = load i64, ptr %101, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc12.i = trunc i64 %102 to i1
+  %trunc12.i = trunc nuw i64 %102 to i1
   %103 = getelementptr inbounds i8, ptr %1, i64 16
   %104 = load i64, ptr %103, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
   br i1 %trunc12.i, label %105, label %106
@@ -2493,7 +2493,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
   br i1 %.not13.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %108
 
 106:                                              ; preds = %100
-  %107 = trunc i64 %104 to i1
+  %107 = trunc nuw i64 %104 to i1
   br i1 %107, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %114
 
 108:                                              ; preds = %105
@@ -2507,7 +2507,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
 114:                                              ; preds = %108, %106
   %115 = getelementptr inbounds i8, ptr %0, i64 32
   %116 = load i64, ptr %115, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc14.i = trunc i64 %116 to i1
+  %trunc14.i = trunc nuw i64 %116 to i1
   %117 = getelementptr inbounds i8, ptr %1, i64 32
   %118 = load i64, ptr %117, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
   br i1 %trunc14.i, label %119, label %120
@@ -2517,7 +2517,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
   br i1 %.not15.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %122
 
 120:                                              ; preds = %114
-  %121 = trunc i64 %118 to i1
+  %121 = trunc nuw i64 %118 to i1
   br i1 %121, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %128
 
 122:                                              ; preds = %119
@@ -2531,7 +2531,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
 128:                                              ; preds = %122, %120
   %129 = getelementptr inbounds i8, ptr %0, i64 48
   %130 = load i64, ptr %129, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc16.i = trunc i64 %130 to i1
+  %trunc16.i = trunc nuw i64 %130 to i1
   %131 = getelementptr inbounds i8, ptr %1, i64 48
   %132 = load i64, ptr %131, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
   br i1 %trunc16.i, label %133, label %134
@@ -2541,7 +2541,7 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
   br i1 %.not17.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %136
 
 134:                                              ; preds = %128
-  %135 = trunc i64 %132 to i1
+  %135 = trunc nuw i64 %132 to i1
   br i1 %135, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", label %142
 
 136:                                              ; preds = %133
@@ -2555,13 +2555,13 @@ define hidden noundef zeroext i1 @_ZN13fluent_bundle5types11FluentValue7matches1
 142:                                              ; preds = %136, %134
   %143 = getelementptr inbounds i8, ptr %0, i64 64
   %144 = load i64, ptr %143, align 8, !range !457, !alias.scope !441, !noalias !444, !noundef !5
-  %trunc18.i = trunc i64 %144 to i1
+  %trunc18.i = trunc nuw i64 %144 to i1
   %145 = getelementptr inbounds i8, ptr %1, i64 64
   %146 = load i64, ptr %145, align 8, !range !457, !alias.scope !444, !noalias !441, !noundef !5
   br i1 %trunc18.i, label %150, label %147
 
 147:                                              ; preds = %142
-  %148 = trunc i64 %146 to i1
+  %148 = trunc nuw i64 %146 to i1
   %149 = xor i1 %148, true
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
@@ -2727,7 +2727,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a2596937322e1d3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !57, !noundef !5
   %.val = load i8, ptr %3, align 1, !range !440, !noundef !5
-  %trunc.i = trunc i8 %.val to i1
+  %trunc.i = trunc nuw i8 %.val to i1
   %..i = select i1 %trunc.i, i64 4, i64 10
   %anon.88febd2ceda59645b1cafb6be931b86b.173.llvm.4073844125802496097.anon.88febd2ceda59645b1cafb6be931b86b.182.llvm.4073844125802496097.i = select i1 %trunc.i, ptr @anon.88febd2ceda59645b1cafb6be931b86b.182.llvm.4073844125802496097, ptr @anon.88febd2ceda59645b1cafb6be931b86b.173.llvm.4073844125802496097
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h3ae05f1225cf0e93E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.88febd2ceda59645b1cafb6be931b86b.173.llvm.4073844125802496097.anon.88febd2ceda59645b1cafb6be931b86b.182.llvm.4073844125802496097.i, i64 noundef %..i)
@@ -2867,7 +2867,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hf658c083f6a8e0d
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3b404e92c100c165E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8, !range !440, !alias.scope !485, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -2887,7 +2887,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
-  %5 = trunc i8 %.sroa.3.0.copyload to i1
+  %5 = trunc nuw i8 %.sroa.3.0.copyload to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !491, !noalias !493, !noundef !5
   %.not.i.i = icmp ult i64 %7, 2
@@ -9060,14 +9060,14 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2505)
   %116 = load i64, ptr %7, align 8, !range !457, !alias.scope !2505, !noalias !2502, !noundef !5
-  %trunc.i = trunc i64 %116 to i1
+  %trunc.i = trunc nuw i64 %116 to i1
   br i1 %trunc.i, label %189, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2507)
   %117 = getelementptr inbounds i8, ptr %7, i64 26
   %118 = load i8, ptr %117, align 2, !range !440, !alias.scope !2510, !noalias !2511, !noundef !5
-  %119 = trunc i8 %118 to i1
+  %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h0ee59216da30f3fdE.exit.thread7.i", label %.lr.ph125.i
 
 .lr.ph125.i:                                      ; preds = %.critedge.i
@@ -9089,7 +9089,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %23
 127:                                              ; preds = %.loopexit.i, %.lr.ph125.i
   %128 = phi i64 [ %.promoted124.i, %.lr.ph125.i ], [ %126, %.loopexit.i ]
   %129 = phi i8 [ %.pre.i43, %.lr.ph125.i ], [ %131, %.loopexit.i ]
-  %130 = trunc i8 %129 to i1
+  %130 = trunc nuw i8 %129 to i1
   %131 = xor i8 %129, 1
   %132 = icmp eq i64 %128, 0
   br i1 %132, label %142, label %133
@@ -9228,7 +9228,7 @@ _ZN4core3str11validations15next_code_point17h875c6555aba9a391E.exit.thread.i.i: 
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he7c268187cb709a7E.exit": ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h0ee59216da30f3fdE.exit.thread7.i", %202, %203
   %204 = load i64, ptr %8, align 8, !range !457, !noundef !5
-  %205 = trunc i64 %204 to i8
+  %205 = trunc nuw nsw i64 %204 to i8
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
@@ -10091,7 +10091,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hf2ea2cbd99291858E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !2799
   %12 = trunc i32 %1 to i8
@@ -10103,7 +10103,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hf2ea2cbd99291858E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !2799
   %19 = lshr i32 %1, 6
@@ -10171,7 +10171,7 @@ _ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.exit: ; preds = %8, %
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !2812, !noundef !5
   %58 = load i64, ptr %0, align 8, !alias.scope !2812, !noundef !5
@@ -15997,7 +15997,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 388:                                              ; preds = %.noexc70
   %.sroa.30.sroa.0.0.extract.trunc655 = trunc i64 %387 to i8
   %.sroa.30.sroa.31.0.extract.shift694 = lshr i64 %387, 8
-  %.sroa.30.sroa.31.0.extract.trunc695 = trunc i64 %.sroa.30.sroa.31.0.extract.shift694 to i56
+  %.sroa.30.sroa.31.0.extract.trunc695 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift694 to i56
   %.sroa.43347.0..sroa_idx370 = getelementptr inbounds i8, ptr %38, i64 16
   %389 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx370, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx450 = getelementptr inbounds i8, ptr %38, i64 32
@@ -16072,7 +16072,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 403:                                              ; preds = %.noexc73
   %.sroa.30.sroa.0.0.extract.trunc653 = trunc i64 %402 to i8
   %.sroa.30.sroa.31.0.extract.shift690 = lshr i64 %402, 8
-  %.sroa.30.sroa.31.0.extract.trunc691 = trunc i64 %.sroa.30.sroa.31.0.extract.shift690 to i56
+  %.sroa.30.sroa.31.0.extract.trunc691 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift690 to i56
   %.sroa.43347.0..sroa_idx366 = getelementptr inbounds i8, ptr %36, i64 16
   %404 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx366, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx446 = getelementptr inbounds i8, ptr %36, i64 32
@@ -16120,7 +16120,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 415:                                              ; preds = %.noexc75
   %.sroa.30.sroa.0.0.extract.trunc651 = trunc i64 %414 to i8
   %.sroa.30.sroa.31.0.extract.shift686 = lshr i64 %414, 8
-  %.sroa.30.sroa.31.0.extract.trunc687 = trunc i64 %.sroa.30.sroa.31.0.extract.shift686 to i56
+  %.sroa.30.sroa.31.0.extract.trunc687 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift686 to i56
   %.sroa.43347.0..sroa_idx362 = getelementptr inbounds i8, ptr %34, i64 16
   %416 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx362, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx442 = getelementptr inbounds i8, ptr %34, i64 32
@@ -16168,7 +16168,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 427:                                              ; preds = %.noexc77
   %.sroa.30.sroa.0.0.extract.trunc649 = trunc i64 %426 to i8
   %.sroa.30.sroa.31.0.extract.shift682 = lshr i64 %426, 8
-  %.sroa.30.sroa.31.0.extract.trunc683 = trunc i64 %.sroa.30.sroa.31.0.extract.shift682 to i56
+  %.sroa.30.sroa.31.0.extract.trunc683 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift682 to i56
   %.sroa.43347.0..sroa_idx358 = getelementptr inbounds i8, ptr %32, i64 16
   %428 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx358, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx438 = getelementptr inbounds i8, ptr %32, i64 32
@@ -16216,7 +16216,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 439:                                              ; preds = %.noexc79
   %.sroa.30.sroa.0.0.extract.trunc647 = trunc i64 %438 to i8
   %.sroa.30.sroa.31.0.extract.shift678 = lshr i64 %438, 8
-  %.sroa.30.sroa.31.0.extract.trunc679 = trunc i64 %.sroa.30.sroa.31.0.extract.shift678 to i56
+  %.sroa.30.sroa.31.0.extract.trunc679 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift678 to i56
   %.sroa.43347.0..sroa_idx354 = getelementptr inbounds i8, ptr %30, i64 16
   %440 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx354, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx434 = getelementptr inbounds i8, ptr %30, i64 32
@@ -16264,7 +16264,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 451:                                              ; preds = %.noexc81
   %.sroa.30.sroa.0.0.extract.trunc645 = trunc i64 %450 to i8
   %.sroa.30.sroa.31.0.extract.shift674 = lshr i64 %450, 8
-  %.sroa.30.sroa.31.0.extract.trunc675 = trunc i64 %.sroa.30.sroa.31.0.extract.shift674 to i56
+  %.sroa.30.sroa.31.0.extract.trunc675 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift674 to i56
   %.sroa.43347.0..sroa_idx350 = getelementptr inbounds i8, ptr %28, i64 16
   %452 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx350, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx430 = getelementptr inbounds i8, ptr %28, i64 32
@@ -16312,7 +16312,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 463:                                              ; preds = %.noexc83
   %.sroa.30.sroa.0.0.extract.trunc = trunc i64 %462 to i8
   %.sroa.30.sroa.31.0.extract.shift = lshr i64 %462, 8
-  %.sroa.30.sroa.31.0.extract.trunc = trunc i64 %.sroa.30.sroa.31.0.extract.shift to i56
+  %.sroa.30.sroa.31.0.extract.trunc = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift to i56
   %.sroa.43347.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
   %464 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 32
@@ -16360,7 +16360,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 475:                                              ; preds = %.noexc85
   %.sroa.30.sroa.0.0.extract.trunc657 = trunc i64 %474 to i8
   %.sroa.30.sroa.31.0.extract.shift698 = lshr i64 %474, 8
-  %.sroa.30.sroa.31.0.extract.trunc699 = trunc i64 %.sroa.30.sroa.31.0.extract.shift698 to i56
+  %.sroa.30.sroa.31.0.extract.trunc699 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift698 to i56
   %.sroa.43347.0..sroa_idx374 = getelementptr inbounds i8, ptr %24, i64 16
   %476 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx374, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx454 = getelementptr inbounds i8, ptr %24, i64 32
@@ -16378,7 +16378,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
   %.sroa.30.0.copyload345 = load i64, ptr %.sroa.30.0..sroa_idx344, align 8, !noalias !3986
   %.sroa.30.sroa.0.0.extract.trunc659 = trunc i64 %.sroa.30.0.copyload345 to i8
   %.sroa.30.sroa.31.0.extract.shift702 = lshr i64 %.sroa.30.0.copyload345, 8
-  %.sroa.30.sroa.31.0.extract.trunc703 = trunc i64 %.sroa.30.sroa.31.0.extract.shift702 to i56
+  %.sroa.30.sroa.31.0.extract.trunc703 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift702 to i56
   %.sroa.43347.0..sroa_idx378 = getelementptr inbounds i8, ptr %23, i64 16
   %480 = load <2 x i64>, ptr %.sroa.43347.0..sroa_idx378, align 8, !noalias !3986
   %.sroa.53.0..sroa_idx458 = getelementptr inbounds i8, ptr %23, i64 32
@@ -16431,7 +16431,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 488:                                              ; preds = %.noexc86
   %.sroa.30.sroa.0.0.extract.trunc668 = trunc i64 %.sroa.6.0.copyload124.i to i8
   %.sroa.30.sroa.31.0.extract.shift720 = lshr i64 %.sroa.6.0.copyload124.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc721 = trunc i64 %.sroa.30.sroa.31.0.extract.shift720 to i56
+  %.sroa.30.sroa.31.0.extract.trunc721 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift720 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16480,7 +16480,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 495:                                              ; preds = %.noexc87
   %.sroa.30.sroa.0.0.extract.trunc667 = trunc i64 %.sroa.6127.0.copyload128.i to i8
   %.sroa.30.sroa.31.0.extract.shift718 = lshr i64 %.sroa.6127.0.copyload128.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc719 = trunc i64 %.sroa.30.sroa.31.0.extract.shift718 to i56
+  %.sroa.30.sroa.31.0.extract.trunc719 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift718 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7129.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16515,7 +16515,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 502:                                              ; preds = %.noexc88
   %.sroa.30.sroa.0.0.extract.trunc666 = trunc i64 %.sroa.6132.0.copyload133.i to i8
   %.sroa.30.sroa.31.0.extract.shift716 = lshr i64 %.sroa.6132.0.copyload133.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc717 = trunc i64 %.sroa.30.sroa.31.0.extract.shift716 to i56
+  %.sroa.30.sroa.31.0.extract.trunc717 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift716 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7134.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16550,7 +16550,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 509:                                              ; preds = %.noexc89
   %.sroa.30.sroa.0.0.extract.trunc665 = trunc i64 %.sroa.6137.0.copyload138.i to i8
   %.sroa.30.sroa.31.0.extract.shift714 = lshr i64 %.sroa.6137.0.copyload138.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc715 = trunc i64 %.sroa.30.sroa.31.0.extract.shift714 to i56
+  %.sroa.30.sroa.31.0.extract.trunc715 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift714 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7139.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16585,7 +16585,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 516:                                              ; preds = %.noexc90
   %.sroa.30.sroa.0.0.extract.trunc664 = trunc i64 %.sroa.6142.0.copyload143.i to i8
   %.sroa.30.sroa.31.0.extract.shift712 = lshr i64 %.sroa.6142.0.copyload143.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc713 = trunc i64 %.sroa.30.sroa.31.0.extract.shift712 to i56
+  %.sroa.30.sroa.31.0.extract.trunc713 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift712 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7144.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16620,7 +16620,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 523:                                              ; preds = %.noexc91
   %.sroa.30.sroa.0.0.extract.trunc663 = trunc i64 %.sroa.6147.0.copyload148.i to i8
   %.sroa.30.sroa.31.0.extract.shift710 = lshr i64 %.sroa.6147.0.copyload148.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc711 = trunc i64 %.sroa.30.sroa.31.0.extract.shift710 to i56
+  %.sroa.30.sroa.31.0.extract.trunc711 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift710 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7149.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16655,7 +16655,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 530:                                              ; preds = %.noexc92
   %.sroa.30.sroa.0.0.extract.trunc662 = trunc i64 %.sroa.6152.0.copyload153.i to i8
   %.sroa.30.sroa.31.0.extract.shift708 = lshr i64 %.sroa.6152.0.copyload153.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc709 = trunc i64 %.sroa.30.sroa.31.0.extract.shift708 to i56
+  %.sroa.30.sroa.31.0.extract.trunc709 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift708 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7154.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16690,7 +16690,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
 537:                                              ; preds = %.noexc93
   %.sroa.30.sroa.0.0.extract.trunc661 = trunc i64 %.sroa.6157.0.copyload158.i to i8
   %.sroa.30.sroa.31.0.extract.shift706 = lshr i64 %.sroa.6157.0.copyload158.i, 8
-  %.sroa.30.sroa.31.0.extract.trunc707 = trunc i64 %.sroa.30.sroa.31.0.extract.shift706 to i56
+  %.sroa.30.sroa.31.0.extract.trunc707 = trunc nuw i64 %.sroa.30.sroa.31.0.extract.shift706 to i56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7159.i.sroa.10, i64 24, i1 false), !noalias !3986
   br label %.thread881
 
@@ -16943,7 +16943,7 @@ _ZN5serde2de7Visitor12visit_string17h6c0afd629be5b1dcE.exit42: ; preds = %142, %
   %612 = phi <2 x i64> [ %458, %.noexc82 ], [ %446, %.noexc80 ], [ %434, %.noexc78 ], [ %422, %.noexc76 ], [ %410, %.noexc74 ], [ %398, %.noexc72 ], [ %383, %.noexc69 ], [ %470, %.noexc84 ]
   %.sroa.30.sroa.0.1 = trunc i64 %.sroa.30.sroa.31.sroa.0.1.in.in to i8
   %.sroa.30.sroa.31.sroa.0.1.in = lshr i64 %.sroa.30.sroa.31.sroa.0.1.in.in, 8
-  %.sroa.30.sroa.31.sroa.0.1 = trunc i64 %.sroa.30.sroa.31.sroa.0.1.in to i56
+  %.sroa.30.sroa.31.sroa.0.1 = trunc nuw i64 %.sroa.30.sroa.31.sroa.0.1.in to i56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7159.i.sroa.10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7154.i.sroa.10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7149.i.sroa.10)
@@ -17661,7 +17661,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !4205
   %.sroa.351.sroa.0.0.extract.trunc1614 = trunc i64 %300 to i8
   %.sroa.351.sroa.177.0.extract.shift1950 = lshr i64 %300, 8
-  %.sroa.351.sroa.177.0.extract.trunc1951 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1950 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1951 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1950 to i56
   br label %1475
 
 303:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51fd766d011982c6E.llvm.4073844125802496097.exit.i.i.i.i", %287
@@ -17676,7 +17676,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload603 = load i64, ptr %.sroa.351.8..sroa_idx602, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1613 = trunc i64 %.sroa.351.8.copyload603 to i8
   %.sroa.351.sroa.177.0.extract.shift1948 = lshr i64 %.sroa.351.8.copyload603, 8
-  %.sroa.351.sroa.177.0.extract.trunc1949 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1948 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1949 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1948 to i56
   %.sroa.362.8..sroa_idx937 = getelementptr inbounds i8, ptr %187, i64 16
   %304 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx937, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1442 = getelementptr inbounds i8, ptr %187, i64 32
@@ -17751,7 +17751,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload601 = load i64, ptr %.sroa.351.8..sroa_idx600, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1612 = trunc i64 %.sroa.351.8.copyload601 to i8
   %.sroa.351.sroa.177.0.extract.shift1946 = lshr i64 %.sroa.351.8.copyload601, 8
-  %.sroa.351.sroa.177.0.extract.trunc1947 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1946 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1947 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1946 to i56
   %.sroa.362.8..sroa_idx935 = getelementptr inbounds i8, ptr %186, i64 16
   %321 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx935, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1441 = getelementptr inbounds i8, ptr %186, i64 32
@@ -17801,7 +17801,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !4283
   %.sroa.351.sroa.0.0.extract.trunc1615 = trunc i64 %332 to i8
   %.sroa.351.sroa.177.0.extract.shift1952 = lshr i64 %332, 8
-  %.sroa.351.sroa.177.0.extract.trunc1953 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1952 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1953 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1952 to i56
   br label %1475
 
 335:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51fd766d011982c6E.llvm.4073844125802496097.exit.i.i.i477.i", %322
@@ -17816,7 +17816,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload599 = load i64, ptr %.sroa.351.8..sroa_idx598, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1611 = trunc i64 %.sroa.351.8.copyload599 to i8
   %.sroa.351.sroa.177.0.extract.shift1944 = lshr i64 %.sroa.351.8.copyload599, 8
-  %.sroa.351.sroa.177.0.extract.trunc1945 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1944 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1945 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1944 to i56
   %.sroa.362.8..sroa_idx933 = getelementptr inbounds i8, ptr %185, i64 16
   %336 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx933, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1440 = getelementptr inbounds i8, ptr %185, i64 32
@@ -17891,7 +17891,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload597 = load i64, ptr %.sroa.351.8..sroa_idx596, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1610 = trunc i64 %.sroa.351.8.copyload597 to i8
   %.sroa.351.sroa.177.0.extract.shift1942 = lshr i64 %.sroa.351.8.copyload597, 8
-  %.sroa.351.sroa.177.0.extract.trunc1943 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1942 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1943 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1942 to i56
   %.sroa.362.8..sroa_idx931 = getelementptr inbounds i8, ptr %184, i64 16
   %353 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx931, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1439 = getelementptr inbounds i8, ptr %184, i64 32
@@ -17964,7 +17964,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload595 = load i64, ptr %.sroa.351.8..sroa_idx594, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1609 = trunc i64 %.sroa.351.8.copyload595 to i8
   %.sroa.351.sroa.177.0.extract.shift1940 = lshr i64 %.sroa.351.8.copyload595, 8
-  %.sroa.351.sroa.177.0.extract.trunc1941 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1940 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1941 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1940 to i56
   %.sroa.362.8..sroa_idx929 = getelementptr inbounds i8, ptr %183, i64 16
   %370 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx929, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1438 = getelementptr inbounds i8, ptr %183, i64 32
@@ -18037,7 +18037,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload593 = load i64, ptr %.sroa.351.8..sroa_idx592, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1608 = trunc i64 %.sroa.351.8.copyload593 to i8
   %.sroa.351.sroa.177.0.extract.shift1938 = lshr i64 %.sroa.351.8.copyload593, 8
-  %.sroa.351.sroa.177.0.extract.trunc1939 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1938 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1939 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1938 to i56
   %.sroa.362.8..sroa_idx927 = getelementptr inbounds i8, ptr %182, i64 16
   %387 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx927, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1437 = getelementptr inbounds i8, ptr %182, i64 32
@@ -18063,7 +18063,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 394:                                              ; preds = %.noexc63
   %.sroa.351.sroa.0.0.extract.trunc = trunc i64 %.sroa.018.0.copyload.i to i8
   %.sroa.351.sroa.177.0.extract.shift = lshr i64 %.sroa.018.0.copyload.i, 8
-  %.sroa.351.sroa.177.0.extract.trunc = trunc i64 %.sroa.351.sroa.177.0.extract.shift to i56
+  %.sroa.351.sroa.177.0.extract.trunc = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift to i56
   %.sroa.362.8..sroa_idx = getelementptr inbounds i8, ptr %181, i64 16
   %395 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx = getelementptr inbounds i8, ptr %181, i64 32
@@ -18081,7 +18081,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload591 = load i64, ptr %.sroa.351.8..sroa_idx590, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1607 = trunc i64 %.sroa.351.8.copyload591 to i8
   %.sroa.351.sroa.177.0.extract.shift1936 = lshr i64 %.sroa.351.8.copyload591, 8
-  %.sroa.351.sroa.177.0.extract.trunc1937 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1936 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1937 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1936 to i56
   %.sroa.362.8..sroa_idx925 = getelementptr inbounds i8, ptr %180, i64 16
   %397 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx925, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1436 = getelementptr inbounds i8, ptr %180, i64 32
@@ -18110,7 +18110,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 407:                                              ; preds = %.noexc65
   %.sroa.351.sroa.0.0.extract.trunc1449 = trunc i64 %402 to i8
   %.sroa.351.sroa.177.0.extract.shift1620 = lshr i64 %402, 8
-  %.sroa.351.sroa.177.0.extract.trunc1621 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1620 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1621 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1620 to i56
   %.sroa.362.8..sroa_idx609 = getelementptr inbounds i8, ptr %179, i64 16
   %408 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx609, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1278 = getelementptr inbounds i8, ptr %179, i64 32
@@ -18128,7 +18128,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload589 = load i64, ptr %.sroa.351.8..sroa_idx588, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1606 = trunc i64 %.sroa.351.8.copyload589 to i8
   %.sroa.351.sroa.177.0.extract.shift1934 = lshr i64 %.sroa.351.8.copyload589, 8
-  %.sroa.351.sroa.177.0.extract.trunc1935 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1934 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1935 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1934 to i56
   %.sroa.362.8..sroa_idx923 = getelementptr inbounds i8, ptr %178, i64 16
   %410 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx923, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1435 = getelementptr inbounds i8, ptr %178, i64 32
@@ -18156,7 +18156,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 420:                                              ; preds = %.noexc67
   %.sroa.351.sroa.0.0.extract.trunc1450 = trunc i64 %415 to i8
   %.sroa.351.sroa.177.0.extract.shift1622 = lshr i64 %415, 8
-  %.sroa.351.sroa.177.0.extract.trunc1623 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1622 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1623 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1622 to i56
   %.sroa.362.8..sroa_idx611 = getelementptr inbounds i8, ptr %177, i64 16
   %421 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx611, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1279 = getelementptr inbounds i8, ptr %177, i64 32
@@ -18174,7 +18174,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload587 = load i64, ptr %.sroa.351.8..sroa_idx586, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1605 = trunc i64 %.sroa.351.8.copyload587 to i8
   %.sroa.351.sroa.177.0.extract.shift1932 = lshr i64 %.sroa.351.8.copyload587, 8
-  %.sroa.351.sroa.177.0.extract.trunc1933 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1932 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1933 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1932 to i56
   %.sroa.362.8..sroa_idx921 = getelementptr inbounds i8, ptr %176, i64 16
   %423 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx921, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1434 = getelementptr inbounds i8, ptr %176, i64 32
@@ -18202,7 +18202,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 433:                                              ; preds = %.noexc69
   %.sroa.351.sroa.0.0.extract.trunc1451 = trunc i64 %428 to i8
   %.sroa.351.sroa.177.0.extract.shift1624 = lshr i64 %428, 8
-  %.sroa.351.sroa.177.0.extract.trunc1625 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1624 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1625 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1624 to i56
   %.sroa.362.8..sroa_idx613 = getelementptr inbounds i8, ptr %175, i64 16
   %434 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx613, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1280 = getelementptr inbounds i8, ptr %175, i64 32
@@ -18220,7 +18220,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload585 = load i64, ptr %.sroa.351.8..sroa_idx584, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1604 = trunc i64 %.sroa.351.8.copyload585 to i8
   %.sroa.351.sroa.177.0.extract.shift1930 = lshr i64 %.sroa.351.8.copyload585, 8
-  %.sroa.351.sroa.177.0.extract.trunc1931 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1930 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1931 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1930 to i56
   %.sroa.362.8..sroa_idx919 = getelementptr inbounds i8, ptr %174, i64 16
   %436 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx919, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1433 = getelementptr inbounds i8, ptr %174, i64 32
@@ -18248,7 +18248,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 446:                                              ; preds = %.noexc71
   %.sroa.351.sroa.0.0.extract.trunc1452 = trunc i64 %441 to i8
   %.sroa.351.sroa.177.0.extract.shift1626 = lshr i64 %441, 8
-  %.sroa.351.sroa.177.0.extract.trunc1627 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1626 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1627 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1626 to i56
   %.sroa.362.8..sroa_idx615 = getelementptr inbounds i8, ptr %173, i64 16
   %447 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx615, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1281 = getelementptr inbounds i8, ptr %173, i64 32
@@ -18266,7 +18266,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload583 = load i64, ptr %.sroa.351.8..sroa_idx582, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1603 = trunc i64 %.sroa.351.8.copyload583 to i8
   %.sroa.351.sroa.177.0.extract.shift1928 = lshr i64 %.sroa.351.8.copyload583, 8
-  %.sroa.351.sroa.177.0.extract.trunc1929 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1928 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1929 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1928 to i56
   %.sroa.362.8..sroa_idx917 = getelementptr inbounds i8, ptr %172, i64 16
   %449 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx917, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1432 = getelementptr inbounds i8, ptr %172, i64 32
@@ -18294,7 +18294,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 459:                                              ; preds = %.noexc73
   %.sroa.351.sroa.0.0.extract.trunc1453 = trunc i64 %454 to i8
   %.sroa.351.sroa.177.0.extract.shift1628 = lshr i64 %454, 8
-  %.sroa.351.sroa.177.0.extract.trunc1629 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1628 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1629 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1628 to i56
   %.sroa.362.8..sroa_idx617 = getelementptr inbounds i8, ptr %171, i64 16
   %460 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx617, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1282 = getelementptr inbounds i8, ptr %171, i64 32
@@ -18312,7 +18312,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload581 = load i64, ptr %.sroa.351.8..sroa_idx580, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1602 = trunc i64 %.sroa.351.8.copyload581 to i8
   %.sroa.351.sroa.177.0.extract.shift1926 = lshr i64 %.sroa.351.8.copyload581, 8
-  %.sroa.351.sroa.177.0.extract.trunc1927 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1926 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1927 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1926 to i56
   %.sroa.362.8..sroa_idx915 = getelementptr inbounds i8, ptr %170, i64 16
   %462 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx915, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1431 = getelementptr inbounds i8, ptr %170, i64 32
@@ -18340,7 +18340,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 472:                                              ; preds = %.noexc75
   %.sroa.351.sroa.0.0.extract.trunc1454 = trunc i64 %467 to i8
   %.sroa.351.sroa.177.0.extract.shift1630 = lshr i64 %467, 8
-  %.sroa.351.sroa.177.0.extract.trunc1631 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1630 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1631 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1630 to i56
   %.sroa.362.8..sroa_idx619 = getelementptr inbounds i8, ptr %169, i64 16
   %473 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx619, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1283 = getelementptr inbounds i8, ptr %169, i64 32
@@ -18358,7 +18358,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload579 = load i64, ptr %.sroa.351.8..sroa_idx578, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1601 = trunc i64 %.sroa.351.8.copyload579 to i8
   %.sroa.351.sroa.177.0.extract.shift1924 = lshr i64 %.sroa.351.8.copyload579, 8
-  %.sroa.351.sroa.177.0.extract.trunc1925 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1924 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1925 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1924 to i56
   %.sroa.362.8..sroa_idx913 = getelementptr inbounds i8, ptr %168, i64 16
   %475 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx913, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1430 = getelementptr inbounds i8, ptr %168, i64 32
@@ -18386,7 +18386,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 485:                                              ; preds = %.noexc77
   %.sroa.351.sroa.0.0.extract.trunc1455 = trunc i64 %480 to i8
   %.sroa.351.sroa.177.0.extract.shift1632 = lshr i64 %480, 8
-  %.sroa.351.sroa.177.0.extract.trunc1633 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1632 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1633 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1632 to i56
   %.sroa.362.8..sroa_idx621 = getelementptr inbounds i8, ptr %167, i64 16
   %486 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx621, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1284 = getelementptr inbounds i8, ptr %167, i64 32
@@ -18404,7 +18404,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload577 = load i64, ptr %.sroa.351.8..sroa_idx576, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1600 = trunc i64 %.sroa.351.8.copyload577 to i8
   %.sroa.351.sroa.177.0.extract.shift1922 = lshr i64 %.sroa.351.8.copyload577, 8
-  %.sroa.351.sroa.177.0.extract.trunc1923 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1922 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1923 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1922 to i56
   %.sroa.362.8..sroa_idx911 = getelementptr inbounds i8, ptr %166, i64 16
   %488 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx911, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1429 = getelementptr inbounds i8, ptr %166, i64 32
@@ -18432,7 +18432,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 498:                                              ; preds = %.noexc79
   %.sroa.351.sroa.0.0.extract.trunc1456 = trunc i64 %493 to i8
   %.sroa.351.sroa.177.0.extract.shift1634 = lshr i64 %493, 8
-  %.sroa.351.sroa.177.0.extract.trunc1635 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1634 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1635 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1634 to i56
   %.sroa.362.8..sroa_idx623 = getelementptr inbounds i8, ptr %165, i64 16
   %499 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx623, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1285 = getelementptr inbounds i8, ptr %165, i64 32
@@ -18450,7 +18450,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload575 = load i64, ptr %.sroa.351.8..sroa_idx574, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1599 = trunc i64 %.sroa.351.8.copyload575 to i8
   %.sroa.351.sroa.177.0.extract.shift1920 = lshr i64 %.sroa.351.8.copyload575, 8
-  %.sroa.351.sroa.177.0.extract.trunc1921 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1920 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1921 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1920 to i56
   %.sroa.362.8..sroa_idx909 = getelementptr inbounds i8, ptr %164, i64 16
   %501 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx909, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1428 = getelementptr inbounds i8, ptr %164, i64 32
@@ -18477,7 +18477,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload291 = load i64, ptr %505, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1457 = trunc i64 %.sroa.351.8.copyload291 to i8
   %.sroa.351.sroa.177.0.extract.shift1636 = lshr i64 %.sroa.351.8.copyload291, 8
-  %.sroa.351.sroa.177.0.extract.trunc1637 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1636 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1637 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1636 to i56
   %.sroa.362.8..sroa_idx625 = getelementptr inbounds i8, ptr %163, i64 16
   %510 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx625, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1286 = getelementptr inbounds i8, ptr %163, i64 32
@@ -18495,7 +18495,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload573 = load i64, ptr %.sroa.351.8..sroa_idx572, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1598 = trunc i64 %.sroa.351.8.copyload573 to i8
   %.sroa.351.sroa.177.0.extract.shift1918 = lshr i64 %.sroa.351.8.copyload573, 8
-  %.sroa.351.sroa.177.0.extract.trunc1919 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1918 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1919 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1918 to i56
   %.sroa.362.8..sroa_idx907 = getelementptr inbounds i8, ptr %162, i64 16
   %512 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx907, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1427 = getelementptr inbounds i8, ptr %162, i64 32
@@ -18522,7 +18522,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload293 = load i64, ptr %516, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1458 = trunc i64 %.sroa.351.8.copyload293 to i8
   %.sroa.351.sroa.177.0.extract.shift1638 = lshr i64 %.sroa.351.8.copyload293, 8
-  %.sroa.351.sroa.177.0.extract.trunc1639 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1638 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1639 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1638 to i56
   %.sroa.362.8..sroa_idx627 = getelementptr inbounds i8, ptr %161, i64 16
   %521 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx627, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1287 = getelementptr inbounds i8, ptr %161, i64 32
@@ -18540,7 +18540,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload571 = load i64, ptr %.sroa.351.8..sroa_idx570, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1597 = trunc i64 %.sroa.351.8.copyload571 to i8
   %.sroa.351.sroa.177.0.extract.shift1916 = lshr i64 %.sroa.351.8.copyload571, 8
-  %.sroa.351.sroa.177.0.extract.trunc1917 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1916 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1917 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1916 to i56
   %.sroa.362.8..sroa_idx905 = getelementptr inbounds i8, ptr %160, i64 16
   %523 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx905, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1426 = getelementptr inbounds i8, ptr %160, i64 32
@@ -18568,7 +18568,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 533:                                              ; preds = %.noexc85
   %.sroa.351.sroa.0.0.extract.trunc1459 = trunc i64 %528 to i8
   %.sroa.351.sroa.177.0.extract.shift1640 = lshr i64 %528, 8
-  %.sroa.351.sroa.177.0.extract.trunc1641 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1640 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1641 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1640 to i56
   %.sroa.362.8..sroa_idx629 = getelementptr inbounds i8, ptr %159, i64 16
   %534 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx629, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1288 = getelementptr inbounds i8, ptr %159, i64 32
@@ -18586,7 +18586,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload569 = load i64, ptr %.sroa.351.8..sroa_idx568, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1596 = trunc i64 %.sroa.351.8.copyload569 to i8
   %.sroa.351.sroa.177.0.extract.shift1914 = lshr i64 %.sroa.351.8.copyload569, 8
-  %.sroa.351.sroa.177.0.extract.trunc1915 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1914 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1915 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1914 to i56
   %.sroa.362.8..sroa_idx903 = getelementptr inbounds i8, ptr %158, i64 16
   %536 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx903, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1425 = getelementptr inbounds i8, ptr %158, i64 32
@@ -18614,7 +18614,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
 546:                                              ; preds = %.noexc87
   %.sroa.351.sroa.0.0.extract.trunc1460 = trunc i64 %541 to i8
   %.sroa.351.sroa.177.0.extract.shift1642 = lshr i64 %541, 8
-  %.sroa.351.sroa.177.0.extract.trunc1643 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1642 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1643 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1642 to i56
   %.sroa.362.8..sroa_idx631 = getelementptr inbounds i8, ptr %157, i64 16
   %547 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx631, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1289 = getelementptr inbounds i8, ptr %157, i64 32
@@ -18632,7 +18632,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload567 = load i64, ptr %.sroa.351.8..sroa_idx566, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1595 = trunc i64 %.sroa.351.8.copyload567 to i8
   %.sroa.351.sroa.177.0.extract.shift1912 = lshr i64 %.sroa.351.8.copyload567, 8
-  %.sroa.351.sroa.177.0.extract.trunc1913 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1912 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1913 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1912 to i56
   %.sroa.362.8..sroa_idx901 = getelementptr inbounds i8, ptr %156, i64 16
   %549 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx901, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1424 = getelementptr inbounds i8, ptr %156, i64 32
@@ -18659,7 +18659,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload299 = load i64, ptr %553, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1461 = trunc i64 %.sroa.351.8.copyload299 to i8
   %.sroa.351.sroa.177.0.extract.shift1644 = lshr i64 %.sroa.351.8.copyload299, 8
-  %.sroa.351.sroa.177.0.extract.trunc1645 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1644 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1645 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1644 to i56
   %.sroa.362.8..sroa_idx633 = getelementptr inbounds i8, ptr %155, i64 16
   %558 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx633, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1290 = getelementptr inbounds i8, ptr %155, i64 32
@@ -18677,7 +18677,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload565 = load i64, ptr %.sroa.351.8..sroa_idx564, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1594 = trunc i64 %.sroa.351.8.copyload565 to i8
   %.sroa.351.sroa.177.0.extract.shift1910 = lshr i64 %.sroa.351.8.copyload565, 8
-  %.sroa.351.sroa.177.0.extract.trunc1911 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1910 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1911 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1910 to i56
   %.sroa.362.8..sroa_idx899 = getelementptr inbounds i8, ptr %154, i64 16
   %560 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx899, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1423 = getelementptr inbounds i8, ptr %154, i64 32
@@ -18704,7 +18704,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload301 = load i64, ptr %564, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1462 = trunc i64 %.sroa.351.8.copyload301 to i8
   %.sroa.351.sroa.177.0.extract.shift1646 = lshr i64 %.sroa.351.8.copyload301, 8
-  %.sroa.351.sroa.177.0.extract.trunc1647 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1646 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1647 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1646 to i56
   %.sroa.362.8..sroa_idx635 = getelementptr inbounds i8, ptr %153, i64 16
   %569 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx635, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1291 = getelementptr inbounds i8, ptr %153, i64 32
@@ -18722,7 +18722,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload563 = load i64, ptr %.sroa.351.8..sroa_idx562, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1593 = trunc i64 %.sroa.351.8.copyload563 to i8
   %.sroa.351.sroa.177.0.extract.shift1908 = lshr i64 %.sroa.351.8.copyload563, 8
-  %.sroa.351.sroa.177.0.extract.trunc1909 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1908 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1909 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1908 to i56
   %.sroa.362.8..sroa_idx897 = getelementptr inbounds i8, ptr %152, i64 16
   %571 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx897, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1422 = getelementptr inbounds i8, ptr %152, i64 32
@@ -18749,7 +18749,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload303 = load i64, ptr %575, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1463 = trunc i64 %.sroa.351.8.copyload303 to i8
   %.sroa.351.sroa.177.0.extract.shift1648 = lshr i64 %.sroa.351.8.copyload303, 8
-  %.sroa.351.sroa.177.0.extract.trunc1649 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1648 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1649 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1648 to i56
   %.sroa.362.8..sroa_idx637 = getelementptr inbounds i8, ptr %151, i64 16
   %580 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx637, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1292 = getelementptr inbounds i8, ptr %151, i64 32
@@ -18767,7 +18767,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload561 = load i64, ptr %.sroa.351.8..sroa_idx560, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1592 = trunc i64 %.sroa.351.8.copyload561 to i8
   %.sroa.351.sroa.177.0.extract.shift1906 = lshr i64 %.sroa.351.8.copyload561, 8
-  %.sroa.351.sroa.177.0.extract.trunc1907 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1906 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1907 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1906 to i56
   %.sroa.362.8..sroa_idx895 = getelementptr inbounds i8, ptr %150, i64 16
   %582 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx895, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1421 = getelementptr inbounds i8, ptr %150, i64 32
@@ -18794,7 +18794,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload305 = load i64, ptr %586, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1464 = trunc i64 %.sroa.351.8.copyload305 to i8
   %.sroa.351.sroa.177.0.extract.shift1650 = lshr i64 %.sroa.351.8.copyload305, 8
-  %.sroa.351.sroa.177.0.extract.trunc1651 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1650 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1651 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1650 to i56
   %.sroa.362.8..sroa_idx639 = getelementptr inbounds i8, ptr %149, i64 16
   %591 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx639, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1293 = getelementptr inbounds i8, ptr %149, i64 32
@@ -18812,7 +18812,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload559 = load i64, ptr %.sroa.351.8..sroa_idx558, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1591 = trunc i64 %.sroa.351.8.copyload559 to i8
   %.sroa.351.sroa.177.0.extract.shift1904 = lshr i64 %.sroa.351.8.copyload559, 8
-  %.sroa.351.sroa.177.0.extract.trunc1905 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1904 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1905 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1904 to i56
   %.sroa.362.8..sroa_idx893 = getelementptr inbounds i8, ptr %148, i64 16
   %593 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx893, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1420 = getelementptr inbounds i8, ptr %148, i64 32
@@ -18839,7 +18839,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload307 = load i64, ptr %597, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1465 = trunc i64 %.sroa.351.8.copyload307 to i8
   %.sroa.351.sroa.177.0.extract.shift1652 = lshr i64 %.sroa.351.8.copyload307, 8
-  %.sroa.351.sroa.177.0.extract.trunc1653 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1652 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1653 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1652 to i56
   %.sroa.362.8..sroa_idx641 = getelementptr inbounds i8, ptr %147, i64 16
   %602 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx641, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1294 = getelementptr inbounds i8, ptr %147, i64 32
@@ -18857,7 +18857,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %.sroa.351.8.copyload557 = load i64, ptr %.sroa.351.8..sroa_idx556, align 8, !noalias !4196
   %.sroa.351.sroa.0.0.extract.trunc1590 = trunc i64 %.sroa.351.8.copyload557 to i8
   %.sroa.351.sroa.177.0.extract.shift1902 = lshr i64 %.sroa.351.8.copyload557, 8
-  %.sroa.351.sroa.177.0.extract.trunc1903 = trunc i64 %.sroa.351.sroa.177.0.extract.shift1902 to i56
+  %.sroa.351.sroa.177.0.extract.trunc1903 = trunc nuw i64 %.sroa.351.sroa.177.0.extract.shift1902 to i56
   %.sroa.362.8..sroa_idx891 = getelementptr inbounds i8, ptr %146, i64 16
   %604 = load <2 x i64>, ptr %.sroa.362.8..sroa_idx891, align 8, !noalias !4196
   %.sroa.368.8..sroa_idx1419 = getelementptr inbounds i8, ptr %146, i64 32
@@ -21454,7 +21454,7 @@ _ZN5serde2de7Visitor12visit_string17hff9e4665ccbe10fbE.exit48: ; preds = %275, %
   %1469 = phi <2 x i64> [ %614, %.noexc100 ], [ %1465, %1464 ], [ %612, %611 ], [ %1465, %1468 ]
   %.sroa.351.sroa.0.13 = trunc i64 %.sroa.351.sroa.177.sroa.0.13.in.in to i8
   %.sroa.351.sroa.177.sroa.0.13.in = lshr i64 %.sroa.351.sroa.177.sroa.0.13.in.in, 8
-  %.sroa.351.sroa.177.sroa.0.13 = trunc i64 %.sroa.351.sroa.177.sroa.0.13.in to i56
+  %.sroa.351.sroa.177.sroa.0.13 = trunc nuw i64 %.sroa.351.sroa.177.sroa.0.13.in to i56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %145), !noalias !4238
   br label %1475
 
@@ -32814,8 +32814,8 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   br i1 %5, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %2
-  %6 = trunc i8 %4 to i1
-  %trunc = trunc i8 %3 to i1
+  %6 = trunc nuw i8 %4 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %7 = icmp eq i8 %3, 0
   %spec.select = select i1 %trunc, i1 %6, i1 %7
   tail call void @llvm.assume(i1 %spec.select)
@@ -33619,7 +33619,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21rewrite_comment_inner
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !7040
   %20 = load ptr, ptr %0, align 8, !nonnull !5, !align !57, !noundef !5
   %21 = load i8, ptr %20, align 1, !range !440, !noundef !5
-  %22 = trunc i8 %21 to i1
+  %22 = trunc nuw i8 %21 to i1
   %23 = call { ptr, i64 } @_ZN15rustfmt_nightly7comment31trim_end_unless_two_whitespaces17h7057fcdc184fa70cE(ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %19, i1 noundef zeroext %22)
   %.fca.0.extract = extractvalue { ptr, i64 } %23, 0
   %.fca.1.extract = extractvalue { ptr, i64 } %23, 1
@@ -33754,7 +33754,7 @@ define hidden void @"_ZN15rustfmt_nightly7comment21rewrite_comment_inner28_$u7b$
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load i8, ptr %8, align 8, !range !440, !noundef !5
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !5
   %.not.i = icmp ult i64 %12, 2
@@ -34140,7 +34140,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21light_rewrite_comment
   %.sroa.45.0 = phi i64 [ %92, %91 ], [ 0, %3 ], [ %82, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i" ], [ %2, %79 ], [ 0, %33 ], [ 0, %69 ]
   %95 = load ptr, ptr %0, align 8, !nonnull !5, !align !57, !noundef !5
   %96 = load i8, ptr %95, align 1, !range !440, !noundef !5
-  %97 = trunc i8 %96 to i1
+  %97 = trunc nuw i8 %96 to i1
   %98 = tail call { ptr, i64 } @_ZN15rustfmt_nightly7comment31trim_end_unless_two_whitespaces17h7057fcdc184fa70cE(ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.45.0, i1 noundef zeroext %97)
   ret { ptr, i64 } %98
 }
@@ -35101,7 +35101,7 @@ _ZN15rustfmt_nightly7comment20is_raw_string_suffix17h1edf8be0f84c52aaE.exit: ; p
 define hidden noundef zeroext i1 @"_ZN15rustfmt_nightly7comment23changed_comment_content28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc9c872fcce6af995E.llvm.4073844125802496097"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8, !range !440, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -35341,7 +35341,7 @@ define void @"_ZN81_$LT$rustfmt_nightly..skip..SkipNameContext$u20$as$u20$core..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7292)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !7289
   %4 = load i64, ptr %3, align 8, !range !457, !alias.scope !7292, !noalias !7295, !noundef !5
-  %trunc.i.i.i = trunc i64 %4 to i1
+  %trunc.i.i.i = trunc nuw i64 %4 to i1
   br i1 %trunc.i.i.i, label %5, label %"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17hfb1235476c967c49E.exit"
 
 5:                                                ; preds = %1
@@ -36891,7 +36891,7 @@ _ZN15rustfmt_nightly5shape6Indent9to_string17h0da3b50033a6bedaE.exit: ; preds = 
   %118 = getelementptr inbounds i8, ptr %3, i64 104
   %119 = load i8, ptr %118, align 8, !range !440
   %120 = getelementptr inbounds i8, ptr %3, i64 48
-  %121 = trunc i8 %119 to i1
+  %121 = trunc nuw i8 %119 to i1
   %122 = getelementptr inbounds i8, ptr %17, i64 8
   %123 = getelementptr inbounds i8, ptr %17, i64 16
   %124 = icmp eq i64 %43, 0
@@ -37010,7 +37010,7 @@ _ZN15rustfmt_nightly6string15graphemes_width17hc7a97d4714b53b01E.exit: ; preds =
 
 166:                                              ; preds = %165
   %167 = load i8, ptr %18, align 1, !range !440, !noalias !7650, !noundef !5
-  %168 = trunc i8 %167 to i1
+  %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %232, label %169
 
 169:                                              ; preds = %235, %166, %165
@@ -37282,7 +37282,7 @@ _ZN15rustfmt_nightly6string11is_new_line17h792a04ee7cd6783eE.exit.i.i.i.i.i.i: ;
   %278 = phi i64 [ 0, %277 ], [ %spec.select.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h9e94758145d8e471E.exit.i.i.i" ], [ %.0.i.i.i, %_ZN15rustfmt_nightly6string11is_new_line17h792a04ee7cd6783eE.exit.i.i.i.i.i.i ], [ %.0.i.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit.i.i.i.i.i.i.i" ], [ 0, %267 ]
   %279 = add i64 %278, %.sroa.5.0.i.i
   %280 = load i8, ptr %18, align 1, !range !440, !noalias !7650, !noundef !5
-  %281 = trunc i8 %280 to i1
+  %281 = trunc nuw i8 %280 to i1
   br i1 %281, label %289, label %285
 
 .invoke840:                                       ; preds = %252, %406
@@ -37667,7 +37667,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc511cf45e83a
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h19d3993fccb32abbE.exit": ; preds = %330
   %lhsc = load i8, ptr %.pre653, align 1
   %409 = icmp eq i8 %lhsc, 10
-  %brmerge.not = and i1 %409, %121
+  %brmerge.not = select i1 %409, i1 %121, i1 false
   %.pre656 = load i64, ptr %.sroa.574.0..sroa_idx, align 8
   br i1 %brmerge.not, label %417, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h19d3993fccb32abbE.exit.thread"
 
@@ -38630,7 +38630,7 @@ _ZN15rustfmt_nightly6string11is_new_line17h792a04ee7cd6783eE.exit.thread: ; pred
   %50 = getelementptr inbounds i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8, !nonnull !5, !align !57, !noundef !5
   %52 = load i8, ptr %51, align 1, !range !440, !noundef !5
-  %53 = trunc i8 %52 to i1
+  %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %103, label %128
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h036120fc04536561E.exit.thread": ; preds = %.backedge, %_ZN15rustfmt_nightly6string11is_new_line17h792a04ee7cd6783eE.exit.thread
@@ -38649,7 +38649,7 @@ _ZN15rustfmt_nightly6string11is_new_line17h792a04ee7cd6783eE.exit.thread: ; pred
   %59 = getelementptr inbounds i8, ptr %.sroa.091.0, i64 16
   %60 = add nuw nsw i64 %.sroa.893.0, 1
   %61 = load i8, ptr %56, align 1, !range !440, !noundef !5
-  %62 = trunc i8 %61 to i1
+  %62 = trunc nuw i8 %61 to i1
   %.pre = load ptr, ptr %.sroa.091.0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.091.0, i64 8
   %.pre162 = load i64, ptr %.phi.trans.insert, align 8
@@ -38663,7 +38663,7 @@ _ZN15rustfmt_nightly6string11is_new_line17h792a04ee7cd6783eE.exit.thread: ; pred
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h036120fc04536561E.exit56.thread": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h036120fc04536561E.exit56.thread.loopexit", %_ZN15rustfmt_nightly6string31not_whitespace_except_line_feed17hf09e95deb59e1e3fE.exit.thread
   %63 = phi i8 [ %61, %_ZN15rustfmt_nightly6string31not_whitespace_except_line_feed17hf09e95deb59e1e3fE.exit.thread ], [ %.pre163, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h036120fc04536561E.exit56.thread.loopexit" ]
   %.044 = phi i64 [ %85, %_ZN15rustfmt_nightly6string31not_whitespace_except_line_feed17hf09e95deb59e1e3fE.exit.thread ], [ %2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h036120fc04536561E.exit56.thread.loopexit" ]
-  %64 = trunc i8 %63 to i1
+  %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %94, label %86
 
 65:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h036120fc04536561E.exit56"
@@ -39895,7 +39895,7 @@ define void @"_ZN126_$LT$rustfmt_nightly..config..options..__define_config_type_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN129_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_TypeDensity..TypeDensity$u20$as$u20$serde..ser..Serialize$GT$9serialize17h3cfe22393378c139E"(ptr noalias nocapture noundef sret({ i64, [21 x i64] }) align 8 dereferenceable(176) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #7 {
   %3 = load i8, ptr %1, align 1, !range !440, !noundef !5
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   br i1 %trunc, label %5, label %4
 
 4:                                                ; preds = %2
@@ -45356,7 +45356,7 @@ define noundef zeroext i1 @"_ZN130_$LT$rustfmt_nightly..config..lists..__define_
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = load i8, ptr %0, align 1, !range !440, !noundef !5
-  %trunc = trunc i8 %6 to i1
+  %trunc = trunc nuw i8 %6 to i1
   br i1 %trunc, label %13, label %7
 
 7:                                                ; preds = %2

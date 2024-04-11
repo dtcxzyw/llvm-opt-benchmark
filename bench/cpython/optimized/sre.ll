@@ -19761,7 +19761,7 @@ sw.bb19:                                          ; preds = %entry
   br i1 %or.cond151, label %land.rhs29.lr.ph, label %sw.epilog
 
 land.rhs29.lr.ph:                                 ; preds = %sw.bb19
-  %8 = trunc i32 %7 to i8
+  %8 = trunc nuw i32 %7 to i8
   %9 = sub i64 %spec.select170, %sub.ptr.rhs.cast
   %scevgep183 = getelementptr i8, ptr %0, i64 %9
   br label %land.rhs29
@@ -19879,7 +19879,7 @@ while.cond88.preheader:                           ; preds = %sw.bb80
   br i1 %cmp89123, label %land.rhs91.lr.ph, label %sw.epilog
 
 land.rhs91.lr.ph:                                 ; preds = %while.cond88.preheader
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = sub i64 %spec.select170, %sub.ptr.rhs.cast
   %scevgep175 = getelementptr i8, ptr %0, i64 %23
   br label %land.rhs91
@@ -20374,7 +20374,7 @@ sw.bb19:                                          ; preds = %entry
   br i1 %or.cond155, label %land.rhs29.lr.ph, label %sw.epilog
 
 land.rhs29.lr.ph:                                 ; preds = %sw.bb19
-  %6 = trunc i32 %5 to i16
+  %6 = trunc nuw i32 %5 to i16
   br label %land.rhs29
 
 land.rhs29:                                       ; preds = %land.rhs29.lr.ph, %while.body35
@@ -20484,7 +20484,7 @@ while.cond88.preheader:                           ; preds = %sw.bb80
   br i1 %cmp89127, label %land.rhs91.lr.ph, label %sw.epilog
 
 land.rhs91.lr.ph:                                 ; preds = %while.cond88.preheader
-  %16 = trunc i32 %15 to i16
+  %16 = trunc nuw i32 %15 to i16
   br label %land.rhs91
 
 land.rhs91:                                       ; preds = %land.rhs91.lr.ph, %while.body97
@@ -21281,7 +21281,7 @@ if.end50.i:                                       ; preds = %if.then42.i
   br i1 %cmp52204.i, label %while.cond54.preheader.lr.ph.i, label %return
 
 while.cond54.preheader.lr.ph.i:                   ; preds = %if.end50.i
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %and67.i = and i32 %.fr.i, 2
   %tobool68.not.i = icmp eq i32 %and67.i, 0
   %mul.i = shl nuw nsw i64 %conv26.i, 1
@@ -21694,7 +21694,7 @@ if.end50.i50:                                     ; preds = %if.then42.i48
   br i1 %cmp52204.i52, label %while.cond54.preheader.lr.ph.i53, label %return
 
 while.cond54.preheader.lr.ph.i53:                 ; preds = %if.end50.i50
-  %40 = trunc i32 %39 to i16
+  %40 = trunc nuw i32 %39 to i16
   %and67.i54 = and i32 %.fr.i18, 2
   %tobool68.not.i55 = icmp eq i32 %and67.i54, 0
   %mul.i56 = shl nuw nsw i64 %conv26.i40, 1

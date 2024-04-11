@@ -1623,7 +1623,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !440, !noalias !437
   %12 = trunc i32 %1 to i8
@@ -1635,7 +1635,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !440, !noalias !437
   %19 = lshr i32 %1, 6
@@ -1703,7 +1703,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !453, !noundef !14
   %58 = load i64, ptr %0, align 8, !alias.scope !453, !noundef !14
@@ -2139,7 +2139,7 @@ _ZN9aws_lc_rs9agreement21x25519_diffie_hellman17h7c0e71a6e9592477E.exit: ; preds
           to label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit39.i.i" unwind label %65, !noalias !487
 
 "_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit39.i.i": ; preds = %90
-  %91 = trunc i8 %.3.i.i to i1
+  %91 = trunc nuw i8 %.3.i.i to i1
   br i1 %91, label %"_ZN4core3ptr116drop_in_place$LT$aws_lc_rs..ptr..DetachablePointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..ec_key_st$GT$$GT$17h936525d9cc7d6dbfE.exit.i.i", label %"_ZN4core3ptr115drop_in_place$LT$aws_lc_rs..ptr..ManagedPointer$LT$$BP$mut$u20$aws_lc_sys..linux_x86_64_crypto..evp_pkey_st$GT$$GT$17hccb3091f2cc51074E.exit75.invoke.i"
 
 92:                                               ; preds = %94, %78
@@ -2449,10 +2449,10 @@ define noundef zeroext i1 @_ZN6rustls12common_state11CommonState11wants_write17h
 define noundef zeroext i1 @_ZN6rustls12common_state11CommonState14is_handshaking17h3af399c2a6e69b81E(ptr noalias nocapture noundef readonly align 8 dereferenceable(776) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 766
   %3 = load i8, ptr %2, align 2, !range !513, !noundef !14
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds i8, ptr %0, i64 767
   %6 = load i8, ptr %5, align 1, !range !513
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   %8 = select i1 %4, i1 %7, i1 false
   %.0 = xor i1 %8, true
   ret i1 %.0
@@ -2677,7 +2677,7 @@ define hidden void @_ZN6rustls12common_state11CommonState23check_aligned_handsha
   %3 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 765
   %5 = load i8, ptr %4, align 1, !range !513, !noundef !14
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
@@ -2926,7 +2926,7 @@ _ZN6rustls12common_state11CommonState17send_close_notify17hb25da9d6996f5863E.exi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !668)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !671)
   %37 = load i64, ptr %8, align 8, !range !319, !alias.scope !671, !noalias !673, !noundef !14
-  %trunc.i.i = trunc i64 %37 to i1
+  %trunc.i.i = trunc nuw i64 %37 to i1
   br i1 %trunc.i.i, label %38, label %_ZN6rustls12record_layer11RecordLayer16encrypt_outgoing17h827f383186fa970dE.exit
 
 38:                                               ; preds = %29
@@ -3039,7 +3039,7 @@ define hidden void @_ZN6rustls12common_state11CommonState15flush_plaintext17hb0d
   %.sroa.8 = alloca [2 x i64], align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 766
   %7 = load i8, ptr %6, align 2, !range !513, !noundef !14
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.preheader, label %20
 
 .preheader:                                       ; preds = %2
@@ -3179,7 +3179,7 @@ define void @_ZN6rustls12common_state11CommonState8send_msg17h8a7968f23a1802a7E(
   %19 = alloca { { i64, ptr }, i64 }, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 772
   %21 = load i8, ptr %20, align 4, !range !513, !noundef !14
-  %22 = trunc i8 %21 to i1
+  %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %3
@@ -4483,13 +4483,13 @@ define noundef zeroext i1 @_ZN6rustls12common_state11CommonState10wants_read17h0
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 770
   %7 = load i8, ptr %6, align 2, !range !513, !noundef !14
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 766
   %11 = load i8, ptr %10, align 2, !range !513, !noundef !14
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
@@ -4585,7 +4585,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3len17h389e56ec2fa5735fE.exit5: ; preds = %"_ZN
 define noundef zeroext i1 @_ZN6rustls12common_state11CommonState7is_quic17hc5bf0b57a893f422E(ptr noalias nocapture noundef readonly align 8 dereferenceable(776) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 772
   %3 = load i8, ptr %2, align 4, !range !513, !noundef !14
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
 
@@ -4772,7 +4772,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1171)
   call void @llvm.experimental.noalias.scope.decl(metadata !1174)
   %49 = load i64, ptr %5, align 8, !range !319, !alias.scope !1174, !noalias !1176, !noundef !14
-  %trunc.i.i = trunc i64 %49 to i1
+  %trunc.i.i = trunc nuw i64 %49 to i1
   br i1 %trunc.i.i, label %50, label %58
 
 50:                                               ; preds = %.noexc
@@ -4918,7 +4918,7 @@ _ZN6rustls12common_state11CommonState24perhaps_write_key_update17h49044d0cc2fb80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1212)
   %10 = getelementptr inbounds i8, ptr %0, i64 766
   %11 = load i8, ptr %10, align 2, !range !513, !alias.scope !1209, !noalias !1214, !noundef !14
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %_ZN6rustls12common_state11CommonState24perhaps_write_key_update17h49044d0cc2fb80eeE.llvm.12428379203013389814.exit
@@ -4990,7 +4990,7 @@ define hidden noundef i64 @_ZN6rustls12common_state11CommonState10send_plain17h6
   %8 = alloca { ptr, [3 x i64] }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 766
   %10 = load i8, ptr %9, align 2, !range !513, !noundef !14
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %4
@@ -5123,7 +5123,7 @@ define noundef i64 @_ZN6rustls12common_state7IoState23plaintext_bytes_to_read17h
 define noundef zeroext i1 @_ZN6rustls12common_state7IoState15peer_has_closed17h329af7c8042174d3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !513, !noundef !14
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
 
@@ -5262,7 +5262,7 @@ define hidden void @_ZN6rustls12common_state5State20handle_decrypt_error17hf7b5e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN6rustls12common_state4Side4peer17h80ae231f07ddc210E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #10 {
   %2 = load i8, ptr %0, align 1, !range !513, !noundef !14
-  %trunc = trunc i8 %2 to i1
+  %trunc = trunc nuw i8 %2 to i1
   %.0 = xor i1 %trunc, true
   ret i1 %.0
 }
@@ -6616,7 +6616,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %135 = load ptr, ptr %134, align 8, !nonnull !14, !noundef !14
   %136 = getelementptr inbounds i8, ptr %135, i64 191
   %137 = load i8, ptr %136, align 1, !range !513, !noundef !14
-  %138 = trunc i8 %137 to i1
+  %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %141, label %146
 
 139:                                              ; preds = %132
@@ -6959,7 +6959,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br i1 %258, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e30a23dc99c42e1E.exit.thread", label %259
 
 259:                                              ; preds = %253
-  %260 = trunc i8 %.0 to i1
+  %260 = trunc nuw i8 %.0 to i1
   br i1 %260, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e30a23dc99c42e1E.exit.thread", label %261
 
 261:                                              ; preds = %259
@@ -7142,7 +7142,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.sroa.7.0..sroa_idx360 = getelementptr inbounds i8, ptr %62, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.7.0..sroa_idx360, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.7, i64 136, i1 false), !noalias !1820
   %327 = load i8, ptr %322, align 8, !range !513, !noalias !1821, !noundef !14
-  %328 = trunc i8 %327 to i1
+  %328 = trunc nuw i8 %327 to i1
   %329 = invoke noundef zeroext i1 @_ZN6rustls6server2hs10can_resume17h3f5c37cf06e1a130E(i64 noundef 0, ptr noundef nonnull %321, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %326, i1 noundef zeroext %328, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %62)
           to label %"_ZN6rustls6server5tls1212client_hello27CompleteClientHelloHandling19handle_client_hello28_$u7b$$u7b$closure$u7d$$u7d$17h7b255132645e7559E.exit.i" unwind label %330, !noalias !1817
 
@@ -7228,10 +7228,10 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 340:                                              ; preds = %352, %334
   %341 = getelementptr inbounds i8, ptr %92, i64 140
   %342 = load i8, ptr %341, align 4, !range !513, !alias.scope !1835, !noalias !1840, !noundef !14
-  %343 = trunc i8 %342 to i1
+  %343 = trunc nuw i8 %342 to i1
   %344 = getelementptr inbounds i8, ptr %91, i64 200
   %345 = load i8, ptr %344, align 8, !range !513, !alias.scope !1829, !noalias !1841
-  %346 = trunc i8 %345 to i1
+  %346 = trunc nuw i8 %345 to i1
   %.not.i278 = xor i1 %343, true
   %brmerge.i = select i1 %.not.i278, i1 true, i1 %346
   br i1 %brmerge.i, label %._crit_edge.i, label %364
@@ -7459,7 +7459,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %432, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false), !noalias !1839
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   %433 = load i8, ptr %388, align 1, !range !513, !alias.scope !1829, !noalias !1841, !noundef !14
-  %434 = trunc i8 %433 to i1
+  %434 = trunc nuw i8 %433 to i1
   br i1 %434, label %438, label %435
 
 435:                                              ; preds = %471, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..handshake..CertificateChain$GT$$GT$17hdcad258b8bd48f3aE.exit.i"
@@ -7505,7 +7505,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49), !noalias !1899
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55), !noalias !1837
   %454 = load i8, ptr %344, align 8, !range !513, !alias.scope !1829, !noalias !1841, !noundef !14
-  %455 = trunc i8 %454 to i1
+  %455 = trunc nuw i8 %454 to i1
   %456 = load ptr, ptr %354, align 8, !alias.scope !1829, !noalias !1841, !nonnull !14, !noundef !14
   %457 = getelementptr inbounds i8, ptr %456, i64 80
   %458 = load ptr, ptr %457, align 8, !noalias !1839, !nonnull !14, !noundef !14
@@ -7969,7 +7969,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
 
 616:                                              ; preds = %618, %612
   %.pn101.i = phi { ptr, i32 } [ %619, %618 ], [ %613, %612 ]
-  %617 = trunc i8 %.285.i to i1
+  %617 = trunc nuw i8 %.285.i to i1
   br i1 %617, label %623, label %.body287
 
 618:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit.i"
@@ -7978,7 +7978,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br label %616
 
 620:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit.i"
-  %621 = trunc i8 %.285.i to i1
+  %621 = trunc nuw i8 %.285.i to i1
   br i1 %621, label %622, label %666
 
 622:                                              ; preds = %620
@@ -8092,7 +8092,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.pn199 = phi { ptr, i32 } [ %eh.lpad-body288, %.body287 ], [ %eh.lpad-body317424, %.thread419 ], [ %lpad.thr_comm.split-lp, %691 ], [ %1210, %1209 ], [ %.pn126.pn.pn.i, %.body174.i ], [ %1143, %1142 ], [ %1175, %1174 ], [ %1193, %1192 ]
   %661 = load i64, ptr %95, align 8, !range !123, !noundef !14
   %.not201 = icmp eq i64 %661, -9223372036854775808
-  %brmerge = or i1 %.0184, %.not201
+  %brmerge = select i1 %.not201, i1 true, i1 %.0184
   br i1 %brmerge, label %.body254, label %1243
 
 662:                                              ; preds = %1216, %.thread431, %647, %622, %542, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$rustls..msgs..base..PayloadU8$GT$$GT$17h10c0355df5ef53c9E.exit.i"
@@ -8106,7 +8106,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.5165.lpad-body = phi i8 [ %.5165, %662 ], [ 0, %646 ], [ 0, %.thread221.i ], [ 0, %623 ], [ 0, %616 ], [ 0, %535 ]
   %.5.lpad-body = phi i8 [ %.5, %662 ], [ 0, %646 ], [ 0, %.thread221.i ], [ 0, %623 ], [ 0, %616 ], [ 0, %535 ]
   %eh.lpad-body288 = phi { ptr, i32 } [ %663, %662 ], [ %.pn110215224.i, %646 ], [ %.pn110215224.i, %.thread221.i ], [ %.pn101.i, %623 ], [ %.pn101.i, %616 ], [ %.pn108.i, %535 ]
-  %664 = trunc i8 %.5165.lpad-body to i1
+  %664 = trunc nuw i8 %.5165.lpad-body to i1
   %665 = xor i1 %664, true
   br label %.thread414
 
@@ -8281,7 +8281,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(40) %722, i64 40, i1 false)
   %723 = load ptr, ptr %649, align 8, !nonnull !14, !align !28, !noundef !14
   %724 = load i8, ptr %650, align 8, !range !513, !noundef !14
-  %725 = trunc i8 %724 to i1
+  %725 = trunc nuw i8 %724 to i1
   %726 = getelementptr inbounds i8, ptr %1, i64 136
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %86)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -8301,7 +8301,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br i1 %733, label %734, label %719
 
 734:                                              ; preds = %730
-  %735 = trunc i8 %.4524 to i1
+  %735 = trunc nuw i8 %.4524 to i1
   br i1 %735, label %719, label %736
 
 736:                                              ; preds = %734
@@ -9496,7 +9496,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
           to label %694 unwind label %691
 
 1157:                                             ; preds = %1154
-  %1158 = trunc i8 %1153 to i1
+  %1158 = trunc nuw i8 %1153 to i1
   br i1 %1158, label %1178, label %1159
 
 1159:                                             ; preds = %1157
@@ -9669,7 +9669,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit.i326: ; 
   br label %1213
 
 1220:                                             ; preds = %667
-  %1221 = trunc i8 %.6166 to i1
+  %1221 = trunc nuw i8 %.6166 to i1
   br i1 %1221, label %1223, label %1222
 
 1222:                                             ; preds = %1223, %1220, %667
@@ -11119,7 +11119,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
 
 "_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit167": ; preds = %202, %198
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  %201 = trunc i8 %.2117208 to i1
+  %201 = trunc nuw i8 %.2117208 to i1
   br i1 %201, label %203, label %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$rustls..server..tls12..ExpectCertificate$GT$$GT$17h83dd2adf02a370e6E.exit"
 
 202:                                              ; preds = %198
@@ -11211,7 +11211,7 @@ _ZN6rustls7hash_hs13HandshakeHash19abandon_client_auth17h859e0a4f4ff1d067E.exit:
 
 "_ZN4core3ptr62drop_in_place$LT$rustls..msgs..handshake..CertificateChain$GT$17h3cf6ea4a2bd4c202E.exit": ; preds = %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  %230 = trunc i8 %.2117208 to i1
+  %230 = trunc nuw i8 %.2117208 to i1
   br i1 %230, label %233, label %"_ZN4core3ptr48drop_in_place$LT$rustls..msgs..base..Payload$GT$17h1a521351922f61f4E.exit176"
 
 .body.thread:                                     ; preds = %.thread.i, %135, %81, %.body
@@ -11526,7 +11526,7 @@ define void @"_ZN142_$LT$rustls..server..tls12..ExpectClientKx$u20$as$u20$rustls
 _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i", %.noexc, %38
   %64 = getelementptr inbounds i8, ptr %1, i64 216
   %65 = load i8, ptr %64, align 8, !range !513, !noundef !14
-  %66 = trunc i8 %65 to i1
+  %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit
@@ -11565,7 +11565,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !2628, !nonnull !14, !noundef !14
   %.sroa.3.0.in.i = getelementptr inbounds i8, ptr %.sroa.610.0215.ph, i64 16
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !alias.scope !2628, !noundef !14
-  %82 = trunc i8 %80 to i1
+  %82 = trunc nuw i8 %80 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2631)
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.7.i.sroa.6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !2634
@@ -11713,7 +11713,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   br label %.body.thread
 
 122:                                              ; preds = %90
-  %123 = trunc i64 %85 to i8
+  %123 = trunc nuw nsw i64 %85 to i8
   %.sroa.11.8..sroa_idx181 = getelementptr inbounds i8, ptr %13, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.8..sroa_idx181, i64 7, i1 false), !noalias !2642
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.sroa.6, i64 23, i1 false)
@@ -12021,7 +12021,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   br i1 %.not78, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..handshake..CertificateChain$GT$$GT$17hdcad258b8bd48f3aE.exit", label %234
 
 234:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit141"
-  %235 = trunc i8 %.357 to i1
+  %235 = trunc nuw i8 %.357 to i1
   br i1 %235, label %236, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..handshake..CertificateChain$GT$$GT$17hdcad258b8bd48f3aE.exit"
 
 236:                                              ; preds = %234
@@ -13062,7 +13062,7 @@ define void @"_ZN137_$LT$rustls..server..tls12..ExpectCcs$u20$as$u20$rustls..com
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2856)
   %13 = getelementptr inbounds i8, ptr %12, i64 765
   %14 = load i8, ptr %13, align 1, !range !513, !alias.scope !2856, !noalias !2859, !noundef !14
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %11
@@ -13948,7 +13948,7 @@ define void @"_ZN142_$LT$rustls..server..tls12..ExpectFinished$u20$as$u20$rustls
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3024)
   %42 = getelementptr inbounds i8, ptr %41, i64 765
   %43 = load i8, ptr %42, align 1, !range !513, !alias.scope !3024, !noalias !3027, !noundef !14
-  %44 = trunc i8 %43 to i1
+  %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %39
@@ -14179,7 +14179,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
 110:                                              ; preds = %"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$subtle..ConstantTimeEq$GT$5ct_eq17he67c1e5dcae84d56E.exit"
   %111 = getelementptr inbounds i8, ptr %1, i64 225
   %112 = load i8, ptr %111, align 1, !range !513, !noundef !14
-  %113 = trunc i8 %112 to i1
+  %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %138
 
 114:                                              ; preds = %138, %206, %110
@@ -14279,7 +14279,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19)
   %160 = getelementptr inbounds i8, ptr %1, i64 224
   %161 = load i8, ptr %160, align 8, !range !513, !noundef !14
-  %162 = trunc i8 %161 to i1
+  %162 = trunc nuw i8 %161 to i1
   %163 = getelementptr inbounds i8, ptr %2, i64 8
   %.val158 = load ptr, ptr %163, align 8, !nonnull !14, !align !28, !noundef !14
   invoke fastcc void @_ZN6rustls6server5tls1233get_server_connection_value_tls1217h68e987225b4f7252E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(144) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %59, i1 noundef zeroext %162, ptr nonnull %41, ptr nonnull %.val158, i64 noundef %.fca.1.extract.i)
@@ -14409,13 +14409,13 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
 
 _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i", %.noexc176, %114
   %211 = load i8, ptr %111, align 1, !range !513, !noundef !14
-  %212 = trunc i8 %211 to i1
+  %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %217, label %213
 
 213:                                              ; preds = %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit
   %214 = getelementptr inbounds i8, ptr %1, i64 226
   %215 = load i8, ptr %214, align 2, !range !513, !noundef !14
-  %216 = trunc i8 %215 to i1
+  %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %225, label %223
 
 217:                                              ; preds = %263, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit
@@ -14480,7 +14480,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %242 = getelementptr inbounds i8, ptr %1, i64 224
   %243 = load i8, ptr %242, align 8, !range !513, !noundef !14
-  %244 = trunc i8 %243 to i1
+  %244 = trunc nuw i8 %243 to i1
   %245 = load ptr, ptr %226, align 8, !nonnull !14, !noundef !14
   %246 = getelementptr inbounds i8, ptr %245, i64 80
   %247 = load ptr, ptr %246, align 8, !nonnull !14, !noundef !14
@@ -14915,7 +14915,7 @@ define hidden void @"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$13
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 672
   %9 = load ptr, ptr %8, align 8
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   %10 = icmp ne ptr %9, null
   %or.cond.not = select i1 %trunc.i, i1 %10, i1 false
   br i1 %or.cond.not, label %11, label %.thread
@@ -14937,7 +14937,7 @@ define hidden void @"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$13
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %1, i64 168
   %19 = load i64, ptr %18, align 8, !range !319, !noundef !14
-  %trunc = trunc i64 %19 to i1
+  %trunc = trunc nuw i64 %19 to i1
   br i1 %trunc, label %21, label %25
 
 20:                                               ; preds = %11
@@ -14974,7 +14974,7 @@ define hidden void @"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$13
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 672
   %9 = load ptr, ptr %8, align 8
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   %10 = icmp ne ptr %9, null
   %or.cond.not = select i1 %trunc.i, i1 %10, i1 false
   br i1 %or.cond.not, label %11, label %.thread
@@ -14996,7 +14996,7 @@ define hidden void @"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$13
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %1, i64 168
   %19 = load i64, ptr %18, align 8, !range !319, !noundef !14
-  %trunc = trunc i64 %19 to i1
+  %trunc = trunc nuw i64 %19 to i1
   br i1 %trunc, label %21, label %25
 
 20:                                               ; preds = %11

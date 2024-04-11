@@ -160,7 +160,7 @@ if.else.i:                                        ; preds = %entry
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %2 = shl nuw nsw i64 %div1.i.i, 3
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #26
   store ptr %call.i, ptr %this, align 8
@@ -207,7 +207,7 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i.i = zext i32 %numBits to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i = lshr i64 %sub.i.i.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i to i32
   %1 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #26
   store ptr %call.i.i, ptr %this, align 8
@@ -255,7 +255,7 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i.i = zext i32 %numBits to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i = lshr i64 %sub.i.i.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i to i32
   %1 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #26
   store ptr %call.i.i, ptr %this, align 8
@@ -1207,7 +1207,7 @@ if.end:                                           ; preds = %entry
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i4 = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i4, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %3 = shl nuw nsw i64 %div1.i.i, 3
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #26
   %BitWidth.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1565,7 +1565,7 @@ if.end.i:                                         ; preds = %entry
   %conv.i.i.i = zext i32 %0 to i64
   %sub.i.i4.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i = lshr i64 %sub.i.i4.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i to i32
   %3 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #26, !noalias !17
   %4 = load ptr, ptr %this, align 8
@@ -2669,7 +2669,7 @@ if.else.i.i.i:                                    ; preds = %if.then11
   %conv.i.i.i.i = zext i32 %numBits to i64
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 63
   %div1.i.i.i.i = lshr i64 %sub.i.i.i.i, 6
-  %conv1.i.i.i.i = trunc i64 %div1.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i to i32
   %13 = shl nuw nsw i64 %div1.i.i.i.i, 3
   %call.i.i.i51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #26
   %.sroa.speculated.i.i = tail call i32 @llvm.umin.i32(i32 %conv1.i.i.i.i, i32 %sub14)
@@ -2893,7 +2893,7 @@ if.then.i.i.i:                                    ; preds = %cond.end41
   %sub.neg.i.i.i = add nsw i32 %3, -64
   %4 = load i64, ptr %tmp, align 8
   %5 = call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv4.i.i.i = add nsw i32 %sub.neg.i.i.i, %6
   %7 = inttoptr i64 %4 to ptr
   br label %_ZNK4llvh5APInt8logBase2Ev.exit
@@ -2902,7 +2902,7 @@ if.end.i.i.i:                                     ; preds = %cond.end41
   %conv.i.i.i.i.i.i = zext i32 %3 to i64
   %sub.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i to i32
   %8 = load ptr, ptr %tmp, align 8
   %9 = shl i32 %conv1.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i
@@ -2924,7 +2924,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %11 = call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !27
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %12
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i.i
 
@@ -3147,7 +3147,7 @@ if.end4.i.i:                                      ; preds = %_ZNK4llvh5APInt3shl
   %17 = load ptr, ptr %this, align 8, !noalias !33
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i9, ptr align 8 %17, i64 %15, i1 false), !noalias !33
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i8, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %tobool.not.i.i.i.i = icmp eq i32 %10, %rem
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i14, label %if.end.i.i.i.i
 
@@ -3297,7 +3297,7 @@ if.end4.i.i:                                      ; preds = %entry
   %4 = load ptr, ptr %this, align 8, !noalias !39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i, ptr align 8 %4, i64 %3, i1 false), !noalias !39
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %tobool.not.i.i.i.i = icmp eq i32 %0, %numBits
   br i1 %tobool.not.i.i.i.i, label %_ZNK4llvh5APInt4lshrEj.exit, label %if.end.i.i.i.i
 
@@ -3735,7 +3735,7 @@ entry:
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %cmp10.not = icmp eq i32 %conv1.i.i, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
@@ -3761,7 +3761,7 @@ if.then:                                          ; preds = %for.body
 
 if.else:                                          ; preds = %for.body
   %4 = tail call i64 @llvm.ctlz.i64(i64 %3, i1 true), !range !27
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %conv5 = or disjoint i32 %Count.011, %5
   br label %for.end
 
@@ -3796,11 +3796,11 @@ entry:
   %shl = shl i64 %3, %shift.0
   %not.i = xor i64 %shl, -1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %not.i, i1 false), !range !27
-  %conv = trunc i64 %4 to i32
+  %conv = trunc nuw nsw i64 %4 to i32
   %cmp = icmp eq i32 %highWordBits.0, %conv
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %cmp515 = icmp ugt i32 %conv1.i.i, 1
-  %or.cond = and i1 %cmp, %cmp515
+  %or.cond = select i1 %cmp, i1 %cmp515, i1 false
   br i1 %or.cond, label %for.body.preheader, label %if.end21
 
 for.body.preheader:                               ; preds = %entry
@@ -3828,7 +3828,7 @@ if.then10:                                        ; preds = %for.body
 if.else11:                                        ; preds = %for.body
   %not.i11 = xor i64 %8, -1
   %9 = tail call i64 @llvm.ctlz.i64(i64 %not.i11, i1 true), !range !27
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %conv18 = add i32 %Count.017, %10
   br label %if.end21
 
@@ -3845,7 +3845,7 @@ entry:
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %cmp18.not = icmp eq i32 %conv1.i.i, 0
   br i1 %cmp18.not, label %if.end, label %land.rhs.lr.ph
 
@@ -3873,7 +3873,7 @@ if.then:                                          ; preds = %land.rhs
   %arrayidx7 = getelementptr inbounds i64, ptr %1, i64 %idxprom6
   %4 = load i64, ptr %arrayidx7, align 8
   %5 = tail call i64 @llvm.cttz.i64(i64 %4, i1 false), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv10 = add i32 %Count.019, %6
   br label %if.end
 
@@ -3891,7 +3891,7 @@ entry:
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %cmp14.not = icmp eq i32 %conv1.i.i, 0
   br i1 %cmp14.not, label %if.end, label %land.rhs.lr.ph
 
@@ -3920,7 +3920,7 @@ if.then:                                          ; preds = %land.rhs
   %4 = load i64, ptr %arrayidx7, align 8
   %not.i = xor i64 %4, -1
   %5 = tail call i64 @llvm.cttz.i64(i64 %not.i, i1 false), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv10 = add i32 %Count.015, %6
   br label %if.end
 
@@ -3950,7 +3950,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx, align 8
   %3 = tail call i64 @llvm.ctpop.i64(i64 %2), !range !27
-  %cast.i.i = trunc i64 %3 to i32
+  %cast.i.i = trunc nuw nsw i64 %3 to i32
   %add = add i32 %Count.05, %cast.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %div1.i.i
@@ -3969,7 +3969,7 @@ entry:
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %cmp.not4.not = icmp eq i32 %conv1.i.i, 0
   br i1 %cmp.not4.not, label %return, label %for.body.lr.ph
 
@@ -4005,7 +4005,7 @@ entry:
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %cmp.not4 = icmp eq i32 %conv1.i.i, 0
   br i1 %cmp.not4, label %return, label %for.body.lr.ph
 
@@ -4123,7 +4123,7 @@ if.end32:                                         ; preds = %entry
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i17 = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i17, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %mul = shl i32 %conv1.i.i, 6
   %BitWidth.i18 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %mul, ptr %BitWidth.i18, align 8
@@ -4553,7 +4553,7 @@ _ZN4llvh5APIntC2Ejmb.exit124:                     ; preds = %_ZN4llvh5APInt15cle
   %BitWidth.i102188 = phi ptr [ %BitWidth.i102185, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i118 ], [ %BitWidth.i102, %if.else.i104 ]
   %Val.sroa.0.0186 = phi i64 [ %26, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i118 ], [ %30, %if.else.i104 ]
   store ptr %call.i.i.i107.sink, ptr %agg.result, align 8
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i.pre-phi to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i.pre-phi to i32
   %33 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   %rem.i.i.i.i.i = and i32 %0, 63
   %cmp6.not.i.i.i.i.i = icmp eq i32 %rem.i.i.i.i.i, 0
@@ -4597,7 +4597,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %40 = tail call i64 @llvm.ctlz.i64(i64 %39, i1 true), !range !27
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %41
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -4804,7 +4804,7 @@ if.end5:                                          ; preds = %entry
   %conv.i.i.i4 = zext i32 %0 to i64
   %sub.i.i.i5 = add nuw nsw i64 %conv.i.i.i4, 63
   %div1.i.i.i6 = lshr i64 %sub.i.i.i5, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i6 to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i6 to i32
   %tobool.not.i.i = icmp eq i32 %ShiftAmt, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.end.i.i
 
@@ -4824,7 +4824,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.cond.preheade
   %sub12.i.i = sub nuw nsw i32 64, %rem.i.i
   %sh_prom13.i.i = zext nneg i32 %sub12.i.i to i64
   %indvars.iv.next.i9.i = add nsw i64 %div1.i.i.i6, -1
-  %indvars.i10.i = trunc i64 %indvars.iv.next.i9.i to i32
+  %indvars.i10.i = trunc nsw i64 %indvars.iv.next.i9.i to i32
   %sub3.i11.i = sub nsw i32 %indvars.i10.i, %.sroa.speculated.i.i
   %idxprom.i12.i = zext i32 %sub3.i11.i to i64
   %arrayidx.i13.i = getelementptr inbounds i64, ptr %2, i64 %idxprom.i12.i
@@ -4954,7 +4954,7 @@ if.then.i16:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %_ZNK4llvh5APInteqERKS0_.exit
   %div1.i.i.i.i = lshr i64 %sub.i.i.i.i, 6
-  %conv1.i.i.i.i = trunc i64 %div1.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i to i32
   %11 = shl i32 %conv1.i.i.i.i, 6
   br label %for.body.i.i
 
@@ -4975,7 +4975,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %13 = tail call i64 @llvm.ctlz.i64(i64 %12, i1 true), !range !27
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %conv5.i.i = or disjoint i32 %Count.011.i.i, %14
   br label %_ZNK4llvh5APIntntEv.exit
 
@@ -5015,7 +5015,7 @@ if.end.i22:                                       ; preds = %if.end3
   %conv.i.i.i.i23 = zext i32 %21 to i64
   %sub.i.i.i.i24 = add nuw nsw i64 %conv.i.i.i.i23, 63
   %div1.i.i.i.i25 = lshr i64 %sub.i.i.i.i24, 6
-  %conv1.i.i.i.i26 = trunc i64 %div1.i.i.i.i25 to i32
+  %conv1.i.i.i.i26 = trunc nuw nsw i64 %div1.i.i.i.i25 to i32
   %22 = shl i32 %conv1.i.i.i.i26, 6
   br label %for.body.i.i27
 
@@ -5036,7 +5036,7 @@ if.then.i.i45:                                    ; preds = %for.body.i.i27
 
 if.else.i.i34:                                    ; preds = %for.body.i.i27
   %24 = tail call i64 @llvm.ctlz.i64(i64 %23, i1 true), !range !27
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %conv5.i.i35 = or disjoint i32 %Count.011.i.i29, %25
   br label %_ZNK4llvh5APIntntEv.exit50
 
@@ -5060,7 +5060,7 @@ if.end6:                                          ; preds = %if.then.i48, %_ZNK4
 
 if.then.i67:                                      ; preds = %if.end6
   %26 = tail call i64 @llvm.cttz.i64(i64 %17, i1 false), !range !27
-  %conv.i = trunc i64 %26 to i32
+  %conv.i = trunc nuw nsw i64 %26 to i32
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %0, i32 %conv.i)
   br label %_ZNK4llvh5APInt18countTrailingZerosEv.exit
 
@@ -5068,7 +5068,7 @@ if.end.i55:                                       ; preds = %if.end6
   %conv.i.i.i.i56 = zext i32 %0 to i64
   %sub.i.i.i.i57 = add nuw nsw i64 %conv.i.i.i.i56, 63
   %div1.i.i.i.i58 = lshr i64 %sub.i.i.i.i57, 6
-  %conv1.i.i.i.i59 = trunc i64 %div1.i.i.i.i58 to i32
+  %conv1.i.i.i.i59 = trunc nuw nsw i64 %div1.i.i.i.i58 to i32
   %27 = shl i32 %conv1.i.i.i.i59, 6
   br label %land.rhs.i.i
 
@@ -5091,7 +5091,7 @@ if.then.i.i62:                                    ; preds = %land.rhs.i.i
   %arrayidx7.i.i = getelementptr inbounds i64, ptr %18, i64 %idxprom6.i.i
   %29 = load i64, ptr %arrayidx7.i.i, align 8
   %30 = tail call i64 @llvm.cttz.i64(i64 %29, i1 false), !range !27
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %conv10.i.i = add i32 %Count.019.i.i, %31
   br label %_ZNK4llvh5APInt26countTrailingZerosSlowCaseEv.exit.i
 
@@ -5106,7 +5106,7 @@ _ZNK4llvh5APInt18countTrailingZerosEv.exit:       ; preds = %if.then.i67, %_ZNK4
 
 if.then.i92:                                      ; preds = %_ZNK4llvh5APInt18countTrailingZerosEv.exit
   %32 = tail call i64 @llvm.cttz.i64(i64 %19, i1 false), !range !27
-  %conv.i93 = trunc i64 %32 to i32
+  %conv.i93 = trunc nuw nsw i64 %32 to i32
   %.sroa.speculated.i94 = tail call i32 @llvm.umin.i32(i32 %21, i32 %conv.i93)
   br label %_ZNK4llvh5APInt18countTrailingZerosEv.exit95
 
@@ -5114,7 +5114,7 @@ if.end.i70:                                       ; preds = %_ZNK4llvh5APInt18co
   %conv.i.i.i.i71 = zext i32 %21 to i64
   %sub.i.i.i.i72 = add nuw nsw i64 %conv.i.i.i.i71, 63
   %div1.i.i.i.i73 = lshr i64 %sub.i.i.i.i72, 6
-  %conv1.i.i.i.i74 = trunc i64 %div1.i.i.i.i73 to i32
+  %conv1.i.i.i.i74 = trunc nuw nsw i64 %div1.i.i.i.i73 to i32
   %33 = shl i32 %conv1.i.i.i.i74, 6
   br label %land.rhs.i.i75
 
@@ -5137,7 +5137,7 @@ if.then.i.i80:                                    ; preds = %land.rhs.i.i75
   %arrayidx7.i.i82 = getelementptr inbounds i64, ptr %20, i64 %idxprom6.i.i81
   %35 = load i64, ptr %arrayidx7.i.i82, align 8
   %36 = tail call i64 @llvm.cttz.i64(i64 %35, i1 false), !range !27
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %conv10.i.i83 = add i32 %Count.019.i.i77, %37
   br label %_ZNK4llvh5APInt26countTrailingZerosSlowCaseEv.exit.i84
 
@@ -5173,7 +5173,7 @@ if.end4.i:                                        ; preds = %if.then9
   %conv.i.i.i.i98 = zext i32 %0 to i64
   %sub.i.i.i.i99 = add nuw nsw i64 %conv.i.i.i.i98, 63
   %div1.i.i.i.i100 = lshr i64 %sub.i.i.i.i99, 6
-  %conv1.i.i.i.i101 = trunc i64 %div1.i.i.i.i100 to i32
+  %conv1.i.i.i.i101 = trunc nuw nsw i64 %div1.i.i.i.i100 to i32
   %div24.i.i.i = lshr i32 %sub, 6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i, i32 %conv1.i.i.i.i101)
   %rem.i.i.i = and i32 %sub, 63
@@ -5264,7 +5264,7 @@ if.end4.i106:                                     ; preds = %if.then11
   %conv.i.i.i.i107 = zext i32 %21 to i64
   %sub.i.i.i.i108 = add nuw nsw i64 %conv.i.i.i.i107, 63
   %div1.i.i.i.i109 = lshr i64 %sub.i.i.i.i108, 6
-  %conv1.i.i.i.i110 = trunc i64 %div1.i.i.i.i109 to i32
+  %conv1.i.i.i.i110 = trunc nuw nsw i64 %div1.i.i.i.i109 to i32
   %div24.i.i.i113 = lshr i32 %sub12, 6
   %.sroa.speculated.i.i.i114 = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i113, i32 %conv1.i.i.i.i110)
   %rem.i.i.i115 = and i32 %sub12, 63
@@ -5453,7 +5453,7 @@ _ZN4llvh5APIntmIERKS0_.exit:                      ; preds = %if.end.thread.i, %i
 _ZNK4llvh5APInt18countTrailingZerosEv.exit214.thread: ; preds = %_ZN4llvh5APIntmIERKS0_.exit
   %67 = load i64, ptr %A, align 8
   %68 = tail call i64 @llvm.cttz.i64(i64 %67, i1 false), !range !27
-  %conv.i212 = trunc i64 %68 to i32
+  %conv.i212 = trunc nuw nsw i64 %68 to i32
   %.sroa.speculated.i213 = tail call i32 @llvm.umin.i32(i32 %66, i32 %conv.i212)
   %sub21410 = sub i32 %.sroa.speculated.i213, %Pow2.0
   %cmp.i267 = icmp eq i32 %66, %sub21410
@@ -5463,7 +5463,7 @@ if.end.i189:                                      ; preds = %_ZN4llvh5APIntmIERK
   %conv.i.i.i.i190 = zext i32 %66 to i64
   %sub.i.i.i.i191 = add nuw nsw i64 %conv.i.i.i.i190, 63
   %div1.i.i.i.i192 = lshr i64 %sub.i.i.i.i191, 6
-  %conv1.i.i.i.i193 = trunc i64 %div1.i.i.i.i192 to i32
+  %conv1.i.i.i.i193 = trunc nuw nsw i64 %div1.i.i.i.i192 to i32
   %69 = load ptr, ptr %A, align 8
   %70 = shl i32 %conv1.i.i.i.i193, 6
   br label %land.rhs.i.i194
@@ -5487,7 +5487,7 @@ if.then.i.i199:                                   ; preds = %land.rhs.i.i194
   %arrayidx7.i.i201 = getelementptr inbounds i64, ptr %69, i64 %idxprom6.i.i200
   %72 = load i64, ptr %arrayidx7.i.i201, align 8
   %73 = tail call i64 @llvm.cttz.i64(i64 %72, i1 false), !range !27
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw nsw i64 %73 to i32
   %conv10.i.i202 = add i32 %Count.019.i.i196, %74
   br label %_ZNK4llvh5APInt18countTrailingZerosEv.exit214
 
@@ -5656,7 +5656,7 @@ _ZN4llvh5APIntmIERKS0_.exit317:                   ; preds = %if.end.thread.i315,
 _ZNK4llvh5APInt18countTrailingZerosEv.exit345.thread: ; preds = %_ZN4llvh5APIntmIERKS0_.exit317
   %91 = load i64, ptr %B, align 8
   %92 = tail call i64 @llvm.cttz.i64(i64 %91, i1 false), !range !27
-  %conv.i343 = trunc i64 %92 to i32
+  %conv.i343 = trunc nuw nsw i64 %92 to i32
   %.sroa.speculated.i344 = tail call i32 @llvm.umin.i32(i32 %90, i32 %conv.i343)
   %sub25413 = sub i32 %.sroa.speculated.i344, %Pow2.0
   %cmp.i398 = icmp eq i32 %90, %sub25413
@@ -5666,7 +5666,7 @@ if.end.i320:                                      ; preds = %_ZN4llvh5APIntmIERK
   %conv.i.i.i.i321 = zext i32 %90 to i64
   %sub.i.i.i.i322 = add nuw nsw i64 %conv.i.i.i.i321, 63
   %div1.i.i.i.i323 = lshr i64 %sub.i.i.i.i322, 6
-  %conv1.i.i.i.i324 = trunc i64 %div1.i.i.i.i323 to i32
+  %conv1.i.i.i.i324 = trunc nuw nsw i64 %div1.i.i.i.i323 to i32
   %93 = load ptr, ptr %B, align 8
   %94 = shl i32 %conv1.i.i.i.i324, 6
   br label %land.rhs.i.i325
@@ -5690,7 +5690,7 @@ if.then.i.i330:                                   ; preds = %land.rhs.i.i325
   %arrayidx7.i.i332 = getelementptr inbounds i64, ptr %93, i64 %idxprom6.i.i331
   %96 = load i64, ptr %arrayidx7.i.i332, align 8
   %97 = tail call i64 @llvm.cttz.i64(i64 %96, i1 false), !range !27
-  %98 = trunc i64 %97 to i32
+  %98 = trunc nuw nsw i64 %97 to i32
   %conv10.i.i333 = add i32 %Count.019.i.i327, %98
   br label %_ZNK4llvh5APInt18countTrailingZerosEv.exit345
 
@@ -6050,7 +6050,7 @@ if.else.i88:                                      ; preds = %if.end14
 _ZN4llvh5APIntC2Ejmb.exit109:                     ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i102, %if.else.i88
   %call.i.i.i91.sink = phi ptr [ %18, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i102 ], [ %call.i.i.i91, %if.else.i88 ]
   store ptr %call.i.i.i91.sink, ptr %Tmp, align 8
-  %22 = trunc i64 %and to i32
+  %22 = trunc nuw nsw i64 %and to i32
   %sub16 = add nsw i32 %22, -1075
   %call17 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntlSEj(ptr noundef nonnull align 8 dereferenceable(12) %Tmp, i32 noundef %sub16)
   br i1 %tobool.not, label %cond.true19, label %cond.false22
@@ -6182,7 +6182,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %1 = load ptr, ptr %this, align 8
   %2 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -6204,7 +6204,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %4 = tail call i64 @llvm.ctlz.i64(i64 %3, i1 true), !range !27
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %5
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -6331,7 +6331,7 @@ if.then.i.i.i64:                                  ; preds = %for.body.i.i.i46
 
 if.else.i.i.i53:                                  ; preds = %for.body.i.i.i46
   %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !27
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %conv5.i.i.i54 = or disjoint i32 %Count.011.i.i.i48, %18
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i55
 
@@ -6915,7 +6915,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %conv.i.i.i.i.i.i.i = zext i32 %1 to i64
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i to i32
   %3 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i
 
@@ -6936,7 +6936,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 true), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %6
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -7025,7 +7025,7 @@ if.end:                                           ; preds = %entry
   %conv.i.i = zext i32 %0 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %sub = sub nsw i32 %conv1.i.i, %div23
   %cmp.not = icmp eq i32 %div23, %conv1.i.i
   br i1 %cmp.not, label %if.end56, label %if.then3
@@ -7161,7 +7161,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %conv.i.i.i.i.i.i.i = zext i32 %1 to i64
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i to i32
   %3 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i
 
@@ -7182,7 +7182,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 true), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %6
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -7236,7 +7236,7 @@ if.end4.i:                                        ; preds = %_ZNK4llvh5APInt15ge
   %10 = load ptr, ptr %this, align 8
   %sub.i.i.i.i = add nuw nsw i64 %conv, 63
   %div1.i.i.i.i = lshr i64 %sub.i.i.i.i, 6
-  %conv1.i.i.i.i = trunc i64 %div1.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i to i32
   %tobool.not.i.i.i = icmp eq i32 %cond.i, 0
   br i1 %tobool.not.i.i.i, label %_ZN4llvh5APInt11lshrInPlaceEj.exit, label %if.end.i.i.i
 
@@ -7318,7 +7318,7 @@ entry:
   %conv.i.i = zext i32 %1 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %tobool.not.i = icmp eq i32 %ShiftAmt, 0
   br i1 %tobool.not.i, label %_ZN4llvh5APInt12tcShiftRightEPmjj.exit, label %if.end.i
 
@@ -7483,7 +7483,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %conv.i.i.i.i.i.i.i = zext i32 %1 to i64
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i to i32
   %3 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i
 
@@ -7504,7 +7504,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 true), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %6
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -7549,7 +7549,7 @@ entry:
   %conv.i.i = zext i32 %1 to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 63
   %div1.i.i = lshr i64 %sub.i.i, 6
-  %conv1.i.i = trunc i64 %div1.i.i to i32
+  %conv1.i.i = trunc nuw nsw i64 %div1.i.i to i32
   %tobool.not.i = icmp eq i32 %ShiftAmt, 0
   br i1 %tobool.not.i, label %_ZN4llvh5APInt11tcShiftLeftEPmjj.exit, label %if.end.i
 
@@ -7569,7 +7569,7 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
   %sub12.i = sub nuw nsw i32 64, %rem.i
   %sh_prom13.i = zext nneg i32 %sub12.i to i64
   %indvars.iv.next.i9 = add nsw i64 %div1.i.i, -1
-  %indvars.i10 = trunc i64 %indvars.iv.next.i9 to i32
+  %indvars.i10 = trunc nsw i64 %indvars.iv.next.i9 to i32
   %sub3.i11 = sub nsw i32 %indvars.i10, %.sroa.speculated.i
   %idxprom.i12 = zext i32 %sub3.i11 to i64
   %arrayidx.i13 = getelementptr inbounds i64, ptr %0, i64 %idxprom.i12
@@ -7917,7 +7917,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i.i.i.i.i = zext i32 %26 to i64
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i to i32
   %27 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i
 
@@ -7938,7 +7938,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %29 = call i64 @llvm.ctlz.i64(i64 %28, i1 true), !range !27
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %30
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -8047,7 +8047,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end
   %9 = load ptr, ptr %this, align 8, !noalias !97
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i, ptr align 8 %9, i64 %7, i1 false), !noalias !103
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %div24.i.i.i.i = lshr i32 %rem, 6
   %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %div24.i.i.i.i, i32 %conv1.i.i.i.i.i)
   %rem.i.i.i.i = and i32 %rem, 63
@@ -8213,7 +8213,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %1 = load ptr, ptr %this, align 8
   %2 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -8235,7 +8235,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %4 = tail call i64 @llvm.ctlz.i64(i64 %3, i1 true), !range !27
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %5
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -8254,7 +8254,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit.thread:     ; preds = %entry
   %sub.neg.i.i = add nsw i32 %0, -64
   %6 = load i64, ptr %this, align 8
   %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 false), !range !27
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %conv4.i.i = add nsw i32 %sub.neg.i.i, %8
   %sub.i894 = sub nsw i32 %0, %conv4.i.i
   %cmp895 = icmp ult i32 %sub.i894, 6
@@ -8790,7 +8790,7 @@ _ZN4llvhplENS_5APIntEm.exit.thread:               ; preds = %if.then.i.i246
 
 if.end.i:                                         ; preds = %if.then.i.i.i241, %while.cond.i.i.i234
   %83 = ptrtoint ptr %78 to i64
-  %conv1.i.i.i = trunc i64 %div1.i.i.i.i233 to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i233 to i32
   %84 = shl nuw nsw i64 %div1.i.i.i.i233, 3
   %call.i.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %84) #26, !noalias !122
   store i64 0, ptr %call.i.i, align 8, !noalias !122
@@ -8905,7 +8905,7 @@ if.end.i355:                                      ; preds = %_ZN4llvhplENS_5APIn
   %conv.i.i.i356 = zext i32 %75 to i64
   %sub.i.i4.i357 = add nuw nsw i64 %conv.i.i.i356, 63
   %div1.i.i.i358 = lshr i64 %sub.i.i4.i357, 6
-  %conv1.i.i.i359 = trunc i64 %div1.i.i.i358 to i32
+  %conv1.i.i.i359 = trunc nuw nsw i64 %div1.i.i.i358 to i32
   %100 = shl nuw nsw i64 %div1.i.i.i358, 3
   %call.i.i360 = call noalias noundef nonnull ptr @_Znam(i64 noundef %100) #26, !noalias !131
   store i64 0, ptr %call.i.i360, align 8, !noalias !131
@@ -9373,7 +9373,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %3 = load ptr, ptr %this, align 8
   %4 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -9395,7 +9395,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %6 = tail call i64 @llvm.ctlz.i64(i64 %5, i1 true), !range !27
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %7
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -9410,7 +9410,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %conv.i = zext i32 %sub.i to i64
   %sub.i16 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i16, 6
-  %conv1.i = trunc i64 %div1.i to i32
+  %conv1.i = trunc nuw nsw i64 %div1.i to i32
   %BitWidth.i17 = getelementptr inbounds i8, ptr %RHS, i64 8
   %9 = load i32, ptr %BitWidth.i17, align 8
   %cmp.i.i.i18 = icmp ult i32 %9, 65
@@ -9420,7 +9420,7 @@ if.then.i.i45:                                    ; preds = %_ZNK4llvh5APInt13ge
   %sub.neg.i.i46 = add nsw i32 %9, -64
   %10 = load i64, ptr %RHS, align 8
   %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 false), !range !27
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %conv4.i.i47 = add nsw i32 %sub.neg.i.i46, %12
   %13 = inttoptr i64 %10 to ptr
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit48
@@ -9429,7 +9429,7 @@ if.end.i.i19:                                     ; preds = %_ZNK4llvh5APInt13ge
   %conv.i.i.i.i.i20 = zext i32 %9 to i64
   %sub.i.i.i.i.i21 = add nuw nsw i64 %conv.i.i.i.i.i20, 63
   %div1.i.i.i.i.i22 = lshr i64 %sub.i.i.i.i.i21, 6
-  %conv1.i.i.i.i.i23 = trunc i64 %div1.i.i.i.i.i22 to i32
+  %conv1.i.i.i.i.i23 = trunc nuw nsw i64 %div1.i.i.i.i.i22 to i32
   %14 = load ptr, ptr %RHS, align 8
   %15 = shl i32 %conv1.i.i.i.i.i23, 6
   br label %for.body.i.i.i24
@@ -9451,7 +9451,7 @@ if.then.i.i.i42:                                  ; preds = %for.body.i.i.i24
 
 if.else.i.i.i31:                                  ; preds = %for.body.i.i.i24
   %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !27
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %conv5.i.i.i32 = or disjoint i32 %Count.011.i.i.i26, %18
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i33
 
@@ -9471,7 +9471,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit48:          ; preds = %if.then.i.i45, %_ZN
   %conv.i49 = zext i32 %sub.i41 to i64
   %sub.i50 = add nuw nsw i64 %conv.i49, 63
   %div1.i51 = lshr i64 %sub.i50, 6
-  %conv1.i52 = trunc i64 %div1.i51 to i32
+  %conv1.i52 = trunc nuw nsw i64 %div1.i51 to i32
   %tobool.not = icmp eq i32 %conv1.i, 0
   br i1 %tobool.not, label %_ZN4llvh5APIntC2Ejmb.exit76, label %if.end9
 
@@ -9713,7 +9713,7 @@ if.end.i.i.i.i:                                   ; preds = %for.cond
   %conv.i.i.i.i.i.i.i = zext i32 %14 to i64
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i to i32
   %16 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i
 
@@ -9734,7 +9734,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %18 = call i64 @llvm.ctlz.i64(i64 %17, i1 true), !range !27
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %19
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -9784,7 +9784,7 @@ if.end.i:                                         ; preds = %for.body
   %conv.i.i.i = zext i32 %21 to i64
   %sub.i.i4.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i = lshr i64 %sub.i.i4.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i to i32
   %24 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #26, !noalias !143
   %25 = load ptr, ptr %arrayidx15, align 16, !noalias !143
@@ -10007,7 +10007,7 @@ if.end.i.i.i.i118:                                ; preds = %for.end
   %conv.i.i.i.i.i.i.i119 = zext i32 %48 to i64
   %sub.i.i.i.i.i.i.i120 = add nuw nsw i64 %conv.i.i.i.i.i.i.i119, 63
   %div1.i.i.i.i.i.i.i121 = lshr i64 %sub.i.i.i.i.i.i.i120, 6
-  %conv1.i.i.i.i.i.i.i122 = trunc i64 %div1.i.i.i.i.i.i.i121 to i32
+  %conv1.i.i.i.i.i.i.i122 = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i121 to i32
   %50 = shl i32 %conv1.i.i.i.i.i.i.i122, 6
   br label %for.body.i.i.i.i.i123
 
@@ -10028,7 +10028,7 @@ if.then.i.i.i.i.i146:                             ; preds = %for.body.i.i.i.i.i1
 
 if.else.i.i.i.i.i130:                             ; preds = %for.body.i.i.i.i.i123
   %52 = call i64 @llvm.ctlz.i64(i64 %51, i1 true), !range !27
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw nsw i64 %52 to i32
   %conv5.i.i.i.i.i131 = or disjoint i32 %Count.011.i.i.i.i.i125, %53
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i132
 
@@ -10297,7 +10297,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %7 = load ptr, ptr %LHS, align 8
   %8 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -10319,7 +10319,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %10 = tail call i64 @llvm.ctlz.i64(i64 %9, i1 true), !range !27
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %11
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -10334,7 +10334,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %conv.i = zext i32 %sub.i to i64
   %sub.i104 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i104, 6
-  %conv1.i = trunc i64 %div1.i to i32
+  %conv1.i = trunc nuw nsw i64 %div1.i to i32
   %BitWidth.i105 = getelementptr inbounds i8, ptr %RHS, i64 8
   %13 = load i32, ptr %BitWidth.i105, align 8
   %cmp.i.i.i106 = icmp ult i32 %13, 65
@@ -10344,7 +10344,7 @@ if.then.i.i133:                                   ; preds = %_ZNK4llvh5APInt13ge
   %sub.neg.i.i134 = add nsw i32 %13, -64
   %14 = load i64, ptr %RHS, align 8
   %15 = tail call i64 @llvm.ctlz.i64(i64 %14, i1 false), !range !27
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %conv4.i.i135 = add nsw i32 %sub.neg.i.i134, %16
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit136
 
@@ -10352,7 +10352,7 @@ if.end.i.i107:                                    ; preds = %_ZNK4llvh5APInt13ge
   %conv.i.i.i.i.i108 = zext i32 %13 to i64
   %sub.i.i.i.i.i109 = add nuw nsw i64 %conv.i.i.i.i.i108, 63
   %div1.i.i.i.i.i110 = lshr i64 %sub.i.i.i.i.i109, 6
-  %conv1.i.i.i.i.i111 = trunc i64 %div1.i.i.i.i.i110 to i32
+  %conv1.i.i.i.i.i111 = trunc nuw nsw i64 %div1.i.i.i.i.i110 to i32
   %17 = load ptr, ptr %RHS, align 8
   %18 = shl i32 %conv1.i.i.i.i.i111, 6
   br label %for.body.i.i.i112
@@ -10374,7 +10374,7 @@ if.then.i.i.i130:                                 ; preds = %for.body.i.i.i112
 
 if.else.i.i.i119:                                 ; preds = %for.body.i.i.i112
   %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !27
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %conv5.i.i.i120 = or disjoint i32 %Count.011.i.i.i114, %21
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i121
 
@@ -10393,7 +10393,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit136:         ; preds = %if.then.i.i133, %_Z
   %conv.i137 = zext i32 %sub.i129 to i64
   %sub.i138 = add nuw nsw i64 %conv.i137, 63
   %div1.i139 = lshr i64 %sub.i138, 6
-  %conv1.i140 = trunc i64 %div1.i139 to i32
+  %conv1.i140 = trunc nuw nsw i64 %div1.i139 to i32
   %cmp = icmp eq i32 %conv1.i, 0
   br i1 %cmp, label %_ZN4llvh5APIntC2Ejmb.exit164, label %if.end17
 
@@ -10861,7 +10861,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh5APIntD2Ev.
   %15 = load ptr, ptr %this, align 8, !noalias !150
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i26, ptr align 8 %15, i64 %13, i1 false), !noalias !150
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %div24.i.i.i.i = lshr i32 %sub, 6
   %.sroa.speculated.i.i.i.i = call i32 @llvm.umin.i32(i32 %div24.i.i.i.i, i32 %conv1.i.i.i.i.i)
   %rem.i.i.i.i27 = and i32 %sub, 63
@@ -11247,7 +11247,7 @@ if.end.i:                                         ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i = zext i32 %62 to i64
   %sub.i.i4.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i184 = lshr i64 %sub.i.i4.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i184 to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i184 to i32
   %63 = shl nuw nsw i64 %div1.i.i.i184, 3
   %call.i.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %63) #26, !noalias !162
   %64 = ptrtoint ptr %call.i.i to i64
@@ -11396,7 +11396,7 @@ if.end.i277:                                      ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i278 = zext i32 %79 to i64
   %sub.i.i4.i279 = add nuw nsw i64 %conv.i.i.i278, 63
   %div1.i.i.i280 = lshr i64 %sub.i.i4.i279, 6
-  %conv1.i.i.i281 = trunc i64 %div1.i.i.i280 to i32
+  %conv1.i.i.i281 = trunc nuw nsw i64 %div1.i.i.i280 to i32
   %80 = shl nuw nsw i64 %div1.i.i.i280, 3
   %call.i.i282 = call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #26, !noalias !168
   %81 = ptrtoint ptr %call.i.i282 to i64
@@ -11541,7 +11541,7 @@ _ZN4llvh5APIntD2Ev.exit376:                       ; preds = %if.else.i4.i.i337, 
   %indvars.iv.next.i9.i.i1374 = add nsw i64 %div1.i.i.i6.i1349.pre-phi, -1
   %idxprom.i12.i.i1376 = and i64 %indvars.iv.next.i9.i.i1374, 4294967295
   %cmp.i1399 = icmp eq i32 %79, 1
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i6.i to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i6.i to i32
   %99 = shl i32 %conv1.i.i.i.i.i.i, 6
   %rem.i.i.i.i884 = and i32 %62, 63
   %cmp6.not.i.i.i.i885 = icmp eq i32 %rem.i.i.i.i884, 0
@@ -12102,7 +12102,7 @@ if.then.i.i.i.i889:                               ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %162 = call i64 @llvm.ctlz.i64(i64 %161, i1 true), !range !27
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw nsw i64 %162 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %163
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -12500,7 +12500,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %3 = load ptr, ptr %this, align 8
   %4 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -12522,7 +12522,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %6 = tail call i64 @llvm.ctlz.i64(i64 %5, i1 true), !range !27
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %7
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -12537,7 +12537,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %conv.i = zext i32 %sub.i to i64
   %sub.i16 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i16, 6
-  %conv1.i = trunc i64 %div1.i to i32
+  %conv1.i = trunc nuw nsw i64 %div1.i to i32
   %BitWidth.i17 = getelementptr inbounds i8, ptr %RHS, i64 8
   %9 = load i32, ptr %BitWidth.i17, align 8
   %cmp.i.i.i18 = icmp ult i32 %9, 65
@@ -12547,7 +12547,7 @@ if.then.i.i45:                                    ; preds = %_ZNK4llvh5APInt13ge
   %sub.neg.i.i46 = add nsw i32 %9, -64
   %10 = load i64, ptr %RHS, align 8
   %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 false), !range !27
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %conv4.i.i47 = add nsw i32 %sub.neg.i.i46, %12
   %13 = inttoptr i64 %10 to ptr
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit48
@@ -12556,7 +12556,7 @@ if.end.i.i19:                                     ; preds = %_ZNK4llvh5APInt13ge
   %conv.i.i.i.i.i20 = zext i32 %9 to i64
   %sub.i.i.i.i.i21 = add nuw nsw i64 %conv.i.i.i.i.i20, 63
   %div1.i.i.i.i.i22 = lshr i64 %sub.i.i.i.i.i21, 6
-  %conv1.i.i.i.i.i23 = trunc i64 %div1.i.i.i.i.i22 to i32
+  %conv1.i.i.i.i.i23 = trunc nuw nsw i64 %div1.i.i.i.i.i22 to i32
   %14 = load ptr, ptr %RHS, align 8
   %15 = shl i32 %conv1.i.i.i.i.i23, 6
   br label %for.body.i.i.i24
@@ -12578,7 +12578,7 @@ if.then.i.i.i42:                                  ; preds = %for.body.i.i.i24
 
 if.else.i.i.i31:                                  ; preds = %for.body.i.i.i24
   %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !27
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %conv5.i.i.i32 = or disjoint i32 %Count.011.i.i.i26, %18
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i33
 
@@ -12598,7 +12598,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit48:          ; preds = %if.then.i.i45, %_ZN
   %conv.i49 = zext i32 %sub.i41 to i64
   %sub.i50 = add nuw nsw i64 %conv.i49, 63
   %div1.i51 = lshr i64 %sub.i50, 6
-  %conv1.i52 = trunc i64 %div1.i51 to i32
+  %conv1.i52 = trunc nuw nsw i64 %div1.i51 to i32
   %cmp = icmp eq i32 %conv1.i, 0
   br i1 %cmp, label %_ZN4llvh5APIntC2Ejmb.exit76, label %if.end9
 
@@ -12789,7 +12789,7 @@ if.end4.i.i:                                      ; preds = %entry
   %call.i.i.i.i24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #26, !noalias !225
   %6 = ptrtoint ptr %call.i.i.i.i24 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i.i24, ptr nonnull align 8 %call.i.i.i.i, i64 %2, i1 false), !noalias !225
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i7.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i7.i.i.i to i32
   %tobool.not.i.i.i.i = icmp eq i32 %LeadingZeros, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN4llvh5APIntD2Ev.exit, label %if.end.i.i.i.i
 
@@ -13263,7 +13263,7 @@ if.end.i:                                         ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i = zext i32 %61 to i64
   %sub.i.i4.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i165 = lshr i64 %sub.i.i4.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i165 to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i165 to i32
   %62 = shl nuw nsw i64 %div1.i.i.i165, 3
   %call.i.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #26, !noalias !243
   %63 = ptrtoint ptr %call.i.i to i64
@@ -13419,7 +13419,7 @@ if.end.i258:                                      ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i259 = zext i32 %84 to i64
   %sub.i.i4.i260 = add nuw nsw i64 %conv.i.i.i259, 63
   %div1.i.i.i261 = lshr i64 %sub.i.i4.i260, 6
-  %conv1.i.i.i262 = trunc i64 %div1.i.i.i261 to i32
+  %conv1.i.i.i262 = trunc nuw nsw i64 %div1.i.i.i261 to i32
   %86 = shl nuw nsw i64 %div1.i.i.i261, 3
   %call.i.i263 = call noalias noundef nonnull ptr @_Znam(i64 noundef %86) #26, !noalias !249
   %87 = ptrtoint ptr %call.i.i263 to i64
@@ -13566,7 +13566,7 @@ _ZN4llvh5APIntD2Ev.exit357:                       ; preds = %if.else.i4.i.i318, 
   %110 = lshr i64 %sub.i.i.i.i826.pre-phi, 3
   %111 = and i64 %110, 1073741816
   %cmp.i.i.i957 = icmp ugt i32 %84, 64
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i417 to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i417 to i32
   %112 = shl i32 %conv1.i.i.i.i.i.i, 6
   %rem.i.i.i.i1628 = and i32 %61, 63
   %cmp6.not.i.i.i.i1629 = icmp eq i32 %rem.i.i.i.i1628, 0
@@ -14641,7 +14641,7 @@ if.then.i.i.i.i1633:                              ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %253 = call i64 @llvm.ctlz.i64(i64 %252, i1 true), !range !27
-  %254 = trunc i64 %253 to i32
+  %254 = trunc nuw nsw i64 %253 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %254
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -14897,7 +14897,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx45 = getelementptr inbounds i32, ptr %U.0, i64 %idxprom44
   store i32 %conv.i, ptr %arrayidx45, align 4
   %shr.i = lshr i64 %3, 32
-  %conv.i113 = trunc i64 %shr.i to i32
+  %conv.i113 = trunc nuw i64 %shr.i to i32
   %add48 = or disjoint i32 %mul43, 1
   %idxprom49 = zext i32 %add48 to i64
   %arrayidx50 = getelementptr inbounds i32, ptr %U.0, i64 %idxprom49
@@ -14931,7 +14931,7 @@ for.body59:                                       ; preds = %for.body59.preheade
   %arrayidx66 = getelementptr inbounds i32, ptr %V.0, i64 %idxprom65
   store i32 %conv.i114, ptr %arrayidx66, align 4
   %shr.i115 = lshr i64 %5, 32
-  %conv.i116 = trunc i64 %shr.i115 to i32
+  %conv.i116 = trunc nuw i64 %shr.i115 to i32
   %add69 = or disjoint i32 %mul64, 1
   %idxprom70 = zext i32 %add69 to i64
   %arrayidx71 = getelementptr inbounds i32, ptr %V.0, i64 %idxprom70
@@ -15448,7 +15448,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %2 = load ptr, ptr %this, align 8
   %3 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -15470,7 +15470,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 true), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %6
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -15485,7 +15485,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %conv.i = zext i32 %sub.i to i64
   %sub.i8 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i8, 6
-  %conv1.i = trunc i64 %div1.i to i32
+  %conv1.i = trunc nuw nsw i64 %div1.i to i32
   %tobool.not = icmp eq i32 %conv1.i, 0
   br i1 %tobool.not, label %_ZN4llvh5APIntC2Ejmb.exit32, label %if.end6
 
@@ -15542,7 +15542,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %14 = tail call i64 @llvm.ctlz.i64(i64 %13, i1 true), !range !27
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %15
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -15600,7 +15600,7 @@ if.then.i.i.i.i94:                                ; preds = %for.body.i.i.i.i73
 
 if.else.i.i.i.i80:                                ; preds = %for.body.i.i.i.i73
   %21 = tail call i64 @llvm.ctlz.i64(i64 %20, i1 true), !range !27
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %conv5.i.i.i.i81 = or disjoint i32 %Count.011.i.i.i.i75, %22
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i82
 
@@ -16820,7 +16820,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %2 = load ptr, ptr %this, align 8
   %3 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -16842,7 +16842,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 true), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %6
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -16857,7 +16857,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %conv.i = zext i32 %sub.i to i64
   %sub.i4 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i4, 6
-  %conv1.i = trunc i64 %div1.i to i32
+  %conv1.i = trunc nuw nsw i64 %div1.i to i32
   %cmp = icmp eq i32 %conv1.i, 0
   %cmp6 = icmp eq i64 %RHS, 1
   %or.cond = or i1 %cmp6, %cmp
@@ -16880,7 +16880,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %9 = tail call i64 @llvm.ctlz.i64(i64 %8, i1 true), !range !27
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %10
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -16916,7 +16916,7 @@ if.then.i.i.i.i38:                                ; preds = %for.body.i.i.i.i17
 
 if.else.i.i.i.i24:                                ; preds = %for.body.i.i.i.i17
   %13 = tail call i64 @llvm.ctlz.i64(i64 %12, i1 true), !range !27
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %conv5.i.i.i.i25 = or disjoint i32 %Count.011.i.i.i.i19, %14
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i26
 
@@ -17924,7 +17924,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %4 = load ptr, ptr %LHS, align 8
   %5 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -17946,7 +17946,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 true), !range !27
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %8
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit
 
@@ -17961,7 +17961,7 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit:            ; preds = %if.then.i.i.i, %if.
   %conv.i = zext i32 %sub.i to i64
   %sub.i46 = add nuw nsw i64 %conv.i, 63
   %div1.i = lshr i64 %sub.i46, 6
-  %conv1.i = trunc i64 %div1.i to i32
+  %conv1.i = trunc nuw nsw i64 %div1.i to i32
   %cmp = icmp eq i32 %conv1.i, 0
   br i1 %cmp, label %_ZN4llvh5APIntC2Ejmb.exit70, label %if.end9
 
@@ -18029,7 +18029,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !27
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %18
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -18103,7 +18103,7 @@ if.then.i.i.i.i157:                               ; preds = %for.body.i.i.i.i136
 
 if.else.i.i.i.i143:                               ; preds = %for.body.i.i.i.i136
   %27 = tail call i64 @llvm.ctlz.i64(i64 %26, i1 true), !range !27
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %conv5.i.i.i.i144 = or disjoint i32 %Count.011.i.i.i.i138, %28
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i145
 
@@ -19541,7 +19541,7 @@ land.rhs.i:                                       ; preds = %if.end.i
   %conv.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 63
   %div1.i.i.i.i = lshr i64 %sub.i.i.i.i, 6
-  %conv1.i.i.i.i = trunc i64 %div1.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i to i32
   %3 = shl i32 %conv1.i.i.i.i, 6
   br label %land.rhs.i.i
 
@@ -19564,7 +19564,7 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
   %arrayidx7.i.i = getelementptr inbounds i64, ptr %2, i64 %idxprom6.i.i
   %5 = load i64, ptr %arrayidx7.i.i, align 8
   %6 = tail call i64 @llvm.cttz.i64(i64 %5, i1 false), !range !27
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %conv10.i.i = add i32 %Count.019.i.i, %7
   br label %_ZNK4llvh5APInt16isMinSignedValueEv.exit
 
@@ -19592,7 +19592,7 @@ if.end.i4:                                        ; preds = %land.rhs
   %conv.i.i.i.i5 = zext i32 %8 to i64
   %sub.i.i.i.i6 = add nuw nsw i64 %conv.i.i.i.i5, 63
   %div1.i.i.i.i7 = lshr i64 %sub.i.i.i.i6, 6
-  %conv1.i.i.i.i8 = trunc i64 %div1.i.i.i.i7 to i32
+  %conv1.i.i.i.i8 = trunc nuw nsw i64 %div1.i.i.i.i7 to i32
   %10 = load ptr, ptr %RHS, align 8
   %11 = shl i32 %conv1.i.i.i.i8, 6
   br label %land.rhs.i.i9
@@ -19617,7 +19617,7 @@ if.then.i.i13:                                    ; preds = %land.rhs.i.i9
   %13 = load i64, ptr %arrayidx7.i.i15, align 8
   %not.i.i.i = xor i64 %13, -1
   %14 = tail call i64 @llvm.cttz.i64(i64 %not.i.i.i, i1 false), !range !27
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %conv10.i.i16 = add i32 %Count.015.i.i, %15
   br label %_ZNK4llvh5APInt25countTrailingOnesSlowCaseEv.exit.i
 
@@ -19669,7 +19669,7 @@ if.end.i:                                         ; preds = %entry
   %conv.i.i.i = zext i32 %0 to i64
   %sub.i.i4.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i = lshr i64 %sub.i.i4.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i to i32
   %4 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #26, !noalias !415
   %BitWidth.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -19728,7 +19728,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %14 = tail call i64 @llvm.ctlz.i64(i64 %13, i1 true), !range !27
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %15
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -19765,7 +19765,7 @@ if.end.i.i.i.i10:                                 ; preds = %land.lhs.true
   %conv.i.i.i.i.i.i.i11 = zext i32 %17 to i64
   %sub.i.i.i.i.i.i.i12 = add nuw nsw i64 %conv.i.i.i.i.i.i.i11, 63
   %div1.i.i.i.i.i.i.i13 = lshr i64 %sub.i.i.i.i.i.i.i12, 6
-  %conv1.i.i.i.i.i.i.i14 = trunc i64 %div1.i.i.i.i.i.i.i13 to i32
+  %conv1.i.i.i.i.i.i.i14 = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i13 to i32
   %19 = shl i32 %conv1.i.i.i.i.i.i.i14, 6
   br label %for.body.i.i.i.i.i15
 
@@ -19786,7 +19786,7 @@ if.then.i.i.i.i.i38:                              ; preds = %for.body.i.i.i.i.i1
 
 if.else.i.i.i.i.i22:                              ; preds = %for.body.i.i.i.i.i15
   %21 = tail call i64 @llvm.ctlz.i64(i64 %20, i1 true), !range !27
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %conv5.i.i.i.i.i23 = or disjoint i32 %Count.011.i.i.i.i.i17, %22
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i24
 
@@ -19924,7 +19924,7 @@ if.end.i:                                         ; preds = %entry
   %conv.i.i.i = zext i32 %0 to i64
   %sub.i.i4.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i = lshr i64 %sub.i.i4.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i to i32
   %4 = shl nuw nsw i64 %div1.i.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #26, !noalias !418
   %BitWidth.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -19983,7 +19983,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %14 = tail call i64 @llvm.ctlz.i64(i64 %13, i1 true), !range !27
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %15
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -20020,7 +20020,7 @@ if.end.i.i.i.i10:                                 ; preds = %land.lhs.true
   %conv.i.i.i.i.i.i.i11 = zext i32 %17 to i64
   %sub.i.i.i.i.i.i.i12 = add nuw nsw i64 %conv.i.i.i.i.i.i.i11, 63
   %div1.i.i.i.i.i.i.i13 = lshr i64 %sub.i.i.i.i.i.i.i12, 6
-  %conv1.i.i.i.i.i.i.i14 = trunc i64 %div1.i.i.i.i.i.i.i13 to i32
+  %conv1.i.i.i.i.i.i.i14 = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i13 to i32
   %19 = shl i32 %conv1.i.i.i.i.i.i.i14, 6
   br label %for.body.i.i.i.i.i15
 
@@ -20041,7 +20041,7 @@ if.then.i.i.i.i.i38:                              ; preds = %for.body.i.i.i.i.i1
 
 if.else.i.i.i.i.i22:                              ; preds = %for.body.i.i.i.i.i15
   %21 = tail call i64 @llvm.ctlz.i64(i64 %20, i1 true), !range !27
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %conv5.i.i.i.i.i23 = or disjoint i32 %Count.011.i.i.i.i.i17, %22
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i24
 
@@ -20165,7 +20165,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %conv.i.i.i.i.i.i.i = zext i32 %1 to i64
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i to i32
   %3 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i
 
@@ -20186,7 +20186,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 true), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %6
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -20274,7 +20274,7 @@ if.then4:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then4
   %sub.neg.i = add nsw i32 %12, -64
   %15 = tail call i64 @llvm.ctlz.i64(i64 %14, i1 false), !range !27
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %conv4.i = add nsw i32 %sub.neg.i, %16
   br label %_ZNK4llvh5APInt17countLeadingZerosEv.exit
 
@@ -20282,7 +20282,7 @@ if.end.i:                                         ; preds = %if.then4
   %conv.i.i.i.i = zext i32 %12 to i64
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 63
   %div1.i.i.i.i = lshr i64 %sub.i.i.i.i, 6
-  %conv1.i.i.i.i = trunc i64 %div1.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i to i32
   %17 = shl i32 %conv1.i.i.i.i, 6
   br label %for.body.i.i
 
@@ -20303,7 +20303,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %19 = tail call i64 @llvm.ctlz.i64(i64 %18, i1 true), !range !27
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %conv5.i.i = or disjoint i32 %Count.011.i.i, %20
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i
 
@@ -20329,7 +20329,7 @@ if.end.i.i.i.i18:                                 ; preds = %_ZNK4llvh5APInt17co
   %conv.i.i.i.i.i.i.i19 = zext i32 %21 to i64
   %sub.i.i.i.i.i.i.i20 = add nuw nsw i64 %conv.i.i.i.i.i.i.i19, 63
   %div1.i.i.i.i.i.i.i21 = lshr i64 %sub.i.i.i.i.i.i.i20, 6
-  %conv1.i.i.i.i.i.i.i22 = trunc i64 %div1.i.i.i.i.i.i.i21 to i32
+  %conv1.i.i.i.i.i.i.i22 = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i21 to i32
   %23 = shl i32 %conv1.i.i.i.i.i.i.i22, 6
   br label %for.body.i.i.i.i.i23
 
@@ -20350,7 +20350,7 @@ if.then.i.i.i.i.i46:                              ; preds = %for.body.i.i.i.i.i2
 
 if.else.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i23
   %25 = tail call i64 @llvm.ctlz.i64(i64 %24, i1 true), !range !27
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %conv5.i.i.i.i.i31 = or disjoint i32 %Count.011.i.i.i.i.i25, %26
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i32
 
@@ -20383,7 +20383,7 @@ if.then.i63:                                      ; preds = %if.else
   %shl.i = shl i64 %14, %sh_prom.i
   %not.i.i = xor i64 %shl.i, -1
   %28 = tail call i64 @llvm.ctlz.i64(i64 %not.i.i, i1 false), !range !27
-  %conv.i = trunc i64 %28 to i32
+  %conv.i = trunc nuw nsw i64 %28 to i32
   br label %_ZNK4llvh5APInt16countLeadingOnesEv.exit
 
 if.end.i52:                                       ; preds = %if.else
@@ -20402,12 +20402,12 @@ if.end.i52:                                       ; preds = %if.else
   %shl.i.i = shl i64 %30, %shift.0.i.i
   %not.i.i.i = xor i64 %shl.i.i, -1
   %31 = tail call i64 @llvm.ctlz.i64(i64 %not.i.i.i, i1 false), !range !27
-  %conv.i.i = trunc i64 %31 to i32
+  %conv.i.i = trunc nuw nsw i64 %31 to i32
   %cmp.i2.i = icmp eq i32 %highWordBits.0.i.i, %conv.i.i
   br i1 %cmp.i2.i, label %for.body.preheader.i.i, label %_ZNK4llvh5APInt16countLeadingOnesEv.exit
 
 for.body.preheader.i.i:                           ; preds = %if.end.i52
-  %conv1.i.i.i.i60 = trunc i64 %div1.i.i.i.i57 to i32
+  %conv1.i.i.i.i60 = trunc nuw nsw i64 %div1.i.i.i.i57 to i32
   %dec.i.i = add nsw i32 %conv1.i.i.i.i60, -2
   %32 = shl i32 %conv1.i.i.i.i60, 6
   %33 = add nsw i32 %highWordBits.0.i.i, -64
@@ -20432,7 +20432,7 @@ if.then10.i.i:                                    ; preds = %for.body.i.i61
 if.else11.i.i:                                    ; preds = %for.body.i.i61
   %not.i11.i.i = xor i64 %35, -1
   %36 = tail call i64 @llvm.ctlz.i64(i64 %not.i11.i.i, i1 true), !range !27
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %conv18.i.i = add i32 %Count.017.i.i, %37
   br label %_ZNK4llvh5APInt16countLeadingOnesEv.exit
 
@@ -20449,7 +20449,7 @@ if.end.i.i.i.i67:                                 ; preds = %_ZNK4llvh5APInt16co
   %conv.i.i.i.i.i.i.i68 = zext i32 %38 to i64
   %sub.i.i.i.i.i.i.i69 = add nuw nsw i64 %conv.i.i.i.i.i.i.i68, 63
   %div1.i.i.i.i.i.i.i70 = lshr i64 %sub.i.i.i.i.i.i.i69, 6
-  %conv1.i.i.i.i.i.i.i71 = trunc i64 %div1.i.i.i.i.i.i.i70 to i32
+  %conv1.i.i.i.i.i.i.i71 = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i70 to i32
   %40 = shl i32 %conv1.i.i.i.i.i.i.i71, 6
   br label %for.body.i.i.i.i.i72
 
@@ -20470,7 +20470,7 @@ if.then.i.i.i.i.i95:                              ; preds = %for.body.i.i.i.i.i7
 
 if.else.i.i.i.i.i79:                              ; preds = %for.body.i.i.i.i.i72
   %42 = tail call i64 @llvm.ctlz.i64(i64 %41, i1 true), !range !27
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   %conv5.i.i.i.i.i80 = or disjoint i32 %Count.011.i.i.i.i.i74, %43
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i81
 
@@ -20536,7 +20536,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvh5APIntC2ERK
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %51 to i64
   %sub.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i to i32
   %53 = shl i32 %conv1.i.i.i.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i.i.i.i
 
@@ -20557,7 +20557,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.i.i.i
   %55 = tail call i64 @llvm.ctlz.i64(i64 %54, i1 true), !range !27
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw nsw i64 %55 to i32
   %conv5.i.i.i.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i.i.i.i, %56
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i.i.i.i
 
@@ -20613,7 +20613,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %conv.i.i.i.i.i.i.i = zext i32 %1 to i64
   %sub.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i to i32
   %3 = shl i32 %conv1.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i
 
@@ -20634,7 +20634,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 true), !range !27
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %conv5.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i, %6
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i
 
@@ -20707,7 +20707,7 @@ if.then.i:                                        ; preds = %if.end
   %sub.neg.i = add nsw i32 %12, -64
   %13 = load i64, ptr %this, align 8
   %14 = tail call i64 @llvm.ctlz.i64(i64 %13, i1 false), !range !27
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %conv4.i = add nsw i32 %sub.neg.i, %15
   br label %_ZNK4llvh5APInt17countLeadingZerosEv.exit
 
@@ -20715,7 +20715,7 @@ if.end.i:                                         ; preds = %if.end
   %conv.i.i.i.i = zext i32 %12 to i64
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 63
   %div1.i.i.i.i = lshr i64 %sub.i.i.i.i, 6
-  %conv1.i.i.i.i = trunc i64 %div1.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i to i32
   %16 = load ptr, ptr %this, align 8
   %17 = shl i32 %conv1.i.i.i.i, 6
   br label %for.body.i.i
@@ -20737,7 +20737,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %19 = tail call i64 @llvm.ctlz.i64(i64 %18, i1 true), !range !27
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %conv5.i.i = or disjoint i32 %Count.011.i.i, %20
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i
 
@@ -20763,7 +20763,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK4llvh5APInt17co
   %conv.i.i.i.i.i.i = zext i32 %21 to i64
   %sub.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i to i32
   %23 = shl i32 %conv1.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i
 
@@ -20784,7 +20784,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %25 = tail call i64 @llvm.ctlz.i64(i64 %24, i1 true), !range !27
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %26
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -20850,7 +20850,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvh5APIntC2ERK
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %35 to i64
   %sub.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i to i32
   %37 = shl i32 %conv1.i.i.i.i.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i.i.i.i.i
 
@@ -20871,7 +20871,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.i.i.i
   %39 = tail call i64 @llvm.ctlz.i64(i64 %38, i1 true), !range !27
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %conv5.i.i.i.i.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i.i.i.i.i, %40
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i.i.i.i
 
@@ -20943,7 +20943,7 @@ if.end.i.i.i:                                     ; preds = %if.end
   %conv.i.i.i.i.i.i = zext i32 %3 to i64
   %sub.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i to i32
   %5 = shl i32 %conv1.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i
 
@@ -20964,7 +20964,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 true), !range !27
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %8
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -21365,7 +21365,7 @@ if.then50:                                        ; preds = %while.end43, %while
   %sub12.i.i.i = sub nuw nsw i32 64, %cond53
   %sh_prom13.i.i.i = zext nneg i32 %sub12.i.i.i to i64
   %div1.i.i.i.i.i140 = lshr i64 %sub.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i140 to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i140 to i32
   %62 = shl i32 %conv1.i.i.i.i.i, 6
   %rem.i.i.i144 = and i32 %3, 63
   %cmp6.not.i.i.i = icmp eq i32 %rem.i.i.i144, 0
@@ -21399,7 +21399,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i143:                                 ; preds = %for.body.i.i.i
   %64 = tail call i64 @llvm.ctlz.i64(i64 %63, i1 true), !range !27
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw nsw i64 %64 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %65
   br label %_ZNK4llvh5APInt12getBoolValueEv.exit
 
@@ -21472,7 +21472,7 @@ if.end.i.i180:                                    ; preds = %while.cond64
   %conv.i.i.i.i.i181 = zext i32 %76 to i64
   %sub.i.i.i.i.i182 = add nuw nsw i64 %conv.i.i.i.i.i181, 63
   %div1.i.i.i.i.i183 = lshr i64 %sub.i.i.i.i.i182, 6
-  %conv1.i.i.i.i.i184 = trunc i64 %div1.i.i.i.i.i183 to i32
+  %conv1.i.i.i.i.i184 = trunc nuw nsw i64 %div1.i.i.i.i.i183 to i32
   %78 = load ptr, ptr %Tmp, align 8
   %79 = shl i32 %conv1.i.i.i.i.i184, 6
   br label %for.body.i.i.i185
@@ -21494,7 +21494,7 @@ if.then.i.i.i204:                                 ; preds = %for.body.i.i.i185
 
 if.else.i.i.i192:                                 ; preds = %for.body.i.i.i185
   %81 = call i64 @llvm.ctlz.i64(i64 %80, i1 true), !range !27
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw nsw i64 %81 to i32
   %conv5.i.i.i193 = or disjoint i32 %Count.011.i.i.i187, %82
   br label %_ZNK4llvh5APInt12getBoolValueEv.exit209
 
@@ -21795,7 +21795,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then:                                          ; preds = %for.body
   %1 = trunc i64 %indvars.iv to i32
   %2 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !27
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %mul = shl i32 %1, 6
   %add = or disjoint i32 %mul, %3
   br label %return
@@ -21826,7 +21826,7 @@ do.body:                                          ; preds = %do.cond, %entry
 
 if.then:                                          ; preds = %do.body
   %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !27
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %mul = shl i32 %dec, 6
   %3 = or disjoint i32 %mul, %2
   %add = xor i32 %3, 63
@@ -22084,7 +22084,7 @@ do.cond.i:                                        ; preds = %do.body.i
 
 _ZN4llvh5APInt5tcMSBEPKmj.exit:                   ; preds = %do.body.i
   %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !27
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %mul.i = shl i32 %dec.i, 6
   %3 = or disjoint i32 %mul.i, %2
   %add.i = xor i32 %3, 63
@@ -22441,7 +22441,7 @@ if.end.i.i.i:                                     ; preds = %sw.bb1
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i to i32
   %2 = shl i32 %conv1.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i
 
@@ -22462,7 +22462,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %4 = call i64 @llvm.ctlz.i64(i64 %3, i1 true), !range !27
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %5
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -22613,7 +22613,7 @@ if.end.i.i.i:                                     ; preds = %sw.bb
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %sub.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i.i to i32
   %2 = shl i32 %conv1.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i
 
@@ -22634,7 +22634,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %4 = call i64 @llvm.ctlz.i64(i64 %3, i1 true), !range !27
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %5
   br label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i
 
@@ -22926,7 +22926,7 @@ if.end.i.i:                                       ; preds = %entry
   %conv.i.i.i.i.i = zext i32 %1 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %3 = load ptr, ptr %ref.tmp, align 8
   %4 = shl i32 %conv1.i.i.i.i.i, 6
   br label %for.body.i.i.i
@@ -22948,7 +22948,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %6 = tail call i64 @llvm.ctlz.i64(i64 %5, i1 true), !range !27
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %7
   br label %delete.notnull.i
 
@@ -23226,7 +23226,7 @@ if.end.i:                                         ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i = zext i32 %38 to i64
   %sub.i.i4.i = add nuw nsw i64 %conv.i.i.i, 63
   %div1.i.i.i84 = lshr i64 %sub.i.i4.i, 6
-  %conv1.i.i.i = trunc i64 %div1.i.i.i84 to i32
+  %conv1.i.i.i = trunc nuw nsw i64 %div1.i.i.i84 to i32
   %43 = shl nuw nsw i64 %div1.i.i.i84, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %43) #26, !noalias !470
   %BitWidth.i6.i = getelementptr inbounds i8, ptr %SqrB, i64 8
@@ -23328,7 +23328,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i
   %conv.i.i.i.i.i.i = zext i32 %57 to i64
   %sub.i.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i, 63
   %div1.i.i.i.i.i1.i = lshr i64 %sub.i.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i1.i to i32
+  %conv1.i.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i1.i to i32
   %59 = shl i32 %conv1.i.i.i.i.i.i, 6
   br label %for.body.i.i.i.i
 
@@ -23349,7 +23349,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %61 = call i64 @llvm.ctlz.i64(i64 %60, i1 true), !range !27
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %conv5.i.i.i.i = or disjoint i32 %Count.011.i.i.i.i, %62
   br label %_ZNK4llvh5APInt18isStrictlyPositiveEv.exit
 
@@ -24195,7 +24195,7 @@ if.end.i406:                                      ; preds = %_ZN4llvh5APIntmLEm.
   %conv.i.i.i407 = zext i32 %147 to i64
   %sub.i.i4.i408 = add nuw nsw i64 %conv.i.i.i407, 63
   %div1.i.i.i409 = lshr i64 %sub.i.i4.i408, 6
-  %conv1.i.i.i410 = trunc i64 %div1.i.i.i409 to i32
+  %conv1.i.i.i410 = trunc nuw nsw i64 %div1.i.i.i409 to i32
   %156 = shl nuw nsw i64 %div1.i.i.i409, 3
   %call.i.i411 = call noalias noundef nonnull ptr @_Znam(i64 noundef %156) #26, !noalias !488
   %157 = ptrtoint ptr %call.i.i411 to i64
@@ -24336,7 +24336,7 @@ if.end.i507:                                      ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i508 = zext i32 %174 to i64
   %sub.i.i4.i509 = add nuw nsw i64 %conv.i.i.i508, 63
   %div1.i.i.i510 = lshr i64 %sub.i.i4.i509, 6
-  %conv1.i.i.i511 = trunc i64 %div1.i.i.i510 to i32
+  %conv1.i.i.i511 = trunc nuw nsw i64 %div1.i.i.i510 to i32
   %176 = shl nuw nsw i64 %div1.i.i.i510, 3
   %call.i.i512 = call noalias noundef nonnull ptr @_Znam(i64 noundef %176) #26, !noalias !494
   %177 = load ptr, ptr %SQ, align 8
@@ -24875,7 +24875,7 @@ if.end.i.i845:                                    ; preds = %land.lhs.true
   %conv.i.i.i.i.i846 = zext i32 %240 to i64
   %sub.i.i.i.i.i847 = add nuw nsw i64 %conv.i.i.i.i.i846, 63
   %div1.i.i.i.i.i848 = lshr i64 %sub.i.i.i.i.i847, 6
-  %conv1.i.i.i.i.i849 = trunc i64 %div1.i.i.i.i.i848 to i32
+  %conv1.i.i.i.i.i849 = trunc nuw nsw i64 %div1.i.i.i.i.i848 to i32
   %242 = load ptr, ptr %Rem, align 8
   %243 = shl i32 %conv1.i.i.i.i.i849, 6
   br label %for.body.i.i.i850
@@ -24897,7 +24897,7 @@ if.then.i.i.i868:                                 ; preds = %for.body.i.i.i850
 
 if.else.i.i.i857:                                 ; preds = %for.body.i.i.i850
   %245 = call i64 @llvm.ctlz.i64(i64 %244, i1 true), !range !27
-  %246 = trunc i64 %245 to i32
+  %246 = trunc nuw nsw i64 %245 to i32
   %conv5.i.i.i858 = or disjoint i32 %Count.011.i.i.i852, %246
   br label %_ZNK4llvh5APInt11isNullValueEv.exit873
 
@@ -24946,7 +24946,7 @@ if.end.i879:                                      ; preds = %if.end66
   %conv.i.i.i880 = zext i32 %249 to i64
   %sub.i.i4.i881 = add nuw nsw i64 %conv.i.i.i880, 63
   %div1.i.i.i882 = lshr i64 %sub.i.i4.i881, 6
-  %conv1.i.i.i883 = trunc i64 %div1.i.i.i882 to i32
+  %conv1.i.i.i883 = trunc nuw nsw i64 %div1.i.i.i882 to i32
   %253 = shl nuw nsw i64 %div1.i.i.i882, 3
   %call.i.i884 = call noalias noundef nonnull ptr @_Znam(i64 noundef %253) #26, !noalias !512
   %254 = ptrtoint ptr %call.i.i884 to i64
@@ -25028,7 +25028,7 @@ if.end.i959:                                      ; preds = %_ZN4llvhplENS_5APIn
   %conv.i.i.i960 = zext i32 %249 to i64
   %sub.i.i4.i961 = add nuw nsw i64 %conv.i.i.i960, 63
   %div1.i.i.i962 = lshr i64 %sub.i.i4.i961, 6
-  %conv1.i.i.i963 = trunc i64 %div1.i.i.i962 to i32
+  %conv1.i.i.i963 = trunc nuw nsw i64 %div1.i.i.i962 to i32
   %268 = shl nuw nsw i64 %div1.i.i.i962, 3
   %call.i.i964 = call noalias noundef nonnull ptr @_Znam(i64 noundef %268) #26, !noalias !521
   %269 = ptrtoint ptr %call.i.i964 to i64
@@ -25112,7 +25112,7 @@ if.end.i1060:                                     ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i1061 = zext i32 %279 to i64
   %sub.i.i4.i1062 = add nuw nsw i64 %conv.i.i.i1061, 63
   %div1.i.i.i1063 = lshr i64 %sub.i.i4.i1062, 6
-  %conv1.i.i.i1064 = trunc i64 %div1.i.i.i1063 to i32
+  %conv1.i.i.i1064 = trunc nuw nsw i64 %div1.i.i.i1063 to i32
   %282 = shl nuw nsw i64 %div1.i.i.i1063, 3
   %call.i.i1065 = call noalias noundef nonnull ptr @_Znam(i64 noundef %282) #26, !noalias !524
   %283 = ptrtoint ptr %call.i.i1065 to i64
@@ -25309,7 +25309,7 @@ if.end.i.i1270:                                   ; preds = %lor.rhs
   %conv.i.i.i.i.i1271 = zext i32 %249 to i64
   %sub.i.i.i.i.i1272 = add nuw nsw i64 %conv.i.i.i.i.i1271, 63
   %div1.i.i.i.i.i1273 = lshr i64 %sub.i.i.i.i.i1272, 6
-  %conv1.i.i.i.i.i1274 = trunc i64 %div1.i.i.i.i.i1273 to i32
+  %conv1.i.i.i.i.i1274 = trunc nuw nsw i64 %div1.i.i.i.i.i1273 to i32
   %307 = shl i32 %conv1.i.i.i.i.i1274, 6
   br label %for.body.i.i.i1275
 
@@ -25330,7 +25330,7 @@ if.then.i.i.i1293:                                ; preds = %for.body.i.i.i1275
 
 if.else.i.i.i1282:                                ; preds = %for.body.i.i.i1275
   %309 = call i64 @llvm.ctlz.i64(i64 %308, i1 true), !range !27
-  %310 = trunc i64 %309 to i32
+  %310 = trunc nuw nsw i64 %309 to i32
   %conv5.i.i.i1283 = or disjoint i32 %Count.011.i.i.i1277, %310
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i1284
 
@@ -25356,7 +25356,7 @@ if.end.i.i1301:                                   ; preds = %_ZNK4llvh5APInt11is
   %conv.i.i.i.i.i1302 = zext i32 %279 to i64
   %sub.i.i.i.i.i1303 = add nuw nsw i64 %conv.i.i.i.i.i1302, 63
   %div1.i.i.i.i.i1304 = lshr i64 %sub.i.i.i.i.i1303, 6
-  %conv1.i.i.i.i.i1305 = trunc i64 %div1.i.i.i.i.i1304 to i32
+  %conv1.i.i.i.i.i1305 = trunc nuw nsw i64 %div1.i.i.i.i.i1304 to i32
   %311 = shl i32 %conv1.i.i.i.i.i1305, 6
   br label %for.body.i.i.i1306
 
@@ -25377,7 +25377,7 @@ if.then.i.i.i1324:                                ; preds = %for.body.i.i.i1306
 
 if.else.i.i.i1313:                                ; preds = %for.body.i.i.i1306
   %313 = call i64 @llvm.ctlz.i64(i64 %312, i1 true), !range !27
-  %314 = trunc i64 %313 to i32
+  %314 = trunc nuw nsw i64 %313 to i32
   %conv5.i.i.i1314 = or disjoint i32 %Count.011.i.i.i1308, %314
   br label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i1315
 
@@ -25636,7 +25636,7 @@ if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.
   %conv.i.i.i.i.i = zext i32 %2 to i64
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i.i, 63
   %div1.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i, 6
-  %conv1.i.i.i.i.i = trunc i64 %div1.i.i.i.i.i to i32
+  %conv1.i.i.i.i.i = trunc nuw nsw i64 %div1.i.i.i.i.i to i32
   %5 = load ptr, ptr %T, align 8
   %6 = shl i32 %conv1.i.i.i.i.i, 6
   %7 = ptrtoint ptr %5 to i64
@@ -25659,7 +25659,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %9 = call i64 @llvm.ctlz.i64(i64 %8, i1 true), !range !27
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %conv5.i.i.i = or disjoint i32 %Count.011.i.i.i, %10
   br label %_ZNK4llvh5APInt11isNullValueEv.exit
 

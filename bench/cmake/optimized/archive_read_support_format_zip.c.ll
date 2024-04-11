@@ -1202,11 +1202,11 @@ define internal noundef i32 @archive_read_format_zip_seekable_bid(ptr noundef %0
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %11 to i32
+  %16 = trunc nuw nsw i64 %11 to i32
   %17 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %11, ptr noundef null) #21
   %18 = icmp ne ptr %17, null
   %19 = icmp ugt i32 %16, 22
-  %or.cond = and i1 %18, %19
+  %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %15
@@ -1586,7 +1586,7 @@ define internal i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0
 
 184:                                              ; preds = %114
   %185 = lshr i32 %177, 16
-  %186 = trunc i32 %185 to i16
+  %186 = trunc nuw i32 %185 to i16
   %187 = getelementptr inbounds i8, ptr %93, i64 124
   store i16 %186, ptr %187, align 4
   br label %196
@@ -3065,7 +3065,7 @@ define internal fastcc noundef i32 @process_extra(ptr noundef %0, ptr noundef %1
   br i1 %.not289, label %31, label %35
 
 35:                                               ; preds = %.preheader
-  %36 = trunc i64 %3 to i32
+  %36 = trunc nuw i64 %3 to i32
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.27, i32 noundef %36) #21
   br label %.loopexit
 
@@ -3400,7 +3400,7 @@ define internal fastcc noundef i32 @process_extra(ptr noundef %0, ptr noundef %1
 
 210:                                              ; preds = %205
   %211 = lshr i32 %208, 16
-  %212 = trunc i32 %211 to i16
+  %212 = trunc nuw i32 %211 to i16
   br label %.sink.split
 
 213:                                              ; preds = %205
@@ -3903,7 +3903,7 @@ thread-pre-split:                                 ; preds = %32, %45, %41
   %107 = add i32 %106, 1
   store i32 %107, ptr %86, align 4
   %108 = lshr i32 %107, 24
-  %109 = trunc i32 %108 to i8
+  %109 = trunc nuw i32 %108 to i8
   store i8 %109, ptr %5, align 1
   %110 = load i32, ptr %85, align 4
   %111 = xor i32 %110, -1
@@ -4932,7 +4932,7 @@ define internal fastcc noundef i32 @init_traditional_PKWARE_decryption(ptr nound
   %50 = add i32 %49, 1
   store i32 %50, ptr %30, align 4
   %51 = lshr i32 %50, 24
-  %52 = trunc i32 %51 to i8
+  %52 = trunc nuw i32 %51 to i8
   store i8 %52, ptr %5, align 1
   %53 = load i32, ptr %31, align 4
   %54 = xor i32 %53, -1
@@ -4981,7 +4981,7 @@ define internal fastcc noundef i32 @init_traditional_PKWARE_decryption(ptr nound
   %79 = add i32 %78, 1
   store i32 %79, ptr %30, align 4
   %80 = lshr i32 %79, 24
-  %81 = trunc i32 %80 to i8
+  %81 = trunc nuw i32 %80 to i8
   store i8 %81, ptr %3, align 1
   %82 = load i32, ptr %31, align 4
   %83 = xor i32 %82, -1
@@ -5397,7 +5397,7 @@ define internal fastcc noundef i32 @zip_read_data_none(ptr noundef %0, ptr nocap
   %183 = add i32 %182, 1
   store i32 %183, ptr %162, align 4
   %184 = lshr i32 %183, 24
-  %185 = trunc i32 %184 to i8
+  %185 = trunc nuw i32 %184 to i8
   store i8 %185, ptr %5, align 1
   %186 = load i32, ptr %161, align 4
   %187 = xor i32 %186, -1

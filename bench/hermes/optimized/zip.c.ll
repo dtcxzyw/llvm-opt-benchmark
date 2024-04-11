@@ -111,7 +111,7 @@ for.cond.preheader:                               ; preds = %for.cond.preheader.
   br i1 %cmp48, label %for.body.preheader, label %for.cond37.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %1 = trunc i64 %block_len.070 to i32
+  %1 = trunc nuw nsw i64 %block_len.070 to i32
   br label %for.body
 
 for.cond37.preheader:                             ; preds = %for.body, %for.cond.preheader
@@ -406,7 +406,7 @@ if.end21:                                         ; preds = %if.end16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call18, i8 0, i64 16, i1 false)
   store i32 %or, ptr %m_flags.i, align 8
   %and.i21 = and i32 %comp_flags.1.i, 4095
-  %8 = trunc i32 %and.i21 to i16
+  %8 = trunc nuw nsw i32 %and.i21 to i16
   %div.lhs.trunc.i = add nuw nsw i16 %8, 2
   %div47.i = udiv i16 %div.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %div47.i, 1
@@ -418,7 +418,7 @@ if.end21:                                         ; preds = %if.end16
   %m_greedy_parsing.i = getelementptr inbounds i8, ptr %call18, i64 28
   store i32 %and2.lobit.i, ptr %m_greedy_parsing.i, align 4
   %shr.i = lshr i32 %and.i21, 2
-  %9 = trunc i32 %shr.i to i16
+  %9 = trunc nuw nsw i32 %shr.i to i16
   %div5.lhs.trunc.i = add nuw nsw i16 %9, 2
   %div548.i = udiv i16 %div5.lhs.trunc.i, 3
   %narrow49.i = add nuw nsw i16 %div548.i, 1
@@ -550,7 +550,7 @@ entry:
   %m_flags = getelementptr inbounds i8, ptr %d, i64 16
   store i32 %flags, ptr %m_flags, align 8
   %and = and i32 %flags, 4095
-  %0 = trunc i32 %and to i16
+  %0 = trunc nuw nsw i32 %and to i16
   %div.lhs.trunc = add nuw nsw i16 %0, 2
   %div47 = udiv i16 %div.lhs.trunc, 3
   %narrow = add nuw nsw i16 %div47, 1
@@ -562,7 +562,7 @@ entry:
   %m_greedy_parsing = getelementptr inbounds i8, ptr %d, i64 28
   store i32 %and2.lobit, ptr %m_greedy_parsing, align 4
   %shr = lshr i32 %and, 2
-  %1 = trunc i32 %shr to i16
+  %1 = trunc nuw nsw i32 %shr to i16
   %div5.lhs.trunc = add nuw nsw i16 %1, 2
   %div548 = udiv i16 %div5.lhs.trunc, 3
   %narrow49 = add nuw nsw i16 %div548, 1
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %m_flags = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %m_flags, align 8
   %and.i = and i32 %3, 4095
-  %4 = trunc i32 %and.i to i16
+  %4 = trunc nuw nsw i32 %and.i to i16
   %div.lhs.trunc.i = add nuw nsw i16 %4, 2
   %div47.i = udiv i16 %div.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %div47.i, 1
@@ -686,7 +686,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %m_greedy_parsing.i = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %and2.lobit.i, ptr %m_greedy_parsing.i, align 4
   %shr.i = lshr i32 %and.i, 2
-  %5 = trunc i32 %shr.i to i16
+  %5 = trunc nuw nsw i32 %shr.i to i16
   %div5.lhs.trunc.i = add nuw nsw i16 %5, 2
   %div548.i = udiv i16 %div5.lhs.trunc.i, 3
   %narrow49.i = add nuw nsw i16 %div548.i, 1
@@ -1070,7 +1070,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %idx.ext.i = zext i32 %15 to i64
   %add.ptr12.i = getelementptr inbounds i8, ptr %m_output_buf.i, i64 %idx.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %add.ptr12.i, i64 %sub.conv.i, i1 false)
-  %conv13.i = trunc i64 %sub.conv.i to i32
+  %conv13.i = trunc nuw i64 %sub.conv.i to i32
   %16 = load i32, ptr %m_output_flush_ofs.i, align 8
   %add.i = add i32 %16, %conv13.i
   store i32 %add.i, ptr %m_output_flush_ofs.i, align 8
@@ -1143,7 +1143,7 @@ if.then79:                                        ; preds = %if.end73
   %sub.ptr.rhs.cast = ptrtoint ptr %pIn_buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call82 = tail call i64 @mz_adler32(i64 noundef %conv80, ptr noundef nonnull %pIn_buf, i64 noundef %sub.ptr.sub), !range !11
-  %conv83 = trunc i64 %call82 to i32
+  %conv83 = trunc nuw i64 %call82 to i32
   store i32 %conv83, ptr %m_adler32, align 8
   br label %if.end85
 
@@ -2517,7 +2517,7 @@ while.end427:                                     ; preds = %while.cond404
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %pOut_buf_cur.25, ptr align 1 %pIn_buf_cur.30, i64 %cond471, i1 false)
   %add.ptr472 = getelementptr inbounds i8, ptr %pIn_buf_cur.30, i64 %cond471
   %add.ptr473 = getelementptr inbounds i8, ptr %pOut_buf_cur.25, i64 %cond471
-  %conv474 = trunc i64 %cond471 to i32
+  %conv474 = trunc nuw i64 %cond471 to i32
   %sub475 = sub i32 %counter.30, %conv474
   br label %while.cond391, !llvm.loop !21
 
@@ -3190,7 +3190,7 @@ if.end1017:                                       ; preds = %do.body1000, %if.th
   br i1 %cmp1023, label %if.then1025, label %if.end1030
 
 if.then1025:                                      ; preds = %if.end1017
-  %conv1026 = trunc i32 %temp.2 to i8
+  %conv1026 = trunc nuw i32 %temp.2 to i8
   %m_len_codes = getelementptr inbounds i8, ptr %r, i64 10540
   %inc1027 = add i32 %counter.50, 1
   %idxprom1028 = zext i32 %counter.50 to i64
@@ -4521,7 +4521,7 @@ for.cond2045.preheader:                           ; preds = %for.cond2045.prehea
   br i1 %cmp2048904, label %for.body2050.preheader, label %for.cond2087.preheader
 
 for.body2050.preheader:                           ; preds = %for.cond2045.preheader
-  %133 = trunc i64 %block_len.0927 to i32
+  %133 = trunc nuw nsw i64 %block_len.0927 to i32
   br label %for.body2050
 
 for.cond2087.preheader:                           ; preds = %for.body2050, %for.cond2045.preheader
@@ -4978,7 +4978,7 @@ if.then3:                                         ; preds = %if.end
   %idx.ext = zext i32 %8 to i64
   %add.ptr12 = getelementptr inbounds i8, ptr %m_output_buf, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr12, i64 %sub.conv, i1 false)
-  %conv13 = trunc i64 %sub.conv to i32
+  %conv13 = trunc nuw i64 %sub.conv to i32
   %9 = load i32, ptr %m_output_flush_ofs, align 8
   %add = add i32 %9, %conv13
   store i32 %add, ptr %m_output_flush_ofs, align 8
@@ -5074,7 +5074,7 @@ while.body:                                       ; preds = %while.cond, %lor.rh
   %sub = sub i32 4096, %lookahead_size.0
   %conv = zext i32 %sub to i64
   %.conv = tail call i64 @llvm.umin.i64(i64 %7, i64 %conv)
-  %conv9 = trunc i64 %.conv to i32
+  %conv9 = trunc nuw i64 %.conv to i32
   %sub12 = sub i64 %7, %.conv
   store i64 %sub12, ptr %m_src_buf_left, align 8
   %add13 = add i32 %lookahead_size.0, %conv9
@@ -5571,7 +5571,7 @@ if.then:                                          ; preds = %while.body.thread, 
   %sub17 = sub i32 258, %m_lookahead_size3.promoted433
   %conv18 = zext i32 %sub17 to i64
   %src_buf_left.0.conv18 = tail call i64 @llvm.umin.i64(i64 %src_buf_left.0, i64 %conv18)
-  %conv24 = trunc i64 %src_buf_left.0.conv18 to i32
+  %conv24 = trunc nuw i64 %src_buf_left.0.conv18 to i32
   %add.ptr = getelementptr inbounds i8, ptr %pSrc.0, i64 %src_buf_left.0.conv18
   %sub26 = sub i64 %src_buf_left.0, %src_buf_left.0.conv18
   %add28 = add i32 %m_lookahead_size3.promoted433, %conv24
@@ -5710,7 +5710,7 @@ if.end128:                                        ; preds = %if.end126, %if.end,
   %sub130. = tail call i32 @llvm.umin.i32(i32 %sub130, i32 %19)
   store i32 %sub130., ptr %m_dict_size, align 4
   %cmp144 = icmp ult i32 %20, 258
-  %or.cond347 = and i1 %tobool1.not, %cmp144
+  %or.cond347 = select i1 %tobool1.not, i1 %cmp144, i1 false
   br i1 %or.cond347, label %while.end327, label %if.end147
 
 if.end147:                                        ; preds = %if.end128.thread, %if.end128
@@ -6464,7 +6464,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %m_num_flags_left = getelementptr inbounds i8, ptr %d, i64 80
   %12 = load i32, ptr %m_num_flags_left, align 8
   %shr = lshr i32 %conv, %12
-  %conv9 = trunc i32 %shr to i8
+  %conv9 = trunc nuw i32 %shr to i8
   store i8 %conv9, ptr %10, align 1
   %13 = load i32, ptr %m_num_flags_left, align 8
   %cmp12 = icmp eq i32 %13, 8
@@ -7301,7 +7301,7 @@ if.end5:                                          ; preds = %if.end
   %m_flags.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %flags, ptr %m_flags.i, align 8
   %and.i = and i32 %flags, 4095
-  %0 = trunc i32 %and.i to i16
+  %0 = trunc nuw nsw i32 %and.i to i16
   %div.lhs.trunc.i = add nuw nsw i16 %0, 2
   %div47.i = udiv i16 %div.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %div47.i, 1
@@ -7313,7 +7313,7 @@ if.end5:                                          ; preds = %if.end
   %m_greedy_parsing.i = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %and2.lobit.i, ptr %m_greedy_parsing.i, align 4
   %shr.i = lshr i32 %and.i, 2
-  %1 = trunc i32 %shr.i to i16
+  %1 = trunc nuw nsw i32 %shr.i to i16
   %div5.lhs.trunc.i = add nuw nsw i16 %1, 2
   %div548.i = udiv i16 %div5.lhs.trunc.i, 3
   %narrow49.i = add nuw nsw i16 %div548.i, 1
@@ -7591,7 +7591,7 @@ for.end:                                          ; preds = %tdefl_output_buffer
   %m_flags.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %or, ptr %m_flags.i, align 8
   %and.i = and i32 %12, 4095
-  %13 = trunc i32 %and.i to i16
+  %13 = trunc nuw nsw i32 %and.i to i16
   %div.lhs.trunc.i = add nuw nsw i16 %13, 2
   %div47.i = udiv i16 %div.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %div47.i, 1
@@ -7603,7 +7603,7 @@ for.end:                                          ; preds = %tdefl_output_buffer
   %m_greedy_parsing.i = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %and2.lobit.i, ptr %m_greedy_parsing.i, align 4
   %shr.i = lshr i32 %and.i, 2
-  %14 = trunc i32 %shr.i to i16
+  %14 = trunc nuw nsw i32 %shr.i to i16
   %div5.lhs.trunc.i = add nuw nsw i16 %14, 2
   %div548.i = udiv i16 %div5.lhs.trunc.i, 3
   %narrow49.i = add nuw nsw i16 %div548.i, 1
@@ -7778,7 +7778,7 @@ for.body102:                                      ; preds = %mz_crc32.exit, %for
   %indvars.iv = phi i64 [ 0, %mz_crc32.exit ], [ %indvars.iv.next, %for.body102 ]
   %c.0103 = phi i32 [ %22, %mz_crc32.exit ], [ %shl, %for.body102 ]
   %shr103 = lshr i32 %c.0103, 24
-  %conv104 = trunc i32 %shr103 to i8
+  %conv104 = trunc nuw i32 %shr103 to i8
   %arrayidx108 = getelementptr inbounds i8, ptr %arrayinit.element77, i64 %indvars.iv
   store i8 %conv104, ptr %arrayidx108, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7882,7 +7882,7 @@ for.body128:                                      ; preds = %for.body128.prehead
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %for.body128 ], [ 0, %for.body128.preheader ]
   %c.1105 = phi i32 [ %shl139, %for.body128 ], [ %c.1105.ph, %for.body128.preheader ]
   %shr129 = lshr i32 %c.1105, 24
-  %conv130 = trunc i32 %shr129 to i8
+  %conv130 = trunc nuw i32 %shr129 to i8
   %35 = load ptr, ptr %m_pBuf, align 8
   %36 = load i64, ptr %out_buf, align 8
   %add.ptr133 = getelementptr inbounds i8, ptr %35, i64 %36
@@ -10823,7 +10823,7 @@ if.then68:                                        ; preds = %if.then64
 
 land.lhs.true183.thread:                          ; preds = %if.then68
   %call81 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %pRead_buf.0, i64 noundef %call70), !range !11
-  %conv82 = trunc i64 %call81 to i32
+  %conv82 = trunc nuw i64 %call81 to i32
   br label %if.then186
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end113
@@ -10922,7 +10922,7 @@ if.then159:                                       ; preds = %if.end151
 if.end164:                                        ; preds = %if.then159
   %conv165 = zext i32 %file_crc32.3 to i64
   %call166 = call i64 @mz_crc32(i64 noundef %conv165, ptr noundef nonnull %add.ptr127, i64 noundef %45), !range !11
-  %conv167 = trunc i64 %call166 to i32
+  %conv167 = trunc nuw i64 %call166 to i32
   %add168 = add i64 %45, %out_buf_ofs.1
   %46 = load i64, ptr %m_uncomp_size, align 8
   %cmp169 = icmp ugt i64 %add168, %46
@@ -10940,7 +10940,7 @@ if.end180:                                        ; preds = %do.cond
   br i1 %cmp181, label %land.lhs.true183, label %if.end195
 
 land.lhs.true183.loopexit:                        ; preds = %if.end113.us
-  %conv107.us = trunc i64 %call106.us to i32
+  %conv107.us = trunc nuw i64 %call106.us to i32
   br label %land.lhs.true183
 
 land.lhs.true183:                                 ; preds = %if.end113, %land.lhs.true183.loopexit, %while.cond.preheader, %if.end180
@@ -11961,7 +11961,7 @@ if.end117:                                        ; preds = %if.end102
 
 if.end128:                                        ; preds = %if.end117
   %call122 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %pBuf, i64 noundef %buf_size), !range !11
-  %conv123 = trunc i64 %call122 to i32
+  %conv123 = trunc nuw i64 %call122 to i32
   %cmp124 = icmp ult i64 %buf_size, 4
   %spec.select120 = or i1 %cmp124, %0
   br i1 %spec.select120, label %if.then130, label %if.then146
@@ -11986,7 +11986,7 @@ if.then136:                                       ; preds = %if.then130
 if.end139:                                        ; preds = %if.then130
   %add140 = add i64 %add118, %buf_size
   %32 = lshr exact i32 %and1, 7
-  %spec.select121 = trunc i32 %32 to i16
+  %spec.select121 = trunc nuw nsw i32 %32 to i16
   br label %if.end162
 
 if.then146:                                       ; preds = %if.end128
@@ -12053,7 +12053,7 @@ if.end171:                                        ; preds = %if.end162
   %arrayidx3.i13.i = getelementptr inbounds i8, ptr %local_dir_header, i64 7
   store i8 0, ptr %arrayidx3.i13.i, align 1
   %add.ptr4.i = getelementptr inbounds i8, ptr %local_dir_header, i64 8
-  %conv.i14.i = trunc i16 %method.0 to i8
+  %conv.i14.i = trunc nsw i16 %method.0 to i8
   store i8 %conv.i14.i, ptr %add.ptr4.i, align 8
   %arrayidx3.i15.i = getelementptr inbounds i8, ptr %local_dir_header, i64 9
   store i8 0, ptr %arrayidx3.i15.i, align 1
@@ -12061,14 +12061,14 @@ if.end171:                                        ; preds = %if.end162
   %conv.i16.i = trunc i16 %40 to i8
   store i8 %conv.i16.i, ptr %add.ptr5.i, align 2
   %42 = lshr i16 %40, 8
-  %conv2.i17.i = trunc i16 %42 to i8
+  %conv2.i17.i = trunc nuw i16 %42 to i8
   %arrayidx3.i18.i = getelementptr inbounds i8, ptr %local_dir_header, i64 11
   store i8 %conv2.i17.i, ptr %arrayidx3.i18.i, align 1
   %add.ptr6.i = getelementptr inbounds i8, ptr %local_dir_header, i64 12
   %conv.i19.i = trunc i16 %41 to i8
   store i8 %conv.i19.i, ptr %add.ptr6.i, align 4
   %43 = lshr i16 %41, 8
-  %conv2.i20.i = trunc i16 %43 to i8
+  %conv2.i20.i = trunc nuw i16 %43 to i8
   %arrayidx3.i21.i = getelementptr inbounds i8, ptr %local_dir_header, i64 13
   store i8 %conv2.i20.i, ptr %arrayidx3.i21.i, align 1
   %add.ptr7.i = getelementptr inbounds i8, ptr %local_dir_header, i64 14
@@ -12083,7 +12083,7 @@ if.end171:                                        ; preds = %if.end162
   %arrayidx5.i24.i = getelementptr inbounds i8, ptr %local_dir_header, i64 16
   store i8 %conv4.i.i, ptr %arrayidx5.i24.i, align 16
   %shr6.i.i = lshr i32 %uncomp_crc32.addr.0135, 24
-  %conv7.i.i = trunc i32 %shr6.i.i to i8
+  %conv7.i.i = trunc nuw i32 %shr6.i.i to i8
   %arrayidx8.i25.i = getelementptr inbounds i8, ptr %local_dir_header, i64 17
   store i8 %conv7.i.i, ptr %arrayidx8.i25.i, align 1
   %add.ptr8.i = getelementptr inbounds i8, ptr %local_dir_header, i64 18
@@ -12098,7 +12098,7 @@ if.end171:                                        ; preds = %if.end162
   %arrayidx5.i32.i = getelementptr inbounds i8, ptr %local_dir_header, i64 20
   store i8 %conv4.i31.i, ptr %arrayidx5.i32.i, align 4
   %shr6.i333.i = lshr i64 %comp_size.0, 24
-  %conv7.i34.i = trunc i64 %shr6.i333.i to i8
+  %conv7.i34.i = trunc nuw i64 %shr6.i333.i to i8
   %arrayidx8.i35.i = getelementptr inbounds i8, ptr %local_dir_header, i64 21
   store i8 %conv7.i34.i, ptr %arrayidx8.i35.i, align 1
   %add.ptr10.i = getelementptr inbounds i8, ptr %local_dir_header, i64 22
@@ -12120,7 +12120,7 @@ if.end171:                                        ; preds = %if.end162
   %conv.i46.i = trunc i64 %call42 to i8
   store i8 %conv.i46.i, ptr %add.ptr12.i, align 2
   %44 = lshr i64 %call42, 8
-  %conv2.i47.i = trunc i64 %44 to i8
+  %conv2.i47.i = trunc nuw i64 %44 to i8
   %arrayidx3.i48.i = getelementptr inbounds i8, ptr %local_dir_header, i64 27
   store i8 %conv2.i47.i, ptr %arrayidx3.i48.i, align 1
   %add.ptr13.i = getelementptr inbounds i8, ptr %local_dir_header, i64 28
@@ -12134,7 +12134,7 @@ if.end171:                                        ; preds = %if.end162
   br i1 %cmp181.not, label %if.end184, label %return
 
 if.end184:                                        ; preds = %if.end171
-  %conv172 = trunc i64 %call42 to i16
+  %conv172 = trunc nuw i64 %call42 to i16
   %call186 = call fastcc i32 @mz_zip_writer_add_to_central_dir(ptr noundef nonnull %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv172, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size.addr.0133, i64 noundef %comp_size.0, i32 noundef %uncomp_crc32.addr.0135, i16 noundef zeroext %method.0, i16 noundef zeroext %40, i16 noundef zeroext %41, i64 noundef %add104, i32 noundef %ext_attributes.0)
   %tobool187.not = icmp eq i32 %call186, 0
   br i1 %tobool187.not, label %return, label %if.end189
@@ -12299,21 +12299,21 @@ if.end:                                           ; preds = %lor.lhs.false
   %central_dir_header.10.central_dir_header.10.central_dir_header.10.add.ptr7.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 10
   store i8 %conv.i20.i, ptr %central_dir_header.10.central_dir_header.10.central_dir_header.10.add.ptr7.i.sroa_idx, align 2
   %2 = lshr i16 %method, 8
-  %conv2.i.i = trunc i16 %2 to i8
+  %conv2.i.i = trunc nuw i16 %2 to i8
   %central_dir_header.11.central_dir_header.11.central_dir_header.11.arrayidx3.i21.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 11
   store i8 %conv2.i.i, ptr %central_dir_header.11.central_dir_header.11.central_dir_header.11.arrayidx3.i21.i.sroa_idx, align 1
   %conv.i22.i = trunc i16 %dos_time to i8
   %central_dir_header.12.central_dir_header.12.central_dir_header.12.add.ptr8.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 12
   store i8 %conv.i22.i, ptr %central_dir_header.12.central_dir_header.12.central_dir_header.12.add.ptr8.i.sroa_idx, align 4
   %3 = lshr i16 %dos_time, 8
-  %conv2.i23.i = trunc i16 %3 to i8
+  %conv2.i23.i = trunc nuw i16 %3 to i8
   %central_dir_header.13.central_dir_header.13.central_dir_header.13.arrayidx3.i24.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 13
   store i8 %conv2.i23.i, ptr %central_dir_header.13.central_dir_header.13.central_dir_header.13.arrayidx3.i24.i.sroa_idx, align 1
   %conv.i25.i = trunc i16 %dos_date to i8
   %central_dir_header.14.central_dir_header.14.central_dir_header.14.add.ptr9.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 14
   store i8 %conv.i25.i, ptr %central_dir_header.14.central_dir_header.14.central_dir_header.14.add.ptr9.i.sroa_idx, align 2
   %4 = lshr i16 %dos_date, 8
-  %conv2.i26.i = trunc i16 %4 to i8
+  %conv2.i26.i = trunc nuw i16 %4 to i8
   %central_dir_header.15.central_dir_header.15.central_dir_header.15.arrayidx3.i27.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 15
   store i8 %conv2.i26.i, ptr %central_dir_header.15.central_dir_header.15.central_dir_header.15.arrayidx3.i27.i.sroa_idx, align 1
   %conv.i28.i = trunc i32 %uncomp_crc32 to i8
@@ -12328,7 +12328,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %central_dir_header.18.central_dir_header.18.central_dir_header.18.arrayidx5.i30.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 18
   store i8 %conv4.i.i, ptr %central_dir_header.18.central_dir_header.18.central_dir_header.18.arrayidx5.i30.i.sroa_idx, align 2
   %shr6.i.i = lshr i32 %uncomp_crc32, 24
-  %conv7.i.i = trunc i32 %shr6.i.i to i8
+  %conv7.i.i = trunc nuw i32 %shr6.i.i to i8
   %central_dir_header.19.central_dir_header.19.central_dir_header.19.arrayidx8.i31.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 19
   store i8 %conv7.i.i, ptr %central_dir_header.19.central_dir_header.19.central_dir_header.19.arrayidx8.i31.i.sroa_idx, align 1
   %conv.i32.i = trunc i64 %comp_size to i8
@@ -12365,7 +12365,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %central_dir_header.28.central_dir_header.28.central_dir_header.28.add.ptr15.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 28
   store i8 %conv.i52.i, ptr %central_dir_header.28.central_dir_header.28.central_dir_header.28.add.ptr15.i.sroa_idx, align 4
   %5 = lshr i16 %filename_size, 8
-  %conv2.i53.i = trunc i16 %5 to i8
+  %conv2.i53.i = trunc nuw i16 %5 to i8
   %central_dir_header.29.central_dir_header.29.central_dir_header.29.arrayidx3.i54.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 29
   store i8 %conv2.i53.i, ptr %central_dir_header.29.central_dir_header.29.central_dir_header.29.arrayidx3.i54.i.sroa_idx, align 1
   %central_dir_header.30.central_dir_header.30.central_dir_header.30.add.ptr16.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 30
@@ -12376,7 +12376,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %central_dir_header.32.central_dir_header.32.central_dir_header.32.add.ptr17.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 32
   store i8 %conv.i56.i, ptr %central_dir_header.32.central_dir_header.32.central_dir_header.32.add.ptr17.i.sroa_idx, align 16
   %6 = lshr i16 %comment_size, 8
-  %conv2.i57.i = trunc i16 %6 to i8
+  %conv2.i57.i = trunc nuw i16 %6 to i8
   %central_dir_header.33.central_dir_header.33.central_dir_header.33.arrayidx3.i58.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 33
   store i8 %conv2.i57.i, ptr %central_dir_header.33.central_dir_header.33.central_dir_header.33.arrayidx3.i58.i.sroa_idx, align 1
   %conv.i59.i = trunc i32 %ext_attributes to i8
@@ -12391,7 +12391,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %central_dir_header.40.central_dir_header.40.central_dir_header.40.arrayidx5.i65.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 40
   store i8 %conv4.i64.i, ptr %central_dir_header.40.central_dir_header.40.central_dir_header.40.arrayidx5.i65.i.sroa_idx, align 8
   %shr6.i66.i = lshr i32 %ext_attributes, 24
-  %conv7.i67.i = trunc i32 %shr6.i66.i to i8
+  %conv7.i67.i = trunc nuw i32 %shr6.i66.i to i8
   %central_dir_header.41.central_dir_header.41.central_dir_header.41.arrayidx8.i68.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 41
   store i8 %conv7.i67.i, ptr %central_dir_header.41.central_dir_header.41.central_dir_header.41.arrayidx8.i68.i.sroa_idx, align 1
   %conv.i69.i = trunc i64 %local_header_ofs to i8
@@ -12406,7 +12406,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %central_dir_header.44.central_dir_header.44.central_dir_header.44.arrayidx5.i75.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 44
   store i8 %conv4.i74.i, ptr %central_dir_header.44.central_dir_header.44.central_dir_header.44.arrayidx5.i75.i.sroa_idx, align 4
   %shr6.i769.i = lshr i64 %local_header_ofs, 24
-  %conv7.i77.i = trunc i64 %shr6.i769.i to i8
+  %conv7.i77.i = trunc nuw i64 %shr6.i769.i to i8
   %central_dir_header.45.central_dir_header.45.central_dir_header.45.arrayidx8.i78.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 45
   store i8 %conv7.i77.i, ptr %central_dir_header.45.central_dir_header.45.central_dir_header.45.arrayidx8.i78.i.sroa_idx, align 1
   %m_capacity.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -12931,7 +12931,7 @@ if.end180:                                        ; preds = %if.end113, %if.end1
   %comp_size.0 = phi i64 [ %29, %if.end177 ], [ %call50, %if.end113 ]
   %method.0 = phi i16 [ 8, %if.end177 ], [ 0, %if.end113 ]
   %uncomp_crc32.3.in = phi i64 [ %call155, %if.end177 ], [ %call116, %if.end113 ]
-  %uncomp_crc32.3 = trunc i64 %uncomp_crc32.3.in to i32
+  %uncomp_crc32.3 = trunc nuw i64 %uncomp_crc32.3.in to i32
   %m_pFree181 = getelementptr inbounds i8, ptr %pZip, i64 48
   %31 = load ptr, ptr %m_pFree181, align 8
   %32 = load ptr, ptr %m_pAlloc_opaque, align 8
@@ -12964,7 +12964,7 @@ if.end191:                                        ; preds = %if.end183
   %arrayidx3.i13.i = getelementptr inbounds i8, ptr %local_dir_header, i64 7
   store i8 0, ptr %arrayidx3.i13.i, align 1
   %add.ptr4.i = getelementptr inbounds i8, ptr %local_dir_header, i64 8
-  %conv.i14.i = trunc i16 %method.1 to i8
+  %conv.i14.i = trunc nsw i16 %method.1 to i8
   store i8 %conv.i14.i, ptr %add.ptr4.i, align 8
   %arrayidx3.i15.i = getelementptr inbounds i8, ptr %local_dir_header, i64 9
   store i8 0, ptr %arrayidx3.i15.i, align 1
@@ -12972,14 +12972,14 @@ if.end191:                                        ; preds = %if.end183
   %conv.i16.i = trunc i16 %33 to i8
   store i8 %conv.i16.i, ptr %add.ptr5.i, align 2
   %35 = lshr i16 %33, 8
-  %conv2.i17.i = trunc i16 %35 to i8
+  %conv2.i17.i = trunc nuw i16 %35 to i8
   %arrayidx3.i18.i = getelementptr inbounds i8, ptr %local_dir_header, i64 11
   store i8 %conv2.i17.i, ptr %arrayidx3.i18.i, align 1
   %add.ptr6.i = getelementptr inbounds i8, ptr %local_dir_header, i64 12
   %conv.i19.i = trunc i16 %34 to i8
   store i8 %conv.i19.i, ptr %add.ptr6.i, align 4
   %36 = lshr i16 %34, 8
-  %conv2.i20.i = trunc i16 %36 to i8
+  %conv2.i20.i = trunc nuw i16 %36 to i8
   %arrayidx3.i21.i = getelementptr inbounds i8, ptr %local_dir_header, i64 13
   store i8 %conv2.i20.i, ptr %arrayidx3.i21.i, align 1
   %add.ptr7.i = getelementptr inbounds i8, ptr %local_dir_header, i64 14
@@ -12994,7 +12994,7 @@ if.end191:                                        ; preds = %if.end183
   %arrayidx5.i24.i = getelementptr inbounds i8, ptr %local_dir_header, i64 16
   store i8 %conv4.i.i, ptr %arrayidx5.i24.i, align 16
   %shr6.i.i = lshr i32 %uncomp_crc32.4, 24
-  %conv7.i.i = trunc i32 %shr6.i.i to i8
+  %conv7.i.i = trunc nuw i32 %shr6.i.i to i8
   %arrayidx8.i25.i = getelementptr inbounds i8, ptr %local_dir_header, i64 17
   store i8 %conv7.i.i, ptr %arrayidx8.i25.i, align 1
   %add.ptr8.i = getelementptr inbounds i8, ptr %local_dir_header, i64 18
@@ -13009,7 +13009,7 @@ if.end191:                                        ; preds = %if.end183
   %arrayidx5.i32.i = getelementptr inbounds i8, ptr %local_dir_header, i64 20
   store i8 %conv4.i31.i, ptr %arrayidx5.i32.i, align 4
   %shr6.i333.i = lshr i64 %comp_size.1, 24
-  %conv7.i34.i = trunc i64 %shr6.i333.i to i8
+  %conv7.i34.i = trunc nuw i64 %shr6.i333.i to i8
   %arrayidx8.i35.i = getelementptr inbounds i8, ptr %local_dir_header, i64 21
   store i8 %conv7.i34.i, ptr %arrayidx8.i35.i, align 1
   %add.ptr10.i = getelementptr inbounds i8, ptr %local_dir_header, i64 22
@@ -13024,14 +13024,14 @@ if.end191:                                        ; preds = %if.end183
   %arrayidx5.i42.i = getelementptr inbounds i8, ptr %local_dir_header, i64 24
   store i8 %conv4.i41.i, ptr %arrayidx5.i42.i, align 8
   %shr6.i436.i = lshr i64 %call50, 24
-  %conv7.i44.i = trunc i64 %shr6.i436.i to i8
+  %conv7.i44.i = trunc nuw i64 %shr6.i436.i to i8
   %arrayidx8.i45.i = getelementptr inbounds i8, ptr %local_dir_header, i64 25
   store i8 %conv7.i44.i, ptr %arrayidx8.i45.i, align 1
   %add.ptr12.i = getelementptr inbounds i8, ptr %local_dir_header, i64 26
   %conv.i46.i = trunc i64 %call21 to i8
   store i8 %conv.i46.i, ptr %add.ptr12.i, align 2
   %37 = lshr i64 %call21, 8
-  %conv2.i47.i = trunc i64 %37 to i8
+  %conv2.i47.i = trunc nuw i64 %37 to i8
   %arrayidx3.i48.i = getelementptr inbounds i8, ptr %local_dir_header, i64 27
   store i8 %conv2.i47.i, ptr %arrayidx3.i48.i, align 1
   %add.ptr13.i = getelementptr inbounds i8, ptr %local_dir_header, i64 28
@@ -13045,7 +13045,7 @@ if.end191:                                        ; preds = %if.end183
   br i1 %cmp201.not, label %if.end204, label %return
 
 if.end204:                                        ; preds = %if.end191
-  %conv192 = trunc i64 %call21 to i16
+  %conv192 = trunc nuw i64 %call21 to i16
   %call206 = call fastcc i32 @mz_zip_writer_add_to_central_dir(ptr noundef nonnull %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv192, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %call50, i64 noundef %comp_size.1, i32 noundef %uncomp_crc32.4, i16 noundef zeroext %method.1, i16 noundef zeroext %33, i16 noundef zeroext %34, i64 noundef %add, i32 noundef %ext_attributes)
   %tobool207.not = icmp eq i32 %call206, 0
   br i1 %tobool207.not, label %return, label %if.end209
@@ -13559,7 +13559,7 @@ if.end22:                                         ; preds = %if.end19, %if.end9
   %arrayidx5.i36 = getelementptr inbounds i8, ptr %hdr, i64 14
   store i8 %conv4.i, ptr %arrayidx5.i36, align 2
   %shr6.i = lshr i32 %central_dir_size.0, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   %arrayidx8.i37 = getelementptr inbounds i8, ptr %hdr, i64 15
   store i8 %conv7.i, ptr %arrayidx8.i37, align 1
   %add.ptr34 = getelementptr inbounds i8, ptr %hdr, i64 16
@@ -13574,7 +13574,7 @@ if.end22:                                         ; preds = %if.end19, %if.end9
   %arrayidx5.i44 = getelementptr inbounds i8, ptr %hdr, i64 18
   store i8 %conv4.i43, ptr %arrayidx5.i44, align 2
   %shr6.i45 = lshr i32 %central_dir_ofs.0, 24
-  %conv7.i46 = trunc i32 %shr6.i45 to i8
+  %conv7.i46 = trunc nuw i32 %shr6.i45 to i8
   %arrayidx8.i47 = getelementptr inbounds i8, ptr %hdr, i64 19
   store i8 %conv7.i46, ptr %arrayidx8.i47, align 1
   %m_pWrite36 = getelementptr inbounds i8, ptr %pZip, i64 80
@@ -14778,7 +14778,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %conv.i14.i = trunc i16 %17 to i8
   store i8 %conv.i14.i, ptr %add.ptr4.i, align 1
   %18 = lshr i16 %17, 8
-  %conv2.i.i = trunc i16 %18 to i8
+  %conv2.i.i = trunc nuw i16 %18 to i8
   %arrayidx3.i15.i = getelementptr inbounds i8, ptr %zip, i64 177
   store i8 %conv2.i.i, ptr %arrayidx3.i15.i, align 1
   %add.ptr5.i = getelementptr inbounds i8, ptr %zip, i64 178
@@ -14807,7 +14807,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %arrayidx5.i24.i = getelementptr inbounds i8, ptr %zip, i64 184
   store i8 %conv4.i.i, ptr %arrayidx5.i24.i, align 1
   %shr6.i.i = lshr i32 %16, 24
-  %conv7.i.i = trunc i32 %shr6.i.i to i8
+  %conv7.i.i = trunc nuw i32 %shr6.i.i to i8
   %arrayidx8.i25.i = getelementptr inbounds i8, ptr %zip, i64 185
   store i8 %conv7.i.i, ptr %arrayidx8.i25.i, align 1
   %add.ptr8.i = getelementptr inbounds i8, ptr %zip, i64 186
@@ -16019,7 +16019,7 @@ if.end70.i:                                       ; preds = %while.body53.i
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx62.i, i64 44
   store i8 %conv4.i.i, ptr %arrayidx5.i.i, align 1
   %shr6.i.i = lshr i32 %sub.i, 24
-  %conv7.i.i = trunc i32 %shr6.i.i to i8
+  %conv7.i.i = trunc nuw i32 %shr6.i.i to i8
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %arrayidx62.i, i64 45
   store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
   %indvars.iv.next122.i = add nsw i64 %indvars.iv121.i, 1
@@ -16368,7 +16368,7 @@ if.end40:                                         ; preds = %if.end37.i, %if.end
   call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %npath.i)
   %11 = load i16, ptr %m_version_made_by, align 8
   %12 = lshr i16 %11, 8
-  %trunc = trunc i16 %12 to i8
+  %trunc = trunc nuw i16 %12 to i8
   switch i8 %trunc, label %if.else [
     i8 3, label %land.lhs.true
     i8 19, label %land.lhs.true
@@ -17309,7 +17309,7 @@ if.then42.i:                                      ; preds = %if.then39.i
   %idxprom45.i = zext i8 %prev_code_size.0258.i to i64
   %arrayidx46.i = getelementptr inbounds [288 x i16], ptr %arrayidx28.i, i64 0, i64 %idxprom45.i
   %25 = load i16, ptr %arrayidx46.i, align 2
-  %26 = trunc i32 %rle_repeat_count.0259.i to i16
+  %26 = trunc nuw i32 %rle_repeat_count.0259.i to i16
   %conv49.i = add i16 %25, %26
   store i16 %conv49.i, ptr %arrayidx46.i, align 2
   br label %while.body.i14
@@ -17371,7 +17371,7 @@ if.then148.i:                                     ; preds = %if.else146.i
 
 if.then151.i:                                     ; preds = %if.then148.i
   %30 = load i16, ptr %arrayidx28.i, align 2
-  %31 = trunc i32 %rle_z_count.0260.i to i16
+  %31 = trunc nuw i32 %rle_z_count.0260.i to i16
   %conv157.i = add i16 %30, %31
   store i16 %conv157.i, ptr %arrayidx28.i, align 2
   br label %while.body164.i
@@ -17424,7 +17424,7 @@ if.then220.i:                                     ; preds = %if.then217.i
   %idxprom223.i = zext i8 %prev_code_size.0258.i to i64
   %arrayidx224.i = getelementptr inbounds [288 x i16], ptr %arrayidx28.i, i64 0, i64 %idxprom223.i
   %34 = load i16, ptr %arrayidx224.i, align 2
-  %35 = trunc i32 %rle_repeat_count.0259.i to i16
+  %35 = trunc nuw i32 %rle_repeat_count.0259.i to i16
   %conv227.i = add i16 %34, %35
   store i16 %conv227.i, ptr %arrayidx224.i, align 2
   br label %while.body235.i
@@ -17508,7 +17508,7 @@ if.then335.i:                                     ; preds = %if.then332.i
   %idxprom338.i = zext i8 %24 to i64
   %arrayidx339.i = getelementptr inbounds [288 x i16], ptr %arrayidx28.i, i64 0, i64 %idxprom338.i
   %40 = load i16, ptr %arrayidx339.i, align 2
-  %41 = trunc i32 %rle_repeat_count.6.i to i16
+  %41 = trunc nuw i32 %rle_repeat_count.6.i to i16
   %conv342.i = add i16 %40, %41
   store i16 %conv342.i, ptr %arrayidx339.i, align 2
   br label %while.body350.i
@@ -17550,7 +17550,7 @@ if.then377.i:                                     ; preds = %if.else375.i
 
 if.then380.i:                                     ; preds = %if.then377.i
   %44 = load i16, ptr %arrayidx28.i, align 2
-  %45 = trunc i32 %rle_z_count.4.i to i16
+  %45 = trunc nuw i32 %rle_z_count.4.i to i16
   %conv386.i = add i16 %44, %45
   store i16 %conv386.i, ptr %arrayidx28.i, align 2
   br label %while.body393.i

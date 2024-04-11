@@ -209,7 +209,7 @@ define void @jv_free(i64 %0, ptr %1) local_unnamed_addr #2 {
 
 .preheader.i:                                     ; preds = %23
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   %26 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
   br i1 %26, label %.lr.ph.i, label %common.ret53.sink.split
 
@@ -800,7 +800,7 @@ define { i64, ptr } @jv_array() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define i32 @jv_array_length(i64 %0, ptr %1) local_unnamed_addr #2 {
   %.sroa.1.0.extract.shift.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i = trunc i64 %.sroa.1.0.extract.shift.i to i32
+  %.sroa.1.0.extract.trunc.i = trunc nuw i64 %.sroa.1.0.extract.shift.i to i32
   tail call void @jv_free(i64 %0, ptr %1)
   ret i32 %.sroa.1.0.extract.trunc.i
 }
@@ -809,7 +809,7 @@ define i32 @jv_array_length(i64 %0, ptr %1) local_unnamed_addr #2 {
 define { i64, ptr } @jv_array_get(i64 %0, ptr %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %2, 0
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   %5 = icmp sle i32 %.sroa.1.0.extract.trunc.i.i, %2
   %or.cond.i.not = select i1 %4, i1 true, i1 %5
   br i1 %or.cond.i.not, label %jv_copy.exit, label %6
@@ -846,7 +846,7 @@ jv_copy.exit:                                     ; preds = %17, %6, %3
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %2, i64 %3, ptr %4) local_unnamed_addr #2 {
   %.sroa.10.0.extract.shift = lshr i64 %0, 32
-  %.sroa.10.0.extract.trunc = trunc i64 %.sroa.10.0.extract.shift to i32
+  %.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.10.0.extract.shift to i32
   %6 = icmp slt i32 %2, 0
   br i1 %6, label %7, label %.thread
 
@@ -1084,7 +1084,7 @@ define { i64, ptr } @jv_array_append(i64 %0, ptr %1, i64 %2, ptr %3) local_unnam
 
 jv_copy.exit:                                     ; preds = %4, %6
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   tail call void @jv_free(i64 %0, ptr %1)
   %9 = tail call { i64, ptr } @jv_array_set(i64 %0, ptr %1, i32 noundef %.sroa.1.0.extract.trunc.i.i, i64 %2, ptr %3)
   ret { i64, ptr } %9
@@ -1098,7 +1098,7 @@ define { i64, ptr } @jv_array_concat(i64 %0, ptr %1, i64 %2, ptr %3) local_unnam
 
 .preheader.us:                                    ; preds = %4
   %.sroa.1.0.extract.shift.i.i61 = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc.i.i62 = trunc i64 %.sroa.1.0.extract.shift.i.i61 to i32
+  %.sroa.1.0.extract.trunc.i.i62 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i61 to i32
   tail call void @jv_free(i64 %2, ptr %3)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %.not2438.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i62, 0
@@ -1142,7 +1142,7 @@ jv_copy.exit28.us.us.preheader:                   ; preds = %.preheader.us
 
 jv_array_append.exit.us.us:                       ; preds = %21, %19
   %.sroa.1.0.extract.shift.i.i.i32.us.us = lshr i64 %.sroa.018.140.us.us, 32
-  %.sroa.1.0.extract.trunc.i.i.i33.us.us = trunc i64 %.sroa.1.0.extract.shift.i.i.i32.us.us to i32
+  %.sroa.1.0.extract.trunc.i.i.i33.us.us = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i32.us.us to i32
   tail call void @jv_free(i64 %.sroa.018.140.us.us, ptr %.sroa.419.141.us.us)
   %24 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.018.140.us.us, ptr %.sroa.419.141.us.us, i32 noundef %.sroa.1.0.extract.trunc.i.i.i33.us.us, i64 %12, ptr %14)
   %25 = extractvalue { i64, ptr } %24, 0
@@ -1156,7 +1156,7 @@ jv_array_append.exit.us.us:                       ; preds = %21, %19
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %3, align 4
   %.sroa.1.0.extract.shift.i.i = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   tail call void @jv_free(i64 %2, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %.not2438 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
@@ -1203,7 +1203,7 @@ jv_copy.exit28.preheader:                         ; preds = %.preheader
 
 jv_array_append.exit:                             ; preds = %44, %46
   %.sroa.1.0.extract.shift.i.i.i32 = lshr i64 %.sroa.018.140, 32
-  %.sroa.1.0.extract.trunc.i.i.i33 = trunc i64 %.sroa.1.0.extract.shift.i.i.i32 to i32
+  %.sroa.1.0.extract.trunc.i.i.i33 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i32 to i32
   tail call void @jv_free(i64 %.sroa.018.140, ptr %.sroa.419.141)
   %49 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.018.140, ptr %.sroa.419.141, i32 noundef %.sroa.1.0.extract.trunc.i.i.i33, i64 %37, ptr %39)
   %50 = extractvalue { i64, ptr } %49, 0
@@ -1225,7 +1225,7 @@ jv_array_append.exit:                             ; preds = %44, %46
 define { i64, ptr } @jv_array_slice(i64 %0, ptr %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %.sroa.08.sroa.0.0.insert.ext.i = and i64 %0, 65535
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   %5 = icmp slt i32 %2, 0
   %6 = select i1 %5, i32 %.sroa.1.0.extract.trunc.i.i, i32 0
   %spec.select.i = add nsw i32 %6, %2
@@ -1324,7 +1324,7 @@ jv_array_get.exit.us.i:                           ; preds = %46, %38, %jv_copy.e
 
 jv_array_append.exit.us.i:                        ; preds = %50, %jv_array_get.exit.us.i
   %.sroa.1.0.extract.shift.i.i.i71.us.i = lshr i64 %.sroa.062.086.us.i, 32
-  %.sroa.1.0.extract.trunc.i.i.i72.us.i = trunc i64 %.sroa.1.0.extract.shift.i.i.i71.us.i to i32
+  %.sroa.1.0.extract.trunc.i.i.i72.us.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i71.us.i to i32
   tail call void @jv_free(i64 %.sroa.062.086.us.i, ptr %.sroa.6.087.us.i)
   %53 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.062.086.us.i, ptr %.sroa.6.087.us.i, i32 noundef %.sroa.1.0.extract.trunc.i.i.i72.us.i, i64 %.sroa.07.0.i.us.i, ptr %.sroa.38.0.i.us.i)
   %54 = extractvalue { i64, ptr } %53, 0
@@ -1378,7 +1378,7 @@ jv_array_get.exit.i:                              ; preds = %68, %60, %jv_copy.e
 
 jv_array_append.exit.i:                           ; preds = %72, %jv_array_get.exit.i
   %.sroa.1.0.extract.shift.i.i.i71.i = lshr i64 %.sroa.062.086.i, 32
-  %.sroa.1.0.extract.trunc.i.i.i72.i = trunc i64 %.sroa.1.0.extract.shift.i.i.i71.i to i32
+  %.sroa.1.0.extract.trunc.i.i.i72.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i71.i to i32
   tail call void @jv_free(i64 %.sroa.062.086.i, ptr %.sroa.6.087.i)
   %75 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.062.086.i, ptr %.sroa.6.087.i, i32 noundef %.sroa.1.0.extract.trunc.i.i.i72.i, i64 %.sroa.07.0.i.i, ptr %.sroa.38.0.i.i)
   %76 = extractvalue { i64, ptr } %75, 0
@@ -1429,7 +1429,7 @@ define { i64, ptr } @jv_array_indexes(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
 
 jv_copy.exit:                                     ; preds = %4, %9
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   tail call void @jv_free(i64 %0, ptr %1)
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = and i64 %2, 128
@@ -1440,7 +1440,7 @@ jv_copy.exit:                                     ; preds = %4, %9
   br i1 %.not65137, label %.lr.ph143.preheader, label %.loopexit126
 
 .lr.ph143.preheader:                              ; preds = %jv_copy.exit
-  %.sroa.1.0.extract.trunc.i.i81 = trunc i64 %.sroa.1.0.extract.shift.i.i80 to i32
+  %.sroa.1.0.extract.trunc.i.i81 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i80 to i32
   %15 = lshr i64 %2, 16
   %16 = lshr i64 %0, 16
   %17 = and i64 %15, 65535
@@ -1601,7 +1601,7 @@ jv_copy.exit111:                                  ; preds = %jv_array_get.exit10
 
 jv_array_append.exit:                             ; preds = %72, %77
   %.sroa.1.0.extract.shift.i.i.i114 = lshr i64 %.sroa.055.1141, 32
-  %.sroa.1.0.extract.trunc.i.i.i115 = trunc i64 %.sroa.1.0.extract.shift.i.i.i114 to i32
+  %.sroa.1.0.extract.trunc.i.i.i115 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i114 to i32
   tail call void @jv_free(i64 %.sroa.055.1141, ptr %.sroa.457.1142)
   %80 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.055.1141, ptr %.sroa.457.1142, i32 noundef %.sroa.1.0.extract.trunc.i.i.i115, i64 4, ptr %75)
   %81 = extractvalue { i64, ptr } %80, 0
@@ -1671,13 +1671,13 @@ define i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #2 {
   br i1 %.not.i, label %21, label %jvp_array_equal.exit
 
 21:                                               ; preds = %20
-  %.sroa.1.0.extract.trunc.i210 = trunc i64 %.sroa.1.0.extract.shift.i209 to i32
+  %.sroa.1.0.extract.trunc.i210 = trunc nuw i64 %.sroa.1.0.extract.shift.i209 to i32
   %22 = icmp ne ptr %1, %3
   %.unshifted228 = xor i32 %.sroa.0.0.extract.trunc, %.sroa.0.0.extract.trunc.i
   %23 = icmp ugt i32 %.unshifted228, 65535
   %or.cond.not243 = or i1 %22, %23
   %24 = icmp sgt i32 %.sroa.1.0.extract.trunc.i210, 0
-  %or.cond240 = and i1 %or.cond.not243, %24
+  %or.cond240 = select i1 %or.cond.not243, i1 %24, i1 false
   br i1 %or.cond240, label %.lr.ph237, label %jvp_array_equal.exit
 
 .lr.ph237:                                        ; preds = %21
@@ -1753,7 +1753,7 @@ jv_copy.exit:                                     ; preds = %jv_copy.exit202, %4
 
 63:                                               ; preds = %16
   %.sroa.1.0.extract.shift.i.i223 = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc.i.i224 = trunc i64 %.sroa.1.0.extract.shift.i.i223 to i32
+  %.sroa.1.0.extract.trunc.i.i224 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i223 to i32
   %64 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i224, 0
   br i1 %64, label %.lr.ph.i, label %jvp_object_length.exit
 
@@ -1777,7 +1777,7 @@ jv_copy.exit:                                     ; preds = %jv_copy.exit202, %4
 jvp_object_length.exit:                           ; preds = %66, %63
   %.0.lcssa.i = phi i32 [ 0, %63 ], [ %spec.select.i, %66 ]
   %.sroa.1.0.extract.shift.i221 = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i222 = trunc i64 %.sroa.1.0.extract.shift.i221 to i32
+  %.sroa.1.0.extract.trunc.i222 = trunc nuw i64 %.sroa.1.0.extract.shift.i221 to i32
   %71 = icmp sgt i32 %.sroa.1.0.extract.trunc.i222, 0
   br i1 %71, label %.lr.ph, label %._crit_edge
 
@@ -2153,7 +2153,7 @@ jv_copy.exit36:                                   ; preds = %jv_copy.exit, %14
 
 jv_array_append.exit:                             ; preds = %28, %36
   %.sroa.1.0.extract.shift.i.i.i = lshr i64 %.sroa.027.040, 32
-  %.sroa.1.0.extract.trunc.i.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i to i32
   tail call void @jv_free(i64 %.sroa.027.040, ptr %.sroa.429.041)
   %39 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.027.040, ptr %.sroa.429.041, i32 noundef %.sroa.1.0.extract.trunc.i.i.i, i64 4, ptr %34)
   %40 = extractvalue { i64, ptr } %39, 0
@@ -2323,7 +2323,7 @@ jv_string_append_codepoint.exit:                  ; preds = %39, %48, %65
 
 jv_array_append.exit:                             ; preds = %jv_string_append_codepoint.exit, %67
   %.sroa.1.0.extract.shift.i.i.i = lshr i64 %.sroa.050.083, 32
-  %.sroa.1.0.extract.trunc.i.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i to i32
   call void @jv_free(i64 %.sroa.050.083, ptr %.sroa.8.084)
   %70 = call { i64, ptr } @jv_array_set(i64 %.sroa.050.083, ptr %.sroa.8.084, i32 noundef %.sroa.1.0.extract.trunc.i.i.i, i64 133, ptr nonnull %.sroa.6.0.i.i)
   %71 = extractvalue { i64, ptr } %70, 0
@@ -2358,7 +2358,7 @@ jv_array_append.exit:                             ; preds = %jv_string_append_co
 
 jv_array_append.exit71:                           ; preds = %74, %85
   %.sroa.1.0.extract.shift.i.i.i69 = lshr i64 %.sroa.050.179, 32
-  %.sroa.1.0.extract.trunc.i.i.i70 = trunc i64 %.sroa.1.0.extract.shift.i.i.i69 to i32
+  %.sroa.1.0.extract.trunc.i.i.i70 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i69 to i32
   tail call void @jv_free(i64 %.sroa.050.179, ptr %.sroa.8.180)
   %88 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.050.179, ptr %.sroa.8.180, i32 noundef %.sroa.1.0.extract.trunc.i.i.i70, i64 133, ptr %83)
   %89 = extractvalue { i64, ptr } %88, 0
@@ -2382,7 +2382,7 @@ jv_array_append.exit71:                           ; preds = %74, %85
 
 jv_array_append.exit75:                           ; preds = %93, %97
   %.sroa.1.0.extract.shift.i.i.i73 = lshr i64 %89, 32
-  %.sroa.1.0.extract.trunc.i.i.i74 = trunc i64 %.sroa.1.0.extract.shift.i.i.i73 to i32
+  %.sroa.1.0.extract.trunc.i.i.i74 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i73 to i32
   tail call void @jv_free(i64 %89, ptr %90)
   %100 = tail call { i64, ptr } @jv_array_set(i64 %89, ptr %90, i32 noundef %.sroa.1.0.extract.trunc.i.i.i74, i64 133, ptr %95)
   %101 = extractvalue { i64, ptr } %100, 0
@@ -2530,7 +2530,7 @@ jv_copy.exit:                                     ; preds = %2, %6
 
 jv_array_append.exit:                             ; preds = %.lr.ph, %25
   %.sroa.1.0.extract.shift.i.i.i = lshr i64 %.sroa.013.019, 32
-  %.sroa.1.0.extract.trunc.i.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i to i32
   call void @jv_free(i64 %.sroa.013.019, ptr %.sroa.415.020)
   %28 = call { i64, ptr } @jv_array_set(i64 %.sroa.013.019, ptr %.sroa.415.020, i32 noundef %.sroa.1.0.extract.trunc.i.i.i, i64 4, ptr %23)
   %29 = extractvalue { i64, ptr } %28, 0
@@ -2567,7 +2567,7 @@ define { i64, ptr } @jv_string_implode(i64 %0, ptr %1) local_unnamed_addr #2 {
 
 jv_copy.exit:                                     ; preds = %2, %9
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   tail call void @jv_free(i64 %0, ptr %1)
   %12 = add nuw nsw i64 %.sroa.1.0.extract.shift.i.i, 17
   %13 = tail call noundef ptr @jv_mem_alloc(i64 noundef %12) #24
@@ -3578,7 +3578,7 @@ jvp_object_find_slot.exit.i:                      ; preds = %jvp_string_equal.ex
   %40 = getelementptr inbounds i8, ptr %9, i64 4
   %41 = load i32, ptr %40, align 4
   %.sroa.1.0.extract.shift.i.i.i = lshr i64 %8, 32
-  %.sroa.1.0.extract.trunc.i.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i to i32
   %42 = icmp eq i32 %41, %.sroa.1.0.extract.trunc.i.i.i
   br i1 %42, label %53, label %43
 
@@ -3710,7 +3710,7 @@ jvp_object_rehash.exit.i:                         ; preds = %105, %jvp_object_ne
   %106 = tail call fastcc i32 @jvp_string_hash(ptr %3)
   %107 = getelementptr inbounds i8, ptr %62, i64 4
   %108 = load i32, ptr %107, align 4
-  %.sroa.1.0.extract.trunc.i.i46.i = trunc i64 %.sroa.4.0.insert.ext.i.pre-phi.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i46.i = trunc nuw i64 %.sroa.4.0.insert.ext.i.pre-phi.i.i to i32
   %109 = icmp eq i32 %108, %.sroa.1.0.extract.trunc.i.i46.i
   br i1 %109, label %jvp_object_add_slot.exit50.i, label %110
 
@@ -3855,7 +3855,7 @@ jvp_object_delete.exit:                           ; preds = %jvp_string_equal.ex
 ; Function Attrs: nounwind uwtable
 define i32 @jv_object_length(i64 %0, ptr %1) local_unnamed_addr #2 {
   %.sroa.1.0.extract.shift.i.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   %3 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
   br i1 %3, label %.lr.ph.i, label %jvp_object_length.exit
 
@@ -4747,14 +4747,14 @@ jv_object_iter_next.exit:                         ; preds = %136
 
 jv_copy.exit163:                                  ; preds = %144, %146
   %.sroa.1.0.extract.shift.i.i158 = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc.i.i159 = trunc i64 %.sroa.1.0.extract.shift.i.i158 to i32
+  %.sroa.1.0.extract.trunc.i.i159 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i158 to i32
   tail call void @jv_free(i64 %2, ptr %3)
   %149 = getelementptr inbounds i8, ptr %3, i64 16
   %150 = lshr i32 %.sroa.0.0.extract.trunc.i96, 16
   %151 = and i64 %.fr296, 128
   %.not.i141 = icmp eq i64 %151, 0
   %.sroa.1.0.extract.shift.i.i = lshr i64 %.fr296, 32
-  %.sroa.1.0.extract.trunc.i.i = trunc i64 %.sroa.1.0.extract.shift.i.i to i32
+  %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
   %152 = getelementptr inbounds i8, ptr %1, i64 16
   %153 = lshr i32 %.sroa.0.0.extract.trunc.i, 16
   %.not46.i243.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i159, 0
@@ -5081,7 +5081,7 @@ define internal fastcc { i64, ptr } @jvp_object_unshare(i64 %0, ptr %1) unnamed_
 
 3:                                                ; preds = %2
   %.sroa.1.0.extract.shift.i = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc.i = trunc i64 %.sroa.1.0.extract.shift.i to i32
+  %.sroa.1.0.extract.trunc.i = trunc nuw i64 %.sroa.1.0.extract.shift.i to i32
   %4 = ashr i64 %0, 32
   %5 = mul nsw i64 %4, 40
   %6 = add nsw i64 %5, 8

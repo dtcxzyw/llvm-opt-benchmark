@@ -73,10 +73,10 @@ test_binary_op.exit.thread:                       ; preds = %if.else.i
 test_binary_op.exit:                              ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i32 [ 1, %if.then.i ], [ 0, %if.else.i ]
   %add16 = add nsw i32 %retval.0.i, %num_failed.1352
-  %conv.i245 = trunc i32 %shr.i.i to i8
+  %conv.i245 = trunc nsw i32 %shr.i.i to i8
   %conv.i = and i32 %shr.i.i, 255
   %cmp.i97 = icmp ne i8 %conv.i245, -1
-  %or.cond.i98 = and i1 %cmp13, %cmp.i97
+  %or.cond.i98 = select i1 %cmp13, i1 %cmp.i97, i1 false
   br i1 %or.cond.i98, label %if.then.i102, label %if.else.i99
 
 if.then.i102:                                     ; preds = %test_binary_op.exit
@@ -89,7 +89,7 @@ if.else.i99:                                      ; preds = %test_binary_op.exit
   %conv.i245305 = phi i8 [ -1, %test_binary_op.exit.thread ], [ %conv.i245, %test_binary_op.exit ]
   %add16304 = phi i32 [ %add16298, %test_binary_op.exit.thread ], [ %add16, %test_binary_op.exit ]
   %cmp7.i = icmp eq i8 %conv.i245305, 0
-  %or.cond1.i100.not = or i1 %cmp13, %cmp7.i
+  %or.cond1.i100.not = select i1 %cmp13, i1 true, i1 %cmp7.i
   br i1 %or.cond1.i100.not, label %test_binary_op_8.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else.i99
@@ -130,10 +130,10 @@ test_binary_op.exit115.thread:                    ; preds = %if.else.i106
 test_binary_op.exit115:                           ; preds = %if.then.i113, %if.else.i106
   %retval.0.i110 = phi i32 [ 1, %if.then.i113 ], [ 0, %if.else.i106 ]
   %add24 = add nsw i32 %retval.0.i110, %add20
-  %conv.i258 = trunc i32 %shr.i.i251 to i8
+  %conv.i258 = trunc nsw i32 %shr.i.i251 to i8
   %conv.i117 = and i32 %shr.i.i251, 255
   %cmp.i118 = icmp ne i8 %conv.i258, -1
-  %or.cond.i119 = and i1 %cmp21, %cmp.i118
+  %or.cond.i119 = select i1 %cmp21, i1 %cmp.i118, i1 false
   br i1 %or.cond.i119, label %if.then.i127, label %if.else.i120
 
 if.then.i127:                                     ; preds = %test_binary_op.exit115
@@ -146,7 +146,7 @@ if.else.i120:                                     ; preds = %test_binary_op.exit
   %conv.i258315 = phi i8 [ -1, %test_binary_op.exit115.thread ], [ %conv.i258, %test_binary_op.exit115 ]
   %add24314 = phi i32 [ %add24308, %test_binary_op.exit115.thread ], [ %add24, %test_binary_op.exit115 ]
   %cmp7.i122 = icmp eq i8 %conv.i258315, 0
-  %or.cond1.i123.not = or i1 %cmp21, %cmp7.i122
+  %or.cond1.i123.not = select i1 %cmp21, i1 true, i1 %cmp7.i122
   br i1 %or.cond1.i123.not, label %test_binary_op_8.exit129, label %if.then9.i125
 
 if.then9.i125:                                    ; preds = %if.else.i120
@@ -264,10 +264,10 @@ test_binary_op.exit196.thread:                    ; preds = %if.else.i187
 test_binary_op.exit196:                           ; preds = %if.then.i194, %if.else.i187
   %retval.0.i191 = phi i32 [ 1, %if.then.i194 ], [ 0, %if.else.i187 ]
   %add48 = add nsw i32 %retval.0.i191, %add44
-  %conv.i285 = trunc i32 %shr.i.i.i282 to i8
+  %conv.i285 = trunc nsw i32 %shr.i.i.i282 to i8
   %conv.i198 = and i32 %shr.i.i.i282, 255
   %cmp.i199 = icmp ne i8 %conv.i285, -1
-  %or.cond.i200 = and i1 %cmp45, %cmp.i199
+  %or.cond.i200 = select i1 %cmp45, i1 %cmp.i199, i1 false
   br i1 %or.cond.i200, label %if.then.i208, label %if.else.i201
 
 if.then.i208:                                     ; preds = %test_binary_op.exit196
@@ -280,7 +280,7 @@ if.else.i201:                                     ; preds = %test_binary_op.exit
   %conv.i285343 = phi i8 [ -1, %test_binary_op.exit196.thread ], [ %conv.i285, %test_binary_op.exit196 ]
   %add48342 = phi i32 [ %add48336, %test_binary_op.exit196.thread ], [ %add48, %test_binary_op.exit196 ]
   %cmp7.i203 = icmp eq i8 %conv.i285343, 0
-  %or.cond1.i204.not = or i1 %cmp45, %cmp7.i203
+  %or.cond1.i204.not = select i1 %cmp45, i1 true, i1 %cmp7.i203
   br i1 %or.cond1.i204.not, label %test_binary_op_8.exit210, label %if.then9.i206
 
 if.then9.i206:                                    ; preds = %if.else.i201
@@ -324,7 +324,7 @@ if.then.i235:                                     ; preds = %test_binary_op.exit
 
 if.else.i228:                                     ; preds = %test_binary_op.exit223
   %cmp7.i230 = icmp eq i8 %conv.i285344, 0
-  %or.cond1.i231.not = or i1 %cmp45, %cmp7.i230
+  %or.cond1.i231.not = select i1 %cmp45, i1 true, i1 %cmp7.i230
   br i1 %or.cond1.i231.not, label %test_binary_op_8.exit237, label %if.then9.i233
 
 if.then9.i233:                                    ; preds = %if.else.i228

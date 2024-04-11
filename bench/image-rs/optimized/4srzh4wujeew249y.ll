@@ -796,7 +796,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9f0af169dbc8a98cE.exit": ; preds = %83
   %90 = getelementptr inbounds i8, ptr %1, i64 307
   %91 = load i8, ptr %90, align 1, !range !120, !noundef !9
-  %92 = trunc i8 %91 to i1
+  %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %99, label %95
 
 93:                                               ; preds = %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17hc7b2c431b3bf4f09E.exit.i"
@@ -1064,7 +1064,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %208 = getelementptr inbounds i8, ptr %203, i64 32
   %209 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %202
   %210 = load i8, ptr %209, align 1, !range !120, !noalias !149, !noundef !9
-  %211 = trunc i8 %210 to i1
+  %211 = trunc nuw i8 %210 to i1
   %212 = add nuw nsw i64 %202, 1
   br i1 %211, label %214, label %.backedge4169
 
@@ -1682,7 +1682,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 412:                                              ; preds = %409
   %413 = load i8, ptr %392, align 1, !range !120, !noundef !9
-  %414 = trunc i8 %413 to i1
+  %414 = trunc nuw i8 %413 to i1
   br i1 %414, label %419, label %486
 
 .invoke3734:                                      ; preds = %809, %.thread861, %789, %758, %.lr.ph2786, %402, %648, %499, %496, %492, %489, %488, %487, %476, %460, %458, %435, %431, %429, %409, %410, %743, %737, %634, %610, %569, %566, %266
@@ -1946,7 +1946,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %notmask.i.i.i = shl nsw i64 -1, %534
   %535 = xor i64 %notmask.i.i.i, -1
   %536 = and i64 %533, %535
-  %537 = trunc i64 %536 to i16
+  %537 = trunc nuw i64 %536 to i16
   %538 = shl i64 %529, %534
   store i64 %538, ptr %61, align 8, !alias.scope !256, !noalias !257
   %539 = sub i8 %528, %508
@@ -2181,7 +2181,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %notmask.i.i174.i = shl nsw i64 -1, %617
   %618 = xor i64 %notmask.i.i174.i, -1
   %619 = and i64 %616, %618
-  %620 = trunc i64 %619 to i16
+  %620 = trunc nuw nsw i64 %619 to i16
   %621 = shl i64 %612, %617
   store i64 %621, ptr %61, align 8, !alias.scope !269, !noalias !270
   %622 = sub i8 %611, %582
@@ -2465,7 +2465,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread: ; preds
   %notmask.i.i = shl nsw i64 -1, %717
   %718 = xor i64 %notmask.i.i, -1
   %719 = and i64 %716, %718
-  %720 = trunc i64 %719 to i16
+  %720 = trunc nuw nsw i64 %719 to i16
   %721 = shl i64 %712, %717
   store i64 %721, ptr %61, align 8, !alias.scope !306, !noalias !307
   %722 = sub i8 %711, %681
@@ -2606,7 +2606,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h1794f9bcfa816
 761:                                              ; preds = %758
   %762 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8702.02821
   %763 = load i8, ptr %762, align 1, !range !120, !noundef !9
-  %764 = trunc i8 %763 to i1
+  %764 = trunc nuw i8 %763 to i1
   br i1 %764, label %766, label %.backedge
 
 .backedge:                                        ; preds = %761, %829, %786
@@ -2826,7 +2826,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h1794f9bcfa816
   %.ptr = getelementptr inbounds i8, ptr %6, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 1
   %.val.i = load i8, ptr %.ptr, align 1, !range !120, !noalias !323, !noundef !9
-  %850 = trunc i8 %.val.i to i1
+  %850 = trunc nuw i8 %.val.i to i1
   br i1 %850, label %877, label %848
 
 851:                                              ; preds = %.lr.ph2838, %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$jpeg_decoder..marker..Marker$C$jpeg_decoder..error..Error$GT$$GT$17hca552771b1378b12E.exit"
@@ -3056,7 +3056,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc565
 906:                                              ; preds = %895
   %907 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8720.02842
   %908 = load i8, ptr %907, align 1, !range !120, !noundef !9
-  %909 = trunc i8 %908 to i1
+  %909 = trunc nuw i8 %908 to i1
   br i1 %909, label %913, label %911
 
 910:                                              ; preds = %895
@@ -3076,7 +3076,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc565
 
 915:                                              ; preds = %913
   %916 = load i64, ptr %34, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %916 to i1
+  %trunc = trunc nuw i64 %916 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6189, ptr noundef nonnull align 8 dereferenceable(24) %888, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   br i1 %trunc, label %920, label %917
@@ -3181,7 +3181,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc565
 945:                                              ; preds = %187
   %946 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8.02745
   %947 = load i8, ptr %946, align 1, !range !120, !noundef !9
-  %948 = trunc i8 %947 to i1
+  %948 = trunc nuw i8 %947 to i1
   br i1 %948, label %954, label %952
 
 .invoke:                                          ; preds = %85, %118, %150, %954, %187
@@ -3426,7 +3426,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h73c84642fb46e86fE.exit": ; preds = %80
   %87 = getelementptr inbounds i8, ptr %1, i64 339
   %88 = load i8, ptr %87, align 1, !range !120, !noundef !9
-  %89 = trunc i8 %88 to i1
+  %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %96, label %92
 
 90:                                               ; preds = %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17hf59657fdf4a59c5eE.exit.i"
@@ -3694,7 +3694,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %205 = getelementptr inbounds i8, ptr %200, i64 32
   %206 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %199
   %207 = load i8, ptr %206, align 1, !range !120, !noalias !387, !noundef !9
-  %208 = trunc i8 %207 to i1
+  %208 = trunc nuw i8 %207 to i1
   %209 = add nuw nsw i64 %199, 1
   br i1 %208, label %211, label %.backedge4045
 
@@ -4292,7 +4292,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 409:                                              ; preds = %406
   %410 = load i8, ptr %389, align 1, !range !120, !noundef !9
-  %411 = trunc i8 %410 to i1
+  %411 = trunc nuw i8 %410 to i1
   br i1 %411, label %413, label %474
 
 412:                                              ; preds = %955, %891
@@ -4526,7 +4526,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %notmask.i.i.i = shl nsw i64 -1, %522
   %523 = xor i64 %notmask.i.i.i, -1
   %524 = and i64 %521, %523
-  %525 = trunc i64 %524 to i16
+  %525 = trunc nuw i64 %524 to i16
   %526 = shl i64 %517, %522
   store i64 %526, ptr %58, align 8, !alias.scope !492, !noalias !493
   %527 = sub i8 %516, %496
@@ -4761,7 +4761,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %notmask.i.i174.i = shl nsw i64 -1, %605
   %606 = xor i64 %notmask.i.i174.i, -1
   %607 = and i64 %604, %606
-  %608 = trunc i64 %607 to i16
+  %608 = trunc nuw nsw i64 %607 to i16
   %609 = shl i64 %600, %605
   store i64 %609, ptr %58, align 8, !alias.scope !505, !noalias !506
   %610 = sub i8 %599, %570
@@ -5055,7 +5055,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread: ; preds
   %notmask.i.i = shl nsw i64 -1, %708
   %709 = xor i64 %notmask.i.i, -1
   %710 = and i64 %707, %709
-  %711 = trunc i64 %710 to i16
+  %711 = trunc nuw nsw i64 %710 to i16
   %712 = shl i64 %703, %708
   store i64 %712, ptr %58, align 8, !alias.scope !542, !noalias !543
   %713 = sub i8 %702, %672
@@ -5196,7 +5196,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
 752:                                              ; preds = %749
   %753 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8693.02779
   %754 = load i8, ptr %753, align 1, !range !120, !noundef !9
-  %755 = trunc i8 %754 to i1
+  %755 = trunc nuw i8 %754 to i1
   br i1 %755, label %757, label %.backedge
 
 .backedge:                                        ; preds = %752, %826, %777
@@ -5436,7 +5436,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
   %.ptr = getelementptr inbounds i8, ptr %6, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 1
   %.val.i = load i8, ptr %.ptr, align 1, !range !120, !noalias !559, !noundef !9
-  %848 = trunc i8 %.val.i to i1
+  %848 = trunc nuw i8 %.val.i to i1
   br i1 %848, label %858, label %846
 
 849:                                              ; preds = %.lr.ph2796, %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$jpeg_decoder..marker..Marker$C$jpeg_decoder..error..Error$GT$$GT$17hca552771b1378b12E.exit"
@@ -5584,7 +5584,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
 887:                                              ; preds = %876
   %888 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8711.02800
   %889 = load i8, ptr %888, align 1, !range !120, !noundef !9
-  %890 = trunc i8 %889 to i1
+  %890 = trunc nuw i8 %889 to i1
   br i1 %890, label %894, label %892
 
 891:                                              ; preds = %876
@@ -5604,7 +5604,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
 
 896:                                              ; preds = %894
   %897 = load i64, ptr %31, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %897 to i1
+  %trunc = trunc nuw i64 %897 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6189, ptr noundef nonnull align 8 dereferenceable(24) %869, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   br i1 %trunc, label %901, label %898
@@ -5709,7 +5709,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
 926:                                              ; preds = %184
   %927 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8.02703
   %928 = load i8, ptr %927, align 1, !range !120, !noundef !9
-  %929 = trunc i8 %928 to i1
+  %929 = trunc nuw i8 %928 to i1
   br i1 %929, label %935, label %933
 
 .invoke:                                          ; preds = %82, %115, %147, %935, %184
@@ -5954,7 +5954,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9c1fcd3282943869E.exit": ; preds = %80
   %87 = getelementptr inbounds i8, ptr %1, i64 315
   %88 = load i8, ptr %87, align 1, !range !120, !noundef !9
-  %89 = trunc i8 %88 to i1
+  %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %96, label %92
 
 90:                                               ; preds = %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan28_$u7b$$u7b$closure$u7d$$u7d$17h353a45f0256b2734E.exit.i"
@@ -6222,7 +6222,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %205 = getelementptr inbounds i8, ptr %200, i64 32
   %206 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %199
   %207 = load i8, ptr %206, align 1, !range !120, !noalias !608, !noundef !9
-  %208 = trunc i8 %207 to i1
+  %208 = trunc nuw i8 %207 to i1
   %209 = add nuw nsw i64 %199, 1
   br i1 %208, label %211, label %.backedge4045
 
@@ -6820,7 +6820,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 409:                                              ; preds = %406
   %410 = load i8, ptr %389, align 1, !range !120, !noundef !9
-  %411 = trunc i8 %410 to i1
+  %411 = trunc nuw i8 %410 to i1
   br i1 %411, label %413, label %474
 
 412:                                              ; preds = %955, %891
@@ -7054,7 +7054,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %notmask.i.i.i = shl nsw i64 -1, %522
   %523 = xor i64 %notmask.i.i.i, -1
   %524 = and i64 %521, %523
-  %525 = trunc i64 %524 to i16
+  %525 = trunc nuw i64 %524 to i16
   %526 = shl i64 %517, %522
   store i64 %526, ptr %58, align 8, !alias.scope !713, !noalias !714
   %527 = sub i8 %516, %496
@@ -7289,7 +7289,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %notmask.i.i174.i = shl nsw i64 -1, %605
   %606 = xor i64 %notmask.i.i174.i, -1
   %607 = and i64 %604, %606
-  %608 = trunc i64 %607 to i16
+  %608 = trunc nuw nsw i64 %607 to i16
   %609 = shl i64 %600, %605
   store i64 %609, ptr %58, align 8, !alias.scope !726, !noalias !727
   %610 = sub i8 %599, %570
@@ -7583,7 +7583,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread: ; preds
   %notmask.i.i = shl nsw i64 -1, %708
   %709 = xor i64 %notmask.i.i, -1
   %710 = and i64 %707, %709
-  %711 = trunc i64 %710 to i16
+  %711 = trunc nuw nsw i64 %710 to i16
   %712 = shl i64 %703, %708
   store i64 %712, ptr %58, align 8, !alias.scope !763, !noalias !764
   %713 = sub i8 %702, %672
@@ -7724,7 +7724,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
 752:                                              ; preds = %749
   %753 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8693.02779
   %754 = load i8, ptr %753, align 1, !range !120, !noundef !9
-  %755 = trunc i8 %754 to i1
+  %755 = trunc nuw i8 %754 to i1
   br i1 %755, label %757, label %.backedge
 
 .backedge:                                        ; preds = %752, %826, %777
@@ -7964,7 +7964,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
   %.ptr = getelementptr inbounds i8, ptr %6, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 1
   %.val.i = load i8, ptr %.ptr, align 1, !range !120, !noalias !780, !noundef !9
-  %848 = trunc i8 %.val.i to i1
+  %848 = trunc nuw i8 %.val.i to i1
   br i1 %848, label %858, label %846
 
 849:                                              ; preds = %.lr.ph2796, %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$jpeg_decoder..marker..Marker$C$jpeg_decoder..error..Error$GT$$GT$17hca552771b1378b12E.exit"
@@ -8112,7 +8112,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
 887:                                              ; preds = %876
   %888 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8711.02800
   %889 = load i8, ptr %888, align 1, !range !120, !noundef !9
-  %890 = trunc i8 %889 to i1
+  %890 = trunc nuw i8 %889 to i1
   br i1 %890, label %894, label %892
 
 891:                                              ; preds = %876
@@ -8132,7 +8132,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
 
 896:                                              ; preds = %894
   %897 = load i64, ptr %31, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %897 to i1
+  %trunc = trunc nuw i64 %897 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6189, ptr noundef nonnull align 8 dereferenceable(24) %869, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   br i1 %trunc, label %901, label %898
@@ -8237,7 +8237,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
 926:                                              ; preds = %184
   %927 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %.sroa.8.02703
   %928 = load i8, ptr %927, align 1, !range !120, !noundef !9
-  %929 = trunc i8 %928 to i1
+  %929 = trunc nuw i8 %928 to i1
   br i1 %929, label %935, label %933
 
 .invoke:                                          ; preds = %82, %115, %147, %935, %184
@@ -8817,7 +8817,7 @@ default.unreachable:                              ; preds = %107
 92:                                               ; preds = %105, %103, %100, %97, %96, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2e6853e9ba6c974fE.exit.i"
   %93 = getelementptr inbounds i8, ptr %1, i64 338
   %94 = load i8, ptr %93, align 2, !range !120, !alias.scope !861, !noundef !9
-  %95 = trunc i8 %94 to i1
+  %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$25determine_color_transform17hc21cdec0a869b5dcE.exit", label %107
 
 96:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2e6853e9ba6c974fE.exit.i"
@@ -9056,7 +9056,7 @@ default.unreachable:                              ; preds = %107
 
 179:                                              ; preds = %174
   %180 = load i64, ptr %10, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %180 to i1
+  %trunc = trunc nuw i64 %180 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br i1 %trunc, label %185, label %181
@@ -9368,7 +9368,7 @@ default.unreachable:                              ; preds = %107
 92:                                               ; preds = %105, %103, %100, %97, %96, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2e6853e9ba6c974fE.exit.i"
   %93 = getelementptr inbounds i8, ptr %1, i64 314
   %94 = load i8, ptr %93, align 2, !range !120, !alias.scope !873, !noundef !9
-  %95 = trunc i8 %94 to i1
+  %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$25determine_color_transform17h1d3ba41ce356e6abE.exit", label %107
 
 96:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2e6853e9ba6c974fE.exit.i"
@@ -9607,7 +9607,7 @@ default.unreachable:                              ; preds = %107
 
 179:                                              ; preds = %174
   %180 = load i64, ptr %10, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %180 to i1
+  %trunc = trunc nuw i64 %180 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br i1 %trunc, label %185, label %181
@@ -9919,7 +9919,7 @@ default.unreachable:                              ; preds = %107
 92:                                               ; preds = %105, %103, %100, %97, %96, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2e6853e9ba6c974fE.exit.i"
   %93 = getelementptr inbounds i8, ptr %1, i64 306
   %94 = load i8, ptr %93, align 2, !range !120, !alias.scope !883, !noundef !9
-  %95 = trunc i8 %94 to i1
+  %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$25determine_color_transform17hce4f30b05ac37ec5E.exit", label %107
 
 96:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2e6853e9ba6c974fE.exit.i"
@@ -10158,7 +10158,7 @@ default.unreachable:                              ; preds = %107
 
 179:                                              ; preds = %174
   %180 = load i64, ptr %10, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %180 to i1
+  %trunc = trunc nuw i64 %180 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br i1 %trunc, label %185, label %181
@@ -10935,7 +10935,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc550
   %.sroa.7692.1.extract.shift = lshr i64 %317, 8
   %.sroa.7692.1.extract.trunc = trunc i64 %.sroa.7692.1.extract.shift to i8
   %.sroa.7692.2.extract.shift = lshr i64 %317, 16
-  %.sroa.7692.2.extract.trunc = trunc i64 %.sroa.7692.2.extract.shift to i48
+  %.sroa.7692.2.extract.trunc = trunc nuw i64 %.sroa.7692.2.extract.shift to i48
   %318 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %318, align 8
   %.sroa.2305.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -11074,7 +11074,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc550
   store i64 %348, ptr %108, align 8
   %351 = load i64, ptr %270, align 8, !noundef !9
   %352 = load i8, ptr %271, align 1, !range !120, !noundef !9
-  %353 = trunc i8 %352 to i1
+  %353 = trunc nuw i8 %352 to i1
   br i1 %353, label %359, label %356
 
 354:                                              ; preds = %347
@@ -11086,7 +11086,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc550
 
 356:                                              ; preds = %350
   %357 = load i8, ptr %272, align 2, !range !120, !noundef !9
-  %358 = trunc i8 %357 to i1
+  %358 = trunc nuw i8 %357 to i1
   br i1 %358, label %365, label %361
 
 359:                                              ; preds = %350
@@ -12118,7 +12118,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %notmask.i.i.us.i = shl nsw i64 -1, %645
   %646 = xor i64 %notmask.i.i.us.i, -1
   %647 = and i64 %644, %646
-  %648 = trunc i64 %647 to i16
+  %648 = trunc nuw i64 %647 to i16
   %649 = shl i64 %640, %645
   store i64 %649, ptr %44, align 8, !alias.scope !1067, !noalias !1068
   %650 = sub i8 %639, %626
@@ -13029,7 +13029,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i.i: ; preds = %.noexc339.i
   %.sroa.13.sroa.14.2.in = lshr i64 %.sroa.13.sroa.17.sroa.0.2.in.in, 8
   %.sroa.13.sroa.14.2 = trunc i64 %.sroa.13.sroa.14.2.in to i8
   %.sroa.13.sroa.17.sroa.0.2.in = lshr i64 %.sroa.13.sroa.17.sroa.0.2.in.in, 16
-  %.sroa.13.sroa.17.sroa.0.2 = trunc i64 %.sroa.13.sroa.17.sroa.0.2.in to i48
+  %.sroa.13.sroa.17.sroa.0.2 = trunc nuw i64 %.sroa.13.sroa.17.sroa.0.2.in to i48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !1137
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf30d436c57c752a2E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %46)
           to label %.noexc384.i unwind label %.thread.i.loopexit.split-lp, !noalias !1025
@@ -13149,7 +13149,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i.i: ; preds = %.noexc339.i
 999:                                              ; preds = %.loopexit1126
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90)
   %1000 = load i64, ptr %91, align 8, !range !341, !noundef !9
-  %trunc456 = trunc i64 %1000 to i1
+  %trunc456 = trunc nuw i64 %1000 to i1
   %.sroa.0360.0.copyload = load i8, ptr %224, align 8
   %.sroa.4361.0.copyload = load i8, ptr %.sroa.4355.0..sroa_idx, align 1
   br i1 %trunc456, label %1003, label %1001
@@ -13921,7 +13921,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i.i: ; preds = %.noexc339.i
 
 1200:                                             ; preds = %343
   %1201 = load i64, ptr %73, align 8, !range !341, !noundef !9
-  %trunc449 = trunc i64 %1201 to i1
+  %trunc449 = trunc nuw i64 %1201 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6207, ptr noundef nonnull align 8 dereferenceable(24) %192, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73)
   br i1 %trunc449, label %1207, label %1202
@@ -14738,7 +14738,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   store i64 %340, ptr %104, align 8
   %343 = load i64, ptr %280, align 8, !noundef !9
   %344 = load i8, ptr %281, align 1, !range !120, !noundef !9
-  %345 = trunc i8 %344 to i1
+  %345 = trunc nuw i8 %344 to i1
   br i1 %345, label %351, label %348
 
 346:                                              ; preds = %339
@@ -14750,7 +14750,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
 
 348:                                              ; preds = %342
   %349 = load i8, ptr %282, align 2, !range !120, !noundef !9
-  %350 = trunc i8 %349 to i1
+  %350 = trunc nuw i8 %349 to i1
   br i1 %350, label %357, label %353
 
 351:                                              ; preds = %342
@@ -15778,7 +15778,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %notmask.i.i.us.i = shl nsw i64 -1, %637
   %638 = xor i64 %notmask.i.i.us.i, -1
   %639 = and i64 %636, %638
-  %640 = trunc i64 %639 to i16
+  %640 = trunc nuw i64 %639 to i16
   %641 = shl i64 %632, %637
   store i64 %641, ptr %41, align 8, !alias.scope !1471, !noalias !1472
   %642 = sub i8 %631, %618
@@ -16586,7 +16586,7 @@ default.unreachable:                              ; preds = %755
   %.sroa.13.sroa.14.2.in = lshr i64 %.sroa.13.sroa.17.sroa.0.2.in.in, 8
   %.sroa.13.sroa.14.2 = trunc i64 %.sroa.13.sroa.14.2.in to i8
   %.sroa.13.sroa.17.sroa.0.2.in = lshr i64 %.sroa.13.sroa.17.sroa.0.2.in.in, 16
-  %.sroa.13.sroa.17.sroa.0.2 = trunc i64 %.sroa.13.sroa.17.sroa.0.2.in to i48
+  %.sroa.13.sroa.17.sroa.0.2 = trunc nuw i64 %.sroa.13.sroa.17.sroa.0.2.in to i48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !1522
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf30d436c57c752a2E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43)
           to label %.noexc375.i unwind label %.thread.i.loopexit.split-lp, !noalias !1429
@@ -16706,7 +16706,7 @@ default.unreachable:                              ; preds = %755
 974:                                              ; preds = %.loopexit1095
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86)
   %975 = load i64, ptr %87, align 8, !range !341, !noundef !9
-  %trunc456 = trunc i64 %975 to i1
+  %trunc456 = trunc nuw i64 %975 to i1
   %.sroa.0360.0.copyload = load i8, ptr %232, align 8
   %.sroa.4361.0.copyload = load i8, ptr %.sroa.4355.0..sroa_idx, align 1
   br i1 %trunc456, label %978, label %976
@@ -17478,7 +17478,7 @@ default.unreachable:                              ; preds = %755
 
 1175:                                             ; preds = %335
   %1176 = load i64, ptr %69, align 8, !range !341, !noundef !9
-  %trunc449 = trunc i64 %1176 to i1
+  %trunc449 = trunc nuw i64 %1176 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6207, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69)
   br i1 %trunc449, label %1182, label %1177
@@ -18252,7 +18252,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   store i64 %321, ptr %102, align 8
   %324 = load i64, ptr %261, align 8, !noundef !9
   %325 = load i8, ptr %262, align 1, !range !120, !noundef !9
-  %326 = trunc i8 %325 to i1
+  %326 = trunc nuw i8 %325 to i1
   br i1 %326, label %332, label %329
 
 327:                                              ; preds = %320
@@ -18264,7 +18264,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
 
 329:                                              ; preds = %323
   %330 = load i8, ptr %263, align 2, !range !120, !noundef !9
-  %331 = trunc i8 %330 to i1
+  %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %338, label %334
 
 332:                                              ; preds = %323
@@ -19292,7 +19292,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread: ; pred
   %notmask.i.i.us.i = shl nsw i64 -1, %618
   %619 = xor i64 %notmask.i.i.us.i, -1
   %620 = and i64 %617, %619
-  %621 = trunc i64 %620 to i16
+  %621 = trunc nuw i64 %620 to i16
   %622 = shl i64 %613, %618
   store i64 %622, ptr %41, align 8, !alias.scope !1827, !noalias !1828
   %623 = sub i8 %612, %599
@@ -20100,7 +20100,7 @@ default.unreachable:                              ; preds = %736
   %.sroa.13.sroa.14.2.in = lshr i64 %.sroa.13.sroa.17.sroa.0.2.in.in, 8
   %.sroa.13.sroa.14.2 = trunc i64 %.sroa.13.sroa.14.2.in to i8
   %.sroa.13.sroa.17.sroa.0.2.in = lshr i64 %.sroa.13.sroa.17.sroa.0.2.in.in, 16
-  %.sroa.13.sroa.17.sroa.0.2 = trunc i64 %.sroa.13.sroa.17.sroa.0.2.in to i48
+  %.sroa.13.sroa.17.sroa.0.2 = trunc nuw i64 %.sroa.13.sroa.17.sroa.0.2.in to i48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !1878
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf30d436c57c752a2E.llvm.9832446184049035033"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43)
           to label %.noexc375.i unwind label %.thread.i.loopexit.split-lp, !noalias !1785
@@ -20220,7 +20220,7 @@ default.unreachable:                              ; preds = %736
 955:                                              ; preds = %.loopexit1104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84)
   %956 = load i64, ptr %85, align 8, !range !341, !noundef !9
-  %trunc456 = trunc i64 %956 to i1
+  %trunc456 = trunc nuw i64 %956 to i1
   %.sroa.0360.0.copyload = load i8, ptr %213, align 8
   %.sroa.4361.0.copyload = load i8, ptr %.sroa.4355.0..sroa_idx, align 1
   br i1 %trunc456, label %959, label %957
@@ -20992,7 +20992,7 @@ default.unreachable:                              ; preds = %736
 
 1156:                                             ; preds = %316
   %1157 = load i64, ptr %67, align 8, !range !341, !noundef !9
-  %trunc449 = trunc i64 %1157 to i1
+  %trunc449 = trunc nuw i64 %1157 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6207, ptr noundef nonnull align 8 dereferenceable(24) %181, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67)
   br i1 %trunc449, label %1163, label %1158
@@ -21651,7 +21651,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h922a
   br label %46
 
 39:                                               ; preds = %30
-  %40 = trunc i64 %indvars.iv to i8
+  %40 = trunc nuw i64 %indvars.iv to i8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %40, ptr %41, align 8
   store i64 -9223372036854775805, ptr %0, align 8
@@ -21727,7 +21727,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h922a
 
 71:                                               ; preds = %64
   %.sroa.499.2.extract.shift = lshr i64 %69, 16
-  %.sroa.499.2.extract.trunc = trunc i64 %.sroa.499.2.extract.shift to i48
+  %.sroa.499.2.extract.trunc = trunc nuw i64 %.sroa.499.2.extract.shift to i48
   store i64 %66, ptr %0, align 8
   %.sroa.282.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.499.0.extract.trunc, ptr %.sroa.282.0..sroa_idx, align 8
@@ -21756,7 +21756,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h922a
 
 79:                                               ; preds = %72
   %.sroa.4.2.extract.shift = lshr i64 %77, 16
-  %.sroa.4.2.extract.trunc = trunc i64 %.sroa.4.2.extract.shift to i48
+  %.sroa.4.2.extract.trunc = trunc nuw i64 %.sroa.4.2.extract.shift to i48
   store i64 %74, ptr %0, align 8
   %.sroa.267.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.267.0..sroa_idx, align 8
@@ -21841,7 +21841,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h9cd3
   br label %46
 
 39:                                               ; preds = %30
-  %40 = trunc i64 %indvars.iv to i8
+  %40 = trunc nuw i64 %indvars.iv to i8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %40, ptr %41, align 8
   store i64 -9223372036854775805, ptr %0, align 8
@@ -21917,7 +21917,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h9cd3
 
 71:                                               ; preds = %64
   %.sroa.499.2.extract.shift = lshr i64 %69, 16
-  %.sroa.499.2.extract.trunc = trunc i64 %.sroa.499.2.extract.shift to i48
+  %.sroa.499.2.extract.trunc = trunc nuw i64 %.sroa.499.2.extract.shift to i48
   store i64 %66, ptr %0, align 8
   %.sroa.282.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.499.0.extract.trunc, ptr %.sroa.282.0..sroa_idx, align 8
@@ -21946,7 +21946,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h9cd3
 
 79:                                               ; preds = %72
   %.sroa.4.2.extract.shift = lshr i64 %77, 16
-  %.sroa.4.2.extract.trunc = trunc i64 %.sroa.4.2.extract.shift to i48
+  %.sroa.4.2.extract.trunc = trunc nuw i64 %.sroa.4.2.extract.shift to i48
   store i64 %74, ptr %0, align 8
   %.sroa.267.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.267.0..sroa_idx, align 8
@@ -22031,7 +22031,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17hcf3c
   br label %46
 
 39:                                               ; preds = %30
-  %40 = trunc i64 %indvars.iv to i8
+  %40 = trunc nuw i64 %indvars.iv to i8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %40, ptr %41, align 8
   store i64 -9223372036854775805, ptr %0, align 8
@@ -22107,7 +22107,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17hcf3c
 
 71:                                               ; preds = %64
   %.sroa.499.2.extract.shift = lshr i64 %69, 16
-  %.sroa.499.2.extract.trunc = trunc i64 %.sroa.499.2.extract.shift to i48
+  %.sroa.499.2.extract.trunc = trunc nuw i64 %.sroa.499.2.extract.shift to i48
   store i64 %66, ptr %0, align 8
   %.sroa.282.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.499.0.extract.trunc, ptr %.sroa.282.0..sroa_idx, align 8
@@ -22136,7 +22136,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17hcf3c
 
 79:                                               ; preds = %72
   %.sroa.4.2.extract.shift = lshr i64 %77, 16
-  %.sroa.4.2.extract.trunc = trunc i64 %.sroa.4.2.extract.shift to i48
+  %.sroa.4.2.extract.trunc = trunc nuw i64 %.sroa.4.2.extract.shift to i48
   store i64 %74, ptr %0, align 8
   %.sroa.267.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.267.0..sroa_idx, align 8
@@ -24174,7 +24174,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !2633, !noalias !2630
   %12 = trunc i32 %1 to i8
@@ -24186,7 +24186,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !2633, !noalias !2630
   %19 = lshr i32 %1, 6
@@ -24254,7 +24254,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !2646, !noundef !9
   %58 = load i64, ptr %0, align 8, !alias.scope !2646, !noundef !9
@@ -25116,17 +25116,17 @@ default.unreachable:                              ; preds = %2
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !range !2760, !alias.scope !2761, !noalias !2764, !noundef !9
-  %trunc.i = trunc i32 %10 to i1
+  %trunc.i = trunc nuw i32 %10 to i1
   %11 = getelementptr inbounds i8, ptr %1, i64 20
   %12 = load i32, ptr %11, align 4, !alias.scope !2761, !noalias !2764
   %.sroa.5.0.i = select i1 %trunc.i, i32 %12, i32 undef
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 8, !range !2760, !alias.scope !2761, !noalias !2764, !noundef !9
-  %trunc5.i = trunc i32 %14 to i1
+  %trunc5.i = trunc nuw i32 %14 to i1
   %15 = getelementptr inbounds i8, ptr %1, i64 28
   %16 = load i32, ptr %15, align 4, !alias.scope !2761, !noalias !2764
   %.sroa.52.0.i = select i1 %trunc5.i, i32 %16, i32 undef
-  %trunc6.i = trunc i64 %3 to i1
+  %trunc6.i = trunc nuw i64 %3 to i1
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !2761, !noalias !2764
   %.sroa.54.0.i = select i1 %trunc6.i, i64 %18, i64 undef
@@ -27161,7 +27161,7 @@ define hidden void @"_ZN5image6codecs3dds19DdsDecoder$LT$R$GT$3new17hf208e172804
   call void @"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$3new17h8fa20531c4673a9bE"(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %101, i32 noundef %103, i8 noundef %.072154169)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   %108 = load i64, ptr %7, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %108 to i1
+  %trunc = trunc nuw i64 %108 to i1
   %109 = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(64) %109, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
@@ -27544,7 +27544,7 @@ define void @"_ZN5image6codecs3gif42_$LT$impl$u20$image..error..ImageError$GT$13
   %4 = alloca { i8, [15 x i8] }, align 8
   %.sroa.0 = alloca { i8, [31 x i8] }, align 8
   %5 = load i8, ptr %1, align 8, !range !120, !noundef !9
-  %trunc = trunc i8 %5 to i1
+  %trunc = trunc nuw i8 %5 to i1
   br i1 %trunc, label %6, label %10
 
 6:                                                ; preds = %2
@@ -29205,21 +29205,21 @@ default.unreachable:                              ; preds = %50, %3
 29:                                               ; preds = %3
   %30 = getelementptr inbounds i8, ptr %0, i64 40
   %31 = load i8, ptr %30, align 8, !range !120, !alias.scope !3385, !noundef !9
-  %trunc4.i = trunc i8 %31 to i1
+  %trunc4.i = trunc nuw i8 %31 to i1
   %anon.60689fdbfa59ae5f463a599edb886518.286.anon.60689fdbfa59ae5f463a599edb886518.287.i = select i1 %trunc4.i, ptr @anon.60689fdbfa59ae5f463a599edb886518.287, ptr @anon.60689fdbfa59ae5f463a599edb886518.286
   br label %_ZN5image6codecs3pnm6header10PnmSubtype14magic_constant17h46da27d908d22c2aE.exit
 
 32:                                               ; preds = %3
   %33 = getelementptr inbounds i8, ptr %0, i64 44
   %34 = load i8, ptr %33, align 4, !range !120, !alias.scope !3385, !noundef !9
-  %trunc3.i = trunc i8 %34 to i1
+  %trunc3.i = trunc nuw i8 %34 to i1
   %anon.60689fdbfa59ae5f463a599edb886518.288.anon.60689fdbfa59ae5f463a599edb886518.289.i = select i1 %trunc3.i, ptr @anon.60689fdbfa59ae5f463a599edb886518.289, ptr @anon.60689fdbfa59ae5f463a599edb886518.288
   br label %_ZN5image6codecs3pnm6header10PnmSubtype14magic_constant17h46da27d908d22c2aE.exit
 
 35:                                               ; preds = %3
   %36 = getelementptr inbounds i8, ptr %0, i64 44
   %37 = load i8, ptr %36, align 4, !range !120, !alias.scope !3385, !noundef !9
-  %trunc.i = trunc i8 %37 to i1
+  %trunc.i = trunc nuw i8 %37 to i1
   %anon.60689fdbfa59ae5f463a599edb886518.290.anon.60689fdbfa59ae5f463a599edb886518.291.i = select i1 %trunc.i, ptr @anon.60689fdbfa59ae5f463a599edb886518.291, ptr @anon.60689fdbfa59ae5f463a599edb886518.290
   br label %_ZN5image6codecs3pnm6header10PnmSubtype14magic_constant17h46da27d908d22c2aE.exit
 
@@ -30374,7 +30374,7 @@ common.resume:                                    ; preds = %199, %.thread248, %
 
 _ZN3std2io4Read11read_to_end17h7eaf7264827c2d19E.exit: ; preds = %38
   %48 = load i64, ptr %18, align 8, !range !341, !noundef !9
-  %trunc151 = trunc i64 %48 to i1
+  %trunc151 = trunc nuw i64 %48 to i1
   %49 = getelementptr inbounds i8, ptr %18, i64 8
   %50 = load ptr, ptr %49, align 8, !nonnull !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
@@ -30875,7 +30875,7 @@ define hidden void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT$R$GT$26d
 
 _ZN3std2io4Read11read_to_end17h7eaf7264827c2d19E.exit: ; preds = %4
   %18 = load i64, ptr %14, align 8, !range !341, !noundef !9
-  %trunc = trunc i64 %18 to i1
+  %trunc = trunc nuw i64 %18 to i1
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
@@ -31871,8 +31871,8 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread.i: ; pr
   unreachable
 
 .split187.i:                                      ; preds = %.split183.i
-  %271 = trunc i32 %263 to i16
-  %272 = trunc i32 %269 to i16
+  %271 = trunc nuw i32 %263 to i16
+  %272 = trunc nuw i32 %269 to i16
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.727.i.sroa.6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21), !noalias !3767
   call fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT$R$GT$19decode_image_stream17h14559cffe2dbe761E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %21, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, i16 noundef %271, i16 noundef %272, i1 noundef zeroext false), !noalias !3683
@@ -32030,8 +32030,8 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread.i: ; pr
   unreachable
 
 .split197.i:                                      ; preds = %.split192.i
-  %315 = trunc i32 %307 to i16
-  %316 = trunc i32 %313 to i16
+  %315 = trunc nuw i32 %307 to i16
+  %316 = trunc nuw i32 %313 to i16
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.747.i.sroa.6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19), !noalias !3767
   call fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT$R$GT$19decode_image_stream17h14559cffe2dbe761E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %19, ptr noalias noundef nonnull align 8 dereferenceable(256) %1, i16 noundef %315, i16 noundef %316, i1 noundef zeroext false), !noalias !3683
@@ -32139,7 +32139,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread.i: ; pr
   %337 = add nsw i32 %336, %335
   %338 = lshr i32 %337, %.0181.i
   %339 = icmp ult i32 %338, 65536
-  %340 = trunc i32 %338 to i16
+  %340 = trunc nuw i32 %338 to i16
   %.sroa.5173.2.i = select i1 %339, i16 %340, i16 %.sroa.5173.0.i975
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
   br i1 %339, label %344, label %341
@@ -32429,8 +32429,8 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   br i1 %2, label %94, label %.loopexit304
 
 .loopexit304:                                     ; preds = %.lr.ph, %114, %182, %6
-  %.0123 = phi i16 [ 1, %6 ], [ %156, %182 ], [ 1, %114 ], [ %156, %.lr.ph ]
-  %.0122 = phi i16 [ 1, %6 ], [ %165, %182 ], [ 1, %114 ], [ %165, %.lr.ph ]
+  %.0123 = phi i16 [ 1, %6 ], [ %156, %182 ], [ 1, %114 ], [ %.sroa.587.0, %.lr.ph ]
+  %.0122 = phi i16 [ 1, %6 ], [ %165, %182 ], [ 1, %114 ], [ %.sroa.592.0, %.lr.ph ]
   %.0120 = phi i32 [ 1, %6 ], [ 1, %182 ], [ 1, %114 ], [ %spec.select, %.lr.ph ]
   %.0119 = phi i8 [ 0, %6 ], [ %147, %182 ], [ 0, %114 ], [ %147, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51)
@@ -32713,7 +32713,8 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %153 = add nuw i32 %152, %148
   %154 = lshr i32 %153, %150
   %155 = icmp ult i32 %154, 65536
-  %156 = trunc i32 %154 to i16
+  %156 = trunc nuw i32 %154 to i16
+  %.sroa.587.0 = select i1 %155, i16 %156, i16 undef
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7)
   br i1 %155, label %159, label %.invoke
 
@@ -32742,7 +32743,8 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %162 = add i32 %161, %151
   %163 = lshr i32 %162, %150
   %164 = icmp ult i32 %163, 65536
-  %165 = trunc i32 %163 to i16
+  %165 = trunc nuw i32 %163 to i16
+  %.sroa.592.0 = select i1 %164, i16 %165, i16 undef
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7)
   br i1 %164, label %166, label %.invoke
 
@@ -34913,7 +34915,7 @@ _ZN5image6codecs4webp8lossless11HuffmanInfo14get_huff_index17heb13ded0a5600da3E.
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit.i317": ; preds = %183
   %187 = lshr i16 %184, 1
-  %188 = trunc i16 %187 to i8
+  %188 = trunc nuw i16 %187 to i8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !4162
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !4162
   invoke void @_ZN5image6codecs4webp8lossless9BitReader9read_bits17h3e0a9ee8c487f7caE(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %9, ptr noalias noundef nonnull align 8 dereferenceable(40) %52, i8 noundef %188)
@@ -35039,7 +35041,7 @@ _ZN5image6codecs4webp8lossless11HuffmanInfo14get_huff_index17heb13ded0a5600da3E.
 ._crit_edge529:                                   ; preds = %266
   %229 = add i64 %.sroa.8.0.ph, %.0249545
   %230 = icmp ult i64 %.sroa.8.0.ph, 65536
-  %231 = trunc i64 %.sroa.8.0.ph to i16
+  %231 = trunc nuw i64 %.sroa.8.0.ph to i16
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
   br i1 %230, label %236, label %.invoke733
 
@@ -35912,7 +35914,7 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   %153 = lshr i32 %149, %150
   %154 = and i32 %153, 255
   %155 = sub nsw i32 %152, %154
-  %.lhs.trunc.i.us = trunc i32 %155 to i16
+  %.lhs.trunc.i.us = trunc nsw i32 %155 to i16
   %156 = sdiv i16 %.lhs.trunc.i.us, 2
   %.sext.i.us = sext i16 %156 to i32
   %157 = add nsw i32 %152, %.sext.i.us

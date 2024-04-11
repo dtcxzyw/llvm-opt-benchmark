@@ -284,7 +284,7 @@ entry:
   %sampler = getelementptr inbounds i8, ptr %this, i64 64
   %sampler.val = load i64, ptr %sampler, align 8
   %shr.i.i = lshr i64 %sampler.val, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit" [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb1.i.i
@@ -743,10 +743,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.3.0.extract.trunc = trunc i64 %pixelBounds.sroa.3.0.extract.shift to i32
+  %pixelBounds.sroa.3.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.3.0.extract.shift to i32
   %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %pixelBounds.sroa.7.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.7.8.extract.trunc = trunc i64 %pixelBounds.sroa.7.8.extract.shift to i32
+  %pixelBounds.sroa.7.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.7.8.extract.shift to i32
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
@@ -767,9 +767,9 @@ entry:
   %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
   %or.cond.not7.i.not162 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i.not161 = and i1 %or.cond.not7.i.not162, %cmp8.not.i
+  %or.cond6.i.not161 = select i1 %or.cond.not7.i.not162, i1 %cmp8.not.i, i1 false
   %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond = and i1 %cmp12.i, %or.cond6.i.not161
+  %or.cond = select i1 %or.cond6.i.not161, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -804,7 +804,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i11 = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i11 to ptr
   %shr.i.i.i = lshr i64 %13, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %14, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -842,7 +842,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i.i = and i64 %15, 144115188075855871
   %23 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %15, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i.i, ptr noundef %23, i32 noundef %sub.i.i.i), !noalias !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i.i), !noalias !13
@@ -893,7 +893,7 @@ _ZN4pbrt15GetCameraSampleINS_14PMJ02BNSamplerEEENS_12CameraSampleET_NS_6Point2Ii
   %and.i.i.i14 = and i64 %26, 144115188075855871
   %27 = inttoptr i64 %and.i.i.i14 to ptr
   %shr.i.i.i15 = lshr i64 %26, 57
-  %conv.i.i.i16 = trunc i64 %shr.i.i.i15 to i32
+  %conv.i.i.i16 = trunc nuw nsw i64 %shr.i.i.i15 to i32
   switch i32 %conv.i.i.i16, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -2088,7 +2088,7 @@ sw.bb3:                                           ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload.i.i.i = load i64, ptr %pi.i.i.i, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i to i32
   %p.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i, 32
-  %p.sroa.4.0.extract.trunc.i.i.i.i = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i to i32
+  %p.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i.i to i32
   %6 = load i32, ptr %f.i.i.i, align 8
   %sub.i.i.i.i = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i, %6
   %y.i.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 44
@@ -2122,7 +2122,7 @@ sw.bb6:                                           ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload.i.i.i17 = load i64, ptr %pi.i.i.i12, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i18 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i17 to i32
   %p.sroa.4.0.extract.shift.i.i.i.i19 = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i17, 32
-  %p.sroa.4.0.extract.trunc.i.i.i.i20 = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i19 to i32
+  %p.sroa.4.0.extract.trunc.i.i.i.i20 = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i.i19 to i32
   %12 = load i32, ptr %f.i.i.i16, align 8
   %sub.i.i.i.i21 = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i18, %12
   %y.i.i.i.i22 = getelementptr inbounds i8, ptr %ptr, i64 36
@@ -2156,7 +2156,7 @@ sw.bb9:                                           ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload.i.i.i40 = load i64, ptr %pi.i.i.i35, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i41 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i.i40 to i32
   %p.sroa.4.0.extract.shift.i.i.i.i42 = lshr i64 %agg.tmp5.sroa.0.0.copyload.i.i.i40, 32
-  %p.sroa.4.0.extract.trunc.i.i.i.i43 = trunc i64 %p.sroa.4.0.extract.shift.i.i.i.i42 to i32
+  %p.sroa.4.0.extract.trunc.i.i.i.i43 = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i.i42 to i32
   %18 = load i32, ptr %f.i.i.i39, align 8
   %sub.i.i.i.i44 = sub i32 %p.sroa.0.0.extract.trunc.i.i.i.i41, %18
   %y.i.i.i.i45 = getelementptr inbounds i8, ptr %ptr, i64 36
@@ -4142,10 +4142,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.3.0.extract.trunc = trunc i64 %pixelBounds.sroa.3.0.extract.shift to i32
+  %pixelBounds.sroa.3.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.3.0.extract.shift to i32
   %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %pixelBounds.sroa.7.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.7.8.extract.trunc = trunc i64 %pixelBounds.sroa.7.8.extract.shift to i32
+  %pixelBounds.sroa.7.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.7.8.extract.shift to i32
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
@@ -4170,9 +4170,9 @@ entry:
   %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
   %or.cond.not7.i.not173 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i.not172 = and i1 %or.cond.not7.i.not173, %cmp8.not.i
+  %or.cond6.i.not172 = select i1 %or.cond.not7.i.not173, i1 %cmp8.not.i, i1 false
   %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond = and i1 %cmp12.i, %or.cond6.i.not172
+  %or.cond = select i1 %or.cond6.i.not172, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4257,7 +4257,7 @@ _ZN4pbrt18IndependentSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = 
   %shr3.i.i.i = xor i64 %14, %15
   %conv.i.i.i = trunc i64 %shr3.i.i.i to i32
   %shr4.i.i.i16 = lshr i64 %add7.i.i, 59
-  %conv5.i.i.i = trunc i64 %shr4.i.i.i16 to i32
+  %conv5.i.i.i = trunc nuw nsw i64 %shr4.i.i.i16 to i32
   %or.i.i.i17 = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i, i32 %conv.i.i.i, i32 %conv5.i.i.i)
   %conv.i.i = uitofp i32 %or.i.i.i17 to float
   %mul.i.i18 = fmul float %conv.i.i, 0x3DF0000000000000
@@ -4276,7 +4276,7 @@ _ZN4pbrt18IndependentSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = 
   %and.i.i.i19 = and i64 %18, 144115188075855871
   %19 = inttoptr i64 %and.i.i.i19 to ptr
   %shr.i.i.i20 = lshr i64 %18, 57
-  %conv.i.i.i21 = trunc i64 %shr.i.i.i20 to i32
+  %conv.i.i.i21 = trunc nuw nsw i64 %shr.i.i.i20 to i32
   %sub.i.i = add nsw i32 %conv.i.i.i21, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %19, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -4295,7 +4295,7 @@ _ZN4pbrt18IndependentSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = 
   %and.i.i.i23 = and i64 %21, 144115188075855871
   %22 = inttoptr i64 %and.i.i.i23 to ptr
   %shr.i.i.i24 = lshr i64 %21, 57
-  %conv.i.i.i25 = trunc i64 %shr.i.i.i24 to i32
+  %conv.i.i.i25 = trunc nuw nsw i64 %shr.i.i.i24 to i32
   switch i32 %conv.i.i.i25, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -4763,7 +4763,7 @@ entry:
   %6 = xor <2 x i64> %4, %5
   %7 = trunc <2 x i64> %6 to <2 x i32>
   %8 = lshr <2 x i64> %3, <i64 59, i64 59>
-  %9 = trunc <2 x i64> %8 to <2 x i32>
+  %9 = trunc nuw nsw <2 x i64> %8 to <2 x i32>
   %10 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %7, <2 x i32> %7, <2 x i32> %9)
   %11 = uitofp <2 x i32> %10 to <2 x float>
   %12 = fmul <2 x float> %11, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -4777,7 +4777,7 @@ entry:
   %and.i.i.i = and i64 %15, 144115188075855871
   %16 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %15, 57
-  %conv.i.i.i1 = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i1 = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i1, -1
   %call3.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %16, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i)
@@ -4798,7 +4798,7 @@ entry:
   %shr3.i.i.i = xor i64 %23, %24
   %conv.i.i.i7 = trunc i64 %shr3.i.i.i to i32
   %shr4.i.i.i = lshr i64 %add.i.i3.i.i, 59
-  %conv5.i.i.i = trunc i64 %shr4.i.i.i to i32
+  %conv5.i.i.i = trunc nuw nsw i64 %shr4.i.i.i to i32
   %or.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i7, i32 %conv.i.i.i7, i32 %conv5.i.i.i)
   %conv.i.i = uitofp i32 %or.i.i.i to float
   %mul.i.i = fmul float %conv.i.i, 0x3DF0000000000000
@@ -4816,7 +4816,7 @@ entry:
   %29 = xor <2 x i64> %27, %28
   %30 = trunc <2 x i64> %29 to <2 x i32>
   %31 = lshr <2 x i64> %26, <i64 59, i64 59>
-  %32 = trunc <2 x i64> %31 to <2 x i32>
+  %32 = trunc nuw nsw <2 x i64> %31 to <2 x i32>
   %33 = call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %30, <2 x i32> %30, <2 x i32> %32)
   %34 = uitofp <2 x i32> %33 to <2 x float>
   %35 = fmul <2 x float> %34, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -5038,10 +5038,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.3.0.extract.trunc = trunc i64 %pixelBounds.sroa.3.0.extract.shift to i32
+  %pixelBounds.sroa.3.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.3.0.extract.shift to i32
   %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %pixelBounds.sroa.7.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.7.8.extract.trunc = trunc i64 %pixelBounds.sroa.7.8.extract.shift to i32
+  %pixelBounds.sroa.7.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.7.8.extract.shift to i32
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
@@ -5062,9 +5062,9 @@ entry:
   %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
   %or.cond.not7.i.not167 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i.not166 = and i1 %or.cond.not7.i.not167, %cmp8.not.i
+  %or.cond6.i.not166 = select i1 %or.cond.not7.i.not167, i1 %cmp8.not.i, i1 false
   %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond = and i1 %cmp12.i, %or.cond6.i.not166
+  %or.cond = select i1 %or.cond6.i.not166, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5171,7 +5171,7 @@ _ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %
   %and.i.i.i12 = and i64 %15, 144115188075855871
   %16 = inttoptr i64 %and.i.i.i12 to ptr
   %shr.i.i.i13 = lshr i64 %15, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i13 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i13 to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %16, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -5188,7 +5188,7 @@ _ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %
   %and.i.i.i.i = and i64 %17, 144115188075855871
   %18 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %17, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i.i, ptr noundef %18, i32 noundef %sub.i.i.i), !noalias !83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i.i), !noalias !83
@@ -5239,7 +5239,7 @@ _ZN4pbrt15GetCameraSampleINS_17StratifiedSamplerEEENS_12CameraSampleET_NS_6Point
   %and.i.i.i17 = and i64 %21, 144115188075855871
   %22 = inttoptr i64 %and.i.i.i17 to ptr
   %shr.i.i.i18 = lshr i64 %21, 57
-  %conv.i.i.i19 = trunc i64 %shr.i.i.i18 to i32
+  %conv.i.i.i19 = trunc nuw nsw i64 %shr.i.i.i18 to i32
   switch i32 %conv.i.i.i19, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -5805,7 +5805,7 @@ cond.true:                                        ; preds = %_ZN4pbrt18Permutati
   %shr3.i.i = xor i64 %9, %10
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %7, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i2 = fmul float %conv.i, 0x3DF0000000000000
@@ -5948,7 +5948,7 @@ cond.true9:                                       ; preds = %_ZN4pbrt18Permutati
   %14 = xor <2 x i64> %12, %13
   %15 = trunc <2 x i64> %14 to <2 x i32>
   %16 = lshr <2 x i64> %11, <i64 59, i64 59>
-  %17 = trunc <2 x i64> %16 to <2 x i32>
+  %17 = trunc nuw nsw <2 x i64> %16 to <2 x i32>
   %18 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %15, <2 x i32> %15, <2 x i32> %17)
   %19 = uitofp <2 x i32> %18 to <2 x float>
   %20 = fmul <2 x float> %19, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -6158,10 +6158,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.3.0.extract.trunc = trunc i64 %pixelBounds.sroa.3.0.extract.shift to i32
+  %pixelBounds.sroa.3.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.3.0.extract.shift to i32
   %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %pixelBounds.sroa.7.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.7.8.extract.trunc = trunc i64 %pixelBounds.sroa.7.8.extract.shift to i32
+  %pixelBounds.sroa.7.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.7.8.extract.shift to i32
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
@@ -6182,9 +6182,9 @@ entry:
   %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
   %or.cond.not7.i.not153 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i.not152 = and i1 %or.cond.not7.i.not153, %cmp8.not.i
+  %or.cond6.i.not152 = select i1 %or.cond.not7.i.not153, i1 %cmp8.not.i, i1 false
   %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond = and i1 %cmp12.i, %or.cond6.i.not152
+  %or.cond = select i1 %or.cond6.i.not152, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -6220,7 +6220,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i11 = and i64 %14, 144115188075855871
   %15 = inttoptr i64 %and.i.i.i11 to ptr
   %shr.i.i.i = lshr i64 %14, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %15, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -6234,7 +6234,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i13 = and i64 %17, 144115188075855871
   %18 = inttoptr i64 %and.i.i.i13 to ptr
   %shr.i.i.i14 = lshr i64 %17, 57
-  %conv.i.i.i15 = trunc i64 %shr.i.i.i14 to i32
+  %conv.i.i.i15 = trunc nuw nsw i64 %shr.i.i.i14 to i32
   switch i32 %conv.i.i.i15, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -6931,7 +6931,7 @@ _ZN4pbrt13HaltonSampler10GetPixel2DEv.exit:       ; preds = %_ZN4pbrt14RadicalIn
   %and.i.i.i = and i64 %18, 144115188075855871
   %19 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %18, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i1 = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %19, i32 noundef %sub.i.i1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i)
@@ -7423,10 +7423,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.3.0.extract.trunc = trunc i64 %pixelBounds.sroa.3.0.extract.shift to i32
+  %pixelBounds.sroa.3.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.3.0.extract.shift to i32
   %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %pixelBounds.sroa.7.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.7.8.extract.trunc = trunc i64 %pixelBounds.sroa.7.8.extract.shift to i32
+  %pixelBounds.sroa.7.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.7.8.extract.shift to i32
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
@@ -7447,9 +7447,9 @@ entry:
   %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
   %or.cond.not7.i.not157 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i.not156 = and i1 %or.cond.not7.i.not157, %cmp8.not.i
+  %or.cond6.i.not156 = select i1 %or.cond.not7.i.not157, i1 %cmp8.not.i, i1 false
   %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond = and i1 %cmp12.i, %or.cond6.i.not156
+  %or.cond = select i1 %or.cond6.i.not156, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -7484,7 +7484,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i11 = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i11 to ptr
   %shr.i.i.i = lshr i64 %13, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %14, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -7501,7 +7501,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i.i = and i64 %15, 144115188075855871
   %16 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %15, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i.i, ptr noundef %16, i32 noundef %sub.i.i.i), !noalias !119
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i.i), !noalias !119
@@ -7552,7 +7552,7 @@ _ZN4pbrt15GetCameraSampleINS_18PaddedSobolSamplerEEENS_12CameraSampleET_NS_6Poin
   %and.i.i.i14 = and i64 %19, 144115188075855871
   %20 = inttoptr i64 %and.i.i.i14 to ptr
   %shr.i.i.i15 = lshr i64 %19, 57
-  %conv.i.i.i16 = trunc i64 %shr.i.i.i15 to i32
+  %conv.i.i.i16 = trunc nuw nsw i64 %shr.i.i.i15 to i32
   switch i32 %conv.i.i.i16, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -8100,7 +8100,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %dimension, align 4
   %shr = lshr i64 %mul41.i.i, 32
-  %conv4 = trunc i64 %shr to i32
+  %conv4 = trunc nuw i64 %shr to i32
   %call5 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 0, i32 noundef %rem.i, i32 noundef %conv4)
   ret float %call5
 }
@@ -8416,7 +8416,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   store i32 %add, ptr %dimension, align 4
   %call6 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 0, i32 noundef %rem.i, i32 noundef %conv)
   %shr = lshr i64 %mul41.i.i, 32
-  %conv7 = trunc i64 %shr to i32
+  %conv7 = trunc nuw i64 %shr to i32
   %call8 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 1, i32 noundef %rem.i, i32 noundef %conv7)
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call6, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call8, i64 1
@@ -8610,10 +8610,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.3.0.extract.trunc = trunc i64 %pixelBounds.sroa.3.0.extract.shift to i32
+  %pixelBounds.sroa.3.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.3.0.extract.shift to i32
   %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %pixelBounds.sroa.7.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.7.8.extract.trunc = trunc i64 %pixelBounds.sroa.7.8.extract.shift to i32
+  %pixelBounds.sroa.7.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.7.8.extract.shift to i32
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
@@ -8638,9 +8638,9 @@ entry:
   %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
   %or.cond.not7.i.not161 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i.not160 = and i1 %or.cond.not7.i.not161, %cmp8.not.i
+  %or.cond6.i.not160 = select i1 %or.cond.not7.i.not161, i1 %cmp8.not.i, i1 false
   %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond = and i1 %cmp12.i, %or.cond6.i.not160
+  %or.cond = select i1 %or.cond6.i.not160, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -8749,7 +8749,7 @@ _ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %for.i
   %and.i.i.i13 = and i64 %17, 144115188075855871
   %18 = inttoptr i64 %and.i.i.i13 to ptr
   %shr.i.i.i = lshr i64 %17, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i14 = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %18, i32 noundef %sub.i.i14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -8763,7 +8763,7 @@ _ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %for.i
   %and.i.i.i16 = and i64 %20, 144115188075855871
   %21 = inttoptr i64 %and.i.i.i16 to ptr
   %shr.i.i.i17 = lshr i64 %20, 57
-  %conv.i.i.i18 = trunc i64 %shr.i.i.i17 to i32
+  %conv.i.i.i18 = trunc nuw nsw i64 %shr.i.i.i17 to i32
   switch i32 %conv.i.i.i18, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -9323,7 +9323,7 @@ _ZN4pbrt12SobolSampler10GetPixel2DEv.exit:        ; preds = %for.body.i
   %and.i.i.i = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %13, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %14, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i)
@@ -9815,10 +9815,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i to i32
   %pixelBounds.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.3.0.extract.trunc = trunc i64 %pixelBounds.sroa.3.0.extract.shift to i32
+  %pixelBounds.sroa.3.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.3.0.extract.shift to i32
   %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i to i32
   %pixelBounds.sroa.7.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.7.8.extract.trunc = trunc i64 %pixelBounds.sroa.7.8.extract.shift to i32
+  %pixelBounds.sroa.7.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.7.8.extract.shift to i32
   %sub = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %pixelBounds.sroa.0.0.extract.trunc
   %rem = srem i32 %pixelIndex, %sub
   %add = add nsw i32 %rem, %pixelBounds.sroa.0.0.extract.trunc
@@ -9839,9 +9839,9 @@ entry:
   %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
   %or.cond.not7.i.not157 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
   %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i.not156 = and i1 %or.cond.not7.i.not157, %cmp8.not.i
+  %or.cond6.i.not156 = select i1 %or.cond.not7.i.not157, i1 %cmp8.not.i, i1 false
   %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond = and i1 %cmp12.i, %or.cond6.i.not156
+  %or.cond = select i1 %or.cond6.i.not156, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -9910,7 +9910,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i11 = and i64 %16, 144115188075855871
   %17 = inttoptr i64 %and.i.i.i11 to ptr
   %shr.i.i.i = lshr i64 %16, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17SampleWavelengthsEfEUlT_E_NS_18SampledWavelengthsENS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS3_PKvi(ptr nonnull sret(%"class.pbrt::SampledWavelengths") align 4 %lambda, ptr noundef nonnull align 8 dereferenceable(8) %sample.i, ptr noundef %17, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -9927,7 +9927,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i.i = and i64 %18, 144115188075855871
   %19 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %18, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call { <2 x float>, float } @_ZN4pbrt6detail8DispatchIRZNKS_6Filter6SampleENS_6Point2IfEEEUlT_E_NS_12FilterSampleENS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %sample.i.i, ptr noundef %19, i32 noundef %sub.i.i.i), !noalias !159
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %u.i.i), !noalias !159
@@ -9978,7 +9978,7 @@ _ZN4pbrt15GetCameraSampleINS_13ZSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiE
   %and.i.i.i14 = and i64 %22, 144115188075855871
   %23 = inttoptr i64 %and.i.i.i14 to ptr
   %shr.i.i.i15 = lshr i64 %22, 57
-  %conv.i.i.i16 = trunc i64 %shr.i.i.i15 to i32
+  %conv.i.i.i16 = trunc nuw nsw i64 %shr.i.i.i15 to i32
   switch i32 %conv.i.i.i16, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -10821,7 +10821,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   %conv = trunc i64 %xor43.i.i to i32
   %shr = lshr i64 %mul41.i.i, 32
-  %conv4 = trunc i64 %shr to i32
+  %conv4 = trunc nuw i64 %shr to i32
   %17 = load i32, ptr %this, align 8
   %cmp.not6.i154 = icmp eq i64 %sampleIndex.1.i, 0
   switch i32 %17, label %if.else29 [

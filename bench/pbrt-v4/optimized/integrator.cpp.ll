@@ -1563,7 +1563,7 @@ invoke.cont360:                                   ; preds = %invoke.cont353
   %and.i.i.i202 = and i64 %104, 144115188075855871
   %105 = inttoptr i64 %and.i.i.i202 to ptr
   %shr.i.i.i = lshr i64 %104, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb1.i.i.i
@@ -1731,9 +1731,9 @@ invoke.cont390:                                   ; preds = %if.end381
   %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %130, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %ref.tmp386.sroa.4.8.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %ref.tmp386.sroa.4.8.extract.trunc = trunc i64 %ref.tmp386.sroa.4.8.extract.shift to i32
+  %ref.tmp386.sroa.4.8.extract.trunc = trunc nuw i64 %ref.tmp386.sroa.4.8.extract.shift to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub.i.i = sub i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, %retval.sroa.0.0.copyload.i.i13.pn.i.i.i
   %resolution.sroa.0.0.extract.trunc = trunc i64 %sub.i.i to i32
   %div = sdiv i32 1048576, %resolution.sroa.0.0.extract.trunc
@@ -2528,7 +2528,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %entry
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %conv4 = and i64 %call.i.i1.i, 4294967295
   %rem = urem i64 %conv4, %sub.ptr.div.i
-  %conv5 = trunc i64 %rem to i32
+  %conv5 = trunc nuw i64 %rem to i32
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit
@@ -2771,7 +2771,7 @@ if.end12:                                         ; preds = %if.end
   %and.i.i.i15 = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i15 to ptr
   %shr.i.i.i16 = lshr i64 %13, 57
-  %conv.i.i.i17 = trunc i64 %shr.i.i.i16 to i32
+  %conv.i.i.i17 = trunc nuw nsw i64 %shr.i.i.i16 to i32
   switch i32 %conv.i.i.i17, label %sw.default.i.i.i [
     i32 1, label %return.sink.split.i.i.i
     i32 2, label %return.sink.split.i.i.i
@@ -3519,10 +3519,10 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i, align 8
   %pixelBounds.sroa.0.sroa.5.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i, 32
-  %pixelBounds.sroa.0.sroa.5.0.extract.trunc = trunc i64 %pixelBounds.sroa.0.sroa.5.0.extract.shift to i32
+  %pixelBounds.sroa.0.sroa.5.0.extract.trunc = trunc nuw i64 %pixelBounds.sroa.0.sroa.5.0.extract.shift to i32
   %sub.i.i = sub i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, %retval.sroa.0.0.copyload.i.i13.pn.i.i.i
   %pixelBounds.sroa.6.12.extract.shift221 = lshr i64 %retval.sroa.2.0.copyload.i.i15.pn.i.i.i, 32
-  %pixelBounds.sroa.6.12.extract.trunc222 = trunc i64 %pixelBounds.sroa.6.12.extract.shift221 to i32
+  %pixelBounds.sroa.6.12.extract.trunc222 = trunc nuw i64 %pixelBounds.sroa.6.12.extract.shift221 to i32
   %sub4.i.i = sub nsw i32 %pixelBounds.sroa.6.12.extract.trunc222, %pixelBounds.sroa.0.sroa.5.0.extract.trunc
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %sub4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
@@ -5378,9 +5378,9 @@ if.else.i:                                        ; preds = %entry
   %sub.i.i = sub i64 %pixelBounds.coerce1, %pixelBounds.coerce0
   %resolution.sroa.0.0.extract.trunc = trunc i64 %sub.i.i to i32
   %pixelBounds.sroa.4.8.extract.shift = lshr i64 %pixelBounds.coerce1, 32
-  %pixelBounds.sroa.4.8.extract.trunc = trunc i64 %pixelBounds.sroa.4.8.extract.shift to i32
+  %pixelBounds.sroa.4.8.extract.trunc = trunc nuw i64 %pixelBounds.sroa.4.8.extract.shift to i32
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %pixelBounds.coerce0, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub4.i.i = sub nsw i32 %pixelBounds.sroa.4.8.extract.trunc, %p.sroa.2.0.extract.trunc.i.i
   %mul = mul nsw i32 %sub4.i.i, %resolution.sroa.0.0.extract.trunc
   %conv.i = sext i32 %mul to i64
@@ -19072,7 +19072,7 @@ entry:
   %and.i.i.i.i.i.i = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i = lshr i64 %6, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   %sub.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4Film10ResetPixelENS_6Point2IiEEEUlT_E_vNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OS5_Pvi(ptr noundef nonnull align 8 dereferenceable(8) %rp.i.i.i.i, ptr noundef %7, i32 noundef %sub.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i.i.i)
@@ -19126,7 +19126,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i20 = load i64, ptr %0, align 4
   %p.sroa.0.0.extract.trunc.i.i.i22 = trunc i64 %agg.tmp.sroa.0.0.copyload.i20 to i32
   %p.sroa.4.0.extract.shift.i.i.i23 = lshr i64 %agg.tmp.sroa.0.0.copyload.i20, 32
-  %p.sroa.4.0.extract.trunc.i.i.i24 = trunc i64 %p.sroa.4.0.extract.shift.i.i.i23 to i32
+  %p.sroa.4.0.extract.trunc.i.i.i24 = trunc nuw i64 %p.sroa.4.0.extract.shift.i.i.i23 to i32
   switch i32 %index, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
@@ -19500,7 +19500,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %and.i.i.i.i.i.i.i = and i64 %60, 144115188075855871
   %61 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i.i = lshr i64 %60, 57
-  %conv.i.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i [
     i32 1, label %_ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit.i.i.i.i
     i32 2, label %_ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit.i.i.i.i
@@ -19640,7 +19640,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %and.i.i.i34.i.i.i.i = and i64 %76, 144115188075855871
   %77 = inttoptr i64 %and.i.i.i34.i.i.i.i to ptr
   %shr.i.i.i35.i.i.i.i = lshr i64 %76, 57
-  %conv.i.i.i36.i.i.i.i = trunc i64 %shr.i.i.i35.i.i.i.i to i32
+  %conv.i.i.i36.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i35.i.i.i.i to i32
   switch i32 %conv.i.i.i36.i.i.i.i, label %sw.default.i.i.i38.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i.i.i.i
@@ -19712,7 +19712,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit.i.i.i.i:      ; preds = %for.body.i39.i.i.i.
   %and.i.i.i48.i.i.i.i = and i64 %80, 144115188075855871
   %81 = inttoptr i64 %and.i.i.i48.i.i.i.i to ptr
   %shr.i.i.i49.i.i.i.i = lshr i64 %80, 57
-  %conv.i.i.i50.i.i.i.i = trunc i64 %shr.i.i.i49.i.i.i.i to i32
+  %conv.i.i.i50.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i49.i.i.i.i to i32
   %sub.i.i.i.i.i.i = add nsw i32 %conv.i.i.i50.i.i.i.i, -1
   %call3.i.i.i.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i47.i.i.i.i, ptr noundef %81, i32 noundef %sub.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2746.i.i.i.i)
@@ -20267,7 +20267,7 @@ sw.bb:                                            ; preds = %if.end
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp9.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp9.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i = trunc i64 %p.sroa.2.0.extract.shift.i to i32
+  %p.sroa.2.0.extract.trunc.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i to i32
   %nStored.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %nStored.i.i.i, align 8
   %conv.i.i = trunc i64 %1 to i32
@@ -20285,7 +20285,7 @@ sw.bb:                                            ; preds = %if.end
   %and.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %for.body.i.i.i.i.i.preheader
     i32 2, label %sw.bb3.i.i.i
@@ -20314,7 +20314,7 @@ sw.bb14:                                          ; preds = %if.end
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i4 = trunc i64 %agg.tmp15.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i5 = lshr i64 %agg.tmp15.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i6 = trunc i64 %p.sroa.2.0.extract.shift.i5 to i32
+  %p.sroa.2.0.extract.trunc.i6 = trunc nuw i64 %p.sroa.2.0.extract.shift.i5 to i32
   %nStored.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i64, ptr %nStored.i.i.i7, align 8
   %conv.i.i8 = trunc i64 %9 to i32
@@ -20364,7 +20364,7 @@ sw.bb22:                                          ; preds = %if.end
   %agg.tmp23.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i18 = trunc i64 %agg.tmp23.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i19 = lshr i64 %agg.tmp23.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i20 = trunc i64 %p.sroa.2.0.extract.shift.i19 to i32
+  %p.sroa.2.0.extract.trunc.i20 = trunc nuw i64 %p.sroa.2.0.extract.shift.i19 to i32
   %nStored.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load i64, ptr %nStored.i.i.i21, align 8
   %conv.i.i22 = trunc i64 %17 to i32
@@ -20397,11 +20397,11 @@ entry:
   %wrapMode.sroa.2 = alloca i32, align 4
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.9.0.extract.shift = lshr i64 %resolution.coerce, 32
-  %resolution.sroa.9.0.extract.trunc = trunc i64 %resolution.sroa.9.0.extract.shift to i32
+  %resolution.sroa.9.0.extract.trunc = trunc nuw i64 %resolution.sroa.9.0.extract.shift to i32
   %wrapMode.sroa.0.0.extract.trunc = trunc i64 %wrapMode.coerce to i32
   store i32 %wrapMode.sroa.0.0.extract.trunc, ptr %wrapMode.sroa.0, align 8
   %wrapMode.sroa.2.0.extract.shift = lshr i64 %wrapMode.coerce, 32
-  %wrapMode.sroa.2.0.extract.trunc = trunc i64 %wrapMode.sroa.2.0.extract.shift to i32
+  %wrapMode.sroa.2.0.extract.trunc = trunc nuw i64 %wrapMode.sroa.2.0.extract.shift to i32
   store i32 %wrapMode.sroa.2.0.extract.trunc, ptr %wrapMode.sroa.2, align 4
   %0 = and i64 %wrapMode.coerce, 4294967295
   %cmp = icmp eq i64 %0, 3
@@ -22085,7 +22085,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %and.i.i.i.i.i.i.i = and i64 %78, 144115188075855871
   %79 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i.i = lshr i64 %78, 57
-  %conv.i.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i.i.i.i
@@ -22140,7 +22140,7 @@ _ZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightE.exit.i.i.i.i: ;
   %and.i.i.i28.i.i.i.i = and i64 %83, 144115188075855871
   %84 = inttoptr i64 %and.i.i.i28.i.i.i.i to ptr
   %shr.i.i.i29.i.i.i.i = lshr i64 %83, 57
-  %conv.i.i.i30.i.i.i.i = trunc i64 %shr.i.i.i29.i.i.i.i to i32
+  %conv.i.i.i30.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i29.i.i.i.i to i32
   %sub.i.i.i.i.i.i = add nsw i32 %conv.i.i.i30.i.i.i.i, -1
   %call3.i.i.i.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Light6PDF_LiENS_18LightSampleContextENS_7Vector3IfEEbEUlT_E_fNS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(24) %pdf.i27.i.i.i.i, ptr noundef %84, i32 noundef %sub.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2426.i.i.i.i)
@@ -23117,14 +23117,14 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %b.sroa.0.0.extract.trunc.i.i.i = trunc i64 %__args.val to i32
   %b.sroa.4.0.extract.shift.i.i.i = lshr i64 %__args.val, 32
-  %b.sroa.4.0.extract.trunc.i.i.i = trunc i64 %b.sroa.4.0.extract.shift.i.i.i to i32
+  %b.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.4.0.extract.shift.i.i.i to i32
   %b.sroa.5.8.extract.trunc.i.i.i = trunc i64 %__args.val1 to i32
   %b.sroa.8.8.extract.shift.i.i.i = lshr i64 %__args.val1, 32
-  %b.sroa.8.8.extract.trunc.i.i.i = trunc i64 %b.sroa.8.8.extract.shift.i.i.i to i32
+  %b.sroa.8.8.extract.trunc.i.i.i = trunc nuw i64 %b.sroa.8.8.extract.shift.i.i.i to i32
   %cmp.not.i.i.i.i = icmp sge i32 %b.sroa.0.0.extract.trunc.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
   %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i26.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
-  %cmp4.i.i26.i.not.i.i = or i1 %cmp.not.i.i.i.i, %cmp4.i.i26.i.not1.i.i
+  %cmp4.i.i26.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i26.i.not1.i.i
   br i1 %cmp4.i.i26.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator18StartDisplayThreadEvE3$_0JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -23150,7 +23150,7 @@ for.body.i.i.i:                                   ; preds = %for.end.i.i.i, %for
   %and.i.i.i.i.i.i = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i = lshr i64 %6, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i.i.i
@@ -23262,7 +23262,7 @@ entry:
   %pixels = getelementptr inbounds i8, ptr %this, i64 136
   %p.sroa.0.0.extract.trunc.i = trunc i64 %p.coerce to i32
   %p.sroa.4.0.extract.shift.i = lshr i64 %p.coerce, 32
-  %p.sroa.4.0.extract.trunc.i = trunc i64 %p.sroa.4.0.extract.shift.i to i32
+  %p.sroa.4.0.extract.trunc.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i to i32
   %0 = load i32, ptr %pixels, align 8
   %sub.i = sub i32 %p.sroa.0.0.extract.trunc.i, %0
   %y.i = getelementptr inbounds i8, ptr %this, i64 140
@@ -23479,7 +23479,7 @@ entry:
   %pixels = getelementptr inbounds i8, ptr %this, i64 784
   %p.sroa.0.0.extract.trunc.i = trunc i64 %p.coerce to i32
   %p.sroa.4.0.extract.shift.i = lshr i64 %p.coerce, 32
-  %p.sroa.4.0.extract.trunc.i = trunc i64 %p.sroa.4.0.extract.shift.i to i32
+  %p.sroa.4.0.extract.trunc.i = trunc nuw i64 %p.sroa.4.0.extract.shift.i to i32
   %0 = load i32, ptr %pixels, align 8
   %sub.i = sub i32 %p.sroa.0.0.extract.trunc.i, %0
   %y.i = getelementptr inbounds i8, ptr %this, i64 788
@@ -23585,7 +23585,7 @@ entry:
   %retval.sroa.0.0.copyload.i.i13.pn.i.i.i.i.i.i = load i64, ptr %retval.sroa.0.0.copyload.i.i13.pn.in.i.i.i.i.i.i, align 8
   %c.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i.i.i.i to i32
   %c.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i13.pn.i.i.i.i.i.i, 32
-  %c.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %c.sroa.2.0.extract.shift.i.i.i.i to i32
+  %c.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %c.sroa.2.0.extract.shift.i.i.i.i to i32
   %add.i.i.i.i = add nsw i32 %rem.i.i.i, %c.sroa.0.0.extract.trunc.i.i.i.i
   %add4.i.i.i.i = add nsw i32 %div.i.i.i, %c.sroa.2.0.extract.trunc.i.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %add4.i.i.i.i to i64
@@ -23593,7 +23593,7 @@ entry:
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %add.i.i.i.i to i64
   %retval.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i.i.i

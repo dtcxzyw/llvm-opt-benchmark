@@ -2894,7 +2894,7 @@ if.end:                                           ; preds = %entry
   %call3 = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %manager, i32 noundef %0)
   %ids.sroa.0.0.extract.trunc = trunc i64 %call3 to i32
   %ids.sroa.2.0.extract.shift = lshr i64 %call3, 32
-  %ids.sroa.2.0.extract.trunc = trunc i64 %ids.sroa.2.0.extract.shift to i32
+  %ids.sroa.2.0.extract.trunc = trunc nuw i64 %ids.sroa.2.0.extract.shift to i32
   %line4 = getelementptr inbounds i8, ptr %out, i64 12
   %1 = load <2 x i32>, ptr %line.i, align 4
   store <2 x i32> %1, ptr %line4, align 4
@@ -3283,7 +3283,7 @@ if.end20.us:                                      ; preds = %if.end.us
   %call3.i.us = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef %12)
   %ids.sroa.0.0.extract.trunc.i.us = trunc i64 %call3.i.us to i32
   %ids.sroa.2.0.extract.shift.i.us = lshr i64 %call3.i.us, 32
-  %ids.sroa.2.0.extract.trunc.i.us = trunc i64 %ids.sroa.2.0.extract.shift.i.us to i32
+  %ids.sroa.2.0.extract.trunc.i.us = trunc nuw i64 %ids.sroa.2.0.extract.shift.i.us to i32
   %13 = load <2 x i32>, ptr %line.i.i, align 4
   store <2 x i32> %13, ptr %line4.i, align 4
   store i32 %ids.sroa.0.0.extract.trunc.i.us, ptr %filenameId5.i, align 4
@@ -3343,7 +3343,7 @@ if.end20:                                         ; preds = %if.end
   %call3.i = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef %25)
   %ids.sroa.0.0.extract.trunc.i = trunc i64 %call3.i to i32
   %ids.sroa.2.0.extract.shift.i = lshr i64 %call3.i, 32
-  %ids.sroa.2.0.extract.trunc.i = trunc i64 %ids.sroa.2.0.extract.shift.i to i32
+  %ids.sroa.2.0.extract.trunc.i = trunc nuw i64 %ids.sroa.2.0.extract.shift.i to i32
   %26 = load <2 x i32>, ptr %line.i.i, align 4
   store <2 x i32> %26, ptr %line4.i, align 4
   store i32 %ids.sroa.0.0.extract.trunc.i, ptr %filenameId5.i, align 4
@@ -3389,7 +3389,7 @@ if.end.i13:                                       ; preds = %if.then33
   %call3.i16 = call i64 @_ZN6hermes3hbc7HBCISel24obtainFileAndSourceMapIdERNS_18SourceErrorManagerEj(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef %34)
   %ids.sroa.0.0.extract.trunc.i17 = trunc i64 %call3.i16 to i32
   %ids.sroa.2.0.extract.shift.i18 = lshr i64 %call3.i16, 32
-  %ids.sroa.2.0.extract.trunc.i19 = trunc i64 %ids.sroa.2.0.extract.shift.i18 to i32
+  %ids.sroa.2.0.extract.trunc.i19 = trunc nuw i64 %ids.sroa.2.0.extract.shift.i18 to i32
   %35 = load <2 x i32>, ptr %line.i.i15, align 4
   store <2 x i32> %35, ptr %line4.i, align 4
   store i32 %ids.sroa.0.0.extract.trunc.i17, ptr %filenameId5.i, align 4
@@ -25299,22 +25299,22 @@ _ZN6hermes3hbc23BytecodeModuleGenerator26serializedLiteralOffsetForEPKNS_11Instr
   %retval.sroa.0.0.copyload.i = load i64, ptr %second.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %inst.addr.i)
   %buffIdxs.sroa.4.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %16 = or i64 %buffIdxs.sroa.4.0.extract.shift, %retval.sroa.0.0.copyload.i
-  %17 = and i64 %16, 4294901760
-  %or.cond = icmp eq i64 %17, 0
-  %18 = load ptr, ptr %BCFGen_, align 8
+  %16 = and i64 %retval.sroa.0.0.copyload.i, -281470681808896
+  %or.cond = icmp eq i64 %16, 0
+  %17 = load ptr, ptr %BCFGen_, align 8
   %conv = zext i32 %retval.0.i to i64
   %conv10 = zext nneg i32 %.sroa.speculated to i64
   %conv11 = zext nneg i32 %div1.i to i64
-  %conv13 = and i64 %retval.sroa.0.0.copyload.i, 4294967295
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN6hermes3hbc23BytecodeModuleGenerator26serializedLiteralOffsetForEPKNS_11InstructionE.exit
-  %call16 = call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator23emitNewObjectWithBufferElllll(ptr noundef nonnull align 8 dereferenceable(25) %18, i64 noundef %conv, i64 noundef %conv10, i64 noundef %conv11, i64 noundef %conv13, i64 noundef %buffIdxs.sroa.4.0.extract.shift)
+  %conv13 = and i64 %retval.sroa.0.0.copyload.i, 65535
+  %call16 = call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator23emitNewObjectWithBufferElllll(ptr noundef nonnull align 8 dereferenceable(25) %17, i64 noundef %conv, i64 noundef %conv10, i64 noundef %conv11, i64 noundef %conv13, i64 noundef %buffIdxs.sroa.4.0.extract.shift)
   br label %if.end
 
 if.else:                                          ; preds = %_ZN6hermes3hbc23BytecodeModuleGenerator26serializedLiteralOffsetForEPKNS_11InstructionE.exit
-  %call25 = call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator27emitNewObjectWithBufferLongElllll(ptr noundef nonnull align 8 dereferenceable(25) %18, i64 noundef %conv, i64 noundef %conv10, i64 noundef %conv11, i64 noundef %conv13, i64 noundef %buffIdxs.sroa.4.0.extract.shift)
+  %conv22 = and i64 %retval.sroa.0.0.copyload.i, 4294967295
+  %call25 = call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator27emitNewObjectWithBufferLongElllll(ptr noundef nonnull align 8 dereferenceable(25) %17, i64 noundef %conv, i64 noundef %conv10, i64 noundef %conv11, i64 noundef %conv22, i64 noundef %buffIdxs.sroa.4.0.extract.shift)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

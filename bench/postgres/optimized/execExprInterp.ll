@@ -223,7 +223,7 @@ ExecInitInterpreter.exit:                         ; preds = %1, %11
   br label %.sink.split
 
 switch.hole_check:                                ; preds = %48
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4999, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %.lr.ph

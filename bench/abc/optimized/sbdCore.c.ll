@@ -2022,7 +2022,7 @@ define void @Sbd_ManPropagateControlOne(ptr nocapture noundef readonly %0, i32 n
   %9 = and i32 %8, 536870911
   %10 = sub nsw i32 %1, %9
   %11 = lshr i64 %.val36, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = and i32 %12, 536870911
   %14 = sub nsw i32 %1, %13
   %.val38 = load ptr, ptr %0, align 8
@@ -2243,7 +2243,7 @@ Abc_TtClear.exit44:                               ; preds = %36, %Abc_TtClear.ex
   %76 = and i32 %75, 536870911
   %77 = sub nsw i32 %66, %76
   %78 = lshr i64 %.val34, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   %80 = and i32 %79, 536870911
   %81 = sub nsw i32 %66, %80
   %.val38.i = load ptr, ptr %0, align 8
@@ -2927,7 +2927,7 @@ define void @Sbd_ManWindowSim_rec(ptr noundef %0, i32 noundef %1) local_unnamed_
   tail call void @Sbd_ManWindowSim_rec(ptr noundef nonnull %0, i32 noundef %28)
   %.val126 = load i64, ptr %21, align 4
   %29 = lshr i64 %.val126, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 536870911
   %32 = sub nsw i32 %spec.select, %31
   tail call void @Sbd_ManWindowSim_rec(ptr noundef nonnull %0, i32 noundef %32)
@@ -3036,10 +3036,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.pre268 = trunc i64 %.val156 to i32
   %.pre269 = and i32 %.pre268, 536870911
   %.pre271 = lshr i64 %.val156, 32
-  %.pre273 = trunc i64 %.pre271 to i32
+  %.pre273 = trunc nuw i64 %.pre271 to i32
   %.pre275 = and i32 %.pre273, 536870911
   %.not246 = icmp ult i32 %.pre269, %.pre275
-  %or.cond = and i1 %narrow.i.not.i.not295, %.not246
+  %or.cond = select i1 %narrow.i.not.i.not295, i1 %.not246, i1 false
   %.val150 = load ptr, ptr %0, align 8
   %82 = getelementptr i8, ptr %0, i64 56
   %.val151 = load ptr, ptr %82, align 8
@@ -3063,7 +3063,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 96:                                               ; preds = %78
   %97 = lshr i32 %.pre268, 29
   %98 = lshr i64 %.val156, 61
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw nsw i64 %98 to i32
   %100 = xor i32 %97, %99
   %101 = and i32 %100, 1
   %.not.i179 = icmp eq i32 %101, 0
@@ -3157,7 +3157,7 @@ Abc_TtXor.exit:                                   ; preds = %.lr.ph.i, %.lr.ph22
   %143 = load i64, ptr %142, align 4
   %144 = and i64 %143, 1073741824
   %.not106 = icmp eq i64 %144, 0
-  %145 = trunc i64 %139 to i32
+  %145 = trunc nuw i64 %139 to i32
   %146 = and i32 %145, 536870911
   %147 = sub nsw i32 %spec.select, %146
   br i1 %.not106, label %148, label %150
@@ -3176,7 +3176,7 @@ Abc_TtXor.exit:                                   ; preds = %.lr.ph.i, %.lr.ph22
   %154 = trunc i64 %116 to i32
   %155 = lshr i32 %154, 29
   %156 = lshr i64 %116, 61
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw nsw i64 %156 to i32
   %158 = xor i32 %155, %157
   %159 = and i32 %158, 1
   %.not.i180 = icmp eq i32 %159, 0
@@ -3367,7 +3367,7 @@ Abc_TtAndCompl.exit:                              ; preds = %.lr.ph.i199, %.lr.p
   %232 = load i64, ptr %231, align 4
   %233 = and i64 %232, 1073741824
   %.not103 = icmp eq i64 %233, 0
-  %234 = trunc i64 %228 to i32
+  %234 = trunc nuw i64 %228 to i32
   %235 = and i32 %234, 536870911
   %236 = sub nsw i32 %spec.select, %235
   br i1 %.not103, label %237, label %239
@@ -4881,7 +4881,7 @@ define void @Sbd_ManPrintObj(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 83:                                               ; preds = %82, %76
   %84 = srem i32 %80, 100
-  %.lhs.trunc = trunc i32 %84 to i8
+  %.lhs.trunc = trunc nsw i32 %84 to i8
   %85 = sdiv i8 %.lhs.trunc, 10
   %.sext = sext i8 %85 to i32
   %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.sext)
@@ -10230,7 +10230,7 @@ define i32 @Sbd_ManMergeCuts(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %15 = and i32 %14, 536870911
   %16 = sub nsw i32 %1, %15
   %17 = lshr i64 %.val87, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 536870911
   %20 = sub nsw i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 24
@@ -13450,7 +13450,7 @@ define void @Sbd_ManDerive_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   tail call void @Sbd_ManDerive_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %19, ptr noundef nonnull %3)
   %.val41 = load i64, ptr %13, align 4
   %20 = lshr i64 %.val41, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
   %23 = sub nsw i32 %spec.select, %22
   tail call void @Sbd_ManDerive_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %23, ptr noundef nonnull %3)
@@ -13470,7 +13470,7 @@ define void @Sbd_ManDerive_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 Gia_ObjIsXor.exit:                                ; preds = %16
   %27 = and i32 %.pre, 536870911
   %28 = lshr i64 %.val42, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 536870911
   %.not44 = icmp ult i32 %27, %30
   br i1 %.not44, label %31, label %Gia_ObjIsXor.exit.thread
@@ -13487,7 +13487,7 @@ Gia_ObjIsXor.exit:                                ; preds = %16
   %40 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %13, i64 %39, i32 1
   %41 = load i32, ptr %40, align 4
   %42 = lshr i64 %.val42, 61
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   %44 = and i32 %43, 1
   %45 = xor i32 %41, %44
   %46 = tail call i32 @Gia_ManHashXorReal(ptr noundef %0, i32 noundef %37, i32 noundef %45) #29
@@ -13506,7 +13506,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %.Gia_ObjIsXor.exit.
   %55 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %13, i64 %54, i32 1
   %56 = load i32, ptr %55, align 4
   %57 = lshr i64 %.val42, 61
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = and i32 %58, 1
   %60 = xor i32 %56, %59
   %61 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %52, i32 noundef %60) #29
@@ -14294,7 +14294,7 @@ Abc_Clock.exit231:                                ; preds = %Abc_Clock.exit, %78
 103:                                              ; preds = %101
   %104 = load ptr, ptr %34, align 8
   %105 = lshr i64 %.val213, 32
-  %106 = trunc i64 %105 to i32
+  %106 = trunc nuw i64 %105 to i32
   %107 = and i32 %106, 536870911
   %108 = call float @Tim_ManGetCiArrival(ptr noundef %104, i32 noundef %107) #29
   %109 = fptosi float %108 to i32
@@ -14324,7 +14324,7 @@ Abc_Clock.exit231:                                ; preds = %Abc_Clock.exit, %78
   %123 = load i32, ptr %122, align 4
   %124 = load ptr, ptr %34, align 8
   %125 = lshr i64 %.val213, 32
-  %126 = trunc i64 %125 to i32
+  %126 = trunc nuw i64 %125 to i32
   %127 = and i32 %126, 536870911
   %128 = sitofp i32 %123 to float
   call void @Tim_ManSetCoArrival(ptr noundef %124, i32 noundef %127, float noundef %128) #29

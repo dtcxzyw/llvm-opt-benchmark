@@ -918,7 +918,7 @@ define dso_local noundef i32 @nl80211_parse_chandef(ptr noundef %0, ptr nocaptur
   %34 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %33, ptr %34, align 4
   %35 = urem i32 %29, 1000
-  %36 = trunc i32 %35 to i16
+  %36 = trunc nuw nsw i32 %35 to i16
   %37 = getelementptr inbounds i8, ptr %2, i64 28
   store i16 %36, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %2, i64 16
@@ -15781,7 +15781,7 @@ define internal i32 @validate_he_capa(ptr nocapture noundef readonly %0, ptr noc
   %37 = and i32 %36, 255
   %38 = add nuw nsw i32 %37, 7
   %39 = lshr i32 %38, 3
-  %40 = trunc i32 %39 to i8
+  %40 = trunc nuw nsw i32 %39 to i8
   %41 = add nuw nsw i8 %17, %40
   br label %42
 
@@ -15829,7 +15829,7 @@ define internal fastcc ptr @__cfg80211_wdev_from_attrs(ptr noundef readonly %0, 
   %15 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
   %16 = lshr i64 %15, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = trunc i64 %15 to i32
   br label %19
 
@@ -16160,7 +16160,7 @@ define internal fastcc ptr @__cfg80211_rdev_from_attrs(ptr noundef %0, ptr nocap
   %32 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
   %33 = lshr i64 %32, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = call ptr @cfg80211_rdev_by_wiphy_idx(i32 noundef %34) #25
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
@@ -18796,7 +18796,7 @@ define internal i32 @nl80211_set_key(ptr nocapture readnone %0, ptr nocapture no
   br label %select.unfold
 
 176:                                              ; preds = %169
-  %177 = trunc i32 %25 to i8
+  %177 = trunc nuw i32 %25 to i8
   %178 = call fastcc i32 @rdev_add_key(ptr noundef %5, ptr noundef %7, i32 noundef -1, i8 noundef zeroext %177, i1 noundef zeroext true, ptr noundef nonnull %165, ptr noundef nonnull %3)
   br label %select.unfold
 
@@ -25099,7 +25099,7 @@ select.unfold:                                    ; preds = %243, %240, %237, %1
   br i1 %265, label %.loopexit, label %266
 
 266:                                              ; preds = %263
-  %267 = trunc i16 %264 to i8
+  %267 = trunc nuw i16 %264 to i8
   %268 = load ptr, ptr %99, align 8
   %269 = sext i32 %257 to i64
   %270 = getelementptr %struct.cfg80211_ssid, ptr %268, i64 %269, i32 1
@@ -30812,7 +30812,7 @@ define internal i32 @nl80211_tx_mgmt(ptr nocapture readnone %0, ptr nocapture no
 
 126:                                              ; preds = %120
   %127 = lshr exact i64 %123, 1
-  %128 = trunc i64 %127 to i32
+  %128 = trunc nuw nsw i64 %127 to i32
   %129 = getelementptr inbounds i8, ptr %6, i64 36
   store i32 %128, ptr %129, align 4
   %130 = getelementptr i8, ptr %118, i64 4
@@ -36788,13 +36788,13 @@ define internal i32 @nl80211_channel_switch(ptr nocapture readnone %0, ptr nocap
   br i1 %70, label %238, label %.thread19
 
 .thread19:                                        ; preds = %.thread
-  %71 = trunc i32 %69 to i8
+  %71 = trunc nuw i32 %69 to i8
   %72 = getelementptr inbounds i8, ptr %3, i64 394
   store i8 %71, ptr %72, align 2
   br label %.loopexit
 
 73:                                               ; preds = %64
-  %74 = trunc i32 %66 to i8
+  %74 = trunc nuw i32 %66 to i8
   %75 = getelementptr inbounds i8, ptr %3, i64 394
   store i8 %74, ptr %75, align 2
   %76 = getelementptr inbounds i8, ptr %3, i64 224
@@ -36849,7 +36849,7 @@ define internal i32 @nl80211_channel_switch(ptr nocapture readnone %0, ptr nocap
 
 112:                                              ; preds = %108
   %113 = lshr exact i64 %109, 1
-  %114 = trunc i64 %113 to i32
+  %114 = trunc nuw nsw i64 %113 to i32
   %115 = getelementptr inbounds i8, ptr %3, i64 216
   store i32 %114, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %5, i64 2154
@@ -36914,7 +36914,7 @@ define internal i32 @nl80211_channel_switch(ptr nocapture readnone %0, ptr nocap
 
 156:                                              ; preds = %152
   %157 = lshr exact i64 %153, 1
-  %158 = trunc i64 %157 to i32
+  %158 = trunc nuw nsw i64 %157 to i32
   %159 = getelementptr inbounds i8, ptr %3, i64 220
   store i32 %158, ptr %159, align 4
   %160 = icmp ugt i64 %157, %119
@@ -44407,7 +44407,7 @@ define internal fastcc noundef i32 @nl80211_crypto_settings(ptr noundef %0, ptr 
   %74 = add i16 %73, -4
   %75 = zext i16 %74 to i64
   %76 = lshr i64 %75, 2
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw nsw i64 %76 to i32
   %78 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %77, ptr %78, align 8
   %79 = and i64 %75, 3
@@ -44492,7 +44492,7 @@ define internal fastcc noundef i32 @nl80211_crypto_settings(ptr noundef %0, ptr 
   %125 = add i16 %124, -4
   %126 = zext i16 %125 to i64
   %127 = lshr i64 %126, 2
-  %128 = trunc i64 %127 to i32
+  %128 = trunc nuw nsw i64 %127 to i32
   %129 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 %128, ptr %129, align 8
   %130 = and i64 %126, 3
@@ -49789,7 +49789,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   br i1 %391, label %.thread85, label %392
 
 392:                                              ; preds = %389
-  %393 = trunc i16 %390 to i8
+  %393 = trunc nuw i16 %390 to i8
   %394 = load ptr, ptr %379, align 8
   %395 = sext i32 %384 to i64
   %396 = getelementptr %struct.cfg80211_ssid, ptr %394, i64 %395, i32 1
@@ -50221,7 +50221,7 @@ define internal fastcc i32 @nl80211_parse_sched_scan_plans(ptr nocapture noundef
   %16 = zext i32 %13 to i64
   %17 = add nuw nsw i64 %16, 999
   %18 = udiv i64 %17, 1000
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %2, i64 72
   %21 = load ptr, ptr %20, align 8
   store i32 %19, ptr %21, align 4

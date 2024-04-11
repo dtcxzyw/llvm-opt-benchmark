@@ -604,7 +604,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h858913b9769ff88cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !14, !align !35, !noundef !14
   %.val = load i8, ptr %3, align 1, !range !56, !noundef !14
-  %trunc.i = trunc i8 %.val to i1
+  %trunc.i = trunc nuw i8 %.val to i1
   %..i = select i1 %trunc.i, i64 7, i64 5
   %anon.b96271f4cf8a6d021d67e6f234d08bd0.29.anon.b96271f4cf8a6d021d67e6f234d08bd0.44.i = select i1 %trunc.i, ptr @anon.b96271f4cf8a6d021d67e6f234d08bd0.44, ptr @anon.b96271f4cf8a6d021d67e6f234d08bd0.29
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.b96271f4cf8a6d021d67e6f234d08bd0.29.anon.b96271f4cf8a6d021d67e6f234d08bd0.44.i, i64 noundef %..i)
@@ -815,10 +815,11 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i8, i8 } @"_ZN48_$LT$u8$u20$as$u20$num_traits..cast..NumCast$GT$4from17h09f6aa4f206a38e3E.llvm.6960974148744716740"(i32 noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = icmp ult i32 %0, 256
-  %3 = trunc i32 %0 to i8
+  %3 = trunc nuw i32 %0 to i8
+  %.sroa.3.0.i = select i1 %2, i8 %3, i8 undef
   %4 = zext i1 %2 to i8
   %5 = insertvalue { i8, i8 } poison, i8 %4, 0
-  %6 = insertvalue { i8, i8 } %5, i8 %3, 1
+  %6 = insertvalue { i8, i8 } %5, i8 %.sroa.3.0.i, 1
   ret { i8, i8 } %6
 }
 
@@ -852,20 +853,22 @@ define hidden { i64, double } @"_ZN49_$LT$f64$u20$as$u20$num_traits..cast..NumCa
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i16, i16 } @"_ZN49_$LT$u16$u20$as$u20$num_traits..cast..NumCast$GT$4from17h3833f7e10be7fe9fE.llvm.6960974148744716740"(i32 noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = icmp ult i32 %0, 65536
-  %3 = trunc i32 %0 to i16
+  %3 = trunc nuw i32 %0 to i16
+  %.sroa.3.0.i = select i1 %2, i16 %3, i16 undef
   %.sroa.0.0.i = zext i1 %2 to i16
   %4 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
-  %5 = insertvalue { i16, i16 } %4, i16 %3, 1
+  %5 = insertvalue { i16, i16 } %4, i16 %.sroa.3.0.i, 1
   ret { i16, i16 } %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i16, i16 } @"_ZN49_$LT$u16$u20$as$u20$num_traits..cast..NumCast$GT$4from17h615af452db898e42E.llvm.6960974148744716740"(i64 noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = icmp ult i64 %0, 65536
-  %3 = trunc i64 %0 to i16
+  %3 = trunc nuw i64 %0 to i16
+  %.sroa.3.0.i = select i1 %2, i16 %3, i16 undef
   %.sroa.0.0.i = zext i1 %2 to i16
   %4 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
-  %5 = insertvalue { i16, i16 } %4, i16 %3, 1
+  %5 = insertvalue { i16, i16 } %4, i16 %.sroa.3.0.i, 1
   ret { i16, i16 } %5
 }
 
@@ -2025,7 +2028,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   %.sink16.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8, !range !56
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.pre5.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   %.promoted25 = load ptr, ptr %4, align 8, !alias.scope !233, !noalias !238
@@ -2039,7 +2042,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   %12 = phi i8 [ %85, %select.unfold ], [ %.promoted, %1 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %10
@@ -3009,10 +3012,11 @@ define hidden { i32, i32 } @"_ZN53_$LT$u16$u20$as$u20$num_traits..cast..ToPrimit
 define hidden { i8, i8 } @"_ZN53_$LT$u32$u20$as$u20$num_traits..cast..ToPrimitive$GT$5to_u817hc1abe5bb2095f27eE.llvm.6960974148744716740"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #9 {
   %2 = load i32, ptr %0, align 4, !noundef !14
   %3 = icmp ult i32 %2, 256
-  %4 = trunc i32 %2 to i8
+  %4 = trunc nuw i32 %2 to i8
+  %.sroa.3.0 = select i1 %3, i8 %4, i8 undef
   %5 = zext i1 %3 to i8
   %6 = insertvalue { i8, i8 } poison, i8 %5, 0
-  %7 = insertvalue { i8, i8 } %6, i8 %4, 1
+  %7 = insertvalue { i8, i8 } %6, i8 %.sroa.3.0, 1
   ret { i8, i8 } %7
 }
 
@@ -3020,10 +3024,11 @@ define hidden { i8, i8 } @"_ZN53_$LT$u32$u20$as$u20$num_traits..cast..ToPrimitiv
 define hidden { i16, i16 } @"_ZN53_$LT$u32$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_u1617hd4c6b04aaa618ac3E.llvm.6960974148744716740"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #9 {
   %2 = load i32, ptr %0, align 4, !noundef !14
   %3 = icmp ult i32 %2, 65536
-  %4 = trunc i32 %2 to i16
+  %4 = trunc nuw i32 %2 to i16
+  %.sroa.3.0 = select i1 %3, i16 %4, i16 undef
   %.sroa.0.0 = zext i1 %3 to i16
   %5 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %6 = insertvalue { i16, i16 } %5, i16 %4, 1
+  %6 = insertvalue { i16, i16 } %5, i16 %.sroa.3.0, 1
   ret { i16, i16 } %6
 }
 
@@ -3031,10 +3036,11 @@ define hidden { i16, i16 } @"_ZN53_$LT$u32$u20$as$u20$num_traits..cast..ToPrimit
 define hidden { i16, i16 } @"_ZN53_$LT$u64$u20$as$u20$num_traits..cast..ToPrimitive$GT$6to_u1617h88db0a49a016fe03E.llvm.6960974148744716740"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8, !noundef !14
   %3 = icmp ult i64 %2, 65536
-  %4 = trunc i64 %2 to i16
+  %4 = trunc nuw i64 %2 to i16
+  %.sroa.3.0 = select i1 %3, i16 %4, i16 undef
   %.sroa.0.0 = zext i1 %3 to i16
   %5 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %6 = insertvalue { i16, i16 } %5, i16 %4, 1
+  %6 = insertvalue { i16, i16 } %5, i16 %.sroa.3.0, 1
   ret { i16, i16 } %6
 }
 
@@ -3400,7 +3406,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.6960974148744716740.
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbddb8103b451dc61E"(ptr noalias noundef readonly align 4 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr %0, align 4, !range !315, !noundef !14
-  %trunc = trunc i32 %4 to i1
+  %trunc = trunc nuw i32 %4 to i1
   br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
@@ -3424,7 +3430,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd356ec7a7606ee90E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i64, ptr %0, align 8, !range !316, !noundef !14
-  %trunc = trunc i64 %4 to i1
+  %trunc = trunc nuw i64 %4 to i1
   br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
@@ -3553,7 +3559,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$core..num..dec2flt..ParseFloatError
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN74_$LT$core..num..dec2flt..ParseFloatError$u20$as$u20$core..error..Error$GT$11description17hea88bd03a7546a5aE.llvm.6960974148744716740"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !56, !noundef !14
-  %trunc = trunc i8 %2 to i1
+  %trunc = trunc nuw i8 %2 to i1
   %. = select i1 %trunc, i64 21, i64 36
   %anon.b96271f4cf8a6d021d67e6f234d08bd0.47.anon.b96271f4cf8a6d021d67e6f234d08bd0.48 = select i1 %trunc, ptr @anon.b96271f4cf8a6d021d67e6f234d08bd0.48, ptr @anon.b96271f4cf8a6d021d67e6f234d08bd0.47
   %3 = insertvalue { ptr, i64 } poison, ptr %anon.b96271f4cf8a6d021d67e6f234d08bd0.47.anon.b96271f4cf8a6d021d67e6f234d08bd0.48, 0
@@ -10042,7 +10048,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h097e3aabf883e12
   %.sroa.476.0.extract.shift = lshr i64 %.sroa.0.0.insert.ext.i, 16
   %.sroa.476.0.extract.trunc = trunc i64 %.sroa.476.0.extract.shift to i16
   %.sroa.577.0.extract.shift = lshr i64 %.sroa.0.0.insert.ext.i, 32
-  %.sroa.577.0.extract.trunc = trunc i64 %.sroa.577.0.extract.shift to i16
+  %.sroa.577.0.extract.trunc = trunc nuw i64 %.sroa.577.0.extract.shift to i16
   %122 = insertelement <2 x i16> poison, i16 %.sroa.075.0.extract.trunc, i64 0
   %123 = insertelement <2 x i16> %122, i16 %.sroa.476.0.extract.trunc, i64 1
   %124 = uitofp <2 x i16> %123 to <2 x float>
@@ -10774,7 +10780,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h2e2f258310cc52e
   %.sroa.476.0.extract.shift = lshr i32 %.sroa.0.0.insert.ext.i, 8
   %.sroa.476.0.extract.trunc = trunc i32 %.sroa.476.0.extract.shift to i8
   %.sroa.577.0.extract.shift = lshr i32 %.sroa.0.0.insert.ext.i, 16
-  %.sroa.577.0.extract.trunc = trunc i32 %.sroa.577.0.extract.shift to i8
+  %.sroa.577.0.extract.trunc = trunc nuw i32 %.sroa.577.0.extract.shift to i8
   %122 = insertelement <2 x i8> poison, i8 %.sroa.075.0.extract.trunc, i64 0
   %123 = insertelement <2 x i8> %122, i8 %.sroa.476.0.extract.trunc, i64 1
   %124 = uitofp <2 x i8> %123 to <2 x float>
@@ -13766,12 +13772,12 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h0914984aa3b8ae
   %181 = insertelement <2 x i16> poison, i16 %.sroa.0.0.copyload.i49.i, i64 0
   %182 = insertelement <2 x i16> %181, i16 %.sroa.0.0.copyload.i.i95, i64 1
   %183 = lshr <2 x i16> %182, <i16 8, i16 8>
-  %184 = trunc <2 x i16> %180 to <2 x i8>
+  %184 = trunc nuw <2 x i16> %180 to <2 x i8>
   %185 = uitofp <2 x i8> %184 to <2 x float>
   %186 = fmul <2 x float> %160, %185
   %shift392 = shufflevector <2 x float> %186, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %187 = fadd <2 x float> %186, %shift392
-  %188 = trunc <2 x i16> %183 to <2 x i8>
+  %188 = trunc nuw <2 x i16> %183 to <2 x i8>
   %189 = uitofp <2 x i8> %188 to <2 x float>
   %190 = fmul <2 x float> %164, %189
   %shift393 = shufflevector <2 x float> %190, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -14394,7 +14400,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44
   %.sroa.0.0.insert.ext.i.i = zext i24 %.sroa.0.0.copyload.i.i96 to i32
   %.sroa.030.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload.i.i96 to i8
   %.sroa.532.0.extract.shift.i = lshr i32 %.sroa.0.0.insert.ext.i.i, 16
-  %.sroa.532.0.extract.trunc.i = trunc i32 %.sroa.532.0.extract.shift.i to i8
+  %.sroa.532.0.extract.trunc.i = trunc nuw i32 %.sroa.532.0.extract.shift.i to i8
   %170 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %168, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc109 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14403,7 +14409,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44
   %.sroa.0.0.insert.ext.i52.i = zext i24 %.sroa.0.0.copyload.i50.i to i32
   %.sroa.035.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload.i50.i to i8
   %.sroa.537.0.extract.shift.i = lshr i32 %.sroa.0.0.insert.ext.i52.i, 16
-  %.sroa.537.0.extract.trunc.i = trunc i32 %.sroa.537.0.extract.shift.i to i8
+  %.sroa.537.0.extract.trunc.i = trunc nuw i32 %.sroa.537.0.extract.shift.i to i8
   %171 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i75, i32 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14411,7 +14417,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44
   %.sroa.0.0.copyload.i54.i = load i24, ptr %171, align 1
   %.sroa.0.0.insert.ext.i56.i = zext i24 %.sroa.0.0.copyload.i54.i to i32
   %.sroa.542.0.extract.shift.i = lshr i32 %.sroa.0.0.insert.ext.i56.i, 16
-  %.sroa.542.0.extract.trunc.i = trunc i32 %.sroa.542.0.extract.shift.i to i8
+  %.sroa.542.0.extract.trunc.i = trunc nuw i32 %.sroa.542.0.extract.shift.i to i8
   %172 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i75, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14421,7 +14427,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44
   %.sroa.0.0.insert.ext.i60.i = zext i24 %.sroa.0.0.copyload.i58.i to i32
   %.sroa.045.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload.i58.i to i8
   %.sroa.547.0.extract.shift.i = lshr i32 %.sroa.0.0.insert.ext.i60.i, 16
-  %.sroa.547.0.extract.trunc.i = trunc i32 %.sroa.547.0.extract.shift.i to i8
+  %.sroa.547.0.extract.trunc.i = trunc nuw i32 %.sroa.547.0.extract.shift.i to i8
   %173 = insertelement <2 x float> poison, float %167, i64 0
   %174 = shufflevector <2 x float> %173, <2 x float> poison, <2 x i32> zeroinitializer
   %175 = fmul <2 x float> %62, %174
@@ -14926,9 +14932,9 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17h2e2029530eb8e447E(ptr 
   %.sroa.01.0.extract.trunc.i.us.i = trunc i64 %.sroa.0.0.copyload.i.us.i to i32
   %80 = lshr i32 %.sroa.01.0.extract.trunc.i.us.i, 16
   %.sroa.53.0.extract.shift.i.us.i = lshr i64 %.sroa.0.0.copyload.i.us.i, 32
-  %.sroa.53.0.extract.trunc.i.us.i = trunc i64 %.sroa.53.0.extract.shift.i.us.i to i32
+  %.sroa.53.0.extract.trunc.i.us.i = trunc nuw i64 %.sroa.53.0.extract.shift.i.us.i to i32
   %.sroa.64.0.extract.shift.i.us.i = lshr i64 %.sroa.0.0.copyload.i.us.i, 48
-  %.sroa.64.0.extract.trunc.i.us.i = trunc i64 %.sroa.64.0.extract.shift.i.us.i to i32
+  %.sroa.64.0.extract.trunc.i.us.i = trunc nuw nsw i64 %.sroa.64.0.extract.shift.i.us.i to i32
   %81 = and i32 %.sroa.01.0.extract.trunc.i.us.i, 65535
   %82 = add i32 %81, %.sroa.0.154.us.i
   %83 = add i32 %80, %.sroa.6.155.us.i
@@ -15079,7 +15085,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hec699ca89f8f9e1fE.exit: ; pr
 
 .noexc96:                                         ; preds = %.noexc95
   %.sroa.53.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.53.0.extract.trunc.i.i = trunc i64 %.sroa.53.0.extract.shift.i.i to i32
+  %.sroa.53.0.extract.trunc.i.i = trunc nuw i64 %.sroa.53.0.extract.shift.i.i to i32
   %149 = and i32 %.sroa.53.0.extract.trunc.i.i, 65535
   %150 = add i32 %149, %.sroa.9.072.i
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -15091,11 +15097,11 @@ _ZN5image8imageops6sample22thumbnail_sample_block17hec699ca89f8f9e1fE.exit: ; pr
   %.sroa.01.0.extract.trunc.i32.i = trunc i64 %.sroa.0.0.copyload.i31.i to i32
   %155 = lshr i32 %.sroa.01.0.extract.trunc.i32.i, 16
   %.sroa.53.0.extract.shift.i33.i = lshr i64 %.sroa.0.0.copyload.i31.i, 32
-  %.sroa.53.0.extract.trunc.i34.i = trunc i64 %.sroa.53.0.extract.shift.i33.i to i32
+  %.sroa.53.0.extract.trunc.i34.i = trunc nuw i64 %.sroa.53.0.extract.shift.i33.i to i32
   %156 = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i31.i, i64 0
   %157 = insertelement <2 x i64> %156, i64 %.sroa.0.0.copyload.i.i, i64 1
   %158 = lshr <2 x i64> %157, <i64 48, i64 48>
-  %159 = trunc <2 x i64> %158 to <2 x i32>
+  %159 = trunc nuw nsw <2 x i64> %158 to <2 x i32>
   %160 = and i32 %.sroa.01.0.extract.trunc.i32.i, 65535
   %161 = add i32 %160, %.sroa.044.066.i
   %162 = add i32 %155, %.sroa.646.067.i
@@ -15139,7 +15145,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2d
   %.sroa.532.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i97, 32
   %.sroa.532.0.extract.trunc.i = trunc i64 %.sroa.532.0.extract.shift.i to i16
   %.sroa.633.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i97, 48
-  %.sroa.633.0.extract.trunc.i = trunc i64 %.sroa.633.0.extract.shift.i to i16
+  %.sroa.633.0.extract.trunc.i = trunc nuw i64 %.sroa.633.0.extract.shift.i to i16
   %179 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %177, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -15149,7 +15155,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2d
   %.sroa.537.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i49.i, 32
   %.sroa.537.0.extract.trunc.i = trunc i64 %.sroa.537.0.extract.shift.i to i16
   %.sroa.638.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i49.i, 48
-  %.sroa.638.0.extract.trunc.i = trunc i64 %.sroa.638.0.extract.shift.i to i16
+  %.sroa.638.0.extract.trunc.i = trunc nuw i64 %.sroa.638.0.extract.shift.i to i16
   %180 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i76, i32 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -15158,7 +15164,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2d
   %.sroa.542.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i50.i, 32
   %.sroa.542.0.extract.trunc.i = trunc i64 %.sroa.542.0.extract.shift.i to i16
   %.sroa.643.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i50.i, 48
-  %.sroa.643.0.extract.trunc.i = trunc i64 %.sroa.643.0.extract.shift.i to i16
+  %.sroa.643.0.extract.trunc.i = trunc nuw i64 %.sroa.643.0.extract.shift.i to i16
   %181 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i76, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc112 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -15167,7 +15173,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h4e69a46ba04c2d
   %.sroa.547.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i51.i, 32
   %.sroa.547.0.extract.trunc.i = trunc i64 %.sroa.547.0.extract.shift.i to i16
   %.sroa.648.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i51.i, 48
-  %.sroa.648.0.extract.trunc.i = trunc i64 %.sroa.648.0.extract.shift.i to i16
+  %.sroa.648.0.extract.trunc.i = trunc nuw i64 %.sroa.648.0.extract.shift.i to i16
   %182 = insertelement <2 x float> poison, float %176, i64 0
   %183 = shufflevector <2 x float> %182, <2 x float> poison, <2 x i32> zeroinitializer
   %184 = fmul <2 x float> %62, %183
@@ -15367,7 +15373,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17heb7da622f6ff65eeE.ex
 
 .noexc169:                                        ; preds = %.noexc168
   %.sroa.53.0.extract.shift.i.i152 = lshr i64 %.sroa.0.0.copyload.i.i150, 32
-  %.sroa.53.0.extract.trunc.i.i153 = trunc i64 %.sroa.53.0.extract.shift.i.i152 to i32
+  %.sroa.53.0.extract.trunc.i.i153 = trunc nuw i64 %.sroa.53.0.extract.shift.i.i152 to i32
   %294 = and i32 %.sroa.53.0.extract.trunc.i.i153, 65535
   %295 = add i32 %294, %.sroa.9.072.i143
   %.sroa.01.0.extract.trunc.i.i151 = trunc i64 %.sroa.0.0.copyload.i.i150 to i32
@@ -15379,11 +15385,11 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17heb7da622f6ff65eeE.ex
   %.sroa.01.0.extract.trunc.i32.i157 = trunc i64 %.sroa.0.0.copyload.i31.i156 to i32
   %300 = lshr i32 %.sroa.01.0.extract.trunc.i32.i157, 16
   %.sroa.53.0.extract.shift.i33.i158 = lshr i64 %.sroa.0.0.copyload.i31.i156, 32
-  %.sroa.53.0.extract.trunc.i34.i159 = trunc i64 %.sroa.53.0.extract.shift.i33.i158 to i32
+  %.sroa.53.0.extract.trunc.i34.i159 = trunc nuw i64 %.sroa.53.0.extract.shift.i33.i158 to i32
   %301 = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i31.i156, i64 0
   %302 = insertelement <2 x i64> %301, i64 %.sroa.0.0.copyload.i.i150, i64 1
   %303 = lshr <2 x i64> %302, <i64 48, i64 48>
-  %304 = trunc <2 x i64> %303 to <2 x i32>
+  %304 = trunc nuw nsw <2 x i64> %303 to <2 x i32>
   %305 = and i32 %.sroa.01.0.extract.trunc.i32.i157, 65535
   %306 = add i32 %305, %.sroa.044.066.i149
   %307 = add i32 %300, %.sroa.646.067.i148
@@ -17255,7 +17261,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c1
   %.sroa.532.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i.i97, 16
   %.sroa.532.0.extract.trunc.i = trunc i32 %.sroa.532.0.extract.shift.i to i8
   %.sroa.633.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i.i97, 24
-  %.sroa.633.0.extract.trunc.i = trunc i32 %.sroa.633.0.extract.shift.i to i8
+  %.sroa.633.0.extract.trunc.i = trunc nuw i32 %.sroa.633.0.extract.shift.i to i8
   %177 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %175, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -17265,7 +17271,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c1
   %.sroa.537.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i49.i, 16
   %.sroa.537.0.extract.trunc.i = trunc i32 %.sroa.537.0.extract.shift.i to i8
   %.sroa.638.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i49.i, 24
-  %.sroa.638.0.extract.trunc.i = trunc i32 %.sroa.638.0.extract.shift.i to i8
+  %.sroa.638.0.extract.trunc.i = trunc nuw i32 %.sroa.638.0.extract.shift.i to i8
   %178 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i76, i32 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -17274,7 +17280,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c1
   %.sroa.542.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i50.i, 16
   %.sroa.542.0.extract.trunc.i = trunc i32 %.sroa.542.0.extract.shift.i to i8
   %.sroa.643.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i50.i, 24
-  %.sroa.643.0.extract.trunc.i = trunc i32 %.sroa.643.0.extract.shift.i to i8
+  %.sroa.643.0.extract.trunc.i = trunc nuw i32 %.sroa.643.0.extract.shift.i to i8
   %179 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i76, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc112 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -17285,7 +17291,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17hc06451acd818c1
   %.sroa.547.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i51.i, 16
   %.sroa.547.0.extract.trunc.i = trunc i32 %.sroa.547.0.extract.shift.i to i8
   %.sroa.648.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i51.i, 24
-  %.sroa.648.0.extract.trunc.i = trunc i32 %.sroa.648.0.extract.shift.i to i8
+  %.sroa.648.0.extract.trunc.i = trunc nuw i32 %.sroa.648.0.extract.shift.i to i8
   %180 = insertelement <2 x float> poison, float %174, i64 0
   %181 = shufflevector <2 x float> %180, <2 x float> poison, <2 x i32> zeroinitializer
   %182 = fmul <2 x float> %62, %181
@@ -17798,7 +17804,7 @@ define hidden void @_ZN5image8imageops6sample9thumbnail17ha03cf2638c346779E(ptr 
   %.sroa.01.0.extract.trunc.i.us.i = trunc i48 %.sroa.0.0.copyload.i.us.i to i32
   %81 = lshr i32 %.sroa.01.0.extract.trunc.i.us.i, 16
   %.sroa.53.0.extract.shift.i.us.i = lshr i64 %.sroa.0.0.insert.ext.i.i.us.i, 32
-  %.sroa.53.0.extract.trunc.i.us.i = trunc i64 %.sroa.53.0.extract.shift.i.us.i to i32
+  %.sroa.53.0.extract.trunc.i.us.i = trunc nuw nsw i64 %.sroa.53.0.extract.shift.i.us.i to i32
   %82 = and i32 %.sroa.01.0.extract.trunc.i.us.i, 65535
   %83 = add i32 %82, %.sroa.0.154.us.i
   %84 = add i32 %81, %.sroa.6.155.us.i
@@ -17947,7 +17953,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h6468548f9781f37cE.exit: ; pr
 .noexc95:                                         ; preds = %.noexc94
   %.sroa.0.0.insert.ext.i.i.i = zext i48 %.sroa.0.0.copyload.i.i to i64
   %.sroa.53.0.extract.shift.i.i = lshr i64 %.sroa.0.0.insert.ext.i.i.i, 32
-  %.sroa.53.0.extract.trunc.i.i = trunc i64 %.sroa.53.0.extract.shift.i.i to i32
+  %.sroa.53.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.53.0.extract.shift.i.i to i32
   %146 = add i32 %.sroa.9.071.i, %.sroa.53.0.extract.trunc.i.i
   %.sroa.01.0.extract.trunc.i.i = trunc i48 %.sroa.0.0.copyload.i.i to i32
   %147 = lshr i32 %.sroa.01.0.extract.trunc.i.i, 16
@@ -17959,7 +17965,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17h6468548f9781f37cE.exit: ; pr
   %.sroa.01.0.extract.trunc.i33.i = trunc i48 %.sroa.0.0.copyload.i31.i to i32
   %151 = lshr i32 %.sroa.01.0.extract.trunc.i33.i, 16
   %.sroa.53.0.extract.shift.i34.i = lshr i64 %.sroa.0.0.insert.ext.i.i32.i, 32
-  %.sroa.53.0.extract.trunc.i35.i = trunc i64 %.sroa.53.0.extract.shift.i34.i to i32
+  %.sroa.53.0.extract.trunc.i35.i = trunc nuw nsw i64 %.sroa.53.0.extract.shift.i34.i to i32
   %152 = and i32 %.sroa.01.0.extract.trunc.i33.i, 65535
   %153 = add i32 %152, %.sroa.043.065.i
   %154 = add i32 %151, %.sroa.645.066.i
@@ -17996,7 +18002,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbb
   %.sroa.0.0.insert.ext.i.i = zext i48 %.sroa.0.0.copyload.i.i96 to i64
   %.sroa.030.0.extract.trunc.i = trunc i48 %.sroa.0.0.copyload.i.i96 to i16
   %.sroa.532.0.extract.shift.i = lshr i64 %.sroa.0.0.insert.ext.i.i, 32
-  %.sroa.532.0.extract.trunc.i = trunc i64 %.sroa.532.0.extract.shift.i to i16
+  %.sroa.532.0.extract.trunc.i = trunc nuw i64 %.sroa.532.0.extract.shift.i to i16
   %168 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %166, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc109 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -18005,7 +18011,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbb
   %.sroa.0.0.insert.ext.i52.i = zext i48 %.sroa.0.0.copyload.i50.i to i64
   %.sroa.035.0.extract.trunc.i = trunc i48 %.sroa.0.0.copyload.i50.i to i16
   %.sroa.537.0.extract.shift.i = lshr i64 %.sroa.0.0.insert.ext.i52.i, 32
-  %.sroa.537.0.extract.trunc.i = trunc i64 %.sroa.537.0.extract.shift.i to i16
+  %.sroa.537.0.extract.trunc.i = trunc nuw i64 %.sroa.537.0.extract.shift.i to i16
   %169 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i75, i32 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -18013,7 +18019,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbb
   %.sroa.0.0.copyload.i54.i = load i48, ptr %169, align 2
   %.sroa.0.0.insert.ext.i56.i = zext i48 %.sroa.0.0.copyload.i54.i to i64
   %.sroa.542.0.extract.shift.i = lshr i64 %.sroa.0.0.insert.ext.i56.i, 32
-  %.sroa.542.0.extract.trunc.i = trunc i64 %.sroa.542.0.extract.shift.i to i16
+  %.sroa.542.0.extract.trunc.i = trunc nuw i64 %.sroa.542.0.extract.shift.i to i16
   %170 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i75, i32 noundef %.0.in.sroa.speculate.load.3.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -18021,7 +18027,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbb
   %.sroa.0.0.copyload.i58.i = load i48, ptr %170, align 2
   %.sroa.0.0.insert.ext.i60.i = zext i48 %.sroa.0.0.copyload.i58.i to i64
   %.sroa.547.0.extract.shift.i = lshr i64 %.sroa.0.0.insert.ext.i60.i, 32
-  %.sroa.547.0.extract.trunc.i = trunc i64 %.sroa.547.0.extract.shift.i to i16
+  %.sroa.547.0.extract.trunc.i = trunc nuw i64 %.sroa.547.0.extract.shift.i to i16
   %171 = insertelement <2 x float> poison, float %165, i64 0
   %172 = shufflevector <2 x float> %171, <2 x float> poison, <2 x i32> zeroinitializer
   %173 = fmul <2 x float> %62, %172
@@ -18224,7 +18230,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h1b36313f48b81dbbE.ex
 .noexc164:                                        ; preds = %.noexc163
   %.sroa.0.0.insert.ext.i.i.i148 = zext i48 %.sroa.0.0.copyload.i.i147 to i64
   %.sroa.53.0.extract.shift.i.i150 = lshr i64 %.sroa.0.0.insert.ext.i.i.i148, 32
-  %.sroa.53.0.extract.trunc.i.i151 = trunc i64 %.sroa.53.0.extract.shift.i.i150 to i32
+  %.sroa.53.0.extract.trunc.i.i151 = trunc nuw nsw i64 %.sroa.53.0.extract.shift.i.i150 to i32
   %282 = add i32 %.sroa.9.071.i141, %.sroa.53.0.extract.trunc.i.i151
   %.sroa.01.0.extract.trunc.i.i149 = trunc i48 %.sroa.0.0.copyload.i.i147 to i32
   %283 = lshr i32 %.sroa.01.0.extract.trunc.i.i149, 16
@@ -18236,7 +18242,7 @@ _ZN5image8imageops6sample30thumbnail_sample_fraction_both17h1b36313f48b81dbbE.ex
   %.sroa.01.0.extract.trunc.i33.i154 = trunc i48 %.sroa.0.0.copyload.i31.i152 to i32
   %287 = lshr i32 %.sroa.01.0.extract.trunc.i33.i154, 16
   %.sroa.53.0.extract.shift.i34.i155 = lshr i64 %.sroa.0.0.insert.ext.i.i32.i153, 32
-  %.sroa.53.0.extract.trunc.i35.i156 = trunc i64 %.sroa.53.0.extract.shift.i34.i155 to i32
+  %.sroa.53.0.extract.trunc.i35.i156 = trunc nuw nsw i64 %.sroa.53.0.extract.shift.i34.i155 to i32
   %288 = and i32 %.sroa.01.0.extract.trunc.i33.i154, 65535
   %289 = add i32 %288, %.sroa.043.065.i146
   %290 = add i32 %287, %.sroa.645.066.i145
@@ -18552,7 +18558,7 @@ _ZN5image8imageops6sample22thumbnail_sample_block17he36bc5a17c356f00E.exit: ; pr
   %86 = add i32 %.sroa.0.0.lcssa.i, %85
   %87 = udiv i32 %86, %82
   %spec.select5.i.i = tail call i32 @llvm.umin.i32(i32 %87, i32 65535)
-  %spec.select.i.i = trunc i32 %spec.select5.i.i to i16
+  %spec.select.i.i = trunc nuw i32 %spec.select5.i.i to i16
   br label %197
 
 88:                                               ; preds = %72
@@ -19232,12 +19238,12 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h99e1a5a3612b8f
   %175 = insertelement <2 x i32> poison, i32 %.sroa.0.0.copyload.i49.i, i64 0
   %176 = insertelement <2 x i32> %175, i32 %.sroa.0.0.copyload.i.i95, i64 1
   %177 = lshr <2 x i32> %176, <i32 16, i32 16>
-  %178 = trunc <2 x i32> %174 to <2 x i16>
+  %178 = trunc nuw <2 x i32> %174 to <2 x i16>
   %179 = uitofp <2 x i16> %178 to <2 x float>
   %180 = fmul <2 x float> %154, %179
   %shift384 = shufflevector <2 x float> %180, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %181 = fadd <2 x float> %180, %shift384
-  %182 = trunc <2 x i32> %177 to <2 x i16>
+  %182 = trunc nuw <2 x i32> %177 to <2 x i16>
   %183 = uitofp <2 x i16> %182 to <2 x float>
   %184 = fmul <2 x float> %158, %183
   %shift385 = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -21056,7 +21062,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317h7dffe89d5813d018E(ptr 
   %.sroa.482.0.extract.shift.us = lshr i32 %.sroa.0.0.insert.ext.i124.us, 8
   %.sroa.482.0.extract.trunc.us = trunc i32 %.sroa.482.0.extract.shift.us to i8
   %.sroa.583.0.extract.shift.us = lshr i32 %.sroa.0.0.insert.ext.i124.us, 16
-  %.sroa.583.0.extract.trunc.us = trunc i32 %.sroa.583.0.extract.shift.us to i8
+  %.sroa.583.0.extract.trunc.us = trunc nuw i32 %.sroa.583.0.extract.shift.us to i8
   %102 = insertelement <2 x i8> poison, i8 %.sroa.081.0.extract.trunc.us, i64 0
   %103 = insertelement <2 x i8> %102, i8 %.sroa.482.0.extract.trunc.us, i64 1
   %104 = uitofp <2 x i8> %103 to <2 x float>
@@ -22551,7 +22557,7 @@ define hidden void @_ZN5image8imageops6sample9filter3x317hd2c689bdd76c0ecfE(ptr 
   %.sroa.482.0.extract.shift.us = lshr i64 %.sroa.0.0.insert.ext.i124.us, 16
   %.sroa.482.0.extract.trunc.us = trunc i64 %.sroa.482.0.extract.shift.us to i16
   %.sroa.583.0.extract.shift.us = lshr i64 %.sroa.0.0.insert.ext.i124.us, 32
-  %.sroa.583.0.extract.trunc.us = trunc i64 %.sroa.583.0.extract.shift.us to i16
+  %.sroa.583.0.extract.trunc.us = trunc nuw i64 %.sroa.583.0.extract.shift.us to i16
   %107 = insertelement <2 x i16> poison, i16 %.sroa.081.0.extract.trunc.us, i64 0
   %108 = insertelement <2 x i16> %107, i16 %.sroa.482.0.extract.trunc.us, i64 1
   %109 = uitofp <2 x i16> %108 to <2 x float>
@@ -27812,7 +27818,7 @@ define void @"_ZN5image2io6reader74Reader$LT$std..io..buffered..bufreader..BufRe
   call void @_ZN3std2fs11OpenOptions5_open17h6c5b835fc2afb736E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2916
   %8 = load i32, ptr %6, align 8, !range !315, !noundef !14
-  %trunc = trunc i32 %8 to i1
+  %trunc = trunc nuw i32 %8 to i1
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !14
   %11 = getelementptr inbounds i8, ptr %6, i64 4
@@ -28662,7 +28668,7 @@ define noundef i8 @_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0f
   %19 = shl nuw nsw i32 %18, 1
   %20 = lshr i32 %18, 6
   %21 = or disjoint i32 %19, %20
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   br label %25
 
 23:                                               ; preds = %2
@@ -29312,14 +29318,14 @@ define void @_ZN5image6codecs3hdr7decoder11HdrMetadata18update_header_info17h84a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3099)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3102)
   %24 = load i64, ptr %10, align 8, !range !316, !alias.scope !3102, !noalias !3104, !noundef !14
-  %trunc.i.i.i = trunc i64 %24 to i1
+  %trunc.i.i.i = trunc nuw i64 %24 to i1
   br i1 %trunc.i.i.i, label %97, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3105)
   %25 = getelementptr inbounds i8, ptr %10, i64 26
   %26 = load i8, ptr %25, align 2, !range !56, !alias.scope !3108, !noalias !3109, !noundef !14
-  %27 = trunc i8 %26 to i1
+  %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.thread7.i.i.i", label %.lr.ph125.i.i.i
 
 .lr.ph125.i.i.i:                                  ; preds = %.critedge.i.i.i
@@ -29341,7 +29347,7 @@ define void @_ZN5image6codecs3hdr7decoder11HdrMetadata18update_header_info17h84a
 35:                                               ; preds = %.loopexit.i.i.i, %.lr.ph125.i.i.i
   %36 = phi i64 [ %.promoted124.i.i.i, %.lr.ph125.i.i.i ], [ %34, %.loopexit.i.i.i ]
   %37 = phi i8 [ %.pre.i.i.i, %.lr.ph125.i.i.i ], [ %39, %.loopexit.i.i.i ]
-  %38 = trunc i8 %37 to i1
+  %38 = trunc nuw i8 %37 to i1
   %39 = xor i8 %37, 1
   %40 = icmp eq i64 %36, 0
   br i1 %40, label %50, label %41
@@ -29482,7 +29488,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i": ; preds = %112, %111, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h956de00e4e543bfcE.exit.thread7.i.i.i"
   %113 = load i64, ptr %11, align 8, !range !316, !noalias !3094, !noundef !14
-  %trunc.i.i = trunc i64 %113 to i1
+  %trunc.i.i = trunc nuw i64 %113 to i1
   %114 = getelementptr inbounds i8, ptr %11, i64 8
   %115 = load i64, ptr %114, align 8, !noalias !3094
   %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 %115, i64 undef
@@ -29851,7 +29857,7 @@ common.resume:                                    ; preds = %294, %229, %242, %1
 
 233:                                              ; preds = %223
   %.sroa.622.0.extract.shift.i = lshr i64 %224, 32
-  %.sroa.622.0.extract.trunc.i = trunc i64 %.sroa.622.0.extract.shift.i to i32
+  %.sroa.622.0.extract.trunc.i = trunc nuw i64 %.sroa.622.0.extract.shift.i to i32
   store i32 %.sroa.622.0.extract.trunc.i, ptr %.sroa.0.0.ptr55.i, align 4, !alias.scope !3169, !noalias !3186
   %234 = icmp eq i64 %.sroa.0.0.add.i, 12
   br i1 %234, label %246, label %220
@@ -29981,12 +29987,12 @@ common.resume:                                    ; preds = %294, %229, %242, %1
 
 265:                                              ; preds = %212
   %.sroa.681.0.extract.shift = lshr i64 %216, 32
-  %.sroa.681.0.extract.trunc = trunc i64 %.sroa.681.0.extract.shift to i32
+  %.sroa.681.0.extract.trunc = trunc nuw i64 %.sroa.681.0.extract.shift to i32
   %266 = bitcast i32 %.sroa.681.0.extract.trunc to float
   %267 = getelementptr inbounds i8, ptr %1, i64 48
   %268 = load i32, ptr %267, align 8, !range !315, !noundef !14
   %269 = getelementptr inbounds i8, ptr %1, i64 52
-  %trunc91 = trunc i32 %268 to i1
+  %trunc91 = trunc nuw i32 %268 to i1
   %270 = load float, ptr %269, align 4
   %.088 = select i1 %trunc91, float %270, float 1.000000e+00
   %271 = fmul float %.088, %266
@@ -30016,12 +30022,12 @@ common.resume:                                    ; preds = %294, %229, %242, %1
 
 279:                                              ; preds = %206
   %.sroa.685.0.extract.shift = lshr i64 %210, 32
-  %.sroa.685.0.extract.trunc = trunc i64 %.sroa.685.0.extract.shift to i32
+  %.sroa.685.0.extract.trunc = trunc nuw i64 %.sroa.685.0.extract.shift to i32
   %280 = bitcast i32 %.sroa.685.0.extract.trunc to float
   %281 = getelementptr inbounds i8, ptr %1, i64 24
   %282 = load i32, ptr %281, align 8, !range !315, !noundef !14
   %283 = getelementptr inbounds i8, ptr %1, i64 28
-  %trunc93 = trunc i32 %282 to i1
+  %trunc93 = trunc nuw i32 %282 to i1
   %284 = load float, ptr %283, align 4
   %.089 = select i1 %trunc93, float %284, float 1.000000e+00
   %285 = fmul float %.089, %280
@@ -30670,9 +30676,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %84
 
 116:                                              ; preds = %113
   %.sroa.6.0.extract.shift.i = lshr i64 %75, 32
-  %.sroa.6.0.extract.trunc.i = trunc i64 %.sroa.6.0.extract.shift.i to i32
+  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   %.sroa.6.0.extract.shift.i291 = lshr i64 %114, 32
-  %.sroa.6.0.extract.trunc.i292 = trunc i64 %.sroa.6.0.extract.shift.i291 to i32
+  %.sroa.6.0.extract.trunc.i292 = trunc nuw i64 %.sroa.6.0.extract.shift.i291 to i32
   %117 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.6.0.extract.trunc.i292, ptr %117, align 4
   %118 = getelementptr inbounds i8, ptr %0, i64 8
@@ -31091,7 +31097,7 @@ define noundef zeroext i1 @"_ZN80_$LT$image..codecs..tga..encoder..EncoderError$
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %8 = alloca ptr, align 8
   %9 = load i32, ptr %0, align 4, !range !315, !noundef !14
-  %trunc = trunc i32 %9 to i1
+  %trunc = trunc nuw i32 %9 to i1
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   br i1 %trunc, label %18, label %11
 
@@ -31968,7 +31974,7 @@ define noundef i8 @"_ZN61_$LT$u8$u20$as$u20$image..color..FromPrimitive$LT$u16$G
   %2 = zext i16 %0 to i32
   %3 = add nuw nsw i32 %2, 128
   %4 = udiv i32 %3, 257
-  %5 = trunc i32 %4 to i8
+  %5 = trunc nuw i32 %4 to i8
   ret i8 %5
 }
 
@@ -32018,14 +32024,14 @@ define hidden noundef float @_ZN5image6traits11Enlargeable10clamp_from17hc0d2f00
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN5image6traits11Enlargeable10clamp_from17hc916d54531630beaE(i32 noundef %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %spec.select5 = tail call i32 @llvm.umin.i32(i32 %0, i32 65535)
-  %spec.select = trunc i32 %spec.select5 to i16
+  %spec.select = trunc nuw i32 %spec.select5 to i16
   ret i16 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN5image6traits11Enlargeable10clamp_from17he7abe2caf39b33e8E(i32 noundef %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %spec.select5 = tail call i32 @llvm.umin.i32(i32 %0, i32 255)
-  %spec.select = trunc i32 %spec.select5 to i8
+  %spec.select = trunc nuw i32 %spec.select5 to i8
   ret i8 %spec.select
 }
 

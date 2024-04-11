@@ -495,7 +495,7 @@ if.then47:                                        ; preds = %sd_set_mode.exit
   %.coerce.sroa.2.0.copyload = load i8, ptr %.coerce.sroa.2.0..sroa_idx, align 4
   %req.sroa.0.0.extract.trunc.i = trunc i64 %.coerce.sroa.0.0.copyload to i8
   %req.sroa.1052.0.extract.shift.i = lshr i64 %.coerce.sroa.0.0.copyload, 32
-  %req.sroa.1052.0.extract.trunc.i = trunc i64 %req.sroa.1052.0.extract.shift.i to i32
+  %req.sroa.1052.0.extract.trunc.i = trunc nuw i64 %req.sroa.1052.0.extract.shift.i to i32
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
@@ -697,8 +697,9 @@ if.then59.i:                                      ; preds = %if.else.i
   br label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.then59.i, %if.else.i, %if.then56.i, %if.end48.i
+  %and67.pre-phi.i = phi i32 [ %and53.i, %if.then56.i ], [ 0, %if.then59.i ], [ 0, %if.else.i ], [ %and53.i, %if.end48.i ]
   %52 = load i32, ptr %ocr.i, align 4
-  %and.i.i = and i32 %52, %and53.i
+  %and.i.i = and i32 %52, %and67.pre-phi.i
   %tobool69.not.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool69.not.i, label %send_response.thread96, label %if.then70.i
 
@@ -835,7 +836,7 @@ sw.bb69:                                          ; preds = %send_response
   %and5.i = and i32 %or63, 8191
   %or.i56 = or disjoint i32 %and3.i, %and5.i
   %or6.i = or disjoint i32 %or.i56, %and.i55
-  %conv.i57 = trunc i32 %or6.i to i16
+  %conv.i57 = trunc nuw i32 %or6.i to i16
   %and8.i = and i32 %or63, -524329
   store i32 %and8.i, ptr %card_status22, align 4
   %rca.i = getelementptr inbounds i8, ptr %sd, i64 208
@@ -948,7 +949,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %req.sroa.0.0.extract.trunc = trunc i64 %req.coerce0 to i8
   %req.sroa.16187.0.extract.shift = lshr i64 %req.coerce0, 32
-  %req.sroa.16187.0.extract.trunc = trunc i64 %req.sroa.16187.0.extract.shift to i32
+  %req.sroa.16187.0.extract.trunc = trunc nuw i64 %req.sroa.16187.0.extract.shift to i32
   %ocr = getelementptr inbounds i8, ptr %sd, i64 164
   %0 = load i32, ptr %ocr, align 4
   %and = and i32 %0, 1073741824
@@ -1372,7 +1373,7 @@ if.then218:                                       ; preds = %sw.bb214
   br label %return
 
 if.else:                                          ; preds = %sw.bb214
-  %conv221 = trunc i64 %req.sroa.16187.0.extract.shift to i16
+  %conv221 = trunc nuw i64 %req.sroa.16187.0.extract.shift to i16
   tail call fastcc void @trace_sdcard_set_blocklen(i16 noundef zeroext %conv221)
   %blk_len = getelementptr inbounds i8, ptr %sd, i64 336
   store i32 %req.sroa.16187.0.extract.trunc, ptr %blk_len, align 8
@@ -3150,7 +3151,7 @@ for.body.us:                                      ; preds = %entry, %for.body.us
   %idxprom37.us = zext nneg i32 %sub.us to i64
   %arrayidx38.us = getelementptr [512 x i8], ptr %data, i64 0, i64 %idxprom37.us
   %0 = load i8, ptr %arrayidx38.us, align 1
-  %1 = trunc i32 %shl.us to i8
+  %1 = trunc nuw i32 %shl.us to i8
   %conv40.us = or i8 %0, %1
   store i8 %conv40.us, ptr %arrayidx38.us, align 1
   %inc.us = add nuw nsw i32 %i.026.us, 1
@@ -3167,7 +3168,7 @@ for.body:                                         ; preds = %entry, %if.end
   br i1 %cmp32.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %conv = trunc i32 %and30 to i8
+  %conv = trunc nuw nsw i32 %and30 to i8
   %arrayidx33 = getelementptr [6 x i8], ptr %function_group, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx33, align 1
   br label %if.end
@@ -3181,7 +3182,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %idxprom37 = zext nneg i32 %sub to i64
   %arrayidx38 = getelementptr [512 x i8], ptr %data, i64 0, i64 %idxprom37
   %4 = load i8, ptr %arrayidx38, align 1
-  %5 = trunc i32 %shl to i8
+  %5 = trunc nuw i32 %shl to i8
   %conv40 = or i8 %4, %5
   store i8 %conv40, ptr %arrayidx38, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3690,9 +3691,9 @@ if.then4.i:                                       ; preds = %sd_set_cid.exit
   %add1.i = add nuw nsw i32 %spec.select.i, 9
   %sh_prom.i = zext nneg i32 %add1.i to i64
   %shr.i54 = lshr i64 %shl, %sh_prom.i
-  %12 = trunc i64 %shr.i54 to i32
+  %12 = trunc nuw i64 %shr.i54 to i32
   %conv.i = add nsw i32 %12, -1
-  %13 = trunc i32 %spec.select.i to i8
+  %13 = trunc nuw nsw i32 %spec.select.i to i8
   %conv13.i = or disjoint i8 %13, 80
   %shr16.i = lshr i32 %conv.i, 10
   %14 = trunc i32 %shr16.i to i8
@@ -4544,7 +4545,7 @@ return:                                           ; preds = %sd_version_str.exit
 define internal noundef i32 @sd_cmd_SET_BLOCK_COUNT(ptr noundef %sd, i64 %req.coerce0, i8 %req.coerce1) #0 {
 entry:
   %req.sroa.3.0.extract.shift = lshr i64 %req.coerce0, 32
-  %req.sroa.3.0.extract.trunc = trunc i64 %req.sroa.3.0.extract.shift to i32
+  %req.sroa.3.0.extract.trunc = trunc nuw i64 %req.sroa.3.0.extract.shift to i32
   %spec_version = getelementptr inbounds i8, ptr %sd, i64 280
   %0 = load i8, ptr %spec_version, align 8
   %cmp = icmp ult i8 %0, 3

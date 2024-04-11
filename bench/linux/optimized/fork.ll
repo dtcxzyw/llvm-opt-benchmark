@@ -1196,7 +1196,7 @@ define dso_local void @fork_init() local_unnamed_addr #6 section ".init.text" al
   %17 = and i64 %16, 140737488355327
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 1073741823)
   %19 = call i64 @llvm.umax.i64(i64 %18, i64 20)
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = select i1 %15, i32 1073741823, i32 %20
   store i32 %21, ptr @max_threads, align 4
   %22 = lshr i32 %21, 1
@@ -5544,7 +5544,7 @@ define internal fastcc i64 @__se_sys_clone3(i64 noundef %0, i64 noundef %1) unna
   %56 = getelementptr inbounds i8, ptr %3, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = inttoptr i64 %57 to ptr
-  %59 = trunc i64 %42 to i32
+  %59 = trunc nuw i64 %42 to i32
   %60 = getelementptr inbounds i8, ptr %3, i64 40
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %3, i64 48
@@ -5607,7 +5607,7 @@ define internal fastcc i64 @__se_sys_clone3(i64 noundef %0, i64 noundef %1) unna
   %94 = and i64 %45, 98304
   %95 = icmp eq i64 %94, 0
   %96 = icmp eq i32 %59, 0
-  %97 = or i1 %95, %96
+  %97 = select i1 %95, i1 true, i1 %96
   br i1 %97, label %98, label %112
 
 98:                                               ; preds = %93

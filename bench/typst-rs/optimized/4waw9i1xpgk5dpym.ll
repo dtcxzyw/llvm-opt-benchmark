@@ -169,7 +169,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %4 = load ptr, ptr %0, align 8, !nonnull !13, !align !17, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %5 = load i64, ptr %4, align 8, !range !27, !alias.scope !24, !noalias !28, !noundef !13
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i, label %8, label %6
 
 6:                                                ; preds = %2
@@ -631,7 +631,7 @@ define hidden void @_ZN4core5clone5Clone5clone17h8dc62d428f96f5cdE.llvm.10859166
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %13, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !115, !noalias !116
   %19 = load i64, ptr %5, align 8, !range !27, !alias.scope !98, !noalias !99, !noundef !13
-  %trunc.i.i = trunc i64 %19 to i1
+  %trunc.i.i = trunc nuw i64 %19 to i1
   br i1 %trunc.i.i, label %20, label %"_ZN71_$LT$typst_syntax..parser..Checkpoint$u20$as$u20$core..clone..Clone$GT$5clone17hba3aa6f9065773cfE.llvm.10859166595437567863.exit"
 
 20:                                               ; preds = %2
@@ -1173,7 +1173,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha616f8573deb7
   %.sroa.6.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %17, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !233, !noalias !234
   %23 = load i64, ptr %9, align 8, !range !27, !alias.scope !216, !noalias !217, !noundef !13
-  %trunc.i.i.i = trunc i64 %23 to i1
+  %trunc.i.i.i = trunc nuw i64 %23 to i1
   br i1 %trunc.i.i.i, label %24, label %_ZN4core5clone5Clone5clone17h8dc62d428f96f5cdE.llvm.10859166595437567863.exit
 
 24:                                               ; preds = %7
@@ -2044,12 +2044,12 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN55_$LT$$RF$T$
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h64dd34399c24240cE.llvm.10859166595437567863"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
   %3 = load i64, ptr %0, align 8, !range !27, !noundef !13
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   %4 = load i64, ptr %1, align 8, !range !27, !noundef !13
   br i1 %trunc, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = trunc i64 %4 to i1
+  %6 = trunc nuw i64 %4 to i1
   %7 = xor i1 %6, true
   br label %"_ZN75_$LT$typst_syntax..package..PackageSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c0f6b0121328d43E.llvm.10859166595437567863.exit"
 
@@ -2340,14 +2340,14 @@ define internal noundef zeroext i1 @"_ZN60_$LT$ecow..string..EcoString$u20$as$u2
 
 11:                                               ; preds = %7
   %12 = lshr i32 %1, 6
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 4, !alias.scope !400, !noalias !397
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %5, align 4, !alias.scope !400, !noalias !397
   %19 = lshr i32 %1, 6
@@ -2387,7 +2387,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
 .critedge.i:                                      ; preds = %2
-  %40 = trunc i32 %1 to i8
+  %40 = trunc nuw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   %41 = getelementptr inbounds i8, ptr %0, i64 15
   %42 = load i8, ptr %41, align 1, !alias.scope !406, !noundef !13
@@ -3305,10 +3305,11 @@ define { i16, i16 } @_ZN12typst_syntax4span4Span2id17hb541e9ff210c7eccE(i64 noun
   tail call void @llvm.assume(i1 %2)
   %3 = icmp ne i64 %0, 1
   %4 = lshr i64 %0, 48
-  %5 = trunc i64 %4 to i16
+  %5 = trunc nuw i64 %4 to i16
+  %.sroa.3.0 = select i1 %3, i16 %5, i16 undef
   %.sroa.0.0 = zext i1 %3 to i16
   %6 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %7 = insertvalue { i16, i16 } %6, i16 %5, 1
+  %7 = insertvalue { i16, i16 } %6, i16 %.sroa.3.0, 1
   ret { i16, i16 } %7
 }
 
@@ -3330,7 +3331,7 @@ define void @_ZN12typst_syntax4span4Span12resolve_path17h09119e3a5d730cc8E(ptr n
 
 7:                                                ; preds = %4
   %8 = lshr i64 %1, 48
-  %9 = trunc i64 %8 to i16
+  %9 = trunc nuw i64 %8 to i16
   %10 = tail call noundef i16 @_ZN12typst_syntax4file6FileId4join17h8efddc37c2712bf1E(i16 noundef %9, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %11 = getelementptr inbounds i8, ptr %0, i64 2
   store i16 %10, ptr %11, align 2
@@ -3612,7 +3613,7 @@ define hidden void @"_ZN65_$LT$typst_syntax..lexer..Lexer$u20$as$u20$core..clone
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %11, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !580, !noalias !581
   %17 = load i64, ptr %1, align 8, !range !27, !noundef !13
-  %trunc = trunc i64 %17 to i1
+  %trunc = trunc nuw i64 %17 to i1
   br i1 %trunc, label %18, label %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.llvm.10859166595437567863.exit"
 
 18:                                               ; preds = %2
@@ -3896,7 +3897,7 @@ define hidden void @"_ZN71_$LT$typst_syntax..parser..Checkpoint$u20$as$u20$core.
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %11, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !642, !noalias !643
   %17 = load i64, ptr %1, align 8, !range !27, !alias.scope !624, !noalias !627, !noundef !13
-  %trunc.i = trunc i64 %17 to i1
+  %trunc.i = trunc nuw i64 %17 to i1
   br i1 %trunc.i, label %18, label %"_ZN65_$LT$typst_syntax..lexer..Lexer$u20$as$u20$core..clone..Clone$GT$5clone17ha00c0f4f9a43ed24E.llvm.10859166595437567863.exit"
 
 18:                                               ; preds = %2

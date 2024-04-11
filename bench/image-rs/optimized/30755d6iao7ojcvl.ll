@@ -1094,226 +1094,226 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17hb6c705
   %.sroa.4.0.extract.trunc = trunc i48 %.sroa.4.0.extract.shift to i8
   %.sroa.5.0.extract.shift = lshr i48 %2, 16
   %.sroa.6.0.extract.shift = lshr i48 %2, 32
-  %.sroa.6.0.extract.trunc = trunc i48 %.sroa.6.0.extract.shift to i16
+  %.sroa.6.0.extract.trunc = trunc nuw i48 %.sroa.6.0.extract.shift to i16
   %.sroa.4.sroa.0.0.extract.trunc = trunc i48 %.sroa.5.0.extract.shift to i8
   %9 = trunc i48 %2 to i1
   %10 = and i48 %2, 4294901760
   %11 = icmp eq i48 %10, 0
+  %or.cond = and i1 %11, %9
   %12 = icmp eq i16 %.sroa.6.0.extract.trunc, 0
-  %13 = and i1 %11, %12
-  %or.cond7 = and i1 %13, %9
-  br i1 %or.cond7, label %22, label %14
+  %or.cond7 = select i1 %or.cond, i1 %12, i1 false
+  br i1 %or.cond7, label %21, label %13
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = load ptr, ptr %15, align 8, !noundef !13
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %36, label %18
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = load ptr, ptr %14, align 8, !noundef !13
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %35, label %17
 
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !175
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull inttoptr (i64 154618822659 to ptr)), !noalias !175
-  %19 = load i8, ptr %4, align 8, !range !158, !alias.scope !184, !noalias !175, !noundef !13
-  %switch.not.i.i.i.i.i = icmp eq i8 %19, 3
-  br i1 %switch.not.i.i.i.i.i, label %20, label %24
+  %18 = load i8, ptr %4, align 8, !range !158, !alias.scope !184, !noalias !175, !noundef !13
+  %switch.not.i.i.i.i.i = icmp eq i8 %18, 3
+  br i1 %switch.not.i.i.i.i.i, label %19, label %23
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21), !noalias !175
-  br label %24
-
-22:                                               ; preds = %3
-  store i8 2, ptr %0, align 8
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20), !noalias !175
   br label %23
 
-23:                                               ; preds = %93, %71, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit", %38, %36, %22
+21:                                               ; preds = %3
+  store i8 2, ptr %0, align 8
+  br label %22
+
+22:                                               ; preds = %92, %70, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit", %37, %35, %21
   ret void
 
-24:                                               ; preds = %18, %20
+23:                                               ; preds = %17, %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !175
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !187
   store i8 33, ptr %6, align 1, !noalias !187
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  %25 = load i64, ptr %16, align 8, !alias.scope !190, !noalias !193, !noundef !13
-  %26 = getelementptr inbounds i8, ptr %16, i64 16
-  %27 = load i64, ptr %26, align 8, !alias.scope !190, !noalias !193, !noundef !13
-  %28 = sub i64 %25, %27
-  %29 = icmp ugt i64 %28, 1
-  br i1 %29, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
+  %24 = load i64, ptr %15, align 8, !alias.scope !190, !noalias !193, !noundef !13
+  %25 = getelementptr inbounds i8, ptr %15, i64 16
+  %26 = load i64, ptr %25, align 8, !alias.scope !190, !noalias !193, !noundef !13
+  %27 = sub i64 %24, %26
+  %28 = icmp ugt i64 %27, 1
+  br i1 %28, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.thread": ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %16, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !190, !noalias !193, !nonnull !13, !noundef !13
-  %32 = getelementptr inbounds i8, ptr %31, i64 %27
-  store i8 33, ptr %32, align 1, !noalias !198
-  %33 = add i64 %27, 1
-  store i64 %33, ptr %26, align 8, !alias.scope !190, !noalias !193
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.thread": ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %15, i64 8
+  %30 = load ptr, ptr %29, align 8, !alias.scope !190, !noalias !193, !nonnull !13, !noundef !13
+  %31 = getelementptr inbounds i8, ptr %30, i64 %26
+  store i8 33, ptr %31, align 1, !noalias !198
+  %32 = add i64 %26, 1
+  store i64 %32, ptr %25, align 8, !alias.scope !190, !noalias !193
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !187
-  br label %37
+  br label %36
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit": ; preds = %24
-  %34 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 1), !noalias !199
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit": ; preds = %23
+  %33 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 1), !noalias !199
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !187
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %37, label %38
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %36, label %37
 
-36:                                               ; preds = %14
+35:                                               ; preds = %13
   store i8 1, ptr %0, align 8
   %.sroa.4183.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 154618822659 to ptr), ptr %.sroa.4183.0..sroa_idx, align 8
-  br label %23
+  br label %22
 
-37:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
-  br i1 %9, label %72, label %39
+36:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
+  br i1 %9, label %71, label %38
 
-38:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
+37:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit"
   store i8 1, ptr %0, align 8
   %.sroa.4186.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %34, ptr %.sroa.4186.0..sroa_idx, align 8
-  br label %23
+  store ptr %33, ptr %.sroa.4186.0..sroa_idx, align 8
+  br label %22
 
-39:                                               ; preds = %37
+38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
-  store i8 -7, ptr %40, align 8, !alias.scope !200, !noalias !207
-  %41 = getelementptr inbounds i8, ptr %8, i64 9
-  store i8 4, ptr %41, align 1, !alias.scope !209, !noalias !216
-  %42 = getelementptr inbounds i8, ptr %8, i64 10
-  store i8 %.sroa.4.0.extract.trunc, ptr %42, align 2, !alias.scope !218, !noalias !225
-  %43 = trunc i48 %.sroa.6.0.extract.shift to i8
-  %44 = lshr i48 %2, 40
-  %45 = trunc i48 %44 to i8
-  %46 = getelementptr inbounds i8, ptr %8, i64 11
-  store i8 %43, ptr %46, align 1, !alias.scope !227, !noalias !234
+  %39 = getelementptr inbounds i8, ptr %8, i64 8
+  store i8 -7, ptr %39, align 8, !alias.scope !200, !noalias !207
+  %40 = getelementptr inbounds i8, ptr %8, i64 9
+  store i8 4, ptr %40, align 1, !alias.scope !209, !noalias !216
+  %41 = getelementptr inbounds i8, ptr %8, i64 10
+  store i8 %.sroa.4.0.extract.trunc, ptr %41, align 2, !alias.scope !218, !noalias !225
+  %42 = trunc i48 %.sroa.6.0.extract.shift to i8
+  %43 = lshr i48 %2, 40
+  %44 = trunc nuw i48 %43 to i8
+  %45 = getelementptr inbounds i8, ptr %8, i64 11
+  store i8 %42, ptr %45, align 1, !alias.scope !227, !noalias !234
   %.sroa.4197.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 12
-  store i8 %45, ptr %.sroa.4197.0..sroa_idx, align 4, !alias.scope !227, !noalias !234
+  store i8 %44, ptr %.sroa.4197.0..sroa_idx, align 4, !alias.scope !227, !noalias !234
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  %47 = getelementptr inbounds i8, ptr %8, i64 13
-  store i8 %.sroa.4.sroa.0.0.extract.trunc, ptr %47, align 1, !alias.scope !239, !noalias !244
+  %46 = getelementptr inbounds i8, ptr %8, i64 13
+  store i8 %.sroa.4.sroa.0.0.extract.trunc, ptr %46, align 1, !alias.scope !239, !noalias !244
   store i64 6, ptr %8, align 8, !alias.scope !246, !noalias !249
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  %48 = load i64, ptr %16, align 8, !alias.scope !252, !noalias !255, !noundef !13
-  %49 = load i64, ptr %26, align 8, !alias.scope !252, !noalias !255, !noundef !13
-  %50 = sub i64 %48, %49
-  %51 = icmp ugt i64 %50, 6
-  br i1 %51, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit"
+  %47 = load i64, ptr %15, align 8, !alias.scope !252, !noalias !255, !noundef !13
+  %48 = load i64, ptr %25, align 8, !alias.scope !252, !noalias !255, !noundef !13
+  %49 = sub i64 %47, %48
+  %50 = icmp ugt i64 %49, 6
+  br i1 %50, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit.thread": ; preds = %39
-  %52 = getelementptr inbounds i8, ptr %16, i64 8
-  %53 = load ptr, ptr %52, align 8, !alias.scope !252, !noalias !255, !nonnull !13, !noundef !13
-  %54 = getelementptr inbounds i8, ptr %53, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %54, ptr noundef nonnull align 8 dereferenceable(6) %40, i64 6, i1 false), !noalias !262
-  %55 = add i64 %49, 6
-  store i64 %55, ptr %26, align 8, !alias.scope !252, !noalias !255
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit.thread": ; preds = %38
+  %51 = getelementptr inbounds i8, ptr %15, i64 8
+  %52 = load ptr, ptr %51, align 8, !alias.scope !252, !noalias !255, !nonnull !13, !noundef !13
+  %53 = getelementptr inbounds i8, ptr %52, i64 %48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %53, ptr noundef nonnull align 8 dereferenceable(6) %39, i64 6, i1 false), !noalias !262
+  %54 = add i64 %48, 6
+  store i64 %54, ptr %25, align 8, !alias.scope !252, !noalias !255
+  br label %57
+
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit": ; preds = %38
+  %55 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef 6), !noalias !263
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %70
+
+57:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit"
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %58
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit": ; preds = %39
-  %56 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef 6), !noalias !263
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %71
-
-58:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %59
-
-59:                                               ; preds = %92, %58
+58:                                               ; preds = %91, %57
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !264
   store i8 0, ptr %5, align 1, !noalias !264
   call void @llvm.experimental.noalias.scope.decl(metadata !267)
-  %60 = load i64, ptr %16, align 8, !alias.scope !267, !noalias !270, !noundef !13
-  %61 = load i64, ptr %26, align 8, !alias.scope !267, !noalias !270, !noundef !13
-  %62 = sub i64 %60, %61
-  %63 = icmp ugt i64 %62, 1
-  br i1 %63, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165"
+  %59 = load i64, ptr %15, align 8, !alias.scope !267, !noalias !270, !noundef !13
+  %60 = load i64, ptr %25, align 8, !alias.scope !267, !noalias !270, !noundef !13
+  %61 = sub i64 %59, %60
+  %62 = icmp ugt i64 %61, 1
+  br i1 %62, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread": ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %16, i64 8
-  %65 = load ptr, ptr %64, align 8, !alias.scope !267, !noalias !270, !nonnull !13, !noundef !13
-  %66 = getelementptr inbounds i8, ptr %65, i64 %61
-  store i8 0, ptr %66, align 1, !noalias !275
-  %67 = add i64 %61, 1
-  store i64 %67, ptr %26, align 8, !alias.scope !267, !noalias !270
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread": ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %15, i64 8
+  %64 = load ptr, ptr %63, align 8, !alias.scope !267, !noalias !270, !nonnull !13, !noundef !13
+  %65 = getelementptr inbounds i8, ptr %64, i64 %60
+  store i8 0, ptr %65, align 1, !noalias !275
+  %66 = add i64 %60, 1
+  store i64 %66, ptr %25, align 8, !alias.scope !267, !noalias !270
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !264
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165": ; preds = %59
-  %68 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !276
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165": ; preds = %58
+  %67 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !276
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !264
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit", label %70
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit", label %69
 
-70:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165"
+69:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165"
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %68, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !277
+  store ptr %67, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !277
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit": ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165", %70
-  %.sink.i = phi i8 [ 1, %70 ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread" ]
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit": ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165", %69
+  %.sink.i = phi i8 [ 1, %69 ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.7602948157661992270.exit165.thread" ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !277
-  br label %23
+  br label %22
 
-71:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit"
+70:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit"
   store i8 1, ptr %0, align 8
   %.sroa.4210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %56, ptr %.sroa.4210.0..sroa_idx, align 8
+  store ptr %55, ptr %.sroa.4210.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %23
+  br label %22
 
-72:                                               ; preds = %37
+71:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %73 = getelementptr inbounds i8, ptr %7, i64 8
-  store i8 -1, ptr %73, align 8, !alias.scope !280, !noalias !287
-  %74 = getelementptr inbounds i8, ptr %7, i64 9
-  store i8 11, ptr %74, align 1, !alias.scope !289, !noalias !296
-  %75 = getelementptr inbounds i8, ptr %7, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(11) %75, ptr noundef nonnull align 1 dereferenceable(11) @anon.f6d9434fcf4bddc9e50dec3b041c07d1.1, i64 11, i1 false), !alias.scope !298, !noalias !305
-  %76 = getelementptr inbounds i8, ptr %7, i64 21
-  store i8 3, ptr %76, align 1, !alias.scope !307, !noalias !314
-  %77 = getelementptr inbounds i8, ptr %7, i64 22
-  store i8 1, ptr %77, align 2, !alias.scope !316, !noalias !323
+  %72 = getelementptr inbounds i8, ptr %7, i64 8
+  store i8 -1, ptr %72, align 8, !alias.scope !280, !noalias !287
+  %73 = getelementptr inbounds i8, ptr %7, i64 9
+  store i8 11, ptr %73, align 1, !alias.scope !289, !noalias !296
+  %74 = getelementptr inbounds i8, ptr %7, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(11) %74, ptr noundef nonnull align 1 dereferenceable(11) @anon.f6d9434fcf4bddc9e50dec3b041c07d1.1, i64 11, i1 false), !alias.scope !298, !noalias !305
+  %75 = getelementptr inbounds i8, ptr %7, i64 21
+  store i8 3, ptr %75, align 1, !alias.scope !307, !noalias !314
+  %76 = getelementptr inbounds i8, ptr %7, i64 22
+  store i8 1, ptr %76, align 2, !alias.scope !316, !noalias !323
   %trunc131 = trunc i48 %.sroa.5.0.extract.shift to i16
   %switch146 = icmp eq i16 %trunc131, 0
   %.sroa.6.0.extract.trunc. = select i1 %switch146, i16 %.sroa.6.0.extract.trunc, i16 0
-  %78 = trunc i16 %.sroa.6.0.extract.trunc. to i8
-  %79 = lshr i16 %.sroa.6.0.extract.trunc., 8
-  %80 = trunc i16 %79 to i8
+  %77 = trunc i16 %.sroa.6.0.extract.trunc. to i8
+  %78 = lshr i16 %.sroa.6.0.extract.trunc., 8
+  %79 = trunc nuw i16 %78 to i8
   call void @llvm.experimental.noalias.scope.decl(metadata !325)
-  %81 = getelementptr inbounds i8, ptr %7, i64 23
-  store i8 %78, ptr %81, align 1, !alias.scope !328, !noalias !333
+  %80 = getelementptr inbounds i8, ptr %7, i64 23
+  store i8 %77, ptr %80, align 1, !alias.scope !328, !noalias !333
   %.sroa.4231.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
-  store i8 %80, ptr %.sroa.4231.0..sroa_idx, align 8, !alias.scope !328, !noalias !333
+  store i8 %79, ptr %.sroa.4231.0..sroa_idx, align 8, !alias.scope !328, !noalias !333
   store i64 17, ptr %7, align 8, !alias.scope !335, !noalias !338
   call void @llvm.experimental.noalias.scope.decl(metadata !341)
-  %82 = load i64, ptr %16, align 8, !alias.scope !341, !noalias !344, !noundef !13
-  %83 = load i64, ptr %26, align 8, !alias.scope !341, !noalias !344, !noundef !13
-  %84 = sub i64 %82, %83
-  %85 = icmp ugt i64 %84, 17
-  br i1 %85, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182"
+  %81 = load i64, ptr %15, align 8, !alias.scope !341, !noalias !344, !noundef !13
+  %82 = load i64, ptr %25, align 8, !alias.scope !341, !noalias !344, !noundef !13
+  %83 = sub i64 %81, %82
+  %84 = icmp ugt i64 %83, 17
+  br i1 %84, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182.thread": ; preds = %72
-  %86 = getelementptr inbounds i8, ptr %16, i64 8
-  %87 = load ptr, ptr %86, align 8, !alias.scope !341, !noalias !344, !nonnull !13, !noundef !13
-  %88 = getelementptr inbounds i8, ptr %87, i64 %83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %88, ptr noundef nonnull align 8 dereferenceable(17) %73, i64 17, i1 false), !noalias !351
-  %89 = add i64 %83, 17
-  store i64 %89, ptr %26, align 8, !alias.scope !341, !noalias !344
-  br label %92
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182.thread": ; preds = %71
+  %85 = getelementptr inbounds i8, ptr %15, i64 8
+  %86 = load ptr, ptr %85, align 8, !alias.scope !341, !noalias !344, !nonnull !13, !noundef !13
+  %87 = getelementptr inbounds i8, ptr %86, i64 %82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %87, ptr noundef nonnull align 8 dereferenceable(17) %72, i64 17, i1 false), !noalias !351
+  %88 = add i64 %82, 17
+  store i64 %88, ptr %25, align 8, !alias.scope !341, !noalias !344
+  br label %91
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182": ; preds = %72
-  %90 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %73, i64 noundef 17), !noalias !352
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %93
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182": ; preds = %71
+  %89 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %72, i64 noundef 17), !noalias !352
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %92
 
-92:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182"
+91:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %59
+  br label %58
 
-93:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182"
+92:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit182"
   store i8 1, ptr %0, align 8
   %.sroa.4237.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %90, ptr %.sroa.4237.0..sroa_idx, align 8
+  store ptr %89, ptr %.sroa.4237.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %23
+  br label %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1463,7 +1463,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_image_block17h7c4f
   br label %99
 
 66:                                               ; preds = %52
-  %67 = trunc i64 %45 to i8
+  %67 = trunc nuw i64 %45 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !412
   store i8 %67, ptr %6, align 1, !noalias !412
   call void @llvm.experimental.noalias.scope.decl(metadata !415)
@@ -1625,7 +1625,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %12 = load i8, ptr %11, align 4, !range !453, !noundef !13
   %13 = getelementptr inbounds i8, ptr %2, i64 48
   %14 = load i8, ptr %13, align 8, !range !453, !noundef !13
-  %trunc = trunc i8 %14 to i1
+  %trunc = trunc nuw i8 %14 to i1
   %15 = getelementptr inbounds i8, ptr %2, i64 49
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i48
@@ -1650,7 +1650,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %26 = getelementptr inbounds i8, ptr %2, i64 61
   %27 = load i8, ptr %26, align 1, !range !453, !noundef !13
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   %spec.select = select i1 %28, i8 64, i8 0
   %29 = load i64, ptr %2, align 8, !range !133, !noundef !13
   %30 = icmp eq i64 %29, -9223372036854775808
@@ -1668,7 +1668,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %1, i64 36
   %34 = load i8, ptr %33, align 4, !range !453, !noundef !13
-  %35 = trunc i8 %34 to i1
+  %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %57, label %48
 
 36:                                               ; preds = %25
@@ -1680,7 +1680,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   br i1 %41, label %56, label %42
 
 42:                                               ; preds = %36
-  %.lhs.trunc.i = trunc i64 %40 to i16
+  %.lhs.trunc.i = trunc nuw i64 %40 to i16
   %43 = udiv i16 %.lhs.trunc.i, 3
   %.zext.i = zext nneg i16 %43 to i64
   %44 = tail call noundef i8 @_ZN3gif7encoder9flag_size17h27039767396eba9dE(i64 noundef %.zext.i), !noalias !454
@@ -1723,7 +1723,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %60 = load i16, ptr %59, align 2, !noundef !13
   %61 = trunc i16 %60 to i8
   %62 = lshr i16 %60, 8
-  %63 = trunc i16 %62 to i8
+  %63 = trunc nuw i16 %62 to i8
   %64 = getelementptr inbounds i8, ptr %5, i64 9
   store i8 %61, ptr %64, align 1, !alias.scope !470, !noalias !477
   %.sroa.4156.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 10
@@ -1732,7 +1732,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %66 = load i16, ptr %65, align 4, !noundef !13
   %67 = trunc i16 %66 to i8
   %68 = lshr i16 %66, 8
-  %69 = trunc i16 %68 to i8
+  %69 = trunc nuw i16 %68 to i8
   %70 = getelementptr inbounds i8, ptr %5, i64 11
   store i8 %67, ptr %70, align 1, !alias.scope !479, !noalias !486
   %.sroa.4161.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
@@ -1741,7 +1741,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %72 = load i16, ptr %71, align 8, !noundef !13
   %73 = trunc i16 %72 to i8
   %74 = lshr i16 %72, 8
-  %75 = trunc i16 %74 to i8
+  %75 = trunc nuw i16 %74 to i8
   %76 = getelementptr inbounds i8, ptr %5, i64 13
   store i8 %73, ptr %76, align 1, !alias.scope !488, !noalias !495
   %.sroa.4166.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 14
@@ -1750,7 +1750,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %78 = load i16, ptr %77, align 2, !noundef !13
   %79 = trunc i16 %78 to i8
   %80 = lshr i16 %78, 8
-  %81 = trunc i16 %80 to i8
+  %81 = trunc nuw i16 %80 to i8
   %82 = getelementptr inbounds i8, ptr %5, i64 15
   store i8 %79, ptr %82, align 1, !alias.scope !497, !noalias !504
   %.sroa.4171.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -1887,7 +1887,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$20write_global_palette17h3
   br i1 %9, label %64, label %10
 
 10:                                               ; preds = %4
-  %.lhs.trunc.i = trunc i64 %3 to i16
+  %.lhs.trunc.i = trunc nuw i64 %3 to i16
   %11 = udiv i16 %.lhs.trunc.i, 3
   %.zext.i = zext nneg i16 %11 to i64
   %12 = invoke noundef i8 @_ZN3gif7encoder9flag_size17h27039767396eba9dE(i64 noundef %.zext.i)
@@ -1941,7 +1941,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$20write_global_palette17h3
   %31 = load i16, ptr %30, align 8, !alias.scope !569, !noundef !13
   %32 = trunc i16 %31 to i8
   %33 = lshr i16 %31, 8
-  %34 = trunc i16 %33 to i8
+  %34 = trunc nuw i16 %33 to i8
   %35 = getelementptr inbounds i8, ptr %8, i64 14
   store i8 %32, ptr %35, align 2, !alias.scope !581, !noalias !588
   %.sroa.4.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %8, i64 15
@@ -1950,7 +1950,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$20write_global_palette17h3
   %37 = load i16, ptr %36, align 2, !alias.scope !569, !noundef !13
   %38 = trunc i16 %37 to i8
   %39 = lshr i16 %37, 8
-  %40 = trunc i16 %39 to i8
+  %40 = trunc nuw i16 %39 to i8
   store i8 %38, ptr %29, align 8, !alias.scope !590, !noalias !597
   %.sroa.465.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 17
   store i8 %40, ptr %.sroa.465.0..sroa_idx.i, align 1, !alias.scope !590, !noalias !597
@@ -2296,7 +2296,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 20:                                               ; preds = %.lr.ph
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -2523,7 +2523,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 20:                                               ; preds = %.lr.ph
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -2932,7 +2932,7 @@ define hidden void @_ZN3std2io16append_to_string17h4367996b06c4bf03E(ptr noalias
 
 28:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$11read_to_end17h25e23a9f23efb837E.exit.i"
   %29 = load i64, ptr %4, align 8, !range !798, !noalias !824, !noundef !13
-  %trunc.i.i = trunc i64 %29 to i1
+  %trunc.i.i = trunc nuw i64 %29 to i1
   %30 = getelementptr inbounds i8, ptr %4, i64 8
   %31 = load ptr, ptr %30, align 8, !noalias !824
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !824
@@ -3692,7 +3692,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
 
 21:                                               ; preds = %.lr.ph.i.i
   %22 = lshr i64 %19, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   switch i32 %23, label %.thread.i.i [
     i32 0, label %.thread.i.i.loopexit
     i32 1, label %.thread.i.i.loopexit
@@ -4086,7 +4086,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17h43e78f63a2520298E(ptr 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !934
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18), !noalias !939
   %20 = load i64, ptr %4, align 8, !range !798, !noalias !934, !noundef !13
-  %trunc.i.i = trunc i64 %20 to i1
+  %trunc.i.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !934
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !934
@@ -4144,7 +4144,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17h5684aa65eacba90dE(ptr 
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h3f6b4236ba3eda48E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18)
   %20 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %20 to i1
+  %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -4223,7 +4223,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17h5dc399b5ce839da1E(ptr 
   store i64 %29, ptr %.fca.1.gep.i.i.i, align 8, !noalias !963
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %28), !noalias !977
   %31 = load i64, ptr %5, align 8, !range !798, !noalias !963, !noundef !13
-  %trunc.i.i.i = trunc i64 %31 to i1
+  %trunc.i.i.i = trunc nuw i64 %31 to i1
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !963
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !963
@@ -4280,7 +4280,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17h5f769493ae2e57afE(ptr 
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18)
   %20 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %20 to i1
+  %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -4334,7 +4334,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17h63109251054485bdE(ptr 
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hb59be5d05b213a4eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18)
   %20 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %20 to i1
+  %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -4388,7 +4388,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17h67ab95ef89946124E(ptr 
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h4fc43dcd9214a51bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18)
   %20 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %20 to i1
+  %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -4442,7 +4442,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17hc92651c0d5f44564E(ptr 
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h51fdfec7e9a8e3dfE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18)
   %20 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %20 to i1
+  %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -4521,7 +4521,7 @@ define hidden noundef ptr @_ZN3std2io16default_read_buf17hd9aa8faf02a44b7bE(ptr 
   store i64 %29, ptr %.fca.1.gep.i.i.i, align 8, !noalias !1017
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %27, i64 noundef %28), !noalias !1031
   %31 = load i64, ptr %5, align 8, !range !798, !noalias !1017, !noundef !13
-  %trunc.i.i.i = trunc i64 %31 to i1
+  %trunc.i.i.i = trunc nuw i64 %31 to i1
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !1017
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1017
@@ -4565,7 +4565,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h05dbc03f51e1dd55E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hb59be5d05b213a4eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -4590,7 +4590,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -4755,7 +4755,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h1b78a2f1d2f5c025E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h686ecdb09b8c9fe0E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -4780,7 +4780,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -4945,7 +4945,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h21f440578981abb8E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -4970,7 +4970,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -5135,7 +5135,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h2412609ffc7969abE(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h51fdfec7e9a8e3dfE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -5160,7 +5160,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -5325,7 +5325,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h3f21e8410931d63aE(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h3f6b4236ba3eda48E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -5350,7 +5350,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -5517,7 +5517,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h51c756393c158383E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1087
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %.sroa.0.046, i64 noundef %.sroa.4.045), !noalias !1090
   %11 = load i64, ptr %5, align 8, !range !798, !noalias !1087, !noundef !13
-  %trunc.i = trunc i64 %11 to i1
+  %trunc.i = trunc nuw i64 %11 to i1
   %12 = load ptr, ptr %7, align 8, !noalias !1087
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1087
   %13 = ptrtoint ptr %12 to i64
@@ -5544,7 +5544,7 @@ default.unreachable:                              ; preds = %18
 
 20:                                               ; preds = %18
   %21 = lshr i64 %13, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread24 [
     i32 0, label %.thread24.loopexit
     i32 1, label %.thread24.loopexit
@@ -5674,7 +5674,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h5f6d40f847551898E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hc8a4ae4c00cc4c7aE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -5699,7 +5699,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -5889,7 +5889,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h71726e02921fd06fE(pt
   store i64 %19, ptr %.fca.1.gep.i.i, align 8, !noalias !1127
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %.sroa.0.061, i64 noundef %.sroa.4.060), !noalias !1130
   %21 = load i64, ptr %6, align 8, !range !798, !noalias !1127, !noundef !13
-  %trunc.i.i = trunc i64 %21 to i1
+  %trunc.i.i = trunc nuw i64 %21 to i1
   %22 = load ptr, ptr %12, align 8, !noalias !1127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1127
   %23 = ptrtoint ptr %22 to i64
@@ -5916,7 +5916,7 @@ default.unreachable:                              ; preds = %27
 
 29:                                               ; preds = %27
   %30 = lshr i64 %23, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   switch i32 %31, label %.thread24 [
     i32 0, label %.thread24.loopexit
     i32 1, label %.thread24.loopexit
@@ -6047,7 +6047,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h73d45e9d153a3917E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$image..codecs..farbfeld..FarbfeldReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hb7c9721d1024741dE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -6072,7 +6072,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -6248,7 +6248,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h7d6029c0b45225dfE(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1157
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %.sroa.0.040, i64 noundef %.0.sroa.speculated.i.i), !noalias !1158
   %15 = load i64, ptr %6, align 8, !range !798, !noalias !1157, !noundef !13
-  %trunc.i = trunc i64 %15 to i1
+  %trunc.i = trunc nuw i64 %15 to i1
   %16 = load ptr, ptr %9, align 8, !noalias !1157
   %.cast.i = ptrtoint ptr %16 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1157
@@ -6292,7 +6292,7 @@ default.unreachable:                              ; preds = %26
 
 28:                                               ; preds = %26
   %29 = lshr i64 %.cast.i, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   switch i32 %30, label %.thread22 [
     i32 0, label %.thread22.loopexit
     i32 1, label %.thread22.loopexit
@@ -6423,7 +6423,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h7ded5deb3550ac00E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN60_$LT$exr..io..PeekRead$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h6af7df4cb65aec7eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -6448,7 +6448,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -6613,7 +6613,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h8320c7d4a335906eE(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$image..codecs..farbfeld..FarbfeldReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8ef5686ac2fa6eeeE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -6638,7 +6638,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -6803,7 +6803,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17h9abc8016871ac281E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h4fc43dcd9214a51bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -6828,7 +6828,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -6993,7 +6993,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hafb8c1a6e12607feE(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -7018,7 +7018,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -7211,7 +7211,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hb0e6388d41e61794E(pt
   store i64 %21, ptr %.fca.1.gep.i.i, align 8, !noalias !1225
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %.sroa.0.061, i64 noundef %.sroa.4.060), !noalias !1228
   %23 = load i64, ptr %6, align 8, !range !798, !noalias !1225, !noundef !13
-  %trunc.i.i = trunc i64 %23 to i1
+  %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr %12, align 8, !noalias !1225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1225
@@ -7240,7 +7240,7 @@ default.unreachable:                              ; preds = %30
 
 32:                                               ; preds = %30
   %33 = lshr i64 %25, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   switch i32 %34, label %.thread24 [
     i32 0, label %.thread24.loopexit
     i32 1, label %.thread24.loopexit
@@ -7372,7 +7372,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hb75aff0fbdc89e4bE(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hdeddea496fb3e15aE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -7397,7 +7397,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -7562,7 +7562,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hd3c8282d2527a265E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN60_$LT$exr..io..PeekRead$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h24b2d3096bbb4b6aE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -7587,7 +7587,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -7778,7 +7778,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hd654fe767bd92c9bE(pt
   store i64 %20, ptr %.fca.1.gep.i.i, align 8, !noalias !1274
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %.sroa.0.061, i64 noundef %.sroa.4.060), !noalias !1277
   %22 = load i64, ptr %6, align 8, !range !798, !noalias !1274, !noundef !13
-  %trunc.i.i = trunc i64 %22 to i1
+  %trunc.i.i = trunc nuw i64 %22 to i1
   %23 = load ptr, ptr %13, align 8, !noalias !1274
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1274
   %24 = ptrtoint ptr %23 to i64
@@ -7805,7 +7805,7 @@ default.unreachable:                              ; preds = %28
 
 30:                                               ; preds = %28
   %31 = lshr i64 %24, 32
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   switch i32 %32, label %.thread24 [
     i32 0, label %.thread24.loopexit
     i32 1, label %.thread24.loopexit
@@ -7936,7 +7936,7 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hf238dcd989fe3e27E(pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN60_$LT$exr..io..PeekRead$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17heaf362a7ef5c99d4E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037, i64 noundef %.sroa.4.036)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %15, label %11
 
 11:                                               ; preds = %9
@@ -7961,7 +7961,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20 [
     i32 0, label %.thread20.loopexit
     i32 1, label %.thread20.loopexit
@@ -8118,7 +8118,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h686ecdb09b8c9fe0E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -8156,7 +8156,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -8293,7 +8293,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h686ecdb09b8c9fe0E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -8320,7 +8320,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h524aef0de6f17ce8E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -8358,7 +8358,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -8495,7 +8495,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h524aef0de6f17ce8E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -8564,7 +8564,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   store i64 %24, ptr %.fca.1.gep.i.i.i.i, align 8, !noalias !1358
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %8, i64 noundef %.0.sroa.speculated.i.i), !noalias !1370
   %26 = load i64, ptr %6, align 8, !range !798, !noalias !1358, !noundef !13
-  %trunc.i.i.i.i = trunc i64 %26 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %26 to i1
   %27 = load ptr, ptr %10, align 8, !noalias !1358
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1358
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1358
@@ -8617,7 +8617,7 @@ default.unreachable:                              ; preds = %40
 
 43:                                               ; preds = %40
   %44 = lshr i64 %41, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   switch i32 %45, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -8755,7 +8755,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h3f6b4236ba3eda48E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -8793,7 +8793,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -8930,7 +8930,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h3f6b4236ba3eda48E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -8974,7 +8974,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1420
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %7, i64 noundef %.0.sroa.speculated.i.i), !noalias !1421
   %14 = load i64, ptr %6, align 8, !range !798, !noalias !1420, !noundef !13
-  %trunc.i = trunc i64 %14 to i1
+  %trunc.i = trunc nuw i64 %14 to i1
   %15 = load ptr, ptr %9, align 8, !noalias !1420
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1420
   %16 = ptrtoint ptr %15 to i64
@@ -9022,7 +9022,7 @@ default.unreachable:                              ; preds = %26
 
 28:                                               ; preds = %26
   %29 = lshr i64 %16, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   switch i32 %30, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -9190,7 +9190,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   store i64 %18, ptr %.fca.1.gep.i, align 8, !noalias !1451
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %7, i64 noundef 32), !noalias !1452
   %20 = load i64, ptr %6, align 8, !range !798, !noalias !1451, !noundef !13
-  %trunc.i = trunc i64 %20 to i1
+  %trunc.i = trunc nuw i64 %20 to i1
   %21 = load ptr, ptr %15, align 8, !noalias !1451
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1451
   %22 = ptrtoint ptr %21 to i64
@@ -9221,7 +9221,7 @@ default.unreachable:                              ; preds = %26
 
 28:                                               ; preds = %26
   %29 = lshr i64 %22, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   switch i32 %30, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -9405,7 +9405,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   store i64 %26, ptr %.fca.1.gep.i.i.i.i, align 8, !noalias !1498
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %8, i64 noundef %.0.sroa.speculated.i.i), !noalias !1522
   %28 = load i64, ptr %6, align 8, !range !798, !noalias !1498, !noundef !13
-  %trunc.i.i.i.i = trunc i64 %28 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %28 to i1
   %29 = load ptr, ptr %10, align 8, !noalias !1498
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1498
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1498
@@ -9458,7 +9458,7 @@ default.unreachable:                              ; preds = %42
 
 45:                                               ; preds = %42
   %46 = lshr i64 %43, 32
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   switch i32 %47, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -9636,7 +9636,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   store i64 %23, ptr %.fca.1.gep.i.i.i, align 8, !noalias !1555
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %8, i64 noundef %.0.sroa.speculated.i.i), !noalias !1567
   %25 = load i64, ptr %6, align 8, !range !798, !noalias !1555, !noundef !13
-  %trunc.i.i.i = trunc i64 %25 to i1
+  %trunc.i.i.i = trunc nuw i64 %25 to i1
   %26 = load ptr, ptr %12, align 8, !noalias !1555
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1555
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1555
@@ -9687,7 +9687,7 @@ default.unreachable:                              ; preds = %38
 
 40:                                               ; preds = %38
   %41 = lshr i64 %27, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   switch i32 %42, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -9856,7 +9856,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   store i64 %18, ptr %.fca.1.gep.i.i, align 8, !noalias !1608
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %7, i64 noundef 32), !noalias !1609
   %20 = load i64, ptr %6, align 8, !range !798, !noalias !1608, !noundef !13
-  %trunc.i.i = trunc i64 %20 to i1
+  %trunc.i.i = trunc nuw i64 %20 to i1
   %21 = load ptr, ptr %15, align 8, !noalias !1608
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1608
   %22 = ptrtoint ptr %21 to i64
@@ -9887,7 +9887,7 @@ default.unreachable:                              ; preds = %26
 
 28:                                               ; preds = %26
   %29 = lshr i64 %22, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   switch i32 %30, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -10027,7 +10027,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17hb6eb49bb6cd573ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -10065,7 +10065,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -10202,7 +10202,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17hb6eb49bb6cd573ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -10229,7 +10229,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hb59be5d05b213a4eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -10267,7 +10267,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -10404,7 +10404,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hb59be5d05b213a4eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -10462,7 +10462,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   store i64 %19, ptr %.fca.1.gep.i, align 8, !noalias !1693
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %7, i64 noundef 32), !noalias !1694
   %21 = load i64, ptr %6, align 8, !range !798, !noalias !1693, !noundef !13
-  %trunc.i = trunc i64 %21 to i1
+  %trunc.i = trunc nuw i64 %21 to i1
   %22 = load ptr, ptr %16, align 8, !noalias !1693
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1693
   %23 = ptrtoint ptr %22 to i64
@@ -10493,7 +10493,7 @@ default.unreachable:                              ; preds = %27
 
 29:                                               ; preds = %27
   %30 = lshr i64 %23, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   switch i32 %31, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -10633,7 +10633,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -10671,7 +10671,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -10808,7 +10808,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -10835,7 +10835,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h9f3510551377292fE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -10873,7 +10873,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -11010,7 +11010,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h9f3510551377292fE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -11037,7 +11037,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h4fc43dcd9214a51bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -11075,7 +11075,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -11212,7 +11212,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h4fc43dcd9214a51bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -11256,7 +11256,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1793
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %7, i64 noundef %.0.sroa.speculated.i.i), !noalias !1794
   %14 = load i64, ptr %6, align 8, !range !798, !noalias !1793, !noundef !13
-  %trunc.i = trunc i64 %14 to i1
+  %trunc.i = trunc nuw i64 %14 to i1
   %15 = load ptr, ptr %9, align 8, !noalias !1793
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1793
   %16 = ptrtoint ptr %15 to i64
@@ -11304,7 +11304,7 @@ default.unreachable:                              ; preds = %26
 
 28:                                               ; preds = %26
   %29 = lshr i64 %16, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   switch i32 %30, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -11442,7 +11442,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h51fdfec7e9a8e3dfE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -11480,7 +11480,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -11617,7 +11617,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h51fdfec7e9a8e3dfE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -11644,7 +11644,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17had914b02c3caa46eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %7 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc11 = trunc i64 %7 to i1
+  %trunc11 = trunc nuw i64 %7 to i1
   br i1 %trunc11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -11682,7 +11682,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -11819,7 +11819,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17had914b02c3caa46eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 32)
   %54 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %54 to i1
+  %trunc = trunc nuw i64 %54 to i1
   br i1 %trunc, label %15, label %._crit_edge
 
 55:                                               ; preds = %56, %31
@@ -11891,7 +11891,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h1ed6ff6acacafb3cE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hba6f4e38d734e88eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -11934,7 +11934,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h1ed6ff6acacafb3cE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hba6f4e38d734e88eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -11982,7 +11982,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h1ed6ff6acacafb3cE(ptr noal
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !1851
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h4fc43dcd9214a51bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1858
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !1851, !noundef !13
-  %trunc.i.i138 = trunc i64 %71 to i1
+  %trunc.i.i138 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !1851
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1851
   br i1 %trunc.i.i138, label %_ZN3std2io4Read8read_buf17h62c8854e1a1e1d1dE.exit, label %.loopexit.split
@@ -12027,7 +12027,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread87 [
     i32 0, label %.thread87.loopexit
     i32 1, label %.thread87.loopexit
@@ -12160,7 +12160,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1851
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h4fc43dcd9214a51bE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1858
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !1851, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !1851
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1851
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h62c8854e1a1e1d1dE.exit, label %.loopexit.split
@@ -12221,7 +12221,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h2814e273a2f29b35E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h4a64e4ba2f1536faE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -12264,7 +12264,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h2814e273a2f29b35E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h4a64e4ba2f1536faE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -12312,7 +12312,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h2814e273a2f29b35E(ptr noal
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !1878
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hb59be5d05b213a4eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1885
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !1878, !noundef !13
-  %trunc.i.i138 = trunc i64 %71 to i1
+  %trunc.i.i138 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !1878
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1878
   br i1 %trunc.i.i138, label %_ZN3std2io4Read8read_buf17hfb436f293f55668aE.exit, label %.loopexit.split
@@ -12357,7 +12357,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread87 [
     i32 0, label %.thread87.loopexit
     i32 1, label %.thread87.loopexit
@@ -12490,7 +12490,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1878
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hb59be5d05b213a4eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1885
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !1878, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !1878
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1878
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17hfb436f293f55668aE.exit, label %.loopexit.split
@@ -12551,7 +12551,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h33591eb6cbfe5f4eE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha10558cc67c0bdcfE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -12594,7 +12594,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h33591eb6cbfe5f4eE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha10558cc67c0bdcfE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -12642,7 +12642,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h33591eb6cbfe5f4eE
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !1905
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h9f3510551377292fE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1912
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !1905, !noundef !13
-  %trunc.i.i139 = trunc i64 %71 to i1
+  %trunc.i.i139 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !1905
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1905
   br i1 %trunc.i.i139, label %_ZN3std2io4Read8read_buf17haf9eee6638baa18cE.exit, label %.loopexit.split
@@ -12687,7 +12687,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread88 [
     i32 0, label %.thread88.loopexit
     i32 1, label %.thread88.loopexit
@@ -12820,7 +12820,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1905
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h9f3510551377292fE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1912
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !1905, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !1905
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1905
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17haf9eee6638baa18cE.exit, label %.loopexit.split
@@ -12888,7 +12888,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h4bb6b338ad8eb2b6E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h3425257a2951c5f0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %42 = load i64, ptr %10, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %42 to i1
+  %trunc = trunc nuw i64 %42 to i1
   %43 = getelementptr inbounds i8, ptr %10, i64 8
   %44 = load ptr, ptr %43, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -12937,7 +12937,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h4bb6b338ad8eb2b6E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h3425257a2951c5f0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %62 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %62 to i1
+  %trunc48 = trunc nuw i64 %62 to i1
   %63 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br i1 %trunc48, label %66, label %64
@@ -13128,7 +13128,7 @@ default.unreachable:                              ; preds = %129
 
 132:                                              ; preds = %129
   %133 = lshr i64 %130, 32
-  %134 = trunc i64 %133 to i32
+  %134 = trunc nuw i64 %133 to i32
   switch i32 %134, label %.thread71 [
     i32 0, label %.thread71.loopexit
     i32 1, label %.thread71.loopexit
@@ -13319,7 +13319,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h5b3f9e2e8cc1851aE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h3f609ad4c6c0876aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %37 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %37 to i1
+  %trunc = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -13368,7 +13368,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h5b3f9e2e8cc1851aE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h3f609ad4c6c0876aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %57 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %57 to i1
+  %trunc48 = trunc nuw i64 %57 to i1
   %58 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %61, label %59
@@ -13459,7 +13459,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 89:                                               ; preds = %.lr.ph
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   switch i32 %91, label %.thread70 [
     i32 0, label %.thread70.loopexit
     i32 1, label %.thread70.loopexit
@@ -13648,7 +13648,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h65da1756f069fdafE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h047590fc16f0a8e4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -13691,7 +13691,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h65da1756f069fdafE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h047590fc16f0a8e4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -13739,7 +13739,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17h65da1756f069fdafE
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !1982
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h524aef0de6f17ce8E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1989
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !1982, !noundef !13
-  %trunc.i.i139 = trunc i64 %71 to i1
+  %trunc.i.i139 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !1982
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1982
   br i1 %trunc.i.i139, label %_ZN3std2io4Read8read_buf17h4612fb72dba899f9E.exit, label %.loopexit.split
@@ -13784,7 +13784,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread88 [
     i32 0, label %.thread88.loopexit
     i32 1, label %.thread88.loopexit
@@ -13917,7 +13917,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !1982
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h524aef0de6f17ce8E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !1989
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !1982, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !1982
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1982
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h4612fb72dba899f9E.exit, label %.loopexit.split
@@ -13985,7 +13985,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h9f2b9be87c8c03e4E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h182c619e757a934aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %42 = load i64, ptr %10, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %42 to i1
+  %trunc = trunc nuw i64 %42 to i1
   %43 = getelementptr inbounds i8, ptr %10, i64 8
   %44 = load ptr, ptr %43, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -14034,7 +14034,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h9f2b9be87c8c03e4E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h182c619e757a934aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %62 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %62 to i1
+  %trunc48 = trunc nuw i64 %62 to i1
   %63 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br i1 %trunc48, label %66, label %64
@@ -14225,7 +14225,7 @@ default.unreachable:                              ; preds = %129
 
 132:                                              ; preds = %129
   %133 = lshr i64 %130, 32
-  %134 = trunc i64 %133 to i32
+  %134 = trunc nuw i64 %133 to i32
   switch i32 %134, label %.thread71 [
     i32 0, label %.thread71.loopexit
     i32 1, label %.thread71.loopexit
@@ -14416,7 +14416,7 @@ define hidden void @_ZN3std2io19default_read_to_end17ha3db60d4a451a817E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h2b931ea0a1282d22E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %37 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %37 to i1
+  %trunc = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -14465,7 +14465,7 @@ define hidden void @_ZN3std2io19default_read_to_end17ha3db60d4a451a817E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h2b931ea0a1282d22E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %57 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %57 to i1
+  %trunc48 = trunc nuw i64 %57 to i1
   %58 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %61, label %59
@@ -14556,7 +14556,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 89:                                               ; preds = %.lr.ph
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   switch i32 %91, label %.thread70 [
     i32 0, label %.thread70.loopexit
     i32 1, label %.thread70.loopexit
@@ -14747,7 +14747,7 @@ define hidden void @_ZN3std2io19default_read_to_end17ha95617e5d2498650E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h445e47942eaf092eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %37 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %37 to i1
+  %trunc = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -14796,7 +14796,7 @@ define hidden void @_ZN3std2io19default_read_to_end17ha95617e5d2498650E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h445e47942eaf092eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %57 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %57 to i1
+  %trunc48 = trunc nuw i64 %57 to i1
   %58 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %61, label %59
@@ -14887,7 +14887,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 89:                                               ; preds = %.lr.ph
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   switch i32 %91, label %.thread70 [
     i32 0, label %.thread70.loopexit
     i32 1, label %.thread70.loopexit
@@ -15076,7 +15076,7 @@ define hidden void @_ZN3std2io19default_read_to_end17had822048f10c8571E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h1c1fe07450f33546E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -15119,7 +15119,7 @@ define hidden void @_ZN3std2io19default_read_to_end17had822048f10c8571E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h1c1fe07450f33546E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -15167,7 +15167,7 @@ define hidden void @_ZN3std2io19default_read_to_end17had822048f10c8571E(ptr noal
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !2075
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h3f6b4236ba3eda48E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2082
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !2075, !noundef !13
-  %trunc.i.i138 = trunc i64 %71 to i1
+  %trunc.i.i138 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !2075
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2075
   br i1 %trunc.i.i138, label %_ZN3std2io4Read8read_buf17h4824f9e3550d75e6E.exit, label %.loopexit.split
@@ -15212,7 +15212,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread87 [
     i32 0, label %.thread87.loopexit
     i32 1, label %.thread87.loopexit
@@ -15345,7 +15345,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2075
   call void @"_ZN80_$LT$tiff..decoder..stream..PackBitsReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h3f6b4236ba3eda48E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2082
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !2075, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !2075
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2075
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h4824f9e3550d75e6E.exit, label %.loopexit.split
@@ -15406,7 +15406,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hb37acfba27c8f802E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hf5bf55a33bfb3c0fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -15449,7 +15449,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hb37acfba27c8f802E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hf5bf55a33bfb3c0fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -15497,7 +15497,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hb37acfba27c8f802E
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !2102
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17had914b02c3caa46eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2109
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !2102, !noundef !13
-  %trunc.i.i139 = trunc i64 %71 to i1
+  %trunc.i.i139 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !2102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2102
   br i1 %trunc.i.i139, label %_ZN3std2io4Read8read_buf17h2e9507f0009d69b8E.exit, label %.loopexit.split
@@ -15542,7 +15542,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread88 [
     i32 0, label %.thread88.loopexit
     i32 1, label %.thread88.loopexit
@@ -15675,7 +15675,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2102
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17had914b02c3caa46eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2109
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !2102, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !2102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2102
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h2e9507f0009d69b8E.exit, label %.loopexit.split
@@ -15736,7 +15736,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hb3ccebf0409d6bd6E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17he0efd7e8f8088ab4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -15779,7 +15779,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hb3ccebf0409d6bd6E(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17he0efd7e8f8088ab4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -15827,7 +15827,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hb3ccebf0409d6bd6E(ptr noal
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !2129
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h51fdfec7e9a8e3dfE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2136
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !2129, !noundef !13
-  %trunc.i.i138 = trunc i64 %71 to i1
+  %trunc.i.i138 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !2129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2129
   br i1 %trunc.i.i138, label %_ZN3std2io4Read8read_buf17h3ec6460dc07fa5baE.exit, label %.loopexit.split
@@ -15872,7 +15872,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread87 [
     i32 0, label %.thread87.loopexit
     i32 1, label %.thread87.loopexit
@@ -16005,7 +16005,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2129
   call void @"_ZN75_$LT$tiff..decoder..stream..LZWReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h51fdfec7e9a8e3dfE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2136
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !2129, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !2129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2129
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h3ec6460dc07fa5baE.exit, label %.loopexit.split
@@ -16068,7 +16068,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hb8111d9e44b98decE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h63ead08be4387ed2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %37 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %37 to i1
+  %trunc = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -16117,7 +16117,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hb8111d9e44b98decE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h63ead08be4387ed2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %57 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %57 to i1
+  %trunc48 = trunc nuw i64 %57 to i1
   %58 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %61, label %59
@@ -16208,7 +16208,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 89:                                               ; preds = %.lr.ph
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   switch i32 %91, label %.thread70 [
     i32 0, label %.thread70.loopexit
     i32 1, label %.thread70.loopexit
@@ -16399,7 +16399,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hba1eb250dd15d1feE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hcd1efec620a8ea9cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %37 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %37 to i1
+  %trunc = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -16448,7 +16448,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hba1eb250dd15d1feE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hcd1efec620a8ea9cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %57 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %57 to i1
+  %trunc48 = trunc nuw i64 %57 to i1
   %58 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %61, label %59
@@ -16539,7 +16539,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 89:                                               ; preds = %.lr.ph
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   switch i32 %91, label %.thread70 [
     i32 0, label %.thread70.loopexit
     i32 1, label %.thread70.loopexit
@@ -16730,7 +16730,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hd64ab436f9769d79E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h03d72758a4e6fea4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %37 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %37 to i1
+  %trunc = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -16779,7 +16779,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hd64ab436f9769d79E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h03d72758a4e6fea4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %57 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %57 to i1
+  %trunc48 = trunc nuw i64 %57 to i1
   %58 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %61, label %59
@@ -16870,7 +16870,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 89:                                               ; preds = %.lr.ph
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   switch i32 %91, label %.thread71 [
     i32 0, label %.thread71.loopexit
     i32 1, label %.thread71.loopexit
@@ -17059,7 +17059,7 @@ define hidden void @_ZN3std2io19default_read_to_end17he34e763953bad05eE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h8fcdaac06155ab31E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -17102,7 +17102,7 @@ define hidden void @_ZN3std2io19default_read_to_end17he34e763953bad05eE(ptr noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h8fcdaac06155ab31E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -17150,7 +17150,7 @@ define hidden void @_ZN3std2io19default_read_to_end17he34e763953bad05eE(ptr noal
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !2204
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2211
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !2204, !noundef !13
-  %trunc.i.i138 = trunc i64 %71 to i1
+  %trunc.i.i138 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !2204
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2204
   br i1 %trunc.i.i138, label %_ZN3std2io4Read8read_buf17h05723cb9e9fa912eE.exit, label %.loopexit.split
@@ -17195,7 +17195,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread87 [
     i32 0, label %.thread87.loopexit
     i32 1, label %.thread87.loopexit
@@ -17328,7 +17328,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2204
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2211
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !2204, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !2204
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2204
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h05723cb9e9fa912eE.exit, label %.loopexit.split
@@ -17389,7 +17389,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17he77326a0411e16e3E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h46f695b57590b7f0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %34 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %34 to i1
+  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %9, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -17432,7 +17432,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17he77326a0411e16e3E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h46f695b57590b7f0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %53 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %53 to i1
+  %trunc48 = trunc nuw i64 %53 to i1
   %54 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %57, label %55
@@ -17480,7 +17480,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17he77326a0411e16e3E
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %69, i1 false), !noalias !2231
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17hb6eb49bb6cd573ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2238
   %71 = load i64, ptr %7, align 8, !range !798, !noalias !2231, !noundef !13
-  %trunc.i.i139 = trunc i64 %71 to i1
+  %trunc.i.i139 = trunc nuw i64 %71 to i1
   %72 = load ptr, ptr %31, align 8, !noalias !2231
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2231
   br i1 %trunc.i.i139, label %_ZN3std2io4Read8read_buf17hdf6931ea7f08dd20E.exit, label %.loopexit.split
@@ -17525,7 +17525,7 @@ default.unreachable:                              ; preds = %79
 
 82:                                               ; preds = %79
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread88 [
     i32 0, label %.thread88.loopexit
     i32 1, label %.thread88.loopexit
@@ -17658,7 +17658,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2231
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17hb6eb49bb6cd573ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %66, i64 noundef %.0.sroa.speculated.i), !noalias !2238
   %111 = load i64, ptr %7, align 8, !range !798, !noalias !2231, !noundef !13
-  %trunc.i.i = trunc i64 %111 to i1
+  %trunc.i.i = trunc nuw i64 %111 to i1
   %112 = load ptr, ptr %31, align 8, !noalias !2231
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2231
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17hdf6931ea7f08dd20E.exit, label %.loopexit.split
@@ -17721,7 +17721,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hfa9e0c16f6ea9446E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h24acc36dd75c7151E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %37 = load i64, ptr %9, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %37 to i1
+  %trunc = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -17770,7 +17770,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end17hfa9e0c16f6ea9446E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h24acc36dd75c7151E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %57 = load i64, ptr %8, align 8, !range !798, !noundef !13
-  %trunc48 = trunc i64 %57 to i1
+  %trunc48 = trunc nuw i64 %57 to i1
   %58 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc48, label %61, label %59
@@ -17861,7 +17861,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 89:                                               ; preds = %.lr.ph
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   switch i32 %91, label %.thread71 [
     i32 0, label %.thread71.loopexit
     i32 1, label %.thread71.loopexit
@@ -18143,7 +18143,7 @@ define hidden void @_ZN3std2io21default_read_vectored17h5e139cc77c5abc50E(ptr no
   store i64 %26, ptr %.fca.1.gep.i.i.i, align 8, !noalias !2314
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i), !noalias !2325
   %28 = load i64, ptr %6, align 8, !range !798, !noalias !2314, !noundef !13
-  %trunc.i.i.i = trunc i64 %28 to i1
+  %trunc.i.i.i = trunc nuw i64 %28 to i1
   %29 = getelementptr inbounds i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !2314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2314
@@ -18370,7 +18370,7 @@ define hidden void @_ZN3std2io22inlined_slow_read_byte17h8c0f42b3dbe10b64E.llvm.
   store i64 %16, ptr %.fca.1.gep.i.i, align 8, !noalias !2357
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %6, i64 noundef 1), !noalias !2359
   %18 = load i64, ptr %5, align 8, !range !798, !noalias !2357, !noundef !13
-  %trunc.i.i112 = trunc i64 %18 to i1
+  %trunc.i.i112 = trunc nuw i64 %18 to i1
   %19 = load ptr, ptr %14, align 8, !noalias !2357
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2357
   %20 = ptrtoint ptr %19 to i64
@@ -18390,7 +18390,7 @@ define hidden void @_ZN3std2io22inlined_slow_read_byte17h8c0f42b3dbe10b64E.llvm.
   store i64 %21, ptr %.fca.1.gep.i.i, align 8, !noalias !2363
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %6, i64 noundef 1), !noalias !2365
   %23 = load i64, ptr %5, align 8, !range !798, !noalias !2363, !noundef !13
-  %trunc.i.i = trunc i64 %23 to i1
+  %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr %14, align 8, !noalias !2363
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2363
   %25 = ptrtoint ptr %24 to i64
@@ -18423,7 +18423,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 31:                                               ; preds = %.lr.ph
   %32 = lshr i64 %28, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   switch i32 %33, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -18559,7 +18559,7 @@ define hidden void @_ZN3std2io22inlined_slow_read_byte17hd6d231e93fa83047E.llvm.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void %8(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %.val10, ptr noalias noundef nonnull align 1 %5, i64 noundef 1)
   %9 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc17 = trunc i64 %9 to i1
+  %trunc17 = trunc nuw i64 %9 to i1
   br i1 %trunc17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -18589,7 +18589,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -18701,7 +18701,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void %8(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %.val10, ptr noalias noundef nonnull align 1 %5, i64 noundef 1)
   %39 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %39 to i1
+  %trunc = trunc nuw i64 %39 to i1
   br i1 %trunc, label %15, label %._crit_edge
 }
 
@@ -18716,7 +18716,7 @@ define hidden void @_ZN3std2io22inlined_slow_read_byte17he484400388092c81E.llvm.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val10, ptr noalias noundef nonnull align 1 %5, i64 noundef 1)
   %6 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc16 = trunc i64 %6 to i1
+  %trunc16 = trunc nuw i64 %6 to i1
   br i1 %trunc16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -18746,7 +18746,7 @@ default.unreachable:                              ; preds = %12
 
 15:                                               ; preds = %12
   %16 = lshr i64 %13, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   switch i32 %17, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -18858,7 +18858,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val10, ptr noalias noundef nonnull align 1 %5, i64 noundef 1)
   %36 = load i64, ptr %4, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %36 to i1
+  %trunc = trunc nuw i64 %36 to i1
   br i1 %trunc, label %12, label %._crit_edge
 }
 
@@ -18880,7 +18880,7 @@ define hidden noundef ptr @_ZN3std2io4Read10read_exact17h02b24e0d92614f8aE(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2408
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h524aef0de6f17ce8E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037.i, i64 noundef %.sroa.4.036.i)
   %10 = load i64, ptr %5, align 8, !range !798, !noalias !2408, !noundef !13
-  %trunc.i = trunc i64 %10 to i1
+  %trunc.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i, label %15, label %11
 
 11:                                               ; preds = %9
@@ -18905,7 +18905,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20.i.loopexit [
     i32 0, label %.thread20.i
     i32 1, label %.thread20.i
@@ -19076,7 +19076,7 @@ define hidden noundef ptr @_ZN3std2io4Read10read_exact17h0ff43c829dbd8cb6E(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2423
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h9f3510551377292fE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037.i, i64 noundef %.sroa.4.036.i)
   %10 = load i64, ptr %5, align 8, !range !798, !noalias !2423, !noundef !13
-  %trunc.i = trunc i64 %10 to i1
+  %trunc.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i, label %15, label %11
 
 11:                                               ; preds = %9
@@ -19101,7 +19101,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20.i.loopexit [
     i32 0, label %.thread20.i
     i32 1, label %.thread20.i
@@ -19266,7 +19266,7 @@ define hidden noundef ptr @_ZN3std2io4Read10read_exact17h1e3779873300446eE(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2439
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17hb6eb49bb6cd573ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037.i, i64 noundef %.sroa.4.036.i)
   %10 = load i64, ptr %5, align 8, !range !798, !noalias !2439, !noundef !13
-  %trunc.i = trunc i64 %10 to i1
+  %trunc.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i, label %15, label %11
 
 11:                                               ; preds = %9
@@ -19291,7 +19291,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20.i.loopexit [
     i32 0, label %.thread20.i
     i32 1, label %.thread20.i
@@ -19456,7 +19456,7 @@ define hidden noundef ptr @_ZN3std2io4Read10read_exact17h81e95a75d3676bc4E(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2455
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17had914b02c3caa46eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %.sroa.0.037.i, i64 noundef %.sroa.4.036.i)
   %10 = load i64, ptr %5, align 8, !range !798, !noalias !2455, !noundef !13
-  %trunc.i = trunc i64 %10 to i1
+  %trunc.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i, label %15, label %11
 
 11:                                               ; preds = %9
@@ -19481,7 +19481,7 @@ default.unreachable:                              ; preds = %15
 
 18:                                               ; preds = %15
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   switch i32 %20, label %.thread20.i.loopexit [
     i32 0, label %.thread20.i
     i32 1, label %.thread20.i
@@ -19720,7 +19720,7 @@ define hidden void @_ZN3std2io4Read13read_vectored17h051343cf7f578e87E(ptr noali
   %.val.i.i.i = load ptr, ptr %1, align 8, !alias.scope !2491, !noalias !2492, !nonnull !13, !align !371, !noundef !13
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i.i.i, ptr noalias noundef nonnull align 1 %.sroa.0.0.i.i, i64 noundef %.0.sroa.speculated.i.i.i.i), !noalias !2498
   %22 = load i64, ptr %6, align 8, !range !798, !noalias !2497, !noundef !13
-  %trunc.i.i.i = trunc i64 %22 to i1
+  %trunc.i.i.i = trunc nuw i64 %22 to i1
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = load ptr, ptr %23, align 8, !noalias !2497
   %.cast.i.i.i = ptrtoint ptr %24 to i64
@@ -19885,7 +19885,7 @@ define hidden void @"_ZN3std2io4Read13read_vectored28_$u7b$$u7b$closure$u7d$$u7d
   store i64 %15, ptr %.fca.1.gep.i.i, align 8, !noalias !2536
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %2, i64 noundef %3), !noalias !2546
   %17 = load i64, ptr %6, align 8, !range !798, !noalias !2536, !noundef !13
-  %trunc.i.i = trunc i64 %17 to i1
+  %trunc.i.i = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !2536
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2536
@@ -19985,7 +19985,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h7ff0871f9249919fE(p
   %22 = getelementptr inbounds i8, ptr %9, i64 %14
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17had914b02c3caa46eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %22, i64 noundef %21), !noalias !2549
   %23 = load i64, ptr %5, align 8, !range !798, !noalias !2559, !noundef !13
-  %trunc.i.i = trunc i64 %23 to i1
+  %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr %11, align 8, !noalias !2559
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2559
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h2e9507f0009d69b8E.exit, label %26
@@ -20022,7 +20022,7 @@ default.unreachable:                              ; preds = %29
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   switch i32 %34, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -20170,7 +20170,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h909172df1b6439f0E(p
   %22 = getelementptr inbounds i8, ptr %9, i64 %14
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17hb6eb49bb6cd573ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %22, i64 noundef %21), !noalias !2576
   %23 = load i64, ptr %5, align 8, !range !798, !noalias !2586, !noundef !13
-  %trunc.i.i = trunc i64 %23 to i1
+  %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr %11, align 8, !noalias !2586
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2586
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17hdf6931ea7f08dd20E.exit, label %26
@@ -20207,7 +20207,7 @@ default.unreachable:                              ; preds = %29
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   switch i32 %34, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -20350,7 +20350,7 @@ default.unreachable:                              ; preds = %17
 
 20:                                               ; preds = %17
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -20499,7 +20499,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17he1918c2a3f684d18E(p
   %22 = getelementptr inbounds i8, ptr %9, i64 %14
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h524aef0de6f17ce8E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %22, i64 noundef %21), !noalias !2613
   %23 = load i64, ptr %5, align 8, !range !798, !noalias !2623, !noundef !13
-  %trunc.i.i = trunc i64 %23 to i1
+  %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr %11, align 8, !noalias !2623
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2623
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17h4612fb72dba899f9E.exit, label %26
@@ -20536,7 +20536,7 @@ default.unreachable:                              ; preds = %29
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   switch i32 %34, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -20684,7 +20684,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17hef1e28595895e2eaE(p
   %22 = getelementptr inbounds i8, ptr %9, i64 %14
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h9f3510551377292fE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %22, i64 noundef %21), !noalias !2640
   %23 = load i64, ptr %5, align 8, !range !798, !noalias !2650, !noundef !13
-  %trunc.i.i = trunc i64 %23 to i1
+  %trunc.i.i = trunc nuw i64 %23 to i1
   %24 = load ptr, ptr %11, align 8, !noalias !2650
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2650
   br i1 %trunc.i.i, label %_ZN3std2io4Read8read_buf17haf9eee6638baa18cE.exit, label %26
@@ -20721,7 +20721,7 @@ default.unreachable:                              ; preds = %29
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   switch i32 %34, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -20864,7 +20864,7 @@ default.unreachable:                              ; preds = %17
 
 20:                                               ; preds = %17
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -21522,7 +21522,7 @@ define hidden noundef ptr @_ZN3std2io4Read8read_buf17h2e9507f0009d69b8E(ptr noal
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17had914b02c3caa46eE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18), !noalias !2731
   %20 = load i64, ptr %4, align 8, !range !798, !noalias !2734, !noundef !13
-  %trunc.i = trunc i64 %20 to i1
+  %trunc.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !2734
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2734
@@ -21577,7 +21577,7 @@ define hidden noundef ptr @_ZN3std2io4Read8read_buf17h4612fb72dba899f9E(ptr noal
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h524aef0de6f17ce8E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18), !noalias !2743
   %20 = load i64, ptr %4, align 8, !range !798, !noalias !2746, !noundef !13
-  %trunc.i = trunc i64 %20 to i1
+  %trunc.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !2746
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2746
@@ -21632,7 +21632,7 @@ define hidden noundef ptr @_ZN3std2io4Read8read_buf17haf9eee6638baa18cE(ptr noal
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h9f3510551377292fE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18), !noalias !2755
   %20 = load i64, ptr %4, align 8, !range !798, !noalias !2758, !noundef !13
-  %trunc.i = trunc i64 %20 to i1
+  %trunc.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !2758
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2758
@@ -21687,7 +21687,7 @@ define hidden noundef ptr @_ZN3std2io4Read8read_buf17hdf6931ea7f08dd20E(ptr noal
   %19 = getelementptr inbounds i8, ptr %5, i64 %15
   call void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17hb6eb49bb6cd573ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %19, i64 noundef %18), !noalias !2767
   %20 = load i64, ptr %4, align 8, !range !798, !noalias !2770, !noundef !13
-  %trunc.i = trunc i64 %20 to i1
+  %trunc.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !2770
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2770
@@ -21903,7 +21903,7 @@ default.unreachable:                              ; preds = %62
 
 65:                                               ; preds = %62
   %66 = lshr i64 %63, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   switch i32 %67, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -22174,7 +22174,7 @@ default.unreachable:                              ; preds = %58
 
 61:                                               ; preds = %58
   %62 = lshr i64 %59, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   switch i32 %63, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -22330,7 +22330,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h75a3ed6b7de6eb86E.llvm.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2852
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %6, i64 noundef 8192), !noalias !2861
   %19 = load i64, ptr %5, align 8, !range !798, !noalias !2852, !noundef !13
-  %trunc.i.i.i.i.i.i.us195 = trunc i64 %19 to i1
+  %trunc.i.i.i.i.i.i.us195 = trunc nuw i64 %19 to i1
   %20 = load ptr, ptr %9, align 8, !noalias !2852
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2852
   br i1 %trunc.i.i.i.i.i.i.us195, label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$8read_buf17h7a1100c5a653a0dbE.exit.i.us", label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$8read_buf17h7a1100c5a653a0dbE.exit.thread.i.split.us"
@@ -22374,7 +22374,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h75a3ed6b7de6eb86E.llvm.
 
 36:                                               ; preds = %23
   %37 = lshr i64 %24, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   switch i32 %38, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -22440,7 +22440,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.us: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2876
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %6, i64 noundef 8192), !noalias !2882
   %42 = load i64, ptr %5, align 8, !range !798, !noalias !2876, !noundef !13
-  %trunc.i.i.i.i.i.i.us = trunc i64 %42 to i1
+  %trunc.i.i.i.i.i.i.us = trunc nuw i64 %42 to i1
   %43 = load ptr, ptr %9, align 8, !noalias !2876
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2876
   br i1 %trunc.i.i.i.i.i.i.us, label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$8read_buf17h7a1100c5a653a0dbE.exit.i.us", label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$8read_buf17h7a1100c5a653a0dbE.exit.thread.i.split.us"
@@ -22476,7 +22476,7 @@ default.unreachable:                              ; preds = %60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2900
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %6, i64 noundef %15), !noalias !2909
   %49 = load i64, ptr %4, align 8, !range !798, !noalias !2900, !noundef !13
-  %trunc.i.i.i.i.i54.i135 = trunc i64 %49 to i1
+  %trunc.i.i.i.i.i54.i135 = trunc nuw i64 %49 to i1
   %50 = load ptr, ptr %8, align 8, !noalias !2900
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2900
   br i1 %trunc.i.i.i.i.i54.i135, label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$8read_buf17h7a1100c5a653a0dbE.exit57.i", label %.split.us121
@@ -22540,7 +22540,7 @@ default.unreachable:                              ; preds = %60
 
 63:                                               ; preds = %60
   %64 = lshr i64 %61, 32
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw i64 %64 to i32
   switch i32 %65, label %.thread [
     i32 0, label %.thread.loopexit401
     i32 1, label %.thread.loopexit401
@@ -22658,7 +22658,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2931
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %6, i64 noundef %15), !noalias !2934
   %84 = load i64, ptr %4, align 8, !range !798, !noalias !2931, !noundef !13
-  %trunc.i.i.i.i.i54.i = trunc i64 %84 to i1
+  %trunc.i.i.i.i.i54.i = trunc nuw i64 %84 to i1
   %85 = load ptr, ptr %8, align 8, !noalias !2931
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2931
   br i1 %trunc.i.i.i.i.i54.i, label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$8read_buf17h7a1100c5a653a0dbE.exit57.i", label %.split.us121
@@ -22820,7 +22820,7 @@ default.unreachable:                              ; preds = %63
 
 66:                                               ; preds = %63
   %67 = lshr i64 %64, 32
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw i64 %67 to i32
   switch i32 %68, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -22987,7 +22987,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 20:                                               ; preds = %.lr.ph
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -23154,7 +23154,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 20:                                               ; preds = %.lr.ph
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -23460,7 +23460,7 @@ _ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit: ; preds = %"_ZN110_
   call void @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..Write$GT$14write_vectored17h2aea4ee14d91b740E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 4 dereferenceable(4) %45, ptr noalias noundef nonnull readonly align 8 %.sroa.0.247, i64 noundef %.sroa.8.246), !noalias !3004
   store i8 0, ptr %48, align 8, !alias.scope !3015, !noalias !3030
   %.pre = load i64, ptr %9, align 8, !range !798
-  %trunc = trunc i64 %.pre to i1
+  %trunc = trunc nuw i64 %.pre to i1
   br i1 %trunc, label %78, label %thread-pre-split
 
 .loopexit:                                        ; preds = %123, %3, %_ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit, %.loopexit29
@@ -23494,7 +23494,7 @@ default.unreachable:                              ; preds = %78
 
 82:                                               ; preds = %78
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   switch i32 %84, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %.thread.loopexit
@@ -23792,7 +23792,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1866b5fe5e7a2903E(ptr no
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !3073
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3071
   %43 = inttoptr i64 %.sroa.7.0.copyload to ptr
-  %trunc.i = trunc i64 %.sroa.0.0.copyload to i1
+  %trunc.i = trunc nuw i64 %.sroa.0.0.copyload to i1
   br i1 %trunc.i, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit", label %49
 
 .sink.split:                                      ; preds = %26, %"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_cold17h44ddcdec382dda78E.exit.thread22"
@@ -23898,7 +23898,7 @@ default.unreachable:                              ; preds = %77
 
 80:                                               ; preds = %77
   %81 = lshr i64 %.pre-phi, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   switch i32 %82, label %.thread51 [
     i32 0, label %.thread51.loopexit
     i32 1, label %.thread51.loopexit
@@ -24138,7 +24138,7 @@ default.unreachable:                              ; preds = %"_ZN76_$LT$flate2..
 
 59:                                               ; preds = %"_ZN76_$LT$flate2..zlib..write..ZlibEncoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17hc0e7879ad0656c7cE.exit.thread"
   %60 = lshr i64 %.in, 32
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw i64 %60 to i32
   switch i32 %61, label %.thread37 [
     i32 0, label %.thread37.loopexit
     i32 1, label %.thread37.loopexit
@@ -24405,7 +24405,7 @@ default.unreachable:                              ; preds = %69
 
 72:                                               ; preds = %69
   %73 = lshr i64 %.pre-phi, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   switch i32 %74, label %.thread37 [
     i32 0, label %.thread37.loopexit
     i32 1, label %.thread37.loopexit
@@ -24674,7 +24674,7 @@ default.unreachable:                              ; preds = %70
 
 73:                                               ; preds = %70
   %74 = lshr i64 %.pre-phi, 32
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw i64 %74 to i32
   switch i32 %75, label %.thread38 [
     i32 0, label %.thread38.loopexit
     i32 1, label %.thread38.loopexit
@@ -25805,7 +25805,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3438
   call void @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..Write$GT$5write17h1278f0f4fd3c8227E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 4 dereferenceable(4) %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.036.i, i64 noundef %.sroa.4.035.i)
   %29 = load i64, ptr %5, align 8, !range !798, !noalias !3438, !noundef !13
-  %trunc.i = trunc i64 %29 to i1
+  %trunc.i = trunc nuw i64 %29 to i1
   br i1 %trunc.i, label %34, label %30
 
 30:                                               ; preds = %28
@@ -25830,7 +25830,7 @@ default.unreachable:                              ; preds = %34
 
 37:                                               ; preds = %34
   %38 = lshr i64 %35, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   switch i32 %39, label %.thread24.i.loopexit [
     i32 0, label %.thread24.i
     i32 1, label %.thread24.i
@@ -26038,7 +26038,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h00158bf8d74aa00cE.exit": ; preds = %25
   %.pr = load i64, ptr %3, align 8
   store i8 0, ptr %8, align 8
-  %trunc = trunc i64 %.pr to i1
+  %trunc = trunc nuw i64 %.pr to i1
   br i1 %trunc, label %36, label %26
 
 26:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17h00158bf8d74aa00cE.exit"
@@ -26079,7 +26079,7 @@ default.unreachable:                              ; preds = %36
 
 39:                                               ; preds = %36
   %40 = lshr i64 %37, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   switch i32 %41, label %.thread15 [
     i32 0, label %.thread15.loopexit
     i32 1, label %.thread15.loopexit
@@ -26432,7 +26432,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
 19:                                               ; preds = %16
   store i8 0, ptr %8, align 8
   %20 = load i64, ptr %3, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %20 to i1
+  %trunc = trunc nuw i64 %20 to i1
   br i1 %trunc, label %24, label %21
 
 21:                                               ; preds = %19
@@ -26456,7 +26456,7 @@ default.unreachable:                              ; preds = %24
 
 27:                                               ; preds = %24
   %28 = lshr i64 %25, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   switch i32 %29, label %.thread11 [
     i32 0, label %.thread11.loopexit
     i32 1, label %.thread11.loopexit
@@ -26884,13 +26884,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h595ced2c9fba2
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc i32 %1 to i8
+  %10 = trunc nuw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !3545
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !3545
   %15 = trunc i32 %1 to i8
@@ -26902,7 +26902,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h595ced2c9fba2
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc i32 %20 to i8
+  %21 = trunc nuw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !3545
   %23 = lshr i32 %1, 6
@@ -26968,13 +26968,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hc4b58489136c6
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !3548
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !3548
   %16 = trunc i32 %1 to i8
@@ -26986,7 +26986,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hc4b58489136c6
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !3548
   %24 = lshr i32 %1, 6
@@ -27094,13 +27094,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hdf1b7176a2aa2
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !3570
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !3570
   %16 = trunc i32 %1 to i8
@@ -27112,7 +27112,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hdf1b7176a2aa2
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !3570
   %24 = lshr i32 %1, 6
@@ -28309,7 +28309,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h14f0533cd86041dbE(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h5c9ad26184f41bedE(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
   %2 = load i8, ptr %0, align 8, !range !453, !alias.scope !3950, !noundef !13
-  %trunc.i = trunc i8 %2 to i1
+  %trunc.i = trunc nuw i8 %2 to i1
   %.sroa.3.0.i = select i1 %trunc.i, ptr @anon.f6d9434fcf4bddc9e50dec3b041c07d1.105, ptr @anon.f6d9434fcf4bddc9e50dec3b041c07d1.107
   %.sroa.0.0.v.i = select i1 %trunc.i, i64 8, i64 1
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.v.i
@@ -28735,7 +28735,7 @@ define hidden void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$G
   store i64 %21, ptr %.fca.1.gep.i.i.i, align 8, !noalias !4018
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %2, i64 noundef %.0.sroa.speculated.i), !noalias !4033
   %23 = load i64, ptr %6, align 8, !range !798, !noalias !4018, !noundef !13
-  %trunc.i.i.i = trunc i64 %23 to i1
+  %trunc.i.i.i = trunc nuw i64 %23 to i1
   %24 = getelementptr inbounds i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8, !noalias !4018
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !4018
@@ -28809,7 +28809,7 @@ define internal fastcc void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..i
   %.val.i = load ptr, ptr %1, align 8, !alias.scope !4034, !noalias !4037, !nonnull !13, !align !371, !noundef !13
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val.i, ptr noalias noundef nonnull align 1 %2, i64 noundef %.0.sroa.speculated.i.i), !noalias !4041
   %17 = load i64, ptr %6, align 8, !range !798, !noalias !4040, !noundef !13
-  %trunc.i = trunc i64 %17 to i1
+  %trunc.i = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !4040
   %.cast.i = ptrtoint ptr %19 to i64
@@ -28892,7 +28892,7 @@ define hidden void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$G
   %.val = load ptr, ptr %1, align 8, !nonnull !13, !align !371, !noundef !13
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val, ptr noalias noundef nonnull align 1 %2, i64 noundef %.0.sroa.speculated.i)
   %12 = load i64, ptr %6, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %12 to i1
+  %trunc = trunc nuw i64 %12 to i1
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   %.cast = ptrtoint ptr %14 to i64
@@ -29100,7 +29100,7 @@ define hidden noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io.
   %26 = getelementptr inbounds i8, ptr %17, i64 %13
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val51, ptr noalias noundef nonnull align 1 %26, i64 noundef %14), !noalias !4060
   %27 = load i64, ptr %5, align 8, !range !798, !noalias !4057, !noundef !13
-  %trunc.i.i.i = trunc i64 %27 to i1
+  %trunc.i.i.i = trunc nuw i64 %27 to i1
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !4057
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4057
@@ -29148,7 +29148,7 @@ define hidden noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io.
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 0, i64 %43, i1 false), !noalias !4071
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val, ptr noalias noundef nonnull align 1 %42, i64 noundef %7), !noalias !4080
   %45 = load i64, ptr %4, align 8, !range !798, !noalias !4071, !noundef !13
-  %trunc.i.i.i54 = trunc i64 %45 to i1
+  %trunc.i.i.i54 = trunc nuw i64 %45 to i1
   %46 = getelementptr inbounds i8, ptr %4, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !4071
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !4071
@@ -30160,7 +30160,7 @@ define hidden void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE.llvm.760294
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !4268
   %12 = trunc i32 %1 to i8
@@ -30172,7 +30172,7 @@ define hidden void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE.llvm.760294
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !4268
   %19 = lshr i32 %1, 6
@@ -30240,7 +30240,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !4281, !noundef !13
   %58 = load i64, ptr %0, align 8, !alias.scope !4281, !noundef !13
@@ -30854,14 +30854,14 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   %7 = alloca { i64, [1 x i64] }, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 48
   %9 = load i8, ptr %8, align 8, !range !453, !noundef !13
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$13read_vectored17hf49c39470ca27531E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3)
   %12 = load i64, ptr %7, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %12 to i1
+  %trunc = trunc nuw i64 %12 to i1
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   %.sroa.6.0 = ptrtoint ptr %14 to i64
@@ -30918,7 +30918,7 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4425
   call void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h686ecdb09b8c9fe0E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 1 %.sroa.0.0.i.i.i, i64 noundef %.0.sroa.speculated.i.i.i.i.i), !noalias !4423
   %32 = load i64, ptr %6, align 8, !range !798, !noalias !4425, !noundef !13
-  %trunc.i.i.i.i = trunc i64 %32 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %32 to i1
   %33 = getelementptr inbounds i8, ptr %6, i64 8
   %34 = load ptr, ptr %33, align 8, !noalias !4425
   %.cast.i.i.i.i = ptrtoint ptr %34 to i64
@@ -31006,14 +31006,14 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   %5 = alloca { i64, [1 x i64] }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i8, ptr %6, align 8, !range !453, !noundef !13
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$13read_vectored17hf49c39470ca27531E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3)
   %10 = load i64, ptr %5, align 8, !range !798, !noundef !13
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %.sroa.6.0 = ptrtoint ptr %12 to i64
@@ -31098,7 +31098,7 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   %6 = alloca { i64, [1 x i64] }, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 48
   %8 = load i8, ptr %7, align 8, !range !453, !noundef !13
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %4
@@ -31127,7 +31127,7 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   store i64 %19, ptr %.fca.1.gep.i, align 8, !noalias !4449
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %2, i64 noundef %3), !noalias !4458
   %21 = load i64, ptr %6, align 8, !range !798, !noalias !4449, !noundef !13
-  %trunc.i = trunc i64 %21 to i1
+  %trunc.i = trunc nuw i64 %21 to i1
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8, !noalias !4449
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !4449
@@ -31179,7 +31179,7 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 48
   %10 = load i8, ptr %9, align 8, !range !453, !noundef !13
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %27, label %12
 
 12:                                               ; preds = %4
@@ -31208,7 +31208,7 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   store i64 %21, ptr %.fca.1.gep.i, align 8, !noalias !4462
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3), !noalias !4471
   %23 = load i64, ptr %8, align 8, !range !798, !noalias !4462, !noundef !13
-  %trunc.i = trunc i64 %23 to i1
+  %trunc.i = trunc nuw i64 %23 to i1
   %24 = getelementptr inbounds i8, ptr %8, i64 8
   %25 = load ptr, ptr %24, align 8, !noalias !4462
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !4462
@@ -31234,7 +31234,7 @@ define hidden void @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..R
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4480
   call void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h686ecdb09b8c9fe0E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %33, ptr noalias noundef nonnull align 1 %2, i64 noundef %.0.sroa.speculated.i.i), !noalias !4472
   %34 = load i64, ptr %6, align 8, !range !798, !noalias !4480, !noundef !13
-  %trunc.i4 = trunc i64 %34 to i1
+  %trunc.i4 = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %6, i64 8
   %36 = load ptr, ptr %35, align 8, !noalias !4480
   %.cast.i = ptrtoint ptr %36 to i64
@@ -31616,7 +31616,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h1a62267
 
 48:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h0b84c4dfd297a5e5E.exit"
   %.sroa.414.0.extract.shift = lshr i64 %44, 32
-  %.sroa.5.4.extract.trunc = trunc i64 %.sroa.414.0.extract.shift to i32
+  %.sroa.5.4.extract.trunc = trunc nuw i64 %.sroa.414.0.extract.shift to i32
   %49 = call noundef nonnull ptr @"_ZN6flate23mem107_$LT$impl$u20$core..convert..From$LT$flate2..mem..DecompressError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6d09cd0dc2fa76faE"(i32 noundef %.sroa.013.0.extract.trunc, i32 %.sroa.5.4.extract.trunc)
   br label %.loopexit
 
@@ -31685,7 +31685,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h5d543d2
   call void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_cold17h44ddcdec382dda78E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %17), !noalias !4517
   %.pre.i = load i64, ptr %3, align 8, !range !798, !noalias !4514
   %.pre14.i = load ptr, ptr %7, align 8, !noalias !4514
-  %trunc.i = trunc i64 %.pre.i to i1
+  %trunc.i = trunc nuw i64 %.pre.i to i1
   %.cast.i = ptrtoint ptr %.pre14.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4514
   br i1 %trunc.i, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit", label %34
@@ -31738,7 +31738,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h5d543d2
 
 53:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread"
   %.sroa.414.0.extract.shift = lshr i64 %49, 32
-  %.sroa.5.4.extract.trunc = trunc i64 %.sroa.414.0.extract.shift to i32
+  %.sroa.5.4.extract.trunc = trunc nuw i64 %.sroa.414.0.extract.shift to i32
   %54 = call noundef nonnull ptr @"_ZN6flate23mem107_$LT$impl$u20$core..convert..From$LT$flate2..mem..DecompressError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6d09cd0dc2fa76faE"(i32 noundef %.sroa.013.0.extract.trunc, i32 %.sroa.5.4.extract.trunc)
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17hf2399231378b57ceE.exit.thread18"
 
@@ -31830,7 +31830,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h6ed3369
 
 42:                                               ; preds = %.loopexit
   %.sroa.414.0.extract.shift = lshr i64 %38, 32
-  %.sroa.5.4.extract.trunc = trunc i64 %.sroa.414.0.extract.shift to i32
+  %.sroa.5.4.extract.trunc = trunc nuw i64 %.sroa.414.0.extract.shift to i32
   %43 = call noundef nonnull ptr @"_ZN6flate23mem107_$LT$impl$u20$core..convert..From$LT$flate2..mem..DecompressError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6d09cd0dc2fa76faE"(i32 noundef %.sroa.013.0.extract.trunc, i32 %.sroa.5.4.extract.trunc)
   br label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h6b6d39b1b2a24a1cE.exit"
 
@@ -31928,7 +31928,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17he0da846
 
 47:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17ha8fd7b7c85eb5c3fE.exit"
   %.sroa.414.0.extract.shift = lshr i64 %43, 32
-  %.sroa.5.4.extract.trunc = trunc i64 %.sroa.414.0.extract.shift to i32
+  %.sroa.5.4.extract.trunc = trunc nuw i64 %.sroa.414.0.extract.shift to i32
   %48 = call noundef nonnull ptr @"_ZN6flate23mem107_$LT$impl$u20$core..convert..From$LT$flate2..mem..DecompressError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6d09cd0dc2fa76faE"(i32 noundef %.sroa.013.0.extract.trunc, i32 %.sroa.5.4.extract.trunc)
   br label %.loopexit
 
@@ -32491,7 +32491,7 @@ define hidden void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4671
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull align 1 null, i64 noundef %.pre6.i.i), !noalias !4673
   %19 = load i64, ptr %5, align 8, !range !798, !noalias !4671, !noundef !13
-  %trunc.i.i.us = trunc i64 %19 to i1
+  %trunc.i.i.us = trunc nuw i64 %19 to i1
   %20 = load ptr, ptr %10, align 8, !noalias !4671
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4671
   br i1 %trunc.i.i.us, label %"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17hf7865aa9715e3ca6E.exit.thread.i", label %.thread.i.i.us
@@ -32524,7 +32524,7 @@ define hidden void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4671
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h8c005808a9944566E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull align 1 %.pre.i.i.fr, i64 noundef %.pre6.i.i), !noalias !4673
   %31 = load i64, ptr %5, align 8, !range !798, !noalias !4671, !noundef !13
-  %trunc.i.i = trunc i64 %31 to i1
+  %trunc.i.i = trunc nuw i64 %31 to i1
   %32 = load ptr, ptr %10, align 8, !noalias !4671
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4671
   br i1 %trunc.i.i, label %"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17hf7865aa9715e3ca6E.exit.thread.i", label %.thread.i.i
@@ -32669,7 +32669,7 @@ define hidden void @"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$a
   store i64 %15, ptr %.fca.1.gep.i, align 8, !noalias !4693
   call void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h3c9b945f6c5126f3E.llvm.98706352026558795"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %2, i64 noundef %3), !noalias !4701
   %17 = load i64, ptr %6, align 8, !range !798, !noalias !4693, !noundef !13
-  %trunc.i = trunc i64 %17 to i1
+  %trunc.i = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !4693
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !4693
@@ -32771,7 +32771,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4716
   call void @"_ZN64_$LT$std..sys..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17hc551fcdb92d4f4b1E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.036.i, i64 noundef %.sroa.4.035.i)
   %12 = load i64, ptr %6, align 8, !range !798, !noalias !4716, !noundef !13
-  %trunc.i = trunc i64 %12 to i1
+  %trunc.i = trunc nuw i64 %12 to i1
   br i1 %trunc.i, label %17, label %13
 
 13:                                               ; preds = %11
@@ -32796,7 +32796,7 @@ default.unreachable:                              ; preds = %17
 
 20:                                               ; preds = %17
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   switch i32 %22, label %.thread24.i.loopexit [
     i32 0, label %.thread24.i
     i32 1, label %.thread24.i
@@ -35287,7 +35287,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br i1 %76, label %77, label %72
 
 77:                                               ; preds = %73
-  %78 = trunc i64 %.sroa.09.072 to i8
+  %78 = trunc nuw i64 %.sroa.09.072 to i8
   %79 = xor i8 %78, 7
   %80 = shl nuw i8 1, %79
   %81 = or i8 %80, %.03573
@@ -35496,7 +35496,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br i1 %76, label %77, label %72
 
 77:                                               ; preds = %73
-  %78 = trunc i64 %.sroa.09.072 to i8
+  %78 = trunc nuw i64 %.sroa.09.072 to i8
   %79 = xor i8 %78, 7
   %80 = shl nuw i8 1, %79
   %81 = or i8 %80, %.03573
@@ -35744,9 +35744,9 @@ define { i32, i32 } @_ZN5image9animation5Delay24from_saturating_duration17h0f915
   %12 = zext i32 %1 to i128
   %13 = add nuw nsw i128 %11, %12
   %14 = urem i128 %13, 1000000
-  %15 = trunc i128 %14 to i32
-  %16 = trunc i128 %.0.sroa.speculated.i to i32
-  %17 = trunc i128 %14 to i64
+  %15 = trunc nuw nsw i128 %14 to i32
+  %16 = trunc nuw i128 %.0.sroa.speculated.i to i32
+  %17 = trunc nuw nsw i128 %14 to i64
   %18 = icmp ugt i32 %15, 500000
   %19 = zext i32 %.0 to i64
   %20 = select i1 %18, i64 1000000, i64 0
@@ -35860,7 +35860,7 @@ _ZN5image9animation5Delay19from_numer_denom_ms17h0f28b4a3090a9b4cE.exit: ; preds
   ret { i32, i32 } %61
 
 62:                                               ; preds = %2
-  %63 = trunc i128 %.0.sroa.speculated.i to i64
+  %63 = trunc nuw nsw i128 %.0.sroa.speculated.i to i64
   %.rhs.trunc = add nuw nsw i64 %63, 1
   %64 = udiv i64 4294967296, %.rhs.trunc
   %65 = trunc i64 %64 to i32

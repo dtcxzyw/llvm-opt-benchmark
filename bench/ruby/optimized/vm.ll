@@ -1814,7 +1814,7 @@ define internal fastcc void @vm_setinstancevariable(i64 noundef %0, i64 noundef 
 10:                                               ; preds = %4
   %.val = load i64, ptr %3, align 8
   %11 = lshr i64 %.val, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = trunc i64 %.val to i32
   %14 = add i32 %13, -1
   %15 = inttoptr i64 %0 to ptr
@@ -1825,7 +1825,7 @@ define internal fastcc void @vm_setinstancevariable(i64 noundef %0, i64 noundef 
 
 18:                                               ; preds = %10
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %21 = icmp eq i64 %19, %11
   br i1 %21, label %44, label %22
 
@@ -7165,7 +7165,7 @@ VM_EP_LEP.exit2238:                               ; preds = %.lr.ph.i2233, %302
   %337 = inttoptr i64 %331 to ptr
   %338 = load i64, ptr %337, align 8
   %339 = lshr i64 %338, 32
-  %340 = trunc i64 %339 to i32
+  %340 = trunc nuw i64 %339 to i32
   %341 = trunc i64 %338 to i32
   %342 = and i32 %341, 31
   switch i32 %342, label %353 [
@@ -7213,7 +7213,7 @@ ROBJECT_IVPTR.exit.i:                             ; preds = %355, %rb_ractor_mai
   %.058.i = phi ptr [ %358, %355 ], [ %352, %rb_ractor_main_p.exit.thread.i ], [ %347, %346 ], [ %345, %343 ]
   %.val.i = load i64, ptr %326, align 8
   %359 = lshr i64 %.val.i, 32
-  %360 = trunc i64 %359 to i32
+  %360 = trunc nuw i64 %359 to i32
   store i32 %360, ptr %8, align 4
   %361 = trunc i64 %.val.i to i32
   %362 = add i32 %361, -1
@@ -8831,7 +8831,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %1249 = inttoptr i64 %1243 to ptr
   %1250 = load i64, ptr %1249, align 8
   %1251 = lshr i64 %1250, 32
-  %1252 = trunc i64 %1251 to i32
+  %1252 = trunc nuw i64 %1251 to i32
   %1253 = trunc i64 %1250 to i32
   %1254 = and i32 %1253, 31
   switch i32 %1254, label %1265 [
@@ -8879,7 +8879,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %1258, %1255, %rb_ra
   %.02110 = phi ptr [ %1270, %1267 ], [ %1264, %rb_ractor_main_p.exit.thread ], [ %1259, %1258 ], [ %1257, %1255 ]
   %.val2182 = load i64, ptr %1236, align 8
   %1271 = lshr i64 %.val2182, 32
-  %1272 = trunc i64 %1271 to i32
+  %1272 = trunc nuw i64 %1271 to i32
   store i32 %1272, ptr %13, align 4
   %1273 = trunc i64 %.val2182 to i32
   %1274 = add i32 %1273, -1
@@ -9121,7 +9121,7 @@ vm_check_match.exit:                              ; preds = %RARRAY_AREF.exit, %
 1387:                                             ; preds = %1385
   %1388 = lshr i64 %1383, 1
   %1389 = trunc i64 %1388 to i32
-  %1390 = trunc i64 %1375 to i32
+  %1390 = trunc nuw i64 %1375 to i32
   %1391 = shl nuw nsw i32 1, %1390
   %1392 = and i32 %1391, %1389
   %.not10.i = icmp eq i32 %1392, 0
@@ -9188,7 +9188,7 @@ vm_check_keyword.exit:                            ; preds = %1387, %1393, %1397
   br label %rb_type.exit
 
 switch.hole_check:                                ; preds = %1420
-  %switch.maskindex = trunc i64 %1421 to i16
+  %switch.maskindex = trunc nuw i64 %1421 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %1423
@@ -9834,7 +9834,7 @@ rb_type.exit.i:                                   ; preds = %1689
   br label %rb_class_of.exit.i.i
 
 switch.hole_check3155:                            ; preds = %1706
-  %switch.maskindex3157 = trunc i64 %1707 to i16
+  %switch.maskindex3157 = trunc nuw i64 %1707 to i16
   %switch.shifted3158 = lshr i16 547, %switch.maskindex3157
   %switch.lobit3159 = trunc i16 %switch.shifted3158 to i1
   br i1 %switch.lobit3159, label %switch.lookup3156, label %1709
@@ -10992,7 +10992,7 @@ rb_float_value_inline.exit30.i:                   ; preds = %2281, %2275, %2274
 
 2287:                                             ; preds = %rb_float_value_inline.exit30.i
   %2288 = lshr i64 %2286, 60
-  %2289 = trunc i64 %2288 to i32
+  %2289 = trunc nuw nsw i64 %2288 to i32
   %2290 = and i32 %2289, 7
   %2291 = add nsw i32 %2290, -3
   %.not7.i.i = icmp ult i32 %2291, 2
@@ -11059,7 +11059,7 @@ rb_float_value_inline.exit35.i:                   ; preds = %2321
 
 2331:                                             ; preds = %rb_float_value_inline.exit35.i
   %2332 = lshr i64 %2330, 60
-  %2333 = trunc i64 %2332 to i32
+  %2333 = trunc nuw nsw i64 %2332 to i32
   %2334 = and i32 %2333, 7
   %2335 = add nsw i32 %2334, -3
   %.not7.i2549 = icmp ult i32 %2335, 2
@@ -11253,7 +11253,7 @@ rb_float_value_inline.exit20.i:                   ; preds = %2433, %2427, %2426
 
 2439:                                             ; preds = %rb_float_value_inline.exit20.i
   %2440 = lshr i64 %2438, 60
-  %2441 = trunc i64 %2440 to i32
+  %2441 = trunc nuw nsw i64 %2440 to i32
   %2442 = and i32 %2441, 7
   %2443 = add nsw i32 %2442, -3
   %.not7.i.i2395 = icmp ult i32 %2443, 2
@@ -11320,7 +11320,7 @@ rb_float_value_inline.exit25.i:                   ; preds = %2473
 
 2483:                                             ; preds = %rb_float_value_inline.exit25.i
   %2484 = lshr i64 %2482, 60
-  %2485 = trunc i64 %2484 to i32
+  %2485 = trunc nuw nsw i64 %2484 to i32
   %2486 = and i32 %2485, 7
   %2487 = add nsw i32 %2486, -3
   %.not7.i2552 = icmp ult i32 %2487, 2
@@ -11403,7 +11403,7 @@ vm_opt_minus.exit.thread2614:                     ; preds = %vm_opt_minus.exit.v
 
 2527:                                             ; preds = %2516
   %.sroa.2.0.extract.shift.i.i = lshr i128 %2521, 64
-  %.sroa.2.0.extract.trunc.i.i = trunc i128 %.sroa.2.0.extract.shift.i.i to i64
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i to i64
   %2528 = call i64 @rb_int128t2big(i64 noundef %2523, i64 noundef %.sroa.2.0.extract.trunc.i.i) #20
   br label %vm_opt_mult.exit
 
@@ -11479,7 +11479,7 @@ rb_float_value_inline.exit19.i:                   ; preds = %2561, %2555, %2554
 
 2567:                                             ; preds = %rb_float_value_inline.exit19.i
   %2568 = lshr i64 %2566, 60
-  %2569 = trunc i64 %2568 to i32
+  %2569 = trunc nuw nsw i64 %2568 to i32
   %2570 = and i32 %2569, 7
   %2571 = add nsw i32 %2570, -3
   %.not7.i.i2405 = icmp ult i32 %2571, 2
@@ -11546,7 +11546,7 @@ rb_float_value_inline.exit24.i:                   ; preds = %2601
 
 2611:                                             ; preds = %rb_float_value_inline.exit24.i
   %2612 = lshr i64 %2610, 60
-  %2613 = trunc i64 %2612 to i32
+  %2613 = trunc nuw nsw i64 %2612 to i32
   %2614 = and i32 %2613, 7
   %2615 = add nsw i32 %2614, -3
   %.not7.i2556 = icmp ult i32 %2615, 2
@@ -11860,7 +11860,7 @@ rb_float_value_inline.exit20.i2418:               ; preds = %2775, %2769, %2768
 
 2781:                                             ; preds = %rb_float_value_inline.exit20.i2418
   %2782 = lshr i64 %2780, 60
-  %2783 = trunc i64 %2782 to i32
+  %2783 = trunc nuw nsw i64 %2782 to i32
   %2784 = and i32 %2783, 7
   %2785 = add nsw i32 %2784, -3
   %.not7.i.i2421 = icmp ult i32 %2785, 2
@@ -11923,7 +11923,7 @@ rb_float_value_inline.exit25.i2415:               ; preds = %2813
 
 2823:                                             ; preds = %rb_float_value_inline.exit25.i2415
   %2824 = lshr i64 %2822, 60
-  %2825 = trunc i64 %2824 to i32
+  %2825 = trunc nuw nsw i64 %2824 to i32
   %2826 = and i32 %2825, 7
   %2827 = add nsw i32 %2826, -3
   %.not7.i2560 = icmp ult i32 %2827, 2
@@ -29356,7 +29356,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %58 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %6, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %9, i64 36
-  %60 = trunc i32 %.1 to i8
+  %60 = trunc nuw nsw i32 %.1 to i8
   %61 = lshr i8 %60, 6
   store i8 %61, ptr %59, align 4
   %62 = getelementptr inbounds i8, ptr %9, i64 24
@@ -29839,7 +29839,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %62 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %6, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %8, i64 36
-  %64 = trunc i32 %.1150157166 to i8
+  %64 = trunc nsw i32 %.1150157166 to i8
   %65 = lshr i8 %64, 6
   store i8 %65, ptr %63, align 4
   %66 = getelementptr inbounds i8, ptr %8, i64 24
@@ -35529,7 +35529,7 @@ define internal fastcc noundef i64 @vm_setivar_default(i64 noundef %0, i64 nound
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8
   %9 = lshr i64 %8, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   store ptr null, ptr %6, align 8
   %11 = icmp eq i32 %10, %3
   br i1 %11, label %.thread, label %13
@@ -39038,7 +39038,7 @@ define internal fastcc i64 @vm_call_attrset_direct(ptr nocapture noundef %0, ptr
   %10 = trunc i64 %.val28 to i32
   %11 = add i32 %10, -1
   %12 = lshr i64 %.val28, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -39071,7 +39071,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %23, %3
 
 31:                                               ; preds = %30
   %32 = lshr i64 %25, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = icmp eq i64 %32, %12
   br i1 %34, label %57, label %35
 
@@ -39248,7 +39248,7 @@ define internal i64 @vm_call_ivar(ptr nocapture readnone %0, ptr nocapture nound
   %26 = inttoptr i64 %15 to ptr
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %27, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   %30 = trunc i64 %27 to i32
   %31 = and i32 %30, 31
   switch i32 %31, label %42 [
@@ -39297,7 +39297,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %35, %32, %rb_ractor
   %48 = getelementptr i8, ptr %10, i64 32
   %.val71 = load i64, ptr %48, align 8
   %49 = lshr i64 %.val71, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   store i32 %50, ptr %6, align 4
   %51 = trunc i64 %.val71 to i32
   %52 = add i32 %51, -1
@@ -47120,7 +47120,7 @@ ci_missing_reason.exit:                           ; preds = %37, %40
   %45 = and i32 %44, 16
   %.2.i = or disjoint i32 %45, %.123.i
   %46 = getelementptr inbounds i8, ptr %0, i64 137
-  %47 = trunc i32 %.2.i to i8
+  %47 = trunc nuw nsw i32 %.2.i to i8
   store i8 %47, ptr %46, align 1
   %48 = getelementptr inbounds i8, ptr %2, i64 40
   %49 = load i64, ptr %48, align 8
@@ -51742,7 +51742,7 @@ select.unfold:                                    ; preds = %69, %39, %42, %45, 
   %76 = load i64, ptr %3, align 8
   %77 = getelementptr [32 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %76
   %78 = load i16, ptr %77, align 2
-  %79 = trunc i32 %.0.i55.ph to i16
+  %79 = trunc nuw nsw i32 %.0.i55.ph to i16
   %80 = or i16 %78, %79
   store i16 %80, ptr %77, align 2
   br label %vm_redefinition_check_flag.exit
@@ -55347,7 +55347,7 @@ rb_source_location.exit:                          ; preds = %rb_vm_get_ruby_leve
 
 191:                                              ; preds = %.thread
   %192 = getelementptr inbounds i8, ptr %188, i64 32
-  %193 = trunc i32 %.034 to i8
+  %193 = trunc nuw nsw i32 %.034 to i8
   %194 = load i8, ptr %192, align 8
   %195 = shl nuw nsw i8 %193, 2
   %196 = and i8 %194, -13
@@ -56436,7 +56436,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %107 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %5, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %10, i64 36
-  %109 = trunc i32 %.192135142151 to i8
+  %109 = trunc nsw i32 %.192135142151 to i8
   %110 = lshr i8 %109, 6
   store i8 %110, ptr %108, align 4
   %111 = getelementptr inbounds i8, ptr %10, i64 24

@@ -1566,11 +1566,11 @@ cond.end.lr.ph:                                   ; preds = %entry
   %d_btracking = getelementptr inbounds i8, ptr %this, i64 352
   %after.sroa.0.0.extract.trunc.i.i.i = trunc i64 %6 to i32
   %after.sroa.4.0.extract.shift.i.i.i = lshr i64 %6, 32
-  %after.sroa.4.0.extract.trunc.i.i.i = trunc i64 %after.sroa.4.0.extract.shift.i.i.i to i32
+  %after.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %after.sroa.4.0.extract.shift.i.i.i to i32
   %d_hasBounds.i = getelementptr inbounds i8, ptr %prev, i64 8
   %after.sroa.0.0.extract.trunc.i.i7.i = trunc i64 %5 to i32
   %after.sroa.4.0.extract.shift.i.i8.i = lshr i64 %5, 32
-  %after.sroa.4.0.extract.trunc.i.i9.i = trunc i64 %after.sroa.4.0.extract.shift.i.i8.i to i32
+  %after.sroa.4.0.extract.trunc.i.i9.i = trunc nuw i64 %after.sroa.4.0.extract.shift.i.i8.i to i32
   %.pre = load ptr, ptr %4, align 8
   br label %cond.end
 
@@ -1592,7 +1592,7 @@ cond.end:                                         ; preds = %cond.end.lr.ph, %fo
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %prev, align 4
   %before.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i to i32
   %before.sroa.4.0.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
-  %before.sroa.4.0.extract.trunc.i.i.i = trunc i64 %before.sroa.4.0.extract.shift.i.i.i to i32
+  %before.sroa.4.0.extract.trunc.i.i.i = trunc nuw i64 %before.sroa.4.0.extract.shift.i.i.i to i32
   %cmp.i.i.i.i = icmp eq i32 %before.sroa.0.0.extract.trunc.i.i.i, %after.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i = icmp eq i64 %before.sroa.4.0.extract.shift.i.i.i, %after.sroa.4.0.extract.shift.i.i.i
   %12 = and i1 %cmp.i.i.i.i, %cmp4.i.i.i.i
@@ -1634,7 +1634,7 @@ _ZN4cvc58internal6theory5arith6linear10BoundsInfo18addInAtBoundChangeEiNS3_11Bou
   %d_hasBounds.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %before.sroa.0.0.extract.trunc.i.i4.i = trunc i64 %agg.tmp4.sroa.0.0.copyload.i to i32
   %before.sroa.4.0.extract.shift.i.i5.i = lshr i64 %agg.tmp4.sroa.0.0.copyload.i, 32
-  %before.sroa.4.0.extract.trunc.i.i6.i = trunc i64 %before.sroa.4.0.extract.shift.i.i5.i to i32
+  %before.sroa.4.0.extract.trunc.i.i6.i = trunc nuw i64 %before.sroa.4.0.extract.shift.i.i5.i to i32
   %cmp.i.i.i10.i = icmp eq i32 %before.sroa.0.0.extract.trunc.i.i4.i, %after.sroa.0.0.extract.trunc.i.i7.i
   %cmp4.i.i.i11.i = icmp eq i64 %before.sroa.4.0.extract.shift.i.i5.i, %after.sroa.4.0.extract.shift.i.i8.i
   %16 = and i1 %cmp.i.i.i10.i, %cmp4.i.i.i11.i
@@ -3396,10 +3396,10 @@ invoke.cont39:                                    ; preds = %invoke.cont33
   br i1 %cmp.i513, label %if.end137, label %invoke.cont49.lr.ph
 
 invoke.cont49.lr.ph:                              ; preds = %invoke.cont39
-  %bc.sroa.2.0.extract.trunc.i = trunc i64 %bc.sroa.2.0.extract.shift.i to i32
+  %bc.sroa.2.0.extract.trunc.i = trunc nuw i64 %bc.sroa.2.0.extract.shift.i to i32
   %k.i = getelementptr inbounds i8, ptr %ref.tmp56, i64 32
   %d_btracking = getelementptr inbounds i8, ptr %this, i64 352
-  %before.sroa.4.0.extract.trunc.i.i = trunc i64 %before.sroa.3.0.extract.shift to i32
+  %before.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %before.sroa.3.0.extract.shift to i32
   %sub14.i.i = sub i32 %bc.sroa.2.0.extract.trunc.i, %before.sroa.4.0.extract.trunc.i.i
   %sub19.i.i = sub i32 %bc.sroa.0.0.extract.trunc.i, %before.sroa.0.0.extract.trunc
   %d_basicVariableUpdates = getelementptr inbounds i8, ptr %this, i64 16
@@ -3535,7 +3535,7 @@ if.end:                                           ; preds = %invoke.cont92, %if.
   %bc.sroa.0.0.extract.trunc.i432 = trunc i64 %call2.i428 to i32
   %cmp.not.i433 = icmp ne i32 %xjBefore.sroa.0.0.extract.trunc, %bc.sroa.0.0.extract.trunc.i432
   %bc.sroa.2.0.extract.shift.i434 = lshr i64 %call2.i428, 32
-  %bc.sroa.2.0.extract.trunc.i435 = trunc i64 %bc.sroa.2.0.extract.shift.i434 to i32
+  %bc.sroa.2.0.extract.trunc.i435 = trunc nuw i64 %bc.sroa.2.0.extract.shift.i434 to i32
   %cmp4.i437 = icmp ne i64 %xjBefore.sroa.3.0.extract.shift, %bc.sroa.2.0.extract.shift.i434
   %32 = or i1 %cmp.not.i433, %cmp4.i437
   br i1 %32, label %if.then104, label %if.end108
@@ -3547,7 +3547,7 @@ if.then104:                                       ; preds = %if.end
   br i1 %33, label %if.end108, label %if.else.i.i446
 
 if.else.i.i446:                                   ; preds = %if.then104
-  %before.sroa.4.0.extract.trunc.i.i440 = trunc i64 %xjBefore.sroa.3.0.extract.shift to i32
+  %before.sroa.4.0.extract.trunc.i.i440 = trunc nuw i64 %xjBefore.sroa.3.0.extract.shift to i32
   %sub.i.i448 = sub i32 %bc.sroa.0.0.extract.trunc.i432, %xjBefore.sroa.0.0.extract.trunc
   %d_upperBoundCount.i.i449 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %34 = load i32, ptr %d_upperBoundCount.i.i449, align 4
@@ -4441,7 +4441,7 @@ _ZNK4cvc58internal6theory5arith6linear10BoundsInfo13multiplyBySgnEi.exit: ; pred
   %retval.sroa.0.0.i8.i = phi i64 [ %ref.tmp7.sroa.7.8.extract.shift, %if.else4.i5.i ], [ 0, %if.else.i.i ], [ %7, %for.body ]
   %bc.sroa.0.0.extract.trunc.i.i = trunc i64 %retval.sroa.0.0.insert.insert.i25.i to i32
   %bc.sroa.2.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i25.i, 32
-  %bc.sroa.2.0.extract.trunc.i.i = trunc i64 %bc.sroa.2.0.extract.shift.i.i to i32
+  %bc.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %bc.sroa.2.0.extract.shift.i.i to i32
   %add.i.i = add i32 %retval.sroa.0.sroa.4.022, %bc.sroa.2.0.extract.trunc.i.i
   %add4.i.i = add i32 %retval.sroa.0.sroa.0.023, %bc.sroa.0.0.extract.trunc.i.i
   %add.i6.i17 = shl i64 %retval.sroa.4.0.i7.i, 32
@@ -6541,7 +6541,7 @@ _ZNK4cvc58internal6theory5arith6linear10BoundsInfo13multiplyBySgnEi.exit.i: ; pr
   %retval.sroa.0.0.i8.i.i = phi i64 [ %ref.tmp7.sroa.7.8.extract.shift.i, %if.else4.i5.i.i ], [ 0, %if.else.i.i.i ], [ %7, %for.body.i ]
   %bc.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.insert.insert.i25.i.i to i32
   %bc.sroa.2.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i25.i.i, 32
-  %bc.sroa.2.0.extract.trunc.i.i.i = trunc i64 %bc.sroa.2.0.extract.shift.i.i.i to i32
+  %bc.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %bc.sroa.2.0.extract.shift.i.i.i to i32
   %add.i.i.i = add i32 %retval.sroa.0.sroa.4.022.i, %bc.sroa.2.0.extract.trunc.i.i.i
   %add4.i.i.i = add i32 %retval.sroa.0.sroa.0.023.i, %bc.sroa.0.0.extract.trunc.i.i.i
   %add.i6.i17.i = shl i64 %retval.sroa.4.0.i7.i.i, 32
@@ -6816,7 +6816,7 @@ lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %call2.i = tail call i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i17)
   %cmp.i = icmp sgt i32 %3, 0
   %retval.sroa.4.0.extract.shift.i = lshr i64 %call2.i, 32
-  %retval.sroa.4.0.extract.trunc.i = trunc i64 %retval.sroa.4.0.extract.shift.i to i32
+  %retval.sroa.4.0.extract.trunc.i = trunc nuw i64 %retval.sroa.4.0.extract.shift.i to i32
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call2.i to i32
   %ref.tmp.sroa.3.0.extract.shift = lshr i64 %call2.i, 32
   %spec.select = select i1 %cmp6.i.not, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc
@@ -6825,7 +6825,7 @@ lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %retval.sroa.0.0.i = select i1 %cmp.i, i64 %call2.i, i64 %spec.select150
   %cmp.inv.i = icmp sgt i32 %3, -1
   %bcs.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %bcs.sroa.2.0.extract.trunc = trunc i64 %bcs.sroa.2.0.extract.shift to i32
+  %bcs.sroa.2.0.extract.trunc = trunc nuw i64 %bcs.sroa.2.0.extract.shift to i32
   %sub.i = sub i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.i
   %sub4.i = sub i32 %bcs.sroa.2.0.extract.trunc, %retval.sroa.4.0.i
   %nonb.sroa.0.0.extract.trunc = trunc i64 %sub.i to i32
@@ -6840,7 +6840,7 @@ lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %cmp.i.i = icmp eq i32 %cond16, %before.sroa.0.0.extract.trunc.i
   %cmp4.i.i = icmp eq i64 %before.sroa.4.0.extract.shift.i, %agg.tmp26.sroa.2.0.insert.ext
   %18 = and i1 %cmp.i.i, %cmp4.i.i
-  %before.sroa.4.0.extract.trunc.i = trunc i64 %before.sroa.4.0.extract.shift.i to i32
+  %before.sroa.4.0.extract.trunc.i = trunc nuw i64 %before.sroa.4.0.extract.shift.i to i32
   %sub.i27 = sub i32 %cond16, %before.sroa.0.0.extract.trunc.i
   %sub6.i = sub i32 %cond149, %before.sroa.4.0.extract.trunc.i
   %nonb.sroa.7.0 = add i32 %sub4.i, %sub.i27
@@ -6927,7 +6927,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %4, i64 %conv.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 4
   %bcs.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %bcs.sroa.1.0.extract.trunc = trunc i64 %bcs.sroa.1.0.extract.shift to i32
+  %bcs.sroa.1.0.extract.trunc = trunc nuw i64 %bcs.sroa.1.0.extract.shift to i32
   %5 = load ptr, ptr %0, align 8
   %d_size.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %5, i64 %conv.i, i32 0, i32 1
   %6 = load i32, ptr %d_size.i.i.i, align 4
@@ -6999,7 +6999,6 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %1, i64 %conv.i.i
   %call2.i = tail call { i64, i64 } @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo10boundsInfoEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i)
   %2 = extractvalue { i64, i64 } %call2.i, 0
-  %nb_inf.sroa.3.0.extract.shift = lshr i64 %2, 32
   %3 = extractvalue { i64, i64 } %call2.i, 1
   %d_btracking = getelementptr inbounds i8, ptr %this, i64 352
   %4 = load ptr, ptr %d_btracking, align 8
@@ -7007,14 +7006,13 @@ entry:
   %conv.i = zext i32 %ridx to i64
   %5 = load ptr, ptr %d_image.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %5, i64 %conv.i
-  %.masked = and i64 %2, 4294967295
-  %6 = or i64 %.masked, %nb_inf.sroa.3.0.extract.shift
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %if.end.i, label %if.then.i
+  %6 = icmp eq i64 %2, 0
+  br i1 %6, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %bc.sroa.0.0.extract.trunc.i.i = trunc i64 %2 to i32
-  %bc.sroa.5.0.extract.trunc.i.i = trunc i64 %nb_inf.sroa.3.0.extract.shift to i32
+  %bc.sroa.5.0.extract.shift.i.i = lshr i64 %2, 32
+  %bc.sroa.5.0.extract.trunc.i.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i.i to i32
   %cmp.i6.i = icmp slt i32 %oldSgn, 0
   br i1 %cmp.i6.i, label %if.end13.sink.split.i.i, label %if.else.i.i
 
@@ -7026,11 +7024,11 @@ if.end13.sink.split.i.i:                          ; preds = %if.else.i.i, %if.th
   %bc.sroa.5.0.extract.trunc.sink.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i, %if.then.i ], [ %bc.sroa.5.0.extract.trunc.i.i, %if.else.i.i ]
   %bc.sroa.0.0.extract.trunc.sink.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i, %if.then.i ], [ %bc.sroa.0.0.extract.trunc.i.i, %if.else.i.i ]
   %d_upperBoundCount.i7.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  %8 = load i32, ptr %d_upperBoundCount.i7.i, align 4
-  %sub9.i.i = sub i32 %8, %bc.sroa.5.0.extract.trunc.sink.i.i
+  %7 = load i32, ptr %d_upperBoundCount.i7.i, align 4
+  %sub9.i.i = sub i32 %7, %bc.sroa.5.0.extract.trunc.sink.i.i
   store i32 %sub9.i.i, ptr %d_upperBoundCount.i7.i, align 4
-  %9 = load i32, ptr %add.ptr.i.i, align 4
-  %sub12.i.i = sub i32 %9, %bc.sroa.0.0.extract.trunc.sink.i.i
+  %8 = load i32, ptr %add.ptr.i.i, align 4
+  %sub12.i.i = sub i32 %8, %bc.sroa.0.0.extract.trunc.sink.i.i
   store i32 %sub12.i.i, ptr %add.ptr.i.i, align 4
   br label %if.end13.i.i
 
@@ -7046,23 +7044,23 @@ if.end31.sink.split.i.i:                          ; preds = %if.else21.i.i, %if.
   %bc.sroa.5.0.extract.trunc.sink11.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i, %if.end13.i.i ], [ %bc.sroa.5.0.extract.trunc.i.i, %if.else21.i.i ]
   %bc.sroa.0.0.extract.trunc.sink10.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i, %if.end13.i.i ], [ %bc.sroa.0.0.extract.trunc.i.i, %if.else21.i.i ]
   %d_upperBoundCount17.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  %10 = load i32, ptr %d_upperBoundCount17.i.i, align 4
-  %add26.i.i = add i32 %10, %bc.sroa.5.0.extract.trunc.sink11.i.i
+  %9 = load i32, ptr %d_upperBoundCount17.i.i, align 4
+  %add26.i.i = add i32 %9, %bc.sroa.5.0.extract.trunc.sink11.i.i
   store i32 %add26.i.i, ptr %d_upperBoundCount17.i.i, align 4
-  %11 = load i32, ptr %add.ptr.i.i, align 4
-  %add29.i.i = add i32 %11, %bc.sroa.0.0.extract.trunc.sink10.i.i
+  %10 = load i32, ptr %add.ptr.i.i, align 4
+  %add29.i.i = add i32 %10, %bc.sroa.0.0.extract.trunc.sink10.i.i
   store i32 %add29.i.i, ptr %add.ptr.i.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end31.sink.split.i.i, %if.else21.i.i, %entry
-  %12 = icmp eq i64 %3, 0
-  br i1 %12, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit, label %if.then5.i
+  %11 = icmp eq i64 %3, 0
+  br i1 %11, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %d_hasBounds6.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %bc.sroa.0.0.extract.trunc.i11.i = trunc i64 %3 to i32
   %bc.sroa.5.0.extract.shift.i12.i = lshr i64 %3, 32
-  %bc.sroa.5.0.extract.trunc.i13.i = trunc i64 %bc.sroa.5.0.extract.shift.i12.i to i32
+  %bc.sroa.5.0.extract.trunc.i13.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i12.i to i32
   %cmp.i14.i = icmp slt i32 %oldSgn, 0
   br i1 %cmp.i14.i, label %if.end13.sink.split.i17.i, label %if.else.i15.i
 
@@ -7074,11 +7072,11 @@ if.end13.sink.split.i17.i:                        ; preds = %if.else.i15.i, %if.
   %bc.sroa.5.0.extract.trunc.sink.i18.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i, %if.then5.i ], [ %bc.sroa.5.0.extract.trunc.i13.i, %if.else.i15.i ]
   %bc.sroa.0.0.extract.trunc.sink.i19.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i, %if.then5.i ], [ %bc.sroa.0.0.extract.trunc.i11.i, %if.else.i15.i ]
   %d_upperBoundCount.i20.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
-  %13 = load i32, ptr %d_upperBoundCount.i20.i, align 4
-  %sub9.i21.i = sub i32 %13, %bc.sroa.5.0.extract.trunc.sink.i18.i
+  %12 = load i32, ptr %d_upperBoundCount.i20.i, align 4
+  %sub9.i21.i = sub i32 %12, %bc.sroa.5.0.extract.trunc.sink.i18.i
   store i32 %sub9.i21.i, ptr %d_upperBoundCount.i20.i, align 4
-  %14 = load i32, ptr %d_hasBounds6.i, align 4
-  %sub12.i22.i = sub i32 %14, %bc.sroa.0.0.extract.trunc.sink.i19.i
+  %13 = load i32, ptr %d_hasBounds6.i, align 4
+  %sub12.i22.i = sub i32 %13, %bc.sroa.0.0.extract.trunc.sink.i19.i
   store i32 %sub12.i22.i, ptr %d_hasBounds6.i, align 4
   br label %if.end13.i23.i
 
@@ -7094,11 +7092,11 @@ if.end31.sink.split.i27.i:                        ; preds = %if.else21.i25.i, %i
   %bc.sroa.5.0.extract.trunc.sink11.i28.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i, %if.end13.i23.i ], [ %bc.sroa.5.0.extract.trunc.i13.i, %if.else21.i25.i ]
   %bc.sroa.0.0.extract.trunc.sink10.i29.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i, %if.end13.i23.i ], [ %bc.sroa.0.0.extract.trunc.i11.i, %if.else21.i25.i ]
   %d_upperBoundCount17.i30.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
-  %15 = load i32, ptr %d_upperBoundCount17.i30.i, align 4
-  %add26.i31.i = add i32 %15, %bc.sroa.5.0.extract.trunc.sink11.i28.i
+  %14 = load i32, ptr %d_upperBoundCount17.i30.i, align 4
+  %add26.i31.i = add i32 %14, %bc.sroa.5.0.extract.trunc.sink11.i28.i
   store i32 %add26.i31.i, ptr %d_upperBoundCount17.i30.i, align 4
-  %16 = load i32, ptr %d_hasBounds6.i, align 4
-  %add29.i32.i = add i32 %16, %bc.sroa.0.0.extract.trunc.sink10.i29.i
+  %15 = load i32, ptr %d_hasBounds6.i, align 4
+  %add29.i32.i = add i32 %15, %bc.sroa.0.0.extract.trunc.sink10.i29.i
   store i32 %add29.i32.i, ptr %d_hasBounds6.i, align 4
   br label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit
 
@@ -7629,7 +7627,7 @@ if.end15:                                         ; preds = %lor.rhs.i.i, %lor.r
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %11, i64 %conv.i.i15
   %retval.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 4
   %bc.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %bc.sroa.2.0.extract.trunc = trunc i64 %bc.sroa.2.0.extract.shift to i32
+  %bc.sroa.2.0.extract.trunc = trunc nuw i64 %bc.sroa.2.0.extract.shift to i32
   %12 = load ptr, ptr %this, align 8
   %d_image.i.i17 = getelementptr inbounds i8, ptr %12, i64 48
   %conv.i.i18 = zext i32 %4 to i64
@@ -7641,7 +7639,7 @@ if.end15:                                         ; preds = %lor.rhs.i.i, %lor.r
 
 if.then.i21:                                      ; preds = %if.end15
   %retval.sroa.4.0.extract.shift.i = lshr i64 %call2.i, 32
-  %retval.sroa.4.0.extract.trunc.i = trunc i64 %retval.sroa.4.0.extract.shift.i to i32
+  %retval.sroa.4.0.extract.trunc.i = trunc nuw i64 %retval.sroa.4.0.extract.shift.i to i32
   br label %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
 
 if.else.i:                                        ; preds = %if.end15
@@ -7673,7 +7671,7 @@ _ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; pre
   %call2.i29 = tail call i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i28)
   %before.sroa.0.0.extract.trunc.i = trunc i64 %call2.i29 to i32
   %before.sroa.4.0.extract.shift.i = lshr i64 %call2.i29, 32
-  %before.sroa.4.0.extract.trunc.i = trunc i64 %before.sroa.4.0.extract.shift.i to i32
+  %before.sroa.4.0.extract.trunc.i = trunc nuw i64 %before.sroa.4.0.extract.shift.i to i32
   %after.sroa.4.0.extract.trunc.i = zext i1 %narrow to i32
   %cmp.i.i = icmp eq i32 %cond33, %before.sroa.0.0.extract.trunc.i
   %cmp4.i.i30 = icmp eq i64 %before.sroa.4.0.extract.shift.i, %cond63
@@ -9739,7 +9737,7 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %init.check, %init.c
   store ptr %4, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
   %bf.load.i.i = load i64, ptr %4, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %5 = trunc i64 %bf.lshr.i.i to i32
+  %5 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %5, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -10298,7 +10296,115 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEq
 entry:
   %d_linEq = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_linEq, align 8
-  tail call void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %ridx, i32 noundef %nb, i32 noundef %oldSgn, i32 noundef %currSgn)
+  %1 = load ptr, ptr %0, align 8
+  %d_image.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %conv.i.i.i = zext i32 %nb to i64
+  %2 = load ptr, ptr %d_image.i.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %2, i64 %conv.i.i.i
+  %call2.i.i = tail call { i64, i64 } @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo10boundsInfoEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i.i)
+  %3 = extractvalue { i64, i64 } %call2.i.i, 0
+  %4 = extractvalue { i64, i64 } %call2.i.i, 1
+  %d_btracking.i = getelementptr inbounds i8, ptr %0, i64 352
+  %5 = load ptr, ptr %d_btracking.i, align 8
+  %d_image.i.i = getelementptr inbounds i8, ptr %5, i64 48
+  %conv.i.i = zext i32 %ridx to i64
+  %6 = load ptr, ptr %d_image.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %6, i64 %conv.i.i
+  %7 = icmp eq i64 %3, 0
+  br i1 %7, label %if.end.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %bc.sroa.0.0.extract.trunc.i.i.i = trunc i64 %3 to i32
+  %bc.sroa.5.0.extract.shift.i.i.i = lshr i64 %3, 32
+  %bc.sroa.5.0.extract.trunc.i.i.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i.i.i to i32
+  %cmp.i6.i.i = icmp slt i32 %oldSgn, 0
+  br i1 %cmp.i6.i.i, label %if.end13.sink.split.i.i.i, label %if.else.i.i.i
+
+if.else.i.i.i:                                    ; preds = %if.then.i.i
+  %cmp5.not.i.i.i = icmp eq i32 %oldSgn, 0
+  br i1 %cmp5.not.i.i.i, label %if.end13.i.i.i, label %if.end13.sink.split.i.i.i
+
+if.end13.sink.split.i.i.i:                        ; preds = %if.else.i.i.i, %if.then.i.i
+  %bc.sroa.5.0.extract.trunc.sink.i.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.else.i.i.i ]
+  %bc.sroa.0.0.extract.trunc.sink.i.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.then.i.i ], [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.else.i.i.i ]
+  %d_upperBoundCount.i7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %8 = load i32, ptr %d_upperBoundCount.i7.i.i, align 4
+  %sub9.i.i.i = sub i32 %8, %bc.sroa.5.0.extract.trunc.sink.i.i.i
+  store i32 %sub9.i.i.i, ptr %d_upperBoundCount.i7.i.i, align 4
+  %9 = load i32, ptr %add.ptr.i.i.i, align 4
+  %sub12.i.i.i = sub i32 %9, %bc.sroa.0.0.extract.trunc.sink.i.i.i
+  store i32 %sub12.i.i.i, ptr %add.ptr.i.i.i, align 4
+  br label %if.end13.i.i.i
+
+if.end13.i.i.i:                                   ; preds = %if.end13.sink.split.i.i.i, %if.else.i.i.i
+  %cmp14.i.i.i = icmp slt i32 %currSgn, 0
+  br i1 %cmp14.i.i.i, label %if.end31.sink.split.i.i.i, label %if.else21.i.i.i
+
+if.else21.i.i.i:                                  ; preds = %if.end13.i.i.i
+  %cmp22.not.i.i.i = icmp eq i32 %currSgn, 0
+  br i1 %cmp22.not.i.i.i, label %if.end.i.i, label %if.end31.sink.split.i.i.i
+
+if.end31.sink.split.i.i.i:                        ; preds = %if.else21.i.i.i, %if.end13.i.i.i
+  %bc.sroa.5.0.extract.trunc.sink11.i.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.end13.i.i.i ], [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.else21.i.i.i ]
+  %bc.sroa.0.0.extract.trunc.sink10.i.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.end13.i.i.i ], [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.else21.i.i.i ]
+  %d_upperBoundCount17.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %10 = load i32, ptr %d_upperBoundCount17.i.i.i, align 4
+  %add26.i.i.i = add i32 %10, %bc.sroa.5.0.extract.trunc.sink11.i.i.i
+  store i32 %add26.i.i.i, ptr %d_upperBoundCount17.i.i.i, align 4
+  %11 = load i32, ptr %add.ptr.i.i.i, align 4
+  %add29.i.i.i = add i32 %11, %bc.sroa.0.0.extract.trunc.sink10.i.i.i
+  store i32 %add29.i.i.i, ptr %add.ptr.i.i.i, align 4
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.end31.sink.split.i.i.i, %if.else21.i.i.i, %entry
+  %12 = icmp eq i64 %4, 0
+  br i1 %12, label %_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit, label %if.then5.i.i
+
+if.then5.i.i:                                     ; preds = %if.end.i.i
+  %d_hasBounds6.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %bc.sroa.0.0.extract.trunc.i11.i.i = trunc i64 %4 to i32
+  %bc.sroa.5.0.extract.shift.i12.i.i = lshr i64 %4, 32
+  %bc.sroa.5.0.extract.trunc.i13.i.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i12.i.i to i32
+  %cmp.i14.i.i = icmp slt i32 %oldSgn, 0
+  br i1 %cmp.i14.i.i, label %if.end13.sink.split.i17.i.i, label %if.else.i15.i.i
+
+if.else.i15.i.i:                                  ; preds = %if.then5.i.i
+  %cmp5.not.i16.i.i = icmp eq i32 %oldSgn, 0
+  br i1 %cmp5.not.i16.i.i, label %if.end13.i23.i.i, label %if.end13.sink.split.i17.i.i
+
+if.end13.sink.split.i17.i.i:                      ; preds = %if.else.i15.i.i, %if.then5.i.i
+  %bc.sroa.5.0.extract.trunc.sink.i18.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.then5.i.i ], [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.else.i15.i.i ]
+  %bc.sroa.0.0.extract.trunc.sink.i19.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.then5.i.i ], [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.else.i15.i.i ]
+  %d_upperBoundCount.i20.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 12
+  %13 = load i32, ptr %d_upperBoundCount.i20.i.i, align 4
+  %sub9.i21.i.i = sub i32 %13, %bc.sroa.5.0.extract.trunc.sink.i18.i.i
+  store i32 %sub9.i21.i.i, ptr %d_upperBoundCount.i20.i.i, align 4
+  %14 = load i32, ptr %d_hasBounds6.i.i, align 4
+  %sub12.i22.i.i = sub i32 %14, %bc.sroa.0.0.extract.trunc.sink.i19.i.i
+  store i32 %sub12.i22.i.i, ptr %d_hasBounds6.i.i, align 4
+  br label %if.end13.i23.i.i
+
+if.end13.i23.i.i:                                 ; preds = %if.end13.sink.split.i17.i.i, %if.else.i15.i.i
+  %cmp14.i24.i.i = icmp slt i32 %currSgn, 0
+  br i1 %cmp14.i24.i.i, label %if.end31.sink.split.i27.i.i, label %if.else21.i25.i.i
+
+if.else21.i25.i.i:                                ; preds = %if.end13.i23.i.i
+  %cmp22.not.i26.i.i = icmp eq i32 %currSgn, 0
+  br i1 %cmp22.not.i26.i.i, label %_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit, label %if.end31.sink.split.i27.i.i
+
+if.end31.sink.split.i27.i.i:                      ; preds = %if.else21.i25.i.i, %if.end13.i23.i.i
+  %bc.sroa.5.0.extract.trunc.sink11.i28.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.end13.i23.i.i ], [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.else21.i25.i.i ]
+  %bc.sroa.0.0.extract.trunc.sink10.i29.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.end13.i23.i.i ], [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.else21.i25.i.i ]
+  %d_upperBoundCount17.i30.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 12
+  %15 = load i32, ptr %d_upperBoundCount17.i30.i.i, align 4
+  %add26.i31.i.i = add i32 %15, %bc.sroa.5.0.extract.trunc.sink11.i28.i.i
+  store i32 %add26.i31.i.i, ptr %d_upperBoundCount17.i30.i.i, align 4
+  %16 = load i32, ptr %d_hasBounds6.i.i, align 4
+  %add29.i32.i.i = add i32 %16, %bc.sroa.0.0.extract.trunc.sink10.i29.i.i
+  store i32 %add29.i32.i.i, ptr %d_hasBounds6.i.i, align 4
+  br label %_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit
+
+_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit: ; preds = %if.end.i.i, %if.else21.i25.i.i, %if.end31.sink.split.i27.i.i
   ret void
 }
 

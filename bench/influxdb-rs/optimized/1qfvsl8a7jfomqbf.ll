@@ -171,7 +171,7 @@ define hidden noundef i64 @"_ZN103_$LT$arrow_array..array..byte_array..GenericBy
   %3 = load ptr, ptr %2, align 8, !alias.scope !5, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8, !range !8, !noalias !5, !noundef !4
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i, label %9, label %6
 
 6:                                                ; preds = %1
@@ -185,7 +185,7 @@ define hidden noundef i64 @"_ZN103_$LT$arrow_array..array..byte_array..GenericBy
   %11 = load ptr, ptr %10, align 8, !alias.scope !5, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !range !8, !noalias !5, !noundef !4
-  %trunc11.i = trunc i64 %13 to i1
+  %trunc11.i = trunc nuw i64 %13 to i1
   br i1 %trunc11.i, label %17, label %14
 
 14:                                               ; preds = %9
@@ -204,7 +204,7 @@ define hidden noundef i64 @"_ZN103_$LT$arrow_array..array..byte_array..GenericBy
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 8, !range !8, !noalias !5, !noundef !4
-  %trunc12.i = trunc i64 %23 to i1
+  %trunc12.i = trunc nuw i64 %23 to i1
   br i1 %trunc12.i, label %27, label %24
 
 24:                                               ; preds = %21
@@ -229,7 +229,7 @@ define internal noundef i64 @"_ZN103_$LT$arrow_array..array..byte_array..Generic
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8, !range !8, !noundef !4
-  %trunc = trunc i64 %5 to i1
+  %trunc = trunc nuw i64 %5 to i1
   br i1 %trunc, label %9, label %6
 
 6:                                                ; preds = %1
@@ -243,7 +243,7 @@ define internal noundef i64 @"_ZN103_$LT$arrow_array..array..byte_array..Generic
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !range !8, !noundef !4
-  %trunc11 = trunc i64 %13 to i1
+  %trunc11 = trunc nuw i64 %13 to i1
   br i1 %trunc11, label %17, label %14
 
 14:                                               ; preds = %9
@@ -262,7 +262,7 @@ define internal noundef i64 @"_ZN103_$LT$arrow_array..array..byte_array..Generic
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 8, !range !8, !noundef !4
-  %trunc12 = trunc i64 %23 to i1
+  %trunc12 = trunc nuw i64 %23 to i1
   br i1 %trunc12, label %28, label %25
 
 24:                                               ; preds = %28, %17
@@ -953,7 +953,7 @@ define hidden noundef i64 @"_ZN108_$LT$arrow_array..array..dictionary_array..Dic
   %3 = load ptr, ptr %2, align 8, !alias.scope !108, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8, !range !8, !noalias !108, !noundef !4
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i, label %9, label %6
 
 6:                                                ; preds = %1
@@ -971,7 +971,7 @@ define hidden noundef i64 @"_ZN108_$LT$arrow_array..array..dictionary_array..Dic
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8, !range !8, !noalias !108, !noundef !4
-  %trunc8.i = trunc i64 %15 to i1
+  %trunc8.i = trunc nuw i64 %15 to i1
   br i1 %trunc8.i, label %19, label %16
 
 16:                                               ; preds = %13
@@ -1000,7 +1000,7 @@ define hidden noundef i64 @"_ZN108_$LT$arrow_array..array..dictionary_array..Dic
   %3 = load ptr, ptr %2, align 8, !alias.scope !111, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8, !range !8, !noalias !111, !noundef !4
-  %trunc.i = trunc i64 %5 to i1
+  %trunc.i = trunc nuw i64 %5 to i1
   br i1 %trunc.i, label %9, label %6
 
 6:                                                ; preds = %1
@@ -1018,7 +1018,7 @@ define hidden noundef i64 @"_ZN108_$LT$arrow_array..array..dictionary_array..Dic
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8, !range !8, !noalias !111, !noundef !4
-  %trunc8.i = trunc i64 %15 to i1
+  %trunc8.i = trunc nuw i64 %15 to i1
   br i1 %trunc8.i, label %19, label %16
 
 16:                                               ; preds = %13
@@ -5302,7 +5302,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %34)
   %74 = load i64, ptr %58, align 8, !noundef !4
   %75 = icmp ult i64 %74, 2147483648
-  %76 = trunc i64 %74 to i32
+  %76 = trunc nuw i64 %74 to i32
   br i1 %75, label %78, label %77
 
 77:                                               ; preds = %73
@@ -5568,7 +5568,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer11into_buffer17hb20936623a6c6fedE
   %157 = icmp eq i64 %151, 0
   %158 = getelementptr inbounds i8, ptr %142, i64 16
   %159 = load i64, ptr %158, align 8, !range !8, !noalias !744, !noundef !4
-  %trunc.i.i.i.i = trunc i64 %159 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %159 to i1
   br i1 %trunc.i.i.i.i, label %161, label %160
 
 160:                                              ; preds = %"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h05f6e2a8783e18fcE.llvm.171605402441639591.exit.i.i.i.i"
@@ -6381,7 +6381,7 @@ define hidden void @_ZN3std6thread7Builder16spawn_unchecked_17h820b3397d7d6371eE
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   %21 = load i64, ptr %1, align 8, !range !8, !noundef !4
-  %trunc = trunc i64 %21 to i1
+  %trunc = trunc nuw i64 %21 to i1
   br i1 %trunc, label %24, label %22
 
 22:                                               ; preds = %4
@@ -6578,7 +6578,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   unreachable
 
 .noexc73:                                         ; preds = %88, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
-  %80 = trunc i8 %.3 to i1
+  %80 = trunc nuw i8 %.3 to i1
   br i1 %80, label %.noexc73..thread118_crit_edge, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87"
 
 .noexc73..thread118_crit_edge:                    ; preds = %.noexc73
@@ -6723,7 +6723,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
 
 126:                                              ; preds = %125
   %127 = load i64, ptr %9, align 8, !range !8, !noundef !4
-  %trunc56 = trunc i64 %127 to i1
+  %trunc56 = trunc nuw i64 %127 to i1
   %128 = getelementptr inbounds i8, ptr %9, i64 8
   %129 = load ptr, ptr %128, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -11970,10 +11970,11 @@ define hidden void @"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..D
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i32, i32 } @"_ZN61_$LT$i32$u20$as$u20$arrow_buffer..native..ArrowNativeType$GT$10from_usize17h18d0b45916b91bd8E.llvm.12936710431969675094"(i64 noundef %0) unnamed_addr #9 {
   %2 = icmp ult i64 %0, 2147483648
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nuw i64 %0 to i32
+  %.sroa.5.0 = select i1 %2, i32 %3, i32 undef
   %spec.select = zext i1 %2 to i32
   %4 = insertvalue { i32, i32 } poison, i32 %spec.select, 0
-  %5 = insertvalue { i32, i32 } %4, i32 %3, 1
+  %5 = insertvalue { i32, i32 } %4, i32 %.sroa.5.0, 1
   ret { i32, i32 } %5
 }
 
@@ -13382,7 +13383,7 @@ tailrecurse:                                      ; preds = %7
   %157 = getelementptr inbounds i8, ptr %.tr3466, i64 1
   %158 = load i8, ptr %157, align 1, !range !120, !noundef !4
   %159 = xor i8 %158, %156
-  %160 = trunc i8 %159 to i1
+  %160 = trunc nuw i8 %159 to i1
   %161 = xor i1 %160, true
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc9a53d241c45b22bE.exit"
 
@@ -14120,14 +14121,14 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %47)
   call void @_ZN11arrow_array20temporal_conversions7as_time17h66af0bddedd5835fE(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %47, i64 noundef %132)
   %133 = load i32, ptr %47, align 4, !range !2098, !noundef !4
-  %trunc = trunc i32 %133 to i1
+  %trunc = trunc nuw i32 %133 to i1
   br i1 %trunc, label %241, label %235
 
 134:                                              ; preds = %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h166974ba8117d7c3E.exit53"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   call void @_ZN11arrow_array20temporal_conversions11as_datetime17h95c95d596e3b8473E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %30, i64 noundef %96)
   %135 = load i32, ptr %30, align 4, !range !2098, !noundef !4
-  %trunc39 = trunc i32 %135 to i1
+  %trunc39 = trunc nuw i32 %135 to i1
   br i1 %trunc39, label %148, label %142
 
 136:                                              ; preds = %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h166974ba8117d7c3E.exit53"
@@ -14198,7 +14199,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
 
 .noexc:                                           ; preds = %157
   %159 = load i32, ptr %6, align 4, !range !2098, !noalias !2111, !noundef !4
-  %trunc.i56 = trunc i32 %159 to i1
+  %trunc.i56 = trunc nuw i32 %159 to i1
   br i1 %trunc.i56, label %160, label %.thread
 
 160:                                              ; preds = %.noexc
@@ -14340,7 +14341,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
 
 199:                                              ; preds = %163
   %200 = load i32, ptr %35, align 4, !range !2098, !noundef !4
-  %trunc37 = trunc i32 %200 to i1
+  %trunc37 = trunc nuw i32 %200 to i1
   br i1 %trunc37, label %209, label %201
 
 201:                                              ; preds = %199
@@ -14719,7 +14720,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32)
   call void @_ZN11arrow_array20temporal_conversions7as_time17h40a8b29065a702d1E(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %32, i64 noundef %107)
   %108 = load i32, ptr %32, align 4, !range !2098, !noundef !4
-  %trunc = trunc i32 %108 to i1
+  %trunc = trunc nuw i32 %108 to i1
   br i1 %trunc, label %156, label %150
 
 109:                                              ; preds = %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h71a74b3f88162488E.exit53"
@@ -15279,7 +15280,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32)
   call void @_ZN11arrow_array20temporal_conversions7as_time17h6b86c743ac56d4a0E(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %32, i64 noundef %112)
   %163 = load i32, ptr %32, align 4, !range !2098, !noundef !4
-  %trunc = trunc i32 %163 to i1
+  %trunc = trunc nuw i32 %163 to i1
   br i1 %trunc, label %170, label %164
 
 164:                                              ; preds = %162
@@ -15560,7 +15561,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32)
   call void @_ZN11arrow_array20temporal_conversions7as_time17h4b40e91ff42391f0E(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %32, i64 noundef %108)
   %109 = load i32, ptr %32, align 4, !range !2098, !noundef !4
-  %trunc = trunc i32 %109 to i1
+  %trunc = trunc nuw i32 %109 to i1
   br i1 %trunc, label %157, label %151
 
 110:                                              ; preds = %"_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h30c19f8316bca409E.exit53"

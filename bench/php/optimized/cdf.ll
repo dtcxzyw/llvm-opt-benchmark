@@ -2473,50 +2473,49 @@ define hidden i32 @cdf_print_property_name(ptr noundef %0, i64 noundef %1, i32 n
 define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = sdiv i64 %2, 10000000
   %5 = srem i64 %4, 60
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = sdiv i64 %2, 600000000
   %8 = srem i64 %7, 60
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nsw i64 %8 to i32
   %10 = sdiv i64 %2, 36000000000
-  %.lhs.trunc = trunc i64 %10 to i32
+  %.lhs.trunc = trunc nsw i64 %10 to i32
   %11 = srem i32 %.lhs.trunc, 24
   %12 = sdiv i64 %2, 864000000000
-  %13 = trunc i64 %12 to i32
-  %.not50 = icmp eq i32 %13, 0
-  br i1 %.not50, label %17, label %14
+  %13 = trunc nsw i64 %12 to i32
+  %.not55 = icmp eq i32 %13, 0
+  br i1 %.not55, label %17, label %14
 
 14:                                               ; preds = %3
   %15 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.6, i32 noundef %13) #20
   %16 = sext i32 %15 to i64
   %.not = icmp ult i64 %16, %1
-  br i1 %.not, label %17, label %35
+  br i1 %.not, label %.thread, label %35
 
-17:                                               ; preds = %14, %3
-  %.046 = phi i32 [ %15, %14 ], [ 0, %3 ]
-  %18 = or i32 %11, %13
-  %or.cond.not = icmp eq i32 %18, 0
-  %.pre = sext i32 %.046 to i64
-  br i1 %or.cond.not, label %._crit_edge, label %19
+17:                                               ; preds = %3
+  %.not56 = icmp eq i32 %11, 0
+  br i1 %.not56, label %._crit_edge, label %.thread
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 %.pre
-  %21 = sub i64 %1, %.pre
-  %22 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %20, i64 noundef %21, ptr noundef nonnull @.str.7, i32 noundef %11) #20
-  %23 = add nsw i32 %22, %.046
-  %24 = sext i32 %23 to i64
-  %.not51 = icmp ult i64 %24, %1
-  br i1 %.not51, label %._crit_edge, label %35
+.thread:                                          ; preds = %17, %14
+  %.04654 = phi i32 [ %15, %14 ], [ 0, %17 ]
+  %18 = sext i32 %.04654 to i64
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
+  %20 = sub i64 %1, %18
+  %21 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %19, i64 noundef %20, ptr noundef nonnull @.str.7, i32 noundef %11) #20
+  %22 = add nsw i32 %21, %.04654
+  %23 = sext i32 %22 to i64
+  %.not50 = icmp ult i64 %23, %1
+  br i1 %.not50, label %._crit_edge, label %35
 
-._crit_edge:                                      ; preds = %17, %19
-  %.pre-phi = phi i64 [ %24, %19 ], [ %.pre, %17 ]
-  %.1 = phi i32 [ %23, %19 ], [ %.046, %17 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 %.pre-phi
-  %26 = sub i64 %1, %.pre-phi
+._crit_edge:                                      ; preds = %17, %.thread
+  %.1 = phi i32 [ %22, %.thread ], [ 0, %17 ]
+  %24 = sext i32 %.1 to i64
+  %25 = getelementptr inbounds i8, ptr %0, i64 %24
+  %26 = sub i64 %1, %24
   %27 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %25, i64 noundef %26, ptr noundef nonnull @.str.7, i32 noundef %9) #20
   %28 = add nsw i32 %27, %.1
   %29 = sext i32 %28 to i64
-  %.not52 = icmp ult i64 %29, %1
-  br i1 %.not52, label %30, label %35
+  %.not51 = icmp ult i64 %29, %1
+  br i1 %.not51, label %30, label %35
 
 30:                                               ; preds = %._crit_edge
   %31 = getelementptr inbounds i8, ptr %0, i64 %29
@@ -2525,8 +2524,8 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
   %34 = add nsw i32 %33, %28
   br label %35
 
-35:                                               ; preds = %._crit_edge, %19, %14, %30
-  %.0 = phi i32 [ %34, %30 ], [ %15, %14 ], [ %23, %19 ], [ %28, %._crit_edge ]
+35:                                               ; preds = %._crit_edge, %.thread, %14, %30
+  %.0 = phi i32 [ %34, %30 ], [ %15, %14 ], [ %22, %.thread ], [ %28, %._crit_edge ]
   ret i32 %.0
 }
 

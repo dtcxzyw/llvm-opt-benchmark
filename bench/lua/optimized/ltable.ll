@@ -91,7 +91,7 @@ cond.true.i:                                      ; preds = %if.end.i
   %4 = load i64, ptr %key, align 8
   %sub.i.i = add i64 %4, -1
   %cmp.i.i = icmp ult i64 %sub.i.i, 2147483648
-  %conv.i.i = trunc i64 %4 to i32
+  %conv.i.i = trunc nuw i64 %4 to i32
   %retval.0.i.i = select i1 %cmp.i.i, i32 %conv.i.i, i32 0
   br label %cond.end.i
 
@@ -293,7 +293,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %conv10.i = trunc i32 %call.i to i8
+  %conv10.i = trunc nuw i32 %call.i to i8
   %lsizenode11.i = getelementptr inbounds i8, ptr %newt, i64 11
   store i8 %conv10.i, ptr %lsizenode11.i, align 1
   %arrayidx14.i = getelementptr inbounds %union.Node, ptr %call5.i, i64 %wide.trip.count.i
@@ -592,7 +592,7 @@ if.else16.i:                                      ; preds = %land.lhs.true.i, %i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else16.i
-  %conv.i.i = trunc i64 %key to i32
+  %conv.i.i = trunc nuw i64 %key to i32
   %lsizenode.i.i = getelementptr inbounds i8, ptr %t, i64 11
   %3 = load i8, ptr %lsizenode.i.i, align 1
   %conv1.i.i = zext nneg i8 %3 to i32
@@ -840,7 +840,7 @@ if.else16:                                        ; preds = %land.lhs.true, %if.
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else16
-  %conv.i = trunc i64 %key to i32
+  %conv.i = trunc nuw i64 %key to i32
   %lsizenode.i = getelementptr inbounds i8, ptr %t, i64 11
   %3 = load i8, ptr %lsizenode.i, align 1
   %conv1.i = zext nneg i8 %3 to i32
@@ -1282,7 +1282,7 @@ if.else16.i:                                      ; preds = %land.lhs.true.i12, 
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else16.i
-  %conv.i.i = trunc i64 %9 to i32
+  %conv.i.i = trunc nuw i64 %9 to i32
   %lsizenode.i.i = getelementptr inbounds i8, ptr %t, i64 11
   %13 = load i8, ptr %lsizenode.i.i, align 1
   %conv1.i.i = zext nneg i8 %13 to i32
@@ -1378,7 +1378,7 @@ if.else16.i33:                                    ; preds = %land.lhs.true.i29, 
   br i1 %cmp.i.i34, label %if.then.i.i61, label %if.else.i.i36
 
 if.then.i.i61:                                    ; preds = %if.else16.i33
-  %conv.i.i62 = trunc i64 %20 to i32
+  %conv.i.i62 = trunc nuw i64 %20 to i32
   %lsizenode.i.i63 = getelementptr inbounds i8, ptr %t, i64 11
   %24 = load i8, ptr %lsizenode.i.i63, align 1
   %conv1.i.i64 = zext nneg i8 %24 to i32
@@ -1680,9 +1680,9 @@ if.then6.i:                                       ; preds = %if.then.i93
   %26 = load i64, ptr %key_val.i, align 8
   %27 = add i64 %26, -2147483649
   %cmp.i.i.i = icmp ult i64 %27, -2147483648
-  %conv.i.i.i = trunc i64 %26 to i32
+  %conv.i.i.i = trunc nuw i64 %26 to i32
   %cmp.not2.i.i = icmp eq i32 %conv.i.i.i, 0
-  %cmp.not.i.i = or i1 %cmp.i.i.i, %cmp.not2.i.i
+  %cmp.not.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.not2.i.i
   br i1 %cmp.not.i.i, label %countint.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
@@ -1721,9 +1721,9 @@ if.then.i:                                        ; preds = %numusehash.exit
   %31 = load i64, ptr %key.addr.0, align 8
   %32 = add i64 %31, -2147483649
   %cmp.i.i = icmp ult i64 %32, -2147483648
-  %conv.i.i = trunc i64 %31 to i32
+  %conv.i.i = trunc nuw i64 %31 to i32
   %cmp.not2.i = icmp eq i32 %conv.i.i, 0
-  %cmp.not.i = or i1 %cmp.i.i, %cmp.not2.i
+  %cmp.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not2.i
   br i1 %cmp.not.i, label %countint.exit, label %if.then.i81
 
 if.then.i81:                                      ; preds = %if.then.i
@@ -2260,7 +2260,7 @@ if.else16.i.i:                                    ; preds = %land.lhs.true.i.i, 
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else16.i.i
-  %conv.i.i.i = trunc i64 %mul.i to i32
+  %conv.i.i.i = trunc nuw i64 %mul.i to i32
   %34 = load i8, ptr %lsizenode3.i.i.i, align 1
   %conv1.i.i.i = zext nneg i8 %34 to i32
   %notmask6.i.i.i = shl nsw i32 -1, %conv1.i.i.i
@@ -2423,7 +2423,7 @@ if.else16.i69.i:                                  ; preds = %land.lhs.true.i65.i
   br i1 %cmp.i.i70.i, label %if.then.i.i97.i, label %if.else.i.i72.i
 
 if.then.i.i97.i:                                  ; preds = %if.else16.i69.i
-  %conv.i.i98.i = trunc i64 %div16.i to i32
+  %conv.i.i98.i = trunc nuw i64 %div16.i to i32
   %53 = load i8, ptr %lsizenode3.i.i.i, align 1
   %conv1.i.i100.i = zext nneg i8 %53 to i32
   %notmask6.i.i101.i = shl nsw i32 -1, %conv1.i.i100.i
@@ -2529,7 +2529,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %conv.i = trunc i64 %2 to i32
+  %conv.i = trunc nuw i64 %2 to i32
   %lsizenode.i = getelementptr inbounds i8, ptr %t, i64 11
   %4 = load i8, ptr %lsizenode.i, align 1
   %conv1.i = zext nneg i8 %4 to i32

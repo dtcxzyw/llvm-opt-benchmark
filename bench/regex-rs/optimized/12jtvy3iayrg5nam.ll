@@ -259,7 +259,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i8, ptr %6, align 8, !range !13, !alias.scope !10, !noalias !14, !noundef !7
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   %anon.af71731a07818c7d8d295102c5fb6fdb.50.llvm.12578941820218715555.anon.af71731a07818c7d8d295102c5fb6fdb.49.llvm.12578941820218715555.i = select i1 %8, ptr @anon.af71731a07818c7d8d295102c5fb6fdb.50.llvm.12578941820218715555, ptr @anon.af71731a07818c7d8d295102c5fb6fdb.49.llvm.12578941820218715555
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !16
   call void @_ZN4core3fmt9Formatter11debug_tuple17hdafdf15840d214fbE(ptr noalias nocapture noundef nonnull sret({ i64, ptr, i8, i8, [6 x i8] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.af71731a07818c7d8d295102c5fb6fdb.50.llvm.12578941820218715555.anon.af71731a07818c7d8d295102c5fb6fdb.49.llvm.12578941820218715555.i, i64 noundef 1), !noalias !10
@@ -1073,7 +1073,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..ast..print..Writer$LT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %7 = getelementptr inbounds i8, ptr %6, i64 208
   %8 = load i8, ptr %7, align 8, !range !13, !alias.scope !58, !noalias !55, !noundef !7
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %4
@@ -1174,7 +1174,7 @@ default.unreachable3:                             ; preds = %30, %2
   %34 = load i8, ptr %33, align 8, !range !99, !alias.scope !97, !noalias !94, !noundef !7
   %35 = getelementptr inbounds i8, ptr %32, i64 49
   %36 = load i8, ptr %35, align 1, !range !13, !alias.scope !97, !noalias !94, !noundef !7
-  %37 = trunc i8 %36 to i1
+  %37 = trunc nuw i8 %36 to i1
   switch i8 %34, label %default.unreachable3 [
     i8 0, label %38
     i8 1, label %39
@@ -1243,7 +1243,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..ast..print..Writer$LT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %8 = getelementptr inbounds i8, ptr %7, i64 208
   %9 = load i8, ptr %8, align 8, !range !13, !alias.scope !119, !noalias !116, !noundef !7
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %6
@@ -1299,7 +1299,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..ast..print..Writer$LT
   %.val16 = load i8, ptr %14, align 8, !range !135, !noundef !7
   %15 = getelementptr inbounds i8, ptr %1, i64 49
   %.val17 = load i8, ptr %15, align 1
-  %16 = trunc i8 %.val17 to i1
+  %16 = trunc nuw i8 %.val17 to i1
   switch i8 %.val16, label %default.unreachable [
     i8 0, label %17
     i8 1, label %18
@@ -1485,7 +1485,7 @@ default.unreachable:                              ; preds = %89, %13
   %91 = load i8, ptr %90, align 8, !range !99, !alias.scope !223, !noalias !220, !noundef !7
   %92 = getelementptr inbounds i8, ptr %1, i64 49
   %93 = load i8, ptr %92, align 1, !range !13, !alias.scope !223, !noalias !220, !noundef !7
-  %94 = trunc i8 %93 to i1
+  %94 = trunc nuw i8 %93 to i1
   switch i8 %91, label %default.unreachable [
     i8 0, label %95
     i8 1, label %96
@@ -1571,7 +1571,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %1, i64 80
   %13 = load i8, ptr %12, align 8, !range !13, !noundef !7
-  %14 = trunc i8 %13 to i1
+  %14 = trunc nuw i8 %13 to i1
   %15 = load ptr, ptr %0, align 8, !noalias !7, !nonnull !7, !align !8, !noundef !7
   br i1 %14, label %.split, label %21
 
@@ -1646,19 +1646,19 @@ default.unreachable:                              ; preds = %2
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 120
   %18 = load i8, ptr %17, align 8, !range !13, !noundef !7
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %63, label %60
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds i8, ptr %1, i64 120
   %22 = load i8, ptr %21, align 8, !range !13, !noundef !7
-  %23 = trunc i8 %22 to i1
+  %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %70, label %67
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %1, i64 120
   %26 = load i8, ptr %25, align 8, !range !13, !noundef !7
-  %27 = trunc i8 %26 to i1
+  %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %76, label %73
 
 28:                                               ; preds = %2
@@ -1804,7 +1804,7 @@ default.unreachable1.i:                           ; preds = %28
 79:                                               ; preds = %30, %39, %"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$20fmt_repetition_range17h4c84ec0195c1ecfeE.exit"
   %80 = getelementptr inbounds i8, ptr %1, i64 120
   %81 = load i8, ptr %80, align 8, !range !13, !noundef !7
-  %82 = trunc i8 %81 to i1
+  %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %66, label %83
 
 83:                                               ; preds = %79
@@ -2404,7 +2404,7 @@ default.unreachable4:                             ; preds = %"_ZN91_$LT$core..sl
 define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$23fmt_class_bracketed_pre17h8c570383b4e9a339E.llvm.16653392013706621149"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(216) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 208
   %4 = load i8, ptr %3, align 8, !range !13, !noundef !7
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
@@ -2442,7 +2442,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
   %4 = load i8, ptr %3, align 8, !range !99, !noundef !7
   %5 = getelementptr inbounds i8, ptr %1, i64 49
   %6 = load i8, ptr %5, align 1, !range !13, !noundef !7
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   switch i8 %4, label %default.unreachable1 [
     i8 0, label %8
     i8 1, label %9
@@ -2490,7 +2490,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$1
   %17 = alloca ptr, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 104
   %19 = load i8, ptr %18, align 8, !range !13, !noundef !7
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   %21 = load ptr, ptr %0, align 8, !nonnull !7, !align !8, !noundef !7
   br i1 %20, label %24, label %22
 
@@ -4323,13 +4323,13 @@ define { i8, i8 } @_ZN12regex_syntax3ast7Literal4byte17h76f184a6dafaf13eE(ptr no
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8, !range !334
   %10 = icmp ult i32 %9, 256
-  %11 = trunc i32 %9 to i8
-  %.sroa.4.1 = select i1 %or.cond, i8 %11, i8 undef
-  %narrow = select i1 %or.cond, i1 %10, i1 false
-  %.sroa.0.1 = zext i1 %narrow to i8
-  %12 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1, 0
-  %13 = insertvalue { i8, i8 } %12, i8 %.sroa.4.1, 1
-  ret { i8, i8 } %13
+  %11 = trunc nuw i32 %9 to i8
+  %12 = select i1 %or.cond, i1 %10, i1 false
+  %.sroa.4.1 = select i1 %12, i8 %11, i8 undef
+  %.sroa.0.1 = zext i1 %12 to i8
+  %13 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1, 0
+  %14 = insertvalue { i8, i8 } %13, i8 %.sroa.4.1, 1
+  ret { i8, i8 } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -4440,7 +4440,7 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast12ClassUnicode10is_negated17ha93
   %or.cond = select i1 %4, i1 %7, i1 false
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load i8, ptr %8, align 8, !range !13
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %or.cond, %10
   ret i1 %11
 }
@@ -5086,7 +5086,7 @@ _ZN12regex_syntax3hir7literal3Seq9singleton17h72802fcc184ebda0E.exit: ; preds = 
   %38 = getelementptr inbounds i8, ptr %35, i64 32
   %39 = getelementptr i8, ptr %35, i64 24
   %.val.i.i.i = load i8, ptr %39, align 8, !range !13, !alias.scope !893, !noalias !898, !noundef !7
-  %40 = trunc i8 %.val.i.i.i to i1
+  %40 = trunc nuw i8 %.val.i.i.i to i1
   br i1 %40, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h619514a7b58c03a7E.exit", label %34
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h619514a7b58c03a7E.exit": ; preds = %37
@@ -5277,7 +5277,7 @@ _ZN12regex_syntax3hir7literal3Seq9singleton17h72802fcc184ebda0E.exit: ; preds = 
   %38 = getelementptr inbounds i8, ptr %35, i64 32
   %39 = getelementptr i8, ptr %35, i64 24
   %.val.i.i.i = load i8, ptr %39, align 8, !range !13, !alias.scope !929, !noalias !934, !noundef !7
-  %40 = trunc i8 %.val.i.i.i to i1
+  %40 = trunc nuw i8 %.val.i.i.i to i1
   br i1 %40, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h619514a7b58c03a7E.exit", label %34
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h619514a7b58c03a7E.exit": ; preds = %37

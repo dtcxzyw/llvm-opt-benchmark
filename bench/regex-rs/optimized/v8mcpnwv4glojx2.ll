@@ -719,7 +719,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !83
   %12 = trunc i32 %1 to i8
@@ -731,7 +731,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !83
   %19 = lshr i32 %1, 6
@@ -799,7 +799,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !96, !noundef !4
   %58 = load i64, ptr %0, align 8, !alias.scope !96, !noundef !4
@@ -2595,7 +2595,7 @@ _ZN12regex_syntax5error5Spans11notate_line17h94a9cb4f2e3ac536E.exit: ; preds = %
 
 _ZN12regex_syntax5error5Spans11notate_line17h94a9cb4f2e3ac536E.exit.thread: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb6a38aef592a224bE.exit.i", %_ZN12regex_syntax5error5Spans11notate_line17h94a9cb4f2e3ac536E.exit, %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
-  %281 = trunc i8 %76 to i1
+  %281 = trunc nuw i8 %76 to i1
   br i1 %281, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h8d1a95cd9d435c55E.exit.i.i.i.i.i._crit_edge", label %47
 
 282:                                              ; preds = %.body
@@ -3385,7 +3385,7 @@ _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread: ; pred
 
 55:                                               ; preds = %.split
   %56 = trunc i32 %23 to i8
-  %.sroa.521.0.extract.trunc = trunc i32 %.us-phi133 to i8
+  %.sroa.521.0.extract.trunc = trunc nuw i32 %.us-phi133 to i8
   store i8 0, ptr %0, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %56, ptr %.sroa.4.0..sroa_idx, align 1
@@ -3426,12 +3426,12 @@ _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread: ; pred
   br i1 %72, label %82, label %93
 
 73:                                               ; preds = %67
-  %74 = trunc i32 %23 to i8
+  %74 = trunc nuw i32 %23 to i8
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 75:                                               ; preds = %69
   %76 = lshr i32 %23, 6
-  %77 = trunc i32 %76 to i8
+  %77 = trunc nuw i32 %76 to i8
   %78 = or disjoint i8 %77, -64
   %79 = trunc i32 %23 to i8
   %80 = and i8 %79, 63
@@ -3440,7 +3440,7 @@ _ZN12regex_syntax4utf816max_scalar_value17h8596d5b2ca7f7e8aE.exit.thread: ; pred
 
 82:                                               ; preds = %71
   %83 = lshr i32 %23, 12
-  %84 = trunc i32 %83 to i8
+  %84 = trunc nuw i32 %83 to i8
   %85 = or disjoint i8 %84, -32
   %86 = lshr i32 %23, 6
   %87 = trunc i32 %86 to i8
@@ -3484,13 +3484,13 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %73
 
 113:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
   %114 = lshr i32 %.us-phi133, 6
-  %115 = trunc i32 %114 to i8
+  %115 = trunc nuw i32 %114 to i8
   %116 = or disjoint i8 %115, -64
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit12.i
 
 117:                                              ; preds = %111
   %118 = lshr i32 %.us-phi133, 12
-  %119 = trunc i32 %118 to i8
+  %119 = trunc nuw i32 %118 to i8
   %120 = or disjoint i8 %119, -32
   %121 = lshr i32 %.us-phi133, 6
   %122 = trunc i32 %.us-phi133 to i8
@@ -3637,7 +3637,7 @@ _ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exi
 .preheader:                                       ; preds = %.split, %160
   %.sroa.010.0155 = phi i64 [ %150, %160 ], [ 1, %.split ]
   %150 = add nuw nsw i64 %.sroa.010.0155, 1
-  %151 = trunc i64 %.sroa.010.0155 to i32
+  %151 = trunc nuw i64 %.sroa.010.0155 to i32
   %152 = mul nuw nsw i32 %151, 6
   %notmask = shl nsw i32 -1, %152
   %153 = xor i32 %notmask, -1
@@ -4027,8 +4027,9 @@ define noundef zeroext i1 @_ZN12regex_syntax17is_word_character17h6e5cf7cc6f41bd
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   %3 = icmp ugt i32 %0, 255
-  %4 = trunc i32 %0 to i8
-  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %4, i1 noundef zeroext false)
+  %4 = trunc nuw i32 %0 to i8
+  %.sroa.5.0.i.i.i = select i1 %3, i8 undef, i8 %4
+  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %.sroa.5.0.i.i.i, i1 noundef zeroext false)
   br i1 %5, label %_ZN12regex_syntax21try_is_word_character17he6593f9dbf0a5fb1E.exit, label %6
 
 6:                                                ; preds = %1
@@ -4049,8 +4050,9 @@ define noundef i8 @_ZN12regex_syntax21try_is_word_character17he6593f9dbf0a5fb1E(
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   %3 = icmp ugt i32 %0, 255
-  %4 = trunc i32 %0 to i8
-  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %4, i1 noundef zeroext false)
+  %4 = trunc nuw i32 %0 to i8
+  %.sroa.5.0.i.i = select i1 %3, i8 undef, i8 %4
+  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %.sroa.5.0.i.i, i1 noundef zeroext false)
   br i1 %5, label %_ZN12regex_syntax7unicode17is_word_character17hf1b8e93ffe17fc03E.exit, label %6
 
 6:                                                ; preds = %1

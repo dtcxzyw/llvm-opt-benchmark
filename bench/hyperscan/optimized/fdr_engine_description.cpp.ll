@@ -189,14 +189,14 @@ if.else6.i:                                       ; preds = %if.else.i
 if.then8.i:                                       ; preds = %if.else6.i
   %sub9.i = add i64 %call, -1
   %cond.i = call i64 @llvm.umin.i64(i64 %sub9.i, i64 2)
-  %conv12.i = trunc i64 %cond.i to i32
+  %conv12.i = trunc nuw nsw i64 %cond.i to i32
   br label %_ZN3ue2L17findDesiredStrideEmmm.exit
 
 _ZN3ue2L17findDesiredStrideEmmm.exit:             ; preds = %invoke.cont1, %if.then2.i, %if.then4.i, %if.else6.i, %if.then8.i
   %desiredStride.0.i = phi i32 [ %conv.i, %if.then2.i ], [ %conv5.i, %if.then4.i ], [ %conv12.i, %if.then8.i ], [ 1, %if.else6.i ], [ 1, %invoke.cont1 ]
   %cmp16.i = icmp eq i64 %call, 4
   %cmp17.i = icmp eq i32 %desiredStride.0.i, 4
-  %or.cond.i = and i1 %cmp16.i, %cmp17.i
+  %or.cond.i = select i1 %cmp16.i, i1 %cmp17.i, i1 false
   %cmp19.i = icmp ugt i64 %2, 2
   %or.cond1.i = and i1 %cmp19.i, %or.cond.i
   %spec.store.select.i = select i1 %or.cond1.i, i32 2, i32 %desiredStride.0.i
@@ -248,7 +248,7 @@ invoke.cont11:                                    ; preds = %if.end
   br i1 %or.cond42.not, label %if.end17, label %for.inc
 
 if.end17:                                         ; preds = %invoke.cont11
-  %conv = trunc i64 %stride.071 to i32
+  %conv = trunc nuw nsw i64 %stride.071 to i32
   %call19 = invoke noundef i32 @_ZN3ue27absdiffEjj(i32 noundef %spec.store.select.i, i32 noundef %conv)
           to label %invoke.cont18 unwind label %lpad.loopexit
 

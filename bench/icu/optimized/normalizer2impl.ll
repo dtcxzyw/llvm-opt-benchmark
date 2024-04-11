@@ -1229,7 +1229,7 @@ if.end88:                                         ; preds = %if.then.i.i69, %if.
   br i1 %cmp.i74, label %cond.true.i77, label %cond.false.i75
 
 cond.true.i77:                                    ; preds = %if.end88
-  %conv.i78 = trunc i32 %c.1 to i16
+  %conv.i78 = trunc nuw i32 %c.1 to i16
   %call.i79 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer9appendBMPEDshR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %this, i16 noundef zeroext %conv.i78, i8 noundef zeroext %leadCC.addr.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %_ZN6icu_7516ReorderingBuffer6appendEihR10UErrorCode.exit
 
@@ -1320,7 +1320,7 @@ if.end:                                           ; preds = %_ZN6icu_7516Reorder
   br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  %conv = trunc i32 %c to i16
+  %conv = trunc nuw i32 %c to i16
   %limit = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load ptr, ptr %limit, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %15, i64 2
@@ -2624,7 +2624,7 @@ if.then18:                                        ; preds = %lor.lhs.false, %if.
   %conv.i46 = add i16 %16, 4352
   store i16 %conv.i46, ptr %jamos, align 2
   %rem2.i = srem i32 %div.i, 21
-  %17 = trunc i32 %rem2.i to i16
+  %17 = trunc nsw i32 %rem2.i to i16
   %conv4.i = add nsw i16 %17, 4449
   %arrayidx5.i = getelementptr inbounds i8, ptr %jamos, i64 2
   store i16 %conv4.i, ptr %arrayidx5.i, align 2
@@ -2632,7 +2632,7 @@ if.then18:                                        ; preds = %lor.lhs.false, %if.
   br i1 %cmp.i47, label %_ZN6icu_756Hangul9decomposeEiPDs.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then18
-  %18 = trunc i32 %rem.i to i16
+  %18 = trunc nsw i32 %rem.i to i16
   %conv7.i = add nsw i16 %18, 4519
   store i16 %conv7.i, ptr %retval.0.i.sroa.gep48, align 2
   br label %_ZN6icu_756Hangul9decomposeEiPDs.exit
@@ -2652,7 +2652,7 @@ if.end24:                                         ; preds = %lor.lhs.false
   %conv26 = zext i16 %21 to i32
   %and = and i32 %conv26, 31
   %shr = lshr i16 %21, 8
-  %conv28 = trunc i16 %shr to i8
+  %conv28 = trunc nuw i16 %shr to i8
   %and30 = and i32 %conv26, 128
   %tobool31.not = icmp eq i32 %and30, 0
   br i1 %tobool31.not, label %if.end38, label %if.then32
@@ -2661,7 +2661,7 @@ if.then32:                                        ; preds = %if.end24
   %add.ptr33 = getelementptr inbounds i8, ptr %add.ptr.i, i64 -2
   %22 = load i16, ptr %add.ptr33, align 2
   %23 = lshr i16 %22, 8
-  %conv36 = trunc i16 %23 to i8
+  %conv36 = trunc nuw i16 %23 to i8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end24, %if.then32
@@ -2911,7 +2911,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i16 %0 to i8
+  %conv.i = trunc nuw i16 %0 to i8
   br label %_ZN6icu_7512_GLOBAL__N_113leadByteForCPEi.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2920,7 +2920,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.else.i
   %shr.i = lshr i16 %0, 6
-  %1 = trunc i16 %shr.i to i8
+  %1 = trunc nuw i16 %shr.i to i8
   %conv3.i = or disjoint i8 %1, -64
   br label %_ZN6icu_7512_GLOBAL__N_113leadByteForCPEi.exit
 
@@ -4068,14 +4068,14 @@ if.end162:                                        ; preds = %sw.bb19.i194, %sw.b
   %conv.i231 = add nsw i16 %102, 4352
   store i16 %conv.i231, ptr %jamos, align 2
   %rem2.i = srem i32 %div.i, 21
-  %103 = trunc i32 %rem2.i to i16
+  %103 = trunc nsw i32 %rem2.i to i16
   %conv4.i = add nsw i16 %103, 4449
   store i16 %conv4.i, ptr %arrayidx5.i, align 2
   %cmp.i232 = icmp eq i32 %rem.i, 0
   br i1 %cmp.i232, label %_ZN6icu_756Hangul9decomposeEiPDs.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end162
-  %104 = trunc i32 %rem.i to i16
+  %104 = trunc nsw i32 %rem.i to i16
   %conv7.i = add nsw i16 %104, 4519
   store i16 %conv7.i, ptr %retval.0.i234.sroa.gep287, align 2
   br label %_ZN6icu_756Hangul9decomposeEiPDs.exit
@@ -4095,7 +4095,7 @@ if.else170:                                       ; preds = %lor.lhs.false
   %conv172 = zext i16 %107 to i32
   %and173 = and i32 %conv172, 31
   %shr175 = lshr i16 %107, 8
-  %conv176 = trunc i16 %shr175 to i8
+  %conv176 = trunc nuw i16 %shr175 to i8
   %and178 = and i32 %conv172, 128
   %tobool179.not = icmp eq i32 %and178, 0
   br i1 %tobool179.not, label %if.end186, label %if.then180
@@ -4104,7 +4104,7 @@ if.then180:                                       ; preds = %if.else170
   %add.ptr181 = getelementptr inbounds i8, ptr %add.ptr.i, i64 -2
   %108 = load i16, ptr %add.ptr181, align 2
   %109 = lshr i16 %108, 8
-  %conv184 = trunc i16 %109 to i8
+  %conv184 = trunc nuw i16 %109 to i8
   br label %if.end186
 
 if.end186:                                        ; preds = %if.else170, %if.then180
@@ -4276,7 +4276,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp7, label %cond.true.i, label %cond.false.i34
 
 cond.true.i:                                      ; preds = %if.then5
-  %conv9 = trunc i32 %sub.i30 to i16
+  %conv9 = trunc nuw i32 %sub.i30 to i16
   store i32 1, ptr %length, align 4
   store i16 %conv9, ptr %buffer, align 2
   %normTrie.i3152 = getelementptr inbounds i8, ptr %this, i64 32
@@ -4374,7 +4374,7 @@ if.then31:                                        ; preds = %lor.lhs.false28, %i
   %conv.i50 = add i16 %31, 4352
   store i16 %conv.i50, ptr %buffer, align 2
   %rem2.i = srem i32 %div.i, 21
-  %32 = trunc i32 %rem2.i to i16
+  %32 = trunc nsw i32 %rem2.i to i16
   %conv4.i = add nsw i16 %32, 4449
   %arrayidx5.i = getelementptr inbounds i8, ptr %buffer, i64 2
   store i16 %conv4.i, ptr %arrayidx5.i, align 2
@@ -4382,7 +4382,7 @@ if.then31:                                        ; preds = %lor.lhs.false28, %i
   br i1 %cmp.i51, label %_ZN6icu_756Hangul9decomposeEiPDs.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then31
-  %33 = trunc i32 %rem.i to i16
+  %33 = trunc nsw i32 %rem.i to i16
   %conv7.i = add nsw i16 %33, 4519
   %arrayidx8.i = getelementptr inbounds i8, ptr %buffer, i64 4
   store i16 %conv7.i, ptr %arrayidx8.i, align 2
@@ -4522,7 +4522,7 @@ _ZN6icu_756Hangul19getRawDecompositionEiPDs.exit: ; preds = %if.then.i, %if.else
   %rem.sink.i = phi i32 [ %rem.i, %if.else.i ], [ %rem2.i, %if.then.i ]
   %.sink11.i = phi i16 [ 4519, %if.else.i ], [ 4449, %if.then.i ]
   %conv7.sink.i = phi i16 [ %conv7.i, %if.else.i ], [ %conv.i45, %if.then.i ]
-  %14 = trunc i32 %rem.sink.i to i16
+  %14 = trunc nsw i32 %rem.sink.i to i16
   %conv10.i = add nsw i16 %.sink11.i, %14
   store i16 %conv7.sink.i, ptr %buffer, align 2
   %15 = getelementptr inbounds i8, ptr %buffer, i64 2
@@ -4548,7 +4548,7 @@ if.then12:                                        ; preds = %if.else9
   br i1 %cmp14, label %if.then15, label %if.else17
 
 if.then15:                                        ; preds = %if.then12
-  %conv16 = trunc i32 %sub.i50 to i16
+  %conv16 = trunc nuw i32 %sub.i50 to i16
   store i32 1, ptr %length, align 4
   store i16 %conv16, ptr %buffer, align 2
   br label %return
@@ -5582,7 +5582,7 @@ if.then48:                                        ; preds = %if.then46
 if.then54:                                        ; preds = %if.then48
   %add.ptr55 = getelementptr i8, ptr %p.1, i64 -2
   %narrow = mul nuw nsw i16 %sub50, 21
-  %19 = trunc i32 %c.0 to i16
+  %19 = trunc nuw i32 %c.0 to i16
   %20 = add nsw i16 %19, -4449
   %21 = add nsw i16 %20, %narrow
   %22 = mul i16 %21, 28
@@ -6690,10 +6690,10 @@ if.else201:                                       ; preds = %if.then150
   %conv202 = zext i16 %48 to i32
   %51 = add nsw i32 %conv202, -44032
   %or.cond.i227 = icmp ult i32 %51, 11172
-  %rem.lhs.trunc.i = trunc i32 %51 to i16
+  %rem.lhs.trunc.i = trunc nuw i32 %51 to i16
   %rem4.i = urem i16 %rem.lhs.trunc.i, 28
   %cmp2.i.not = icmp eq i16 %rem4.i, 0
-  %or.cond312 = and i1 %or.cond.i227, %cmp2.i.not
+  %or.cond312 = select i1 %or.cond.i227, i1 %cmp2.i.not, i1 false
   br i1 %or.cond312, label %if.then205, label %if.end327
 
 if.then205:                                       ; preds = %if.else201
@@ -7860,7 +7860,7 @@ _ZNK6icu_7515Normalizer2Impl30getTrailCCFromCompYesAndZeroCCEt.exit: ; preds = %
   %add.ptr.i.i = getelementptr inbounds i16, ptr %53, i64 %idx.ext.i.i
   %55 = load i16, ptr %add.ptr.i.i, align 2
   %56 = lshr i16 %55, 8
-  %conv4.i = trunc i16 %56 to i8
+  %conv4.i = trunc nuw i16 %56 to i8
   %cmp131 = icmp ult i8 %cond.i, %conv4.i
   br i1 %cmp131, label %if.end220, label %for.cond134.preheader
 
@@ -8475,7 +8475,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i16 %0 to i8
+  %conv.i = trunc nuw i16 %0 to i8
   br label %_ZN6icu_7512_GLOBAL__N_113leadByteForCPEi.exit
 
 if.else.i:                                        ; preds = %entry
@@ -8484,7 +8484,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.else.i
   %shr.i = lshr i16 %0, 6
-  %1 = trunc i16 %shr.i to i8
+  %1 = trunc nuw i16 %shr.i to i8
   %conv3.i = or disjoint i8 %1, -64
   br label %_ZN6icu_7512_GLOBAL__N_113leadByteForCPEi.exit
 
@@ -8831,7 +8831,7 @@ do.body.preheader.i:                              ; preds = %if.else.i261
   %41 = xor i64 %sub.ptr.rhs.cast.i, -1
   %42 = add i64 %umax.i, %41
   %43 = trunc i64 %42 to i32
-  %conv11.i = trunc i32 %add4.i to i8
+  %conv11.i = trunc nuw i32 %add4.i to i8
   %inc12.i = add nuw nsw i32 %43, 2
   %idxprom13.i = and i64 %40, 4294967295
   %arrayidx14.i = getelementptr inbounds [4 x i8], ptr %buffer.i, i64 0, i64 %idxprom13.i
@@ -8910,7 +8910,7 @@ _ZN6icu_7512_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.i: ; preds = %sw.bb
   br i1 %cmp18.i, label %if.then19.i, label %if.else24.i
 
 if.then19.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.i
-  %conv20.i = trunc i32 %add16.i to i8
+  %conv20.i = trunc nuw i32 %add16.i to i8
   store i8 %conv20.i, ptr %buffer.i, align 1
   br label %if.end71.i
 
@@ -8920,7 +8920,7 @@ if.else24.i:                                      ; preds = %_ZN6icu_7512_GLOBAL
 
 if.then26.i:                                      ; preds = %if.else24.i
   %shr.i263 = lshr i32 %add16.i, 6
-  %59 = trunc i32 %shr.i263 to i8
+  %59 = trunc nuw i32 %shr.i263 to i8
   %conv27.i = or disjoint i8 %59, -64
   store i8 %conv27.i, ptr %buffer.i, align 1
   br label %if.end60.i
@@ -8931,7 +8931,7 @@ if.else31.i:                                      ; preds = %if.else24.i
 
 if.then33.i:                                      ; preds = %if.else31.i
   %shr34.i = lshr i32 %add16.i, 12
-  %60 = trunc i32 %shr34.i to i8
+  %60 = trunc nuw i32 %shr34.i to i8
   %conv36.i = or disjoint i8 %60, -32
   br label %if.end.i
 
@@ -9244,10 +9244,10 @@ if.end253:                                        ; preds = %invoke.cont249, %if
 if.else257:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_120previousHangulOrJamoEPKhS2_.exit
   %91 = add nsw i32 %retval.0.i292, -44032
   %or.cond.i315 = icmp ult i32 %91, 11172
-  %rem.lhs.trunc.i = trunc i32 %91 to i16
+  %rem.lhs.trunc.i = trunc nuw i32 %91 to i16
   %rem4.i = urem i16 %rem.lhs.trunc.i, 28
   %cmp2.i.not = icmp eq i16 %rem4.i, 0
-  %or.cond466 = and i1 %or.cond.i315, %cmp2.i.not
+  %or.cond466 = select i1 %or.cond.i315, i1 %cmp2.i.not, i1 false
   br i1 %or.cond466, label %if.then261, label %if.end462
 
 if.then261:                                       ; preds = %if.else257

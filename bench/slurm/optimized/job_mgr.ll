@@ -16106,7 +16106,7 @@ define internal fastcc i32 @_select_nodes_parts(ptr noundef %0, i1 noundef zeroe
 
 45:                                               ; preds = %36
   %46 = call i32 @job_limits_check(ptr noundef nonnull %4, i1 noundef zeroext false), !range !50
-  %trunc = trunc i32 %46 to i8
+  %trunc = trunc nuw i32 %46 to i8
   switch i8 %trunc, label %thread-pre-split [
     i8 0, label %47
     i8 6, label %49
@@ -17477,7 +17477,7 @@ find_job_record.exit317.thread:                   ; preds = %130, %120, %find_jo
   %201 = call fastcc zeroext i1 @_parse_array_tok(ptr noundef nonnull %.0227345, ptr noundef %199, i32 noundef %200)
   %202 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.119, ptr noundef nonnull %6) #28
   %203 = icmp ne ptr %202, null
-  %204 = and i1 %201, %203
+  %204 = and i1 %203, %201
   br i1 %204, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -20543,7 +20543,7 @@ define internal fastcc noundef zeroext i1 @_valid_array_inx(ptr noundef %0) unna
   %48 = call fastcc zeroext i1 @_parse_array_tok(ptr noundef nonnull %.034, ptr noundef %46, i32 noundef %47)
   %49 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.119, ptr noundef nonnull %3) #28
   %50 = icmp ne ptr %49, null
-  %51 = and i1 %48, %50
+  %51 = and i1 %50, %48
   br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -32763,7 +32763,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
 3014:                                             ; preds = %3013
   %3015 = call i32 @job_limits_check(ptr noundef nonnull %5, i1 noundef zeroext false), !range !50
   %.fr2112 = freeze i32 %3015
-  %trunc2082 = trunc i32 %.fr2112 to i8
+  %trunc2082 = trunc nuw i32 %.fr2112 to i8
   switch i8 %trunc2082, label %3016 [
     i8 0, label %3025
     i8 29, label %3019
@@ -33933,7 +33933,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %151 = call fastcc zeroext i1 @_parse_array_tok(ptr noundef nonnull %.0158278, ptr noundef %149, i32 noundef %150)
   %152 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.119, ptr noundef nonnull %6) #28
   %153 = icmp ne ptr %152, null
-  %154 = and i1 %151, %153
+  %154 = and i1 %153, %151
   br i1 %154, label %.lr.ph279, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph279

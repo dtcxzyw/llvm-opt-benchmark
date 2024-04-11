@@ -191,10 +191,11 @@ entry:
   %0 = load i64, ptr %m_current_cost.i, align 8
   %delta.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %delta.sroa.3.0.extract.shift = lshr i64 %0, 32
-  %delta.sroa.3.0.extract.trunc = trunc i64 %delta.sroa.3.0.extract.shift to i32
-  %1 = or i32 %delta.sroa.3.0.extract.trunc, %delta.sroa.0.0.extract.trunc
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %do.end, label %if.end
+  %delta.sroa.3.0.extract.trunc = trunc nuw i64 %delta.sroa.3.0.extract.shift to i32
+  %tobool.not.i = icmp eq i32 %delta.sroa.0.0.extract.trunc, 0
+  %tobool2.not.i = icmp eq i32 %delta.sroa.3.0.extract.trunc, 0
+  %1 = select i1 %tobool.not.i, i1 %tobool2.not.i, i1 false
+  br i1 %1, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %m_current_cost.i, align 8
@@ -203,18 +204,18 @@ if.end:                                           ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end
-  %obj.0 = phi ptr [ %this, %if.end ], [ %5, %do.body ]
+  %obj.0 = phi ptr [ %this, %if.end ], [ %4, %do.body ]
   %m_processed_cost = getelementptr inbounds i8, ptr %obj.0, i64 24
-  %3 = load i32, ptr %m_processed_cost, align 4
-  %add.i = add i32 %3, %delta.sroa.0.0.extract.trunc
+  %2 = load i32, ptr %m_processed_cost, align 4
+  %add.i = add i32 %2, %delta.sroa.0.0.extract.trunc
   store i32 %add.i, ptr %m_processed_cost, align 4
   %instructions3.i = getelementptr inbounds i8, ptr %obj.0, i64 28
-  %4 = load i32, ptr %instructions3.i, align 4
-  %add4.i = add i32 %4, %delta.sroa.3.0.extract.trunc
+  %3 = load i32, ptr %instructions3.i, align 4
+  %add4.i = add i32 %3, %delta.sroa.3.0.extract.trunc
   store i32 %add4.i, ptr %instructions3.i, align 4
   %m_parent_object = getelementptr inbounds i8, ptr %obj.0, i64 8
-  %5 = load ptr, ptr %m_parent_object, align 8
-  %tobool.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %m_parent_object, align 8
+  %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !4
 
 do.end:                                           ; preds = %do.body, %entry

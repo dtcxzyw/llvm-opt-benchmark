@@ -117,7 +117,7 @@ define i64 @mz_adler32(i64 noundef %0, ptr noundef readonly %1, i64 noundef %2) 
   br i1 %9, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader67
-  %10 = trunc i64 %.089 to i32
+  %10 = trunc nuw nsw i64 %.089 to i32
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader67
@@ -461,7 +461,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %18, %20, %21, %23, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   store i32 %29, ptr %55, align 8
   %56 = and i32 %.1.i, 4095
-  %57 = trunc i32 %56 to i16
+  %57 = trunc nuw nsw i32 %56 to i16
   %.lhs.trunc.i = add nuw nsw i16 %57, 2
   %58 = udiv i16 %.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %58, 1
@@ -473,7 +473,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %18, %20, %21, %23, 
   %62 = getelementptr inbounds i8, ptr %52, i64 28
   store i32 %.lobit.i, ptr %62, align 4
   %63 = lshr i32 %56, 2
-  %64 = trunc i32 %63 to i16
+  %64 = trunc nuw nsw i32 %63 to i16
   %.lhs.trunc49.i = add nuw nsw i16 %64, 2
   %65 = udiv i16 %.lhs.trunc49.i, 3
   %narrow51.i = add nuw nsw i16 %65, 1
@@ -588,7 +588,7 @@ define noundef i32 @tdefl_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %3, ptr %6, align 8
   %7 = and i32 %3, 4095
-  %8 = trunc i32 %7 to i16
+  %8 = trunc nuw nsw i32 %7 to i16
   %.lhs.trunc = add nuw nsw i16 %8, 2
   %9 = udiv i16 %.lhs.trunc, 3
   %narrow = add nuw nsw i16 %9, 1
@@ -600,7 +600,7 @@ define noundef i32 @tdefl_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %13 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.lobit, ptr %13, align 4
   %14 = lshr i32 %7, 2
-  %15 = trunc i32 %14 to i16
+  %15 = trunc nuw nsw i32 %14 to i16
   %.lhs.trunc49 = add nuw nsw i16 %15, 2
   %16 = udiv i16 %.lhs.trunc49, 3
   %narrow51 = add nuw nsw i16 %16, 1
@@ -709,7 +709,7 @@ define noundef i32 @mz_deflateReset(ptr noundef %0) local_unnamed_addr #9 {
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 4095
-  %17 = trunc i32 %16 to i16
+  %17 = trunc nuw nsw i32 %16 to i16
   %.lhs.trunc.i = add nuw nsw i16 %17, 2
   %18 = udiv i16 %.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %18, 1
@@ -722,7 +722,7 @@ define noundef i32 @mz_deflateReset(ptr noundef %0) local_unnamed_addr #9 {
   %22 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %.lobit.i, ptr %22, align 4
   %23 = lshr i32 %16, 2
-  %24 = trunc i32 %23 to i16
+  %24 = trunc nuw nsw i32 %23 to i16
   %.lhs.trunc49.i = add nuw nsw i16 %24, 2
   %25 = udiv i16 %.lhs.trunc49.i, 3
   %narrow51.i = add nuw nsw i16 %25, 1
@@ -1104,7 +1104,7 @@ define i32 @tdefl_compress(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %73, i64 %76
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr nonnull align 1 %77, i64 %..i, i1 false)
-  %78 = trunc i64 %..i to i32
+  %78 = trunc nuw i64 %..i to i32
   %79 = load i32, ptr %74, align 8
   %80 = add i32 %79, %78
   store i32 %80, ptr %74, align 8
@@ -1177,7 +1177,7 @@ tdefl_flush_output_buffer.exit:                   ; preds = %86, %89
   %116 = ptrtoint ptr %1 to i64
   %117 = sub i64 %115, %116
   %118 = tail call i64 @mz_adler32(i64 noundef %113, ptr noundef nonnull %1, i64 noundef %117), !range !6
-  %119 = trunc i64 %118 to i32
+  %119 = trunc nuw i64 %118 to i32
   store i32 %119, ptr %111, align 8
   br label %120
 
@@ -2395,7 +2395,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.211288, ptr align 1 %.241198, i64 %206, i1 false)
   %207 = getelementptr inbounds i8, ptr %.241198, i64 %206
   %208 = getelementptr inbounds i8, ptr %.211288, i64 %206
-  %209 = trunc i64 %206 to i32
+  %209 = trunc nuw i64 %206 to i32
   %210 = sub i32 %.25946, %209
   br label %193
 
@@ -2998,7 +2998,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %482, label %483, label %489
 
 483:                                              ; preds = %.loopexit
-  %484 = trunc i32 %.21444 to i8
+  %484 = trunc nuw i32 %.21444 to i8
   %485 = getelementptr inbounds i8, ptr %0, i64 10540
   %486 = add i32 %.41962, 1
   %487 = zext i32 %.41962 to i64
@@ -3995,7 +3995,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %umin = tail call i64 @llvm.umin.i64(i64 %962, i64 %964)
   %965 = xor i64 %umin, -1
   %scevgep1894 = getelementptr i8, ptr %.731247, i64 %965
-  %966 = trunc i64 %umin to i32
+  %966 = trunc nuw nsw i64 %umin to i32
   %967 = shl nuw i32 %966, 3
   %968 = sub i32 %960, %967
   br label %._crit_edge1799
@@ -4156,7 +4156,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %umin1896 = tail call i64 @llvm.umin.i64(i64 %1014, i64 %1016)
   %1017 = xor i64 %umin1896, -1
   %scevgep1897 = getelementptr i8, ptr %.821256, i64 %1017
-  %1018 = trunc i64 %umin1896 to i32
+  %1018 = trunc nuw nsw i64 %umin1896 to i32
   %1019 = shl nuw i32 %1018, 3
   %1020 = sub i32 %1012, %1019
   br label %.thread
@@ -4215,7 +4215,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %1037, label %.lr.ph1812.preheader, label %.preheader
 
 .lr.ph1812.preheader:                             ; preds = %.preheader1717
-  %1038 = trunc i64 %.01831 to i32
+  %1038 = trunc nuw nsw i64 %.01831 to i32
   br label %.lr.ph1812
 
 .preheader:                                       ; preds = %.lr.ph1812, %.preheader1717
@@ -4514,7 +4514,7 @@ define internal fastcc i32 @tdefl_flush_output_buffer(ptr nocapture noundef %0) 
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr nonnull align 1 %30, i64 %., i1 false)
-  %31 = trunc i64 %. to i32
+  %31 = trunc nuw i64 %. to i32
   %32 = load i32, ptr %27, align 8
   %33 = add i32 %32, %31
   store i32 %33, ptr %27, align 8
@@ -4599,7 +4599,7 @@ define internal fastcc i32 @tdefl_compress_fast(ptr noundef %0) unnamed_addr #7 
   %32 = sub i32 4096, %.0215
   %33 = zext i32 %32 to i64
   %. = tail call i64 @llvm.umin.i64(i64 %26, i64 %33)
-  %34 = trunc i64 %. to i32
+  %34 = trunc nuw i64 %. to i32
   %35 = sub i64 %26, %.
   store i64 %35, ptr %17, align 8
   %36 = add i32 %.0215, %34
@@ -5098,7 +5098,7 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %54 = sub i32 258, %.promoted584
   %55 = zext i32 %54 to i64
   %.0363. = tail call i64 @llvm.umin.i64(i64 %.0363, i64 %55)
-  %56 = trunc i64 %.0363. to i32
+  %56 = trunc nuw i64 %.0363. to i32
   %57 = getelementptr inbounds i8, ptr %.0366, i64 %.0363.
   %58 = sub i64 %.0363, %.0363.
   %59 = add i32 %.promoted584, %56
@@ -5237,7 +5237,7 @@ define internal fastcc i32 @tdefl_compress_normal(ptr noundef %0) unnamed_addr #
   %. = tail call i32 @llvm.umin.i32(i32 %131, i32 %129)
   store i32 %., ptr %9, align 4
   %132 = icmp ult i32 %130, 258
-  %or.cond482 = and i1 %.not431, %132
+  %or.cond482 = select i1 %.not431, i1 %132, i1 false
   br i1 %or.cond482, label %.critedge2, label %133
 
 133:                                              ; preds = %.critedge4.thread, %.critedge4
@@ -5990,7 +5990,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef %0, i32 noundef %1) un
   %44 = getelementptr inbounds i8, ptr %0, i64 80
   %45 = load i32, ptr %44, align 8
   %46 = lshr i32 %43, %45
-  %47 = trunc i32 %46 to i8
+  %47 = trunc nuw i32 %46 to i8
   store i8 %47, ptr %41, align 1
   %48 = load i32, ptr %44, align 8
   %49 = icmp eq i32 %48, 8
@@ -6824,7 +6824,7 @@ define i32 @tdefl_compress_mem_to_output(ptr noundef %0, i64 noundef %1, ptr nou
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 %4, ptr %14, align 8
   %15 = and i32 %4, 4095
-  %16 = trunc i32 %15 to i16
+  %16 = trunc nuw nsw i32 %15 to i16
   %.lhs.trunc.i = add nuw nsw i16 %16, 2
   %17 = udiv i16 %.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %17, 1
@@ -6836,7 +6836,7 @@ define i32 @tdefl_compress_mem_to_output(ptr noundef %0, i64 noundef %1, ptr nou
   %21 = getelementptr inbounds i8, ptr %11, i64 28
   store i32 %.lobit.i, ptr %21, align 4
   %22 = lshr i32 %15, 2
-  %23 = trunc i32 %22 to i16
+  %23 = trunc nuw nsw i32 %22 to i16
   %.lhs.trunc49.i = add nuw nsw i16 %23, 2
   %24 = udiv i16 %.lhs.trunc49.i, 3
   %narrow51.i = add nuw nsw i16 %24, 1
@@ -7110,7 +7110,7 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
   %58 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 %56, ptr %58, align 8
   %59 = and i32 %55, 4095
-  %60 = trunc i32 %59 to i16
+  %60 = trunc nuw nsw i32 %59 to i16
   %.lhs.trunc.i = add nuw nsw i16 %60, 2
   %61 = udiv i16 %.lhs.trunc.i, 3
   %narrow.i = add nuw nsw i16 %61, 1
@@ -7122,7 +7122,7 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
   %65 = getelementptr inbounds i8, ptr %14, i64 28
   store i32 %.lobit.i, ptr %65, align 4
   %66 = lshr i32 %59, 2
-  %67 = trunc i32 %66 to i16
+  %67 = trunc nuw nsw i32 %66 to i16
   %.lhs.trunc49.i = add nuw nsw i16 %67, 2
   %68 = udiv i16 %.lhs.trunc49.i, 3
   %narrow51.i = add nuw nsw i16 %68, 1
@@ -7303,7 +7303,7 @@ mz_crc32.exit:                                    ; preds = %.lr.ph.i
   %indvars.iv = phi i64 [ 0, %mz_crc32.exit ], [ %indvars.iv.next, %169 ]
   %.0113 = phi i32 [ %167, %mz_crc32.exit ], [ %173, %169 ]
   %170 = lshr i32 %.0113, 24
-  %171 = trunc i32 %170 to i8
+  %171 = trunc nuw i32 %170 to i8
   %172 = getelementptr inbounds i8, ptr %168, i64 %indvars.iv
   store i8 %171, ptr %172, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7443,7 +7443,7 @@ mz_crc32.exit99:                                  ; preds = %.lr.ph42.i78, %.pre
   %indvars.iv127 = phi i64 [ 0, %mz_crc32.exit99 ], [ %indvars.iv.next128, %237 ]
   %.1115 = phi i32 [ %236, %mz_crc32.exit99 ], [ %245, %237 ]
   %238 = lshr i32 %.1115, 24
-  %239 = trunc i32 %238 to i8
+  %239 = trunc nuw i32 %238 to i8
   %240 = load ptr, ptr %25, align 8
   %241 = load i64, ptr %11, align 8
   %242 = getelementptr inbounds i8, ptr %240, i64 %241
@@ -10861,7 +10861,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
 
 .thread260.thread:                                ; preds = %125
   %126 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %.0193, i64 noundef %123), !range !6
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nuw i64 %126 to i32
   br label %185
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %134
@@ -10960,7 +10960,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
 172:                                              ; preds = %170
   %173 = zext i32 %.3213 to i64
   %174 = call i64 @mz_crc32(i64 noundef %173, ptr noundef nonnull %148, i64 noundef %169), !range !6
-  %175 = trunc i64 %174 to i32
+  %175 = trunc nuw i64 %174 to i32
   %176 = add i64 %169, %.1198
   %177 = load i64, ptr %145, align 8
   %178 = icmp ugt i64 %176, %177
@@ -10978,7 +10978,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   br i1 %183, label %.thread260, label %.thread
 
 .thread260.loopexit:                              ; preds = %118
-  %184 = trunc i64 %116 to i32
+  %184 = trunc nuw i64 %116 to i32
   br label %.thread260
 
 .thread260:                                       ; preds = %134, %.thread260.loopexit, %.preheader278, %182
@@ -14135,11 +14135,11 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
   %188 = trunc i16 %spec.select to i8
   store i8 %188, ptr %187, align 2
   %189 = lshr i16 %spec.select, 8
-  %190 = trunc i16 %189 to i8
+  %190 = trunc nuw nsw i16 %189 to i8
   %191 = getelementptr inbounds i8, ptr %21, i64 7
   store i8 %190, ptr %191, align 1
   %192 = getelementptr inbounds i8, ptr %21, i64 8
-  %193 = trunc i16 %.0404 to i8
+  %193 = trunc nuw nsw i16 %.0404 to i8
   store i8 %193, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %21, i64 9
   store i8 0, ptr %194, align 1
@@ -14147,14 +14147,14 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
   %196 = trunc i16 %182 to i8
   store i8 %196, ptr %195, align 2
   %197 = lshr i16 %182, 8
-  %198 = trunc i16 %197 to i8
+  %198 = trunc nuw i16 %197 to i8
   %199 = getelementptr inbounds i8, ptr %21, i64 11
   store i8 %198, ptr %199, align 1
   %200 = getelementptr inbounds i8, ptr %21, i64 12
   %201 = trunc i16 %183 to i8
   store i8 %201, ptr %200, align 4
   %202 = lshr i16 %183, 8
-  %203 = trunc i16 %202 to i8
+  %203 = trunc nuw i16 %202 to i8
   %204 = getelementptr inbounds i8, ptr %21, i64 13
   store i8 %203, ptr %204, align 1
   %205 = getelementptr inbounds i8, ptr %21, i64 14
@@ -14163,7 +14163,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %205, i8 0, i64 12, i1 false)
   store i8 %207, ptr %206, align 2
   %208 = lshr i64 %80, 8
-  %209 = trunc i64 %208 to i8
+  %209 = trunc nuw i64 %208 to i8
   %210 = getelementptr inbounds i8, ptr %21, i64 27
   store i8 %209, ptr %210, align 1
   %211 = getelementptr inbounds i8, ptr %21, i64 28
@@ -14249,24 +14249,24 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
   %257 = trunc i16 %spec.select to i8
   store i8 %257, ptr %256, align 2
   %258 = lshr i16 %spec.select, 8
-  %259 = trunc i16 %258 to i8
+  %259 = trunc nuw nsw i16 %258 to i8
   %260 = getelementptr inbounds i8, ptr %21, i64 7
   store i8 %259, ptr %260, align 1
   %261 = getelementptr inbounds i8, ptr %21, i64 8
-  %262 = trunc i16 %.0404 to i8
+  %262 = trunc nuw nsw i16 %.0404 to i8
   store i8 %262, ptr %261, align 8
   %263 = getelementptr inbounds i8, ptr %21, i64 10
   %264 = trunc i16 %252 to i8
   store i8 %264, ptr %263, align 2
   %265 = lshr i16 %252, 8
-  %266 = trunc i16 %265 to i8
+  %266 = trunc nuw i16 %265 to i8
   %267 = getelementptr inbounds i8, ptr %21, i64 11
   store i8 %266, ptr %267, align 1
   %268 = getelementptr inbounds i8, ptr %21, i64 12
   %269 = trunc i16 %253 to i8
   store i8 %269, ptr %268, align 4
   %270 = lshr i16 %253, 8
-  %271 = trunc i16 %270 to i8
+  %271 = trunc nuw i16 %270 to i8
   %272 = getelementptr inbounds i8, ptr %21, i64 13
   store i8 %271, ptr %272, align 1
   %273 = getelementptr inbounds i8, ptr %21, i64 14
@@ -14275,7 +14275,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %273, i8 0, i64 12, i1 false)
   store i8 %275, ptr %274, align 2
   %276 = lshr i64 %80, 8
-  %277 = trunc i64 %276 to i8
+  %277 = trunc nuw i64 %276 to i8
   %278 = getelementptr inbounds i8, ptr %21, i64 27
   store i8 %277, ptr %278, align 1
   %279 = getelementptr inbounds i8, ptr %21, i64 28
@@ -14354,7 +14354,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %84, %87
 
 319:                                              ; preds = %318
   %320 = call i64 @mz_crc32(i64 noundef 0, ptr noundef %2, i64 noundef %3), !range !6
-  %321 = trunc i64 %320 to i32
+  %321 = trunc nuw i64 %320 to i32
   store i64 %3, ptr %16, align 8
   %322 = icmp ult i64 %3, 4
   %spec.select464 = or i1 %322, %37
@@ -14447,7 +14447,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %319
   %369 = getelementptr inbounds i8, ptr %25, i64 6
   store i8 %368, ptr %369, align 2
   %370 = lshr i32 %.0405474, 24
-  %371 = trunc i32 %370 to i8
+  %371 = trunc nuw i32 %370 to i8
   %372 = getelementptr inbounds i8, ptr %25, i64 7
   store i8 %371, ptr %372, align 1
   %373 = icmp eq ptr %.1393, null
@@ -14478,7 +14478,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %319
   %388 = getelementptr inbounds i8, ptr %25, i64 10
   store i8 %387, ptr %388, align 2
   %389 = lshr i64 %375, 24
-  %390 = trunc i64 %389 to i8
+  %390 = trunc nuw i64 %389 to i8
   %391 = getelementptr inbounds i8, ptr %25, i64 11
   store i8 %390, ptr %391, align 1
   %392 = getelementptr inbounds i8, ptr %25, i64 12
@@ -14514,7 +14514,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %319
   %414 = getelementptr inbounds i8, ptr %25, i64 14
   store i8 %413, ptr %414, align 2
   %sum.shift = lshr i64 %395, 56
-  %415 = trunc i64 %sum.shift to i8
+  %415 = trunc nuw i64 %sum.shift to i8
   %416 = getelementptr inbounds i8, ptr %25, i64 15
   store i8 %415, ptr %416, align 1
   %417 = getelementptr inbounds i8, ptr %25, i64 16
@@ -14590,7 +14590,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %319
 452:                                              ; preds = %445, %444
   %453 = phi i64 [ %.pre477, %445 ], [ %.pre478, %444 ]
   %.2 = phi i32 [ %451, %445 ], [ %.1391, %444 ]
-  %454 = trunc i64 %80 to i16
+  %454 = trunc nuw i64 %80 to i16
   %455 = trunc i32 %.2 to i16
   %456 = load i64, ptr %20, align 8
   %457 = load i64, ptr %19, align 8
@@ -14724,7 +14724,7 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef %0
   %26 = getelementptr inbounds i8, ptr %0, i64 10
   store i8 %25, ptr %26, align 1
   %sum.shift = lshr i64 %7, 56
-  %27 = trunc i64 %sum.shift to i8
+  %27 = trunc nuw i64 %sum.shift to i8
   %28 = getelementptr inbounds i8, ptr %0, i64 11
   store i8 %27, ptr %28, align 1
   %29 = getelementptr inbounds i8, ptr %0, i64 12
@@ -14765,7 +14765,7 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef %0
   %51 = getelementptr inbounds i8, ptr %.094, i64 6
   store i8 %50, ptr %51, align 1
   %sum.shift101 = lshr i64 %32, 56
-  %52 = trunc i64 %sum.shift101 to i8
+  %52 = trunc nuw i64 %sum.shift101 to i8
   %53 = getelementptr inbounds i8, ptr %.094, i64 7
   store i8 %52, ptr %53, align 1
   %54 = getelementptr inbounds i8, ptr %.094, i64 8
@@ -14807,7 +14807,7 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef %0
   %76 = getelementptr inbounds i8, ptr %.195, i64 6
   store i8 %75, ptr %76, align 1
   %sum.shift103 = lshr i64 %57, 56
-  %77 = trunc i64 %sum.shift103 to i8
+  %77 = trunc nuw i64 %sum.shift103 to i8
   %78 = getelementptr inbounds i8, ptr %.195, i64 7
   store i8 %77, ptr %78, align 1
   %79 = getelementptr inbounds i8, ptr %.195, i64 8
@@ -14819,7 +14819,7 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef %0
   %.2 = phi i32 [ %80, %56 ], [ %.1, %55 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 3
   %83 = getelementptr inbounds i8, ptr %0, i64 2
-  %84 = trunc i32 %.2 to i8
+  %84 = trunc nsw i32 %.2 to i8
   store i8 %84, ptr %83, align 1
   store i8 0, ptr %82, align 1
   %85 = ptrtoint ptr %.296 to i64
@@ -14911,7 +14911,7 @@ define internal fastcc noundef i32 @mz_zip_writer_add_to_central_dir(ptr nocaptu
   %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
   store i8 %49, ptr %.8..8..8..sroa_idx, align 8
   %50 = lshr i16 %11, 8
-  %51 = trunc i16 %50 to i8
+  %51 = trunc nuw i16 %50 to i8
   %.9..9..9..sroa_idx = getelementptr inbounds i8, ptr %20, i64 9
   store i8 %51, ptr %.9..9..9..sroa_idx, align 1
   %52 = trunc i16 %10 to i8
@@ -14921,14 +14921,14 @@ define internal fastcc noundef i32 @mz_zip_writer_add_to_central_dir(ptr nocaptu
   %.12..12..12..sroa_idx = getelementptr inbounds i8, ptr %20, i64 12
   store i8 %53, ptr %.12..12..12..sroa_idx, align 4
   %54 = lshr i16 %12, 8
-  %55 = trunc i16 %54 to i8
+  %55 = trunc nuw i16 %54 to i8
   %.13..13..13..sroa_idx = getelementptr inbounds i8, ptr %20, i64 13
   store i8 %55, ptr %.13..13..13..sroa_idx, align 1
   %56 = trunc i16 %13 to i8
   %.14..14..14..sroa_idx = getelementptr inbounds i8, ptr %20, i64 14
   store i8 %56, ptr %.14..14..14..sroa_idx, align 2
   %57 = lshr i16 %13, 8
-  %58 = trunc i16 %57 to i8
+  %58 = trunc nuw i16 %57 to i8
   %.15..15..15..sroa_idx = getelementptr inbounds i8, ptr %20, i64 15
   store i8 %58, ptr %.15..15..15..sroa_idx, align 1
   %59 = trunc i32 %9 to i8
@@ -14943,7 +14943,7 @@ define internal fastcc noundef i32 @mz_zip_writer_add_to_central_dir(ptr nocaptu
   %.18..18..18..sroa_idx = getelementptr inbounds i8, ptr %20, i64 18
   store i8 %63, ptr %.18..18..18..sroa_idx, align 2
   %64 = lshr i32 %9, 24
-  %65 = trunc i32 %64 to i8
+  %65 = trunc nuw i32 %64 to i8
   %.19..19..19..sroa_idx = getelementptr inbounds i8, ptr %20, i64 19
   store i8 %65, ptr %.19..19..19..sroa_idx, align 1
   %66 = tail call i64 @llvm.umin.i64(i64 %8, i64 4294967295)
@@ -14959,7 +14959,7 @@ define internal fastcc noundef i32 @mz_zip_writer_add_to_central_dir(ptr nocaptu
   %.22..22..22..sroa_idx = getelementptr inbounds i8, ptr %20, i64 22
   store i8 %71, ptr %.22..22..22..sroa_idx, align 2
   %72 = lshr i64 %66, 24
-  %73 = trunc i64 %72 to i8
+  %73 = trunc nuw i64 %72 to i8
   %.23..23..23..sroa_idx = getelementptr inbounds i8, ptr %20, i64 23
   store i8 %73, ptr %.23..23..23..sroa_idx, align 1
   %74 = tail call i64 @llvm.umin.i64(i64 %7, i64 4294967295)
@@ -14975,28 +14975,28 @@ define internal fastcc noundef i32 @mz_zip_writer_add_to_central_dir(ptr nocaptu
   %.26..26..26..sroa_idx = getelementptr inbounds i8, ptr %20, i64 26
   store i8 %79, ptr %.26..26..26..sroa_idx, align 2
   %80 = lshr i64 %74, 24
-  %81 = trunc i64 %80 to i8
+  %81 = trunc nuw i64 %80 to i8
   %.27..27..27..sroa_idx = getelementptr inbounds i8, ptr %20, i64 27
   store i8 %81, ptr %.27..27..27..sroa_idx, align 1
   %82 = trunc i16 %2 to i8
   %.28..28..28..sroa_idx = getelementptr inbounds i8, ptr %20, i64 28
   store i8 %82, ptr %.28..28..28..sroa_idx, align 4
   %83 = lshr i16 %2, 8
-  %84 = trunc i16 %83 to i8
+  %84 = trunc nuw i16 %83 to i8
   %.29..29..29..sroa_idx = getelementptr inbounds i8, ptr %20, i64 29
   store i8 %84, ptr %.29..29..29..sroa_idx, align 1
   %85 = trunc i16 %47 to i8
   %.30..30..30..sroa_idx = getelementptr inbounds i8, ptr %20, i64 30
   store i8 %85, ptr %.30..30..30..sroa_idx, align 2
   %86 = lshr i16 %47, 8
-  %87 = trunc i16 %86 to i8
+  %87 = trunc nuw i16 %86 to i8
   %.31..31..31..sroa_idx = getelementptr inbounds i8, ptr %20, i64 31
   store i8 %87, ptr %.31..31..31..sroa_idx, align 1
   %88 = trunc i16 %6 to i8
   %.32..32..32..sroa_idx = getelementptr inbounds i8, ptr %20, i64 32
   store i8 %88, ptr %.32..32..32..sroa_idx, align 16
   %89 = lshr i16 %6, 8
-  %90 = trunc i16 %89 to i8
+  %90 = trunc nuw i16 %89 to i8
   %.33..33..33..sroa_idx = getelementptr inbounds i8, ptr %20, i64 33
   store i8 %90, ptr %.33..33..33..sroa_idx, align 1
   %91 = trunc i32 %15 to i8
@@ -15021,7 +15021,7 @@ define internal fastcc noundef i32 @mz_zip_writer_add_to_central_dir(ptr nocaptu
   %.44..44..44..sroa_idx = getelementptr inbounds i8, ptr %20, i64 44
   store i8 %97, ptr %.44..44..44..sroa_idx, align 4
   %98 = lshr i64 %92, 24
-  %99 = trunc i64 %98 to i8
+  %99 = trunc nuw i64 %98 to i8
   %.45..45..45..sroa_idx = getelementptr inbounds i8, ptr %20, i64 45
   store i8 %99, ptr %.45..45..45..sroa_idx, align 1
   %100 = getelementptr inbounds i8, ptr %22, i64 16
@@ -15584,11 +15584,11 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %130 = getelementptr inbounds i8, ptr %19, i64 6
   store i8 8, ptr %130, align 2
   %131 = lshr i16 %spec.select, 8
-  %132 = trunc i16 %131 to i8
+  %132 = trunc nuw nsw i16 %131 to i8
   %133 = getelementptr inbounds i8, ptr %19, i64 7
   store i8 %132, ptr %133, align 1
   %134 = getelementptr inbounds i8, ptr %19, i64 8
-  %135 = trunc i16 %spec.select449 to i8
+  %135 = trunc nuw nsw i16 %spec.select449 to i8
   store i8 %135, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %19, i64 9
   store i8 0, ptr %136, align 1
@@ -15596,14 +15596,14 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %138 = trunc i16 %125 to i8
   store i8 %138, ptr %137, align 2
   %139 = lshr i16 %125, 8
-  %140 = trunc i16 %139 to i8
+  %140 = trunc nuw i16 %139 to i8
   %141 = getelementptr inbounds i8, ptr %19, i64 11
   store i8 %140, ptr %141, align 1
   %142 = getelementptr inbounds i8, ptr %19, i64 12
   %143 = trunc i16 %126 to i8
   store i8 %143, ptr %142, align 4
   %144 = lshr i16 %126, 8
-  %145 = trunc i16 %144 to i8
+  %145 = trunc nuw i16 %144 to i8
   %146 = getelementptr inbounds i8, ptr %19, i64 13
   store i8 %145, ptr %146, align 1
   %147 = getelementptr inbounds i8, ptr %19, i64 14
@@ -15612,7 +15612,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %147, i8 0, i64 12, i1 false)
   store i8 %149, ptr %148, align 2
   %150 = lshr i64 %68, 8
-  %151 = trunc i64 %150 to i8
+  %151 = trunc nuw i64 %150 to i8
   %152 = getelementptr inbounds i8, ptr %19, i64 27
   store i8 %151, ptr %152, align 1
   %153 = getelementptr inbounds i8, ptr %19, i64 28
@@ -15688,24 +15688,24 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %193 = getelementptr inbounds i8, ptr %19, i64 6
   store i8 8, ptr %193, align 2
   %194 = lshr i16 %spec.select, 8
-  %195 = trunc i16 %194 to i8
+  %195 = trunc nuw nsw i16 %194 to i8
   %196 = getelementptr inbounds i8, ptr %19, i64 7
   store i8 %195, ptr %196, align 1
   %197 = getelementptr inbounds i8, ptr %19, i64 8
-  %198 = trunc i16 %spec.select449 to i8
+  %198 = trunc nuw nsw i16 %spec.select449 to i8
   store i8 %198, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %19, i64 10
   %200 = trunc i16 %189 to i8
   store i8 %200, ptr %199, align 2
   %201 = lshr i16 %189, 8
-  %202 = trunc i16 %201 to i8
+  %202 = trunc nuw i16 %201 to i8
   %203 = getelementptr inbounds i8, ptr %19, i64 11
   store i8 %202, ptr %203, align 1
   %204 = getelementptr inbounds i8, ptr %19, i64 12
   %205 = trunc i16 %190 to i8
   store i8 %205, ptr %204, align 4
   %206 = lshr i16 %190, 8
-  %207 = trunc i16 %206 to i8
+  %207 = trunc nuw i16 %206 to i8
   %208 = getelementptr inbounds i8, ptr %19, i64 13
   store i8 %207, ptr %208, align 1
   %209 = getelementptr inbounds i8, ptr %19, i64 14
@@ -15714,7 +15714,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %209, i8 0, i64 12, i1 false)
   store i8 %211, ptr %210, align 2
   %212 = lshr i64 %68, 8
-  %213 = trunc i64 %212 to i8
+  %213 = trunc nuw i64 %212 to i8
   %214 = getelementptr inbounds i8, ptr %19, i64 27
   store i8 %213, ptr %214, align 1
   %215 = getelementptr inbounds i8, ptr %19, i64 28
@@ -15942,7 +15942,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %281
 328:                                              ; preds = %322, %279
   %.3394 = phi i64 [ %327, %322 ], [ %278, %279 ]
   %.3.in = phi i64 [ %306, %322 ], [ %276, %279 ]
-  %.3 = trunc i64 %.3.in to i32
+  %.3 = trunc nuw i64 %.3.in to i32
   %329 = getelementptr inbounds i8, ptr %0, i64 48
   %330 = load ptr, ptr %329, align 8
   %331 = load ptr, ptr %255, align 8
@@ -15965,7 +15965,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %281
   %340 = getelementptr inbounds i8, ptr %22, i64 6
   store i8 %339, ptr %340, align 2
   %341 = lshr i32 %.4, 24
-  %342 = trunc i32 %341 to i8
+  %342 = trunc nuw i32 %341 to i8
   %343 = getelementptr inbounds i8, ptr %22, i64 7
   store i8 %342, ptr %343, align 1
   %344 = icmp eq ptr %.1390, null
@@ -15994,7 +15994,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %281
   %358 = getelementptr inbounds i8, ptr %22, i64 10
   store i8 %357, ptr %358, align 2
   %359 = lshr i64 %346, 24
-  %360 = trunc i64 %359 to i8
+  %360 = trunc nuw i64 %359 to i8
   %361 = getelementptr inbounds i8, ptr %22, i64 11
   store i8 %360, ptr %361, align 1
   %362 = getelementptr inbounds i8, ptr %22, i64 12
@@ -16042,7 +16042,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %281
   %393 = getelementptr inbounds i8, ptr %22, i64 14
   store i8 %392, ptr %393, align 2
   %sum.shift = lshr i64 %374, 56
-  %394 = trunc i64 %sum.shift to i8
+  %394 = trunc nuw i64 %sum.shift to i8
   %395 = getelementptr inbounds i8, ptr %22, i64 15
   store i8 %394, ptr %395, align 1
   %396 = getelementptr inbounds i8, ptr %22, i64 16
@@ -16107,7 +16107,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %281
 
 434:                                              ; preds = %426, %424
   %.2388 = phi i32 [ %433, %426 ], [ %.1387, %424 ]
-  %435 = trunc i64 %68 to i16
+  %435 = trunc nuw i64 %68 to i16
   %436 = trunc i32 %.2388 to i16
   %437 = load i64, ptr %17, align 8
   %438 = load i64, ptr %18, align 8
@@ -16601,7 +16601,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %69, %72
   br i1 %.not793, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %238
-  %242 = trunc i64 %220 to i32
+  %242 = trunc nuw nsw i64 %220 to i32
   br label %243
 
 243:                                              ; preds = %._crit_edge, %.preheader
@@ -16690,7 +16690,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %69, %72
   %293 = getelementptr inbounds i8, ptr %215, i64 6
   store i8 %292, ptr %293, align 1
   %294 = lshr i32 %281, 24
-  %295 = trunc i32 %294 to i8
+  %295 = trunc nuw i32 %294 to i8
   %296 = getelementptr inbounds i8, ptr %215, i64 7
   store i8 %295, ptr %296, align 1
   %297 = getelementptr inbounds i8, ptr %215, i64 8
@@ -16705,7 +16705,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %69, %72
   %304 = getelementptr inbounds i8, ptr %215, i64 10
   store i8 %303, ptr %304, align 1
   %305 = lshr i32 %283, 24
-  %306 = trunc i32 %305 to i8
+  %306 = trunc nuw i32 %305 to i8
   %307 = getelementptr inbounds i8, ptr %215, i64 11
   store i8 %306, ptr %307, align 1
   %308 = getelementptr inbounds i8, ptr %215, i64 12
@@ -16722,7 +16722,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %69, %72
   %316 = getelementptr inbounds i8, ptr %215, i64 18
   store i8 %315, ptr %316, align 1
   %317 = lshr i32 %285, 24
-  %318 = trunc i32 %317 to i8
+  %318 = trunc nuw i32 %317 to i8
   %319 = getelementptr inbounds i8, ptr %215, i64 19
   store i8 %318, ptr %319, align 1
   %320 = getelementptr inbounds i8, ptr %215, i64 20
@@ -17034,7 +17034,7 @@ mz_zip_array_ensure_capacity.exit869.thread:      ; preds = %453, %462
   %.44..44..44..44..sroa_idx = getelementptr inbounds i8, ptr %7, i64 44
   store i8 %478, ptr %.44..44..44..44..sroa_idx, align 4
   %479 = lshr i64 %469, 24
-  %480 = trunc i64 %479 to i8
+  %480 = trunc nuw i64 %479 to i8
   %.45..45..45..45..sroa_idx = getelementptr inbounds i8, ptr %7, i64 45
   store i8 %480, ptr %.45..45..45..45..sroa_idx, align 1
   %481 = add i64 %339, 46
@@ -17298,7 +17298,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %14
   %54 = getelementptr inbounds i8, ptr %8, i64 10
   store i8 %53, ptr %54, align 2
   %sum.shift = lshr i64 %35, 56
-  %55 = trunc i64 %sum.shift to i8
+  %55 = trunc nuw i64 %sum.shift to i8
   %56 = getelementptr inbounds i8, ptr %8, i64 11
   store i8 %55, ptr %56, align 1
   %57 = getelementptr inbounds i8, ptr %8, i64 12
@@ -17337,7 +17337,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %14
   %79 = getelementptr inbounds i8, ptr %.0220, i64 6
   store i8 %78, ptr %79, align 1
   %sum.shift240 = lshr i64 %60, 56
-  %80 = trunc i64 %sum.shift240 to i8
+  %80 = trunc nuw i64 %sum.shift240 to i8
   %81 = getelementptr inbounds i8, ptr %.0220, i64 7
   store i8 %80, ptr %81, align 1
   %82 = getelementptr inbounds i8, ptr %.0220, i64 8
@@ -17376,7 +17376,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %14
   %104 = getelementptr inbounds i8, ptr %.1, i64 6
   store i8 %103, ptr %104, align 1
   %sum.shift241 = lshr i64 %85, 56
-  %105 = trunc i64 %sum.shift241 to i8
+  %105 = trunc nuw i64 %sum.shift241 to i8
   %106 = getelementptr inbounds i8, ptr %.1, i64 7
   store i8 %105, ptr %106, align 1
   %107 = getelementptr inbounds i8, ptr %.1, i64 8
@@ -17396,7 +17396,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %14
   %116 = trunc i16 %115 to i8
   store i8 %116, ptr %31, align 2
   %117 = lshr i16 %115, 8
-  %118 = trunc i16 %117 to i8
+  %118 = trunc nuw i16 %117 to i8
   store i8 %118, ptr %32, align 1
   %119 = add i64 %110, %113
   %120 = icmp ugt i64 %119, %109
@@ -17672,7 +17672,7 @@ define noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed
   %64 = getelementptr inbounds i8, ptr %2, i64 26
   store i8 %63, ptr %64, align 2
   %65 = lshr i32 %.pre292, 24
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw i32 %65 to i8
   %67 = getelementptr inbounds i8, ptr %2, i64 27
   store i8 %66, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %2, i64 28
@@ -17715,7 +17715,7 @@ define noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed
   %93 = getelementptr inbounds i8, ptr %2, i64 46
   store i8 %92, ptr %93, align 2
   %sum.shift = lshr i64 %.0269, 56
-  %94 = trunc i64 %sum.shift to i8
+  %94 = trunc nuw i64 %sum.shift to i8
   %95 = getelementptr inbounds i8, ptr %2, i64 47
   store i8 %94, ptr %95, align 1
   %96 = getelementptr inbounds i8, ptr %2, i64 48
@@ -17746,7 +17746,7 @@ define noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed
   %115 = getelementptr inbounds i8, ptr %2, i64 54
   store i8 %114, ptr %115, align 2
   %sum.shift283 = lshr i64 %.0270, 56
-  %116 = trunc i64 %sum.shift283 to i8
+  %116 = trunc nuw i64 %sum.shift283 to i8
   %117 = getelementptr inbounds i8, ptr %2, i64 55
   store i8 %116, ptr %117, align 1
   %118 = getelementptr inbounds i8, ptr %0, i64 80
@@ -17796,7 +17796,7 @@ define noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed
   %147 = trunc i64 %146 to i8
   store i8 %147, ptr %127, align 2
   %sum.shift285 = lshr i64 %.pre293, 56
-  %148 = trunc i64 %sum.shift285 to i8
+  %148 = trunc nuw i64 %sum.shift285 to i8
   store i8 %148, ptr %126, align 1
   %149 = getelementptr inbounds i8, ptr %2, i64 16
   store i8 1, ptr %149, align 16
@@ -17830,7 +17830,7 @@ define noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed
   %163 = trunc i32 %spec.select289 to i8
   store i8 %163, ptr %162, align 8
   %164 = lshr i32 %spec.select289, 8
-  %165 = trunc i32 %164 to i8
+  %165 = trunc nuw i32 %164 to i8
   %166 = getelementptr inbounds i8, ptr %2, i64 9
   store i8 %165, ptr %166, align 1
   %167 = getelementptr inbounds i8, ptr %2, i64 10
@@ -17850,7 +17850,7 @@ define noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed
   %177 = getelementptr inbounds i8, ptr %2, i64 14
   store i8 %176, ptr %177, align 2
   %178 = lshr i64 %170, 24
-  %179 = trunc i64 %178 to i8
+  %179 = trunc nuw i64 %178 to i8
   %180 = getelementptr inbounds i8, ptr %2, i64 15
   store i8 %179, ptr %180, align 1
   %181 = getelementptr inbounds i8, ptr %2, i64 16
@@ -17866,7 +17866,7 @@ define noundef i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local_unnamed
   %189 = getelementptr inbounds i8, ptr %2, i64 18
   store i8 %188, ptr %189, align 2
   %190 = lshr i64 %182, 24
-  %191 = trunc i64 %190 to i8
+  %191 = trunc nuw i64 %190 to i8
   %192 = getelementptr inbounds i8, ptr %2, i64 19
   store i8 %191, ptr %192, align 1
   %193 = getelementptr inbounds i8, ptr %0, i64 80
@@ -19278,7 +19278,7 @@ tdefl_optimize_huffman_table.exit48.i:            ; preds = %81
   %138 = zext i8 %.0282331.i to i64
   %139 = getelementptr inbounds [288 x i16], ptr %127, i64 0, i64 %138
   %140 = load i16, ptr %139, align 2
-  %141 = trunc i32 %.0272332.i to i16
+  %141 = trunc nuw i32 %.0272332.i to i16
   %142 = add i16 %140, %141
   store i16 %142, ptr %139, align 2
   br label %143
@@ -19340,7 +19340,7 @@ tdefl_optimize_huffman_table.exit48.i:            ; preds = %81
 
 173:                                              ; preds = %171
   %174 = load i16, ptr %127, align 2
-  %175 = trunc i32 %.0266333.i to i16
+  %175 = trunc nuw i32 %.0266333.i to i16
   %176 = add i16 %174, %175
   store i16 %176, ptr %127, align 2
   br label %177
@@ -19393,7 +19393,7 @@ tdefl_optimize_huffman_table.exit48.i:            ; preds = %81
   %197 = zext i8 %.0282331.i to i64
   %198 = getelementptr inbounds [288 x i16], ptr %127, i64 0, i64 %197
   %199 = load i16, ptr %198, align 2
-  %200 = trunc i32 %.0272332.i to i16
+  %200 = trunc nuw i32 %.0272332.i to i16
   %201 = add i16 %199, %200
   store i16 %201, ptr %198, align 2
   br label %202
@@ -19477,7 +19477,7 @@ tdefl_optimize_huffman_table.exit48.i:            ; preds = %81
   %241 = zext i8 %133 to i64
   %242 = getelementptr inbounds [288 x i16], ptr %127, i64 0, i64 %241
   %243 = load i16, ptr %242, align 2
-  %244 = trunc i32 %.6278.i to i16
+  %244 = trunc nuw i32 %.6278.i to i16
   %245 = add i16 %243, %244
   store i16 %245, ptr %242, align 2
   br label %246
@@ -19519,7 +19519,7 @@ tdefl_optimize_huffman_table.exit48.i:            ; preds = %81
 
 265:                                              ; preds = %263
   %266 = load i16, ptr %127, align 2
-  %267 = trunc i32 %.4270.i to i16
+  %267 = trunc nuw i32 %.4270.i to i16
   %268 = add i16 %266, %267
   store i16 %268, ptr %127, align 2
   br label %269

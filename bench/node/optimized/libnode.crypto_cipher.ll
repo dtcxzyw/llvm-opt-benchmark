@@ -2194,7 +2194,7 @@ if.then33:                                        ; preds = %_ZNK2v820FunctionCa
   br label %return
 
 if.end34:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %conv = trunc i64 %36 to i32
+  %conv = trunc nuw i64 %36 to i32
   store i32 %conv, ptr %tag_len, align 4
   %37 = load ptr, ptr %ctx_, align 8
   %call38 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %37) #20
@@ -2207,7 +2207,7 @@ if.then41:                                        ; preds = %if.end34
   %38 = load i32, ptr %auth_tag_len_, align 8
   %cmp42 = icmp eq i32 %38, -1
   %cmp45 = icmp eq i32 %38, %conv
-  %or.cond = or i1 %cmp42, %cmp45
+  %or.cond = select i1 %cmp42, i1 true, i1 %cmp45
   br i1 %or.cond, label %land.rhs, label %if.then76
 
 land.rhs:                                         ; preds = %if.then41
@@ -2600,7 +2600,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %
   %call2.i = call ptr %29(ptr noundef nonnull align 8 dereferenceable(872) %28) #20
   %call27 = call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i178.sroa.0.0, ptr %call2.i) #20
   %ref.tmp.sroa.340.0.extract.shift = lshr i64 %call27, 32
-  %ref.tmp.sroa.340.0.extract.trunc = trunc i64 %ref.tmp.sroa.340.0.extract.shift to i32
+  %ref.tmp.sroa.340.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.340.0.extract.shift to i32
   %tobool.i598 = trunc i64 %call27 to i1
   br i1 %tobool.i598, label %if.end31, label %cleanup117
 
@@ -3126,7 +3126,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %
   %call2.i = call ptr %29(ptr noundef nonnull align 8 dereferenceable(872) %28) #20
   %call27 = call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i178.sroa.0.0, ptr %call2.i) #20
   %ref.tmp.sroa.340.0.extract.shift = lshr i64 %call27, 32
-  %ref.tmp.sroa.340.0.extract.trunc = trunc i64 %ref.tmp.sroa.340.0.extract.shift to i32
+  %ref.tmp.sroa.340.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.340.0.extract.shift to i32
   %tobool.i598 = trunc i64 %call27 to i1
   br i1 %tobool.i598, label %if.end31, label %cleanup117
 
@@ -3652,7 +3652,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %
   %call2.i = call ptr %29(ptr noundef nonnull align 8 dereferenceable(872) %28) #20
   %call27 = call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i178.sroa.0.0, ptr %call2.i) #20
   %ref.tmp.sroa.340.0.extract.shift = lshr i64 %call27, 32
-  %ref.tmp.sroa.340.0.extract.trunc = trunc i64 %ref.tmp.sroa.340.0.extract.shift to i32
+  %ref.tmp.sroa.340.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.340.0.extract.shift to i32
   %tobool.i598 = trunc i64 %call27 to i1
   br i1 %tobool.i598, label %if.end31, label %cleanup117
 
@@ -4178,7 +4178,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit195: ; preds = %if.end.i187, %
   %call2.i = call ptr %29(ptr noundef nonnull align 8 dereferenceable(872) %28) #20
   %call27 = call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i178.sroa.0.0, ptr %call2.i) #20
   %ref.tmp.sroa.340.0.extract.shift = lshr i64 %call27, 32
-  %ref.tmp.sroa.340.0.extract.trunc = trunc i64 %ref.tmp.sroa.340.0.extract.shift to i32
+  %ref.tmp.sroa.340.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.340.0.extract.shift to i32
   %tobool.i598 = trunc i64 %call27 to i1
   br i1 %tobool.i598, label %if.end31, label %cleanup117
 
@@ -7378,7 +7378,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %if.end
-  %conv = trunc i64 %len to i32
+  %conv = trunc nuw i64 %len to i32
   %call7 = tail call noundef zeroext i1 @_ZN4node6crypto10CipherBase21CheckCCMMessageLengthEi(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %conv)
   br i1 %call7, label %if.end9, label %cleanup
 
@@ -7455,7 +7455,7 @@ do.end39:                                         ; preds = %if.end23
   br i1 %cmp41, label %cleanup, label %if.end43
 
 if.end43:                                         ; preds = %do.end39
-  %conv46 = trunc i64 %add to i32
+  %conv46 = trunc nuw i64 %add to i32
   store i32 %conv46, ptr %buf_len, align 4
   %8 = load i32, ptr %kind_, align 8
   %cmp48 = icmp eq i32 %8, 0
@@ -7465,7 +7465,7 @@ if.end43:                                         ; preds = %do.end39
 
 land.lhs.true51:                                  ; preds = %if.end43
   %9 = load ptr, ptr %ctx_, align 8
-  %conv54 = trunc i64 %len to i32
+  %conv54 = trunc nuw i64 %len to i32
   %call55 = call i32 @EVP_CipherUpdate(ptr noundef %9, ptr noundef null, ptr noundef nonnull %buf_len, ptr noundef %data, i32 noundef %conv54) #20
   %cmp56.not = icmp eq i32 %call55, 1
   br i1 %cmp56.not, label %if.end58, label %cleanup
@@ -7529,7 +7529,7 @@ _ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit:    ; preds = %_ZNSt10unique_ptrIN
   %19 = load ptr, ptr %ctx_, align 8
   %20 = load ptr, ptr %out, align 8
   %call68 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %20) #20
-  %conv69 = trunc i64 %len to i32
+  %conv69 = trunc nuw i64 %len to i32
   %call70 = call i32 @EVP_CipherUpdate(ptr noundef %19, ptr noundef %call68, ptr noundef nonnull %buf_len, ptr noundef %data, i32 noundef %conv69) #20
   %21 = load i32, ptr %buf_len, align 4
   %conv72 = sext i32 %21 to i64
@@ -10858,7 +10858,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

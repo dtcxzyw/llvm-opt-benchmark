@@ -999,7 +999,7 @@ WriteSEQTls13.exit.i:                             ; preds = %if.end28.sink.split
   %seq.sroa.0.0.i.i = phi i32 [ 0, %if.end17 ], [ %4, %if.else.i.i ], [ %4, %if.end28.sink.split.i.i ]
   %seq.sroa.4.0.i.i = phi i32 [ 0, %if.end17 ], [ %5, %if.else.i.i ], [ -1, %if.end28.sink.split.i.i ]
   %shr.i.i.i = lshr i32 %seq.sroa.0.0.i.i, 24
-  %conv.i.i.i = trunc i32 %shr.i.i.i to i8
+  %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i8
   store i8 %conv.i.i.i, ptr %add.ptr1.i, align 1
   %shr1.i.i.i = lshr i32 %seq.sroa.0.0.i.i, 16
   %conv3.i.i.i = trunc i32 %shr1.i.i.i to i8
@@ -1014,7 +1014,7 @@ WriteSEQTls13.exit.i:                             ; preds = %if.end28.sink.split
   store i8 %conv10.i.i.i, ptr %arrayidx11.i.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %shr.i15.i.i = lshr i32 %seq.sroa.4.0.i.i, 24
-  %conv.i16.i.i = trunc i32 %shr.i15.i.i to i8
+  %conv.i16.i.i = trunc nuw i32 %shr.i15.i.i to i8
   store i8 %conv.i16.i.i, ptr %add.ptr.i.i, align 1
   %shr1.i17.i.i = lshr i32 %seq.sroa.4.0.i.i, 16
   %conv3.i18.i.i = trunc i32 %shr1.i17.i.i to i8
@@ -1372,7 +1372,7 @@ WriteSEQTls13.exit.i.i:                           ; preds = %if.end28.sink.split
   %seq.sroa.0.0.i.i.i = phi i32 [ 0, %if.end15.i ], [ %9, %if.else.i.i.i ], [ %9, %if.end28.sink.split.i.i.i ]
   %seq.sroa.4.0.i.i.i = phi i32 [ 0, %if.end15.i ], [ %10, %if.else.i.i.i ], [ -1, %if.end28.sink.split.i.i.i ]
   %shr.i.i.i.i = lshr i32 %seq.sroa.0.0.i.i.i, 24
-  %conv.i.i.i.i = trunc i32 %shr.i.i.i.i to i8
+  %conv.i.i.i.i = trunc nuw i32 %shr.i.i.i.i to i8
   store i8 %conv.i.i.i.i, ptr %add.ptr1.i.i, align 1
   %shr1.i.i.i.i = lshr i32 %seq.sroa.0.0.i.i.i, 16
   %conv3.i.i.i.i = trunc i32 %shr1.i.i.i.i to i8
@@ -1387,7 +1387,7 @@ WriteSEQTls13.exit.i.i:                           ; preds = %if.end28.sink.split
   store i8 %conv10.i.i.i.i, ptr %arrayidx11.i.i.i.i, align 1
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %shr.i15.i.i.i = lshr i32 %seq.sroa.4.0.i.i.i, 24
-  %conv.i16.i.i.i = trunc i32 %shr.i15.i.i.i to i8
+  %conv.i16.i.i.i = trunc nuw i32 %shr.i15.i.i.i to i8
   store i8 %conv.i16.i.i.i, ptr %add.ptr.i.i.i, align 1
   %shr1.i17.i.i.i = lshr i32 %seq.sroa.4.0.i.i.i, 16
   %conv3.i18.i.i.i = trunc i32 %shr1.i17.i.i.i to i8
@@ -1866,7 +1866,7 @@ if.end58:                                         ; preds = %if.end45
   %length2.i5.i = getelementptr inbounds i8, ptr %call59, i64 6
   store i8 0, ptr %length2.i5.i, align 1
   %shr1.i.i.i = lshr i16 %8, 8
-  %conv3.i.i.i = trunc i16 %shr1.i.i.i to i8
+  %conv3.i.i.i = trunc nuw i16 %shr1.i.i.i to i8
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call59, i64 7
   store i8 %conv3.i.i.i, ptr %arrayidx4.i.i.i, align 1
   %conv6.i.i.i = trunc i16 %8 to i8
@@ -1944,7 +1944,7 @@ if.end112:                                        ; preds = %if.else, %if.end94
   %idx.ext125 = zext i32 %29 to i64
   %add.ptr126 = getelementptr inbounds i8, ptr %28, i64 %idx.ext125
   %shr.i = lshr i16 %27, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   store i8 %conv1.i, ptr %add.ptr126, align 1
   %conv4.i = trunc i16 %27 to i8
   %arrayidx5.i = getelementptr inbounds i8, ptr %add.ptr126, i64 1
@@ -2147,13 +2147,13 @@ if.end9:                                          ; preds = %if.end
   %2 = load i16, ptr %add.ptr, align 1
   %args.sroa.0.sroa.0.0.extract.trunc = trunc i16 %2 to i8
   %args.sroa.0.sroa.4.0.extract.shift = lshr i16 %2, 8
-  %args.sroa.0.sroa.4.0.extract.trunc = trunc i16 %args.sroa.0.sroa.4.0.extract.shift to i8
+  %args.sroa.0.sroa.4.0.extract.trunc = trunc nuw i16 %args.sroa.0.sroa.4.0.extract.shift to i8
   %add = add i32 %1, 2
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %3 = load i8, ptr %version, align 2
   %cmp24 = icmp eq i8 %3, %args.sroa.0.sroa.0.0.extract.trunc
   %cmp29 = icmp ult i8 %args.sroa.0.sroa.4.0.extract.trunc, 3
-  %4 = and i1 %cmp24, %cmp29
+  %4 = select i1 %cmp24, i1 %cmp29, i1 false
   br i1 %4, label %land.lhs.true, label %if.end40
 
 land.lhs.true:                                    ; preds = %if.end9
@@ -2173,7 +2173,7 @@ if.then36:                                        ; preds = %land.lhs.true
 
 if.end40:                                         ; preds = %if.end9
   %cmp56.not = icmp eq i8 %args.sroa.0.sroa.4.0.extract.trunc, 3
-  %or.cond = and i1 %cmp24, %cmp56.not
+  %or.cond = select i1 %cmp24, i1 %cmp56.not, i1 false
   br i1 %or.cond, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %land.lhs.true, %if.end40
@@ -2538,7 +2538,7 @@ if.end:                                           ; preds = %entry
   %1 = load i16, ptr %add.ptr, align 1
   %args.sroa.0.sroa.0.0.extract.trunc = trunc i16 %1 to i8
   %args.sroa.0.sroa.4.0.extract.shift = lshr i16 %1, 8
-  %args.sroa.0.sroa.4.0.extract.trunc = trunc i16 %args.sroa.0.sroa.4.0.extract.shift to i8
+  %args.sroa.0.sroa.4.0.extract.trunc = trunc nuw i16 %args.sroa.0.sroa.4.0.extract.shift to i8
   %chVersion = getelementptr inbounds i8, ptr %ssl, i64 696
   store i16 %1, ptr %chVersion, align 8
   %add = add i32 %0, 2
@@ -3034,7 +3034,7 @@ if.end25:                                         ; preds = %if.end18
   %length2.i5.i = getelementptr inbounds i8, ptr %call26, i64 6
   store i8 0, ptr %length2.i5.i, align 1
   %shr1.i.i.i = lshr i16 %7, 8
-  %conv3.i.i.i = trunc i16 %shr1.i.i.i to i8
+  %conv3.i.i.i = trunc nuw i16 %shr1.i.i.i to i8
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call26, i64 7
   store i8 %conv3.i.i.i, ptr %arrayidx4.i.i.i, align 1
   %conv6.i.i.i = trunc i16 %7 to i8
@@ -6089,7 +6089,7 @@ if.end258:                                        ; preds = %if.end254.thread, %
   %40 = load ptr, ptr %verify, align 8
   %add.ptr263 = getelementptr inbounds i8, ptr %40, i64 2
   %shr.i = lshr i16 %39, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   store i8 %conv1.i, ptr %add.ptr263, align 1
   %conv4.i = trunc i16 %39 to i8
   %arrayidx5.i = getelementptr inbounds i8, ptr %40, i64 3
@@ -6141,7 +6141,7 @@ if.end291:                                        ; preds = %if.end258, %if.end2
   store i8 15, ptr %add.ptr.i, align 1
   %length2.i5.i = getelementptr inbounds i8, ptr %50, i64 6
   %shr.i.i.i = lshr i32 %add301, 16
-  %conv.i.i.i = trunc i32 %shr.i.i.i to i8
+  %conv.i.i.i = trunc nuw nsw i32 %shr.i.i.i to i8
   store i8 %conv.i.i.i, ptr %length2.i5.i, align 1
   %shr1.i.i.i = lshr i32 %add301, 8
   %conv3.i.i.i = trunc i32 %shr1.i.i.i to i8
@@ -7430,7 +7430,7 @@ if.end24:                                         ; preds = %if.end18
   %length2.i5.i = getelementptr inbounds i8, ptr %call25, i64 6
   store i8 0, ptr %length2.i5.i, align 1
   %shr1.i.i.i = lshr i16 %10, 8
-  %conv3.i.i.i = trunc i16 %shr1.i.i.i to i8
+  %conv3.i.i.i = trunc nuw i16 %shr1.i.i.i to i8
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call25, i64 7
   store i8 %conv3.i.i.i, ptr %arrayidx4.i.i.i, align 1
   %conv6.i.i.i = trunc i16 %10 to i8
@@ -7550,7 +7550,7 @@ if.end33:                                         ; preds = %if.end25
   %length2.i5.i = getelementptr inbounds i8, ptr %call34, i64 6
   store i8 0, ptr %length2.i5.i, align 1
   %shr1.i.i.i = lshr i16 %8, 8
-  %conv3.i.i.i = trunc i16 %shr1.i.i.i to i8
+  %conv3.i.i.i = trunc nuw i16 %shr1.i.i.i to i8
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call34, i64 7
   store i8 %conv3.i.i.i, ptr %arrayidx4.i.i.i, align 1
   %conv6.i.i.i = trunc i16 %8 to i8

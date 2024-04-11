@@ -21733,7 +21733,7 @@ if.end84:                                         ; preds = %invoke.cont82, %inv
   br i1 %bf.cast.not, label %if.end108, label %if.then85
 
 if.then85:                                        ; preds = %if.end84
-  %tobool86 = trunc i8 %bracketed.0 to i1
+  %tobool86 = trunc nuw i8 %bracketed.0 to i1
   br i1 %tobool86, label %if.else90, label %if.then87
 
 if.then87:                                        ; preds = %if.then85
@@ -30604,7 +30604,7 @@ for.inc.i:                                        ; preds = %if.then21.i, %lor.l
   br i1 %cmp.not.i, label %_ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.i
 
 _ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %for.inc.i
-  %5 = trunc i8 %last_was_period.1.i to i1
+  %5 = trunc nuw i8 %last_was_period.1.i to i1
   br i1 %5, label %return, label %if.end4
 
 if.end4:                                          ; preds = %_ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -38915,12 +38915,12 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i214, %fo
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i.i.i": ; preds = %for.body.i.i.i.i
   %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
   %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
   %cmp4.i.i.i.i.i.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i = and i1 %cmp4.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i, label %while.cond.i.i.i.i.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i.i.i", %for.body.i.i.i.i
@@ -38937,10 +38937,10 @@ while.cond.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclIZNS4_19SuggestFieldNumbersES6_S9_E5RangeNS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i.i.i.i": ; preds = %while.cond.i.i.i.i.i
   %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
   %cmp4.i.i.i.i.i.i.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i = and i1 %cmp4.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclIZNS4_19SuggestFieldNumbersES6_S9_E5RangeNS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i.i.i.i", %while.cond.i.i.i.i.i
@@ -38964,7 +38964,7 @@ for.body.i6.i.i.i:                                ; preds = %"_ZSt16__insertion_
   %81 = load i64, ptr %__i.sroa.0.02.i.i.i.i, align 4
   %lhs.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %81 to i32
   %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %81, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
   br label %while.cond.i.i7.i.i.i
 
 while.cond.i.i7.i.i.i:                            ; preds = %while.body.i.i19.i.i.i, %for.body.i6.i.i.i
@@ -38977,10 +38977,10 @@ while.cond.i.i7.i.i.i:                            ; preds = %while.body.i.i19.i.
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclIZNS4_19SuggestFieldNumbersES6_S9_E5RangeNS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i13.i.i.i": ; preds = %while.cond.i.i7.i.i.i
   %rhs.sroa.2.0.extract.shift.i.i.i.i14.i.i.i = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.i.i10.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i15.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i14.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i15.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i14.i.i.i to i32
   %cmp4.i.i.i.i.i.i16.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i11.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i17.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i15.i.i.i
-  %spec.select.i.i.i.i18.i.i.i = and i1 %cmp4.i.i.i.i.i.i16.i.i.i, %cmp.i.i.i.i.i.i.i17.i.i.i
+  %spec.select.i.i.i.i18.i.i.i = select i1 %cmp4.i.i.i.i.i.i16.i.i.i, i1 %cmp.i.i.i.i.i.i.i17.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i18.i.i.i, label %while.body.i.i19.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS4_19SuggestFieldNumbersES6_S9_E3$_3EEEvT_T0_.exit.i.i.i.i"
 
 while.body.i.i19.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclIZNS4_19SuggestFieldNumbersES6_S9_E5RangeNS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i13.i.i.i", %while.cond.i.i7.i.i.i
@@ -39009,12 +39009,12 @@ for.body.i26.i.i.i:                               ; preds = %if.else.i.i.i216, %
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i34.i.i.i": ; preds = %for.body.i26.i.i.i
   %rhs.sroa.2.0.extract.shift.i.i.i35.i.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i30.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i36.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i35.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i36.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i35.i.i.i to i32
   %lhs.sroa.2.0.extract.shift.i.i.i37.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i29.i.i.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i38.i.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i37.i.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i38.i.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i37.i.i.i to i32
   %cmp4.i.i.i.i.i39.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i32.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i31.i.i.i
   %cmp.i.i.i.i.i.i40.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i38.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i36.i.i.i
-  %spec.select.i.i.i41.i.i.i = and i1 %cmp4.i.i.i.i.i39.i.i.i, %cmp.i.i.i.i.i.i40.i.i.i
+  %spec.select.i.i.i41.i.i.i = select i1 %cmp4.i.i.i.i.i39.i.i.i, i1 %cmp.i.i.i.i.i.i40.i.i.i, i1 false
   br i1 %spec.select.i.i.i41.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i59.i.i.i, label %while.cond.i.i42.i.i.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit.i59.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i34.i.i.i", %for.body.i26.i.i.i
@@ -39037,10 +39037,10 @@ while.cond.i.i42.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclIZNS4_19SuggestFieldNumbersES6_S9_E5RangeNS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i48.i.i.i": ; preds = %while.cond.i.i42.i.i.i
   %rhs.sroa.2.0.extract.shift.i.i.i.i49.i.i.i = lshr i64 %agg.tmp2.sroa.0.0.copyload.i.i.i45.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i50.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i49.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i50.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i49.i.i.i to i32
   %cmp4.i.i.i.i.i.i51.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i46.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i31.i.i.i
   %cmp.i.i.i.i.i.i.i52.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i38.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i50.i.i.i
-  %spec.select.i.i.i.i53.i.i.i = and i1 %cmp4.i.i.i.i.i.i51.i.i.i, %cmp.i.i.i.i.i.i.i52.i.i.i
+  %spec.select.i.i.i.i53.i.i.i = select i1 %cmp4.i.i.i.i.i.i51.i.i.i, i1 %cmp.i.i.i.i.i.i.i52.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i53.i.i.i, label %while.body.i.i58.i.i.i, label %for.inc.i54.i.i.i
 
 while.body.i.i58.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclIZNS4_19SuggestFieldNumbersES6_S9_E5RangeNS_17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEEEEbRT_T0_.exit.i.i48.i.i.i", %while.cond.i.i42.i.i.i
@@ -39537,7 +39537,7 @@ for.body.preheader.i.i.i.i.i.i.i.i:               ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i.i
   store ptr %add.ptr.i.i22.i, ptr %cached_blocks_.i.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %div10.i.i.i.i.i, i64 64)
-  %conv17.i.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i.i to i8
+  %conv17.i.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i.i to i8
   store i8 %conv17.i.i.i.i.i, ptr %cached_block_length_.i.i.i.i.i, align 8
   br label %.noexc53
 
@@ -51540,7 +51540,7 @@ for.inc.i:                                        ; preds = %if.then21.i, %lor.l
   br i1 %cmp.not.i5, label %_ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.ithread-pre-split
 
 _ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %for.inc.i
-  %6 = trunc i8 %last_was_period.1.i to i1
+  %6 = trunc nuw i8 %last_was_period.1.i to i1
   br i1 %6, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %if.else.i, %if.then21.i, %_ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -53882,7 +53882,7 @@ if.then6:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %number_.i = getelementptr inbounds i8, ptr %option_field, i64 4
   %13 = load i32, ptr %number_.i, align 4
-  %conv11 = trunc i64 %10 to i32
+  %conv11 = trunc nuw i64 %10 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i)
   %14 = load ptr, ptr %type_once_.i196, align 8
@@ -54056,7 +54056,7 @@ if.then80:                                        ; preds = %if.then74
 if.else84:                                        ; preds = %if.then74
   %number_.i75 = getelementptr inbounds i8, ptr %option_field, i64 4
   %43 = load i32, ptr %number_.i75, align 4
-  %conv88 = trunc i64 %40 to i32
+  %conv88 = trunc nuw i64 %40 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i77)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i78)
   %44 = load ptr, ptr %type_once_.i196, align 8
@@ -57286,7 +57286,7 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32
@@ -58350,7 +58350,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i22, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -61501,7 +61501,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
   %spec.select3.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i = trunc i64 %retval.04.i.i.i.i to i32
+  %retval.0.i3.i.i.i = trunc nsw i64 %retval.04.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.then.i.i.i
@@ -61545,7 +61545,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i.i
   %spec.select3.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEEPS6_EEbRT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt17basic_string_viewIcSt11char_traitsIcEEPS6_EEbRT_T0_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -65733,7 +65733,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 
 if.then62:                                        ; preds = %lor.lhs.false, %land.lhs.true
   %sub68 = sub nsw i32 %conv44, %conv41
-  %div.lhs.trunc = trunc i32 %sub68 to i16
+  %div.lhs.trunc = trunc nsw i32 %sub68 to i16
   %div129 = sdiv i16 %div.lhs.trunc, 2
   %conv69 = trunc i16 %div129 to i8
   %sub72 = add i8 %22, -1
@@ -82294,12 +82294,12 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i.i.i
   %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
   %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i to i32
   %cmp4.i.i.i.i.i.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i = and i1 %cmp4.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i, i1 false
   %cond.fr.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i
   br i1 %cond.fr.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.thread.i.i.i.i", label %while.cond.i.i.i.i
 
@@ -82333,7 +82333,7 @@ if.end33.i.i.i.i:                                 ; preds = %if.then20.i.i.i.i, 
 land.rhs.lr.ph.i.i.i.i.i:                         ; preds = %if.end33.i.i.i.i
   %rhs.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i.i.i to i32
   %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
   br label %land.rhs.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i
@@ -82348,10 +82348,10 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %land.rhs.i.i.i.i.i
   %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
   %cmp4.i.i.i.i.i.i.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i = and i1 %cmp4.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS4_19SuggestFieldNumbersES6_S9_E3$_3EEEvT_T0_SL_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i.i.i.i.i", %land.rhs.i.i.i.i.i
@@ -82402,12 +82402,12 @@ while.body.i.i.i42.i:                             ; preds = %while.body.i.i, %wh
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i.i54.i": ; preds = %while.body.i.i.i42.i
   %rhs.sroa.2.0.extract.shift.i.i.i.i.i55.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i.i50.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i56.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i55.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i56.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i55.i to i32
   %lhs.sroa.2.0.extract.shift.i.i.i.i.i57.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i49.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i58.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i57.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i58.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i57.i to i32
   %cmp4.i.i.i.i.i.i.i59.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i.i52.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i.i51.i
   %cmp.i.i.i.i.i.i.i.i60.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i.i58.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i.i56.i
-  %spec.select.i.i.i.i.i61.i = and i1 %cmp4.i.i.i.i.i.i.i59.i, %cmp.i.i.i.i.i.i.i.i60.i
+  %spec.select.i.i.i.i.i61.i = select i1 %cmp4.i.i.i.i.i.i.i59.i, i1 %cmp.i.i.i.i.i.i.i.i60.i, i1 false
   %cond.fr.i.i.i62.i = freeze i1 %spec.select.i.i.i.i.i61.i
   br i1 %cond.fr.i.i.i62.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.thread.i.i.i66.i", label %while.cond.i.i.i63.i
 
@@ -82451,7 +82451,7 @@ if.end33.i.i.i12.i:                               ; preds = %if.then20.i.i.i38.i
 land.rhs.lr.ph.i.i.i.i17.i:                       ; preds = %if.end33.i.i.i12.i
   %rhs.sroa.0.0.extract.trunc.i.i.i.i.i.i18.i = trunc i64 %__value.sroa.0.0.copyload.i.i2.i to i32
   %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i19.i = lshr i64 %__value.sroa.0.0.copyload.i.i2.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i20.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i19.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i20.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i.i.i19.i to i32
   br label %land.rhs.i.i.i.i21.i
 
 land.rhs.i.i.i.i21.i:                             ; preds = %while.body.i.i.i.i34.i, %land.rhs.lr.ph.i.i.i.i17.i
@@ -82466,10 +82466,10 @@ land.rhs.i.i.i.i21.i:                             ; preds = %while.body.i.i.i.i3
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i.i.i.i28.i": ; preds = %land.rhs.i.i.i.i21.i
   %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i29.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i25.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i30.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i29.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i30.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i.i.i.i29.i to i32
   %cmp4.i.i.i.i.i.i.i.i31.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i.i.i18.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i.i.i26.i
   %cmp.i.i.i.i.i.i.i.i.i32.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i.i.i30.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i.i.i20.i
-  %spec.select.i.i.i.i.i.i33.i = and i1 %cmp4.i.i.i.i.i.i.i.i31.i, %cmp.i.i.i.i.i.i.i.i.i32.i
+  %spec.select.i.i.i.i.i.i33.i = select i1 %cmp4.i.i.i.i.i.i.i.i31.i, i1 %cmp.i.i.i.i.i.i.i.i.i32.i, i1 false
   br i1 %spec.select.i.i.i.i.i.i33.i, label %while.body.i.i.i.i34.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19SuggestFieldNumbersES6_S9_E3$_3EEEvT_SK_SK_RT0_.exit.i.i"
 
 while.body.i.i.i.i34.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i.i.i.i28.i", %land.rhs.i.i.i.i21.i
@@ -82502,12 +82502,12 @@ if.end:                                           ; preds = %while.body.lr.ph, %
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i": ; preds = %if.end
   %rhs.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i.i to i32
   %lhs.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i.i to i32
   %cmp4.i.i.i.i.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i.i.i
-  %spec.select.i.i.i.i = and i1 %cmp4.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i, label %if.then.i.i, label %if.else33.i.i
 
 if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i.i", %if.end
@@ -82518,12 +82518,12 @@ if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit14.i.i": ; preds = %if.then.i.i
   %rhs.sroa.2.0.extract.shift.i.i7.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i2.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i8.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i7.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i8.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i7.i.i to i32
   %lhs.sroa.2.0.extract.shift.i.i9.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i10.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i9.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i10.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i9.i.i to i32
   %cmp4.i.i.i.i11.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i4.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i.i
   %cmp.i.i.i.i.i12.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i10.i.i, %rhs.sroa.2.0.extract.trunc.i.i8.i.i
-  %spec.select.i.i13.i.i = and i1 %cmp4.i.i.i.i11.i.i, %cmp.i.i.i.i.i12.i.i
+  %spec.select.i.i13.i.i = select i1 %cmp4.i.i.i.i11.i.i, i1 %cmp.i.i.i.i.i12.i.i, i1 false
   br i1 %spec.select.i.i13.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19SuggestFieldNumbersES6_S9_E3$_3EEEvT_SK_SK_SK_T0_.exit.i", label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit14.i.i"
@@ -82532,10 +82532,10 @@ if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit28.i.i": ; preds = %if.else.i.i
   %lhs.sroa.2.0.extract.shift.i.i23.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i24.i.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i23.i.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i24.i.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i23.i.i to i32
   %cmp4.i.i.i.i25.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i4.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i
   %cmp.i.i.i.i.i26.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i24.i.i, %rhs.sroa.2.0.extract.trunc.i.i8.i.i
-  %spec.select.i.i27.i.i = and i1 %cmp4.i.i.i.i25.i.i, %cmp.i.i.i.i.i26.i.i
+  %spec.select.i.i27.i.i = select i1 %cmp4.i.i.i.i25.i.i, i1 %cmp.i.i.i.i.i26.i.i, i1 false
   %spec.select.i.i = select i1 %spec.select.i.i27.i.i, i64 %agg.tmp3.sroa.0.0.copyload.i2.i.i, i64 %agg.tmp.sroa.0.0.copyload.i.i.i
   %spec.select57.i.i = select i1 %spec.select.i.i27.i.i, ptr %add.ptr.i7.i, ptr %add.ptr.i6.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19SuggestFieldNumbersES6_S9_E3$_3EEEvT_SK_SK_SK_T0_.exit.i"
@@ -82548,10 +82548,10 @@ if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit42.i.i": ; preds = %if.else33.i.i
   %rhs.sroa.2.0.extract.shift.i.i35.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i30.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i36.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i35.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i36.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i35.i.i to i32
   %cmp4.i.i.i.i39.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i32.i.i, %lhs.sroa.0.0.extract.trunc.i.i.i.i
   %cmp.i.i.i.i.i40.i.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i36.i.i
-  %spec.select.i.i41.i.i = and i1 %cmp4.i.i.i.i39.i.i, %cmp.i.i.i.i.i40.i.i
+  %spec.select.i.i41.i.i = select i1 %cmp4.i.i.i.i39.i.i, i1 %cmp.i.i.i.i.i40.i.i, i1 false
   br i1 %spec.select.i.i41.i.i, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19SuggestFieldNumbersES6_S9_E3$_3EEEvT_SK_SK_SK_T0_.exit.i", label %if.else44.i.i
 
 if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit42.i.i"
@@ -82561,7 +82561,7 @@ if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit56.i.i": ; preds = %if.else44.i.i
   %cmp4.i.i.i.i53.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i32.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i.i
   %cmp.i.i.i.i.i54.i.i = icmp slt i32 %rhs.sroa.2.0.extract.trunc.i.i.i.i, %rhs.sroa.2.0.extract.trunc.i.i36.i.i
-  %spec.select.i.i55.i.i = and i1 %cmp4.i.i.i.i53.i.i, %cmp.i.i.i.i.i54.i.i
+  %spec.select.i.i55.i.i = select i1 %cmp4.i.i.i.i53.i.i, i1 %cmp.i.i.i.i.i54.i.i, i1 false
   %spec.select58.i.i = select i1 %spec.select.i.i55.i.i, i64 %agg.tmp3.sroa.0.0.copyload.i30.i.i, i64 %agg.tmp3.sroa.0.0.copyload.i.i.i
   %spec.select59.i.i = select i1 %spec.select.i.i55.i.i, ptr %add.ptr.i7.i, ptr %add.ptr.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE5RangeSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19SuggestFieldNumbersES6_S9_E3$_3EEEvT_SK_SK_SK_T0_.exit.i"
@@ -82580,7 +82580,7 @@ while.body.i.i5:                                  ; preds = %if.end.i.i, %"_ZSt2
   %agg.tmp3.sroa.0.0.copyload.i.i9.i = load i64, ptr %__first.coerce.fr, align 4
   %rhs.sroa.0.0.extract.trunc.i.i.i10.i = trunc i64 %agg.tmp3.sroa.0.0.copyload.i.i9.i to i32
   %rhs.sroa.2.0.extract.shift.i.i.i11.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i9.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i.i12.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i.i11.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i.i12.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i.i11.i to i32
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.body7.i.i, %while.body.i.i5
@@ -82592,10 +82592,10 @@ while.cond3.i.i:                                  ; preds = %while.body7.i.i, %w
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i16.i": ; preds = %while.cond3.i.i
   %lhs.sroa.2.0.extract.shift.i.i.i17.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i13.i, 32
-  %lhs.sroa.2.0.extract.trunc.i.i.i18.i = trunc i64 %lhs.sroa.2.0.extract.shift.i.i.i17.i to i32
+  %lhs.sroa.2.0.extract.trunc.i.i.i18.i = trunc nuw i64 %lhs.sroa.2.0.extract.shift.i.i.i17.i to i32
   %cmp4.i.i.i.i.i19.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i.i10.i, %lhs.sroa.0.0.extract.trunc.i.i.i14.i
   %cmp.i.i.i.i.i.i20.i = icmp slt i32 %lhs.sroa.2.0.extract.trunc.i.i.i18.i, %rhs.sroa.2.0.extract.trunc.i.i.i12.i
-  %spec.select.i.i.i21.i = and i1 %cmp4.i.i.i.i.i19.i, %cmp.i.i.i.i.i.i20.i
+  %spec.select.i.i.i21.i = select i1 %cmp4.i.i.i.i.i19.i, i1 %cmp.i.i.i.i.i.i20.i, i1 false
   br i1 %spec.select.i.i.i21.i, label %while.body7.i.i, label %while.cond10.i.i
 
 while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit.i16.i", %while.cond3.i.i
@@ -82612,10 +82612,10 @@ while.cond10.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit15.i.i": ; preds = %while.cond10.i.i
   %rhs.sroa.2.0.extract.shift.i.i8.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i3.i.i, 32
-  %rhs.sroa.2.0.extract.trunc.i.i9.i.i = trunc i64 %rhs.sroa.2.0.extract.shift.i.i8.i.i to i32
+  %rhs.sroa.2.0.extract.trunc.i.i9.i.i = trunc nuw i64 %rhs.sroa.2.0.extract.shift.i.i8.i.i to i32
   %cmp4.i.i.i.i12.i.i = icmp sge i32 %rhs.sroa.0.0.extract.trunc.i.i5.i.i, %rhs.sroa.0.0.extract.trunc.i.i.i10.i
   %cmp.i.i.i.i.i13.i.i = icmp slt i32 %rhs.sroa.2.0.extract.trunc.i.i.i12.i, %rhs.sroa.2.0.extract.trunc.i.i9.i.i
-  %spec.select.i.i14.i.i = and i1 %cmp4.i.i.i.i12.i.i, %cmp.i.i.i.i.i13.i.i
+  %spec.select.i.i14.i.i = select i1 %cmp4.i.i.i.i12.i.i, i1 %cmp.i.i.i.i.i13.i.i, i1 false
   br i1 %spec.select.i.i14.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
 while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf17DescriptorBuilder19SuggestFieldNumbersEPNS3_14FileDescriptorERKNS3_19FileDescriptorProtoEE3$_3EclINS_17__normal_iteratorIPZNS4_19SuggestFieldNumbersES6_S9_E5RangeSt6vectorISE_SaISE_EEEESJ_EEbT_T0_.exit15.i.i", %while.cond10.i.i

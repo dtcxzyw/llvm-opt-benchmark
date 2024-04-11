@@ -17,7 +17,7 @@ define { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 nounde
   %8 = zext i8 %7 to i32
   %9 = icmp eq i8 %7, 0
   %.lobit = lshr i64 %4, 63
-  %10 = trunc i64 %.lobit to i8
+  %10 = trunc nuw nsw i64 %.lobit to i8
   %11 = icmp ne i8 %7, 4
   %or.cond = xor i1 %9, %11
   br i1 %or.cond, label %12, label %18
@@ -48,7 +48,7 @@ define { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 nounde
   %27 = trunc i8 %.078 to i1
   %28 = icmp ugt i64 %2, 562949953421310
   %or.cond89.not = and i1 %28, %27
-  %or.cond92 = and i1 %or.cond89.not, %or.cond4.not95
+  %or.cond92 = select i1 %or.cond4.not95, i1 %or.cond89.not, i1 false
   br i1 %or.cond92, label %29, label %softfloat_lt128.exit
 
 29:                                               ; preds = %23
@@ -76,7 +76,7 @@ softfloat_lt128.exit:                             ; preds = %29, %23
 
 37:                                               ; preds = %36, %softfloat_lt128.exit
   %.sroa.019.0.copyload.lobit = lshr i64 %.sroa.019.0.copyload, 63
-  %38 = trunc i64 %.sroa.019.0.copyload.lobit to i8
+  %38 = trunc nuw nsw i64 %.sroa.019.0.copyload.lobit to i8
   br i1 %or.cond, label %39, label %60
 
 39:                                               ; preds = %37

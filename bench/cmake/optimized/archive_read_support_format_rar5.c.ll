@@ -826,7 +826,7 @@ advance_multivolume.exit.i.thread120:             ; preds = %124, %skip_base_blo
   %.sink.i.i50 = phi i64 [ %178, %174 ], [ %173, %171 ], [ %170, %167 ]
   %180 = xor i8 %158, 90
   %181 = zext i8 %180 to i32
-  %182 = trunc i64 %.sink.i.i50 to i32
+  %182 = trunc nuw nsw i64 %.sink.i.i50 to i32
   %183 = lshr i32 %182, 8
   %184 = lshr i32 %182, 16
   %185 = xor i32 %183, %181
@@ -1161,7 +1161,7 @@ merge_block.exit.thread145:                       ; preds = %228
   %326 = sub nsw i64 19, %322
   %327 = zext nneg i32 %narrow170.i to i64
   %umin = call i64 @llvm.umin.i64(i64 %326, i64 %327)
-  %328 = trunc i64 %umin to i32
+  %328 = trunc nuw nsw i64 %umin to i32
   %329 = add nsw i32 %.087144.i, 1
   %330 = add nsw i32 %329, %328
   br label %.loopexit137.i
@@ -1173,7 +1173,7 @@ merge_block.exit.thread145:                       ; preds = %228
   br label %.loopexit137.i
 
 334:                                              ; preds = %298
-  %335 = trunc i32 %305 to i8
+  %335 = trunc nuw i32 %305 to i8
   %336 = add nsw i32 %.087144.i, 1
   %337 = sext i32 %.087144.i to i64
   %338 = getelementptr inbounds [20 x i8], ptr %7, i64 0, i64 %337
@@ -1212,7 +1212,7 @@ merge_block.exit.thread145:                       ; preds = %228
   br i1 %348, label %349, label %354
 
 349:                                              ; preds = %346
-  %350 = trunc i16 %347 to i8
+  %350 = trunc nuw i16 %347 to i8
   %351 = sext i32 %.4157.i to i64
   %352 = getelementptr inbounds [430 x i8], ptr %8, i64 0, i64 %351
   store i8 %350, ptr %352, align 1
@@ -1347,7 +1347,7 @@ read_bits_16.exit108.i:                           ; preds = %396
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep164.i, i8 0, i64 %423, i1 false)
   %424 = sub nsw i64 429, %419
   %umin488 = call i64 @llvm.umin.i64(i64 %424, i64 %422)
-  %425 = trunc i64 %umin488 to i32
+  %425 = trunc nuw nsw i64 %umin488 to i32
   %426 = add nsw i32 %.4157.i, 1
   %427 = add nsw i32 %426, %425
   br label %.loopexit.i
@@ -1468,7 +1468,7 @@ parse_tables.exit:                                ; preds = %.preheader.i, %.loo
   %486 = add nsw i64 %485, 1
   store i64 %486, ptr %443, align 8
   %487 = add nsw i64 %485, %484
-  %488 = trunc i16 %480 to i8
+  %488 = trunc nuw i16 %480 to i8
   %489 = load ptr, ptr %460, align 8
   %490 = and i64 %487, %440
   %491 = getelementptr inbounds i8, ptr %489, i64 %490
@@ -2436,7 +2436,7 @@ circular_memcpy.exit.i.i.i:                       ; preds = %1017, %1012
 1033:                                             ; preds = %.lr.ph.i29.i.i
   %1034 = add nsw i64 %1023, %1025
   %1035 = srem i64 %1034, 16777216
-  %1036 = trunc i64 %1035 to i32
+  %1036 = trunc nsw i64 %1035 to i32
   %1037 = add nsw i64 %1024, %1025
   %1038 = and i64 %1037, %1027
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
@@ -2502,7 +2502,7 @@ read_filter_data.exit.i.i.i:                      ; preds = %1049, %1044
   %1069 = getelementptr inbounds i8, ptr %1062, i64 2
   store i8 %1068, ptr %1069, align 1
   %1070 = lshr i32 %.sink.i.i.i, 24
-  %1071 = trunc i32 %1070 to i8
+  %1071 = trunc nuw i32 %1070 to i8
   %1072 = getelementptr inbounds i8, ptr %1062, i64 3
   store i8 %1071, ptr %1072, align 1
   %.pre.i30.pre.i.i = load i64, ptr %953, align 8
@@ -3337,7 +3337,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br i1 %.not90, label %read_var_sized.exit, label %60
 
 60:                                               ; preds = %58
-  %61 = trunc i64 %51 to i32
+  %61 = trunc nuw i64 %51 to i32
   %62 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %59, i32 noundef %61) #13
   %63 = trunc i64 %62 to i32
   %.not56 = icmp eq i32 %37, %63
@@ -3723,7 +3723,7 @@ read_var_sized.exit50:                            ; preds = %71, %66
   br label %read_var_sized.exit.thread
 
 76:                                               ; preds = %read_var_sized.exit50
-  %77 = trunc i64 %63 to i32
+  %77 = trunc nuw i64 %63 to i32
   br label %78
 
 78:                                               ; preds = %read_var_sized.exit41, %76
@@ -3734,7 +3734,7 @@ read_var_sized.exit50:                            ; preds = %71, %66
   %81 = load i32, ptr %80, align 8
   %.not28 = icmp eq i32 %81, 0
   %.not29 = icmp eq i32 %.sink, %81
-  %or.cond = or i1 %.not28, %.not29
+  %or.cond = select i1 %.not28, i1 true, i1 %.not29
   br i1 %or.cond, label %82, label %read_var_sized.exit.thread
 
 82:                                               ; preds = %78

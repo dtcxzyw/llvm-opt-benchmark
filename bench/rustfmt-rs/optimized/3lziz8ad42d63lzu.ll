@@ -1079,7 +1079,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..result..Resul
 define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h40d6eec32f7d038fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = load i64, ptr %1, align 8, !range !36, !noundef !5
-  %trunc = trunc i64 %6 to i1
+  %trunc = trunc nuw i64 %6 to i1
   br i1 %trunc, label %9, label %7
 
 7:                                                ; preds = %4
@@ -1467,7 +1467,7 @@ define void @_ZN15rustfmt_nightly6config13PartialConfig7to_toml17h2c1e43e85cde37
   %26 = load i8, ptr %25, align 2, !range !165, !alias.scope !237, !noalias !234, !noundef !5
   %27 = getelementptr inbounds i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8, !range !36, !alias.scope !237, !noalias !234, !noundef !5
-  %trunc237.i = trunc i64 %28 to i1
+  %trunc237.i = trunc nuw i64 %28 to i1
   br i1 %trunc237.i, label %29, label %38
 
 29:                                               ; preds = %2
@@ -1685,7 +1685,7 @@ define void @_ZN15rustfmt_nightly6config13PartialConfig7to_toml17h2c1e43e85cde37
   %198 = load i8, ptr %197, align 8, !range !165, !alias.scope !237, !noalias !234, !noundef !5
   %199 = getelementptr inbounds i8, ptr %1, i64 376
   %200 = load i64, ptr %199, align 8, !range !36, !alias.scope !237, !noalias !234, !noundef !5
-  %trunc255.i = trunc i64 %200 to i1
+  %trunc255.i = trunc nuw i64 %200 to i1
   br i1 %trunc255.i, label %204, label %"_ZN77_$LT$rustfmt_nightly..config..PartialConfig$u20$as$u20$core..clone..Clone$GT$5clone17h31ceaa2ef36d7e57E.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit.i": ; preds = %227, %.body.i, %201
@@ -1791,45 +1791,45 @@ common.resume:                                    ; preds = %329, %190
   %231 = phi ptr [ undef, %196 ], [ null, %204 ], [ %.sroa.0.i.sroa.0.0.i, %228 ]
   %.sroa.098.0.i = phi i64 [ 0, %196 ], [ 1, %204 ], [ 1, %228 ]
   %232 = phi <2 x i64> [ undef, %196 ], [ undef, %204 ], [ %210, %228 ]
-  %trunc254.i = trunc i64 %164 to i1
+  %trunc254.i = trunc nuw i64 %164 to i1
   %.sroa.583.0.i = select i1 %trunc254.i, i64 %166, i64 undef
-  %trunc253.i = trunc i64 %158 to i1
+  %trunc253.i = trunc nuw i64 %158 to i1
   %.sroa.580.0.i = select i1 %trunc253.i, i64 %160, i64 undef
-  %trunc252.i = trunc i64 %150 to i1
+  %trunc252.i = trunc nuw i64 %150 to i1
   %.sroa.576.0.i = select i1 %trunc252.i, i64 %152, i64 undef
-  %trunc251.i = trunc i64 %146 to i1
+  %trunc251.i = trunc nuw i64 %146 to i1
   %.sroa.574.0.i = select i1 %trunc251.i, i64 %148, i64 undef
-  %trunc250.i = trunc i64 %134 to i1
+  %trunc250.i = trunc nuw i64 %134 to i1
   %.sroa.562.0.i = select i1 %trunc250.i, i64 %136, i64 undef
-  %trunc249.i = trunc i64 %130 to i1
+  %trunc249.i = trunc nuw i64 %130 to i1
   %.sroa.560.0.i = select i1 %trunc249.i, i64 %132, i64 undef
-  %trunc248.i = trunc i64 %124 to i1
+  %trunc248.i = trunc nuw i64 %124 to i1
   %.sroa.557.0.i = select i1 %trunc248.i, i64 %126, i64 undef
   %233 = icmp eq i64 %108, 5
   %.sroa.542.0.i = select i1 %233, i64 undef, i64 %110
-  %trunc247.i = trunc i64 %84 to i1
+  %trunc247.i = trunc nuw i64 %84 to i1
   %.sroa.529.0.i = select i1 %trunc247.i, i64 %86, i64 undef
-  %trunc246.i = trunc i64 %80 to i1
+  %trunc246.i = trunc nuw i64 %80 to i1
   %.sroa.527.0.i = select i1 %trunc246.i, i64 %82, i64 undef
-  %trunc245.i = trunc i64 %72 to i1
+  %trunc245.i = trunc nuw i64 %72 to i1
   %.sroa.523.0.i = select i1 %trunc245.i, i64 %74, i64 undef
-  %trunc244.i = trunc i64 %68 to i1
+  %trunc244.i = trunc nuw i64 %68 to i1
   %.sroa.521.0.i = select i1 %trunc244.i, i64 %70, i64 undef
-  %trunc243.i = trunc i64 %64 to i1
+  %trunc243.i = trunc nuw i64 %64 to i1
   %.sroa.519.0.i = select i1 %trunc243.i, i64 %66, i64 undef
-  %trunc242.i = trunc i64 %60 to i1
+  %trunc242.i = trunc nuw i64 %60 to i1
   %.sroa.517.0.i = select i1 %trunc242.i, i64 %62, i64 undef
-  %trunc241.i = trunc i64 %56 to i1
+  %trunc241.i = trunc nuw i64 %56 to i1
   %.sroa.515.0.i = select i1 %trunc241.i, i64 %58, i64 undef
-  %trunc240.i = trunc i64 %52 to i1
+  %trunc240.i = trunc nuw i64 %52 to i1
   %.sroa.513.0.i = select i1 %trunc240.i, i64 %54, i64 undef
-  %trunc239.i = trunc i64 %48 to i1
+  %trunc239.i = trunc nuw i64 %48 to i1
   %.sroa.511.0.i = select i1 %trunc239.i, i64 %50, i64 undef
-  %trunc238.i = trunc i64 %44 to i1
+  %trunc238.i = trunc nuw i64 %44 to i1
   %.sroa.59.0.i = select i1 %trunc238.i, i64 %46, i64 undef
-  %trunc236.i = trunc i64 %18 to i1
+  %trunc236.i = trunc nuw i64 %18 to i1
   %.sroa.52.0.i = select i1 %trunc236.i, i64 %20, i64 undef
-  %trunc.i = trunc i64 %12 to i1
+  %trunc.i = trunc nuw i64 %12 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i64 %14, i64 undef
   %234 = getelementptr inbounds i8, ptr %1, i64 628
   %235 = load i8, ptr %234, align 4, !range !270, !alias.scope !237, !noalias !234, !noundef !5
@@ -2093,7 +2093,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config25version_meets_req
   %7 = alloca { ptr, i64 }, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i8, ptr %8, align 8, !range !172, !noalias !284, !noundef !5
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %1
@@ -2228,7 +2228,7 @@ define void @_ZN15rustfmt_nightly6config6Config14from_toml_path17hb397612fb9f57f
   call void @_ZN3std2fs11OpenOptions5_open17h5e4ccade0e0ce2d5E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !328
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !324
   %13 = load i32, ptr %11, align 8, !range !329, !noundef !5
-  %trunc = trunc i32 %13 to i1
+  %trunc = trunc nuw i32 %13 to i1
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !5
   %16 = getelementptr inbounds i8, ptr %11, i64 4
@@ -2262,7 +2262,7 @@ define void @_ZN15rustfmt_nightly6config6Config14from_toml_path17hb397612fb9f57f
 
 23:                                               ; preds = %18
   %24 = load i64, ptr %9, align 8, !range !36, !noundef !5
-  %trunc17 = trunc i64 %24 to i1
+  %trunc17 = trunc nuw i64 %24 to i1
   %25 = getelementptr inbounds i8, ptr %9, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -4051,7 +4051,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %307 = getelementptr inbounds i8, ptr %125, i64 168
   %308 = getelementptr inbounds i8, ptr %125, i64 178
   %309 = load i8, ptr %308, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %310 = trunc i8 %309 to i1
+  %310 = trunc nuw i8 %309 to i1
   %311 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.63, i64 noundef 9, i1 noundef zeroext %310, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
           to label %322 unwind label %318, !noalias !919
 
@@ -4111,7 +4111,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %328 = getelementptr inbounds i8, ptr %125, i64 600
   %329 = getelementptr inbounds i8, ptr %125, i64 603
   %330 = load i8, ptr %329, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %331 = trunc i8 %330 to i1
+  %331 = trunc nuw i8 %330 to i1
   %332 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.76, i64 noundef 9, i1 noundef zeroext %331, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %113)
           to label %336 unwind label %318, !noalias !919
 
@@ -4143,7 +4143,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %344 = getelementptr inbounds i8, ptr %125, i64 184
   %345 = getelementptr inbounds i8, ptr %125, i64 194
   %346 = load i8, ptr %345, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %347 = trunc i8 %346 to i1
+  %347 = trunc nuw i8 %346 to i1
   %348 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.77, i64 noundef 10, i1 noundef zeroext %347, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %112)
           to label %352 unwind label %318, !noalias !919
 
@@ -4173,7 +4173,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %358 = getelementptr inbounds i8, ptr %125, i64 604
   %359 = getelementptr inbounds i8, ptr %125, i64 607
   %360 = load i8, ptr %359, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %361 = trunc i8 %360 to i1
+  %361 = trunc nuw i8 %360 to i1
   %362 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hd8a4198e17c6fc82E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.78, i64 noundef 13, i1 noundef zeroext %361, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %111)
           to label %366 unwind label %318, !noalias !919
 
@@ -4203,7 +4203,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %372 = getelementptr inbounds i8, ptr %125, i64 608
   %373 = getelementptr inbounds i8, ptr %125, i64 611
   %374 = load i8, ptr %373, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %375 = trunc i8 %374 to i1
+  %375 = trunc nuw i8 %374 to i1
   %376 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h5f718c7f933c93f2E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.79, i64 noundef 12, i1 noundef zeroext %375, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %110)
           to label %380 unwind label %318, !noalias !919
 
@@ -4233,7 +4233,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %386 = getelementptr inbounds i8, ptr %125, i64 612
   %387 = getelementptr inbounds i8, ptr %125, i64 615
   %388 = load i8, ptr %387, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %389 = trunc i8 %388 to i1
+  %389 = trunc nuw i8 %388 to i1
   %390 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h00b7b4974a6e7947E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.64, i64 noundef 20, i1 noundef zeroext %389, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %109)
           to label %394 unwind label %318, !noalias !919
 
@@ -4264,7 +4264,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %401 = getelementptr inbounds i8, ptr %125, i64 528
   %402 = getelementptr inbounds i8, ptr %125, i64 594
   %403 = load i8, ptr %402, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %404 = trunc i8 %403 to i1
+  %404 = trunc nuw i8 %403 to i1
   %405 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h2265c5a415630121E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.80, i64 noundef 16, i1 noundef zeroext %404, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %108)
           to label %409 unwind label %318, !noalias !919
 
@@ -4295,7 +4295,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %416 = getelementptr inbounds i8, ptr %125, i64 200
   %417 = getelementptr inbounds i8, ptr %125, i64 210
   %418 = load i8, ptr %417, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %419 = trunc i8 %418 to i1
+  %419 = trunc nuw i8 %418 to i1
   %420 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.65, i64 noundef 13, i1 noundef zeroext %419, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %107)
           to label %424 unwind label %318, !noalias !919
 
@@ -4327,7 +4327,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %432 = getelementptr inbounds i8, ptr %125, i64 216
   %433 = getelementptr inbounds i8, ptr %125, i64 226
   %434 = load i8, ptr %433, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %435 = trunc i8 %434 to i1
+  %435 = trunc nuw i8 %434 to i1
   %436 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.68, i64 noundef 18, i1 noundef zeroext %435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %106)
           to label %440 unwind label %318, !noalias !919
 
@@ -4359,7 +4359,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %448 = getelementptr inbounds i8, ptr %125, i64 232
   %449 = getelementptr inbounds i8, ptr %125, i64 242
   %450 = load i8, ptr %449, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %451 = trunc i8 %450 to i1
+  %451 = trunc nuw i8 %450 to i1
   %452 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.69, i64 noundef 16, i1 noundef zeroext %451, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %105)
           to label %456 unwind label %318, !noalias !919
 
@@ -4391,7 +4391,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %464 = getelementptr inbounds i8, ptr %125, i64 248
   %465 = getelementptr inbounds i8, ptr %125, i64 258
   %466 = load i8, ptr %465, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %467 = trunc i8 %466 to i1
+  %467 = trunc nuw i8 %466 to i1
   %468 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.70, i64 noundef 20, i1 noundef zeroext %467, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %104)
           to label %472 unwind label %318, !noalias !919
 
@@ -4423,7 +4423,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %480 = getelementptr inbounds i8, ptr %125, i64 264
   %481 = getelementptr inbounds i8, ptr %125, i64 274
   %482 = load i8, ptr %481, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %483 = trunc i8 %482 to i1
+  %483 = trunc nuw i8 %482 to i1
   %484 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.71, i64 noundef 11, i1 noundef zeroext %483, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %103)
           to label %488 unwind label %318, !noalias !919
 
@@ -4455,7 +4455,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %496 = getelementptr inbounds i8, ptr %125, i64 280
   %497 = getelementptr inbounds i8, ptr %125, i64 290
   %498 = load i8, ptr %497, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %499 = trunc i8 %498 to i1
+  %499 = trunc nuw i8 %498 to i1
   %500 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.72, i64 noundef 11, i1 noundef zeroext %499, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %102)
           to label %504 unwind label %318, !noalias !919
 
@@ -4487,7 +4487,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %512 = getelementptr inbounds i8, ptr %125, i64 296
   %513 = getelementptr inbounds i8, ptr %125, i64 306
   %514 = load i8, ptr %513, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %515 = trunc i8 %514 to i1
+  %515 = trunc nuw i8 %514 to i1
   %516 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.66, i64 noundef 29, i1 noundef zeroext %515, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %101)
           to label %520 unwind label %318, !noalias !919
 
@@ -4519,7 +4519,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %528 = getelementptr inbounds i8, ptr %125, i64 312
   %529 = getelementptr inbounds i8, ptr %125, i64 322
   %530 = load i8, ptr %529, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %531 = trunc i8 %530 to i1
+  %531 = trunc nuw i8 %530 to i1
   %532 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.67, i64 noundef 30, i1 noundef zeroext %531, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %100)
           to label %536 unwind label %318, !noalias !919
 
@@ -4549,7 +4549,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %542 = getelementptr inbounds i8, ptr %125, i64 616
   %543 = getelementptr inbounds i8, ptr %125, i64 619
   %544 = load i8, ptr %543, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %545 = trunc i8 %544 to i1
+  %545 = trunc nuw i8 %544 to i1
   %546 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.81, i64 noundef 13, i1 noundef zeroext %545, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %99)
           to label %550 unwind label %318, !noalias !919
 
@@ -4579,7 +4579,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %556 = getelementptr inbounds i8, ptr %125, i64 620
   %557 = getelementptr inbounds i8, ptr %125, i64 623
   %558 = load i8, ptr %557, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %559 = trunc i8 %558 to i1
+  %559 = trunc nuw i8 %558 to i1
   %560 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.82, i64 noundef 27, i1 noundef zeroext %559, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %98)
           to label %564 unwind label %318, !noalias !919
 
@@ -4611,7 +4611,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %572 = getelementptr inbounds i8, ptr %125, i64 328
   %573 = getelementptr inbounds i8, ptr %125, i64 338
   %574 = load i8, ptr %573, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %575 = trunc i8 %574 to i1
+  %575 = trunc nuw i8 %574 to i1
   %576 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.83, i64 noundef 28, i1 noundef zeroext %575, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %97)
           to label %580 unwind label %318, !noalias !919
 
@@ -4643,7 +4643,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %588 = getelementptr inbounds i8, ptr %125, i64 344
   %589 = getelementptr inbounds i8, ptr %125, i64 354
   %590 = load i8, ptr %589, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %591 = trunc i8 %590 to i1
+  %591 = trunc nuw i8 %590 to i1
   %592 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.84, i64 noundef 13, i1 noundef zeroext %591, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %96)
           to label %596 unwind label %318, !noalias !919
 
@@ -4673,7 +4673,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %602 = getelementptr inbounds i8, ptr %125, i64 624
   %603 = getelementptr inbounds i8, ptr %125, i64 627
   %604 = load i8, ptr %603, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %605 = trunc i8 %604 to i1
+  %605 = trunc nuw i8 %604 to i1
   %606 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.85, i64 noundef 18, i1 noundef zeroext %605, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %95)
           to label %610 unwind label %318, !noalias !919
 
@@ -4703,7 +4703,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %616 = getelementptr inbounds i8, ptr %125, i64 628
   %617 = getelementptr inbounds i8, ptr %125, i64 631
   %618 = load i8, ptr %617, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %619 = trunc i8 %618 to i1
+  %619 = trunc nuw i8 %618 to i1
   %620 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.86, i64 noundef 24, i1 noundef zeroext %619, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %94)
           to label %624 unwind label %318, !noalias !919
 
@@ -4733,7 +4733,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %630 = getelementptr inbounds i8, ptr %125, i64 632
   %631 = getelementptr inbounds i8, ptr %125, i64 635
   %632 = load i8, ptr %631, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %633 = trunc i8 %632 to i1
+  %633 = trunc nuw i8 %632 to i1
   %634 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.87, i64 noundef 14, i1 noundef zeroext %633, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %93)
           to label %638 unwind label %318, !noalias !919
 
@@ -4763,7 +4763,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %644 = getelementptr inbounds i8, ptr %125, i64 636
   %645 = getelementptr inbounds i8, ptr %125, i64 639
   %646 = load i8, ptr %645, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %647 = trunc i8 %646 to i1
+  %647 = trunc nuw i8 %646 to i1
   %648 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.88, i64 noundef 21, i1 noundef zeroext %647, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %92)
           to label %652 unwind label %318, !noalias !919
 
@@ -4793,7 +4793,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %658 = getelementptr inbounds i8, ptr %125, i64 640
   %659 = getelementptr inbounds i8, ptr %125, i64 643
   %660 = load i8, ptr %659, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %661 = trunc i8 %660 to i1
+  %661 = trunc nuw i8 %660 to i1
   %662 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.89, i64 noundef 19, i1 noundef zeroext %661, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %91)
           to label %666 unwind label %318, !noalias !919
 
@@ -4823,7 +4823,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %672 = getelementptr inbounds i8, ptr %125, i64 24
   %673 = getelementptr inbounds i8, ptr %125, i64 50
   %674 = load i8, ptr %673, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %675 = trunc i8 %674 to i1
+  %675 = trunc nuw i8 %674 to i1
   %676 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hdb6254689927d751E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.90, i64 noundef 22, i1 noundef zeroext %675, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %90)
           to label %681 unwind label %716, !noalias !919
 
@@ -4963,7 +4963,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %721 = getelementptr inbounds i8, ptr %125, i64 644
   %722 = getelementptr inbounds i8, ptr %125, i64 647
   %723 = load i8, ptr %722, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %724 = trunc i8 %723 to i1
+  %724 = trunc nuw i8 %723 to i1
   %725 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h2fe3410a20d56e58E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.91, i64 noundef 16, i1 noundef zeroext %724, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %89)
           to label %729 unwind label %318, !noalias !919
 
@@ -4993,7 +4993,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %735 = getelementptr inbounds i8, ptr %125, i64 648
   %736 = getelementptr inbounds i8, ptr %125, i64 651
   %737 = load i8, ptr %736, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %738 = trunc i8 %737 to i1
+  %738 = trunc nuw i8 %737 to i1
   %739 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.92, i64 noundef 22, i1 noundef zeroext %738, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %88)
           to label %743 unwind label %318, !noalias !919
 
@@ -5023,7 +5023,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %749 = getelementptr inbounds i8, ptr %125, i64 652
   %750 = getelementptr inbounds i8, ptr %125, i64 655
   %751 = load i8, ptr %750, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %752 = trunc i8 %751 to i1
+  %752 = trunc nuw i8 %751 to i1
   %753 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.93, i64 noundef 22, i1 noundef zeroext %752, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %87)
           to label %757 unwind label %318, !noalias !919
 
@@ -5053,7 +5053,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %763 = getelementptr inbounds i8, ptr %125, i64 656
   %764 = getelementptr inbounds i8, ptr %125, i64 659
   %765 = load i8, ptr %764, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %766 = trunc i8 %765 to i1
+  %766 = trunc nuw i8 %765 to i1
   %767 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.94, i64 noundef 14, i1 noundef zeroext %766, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %86)
           to label %771 unwind label %318, !noalias !919
 
@@ -5083,7 +5083,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %777 = getelementptr inbounds i8, ptr %125, i64 660
   %778 = getelementptr inbounds i8, ptr %125, i64 663
   %779 = load i8, ptr %778, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %780 = trunc i8 %779 to i1
+  %780 = trunc nuw i8 %779 to i1
   %781 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.95, i64 noundef 17, i1 noundef zeroext %780, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %85)
           to label %785 unwind label %318, !noalias !919
 
@@ -5113,7 +5113,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %791 = getelementptr inbounds i8, ptr %125, i64 664
   %792 = getelementptr inbounds i8, ptr %125, i64 667
   %793 = load i8, ptr %792, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %794 = trunc i8 %793 to i1
+  %794 = trunc nuw i8 %793 to i1
   %795 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h5f718c7f933c93f2E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.96, i64 noundef 14, i1 noundef zeroext %794, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %84)
           to label %799 unwind label %318, !noalias !919
 
@@ -5146,7 +5146,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   store i64 %806, ptr %807, align 8, !noalias !928
   %808 = getelementptr inbounds i8, ptr %125, i64 18
   %809 = load i8, ptr %808, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %810 = trunc i8 %809 to i1
+  %810 = trunc nuw i8 %809 to i1
   %811 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h52b82206ac507fccE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.97, i64 noundef 14, i1 noundef zeroext %810, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %83)
           to label %815 unwind label %318, !noalias !919
 
@@ -5176,7 +5176,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %821 = getelementptr inbounds i8, ptr %125, i64 668
   %822 = getelementptr inbounds i8, ptr %125, i64 671
   %823 = load i8, ptr %822, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %824 = trunc i8 %823 to i1
+  %824 = trunc nuw i8 %823 to i1
   %825 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h894c9410eb3f0255E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.98, i64 noundef 19, i1 noundef zeroext %824, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %82)
           to label %829 unwind label %318, !noalias !919
 
@@ -5206,7 +5206,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %835 = getelementptr inbounds i8, ptr %125, i64 672
   %836 = getelementptr inbounds i8, ptr %125, i64 675
   %837 = load i8, ptr %836, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %838 = trunc i8 %837 to i1
+  %838 = trunc nuw i8 %837 to i1
   %839 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hc619ffc51dc9f058E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.99, i64 noundef 13, i1 noundef zeroext %838, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %81)
           to label %843 unwind label %318, !noalias !919
 
@@ -5236,7 +5236,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %849 = getelementptr inbounds i8, ptr %125, i64 676
   %850 = getelementptr inbounds i8, ptr %125, i64 679
   %851 = load i8, ptr %850, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %852 = trunc i8 %851 to i1
+  %852 = trunc nuw i8 %851 to i1
   %853 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.73, i64 noundef 13, i1 noundef zeroext %852, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %80)
           to label %857 unwind label %318, !noalias !919
 
@@ -5266,7 +5266,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %863 = getelementptr inbounds i8, ptr %125, i64 680
   %864 = getelementptr inbounds i8, ptr %125, i64 683
   %865 = load i8, ptr %864, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %866 = trunc i8 %865 to i1
+  %866 = trunc nuw i8 %865 to i1
   %867 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.100, i64 noundef 15, i1 noundef zeroext %866, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %79)
           to label %871 unwind label %318, !noalias !919
 
@@ -5296,7 +5296,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %877 = getelementptr inbounds i8, ptr %125, i64 684
   %878 = getelementptr inbounds i8, ptr %125, i64 687
   %879 = load i8, ptr %878, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %880 = trunc i8 %879 to i1
+  %880 = trunc nuw i8 %879 to i1
   %881 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.101, i64 noundef 15, i1 noundef zeroext %880, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %78)
           to label %885 unwind label %318, !noalias !919
 
@@ -5326,7 +5326,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %891 = getelementptr inbounds i8, ptr %125, i64 688
   %892 = getelementptr inbounds i8, ptr %125, i64 691
   %893 = load i8, ptr %892, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %894 = trunc i8 %893 to i1
+  %894 = trunc nuw i8 %893 to i1
   %895 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.102, i64 noundef 18, i1 noundef zeroext %894, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %77)
           to label %899 unwind label %318, !noalias !919
 
@@ -5356,7 +5356,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %905 = getelementptr inbounds i8, ptr %125, i64 692
   %906 = getelementptr inbounds i8, ptr %125, i64 695
   %907 = load i8, ptr %906, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %908 = trunc i8 %907 to i1
+  %908 = trunc nuw i8 %907 to i1
   %909 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h7179ab370d92309aE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.103, i64 noundef 24, i1 noundef zeroext %908, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %76)
           to label %913 unwind label %318, !noalias !919
 
@@ -5386,7 +5386,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %919 = getelementptr inbounds i8, ptr %125, i64 696
   %920 = getelementptr inbounds i8, ptr %125, i64 699
   %921 = load i8, ptr %920, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %922 = trunc i8 %921 to i1
+  %922 = trunc nuw i8 %921 to i1
   %923 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.104, i64 noundef 18, i1 noundef zeroext %922, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %75)
           to label %927 unwind label %318, !noalias !919
 
@@ -5416,7 +5416,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %933 = getelementptr inbounds i8, ptr %125, i64 700
   %934 = getelementptr inbounds i8, ptr %125, i64 703
   %935 = load i8, ptr %934, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %936 = trunc i8 %935 to i1
+  %936 = trunc nuw i8 %935 to i1
   %937 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.105, i64 noundef 17, i1 noundef zeroext %936, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %74)
           to label %941 unwind label %318, !noalias !919
 
@@ -5446,7 +5446,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %947 = getelementptr inbounds i8, ptr %125, i64 704
   %948 = getelementptr inbounds i8, ptr %125, i64 707
   %949 = load i8, ptr %948, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %950 = trunc i8 %949 to i1
+  %950 = trunc nuw i8 %949 to i1
   %951 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.106, i64 noundef 20, i1 noundef zeroext %950, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %73)
           to label %955 unwind label %318, !noalias !919
 
@@ -5476,7 +5476,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %961 = getelementptr inbounds i8, ptr %125, i64 708
   %962 = getelementptr inbounds i8, ptr %125, i64 711
   %963 = load i8, ptr %962, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %964 = trunc i8 %963 to i1
+  %964 = trunc nuw i8 %963 to i1
   %965 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hac2a6c5ec18f7f39E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.107, i64 noundef 15, i1 noundef zeroext %964, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %72)
           to label %969 unwind label %318, !noalias !919
 
@@ -5506,7 +5506,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %975 = getelementptr inbounds i8, ptr %125, i64 712
   %976 = getelementptr inbounds i8, ptr %125, i64 715
   %977 = load i8, ptr %976, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %978 = trunc i8 %977 to i1
+  %978 = trunc nuw i8 %977 to i1
   %979 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.108, i64 noundef 20, i1 noundef zeroext %978, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %71)
           to label %983 unwind label %318, !noalias !919
 
@@ -5536,7 +5536,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %989 = getelementptr inbounds i8, ptr %125, i64 716
   %990 = getelementptr inbounds i8, ptr %125, i64 719
   %991 = load i8, ptr %990, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %992 = trunc i8 %991 to i1
+  %992 = trunc nuw i8 %991 to i1
   %993 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.109, i64 noundef 20, i1 noundef zeroext %992, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %70)
           to label %997 unwind label %318, !noalias !919
 
@@ -5568,7 +5568,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1005 = getelementptr inbounds i8, ptr %125, i64 360
   %1006 = getelementptr inbounds i8, ptr %125, i64 370
   %1007 = load i8, ptr %1006, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1008 = trunc i8 %1007 to i1
+  %1008 = trunc nuw i8 %1007 to i1
   %1009 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.110, i64 noundef 35, i1 noundef zeroext %1008, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %69)
           to label %1013 unwind label %318, !noalias !919
 
@@ -5598,7 +5598,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1019 = getelementptr inbounds i8, ptr %125, i64 720
   %1020 = getelementptr inbounds i8, ptr %125, i64 723
   %1021 = load i8, ptr %1020, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1022 = trunc i8 %1021 to i1
+  %1022 = trunc nuw i8 %1021 to i1
   %1023 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.111, i64 noundef 23, i1 noundef zeroext %1022, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %68)
           to label %1027 unwind label %318, !noalias !919
 
@@ -5630,7 +5630,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1035 = getelementptr inbounds i8, ptr %125, i64 376
   %1036 = getelementptr inbounds i8, ptr %125, i64 386
   %1037 = load i8, ptr %1036, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1038 = trunc i8 %1037 to i1
+  %1038 = trunc nuw i8 %1037 to i1
   %1039 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.112, i64 noundef 28, i1 noundef zeroext %1038, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %67)
           to label %1043 unwind label %318, !noalias !919
 
@@ -5662,7 +5662,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1051 = getelementptr inbounds i8, ptr %125, i64 392
   %1052 = getelementptr inbounds i8, ptr %125, i64 402
   %1053 = load i8, ptr %1052, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1054 = trunc i8 %1053 to i1
+  %1054 = trunc nuw i8 %1053 to i1
   %1055 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.113, i64 noundef 28, i1 noundef zeroext %1054, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %66)
           to label %1059 unwind label %318, !noalias !919
 
@@ -5692,7 +5692,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1065 = getelementptr inbounds i8, ptr %125, i64 724
   %1066 = getelementptr inbounds i8, ptr %125, i64 727
   %1067 = load i8, ptr %1066, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1068 = trunc i8 %1067 to i1
+  %1068 = trunc nuw i8 %1067 to i1
   %1069 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.114, i64 noundef 16, i1 noundef zeroext %1068, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %65)
           to label %1073 unwind label %318, !noalias !919
 
@@ -5722,7 +5722,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1079 = getelementptr inbounds i8, ptr %125, i64 728
   %1080 = getelementptr inbounds i8, ptr %125, i64 731
   %1081 = load i8, ptr %1080, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1082 = trunc i8 %1081 to i1
+  %1082 = trunc nuw i8 %1081 to i1
   %1083 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h757df5fcacacee35E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.115, i64 noundef 23, i1 noundef zeroext %1082, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %64)
           to label %1087 unwind label %318, !noalias !919
 
@@ -5752,7 +5752,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1093 = getelementptr inbounds i8, ptr %125, i64 732
   %1094 = getelementptr inbounds i8, ptr %125, i64 735
   %1095 = load i8, ptr %1094, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1096 = trunc i8 %1095 to i1
+  %1096 = trunc nuw i8 %1095 to i1
   %1097 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.116, i64 noundef 22, i1 noundef zeroext %1096, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %63)
           to label %1101 unwind label %318, !noalias !919
 
@@ -5782,7 +5782,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1107 = getelementptr inbounds i8, ptr %125, i64 736
   %1108 = getelementptr inbounds i8, ptr %125, i64 739
   %1109 = load i8, ptr %1108, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1110 = trunc i8 %1109 to i1
+  %1110 = trunc nuw i8 %1109 to i1
   %1111 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h832a08f35c9a5c1bE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.74, i64 noundef 14, i1 noundef zeroext %1110, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %62)
           to label %1115 unwind label %318, !noalias !919
 
@@ -5812,7 +5812,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1121 = getelementptr inbounds i8, ptr %125, i64 740
   %1122 = getelementptr inbounds i8, ptr %125, i64 743
   %1123 = load i8, ptr %1122, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1124 = trunc i8 %1123 to i1
+  %1124 = trunc nuw i8 %1123 to i1
   %1125 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h832a08f35c9a5c1bE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.117, i64 noundef 16, i1 noundef zeroext %1124, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %61)
           to label %1129 unwind label %318, !noalias !919
 
@@ -5842,7 +5842,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1135 = getelementptr inbounds i8, ptr %125, i64 744
   %1136 = getelementptr inbounds i8, ptr %125, i64 747
   %1137 = load i8, ptr %1136, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1138 = trunc i8 %1137 to i1
+  %1138 = trunc nuw i8 %1137 to i1
   %1139 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h6aa5d1293def2bdeE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.118, i64 noundef 11, i1 noundef zeroext %1138, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %60)
           to label %1143 unwind label %318, !noalias !919
 
@@ -5872,7 +5872,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1149 = getelementptr inbounds i8, ptr %125, i64 748
   %1150 = getelementptr inbounds i8, ptr %125, i64 751
   %1151 = load i8, ptr %1150, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1152 = trunc i8 %1151 to i1
+  %1152 = trunc nuw i8 %1151 to i1
   %1153 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h0b389320d3d91044E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.119, i64 noundef 19, i1 noundef zeroext %1152, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %59)
           to label %1157 unwind label %318, !noalias !919
 
@@ -5902,7 +5902,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1163 = getelementptr inbounds i8, ptr %125, i64 752
   %1164 = getelementptr inbounds i8, ptr %125, i64 755
   %1165 = load i8, ptr %1164, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1166 = trunc i8 %1165 to i1
+  %1166 = trunc nuw i8 %1165 to i1
   %1167 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.120, i64 noundef 18, i1 noundef zeroext %1166, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %58)
           to label %1171 unwind label %318, !noalias !919
 
@@ -5932,7 +5932,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1177 = getelementptr inbounds i8, ptr %125, i64 756
   %1178 = getelementptr inbounds i8, ptr %125, i64 759
   %1179 = load i8, ptr %1178, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1180 = trunc i8 %1179 to i1
+  %1180 = trunc nuw i8 %1179 to i1
   %1181 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h14455e090de83addE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.121, i64 noundef 14, i1 noundef zeroext %1180, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %57)
           to label %1185 unwind label %318, !noalias !919
 
@@ -5962,7 +5962,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1191 = getelementptr inbounds i8, ptr %125, i64 760
   %1192 = getelementptr inbounds i8, ptr %125, i64 763
   %1193 = load i8, ptr %1192, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1194 = trunc i8 %1193 to i1
+  %1194 = trunc nuw i8 %1193 to i1
   %1195 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.122, i64 noundef 26, i1 noundef zeroext %1194, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %56)
           to label %1199 unwind label %318, !noalias !919
 
@@ -5994,7 +5994,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1207 = getelementptr inbounds i8, ptr %125, i64 408
   %1208 = getelementptr inbounds i8, ptr %125, i64 418
   %1209 = load i8, ptr %1208, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1210 = trunc i8 %1209 to i1
+  %1210 = trunc nuw i8 %1209 to i1
   %1211 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.123, i64 noundef 23, i1 noundef zeroext %1210, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %55)
           to label %1215 unwind label %318, !noalias !919
 
@@ -6026,7 +6026,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1223 = getelementptr inbounds i8, ptr %125, i64 424
   %1224 = getelementptr inbounds i8, ptr %125, i64 434
   %1225 = load i8, ptr %1224, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1226 = trunc i8 %1225 to i1
+  %1226 = trunc nuw i8 %1225 to i1
   %1227 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.124, i64 noundef 23, i1 noundef zeroext %1226, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54)
           to label %1231 unwind label %318, !noalias !919
 
@@ -6056,7 +6056,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1237 = getelementptr inbounds i8, ptr %125, i64 764
   %1238 = getelementptr inbounds i8, ptr %125, i64 767
   %1239 = load i8, ptr %1238, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1240 = trunc i8 %1239 to i1
+  %1240 = trunc nuw i8 %1239 to i1
   %1241 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17ha24dce843d16f34cE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.125, i64 noundef 7, i1 noundef zeroext %1240, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %53)
           to label %1245 unwind label %318, !noalias !919
 
@@ -6086,7 +6086,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1251 = getelementptr inbounds i8, ptr %125, i64 768
   %1252 = getelementptr inbounds i8, ptr %125, i64 771
   %1253 = load i8, ptr %1252, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1254 = trunc i8 %1253 to i1
+  %1254 = trunc nuw i8 %1253 to i1
   %1255 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h6246322b12cccfb7E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.126, i64 noundef 7, i1 noundef zeroext %1254, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %52)
           to label %1259 unwind label %318, !noalias !919
 
@@ -6118,7 +6118,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1267 = getelementptr inbounds i8, ptr %125, i64 440
   %1268 = getelementptr inbounds i8, ptr %125, i64 450
   %1269 = load i8, ptr %1268, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1270 = trunc i8 %1269 to i1
+  %1270 = trunc nuw i8 %1269 to i1
   %1271 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.127, i64 noundef 22, i1 noundef zeroext %1270, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %51)
           to label %1275 unwind label %318, !noalias !919
 
@@ -6148,7 +6148,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1281 = getelementptr inbounds i8, ptr %125, i64 772
   %1282 = getelementptr inbounds i8, ptr %125, i64 775
   %1283 = load i8, ptr %1282, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1284 = trunc i8 %1283 to i1
+  %1284 = trunc nuw i8 %1283 to i1
   %1285 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.128, i64 noundef 22, i1 noundef zeroext %1284, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %50)
           to label %1289 unwind label %318, !noalias !919
 
@@ -6180,7 +6180,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1297 = getelementptr inbounds i8, ptr %125, i64 456
   %1298 = getelementptr inbounds i8, ptr %125, i64 466
   %1299 = load i8, ptr %1298, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1300 = trunc i8 %1299 to i1
+  %1300 = trunc nuw i8 %1299 to i1
   %1301 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.129, i64 noundef 34, i1 noundef zeroext %1300, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49)
           to label %1305 unwind label %318, !noalias !919
 
@@ -6210,7 +6210,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1311 = getelementptr inbounds i8, ptr %125, i64 776
   %1312 = getelementptr inbounds i8, ptr %125, i64 779
   %1313 = load i8, ptr %1312, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1314 = trunc i8 %1313 to i1
+  %1314 = trunc nuw i8 %1313 to i1
   %1315 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.130, i64 noundef 13, i1 noundef zeroext %1314, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %48)
           to label %1319 unwind label %318, !noalias !919
 
@@ -6240,7 +6240,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1325 = getelementptr inbounds i8, ptr %125, i64 780
   %1326 = getelementptr inbounds i8, ptr %125, i64 783
   %1327 = load i8, ptr %1326, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1328 = trunc i8 %1327 to i1
+  %1328 = trunc nuw i8 %1327 to i1
   %1329 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.131, i64 noundef 17, i1 noundef zeroext %1328, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %47)
           to label %1333 unwind label %318, !noalias !919
 
@@ -6270,7 +6270,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1339 = getelementptr inbounds i8, ptr %125, i64 784
   %1340 = getelementptr inbounds i8, ptr %125, i64 787
   %1341 = load i8, ptr %1340, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1342 = trunc i8 %1341 to i1
+  %1342 = trunc nuw i8 %1341 to i1
   %1343 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.132, i64 noundef 24, i1 noundef zeroext %1342, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %46)
           to label %1347 unwind label %318, !noalias !919
 
@@ -6300,7 +6300,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1353 = getelementptr inbounds i8, ptr %125, i64 788
   %1354 = getelementptr inbounds i8, ptr %125, i64 791
   %1355 = load i8, ptr %1354, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1356 = trunc i8 %1355 to i1
+  %1356 = trunc nuw i8 %1355 to i1
   %1357 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.133, i64 noundef 18, i1 noundef zeroext %1356, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %45)
           to label %1361 unwind label %318, !noalias !919
 
@@ -6330,7 +6330,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1367 = getelementptr inbounds i8, ptr %125, i64 792
   %1368 = getelementptr inbounds i8, ptr %125, i64 795
   %1369 = load i8, ptr %1368, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1370 = trunc i8 %1369 to i1
+  %1370 = trunc nuw i8 %1369 to i1
   %1371 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.134, i64 noundef 26, i1 noundef zeroext %1370, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %44)
           to label %1375 unwind label %318, !noalias !919
 
@@ -6360,7 +6360,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1381 = getelementptr inbounds i8, ptr %125, i64 796
   %1382 = getelementptr inbounds i8, ptr %125, i64 799
   %1383 = load i8, ptr %1382, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1384 = trunc i8 %1383 to i1
+  %1384 = trunc nuw i8 %1383 to i1
   %1385 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hde5e03e4ba5a7c0dE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.135, i64 noundef 5, i1 noundef zeroext %1384, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %43)
           to label %1389 unwind label %318, !noalias !919
 
@@ -6390,7 +6390,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1395 = getelementptr inbounds i8, ptr %125, i64 56
   %1396 = getelementptr inbounds i8, ptr %125, i64 82
   %1397 = load i8, ptr %1396, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1398 = trunc i8 %1397 to i1
+  %1398 = trunc nuw i8 %1397 to i1
   %1399 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h940541d636e252ceE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.136, i64 noundef 16, i1 noundef zeroext %1398, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
           to label %1405 unwind label %1424, !noalias !919
 
@@ -6478,7 +6478,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1427 = getelementptr inbounds i8, ptr %125, i64 800
   %1428 = getelementptr inbounds i8, ptr %125, i64 803
   %1429 = load i8, ptr %1428, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1430 = trunc i8 %1429 to i1
+  %1430 = trunc nuw i8 %1429 to i1
   %1431 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.137, i64 noundef 17, i1 noundef zeroext %1430, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %41)
           to label %1435 unwind label %318, !noalias !919
 
@@ -6508,7 +6508,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1441 = getelementptr inbounds i8, ptr %125, i64 804
   %1442 = getelementptr inbounds i8, ptr %125, i64 807
   %1443 = load i8, ptr %1442, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1444 = trunc i8 %1443 to i1
+  %1444 = trunc nuw i8 %1443 to i1
   %1445 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.138, i64 noundef 22, i1 noundef zeroext %1444, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %40)
           to label %1449 unwind label %318, !noalias !919
 
@@ -6538,7 +6538,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1455 = getelementptr inbounds i8, ptr %125, i64 808
   %1456 = getelementptr inbounds i8, ptr %125, i64 811
   %1457 = load i8, ptr %1456, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1458 = trunc i8 %1457 to i1
+  %1458 = trunc nuw i8 %1457 to i1
   %1459 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.139, i64 noundef 13, i1 noundef zeroext %1458, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %39)
           to label %1463 unwind label %318, !noalias !919
 
@@ -6568,7 +6568,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1469 = getelementptr inbounds i8, ptr %125, i64 812
   %1470 = getelementptr inbounds i8, ptr %125, i64 815
   %1471 = load i8, ptr %1470, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1472 = trunc i8 %1471 to i1
+  %1472 = trunc nuw i8 %1471 to i1
   %1473 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.75, i64 noundef 17, i1 noundef zeroext %1472, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %38)
           to label %1477 unwind label %318, !noalias !919
 
@@ -6598,7 +6598,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1483 = getelementptr inbounds i8, ptr %125, i64 816
   %1484 = getelementptr inbounds i8, ptr %125, i64 819
   %1485 = load i8, ptr %1484, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1486 = trunc i8 %1485 to i1
+  %1486 = trunc nuw i8 %1485 to i1
   %1487 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.140, i64 noundef 17, i1 noundef zeroext %1486, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %37)
           to label %1491 unwind label %318, !noalias !919
 
@@ -6628,7 +6628,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1497 = getelementptr inbounds i8, ptr %125, i64 820
   %1498 = getelementptr inbounds i8, ptr %125, i64 823
   %1499 = load i8, ptr %1498, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1500 = trunc i8 %1499 to i1
+  %1500 = trunc nuw i8 %1499 to i1
   %1501 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.141, i64 noundef 22, i1 noundef zeroext %1500, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %36)
           to label %1505 unwind label %318, !noalias !919
 
@@ -6658,7 +6658,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1511 = getelementptr inbounds i8, ptr %125, i64 824
   %1512 = getelementptr inbounds i8, ptr %125, i64 827
   %1513 = load i8, ptr %1512, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1514 = trunc i8 %1513 to i1
+  %1514 = trunc nuw i8 %1513 to i1
   %1515 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.142, i64 noundef 20, i1 noundef zeroext %1514, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %35)
           to label %1519 unwind label %318, !noalias !919
 
@@ -6688,7 +6688,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1525 = getelementptr inbounds i8, ptr %125, i64 88
   %1526 = getelementptr inbounds i8, ptr %125, i64 162
   %1527 = load i8, ptr %1526, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1528 = trunc i8 %1527 to i1
+  %1528 = trunc nuw i8 %1527 to i1
   %1529 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hfc9e3b8132e538aaE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.143, i64 noundef 6, i1 noundef zeroext %1528, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %34)
           to label %1535 unwind label %1540, !noalias !919
 
@@ -6741,7 +6741,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1543 = getelementptr inbounds i8, ptr %125, i64 828
   %1544 = getelementptr inbounds i8, ptr %125, i64 831
   %1545 = load i8, ptr %1544, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1546 = trunc i8 %1545 to i1
+  %1546 = trunc nuw i8 %1545 to i1
   %1547 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h8b71f17edcac7a90E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.144, i64 noundef 7, i1 noundef zeroext %1546, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
           to label %1551 unwind label %318, !noalias !919
 
@@ -6772,7 +6772,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1558 = getelementptr inbounds i8, ptr %125, i64 472
   %1559 = getelementptr inbounds i8, ptr %125, i64 522
   %1560 = load i8, ptr %1559, align 2, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1561 = trunc i8 %1560 to i1
+  %1561 = trunc nuw i8 %1560 to i1
   %1562 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h10d3ef035176681dE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.145, i64 noundef 10, i1 noundef zeroext %1561, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %31)
           to label %1568 unwind label %1585, !noalias !919
 
@@ -6853,7 +6853,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1588 = getelementptr inbounds i8, ptr %125, i64 832
   %1589 = getelementptr inbounds i8, ptr %125, i64 835
   %1590 = load i8, ptr %1589, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1591 = trunc i8 %1590 to i1
+  %1591 = trunc nuw i8 %1590 to i1
   %1592 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hd545342d9aa20c1eE(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.146, i64 noundef 9, i1 noundef zeroext %1591, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %30)
           to label %1596 unwind label %318, !noalias !919
 
@@ -6883,7 +6883,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1602 = getelementptr inbounds i8, ptr %125, i64 836
   %1603 = getelementptr inbounds i8, ptr %125, i64 839
   %1604 = load i8, ptr %1603, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1605 = trunc i8 %1604 to i1
+  %1605 = trunc nuw i8 %1604 to i1
   %1606 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.147, i64 noundef 11, i1 noundef zeroext %1605, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29)
           to label %1610 unwind label %318, !noalias !919
 
@@ -6913,7 +6913,7 @@ common.resume:                                    ; preds = %1852, %1873, %1887,
   %1616 = getelementptr inbounds i8, ptr %125, i64 840
   %1617 = getelementptr inbounds i8, ptr %125, i64 843
   %1618 = load i8, ptr %1617, align 1, !range !172, !alias.scope !922, !noalias !929, !noundef !5
-  %1619 = trunc i8 %1618 to i1
+  %1619 = trunc nuw i8 %1618 to i1
   %1620 = invoke noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 @anon.a7b8ae93518cbd305153f008353ee301.148, i64 noundef 29, i1 noundef zeroext %1619, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %28)
           to label %1639 unwind label %318, !noalias !919
 
@@ -7037,7 +7037,7 @@ _ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit.i: ;
   call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   %1655 = getelementptr inbounds i8, ptr %125, i64 676
   %1656 = load i8, ptr %1655, align 4, !range !172, !alias.scope !1023, !noalias !1024, !noundef !5
-  %1657 = trunc i8 %1656 to i1
+  %1657 = trunc nuw i8 %1656 to i1
   br i1 %1657, label %1658, label %_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E.exit.i
 
 1658:                                             ; preds = %1654
@@ -7058,7 +7058,7 @@ _ZN15rustfmt_nightly6config6Config14set_heuristics17h4bdaf09774d86181E.exit.i: ;
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !1027
   %1663 = getelementptr inbounds i8, ptr %125, i64 668
   %1664 = load i8, ptr %1663, align 4, !range !172, !alias.scope !1023, !noalias !1028, !noundef !5
-  %1665 = trunc i8 %1664 to i1
+  %1665 = trunc nuw i8 %1664 to i1
   br i1 %1665, label %_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E.exit.i, label %1666
 
 1666:                                             ; preds = %.noexc217.i
@@ -7074,7 +7074,7 @@ _ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1031)
   %1671 = getelementptr inbounds i8, ptr %125, i64 736
   %1672 = load i8, ptr %1671, align 16, !range !172, !alias.scope !1034, !noalias !1035, !noundef !5
-  %1673 = trunc i8 %1672 to i1
+  %1673 = trunc nuw i8 %1672 to i1
   br i1 %1673, label %1674, label %_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE.exit.i
 
 1674:                                             ; preds = %_ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E.exit.i
@@ -7095,7 +7095,7 @@ _ZN15rustfmt_nightly6config6Config17set_merge_imports17h705d13592c778cb0E.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !1038
   %1679 = getelementptr inbounds i8, ptr %125, i64 740
   %1680 = load i8, ptr %1679, align 4, !range !172, !alias.scope !1034, !noalias !1039, !noundef !5
-  %1681 = trunc i8 %1680 to i1
+  %1681 = trunc nuw i8 %1680 to i1
   br i1 %1681, label %_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE.exit.i, label %1682
 
 1682:                                             ; preds = %.noexc218.i
@@ -7111,7 +7111,7 @@ _ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !1042)
   %1687 = getelementptr inbounds i8, ptr %125, i64 812
   %1688 = load i8, ptr %1687, align 4, !range !172, !alias.scope !1045, !noalias !1046, !noundef !5
-  %1689 = trunc i8 %1688 to i1
+  %1689 = trunc nuw i8 %1688 to i1
   br i1 %1689, label %1690, label %_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.exit.i
 
 1690:                                             ; preds = %_ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE.exit.i
@@ -7132,7 +7132,7 @@ _ZN15rustfmt_nightly6config6Config18set_fn_args_layout17h451995a188d3827eE.exit.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !1049
   %1695 = getelementptr inbounds i8, ptr %125, i64 816
   %1696 = load i8, ptr %1695, align 16, !range !172, !alias.scope !1045, !noalias !1050, !noundef !5
-  %1697 = trunc i8 %1696 to i1
+  %1697 = trunc nuw i8 %1696 to i1
   br i1 %1697, label %_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.exit.i, label %1698
 
 1698:                                             ; preds = %.noexc219.i
@@ -7151,7 +7151,7 @@ _ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.ex
   br i1 %.not162.i, label %1706, label %1704
 
 1704:                                             ; preds = %_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.exit.i
-  %1705 = trunc i8 %.242.i to i1
+  %1705 = trunc nuw i8 %.242.i to i1
   br i1 %1705, label %1708, label %1706
 
 1706:                                             ; preds = %"_ZN4core3ptr73drop_in_place$LT$rustfmt_nightly..config..macro_names..MacroSelectors$GT$17he6f45c31eca33d48E.exit226.i", %1704, %_ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.exit.i
@@ -7215,7 +7215,7 @@ _ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.ex
   br i1 %.not163.i, label %1728, label %1726
 
 1726:                                             ; preds = %.body224.i
-  %1727 = trunc i8 %.239.i to i1
+  %1727 = trunc nuw i8 %.239.i to i1
   br i1 %1727, label %1730, label %1728
 
 1728:                                             ; preds = %1743, %1730, %1726, %.body224.i
@@ -7229,7 +7229,7 @@ _ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.ex
           to label %1728 unwind label %718, !noalias !919
 
 1731:                                             ; preds = %1706
-  %1732 = trunc i8 %.239.i to i1
+  %1732 = trunc nuw i8 %.239.i to i1
   br i1 %1732, label %1735, label %1733
 
 1733:                                             ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit230.i", %1731, %1706
@@ -7266,7 +7266,7 @@ _ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.ex
   br label %1728
 
 1745:                                             ; preds = %1728
-  %1746 = trunc i8 %.236.i to i1
+  %1746 = trunc nuw i8 %.236.i to i1
   br i1 %1746, label %1749, label %1747
 
 1747:                                             ; preds = %1755, %1749, %1745, %1728
@@ -7280,7 +7280,7 @@ _ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.ex
           to label %1747 unwind label %718, !noalias !919
 
 1750:                                             ; preds = %1733
-  %1751 = trunc i8 %.236.i to i1
+  %1751 = trunc nuw i8 %.236.i to i1
   br i1 %1751, label %1754, label %1752
 
 1752:                                             ; preds = %1754, %1750, %1733
@@ -7298,7 +7298,7 @@ _ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.ex
   br label %1747
 
 1757:                                             ; preds = %1747
-  %1758 = trunc i8 %.2.i to i1
+  %1758 = trunc nuw i8 %.2.i to i1
   br i1 %1758, label %1759, label %1852
 
 1759:                                             ; preds = %1757
@@ -7307,7 +7307,7 @@ _ZN15rustfmt_nightly6config6Config21set_hide_parse_errors17h9a636f7dea9a47ffE.ex
           to label %1852 unwind label %718, !noalias !919
 
 1761:                                             ; preds = %1752
-  %1762 = trunc i8 %.2.i to i1
+  %1762 = trunc nuw i8 %.2.i to i1
   br i1 %1762, label %1763, label %1844
 
 1763:                                             ; preds = %1761
@@ -7807,7 +7807,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 43:                                               ; preds = %._crit_edge
   %44 = lshr i64 %41, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   switch i32 %45, label %86 [
     i32 0, label %88
     i32 1, label %46
@@ -8211,7 +8211,7 @@ define void @_ZN15rustfmt_nightly6config11config_path17h5a8fcec531d33834E(ptr no
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @_ZN3std3sys4unix6os_str5Slice6to_str17h563dd71f003e3daeE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %.fca.0.extract, i64 noundef %.fca.1.extract)
   %33 = load i64, ptr %16, align 8, !range !36, !noundef !5
-  %trunc = trunc i64 %33 to i1
+  %trunc = trunc nuw i64 %33 to i1
   %34 = getelementptr inbounds i8, ptr %16, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !5, !align !171
   %36 = getelementptr inbounds i8, ptr %16, i64 16
@@ -8306,7 +8306,7 @@ define void @_ZN15rustfmt_nightly6config11config_path17h5a8fcec531d33834E(ptr no
 
 58:                                               ; preds = %54
   %59 = load i64, ptr %15, align 8, !range !36, !noundef !5
-  %trunc44 = trunc i64 %59 to i1
+  %trunc44 = trunc nuw i64 %59 to i1
   %60 = getelementptr inbounds i8, ptr %15, i64 8
   %61 = load ptr, ptr %60, align 8, !nonnull !5, !align !171
   %62 = getelementptr inbounds i8, ptr %15, i64 16
@@ -10187,7 +10187,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet9max_width17
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 176
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10196,7 +10196,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet9hard_tabs17
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 600
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10205,7 +10205,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet10tab_spaces
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 192
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10214,7 +10214,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13newline_st
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 604
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10223,7 +10223,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet12indent_sty
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 608
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10232,7 +10232,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet20use_small_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 612
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10241,7 +10241,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet16width_heur
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 592
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10250,7 +10250,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13fn_call_wi
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 208
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10259,7 +10259,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet18attr_fn_li
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 224
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10268,7 +10268,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet16struct_lit
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10277,7 +10277,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet20struct_var
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 256
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10286,7 +10286,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet11array_widt
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 272
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10295,7 +10295,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet11chain_widt
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 288
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10304,7 +10304,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet29single_lin
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 304
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10313,7 +10313,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet30single_lin
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 320
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10322,7 +10322,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13wrap_comme
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 616
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10331,7 +10331,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet27format_cod
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 620
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10340,7 +10340,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet28doc_commen
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 336
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10349,7 +10349,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13comment_wi
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 352
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10358,7 +10358,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet18normalize_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 624
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10367,7 +10367,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet24normalize_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 628
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10376,7 +10376,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet14format_str
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 632
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10385,7 +10385,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet21format_mac
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 636
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10394,7 +10394,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet19format_mac
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 640
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10403,7 +10403,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22skip_macro
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10412,7 +10412,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet16hex_litera
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 644
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10421,7 +10421,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22empty_item
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 648
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10430,7 +10430,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22struct_lit
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 652
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10439,7 +10439,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet14fn_single_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 656
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10448,7 +10448,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet17where_sing
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 660
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10457,7 +10457,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet14imports_in
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 664
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10466,7 +10466,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet14imports_la
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10475,7 +10475,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet19imports_gr
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 668
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10484,7 +10484,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13group_impo
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 672
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10493,7 +10493,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13merge_impo
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 676
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10502,7 +10502,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet15reorder_im
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 680
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10511,7 +10511,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet15reorder_mo
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 684
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10520,7 +10520,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet18reorder_im
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 688
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10529,7 +10529,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet24type_punct
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 692
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10538,7 +10538,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet18space_befo
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 696
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10547,7 +10547,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet17space_afte
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 700
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10556,7 +10556,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet20spaces_aro
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 704
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10565,7 +10565,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet15binop_sepa
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 708
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10574,7 +10574,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet20remove_nes
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 712
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10583,7 +10583,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet20combine_co
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 716
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10592,7 +10592,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet35short_arra
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 368
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10601,7 +10601,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet23overflow_d
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 720
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10610,7 +10610,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet28struct_fie
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 384
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10619,7 +10619,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet28enum_discr
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 400
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10628,7 +10628,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet16match_arm_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 724
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10637,7 +10637,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet23match_arm_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 728
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10646,7 +10646,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22force_mult
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 732
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10655,7 +10655,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet14fn_args_la
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 736
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10664,7 +10664,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet16fn_params_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 740
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10673,7 +10673,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet11brace_styl
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 744
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10682,7 +10682,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet19control_br
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 748
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10691,7 +10691,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet18trailing_s
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 752
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10700,7 +10700,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet14trailing_c
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 756
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10709,7 +10709,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet26match_bloc
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 760
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10718,7 +10718,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet23blank_line
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 416
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10727,7 +10727,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet23blank_line
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 432
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10736,7 +10736,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet7edition17hc
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 764
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10745,7 +10745,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet7version17hc
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 768
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10754,7 +10754,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22inline_att
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 448
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10763,7 +10763,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22format_gen
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 772
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10772,7 +10772,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet34generated_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 464
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10781,7 +10781,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13merge_deri
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 776
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10790,7 +10790,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet17use_try_sh
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 780
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10799,7 +10799,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet24use_field_
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 784
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10808,7 +10808,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet18force_expl
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 788
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10817,7 +10817,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet26condense_w
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 792
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10826,7 +10826,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet5color17h7e2
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 796
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10835,7 +10835,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet16required_v
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 80
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10844,7 +10844,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet17unstable_f
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 800
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10853,7 +10853,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22disable_al
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 804
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10862,7 +10862,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet13skip_child
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 808
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10871,7 +10871,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet17hide_parse
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 812
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10880,7 +10880,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet17show_parse
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 816
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10889,7 +10889,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet22error_on_l
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 820
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10898,7 +10898,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet20error_on_u
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 824
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10907,7 +10907,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet6ignore17h04
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 160
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10916,7 +10916,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet7verbose17hd
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 828
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10925,7 +10925,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet10file_lines
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 520
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10934,7 +10934,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet9emit_mode17
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 832
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10943,7 +10943,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet11make_backu
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 836
   %4 = load i8, ptr %3, align 4, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10952,7 +10952,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet29print_misf
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !151, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 840
   %4 = load i8, ptr %3, align 8, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10971,7 +10971,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config9hard_tabs17h23370f
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 601
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -10999,7 +10999,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config12indent_style17hf7
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 609
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11112,7 +11112,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13wrap_comments17h6
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 617
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11122,7 +11122,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config27format_code_in_do
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 621
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11150,7 +11150,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18normalize_comment
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 625
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11160,7 +11160,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24normalize_doc_att
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 629
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11170,7 +11170,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14format_strings17h
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 633
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11180,7 +11180,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config21format_macro_matc
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 637
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11190,7 +11190,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config19format_macro_bodi
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 641
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11226,7 +11226,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22empty_item_single
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 649
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11236,7 +11236,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22struct_lit_single
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 653
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11246,7 +11246,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14fn_single_line17h
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 657
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11256,7 +11256,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17where_single_line
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 661
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11266,7 +11266,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14imports_indent17h
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 665
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11306,7 +11306,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_imports17hc
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 677
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11316,7 +11316,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_imports17
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 681
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11326,7 +11326,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_modules17
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 685
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11336,7 +11336,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18reorder_impl_item
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 689
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11346,7 +11346,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24type_punctuation_
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 693
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11356,7 +11356,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18space_before_colo
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 697
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11366,7 +11366,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17space_after_colon
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 701
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11376,7 +11376,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20spaces_around_ran
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 705
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11386,7 +11386,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15binop_separator17
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 709
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11396,7 +11396,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20remove_nested_par
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 713
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11406,7 +11406,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20combine_control_e
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 717
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11425,7 +11425,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config23overflow_delimite
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 721
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11453,7 +11453,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16match_arm_blocks1
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 725
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11472,7 +11472,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22force_multiline_b
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 733
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11518,7 +11518,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18trailing_semicolo
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 753
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11537,7 +11537,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26match_block_trail
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 761
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11574,7 +11574,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config7version17hdd6f11fa
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 769
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11593,7 +11593,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22format_generated_
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 773
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11612,7 +11612,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_derives17h9
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 777
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11622,7 +11622,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17use_try_shorthand
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 781
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11632,7 +11632,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24use_field_init_sh
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 785
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11642,7 +11642,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18force_explicit_ab
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 789
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11652,7 +11652,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26condense_wildcard
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 793
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11680,7 +11680,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17unstable_features
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 801
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11690,7 +11690,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22disable_all_forma
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 805
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11700,7 +11700,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13skip_children17hf
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 809
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11710,7 +11710,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17hide_parse_errors
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 813
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11720,7 +11720,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17show_parse_errors
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 817
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11730,7 +11730,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22error_on_line_ove
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 821
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11740,7 +11740,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20error_on_unformat
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 825
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11853,7 +11853,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config11make_backup17hb91
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 837
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -11863,7 +11863,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config29print_misformatte
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 841
   %4 = load i8, ptr %3, align 1, !range !172, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
@@ -12533,7 +12533,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16is_valid_key_val1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @"_ZN130_$LT$rustfmt_nightly..config..lists..__define_config_type_on_enum_ListTactic..ListTactic$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hd6fbce2c10eb849bE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %197 = load i64, ptr %31, align 8, !range !36, !noundef !5
-  %198 = trunc i64 %197 to i8
+  %198 = trunc nuw nsw i64 %197 to i8
   %199 = xor i8 %198, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit726.thread"
@@ -13374,7 +13374,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16is_valid_key_val1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @"_ZN93_$LT$rustfmt_nightly..config..file_lines..FileLines$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc4a707ce40730184E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %8, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %445 = load i64, ptr %8, align 8, !range !36, !noundef !5
-  %446 = trunc i64 %445 to i8
+  %446 = trunc nuw nsw i64 %445 to i8
   %447 = xor i8 %446, 1
   call fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..file_lines..FileLines$C$rustfmt_nightly..config..file_lines..FileLinesError$GT$$GT$17h896d3876d2ad83f4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
@@ -13436,7 +13436,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 177
   %11 = load i8, ptr %10, align 1, !range !172, !noundef !5
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
@@ -13449,7 +13449,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.0.0 = phi i64 [ 1, %13 ], [ 0, %2 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 602
   %18 = load i8, ptr %17, align 2, !range !172, !noundef !5
-  %19 = trunc i8 %18 to i1
+  %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
@@ -13461,7 +13461,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0 = phi i8 [ %22, %20 ], [ 2, %16 ]
   %24 = getelementptr inbounds i8, ptr %1, i64 193
   %25 = load i8, ptr %24, align 1, !range !172, !noundef !5
-  %26 = trunc i8 %25 to i1
+  %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
@@ -13474,7 +13474,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.01.0 = phi i64 [ 1, %27 ], [ 0, %23 ]
   %31 = getelementptr inbounds i8, ptr %1, i64 606
   %32 = load i8, ptr %31, align 2, !range !172, !noundef !5
-  %33 = trunc i8 %32 to i1
+  %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %30
@@ -13486,7 +13486,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0114 = phi i8 [ %36, %34 ], [ 4, %30 ]
   %38 = getelementptr inbounds i8, ptr %1, i64 610
   %39 = load i8, ptr %38, align 2, !range !172, !noundef !5
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
@@ -13498,7 +13498,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0115 = phi i8 [ %43, %41 ], [ 2, %37 ]
   %45 = getelementptr inbounds i8, ptr %1, i64 614
   %46 = load i8, ptr %45, align 2, !range !172, !noundef !5
-  %47 = trunc i8 %46 to i1
+  %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %44
@@ -13510,7 +13510,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0116 = phi i8 [ %50, %48 ], [ 3, %44 ]
   %52 = getelementptr inbounds i8, ptr %1, i64 593
   %53 = load i8, ptr %52, align 1, !range !172, !noundef !5
-  %54 = trunc i8 %53 to i1
+  %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %64
 
 55:                                               ; preds = %51
@@ -13532,7 +13532,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %68 = phi <2 x i64> [ %63, %55 ], [ undef, %51 ]
   %69 = getelementptr inbounds i8, ptr %1, i64 209
   %70 = load i8, ptr %69, align 1, !range !172, !noundef !5
-  %71 = trunc i8 %70 to i1
+  %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %64
@@ -13545,7 +13545,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.010.0 = phi i64 [ 1, %72 ], [ 0, %64 ]
   %76 = getelementptr inbounds i8, ptr %1, i64 225
   %77 = load i8, ptr %76, align 1, !range !172, !noundef !5
-  %78 = trunc i8 %77 to i1
+  %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %75
@@ -13558,7 +13558,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.012.0 = phi i64 [ 1, %79 ], [ 0, %75 ]
   %83 = getelementptr inbounds i8, ptr %1, i64 241
   %84 = load i8, ptr %83, align 1, !range !172, !noundef !5
-  %85 = trunc i8 %84 to i1
+  %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %82
@@ -13571,7 +13571,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.014.0 = phi i64 [ 1, %86 ], [ 0, %82 ]
   %90 = getelementptr inbounds i8, ptr %1, i64 257
   %91 = load i8, ptr %90, align 1, !range !172, !noundef !5
-  %92 = trunc i8 %91 to i1
+  %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %89
@@ -13584,7 +13584,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.016.0 = phi i64 [ 1, %93 ], [ 0, %89 ]
   %97 = getelementptr inbounds i8, ptr %1, i64 273
   %98 = load i8, ptr %97, align 1, !range !172, !noundef !5
-  %99 = trunc i8 %98 to i1
+  %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %96
@@ -13597,7 +13597,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.018.0 = phi i64 [ 1, %100 ], [ 0, %96 ]
   %104 = getelementptr inbounds i8, ptr %1, i64 289
   %105 = load i8, ptr %104, align 1, !range !172, !noundef !5
-  %106 = trunc i8 %105 to i1
+  %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %103
@@ -13610,7 +13610,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.020.0 = phi i64 [ 1, %107 ], [ 0, %103 ]
   %111 = getelementptr inbounds i8, ptr %1, i64 305
   %112 = load i8, ptr %111, align 1, !range !172, !noundef !5
-  %113 = trunc i8 %112 to i1
+  %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %110
@@ -13623,7 +13623,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.022.0 = phi i64 [ 1, %114 ], [ 0, %110 ]
   %118 = getelementptr inbounds i8, ptr %1, i64 321
   %119 = load i8, ptr %118, align 1, !range !172, !noundef !5
-  %120 = trunc i8 %119 to i1
+  %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %117
@@ -13636,7 +13636,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.024.0 = phi i64 [ 1, %121 ], [ 0, %117 ]
   %125 = getelementptr inbounds i8, ptr %1, i64 618
   %126 = load i8, ptr %125, align 2, !range !172, !noundef !5
-  %127 = trunc i8 %126 to i1
+  %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %124
@@ -13648,7 +13648,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0120 = phi i8 [ %130, %128 ], [ 2, %124 ]
   %132 = getelementptr inbounds i8, ptr %1, i64 622
   %133 = load i8, ptr %132, align 2, !range !172, !noundef !5
-  %134 = trunc i8 %133 to i1
+  %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %131
@@ -13660,7 +13660,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0121 = phi i8 [ %137, %135 ], [ 2, %131 ]
   %139 = getelementptr inbounds i8, ptr %1, i64 337
   %140 = load i8, ptr %139, align 1, !range !172, !noundef !5
-  %141 = trunc i8 %140 to i1
+  %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %138
@@ -13673,7 +13673,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.028.0 = phi i64 [ 1, %142 ], [ 0, %138 ]
   %146 = getelementptr inbounds i8, ptr %1, i64 353
   %147 = load i8, ptr %146, align 1, !range !172, !noundef !5
-  %148 = trunc i8 %147 to i1
+  %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %149, label %152
 
 149:                                              ; preds = %145
@@ -13686,7 +13686,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.030.0 = phi i64 [ 1, %149 ], [ 0, %145 ]
   %153 = getelementptr inbounds i8, ptr %1, i64 626
   %154 = load i8, ptr %153, align 2, !range !172, !noundef !5
-  %155 = trunc i8 %154 to i1
+  %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %152
@@ -13698,7 +13698,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0122 = phi i8 [ %158, %156 ], [ 2, %152 ]
   %160 = getelementptr inbounds i8, ptr %1, i64 630
   %161 = load i8, ptr %160, align 2, !range !172, !noundef !5
-  %162 = trunc i8 %161 to i1
+  %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %159
@@ -13710,7 +13710,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0123 = phi i8 [ %165, %163 ], [ 2, %159 ]
   %167 = getelementptr inbounds i8, ptr %1, i64 634
   %168 = load i8, ptr %167, align 2, !range !172, !noundef !5
-  %169 = trunc i8 %168 to i1
+  %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %166
@@ -13722,7 +13722,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0124 = phi i8 [ %172, %170 ], [ 2, %166 ]
   %174 = getelementptr inbounds i8, ptr %1, i64 638
   %175 = load i8, ptr %174, align 2, !range !172, !noundef !5
-  %176 = trunc i8 %175 to i1
+  %176 = trunc nuw i8 %175 to i1
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %173
@@ -13734,7 +13734,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0125 = phi i8 [ %179, %177 ], [ 2, %173 ]
   %181 = getelementptr inbounds i8, ptr %1, i64 642
   %182 = load i8, ptr %181, align 2, !range !172, !noundef !5
-  %183 = trunc i8 %182 to i1
+  %183 = trunc nuw i8 %182 to i1
   br i1 %183, label %184, label %187
 
 184:                                              ; preds = %180
@@ -13747,7 +13747,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %188 = getelementptr inbounds i8, ptr %1, i64 49
   %189 = load i8, ptr %188, align 1, !range !172, !noundef !5
-  %190 = trunc i8 %189 to i1
+  %190 = trunc nuw i8 %189 to i1
   br i1 %190, label %192, label %191
 
 191:                                              ; preds = %187
@@ -13765,7 +13765,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
 197:                                              ; preds = %192, %191
   %198 = getelementptr inbounds i8, ptr %1, i64 646
   %199 = load i8, ptr %198, align 2, !range !172, !noundef !5
-  %200 = trunc i8 %199 to i1
+  %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %201, label %204
 
 201:                                              ; preds = %197
@@ -13777,7 +13777,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0127 = phi i8 [ %203, %201 ], [ 3, %197 ]
   %205 = getelementptr inbounds i8, ptr %1, i64 650
   %206 = load i8, ptr %205, align 2, !range !172, !noundef !5
-  %207 = trunc i8 %206 to i1
+  %207 = trunc nuw i8 %206 to i1
   br i1 %207, label %208, label %211
 
 208:                                              ; preds = %204
@@ -13789,7 +13789,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0128 = phi i8 [ %210, %208 ], [ 2, %204 ]
   %212 = getelementptr inbounds i8, ptr %1, i64 654
   %213 = load i8, ptr %212, align 2, !range !172, !noundef !5
-  %214 = trunc i8 %213 to i1
+  %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %215, label %218
 
 215:                                              ; preds = %211
@@ -13801,7 +13801,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0129 = phi i8 [ %217, %215 ], [ 2, %211 ]
   %219 = getelementptr inbounds i8, ptr %1, i64 658
   %220 = load i8, ptr %219, align 2, !range !172, !noundef !5
-  %221 = trunc i8 %220 to i1
+  %221 = trunc nuw i8 %220 to i1
   br i1 %221, label %222, label %225
 
 222:                                              ; preds = %218
@@ -13813,7 +13813,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0130 = phi i8 [ %224, %222 ], [ 2, %218 ]
   %226 = getelementptr inbounds i8, ptr %1, i64 662
   %227 = load i8, ptr %226, align 2, !range !172, !noundef !5
-  %228 = trunc i8 %227 to i1
+  %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %232
 
 229:                                              ; preds = %225
@@ -13825,7 +13825,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0131 = phi i8 [ %231, %229 ], [ 2, %225 ]
   %233 = getelementptr inbounds i8, ptr %1, i64 666
   %234 = load i8, ptr %233, align 2, !range !172, !noundef !5
-  %235 = trunc i8 %234 to i1
+  %235 = trunc nuw i8 %234 to i1
   br i1 %235, label %236, label %239
 
 236:                                              ; preds = %232
@@ -13837,7 +13837,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0132 = phi i8 [ %238, %236 ], [ 2, %232 ]
   %240 = getelementptr inbounds i8, ptr %1, i64 17
   %241 = load i8, ptr %240, align 1, !range !172, !noundef !5
-  %242 = trunc i8 %241 to i1
+  %242 = trunc nuw i8 %241 to i1
   br i1 %242, label %243, label %245
 
 243:                                              ; preds = %239
@@ -13848,7 +13848,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %246 = phi <2 x i64> [ %244, %243 ], [ <i64 5, i64 undef>, %239 ]
   %247 = getelementptr inbounds i8, ptr %1, i64 670
   %248 = load i8, ptr %247, align 2, !range !172, !noundef !5
-  %249 = trunc i8 %248 to i1
+  %249 = trunc nuw i8 %248 to i1
   br i1 %249, label %250, label %253
 
 250:                                              ; preds = %245
@@ -13860,7 +13860,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0133 = phi i8 [ %252, %250 ], [ 5, %245 ]
   %254 = getelementptr inbounds i8, ptr %1, i64 674
   %255 = load i8, ptr %254, align 2, !range !172, !noundef !5
-  %256 = trunc i8 %255 to i1
+  %256 = trunc nuw i8 %255 to i1
   br i1 %256, label %257, label %260
 
 257:                                              ; preds = %253
@@ -13872,7 +13872,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0134 = phi i8 [ %259, %257 ], [ 3, %253 ]
   %261 = getelementptr inbounds i8, ptr %1, i64 678
   %262 = load i8, ptr %261, align 2, !range !172, !noundef !5
-  %263 = trunc i8 %262 to i1
+  %263 = trunc nuw i8 %262 to i1
   br i1 %263, label %264, label %267
 
 264:                                              ; preds = %260
@@ -13884,7 +13884,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0135 = phi i8 [ %266, %264 ], [ 2, %260 ]
   %268 = getelementptr inbounds i8, ptr %1, i64 682
   %269 = load i8, ptr %268, align 2, !range !172, !noundef !5
-  %270 = trunc i8 %269 to i1
+  %270 = trunc nuw i8 %269 to i1
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %267
@@ -13896,7 +13896,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0136 = phi i8 [ %273, %271 ], [ 2, %267 ]
   %275 = getelementptr inbounds i8, ptr %1, i64 686
   %276 = load i8, ptr %275, align 2, !range !172, !noundef !5
-  %277 = trunc i8 %276 to i1
+  %277 = trunc nuw i8 %276 to i1
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %274
@@ -13908,7 +13908,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0137 = phi i8 [ %280, %278 ], [ 2, %274 ]
   %282 = getelementptr inbounds i8, ptr %1, i64 690
   %283 = load i8, ptr %282, align 2, !range !172, !noundef !5
-  %284 = trunc i8 %283 to i1
+  %284 = trunc nuw i8 %283 to i1
   br i1 %284, label %285, label %288
 
 285:                                              ; preds = %281
@@ -13920,7 +13920,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0138 = phi i8 [ %287, %285 ], [ 2, %281 ]
   %289 = getelementptr inbounds i8, ptr %1, i64 694
   %290 = load i8, ptr %289, align 2, !range !172, !noundef !5
-  %291 = trunc i8 %290 to i1
+  %291 = trunc nuw i8 %290 to i1
   br i1 %291, label %292, label %295
 
 292:                                              ; preds = %288
@@ -13932,7 +13932,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0139 = phi i8 [ %294, %292 ], [ 2, %288 ]
   %296 = getelementptr inbounds i8, ptr %1, i64 698
   %297 = load i8, ptr %296, align 2, !range !172, !noundef !5
-  %298 = trunc i8 %297 to i1
+  %298 = trunc nuw i8 %297 to i1
   br i1 %298, label %299, label %302
 
 299:                                              ; preds = %295
@@ -13944,7 +13944,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0140 = phi i8 [ %301, %299 ], [ 2, %295 ]
   %303 = getelementptr inbounds i8, ptr %1, i64 702
   %304 = load i8, ptr %303, align 2, !range !172, !noundef !5
-  %305 = trunc i8 %304 to i1
+  %305 = trunc nuw i8 %304 to i1
   br i1 %305, label %306, label %309
 
 306:                                              ; preds = %302
@@ -13956,7 +13956,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0141 = phi i8 [ %308, %306 ], [ 2, %302 ]
   %310 = getelementptr inbounds i8, ptr %1, i64 706
   %311 = load i8, ptr %310, align 2, !range !172, !noundef !5
-  %312 = trunc i8 %311 to i1
+  %312 = trunc nuw i8 %311 to i1
   br i1 %312, label %313, label %316
 
 313:                                              ; preds = %309
@@ -13968,7 +13968,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0142 = phi i8 [ %315, %313 ], [ 2, %309 ]
   %317 = getelementptr inbounds i8, ptr %1, i64 710
   %318 = load i8, ptr %317, align 2, !range !172, !noundef !5
-  %319 = trunc i8 %318 to i1
+  %319 = trunc nuw i8 %318 to i1
   br i1 %319, label %320, label %323
 
 320:                                              ; preds = %316
@@ -13980,7 +13980,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0143 = phi i8 [ %322, %320 ], [ 2, %316 ]
   %324 = getelementptr inbounds i8, ptr %1, i64 714
   %325 = load i8, ptr %324, align 2, !range !172, !noundef !5
-  %326 = trunc i8 %325 to i1
+  %326 = trunc nuw i8 %325 to i1
   br i1 %326, label %327, label %330
 
 327:                                              ; preds = %323
@@ -13992,7 +13992,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0144 = phi i8 [ %329, %327 ], [ 2, %323 ]
   %331 = getelementptr inbounds i8, ptr %1, i64 718
   %332 = load i8, ptr %331, align 2, !range !172, !noundef !5
-  %333 = trunc i8 %332 to i1
+  %333 = trunc nuw i8 %332 to i1
   br i1 %333, label %334, label %337
 
 334:                                              ; preds = %330
@@ -14004,7 +14004,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0145 = phi i8 [ %336, %334 ], [ 2, %330 ]
   %338 = getelementptr inbounds i8, ptr %1, i64 369
   %339 = load i8, ptr %338, align 1, !range !172, !noundef !5
-  %340 = trunc i8 %339 to i1
+  %340 = trunc nuw i8 %339 to i1
   br i1 %340, label %341, label %344
 
 341:                                              ; preds = %337
@@ -14017,7 +14017,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.059.0 = phi i64 [ 1, %341 ], [ 0, %337 ]
   %345 = getelementptr inbounds i8, ptr %1, i64 722
   %346 = load i8, ptr %345, align 2, !range !172, !noundef !5
-  %347 = trunc i8 %346 to i1
+  %347 = trunc nuw i8 %346 to i1
   br i1 %347, label %348, label %351
 
 348:                                              ; preds = %344
@@ -14029,7 +14029,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0146 = phi i8 [ %350, %348 ], [ 2, %344 ]
   %352 = getelementptr inbounds i8, ptr %1, i64 385
   %353 = load i8, ptr %352, align 1, !range !172, !noundef !5
-  %354 = trunc i8 %353 to i1
+  %354 = trunc nuw i8 %353 to i1
   br i1 %354, label %355, label %358
 
 355:                                              ; preds = %351
@@ -14042,7 +14042,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.062.0 = phi i64 [ 1, %355 ], [ 0, %351 ]
   %359 = getelementptr inbounds i8, ptr %1, i64 401
   %360 = load i8, ptr %359, align 1, !range !172, !noundef !5
-  %361 = trunc i8 %360 to i1
+  %361 = trunc nuw i8 %360 to i1
   br i1 %361, label %362, label %365
 
 362:                                              ; preds = %358
@@ -14055,7 +14055,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.064.0 = phi i64 [ 1, %362 ], [ 0, %358 ]
   %366 = getelementptr inbounds i8, ptr %1, i64 726
   %367 = load i8, ptr %366, align 2, !range !172, !noundef !5
-  %368 = trunc i8 %367 to i1
+  %368 = trunc nuw i8 %367 to i1
   br i1 %368, label %369, label %372
 
 369:                                              ; preds = %365
@@ -14067,7 +14067,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0147 = phi i8 [ %371, %369 ], [ 2, %365 ]
   %373 = getelementptr inbounds i8, ptr %1, i64 730
   %374 = load i8, ptr %373, align 2, !range !172, !noundef !5
-  %375 = trunc i8 %374 to i1
+  %375 = trunc nuw i8 %374 to i1
   br i1 %375, label %376, label %379
 
 376:                                              ; preds = %372
@@ -14079,7 +14079,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0148 = phi i8 [ %378, %376 ], [ 3, %372 ]
   %380 = getelementptr inbounds i8, ptr %1, i64 734
   %381 = load i8, ptr %380, align 2, !range !172, !noundef !5
-  %382 = trunc i8 %381 to i1
+  %382 = trunc nuw i8 %381 to i1
   br i1 %382, label %383, label %386
 
 383:                                              ; preds = %379
@@ -14091,7 +14091,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0149 = phi i8 [ %385, %383 ], [ 2, %379 ]
   %387 = getelementptr inbounds i8, ptr %1, i64 738
   %388 = load i8, ptr %387, align 2, !range !172, !noundef !5
-  %389 = trunc i8 %388 to i1
+  %389 = trunc nuw i8 %388 to i1
   br i1 %389, label %390, label %393
 
 390:                                              ; preds = %386
@@ -14103,7 +14103,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0150 = phi i8 [ %392, %390 ], [ 3, %386 ]
   %394 = getelementptr inbounds i8, ptr %1, i64 742
   %395 = load i8, ptr %394, align 2, !range !172, !noundef !5
-  %396 = trunc i8 %395 to i1
+  %396 = trunc nuw i8 %395 to i1
   br i1 %396, label %397, label %400
 
 397:                                              ; preds = %393
@@ -14115,7 +14115,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0151 = phi i8 [ %399, %397 ], [ 3, %393 ]
   %401 = getelementptr inbounds i8, ptr %1, i64 746
   %402 = load i8, ptr %401, align 2, !range !172, !noundef !5
-  %403 = trunc i8 %402 to i1
+  %403 = trunc nuw i8 %402 to i1
   br i1 %403, label %404, label %407
 
 404:                                              ; preds = %400
@@ -14127,7 +14127,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0152 = phi i8 [ %406, %404 ], [ 3, %400 ]
   %408 = getelementptr inbounds i8, ptr %1, i64 750
   %409 = load i8, ptr %408, align 2, !range !172, !noundef !5
-  %410 = trunc i8 %409 to i1
+  %410 = trunc nuw i8 %409 to i1
   br i1 %410, label %411, label %414
 
 411:                                              ; preds = %407
@@ -14139,7 +14139,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0153 = phi i8 [ %413, %411 ], [ 3, %407 ]
   %415 = getelementptr inbounds i8, ptr %1, i64 754
   %416 = load i8, ptr %415, align 2, !range !172, !noundef !5
-  %417 = trunc i8 %416 to i1
+  %417 = trunc nuw i8 %416 to i1
   br i1 %417, label %418, label %421
 
 418:                                              ; preds = %414
@@ -14151,7 +14151,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0154 = phi i8 [ %420, %418 ], [ 2, %414 ]
   %422 = getelementptr inbounds i8, ptr %1, i64 758
   %423 = load i8, ptr %422, align 2, !range !172, !noundef !5
-  %424 = trunc i8 %423 to i1
+  %424 = trunc nuw i8 %423 to i1
   br i1 %424, label %425, label %428
 
 425:                                              ; preds = %421
@@ -14163,7 +14163,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0155 = phi i8 [ %427, %425 ], [ 3, %421 ]
   %429 = getelementptr inbounds i8, ptr %1, i64 762
   %430 = load i8, ptr %429, align 2, !range !172, !noundef !5
-  %431 = trunc i8 %430 to i1
+  %431 = trunc nuw i8 %430 to i1
   br i1 %431, label %432, label %435
 
 432:                                              ; preds = %428
@@ -14175,7 +14175,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0156 = phi i8 [ %434, %432 ], [ 2, %428 ]
   %436 = getelementptr inbounds i8, ptr %1, i64 417
   %437 = load i8, ptr %436, align 1, !range !172, !noundef !5
-  %438 = trunc i8 %437 to i1
+  %438 = trunc nuw i8 %437 to i1
   br i1 %438, label %439, label %442
 
 439:                                              ; preds = %435
@@ -14188,7 +14188,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.076.0 = phi i64 [ 1, %439 ], [ 0, %435 ]
   %443 = getelementptr inbounds i8, ptr %1, i64 433
   %444 = load i8, ptr %443, align 1, !range !172, !noundef !5
-  %445 = trunc i8 %444 to i1
+  %445 = trunc nuw i8 %444 to i1
   br i1 %445, label %446, label %449
 
 446:                                              ; preds = %442
@@ -14201,7 +14201,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.078.0 = phi i64 [ 1, %446 ], [ 0, %442 ]
   %450 = getelementptr inbounds i8, ptr %1, i64 766
   %451 = load i8, ptr %450, align 2, !range !172, !noundef !5
-  %452 = trunc i8 %451 to i1
+  %452 = trunc nuw i8 %451 to i1
   br i1 %452, label %453, label %456
 
 453:                                              ; preds = %449
@@ -14213,7 +14213,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0157 = phi i8 [ %455, %453 ], [ 4, %449 ]
   %457 = getelementptr inbounds i8, ptr %1, i64 770
   %458 = load i8, ptr %457, align 2, !range !172, !noundef !5
-  %459 = trunc i8 %458 to i1
+  %459 = trunc nuw i8 %458 to i1
   br i1 %459, label %460, label %463
 
 460:                                              ; preds = %456
@@ -14225,7 +14225,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0158 = phi i8 [ %462, %460 ], [ 2, %456 ]
   %464 = getelementptr inbounds i8, ptr %1, i64 449
   %465 = load i8, ptr %464, align 1, !range !172, !noundef !5
-  %466 = trunc i8 %465 to i1
+  %466 = trunc nuw i8 %465 to i1
   br i1 %466, label %467, label %470
 
 467:                                              ; preds = %463
@@ -14238,7 +14238,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.082.0 = phi i64 [ 1, %467 ], [ 0, %463 ]
   %471 = getelementptr inbounds i8, ptr %1, i64 774
   %472 = load i8, ptr %471, align 2, !range !172, !noundef !5
-  %473 = trunc i8 %472 to i1
+  %473 = trunc nuw i8 %472 to i1
   br i1 %473, label %474, label %477
 
 474:                                              ; preds = %470
@@ -14250,7 +14250,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0159 = phi i8 [ %476, %474 ], [ 2, %470 ]
   %478 = getelementptr inbounds i8, ptr %1, i64 465
   %479 = load i8, ptr %478, align 1, !range !172, !noundef !5
-  %480 = trunc i8 %479 to i1
+  %480 = trunc nuw i8 %479 to i1
   br i1 %480, label %481, label %484
 
 481:                                              ; preds = %477
@@ -14263,7 +14263,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.sroa.085.0 = phi i64 [ 1, %481 ], [ 0, %477 ]
   %485 = getelementptr inbounds i8, ptr %1, i64 778
   %486 = load i8, ptr %485, align 2, !range !172, !noundef !5
-  %487 = trunc i8 %486 to i1
+  %487 = trunc nuw i8 %486 to i1
   br i1 %487, label %488, label %491
 
 488:                                              ; preds = %484
@@ -14275,7 +14275,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0160 = phi i8 [ %490, %488 ], [ 2, %484 ]
   %492 = getelementptr inbounds i8, ptr %1, i64 782
   %493 = load i8, ptr %492, align 2, !range !172, !noundef !5
-  %494 = trunc i8 %493 to i1
+  %494 = trunc nuw i8 %493 to i1
   br i1 %494, label %495, label %498
 
 495:                                              ; preds = %491
@@ -14287,7 +14287,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0161 = phi i8 [ %497, %495 ], [ 2, %491 ]
   %499 = getelementptr inbounds i8, ptr %1, i64 786
   %500 = load i8, ptr %499, align 2, !range !172, !noundef !5
-  %501 = trunc i8 %500 to i1
+  %501 = trunc nuw i8 %500 to i1
   br i1 %501, label %502, label %505
 
 502:                                              ; preds = %498
@@ -14299,7 +14299,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0162 = phi i8 [ %504, %502 ], [ 2, %498 ]
   %506 = getelementptr inbounds i8, ptr %1, i64 790
   %507 = load i8, ptr %506, align 2, !range !172, !noundef !5
-  %508 = trunc i8 %507 to i1
+  %508 = trunc nuw i8 %507 to i1
   br i1 %508, label %509, label %512
 
 509:                                              ; preds = %505
@@ -14311,7 +14311,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0163 = phi i8 [ %511, %509 ], [ 2, %505 ]
   %513 = getelementptr inbounds i8, ptr %1, i64 794
   %514 = load i8, ptr %513, align 2, !range !172, !noundef !5
-  %515 = trunc i8 %514 to i1
+  %515 = trunc nuw i8 %514 to i1
   br i1 %515, label %516, label %519
 
 516:                                              ; preds = %512
@@ -14323,7 +14323,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0164 = phi i8 [ %518, %516 ], [ 2, %512 ]
   %520 = getelementptr inbounds i8, ptr %1, i64 798
   %521 = load i8, ptr %520, align 2, !range !172, !noundef !5
-  %522 = trunc i8 %521 to i1
+  %522 = trunc nuw i8 %521 to i1
   br i1 %522, label %523, label %526
 
 523:                                              ; preds = %519
@@ -14336,7 +14336,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %527 = getelementptr inbounds i8, ptr %1, i64 81
   %528 = load i8, ptr %527, align 1, !range !172, !noundef !5
-  %529 = trunc i8 %528 to i1
+  %529 = trunc nuw i8 %528 to i1
   br i1 %529, label %531, label %530
 
 530:                                              ; preds = %526
@@ -14352,7 +14352,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
 533:                                              ; preds = %540, %530
   %534 = getelementptr inbounds i8, ptr %1, i64 802
   %535 = load i8, ptr %534, align 2, !range !172, !noundef !5
-  %536 = trunc i8 %535 to i1
+  %536 = trunc nuw i8 %535 to i1
   br i1 %536, label %541, label %544
 
 537:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit", %538
@@ -14379,7 +14379,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0166 = phi i8 [ %543, %541 ], [ 2, %533 ]
   %545 = getelementptr inbounds i8, ptr %1, i64 806
   %546 = load i8, ptr %545, align 2, !range !172, !noundef !5
-  %547 = trunc i8 %546 to i1
+  %547 = trunc nuw i8 %546 to i1
   br i1 %547, label %548, label %551
 
 548:                                              ; preds = %544
@@ -14391,7 +14391,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0167 = phi i8 [ %550, %548 ], [ 2, %544 ]
   %552 = getelementptr inbounds i8, ptr %1, i64 810
   %553 = load i8, ptr %552, align 2, !range !172, !noundef !5
-  %554 = trunc i8 %553 to i1
+  %554 = trunc nuw i8 %553 to i1
   br i1 %554, label %555, label %558
 
 555:                                              ; preds = %551
@@ -14403,7 +14403,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0168 = phi i8 [ %557, %555 ], [ 2, %551 ]
   %559 = getelementptr inbounds i8, ptr %1, i64 814
   %560 = load i8, ptr %559, align 2, !range !172, !noundef !5
-  %561 = trunc i8 %560 to i1
+  %561 = trunc nuw i8 %560 to i1
   br i1 %561, label %562, label %565
 
 562:                                              ; preds = %558
@@ -14415,7 +14415,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0169 = phi i8 [ %564, %562 ], [ 2, %558 ]
   %566 = getelementptr inbounds i8, ptr %1, i64 818
   %567 = load i8, ptr %566, align 2, !range !172, !noundef !5
-  %568 = trunc i8 %567 to i1
+  %568 = trunc nuw i8 %567 to i1
   br i1 %568, label %569, label %572
 
 569:                                              ; preds = %565
@@ -14427,7 +14427,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0170 = phi i8 [ %571, %569 ], [ 2, %565 ]
   %573 = getelementptr inbounds i8, ptr %1, i64 822
   %574 = load i8, ptr %573, align 2, !range !172, !noundef !5
-  %575 = trunc i8 %574 to i1
+  %575 = trunc nuw i8 %574 to i1
   br i1 %575, label %576, label %579
 
 576:                                              ; preds = %572
@@ -14439,7 +14439,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0171 = phi i8 [ %578, %576 ], [ 2, %572 ]
   %580 = getelementptr inbounds i8, ptr %1, i64 826
   %581 = load i8, ptr %580, align 2, !range !172, !noundef !5
-  %582 = trunc i8 %581 to i1
+  %582 = trunc nuw i8 %581 to i1
   br i1 %582, label %583, label %586
 
 583:                                              ; preds = %579
@@ -14452,7 +14452,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   %587 = getelementptr inbounds i8, ptr %1, i64 161
   %588 = load i8, ptr %587, align 1, !range !172, !noundef !5
-  %589 = trunc i8 %588 to i1
+  %589 = trunc nuw i8 %588 to i1
   br i1 %589, label %591, label %590
 
 590:                                              ; preds = %586
@@ -14468,7 +14468,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
 593:                                              ; preds = %599, %590
   %594 = getelementptr inbounds i8, ptr %1, i64 830
   %595 = load i8, ptr %594, align 2, !range !172, !noundef !5
-  %596 = trunc i8 %595 to i1
+  %596 = trunc nuw i8 %595 to i1
   br i1 %596, label %600, label %603
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..config..options..IgnoreList$GT$$GT$17h97869162c0d30697E.exit": ; preds = %.body, %635, %597
@@ -14496,7 +14496,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %604 = getelementptr inbounds i8, ptr %1, i64 472
   %605 = getelementptr inbounds i8, ptr %1, i64 521
   %606 = load i8, ptr %605, align 1, !range !172, !noundef !5
-  %607 = trunc i8 %606 to i1
+  %607 = trunc nuw i8 %606 to i1
   br i1 %607, label %608, label %611
 
 608:                                              ; preds = %603
@@ -14510,7 +14510,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %612 = phi <2 x i64> [ undef, %603 ], [ undef, %608 ], [ %618, %636 ]
   %613 = getelementptr inbounds i8, ptr %1, i64 834
   %614 = load i8, ptr %613, align 2, !range !172, !noundef !5
-  %615 = trunc i8 %614 to i1
+  %615 = trunc nuw i8 %614 to i1
   br i1 %615, label %637, label %640
 
 616:                                              ; preds = %608
@@ -14590,7 +14590,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0119 = phi i8 [ %639, %637 ], [ 7, %611 ]
   %641 = getelementptr inbounds i8, ptr %1, i64 838
   %642 = load i8, ptr %641, align 2, !range !172, !noundef !5
-  %643 = trunc i8 %642 to i1
+  %643 = trunc nuw i8 %642 to i1
   br i1 %643, label %644, label %647
 
 644:                                              ; preds = %640
@@ -14602,7 +14602,7 @@ define void @_ZN15rustfmt_nightly6config6Config12used_options17h4fdd65edd83a664f
   %.0118 = phi i8 [ %646, %644 ], [ 2, %640 ]
   %648 = getelementptr inbounds i8, ptr %1, i64 842
   %649 = load i8, ptr %648, align 2, !range !172, !noundef !5
-  %650 = trunc i8 %649 to i1
+  %650 = trunc nuw i8 %649 to i1
   br i1 %650, label %651, label %654
 
 651:                                              ; preds = %647
@@ -15802,7 +15802,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %"_ZN73_$LT$$u5b$A$u
   %378 = load i64, ptr %377, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !1959)
   %379 = load i8, ptr %367, align 8, !range !172, !alias.scope !1959, !noalias !1962, !noundef !5
-  %trunc.i = trunc i8 %379 to i1
+  %trunc.i = trunc nuw i8 %379 to i1
   br i1 %trunc.i, label %380, label %2191
 
 380:                                              ; preds = %_ZN5alloc3fmt6format17h35125637d547cb53E.exit
@@ -15921,7 +15921,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit956: ; preds = %"_ZN73_$LT$$u5b$A$u
   %401 = load i64, ptr %400, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2005)
   %402 = load i8, ptr %362, align 8, !range !172, !alias.scope !2005, !noalias !2008, !noundef !5
-  %trunc.i957 = trunc i8 %402 to i1
+  %trunc.i957 = trunc nuw i8 %402 to i1
   br i1 %trunc.i957, label %403, label %2167
 
 403:                                              ; preds = %_ZN5alloc3fmt6format17h35125637d547cb53E.exit956
@@ -16170,7 +16170,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %471 = load i64, ptr %470, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2106)
   %472 = load i8, ptr %347, align 8, !range !172, !alias.scope !2106, !noalias !2109, !noundef !5
-  %trunc.i995 = trunc i8 %472 to i1
+  %trunc.i995 = trunc nuw i8 %472 to i1
   br i1 %trunc.i995, label %473, label %2125
 
 473:                                              ; preds = %462
@@ -16221,7 +16221,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %487 = load i64, ptr %486, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2126)
   %488 = load i8, ptr %343, align 8, !range !172, !alias.scope !2126, !noalias !2129, !noundef !5
-  %trunc.i1002 = trunc i8 %488 to i1
+  %trunc.i1002 = trunc nuw i8 %488 to i1
   br i1 %trunc.i1002, label %489, label %2118
 
 489:                                              ; preds = %478
@@ -16267,7 +16267,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %502 = load i64, ptr %501, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2142)
   %503 = load i8, ptr %339, align 8, !range !172, !alias.scope !2142, !noalias !2145, !noundef !5
-  %trunc.i1009 = trunc i8 %503 to i1
+  %trunc.i1009 = trunc nuw i8 %503 to i1
   br i1 %trunc.i1009, label %504, label %2111
 
 504:                                              ; preds = %493
@@ -16313,7 +16313,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %517 = load i64, ptr %516, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2158)
   %518 = load i8, ptr %335, align 8, !range !172, !alias.scope !2158, !noalias !2161, !noundef !5
-  %trunc.i1016 = trunc i8 %518 to i1
+  %trunc.i1016 = trunc nuw i8 %518 to i1
   br i1 %trunc.i1016, label %519, label %2104
 
 519:                                              ; preds = %508
@@ -16359,7 +16359,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %532 = load i64, ptr %531, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2174)
   %533 = load i8, ptr %331, align 8, !range !172, !alias.scope !2174, !noalias !2177, !noundef !5
-  %trunc.i1023 = trunc i8 %533 to i1
+  %trunc.i1023 = trunc nuw i8 %533 to i1
   br i1 %trunc.i1023, label %534, label %2097
 
 534:                                              ; preds = %523
@@ -16415,7 +16415,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %547 = load i64, ptr %546, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2190)
   %548 = load i8, ptr %327, align 8, !range !172, !alias.scope !2190, !noalias !2193, !noundef !5
-  %trunc.i1030 = trunc i8 %548 to i1
+  %trunc.i1030 = trunc nuw i8 %548 to i1
   br i1 %trunc.i1030, label %549, label %2090
 
 549:                                              ; preds = %538
@@ -16461,7 +16461,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %562 = load i64, ptr %561, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2206)
   %563 = load i8, ptr %323, align 8, !range !172, !alias.scope !2206, !noalias !2209, !noundef !5
-  %trunc.i1037 = trunc i8 %563 to i1
+  %trunc.i1037 = trunc nuw i8 %563 to i1
   br i1 %trunc.i1037, label %564, label %2083
 
 564:                                              ; preds = %553
@@ -16502,7 +16502,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %576 = load i64, ptr %575, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2218)
   %577 = load i8, ptr %319, align 8, !range !172, !alias.scope !2218, !noalias !2221, !noundef !5
-  %trunc.i1044 = trunc i8 %577 to i1
+  %trunc.i1044 = trunc nuw i8 %577 to i1
   br i1 %trunc.i1044, label %578, label %2076
 
 578:                                              ; preds = %567
@@ -16651,7 +16651,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %619 = load i64, ptr %618, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2254)
   %620 = load i8, ptr %309, align 8, !range !172, !alias.scope !2254, !noalias !2257, !noundef !5
-  %trunc.i1063 = trunc i8 %620 to i1
+  %trunc.i1063 = trunc nuw i8 %620 to i1
   br i1 %trunc.i1063, label %621, label %2059
 
 621:                                              ; preds = %610
@@ -16706,7 +16706,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %634 = load i64, ptr %633, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2270)
   %635 = load i8, ptr %305, align 8, !range !172, !alias.scope !2270, !noalias !2273, !noundef !5
-  %trunc.i1070 = trunc i8 %635 to i1
+  %trunc.i1070 = trunc nuw i8 %635 to i1
   br i1 %trunc.i1070, label %636, label %2052
 
 636:                                              ; preds = %625
@@ -17340,7 +17340,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %813 = load i64, ptr %812, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2412)
   %814 = load i64, ptr %260, align 8, !range !36, !alias.scope !2412, !noalias !2415, !noundef !5
-  %trunc.i1146 = trunc i64 %814 to i1
+  %trunc.i1146 = trunc nuw i64 %814 to i1
   br i1 %trunc.i1146, label %815, label %1963
 
 815:                                              ; preds = %804
@@ -18055,7 +18055,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1025 = load i64, ptr %1024, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2582)
   %1026 = load i8, ptr %213, align 8, !range !172, !alias.scope !2582, !noalias !2585, !noundef !5
-  %trunc.i1226 = trunc i8 %1026 to i1
+  %trunc.i1226 = trunc nuw i8 %1026 to i1
   br i1 %trunc.i1226, label %1027, label %1883
 
 1027:                                             ; preds = %1016
@@ -18145,7 +18145,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1054 = load i64, ptr %1053, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2608)
   %1055 = load i8, ptr %206, align 8, !range !172, !alias.scope !2608, !noalias !2611, !noundef !5
-  %trunc.i1239 = trunc i8 %1055 to i1
+  %trunc.i1239 = trunc nuw i8 %1055 to i1
   br i1 %trunc.i1239, label %1056, label %1871
 
 1056:                                             ; preds = %1045
@@ -18194,7 +18194,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1069 = load i64, ptr %1068, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2624)
   %1070 = load i8, ptr %202, align 8, !range !172, !alias.scope !2624, !noalias !2627, !noundef !5
-  %trunc.i1246 = trunc i8 %1070 to i1
+  %trunc.i1246 = trunc nuw i8 %1070 to i1
   br i1 %trunc.i1246, label %1071, label %1864
 
 1071:                                             ; preds = %1060
@@ -18719,7 +18719,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1242 = load i64, ptr %1241, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2776)
   %1243 = load i8, ptr %162, align 8, !range !172, !alias.scope !2776, !noalias !2779, !noundef !5
-  %trunc.i1308 = trunc i8 %1243 to i1
+  %trunc.i1308 = trunc nuw i8 %1243 to i1
   br i1 %trunc.i1308, label %1244, label %1795
 
 1244:                                             ; preds = %1233
@@ -18769,7 +18769,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1257 = load i64, ptr %1256, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2792)
   %1258 = load i8, ptr %158, align 8, !range !172, !alias.scope !2792, !noalias !2795, !noundef !5
-  %trunc.i1315 = trunc i8 %1258 to i1
+  %trunc.i1315 = trunc nuw i8 %1258 to i1
   br i1 %trunc.i1315, label %1259, label %1788
 
 1259:                                             ; preds = %1248
@@ -18914,7 +18914,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1306 = load i64, ptr %1305, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2840)
   %1307 = load i8, ptr %146, align 8, !range !172, !alias.scope !2840, !noalias !2843, !noundef !5
-  %trunc.i1332 = trunc i8 %1307 to i1
+  %trunc.i1332 = trunc nuw i8 %1307 to i1
   br i1 %trunc.i1332, label %1308, label %1767
 
 1308:                                             ; preds = %1297
@@ -19007,7 +19007,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
   %1335 = load i64, ptr %1334, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !2866)
   %1336 = load i8, ptr %139, align 8, !range !172, !alias.scope !2866, !noalias !2869, !noundef !5
-  %trunc.i1345 = trunc i8 %1336 to i1
+  %trunc.i1345 = trunc nuw i8 %1336 to i1
   br i1 %trunc.i1345, label %1337, label %1755
 
 1337:                                             ; preds = %1326
@@ -21416,7 +21416,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit978: ; preds = %"_ZN4core5slice5asc
           to label %"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..config..options..IgnoreList$C$$RF$str$GT$$GT$17hd17f5a7018d9166eE.exit" unwind label %1607
 
 2141:                                             ; preds = %_ZN5alloc3fmt6format17h35125637d547cb53E.exit978
-  %2142 = trunc i64 %.sroa.6.0 to i8
+  %2142 = trunc nuw nsw i64 %.sroa.6.0 to i8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !3115
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f466af1321eaceaE.llvm.17249484671449717553"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %356)
   %2143 = getelementptr inbounds i8, ptr %14, i64 8
@@ -58779,7 +58779,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.exit6913: ; preds = %12903, %.n
 .noexc6917:                                       ; preds = %12923
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !10781
   %12929 = load i64, ptr %59, align 8, !range !36, !alias.scope !10784, !noalias !10787, !noundef !5
-  %trunc.i.i.i = trunc i64 %12929 to i1
+  %trunc.i.i.i = trunc nuw i64 %12929 to i1
   br i1 %trunc.i.i.i, label %12930, label %12933
 
 12930:                                            ; preds = %.noexc6917
@@ -61467,7 +61467,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   %36 = load i64, ptr %35, align 8, !noundef !5
   %37 = getelementptr inbounds i8, ptr %0, i64 208
   %38 = load i8, ptr %37, align 8, !range !172, !noalias !11362, !noundef !5
-  %39 = trunc i8 %38 to i1
+  %39 = trunc nuw i8 %38 to i1
   %40 = getelementptr inbounds i8, ptr %0, i64 200
   %41 = load i64, ptr %40, align 8, !noundef !5
   %42 = load i64, ptr %1, align 8, !noundef !5
@@ -61534,7 +61534,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   store i64 %.0.i, ptr %40, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 224
   %55 = load i8, ptr %54, align 8, !range !172, !noalias !11368, !noundef !5
-  %56 = trunc i8 %55 to i1
+  %56 = trunc nuw i8 %55 to i1
   %57 = getelementptr inbounds i8, ptr %0, i64 216
   %58 = load i64, ptr %57, align 8, !noundef !5
   %59 = getelementptr inbounds i8, ptr %1, i64 8
@@ -61602,7 +61602,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   store i64 %.0.i51, ptr %57, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 240
   %73 = load i8, ptr %72, align 8, !range !172, !noalias !11374, !noundef !5
-  %74 = trunc i8 %73 to i1
+  %74 = trunc nuw i8 %73 to i1
   %75 = getelementptr inbounds i8, ptr %0, i64 232
   %76 = load i64, ptr %75, align 8, !noundef !5
   %77 = getelementptr inbounds i8, ptr %1, i64 16
@@ -61670,7 +61670,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   store i64 %.0.i63, ptr %75, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 256
   %91 = load i8, ptr %90, align 8, !range !172, !noalias !11380, !noundef !5
-  %92 = trunc i8 %91 to i1
+  %92 = trunc nuw i8 %91 to i1
   %93 = getelementptr inbounds i8, ptr %0, i64 248
   %94 = load i64, ptr %93, align 8, !noundef !5
   %95 = getelementptr inbounds i8, ptr %1, i64 24
@@ -61738,7 +61738,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   store i64 %.0.i75, ptr %93, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 272
   %109 = load i8, ptr %108, align 8, !range !172, !noalias !11386, !noundef !5
-  %110 = trunc i8 %109 to i1
+  %110 = trunc nuw i8 %109 to i1
   %111 = getelementptr inbounds i8, ptr %0, i64 264
   %112 = load i64, ptr %111, align 8, !noundef !5
   %113 = getelementptr inbounds i8, ptr %1, i64 32
@@ -61806,7 +61806,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   store i64 %.0.i87, ptr %111, align 8
   %126 = getelementptr inbounds i8, ptr %0, i64 288
   %127 = load i8, ptr %126, align 8, !range !172, !noalias !11392, !noundef !5
-  %128 = trunc i8 %127 to i1
+  %128 = trunc nuw i8 %127 to i1
   %129 = getelementptr inbounds i8, ptr %0, i64 280
   %130 = load i64, ptr %129, align 8, !noundef !5
   %131 = getelementptr inbounds i8, ptr %1, i64 40
@@ -61874,7 +61874,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   store i64 %.0.i99, ptr %129, align 8
   %144 = getelementptr inbounds i8, ptr %0, i64 304
   %145 = load i8, ptr %144, align 8, !range !172, !noalias !11398, !noundef !5
-  %146 = trunc i8 %145 to i1
+  %146 = trunc nuw i8 %145 to i1
   %147 = getelementptr inbounds i8, ptr %0, i64 296
   %148 = load i64, ptr %147, align 8, !noundef !5
   %149 = getelementptr inbounds i8, ptr %1, i64 48
@@ -61942,7 +61942,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config20set_width_heuri
   store i64 %.0.i111, ptr %147, align 8
   %162 = getelementptr inbounds i8, ptr %0, i64 320
   %163 = load i8, ptr %162, align 8, !range !172, !noalias !11404, !noundef !5
-  %164 = trunc i8 %163 to i1
+  %164 = trunc nuw i8 %163 to i1
   %165 = getelementptr inbounds i8, ptr %0, i64 312
   %166 = load i64, ptr %165, align 8, !noundef !5
   %167 = getelementptr inbounds i8, ptr %1, i64 56
@@ -62016,7 +62016,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_impor
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 676
   %4 = load i8, ptr %3, align 4, !range !172, !noalias !11410, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %1
@@ -62034,7 +62034,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config17set_merge_impor
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %11 = getelementptr inbounds i8, ptr %0, i64 668
   %12 = load i8, ptr %11, align 4, !range !172, !noalias !11413, !noundef !5
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %6, %1, %15
@@ -62055,7 +62055,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_lay
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   %4 = load i8, ptr %3, align 8, !range !172, !noalias !11416, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %1
@@ -62073,7 +62073,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config18set_fn_args_lay
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %11 = getelementptr inbounds i8, ptr %0, i64 740
   %12 = load i8, ptr %11, align 4, !range !172, !noalias !11419, !noundef !5
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %6, %1, %15
@@ -62094,7 +62094,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 812
   %4 = load i8, ptr %3, align 4, !range !172, !noalias !11422, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %1
@@ -62112,7 +62112,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6config6Config21set_hide_parse_
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %11 = getelementptr inbounds i8, ptr %0, i64 816
   %12 = load i8, ptr %11, align 8, !range !172, !noalias !11425, !noundef !5
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %6, %1, %15
@@ -62151,7 +62151,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 11:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
   %12 = getelementptr inbounds i8, ptr %0, i64 176
   %13 = load i8, ptr %12, align 8, !range !172, !noundef !5
-  %14 = trunc i8 %13 to i1
+  %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %830, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 15:                                               ; preds = %3
@@ -62166,7 +62166,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 17:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit373"
   %18 = getelementptr inbounds i8, ptr %0, i64 600
   %19 = load i8, ptr %18, align 8, !range !172, !noundef !5
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %826, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 21:                                               ; preds = %15
@@ -62187,7 +62187,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 23:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit377"
   %24 = getelementptr inbounds i8, ptr %0, i64 192
   %25 = load i8, ptr %24, align 8, !range !172, !noundef !5
-  %26 = trunc i8 %25 to i1
+  %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %821, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit385": ; preds = %21
@@ -62198,7 +62198,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 28:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit381"
   %29 = getelementptr inbounds i8, ptr %0, i64 604
   %30 = load i8, ptr %29, align 4, !range !172, !noundef !5
-  %31 = trunc i8 %30 to i1
+  %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %816, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit389": ; preds = %21
@@ -62209,7 +62209,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 33:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit385"
   %34 = getelementptr inbounds i8, ptr %0, i64 608
   %35 = load i8, ptr %34, align 8, !range !172, !noundef !5
-  %36 = trunc i8 %35 to i1
+  %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %813, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit393": ; preds = %21
@@ -62220,7 +62220,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 38:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit389"
   %39 = getelementptr inbounds i8, ptr %0, i64 612
   %40 = load i8, ptr %39, align 4, !range !172, !noundef !5
-  %41 = trunc i8 %40 to i1
+  %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %808, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit397": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit381"
@@ -62231,7 +62231,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 43:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit393"
   %44 = getelementptr inbounds i8, ptr %0, i64 592
   %45 = load i8, ptr %44, align 8, !range !172, !noundef !5
-  %46 = trunc i8 %45 to i1
+  %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %804, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit401": ; preds = %21
@@ -62242,7 +62242,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 48:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit397"
   %49 = getelementptr inbounds i8, ptr %0, i64 208
   %50 = load i8, ptr %49, align 8, !range !172, !noundef !5
-  %51 = trunc i8 %50 to i1
+  %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %799, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit425.thread.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit397"
@@ -62258,7 +62258,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 54:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit401"
   %55 = getelementptr inbounds i8, ptr %0, i64 224
   %56 = load i8, ptr %55, align 8, !range !172, !noundef !5
-  %57 = trunc i8 %56 to i1
+  %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %794, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit409": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit389"
@@ -62269,7 +62269,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 59:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit405"
   %60 = getelementptr inbounds i8, ptr %0, i64 240
   %61 = load i8, ptr %60, align 8, !range !172, !noundef !5
-  %62 = trunc i8 %61 to i1
+  %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %789, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit413": ; preds = %21
@@ -62280,7 +62280,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 64:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit409"
   %65 = getelementptr inbounds i8, ptr %0, i64 256
   %66 = load i8, ptr %65, align 8, !range !172, !noundef !5
-  %67 = trunc i8 %66 to i1
+  %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %784, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit417": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit413"
@@ -62291,7 +62291,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 69:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit413"
   %70 = getelementptr inbounds i8, ptr %0, i64 272
   %71 = load i8, ptr %70, align 8, !range !172, !noundef !5
-  %72 = trunc i8 %71 to i1
+  %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %779, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit409.thread.thread": ; preds = %21, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit409", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit377", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit401", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit385", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit405"
@@ -62312,7 +62312,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 74:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit417"
   %75 = getelementptr inbounds i8, ptr %0, i64 288
   %76 = load i8, ptr %75, align 8, !range !172, !noundef !5
-  %77 = trunc i8 %76 to i1
+  %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %774, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit425": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit409.thread.thread"
@@ -62323,13 +62323,13 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 79:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit421"
   %80 = getelementptr inbounds i8, ptr %0, i64 304
   %81 = load i8, ptr %80, align 8, !range !172, !noundef !5
-  %82 = trunc i8 %81 to i1
+  %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %769, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 83:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit425"
   %84 = getelementptr inbounds i8, ptr %0, i64 320
   %85 = load i8, ptr %84, align 8, !range !172, !noundef !5
-  %86 = trunc i8 %85 to i1
+  %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %764, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit429.thread.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit421", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit417"
@@ -62348,7 +62348,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 88:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit425.thread.thread"
   %89 = getelementptr inbounds i8, ptr %0, i64 616
   %90 = load i8, ptr %89, align 8, !range !172, !noundef !5
-  %91 = trunc i8 %90 to i1
+  %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %760, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit429.thread.thread1651": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit409.thread.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit429.thread.thread"
@@ -62368,7 +62368,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 93:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit433"
   %94 = getelementptr inbounds i8, ptr %0, i64 620
   %95 = load i8, ptr %94, align 4, !range !172, !noundef !5
-  %96 = trunc i8 %95 to i1
+  %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %756, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit437.thread.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit429.thread.thread1651", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit437"
@@ -62385,7 +62385,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 98:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit437"
   %99 = getelementptr inbounds i8, ptr %0, i64 336
   %100 = load i8, ptr %99, align 8, !range !172, !noundef !5
-  %101 = trunc i8 %100 to i1
+  %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %751, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit441.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit433"
@@ -62405,7 +62405,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 103:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit441"
   %104 = getelementptr inbounds i8, ptr %0, i64 352
   %105 = load i8, ptr %104, align 8, !range !172, !noundef !5
-  %106 = trunc i8 %105 to i1
+  %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %746, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit445.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit437.thread.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit445"
@@ -62427,7 +62427,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 108:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit445"
   %109 = getelementptr inbounds i8, ptr %0, i64 624
   %110 = load i8, ptr %109, align 8, !range !172, !noundef !5
-  %111 = trunc i8 %110 to i1
+  %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %742, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit445.thread.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit441", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit441.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit437.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit445.thread"
@@ -62453,7 +62453,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 113:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit449"
   %114 = getelementptr inbounds i8, ptr %0, i64 628
   %115 = load i8, ptr %114, align 4, !range !172, !noundef !5
-  %116 = trunc i8 %115 to i1
+  %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %738, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit457": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit445.thread.thread"
@@ -62467,7 +62467,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 118:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit453"
   %119 = getelementptr inbounds i8, ptr %0, i64 632
   %120 = load i8, ptr %119, align 8, !range !172, !noundef !5
-  %121 = trunc i8 %120 to i1
+  %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %734, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 .thread975:                                       ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit453", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit449"
@@ -62494,7 +62494,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 123:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit457"
   %124 = getelementptr inbounds i8, ptr %0, i64 636
   %125 = load i8, ptr %124, align 4, !range !172, !noundef !5
-  %126 = trunc i8 %125 to i1
+  %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %730, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 127:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit445.thread.thread", %.thread975
@@ -62519,7 +62519,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 129:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit461"
   %130 = getelementptr inbounds i8, ptr %0, i64 640
   %131 = load i8, ptr %130, align 8, !range !172, !noundef !5
-  %132 = trunc i8 %131 to i1
+  %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %727, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit465.thread": ; preds = %127, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit465"
@@ -62544,7 +62544,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 134:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit465"
   %135 = getelementptr inbounds i8, ptr %0, i64 48
   %136 = load i8, ptr %135, align 8, !range !172, !noundef !5
-  %137 = trunc i8 %136 to i1
+  %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %721, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit485.thread.thread": ; preds = %.thread990
@@ -62576,7 +62576,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 139:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit469"
   %140 = getelementptr inbounds i8, ptr %0, i64 644
   %141 = load i8, ptr %140, align 4, !range !172, !noundef !5
-  %142 = trunc i8 %141 to i1
+  %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %714, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit477.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit469.thread"
@@ -62590,7 +62590,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 144:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit473"
   %145 = getelementptr inbounds i8, ptr %0, i64 648
   %146 = load i8, ptr %145, align 8, !range !172, !noundef !5
-  %147 = trunc i8 %146 to i1
+  %147 = trunc nuw i8 %146 to i1
   br i1 %147, label %711, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 148:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit477"
@@ -62604,7 +62604,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 150:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit477"
   %151 = getelementptr inbounds i8, ptr %0, i64 652
   %152 = load i8, ptr %151, align 4, !range !172, !noundef !5
-  %153 = trunc i8 %152 to i1
+  %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %708, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit481.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit477.thread", %148, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit481"
@@ -62621,7 +62621,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 155:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit481"
   %156 = getelementptr inbounds i8, ptr %0, i64 656
   %157 = load i8, ptr %156, align 8, !range !172, !noundef !5
-  %158 = trunc i8 %157 to i1
+  %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %704, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit485.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit481.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit485"
@@ -62635,7 +62635,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 160:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit485"
   %161 = getelementptr inbounds i8, ptr %0, i64 660
   %162 = load i8, ptr %161, align 4, !range !172, !noundef !5
-  %163 = trunc i8 %162 to i1
+  %163 = trunc nuw i8 %162 to i1
   br i1 %163, label %700, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit493.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit485.thread"
@@ -62649,7 +62649,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 165:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit489"
   %166 = getelementptr inbounds i8, ptr %0, i64 664
   %167 = load i8, ptr %166, align 8, !range !172, !noundef !5
-  %168 = trunc i8 %167 to i1
+  %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %697, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 169:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit493"
@@ -62675,7 +62675,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 171:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit493"
   %172 = getelementptr inbounds i8, ptr %0, i64 16
   %173 = load i8, ptr %172, align 8, !range !172, !noundef !5
-  %174 = trunc i8 %173 to i1
+  %174 = trunc nuw i8 %173 to i1
   br i1 %174, label %694, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit497.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit493.thread", %169, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit497"
@@ -62714,7 +62714,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 176:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit497"
   %177 = getelementptr inbounds i8, ptr %0, i64 668
   %178 = load i8, ptr %177, align 4, !range !172, !noundef !5
-  %179 = trunc i8 %178 to i1
+  %179 = trunc nuw i8 %178 to i1
   br i1 %179, label %689, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit505": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit501"
@@ -62725,7 +62725,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 181:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit501"
   %182 = getelementptr inbounds i8, ptr %0, i64 672
   %183 = load i8, ptr %182, align 8, !range !172, !noundef !5
-  %184 = trunc i8 %183 to i1
+  %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %684, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit505.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit497.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit505"
@@ -62753,7 +62753,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 186:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit505"
   %187 = getelementptr inbounds i8, ptr %0, i64 676
   %188 = load i8, ptr %187, align 4, !range !172, !noundef !5
-  %189 = trunc i8 %188 to i1
+  %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %680, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit513": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit509"
@@ -62764,7 +62764,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 191:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit509"
   %192 = getelementptr inbounds i8, ptr %0, i64 680
   %193 = load i8, ptr %192, align 8, !range !172, !noundef !5
-  %194 = trunc i8 %193 to i1
+  %194 = trunc nuw i8 %193 to i1
   br i1 %194, label %677, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit513.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit505.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit513"
@@ -62791,7 +62791,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 196:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit513"
   %197 = getelementptr inbounds i8, ptr %0, i64 684
   %198 = load i8, ptr %197, align 4, !range !172, !noundef !5
-  %199 = trunc i8 %198 to i1
+  %199 = trunc nuw i8 %198 to i1
   br i1 %199, label %674, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit517.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit513.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit517"
@@ -62819,7 +62819,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 201:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit517"
   %202 = getelementptr inbounds i8, ptr %0, i64 688
   %203 = load i8, ptr %202, align 8, !range !172, !noundef !5
-  %204 = trunc i8 %203 to i1
+  %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %670, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit521.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit517.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit521"
@@ -62833,7 +62833,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 206:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit521"
   %207 = getelementptr inbounds i8, ptr %0, i64 692
   %208 = load i8, ptr %207, align 4, !range !172, !noundef !5
-  %209 = trunc i8 %208 to i1
+  %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %667, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit525.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit521.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit525"
@@ -62847,7 +62847,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 211:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit525"
   %212 = getelementptr inbounds i8, ptr %0, i64 696
   %213 = load i8, ptr %212, align 8, !range !172, !noundef !5
-  %214 = trunc i8 %213 to i1
+  %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %663, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit529.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit505.thread.thread2720", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit525.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit529"
@@ -62875,7 +62875,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 216:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit529"
   %217 = getelementptr inbounds i8, ptr %0, i64 700
   %218 = load i8, ptr %217, align 4, !range !172, !noundef !5
-  %219 = trunc i8 %218 to i1
+  %219 = trunc nuw i8 %218 to i1
   br i1 %219, label %660, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit533.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit529.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit533"
@@ -62889,7 +62889,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 221:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit533"
   %222 = getelementptr inbounds i8, ptr %0, i64 704
   %223 = load i8, ptr %222, align 8, !range !172, !noundef !5
-  %224 = trunc i8 %223 to i1
+  %224 = trunc nuw i8 %223 to i1
   br i1 %224, label %656, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit537.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit533.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit537"
@@ -62903,7 +62903,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 226:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit537"
   %227 = getelementptr inbounds i8, ptr %0, i64 708
   %228 = load i8, ptr %227, align 4, !range !172, !noundef !5
-  %229 = trunc i8 %228 to i1
+  %229 = trunc nuw i8 %228 to i1
   br i1 %229, label %652, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit545": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit541"
@@ -62914,7 +62914,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 231:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit541"
   %232 = getelementptr inbounds i8, ptr %0, i64 712
   %233 = load i8, ptr %232, align 8, !range !172, !noundef !5
-  %234 = trunc i8 %233 to i1
+  %234 = trunc nuw i8 %233 to i1
   br i1 %234, label %649, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit545.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit537.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit545"
@@ -62931,7 +62931,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 236:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit545"
   %237 = getelementptr inbounds i8, ptr %0, i64 716
   %238 = load i8, ptr %237, align 4, !range !172, !noundef !5
-  %239 = trunc i8 %238 to i1
+  %239 = trunc nuw i8 %238 to i1
   br i1 %239, label %646, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit553": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit545.thread"
@@ -62942,7 +62942,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 241:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit549"
   %242 = getelementptr inbounds i8, ptr %0, i64 368
   %243 = load i8, ptr %242, align 8, !range !172, !noundef !5
-  %244 = trunc i8 %243 to i1
+  %244 = trunc nuw i8 %243 to i1
   br i1 %244, label %641, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit553.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit545.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit549", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit553"
@@ -62957,7 +62957,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 246:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit553"
   %247 = getelementptr inbounds i8, ptr %0, i64 720
   %248 = load i8, ptr %247, align 8, !range !172, !noundef !5
-  %249 = trunc i8 %248 to i1
+  %249 = trunc nuw i8 %248 to i1
   br i1 %249, label %637, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit561": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit557"
@@ -62968,7 +62968,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 251:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit557"
   %252 = getelementptr inbounds i8, ptr %0, i64 384
   %253 = load i8, ptr %252, align 8, !range !172, !noundef !5
-  %254 = trunc i8 %253 to i1
+  %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %632, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit561.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit553.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit561"
@@ -62982,7 +62982,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 256:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit561"
   %257 = getelementptr inbounds i8, ptr %0, i64 400
   %258 = load i8, ptr %257, align 8, !range !172, !noundef !5
-  %259 = trunc i8 %258 to i1
+  %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %627, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit565.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit561.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit565"
@@ -62996,7 +62996,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 261:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit565"
   %262 = getelementptr inbounds i8, ptr %0, i64 724
   %263 = load i8, ptr %262, align 4, !range !172, !noundef !5
-  %264 = trunc i8 %263 to i1
+  %264 = trunc nuw i8 %263 to i1
   br i1 %264, label %624, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit569.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit565.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit569"
@@ -63010,7 +63010,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 266:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit569"
   %267 = getelementptr inbounds i8, ptr %0, i64 728
   %268 = load i8, ptr %267, align 8, !range !172, !noundef !5
-  %269 = trunc i8 %268 to i1
+  %269 = trunc nuw i8 %268 to i1
   br i1 %269, label %619, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit573.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit569.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit573"
@@ -63024,7 +63024,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 271:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit573"
   %272 = getelementptr inbounds i8, ptr %0, i64 732
   %273 = load i8, ptr %272, align 4, !range !172, !noundef !5
-  %274 = trunc i8 %273 to i1
+  %274 = trunc nuw i8 %273 to i1
   br i1 %274, label %615, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit577.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit573.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit577"
@@ -63038,7 +63038,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 276:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit577"
   %277 = getelementptr inbounds i8, ptr %0, i64 736
   %278 = load i8, ptr %277, align 8, !range !172, !noundef !5
-  %279 = trunc i8 %278 to i1
+  %279 = trunc nuw i8 %278 to i1
   br i1 %279, label %610, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit581.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit577.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit581"
@@ -63052,7 +63052,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 281:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit581"
   %282 = getelementptr inbounds i8, ptr %0, i64 740
   %283 = load i8, ptr %282, align 4, !range !172, !noundef !5
-  %284 = trunc i8 %283 to i1
+  %284 = trunc nuw i8 %283 to i1
   br i1 %284, label %605, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit585.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit581.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit585"
@@ -63066,7 +63066,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 286:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit585"
   %287 = getelementptr inbounds i8, ptr %0, i64 744
   %288 = load i8, ptr %287, align 8, !range !172, !noundef !5
-  %289 = trunc i8 %288 to i1
+  %289 = trunc nuw i8 %288 to i1
   br i1 %289, label %600, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit589.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit585.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit589"
@@ -63080,7 +63080,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 291:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit589"
   %292 = getelementptr inbounds i8, ptr %0, i64 748
   %293 = load i8, ptr %292, align 4, !range !172, !noundef !5
-  %294 = trunc i8 %293 to i1
+  %294 = trunc nuw i8 %293 to i1
   br i1 %294, label %595, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit593.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit589.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit593"
@@ -63094,7 +63094,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 296:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit593"
   %297 = getelementptr inbounds i8, ptr %0, i64 752
   %298 = load i8, ptr %297, align 8, !range !172, !noundef !5
-  %299 = trunc i8 %298 to i1
+  %299 = trunc nuw i8 %298 to i1
   br i1 %299, label %592, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit597.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit593.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit597"
@@ -63109,7 +63109,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 301:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit597"
   %302 = getelementptr inbounds i8, ptr %0, i64 756
   %303 = load i8, ptr %302, align 4, !range !172, !noundef !5
-  %304 = trunc i8 %303 to i1
+  %304 = trunc nuw i8 %303 to i1
   br i1 %304, label %587, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit601.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit597.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit601"
@@ -63123,7 +63123,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 306:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit601"
   %307 = getelementptr inbounds i8, ptr %0, i64 760
   %308 = load i8, ptr %307, align 8, !range !172, !noundef !5
-  %309 = trunc i8 %308 to i1
+  %309 = trunc nuw i8 %308 to i1
   br i1 %309, label %583, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit609": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit605"
@@ -63134,7 +63134,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 311:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit605"
   %312 = getelementptr inbounds i8, ptr %0, i64 416
   %313 = load i8, ptr %312, align 8, !range !172, !noundef !5
-  %314 = trunc i8 %313 to i1
+  %314 = trunc nuw i8 %313 to i1
   br i1 %314, label %578, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit609.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit601.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit609"
@@ -63149,7 +63149,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 316:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit609"
   %317 = getelementptr inbounds i8, ptr %0, i64 432
   %318 = load i8, ptr %317, align 8, !range !172, !noundef !5
-  %319 = trunc i8 %318 to i1
+  %319 = trunc nuw i8 %318 to i1
   br i1 %319, label %573, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit617": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit613"
@@ -63160,7 +63160,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 321:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit613"
   %322 = getelementptr inbounds i8, ptr %0, i64 764
   %323 = load i8, ptr %322, align 4, !range !172, !noundef !5
-  %324 = trunc i8 %323 to i1
+  %324 = trunc nuw i8 %323 to i1
   br i1 %324, label %568, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit617.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit609.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit617"
@@ -63174,7 +63174,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 326:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit617"
   %327 = getelementptr inbounds i8, ptr %0, i64 768
   %328 = load i8, ptr %327, align 8, !range !172, !noundef !5
-  %329 = trunc i8 %328 to i1
+  %329 = trunc nuw i8 %328 to i1
   br i1 %329, label %564, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit625": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit621"
@@ -63185,7 +63185,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 331:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit621"
   %332 = getelementptr inbounds i8, ptr %0, i64 448
   %333 = load i8, ptr %332, align 8, !range !172, !noundef !5
-  %334 = trunc i8 %333 to i1
+  %334 = trunc nuw i8 %333 to i1
   br i1 %334, label %559, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit625.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit617.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit625"
@@ -63200,7 +63200,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 336:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit625"
   %337 = getelementptr inbounds i8, ptr %0, i64 772
   %338 = load i8, ptr %337, align 4, !range !172, !noundef !5
-  %339 = trunc i8 %338 to i1
+  %339 = trunc nuw i8 %338 to i1
   br i1 %339, label %556, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit629.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit625.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit629"
@@ -63214,7 +63214,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 341:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit629"
   %342 = getelementptr inbounds i8, ptr %0, i64 464
   %343 = load i8, ptr %342, align 8, !range !172, !noundef !5
-  %344 = trunc i8 %343 to i1
+  %344 = trunc nuw i8 %343 to i1
   br i1 %344, label %551, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit633.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit629.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit633"
@@ -63228,7 +63228,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 346:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit633"
   %347 = getelementptr inbounds i8, ptr %0, i64 776
   %348 = load i8, ptr %347, align 8, !range !172, !noundef !5
-  %349 = trunc i8 %348 to i1
+  %349 = trunc nuw i8 %348 to i1
   br i1 %349, label %548, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 350:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit633.thread"
@@ -63242,7 +63242,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 352:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit637"
   %353 = getelementptr inbounds i8, ptr %0, i64 780
   %354 = load i8, ptr %353, align 4, !range !172, !noundef !5
-  %355 = trunc i8 %354 to i1
+  %355 = trunc nuw i8 %354 to i1
   br i1 %355, label %544, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit641.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit637", %350, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit641"
@@ -63256,7 +63256,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 357:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit641"
   %358 = getelementptr inbounds i8, ptr %0, i64 784
   %359 = load i8, ptr %358, align 8, !range !172, !noundef !5
-  %360 = trunc i8 %359 to i1
+  %360 = trunc nuw i8 %359 to i1
   br i1 %360, label %540, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit645.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit641.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit645"
@@ -63270,7 +63270,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 362:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit645"
   %363 = getelementptr inbounds i8, ptr %0, i64 788
   %364 = load i8, ptr %363, align 4, !range !172, !noundef !5
-  %365 = trunc i8 %364 to i1
+  %365 = trunc nuw i8 %364 to i1
   br i1 %365, label %537, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 366:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit645.thread"
@@ -63285,7 +63285,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 368:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit649"
   %369 = getelementptr inbounds i8, ptr %0, i64 792
   %370 = load i8, ptr %369, align 8, !range !172, !noundef !5
-  %371 = trunc i8 %370 to i1
+  %371 = trunc nuw i8 %370 to i1
   br i1 %371, label %533, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit653.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit649", %366, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit653"
@@ -63299,7 +63299,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 373:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit653"
   %374 = getelementptr inbounds i8, ptr %0, i64 796
   %375 = load i8, ptr %374, align 4, !range !172, !noundef !5
-  %376 = trunc i8 %375 to i1
+  %376 = trunc nuw i8 %375 to i1
   br i1 %376, label %528, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit657.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit653.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit657"
@@ -63313,7 +63313,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 378:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit657"
   %379 = getelementptr inbounds i8, ptr %0, i64 80
   %380 = load i8, ptr %379, align 8, !range !172, !noundef !5
-  %381 = trunc i8 %380 to i1
+  %381 = trunc nuw i8 %380 to i1
   br i1 %381, label %518, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit661.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit657.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit661"
@@ -63327,7 +63327,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 383:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit661"
   %384 = getelementptr inbounds i8, ptr %0, i64 800
   %385 = load i8, ptr %384, align 8, !range !172, !noundef !5
-  %386 = trunc i8 %385 to i1
+  %386 = trunc nuw i8 %385 to i1
   br i1 %386, label %514, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit665.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit661.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit665"
@@ -63341,7 +63341,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 388:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit665"
   %389 = getelementptr inbounds i8, ptr %0, i64 804
   %390 = load i8, ptr %389, align 4, !range !172, !noundef !5
-  %391 = trunc i8 %390 to i1
+  %391 = trunc nuw i8 %390 to i1
   br i1 %391, label %510, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit669.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit665.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit669"
@@ -63355,7 +63355,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 393:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit669"
   %394 = getelementptr inbounds i8, ptr %0, i64 808
   %395 = load i8, ptr %394, align 8, !range !172, !noundef !5
-  %396 = trunc i8 %395 to i1
+  %396 = trunc nuw i8 %395 to i1
   br i1 %396, label %506, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit677": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit673"
@@ -63366,7 +63366,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 398:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit673"
   %399 = getelementptr inbounds i8, ptr %0, i64 812
   %400 = load i8, ptr %399, align 4, !range !172, !noundef !5
-  %401 = trunc i8 %400 to i1
+  %401 = trunc nuw i8 %400 to i1
   br i1 %401, label %502, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit677.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit669.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit677"
@@ -63380,7 +63380,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 403:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit677"
   %404 = getelementptr inbounds i8, ptr %0, i64 816
   %405 = load i8, ptr %404, align 8, !range !172, !noundef !5
-  %406 = trunc i8 %405 to i1
+  %406 = trunc nuw i8 %405 to i1
   br i1 %406, label %499, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit681.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit677.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit681"
@@ -63394,7 +63394,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 408:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit681"
   %409 = getelementptr inbounds i8, ptr %0, i64 820
   %410 = load i8, ptr %409, align 4, !range !172, !noundef !5
-  %411 = trunc i8 %410 to i1
+  %411 = trunc nuw i8 %410 to i1
   br i1 %411, label %495, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit685.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit681.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit685"
@@ -63409,7 +63409,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 413:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit685"
   %414 = getelementptr inbounds i8, ptr %0, i64 824
   %415 = load i8, ptr %414, align 8, !range !172, !noundef !5
-  %416 = trunc i8 %415 to i1
+  %416 = trunc nuw i8 %415 to i1
   br i1 %416, label %491, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 417:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit685.thread"
@@ -63423,7 +63423,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 419:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit689"
   %420 = getelementptr inbounds i8, ptr %0, i64 160
   %421 = load i8, ptr %420, align 8, !range !172, !noundef !5
-  %422 = trunc i8 %421 to i1
+  %422 = trunc nuw i8 %421 to i1
   br i1 %422, label %477, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit693.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit689", %417, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit693"
@@ -63437,7 +63437,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 424:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit693"
   %425 = getelementptr inbounds i8, ptr %0, i64 828
   %426 = load i8, ptr %425, align 4, !range !172, !noundef !5
-  %427 = trunc i8 %426 to i1
+  %427 = trunc nuw i8 %426 to i1
   br i1 %427, label %472, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit697.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit693.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit697"
@@ -63452,7 +63452,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 429:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit697"
   %430 = getelementptr inbounds i8, ptr %0, i64 520
   %431 = load i8, ptr %430, align 8, !range !172, !noundef !5
-  %432 = trunc i8 %431 to i1
+  %432 = trunc nuw i8 %431 to i1
   br i1 %432, label %462, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 433:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit697.thread"
@@ -63466,7 +63466,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 435:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit701"
   %436 = getelementptr inbounds i8, ptr %0, i64 832
   %437 = load i8, ptr %436, align 8, !range !172, !noundef !5
-  %438 = trunc i8 %437 to i1
+  %438 = trunc nuw i8 %437 to i1
   br i1 %438, label %457, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit705.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit701", %433, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit705"
@@ -63481,13 +63481,13 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config10is_default17h06a8
 440:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit705"
   %441 = getelementptr inbounds i8, ptr %0, i64 836
   %442 = load i8, ptr %441, align 4, !range !172, !noundef !5
-  %443 = trunc i8 %442 to i1
+  %443 = trunc nuw i8 %442 to i1
   br i1 %443, label %453, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 444:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709"
   %445 = getelementptr inbounds i8, ptr %0, i64 840
   %446 = load i8, ptr %445, align 8, !range !172, !noundef !5
-  %447 = trunc i8 %446 to i1
+  %447 = trunc nuw i8 %446 to i1
   br i1 %447, label %449, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit705.thread", %11, %17, %23, %28, %33, %38, %43, %48, %54, %59, %64, %69, %74, %79, %83, %88, %93, %98, %103, %108, %113, %118, %123, %129, %134, %139, %144, %150, %155, %160, %165, %694, %171, %176, %181, %186, %191, %196, %201, %206, %211, %216, %221, %226, %231, %236, %241, %246, %251, %256, %261, %266, %271, %276, %281, %286, %291, %296, %301, %306, %311, %316, %321, %326, %331, %336, %341, %346, %352, %357, %362, %368, %373, %378, %383, %388, %393, %398, %403, %408, %413, %419, %424, %429, %435, %440, %444, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit709", %830, %826, %821, %816, %813, %808, %804, %799, %794, %789, %784, %779, %774, %769, %764, %760, %756, %751, %746, %742, %738, %734, %730, %727, %725, %714, %711, %708, %704, %700, %697, %689, %684, %680, %677, %674, %670, %667, %663, %660, %656, %652, %649, %646, %641, %637, %632, %627, %624, %619, %615, %610, %605, %600, %595, %592, %587, %583, %578, %573, %568, %564, %559, %556, %551, %548, %544, %540, %537, %533, %528, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit713", %514, %510, %506, %502, %499, %495, %491, %488, %472, %467, %457, %453, %449
@@ -64218,7 +64218,7 @@ define void @"_ZN74_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..default
 .noexc:                                           ; preds = %13
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !11783
   %20 = load i64, ptr %3, align 8, !range !36, !alias.scope !11786, !noalias !11789, !noundef !5
-  %trunc.i.i.i = trunc i64 %20 to i1
+  %trunc.i.i.i = trunc nuw i64 %20 to i1
   br i1 %trunc.i.i.i, label %21, label %24
 
 21:                                               ; preds = %.noexc
