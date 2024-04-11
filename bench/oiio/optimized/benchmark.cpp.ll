@@ -766,7 +766,7 @@ invoke.cont7:                                     ; preds = %while.body.i
   %add.i.i.i.i.i = sub i64 %3, %1
   %sub.i.i.i.i.i = add i64 %add.i.i.i.i.i, %reass.mul
   %cond.i.i.i.i.i = call noundef i64 @llvm.abs.i64(i64 %sub.i.i.i.i.i, i1 true)
-  %conv.i.i.i = sitofp i64 %cond.i.i.i.i.i to double
+  %conv.i.i.i = uitofp nneg i64 %cond.i.i.i.i.i to double
   %mul.i.i.i = fmul double %4, %conv.i.i.i
   store double %mul.i.i.i, ptr %__begin2.sroa.0.0.ptr11, align 8
   %__begin2.sroa.0.0.add = add nuw nsw i64 %__begin2.sroa.0.0.idx10, 8
@@ -1664,7 +1664,7 @@ _ZN18OpenImageIO_v2_6_012thread_groupD2Ev.exit.us: ; preds = %if.then.i.i.i2.i.u
   %add.i.i.i.i.i.i.us = sub i64 %28, %7
   %sub.i.i.i.i.i.i.us = add i64 %add.i.i.i.i.i.i.us, %reass.mul.us
   %cond.i.i.i.i.i.i.us = call noundef i64 @llvm.abs.i64(i64 %sub.i.i.i.i.i.i.us, i1 true)
-  %conv.i.i.i.i.us = sitofp i64 %cond.i.i.i.i.i.i.us to double
+  %conv.i.i.i.i.us = uitofp nneg i64 %cond.i.i.i.i.i.i.us to double
   %29 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i.i.i.us = fmul double %29, %conv.i.i.i.i.us
   %cmp3.i.i.us = fcmp olt double %mul.i.i.i.i.us, %mintime.089.i.i.us

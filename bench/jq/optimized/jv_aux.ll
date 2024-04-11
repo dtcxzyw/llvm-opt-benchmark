@@ -1939,7 +1939,7 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
   %.06077 = phi i32 [ %41, %.lr.ph ], [ 0, %32 ]
   %.sroa.8.1 = extractvalue { i64, ptr } %.pn78, 1
   %.sroa.054.1 = extractvalue { i64, ptr } %.pn78, 0
-  %36 = sitofp i32 %.06077 to double
+  %36 = uitofp nneg i32 %.06077 to double
   %37 = tail call { i64, ptr } @jv_number(double noundef %36) #6
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1

@@ -2137,7 +2137,7 @@ if.then.i110.i:                                   ; preds = %while.body13.i
   br label %luaH_getnum.exit114.i
 
 if.else.i79.i:                                    ; preds = %while.body13.i
-  %conv.i80.i = sitofp i32 %div36.i to double
+  %conv.i80.i = uitofp nneg i32 %div36.i to double
   %cmp.i.i81.i = icmp ult i32 %add.i, 2
   br i1 %cmp.i.i81.i, label %do.body.i97.i.preheader, label %if.end.i.i82.i
 

@@ -6627,11 +6627,11 @@ define internal fastcc void @resize_reclbl(ptr nocapture noundef %0, double %1, 
   %32 = load ptr, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = trunc i64 %indvars.iv.next to i32
-  %34 = sitofp i32 %33 to double
+  %34 = uitofp nneg i32 %33 to double
   %35 = fmul double %.036, %34
   %36 = fptosi double %35 to i32
   %37 = trunc i64 %indvars.iv to i32
-  %38 = sitofp i32 %37 to double
+  %38 = uitofp nneg i32 %37 to double
   %39 = fmul double %.036, %38
   %40 = fptosi double %39 to i32
   %41 = sub nsw i32 %36, %40

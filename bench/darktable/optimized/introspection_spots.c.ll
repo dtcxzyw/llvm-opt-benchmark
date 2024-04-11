@@ -475,7 +475,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %140 = fmul reassoc nsz arcp contract afn <2 x float> %139, %137
   %141 = fadd reassoc nsz arcp contract afn <2 x float> %140, <float -1.000000e+00, float -1.000000e+00>
   %142 = fcmp reassoc nsz arcp contract afn olt <2 x float> %141, %134
-  %143 = sitofp <2 x i32> %135 to <2 x float>
+  %143 = uitofp nneg <2 x i32> %135 to <2 x float>
   %144 = select <2 x i1> %142, <2 x float> %141, <2 x float> %143
   %145 = fptosi <2 x float> %144 to <2 x i32>
   store <2 x i32> %145, ptr %3, align 4, !tbaa !34
@@ -485,7 +485,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %149 = fsub reassoc nsz arcp contract afn <2 x float> %140, %148
   %150 = fcmp reassoc nsz arcp contract afn olt <2 x float> %149, %147
   %151 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %146, <2 x i32> <i32 1, i32 1>)
-  %152 = sitofp <2 x i32> %151 to <2 x float>
+  %152 = uitofp nneg <2 x i32> %151 to <2 x float>
   %153 = select <2 x i1> %150, <2 x float> %149, <2 x float> %152
   %154 = fptosi <2 x float> %153 to <2 x i32>
   store <2 x i32> %154, ptr %13, align 4, !tbaa !34

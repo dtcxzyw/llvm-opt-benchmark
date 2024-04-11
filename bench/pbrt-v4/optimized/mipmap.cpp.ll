@@ -390,7 +390,7 @@ if.then65:                                        ; preds = %do.end
   br label %return
 
 do.end71:                                         ; preds = %do.end
-  %conv72 = sitofp i32 %.sroa.speculated67 to float
+  %conv72 = uitofp nneg i32 %.sroa.speculated67 to float
   %sub73 = fsub float %add, %conv72
   %call76 = tail call noundef float @_ZNK4pbrt6MIPMap6BilerpIfEET_iNS_6Point2IfEE(ptr noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %.sroa.speculated67, <2 x float> %st.coerce)
   %add77 = add nuw nsw i32 %.sroa.speculated67, 1
@@ -1221,7 +1221,7 @@ if.then67:                                        ; preds = %do.end
   br label %return
 
 do.end74:                                         ; preds = %do.end
-  %conv75 = sitofp i32 %.sroa.speculated71 to float
+  %conv75 = uitofp nneg i32 %.sroa.speculated71 to float
   %sub76 = fsub float %add, %conv75
   %call80 = tail call { <2 x float>, float } @_ZNK4pbrt6MIPMap6BilerpINS_3RGBEEET_iNS_6Point2IfEE(ptr noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %.sroa.speculated71, <2 x float> %st.coerce)
   %call80.fca.0.extract = extractvalue { <2 x float>, float } %call80, 0

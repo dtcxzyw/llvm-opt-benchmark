@@ -73,7 +73,7 @@ define void @_ZN5Ipopt12IpLapackSyevEbiPdiS0_Ri(i1 noundef zeroext %0, i32 nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = trunc i64 %indvars.iv to i32
-  %23 = sitofp i32 %22 to double
+  %23 = uitofp nneg i32 %22 to double
   %24 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
   store double %23, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

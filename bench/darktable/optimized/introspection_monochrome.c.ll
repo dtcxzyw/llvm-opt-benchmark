@@ -834,7 +834,7 @@ define internal noundef i32 @dt_iop_monochrome_draw(ptr noundef %0, ptr noundef 
 
 56:                                               ; preds = %86, %11
   %57 = phi i32 [ 0, %11 ], [ %87, %86 ]
-  %58 = sitofp i32 %57 to double
+  %58 = uitofp nneg i32 %57 to double
   %59 = fmul reassoc nsz arcp contract afn double %58, 0x4042492492492492
   %60 = fadd reassoc nsz arcp contract afn double %59, -1.280000e+02
   %61 = fptrunc double %60 to float
@@ -886,7 +886,7 @@ define internal noundef i32 @dt_iop_monochrome_draw(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 16 dereferenceable(24) @__const.dt_iop_monochrome_draw.rgb, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
-  %91 = sitofp i32 %90 to double
+  %91 = uitofp nneg i32 %90 to double
   %92 = fmul reassoc nsz arcp contract afn double %91, 0x4042492492492492
   %93 = fadd reassoc nsz arcp contract afn double %92, -1.280000e+02
   store double %93, ptr %45, align 8, !tbaa !102

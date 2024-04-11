@@ -922,7 +922,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %675, label %.loopexit, label %676
 
 676:                                              ; preds = %601
-  %677 = sitofp i32 %674 to float
+  %677 = uitofp nneg i32 %674 to float
   %678 = fdiv reassoc nsz arcp contract afn float 2.560000e+02, %677
   %679 = fptosi float %678 to i32
   %680 = sext i32 %679 to i64

@@ -2082,7 +2082,7 @@ invoke.cont13:                                    ; preds = %land.rhs.i, %_ZNKSt
           to label %invoke.cont17 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  %conv15 = sitofp i32 %retval.0.i to float
+  %conv15 = uitofp nneg i32 %retval.0.i to float
   %div = fdiv nsz float %4, %conv15
   store float %div, ptr %call18, align 4, !tbaa !26
   br label %for.inc

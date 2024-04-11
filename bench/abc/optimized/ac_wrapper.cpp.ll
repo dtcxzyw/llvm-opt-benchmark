@@ -6694,7 +6694,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit72._crit_edge: ; pr
   %146 = call i64 @llvm.ctpop.i64(i64 %145), !range !34
   %147 = trunc i64 %146 to i32
   %148 = add nuw nsw i32 %147, %144
-  %149 = sitofp i32 %148 to float
+  %149 = uitofp nneg i32 %148 to float
   %150 = fdiv float 1.000000e+00, %149
   %151 = load ptr, ptr %25, align 8
   %152 = load ptr, ptr %26, align 8
@@ -6912,7 +6912,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %shift112 = shufflevector <2 x i32> %54, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %55 = add nuw nsw <2 x i32> %shift112, %54
   %56 = extractelement <2 x i32> %55, i64 0
-  %57 = sitofp i32 %56 to float
+  %57 = uitofp nneg i32 %56 to float
   %58 = fdiv float 1.000000e+00, %57
   %59 = fcmp olt float %58, %.275
   %.362 = select i1 %59, i32 %.05576, i32 %.26174

@@ -4912,7 +4912,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   %.sroa.069.095 = phi i32 [ %126, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2b1e91afbf47ba08E.exit" ], [ 0, %122 ]
   %125 = icmp ugt i32 %.sroa.069.095, 31
   %126 = add nuw nsw i32 %.sroa.069.095, 1
-  %127 = sitofp i32 %.sroa.069.095 to double
+  %127 = uitofp nneg i32 %.sroa.069.095 to double
   %128 = fmul double %127, 3.125000e-02
   %129 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %116)
           to label %131 unwind label %.loopexit91

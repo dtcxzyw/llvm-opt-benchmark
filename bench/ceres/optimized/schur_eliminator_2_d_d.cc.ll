@@ -25404,7 +25404,7 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
   %25 = getelementptr inbounds i8, ptr %0, i64 112
   %26 = load double, ptr %25, align 8
   %.sroa.speculated.i.i = tail call i64 @llvm.smax.i64(i64 %21, i64 1)
-  %27 = sitofp i64 %.sroa.speculated.i.i to double
+  %27 = uitofp nneg i64 %.sroa.speculated.i.i to double
   %28 = fmul double %27, 0x3CB0000000000000
   %29 = select i1 %24, double %26, double %28
   %30 = fmul double %19, %29

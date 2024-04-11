@@ -118,7 +118,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %44, label %.loopexit89, label %.preheader88
 
 45:                                               ; preds = %.preheader87
-  %46 = sitofp i32 %62 to double
+  %46 = uitofp nneg i32 %62 to double
   br label %47
 
 47:                                               ; preds = %45, %.loopexit89

@@ -1605,7 +1605,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
 
 if.end55:                                         ; preds = %for.body
   %rem = srem i32 %i.0747, %64
-  %conv = sitofp i32 %rem to float
+  %conv = uitofp nneg i32 %rem to float
   %66 = load float, ptr %m_slot_spacing, align 4, !tbaa !215
   %mul59 = fmul nsz float %66, %conv
   %conv60 = fptosi float %mul59 to i32

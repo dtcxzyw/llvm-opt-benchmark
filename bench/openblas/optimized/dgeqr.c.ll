@@ -228,7 +228,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %135 = icmp ult i32 %.pr10.pre20, 2
   %136 = sitofp i32 %.pr10.pre20 to double
   %137 = select i1 %135, double 1.000000e+00, double %136
-  %138 = sitofp i32 %118 to double
+  %138 = uitofp nneg i32 %118 to double
   %139 = select i1 %29, double %138, double %137
   store double %139, ptr %6, align 8, !tbaa !7
   %140 = icmp eq i32 %50, 0
@@ -267,7 +267,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %157 = load i32, ptr %1, align 4, !tbaa !3
   %158 = mul nsw i32 %157, %156
   %159 = call i32 @llvm.smax.i32(i32 %158, i32 1)
-  %160 = sitofp i32 %159 to double
+  %160 = uitofp nneg i32 %159 to double
   store double %160, ptr %6, align 8, !tbaa !7
   br label %161
 

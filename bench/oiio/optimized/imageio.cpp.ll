@@ -6507,7 +6507,7 @@ for.body.i.i:                                     ; preds = %sw.bb1, %for.body.i
   %3 = bitcast <16 x i8> %shuffle.i.i.i.i to <8 x i16>
   %shuffle.i14.i.i.i = shufflevector <8 x i16> %3, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %4 = bitcast <8 x i16> %shuffle.i14.i.i.i to <4 x i32>
-  %conv.i.i.i.i = sitofp <4 x i32> %4 to <4 x float>
+  %conv.i.i.i.i = uitofp nneg <4 x i32> %4 to <4 x float>
   %mul.i.i.i = fmul <4 x float> %conv.i.i.i.i, <float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000>
   store <4 x float> %mul.i.i.i, ptr %dst.addr.010.i.i, align 1
   %sub.i.i = add i64 %n.addr.09.i.i, -4

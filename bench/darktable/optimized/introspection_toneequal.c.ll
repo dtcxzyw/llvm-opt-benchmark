@@ -5441,7 +5441,7 @@ define internal fastcc void @_init_drawing(ptr noalias noundef %0, ptr noundef %
 327:                                              ; preds = %327, %48
   %328 = phi float [ -8.000000e+00, %48 ], [ %361, %327 ]
   %329 = phi i32 [ 0, %48 ], [ %362, %327 ]
-  %330 = sitofp i32 %329 to float
+  %330 = uitofp nneg i32 %329 to float
   %331 = fmul reassoc nsz arcp contract afn float %330, 1.250000e-01
   %332 = load float, ptr %88, align 8, !tbaa !359
   %333 = fmul reassoc nsz arcp contract afn float %331, %332
@@ -12520,7 +12520,7 @@ define internal fastcc void @update_histogram(ptr noundef %0) unnamed_addr #14 {
   %155 = load i32, ptr %154, align 4, !tbaa !27, !noalias !597
   %156 = insertelement <2 x i64> poison, i64 %150, i64 0
   %157 = insertelement <2 x i64> %156, i64 %153, i64 1
-  %158 = uitofp <2 x i64> %157 to <2 x double>
+  %158 = uitofp nneg <2 x i64> %157 to <2 x double>
   %159 = fmul reassoc nsz arcp contract afn <2 x double> %158, <double 0x3FA0080402010080, double 0x3FA0080402010080>
   %160 = fadd reassoc nsz arcp contract afn <2 x double> %159, <double -1.000000e+01, double -1.000000e+01>
   %161 = fptrunc <2 x double> %160 to <2 x float>

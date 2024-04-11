@@ -290,7 +290,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %145, label %146, label %.loopexit23
 
 146:                                              ; preds = %.loopexit24
-  %147 = sitofp i32 %64 to float
+  %147 = uitofp nneg i32 %64 to float
   %148 = fpext float %147 to double
   %149 = fmul reassoc nsz arcp contract afn double %148, 5.000000e-01
   %150 = zext nneg i32 %70 to i64

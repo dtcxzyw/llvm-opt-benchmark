@@ -13637,7 +13637,7 @@ _ZL10stbi__getnP13stbi__contextPhi.exit:          ; preds = %192, %200, %204
   %229 = load i8, ptr %228, align 2
   %230 = zext i8 %229 to i32
   %231 = add nuw nsw i32 %227, %230
-  %232 = sitofp i32 %231 to float
+  %232 = uitofp nneg i32 %231 to float
   %233 = fmul float %219, %232
   %234 = fdiv float %233, 3.000000e+00
   br label %245
@@ -30008,7 +30008,7 @@ define internal fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr nocapture noundef w
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %17, %20
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp nneg i32 %21 to float
   %23 = fmul float %9, %22
   %24 = fdiv float %23, 3.000000e+00
   store float %24, ptr %0, align 4

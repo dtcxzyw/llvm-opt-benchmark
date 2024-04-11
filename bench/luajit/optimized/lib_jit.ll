@@ -326,7 +326,7 @@ entry:
   %mul = shl nsw i32 %call, 1
   %shr = lshr i32 85, %mul
   %and = and i32 %shr, 1
-  %conv.i = sitofp i32 %and to double
+  %conv.i = uitofp nneg i32 %and to double
   store double %conv.i, ptr %0, align 8
   ret i32 1
 }
@@ -1454,7 +1454,7 @@ if.end26:                                         ; preds = %if.then19, %do.body
   %t = getelementptr inbounds i8, ptr %ir.0, i64 4
   %21 = load i8, ptr %t, align 4
   %22 = and i8 %21, 31
-  %conv.i40 = uitofp i8 %22 to double
+  %conv.i40 = uitofp nneg i8 %22 to double
   store double %conv.i40, ptr %add.ptr30, align 8
   %cmp32 = icmp eq i32 %slot.0, -1
   br i1 %cmp32, label %return, label %if.end35

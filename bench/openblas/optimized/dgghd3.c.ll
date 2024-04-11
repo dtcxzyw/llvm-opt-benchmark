@@ -94,7 +94,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %59 = mul i32 %58, %57
   store i32 %59, ptr %17, align 4, !tbaa !3
   %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
-  %61 = sitofp i32 %60 to double
+  %61 = uitofp nneg i32 %60 to double
   store double %61, ptr %13, align 8, !tbaa !7
   %62 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #5
   %63 = icmp eq i32 %62, 0

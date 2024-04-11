@@ -1482,7 +1482,7 @@ define hidden void @_ZN8rawspeed10KdcDecoder22decodeMetaDataInternalEPKNS_14Came
   %182 = call noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef nonnull align 8 dereferenceable(52) %173, i32 noundef 149)
   %183 = zext i8 %182 to i32
   %184 = or disjoint i32 %181, %183
-  %185 = sitofp i32 %184 to float
+  %185 = uitofp nneg i32 %184 to float
   %186 = fmul float %185, 3.906250e-03
   %187 = getelementptr inbounds i8, ptr %0, i64 8
   %188 = load ptr, ptr %187, align 8, !tbaa !42
@@ -1496,7 +1496,7 @@ define hidden void @_ZN8rawspeed10KdcDecoder22decodeMetaDataInternalEPKNS_14Came
   %194 = call noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef nonnull align 8 dereferenceable(52) %173, i32 noundef 151)
   %195 = zext i8 %194 to i32
   %196 = or disjoint i32 %193, %195
-  %197 = sitofp i32 %196 to float
+  %197 = uitofp nneg i32 %196 to float
   %198 = fmul float %197, 3.906250e-03
   %199 = load ptr, ptr %187, align 8, !tbaa !42
   %200 = getelementptr inbounds i8, ptr %199, i64 264

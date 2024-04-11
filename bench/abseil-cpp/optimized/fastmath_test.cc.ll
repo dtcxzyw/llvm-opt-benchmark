@@ -2515,7 +2515,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %if.end47, %_ZNKSt14
 
 for.body:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit67, %_ZN7testing15AssertionResultD2Ev.exit90
   %i.091 = phi i32 [ 2, %_ZN7testing15AssertionResultD2Ev.exit67 ], [ %35, %_ZN7testing15AssertionResultD2Ev.exit90 ]
-  %conv = sitofp i32 %i.091 to double
+  %conv = uitofp nneg i32 %i.091 to double
   %call.i68 = call double @log(double noundef %conv) #13
   %div.i = fdiv double 1.000000e+00, %conv
   %neg.i = fneg double %conv
@@ -2527,7 +2527,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %neg3.i = fmul double %div.i, %33
   %34 = call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %32)
   %35 = add nuw nsw i32 %i.091, 1
-  %add = uitofp i32 %35 to double
+  %add = uitofp nneg i32 %35 to double
   %call51 = call double @lgamma(double noundef %add) #13
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar49, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, double noundef %34, double noundef %call51, double noundef 3.000000e-05)
   %36 = load i8, ptr %gtest_ar49, align 8

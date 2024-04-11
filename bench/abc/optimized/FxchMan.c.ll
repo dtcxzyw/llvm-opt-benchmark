@@ -1309,7 +1309,7 @@ define void @Fxch_ManDivCreate(ptr noundef %0) local_unnamed_addr #2 {
   br label %Vec_QuePrio.exit.i.i
 
 62:                                               ; preds = %47
-  %63 = sitofp i32 %57 to float
+  %63 = uitofp nneg i32 %57 to float
   br label %Vec_QuePrio.exit.i.i
 
 Vec_QuePrio.exit.i.i:                             ; preds = %62, %59

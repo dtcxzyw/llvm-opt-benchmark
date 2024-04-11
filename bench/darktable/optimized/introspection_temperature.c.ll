@@ -2056,7 +2056,7 @@ define internal fastcc void @_color_temptint_sliders(ptr nocapture noundef reado
 
 102:                                              ; preds = %240, %76
   %103 = phi i32 [ 0, %76 ], [ %246, %240 ]
-  %104 = sitofp i32 %103 to double
+  %104 = uitofp nneg i32 %103 to double
   %105 = fmul reassoc nsz arcp contract afn double %104, 0x3FAAF286BCA1AF28
   %106 = fmul reassoc nsz arcp contract afn double %104, 0x4092FEF286BCA1AF
   %107 = fadd reassoc nsz arcp contract afn double %106, 1.901000e+03
@@ -2224,7 +2224,7 @@ define internal fastcc void @_color_temptint_sliders(ptr nocapture noundef reado
 
 248:                                              ; preds = %329, %95
   %249 = phi i32 [ 0, %95 ], [ %335, %329 ]
-  %250 = sitofp i32 %249 to double
+  %250 = uitofp nneg i32 %249 to double
   %251 = fmul reassoc nsz arcp contract afn double %250, 0x3FAAF286BCA1AF28
   %252 = fmul reassoc nsz arcp contract afn double %250, 0x4092FEF286BCA1AF
   %253 = fadd reassoc nsz arcp contract afn double %252, 1.901000e+03

@@ -3246,7 +3246,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23
 for.body790:                                      ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23rsr_Interpolator1D_Raw_E.exit, %invoke.cont794
   %indvars.iv1004 = phi i64 [ 0, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23rsr_Interpolator1D_Raw_E.exit ], [ %indvars.iv.next1005, %invoke.cont794 ]
   %273 = trunc i64 %indvars.iv1004 to i32
-  %conv791 = sitofp i32 %273 to float
+  %conv791 = uitofp nneg i32 %273 to float
   %div = fdiv float %conv791, 6.553500e+04
   %274 = call noundef float @llvm.fmuladd.f32(float %sub.i566, float %div, float %198)
   %275 = fcmp uno float %274, 0.000000e+00

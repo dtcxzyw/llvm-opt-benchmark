@@ -2836,7 +2836,7 @@ queue_job_scheduler.exit.i:                       ; preds = %930, %922
   %.6.i = phi i64 [ %987, %986 ], [ %.5.i, %984 ], [ %.5.i, %979 ], [ %.5.i, %977 ]
   %990 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
   %991 = call double @difftime(i64 noundef %.6.i, i64 noundef %990) #20
-  %992 = sitofp i32 %.088.i to double
+  %992 = uitofp nneg i32 %.088.i to double
   %993 = fcmp ult double %991, %992
   br i1 %993, label %994, label %997
 

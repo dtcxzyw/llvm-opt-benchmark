@@ -273,7 +273,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %79 = load ptr, ptr %23, align 8
   %80 = load i32, ptr %48, align 8
   %81 = lshr i32 %80, 7
-  %82 = sitofp i32 %78 to float
+  %82 = uitofp nneg i32 %78 to float
   tail call void @Tim_ManSetCoArrival(ptr noundef %79, i32 noundef %81, float noundef %82) #6
   br label %113
 

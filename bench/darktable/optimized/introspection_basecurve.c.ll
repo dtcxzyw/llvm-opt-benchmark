@@ -1123,7 +1123,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %292 = fadd reassoc nsz arcp contract afn float %291, -1.000000e+00
   %293 = fmul reassoc nsz arcp contract afn float %290, 5.000000e-01
   %294 = fmul reassoc nsz arcp contract afn float %293, %292
-  %295 = sitofp i32 %286 to float
+  %295 = uitofp nneg i32 %286 to float
   %296 = fadd reassoc nsz arcp contract afn float %294, %295
   %297 = fmul reassoc nsz arcp contract afn float %296, %289
   %298 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp2.f32(float %297)

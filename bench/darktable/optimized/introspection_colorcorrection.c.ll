@@ -578,7 +578,7 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
 
 51:                                               ; preds = %105, %3
   %52 = phi i32 [ 0, %3 ], [ %106, %105 ]
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = fmul reassoc nsz arcp contract afn double %53, 0x402E8232262A54E2
   %55 = fadd reassoc nsz arcp contract afn double %54, 0xC04AB1EBE1650A46
   %56 = mul nsw i32 %52, %37
@@ -664,7 +664,7 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
   store double 0x404AB1EBE1650A46, ptr %6, align 8, !tbaa !82
   %110 = load float, ptr %41, align 4, !tbaa !10
   %111 = fpext float %110 to double
-  %112 = sitofp i32 %109 to double
+  %112 = uitofp nneg i32 %109 to double
   %113 = fmul reassoc nsz arcp contract afn double %112, 0x402E8232262A54E2
   %114 = fadd reassoc nsz arcp contract afn double %113, 0xC04AB1EBE1650A46
   %115 = fmul reassoc nsz arcp contract afn double %114, %111

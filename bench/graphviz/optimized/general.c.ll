@@ -280,7 +280,7 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = trunc i64 %indvars.iv to i32
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp nneg i32 %14 to double
   %16 = shl nuw nsw i64 %indvars.iv, 1
   %17 = or disjoint i64 %16, 1
   %18 = getelementptr inbounds double, ptr %11, i64 %17

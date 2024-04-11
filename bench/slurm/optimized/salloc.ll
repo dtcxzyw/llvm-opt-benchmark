@@ -2118,7 +2118,7 @@ define internal fastcc noundef i32 @_proc_alloc(ptr noundef %0) unnamed_addr #0 
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31
-  %34 = sitofp i32 %.032.i to double
+  %34 = uitofp nneg i32 %.032.i to double
   %35 = fmul double %34, 5.000000e-01
   br label %36
 

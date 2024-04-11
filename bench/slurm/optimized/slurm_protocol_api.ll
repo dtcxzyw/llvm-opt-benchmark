@@ -4432,7 +4432,7 @@ define noundef i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef %
   %30 = zext i16 %27 to i32
   %31 = lshr i32 %30, 1
   %32 = add nuw nsw i32 %31, %30
-  %33 = sitofp i32 %32 to double
+  %33 = uitofp nneg i32 %32 to double
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph

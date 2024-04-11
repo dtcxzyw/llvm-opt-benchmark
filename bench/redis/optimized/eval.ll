@@ -3286,7 +3286,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %call20 = tail call double @lua_tonumber(ptr noundef %lua, i32 noundef -2) #17
-  %conv = sitofp i32 %expected_index.075 to double
+  %conv = uitofp nneg i32 %expected_index.075 to double
   %cmp21 = fcmp une double %call20, %conv
   br i1 %cmp21, label %if.then23, label %if.end24
 

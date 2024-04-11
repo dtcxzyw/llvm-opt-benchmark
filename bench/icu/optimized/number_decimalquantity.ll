@@ -2642,7 +2642,7 @@ sw.bb10:                                          ; preds = %entry
   %40 = add i32 %..i.i, %39
   %sub2.i = sub i32 0, %40
   %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %sub2.i, i32 0)
-  %conv12 = sitofp i32 %cond.i to double
+  %conv12 = uitofp nneg i32 %cond.i to double
   br label %return
 
 sw.bb13:                                          ; preds = %entry
@@ -2653,7 +2653,7 @@ sw.bb13:                                          ; preds = %entry
   %43 = add i32 %41, %42
   %sub2.i133 = sub i32 0, %43
   %cond.i134 = tail call noundef i32 @llvm.smax.i32(i32 %sub2.i133, i32 0)
-  %conv15 = sitofp i32 %cond.i134 to double
+  %conv15 = uitofp nneg i32 %cond.i134 to double
   br label %return
 
 sw.bb16:                                          ; preds = %entry

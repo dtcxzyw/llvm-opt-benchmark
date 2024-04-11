@@ -497,7 +497,7 @@ define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture no
   %116 = icmp eq i32 %41, 1026
   %117 = select i1 %116, i32 8, i32 4
   %118 = select i1 %116, i32 18, i32 12
-  %119 = sitofp i32 %117 to float
+  %119 = uitofp nneg i32 %117 to float
   %120 = fmul reassoc nsz arcp contract afn float %119, 1.375000e+00
   %121 = fadd reassoc nsz arcp contract afn float %22, 2.000000e+00
   %122 = fadd reassoc nsz arcp contract afn float %121, %120

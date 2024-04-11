@@ -3155,7 +3155,7 @@ default.unreachable:                              ; preds = %86
 
 proto_item_set_generated.exit:                    ; preds = %122, %126, %129
   %133 = load i32, ptr @hf_iuup_delta, align 4
-  %134 = sitofp i32 %124 to float
+  %134 = uitofp nneg i32 %124 to float
   %135 = fdiv float %134, 1.000000e+06
   %136 = tail call ptr @proto_tree_add_float(ptr noundef %120, i32 noundef %133, ptr noundef %.0172, i32 noundef 4, i32 noundef 1, float noundef %135) #8
   %.not.i182 = icmp eq ptr %136, null

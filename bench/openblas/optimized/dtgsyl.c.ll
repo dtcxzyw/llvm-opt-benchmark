@@ -145,7 +145,7 @@ define void @dtgsyl_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 105:                                              ; preds = %101, %97, %96
   %106 = phi i32 [ %104, %101 ], [ 1, %97 ], [ 1, %96 ]
-  %107 = sitofp i32 %106 to double
+  %107 = uitofp nneg i32 %106 to double
   store double %107, ptr %18, align 8, !tbaa !7
   %108 = load i32, ptr %19, align 4, !tbaa !3
   %109 = icmp sge i32 %108, %106

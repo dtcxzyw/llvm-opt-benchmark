@@ -20170,7 +20170,7 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEE6rotate
   %9 = fptosi double %8 to i64
   %10 = add nsw i64 %9, 1
   %11 = and i64 %10, 4294967294
-  %12 = sitofp i64 %11 to double
+  %12 = uitofp nneg i64 %11 to double
   %13 = bitcast double %6 to i64
   %14 = fmul contract double %12, 0x3FE921FB40000000
   %15 = fsub contract double %7, %14

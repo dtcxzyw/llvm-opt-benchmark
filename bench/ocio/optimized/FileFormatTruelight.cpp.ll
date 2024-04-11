@@ -2231,7 +2231,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont61
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0127 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %conv66 = sitofp i32 %i.0127 to float
+  %conv66 = uitofp nneg i32 %i.0127 to float
   %div = fdiv float %conv66, %conv68
   %mul71 = fmul float %div, %conv70
   %call73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %ostream, float noundef %mul71)

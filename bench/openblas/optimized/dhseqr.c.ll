@@ -61,7 +61,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %37, ptr %21, align 4, !tbaa !3
   %38 = load i32, ptr %2, align 4, !tbaa !3
   %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 1)
-  %40 = sitofp i32 %39 to double
+  %40 = uitofp nneg i32 %39 to double
   store double %40, ptr %11, align 8, !tbaa !7
   %41 = load i32, ptr %12, align 4, !tbaa !3
   %42 = icmp eq i32 %41, -1

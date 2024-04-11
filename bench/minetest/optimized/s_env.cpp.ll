@@ -4041,7 +4041,7 @@ for.body:                                         ; preds = %invoke.cont50, %for
   %__begin1.sroa.0.0118 = phi ptr [ %9, %for.body.lr.ph ], [ %incdec.ptr.i, %invoke.cont50 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %p) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %p, ptr noundef nonnull align 4 dereferenceable(12) %__begin1.sroa.0.0118, i64 12, i1 false)
-  %conv42 = sitofp i32 %index.0119 to double
+  %conv42 = uitofp nneg i32 %index.0119 to double
   invoke void @lua_pushnumber(ptr noundef %1, double noundef %conv42)
           to label %invoke.cont44 unwind label %lpad43
 

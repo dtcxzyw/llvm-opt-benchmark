@@ -263,7 +263,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %conv13.i.i.i = or i32 %f_flags.020.i.i.i, %6
   tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #8
   %inc.i.i.i = add nuw nsw i32 %inc21.i.i.i, 1
-  %conv.i.i.i = sitofp i32 %inc21.i.i.i to double
+  %conv.i.i.i = uitofp nneg i32 %inc21.i.i.i to double
   tail call void @lua_pushnumber(ptr noundef %lua, double noundef %conv.i.i.i) #8
   tail call void @lua_gettable(ptr noundef %lua, i32 noundef -2) #8
   %call.i.i.i = tail call i32 @lua_type(ptr noundef %lua, i32 noundef -1) #8

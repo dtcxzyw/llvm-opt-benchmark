@@ -8454,7 +8454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %mul.i536 = mul nsw i32 %sub.i493, %sub.i493
   %mul4.i538 = mul nsw i32 %sub4.i496, %sub4.i496
   %add.i539 = add nuw nsw i32 %mul4.i538, %mul.i536
-  %conv166 = sitofp i32 %add.i539 to double
+  %conv166 = uitofp nneg i32 %add.i539 to double
   %cmp167 = fcmp nsz olt double %mul135, %conv166
   br i1 %cmp167, label %if.then168, label %if.end172
 
@@ -8516,7 +8516,7 @@ if.then179:                                       ; preds = %land.lhs.true175
   %mul.i550 = mul nsw i32 %dir.sroa.0.0, %dir.sroa.0.0
   %mul4.i552 = mul nsw i32 %dir.sroa.7.0, %dir.sroa.7.0
   %add.i553 = add nuw nsw i32 %mul4.i552, %mul.i550
-  %conv187 = sitofp i32 %add.i553 to double
+  %conv187 = uitofp nneg i32 %add.i553 to double
   %m_joystick_has_really_moved188 = getelementptr inbounds i8, ptr %this, i64 232
   %169 = load i8, ptr %m_joystick_has_really_moved188, align 8, !tbaa !152, !range !81, !noundef !82
   %tobool189.not = icmp ne i8 %169, 0

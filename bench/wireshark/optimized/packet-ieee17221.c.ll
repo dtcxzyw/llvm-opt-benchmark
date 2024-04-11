@@ -2811,7 +2811,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
 
 220:                                              ; preds = %218, %.lr.ph24
   %221 = phi float [ 1.000000e+00, %.lr.ph24 ], [ %switch.select681, %218 ]
-  %222 = sitofp i32 %216 to float
+  %222 = uitofp nneg i32 %216 to float
   %223 = fmul float %221, %222
   %224 = load i32, ptr @hf_aem_frequency, align 4
   %225 = tail call ptr @proto_tree_add_float(ptr noundef %210, i32 noundef %224, ptr noundef %0, i32 noundef %.167322, i32 noundef 4, float noundef %223) #2

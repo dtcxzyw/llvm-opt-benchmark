@@ -6688,7 +6688,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
 118:                                              ; preds = %110
   %119 = fptosi float %115 to i32
   %120 = tail call i32 @llvm.abs.i32(i32 %119, i1 true)
-  %121 = sitofp i32 %120 to double
+  %121 = uitofp nneg i32 %120 to double
   %122 = tail call noundef double @pow(double noundef %121, double noundef 0x3FD5555560000000) #25
   %123 = fptrunc double %122 to float
   %124 = fneg float %123
@@ -7554,7 +7554,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 50:                                               ; preds = %42
   %51 = fptosi float %47 to i32
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = tail call noundef double @pow(double noundef %53, double noundef 0x3FD5555560000000) #25
   %55 = fptrunc double %54 to float
   %56 = fneg float %55

@@ -663,7 +663,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %sh_prom.i = trunc i64 %35 to i32
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %sub9.i = xor i32 %notmask.i, -1
-  %conv.i = sitofp i32 %sub9.i to float
+  %conv.i = uitofp nneg i32 %sub9.i to float
   %cmp1216.not.i = icmp eq i64 %2, 0
   %m_quantVectors20.i = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %cmp1216.not.i, label %for.body17.lr.ph, label %for.body.us.i
@@ -1448,7 +1448,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sh_prom = trunc i64 %nQBits to i32
   %notmask = shl nsw i32 -1, %sh_prom
   %sub9 = xor i32 %notmask, -1
-  %conv = sitofp i32 %sub9 to float
+  %conv = uitofp nneg i32 %sub9 to float
   %cmp1216.not = icmp eq i64 %numFloatArray, 0
   %m_quantVectors20 = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %cmp1216.not, label %for.end26, label %for.body.us

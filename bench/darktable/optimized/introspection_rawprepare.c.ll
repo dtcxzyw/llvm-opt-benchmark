@@ -2513,7 +2513,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   %16 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %15)
   %17 = add i32 %16, 2
   %18 = lshr i32 %17, 2
-  %19 = sitofp i32 %18 to float
+  %19 = uitofp nneg i32 %18 to float
   %20 = load ptr, ptr %3, align 8, !tbaa !12
   tail call void @dt_bauhaus_slider_set(ptr noundef %20, float noundef %19) #22
   %21 = getelementptr inbounds i8, ptr %3, i64 8

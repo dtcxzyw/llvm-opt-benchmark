@@ -862,7 +862,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %53 = fsub reassoc nsz arcp contract afn <2 x float> %52, %51
   %54 = fptosi <2 x float> %53 to <2 x i32>
   %55 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %54, <2 x i32> <i32 1, i32 1>)
-  %56 = sitofp <2 x i32> %55 to <2 x float>
+  %56 = uitofp nneg <2 x i32> %55 to <2 x float>
   %57 = fcmp reassoc nsz arcp contract afn olt <2 x float> %45, %56
   %58 = select <2 x i1> %57, <2 x float> %45, <2 x float> %56
   %59 = fptosi <2 x float> %58 to <2 x i32>

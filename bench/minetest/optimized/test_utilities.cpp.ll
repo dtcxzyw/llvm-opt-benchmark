@@ -16618,7 +16618,7 @@ invoke.cont.lr.ph.i:                              ; preds = %_ZNSt6vectorIN3irr4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmpdata) #28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %mul.i.i = mul nuw nsw i32 %storemerge204, 90
-  %conv.i.i = sitofp i32 %mul.i.i to double
+  %conv.i.i = uitofp nneg i32 %mul.i.i to double
   %mul.i.i.i = fmul nsz double %conv.i.i, 0x3F91DF46A2529D39
   %0 = tail call nsz double @llvm.cos.f64(double %mul.i.i.i)
   %1 = tail call nsz double @llvm.sin.f64(double %mul.i.i.i)

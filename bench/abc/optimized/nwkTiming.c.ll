@@ -1653,7 +1653,7 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %63 = fdiv double %61, %62
   %64 = trunc i64 %indvars.iv.next69 to i32
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %64, ptr noundef nonnull %55, i32 noundef %59, double noundef %63)
-  %66 = sitofp i32 %64 to float
+  %66 = uitofp nneg i32 %64 to float
   %67 = fcmp ogt float %16, %66
   br i1 %67, label %.lr.ph62.split.us, label %._crit_edge.thread, !llvm.loop !28
 
@@ -1674,7 +1674,7 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %77 = fdiv double %75, %76
   %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %73, ptr noundef nonnull %55, i32 noundef %70, double noundef %77)
   %79 = trunc i64 %indvars.iv.next66 to i32
-  %80 = sitofp i32 %79 to float
+  %80 = uitofp nneg i32 %79 to float
   %81 = fcmp ogt float %16, %80
   br i1 %81, label %.lr.ph62.split, label %._crit_edge.thread, !llvm.loop !28
 

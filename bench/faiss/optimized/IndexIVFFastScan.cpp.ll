@@ -580,7 +580,7 @@ define void @_ZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKl(ptr noundef nonnu
   %43 = fsub double %42, %33
   %44 = fdiv double %43, 1.000000e+03
   %.not109 = icmp eq i64 %.088189, 0
-  %45 = sitofp i64 %.088189 to double
+  %45 = uitofp nneg i64 %.088189 to double
   %46 = fdiv double %44, %45
   %47 = fmul double %46, %35
   %.090 = select i1 %.not109, double 0.000000e+00, double %47

@@ -666,7 +666,7 @@ gv_alloc.exit:                                    ; preds = %2
   br i1 %172, label %173, label %get_mq.exit
 
 173:                                              ; preds = %._crit_edge175.i
-  %174 = sitofp i32 %spec.select.i to double
+  %174 = uitofp nneg i32 %spec.select.i to double
   %175 = fdiv double %.0110.lcssa.i, %174
   %176 = add nsw i32 %spec.select.i, -1
   %177 = mul nsw i32 %176, %spec.select.i

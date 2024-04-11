@@ -14034,7 +14034,7 @@ if.end:                                           ; preds = %entry
   %conv16 = fptosi double %mul15 to i32
   %f.0 = select i1 %is_guess, i32 %conv16, i32 %conv12
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %f.0, i32 0)
-  %conv21 = sitofp i32 %spec.store.select to float
+  %conv21 = uitofp nneg i32 %spec.store.select to float
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -14867,7 +14867,7 @@ if.end.i:                                         ; preds = %invoke.cont31
   %conv16.i = fptosi double %mul15.i to i32
   %f.0.i = select i1 %tobool.not, i32 %conv12.i, i32 %conv16.i
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %f.0.i, i32 0)
-  %conv21.i = sitofp i32 %spec.store.select.i to float
+  %conv21.i = uitofp nneg i32 %spec.store.select.i to float
   br label %invoke.cont36
 
 invoke.cont36:                                    ; preds = %if.end.i, %invoke.cont31

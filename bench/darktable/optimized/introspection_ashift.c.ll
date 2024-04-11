@@ -3450,7 +3450,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %694 = add nsw i64 %693, %663
   %695 = insertelement <2 x i64> poison, i64 %693, i64 0
   %696 = shufflevector <2 x i64> %695, <2 x i64> poison, <2 x i32> zeroinitializer
-  %697 = sitofp <2 x i64> %696 to <2 x float>
+  %697 = uitofp nneg <2 x i64> %696 to <2 x float>
   %698 = fmul reassoc nsz arcp contract afn <2 x float> %681, %697
   %699 = insertelement <8 x float> poison, float %667, i64 0
   %700 = shufflevector <8 x float> %699, <8 x float> poison, <8 x i32> zeroinitializer

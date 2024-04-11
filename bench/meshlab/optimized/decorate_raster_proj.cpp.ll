@@ -12744,7 +12744,7 @@ define void @_ZN24DecorateRasterProjPlugin28updateShadowProjectionMatrixEv(ptr n
   %.040.i = phi i1 [ true, %1 ], [ false, %17 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %33, %17 ]
   %.zext.i = and i32 %.02339.i, 1
-  %18 = sitofp i32 %.zext.i to float
+  %18 = uitofp nneg i32 %.zext.i to float
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %14, float %.sroa.0.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2

@@ -3898,7 +3898,7 @@ define internal fastcc noundef i32 @pow_function_base(ptr nocapture noundef writ
   %39 = sitofp i64 %.07289 to double
   %40 = fmul double %39, %39
   %41 = sitofp i64 %.07190 to double
-  %42 = sitofp i64 %34 to double
+  %42 = uitofp nneg i64 %34 to double
   %43 = tail call double @pow(double noundef %40, double noundef %42) #27
   %44 = fmul double %43, %41
   store double %44, ptr %0, align 8

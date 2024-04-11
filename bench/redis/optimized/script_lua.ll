@@ -2184,7 +2184,7 @@ if.end97:                                         ; preds = %if.end86, %if.end97
   %inc91 = add nuw nsw i32 %j.0121, 1
   tail call fastcc void @luaReplyToRedisReply(ptr noundef %c, ptr noundef %script_client, ptr noundef %lua)
   %inc98 = add nuw nsw i32 %mbulklen.0122, 1
-  %conv92 = sitofp i32 %inc91 to double
+  %conv92 = uitofp nneg i32 %inc91 to double
   tail call void @lua_pushnumber(ptr noundef %lua, double noundef %conv92) #11
   tail call void @lua_rawget(ptr noundef %lua, i32 noundef -2) #11
   %call93 = tail call i32 @lua_type(ptr noundef %lua, i32 noundef -1) #11

@@ -3009,7 +3009,7 @@ define dso_local void @_ZN9Stockfish3UCI3wdlB5cxx11Eii(ptr dead_on_unwind noalia
   %6 = call i32 @llvm.smax.i32(i32 %5, i32 7)
   %7 = call i32 @llvm.umin.i32(i32 %6, i32 119)
   %.sroa.speculated.i = add nuw nsw i32 %7, 1
-  %8 = sitofp i32 %.sroa.speculated.i to double
+  %8 = uitofp nneg i32 %.sroa.speculated.i to double
   %9 = fmul double %8, 3.125000e-02
   %10 = call double @llvm.fmuladd.f64(double %9, double 0xBFF0FFFCE00FF596, double 0x401DAE40E11BB944)
   %11 = call double @llvm.fmuladd.f64(double %10, double %9, double 0x3FEC9DBF5DF95A74)

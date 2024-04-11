@@ -9486,7 +9486,7 @@ _ZNKSt4lessISt4pairIiN3vcg9TexCoord2IfLi1EEEEEclERKS4_S7_.exit.i: ; preds = %184
   %.sroa.347.0..sroa_idx = getelementptr inbounds i8, ptr %275, i64 8
   store float %273, ptr %.sroa.347.0..sroa_idx, align 4
   %277 = add nuw i32 %.0165454, 1
-  %278 = sitofp i32 %277 to float
+  %278 = uitofp nneg i32 %277 to float
   %279 = fpext float %278 to double
   %280 = fmul double %279, 1.000000e+02
   %281 = fdiv double %280, %264

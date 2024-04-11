@@ -609,7 +609,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %.0572 = phi double [ %31, %35 ], [ 0.000000e+00, %.preheader938.preheader ]
   %28 = ptrtoint ptr %.1585 to i64
   %29 = and i64 %28, 15
-  %30 = sitofp i64 %29 to double
+  %30 = uitofp nneg i64 %29 to double
   %31 = tail call double @llvm.fmuladd.f64(double %.0576, double %30, double %.0572)
   %32 = add i32 %.0611, 4
   %33 = getelementptr i8, ptr %.4593, i64 1
@@ -681,7 +681,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 52:                                               ; preds = %.lr.ph1079
   %53 = ptrtoint ptr %memchr744 to i64
   %54 = and i64 %53, 15
-  %55 = sitofp i64 %54 to double
+  %55 = uitofp nneg i64 %54 to double
   %56 = tail call double @llvm.fmuladd.f64(double %.25781077, double %55, double %.25741078)
   %57 = fmul double %.25781077, 6.250000e-02
   %58 = fcmp oeq double %57, 0.000000e+00

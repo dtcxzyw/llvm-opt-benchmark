@@ -21252,7 +21252,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi1ELin1ELb0E
 108:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi1ELin1ELb0EEEE8maxCoeffIlEEdPT_.exit
   %109 = fmul double %.sroa.5.2.i.i, %.sroa.5.2.i.i
   %110 = sub nuw nsw i64 3, %.083165
-  %111 = sitofp i64 %110 to double
+  %111 = uitofp nneg i64 %110 to double
   %112 = fmul double %78, %111
   %113 = fcmp olt double %109, %112
   br i1 %113, label %114, label %115
@@ -25237,7 +25237,7 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
   %28 = getelementptr inbounds i8, ptr %0, i64 176
   %29 = load double, ptr %28, align 8
   %.sroa.speculated.i.i = tail call i64 @llvm.smax.i64(i64 %24, i64 1)
-  %30 = sitofp i64 %.sroa.speculated.i.i to double
+  %30 = uitofp nneg i64 %.sroa.speculated.i.i to double
   %31 = fmul double %30, 0x3CB0000000000000
   %32 = select i1 %27, double %29, double %31
   %33 = fmul double %22, %32

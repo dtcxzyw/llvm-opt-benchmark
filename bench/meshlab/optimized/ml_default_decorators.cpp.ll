@@ -10616,7 +10616,7 @@ define void @_ZN23MLDefaultMeshDecorators7chooseZERN3vcg4Box3IfEEPdS4_PiRNS0_6Po
   %58 = call i32 @gluProject(double noundef %56, double noundef %57, double noundef %55, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %33, ptr noundef nonnull %34)
   %59 = insertelement <2 x i32> poison, i32 %.zext, i64 0
   %60 = insertelement <2 x i32> %59, i32 %.lhs.trunc78, i64 1
-  %61 = sitofp <2 x i32> %60 to <2 x float>
+  %61 = uitofp nneg <2 x i32> %60 to <2 x float>
   %62 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %61, <2 x float> %50, <2 x float> %48)
   %63 = fpext <2 x float> %62 to <2 x double>
   %64 = fpext float %47 to double

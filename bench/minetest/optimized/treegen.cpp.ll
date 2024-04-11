@@ -2085,7 +2085,7 @@ if.end13:                                         ; preds = %if.then9, %if.end
   store i32 %add.i.i, ptr %ps, align 4, !tbaa !70
   %div.i.i = sdiv i32 %add.i.i, 65536
   %rem49.i = and i32 %div.i.i, 1
-  %conv24 = sitofp i32 %rem49.i to double
+  %conv24 = uitofp nneg i32 %rem49.i to double
   %mul25 = fmul nsz double %conv24, 0x400921FB54442D18
   %div26 = fdiv nsz double %mul25, 1.800000e+02
   %conv27 = fptrunc double %div26 to float
