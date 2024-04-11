@@ -1874,11 +1874,11 @@ define internal void @main.omp_outlined(ptr noalias nocapture noundef readonly %
   %54 = fdiv contract double %51, %53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false), !llvm.access.group !31
   %55 = sdiv i32 %50, 5
-  %56 = icmp slt i32 %55, %50
+  %56 = icmp sgt i32 %50, 0
   br i1 %56, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %49
-  %57 = sext i32 %55 to i64
+  %57 = zext nneg i32 %55 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
@@ -1934,7 +1934,7 @@ define internal void @main.omp_outlined(ptr noalias nocapture noundef readonly %
   %99 = getelementptr float, ptr %98, i64 %91
   %100 = getelementptr i8, ptr %99, i64 8
   store float %97, ptr %100, align 4, !llvm.access.group !31
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = load i32, ptr %2, align 4, !llvm.access.group !31
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next, %102

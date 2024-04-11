@@ -1865,11 +1865,11 @@ Vec_IntAlloc.exit.i:                              ; preds = %14, %9
   %18 = phi ptr [ %17, %14 ], [ null, %9 ]
   %19 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = icmp slt i32 %10, %.val3845
+  %20 = icmp sgt i32 %.val3845, 0
   br i1 %20, label %.lr.ph.i, label %Vec_IntSplitHalf.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntAlloc.exit.i
-  %21 = sext i32 %10 to i64
+  %21 = zext nneg i32 %10 to i64
   br label %22
 
 22:                                               ; preds = %Vec_IntPush.exit.i, %.lr.ph.i
@@ -1938,7 +1938,7 @@ Vec_IntPush.exit.i:                               ; preds = %46, %Vec_IntGrow.ex
   %50 = sext i32 %25 to i64
   %51 = getelementptr inbounds i32, ptr %48, i64 %50
   store i32 %24, ptr %51, align 4
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val11.i = load i32, ptr %7, align 4
   %52 = sext i32 %.val11.i to i64
   %53 = icmp slt i64 %indvars.iv.next.i, %52
@@ -2208,7 +2208,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph41 ], [ %indvars.iv48, %.preheader ]
-  %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %.val33 = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv.next51
   %51 = load i32, ptr %50, align 4

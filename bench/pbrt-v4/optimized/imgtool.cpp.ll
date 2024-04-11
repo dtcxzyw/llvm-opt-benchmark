@@ -30889,7 +30889,7 @@ for.end1225.us:                                   ; preds = %for.inc1223.us
   %add.ptr.i1147.us = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %430, i64 %conv1228.us
   %conv1230.us = sext i32 %validNeighbors.3.us to i64
   %add.ptr.i1148.us = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %430, i64 %conv1230.us
-  %cmp1.i.us = icmp eq i32 %div1226.us, %validNeighbors.3.us
+  %cmp1.i.us = icmp eq i32 %validNeighbors.3.us, 0
   br i1 %cmp1.i.us, label %invoke.cont1235.us, label %if.end.i1150.us
 
 if.end.i1150.us:                                  ; preds = %for.end1225.us

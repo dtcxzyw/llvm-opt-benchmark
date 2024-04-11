@@ -8807,8 +8807,7 @@ _ZNK6vectorI14justified_exprLb1EjE4sizeEv.exit:   ; preds = %if.end
   %m_inconsistent.i = getelementptr inbounds i8, ptr %this, i64 2200
   %4 = load i8, ptr %m_inconsistent.i, align 8
   %tobool.i110 = trunc i8 %4 to i1
-  %div111 = udiv i32 %3, 20
-  %cmp112 = icmp uge i32 %div111, %3
+  %cmp112 = icmp eq i32 %3, 0
   %or.cond.not113 = select i1 %tobool.i110, i1 true, i1 %cmp112
   br i1 %or.cond.not113, label %if.end26, label %while.body.lr.ph
 
