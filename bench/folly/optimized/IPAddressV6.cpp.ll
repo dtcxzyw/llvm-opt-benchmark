@@ -903,7 +903,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %6 = trunc i64 %1 to i8
+  %6 = trunc nuw i64 %1 to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %6
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !25
@@ -1068,7 +1068,7 @@ if.then.i:                                        ; preds = %invoke.cont4
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !36
 
 if.then6.i:                                       ; preds = %if.then.i
-  %4 = trunc i64 %add.i to i8
+  %4 = trunc nuw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %4
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !25
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i
@@ -2680,7 +2680,7 @@ entry:
   %mac.sroa.5.0.extract.shift = lshr i64 %mac.coerce, 48
   %mac.sroa.5.0.extract.trunc = trunc i64 %mac.sroa.5.0.extract.shift to i8
   %mac.sroa.6.0.extract.shift = lshr i64 %mac.coerce, 56
-  %mac.sroa.6.0.extract.trunc = trunc i64 %mac.sroa.6.0.extract.shift to i8
+  %mac.sroa.6.0.extract.trunc = trunc nuw i64 %mac.sroa.6.0.extract.shift to i8
   store i64 33022, ptr %this, align 4
   %0 = xor i8 %mac.sroa.1.0.extract.trunc, 2
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3357,7 +3357,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !25
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -4177,21 +4177,21 @@ if.then.i70:                                      ; preds = %switch.hole_check10
   unreachable
 
 switch.hole_check:                                ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i
-  %switch.maskindex = trunc i32 %9 to i8
+  %switch.maskindex = trunc nuw i32 %9 to i8
   %switch.shifted = lshr i8 -107, %switch.maskindex
   %20 = and i8 %switch.shifted, 1
   %switch.lobit.not = icmp eq i8 %20, 0
   br i1 %switch.lobit.not, label %if.then.i51, label %sw.epilog.i.sink.split
 
 switch.hole_check99:                              ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i54
-  %switch.maskindex101 = trunc i32 %13 to i8
+  %switch.maskindex101 = trunc nuw i32 %13 to i8
   %switch.shifted102 = lshr i8 -107, %switch.maskindex101
   %21 = and i8 %switch.shifted102, 1
   %switch.lobit103.not = icmp eq i8 %21, 0
   br i1 %switch.lobit103.not, label %if.then.i60, label %sw.epilog.i.sink.split
 
 switch.hole_check106:                             ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i64
-  %switch.maskindex108 = trunc i32 %17 to i8
+  %switch.maskindex108 = trunc nuw i32 %17 to i8
   %switch.shifted109 = lshr i8 -107, %switch.maskindex108
   %22 = and i8 %switch.shifted109, 1
   %switch.lobit110.not = icmp eq i8 %22, 0
@@ -4810,7 +4810,7 @@ for.body.i.i.epil:                                ; preds = %_ZN3fmt2v96detail12
   br i1 %epil.iter.cmp.not, label %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit, label %for.body.i.i.epil, !llvm.loop !156
 
 _ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i.i.epil, %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.unr-lcssa
-  %conv.i.i = trunc i64 %sub.ptr.sub16 to i8
+  %conv.i.i = trunc nuw i64 %sub.ptr.sub16 to i8
   %size_.i.i = getelementptr inbounds i8, ptr %6, i64 15
   store i8 %conv.i.i, ptr %size_.i.i, align 1, !tbaa !118
   br label %if.end19
@@ -5584,7 +5584,7 @@ if.then:                                          ; preds = %_ZN3fmt2v916visit_f
 
 if.end:                                           ; preds = %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit, %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
   %retval.0.i14 = phi i64 [ %conv.i, %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %retval.0.i, %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %conv3 = trunc i64 %retval.0.i14 to i32
+  %conv3 = trunc nuw i64 %retval.0.i14 to i32
   ret i32 %conv3
 }
 
@@ -5808,7 +5808,7 @@ if.then:                                          ; preds = %_ZN3fmt2v916visit_f
 
 if.end:                                           ; preds = %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit, %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
   %retval.0.i14 = phi i64 [ %conv.i, %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %retval.0.i, %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %conv3 = trunc i64 %retval.0.i14 to i32
+  %conv3 = trunc nuw i64 %retval.0.i14 to i32
   ret i32 %conv3
 }
 
@@ -8363,7 +8363,7 @@ entry:
   %6 = load i8, ptr %arrayidx.i.i12.6.i, align 1, !tbaa !25
   %and11.6.i = and i8 %6, %ref.tmp.sroa.0.6.extract.trunc
   %ref.tmp.sroa.0.7.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 56
-  %ref.tmp.sroa.0.7.extract.trunc = trunc i64 %ref.tmp.sroa.0.7.extract.shift to i8
+  %ref.tmp.sroa.0.7.extract.trunc = trunc nuw i64 %ref.tmp.sroa.0.7.extract.shift to i8
   %arrayidx.i.i12.7.i = getelementptr inbounds i8, ptr %cidrMask, i64 7
   %7 = load i8, ptr %arrayidx.i.i12.7.i, align 1, !tbaa !25
   %and11.7.i = and i8 %7, %ref.tmp.sroa.0.7.extract.trunc
@@ -8419,7 +8419,7 @@ entry:
   %retval.sroa.10.14.insert.ext.i = zext i8 %and11.14.i to i64
   %retval.sroa.10.14.insert.shift.i = shl nuw nsw i64 %retval.sroa.10.14.insert.ext.i, 48
   %ref.tmp.sroa.11.15.extract.shift = lshr i64 %retval.sroa.3.0.copyload.i, 56
-  %ref.tmp.sroa.11.15.extract.trunc = trunc i64 %ref.tmp.sroa.11.15.extract.shift to i8
+  %ref.tmp.sroa.11.15.extract.trunc = trunc nuw i64 %ref.tmp.sroa.11.15.extract.shift to i8
   %arrayidx.i.i12.15.i = getelementptr inbounds i8, ptr %cidrMask, i64 15
   %15 = load i8, ptr %arrayidx.i.i12.15.i, align 1, !tbaa !25
   %and11.15.i = and i8 %15, %ref.tmp.sroa.11.15.extract.trunc
@@ -8478,7 +8478,7 @@ entry:
   %ref.tmp4.sroa.0.6.extract.trunc = trunc i64 %ref.tmp4.sroa.0.6.extract.shift to i8
   %and11.6.i36 = and i8 %6, %ref.tmp4.sroa.0.6.extract.trunc
   %ref.tmp4.sroa.0.7.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i13, 56
-  %ref.tmp4.sroa.0.7.extract.trunc = trunc i64 %ref.tmp4.sroa.0.7.extract.shift to i8
+  %ref.tmp4.sroa.0.7.extract.trunc = trunc nuw i64 %ref.tmp4.sroa.0.7.extract.shift to i8
   %and11.7.i39 = and i8 %7, %ref.tmp4.sroa.0.7.extract.trunc
   %ref.tmp4.sroa.11.8.extract.trunc = trunc i64 %retval.sroa.3.0.copyload.i15 to i8
   %and11.8.i42 = and i8 %8, %ref.tmp4.sroa.11.8.extract.trunc
@@ -8518,7 +8518,7 @@ entry:
   %retval.sroa.10.14.insert.ext.i76 = zext i8 %and11.14.i75 to i64
   %retval.sroa.10.14.insert.shift.i77 = shl nuw nsw i64 %retval.sroa.10.14.insert.ext.i76, 48
   %ref.tmp4.sroa.11.15.extract.shift = lshr i64 %retval.sroa.3.0.copyload.i15, 56
-  %ref.tmp4.sroa.11.15.extract.trunc = trunc i64 %ref.tmp4.sroa.11.15.extract.shift to i8
+  %ref.tmp4.sroa.11.15.extract.trunc = trunc nuw i64 %ref.tmp4.sroa.11.15.extract.shift to i8
   %and11.15.i80 = and i8 %15, %ref.tmp4.sroa.11.15.extract.trunc
   %retval.sroa.10.15.insert.ext.i81 = zext i8 %and11.15.i80 to i64
   %retval.sroa.10.15.insert.shift.i82 = shl nuw i64 %retval.sroa.10.15.insert.ext.i81, 56
@@ -8787,8 +8787,6 @@ entry:
   %6 = icmp eq i8 %5, 0
   %7 = and i1 %4, %6
   %op.rdx25 = select i1 %7, i1 %cmp5.i, i1 false
-  %bc3 = bitcast <8 x i8> %.fr to <2 x i32>
-  %bc = bitcast <8 x i8> %.fr to <2 x i32>
   br i1 %op.rdx25, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread
 
 _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread: ; preds = %entry
@@ -8838,7 +8836,7 @@ _ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge: ; preds = %_ZNK5fol
 
 if.end.critedge:                                  ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit, %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp) #32
-  %13 = shufflevector <2 x i32> %bc3, <2 x i32> %bc, <2 x i32> <i32 0, i32 3>
+  %13 = bitcast <8 x i8> %.fr to <2 x i32>
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge, %if.end.critedge
@@ -9335,7 +9333,7 @@ _ZN5folly11IPAddressV69fetchMaskEm.exit:          ; preds = %if.end4.i, %if.end.
   %12 = load i8, ptr %arrayidx.i.i12.6.i, align 2, !tbaa !25
   %and11.6.i = and i8 %12, %ref.tmp6.sroa.0.6.extract.trunc
   %ref.tmp6.sroa.0.7.extract.shift = lshr i64 %retval.sroa.0.sroa.0.0.insert.insert.i, 56
-  %ref.tmp6.sroa.0.7.extract.trunc = trunc i64 %ref.tmp6.sroa.0.7.extract.shift to i8
+  %ref.tmp6.sroa.0.7.extract.trunc = trunc nuw i64 %ref.tmp6.sroa.0.7.extract.shift to i8
   %arrayidx.i.i12.7.i = getelementptr inbounds i8, ptr %this, i64 7
   %13 = load i8, ptr %arrayidx.i.i12.7.i, align 1, !tbaa !25
   %and11.7.i = and i8 %13, %ref.tmp6.sroa.0.7.extract.trunc
@@ -9391,7 +9389,7 @@ _ZN5folly11IPAddressV69fetchMaskEm.exit:          ; preds = %if.end4.i, %if.end.
   %retval.sroa.10.14.insert.ext.i = zext i8 %and11.14.i to i64
   %retval.sroa.10.14.insert.shift.i = shl nuw nsw i64 %retval.sroa.10.14.insert.ext.i, 48
   %ref.tmp6.sroa.11.15.extract.shift = lshr i64 %retval.sroa.4.0.i, 56
-  %ref.tmp6.sroa.11.15.extract.trunc = trunc i64 %ref.tmp6.sroa.11.15.extract.shift to i8
+  %ref.tmp6.sroa.11.15.extract.trunc = trunc nuw i64 %ref.tmp6.sroa.11.15.extract.shift to i8
   %arrayidx.i.i12.15.i = getelementptr inbounds i8, ptr %this, i64 15
   %21 = load i8, ptr %arrayidx.i.i12.15.i, align 1, !tbaa !25
   %and11.15.i = and i8 %21, %ref.tmp6.sroa.11.15.extract.trunc
@@ -9552,7 +9550,7 @@ for.inc.7:
   %1 = or disjoint i16 %div45.i, 48
   %add16.i = add nuw nsw i16 %div45.i, 87
   %value.0.i = select i1 %cmp11.i, i16 %1, i16 %add16.i
-  %conv18.i = trunc i16 %value.0.i to i8
+  %conv18.i = trunc nuw i16 %value.0.i to i8
   store i8 %conv18.i, ptr %str, align 1, !tbaa !25
   %2 = and i16 %rev.i, 4095
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str, i64 1
@@ -9561,7 +9559,7 @@ for.inc.7:
   %3 = or disjoint i16 %div.146.i, 48
   %add16.1.i = add nuw nsw i16 %div.146.i, 87
   %value.0.1.i = select i1 %cmp11.1.i, i16 %3, i16 %add16.1.i
-  %conv18.1.i = trunc i16 %value.0.1.i to i8
+  %conv18.1.i = trunc nuw i16 %value.0.1.i to i8
   store i8 %conv18.1.i, ptr %incdec.ptr.i, align 1, !tbaa !25
   %4 = and i16 %rev.i, 255
   %incdec.ptr.1.i = getelementptr inbounds i8, ptr %str, i64 2
@@ -9570,7 +9568,7 @@ for.inc.7:
   %5 = or disjoint i16 %div.247.i, 48
   %add16.2.i = add nuw nsw i16 %div.247.i, 87
   %value.0.2.i = select i1 %cmp11.2.i, i16 %5, i16 %add16.2.i
-  %conv18.2.i = trunc i16 %value.0.2.i to i8
+  %conv18.2.i = trunc nuw i16 %value.0.2.i to i8
   store i8 %conv18.2.i, ptr %incdec.ptr.1.i, align 1, !tbaa !25
   %6 = and i16 %rev.i, 15
   %incdec.ptr.2.i = getelementptr inbounds i8, ptr %str, i64 3
@@ -9578,7 +9576,7 @@ for.inc.7:
   %7 = or disjoint i16 %6, 48
   %add16.3.i = add nuw nsw i16 %6, 87
   %value.0.3.i = select i1 %cmp11.3.i, i16 %7, i16 %add16.3.i
-  %conv18.3.i = trunc i16 %value.0.3.i to i8
+  %conv18.3.i = trunc nuw i16 %value.0.3.i to i8
   store i8 %conv18.3.i, ptr %incdec.ptr.2.i, align 1, !tbaa !25
   %incdec.ptr.3.i = getelementptr inbounds i8, ptr %str, i64 4
   store i8 58, ptr %incdec.ptr.3.i, align 1, !tbaa !25
@@ -9591,7 +9589,7 @@ for.inc.7:
   %9 = or disjoint i16 %div45.i.1, 48
   %add16.i.1 = add nuw nsw i16 %div45.i.1, 87
   %value.0.i.1 = select i1 %cmp11.i.1, i16 %9, i16 %add16.i.1
-  %conv18.i.1 = trunc i16 %value.0.i.1 to i8
+  %conv18.i.1 = trunc nuw i16 %value.0.i.1 to i8
   store i8 %conv18.i.1, ptr %incdec.ptr, align 1, !tbaa !25
   %10 = and i16 %rev.i.1, 4095
   %incdec.ptr.i.1 = getelementptr inbounds i8, ptr %str, i64 6
@@ -9600,7 +9598,7 @@ for.inc.7:
   %11 = or disjoint i16 %div.146.i.1, 48
   %add16.1.i.1 = add nuw nsw i16 %div.146.i.1, 87
   %value.0.1.i.1 = select i1 %cmp11.1.i.1, i16 %11, i16 %add16.1.i.1
-  %conv18.1.i.1 = trunc i16 %value.0.1.i.1 to i8
+  %conv18.1.i.1 = trunc nuw i16 %value.0.1.i.1 to i8
   store i8 %conv18.1.i.1, ptr %incdec.ptr.i.1, align 1, !tbaa !25
   %12 = and i16 %rev.i.1, 255
   %incdec.ptr.1.i.1 = getelementptr inbounds i8, ptr %str, i64 7
@@ -9609,7 +9607,7 @@ for.inc.7:
   %13 = or disjoint i16 %div.247.i.1, 48
   %add16.2.i.1 = add nuw nsw i16 %div.247.i.1, 87
   %value.0.2.i.1 = select i1 %cmp11.2.i.1, i16 %13, i16 %add16.2.i.1
-  %conv18.2.i.1 = trunc i16 %value.0.2.i.1 to i8
+  %conv18.2.i.1 = trunc nuw i16 %value.0.2.i.1 to i8
   store i8 %conv18.2.i.1, ptr %incdec.ptr.1.i.1, align 1, !tbaa !25
   %14 = and i16 %rev.i.1, 15
   %incdec.ptr.2.i.1 = getelementptr inbounds i8, ptr %str, i64 8
@@ -9617,7 +9615,7 @@ for.inc.7:
   %15 = or disjoint i16 %14, 48
   %add16.3.i.1 = add nuw nsw i16 %14, 87
   %value.0.3.i.1 = select i1 %cmp11.3.i.1, i16 %15, i16 %add16.3.i.1
-  %conv18.3.i.1 = trunc i16 %value.0.3.i.1 to i8
+  %conv18.3.i.1 = trunc nuw i16 %value.0.3.i.1 to i8
   store i8 %conv18.3.i.1, ptr %incdec.ptr.2.i.1, align 1, !tbaa !25
   %incdec.ptr.3.i.1 = getelementptr inbounds i8, ptr %str, i64 9
   store i8 58, ptr %incdec.ptr.3.i.1, align 1, !tbaa !25
@@ -9630,7 +9628,7 @@ for.inc.7:
   %17 = or disjoint i16 %div45.i.2, 48
   %add16.i.2 = add nuw nsw i16 %div45.i.2, 87
   %value.0.i.2 = select i1 %cmp11.i.2, i16 %17, i16 %add16.i.2
-  %conv18.i.2 = trunc i16 %value.0.i.2 to i8
+  %conv18.i.2 = trunc nuw i16 %value.0.i.2 to i8
   store i8 %conv18.i.2, ptr %incdec.ptr.1, align 1, !tbaa !25
   %18 = and i16 %rev.i.2, 4095
   %incdec.ptr.i.2 = getelementptr inbounds i8, ptr %str, i64 11
@@ -9639,7 +9637,7 @@ for.inc.7:
   %19 = or disjoint i16 %div.146.i.2, 48
   %add16.1.i.2 = add nuw nsw i16 %div.146.i.2, 87
   %value.0.1.i.2 = select i1 %cmp11.1.i.2, i16 %19, i16 %add16.1.i.2
-  %conv18.1.i.2 = trunc i16 %value.0.1.i.2 to i8
+  %conv18.1.i.2 = trunc nuw i16 %value.0.1.i.2 to i8
   store i8 %conv18.1.i.2, ptr %incdec.ptr.i.2, align 1, !tbaa !25
   %20 = and i16 %rev.i.2, 255
   %incdec.ptr.1.i.2 = getelementptr inbounds i8, ptr %str, i64 12
@@ -9648,7 +9646,7 @@ for.inc.7:
   %21 = or disjoint i16 %div.247.i.2, 48
   %add16.2.i.2 = add nuw nsw i16 %div.247.i.2, 87
   %value.0.2.i.2 = select i1 %cmp11.2.i.2, i16 %21, i16 %add16.2.i.2
-  %conv18.2.i.2 = trunc i16 %value.0.2.i.2 to i8
+  %conv18.2.i.2 = trunc nuw i16 %value.0.2.i.2 to i8
   store i8 %conv18.2.i.2, ptr %incdec.ptr.1.i.2, align 1, !tbaa !25
   %22 = and i16 %rev.i.2, 15
   %incdec.ptr.2.i.2 = getelementptr inbounds i8, ptr %str, i64 13
@@ -9656,7 +9654,7 @@ for.inc.7:
   %23 = or disjoint i16 %22, 48
   %add16.3.i.2 = add nuw nsw i16 %22, 87
   %value.0.3.i.2 = select i1 %cmp11.3.i.2, i16 %23, i16 %add16.3.i.2
-  %conv18.3.i.2 = trunc i16 %value.0.3.i.2 to i8
+  %conv18.3.i.2 = trunc nuw i16 %value.0.3.i.2 to i8
   store i8 %conv18.3.i.2, ptr %incdec.ptr.2.i.2, align 1, !tbaa !25
   %incdec.ptr.3.i.2 = getelementptr inbounds i8, ptr %str, i64 14
   store i8 58, ptr %incdec.ptr.3.i.2, align 1, !tbaa !25
@@ -9669,7 +9667,7 @@ for.inc.7:
   %25 = or disjoint i16 %div45.i.3, 48
   %add16.i.3 = add nuw nsw i16 %div45.i.3, 87
   %value.0.i.3 = select i1 %cmp11.i.3, i16 %25, i16 %add16.i.3
-  %conv18.i.3 = trunc i16 %value.0.i.3 to i8
+  %conv18.i.3 = trunc nuw i16 %value.0.i.3 to i8
   store i8 %conv18.i.3, ptr %incdec.ptr.2, align 1, !tbaa !25
   %26 = and i16 %rev.i.3, 4095
   %incdec.ptr.i.3 = getelementptr inbounds i8, ptr %str, i64 16
@@ -9678,7 +9676,7 @@ for.inc.7:
   %27 = or disjoint i16 %div.146.i.3, 48
   %add16.1.i.3 = add nuw nsw i16 %div.146.i.3, 87
   %value.0.1.i.3 = select i1 %cmp11.1.i.3, i16 %27, i16 %add16.1.i.3
-  %conv18.1.i.3 = trunc i16 %value.0.1.i.3 to i8
+  %conv18.1.i.3 = trunc nuw i16 %value.0.1.i.3 to i8
   store i8 %conv18.1.i.3, ptr %incdec.ptr.i.3, align 1, !tbaa !25
   %28 = and i16 %rev.i.3, 255
   %incdec.ptr.1.i.3 = getelementptr inbounds i8, ptr %str, i64 17
@@ -9687,7 +9685,7 @@ for.inc.7:
   %29 = or disjoint i16 %div.247.i.3, 48
   %add16.2.i.3 = add nuw nsw i16 %div.247.i.3, 87
   %value.0.2.i.3 = select i1 %cmp11.2.i.3, i16 %29, i16 %add16.2.i.3
-  %conv18.2.i.3 = trunc i16 %value.0.2.i.3 to i8
+  %conv18.2.i.3 = trunc nuw i16 %value.0.2.i.3 to i8
   store i8 %conv18.2.i.3, ptr %incdec.ptr.1.i.3, align 1, !tbaa !25
   %30 = and i16 %rev.i.3, 15
   %incdec.ptr.2.i.3 = getelementptr inbounds i8, ptr %str, i64 18
@@ -9695,7 +9693,7 @@ for.inc.7:
   %31 = or disjoint i16 %30, 48
   %add16.3.i.3 = add nuw nsw i16 %30, 87
   %value.0.3.i.3 = select i1 %cmp11.3.i.3, i16 %31, i16 %add16.3.i.3
-  %conv18.3.i.3 = trunc i16 %value.0.3.i.3 to i8
+  %conv18.3.i.3 = trunc nuw i16 %value.0.3.i.3 to i8
   store i8 %conv18.3.i.3, ptr %incdec.ptr.2.i.3, align 1, !tbaa !25
   %incdec.ptr.3.i.3 = getelementptr inbounds i8, ptr %str, i64 19
   store i8 58, ptr %incdec.ptr.3.i.3, align 1, !tbaa !25
@@ -9708,7 +9706,7 @@ for.inc.7:
   %33 = or disjoint i16 %div45.i.4, 48
   %add16.i.4 = add nuw nsw i16 %div45.i.4, 87
   %value.0.i.4 = select i1 %cmp11.i.4, i16 %33, i16 %add16.i.4
-  %conv18.i.4 = trunc i16 %value.0.i.4 to i8
+  %conv18.i.4 = trunc nuw i16 %value.0.i.4 to i8
   store i8 %conv18.i.4, ptr %incdec.ptr.3, align 1, !tbaa !25
   %34 = and i16 %rev.i.4, 4095
   %incdec.ptr.i.4 = getelementptr inbounds i8, ptr %str, i64 21
@@ -9717,7 +9715,7 @@ for.inc.7:
   %35 = or disjoint i16 %div.146.i.4, 48
   %add16.1.i.4 = add nuw nsw i16 %div.146.i.4, 87
   %value.0.1.i.4 = select i1 %cmp11.1.i.4, i16 %35, i16 %add16.1.i.4
-  %conv18.1.i.4 = trunc i16 %value.0.1.i.4 to i8
+  %conv18.1.i.4 = trunc nuw i16 %value.0.1.i.4 to i8
   store i8 %conv18.1.i.4, ptr %incdec.ptr.i.4, align 1, !tbaa !25
   %36 = and i16 %rev.i.4, 255
   %incdec.ptr.1.i.4 = getelementptr inbounds i8, ptr %str, i64 22
@@ -9726,7 +9724,7 @@ for.inc.7:
   %37 = or disjoint i16 %div.247.i.4, 48
   %add16.2.i.4 = add nuw nsw i16 %div.247.i.4, 87
   %value.0.2.i.4 = select i1 %cmp11.2.i.4, i16 %37, i16 %add16.2.i.4
-  %conv18.2.i.4 = trunc i16 %value.0.2.i.4 to i8
+  %conv18.2.i.4 = trunc nuw i16 %value.0.2.i.4 to i8
   store i8 %conv18.2.i.4, ptr %incdec.ptr.1.i.4, align 1, !tbaa !25
   %38 = and i16 %rev.i.4, 15
   %incdec.ptr.2.i.4 = getelementptr inbounds i8, ptr %str, i64 23
@@ -9734,7 +9732,7 @@ for.inc.7:
   %39 = or disjoint i16 %38, 48
   %add16.3.i.4 = add nuw nsw i16 %38, 87
   %value.0.3.i.4 = select i1 %cmp11.3.i.4, i16 %39, i16 %add16.3.i.4
-  %conv18.3.i.4 = trunc i16 %value.0.3.i.4 to i8
+  %conv18.3.i.4 = trunc nuw i16 %value.0.3.i.4 to i8
   store i8 %conv18.3.i.4, ptr %incdec.ptr.2.i.4, align 1, !tbaa !25
   %incdec.ptr.3.i.4 = getelementptr inbounds i8, ptr %str, i64 24
   store i8 58, ptr %incdec.ptr.3.i.4, align 1, !tbaa !25
@@ -9747,7 +9745,7 @@ for.inc.7:
   %41 = or disjoint i16 %div45.i.5, 48
   %add16.i.5 = add nuw nsw i16 %div45.i.5, 87
   %value.0.i.5 = select i1 %cmp11.i.5, i16 %41, i16 %add16.i.5
-  %conv18.i.5 = trunc i16 %value.0.i.5 to i8
+  %conv18.i.5 = trunc nuw i16 %value.0.i.5 to i8
   store i8 %conv18.i.5, ptr %incdec.ptr.4, align 1, !tbaa !25
   %42 = and i16 %rev.i.5, 4095
   %incdec.ptr.i.5 = getelementptr inbounds i8, ptr %str, i64 26
@@ -9756,7 +9754,7 @@ for.inc.7:
   %43 = or disjoint i16 %div.146.i.5, 48
   %add16.1.i.5 = add nuw nsw i16 %div.146.i.5, 87
   %value.0.1.i.5 = select i1 %cmp11.1.i.5, i16 %43, i16 %add16.1.i.5
-  %conv18.1.i.5 = trunc i16 %value.0.1.i.5 to i8
+  %conv18.1.i.5 = trunc nuw i16 %value.0.1.i.5 to i8
   store i8 %conv18.1.i.5, ptr %incdec.ptr.i.5, align 1, !tbaa !25
   %44 = and i16 %rev.i.5, 255
   %incdec.ptr.1.i.5 = getelementptr inbounds i8, ptr %str, i64 27
@@ -9765,7 +9763,7 @@ for.inc.7:
   %45 = or disjoint i16 %div.247.i.5, 48
   %add16.2.i.5 = add nuw nsw i16 %div.247.i.5, 87
   %value.0.2.i.5 = select i1 %cmp11.2.i.5, i16 %45, i16 %add16.2.i.5
-  %conv18.2.i.5 = trunc i16 %value.0.2.i.5 to i8
+  %conv18.2.i.5 = trunc nuw i16 %value.0.2.i.5 to i8
   store i8 %conv18.2.i.5, ptr %incdec.ptr.1.i.5, align 1, !tbaa !25
   %46 = and i16 %rev.i.5, 15
   %incdec.ptr.2.i.5 = getelementptr inbounds i8, ptr %str, i64 28
@@ -9773,7 +9771,7 @@ for.inc.7:
   %47 = or disjoint i16 %46, 48
   %add16.3.i.5 = add nuw nsw i16 %46, 87
   %value.0.3.i.5 = select i1 %cmp11.3.i.5, i16 %47, i16 %add16.3.i.5
-  %conv18.3.i.5 = trunc i16 %value.0.3.i.5 to i8
+  %conv18.3.i.5 = trunc nuw i16 %value.0.3.i.5 to i8
   store i8 %conv18.3.i.5, ptr %incdec.ptr.2.i.5, align 1, !tbaa !25
   %incdec.ptr.3.i.5 = getelementptr inbounds i8, ptr %str, i64 29
   store i8 58, ptr %incdec.ptr.3.i.5, align 1, !tbaa !25
@@ -9786,7 +9784,7 @@ for.inc.7:
   %49 = or disjoint i16 %div45.i.6, 48
   %add16.i.6 = add nuw nsw i16 %div45.i.6, 87
   %value.0.i.6 = select i1 %cmp11.i.6, i16 %49, i16 %add16.i.6
-  %conv18.i.6 = trunc i16 %value.0.i.6 to i8
+  %conv18.i.6 = trunc nuw i16 %value.0.i.6 to i8
   store i8 %conv18.i.6, ptr %incdec.ptr.5, align 1, !tbaa !25
   %50 = and i16 %rev.i.6, 4095
   %incdec.ptr.i.6 = getelementptr inbounds i8, ptr %str, i64 31
@@ -9795,7 +9793,7 @@ for.inc.7:
   %51 = or disjoint i16 %div.146.i.6, 48
   %add16.1.i.6 = add nuw nsw i16 %div.146.i.6, 87
   %value.0.1.i.6 = select i1 %cmp11.1.i.6, i16 %51, i16 %add16.1.i.6
-  %conv18.1.i.6 = trunc i16 %value.0.1.i.6 to i8
+  %conv18.1.i.6 = trunc nuw i16 %value.0.1.i.6 to i8
   store i8 %conv18.1.i.6, ptr %incdec.ptr.i.6, align 1, !tbaa !25
   %52 = and i16 %rev.i.6, 255
   %incdec.ptr.1.i.6 = getelementptr inbounds i8, ptr %str, i64 32
@@ -9804,7 +9802,7 @@ for.inc.7:
   %53 = or disjoint i16 %div.247.i.6, 48
   %add16.2.i.6 = add nuw nsw i16 %div.247.i.6, 87
   %value.0.2.i.6 = select i1 %cmp11.2.i.6, i16 %53, i16 %add16.2.i.6
-  %conv18.2.i.6 = trunc i16 %value.0.2.i.6 to i8
+  %conv18.2.i.6 = trunc nuw i16 %value.0.2.i.6 to i8
   store i8 %conv18.2.i.6, ptr %incdec.ptr.1.i.6, align 1, !tbaa !25
   %54 = and i16 %rev.i.6, 15
   %incdec.ptr.2.i.6 = getelementptr inbounds i8, ptr %str, i64 33
@@ -9812,7 +9810,7 @@ for.inc.7:
   %55 = or disjoint i16 %54, 48
   %add16.3.i.6 = add nuw nsw i16 %54, 87
   %value.0.3.i.6 = select i1 %cmp11.3.i.6, i16 %55, i16 %add16.3.i.6
-  %conv18.3.i.6 = trunc i16 %value.0.3.i.6 to i8
+  %conv18.3.i.6 = trunc nuw i16 %value.0.3.i.6 to i8
   store i8 %conv18.3.i.6, ptr %incdec.ptr.2.i.6, align 1, !tbaa !25
   %incdec.ptr.3.i.6 = getelementptr inbounds i8, ptr %str, i64 34
   store i8 58, ptr %incdec.ptr.3.i.6, align 1, !tbaa !25
@@ -9825,7 +9823,7 @@ for.inc.7:
   %57 = or disjoint i16 %div45.i.7, 48
   %add16.i.7 = add nuw nsw i16 %div45.i.7, 87
   %value.0.i.7 = select i1 %cmp11.i.7, i16 %57, i16 %add16.i.7
-  %conv18.i.7 = trunc i16 %value.0.i.7 to i8
+  %conv18.i.7 = trunc nuw i16 %value.0.i.7 to i8
   store i8 %conv18.i.7, ptr %incdec.ptr.6, align 1, !tbaa !25
   %58 = and i16 %rev.i.7, 4095
   %incdec.ptr.i.7 = getelementptr inbounds i8, ptr %str, i64 36
@@ -9834,7 +9832,7 @@ for.inc.7:
   %59 = or disjoint i16 %div.146.i.7, 48
   %add16.1.i.7 = add nuw nsw i16 %div.146.i.7, 87
   %value.0.1.i.7 = select i1 %cmp11.1.i.7, i16 %59, i16 %add16.1.i.7
-  %conv18.1.i.7 = trunc i16 %value.0.1.i.7 to i8
+  %conv18.1.i.7 = trunc nuw i16 %value.0.1.i.7 to i8
   store i8 %conv18.1.i.7, ptr %incdec.ptr.i.7, align 1, !tbaa !25
   %60 = and i16 %rev.i.7, 255
   %incdec.ptr.1.i.7 = getelementptr inbounds i8, ptr %str, i64 37
@@ -9843,7 +9841,7 @@ for.inc.7:
   %61 = or disjoint i16 %div.247.i.7, 48
   %add16.2.i.7 = add nuw nsw i16 %div.247.i.7, 87
   %value.0.2.i.7 = select i1 %cmp11.2.i.7, i16 %61, i16 %add16.2.i.7
-  %conv18.2.i.7 = trunc i16 %value.0.2.i.7 to i8
+  %conv18.2.i.7 = trunc nuw i16 %value.0.2.i.7 to i8
   store i8 %conv18.2.i.7, ptr %incdec.ptr.1.i.7, align 1, !tbaa !25
   %62 = and i16 %rev.i.7, 15
   %incdec.ptr.2.i.7 = getelementptr inbounds i8, ptr %str, i64 38
@@ -9851,7 +9849,7 @@ for.inc.7:
   %63 = or disjoint i16 %62, 48
   %add16.3.i.7 = add nuw nsw i16 %62, 87
   %value.0.3.i.7 = select i1 %cmp11.3.i.7, i16 %63, i16 %add16.3.i.7
-  %conv18.3.i.7 = trunc i16 %value.0.3.i.7 to i8
+  %conv18.3.i.7 = trunc nuw i16 %value.0.3.i.7 to i8
   store i8 %conv18.3.i.7, ptr %incdec.ptr.2.i.7, align 1, !tbaa !25
   ret i64 39
 }

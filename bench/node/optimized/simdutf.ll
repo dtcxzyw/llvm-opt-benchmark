@@ -4051,7 +4051,7 @@ if.end40.i:                                       ; preds = %if.end30.i
   br i1 %cmp41.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin119convert_with_errorsEPKcmPc.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end40.i
-  %conv44.i = trunc i32 %or37.i to i8
+  %conv44.i = trunc nuw i32 %or37.i to i8
   br label %if.end64.i
 
 if.else47.i:                                      ; preds = %if.else.i
@@ -4286,7 +4286,7 @@ if.end42:                                         ; preds = %if.end35
   br i1 %cmp50, label %return, label %if.end59
 
 if.end59:                                         ; preds = %if.end42
-  %conv60 = trunc i32 %or49 to i16
+  %conv60 = trunc nuw nsw i32 %or49 to i16
   %incdec.ptr61 = getelementptr inbounds i8, ptr %utf16_output.addr.093, i64 2
   store i16 %conv60, ptr %utf16_output.addr.093, align 2
   %add62 = add i64 %pos.092, 2
@@ -4333,7 +4333,7 @@ if.end85:                                         ; preds = %if.end78
   br i1 %or.cond, label %return, label %if.end114
 
 if.end114:                                        ; preds = %if.end85
-  %conv115 = trunc i32 %or100 to i16
+  %conv115 = trunc nuw i32 %or100 to i16
   %incdec.ptr116 = getelementptr inbounds i8, ptr %utf16_output.addr.093, i64 2
   store i16 %conv115, ptr %utf16_output.addr.093, align 2
   %add117 = add i64 %pos.092, 3
@@ -4393,7 +4393,7 @@ if.end183:                                        ; preds = %if.end147
   %shr = lshr i32 %sub, 10
   %12 = trunc i32 %shr to i16
   %conv175 = add nuw nsw i16 %12, -10240
-  %13 = trunc i32 %11 to i16
+  %13 = trunc nuw nsw i32 %11 to i16
   %conv178 = or i16 %13, -9216
   %incdec.ptr184 = getelementptr inbounds i8, ptr %utf16_output.addr.093, i64 2
   store i16 %conv175, ptr %utf16_output.addr.093, align 2
@@ -4515,7 +4515,7 @@ if.end42:                                         ; preds = %if.end35
   br i1 %cmp50, label %return, label %if.end59
 
 if.end59:                                         ; preds = %if.end42
-  %conv56 = trunc i32 %or49 to i16
+  %conv56 = trunc nuw nsw i32 %or49 to i16
   %or.i82 = tail call noundef i16 @llvm.bswap.i16(i16 %conv56)
   %incdec.ptr61 = getelementptr inbounds i8, ptr %utf16_output.addr.093, i64 2
   store i16 %or.i82, ptr %utf16_output.addr.093, align 2
@@ -4563,7 +4563,7 @@ if.end85:                                         ; preds = %if.end78
   br i1 %or.cond, label %return, label %if.end114
 
 if.end114:                                        ; preds = %if.end85
-  %conv111 = trunc i32 %or100 to i16
+  %conv111 = trunc nuw i32 %or100 to i16
   %or.i83 = tail call noundef i16 @llvm.bswap.i16(i16 %conv111)
   %incdec.ptr116 = getelementptr inbounds i8, ptr %utf16_output.addr.093, i64 2
   store i16 %or.i83, ptr %utf16_output.addr.093, align 2
@@ -4624,7 +4624,7 @@ if.end183:                                        ; preds = %if.end147
   %shr = lshr i32 %sub, 10
   %12 = trunc i32 %shr to i16
   %conv175 = add nuw nsw i16 %12, -10240
-  %13 = trunc i32 %11 to i16
+  %13 = trunc nuw nsw i32 %11 to i16
   %conv178 = or i16 %13, -9216
   %or.i84 = tail call noundef i16 @llvm.bswap.i16(i16 %conv175)
   %or.i85 = tail call noundef i16 @llvm.bswap.i16(i16 %conv178)
@@ -4746,7 +4746,7 @@ if.end42:                                         ; preds = %if.end35
   br i1 %cmp50, label %return, label %if.end59
 
 if.end59:                                         ; preds = %if.end42
-  %conv60 = trunc i32 %or49 to i16
+  %conv60 = trunc nuw nsw i32 %or49 to i16
   %incdec.ptr61 = getelementptr inbounds i8, ptr %utf16_output.addr.0113, i64 2
   store i16 %conv60, ptr %utf16_output.addr.0113, align 2
   %add62 = add i64 %pos.0112, 2
@@ -4795,7 +4795,7 @@ if.end105:                                        ; preds = %if.end85
   br i1 %or.cond2, label %return, label %if.end115
 
 if.end115:                                        ; preds = %if.end105
-  %conv116 = trunc i32 %or100 to i16
+  %conv116 = trunc nuw i32 %or100 to i16
   %incdec.ptr117 = getelementptr inbounds i8, ptr %utf16_output.addr.0113, i64 2
   store i16 %conv116, ptr %utf16_output.addr.0113, align 2
   %add118 = add i64 %pos.0112, 3
@@ -4990,7 +4990,7 @@ if.end42:                                         ; preds = %if.end35
   br i1 %cmp50, label %return, label %if.end59
 
 if.end59:                                         ; preds = %if.end42
-  %conv56 = trunc i32 %or49 to i16
+  %conv56 = trunc nuw nsw i32 %or49 to i16
   %or.i98 = tail call noundef i16 @llvm.bswap.i16(i16 %conv56)
   %incdec.ptr61 = getelementptr inbounds i8, ptr %utf16_output.addr.0113, i64 2
   store i16 %or.i98, ptr %utf16_output.addr.0113, align 2
@@ -5040,7 +5040,7 @@ if.end105:                                        ; preds = %if.end85
   br i1 %or.cond2, label %return, label %if.end115
 
 if.end115:                                        ; preds = %if.end105
-  %conv112 = trunc i32 %or100 to i16
+  %conv112 = trunc nuw i32 %or100 to i16
   %or.i99 = tail call noundef i16 @llvm.bswap.i16(i16 %conv112)
   %incdec.ptr117 = getelementptr inbounds i8, ptr %utf16_output.addr.0113, i64 2
   store i16 %or.i99, ptr %utf16_output.addr.0113, align 2
@@ -5224,7 +5224,7 @@ if.end44:                                         ; preds = %if.then29
   %4 = and i8 %3, 63
   %and39 = zext nneg i8 %4 to i32
   %or = or disjoint i32 %shl, %and39
-  %conv40 = trunc i32 %or to i16
+  %conv40 = trunc nuw nsw i32 %or to i16
   %incdec.ptr45 = getelementptr inbounds i8, ptr %utf16_output.addr.068, i64 2
   store i16 %conv40, ptr %utf16_output.addr.068, align 2
   %add46 = add i64 %pos.067, 2
@@ -5293,7 +5293,7 @@ if.end117:                                        ; preds = %if.then82
   %15 = trunc i32 %shr to i16
   %conv109 = add nsw i16 %15, -10240
   %and110 = or disjoint i32 %shl101, %and106
-  %16 = trunc i32 %and110 to i16
+  %16 = trunc nuw nsw i32 %and110 to i16
   %conv112 = or i16 %16, -9216
   %incdec.ptr118 = getelementptr inbounds i8, ptr %utf16_output.addr.068, i64 2
   store i16 %conv109, ptr %utf16_output.addr.068, align 2
@@ -5403,7 +5403,7 @@ if.end44:                                         ; preds = %if.then29
   %4 = and i8 %3, 63
   %and39 = zext nneg i8 %4 to i32
   %or = or disjoint i32 %shl, %and39
-  %conv40 = trunc i32 %or to i16
+  %conv40 = trunc nuw nsw i32 %or to i16
   %or.i57 = tail call noundef i16 @llvm.bswap.i16(i16 %conv40)
   %incdec.ptr45 = getelementptr inbounds i8, ptr %utf16_output.addr.068, i64 2
   store i16 %or.i57, ptr %utf16_output.addr.068, align 2
@@ -5474,7 +5474,7 @@ if.end117:                                        ; preds = %if.then82
   %15 = trunc i32 %shr to i16
   %conv109 = add nsw i16 %15, -10240
   %and110 = or disjoint i32 %shl101, %and106
-  %16 = trunc i32 %and110 to i16
+  %16 = trunc nuw nsw i32 %and110 to i16
   %conv112 = or i16 %16, -9216
   %or.i59 = tail call noundef i16 @llvm.bswap.i16(i16 %conv109)
   %or.i60 = tail call noundef i16 @llvm.bswap.i16(i16 %conv112)
@@ -6346,7 +6346,7 @@ cond.end48.i:                                     ; preds = %if.then.i, %while.b
   br i1 %cmp52.i, label %if.then53.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin119convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc.exit
 
 if.then53.i:                                      ; preds = %cond.end48.i
-  %conv56.i = trunc i16 %4 to i8
+  %conv56.i = trunc nuw i16 %4 to i8
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %latin_output.addr.044.i, i64 1
   store i8 %conv56.i, ptr %latin_output.addr.044.i, align 1
   %inc58.i = add i64 %pos.043.i, 1
@@ -6421,7 +6421,7 @@ cond.end.i:                                       ; preds = %while.cond33.prehea
   %arrayidx.i = getelementptr inbounds i16, ptr %buf, i64 %pos.139.i
   %6 = load i16, ptr %arrayidx.i, align 2
   %or.i.i = lshr i16 %6, 8
-  %cond.i = trunc i16 %or.i.i to i8
+  %cond.i = trunc nuw i16 %or.i.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
@@ -6435,7 +6435,7 @@ cond.end48.i:                                     ; preds = %if.then.i, %while.b
   br i1 %cmp52.i, label %if.then53.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin119convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc.exit
 
 if.then53.i:                                      ; preds = %cond.end48.i
-  %conv56.i = trunc i16 %or.i35.i to i8
+  %conv56.i = trunc nuw i16 %or.i35.i to i8
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %latin_output.addr.044.i, i64 1
   store i8 %conv56.i, ptr %latin_output.addr.044.i, align 1
   %inc58.i = add i64 %pos.043.i, 1
@@ -6500,7 +6500,7 @@ cond.end.i:                                       ; preds = %entry, %cond.end.i
   %arrayidx.i = getelementptr inbounds i16, ptr %buf, i64 %pos.08.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %or.i.i = lshr i16 %0, 8
-  %conv.i = trunc i16 %or.i.i to i8
+  %conv.i = trunc nuw i16 %or.i.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin_output.addr.09.i, i64 1
   store i8 %conv.i, ptr %latin_output.addr.09.i, align 1
   %inc.i = add nuw i64 %pos.08.i, 1
@@ -6569,7 +6569,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc i16 %2 to i8
+  %conv27 = trunc nuw i16 %2 to i8
   %incdec.ptr28 = getelementptr inbounds i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv27, ptr %utf8_output.addr.062, align 1
   %inc29 = add i64 %pos.061, 1
@@ -6598,7 +6598,7 @@ if.then33:                                        ; preds = %if.else
 
 if.then49:                                        ; preds = %if.else
   %shr51 = lshr i16 %2, 12
-  %7 = trunc i16 %shr51 to i8
+  %7 = trunc nuw nsw i16 %shr51 to i8
   %conv53 = or disjoint i8 %7, -32
   %incdec.ptr54 = getelementptr inbounds i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv53, ptr %utf8_output.addr.062, align 1
@@ -6640,7 +6640,7 @@ if.end94:                                         ; preds = %cond.end86
   %add98 = or disjoint i32 %shl96, %conv91
   %add99 = add nuw nsw i32 %add98, 65536
   %shr100 = lshr i32 %add99, 18
-  %13 = trunc i32 %shr100 to i8
+  %13 = trunc nuw i32 %shr100 to i8
   %conv102 = or i8 %13, -16
   %incdec.ptr103 = getelementptr inbounds i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv102, ptr %utf8_output.addr.062, align 1
@@ -6725,7 +6725,7 @@ cond.end:                                         ; preds = %while.cond6.prehead
   %arrayidx = getelementptr inbounds i16, ptr %buf, i64 %pos.157
   %1 = load i16, ptr %arrayidx, align 2
   %or.i = lshr i16 %1, 8
-  %cond = trunc i16 %or.i to i8
+  %cond = trunc nuw i16 %or.i to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %utf8_output.addr.158, i64 1
   store i8 %cond, ptr %utf8_output.addr.158, align 1
   %inc = add nuw i64 %pos.157, 1
@@ -6739,7 +6739,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc i16 %or.i53 to i8
+  %conv27 = trunc nuw i16 %or.i53 to i8
   %incdec.ptr28 = getelementptr inbounds i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv27, ptr %utf8_output.addr.062, align 1
   %inc29 = add i64 %pos.061, 1
@@ -6768,7 +6768,7 @@ if.then33:                                        ; preds = %if.else
 
 if.then49:                                        ; preds = %if.else
   %shr51 = lshr i16 %or.i53, 12
-  %7 = trunc i16 %shr51 to i8
+  %7 = trunc nuw nsw i16 %shr51 to i8
   %conv53 = or disjoint i8 %7, -32
   %incdec.ptr54 = getelementptr inbounds i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv53, ptr %utf8_output.addr.062, align 1
@@ -6811,7 +6811,7 @@ if.end94:                                         ; preds = %cond.end86
   %add98 = or disjoint i32 %shl96, %conv91
   %add99 = add nuw nsw i32 %add98, 65536
   %shr100 = lshr i32 %add99, 18
-  %13 = trunc i32 %shr100 to i8
+  %13 = trunc nuw i32 %shr100 to i8
   %conv102 = or i8 %13, -16
   %incdec.ptr103 = getelementptr inbounds i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv102, ptr %utf8_output.addr.062, align 1
@@ -6907,7 +6907,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc i16 %2 to i8
+  %conv27 = trunc nuw i16 %2 to i8
   %incdec.ptr28 = getelementptr inbounds i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv27, ptr %utf8_output.addr.066, align 1
   %inc29 = add i64 %pos.065, 1
@@ -6936,7 +6936,7 @@ if.then33:                                        ; preds = %if.else
 
 if.then49:                                        ; preds = %if.else
   %shr51 = lshr i16 %2, 12
-  %7 = trunc i16 %shr51 to i8
+  %7 = trunc nuw nsw i16 %shr51 to i8
   %conv53 = or disjoint i8 %7, -32
   %incdec.ptr54 = getelementptr inbounds i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv53, ptr %utf8_output.addr.066, align 1
@@ -6978,7 +6978,7 @@ if.end94:                                         ; preds = %cond.end86
   %add98 = or disjoint i32 %shl96, %conv91
   %add99 = add nuw nsw i32 %add98, 65536
   %shr100 = lshr i32 %add99, 18
-  %13 = trunc i32 %shr100 to i8
+  %13 = trunc nuw i32 %shr100 to i8
   %conv102 = or i8 %13, -16
   %incdec.ptr103 = getelementptr inbounds i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv102, ptr %utf8_output.addr.066, align 1
@@ -7066,7 +7066,7 @@ cond.end:                                         ; preds = %while.cond6.prehead
   %arrayidx = getelementptr inbounds i16, ptr %buf, i64 %pos.161
   %1 = load i16, ptr %arrayidx, align 2
   %or.i = lshr i16 %1, 8
-  %cond = trunc i16 %or.i to i8
+  %cond = trunc nuw i16 %or.i to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %utf8_output.addr.162, i64 1
   store i8 %cond, ptr %utf8_output.addr.162, align 1
   %inc = add nuw i64 %pos.161, 1
@@ -7080,7 +7080,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc i16 %or.i56 to i8
+  %conv27 = trunc nuw i16 %or.i56 to i8
   %incdec.ptr28 = getelementptr inbounds i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv27, ptr %utf8_output.addr.066, align 1
   %inc29 = add i64 %pos.065, 1
@@ -7109,7 +7109,7 @@ if.then33:                                        ; preds = %if.else
 
 if.then49:                                        ; preds = %if.else
   %shr51 = lshr i16 %or.i56, 12
-  %7 = trunc i16 %shr51 to i8
+  %7 = trunc nuw nsw i16 %shr51 to i8
   %conv53 = or disjoint i8 %7, -32
   %incdec.ptr54 = getelementptr inbounds i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv53, ptr %utf8_output.addr.066, align 1
@@ -7152,7 +7152,7 @@ if.end94:                                         ; preds = %cond.end86
   %add98 = or disjoint i32 %shl96, %conv91
   %add99 = add nuw nsw i32 %add98, 65536
   %shr100 = lshr i32 %add99, 18
-  %13 = trunc i32 %shr100 to i8
+  %13 = trunc nuw i32 %shr100 to i8
   %conv102 = or i8 %13, -16
   %incdec.ptr103 = getelementptr inbounds i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv102, ptr %utf8_output.addr.066, align 1
@@ -7244,7 +7244,7 @@ cond.end21.i:                                     ; preds = %if.then.i, %while.b
   br i1 %cmp25.i, label %if.then26.i, label %if.else.i
 
 if.then26.i:                                      ; preds = %cond.end21.i
-  %conv27.i = trunc i16 %2 to i8
+  %conv27.i = trunc nuw i16 %2 to i8
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %utf8_output.addr.060.i, i64 1
   store i8 %conv27.i, ptr %utf8_output.addr.060.i, align 1
   %inc29.i = add i64 %pos.059.i, 1
@@ -7273,7 +7273,7 @@ if.then33.i:                                      ; preds = %if.else.i
 
 if.then49.i:                                      ; preds = %if.else.i
   %shr51.i = lshr i16 %2, 12
-  %7 = trunc i16 %shr51.i to i8
+  %7 = trunc nuw nsw i16 %shr51.i to i8
   %conv53.i = or disjoint i8 %7, -32
   %incdec.ptr54.i = getelementptr inbounds i8, ptr %utf8_output.addr.060.i, i64 1
   store i8 %conv53.i, ptr %utf8_output.addr.060.i, align 1
@@ -7385,7 +7385,7 @@ cond.end.i:                                       ; preds = %while.cond6.prehead
   %arrayidx.i = getelementptr inbounds i16, ptr %buf, i64 %pos.155.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %or.i.i = lshr i16 %1, 8
-  %cond.i = trunc i16 %or.i.i to i8
+  %cond.i = trunc nuw i16 %or.i.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.156.i, i64 1
   store i8 %cond.i, ptr %utf8_output.addr.156.i, align 1
   %inc.i = add nuw i64 %pos.155.i, 1
@@ -7399,7 +7399,7 @@ cond.end21.i:                                     ; preds = %if.then.i, %while.b
   br i1 %cmp25.i, label %if.then26.i, label %if.else.i
 
 if.then26.i:                                      ; preds = %cond.end21.i
-  %conv27.i = trunc i16 %or.i51.i to i8
+  %conv27.i = trunc nuw i16 %or.i51.i to i8
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %utf8_output.addr.060.i, i64 1
   store i8 %conv27.i, ptr %utf8_output.addr.060.i, align 1
   %inc29.i = add i64 %pos.059.i, 1
@@ -7428,7 +7428,7 @@ if.then33.i:                                      ; preds = %if.else.i
 
 if.then49.i:                                      ; preds = %if.else.i
   %shr51.i = lshr i16 %or.i51.i, 12
-  %7 = trunc i16 %shr51.i to i8
+  %7 = trunc nuw nsw i16 %shr51.i to i8
   %conv53.i = or disjoint i8 %7, -32
   %incdec.ptr54.i = getelementptr inbounds i8, ptr %utf8_output.addr.060.i, i64 1
   store i8 %conv53.i, ptr %utf8_output.addr.060.i, align 1
@@ -7587,7 +7587,7 @@ if.end9.i:                                        ; preds = %if.then.i, %while.b
   br i1 %cmp12.i, label %if.then13.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin119convert_with_errorsEPKDimPc.exit
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %conv15.i = trunc i32 %2 to i8
+  %conv15.i = trunc nuw i32 %2 to i8
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %latin1_output.addr.022.i, i64 1
   store i8 %conv15.i, ptr %latin1_output.addr.022.i, align 1
   %inc.i = add nuw i64 %pos.021.i, 1
@@ -7716,7 +7716,7 @@ if.end9:                                          ; preds = %while.body.if.end9_
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end9
-  %conv14 = trunc i32 %2 to i8
+  %conv14 = trunc nuw i32 %2 to i8
   %incdec.ptr15 = getelementptr inbounds i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv14, ptr %utf8_output.addr.046, align 1
   br label %if.end73
@@ -7727,7 +7727,7 @@ if.else:                                          ; preds = %if.end9
 
 if.then18:                                        ; preds = %if.else
   %shr = lshr i32 %2, 6
-  %3 = trunc i32 %shr to i8
+  %3 = trunc nuw i32 %shr to i8
   %conv19 = or disjoint i8 %3, -64
   %incdec.ptr20 = getelementptr inbounds i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv19, ptr %utf8_output.addr.046, align 1
@@ -7749,7 +7749,7 @@ if.then29:                                        ; preds = %if.else26
 
 if.end33:                                         ; preds = %if.then29
   %shr34 = lshr i32 %2, 12
-  %7 = trunc i32 %shr34 to i8
+  %7 = trunc nuw i32 %shr34 to i8
   %conv36 = or disjoint i8 %7, -32
   %incdec.ptr37 = getelementptr inbounds i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv36, ptr %utf8_output.addr.046, align 1
@@ -7772,7 +7772,7 @@ if.else48:                                        ; preds = %if.else26
 
 if.end51:                                         ; preds = %if.else48
   %shr52 = lshr i32 %2, 18
-  %12 = trunc i32 %shr52 to i8
+  %12 = trunc nuw i32 %shr52 to i8
   %conv54 = or disjoint i8 %12, -16
   %incdec.ptr55 = getelementptr inbounds i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv54, ptr %utf8_output.addr.046, align 1
@@ -7867,7 +7867,7 @@ if.end9:                                          ; preds = %while.body.if.end9_
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end9
-  %conv14 = trunc i32 %2 to i8
+  %conv14 = trunc nuw i32 %2 to i8
   %incdec.ptr15 = getelementptr inbounds i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv14, ptr %utf8_output.addr.049, align 1
   br label %if.end73
@@ -7878,7 +7878,7 @@ if.else:                                          ; preds = %if.end9
 
 if.then18:                                        ; preds = %if.else
   %shr = lshr i32 %2, 6
-  %3 = trunc i32 %shr to i8
+  %3 = trunc nuw i32 %shr to i8
   %conv19 = or disjoint i8 %3, -64
   %incdec.ptr20 = getelementptr inbounds i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv19, ptr %utf8_output.addr.049, align 1
@@ -7900,7 +7900,7 @@ if.then29:                                        ; preds = %if.else26
 
 if.end33:                                         ; preds = %if.then29
   %shr34 = lshr i32 %2, 12
-  %7 = trunc i32 %shr34 to i8
+  %7 = trunc nuw i32 %shr34 to i8
   %conv36 = or disjoint i8 %7, -32
   %incdec.ptr37 = getelementptr inbounds i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv36, ptr %utf8_output.addr.049, align 1
@@ -7923,7 +7923,7 @@ if.else48:                                        ; preds = %if.else26
 
 if.end51:                                         ; preds = %if.else48
   %shr52 = lshr i32 %2, 18
-  %12 = trunc i32 %shr52 to i8
+  %12 = trunc nuw i32 %shr52 to i8
   %conv54 = or disjoint i8 %12, -16
   %incdec.ptr55 = getelementptr inbounds i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv54, ptr %utf8_output.addr.049, align 1
@@ -8014,7 +8014,7 @@ if.end9.i:                                        ; preds = %if.then.i, %while.b
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %conv14.i = trunc i32 %2 to i8
+  %conv14.i = trunc nuw i32 %2 to i8
   %incdec.ptr15.i = getelementptr inbounds i8, ptr %utf8_output.addr.042.i, i64 1
   store i8 %conv14.i, ptr %utf8_output.addr.042.i, align 1
   br label %if.end66.i
@@ -8025,7 +8025,7 @@ if.else.i:                                        ; preds = %if.end9.i
 
 if.then18.i:                                      ; preds = %if.else.i
   %shr.i = lshr i32 %2, 6
-  %3 = trunc i32 %shr.i to i8
+  %3 = trunc nuw i32 %shr.i to i8
   %conv19.i = or disjoint i8 %3, -64
   %incdec.ptr20.i = getelementptr inbounds i8, ptr %utf8_output.addr.042.i, i64 1
   store i8 %conv19.i, ptr %utf8_output.addr.042.i, align 1
@@ -8044,7 +8044,7 @@ if.else26.i:                                      ; preds = %if.else.i
 
 if.then29.i:                                      ; preds = %if.else26.i
   %shr30.i = lshr i32 %2, 12
-  %6 = trunc i32 %shr30.i to i8
+  %6 = trunc nuw i32 %shr30.i to i8
   %conv32.i = or disjoint i8 %6, -32
   store i8 %conv32.i, ptr %utf8_output.addr.042.i, align 1
   %shr34.i = lshr i32 %2, 6
@@ -8115,7 +8115,7 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %or.cond.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i
-  %conv6.i = trunc i32 %0 to i16
+  %conv6.i = trunc nuw i32 %0 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.021.i, align 2
   br label %if.end21.i
@@ -8177,7 +8177,7 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %or.cond.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i
-  %conv.i = trunc i32 %0 to i16
+  %conv.i = trunc nuw i32 %0 to i16
   %or.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %or.i.i, ptr %utf16_output.addr.021.i, align 2
@@ -8242,7 +8242,7 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %or.cond.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1619convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDimPDs.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i
-  %conv6.i = trunc i32 %0 to i16
+  %conv6.i = trunc nuw i32 %0 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.025.i, align 2
   br label %if.end21.i
@@ -8307,7 +8307,7 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %or.cond.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1619convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDimPDs.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i
-  %conv.i = trunc i32 %0 to i16
+  %conv.i = trunc nuw i32 %0 to i16
   %or.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %or.i.i, ptr %utf16_output.addr.025.i, align 2
@@ -8370,7 +8370,7 @@ while.body.i:                                     ; preds = %entry, %if.end15.i
   br i1 %cmp1.i, label %cond.end.i, label %if.end.i
 
 cond.end.i:                                       ; preds = %while.body.i
-  %conv3.i = trunc i32 %0 to i16
+  %conv3.i = trunc nuw i32 %0 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.019.i, i64 2
   br label %if.end15.i
 
@@ -8419,7 +8419,7 @@ while.body.i:                                     ; preds = %entry, %if.end15.i
   br i1 %cmp1.i, label %cond.end.i, label %if.end.i
 
 cond.end.i:                                       ; preds = %while.body.i
-  %conv.i = trunc i32 %0 to i16
+  %conv.i = trunc nuw i32 %0 to i16
   %or.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.019.i, i64 2
   br label %if.end15.i
@@ -11522,7 +11522,7 @@ if.end40.i:                                       ; preds = %if.end30.i
   br i1 %cmp41.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin119convert_with_errorsEPKcmPc.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end40.i
-  %conv44.i = trunc i32 %or37.i to i8
+  %conv44.i = trunc nuw i32 %or37.i to i8
   br label %if.end64.i
 
 if.else47.i:                                      ; preds = %if.else.i
@@ -17495,7 +17495,7 @@ while.body7.i:                                    ; preds = %while.cond5.prehead
   %5 = phi i16 [ %6, %while.body7.i ], [ %4, %while.cond5.preheader.i ]
   %buf.addr.177.i = phi ptr [ %incdec.ptr9.i, %while.body7.i ], [ %buf.addr.072.i, %while.cond5.preheader.i ]
   %latin1_output.addr.176.i = phi ptr [ %incdec.ptr.i, %while.body7.i ], [ %latin1_output.addr.071.i, %while.cond5.preheader.i ]
-  %conv8.i = trunc i16 %5 to i8
+  %conv8.i = trunc nuw i16 %5 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.176.i, i64 1
   store i8 %conv8.i, ptr %latin1_output.addr.176.i, align 1, !noalias !148
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %buf.addr.177.i, i64 2
@@ -17552,7 +17552,7 @@ while.body32.i:                                   ; preds = %while.cond29.prehea
   %15 = phi i16 [ %16, %while.body32.i ], [ %14, %while.cond29.preheader.i ]
   %buf.addr.282.i = phi ptr [ %incdec.ptr35.i, %while.body32.i ], [ %buf.addr.0.lcssa.i, %while.cond29.preheader.i ]
   %latin1_output.addr.281.i = phi ptr [ %incdec.ptr34.i, %while.body32.i ], [ %latin1_output.addr.0.lcssa.i, %while.cond29.preheader.i ]
-  %conv33.i = trunc i16 %15 to i8
+  %conv33.i = trunc nuw i16 %15 to i8
   %incdec.ptr34.i = getelementptr inbounds i8, ptr %latin1_output.addr.281.i, i64 1
   store i8 %conv33.i, ptr %latin1_output.addr.281.i, align 1, !noalias !148
   %incdec.ptr35.i = getelementptr inbounds i8, ptr %buf.addr.282.i, i64 2
@@ -17622,7 +17622,7 @@ while.body10.i:                                   ; preds = %while.cond7.prehead
   %or.i83.i = phi i16 [ %or.i.i, %while.body10.i ], [ %or.i79.i, %while.cond7.preheader.i ]
   %buf.addr.182.i = phi ptr [ %incdec.ptr12.i, %while.body10.i ], [ %buf.addr.076.i, %while.cond7.preheader.i ]
   %latin1_output.addr.181.i = phi ptr [ %incdec.ptr.i, %while.body10.i ], [ %latin1_output.addr.075.i, %while.cond7.preheader.i ]
-  %conv11.i = trunc i16 %or.i83.i to i8
+  %conv11.i = trunc nuw i16 %or.i83.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.181.i, i64 1
   store i8 %conv11.i, ptr %latin1_output.addr.181.i, align 1, !noalias !154
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %buf.addr.182.i, i64 2
@@ -17683,7 +17683,7 @@ while.body40.i:                                   ; preds = %while.cond36.prehea
   %or.i5990.i = phi i16 [ %or.i59.i, %while.body40.i ], [ %or.i5986.i, %while.cond36.preheader.i ]
   %buf.addr.289.i = phi ptr [ %incdec.ptr43.i, %while.body40.i ], [ %buf.addr.0.lcssa.i, %while.cond36.preheader.i ]
   %latin1_output.addr.288.i = phi ptr [ %incdec.ptr42.i, %while.body40.i ], [ %latin1_output.addr.0.lcssa.i, %while.cond36.preheader.i ]
-  %conv41.i = trunc i16 %or.i5990.i to i8
+  %conv41.i = trunc nuw i16 %or.i5990.i to i8
   %incdec.ptr42.i = getelementptr inbounds i8, ptr %latin1_output.addr.288.i, i64 1
   store i8 %conv41.i, ptr %latin1_output.addr.288.i, align 1, !noalias !154
   %incdec.ptr43.i = getelementptr inbounds i8, ptr %buf.addr.289.i, i64 2
@@ -18040,7 +18040,7 @@ if.end116.i:                                      ; preds = %if.end116.split.loo
   %78 = bitcast i16 %conv151.i to <16 x i1>
   %79 = select <16 x i1> %78, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %80 = lshr i32 %conv131.i, 16
-  %conv157.i = trunc i32 %80 to i16
+  %conv157.i = trunc nuw i32 %80 to i16
   %81 = bitcast i16 %conv157.i to <16 x i1>
   %82 = select <16 x i1> %81, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %83 = bitcast <64 x i8> %64 to <16 x i32>
@@ -18052,7 +18052,7 @@ if.end116.i:                                      ; preds = %if.end116.split.loo
   %88 = bitcast i16 %conv177.i to <16 x i1>
   %89 = select <16 x i1> %88, <16 x i32> %87, <16 x i32> %84
   %90 = lshr i32 %conv136.i, 16
-  %conv181.i = trunc i32 %90 to i16
+  %conv181.i = trunc nuw i32 %90 to i16
   %91 = shl <16 x i32> %62, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
   %92 = bitcast i16 %conv181.i to <16 x i1>
   %93 = select <16 x i1> %92, <16 x i32> %91, <16 x i32> %86
@@ -18102,7 +18102,7 @@ tail.i:                                           ; preds = %while.end.i, %if.th
   br i1 %cmp203.not.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE0EEEmPKDsmPhPm.exit, label %if.then204.i
 
 if.then204.i:                                     ; preds = %tail.i
-  %sh_prom205.i = trunc i64 %inlen.addr.3.i to i32
+  %sh_prom205.i = trunc nuw i64 %inlen.addr.3.i to i32
   %notmask662.i = shl nsw i32 -1, %sh_prom205.i
   %sub207.i = xor i32 %notmask662.i, -1
   %110 = bitcast i32 %sub207.i to <32 x i1>
@@ -18331,7 +18331,7 @@ if.end119.i:                                      ; preds = %if.end119.split.loo
   %84 = bitcast i16 %conv154.i to <16 x i1>
   %85 = select <16 x i1> %84, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %86 = lshr i32 %conv134.i, 16
-  %conv160.i = trunc i32 %86 to i16
+  %conv160.i = trunc nuw i32 %86 to i16
   %87 = bitcast i16 %conv160.i to <16 x i1>
   %88 = select <16 x i1> %87, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %89 = bitcast <64 x i8> %70 to <16 x i32>
@@ -18343,7 +18343,7 @@ if.end119.i:                                      ; preds = %if.end119.split.loo
   %94 = bitcast i16 %conv180.i to <16 x i1>
   %95 = select <16 x i1> %94, <16 x i32> %93, <16 x i32> %90
   %96 = lshr i32 %conv139.i, 16
-  %conv184.i = trunc i32 %96 to i16
+  %conv184.i = trunc nuw i32 %96 to i16
   %97 = shl <16 x i32> %68, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
   %98 = bitcast i16 %conv184.i to <16 x i1>
   %99 = select <16 x i1> %98, <16 x i32> %97, <16 x i32> %92
@@ -18393,7 +18393,7 @@ tail.i:                                           ; preds = %while.end.i, %if.th
   br i1 %cmp206.not.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE1EEEmPKDsmPhPm.exit, label %if.then207.i
 
 if.then207.i:                                     ; preds = %tail.i
-  %sh_prom208.i = trunc i64 %inlen.addr.3.i to i32
+  %sh_prom208.i = trunc nuw i64 %inlen.addr.3.i to i32
   %notmask665.i = shl nsw i32 -1, %sh_prom208.i
   %sub210.i = xor i32 %notmask665.i, -1
   %116 = bitcast i32 %sub210.i to <32 x i1>
@@ -18612,7 +18612,7 @@ if.end116.i:                                      ; preds = %if.end116.split.loo
   %78 = bitcast i16 %conv151.i to <16 x i1>
   %79 = select <16 x i1> %78, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %80 = lshr i32 %conv131.i, 16
-  %conv157.i = trunc i32 %80 to i16
+  %conv157.i = trunc nuw i32 %80 to i16
   %81 = bitcast i16 %conv157.i to <16 x i1>
   %82 = select <16 x i1> %81, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %83 = bitcast <64 x i8> %64 to <16 x i32>
@@ -18624,7 +18624,7 @@ if.end116.i:                                      ; preds = %if.end116.split.loo
   %88 = bitcast i16 %conv177.i to <16 x i1>
   %89 = select <16 x i1> %88, <16 x i32> %87, <16 x i32> %84
   %90 = lshr i32 %conv136.i, 16
-  %conv181.i = trunc i32 %90 to i16
+  %conv181.i = trunc nuw i32 %90 to i16
   %91 = shl <16 x i32> %62, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
   %92 = bitcast i16 %conv181.i to <16 x i1>
   %93 = select <16 x i1> %92, <16 x i32> %91, <16 x i32> %86
@@ -18674,7 +18674,7 @@ tail.i:                                           ; preds = %while.end.i, %if.th
   br i1 %cmp203.not.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE0EEEmPKDsmPhPm.exit, label %if.then204.i
 
 if.then204.i:                                     ; preds = %tail.i
-  %sh_prom205.i = trunc i64 %inlen.addr.3.i to i32
+  %sh_prom205.i = trunc nuw i64 %inlen.addr.3.i to i32
   %notmask662.i = shl nsw i32 -1, %sh_prom205.i
   %sub207.i = xor i32 %notmask662.i, -1
   %110 = bitcast i32 %sub207.i to <32 x i1>
@@ -18919,7 +18919,7 @@ if.end119.i:                                      ; preds = %if.end119.split.loo
   %84 = bitcast i16 %conv154.i to <16 x i1>
   %85 = select <16 x i1> %84, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %86 = lshr i32 %conv134.i, 16
-  %conv160.i = trunc i32 %86 to i16
+  %conv160.i = trunc nuw i32 %86 to i16
   %87 = bitcast i16 %conv160.i to <16 x i1>
   %88 = select <16 x i1> %87, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %89 = bitcast <64 x i8> %70 to <16 x i32>
@@ -18931,7 +18931,7 @@ if.end119.i:                                      ; preds = %if.end119.split.loo
   %94 = bitcast i16 %conv180.i to <16 x i1>
   %95 = select <16 x i1> %94, <16 x i32> %93, <16 x i32> %90
   %96 = lshr i32 %conv139.i, 16
-  %conv184.i = trunc i32 %96 to i16
+  %conv184.i = trunc nuw i32 %96 to i16
   %97 = shl <16 x i32> %68, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
   %98 = bitcast i16 %conv184.i to <16 x i1>
   %99 = select <16 x i1> %98, <16 x i32> %97, <16 x i32> %92
@@ -18981,7 +18981,7 @@ tail.i:                                           ; preds = %while.end.i, %if.th
   br i1 %cmp206.not.i, label %_ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE1EEEmPKDsmPhPm.exit, label %if.then207.i
 
 if.then207.i:                                     ; preds = %tail.i
-  %sh_prom208.i = trunc i64 %inlen.addr.3.i to i32
+  %sh_prom208.i = trunc nuw i64 %inlen.addr.3.i to i32
   %notmask665.i = shl nsw i32 -1, %sh_prom208.i
   %sub210.i = xor i32 %notmask665.i, -1
   %116 = bitcast i32 %sub210.i to <32 x i1>
@@ -19216,7 +19216,7 @@ if.end116.i.i:                                    ; preds = %if.end116.split.loo
   %78 = bitcast i16 %conv151.i.i to <16 x i1>
   %79 = select <16 x i1> %78, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %80 = lshr i32 %conv131.i.i, 16
-  %conv157.i.i = trunc i32 %80 to i16
+  %conv157.i.i = trunc nuw i32 %80 to i16
   %81 = bitcast i16 %conv157.i.i to <16 x i1>
   %82 = select <16 x i1> %81, <16 x i32> <i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793, i32 65793>, <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
   %83 = bitcast <64 x i8> %64 to <16 x i32>
@@ -19228,7 +19228,7 @@ if.end116.i.i:                                    ; preds = %if.end116.split.loo
   %88 = bitcast i16 %conv177.i.i to <16 x i1>
   %89 = select <16 x i1> %88, <16 x i32> %87, <16 x i32> %84
   %90 = lshr i32 %conv136.i.i, 16
-  %conv181.i.i = trunc i32 %90 to i16
+  %conv181.i.i = trunc nuw i32 %90 to i16
   %91 = shl <16 x i32> %62, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
   %92 = bitcast i16 %conv181.i.i to <16 x i1>
   %93 = select <16 x i1> %92, <16 x i32> %91, <16 x i32> %86
@@ -19278,7 +19278,7 @@ tail.i.i:                                         ; preds = %while.end.i.i, %if.
   br i1 %cmp203.not.i.i, label %_ZNK7simdutf7icelake14implementation23convert_utf16le_to_utf8EPKDsmPc.exit, label %if.then204.i.i
 
 if.then204.i.i:                                   ; preds = %tail.i.i
-  %sh_prom205.i.i = trunc i64 %inlen.addr.3.i.i to i32
+  %sh_prom205.i.i = trunc nuw i64 %inlen.addr.3.i.i to i32
   %notmask662.i.i = shl nsw i32 -1, %sh_prom205.i.i
   %sub207.i.i = xor i32 %notmask662.i.i, -1
   %110 = bitcast i32 %sub207.i.i to <32 x i1>
@@ -19410,7 +19410,7 @@ while.body6.i:                                    ; preds = %while.cond4.prehead
   %buf.addr.162.i = phi ptr [ %incdec.ptr.i, %while.body6.i ], [ %buf.addr.057.i, %while.cond4.preheader.i ]
   %latin1_output.addr.161.i = phi ptr [ %incdec.ptr7.i, %while.body6.i ], [ %latin1_output.addr.056.i, %while.cond4.preheader.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %buf.addr.162.i, i64 4
-  %conv.i = trunc i32 %5 to i8
+  %conv.i = trunc nuw i32 %5 to i8
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %latin1_output.addr.161.i, i64 1
   store i8 %conv.i, ptr %latin1_output.addr.161.i, align 1, !noalias !163
   %6 = load i32, ptr %incdec.ptr.i, align 4, !noalias !163
@@ -19468,7 +19468,7 @@ while.body28.i:                                   ; preds = %while.cond26.prehea
   %buf.addr.267.i = phi ptr [ %incdec.ptr29.i, %while.body28.i ], [ %buf.addr.0.lcssa.i, %while.cond26.preheader.i ]
   %latin1_output.addr.266.i = phi ptr [ %incdec.ptr31.i, %while.body28.i ], [ %latin1_output.addr.0.lcssa.i, %while.cond26.preheader.i ]
   %incdec.ptr29.i = getelementptr inbounds i8, ptr %buf.addr.267.i, i64 4
-  %conv30.i = trunc i32 %16 to i8
+  %conv30.i = trunc nuw i32 %16 to i8
   %incdec.ptr31.i = getelementptr inbounds i8, ptr %latin1_output.addr.266.i, i64 1
   store i8 %conv30.i, ptr %latin1_output.addr.266.i, align 1, !noalias !163
   %17 = load i32, ptr %incdec.ptr29.i, align 4, !noalias !163
@@ -19787,7 +19787,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp234.i, label %if.then235.i, label %if.else237.i
 
 if.then235.i:                                     ; preds = %for.body.i
-  %conv236.i = trunc i32 %81 to i8
+  %conv236.i = trunc nuw i32 %81 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1328.i, i64 1
   store i8 %conv236.i, ptr %utf8_output.addr.1328.i, align 1
   br label %for.inc.i
@@ -19798,7 +19798,7 @@ if.else237.i:                                     ; preds = %for.body.i
 
 if.then240.i:                                     ; preds = %if.else237.i
   %shr241.i = lshr i32 %81, 6
-  %82 = trunc i32 %shr241.i to i8
+  %82 = trunc nuw i32 %shr241.i to i8
   %conv243.i = or disjoint i8 %82, -64
   %incdec.ptr244.i = getelementptr inbounds i8, ptr %utf8_output.addr.1328.i, i64 1
   store i8 %conv243.i, ptr %utf8_output.addr.1328.i, align 1
@@ -19820,7 +19820,7 @@ if.then252.i:                                     ; preds = %if.else249.i
 
 if.end257.i:                                      ; preds = %if.then252.i
   %shr258.i = lshr i32 %81, 12
-  %86 = trunc i32 %shr258.i to i8
+  %86 = trunc nuw i32 %shr258.i to i8
   %conv260.i = or disjoint i8 %86, -32
   %incdec.ptr261.i = getelementptr inbounds i8, ptr %utf8_output.addr.1328.i, i64 1
   store i8 %conv260.i, ptr %utf8_output.addr.1328.i, align 1
@@ -19843,7 +19843,7 @@ if.else271.i:                                     ; preds = %if.else249.i
 
 if.end276.i:                                      ; preds = %if.else271.i
   %shr277.i = lshr i32 %81, 18
-  %91 = trunc i32 %shr277.i to i8
+  %91 = trunc nuw i32 %shr277.i to i8
   %shr281.i = lshr i32 %81, 12
   %92 = trunc i32 %shr281.i to i8
   %93 = and i8 %92, 63
@@ -20166,7 +20166,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp252.i, label %if.then253.i, label %if.else255.i
 
 if.then253.i:                                     ; preds = %for.body.i
-  %conv254.i = trunc i32 %85 to i8
+  %conv254.i = trunc nuw i32 %85 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1331.i, i64 1
   store i8 %conv254.i, ptr %utf8_output.addr.1331.i, align 1, !noalias !171
   br label %for.inc.i
@@ -20177,7 +20177,7 @@ if.else255.i:                                     ; preds = %for.body.i
 
 if.then258.i:                                     ; preds = %if.else255.i
   %shr259.i = lshr i32 %85, 6
-  %86 = trunc i32 %shr259.i to i8
+  %86 = trunc nuw i32 %shr259.i to i8
   %conv261.i = or disjoint i8 %86, -64
   %incdec.ptr262.i = getelementptr inbounds i8, ptr %utf8_output.addr.1331.i, i64 1
   store i8 %conv261.i, ptr %utf8_output.addr.1331.i, align 1, !noalias !171
@@ -20206,7 +20206,7 @@ if.then273.i:                                     ; preds = %if.then270.i
 
 if.end280.i:                                      ; preds = %if.then270.i
   %shr281.i = lshr i32 %85, 12
-  %90 = trunc i32 %shr281.i to i8
+  %90 = trunc nuw i32 %shr281.i to i8
   %conv283.i = or disjoint i8 %90, -32
   %incdec.ptr284.i = getelementptr inbounds i8, ptr %utf8_output.addr.1331.i, i64 1
   store i8 %conv283.i, ptr %utf8_output.addr.1331.i, align 1, !noalias !171
@@ -20236,7 +20236,7 @@ if.then296.i:                                     ; preds = %if.else294.i
 
 if.end303.i:                                      ; preds = %if.else294.i
   %shr304.i = lshr i32 %85, 18
-  %95 = trunc i32 %shr304.i to i8
+  %95 = trunc nuw i32 %shr304.i to i8
   %shr308.i = lshr i32 %85, 12
   %96 = trunc i32 %shr308.i to i8
   %97 = and i8 %96, 63
@@ -20385,7 +20385,7 @@ if.then38.i:                                      ; preds = %for.body.i
   br i1 %or.cond.i, label %return, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then38.i
-  %conv.i = trunc i32 %10 to i16
+  %conv.i = trunc nuw i32 %10 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.163.i, i64 2
   store i16 %conv.i, ptr %utf16_output.addr.163.i, align 2
   br label %for.inc.i
@@ -20472,7 +20472,7 @@ if.then.i23:                                      ; preds = %while.body.i12
   br i1 %or.cond.i24, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv6.i = trunc i32 %19 to i16
+  %conv6.i = trunc nuw i32 %19 to i16
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.021.i, align 2
   br label %if.end21.i
@@ -20682,7 +20682,7 @@ if.then.i23:                                      ; preds = %while.body.i12
   br i1 %or.cond.i24, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv.i = trunc i32 %20 to i16
+  %conv.i = trunc nuw i32 %20 to i16
   %or.i.i25 = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i26 = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %or.i.i25, ptr %utf16_output.addr.021.i, align 2
@@ -20814,7 +20814,7 @@ if.then46.i:                                      ; preds = %if.then43.i
   br label %_ZN7simdutf7icelake12_GLOBAL__N_141avx512_convert_utf32_to_utf16_with_errorsILNS_10endiannessE0EEESt4pairINS_6resultEPDsEPKDimS6_.exit
 
 if.end53.i:                                       ; preds = %if.then43.i
-  %conv.i = trunc i32 %12 to i16
+  %conv.i = trunc nuw i32 %12 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.182.i, i64 2
   store i16 %conv.i, ptr %utf16_output.addr.182.i, align 2, !noalias !180
   br label %for.inc.i
@@ -20897,7 +20897,7 @@ if.then.i23:                                      ; preds = %while.body.i10
   br i1 %or.cond.i24, label %if.then6, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv6.i = trunc i32 %17 to i16
+  %conv6.i = trunc nuw i32 %17 to i16
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.025.i, align 2
   br label %if.end21.i
@@ -21133,7 +21133,7 @@ if.then.i23:                                      ; preds = %while.body.i10
   br i1 %or.cond.i24, label %if.then6, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv.i = trunc i32 %18 to i16
+  %conv.i = trunc nuw i32 %18 to i16
   %or.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %or.i.i, ptr %utf16_output.addr.025.i, align 2
@@ -21259,7 +21259,7 @@ if.then38.i.i:                                    ; preds = %for.body.i.i
   br i1 %or.cond.i.i, label %_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs.exit, label %if.end43.i.i
 
 if.end43.i.i:                                     ; preds = %if.then38.i.i
-  %conv.i.i = trunc i32 %10 to i16
+  %conv.i.i = trunc nuw i32 %10 to i16
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %utf16_output.addr.163.i.i, i64 2
   store i16 %conv.i.i, ptr %utf16_output.addr.163.i.i, align 2
   br label %for.inc.i.i
@@ -21346,7 +21346,7 @@ if.then.i23.i:                                    ; preds = %while.body.i12.i
   br i1 %or.cond.i24.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i23.i
-  %conv6.i.i = trunc i32 %19 to i16
+  %conv6.i.i = trunc nuw i32 %19 to i16
   %incdec.ptr.i25.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i.i, i64 2
   store i16 %conv6.i.i, ptr %utf16_output.addr.021.i.i, align 2
   br label %if.end21.i.i
@@ -21556,7 +21556,7 @@ if.then.i23.i:                                    ; preds = %while.body.i12.i
   br i1 %or.cond.i24.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i23.i
-  %conv.i.i = trunc i32 %20 to i16
+  %conv.i.i = trunc nuw i32 %20 to i16
   %or.i.i25.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i.i)
   %incdec.ptr.i26.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i.i, i64 2
   store i16 %or.i.i25.i, ptr %utf16_output.addr.021.i.i, align 2
@@ -21666,13 +21666,13 @@ if.then13.i:                                      ; preds = %if.then.i
   store <16 x i32> %18, ptr %utf32_output.addr.0161.i, align 1, !noalias !190
   %add.ptr60.i = getelementptr inbounds i32, ptr %utf32_output.addr.0161.i, i64 %conv.i.i
   %shr61.i = lshr i32 %and.i, 16
-  %conv62.i = trunc i32 %shr61.i to i16
+  %conv62.i = trunc nuw nsw i32 %shr61.i to i16
   %20 = bitcast i16 %conv62.i to <16 x i1>
   %21 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %16, <16 x i32> zeroinitializer, <16 x i1> %20)
   %22 = tail call i32 @llvm.ctpop.i32(i32 %shr61.i), !range !194
   %conv.i217.i = zext nneg i32 %22 to i64
   %notmask.i = shl nsw i32 -1, %22
-  %23 = trunc i32 %notmask.i to i16
+  %23 = trunc nsw i32 %notmask.i to i16
   %conv70.i = xor i16 %23, -1
   %24 = bitcast i16 %conv70.i to <16 x i1>
   tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %21, ptr %add.ptr60.i, i32 1, <16 x i1> %24), !noalias !190
@@ -21848,13 +21848,13 @@ if.then16.i:                                      ; preds = %if.then.i
   store <16 x i32> %19, ptr %utf32_output.addr.0162.i, align 1, !noalias !196
   %add.ptr63.i = getelementptr inbounds i32, ptr %utf32_output.addr.0162.i, i64 %conv.i.i
   %shr64.i = lshr i32 %and.i, 16
-  %conv65.i = trunc i32 %shr64.i to i16
+  %conv65.i = trunc nuw nsw i32 %shr64.i to i16
   %21 = bitcast i16 %conv65.i to <16 x i1>
   %22 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %17, <16 x i32> zeroinitializer, <16 x i1> %21)
   %23 = tail call i32 @llvm.ctpop.i32(i32 %shr64.i), !range !194
   %conv.i225.i = zext nneg i32 %23 to i64
   %notmask.i = shl nsw i32 -1, %23
-  %24 = trunc i32 %notmask.i to i16
+  %24 = trunc nsw i32 %notmask.i to i16
   %conv73.i = xor i16 %24, -1
   %25 = bitcast i16 %conv73.i to <16 x i1>
   tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %22, ptr %add.ptr63.i, i32 1, <16 x i1> %25), !noalias !196
@@ -22031,13 +22031,13 @@ if.then13.i:                                      ; preds = %if.then.i
   store <16 x i32> %18, ptr %utf32_output.addr.0161.i, align 1, !noalias !200
   %add.ptr60.i = getelementptr inbounds i32, ptr %utf32_output.addr.0161.i, i64 %conv.i.i
   %shr61.i = lshr i32 %and.i, 16
-  %conv62.i = trunc i32 %shr61.i to i16
+  %conv62.i = trunc nuw nsw i32 %shr61.i to i16
   %20 = bitcast i16 %conv62.i to <16 x i1>
   %21 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %16, <16 x i32> zeroinitializer, <16 x i1> %20)
   %22 = tail call i32 @llvm.ctpop.i32(i32 %shr61.i), !range !194
   %conv.i217.i = zext nneg i32 %22 to i64
   %notmask.i = shl nsw i32 -1, %22
-  %23 = trunc i32 %notmask.i to i16
+  %23 = trunc nsw i32 %notmask.i to i16
   %conv70.i = xor i16 %23, -1
   %24 = bitcast i16 %conv70.i to <16 x i1>
   tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %21, ptr %add.ptr60.i, i32 1, <16 x i1> %24), !noalias !200
@@ -22293,13 +22293,13 @@ if.then16.i:                                      ; preds = %if.then.i
   store <16 x i32> %19, ptr %utf32_output.addr.0162.i, align 1, !noalias !203
   %add.ptr63.i = getelementptr inbounds i32, ptr %utf32_output.addr.0162.i, i64 %conv.i.i
   %shr64.i = lshr i32 %and.i, 16
-  %conv65.i = trunc i32 %shr64.i to i16
+  %conv65.i = trunc nuw nsw i32 %shr64.i to i16
   %21 = bitcast i16 %conv65.i to <16 x i1>
   %22 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %17, <16 x i32> zeroinitializer, <16 x i1> %21)
   %23 = tail call i32 @llvm.ctpop.i32(i32 %shr64.i), !range !194
   %conv.i225.i = zext nneg i32 %23 to i64
   %notmask.i = shl nsw i32 -1, %23
-  %24 = trunc i32 %notmask.i to i16
+  %24 = trunc nsw i32 %notmask.i to i16
   %conv73.i = xor i16 %24, -1
   %25 = bitcast i16 %conv73.i to <16 x i1>
   tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %22, ptr %add.ptr63.i, i32 1, <16 x i1> %25), !noalias !203
@@ -22558,13 +22558,13 @@ if.then13.i:                                      ; preds = %if.then.i
   store <16 x i32> %18, ptr %utf32_output.addr.0161.i, align 1, !noalias !206
   %add.ptr60.i = getelementptr inbounds i32, ptr %utf32_output.addr.0161.i, i64 %conv.i.i
   %shr61.i = lshr i32 %and.i, 16
-  %conv62.i = trunc i32 %shr61.i to i16
+  %conv62.i = trunc nuw nsw i32 %shr61.i to i16
   %20 = bitcast i16 %conv62.i to <16 x i1>
   %21 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %16, <16 x i32> zeroinitializer, <16 x i1> %20)
   %22 = tail call i32 @llvm.ctpop.i32(i32 %shr61.i), !range !194
   %conv.i217.i = zext nneg i32 %22 to i64
   %notmask.i = shl nsw i32 -1, %22
-  %23 = trunc i32 %notmask.i to i16
+  %23 = trunc nsw i32 %notmask.i to i16
   %conv70.i = xor i16 %23, -1
   %24 = bitcast i16 %conv70.i to <16 x i1>
   tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %21, ptr %add.ptr60.i, i32 1, <16 x i1> %24), !noalias !206
@@ -22740,13 +22740,13 @@ if.then16.i:                                      ; preds = %if.then.i
   store <16 x i32> %19, ptr %utf32_output.addr.0162.i, align 1, !noalias !209
   %add.ptr63.i = getelementptr inbounds i32, ptr %utf32_output.addr.0162.i, i64 %conv.i.i
   %shr64.i = lshr i32 %and.i, 16
-  %conv65.i = trunc i32 %shr64.i to i16
+  %conv65.i = trunc nuw nsw i32 %shr64.i to i16
   %21 = bitcast i16 %conv65.i to <16 x i1>
   %22 = tail call <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32> %17, <16 x i32> zeroinitializer, <16 x i1> %21)
   %23 = tail call i32 @llvm.ctpop.i32(i32 %shr64.i), !range !194
   %conv.i225.i = zext nneg i32 %23 to i64
   %notmask.i = shl nsw i32 -1, %23
-  %24 = trunc i32 %notmask.i to i16
+  %24 = trunc nsw i32 %notmask.i to i16
   %conv73.i = xor i16 %24, -1
   %25 = bitcast i16 %conv73.i to <16 x i1>
   tail call void @llvm.masked.store.v16i32.p0(<16 x i32> %22, ptr %add.ptr63.i, i32 1, <16 x i1> %25), !noalias !209
@@ -24093,12 +24093,12 @@ while.body.i:                                     ; preds = %_ZN7simdutf7haswell
   %18 = bitcast <16 x i16> %17 to <4 x i64>
   %extract4.i9774.i = shufflevector <4 x i64> %15, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   %extract6.i9776.i = shufflevector <4 x i64> %18, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %19 = bitcast <2 x i64> %extract6.i9776.i to <4 x i32>
-  %20 = bitcast <2 x i64> %extract4.i9774.i to <4 x i32>
-  %vperm11.i9782.i = shufflevector <4 x i32> %20, <4 x i32> %19, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %21 = shufflevector <16 x i16> %14, <16 x i16> %17, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %19 = shufflevector <16 x i16> %14, <16 x i16> %17, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %20 = bitcast <2 x i64> %extract6.i9776.i to <4 x i32>
+  %21 = bitcast <2 x i64> %extract4.i9774.i to <4 x i32>
+  %vperm11.i9782.i = shufflevector <4 x i32> %21, <4 x i32> %20, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %22 = bitcast <8 x i32> %vperm11.i9782.i to <16 x i16>
-  %23 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %21, <16 x i16> %22)
+  %23 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %19, <16 x i16> %22)
   %24 = and <32 x i8> %23, <i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8>
   %cmp.i9565.i = icmp eq <32 x i8> %24, <i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40>
   %25 = bitcast <32 x i1> %cmp.i9565.i to i32
@@ -24150,12 +24150,12 @@ while.body32.i:                                   ; preds = %if.end28.i, %if.end
   %35 = bitcast <16 x i16> %34 to <4 x i64>
   %extract4.i.i = shufflevector <4 x i64> %33, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   %extract6.i.i = shufflevector <4 x i64> %35, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %36 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
-  %37 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
-  %vperm11.i.i = shufflevector <4 x i32> %37, <4 x i32> %36, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %38 = shufflevector <16 x i16> %32, <16 x i16> %34, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %36 = shufflevector <16 x i16> %32, <16 x i16> %34, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %37 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
+  %38 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
+  %vperm11.i.i = shufflevector <4 x i32> %38, <4 x i32> %37, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %39 = bitcast <8 x i32> %vperm11.i.i to <16 x i16>
-  %40 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %38, <16 x i16> %39)
+  %40 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %36, <16 x i16> %39)
   %41 = and <32 x i8> %40, <i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8>
   %cmp.i9580.i = icmp eq <32 x i8> %41, <i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40>
   %42 = bitcast <32 x i1> %cmp.i9580.i to i32
@@ -25452,12 +25452,12 @@ while.body.i:                                     ; preds = %if.end23.i, %while.
   %5 = bitcast <16 x i16> %4 to <4 x i64>
   %extract4.i.i = shufflevector <4 x i64> %3, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   %extract6.i.i = shufflevector <4 x i64> %5, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %6 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
-  %7 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
-  %vperm11.i.i = shufflevector <4 x i32> %7, <4 x i32> %6, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %8 = shufflevector <16 x i16> %2, <16 x i16> %4, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %6 = shufflevector <16 x i16> %2, <16 x i16> %4, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %7 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
+  %8 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
+  %vperm11.i.i = shufflevector <4 x i32> %8, <4 x i32> %7, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %9 = bitcast <8 x i32> %vperm11.i.i to <16 x i16>
-  %10 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %8, <16 x i16> %9)
+  %10 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %6, <16 x i16> %9)
   %11 = and <32 x i8> %10, <i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8>
   %cmp.i.i = icmp eq <32 x i8> %11, <i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40>
   %12 = bitcast <32 x i1> %cmp.i.i to i32
@@ -25570,12 +25570,12 @@ while.body.i:                                     ; preds = %if.end24.i, %while.
   %9 = bitcast <16 x i16> %8 to <4 x i64>
   %extract4.i.i = shufflevector <4 x i64> %6, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   %extract6.i.i = shufflevector <4 x i64> %9, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %10 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
-  %11 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
-  %vperm11.i.i = shufflevector <4 x i32> %11, <4 x i32> %10, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %12 = shufflevector <16 x i16> %5, <16 x i16> %8, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %10 = shufflevector <16 x i16> %5, <16 x i16> %8, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %11 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
+  %12 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
+  %vperm11.i.i = shufflevector <4 x i32> %12, <4 x i32> %11, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %13 = bitcast <8 x i32> %vperm11.i.i to <16 x i16>
-  %14 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %12, <16 x i16> %13)
+  %14 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %10, <16 x i16> %13)
   %15 = and <32 x i8> %14, <i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8>
   %cmp.i.i = icmp eq <32 x i8> %15, <i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40>
   %16 = bitcast <32 x i1> %cmp.i.i to i32
@@ -25685,12 +25685,12 @@ while.body.i:                                     ; preds = %if.end23.i, %while.
   %5 = bitcast <16 x i16> %4 to <4 x i64>
   %extract4.i.i = shufflevector <4 x i64> %3, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   %extract6.i.i = shufflevector <4 x i64> %5, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %6 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
-  %7 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
-  %vperm11.i.i = shufflevector <4 x i32> %7, <4 x i32> %6, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %8 = shufflevector <16 x i16> %2, <16 x i16> %4, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %6 = shufflevector <16 x i16> %2, <16 x i16> %4, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %7 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
+  %8 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
+  %vperm11.i.i = shufflevector <4 x i32> %8, <4 x i32> %7, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %9 = bitcast <8 x i32> %vperm11.i.i to <16 x i16>
-  %10 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %8, <16 x i16> %9)
+  %10 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %6, <16 x i16> %9)
   %11 = and <32 x i8> %10, <i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8>
   %cmp.i.i = icmp eq <32 x i8> %11, <i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40>
   %12 = bitcast <32 x i1> %cmp.i.i to i32
@@ -25813,12 +25813,12 @@ while.body.i:                                     ; preds = %if.end24.i, %while.
   %9 = bitcast <16 x i16> %8 to <4 x i64>
   %extract4.i.i = shufflevector <4 x i64> %6, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   %extract6.i.i = shufflevector <4 x i64> %9, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %10 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
-  %11 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
-  %vperm11.i.i = shufflevector <4 x i32> %11, <4 x i32> %10, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %12 = shufflevector <16 x i16> %5, <16 x i16> %8, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %10 = shufflevector <16 x i16> %5, <16 x i16> %8, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %11 = bitcast <2 x i64> %extract6.i.i to <4 x i32>
+  %12 = bitcast <2 x i64> %extract4.i.i to <4 x i32>
+  %vperm11.i.i = shufflevector <4 x i32> %12, <4 x i32> %11, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %13 = bitcast <8 x i32> %vperm11.i.i to <16 x i16>
-  %14 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %12, <16 x i16> %13)
+  %14 = tail call <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16> %10, <16 x i16> %13)
   %15 = and <32 x i8> %14, <i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8>
   %cmp.i.i = icmp eq <32 x i8> %15, <i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40, i8 -40>
   %16 = bitcast <32 x i1> %cmp.i.i to i32
@@ -27565,7 +27565,7 @@ if.then146.i:                                     ; preds = %for.body.i691
   %arrayidx147.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %118 = load i32, ptr %arrayidx147.i, align 4
   %shr.i692 = lshr i32 %118, 16
-  %conv152.i = trunc i32 %shr.i692 to i16
+  %conv152.i = trunc nuw i32 %shr.i692 to i16
   %arrayidx153.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv152.i, ptr %arrayidx153.i, align 2
   br label %for.inc.i
@@ -27982,7 +27982,7 @@ if.then157.i:                                     ; preds = %for.body.i697
   %arrayidx158.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %138 = load i32, ptr %arrayidx158.i, align 4
   %shr.i698 = lshr i32 %138, 16
-  %conv163.i = trunc i32 %shr.i698 to i16
+  %conv163.i = trunc nuw i32 %shr.i698 to i16
   %arrayidx164.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv163.i, ptr %arrayidx164.i, align 2
   br label %for.inc.i
@@ -28397,7 +28397,7 @@ if.then146.i:                                     ; preds = %for.body.i712
   %arrayidx147.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %121 = load i32, ptr %arrayidx147.i, align 4
   %shr.i713 = lshr i32 %121, 16
-  %conv152.i = trunc i32 %shr.i713 to i16
+  %conv152.i = trunc nuw i32 %shr.i713 to i16
   %arrayidx153.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv152.i, ptr %arrayidx153.i, align 2
   br label %for.inc.i
@@ -28845,7 +28845,7 @@ if.then157.i:                                     ; preds = %for.body.i716
   %arrayidx158.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %141 = load i32, ptr %arrayidx158.i, align 4
   %shr.i717 = lshr i32 %141, 16
-  %conv163.i = trunc i32 %shr.i717 to i16
+  %conv163.i = trunc nuw i32 %shr.i717 to i16
   %arrayidx164.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv163.i, ptr %arrayidx164.i, align 2
   br label %for.inc.i
@@ -29183,7 +29183,7 @@ if.then146.i.i:                                   ; preds = %for.body.i.i
   %arrayidx147.i.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %87 = load i32, ptr %arrayidx147.i.i, align 4
   %shr.i.i = lshr i32 %87, 16
-  %conv152.i.i = trunc i32 %shr.i.i to i16
+  %conv152.i.i = trunc nuw i32 %shr.i.i to i16
   %arrayidx153.i.i = getelementptr inbounds i8, ptr %utf16_output.addr.2.i, i64 2
   store i16 %conv152.i.i, ptr %arrayidx153.i.i, align 2
   br label %for.inc.i.i
@@ -29495,7 +29495,7 @@ if.then157.i.i:                                   ; preds = %for.body.i.i
   %arrayidx158.i.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %107 = load i32, ptr %arrayidx158.i.i, align 4
   %shr.i.i = lshr i32 %107, 16
-  %conv163.i.i = trunc i32 %shr.i.i to i16
+  %conv163.i.i = trunc nuw i32 %shr.i.i to i16
   %arrayidx164.i.i = getelementptr inbounds i8, ptr %utf16_output.addr.2.i, i64 2
   store i16 %conv163.i.i, ptr %arrayidx164.i.i, align 2
   br label %for.inc.i.i
@@ -30802,7 +30802,7 @@ cond.end.i:                                       ; preds = %while.body.i, %if.t
   br i1 %cmp23.i, label %if.then24.i, label %if.then
 
 if.then24.i:                                      ; preds = %cond.end.i
-  %conv25.i = trunc i16 %13 to i8
+  %conv25.i = trunc nuw i16 %13 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.147.i, i64 1
   store i8 %conv25.i, ptr %latin1_output.addr.147.i, align 1, !noalias !448
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -30889,7 +30889,7 @@ cond.end48.i:                                     ; preds = %if.then.i15, %while
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 
 if.then53.i:                                      ; preds = %cond.end48.i
-  %conv56.i = trunc i16 %18 to i8
+  %conv56.i = trunc nuw i16 %18 to i8
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %latin_output.addr.044.i, i64 1
   store i8 %conv56.i, ptr %latin_output.addr.044.i, align 1
   %inc58.i = add i64 %pos.043.i, 1
@@ -30972,7 +30972,7 @@ cond.end.i:                                       ; preds = %while.body.i, %if.t
   br i1 %cmp19.i, label %if.then20.i, label %if.then
 
 if.then20.i:                                      ; preds = %cond.end.i
-  %conv21.i = trunc i16 %or.i.i to i8
+  %conv21.i = trunc nuw i16 %or.i.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.146.i, i64 1
   store i8 %conv21.i, ptr %latin1_output.addr.146.i, align 1, !noalias !453
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -31051,7 +31051,7 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   %arrayidx.i20 = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
   %18 = load i16, ptr %arrayidx.i20, align 2
   %or.i.i21 = lshr i16 %18, 8
-  %cond.i = trunc i16 %or.i.i21 to i8
+  %cond.i = trunc nuw i16 %or.i.i21 to i8
   %incdec.ptr.i22 = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
@@ -31065,7 +31065,7 @@ cond.end48.i:                                     ; preds = %if.then.i15, %while
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 
 if.then53.i:                                      ; preds = %cond.end48.i
-  %conv56.i = trunc i16 %or.i35.i to i8
+  %conv56.i = trunc nuw i16 %or.i35.i to i8
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %latin_output.addr.044.i, i64 1
   store i8 %conv56.i, ptr %latin_output.addr.044.i, align 1
   %inc58.i = add i64 %pos.043.i, 1
@@ -31440,7 +31440,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp204.i, label %if.then205.i, label %if.else207.i
 
 if.then205.i:                                     ; preds = %for.body.i
-  %conv206.i = trunc i16 %71 to i8
+  %conv206.i = trunc nuw i16 %71 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1266.i, i64 1
   store i8 %conv206.i, ptr %utf8_output.addr.1266.i, align 1
   br label %for.inc.i
@@ -31467,7 +31467,7 @@ if.then211.i:                                     ; preds = %if.else207.i
 
 if.then226.i:                                     ; preds = %if.else207.i
   %shr228.i = lshr i16 %71, 12
-  %76 = trunc i16 %shr228.i to i8
+  %76 = trunc nuw nsw i16 %shr228.i to i8
   %conv230.i = or disjoint i8 %76, -32
   %incdec.ptr231.i = getelementptr inbounds i8, ptr %utf8_output.addr.1266.i, i64 1
   store i8 %conv230.i, ptr %utf8_output.addr.1266.i, align 1
@@ -31764,7 +31764,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp209.i, label %if.then210.i, label %if.else212.i
 
 if.then210.i:                                     ; preds = %for.body.i
-  %conv211.i = trunc i16 %or.i241.i to i8
+  %conv211.i = trunc nuw i16 %or.i241.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1270.i, i64 1
   store i8 %conv211.i, ptr %utf8_output.addr.1270.i, align 1
   br label %for.inc.i
@@ -31791,7 +31791,7 @@ if.then216.i:                                     ; preds = %if.else212.i
 
 if.then231.i:                                     ; preds = %if.else212.i
   %shr233.i = lshr i16 %or.i241.i, 12
-  %77 = trunc i16 %shr233.i to i8
+  %77 = trunc nuw nsw i16 %shr233.i to i8
   %conv235.i = or disjoint i8 %77, -32
   %incdec.ptr236.i = getelementptr inbounds i8, ptr %utf8_output.addr.1270.i, i64 1
   store i8 %conv235.i, ptr %utf8_output.addr.1270.i, align 1
@@ -32085,7 +32085,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp204.i, label %if.then205.i, label %if.else207.i
 
 if.then205.i:                                     ; preds = %for.body.i
-  %conv206.i = trunc i16 %71 to i8
+  %conv206.i = trunc nuw i16 %71 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1277.i, i64 1
   store i8 %conv206.i, ptr %utf8_output.addr.1277.i, align 1, !noalias !462
   br label %for.inc.i
@@ -32112,7 +32112,7 @@ if.then211.i:                                     ; preds = %if.else207.i
 
 if.then226.i:                                     ; preds = %if.else207.i
   %shr228.i = lshr i16 %71, 12
-  %76 = trunc i16 %shr228.i to i8
+  %76 = trunc nuw nsw i16 %shr228.i to i8
   %conv230.i = or disjoint i8 %76, -32
   %incdec.ptr231.i = getelementptr inbounds i8, ptr %utf8_output.addr.1277.i, i64 1
   store i8 %conv230.i, ptr %utf8_output.addr.1277.i, align 1, !noalias !462
@@ -32425,7 +32425,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp209.i, label %if.then210.i, label %if.else212.i
 
 if.then210.i:                                     ; preds = %for.body.i
-  %conv211.i = trunc i16 %or.i256.i to i8
+  %conv211.i = trunc nuw i16 %or.i256.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1280.i, i64 1
   store i8 %conv211.i, ptr %utf8_output.addr.1280.i, align 1, !noalias !467
   br label %for.inc.i
@@ -32452,7 +32452,7 @@ if.then216.i:                                     ; preds = %if.else212.i
 
 if.then231.i:                                     ; preds = %if.else212.i
   %shr233.i = lshr i16 %or.i256.i, 12
-  %77 = trunc i16 %shr233.i to i8
+  %77 = trunc nuw nsw i16 %shr233.i to i8
   %conv235.i = or disjoint i8 %77, -32
   %incdec.ptr236.i = getelementptr inbounds i8, ptr %utf8_output.addr.1280.i, i64 1
   store i8 %conv235.i, ptr %utf8_output.addr.1280.i, align 1, !noalias !467
@@ -32803,7 +32803,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp234.i, label %if.then235.i, label %if.else237.i
 
 if.then235.i:                                     ; preds = %for.body.i
-  %conv236.i = trunc i32 %81 to i8
+  %conv236.i = trunc nuw i32 %81 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1328.i, i64 1
   store i8 %conv236.i, ptr %utf8_output.addr.1328.i, align 1
   br label %for.inc.i
@@ -32814,7 +32814,7 @@ if.else237.i:                                     ; preds = %for.body.i
 
 if.then240.i:                                     ; preds = %if.else237.i
   %shr241.i = lshr i32 %81, 6
-  %82 = trunc i32 %shr241.i to i8
+  %82 = trunc nuw i32 %shr241.i to i8
   %conv243.i = or disjoint i8 %82, -64
   %incdec.ptr244.i = getelementptr inbounds i8, ptr %utf8_output.addr.1328.i, i64 1
   store i8 %conv243.i, ptr %utf8_output.addr.1328.i, align 1
@@ -32836,7 +32836,7 @@ if.then252.i:                                     ; preds = %if.else249.i
 
 if.end257.i:                                      ; preds = %if.then252.i
   %shr258.i = lshr i32 %81, 12
-  %86 = trunc i32 %shr258.i to i8
+  %86 = trunc nuw i32 %shr258.i to i8
   %conv260.i = or disjoint i8 %86, -32
   %incdec.ptr261.i = getelementptr inbounds i8, ptr %utf8_output.addr.1328.i, i64 1
   store i8 %conv260.i, ptr %utf8_output.addr.1328.i, align 1
@@ -32859,7 +32859,7 @@ if.else271.i:                                     ; preds = %if.else249.i
 
 if.end276.i:                                      ; preds = %if.else271.i
   %shr277.i = lshr i32 %81, 18
-  %91 = trunc i32 %shr277.i to i8
+  %91 = trunc nuw i32 %shr277.i to i8
   %shr281.i = lshr i32 %81, 12
   %92 = trunc i32 %shr281.i to i8
   %93 = and i8 %92, 63
@@ -33079,7 +33079,7 @@ if.end9.i:                                        ; preds = %if.then.i, %while.b
   br i1 %cmp12.i, label %if.then13.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin119convert_with_errorsEPKDimPc.exit
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %conv15.i = trunc i32 %2 to i8
+  %conv15.i = trunc nuw i32 %2 to i8
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %latin1_output.addr.022.i, i64 1
   store i8 %conv15.i, ptr %latin1_output.addr.022.i, align 1
   %inc.i = add nuw i64 %pos.021.i, 1
@@ -33431,7 +33431,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp252.i, label %if.then253.i, label %if.else255.i
 
 if.then253.i:                                     ; preds = %for.body.i
-  %conv254.i = trunc i32 %85 to i8
+  %conv254.i = trunc nuw i32 %85 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.1331.i, i64 1
   store i8 %conv254.i, ptr %utf8_output.addr.1331.i, align 1, !noalias !475
   br label %for.inc.i
@@ -33442,7 +33442,7 @@ if.else255.i:                                     ; preds = %for.body.i
 
 if.then258.i:                                     ; preds = %if.else255.i
   %shr259.i = lshr i32 %85, 6
-  %86 = trunc i32 %shr259.i to i8
+  %86 = trunc nuw i32 %shr259.i to i8
   %conv261.i = or disjoint i8 %86, -64
   %incdec.ptr262.i = getelementptr inbounds i8, ptr %utf8_output.addr.1331.i, i64 1
   store i8 %conv261.i, ptr %utf8_output.addr.1331.i, align 1, !noalias !475
@@ -33471,7 +33471,7 @@ if.then273.i:                                     ; preds = %if.then270.i
 
 if.end280.i:                                      ; preds = %if.then270.i
   %shr281.i = lshr i32 %85, 12
-  %90 = trunc i32 %shr281.i to i8
+  %90 = trunc nuw i32 %shr281.i to i8
   %conv283.i = or disjoint i8 %90, -32
   %incdec.ptr284.i = getelementptr inbounds i8, ptr %utf8_output.addr.1331.i, i64 1
   store i8 %conv283.i, ptr %utf8_output.addr.1331.i, align 1, !noalias !475
@@ -33501,7 +33501,7 @@ if.then296.i:                                     ; preds = %if.else294.i
 
 if.end303.i:                                      ; preds = %if.else294.i
   %shr304.i = lshr i32 %85, 18
-  %95 = trunc i32 %shr304.i to i8
+  %95 = trunc nuw i32 %shr304.i to i8
   %shr308.i = lshr i32 %85, 12
   %96 = trunc i32 %shr308.i to i8
   %97 = and i8 %96, 63
@@ -34412,7 +34412,7 @@ if.then38.i:                                      ; preds = %for.body.i
   br i1 %or.cond.i, label %return, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then38.i
-  %conv.i = trunc i32 %10 to i16
+  %conv.i = trunc nuw i32 %10 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.163.i, i64 2
   store i16 %conv.i, ptr %utf16_output.addr.163.i, align 2
   br label %for.inc.i
@@ -34499,7 +34499,7 @@ if.then.i23:                                      ; preds = %while.body.i12
   br i1 %or.cond.i24, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv6.i = trunc i32 %19 to i16
+  %conv6.i = trunc nuw i32 %19 to i16
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.021.i, align 2
   br label %if.end21.i
@@ -34709,7 +34709,7 @@ if.then.i23:                                      ; preds = %while.body.i12
   br i1 %or.cond.i24, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv.i = trunc i32 %20 to i16
+  %conv.i = trunc nuw i32 %20 to i16
   %or.i.i25 = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i26 = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %or.i.i25, ptr %utf16_output.addr.021.i, align 2
@@ -34841,7 +34841,7 @@ if.then46.i:                                      ; preds = %if.then43.i
   br label %_ZN7simdutf7haswell12_GLOBAL__N_139avx2_convert_utf32_to_utf16_with_errorsILNS_10endiannessE0EEESt4pairINS_6resultEPDsEPKDimS6_.exit
 
 if.end53.i:                                       ; preds = %if.then43.i
-  %conv.i = trunc i32 %12 to i16
+  %conv.i = trunc nuw i32 %12 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.182.i, i64 2
   store i16 %conv.i, ptr %utf16_output.addr.182.i, align 2, !noalias !498
   br label %for.inc.i
@@ -34924,7 +34924,7 @@ if.then.i23:                                      ; preds = %while.body.i10
   br i1 %or.cond.i24, label %if.then6, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv6.i = trunc i32 %17 to i16
+  %conv6.i = trunc nuw i32 %17 to i16
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.025.i, align 2
   br label %if.end21.i
@@ -35160,7 +35160,7 @@ if.then.i23:                                      ; preds = %while.body.i10
   br i1 %or.cond.i24, label %if.then6, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv.i = trunc i32 %18 to i16
+  %conv.i = trunc nuw i32 %18 to i16
   %or.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %or.i.i, ptr %utf16_output.addr.025.i, align 2
@@ -35286,7 +35286,7 @@ if.then38.i.i:                                    ; preds = %for.body.i.i
   br i1 %or.cond.i.i, label %_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs.exit, label %if.end43.i.i
 
 if.end43.i.i:                                     ; preds = %if.then38.i.i
-  %conv.i.i = trunc i32 %10 to i16
+  %conv.i.i = trunc nuw i32 %10 to i16
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %utf16_output.addr.163.i.i, i64 2
   store i16 %conv.i.i, ptr %utf16_output.addr.163.i.i, align 2
   br label %for.inc.i.i
@@ -35373,7 +35373,7 @@ if.then.i23.i:                                    ; preds = %while.body.i12.i
   br i1 %or.cond.i24.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i23.i
-  %conv6.i.i = trunc i32 %19 to i16
+  %conv6.i.i = trunc nuw i32 %19 to i16
   %incdec.ptr.i25.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i.i, i64 2
   store i16 %conv6.i.i, ptr %utf16_output.addr.021.i.i, align 2
   br label %if.end21.i.i
@@ -35583,7 +35583,7 @@ if.then.i23.i:                                    ; preds = %while.body.i12.i
   br i1 %or.cond.i24.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i23.i
-  %conv.i.i = trunc i32 %20 to i16
+  %conv.i.i = trunc nuw i32 %20 to i16
   %or.i.i25.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i.i)
   %incdec.ptr.i26.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i.i, i64 2
   store i16 %or.i.i25.i, ptr %utf16_output.addr.021.i.i, align 2
@@ -41057,7 +41057,7 @@ if.then148.i:                                     ; preds = %for.body.i562
   %arrayidx149.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %146 = load i32, ptr %arrayidx149.i, align 4
   %shr.i563 = lshr i32 %146, 16
-  %conv154.i = trunc i32 %shr.i563 to i16
+  %conv154.i = trunc nuw i32 %shr.i563 to i16
   %arrayidx155.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv154.i, ptr %arrayidx155.i, align 2
   br label %for.inc.i
@@ -41572,7 +41572,7 @@ if.then157.i:                                     ; preds = %for.body.i572
   %arrayidx158.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %176 = load i32, ptr %arrayidx158.i, align 4
   %shr.i573 = lshr i32 %176, 16
-  %conv163.i = trunc i32 %shr.i573 to i16
+  %conv163.i = trunc nuw i32 %shr.i573 to i16
   %arrayidx164.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv163.i, ptr %arrayidx164.i, align 2
   br label %for.inc.i
@@ -42075,7 +42075,7 @@ if.then148.i:                                     ; preds = %for.body.i582
   %arrayidx149.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %149 = load i32, ptr %arrayidx149.i, align 4
   %shr.i583 = lshr i32 %149, 16
-  %conv154.i = trunc i32 %shr.i583 to i16
+  %conv154.i = trunc nuw i32 %shr.i583 to i16
   %arrayidx155.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv154.i, ptr %arrayidx155.i, align 2
   br label %for.inc.i
@@ -42621,7 +42621,7 @@ if.then157.i:                                     ; preds = %for.body.i592
   %arrayidx158.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %179 = load i32, ptr %arrayidx158.i, align 4
   %shr.i593 = lshr i32 %179, 16
-  %conv163.i = trunc i32 %shr.i593 to i16
+  %conv163.i = trunc nuw i32 %shr.i593 to i16
   %arrayidx164.i = getelementptr inbounds i8, ptr %utf16_output.addr.i.2, i64 2
   store i16 %conv163.i, ptr %arrayidx164.i, align 2
   br label %for.inc.i
@@ -42998,7 +42998,7 @@ if.then148.i.i:                                   ; preds = %for.body.i.i
   %arrayidx149.i.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %90 = load i32, ptr %arrayidx149.i.i, align 4
   %shr.i.i = lshr i32 %90, 16
-  %conv154.i.i = trunc i32 %shr.i.i to i16
+  %conv154.i.i = trunc nuw i32 %shr.i.i to i16
   %arrayidx155.i.i = getelementptr inbounds i8, ptr %utf16_output.addr.2.i, i64 2
   store i16 %conv154.i.i, ptr %arrayidx155.i.i, align 2
   br label %for.inc.i.i
@@ -43359,7 +43359,7 @@ if.then157.i.i:                                   ; preds = %for.body.i.i
   %arrayidx158.i.i = getelementptr inbounds [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %120 = load i32, ptr %arrayidx158.i.i, align 4
   %shr.i.i = lshr i32 %120, 16
-  %conv163.i.i = trunc i32 %shr.i.i to i16
+  %conv163.i.i = trunc nuw i32 %shr.i.i to i16
   %arrayidx164.i.i = getelementptr inbounds i8, ptr %utf16_output.addr.2.i, i64 2
   store i16 %conv163.i.i, ptr %arrayidx164.i.i, align 2
   br label %for.inc.i.i
@@ -44941,7 +44941,7 @@ cond.end.i:                                       ; preds = %while.body.i, %if.t
   br i1 %cmp17.i, label %if.then18.i, label %if.then
 
 if.then18.i:                                      ; preds = %cond.end.i
-  %conv19.i = trunc i16 %7 to i8
+  %conv19.i = trunc nuw i16 %7 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.137.i, i64 1
   store i8 %conv19.i, ptr %latin1_output.addr.137.i, align 1, !noalias !640
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -45028,7 +45028,7 @@ cond.end48.i:                                     ; preds = %if.then.i15, %while
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 
 if.then53.i:                                      ; preds = %cond.end48.i
-  %conv56.i = trunc i16 %12 to i8
+  %conv56.i = trunc nuw i16 %12 to i8
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %latin_output.addr.044.i, i64 1
   store i8 %conv56.i, ptr %latin_output.addr.044.i, align 1
   %inc58.i = add i64 %pos.043.i, 1
@@ -45106,7 +45106,7 @@ cond.end.i:                                       ; preds = %while.body.i, %if.t
   br i1 %cmp15.i, label %if.then16.i, label %if.then
 
 if.then16.i:                                      ; preds = %cond.end.i
-  %conv17.i = trunc i16 %or.i.i to i8
+  %conv17.i = trunc nuw i16 %or.i.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.136.i, i64 1
   store i8 %conv17.i, ptr %latin1_output.addr.136.i, align 1, !noalias !645
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -45185,7 +45185,7 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   %arrayidx.i20 = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
   %12 = load i16, ptr %arrayidx.i20, align 2
   %or.i.i21 = lshr i16 %12, 8
-  %cond.i = trunc i16 %or.i.i21 to i8
+  %cond.i = trunc nuw i16 %or.i.i21 to i8
   %incdec.ptr.i22 = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
@@ -45199,7 +45199,7 @@ cond.end48.i:                                     ; preds = %if.then.i15, %while
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 
 if.then53.i:                                      ; preds = %cond.end48.i
-  %conv56.i = trunc i16 %or.i35.i to i8
+  %conv56.i = trunc nuw i16 %or.i35.i to i8
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %latin_output.addr.044.i, i64 1
   store i8 %conv56.i, ptr %latin_output.addr.044.i, align 1
   %inc58.i = add i64 %pos.043.i, 1
@@ -45550,7 +45550,7 @@ for.body.i:                                       ; preds = %if.else95.i, %for.i
   br i1 %cmp109.i, label %if.then110.i, label %if.else112.i
 
 if.then110.i:                                     ; preds = %for.body.i
-  %conv111.i = trunc i16 %60 to i8
+  %conv111.i = trunc nuw i16 %60 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.2147.i, i64 1
   store i8 %conv111.i, ptr %utf8_output.addr.2147.i, align 1
   br label %for.inc.i
@@ -45577,7 +45577,7 @@ if.then116.i:                                     ; preds = %if.else112.i
 
 if.then131.i:                                     ; preds = %if.else112.i
   %shr133.i = lshr i16 %60, 12
-  %65 = trunc i16 %shr133.i to i8
+  %65 = trunc nuw nsw i16 %shr133.i to i8
   %conv135.i = or disjoint i8 %65, -32
   %incdec.ptr136.i = getelementptr inbounds i8, ptr %utf8_output.addr.2147.i, i64 1
   store i8 %conv135.i, ptr %utf8_output.addr.2147.i, align 1
@@ -45863,7 +45863,7 @@ for.body.i:                                       ; preds = %if.else100.i, %for.
   br i1 %cmp115.i, label %if.then116.i, label %if.else118.i
 
 if.then116.i:                                     ; preds = %for.body.i
-  %conv117.i = trunc i16 %or.i117.i to i8
+  %conv117.i = trunc nuw i16 %or.i117.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.2152.i, i64 1
   store i8 %conv117.i, ptr %utf8_output.addr.2152.i, align 1
   br label %for.inc.i
@@ -45890,7 +45890,7 @@ if.then122.i:                                     ; preds = %if.else118.i
 
 if.then137.i:                                     ; preds = %if.else118.i
   %shr139.i = lshr i16 %or.i117.i, 12
-  %69 = trunc i16 %shr139.i to i8
+  %69 = trunc nuw nsw i16 %shr139.i to i8
   %conv141.i = or disjoint i8 %69, -32
   %incdec.ptr142.i = getelementptr inbounds i8, ptr %utf8_output.addr.2152.i, i64 1
   store i8 %conv141.i, ptr %utf8_output.addr.2152.i, align 1
@@ -46172,7 +46172,7 @@ for.body.i:                                       ; preds = %if.else95.i, %for.i
   br i1 %cmp109.i, label %if.then110.i, label %if.else112.i
 
 if.then110.i:                                     ; preds = %for.body.i
-  %conv111.i = trunc i16 %60 to i8
+  %conv111.i = trunc nuw i16 %60 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.2158.i, i64 1
   store i8 %conv111.i, ptr %utf8_output.addr.2158.i, align 1, !noalias !654
   br label %for.inc.i
@@ -46199,7 +46199,7 @@ if.then116.i:                                     ; preds = %if.else112.i
 
 if.then131.i:                                     ; preds = %if.else112.i
   %shr133.i = lshr i16 %60, 12
-  %65 = trunc i16 %shr133.i to i8
+  %65 = trunc nuw nsw i16 %shr133.i to i8
   %conv135.i = or disjoint i8 %65, -32
   %incdec.ptr136.i = getelementptr inbounds i8, ptr %utf8_output.addr.2158.i, i64 1
   store i8 %conv135.i, ptr %utf8_output.addr.2158.i, align 1, !noalias !654
@@ -46503,7 +46503,7 @@ for.body.i:                                       ; preds = %if.else100.i, %for.
   br i1 %cmp115.i, label %if.then116.i, label %if.else118.i
 
 if.then116.i:                                     ; preds = %for.body.i
-  %conv117.i = trunc i16 %or.i135.i to i8
+  %conv117.i = trunc nuw i16 %or.i135.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.2162.i, i64 1
   store i8 %conv117.i, ptr %utf8_output.addr.2162.i, align 1, !noalias !659
   br label %for.inc.i
@@ -46530,7 +46530,7 @@ if.then122.i:                                     ; preds = %if.else118.i
 
 if.then137.i:                                     ; preds = %if.else118.i
   %shr139.i = lshr i16 %or.i135.i, 12
-  %69 = trunc i16 %shr139.i to i8
+  %69 = trunc nuw nsw i16 %shr139.i to i8
   %conv141.i = or disjoint i8 %69, -32
   %incdec.ptr142.i = getelementptr inbounds i8, ptr %utf8_output.addr.2162.i, i64 1
   store i8 %conv141.i, ptr %utf8_output.addr.2162.i, align 1, !noalias !659
@@ -46795,7 +46795,7 @@ for.body14.i:                                     ; preds = %for.body.i, %if.the
   br i1 %cmp15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %for.body14.i
-  %conv.i = trunc i32 %5 to i8
+  %conv.i = trunc nuw i32 %5 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.137.i, i64 1
   store i8 %conv.i, ptr %latin1_output.addr.137.i, align 1, !noalias !665
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -46902,7 +46902,7 @@ if.end9.i:                                        ; preds = %if.then.i, %while.b
   br i1 %cmp12.i, label %if.then13.i, label %if.then6
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %conv15.i = trunc i32 %22 to i8
+  %conv15.i = trunc nuw i32 %22 to i8
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %latin1_output.addr.022.i, i64 1
   store i8 %conv15.i, ptr %latin1_output.addr.022.i, align 1
   %inc.i = add nuw i64 %pos.021.i, 1
@@ -47265,7 +47265,7 @@ for.body.i:                                       ; preds = %if.else151.i, %for.
   br i1 %cmp162.i, label %if.then163.i, label %if.else165.i
 
 if.then163.i:                                     ; preds = %for.body.i
-  %conv164.i = trunc i32 %76 to i8
+  %conv164.i = trunc nuw i32 %76 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.2227.i, i64 1
   store i8 %conv164.i, ptr %utf8_output.addr.2227.i, align 1
   br label %for.inc.i
@@ -47276,7 +47276,7 @@ if.else165.i:                                     ; preds = %for.body.i
 
 if.then168.i:                                     ; preds = %if.else165.i
   %shr169.i = lshr i32 %76, 6
-  %77 = trunc i32 %shr169.i to i8
+  %77 = trunc nuw i32 %shr169.i to i8
   %conv171.i = or disjoint i8 %77, -64
   %incdec.ptr172.i = getelementptr inbounds i8, ptr %utf8_output.addr.2227.i, i64 1
   store i8 %conv171.i, ptr %utf8_output.addr.2227.i, align 1
@@ -47298,7 +47298,7 @@ if.then180.i:                                     ; preds = %if.else177.i
 
 if.end185.i:                                      ; preds = %if.then180.i
   %shr186.i = lshr i32 %76, 12
-  %81 = trunc i32 %shr186.i to i8
+  %81 = trunc nuw i32 %shr186.i to i8
   %conv188.i = or disjoint i8 %81, -32
   %incdec.ptr189.i = getelementptr inbounds i8, ptr %utf8_output.addr.2227.i, i64 1
   store i8 %conv188.i, ptr %utf8_output.addr.2227.i, align 1
@@ -47321,7 +47321,7 @@ if.else199.i:                                     ; preds = %if.else177.i
 
 if.end204.i:                                      ; preds = %if.else199.i
   %shr205.i = lshr i32 %76, 18
-  %86 = trunc i32 %shr205.i to i8
+  %86 = trunc nuw i32 %shr205.i to i8
   %shr209.i = lshr i32 %76, 12
   %87 = trunc i32 %shr209.i to i8
   %88 = and i8 %87, 63
@@ -47645,7 +47645,7 @@ for.body.i:                                       ; preds = %if.else177.i, %for.
   br i1 %cmp192.i, label %if.then193.i, label %if.else195.i
 
 if.then193.i:                                     ; preds = %for.body.i
-  %conv194.i = trunc i32 %82 to i8
+  %conv194.i = trunc nuw i32 %82 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf8_output.addr.2243.i, i64 1
   store i8 %conv194.i, ptr %utf8_output.addr.2243.i, align 1, !noalias !672
   br label %for.inc.i
@@ -47656,7 +47656,7 @@ if.else195.i:                                     ; preds = %for.body.i
 
 if.then198.i:                                     ; preds = %if.else195.i
   %shr199.i = lshr i32 %82, 6
-  %83 = trunc i32 %shr199.i to i8
+  %83 = trunc nuw i32 %shr199.i to i8
   %conv201.i = or disjoint i8 %83, -64
   %incdec.ptr202.i = getelementptr inbounds i8, ptr %utf8_output.addr.2243.i, i64 1
   store i8 %conv201.i, ptr %utf8_output.addr.2243.i, align 1, !noalias !672
@@ -47685,7 +47685,7 @@ if.then213.i:                                     ; preds = %if.then210.i
 
 if.end220.i:                                      ; preds = %if.then210.i
   %shr221.i = lshr i32 %82, 12
-  %87 = trunc i32 %shr221.i to i8
+  %87 = trunc nuw i32 %shr221.i to i8
   %conv223.i = or disjoint i8 %87, -32
   %incdec.ptr224.i = getelementptr inbounds i8, ptr %utf8_output.addr.2243.i, i64 1
   store i8 %conv223.i, ptr %utf8_output.addr.2243.i, align 1, !noalias !672
@@ -47715,7 +47715,7 @@ if.then236.i:                                     ; preds = %if.else234.i
 
 if.end243.i:                                      ; preds = %if.else234.i
   %shr244.i = lshr i32 %82, 18
-  %92 = trunc i32 %shr244.i to i8
+  %92 = trunc nuw i32 %shr244.i to i8
   %shr248.i = lshr i32 %82, 12
   %93 = trunc i32 %shr248.i to i8
   %94 = and i8 %93, 63
@@ -48625,7 +48625,7 @@ if.then28.i:                                      ; preds = %for.body.i
   br i1 %or.cond.i, label %return, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then28.i
-  %conv.i = trunc i32 %11 to i16
+  %conv.i = trunc nuw i32 %11 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.158.i, i64 2
   store i16 %conv.i, ptr %utf16_output.addr.158.i, align 2
   br label %for.inc.i
@@ -48712,7 +48712,7 @@ if.then.i23:                                      ; preds = %while.body.i12
   br i1 %or.cond.i24, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv6.i = trunc i32 %20 to i16
+  %conv6.i = trunc nuw i32 %20 to i16
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.021.i, align 2
   br label %if.end21.i
@@ -48925,7 +48925,7 @@ if.then.i23:                                      ; preds = %while.body.i12
   br i1 %or.cond.i24, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i23
-  %conv.i = trunc i32 %21 to i16
+  %conv.i = trunc nuw i32 %21 to i16
   %or.i.i25 = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i26 = getelementptr inbounds i8, ptr %utf16_output.addr.021.i, i64 2
   store i16 %or.i.i25, ptr %utf16_output.addr.021.i, align 2
@@ -49060,7 +49060,7 @@ if.then37.i:                                      ; preds = %if.then34.i
   br label %_ZN7simdutf8westmere12_GLOBAL__N_138sse_convert_utf32_to_utf16_with_errorsILNS_10endiannessE0EEESt4pairINS_6resultEPDsEPKDimS6_.exit
 
 if.end44.i:                                       ; preds = %if.then34.i
-  %conv.i = trunc i32 %13 to i16
+  %conv.i = trunc nuw i32 %13 to i16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %utf16_output.addr.178.i, i64 2
   store i16 %conv.i, ptr %utf16_output.addr.178.i, align 2, !noalias !695
   br label %for.inc.i
@@ -49143,7 +49143,7 @@ if.then.i22:                                      ; preds = %while.body.i9
   br i1 %or.cond.i23, label %if.then6, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i22
-  %conv6.i = trunc i32 %18 to i16
+  %conv6.i = trunc nuw i32 %18 to i16
   %incdec.ptr.i24 = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %conv6.i, ptr %utf16_output.addr.025.i, align 2
   br label %if.end21.i
@@ -49382,7 +49382,7 @@ if.then.i22:                                      ; preds = %while.body.i9
   br i1 %or.cond.i23, label %if.then6, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i22
-  %conv.i = trunc i32 %19 to i16
+  %conv.i = trunc nuw i32 %19 to i16
   %or.i.i24 = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i)
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %utf16_output.addr.025.i, i64 2
   store i16 %or.i.i24, ptr %utf16_output.addr.025.i, align 2
@@ -49511,7 +49511,7 @@ if.then28.i.i:                                    ; preds = %for.body.i.i
   br i1 %or.cond.i.i, label %_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs.exit, label %if.end33.i.i
 
 if.end33.i.i:                                     ; preds = %if.then28.i.i
-  %conv.i.i = trunc i32 %11 to i16
+  %conv.i.i = trunc nuw i32 %11 to i16
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %utf16_output.addr.158.i.i, i64 2
   store i16 %conv.i.i, ptr %utf16_output.addr.158.i.i, align 2
   br label %for.inc.i.i
@@ -49598,7 +49598,7 @@ if.then.i23.i:                                    ; preds = %while.body.i12.i
   br i1 %or.cond.i24.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i23.i
-  %conv6.i.i = trunc i32 %20 to i16
+  %conv6.i.i = trunc nuw i32 %20 to i16
   %incdec.ptr.i25.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i.i, i64 2
   store i16 %conv6.i.i, ptr %utf16_output.addr.021.i.i, align 2
   br label %if.end21.i.i
@@ -49811,7 +49811,7 @@ if.then.i23.i:                                    ; preds = %while.body.i12.i
   br i1 %or.cond.i24.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then.i23.i
-  %conv.i.i = trunc i32 %21 to i16
+  %conv.i.i = trunc nuw i32 %21 to i16
   %or.i.i25.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv.i.i)
   %incdec.ptr.i26.i = getelementptr inbounds i8, ptr %utf16_output.addr.021.i.i, i64 2
   store i16 %or.i.i25.i, ptr %utf16_output.addr.021.i.i, align 2
@@ -53189,7 +53189,7 @@ if.end40.i:                                       ; preds = %if.end30.i
   br i1 %cmp41.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin119convert_with_errorsEPKcmPc.exit.thread, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end40.i
-  %conv44.i = trunc i32 %or37.i to i8
+  %conv44.i = trunc nuw i32 %or37.i to i8
   br label %if.end64.i
 
 if.else47.i:                                      ; preds = %if.else.i
