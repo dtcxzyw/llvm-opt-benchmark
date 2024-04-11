@@ -30691,7 +30691,7 @@ select.unfold.i.i:                                ; preds = %474, %471, %469, %4
   %.1 = phi i1 [ %691, %688 ], [ false, %671 ]
   %.pn20 = phi { ptr, i32 } [ %689, %688 ], [ %.pn, %671 ]
   %687 = icmp eq i64 %.sroa.0.2123, 0
-  %brmerge = or i1 %687, %.1
+  %brmerge = select i1 %687, i1 true, i1 %.1
   br i1 %brmerge, label %766, label %767
 
 688:                                              ; preds = %677, %650
@@ -30701,7 +30701,7 @@ select.unfold.i.i:                                ; preds = %474, %471, %469, %4
   %.2 = phi i8 [ %.0, %650 ], [ 1, %677 ]
   %689 = landingpad { ptr, i32 }
           cleanup
-  %690 = trunc i8 %.2 to i1
+  %690 = trunc nuw i8 %.2 to i1
   %691 = xor i1 %690, true
   br label %686
 
@@ -32748,7 +32748,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 .lr.ph.i:                                         ; preds = %44, %67
   %.062141.i = phi i64 [ %68, %67 ], [ 0, %44 ]
   %.064140.i = phi i8 [ %.2.i, %67 ], [ 0, %44 ]
-  %54 = trunc i8 %.064140.i to i1
+  %54 = trunc nuw i8 %.064140.i to i1
   br i1 %54, label %._crit_edge.i, label %58
 
 ._crit_edge.i:                                    ; preds = %67, %.lr.ph.i, %44
@@ -32805,7 +32805,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 76:                                               ; preds = %.preheader.i
   %77 = shl nuw nsw i64 %.sroa.025.0139.i, 4
   %78 = add nuw nsw i64 %77, %.062141.i
-  %79 = trunc i8 %.165138.i to i1
+  %79 = trunc nuw i8 %.165138.i to i1
   %80 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %78, i16 noundef %73, i1 noundef zeroext %79)
   %81 = or i1 %80, %79
   %82 = zext i1 %81 to i8
@@ -32814,7 +32814,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 .lr.ph149.i:                                      ; preds = %._crit_edge.i, %101
   %.163147.i = phi i64 [ %102, %101 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.3146.i = phi i8 [ %.4.i, %101 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %83 = trunc i8 %.3146.i to i1
+  %83 = trunc nuw i8 %.3146.i to i1
   br i1 %83, label %._crit_edge150.i, label %93
 
 ._crit_edge150.i:                                 ; preds = %101, %.lr.ph149.i, %._crit_edge.i
@@ -32862,7 +32862,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
 
 109:                                              ; preds = %._crit_edge150.i
-  %110 = trunc i8 %.3.lcssa.i to i1
+  %110 = trunc nuw i8 %.3.lcssa.i to i1
   %111 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %85, i16 noundef %91, i1 noundef zeroext %110)
   %112 = or i1 %111, %110
   %113 = zext i1 %112 to i8
@@ -59901,7 +59901,7 @@ thread-pre-split:                                 ; preds = %66, %._crit_edge, %
   %.fr108 = freeze i40 %81
   %83 = getelementptr inbounds i8, ptr %.sroa.0.06682, i64 248
   %.sroa.453.0.extract.shift = lshr i40 %.fr108, 8
-  %84 = trunc i8 %.sroa.019.083 to i1
+  %84 = trunc nuw i8 %.sroa.019.083 to i1
   %85 = trunc i40 %.sroa.453.0.extract.shift to i8
   %86 = and i8 %85, 1
   %.not.i = icmp eq i8 %.sroa.421.084, 0
@@ -61487,7 +61487,7 @@ define hidden i40 @"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..ren
   %.sroa.434.0.extract.shift = lshr i40 %9, 8
   %10 = trunc i40 %9 to i1
   %11 = or i1 %.050, %10
-  %12 = trunc i8 %.sroa.02.049 to i1
+  %12 = trunc nuw i8 %.sroa.02.049 to i1
   %13 = trunc i40 %.sroa.434.0.extract.shift to i8
   %14 = and i8 %13, 1
   %.not.i = icmp eq i8 %.sroa.7.048, 0
@@ -61607,7 +61607,7 @@ define internal fastcc void @"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva
   %23 = getelementptr inbounds i8, ptr %.sroa.0.045.i, i64 248
   %.sroa.434.0.extract.shift.i = lshr i40 %22, 8
   %24 = trunc i40 %22 to i1
-  %25 = trunc i8 %.sroa.02.049.i to i1
+  %25 = trunc nuw i8 %.sroa.02.049.i to i1
   %26 = trunc i40 %.sroa.434.0.extract.shift.i to i8
   %27 = and i8 %26, 1
   %.not.i.i = icmp eq i8 %.sroa.7.048.i, 0
@@ -71532,7 +71532,7 @@ default.unreachable18:                            ; preds = %2
   %.sroa.434.0.extract.shift.i = lshr i40 %46, 8
   %47 = trunc i40 %46 to i1
   %48 = or i1 %.050.i, %47
-  %49 = trunc i8 %.sroa.02.049.i to i1
+  %49 = trunc nuw i8 %.sroa.02.049.i to i1
   %50 = trunc i40 %.sroa.434.0.extract.shift.i to i8
   %51 = and i8 %50, 1
   %.not.i.i15 = icmp eq i8 %.sroa.7.048.i, 0
@@ -79496,7 +79496,7 @@ define hidden void @"_ZN9hayagriva3csl27BibliographyDriver$LT$T$GT$6finish17h113
 "_ZN4core3ptr95drop_in_place$LT$std..collections..hash..set..HashSet$LT$$BP$const$u20$hayagriva..Entry$GT$$GT$17hcf653a4efc219ea0E.exit": ; preds = %960, %.noexc732, %254
   %.0500 = phi i8 [ %.1501, %254 ], [ %.5, %.noexc732 ], [ %.5, %960 ]
   %.pn586.pn.pn = phi { ptr, i32 } [ %255, %254 ], [ %.pn586.pn, %.noexc732 ], [ %.pn586.pn, %960 ]
-  %253 = trunc i8 %.0500 to i1
+  %253 = trunc nuw i8 %.0500 to i1
   br i1 %253, label %2510, label %"_ZN4core3ptr72drop_in_place$LT$indexmap..set..IndexSet$LT$$RF$hayagriva..Entry$GT$$GT$17h12872993666cddb0E.exit"
 
 254:                                              ; preds = %.noexc734, %971, %258, %256, %248
@@ -89667,7 +89667,7 @@ _ZN12citationberg11ChooseMatch4test17h29f377b03a59eba4E.exit: ; preds = %.prehea
   %.sroa.427.0.extract.shift.i = lshr i40 %35, 8
   %36 = trunc i40 %35 to i1
   %37 = or i1 %.0.i33130, %36
-  %38 = trunc i8 %.sroa.08.0.i131 to i1
+  %38 = trunc nuw i8 %.sroa.08.0.i131 to i1
   %39 = trunc i40 %.sroa.427.0.extract.shift.i to i8
   %40 = and i8 %39, 1
   %.not.i73 = icmp eq i8 %.sroa.412.0.i132, 0
@@ -89738,7 +89738,7 @@ _ZN12citationberg11ChooseMatch4test17h29f377b03a59eba4E.exit.thread: ; preds = %
   %.sroa.427.0.extract.shift.i39 = lshr i40 %68, 8
   %69 = trunc i40 %68 to i1
   %70 = or i1 %.0.i34120, %69
-  %71 = trunc i8 %.sroa.08.0.i35121 to i1
+  %71 = trunc nuw i8 %.sroa.08.0.i35121 to i1
   %72 = trunc i40 %.sroa.427.0.extract.shift.i39 to i8
   %73 = and i8 %72, 1
   %.not.i77 = icmp eq i8 %.sroa.412.0.i36122, 0
@@ -91008,7 +91008,7 @@ define internal fastcc void @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$h
 63:                                               ; preds = %138, %137, %65
   %.0128 = phi i8 [ %.1129, %65 ], [ %.2130.lpad-body, %138 ], [ %.2130.lpad-body, %137 ]
   %.pn = phi { ptr, i32 } [ %66, %65 ], [ %eh.lpad-body, %138 ], [ %eh.lpad-body, %137 ]
-  %64 = trunc i8 %.0128 to i1
+  %64 = trunc nuw i8 %.0128 to i1
   br i1 %64, label %140, label %139
 
 65:                                               ; preds = %130, %62
@@ -91188,7 +91188,7 @@ define internal fastcc void @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$h
 128:                                              ; preds = %119, %130
   %.4132272 = phi i8 [ %.4132.ph, %130 ], [ %.3131, %119 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
-  %129 = trunc i8 %.4132272 to i1
+  %129 = trunc nuw i8 %.4132272 to i1
   br i1 %129, label %132, label %131
 
 130:                                              ; preds = %.thread, %124
@@ -92623,7 +92623,7 @@ define hidden noundef zeroext i1 @_ZN9hayagriva5types7persons6Person8initials17h
   %.064.lcssa = phi i8 [ %.1, %97 ], [ %.2, %.outer ]
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7)
   %.not81 = xor i1 %.068.ph.lcssa, true
-  %24 = trunc i8 %.064.lcssa to i1
+  %24 = trunc nuw i8 %.064.lcssa to i1
   %.not78 = icmp eq ptr %2, null
   %or.cond79 = or i1 %.not78, %24
   %or.cond82 = select i1 %.not81, i1 true, i1 %or.cond79
@@ -92703,7 +92703,7 @@ define hidden noundef zeroext i1 @_ZN9hayagriva5types7persons6Person8initials17h
   ret i1 false
 
 .thread:                                          ; preds = %25, %93, %65
-  %68 = trunc i8 %.06494 to i1
+  %68 = trunc nuw i8 %.06494 to i1
   br i1 %68, label %150, label %.outer
 
 69:                                               ; preds = %65
@@ -92761,7 +92761,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.1697
   br i1 %or.cond3, label %.thread88, label %.thread
 
 .thread88:                                        ; preds = %69, %65, %93
-  %95 = trunc i8 %.06494 to i1
+  %95 = trunc nuw i8 %.06494 to i1
   br i1 %95, label %97, label %96
 
 96:                                               ; preds = %.thread88
@@ -92830,7 +92830,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.1697
 
 131:                                              ; preds = %109
   %132 = lshr i32 %spec.select, 18
-  %133 = trunc i32 %132 to i8
+  %133 = trunc nuw nsw i32 %132 to i8
   %134 = or disjoint i8 %133, -16
   store i8 %134, ptr %6, align 4, !alias.scope !18295, !noalias !18292
   %135 = lshr i32 %spec.select, 12
@@ -100435,7 +100435,7 @@ _ZN5typst11foundations5scope5Scope3get17hc48b0d87efb34077E.exit: ; preds = %273
   %.0327 = phi i8 [ %.4331.ph, %601 ], [ %.1328, %439 ]
   %.0324 = phi i8 [ 1, %601 ], [ %.1325, %439 ]
   %.pn372 = phi { ptr, i32 } [ %lpad.thr_comm619, %601 ], [ %440, %439 ]
-  %438 = trunc i8 %.0327 to i1
+  %438 = trunc nuw i8 %.0327 to i1
   br i1 %438, label %.thread581, label %.thread587
 
 439:                                              ; preds = %557, %.noexc431, %550, %.noexc429, %545, %660, %598, %561, %558, %554, %435
@@ -101246,7 +101246,7 @@ _ZN7stacker10maybe_grow17h87f0376be6696516E.exit: ; preds = %530, %529
 
 663:                                              ; preds = %.thread605
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %89)
-  %664 = trunc i8 %.2326609 to i1
+  %664 = trunc nuw i8 %.2326609 to i1
   br i1 %664, label %670, label %669
 
 .thread605:                                       ; preds = %659, %535, %.thread610, %552
@@ -101258,7 +101258,7 @@ _ZN7stacker10maybe_grow17h87f0376be6696516E.exit: ; preds = %530, %529
 .thread587:                                       ; preds = %.thread581, %667, %.body426
   %.6 = phi i8 [ %.2326609, %667 ], [ %.0324, %.body426 ], [ %.0324585, %.thread581 ]
   %.pn374 = phi { ptr, i32 } [ %668, %667 ], [ %.pn372, %.body426 ], [ %.pn372586, %.thread581 ]
-  %666 = trunc i8 %.6 to i1
+  %666 = trunc nuw i8 %.6 to i1
   br i1 %666, label %.thread587.thread700, label %common.resume
 
 667:                                              ; preds = %.thread605
@@ -114287,7 +114287,7 @@ define internal fastcc void @_ZN5typst11foundations7methods15call_method_mut17ha
 44:                                               ; preds = %.body, %46
   %.0 = phi i8 [ %.1, %46 ], [ %.2, %.body ]
   %.pn324 = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %.body ]
-  %45 = trunc i8 %.0 to i1
+  %45 = trunc nuw i8 %.0 to i1
   br i1 %45, label %319, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..args..Args$GT$17hdfe1dcbdaaf78d65E.exit"
 
 46:                                               ; preds = %218, %6
@@ -115587,7 +115587,7 @@ _ZN10ttf_parser6tables4hvar16DeltaSetIndexMap3map17hd9b1c0fdda34a21fE.exit.i.i: 
   %notmask.i.i.i = shl nsw i32 -1, %80
   %98 = xor i32 %notmask.i.i.i, -1
   %99 = and i32 %95, %98
-  %100 = trunc i32 %99 to i16
+  %100 = trunc nuw i32 %99 to i16
   br label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.i
 
 _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.i: ; preds = %_ZN10ttf_parser6tables4hvar16DeltaSetIndexMap3map17hd9b1c0fdda34a21fE.exit.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haff82546f6b9c655E.exit.i"
@@ -119701,7 +119701,7 @@ define void @"_ZN5typst4eval4flow74_$LT$impl$u20$typst..eval..Eval$u20$for$u20$t
 .thread644:                                       ; preds = %616, %612, %605, %609, %614, %610, %611, %618, %604, %.thread650
   %.0375 = phi i8 [ %.2.ph, %.thread650 ], [ %.7, %605 ], [ %.7, %609 ], [ %.7, %614 ], [ %.7, %610 ], [ %.7, %611 ], [ %.7, %618 ], [ %.7, %604 ], [ %.7, %612 ], [ %.7, %616 ]
   %.pn421.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread650 ], [ %.pn419, %605 ], [ %.pn419, %609 ], [ %.pn419, %614 ], [ %.pn419, %610 ], [ %.pn419, %611 ], [ %.pn419, %618 ], [ %.pn419, %604 ], [ %.pn419, %612 ], [ %.pn419, %616 ]
-  %63 = trunc i8 %.0375 to i1
+  %63 = trunc nuw i8 %.0375 to i1
   br i1 %63, label %.thread817, label %.thread997
 
 .thread:                                          ; preds = %3, %65, %67
@@ -121590,7 +121590,7 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %117
 "_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit562": ; preds = %598, %.noexc568, %596, %590, %.noexc563, %588, %586, %585, %584, %580, %579
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  %587 = trunc i8 %.11 to i1
+  %587 = trunc nuw i8 %.11 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57)
   br i1 %587, label %624, label %621
 

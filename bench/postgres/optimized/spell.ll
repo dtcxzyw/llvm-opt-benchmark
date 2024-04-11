@@ -578,7 +578,7 @@ findchar2.exit.thread:                            ; preds = %.preheader, %34
   br i1 %103, label %214, label %104
 
 104:                                              ; preds = %101
-  %105 = trunc i8 %.072165 to i1
+  %105 = trunc nuw i8 %.072165 to i1
   %brmerge = select i1 %105, i1 true, i1 %.070167
   br i1 %brmerge, label %106, label %.critedge2.thread
 
@@ -2796,7 +2796,7 @@ define dso_local void @NISortAffixes(ptr noundef %0) local_unnamed_addr #0 {
   %76 = icmp sgt i32 %.02533.i, -1
   %or.cond35.i = select i1 %75, i1 %76, i1 false
   %77 = icmp sgt i32 %70, 0
-  %or.cond336.i = and i1 %77, %or.cond35.i
+  %or.cond336.i = select i1 %or.cond35.i, i1 %77, i1 false
   br i1 %or.cond336.i, label %.lr.ph.i61, label %.critedge.i
 
 .lr.ph.i61:                                       ; preds = %64, %84
@@ -5520,7 +5520,7 @@ define internal fastcc void @getNextFlagFromString(ptr nocapture noundef readonl
   br i1 %.not51, label %47, label %40
 
 40:                                               ; preds = %.lr.ph
-  %41 = trunc i8 %.179 to i1
+  %41 = trunc nuw i8 %.179 to i1
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %40
@@ -5539,7 +5539,7 @@ define internal fastcc void @getNextFlagFromString(ptr nocapture noundef readonl
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %47
-  %52 = trunc i8 %.179 to i1
+  %52 = trunc nuw i8 %.179 to i1
   br i1 %52, label %53, label %65
 
 53:                                               ; preds = %51

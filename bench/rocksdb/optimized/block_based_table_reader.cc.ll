@@ -5109,7 +5109,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -8499,7 +8499,7 @@ if.end492:                                        ; preds = %_ZNKSt14default_del
   br i1 %tobool.i835, label %if.then495, label %if.end533
 
 if.then495:                                       ; preds = %if.end492
-  %tobool496 = trunc i8 %reusing_prev_block.1 to i1
+  %tobool496 = trunc nuw i8 %reusing_prev_block.1 to i1
   br i1 %tobool496, label %if.then497, label %if.else513
 
 if.then497:                                       ; preds = %if.then495
@@ -8886,10 +8886,10 @@ for.end586:                                       ; preds = %_ZN7rocksdb6StatusD
   %referenced_data_size.3 = phi i64 [ %referenced_data_size.2, %_ZN7rocksdb6StatusD2Ev.exit1005 ], [ %referenced_data_size.0, %for.cond540 ]
   %does_referenced_key_exist.3 = phi i1 [ %does_referenced_key_exist.2, %_ZN7rocksdb6StatusD2Ev.exit1005 ], [ %does_referenced_key_exist.0, %for.cond540 ]
   %tobool587.not = icmp eq ptr %spec.select1581, null
-  %tobool589 = trunc i8 %reusing_prev_block.1 to i1
+  %tobool589 = trunc nuw i8 %reusing_prev_block.1 to i1
   %first_block.0.not = xor i1 %first_block.0, true
   %brmerge141 = or i1 %first_block.0.not, %tobool589
-  %or.cond = or i1 %tobool587.not, %brmerge141
+  %or.cond = select i1 %tobool587.not, i1 true, i1 %brmerge141
   br i1 %or.cond, label %if.end612, label %if.then592
 
 if.then592:                                       ; preds = %for.end586
@@ -23453,7 +23453,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
           to label %invoke.cont51 unwind label %lpad43.loopexit
 
 invoke.cont51:                                    ; preds = %for.cond
-  %tobool53 = trunc i8 %done.0 to i1
+  %tobool53 = trunc nuw i8 %done.0 to i1
   %not.call52 = xor i1 %call52, true
   %46 = select i1 %not.call52, i1 true, i1 %tobool53
   br i1 %46, label %for.end216, label %for.body
@@ -24175,7 +24175,7 @@ if.end196:                                        ; preds = %if.else195, %if.the
           to label %if.end201 unwind label %lpad89.loopexit.split-lp
 
 if.end201:                                        ; preds = %if.end196, %land.lhs.true183, %if.end180
-  %tobool202 = trunc i8 %done.4 to i1
+  %tobool202 = trunc nuw i8 %done.4 to i1
   %. = select i1 %tobool202, i32 2, i32 0
   br label %cleanup205
 
@@ -28043,7 +28043,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -33504,7 +33504,7 @@ land.end:                                         ; preds = %cond.end10.thread, 
   %delay_enabled_ = getelementptr inbounds i8, ptr %this, i64 34
   store i8 %frombool1, ptr %delay_enabled_, align 2
   %total_delay_ = getelementptr inbounds i8, ptr %this, i64 40
-  %tobool25 = trunc i8 %frombool21 to i1
+  %tobool25 = trunc nuw i8 %frombool21 to i1
   %cmp26 = icmp ne ptr %elapsed, null
   %or.cond = or i1 %cmp26, %tobool25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_delay_, i8 0, i64 16, i1 false)
@@ -48737,7 +48737,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

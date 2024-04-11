@@ -11656,7 +11656,7 @@ js_new_string8.exit:                              ; preds = %37, %41, %JS_AtomTo
   store i32 0, ptr %71, align 4
   %72 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %61, ptr %72, align 8
-  %73 = trunc nuw i64 %14 to i32
+  %73 = trunc nuw nsw i64 %14 to i32
   %74 = load i32, ptr %52, align 8
   %75 = add i32 %74, %73
   %76 = load i32, ptr %51, align 4
@@ -17966,7 +17966,7 @@ string_get.exit:                                  ; preds = %36, %40
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
-  %51 = trunc nuw i32 %44 to i8
+  %51 = trunc nuw nsw i32 %44 to i8
   %52 = getelementptr i8, ptr %.03750, i64 1
   store i8 %51, ptr %.03750, align 1
   br label %57
@@ -24342,7 +24342,7 @@ string_get.exit.i:                                ; preds = %55, %51
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %63
-  %66 = trunc nuw i32 %59 to i8
+  %66 = trunc nuw nsw i32 %59 to i8
   %67 = getelementptr i8, ptr %.03750.i, i64 1
   store i8 %66, ptr %.03750.i, align 1
   br label %72
@@ -27113,7 +27113,7 @@ string_get.exit.i:                                ; preds = %74, %70
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %82
-  %85 = trunc nuw i32 %78 to i8
+  %85 = trunc nuw nsw i32 %78 to i8
   %86 = getelementptr i8, ptr %.03750.i, i64 1
   store i8 %85, ptr %.03750.i, align 1
   br label %91
@@ -31370,7 +31370,7 @@ define dso_local i32 @JS_DeletePropertyInt64(ptr noundef %0, i64 %1, i64 %2, i64
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = trunc nuw i64 %3 to i32
+  %9 = trunc nuw nsw i64 %3 to i32
   %10 = or disjoint i32 %9, -2147483648
   %11 = tail call i32 @JS_DeleteProperty(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10, i32 noundef %4)
   br label %JS_FreeAtom.exit
@@ -53161,7 +53161,7 @@ bc_put_sleb128.exit:                              ; preds = %.lr.ph.i.i.i, %29
   br label %JS_WriteBigNum.exit
 
 143:                                              ; preds = %133
-  %144 = trunc i64 %138 to i32
+  %144 = trunc nsw i64 %138 to i32
   %145 = shl i32 %144, 1
   %.neg.i.i.i = ashr i32 %144, 31
   %146 = xor i32 %145, %.neg.i.i.i
@@ -53241,7 +53241,7 @@ bc_put_sleb128.exit.i:                            ; preds = %.lr.ph.i.i.i.i, %14
   br label %JS_WriteBigNum.exit
 
 178:                                              ; preds = %._crit_edge.i
-  %179 = trunc nuw i64 %173 to i32
+  %179 = trunc nuw nsw i64 %173 to i32
   %.not7.i.i.i104 = icmp ult i32 %179, 128
   br i1 %.not7.i.i.i104, label %bc_put_leb128.exit.i, label %.lr.ph.i.i.i105
 
@@ -53337,7 +53337,7 @@ bc_put_leb128.exit.i:                             ; preds = %.lr.ph.i.i.i105, %1
   br label %JS_WriteBigNum.exit
 
 218:                                              ; preds = %._crit_edge143.i
-  %219 = trunc nuw i64 %213 to i32
+  %219 = trunc nuw nsw i64 %213 to i32
   %.not7.i.i121.i = icmp ult i32 %219, 128
   br i1 %.not7.i.i121.i, label %bc_put_leb128.exit126.i, label %.lr.ph.i.i122.i
 
@@ -64196,7 +64196,7 @@ skip_shebang.exit:                                ; preds = %8, %24, %._crit_edg
   %105 = zext nneg i16 %104 to i32
   %106 = getelementptr inbounds i8, ptr %77, i64 116
   store i32 %105, ptr %106, align 4
-  %107 = trunc i32 %.2 to i8
+  %107 = trunc nuw i32 %.2 to i8
   %108 = getelementptr inbounds i8, ptr %77, i64 134
   store i8 %107, ptr %108, align 2
   %109 = getelementptr inbounds i8, ptr %77, i64 136
@@ -64206,7 +64206,7 @@ skip_shebang.exit:                                ; preds = %8, %24, %._crit_edg
 110:                                              ; preds = %78
   %111 = getelementptr inbounds i8, ptr %77, i64 104
   store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %111, align 8
-  %112 = trunc i32 %.2 to i8
+  %112 = trunc nuw i32 %.2 to i8
   %113 = getelementptr inbounds i8, ptr %77, i64 134
   store i8 %112, ptr %113, align 2
   %114 = getelementptr inbounds i8, ptr %77, i64 136
@@ -71370,7 +71370,7 @@ define internal fastcc { i64, i64 } @js_array_buffer_constructor3(ptr noundef %0
   br label %js_malloc.exit.thread
 
 js_malloc.exit:                                   ; preds = %21
-  %32 = trunc nuw i64 %3 to i32
+  %32 = trunc nuw nsw i64 %3 to i32
   store i32 %32, ptr %25, align 8
   %33 = icmp ne i32 %8, 0
   %34 = icmp eq i32 %4, 20
@@ -72667,7 +72667,7 @@ JS_ToIndex.exit:                                  ; preds = %38
   br label %JS_FreeValue.exit
 
 71:                                               ; preds = %65
-  %72 = trunc i64 %66 to i32
+  %72 = trunc nuw i64 %66 to i32
   br label %73
 
 73:                                               ; preds = %71, %57, %53
@@ -85519,7 +85519,7 @@ js_malloc.exit:                                   ; preds = %._crit_edge
   store ptr %37, ptr %38, align 8
   %42 = getelementptr inbounds i8, ptr %28, i64 5
   %43 = load i8, ptr %42, align 1
-  %44 = trunc i32 %3 to i8
+  %44 = trunc nuw nsw i32 %3 to i8
   %45 = shl i8 %44, 1
   %46 = and i8 %45, 2
   %47 = and i8 %43, -4
@@ -105296,7 +105296,7 @@ string_get.exit68:                                ; preds = %string_get.exit70.t
   br i1 %.not.i74, label %138, label %131
 
 131:                                              ; preds = %129
-  %132 = trunc i32 %.049 to i16
+  %132 = trunc nuw i32 %.049 to i16
   %133 = load ptr, ptr %82, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 16
   %135 = add nsw i32 %126, 1
@@ -114391,7 +114391,7 @@ define internal fastcc i32 @JS_TryGetPropertyInt64(ptr noundef %0, i64 %1, i64 %
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = trunc nuw i64 %3 to i32
+  %9 = trunc nuw nsw i64 %3 to i32
   %10 = or disjoint i32 %9, -2147483648
   %11 = tail call i32 @JS_HasProperty(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10)
   %12 = icmp sgt i32 %11, 0
@@ -149939,7 +149939,7 @@ js_resize_array.exit.i.i:                         ; preds = %47, %16
 
 new_label.exit:                                   ; preds = %js_resize_array.exit.i.i, %js_realloc2.exit.i.i.i.i, %42, %39, %js_is_live_code.exit
   %.0 = phi i32 [ %2, %js_is_live_code.exit ], [ %53, %js_resize_array.exit.i.i ], [ -1, %js_realloc2.exit.i.i.i.i ], [ -1, %39 ], [ -1, %42 ]
-  %57 = trunc i32 %1 to i8
+  %57 = trunc nuw nsw i32 %1 to i8
   %58 = load ptr, ptr %6, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 304
   %60 = getelementptr inbounds i8, ptr %58, i64 356
@@ -164251,19 +164251,19 @@ js_resize_array.exit:                             ; preds = %42, %15
   store i32 %49, ptr %10, align 8
   %50 = sext i32 %47 to i64
   %51 = getelementptr %struct.JSClosureVar, ptr %48, i64 %50
-  %52 = trunc i32 %2 to i8
+  %52 = trunc nuw nsw i32 %2 to i8
   %53 = and i8 %52, 1
-  %54 = trunc i32 %3 to i8
+  %54 = trunc nuw nsw i32 %3 to i8
   %55 = shl i8 %54, 1
   %56 = and i8 %55, 2
   %57 = or disjoint i8 %56, %53
-  %58 = trunc i32 %6 to i8
+  %58 = trunc nuw nsw i32 %6 to i8
   %59 = shl i8 %58, 2
   %60 = and i8 %59, 4
   %61 = or disjoint i8 %57, %60
-  %62 = trunc i32 %7 to i8
+  %62 = trunc nuw nsw i32 %7 to i8
   %63 = shl i8 %62, 3
-  %64 = trunc i32 %8 to i8
+  %64 = trunc nuw nsw i32 %8 to i8
   %65 = shl i8 %64, 4
   %.masked = and i8 %63, 8
   %66 = or disjoint i8 %61, %.masked
@@ -172016,7 +172016,7 @@ new_label_fd.exit:                                ; preds = %JS_DupAtom.exit, %5
   store i32 %.0.i14, ptr %8, align 4
   %70 = call i32 @dbuf_put(ptr noundef %4, ptr noundef nonnull %8, i64 noundef 4) #42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %71 = trunc i32 %6 to i8
+  %71 = trunc nuw nsw i32 %6 to i8
   %72 = call i32 @dbuf_putc(ptr noundef %4, i8 noundef zeroext %71) #42
   %73 = load i32, ptr %5, align 4
   %74 = getelementptr i8, ptr %1, i64 368
@@ -172156,7 +172156,7 @@ define internal fastcc noundef i32 @optimize_scope_make_ref(ptr noundef %0, ptr 
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %6
-  %13 = trunc i32 %4 to i8
+  %13 = trunc nuw nsw i32 %4 to i8
   %14 = tail call i32 @dbuf_putc(ptr noundef %0, i8 noundef zeroext %13) #42
   %15 = trunc i32 %5 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
@@ -174964,7 +174964,7 @@ JS_FreeBigInt.exit.thread:                        ; preds = %29, %33, %151, %149
   br label %JS_FreeValue.exit144
 
 JS_FreeValue.exit144:                             ; preds = %JS_FreeBigInt.exit.thread, %188
-  %190 = trunc i64 %.sroa.3.0.i114154160 to i32
+  %190 = trunc nsw i64 %.sroa.3.0.i114154160 to i32
   %191 = icmp ugt i32 %190, -12
   br i1 %191, label %JS_FreeValue.exit144.thread, label %JS_FreeValue.exit145
 
@@ -192468,7 +192468,7 @@ define internal fastcc { i64, i64 } @js_allocate_fast_array(ptr noundef %0, i64 
   br i1 %or.cond, label %18, label %JS_FreeValue.exit
 
 18:                                               ; preds = %6
-  %19 = trunc i64 %1 to i32
+  %19 = trunc nuw nsw i64 %1 to i32
   %20 = getelementptr inbounds i8, ptr %17, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = mul i32 %21, 3
@@ -202259,7 +202259,7 @@ JS_ToInt64Sat.exit:                               ; preds = %15, %21
   br label %108
 
 30:                                               ; preds = %26
-  %31 = trunc nuw i64 %27 to i32
+  %31 = trunc nuw nsw i64 %27 to i32
   %32 = getelementptr inbounds i8, ptr %14, i64 4
   %33 = load i64, ptr %32, align 4
   %34 = trunc i64 %33 to i32
@@ -212641,7 +212641,7 @@ switch.lookup:                                    ; preds = %54
 
 js_malloc.exit:                                   ; preds = %70, %js_malloc.exit
   %.0114 = phi i64 [ %85, %js_malloc.exit ], [ 0, %70 ]
-  %83 = trunc i64 %.0114 to i32
+  %83 = trunc nuw nsw i64 %.0114 to i32
   %84 = getelementptr i32, ptr %76, i64 %.0114
   store i32 %83, ptr %84, align 4
   %85 = add nuw nsw i64 %.0114, 1

@@ -1613,7 +1613,7 @@ define hidden void @_ZN12unicode_bidi8BidiInfo20new_with_data_source17h41b57b3e9
   br label %_ZN12unicode_bidi14InitialInfoExt20new_with_data_source17hc09f56411e5f175eE.exit
 
 100:                                              ; preds = %.thread.i.i
-  %101 = trunc i8 %.sroa.05.0.lcssa.ph.i.i to i1
+  %101 = trunc nuw i8 %.sroa.05.0.lcssa.ph.i.i to i1
   %..sroa.9.095.i.i = select i1 %101, i8 %.sroa.9.0.lcssa.ph.i.i, i8 0
   %102 = load i64, ptr %24, align 8, !alias.scope !97, !noalias !100, !noundef !7
   %103 = load i64, ptr %18, align 8, !alias.scope !97, !noalias !100, !noundef !7
@@ -1718,7 +1718,7 @@ define hidden void @_ZN12unicode_bidi8BidiInfo20new_with_data_source17h41b57b3e9
 
 131:                                              ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h897cfc0a6e30826aE.exit.i.i"
   %132 = add i64 %.0.i.i.i, %.sroa.10.0165.i.i
-  %trunc.i.i = trunc i8 %.sroa.05.0172.i.i to i1
+  %trunc.i.i = trunc nuw i8 %.sroa.05.0172.i.i to i1
   %..sroa.9.098.i.i = select i1 %trunc.i.i, i8 %.sroa.9.0170.i.i, i8 0
   %133 = load i64, ptr %24, align 8, !alias.scope !105, !noalias !108, !noundef !7
   %134 = load i64, ptr %18, align 8, !alias.scope !105, !noalias !108, !noundef !7
@@ -1808,7 +1808,7 @@ define hidden void @_ZN12unicode_bidi8BidiInfo20new_with_data_source17h41b57b3e9
   br label %.thread142.i.i
 
 171:                                              ; preds = %128
-  %172 = trunc i8 %.sroa.05.0172.i.i to i1
+  %172 = trunc nuw i8 %.sroa.05.0172.i.i to i1
   %..i.i = zext i1 %.not84.i.i to i8
   %spec.select102.i.i = select i1 %172, i8 %.sroa.9.0170.i.i, i8 %..i.i
   %spec.select103.i.i = select i1 %172, i8 %.sroa.05.0172.i.i, i8 1
@@ -10110,12 +10110,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h2b96249e2
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.152f57749fcdf0a673d809c4f4545e7f.613.anon.152f57749fcdf0a673d809c4f4545e7f.614.i.i.i = select i1 %3, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.614, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.613
   %..i.i.i = select i1 %3, i64 4, i64 6
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.152f57749fcdf0a673d809c4f4545e7f.613.anon.152f57749fcdf0a673d809c4f4545e7f.614.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -10126,12 +10127,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h2ec9fbedb
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.152f57749fcdf0a673d809c4f4545e7f.734.anon.152f57749fcdf0a673d809c4f4545e7f.611.i.i.i = select i1 %3, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.611, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.734
   %..i.i.i = select i1 %3, i64 4, i64 5
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.152f57749fcdf0a673d809c4f4545e7f.734.anon.152f57749fcdf0a673d809c4f4545e7f.611.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -11170,12 +11172,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h62dda38b4
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.152f57749fcdf0a673d809c4f4545e7f.613.anon.152f57749fcdf0a673d809c4f4545e7f.627.i.i.i = select i1 %3, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.627, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.613
   %..i.i.i = select i1 %3, i64 8, i64 6
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.152f57749fcdf0a673d809c4f4545e7f.613.anon.152f57749fcdf0a673d809c4f4545e7f.627.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -11369,7 +11372,7 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h6d74dfab7
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.152f57749fcdf0a673d809c4f4545e7f.685.anon.152f57749fcdf0a673d809c4f4545e7f.611.i.i.i = select i1 %3, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.611, ptr @anon.152f57749fcdf0a673d809c4f4545e7f.685
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.152f57749fcdf0a673d809c4f4545e7f.685.anon.152f57749fcdf0a673d809c4f4545e7f.611.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
@@ -23714,7 +23717,7 @@ define hidden void @_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE
   br label %7
 
 7:                                                ; preds = %6, %.lr.ph.preheader.i
-  %8 = trunc nuw i64 %2 to i8
+  %8 = trunc nuw nsw i64 %2 to i8
   %9 = or disjoint i8 %8, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %0, ptr noundef nonnull align 8 dereferenceable(15) %4, i64 15, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 15
@@ -24148,7 +24151,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 .lr.ph.i:                                         ; preds = %11, %28
   %.06249.i = phi i64 [ %29, %28 ], [ 0, %11 ]
   %.06448.i = phi i8 [ %.2.i, %28 ], [ 0, %11 ]
-  %16 = trunc i8 %.06448.i to i1
+  %16 = trunc nuw i8 %.06448.i to i1
   br i1 %16, label %._crit_edge.i, label %19
 
 ._crit_edge.i:                                    ; preds = %28, %.lr.ph.i, %11
@@ -24204,7 +24207,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 37:                                               ; preds = %.preheader.i
   %38 = shl nuw nsw i64 %.sroa.025.047.i, 4
   %39 = add nuw nsw i64 %38, %.06249.i
-  %40 = trunc i8 %.16546.i to i1
+  %40 = trunc nuw i8 %.16546.i to i1
   %41 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %39, i16 noundef %34, i1 noundef zeroext %40)
   %42 = or i1 %41, %40
   %43 = zext i1 %42 to i8
@@ -24213,7 +24216,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 .lr.ph57.i:                                       ; preds = %._crit_edge.i, %61
   %.16355.i = phi i64 [ %62, %61 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.354.i = phi i8 [ %.4.i, %61 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %44 = trunc i8 %.354.i to i1
+  %44 = trunc nuw i8 %.354.i to i1
   br i1 %44, label %._crit_edge58.i, label %53
 
 ._crit_edge58.i:                                  ; preds = %61, %.lr.ph57.i, %._crit_edge.i
@@ -24257,11 +24260,11 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 68:                                               ; preds = %70, %._crit_edge58.i
   %.5.i = phi i8 [ %.3.lcssa.i, %._crit_edge58.i ], [ %74, %70 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !5018
-  %69 = trunc i8 %.5.i to i1
+  %69 = trunc nuw i8 %.5.i to i1
   br label %_ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit
 
 70:                                               ; preds = %._crit_edge58.i
-  %71 = trunc i8 %.3.lcssa.i to i1
+  %71 = trunc nuw i8 %.3.lcssa.i to i1
   %72 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %45, i16 noundef %51, i1 noundef zeroext %71)
   %73 = or i1 %72, %71
   %74 = zext i1 %73 to i8
@@ -167729,7 +167732,7 @@ define void @"_ZN118_$LT$typst..layout..axes..Axes$LT$typst..layout..length..Len
   br label %36
 
 171:                                              ; preds = %124
-  %172 = trunc i8 %.055 to i1
+  %172 = trunc nuw i8 %.055 to i1
   br i1 %172, label %175, label %173
 
 173:                                              ; preds = %175, %171, %124
@@ -167742,7 +167745,7 @@ define void @"_ZN118_$LT$typst..layout..axes..Axes$LT$typst..layout..length..Len
           to label %173 unwind label %142
 
 176:                                              ; preds = %173
-  %177 = trunc i8 %.055 to i1
+  %177 = trunc nuw i8 %.055 to i1
   br i1 %177, label %182, label %178
 
 178:                                              ; preds = %182, %176, %173
@@ -168360,7 +168363,7 @@ define void @"_ZN116_$LT$typst..layout..axes..Axes$LT$typst..layout..ratio..Rati
   br label %36
 
 170:                                              ; preds = %122
-  %171 = trunc i8 %.054 to i1
+  %171 = trunc nuw i8 %.054 to i1
   br i1 %171, label %174, label %172
 
 172:                                              ; preds = %174, %170, %122
@@ -168373,7 +168376,7 @@ define void @"_ZN116_$LT$typst..layout..axes..Axes$LT$typst..layout..ratio..Rati
           to label %172 unwind label %141
 
 175:                                              ; preds = %172
-  %176 = trunc i8 %.054 to i1
+  %176 = trunc nuw i8 %.054 to i1
   br i1 %176, label %181, label %177
 
 177:                                              ; preds = %181, %175, %172
@@ -169008,7 +169011,7 @@ define void @"_ZN112_$LT$typst..layout..axes..Axes$LT$typst..layout..rel..Rel$GT
   br label %37
 
 171:                                              ; preds = %124
-  %172 = trunc i8 %.038 to i1
+  %172 = trunc nuw i8 %.038 to i1
   br i1 %172, label %175, label %173
 
 173:                                              ; preds = %175, %171, %124
@@ -169021,7 +169024,7 @@ define void @"_ZN112_$LT$typst..layout..axes..Axes$LT$typst..layout..rel..Rel$GT
           to label %173 unwind label %142
 
 176:                                              ; preds = %173
-  %177 = trunc i8 %.038 to i1
+  %177 = trunc nuw i8 %.038 to i1
   br i1 %177, label %182, label %178
 
 178:                                              ; preds = %182, %176, %173

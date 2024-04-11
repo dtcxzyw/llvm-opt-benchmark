@@ -1018,7 +1018,7 @@ do.body22.i.preheader:                            ; preds = %call19.i.noexc
 
 do.body22.i:                                      ; preds = %do.body22.i.preheader, %call138.i.noexc
   %has_comma.0.i = phi i8 [ %has_comma.1.i, %call138.i.noexc ], [ 1, %do.body22.i.preheader ]
-  %tobool.i = trunc i8 %has_comma.0.i to i1
+  %tobool.i = trunc nuw i8 %has_comma.0.i to i1
   br i1 %tobool.i, label %do.body28.i, label %if.then23.i.invoke
 
 if.then23.i.invoke:                               ; preds = %do.body22.i, %land.lhs.true.i
@@ -1353,7 +1353,7 @@ do.end140.i:                                      ; preds = %call138.i.noexc
   br i1 %tobool143.i, label %"_ZN6google8protobuf13json_internal9JsonLexer11VisitObjectIZNS2_9SkipValueEvE3$_0EEN4absl12lts_202308026StatusET_.exit.sink.split", label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.end140.i
-  %tobool144.i = trunc i8 %has_comma.1.i to i1
+  %tobool144.i = trunc nuw i8 %has_comma.1.i to i1
   br i1 %tobool144.i, label %if.then23.i.invoke, label %"_ZN6google8protobuf13json_internal9JsonLexer11VisitObjectIZNS2_9SkipValueEvE3$_0EEN4absl12lts_202308026StatusET_.exit.sink.split"
 
 ehcleanup.i:                                      ; preds = %lpad43.i.loopexit, %lpad43.i.loopexit.split-lp, %lpad60.i, %lpad53.i
@@ -5781,7 +5781,7 @@ if.end82:                                         ; preds = %invoke.cont7, %_ZN4
   br i1 %cmp83, label %if.then84, label %if.else88
 
 if.then84:                                        ; preds = %if.end82
-  %conv85 = trunc nuw i32 %rune.1 to i8
+  %conv85 = trunc nuw nsw i32 %rune.1 to i8
   store i8 %conv85, ptr %out_utf8, align 1
   br label %cleanup157.sink.split.sink.split
 
@@ -5825,7 +5825,7 @@ if.then104:                                       ; preds = %if.else102
 
 if.then124:                                       ; preds = %if.else102
   %shr125 = lshr i32 %rune.1, 18
-  %53 = trunc i32 %shr125 to i8
+  %53 = trunc nuw nsw i32 %shr125 to i8
   %conv128 = or disjoint i8 %53, -16
   store i8 %conv128, ptr %out_utf8, align 1
   %shr130 = lshr i32 %rune.1, 12

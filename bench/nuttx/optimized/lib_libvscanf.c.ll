@@ -173,7 +173,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   ]
 
 60:                                               ; preds = %59
-  %61 = trunc i8 %.1413637 to i1
+  %61 = trunc nuw i8 %.1413637 to i1
   br i1 %61, label %76, label %62
 
 62:                                               ; preds = %60
@@ -275,7 +275,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   br label %509
 
 103:                                              ; preds = %59
-  %104 = trunc i8 %.1413637 to i1
+  %104 = trunc nuw i8 %.1413637 to i1
   br i1 %104, label %119, label %105
 
 105:                                              ; preds = %103
@@ -367,7 +367,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
   br i1 %.not459, label %346, label %139
 
 139:                                              ; preds = %.thread
-  %140 = trunc i8 %.1413624 to i1
+  %140 = trunc nuw i8 %.1413624 to i1
   br i1 %140, label %204, label %141
 
 141:                                              ; preds = %139
@@ -572,7 +572,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2,
 222:                                              ; preds = %220, %219
   %or.cond12.sink = phi i1 [ %or.cond12, %220 ], [ %.not483, %219 ]
   %spec.select493 = select i1 %or.cond12.sink, i8 %.0340694, i8 1
-  %223 = trunc i8 %spec.select493 to i1
+  %223 = trunc nuw i8 %spec.select493 to i1
   br i1 %223, label %.loopexit, label %224
 
 224:                                              ; preds = %222
@@ -646,7 +646,7 @@ switch.early.test:                                ; preds = %240
 242:                                              ; preds = %240, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %234, %238, %235
   %.1345 = phi i32 [ %spec.store.select16, %235 ], [ %.0344677, %234 ], [ %..0344, %238 ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %240 ]
   %.3343 = phi i8 [ %.2342678, %235 ], [ %spec.select494, %234 ], [ %.2342., %238 ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %switch.early.test ], [ %.2342678, %240 ]
-  %243 = trunc i8 %.3343 to i1
+  %243 = trunc nuw i8 %.3343 to i1
   br i1 %243, label %.thread589, label %244
 
 244:                                              ; preds = %242
@@ -663,8 +663,8 @@ switch.early.test:                                ; preds = %240
   %.10581 = phi i32 [ %.9580675, %242 ], [ %250, %244 ]
   %.5383 = phi i32 [ %.4382676, %242 ], [ %246, %244 ]
   %251 = icmp sge i32 %.5383, %spec.store.select84
-  %252 = trunc i8 %.3343 to i1
-  %.not476 = or i1 %251, %252
+  %252 = trunc nuw i8 %.3343 to i1
+  %.not476 = select i1 %251, i1 true, i1 %252
   br i1 %.not476, label %.loopexit, label %.lr.ph680, !llvm.loop !16
 
 .lr.ph672:                                        ; preds = %.preheader605, %258
@@ -688,7 +688,7 @@ switch.early.test:                                ; preds = %240
 256:                                              ; preds = %254, %253
   %or.cond34.sink = phi i1 [ %or.cond34, %254 ], [ %.not474, %253 ]
   %spec.select500 = select i1 %or.cond34.sink, i8 %.4671, i8 1
-  %257 = trunc i8 %spec.select500 to i1
+  %257 = trunc nuw i8 %spec.select500 to i1
   br i1 %257, label %.loopexit, label %258
 
 258:                                              ; preds = %256
@@ -724,7 +724,7 @@ switch.early.test:                                ; preds = %240
 269:                                              ; preds = %267, %266
   %or.cond40.sink = phi i1 [ %or.cond40, %267 ], [ %.not471, %266 ]
   %spec.select502 = select i1 %or.cond40.sink, i8 %.6665, i8 1
-  %270 = trunc i8 %spec.select502 to i1
+  %270 = trunc nuw i8 %spec.select502 to i1
   br i1 %270, label %.loopexit, label %271
 
 271:                                              ; preds = %269
@@ -803,7 +803,7 @@ switch.early.test:                                ; preds = %240
   %.1376 = phi i32 [ %.0375685, %279 ], [ %spec.select504, %280 ], [ %..0375, %284 ], [ 16, %294 ], [ 16, %291 ], [ %.0375685, %288 ], [ %.0375685, %286 ]
   %.3347 = phi i32 [ %.2346686, %279 ], [ %spec.select505, %280 ], [ %..2346, %284 ], [ 2, %294 ], [ 2, %291 ], [ 2, %288 ], [ 2, %286 ]
   %.9 = phi i8 [ %spec.select503, %279 ], [ %.8687, %280 ], [ %.8., %284 ], [ %.8687, %294 ], [ %.8687, %291 ], [ %.8687, %288 ], [ %.8687, %286 ]
-  %297 = trunc i8 %.9 to i1
+  %297 = trunc nuw i8 %.9 to i1
   br i1 %297, label %.thread594, label %298
 
 298:                                              ; preds = %296
@@ -820,8 +820,8 @@ switch.early.test:                                ; preds = %240
   %.16 = phi i32 [ %.15683, %296 ], [ %304, %298 ]
   %.11 = phi i32 [ %.10684, %296 ], [ %300, %298 ]
   %305 = icmp sge i32 %.11, %spec.store.select84
-  %306 = trunc i8 %.9 to i1
-  %.not479 = or i1 %305, %306
+  %306 = trunc nuw i8 %.9 to i1
+  %.not479 = select i1 %305, i1 true, i1 %306
   br i1 %.not479, label %.loopexit, label %.lr.ph688, !llvm.loop !19
 
 .loopexit:                                        ; preds = %269, %271, %256, %258, %switch.early.test, %.thread589, %294, %.thread594, %222, %224, %.preheader607, %.preheader605, %232, %.preheader602, %217
@@ -837,7 +837,7 @@ switch.early.test:                                ; preds = %240
   %311 = call ptr @__errno() #7
   store i32 0, ptr %311, align 4
   %cond = icmp eq i32 %.1417626, 2
-  %312 = trunc i8 %.1349 to i1
+  %312 = trunc nuw i8 %.1349 to i1
   br i1 %cond, label %318, label %313
 
 313:                                              ; preds = %.loopexit
@@ -929,7 +929,7 @@ switch.early.test:                                ; preds = %240
   br i1 %.not461, label %430, label %347
 
 347:                                              ; preds = %346
-  %348 = trunc i8 %.1413624 to i1
+  %348 = trunc nuw i8 %.1413624 to i1
   br i1 %348, label %377, label %349
 
 349:                                              ; preds = %347
@@ -1055,7 +1055,7 @@ switch.early.test:                                ; preds = %240
   %.1333 = phi i1 [ %.0332707, %386 ], [ true, %387 ], [ %.0332707, %390 ], [ %.0332707, %391 ]
   %.1331 = phi i1 [ true, %386 ], [ %.0330.506, %387 ], [ %.0330.508, %390 ], [ %..0330, %391 ]
   %.1329 = phi i8 [ %..0328, %386 ], [ %..0328507, %387 ], [ %..0328509, %390 ], [ %.0328., %391 ]
-  %394 = trunc i8 %.1329 to i1
+  %394 = trunc nuw i8 %.1329 to i1
   br i1 %394, label %._crit_edge712, label %395
 
 395:                                              ; preds = %393
@@ -1139,7 +1139,7 @@ switch.early.test:                                ; preds = %240
   ]
 
 431:                                              ; preds = %430
-  %432 = trunc i8 %.1413624 to i1
+  %432 = trunc nuw i8 %.1413624 to i1
   br i1 %432, label %503, label %433
 
 433:                                              ; preds = %431

@@ -324,7 +324,7 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %land.rhs40, %if.the
   %isEqual.3.v.i = select i1 %or.cond13.i, i1 %isEqual.2.v.i, i1 %narrow16.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp36 = icmp ult i64 %indvars.iv, 7
-  %39 = and i1 %isEqual.3.v.i, %cmp36
+  %39 = select i1 %cmp36, i1 %isEqual.3.v.i, i1 false
   br i1 %39, label %land.rhs40, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end.i.i, %if.end.i.i14, %if.end.i.i29, %if.end.i.i47, %if.end.i.i65, %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit, %lor.rhs.i, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit41, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit59, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit77, %land.lhs.true14, %land.lhs.true17, %land.lhs.true22, %land.lhs.true25, %land.lhs.true28, %land.end
@@ -339,9 +339,9 @@ lor.lhs.false:                                    ; preds = %for.end
   %measuredDimensions_52 = getelementptr inbounds i8, ptr %layout, i64 248
   %41 = load float, ptr %measuredDimensions_52, align 8
   %cmp.i92 = fcmp ord float %41, 0.000000e+00
-  %brmerge.not = and i1 %tobool.lcssa, %cmp.i92
+  %brmerge.not = select i1 %cmp.i92, i1 %tobool.lcssa, i1 false
   %not.cmp.i92 = xor i1 %cmp.i92, true
-  %narrow = and i1 %isEqual.0.lcssa.shrunk, %not.cmp.i92
+  %narrow = select i1 %not.cmp.i92, i1 %isEqual.0.lcssa.shrunk, i1 false
   br i1 %brmerge.not, label %land.rhs56, label %if.end
 
 if.then:                                          ; preds = %for.end

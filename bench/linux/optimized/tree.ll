@@ -4030,7 +4030,7 @@ define dso_local void @rcu_barrier() #1 align 16 {
   %108 = getelementptr inbounds i8, ptr %103, i64 192
   %109 = getelementptr inbounds i8, ptr %103, i64 32
   %110 = getelementptr inbounds i8, ptr %103, i64 24
-  %111 = trunc nuw i64 %97 to i32
+  %111 = trunc nuw nsw i64 %97 to i32
   %112 = inttoptr i64 %97 to ptr
   br label %113
 

@@ -54,7 +54,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 16:                                               ; preds = %8
   store i16 2, ptr %0, align 2
-  br label %793
+  br label %789
 
 17:                                               ; preds = %14
   %.val.i.i.i = load i16, ptr %4, align 1, !alias.scope !4
@@ -64,7 +64,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 .thread:                                          ; preds = %14
   store i16 2, ptr %0, align 2
-  br label %793
+  br label %789
 
 20:                                               ; preds = %17
   %21 = icmp slt i16 %18, 0
@@ -83,7 +83,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 .lr.ph:                                           ; preds = %.preheader
   %27 = load i64, ptr %1, align 8, !range !11
-  %trunc.i = trunc i64 %27 to i1
+  %trunc.i = trunc nuw i64 %27 to i1
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8
   %.0.in.v.i = select i1 %trunc.i, i64 2, i64 1
@@ -112,7 +112,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 45:                                               ; preds = %22
   store i16 2, ptr %0, align 2
-  br label %793
+  br label %789
 
 46:                                               ; preds = %.lr.ph, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread
   %47 = phi i64 [ 2, %.lr.ph ], [ %219, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread ]
@@ -396,7 +396,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %216 = fcmp une <4 x float> %.fr, <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>
   %217 = bitcast <4 x i1> %216 to i4
   %218 = icmp eq i4 %217, 0
-  br i1 %218, label %792, label %.critedge
+  br i1 %218, label %788, label %.critedge
 
 _ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread: ; preds = %169, %171, %183, %189, %166, %125, %176, %178, %201, %206, %199, %251
   %219 = add i64 %spec.select, 2
@@ -462,7 +462,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %199
 252:                                              ; preds = %_ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit
   store i16 2, ptr %0, align 2
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
-  br label %793
+  br label %789
 
 253:                                              ; preds = %17
   %254 = icmp ult i64 %5, 10
@@ -517,7 +517,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %199
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !132
   call void @_ZN10ttf_parser6tables4glyf18resolve_coords_len17hfce32283c81ffa24E(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i16 noundef %272), !noalias !141
   %284 = load i32, ptr %9, align 4, !range !149, !noalias !132, !noundef !128
-  %trunc.i93 = trunc i32 %284 to i1
+  %trunc.i93 = trunc nuw i32 %284 to i1
   %285 = getelementptr inbounds i8, ptr %9, i64 4
   %286 = load i32, ptr %285, align 4, !noalias !132
   %287 = getelementptr inbounds i8, ptr %9, i64 8
@@ -610,7 +610,7 @@ _ZN10ttf_parser6tables4glyf20parse_simple_outline17h434a071eb41127fcE.exit: ; pr
   %326 = getelementptr inbounds i8, ptr %7, i64 68
   %327 = getelementptr inbounds i8, ptr %7, i64 72
   %328 = lshr i64 %.val12.i.i257, 1
-  %329 = trunc i64 %328 to i16
+  %329 = trunc nuw nsw i64 %328 to i16
   br label %330
 
 330:                                              ; preds = %.lr.ph241, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit
@@ -843,7 +843,7 @@ _ZN10ttf_parser6tables4glyf10CoordsIter4next17h20496966498cbd79E.exit.i: ; preds
 438:                                              ; preds = %435
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %439 = load i8, ptr %317, align 4, !range !229, !alias.scope !230, !noundef !128
-  %440 = trunc i8 %439 to i1
+  %440 = trunc nuw i8 %439 to i1
   br i1 %440, label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i, label %441
 
 441:                                              ; preds = %438
@@ -888,7 +888,7 @@ _ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i: ; preds 
   %468 = fadd <2 x float> %433, %467
   call void @llvm.experimental.noalias.scope.decl(metadata !233)
   %469 = load i8, ptr %317, align 4, !range !229, !alias.scope !236, !noundef !128
-  %470 = trunc i8 %469 to i1
+  %470 = trunc nuw i8 %469 to i1
   br i1 %470, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i, label %471
 
 471:                                              ; preds = %465
@@ -940,7 +940,7 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i: ; preds 
   store i32 0, ptr %316, align 8, !alias.scope !223
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %509 = load i8, ptr %317, align 4, !range !229, !alias.scope !240, !noundef !128
-  %510 = trunc i8 %509 to i1
+  %510 = trunc nuw i8 %509 to i1
   br i1 %510, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i, label %511
 
 511:                                              ; preds = %508
@@ -994,7 +994,7 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i: ; pred
   store <2 x float> %430, ptr %.sroa.4.0..sroa_idx.i103, align 4, !alias.scope !223
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   %547 = load i8, ptr %317, align 4, !range !229, !alias.scope !244, !noundef !128
-  %548 = trunc i8 %547 to i1
+  %548 = trunc nuw i8 %547 to i1
   br i1 %548, label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i, label %549
 
 549:                                              ; preds = %546
@@ -1039,7 +1039,7 @@ _ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i: ; preds 
   store <2 x float> %430, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !223
   call void @llvm.experimental.noalias.scope.decl(metadata !245)
   %577 = load i8, ptr %317, align 4, !range !229, !alias.scope !248, !noundef !128
-  %578 = trunc i8 %577 to i1
+  %578 = trunc nuw i8 %577 to i1
   br i1 %578, label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i, label %579
 
 579:                                              ; preds = %572
@@ -1102,7 +1102,7 @@ _ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i: ; pred
   %613 = fadd <2 x float> %609, %612
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %614 = load i8, ptr %317, align 4, !range !229, !alias.scope !255, !noundef !128
-  %615 = trunc i8 %614 to i1
+  %615 = trunc nuw i8 %614 to i1
   br i1 %615, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i, label %616
 
 616:                                              ; preds = %608
@@ -1161,7 +1161,7 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i: ; pred
   %656 = load <2 x float>, ptr %327, align 8, !alias.scope !249
   call void @llvm.experimental.noalias.scope.decl(metadata !256)
   %657 = load i8, ptr %317, align 4, !range !229, !alias.scope !259, !noundef !128
-  %658 = trunc i8 %657 to i1
+  %658 = trunc nuw i8 %657 to i1
   br i1 %658, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i, label %659
 
 659:                                              ; preds = %655
@@ -1212,7 +1212,7 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i: ; pr
   %694 = load <2 x float>, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
   %695 = load i8, ptr %317, align 4, !range !229, !alias.scope !263, !noundef !128
-  %696 = trunc i8 %695 to i1
+  %696 = trunc nuw i8 %695 to i1
   br i1 %696, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i, label %697
 
 697:                                              ; preds = %693
@@ -1259,7 +1259,7 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i: ; pr
 730:                                              ; preds = %692
   call void @llvm.experimental.noalias.scope.decl(metadata !264)
   %731 = load i8, ptr %317, align 4, !range !229, !alias.scope !267, !noundef !128
-  %732 = trunc i8 %731 to i1
+  %732 = trunc nuw i8 %731 to i1
   br i1 %732, label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i, label %733
 
 733:                                              ; preds = %730
@@ -1310,81 +1310,90 @@ _ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit: ; pred
 
 .critedge:                                        ; preds = %.loopexit
   %760 = extractelement <4 x float> %.fr, i64 0
-  %761 = fcmp oge float %760, 0xC1E0000000000000
-  %762 = fcmp olt float %760, 0x41E0000000000000
+  %761 = fcmp ult float %760, 0xC1E0000000000000
+  %762 = fcmp uge float %760, 0x41E0000000000000
+  %or.cond.not.i.i = or i1 %761, %762
+  br i1 %or.cond.not.i.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i"
+
+"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i": ; preds = %.critedge
   %763 = call i32 @llvm.fptosi.sat.i32.f32(float %760)
   %764 = add i32 %763, 32768
   %or.cond1.i.i = icmp ult i32 %764, 65536
-  %765 = trunc i32 %763 to i16
-  %766 = and i1 %762, %or.cond1.i.i
-  %narrow.i.i = and i1 %761, %766
-  br i1 %narrow.i.i, label %767, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+  %765 = trunc nsw i32 %763 to i16
+  br i1 %or.cond1.i.i, label %766, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-767:                                              ; preds = %.critedge
-  %768 = extractelement <4 x float> %.fr, i64 1
-  %769 = fcmp oge float %768, 0xC1E0000000000000
-  %770 = fcmp olt float %768, 0x41E0000000000000
-  %771 = call i32 @llvm.fptosi.sat.i32.f32(float %768)
-  %772 = add i32 %771, 32768
-  %or.cond1.i24.i = icmp ult i32 %772, 65536
-  %773 = trunc i32 %771 to i16
-  %774 = and i1 %770, %or.cond1.i24.i
-  %narrow.i25.i = and i1 %769, %774
-  br i1 %narrow.i25.i, label %775, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+766:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i"
+  %767 = extractelement <4 x float> %.fr, i64 1
+  %768 = fcmp ult float %767, 0xC1E0000000000000
+  %769 = fcmp uge float %767, 0x41E0000000000000
+  %or.cond.not.i24.i = or i1 %768, %769
+  br i1 %or.cond.not.i24.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i"
 
-775:                                              ; preds = %767
-  %776 = extractelement <4 x float> %.fr, i64 2
-  %777 = fcmp oge float %776, 0xC1E0000000000000
-  %778 = fcmp olt float %776, 0x41E0000000000000
-  %779 = call i32 @llvm.fptosi.sat.i32.f32(float %776)
-  %780 = add i32 %779, 32768
-  %or.cond1.i27.i = icmp ult i32 %780, 65536
-  %781 = trunc i32 %779 to i16
-  %782 = and i1 %778, %or.cond1.i27.i
-  %narrow.i28.i = and i1 %777, %782
-  br i1 %narrow.i28.i, label %783, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i": ; preds = %766
+  %770 = call i32 @llvm.fptosi.sat.i32.f32(float %767)
+  %771 = add i32 %770, 32768
+  %or.cond1.i25.i = icmp ult i32 %771, 65536
+  %772 = trunc nsw i32 %770 to i16
+  br i1 %or.cond1.i25.i, label %773, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-783:                                              ; preds = %775
-  %784 = extractelement <4 x float> %.fr, i64 3
-  %785 = fcmp oge float %784, 0xC1E0000000000000
-  %786 = fcmp olt float %784, 0x41E0000000000000
-  %787 = call i32 @llvm.fptosi.sat.i32.f32(float %784)
-  %788 = add i32 %787, 32768
-  %or.cond1.i30.i = icmp ult i32 %788, 65536
-  %789 = and i1 %786, %or.cond1.i30.i
-  %narrow.i31.i = and i1 %785, %789
-  br i1 %narrow.i31.i, label %790, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+773:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i"
+  %774 = extractelement <4 x float> %.fr, i64 2
+  %775 = fcmp ult float %774, 0xC1E0000000000000
+  %776 = fcmp uge float %774, 0x41E0000000000000
+  %or.cond.not.i31.i = or i1 %775, %776
+  br i1 %or.cond.not.i31.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i"
 
-790:                                              ; preds = %783
-  %791 = trunc i32 %787 to i16
+"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i": ; preds = %773
+  %777 = call i32 @llvm.fptosi.sat.i32.f32(float %774)
+  %778 = add i32 %777, 32768
+  %or.cond1.i32.i = icmp ult i32 %778, 65536
+  %779 = trunc nsw i32 %777 to i16
+  br i1 %or.cond1.i32.i, label %780, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+
+780:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i"
+  %781 = extractelement <4 x float> %.fr, i64 3
+  %782 = fcmp ult float %781, 0xC1E0000000000000
+  %783 = fcmp uge float %781, 0x41E0000000000000
+  %or.cond.not.i38.i = or i1 %782, %783
+  br i1 %or.cond.not.i38.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i"
+
+"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i": ; preds = %780
+  %784 = call i32 @llvm.fptosi.sat.i32.f32(float %781)
+  %785 = add i32 %784, 32768
+  %or.cond1.i39.i = icmp ult i32 %785, 65536
+  br i1 %or.cond1.i39.i, label %786, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+
+786:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i"
+  %787 = trunc nsw i32 %784 to i16
   br label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit: ; preds = %.critedge, %767, %775, %783, %790
-  %.sroa.5142.0 = phi i16 [ %773, %790 ], [ undef, %783 ], [ undef, %775 ], [ undef, %767 ], [ undef, %.critedge ]
-  %.sroa.6143.0 = phi i16 [ %781, %790 ], [ undef, %783 ], [ undef, %775 ], [ undef, %767 ], [ undef, %.critedge ]
-  %.sroa.7144.0 = phi i16 [ %791, %790 ], [ undef, %783 ], [ undef, %775 ], [ undef, %767 ], [ undef, %.critedge ]
-  %storemerge.i = phi i16 [ 1, %790 ], [ 0, %783 ], [ 0, %775 ], [ 0, %767 ], [ 0, %.critedge ]
+_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit: ; preds = %.critedge, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i", %766, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i", %773, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i", %780, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i", %786
+  %.sroa.4141.0 = phi i16 [ undef, %.critedge ], [ undef, %766 ], [ undef, %773 ], [ undef, %780 ], [ %765, %786 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %.sroa.5142.0 = phi i16 [ undef, %.critedge ], [ undef, %766 ], [ undef, %773 ], [ undef, %780 ], [ %772, %786 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %.sroa.6143.0 = phi i16 [ undef, %.critedge ], [ undef, %766 ], [ undef, %773 ], [ undef, %780 ], [ %779, %786 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %.sroa.7144.0 = phi i16 [ undef, %.critedge ], [ undef, %766 ], [ undef, %773 ], [ undef, %780 ], [ %787, %786 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %storemerge.i = phi i16 [ 0, %.critedge ], [ 0, %766 ], [ 0, %773 ], [ 0, %780 ], [ 1, %786 ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit44.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit37.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit30.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
   store i16 %storemerge.i, ptr %0, align 2
   %.sroa.4141.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %765, ptr %.sroa.4141.0..sroa_idx, align 2
+  store i16 %.sroa.4141.0, ptr %.sroa.4141.0..sroa_idx, align 2
   %.sroa.5142.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %.sroa.5142.0, ptr %.sroa.5142.0..sroa_idx, align 2
   %.sroa.6143.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 6
   store i16 %.sroa.6143.0, ptr %.sroa.6143.0..sroa_idx, align 2
   %.sroa.7144.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %.sroa.7144.0, ptr %.sroa.7144.0..sroa_idx, align 2
-  br label %793
+  br label %789
 
-792:                                              ; preds = %.loopexit
+788:                                              ; preds = %.loopexit
   store i16 0, ptr %0, align 2
-  br label %793
+  br label %789
 
-793:                                              ; preds = %.thread, %792, %_ZN10ttf_parser6tables4glyf20parse_simple_outline17h434a071eb41127fcE.exit.thread, %252, %45, %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, %16
+789:                                              ; preds = %.thread, %788, %_ZN10ttf_parser6tables4glyf20parse_simple_outline17h434a071eb41127fcE.exit.thread, %252, %45, %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, %16
   ret void
 
 _ZN10ttf_parser6tables4glyf20parse_simple_outline17h434a071eb41127fcE.exit.thread: ; preds = %_ZN10ttf_parser6tables4glyf20parse_simple_outline17h434a071eb41127fcE.exit.thread259, %304, %308, %310, %253
   store i16 2, ptr %0, align 2
-  br label %793
+  br label %789
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1456,7 +1465,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h89311493a55c8df8E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !277
   %4 = load i64, ptr %3, align 8, !range !11, !alias.scope !280, !noalias !283, !noundef !128
-  %trunc.i.i.i = trunc i64 %4 to i1
+  %trunc.i.i.i = trunc nuw i64 %4 to i1
   br i1 %trunc.i.i.i, label %5, label %"_ZN12typst_render11to_sk_paint6cached7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17hebfedaa4c3d75195E.exit"
 
 5:                                                ; preds = %1
@@ -1487,7 +1496,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hac3dec92c2612931E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !290
   %4 = load i64, ptr %3, align 8, !range !11, !alias.scope !293, !noalias !296, !noundef !128
-  %trunc.i.i.i = trunc i64 %4 to i1
+  %trunc.i.i.i = trunc nuw i64 %4 to i1
   br i1 %trunc.i.i.i, label %5, label %"_ZN12typst_render14scaled_texture7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h7b6881b881e8c282E.exit"
 
 5:                                                ; preds = %1
@@ -1524,7 +1533,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbf805e9abdef8447E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !303
   %4 = load i64, ptr %3, align 8, !range !11, !alias.scope !306, !noalias !309, !noundef !128
-  %trunc.i.i.i = trunc i64 %4 to i1
+  %trunc.i.i.i = trunc nuw i64 %4 to i1
   br i1 %trunc.i.i.i, label %5, label %"_ZN12typst_render20render_outline_glyph9rasterize7__CACHE28_$u7b$$u7b$closure$u7d$$u7d$17h677e32145babde9dE.exit"
 
 5:                                                ; preds = %1
@@ -1859,7 +1868,7 @@ define hidden i32 @_ZN9tiny_skia5color7ColorU811premultiply17h8c58aadcfbc7a0a2E.
   %19 = lshr i32 %18, 8
   %20 = add nuw nsw i32 %19, %18
   %21 = lshr i32 %20, 8
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = shufflevector <2 x i8> %15, <2 x i8> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %.sroa.01.2.vec.insert = insertelement <4 x i8> %23, i8 %22, i64 2
   %.sroa.01.3.vec.insert = shufflevector <4 x i8> %.sroa.01.2.vec.insert, <4 x i8> %2, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
@@ -1996,7 +2005,7 @@ define void @_ZN12typst_render13render_merged17h2fe5bef395a54505E(ptr noalias no
 
 .noexc44:                                         ; preds = %.noexc43
   %70 = load i32, ptr %8, align 4, !range !149, !noalias !415, !noundef !128
-  %trunc.i = trunc i32 %70 to i1
+  %trunc.i = trunc nuw i32 %70 to i1
   br i1 %trunc.i, label %75, label %71
 
 71:                                               ; preds = %.noexc44
@@ -2491,7 +2500,7 @@ default.unreachable103:                           ; preds = %146
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %42), !noalias !452
   call void @_ZN14tiny_skia_path9transform9Transform6invert17hc679d3708ca8d88eE(ptr noalias nocapture noundef nonnull sret({ i32, [6 x i32] }) align 4 dereferenceable(28) %42, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %118), !noalias !437
   %204 = load i32, ptr %42, align 4, !range !149, !noalias !452, !noundef !128
-  %trunc.i = trunc i32 %204 to i1
+  %trunc.i = trunc nuw i32 %204 to i1
   br i1 %trunc.i, label %211, label %210
 
 205:                                              ; preds = %211, %182
@@ -2603,7 +2612,7 @@ default.unreachable103:                           ; preds = %146
 250:                                              ; preds = %286
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %251 = trunc i8 %.011.i to i1
+  %251 = trunc nuw i8 %.011.i to i1
   br i1 %251, label %297, label %common.resume
 
 .thread53:                                        ; preds = %245
@@ -2760,7 +2769,7 @@ default.unreachable103:                           ; preds = %146
 
 287:                                              ; preds = %286
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30), !noalias !452
-  %288 = trunc i8 %.011.i to i1
+  %288 = trunc nuw i8 %.011.i to i1
   br i1 %288, label %290, label %289
 
 289:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$tiny_skia..mask..Mask$GT$17hf6ca6ba727ff5305E.exit", %287
@@ -3010,7 +3019,7 @@ _ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i: ; preds
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !595
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !595
   %374 = load i64, ptr %14, align 8, !range !11, !noalias !595, !noundef !128
-  %trunc.i.i.i = trunc i64 %374 to i1
+  %trunc.i.i.i = trunc nuw i64 %374 to i1
   %375 = load ptr, ptr %87, align 8, !noalias !595, !nonnull !128
   %376 = icmp ne i64 %374, 0
   %377 = load i8, ptr %88, align 1, !noalias !595
@@ -3442,7 +3451,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit: ; pr
 
 102:                                              ; preds = %99
   %103 = load i64, ptr %45, align 8, !range !11, !noundef !128
-  %trunc = trunc i64 %103 to i1
+  %trunc = trunc nuw i64 %103 to i1
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %.thread, label %106
 
@@ -3560,7 +3569,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit: ; pr
 
 141:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17he39be35e0fa3f187E.exit.thread"
   %142 = load i64, ptr %44, align 8, !range !11, !noundef !128
-  %trunc133 = trunc i64 %142 to i1
+  %trunc133 = trunc nuw i64 %142 to i1
   %143 = getelementptr inbounds i8, ptr %44, i64 8
   %144 = load ptr, ptr %143, align 8, !nonnull !128, !align !231
   %145 = getelementptr inbounds i8, ptr %44, i64 16
@@ -3866,7 +3875,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit: ; pr
 234:                                              ; preds = %232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   %235 = load i32, ptr %30, align 4, !range !149, !noundef !128
-  %trunc136 = trunc i32 %235 to i1
+  %trunc136 = trunc nuw i32 %235 to i1
   br i1 %trunc136, label %236, label %238
 
 236:                                              ; preds = %234
@@ -3883,7 +3892,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit: ; pr
 
 239:                                              ; preds = %236
   %240 = load i32, ptr %32, align 4, !range !149, !noundef !128
-  %trunc138 = trunc i32 %240 to i1
+  %trunc138 = trunc nuw i32 %240 to i1
   br i1 %trunc138, label %242, label %241
 
 241:                                              ; preds = %239
@@ -4289,7 +4298,7 @@ default.unreachable161:                           ; preds = %71
   %.sroa.45.0.extract.shift.i = lshr i32 %77, 8
   %.sroa.56.0.extract.shift.i = lshr i32 %77, 16
   %.sroa.67.0.extract.shift.i = lshr i32 %77, 24
-  %.sroa.67.0.extract.trunc.i = trunc i32 %.sroa.67.0.extract.shift.i to i8
+  %.sroa.67.0.extract.trunc.i = trunc nuw i32 %.sroa.67.0.extract.shift.i to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17), !noalias !788
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23)
   %.not.i = icmp eq i8 %.sroa.67.0.extract.trunc.i, -1
@@ -4311,21 +4320,21 @@ default.unreachable161:                           ; preds = %71
   %98 = lshr i32 %97, 8
   %99 = add nuw nsw i32 %98, %97
   %100 = lshr i32 %99, 8
-  %101 = trunc i32 %100 to i8
+  %101 = trunc nuw i32 %100 to i8
   %102 = and i32 %.sroa.45.0.extract.shift.i, 255
   %103 = mul nuw nsw i32 %102, %.sroa.67.0.extract.shift.i
   %104 = add nuw nsw i32 %103, 128
   %105 = lshr i32 %104, 8
   %106 = add nuw nsw i32 %105, %104
   %107 = lshr i32 %106, 8
-  %108 = trunc i32 %107 to i8
+  %108 = trunc nuw i32 %107 to i8
   %109 = and i32 %.sroa.56.0.extract.shift.i, 255
   %110 = mul nuw nsw i32 %109, %.sroa.67.0.extract.shift.i
   %111 = add nuw nsw i32 %110, 128
   %112 = lshr i32 %111, 8
   %113 = add nuw nsw i32 %112, %111
   %114 = lshr i32 %113, 8
-  %115 = trunc i32 %114 to i8
+  %115 = trunc nuw i32 %114 to i8
   %.sroa.01.0.vec.insert.i = insertelement <4 x i8> poison, i8 %101, i64 0
   %.sroa.01.1.vec.insert.i = insertelement <4 x i8> %.sroa.01.0.vec.insert.i, i8 %108, i64 1
   %.sroa.01.2.vec.insert.i = insertelement <4 x i8> %.sroa.01.1.vec.insert.i, i8 %115, i64 2
@@ -4394,7 +4403,7 @@ default.unreachable161:                           ; preds = %71
 
 .noexc90:                                         ; preds = %136
   %139 = load i32, ptr %16, align 4, !range !149, !noalias !819, !noundef !128
-  %trunc.i = trunc i32 %139 to i1
+  %trunc.i = trunc nuw i32 %139 to i1
   br i1 %trunc.i, label %141, label %140
 
 140:                                              ; preds = %.noexc90
@@ -4448,7 +4457,7 @@ default.unreachable161:                           ; preds = %71
 
 .noexc104:                                        ; preds = %157
   %159 = load i32, ptr %15, align 4, !range !149, !noalias !826, !noundef !128
-  %trunc.i102 = trunc i32 %159 to i1
+  %trunc.i102 = trunc nuw i32 %159 to i1
   br i1 %trunc.i102, label %176, label %175
 
 160:                                              ; preds = %176, %.noexc103
@@ -4663,7 +4672,7 @@ default.unreachable161:                           ; preds = %71
 
 238:                                              ; preds = %229
   %239 = add nuw i16 %3, 1
-  %trunc.i.i.i.i = trunc i64 %219 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %219 to i1
   %240 = getelementptr inbounds i8, ptr %64, i64 16
   %241 = load i64, ptr %240, align 8, !alias.scope !868, !noalias !869
   %.0.in.v.i.i.i.i = select i1 %trunc.i.i.i.i, i64 2, i64 1
@@ -4796,7 +4805,7 @@ select.unfold.i.i:                                ; preds = %289, %284, %280, %2
 
 .noexc121:                                        ; preds = %308
   %309 = load i8, ptr %11, align 2, !range !229, !noalias !855, !noundef !128
-  %trunc14.i = trunc i8 %309 to i1
+  %trunc14.i = trunc nuw i8 %309 to i1
   br i1 %trunc14.i, label %317, label %313
 
 310:                                              ; preds = %305
@@ -4833,7 +4842,7 @@ select.unfold.i.i:                                ; preds = %289, %284, %280, %2
 
 .noexc123:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1fc2b0f4daad4902E.exit18.i"
   %325 = load i8, ptr %10, align 2, !range !229, !noalias !855, !noundef !128
-  %trunc.i117 = trunc i8 %325 to i1
+  %trunc.i117 = trunc nuw i8 %325 to i1
   br i1 %trunc.i117, label %330, label %326
 
 326:                                              ; preds = %.noexc123
@@ -4856,7 +4865,7 @@ select.unfold.i.i:                                ; preds = %289, %284, %280, %2
 331:                                              ; preds = %.noexc120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1fc2b0f4daad4902E.exit.i._crit_edge", %330, %317
   %332 = phi i16 [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1fc2b0f4daad4902E.exit.i._crit_edge" ], [ %storemerge.i, %330 ], [ %storemerge15.i, %317 ], [ %303, %.noexc120 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  %trunc = trunc i16 %332 to i1
+  %trunc = trunc nuw i16 %332 to i1
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %40)
   br i1 %trunc, label %333, label %336
 
@@ -5282,7 +5291,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %23)
   call void @_ZN14tiny_skia_path4rect4Rect9from_xywh17hb18226cb0475724cE(ptr noalias nocapture noundef nonnull sret({ i32, [4 x i32] }) align 4 dereferenceable(20) %23, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %46, float noundef %48)
   %49 = load i32, ptr %23, align 4, !range !149, !noundef !128
-  %trunc = trunc i32 %49 to i1
+  %trunc = trunc nuw i32 %49 to i1
   br i1 %trunc, label %73, label %75
 
 50:                                               ; preds = %3
@@ -6152,7 +6161,7 @@ define internal fastcc noundef zeroext i1 @_ZN12typst_render12render_image17h892
 
 87:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..painter..Paint$GT$17h5b1f7cf881dc7454E.exit"
   %88 = load i32, ptr %9, align 4, !range !149, !noundef !128
-  %trunc = trunc i32 %88 to i1
+  %trunc = trunc nuw i32 %88 to i1
   br i1 %trunc, label %89, label %93
 
 89:                                               ; preds = %87
@@ -6255,7 +6264,7 @@ define i32 @"_ZN76_$LT$typst_render..GradientSampler$u20$as$u20$typst_render..Pa
   %.sroa.45.0.extract.shift.i = lshr i32 %22, 8
   %.sroa.56.0.extract.shift.i = lshr i32 %22, 16
   %.sroa.67.0.extract.shift.i = lshr i32 %22, 24
-  %.sroa.67.0.extract.trunc.i = trunc i32 %.sroa.67.0.extract.shift.i to i8
+  %.sroa.67.0.extract.trunc.i = trunc nuw i32 %.sroa.67.0.extract.shift.i to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4), !noalias !1038
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   %.not.i = icmp eq i8 %.sroa.67.0.extract.trunc.i, -1
@@ -6277,21 +6286,21 @@ define i32 @"_ZN76_$LT$typst_render..GradientSampler$u20$as$u20$typst_render..Pa
   %30 = lshr i32 %29, 8
   %31 = add nuw nsw i32 %30, %29
   %32 = lshr i32 %31, 8
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nuw i32 %32 to i8
   %34 = and i32 %.sroa.45.0.extract.shift.i, 255
   %35 = mul nuw nsw i32 %34, %.sroa.67.0.extract.shift.i
   %36 = add nuw nsw i32 %35, 128
   %37 = lshr i32 %36, 8
   %38 = add nuw nsw i32 %37, %36
   %39 = lshr i32 %38, 8
-  %40 = trunc i32 %39 to i8
+  %40 = trunc nuw i32 %39 to i8
   %41 = and i32 %.sroa.56.0.extract.shift.i, 255
   %42 = mul nuw nsw i32 %41, %.sroa.67.0.extract.shift.i
   %43 = add nuw nsw i32 %42, 128
   %44 = lshr i32 %43, 8
   %45 = add nuw nsw i32 %44, %43
   %46 = lshr i32 %45, 8
-  %47 = trunc i32 %46 to i8
+  %47 = trunc nuw i32 %46 to i8
   %.sroa.01.0.vec.insert.i = insertelement <4 x i8> poison, i8 %33, i64 0
   %.sroa.01.1.vec.insert.i = insertelement <4 x i8> %.sroa.01.0.vec.insert.i, i8 %40, i64 1
   %.sroa.01.2.vec.insert.i = insertelement <4 x i8> %.sroa.01.1.vec.insert.i, i8 %47, i64 2
@@ -6356,7 +6365,7 @@ define i32 @"_ZN75_$LT$typst_render..PatternSampler$u20$as$u20$typst_render..Pai
 
 39:                                               ; preds = %3
   %.sroa.48.0.extract.shift = lshr i40 %37, 8
-  %.sroa.48.0.extract.trunc = trunc i40 %.sroa.48.0.extract.shift to i32
+  %.sroa.48.0.extract.trunc = trunc nuw i40 %.sroa.48.0.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i32 %.sroa.48.0.extract.trunc
 }
@@ -6435,7 +6444,7 @@ default.unreachable60:                            ; preds = %9
 
 .noexc48:                                         ; preds = %.noexc47
   %45 = load i32, ptr %12, align 4, !range !149, !noalias !1041, !noundef !128
-  %trunc.i = trunc i32 %45 to i1
+  %trunc.i = trunc nuw i32 %45 to i1
   br i1 %trunc.i, label %55, label %46
 
 46:                                               ; preds = %.noexc48
@@ -6494,7 +6503,7 @@ default.unreachable60:                            ; preds = %9
 
 63:                                               ; preds = %59
   %64 = load i32, ptr %6, align 4, !range !149, !noundef !128
-  %trunc34 = trunc i32 %64 to i1
+  %trunc34 = trunc nuw i32 %64 to i1
   br i1 %trunc34, label %70, label %68
 
 65:                                               ; preds = %59
@@ -6522,7 +6531,7 @@ default.unreachable60:                            ; preds = %9
 
 74:                                               ; preds = %65
   %75 = load i32, ptr %26, align 4, !range !149, !noundef !128
-  %trunc33 = trunc i32 %75 to i1
+  %trunc33 = trunc nuw i32 %75 to i1
   br i1 %trunc33, label %76, label %.invoke
 
 76:                                               ; preds = %74
@@ -6646,7 +6655,7 @@ default.unreachable60:                            ; preds = %9
 
 127:                                              ; preds = %126
   %128 = load i32, ptr %6, align 4, !range !149, !noundef !128
-  %trunc32 = trunc i32 %128 to i1
+  %trunc32 = trunc nuw i32 %128 to i1
   br i1 %trunc32, label %134, label %132
 
 129:                                              ; preds = %126
@@ -6676,7 +6685,7 @@ default.unreachable60:                            ; preds = %9
 
 138:                                              ; preds = %129
   %139 = load i32, ptr %20, align 4, !range !149, !noundef !128
-  %trunc = trunc i32 %139 to i1
+  %trunc = trunc nuw i32 %139 to i1
   br i1 %trunc, label %141, label %.invoke
 
 .invoke:                                          ; preds = %138, %74
@@ -6921,7 +6930,7 @@ define hidden void @_ZN12typst_render11to_sk_color17h25f6e73b8f0c4c7fE(ptr noali
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
   call void @_ZN9tiny_skia5color5Color9from_rgba17hedca817bd27208dcE(ptr noalias nocapture noundef nonnull sret({ i32, [4 x i32] }) align 4 dereferenceable(20) %3, float noundef %6, float noundef %8, float noundef %10, float noundef %12)
   %13 = load i32, ptr %3, align 4, !range !149, !noundef !128
-  %trunc = trunc i32 %13 to i1
+  %trunc = trunc nuw i32 %13 to i1
   br i1 %trunc, label %15, label %14
 
 14:                                               ; preds = %2
@@ -6947,7 +6956,7 @@ define hidden i32 @_ZN12typst_render14to_sk_color_u817h8fed17da01491bb7E.llvm.16
   %.sroa.56.0.extract.shift = lshr i32 %3, 16
   %.sroa.56.0.extract.trunc = trunc i32 %.sroa.56.0.extract.shift to i8
   %.sroa.67.0.extract.shift = lshr i32 %3, 24
-  %.sroa.67.0.extract.trunc = trunc i32 %.sroa.67.0.extract.shift to i8
+  %.sroa.67.0.extract.trunc = trunc nuw i32 %.sroa.67.0.extract.shift to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2)
   %.sroa.02.0.vec.insert = insertelement <4 x i8> poison, i8 %.sroa.04.0.extract.trunc, i64 0
   %.sroa.02.1.vec.insert = insertelement <4 x i8> %.sroa.02.0.vec.insert, i8 %.sroa.45.0.extract.trunc, i64 1
@@ -7112,7 +7121,7 @@ define void @_ZN12typst_render6render17h14b728e7249c3ce8E(ptr noalias nocapture 
 
 .noexc10:                                         ; preds = %.noexc9
   %49 = load i32, ptr %5, align 4, !range !149, !noalias !1079, !noundef !128
-  %trunc.i = trunc i32 %49 to i1
+  %trunc.i = trunc nuw i32 %49 to i1
   br i1 %trunc.i, label %54, label %50
 
 50:                                               ; preds = %.noexc10

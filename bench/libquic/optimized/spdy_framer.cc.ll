@@ -7611,7 +7611,7 @@ if.else58:                                        ; preds = %if.then45
 
 if.end63:                                         ; preds = %if.then47, %if.else58, %if.then41
   %processed_successfully.1 = phi i8 [ %frombool61, %if.else58 ], [ %processed_successfully.042, %if.then41 ], [ %spec.select, %if.then47 ]
-  %tobool64 = trunc i8 %processed_successfully.1 to i1
+  %tobool64 = trunc nuw i8 %processed_successfully.1 to i1
   br i1 %tobool64, label %if.end68, label %if.then65
 
 if.then65:                                        ; preds = %if.end63
@@ -7640,8 +7640,8 @@ if.end68.thread:                                  ; preds = %land.end38
 if.end68:                                         ; preds = %if.end63, %if.then65
   %20 = load i32, ptr %avail_in, align 8
   %cmp20 = icmp ne i32 %20, 0
-  %tobool = trunc i8 %processed_successfully.1 to i1
-  %21 = and i1 %cmp20, %tobool
+  %tobool = trunc nuw i8 %processed_successfully.1 to i1
+  %21 = select i1 %cmp20, i1 %tobool, i1 false
   br i1 %21, label %while.body, label %return, !llvm.loop !26
 
 return.sink.split:                                ; preds = %cleanup.done, %if.end68.thread
@@ -7951,7 +7951,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i32 %2, 24
   %and.i = and i32 %2, 16777215
   %call.i.i = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %id_and_flags.sroa.0.0.extract.trunc = trunc i32 %shr.i to i8
+  %id_and_flags.sroa.0.0.extract.trunc = trunc nuw i32 %shr.i to i8
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 4
   %3 = load i32, ptr %add.ptr, align 4
   %4 = tail call noundef i32 @llvm.bswap.i32(i32 %3)
@@ -9661,7 +9661,7 @@ invoke.cont13:                                    ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %upper.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lower.i)
   %shr.i = lshr i64 %7, 32
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nuw i64 %shr.i to i32
   %8 = call noundef i32 @llvm.bswap.i32(i32 %conv.i)
   store i32 %8, ptr %upper.i, align 4
   %conv2.i = trunc i64 %7 to i32

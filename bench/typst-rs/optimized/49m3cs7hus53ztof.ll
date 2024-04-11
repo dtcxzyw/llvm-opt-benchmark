@@ -7897,12 +7897,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h30805be0c
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.9efbc0c128adab6190fabe7f7e045142.526.anon.9efbc0c128adab6190fabe7f7e045142.598.i.i.i = select i1 %3, ptr @anon.9efbc0c128adab6190fabe7f7e045142.598, ptr @anon.9efbc0c128adab6190fabe7f7e045142.526
   %..i.i.i = select i1 %3, i64 2, i64 4
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.9efbc0c128adab6190fabe7f7e045142.526.anon.9efbc0c128adab6190fabe7f7e045142.598.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -13926,12 +13927,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17hc3103142f
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.9efbc0c128adab6190fabe7f7e045142.889.anon.9efbc0c128adab6190fabe7f7e045142.515.i.i.i = select i1 %3, ptr @anon.9efbc0c128adab6190fabe7f7e045142.515, ptr @anon.9efbc0c128adab6190fabe7f7e045142.889
   %..i.i.i = select i1 %3, i64 4, i64 6
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.9efbc0c128adab6190fabe7f7e045142.889.anon.9efbc0c128adab6190fabe7f7e045142.515.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -21364,7 +21366,7 @@ define hidden void @_ZN4ecow7dynamic9InlineVec10from_slice17hf2339a8bafc08660E.l
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %6
-  %7 = trunc nuw i64 %2 to i8
+  %7 = trunc nuw nsw i64 %2 to i8
   %8 = or disjoint i8 %7, -128
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %9, ptr noundef nonnull align 1 dereferenceable(15) %4, i64 15, i1 false)
@@ -21715,7 +21717,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 .lr.ph.i38:                                       ; preds = %58, %81
   %.062141.i = phi i64 [ %82, %81 ], [ 0, %58 ]
   %.064140.i = phi i8 [ %.2.i, %81 ], [ 0, %58 ]
-  %68 = trunc i8 %.064140.i to i1
+  %68 = trunc nuw i8 %.064140.i to i1
   br i1 %68, label %._crit_edge.i, label %72
 
 ._crit_edge.i:                                    ; preds = %81, %.lr.ph.i38, %58
@@ -21772,7 +21774,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 90:                                               ; preds = %.preheader.i
   %91 = shl nuw nsw i64 %.sroa.025.0139.i, 4
   %92 = add nuw nsw i64 %91, %.062141.i
-  %93 = trunc i8 %.165138.i to i1
+  %93 = trunc nuw i8 %.165138.i to i1
   %94 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %92, i16 noundef %87, i1 noundef zeroext %93)
   %95 = or i1 %94, %93
   %96 = zext i1 %95 to i8
@@ -21781,7 +21783,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 .lr.ph149.i:                                      ; preds = %._crit_edge.i, %115
   %.163147.i = phi i64 [ %116, %115 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.3146.i = phi i8 [ %.4.i, %115 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %97 = trunc i8 %.3146.i to i1
+  %97 = trunc nuw i8 %.3146.i to i1
   br i1 %97, label %._crit_edge150.i, label %107
 
 ._crit_edge150.i:                                 ; preds = %115, %.lr.ph149.i, %._crit_edge.i
@@ -21829,7 +21831,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
 
 123:                                              ; preds = %._crit_edge150.i
-  %124 = trunc i8 %.3.lcssa.i to i1
+  %124 = trunc nuw i8 %.3.lcssa.i to i1
   %125 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %99, i16 noundef %105, i1 noundef zeroext %124)
   %126 = or i1 %125, %124
   %127 = zext i1 %126 to i8
@@ -52206,7 +52208,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst4eval7binding16destructure_dict17h
 44:                                               ; preds = %.body127, %46
   %.079 = phi i8 [ %.180, %46 ], [ %.2, %.body127 ]
   %.pn93 = phi { ptr, i32 } [ %47, %46 ], [ %.pn90.pn, %.body127 ]
-  %45 = trunc i8 %.079 to i1
+  %45 = trunc nuw i8 %.079 to i1
   br i1 %45, label %322, label %321
 
 46:                                               ; preds = %.noexc109, %130, %.noexc102, %78, %43, %4
@@ -53187,7 +53189,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst4eval7binding16destructure_dict17h
 48:                                               ; preds = %.body130, %50
   %.079 = phi i8 [ %.180, %50 ], [ %.2, %.body130 ]
   %.pn93 = phi { ptr, i32 } [ %51, %50 ], [ %.pn90.pn, %.body130 ]
-  %49 = trunc i8 %.079 to i1
+  %49 = trunc nuw i8 %.079 to i1
   br i1 %49, label %350, label %349
 
 50:                                               ; preds = %.noexc113, %146, %.noexc102, %86, %47, %4
@@ -86854,7 +86856,7 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_80_$LT$impl$u20$core..cmp..Pa
 
 96:                                               ; preds = %98, %93
   %.017 = phi i8 [ %94, %93 ], [ %100, %98 ]
-  %97 = trunc i8 %.017 to i1
+  %97 = trunc nuw i8 %.017 to i1
   br i1 %97, label %101, label %.critedge
 
 98:                                               ; preds = %95
@@ -100317,7 +100319,7 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_80_$LT$impl$u20$core..cmp..Pa
 
 12:                                               ; preds = %14, %9
   %.09 = phi i8 [ %10, %9 ], [ %16, %14 ]
-  %13 = trunc i8 %.09 to i1
+  %13 = trunc nuw i8 %.09 to i1
   br i1 %13, label %17, label %.critedge
 
 14:                                               ; preds = %11
@@ -114775,7 +114777,7 @@ define void @"_ZN93_$LT$typst..symbols..symbol..SymbolVariant$u20$as$u20$typst..
   br label %34
 
 171:                                              ; preds = %141
-  %172 = trunc i8 %.4 to i1
+  %172 = trunc nuw i8 %.4 to i1
   br i1 %172, label %175, label %173
 
 173:                                              ; preds = %175, %171, %141
@@ -114788,7 +114790,7 @@ define void @"_ZN93_$LT$typst..symbols..symbol..SymbolVariant$u20$as$u20$typst..
           to label %173 unwind label %129
 
 176:                                              ; preds = %173
-  %177 = trunc i8 %.4 to i1
+  %177 = trunc nuw i8 %.4 to i1
   br i1 %177, label %182, label %178
 
 178:                                              ; preds = %182, %176, %173
@@ -115333,7 +115335,7 @@ define void @_ZN5typst7symbols6symbol6Symbol9construct17h8ec8f03a9c41eba9E(ptr n
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.thread90": ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.thread86", %145
   %.pn28 = phi { ptr, i32 } [ %146, %145 ], [ %.pn2684, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.thread86" ]
   %.3 = phi i8 [ %.2, %145 ], [ %.085, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.thread86" ]
-  %144 = trunc i8 %.3 to i1
+  %144 = trunc nuw i8 %.3 to i1
   br i1 %144, label %153, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit.thread90.thread"
 
 145:                                              ; preds = %48

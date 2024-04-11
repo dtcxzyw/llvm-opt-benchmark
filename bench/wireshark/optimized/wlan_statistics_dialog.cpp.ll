@@ -2122,8 +2122,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %32
   br label %_ZN10QByteArrayD2Ev.exit
 
 _ZN10QByteArrayD2Ev.exit:                         ; preds = %40, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %32
-  %.137 = zext i1 %37 to i8
-  %42 = trunc i8 %26 to i1
+  %42 = trunc nuw i8 %26 to i1
   %brmerge.demorgan = and i1 %37, %42
   br i1 %brmerge.demorgan, label %148, label %43
 
@@ -2134,14 +2133,14 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %40, %_ZN17QArrayDat
   br i1 %46, label %51, label %79
 
 .thread:                                          ; preds = %_ZL15addresses_equalPK8_addressS1_.exit, %29
-  %47 = trunc i8 %26 to i1
+  %47 = trunc nuw i8 %26 to i1
   %48 = getelementptr inbounds i8, ptr %1, i64 72
   %49 = load i16, ptr %48, align 8
   %50 = icmp eq i16 %49, 4
-  br i1 %50, label %.thread95, label %.thread99
+  br i1 %50, label %.thread90, label %.thread92
 
 51:                                               ; preds = %43
-  br i1 %37, label %52, label %.thread95
+  br i1 %37, label %52, label %.thread90
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2152,15 +2151,14 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %40, %_ZN17QArrayDat
 56:                                               ; preds = %52
   %57 = call i32 @is_broadcast_bssid(ptr noundef nonnull %1)
   %.not49 = icmp eq i32 %57, 0
-  br i1 %.not49, label %.thread114, label %.thread73.thread
+  br i1 %.not49, label %.thread105, label %.thread73.thread
 
-.thread95:                                        ; preds = %.thread, %51
-  %.137889198 = phi i8 [ %.137, %51 ], [ 0, %.thread ]
+.thread90:                                        ; preds = %.thread, %51
   %58 = load i8, ptr %27, align 1
   %59 = icmp eq i8 %58, 1
   br i1 %59, label %60, label %68
 
-60:                                               ; preds = %.thread95
+60:                                               ; preds = %.thread90
   %61 = getelementptr inbounds i8, ptr %1, i64 78
   %62 = load i8, ptr %61, align 2
   %63 = icmp eq i8 %62, 0
@@ -2172,7 +2170,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %40, %_ZN17QArrayDat
   %67 = trunc i8 %66 to i1
   br i1 %67, label %.thread73.thread, label %.thread73
 
-68:                                               ; preds = %.thread95
+68:                                               ; preds = %.thread90
   %69 = getelementptr inbounds i8, ptr %0, i64 144
   %70 = load i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 0
@@ -2192,7 +2190,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %40, %_ZN17QArrayDat
   br i1 %.not47, label %.thread73.thread, label %148
 
 79:                                               ; preds = %43
-  br i1 %37, label %80, label %.thread99
+  br i1 %37, label %80, label %.thread92
 
 80:                                               ; preds = %79
   %81 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2205,20 +2203,18 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %40, %_ZN17QArrayDat
   %.not44 = icmp eq i32 %85, 0
   br i1 %42, label %90, label %109
 
-.thread99:                                        ; preds = %.thread, %79
+.thread92:                                        ; preds = %.thread, %79
   %86 = phi i1 [ %42, %79 ], [ %47, %.thread ]
-  %.1378892102 = phi i8 [ %.137, %79 ], [ 0, %.thread ]
   %87 = load i8, ptr %27, align 1
   %88 = icmp eq i8 %87, 0
-  %spec.select55 = select i1 %88, i8 1, i8 %.1378892102
   br i1 %86, label %90, label %.thread73.thread
 
 89:                                               ; preds = %80
   br i1 %42, label %90, label %.thread73.thread
 
-90:                                               ; preds = %.thread99, %84, %89
-  %.238104 = phi i8 [ %.137, %84 ], [ 1, %89 ], [ %spec.select55, %.thread99 ]
-  %.040103 = phi i1 [ %.not44, %84 ], [ false, %89 ], [ false, %.thread99 ]
+90:                                               ; preds = %.thread92, %84, %89
+  %.23895 = phi i1 [ true, %84 ], [ true, %89 ], [ %88, %.thread92 ]
+  %.04094 = phi i1 [ %.not44, %84 ], [ false, %89 ], [ false, %.thread92 ]
   %91 = getelementptr inbounds i8, ptr %0, i64 128
   %92 = getelementptr inbounds i8, ptr %0, i64 144
   %93 = load i64, ptr %92, align 8
@@ -2255,7 +2251,7 @@ _ZN10QByteArrayixEx.exit:                         ; preds = %_ZNK17QArrayDataPoi
   %106 = getelementptr inbounds i8, ptr %1, i64 78
   %107 = load i8, ptr %106, align 2
   %.not46.not = icmp eq i8 %107, 0
-  br i1 %.040103, label %110, label %111
+  br i1 %.04094, label %110, label %111
 
 .thread73:                                        ; preds = %64
   %108 = call fastcc noundef i32 @_ZL15addresses_equalPK8_addressS1_(ptr noundef nonnull %7, ptr noundef nonnull %1), !range !15
@@ -2263,12 +2259,12 @@ _ZN10QByteArrayixEx.exit:                         ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not48.not, label %.thread73.thread, label %112
 
 109:                                              ; preds = %84, %103, %_ZN10QByteArrayixEx.exit
-  %.141 = phi i1 [ %.040103, %103 ], [ %.040103, %_ZN10QByteArrayixEx.exit ], [ %.not44, %84 ]
-  %.3 = phi i8 [ %.238104, %103 ], [ %.238104, %_ZN10QByteArrayixEx.exit ], [ %.137, %84 ]
-  br i1 %.141, label %.thread114, label %.thread73.thread
+  %.141 = phi i1 [ %.04094, %103 ], [ %.04094, %_ZN10QByteArrayixEx.exit ], [ %.not44, %84 ]
+  %.3 = phi i1 [ %.23895, %103 ], [ %.23895, %_ZN10QByteArrayixEx.exit ], [ true, %84 ]
+  br i1 %.141, label %.thread105, label %.thread73.thread
 
-.thread114:                                       ; preds = %56, %109
-  %.3112.ph = phi i8 [ %.3, %109 ], [ %.137, %56 ]
+.thread105:                                       ; preds = %56, %109
+  %.3103.ph = phi i1 [ %.3, %109 ], [ true, %56 ]
   call void @_ZN25WlanNetworkTreeWidgetItem11updateBssidEPK9_wlan_hdr(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %1)
   br label %.thread73.thread
 
@@ -2387,11 +2383,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65:    ; preds = %.body
 _ZN7QStringD2Ev.exit67:                           ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65, %144
   resume { ptr, i32 } %eh.lpad-body
 
-.thread73.thread:                                 ; preds = %.thread99, %89, %56, %109, %.thread114, %60, %52, %64, %77, %73, %68, %.thread73, %110, %_ZN7QStringD2Ev.exit, %111
-  %.280 = phi i8 [ %.281, %_ZN7QStringD2Ev.exit ], [ %26, %111 ], [ 1, %110 ], [ %26, %.thread73 ], [ %26, %68 ], [ %26, %73 ], [ %26, %77 ], [ %26, %64 ], [ %26, %52 ], [ %26, %60 ], [ 1, %.thread114 ], [ %26, %109 ], [ %26, %56 ], [ %26, %89 ], [ %26, %.thread99 ]
-  %.4 = phi i8 [ 1, %_ZN7QStringD2Ev.exit ], [ %.238104, %111 ], [ %.238104, %110 ], [ %.137889198, %.thread73 ], [ %.137889198, %68 ], [ %.137889198, %73 ], [ %.137889198, %77 ], [ %.137889198, %64 ], [ %.137, %52 ], [ %.137889198, %60 ], [ %.3112.ph, %.thread114 ], [ %.3, %109 ], [ %.137, %56 ], [ 1, %89 ], [ %spec.select55, %.thread99 ]
-  %146 = and i8 %.4, %.280
-  %147 = trunc i8 %146 to i1
+.thread73.thread:                                 ; preds = %.thread92, %89, %56, %109, %.thread105, %60, %52, %64, %77, %73, %68, %.thread73, %110, %_ZN7QStringD2Ev.exit, %111
+  %.280 = phi i8 [ %.281, %_ZN7QStringD2Ev.exit ], [ %26, %111 ], [ 1, %110 ], [ %26, %.thread73 ], [ %26, %68 ], [ %26, %73 ], [ %26, %77 ], [ %26, %64 ], [ %26, %52 ], [ %26, %60 ], [ 1, %.thread105 ], [ %26, %109 ], [ %26, %56 ], [ %26, %89 ], [ %26, %.thread92 ]
+  %.4 = phi i1 [ true, %_ZN7QStringD2Ev.exit ], [ %.23895, %111 ], [ %.23895, %110 ], [ false, %.thread73 ], [ false, %68 ], [ false, %73 ], [ false, %77 ], [ false, %64 ], [ true, %52 ], [ false, %60 ], [ %.3103.ph, %.thread105 ], [ %.3, %109 ], [ true, %56 ], [ true, %89 ], [ %88, %.thread92 ]
+  %146 = trunc nuw i8 %.280 to i1
+  %147 = select i1 %146, i1 %.4, i1 false
   br label %148
 
 148:                                              ; preds = %_ZN10QByteArrayD2Ev.exit, %77, %.thread73.thread

@@ -2263,7 +2263,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %59 = sext i32 %1 to i64
   %60 = sdiv i64 9223372036854775807, %59
   %61 = srem i64 9223372036854775807, %59
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = icmp ult ptr %.3, %.086
   br i1 %63, label %.lr.ph114.lr.ph, label %.thread
 
@@ -2328,7 +2328,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
 83:                                               ; preds = %81
   %84 = icmp ne i64 %.0.ph127, %60
   %.not101 = icmp sgt i32 %79, %62
-  %or.cond102 = or i1 %84, %.not101
+  %or.cond102 = select i1 %84, i1 true, i1 %.not101
   br i1 %or.cond102, label %89, label %85
 
 85:                                               ; preds = %83, %81
@@ -3169,7 +3169,7 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %4, align 8
-  %47 = trunc nuw i64 %34 to i32
+  %47 = trunc nuw nsw i64 %34 to i32
   call void @_php_math_basetozval(ptr noundef %46, i32 noundef %47, ptr noundef nonnull %3)
   %48 = load i64, ptr %6, align 8
   %49 = trunc i64 %48 to i32

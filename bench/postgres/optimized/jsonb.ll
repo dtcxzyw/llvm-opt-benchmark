@@ -595,35 +595,35 @@ define internal fastcc ptr @JsonbToCStringWorker(ptr noundef %0, ptr noundef %1,
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   br label %18
 
-18:                                               ; preds = %210, %11
-  %.091 = phi i8 [ 1, %11 ], [ %.192, %210 ]
-  %.088 = phi i32 [ 0, %11 ], [ %.290, %210 ]
-  %.086 = phi i32 [ 0, %11 ], [ %.187, %210 ]
-  %.084 = phi i8 [ 0, %11 ], [ %.185, %210 ]
-  %.082 = phi i1 [ false, %11 ], [ %3, %210 ]
-  %.081 = phi i8 [ 0, %11 ], [ %.2, %210 ]
-  %.0 = phi i1 [ false, %11 ], [ %211, %210 ]
-  %19 = trunc i8 %.084 to i1
+18:                                               ; preds = %208, %11
+  %.091 = phi i8 [ 1, %11 ], [ %.192, %208 ]
+  %.088 = phi i32 [ 0, %11 ], [ %.290, %208 ]
+  %.086 = phi i32 [ 0, %11 ], [ %.187, %208 ]
+  %.084 = phi i8 [ 0, %11 ], [ %.185, %208 ]
+  %.082 = phi i1 [ false, %11 ], [ %3, %208 ]
+  %.081 = phi i8 [ 0, %11 ], [ %.2, %208 ]
+  %.0 = phi i1 [ false, %11 ], [ %209, %208 ]
+  %19 = trunc nuw i8 %.084 to i1
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %18
   %21 = call i32 @JsonbIteratorNext(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false) #11
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %212, label %.critedge
+  br i1 %.not, label %210, label %.critedge
 
 .critedge:                                        ; preds = %18, %20
   %.189 = phi i32 [ %.088, %18 ], [ %21, %20 ]
-  switch i32 %.189, label %207 [
+  switch i32 %.189, label %205 [
     i32 4, label %22
-    i32 6, label %62
-    i32 1, label %99
-    i32 3, label %122
-    i32 5, label %143
-    i32 7, label %176
+    i32 6, label %61
+    i32 1, label %97
+    i32 3, label %120
+    i32 5, label %141
+    i32 7, label %174
   ]
 
 22:                                               ; preds = %.critedge
-  %23 = trunc i8 %.091 to i1
+  %23 = trunc nuw i8 %.091 to i1
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %22
@@ -633,386 +633,386 @@ define internal fastcc ptr @JsonbToCStringWorker(ptr noundef %0, ptr noundef %1,
 25:                                               ; preds = %24, %22
   %26 = load i8, ptr %17, align 8
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %60, label %28
+  br i1 %27, label %59, label %28
 
 28:                                               ; preds = %25
-  %29 = xor i1 %.0, true
-  %30 = and i1 %.082, %29
-  br i1 %30, label %31, label %add_indent.exit
+  %not..082111 = xor i1 %.082, true
+  %29 = select i1 %not..082111, i1 true, i1 %.0
+  br i1 %29, label %add_indent.exit, label %30
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %15, align 8
-  %33 = add i32 %32, 1
-  %34 = load i32, ptr %16, align 4
-  %.not.i = icmp slt i32 %33, %34
-  br i1 %.not.i, label %36, label %35
+30:                                               ; preds = %28
+  %31 = load i32, ptr %15, align 8
+  %32 = add i32 %31, 1
+  %33 = load i32, ptr %16, align 4
+  %.not.i = icmp slt i32 %32, %33
+  br i1 %.not.i, label %35, label %34
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
-  br label %45
+  br label %44
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %.083, align 8
-  %38 = sext i32 %32 to i64
-  %39 = getelementptr i8, ptr %37, i64 %38
-  store i8 10, ptr %39, align 1
-  %40 = load ptr, ptr %.083, align 8
-  %41 = load i32, ptr %15, align 8
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %15, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %40, i64 %43
-  store i8 0, ptr %44, align 1
-  br label %45
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %.083, align 8
+  %37 = sext i32 %31 to i64
+  %38 = getelementptr i8, ptr %36, i64 %37
+  store i8 10, ptr %38, align 1
+  %39 = load ptr, ptr %.083, align 8
+  %40 = load i32, ptr %15, align 8
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %15, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr i8, ptr %39, i64 %42
+  store i8 0, ptr %43, align 1
+  br label %44
 
-45:                                               ; preds = %36, %35
-  %46 = shl i32 %.086, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %46) #11
+44:                                               ; preds = %35, %34
+  %45 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %45) #11
   br label %add_indent.exit
 
-add_indent.exit:                                  ; preds = %28, %45
-  %47 = load i32, ptr %15, align 8
-  %48 = add i32 %47, 1
-  %49 = load i32, ptr %16, align 4
-  %.not100 = icmp slt i32 %48, %49
-  br i1 %.not100, label %51, label %50
+add_indent.exit:                                  ; preds = %28, %44
+  %46 = load i32, ptr %15, align 8
+  %47 = add i32 %46, 1
+  %48 = load i32, ptr %16, align 4
+  %.not100 = icmp slt i32 %47, %48
+  br i1 %.not100, label %50, label %49
+
+49:                                               ; preds = %add_indent.exit
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 91) #11
+  br label %59
 
 50:                                               ; preds = %add_indent.exit
-  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 91) #11
-  br label %60
+  %51 = load ptr, ptr %.083, align 8
+  %52 = sext i32 %46 to i64
+  %53 = getelementptr i8, ptr %51, i64 %52
+  store i8 91, ptr %53, align 1
+  %54 = load ptr, ptr %.083, align 8
+  %55 = load i32, ptr %15, align 8
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %15, align 8
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr i8, ptr %54, i64 %57
+  store i8 0, ptr %58, align 1
+  br label %59
 
-51:                                               ; preds = %add_indent.exit
-  %52 = load ptr, ptr %.083, align 8
-  %53 = sext i32 %47 to i64
-  %54 = getelementptr i8, ptr %52, i64 %53
-  store i8 91, ptr %54, align 1
-  %55 = load ptr, ptr %.083, align 8
-  %56 = load i32, ptr %15, align 8
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %15, align 8
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr i8, ptr %55, i64 %58
-  store i8 0, ptr %59, align 1
-  br label %60
+59:                                               ; preds = %25, %49, %50
+  %.1 = phi i8 [ %.081, %49 ], [ %.081, %50 ], [ 1, %25 ]
+  %60 = add i32 %.086, 1
+  br label %208
 
-60:                                               ; preds = %25, %50, %51
-  %.1 = phi i8 [ %.081, %50 ], [ %.081, %51 ], [ 1, %25 ]
-  %61 = add i32 %.086, 1
-  br label %210
+61:                                               ; preds = %.critedge
+  %62 = trunc nuw i8 %.091 to i1
+  br i1 %62, label %64, label %63
 
-62:                                               ; preds = %.critedge
-  %63 = trunc i8 %.091 to i1
-  br i1 %63, label %65, label %64
-
-64:                                               ; preds = %62
+63:                                               ; preds = %61
   call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.37, i32 noundef %7) #11
-  br label %65
+  br label %64
 
-65:                                               ; preds = %64, %62
-  %66 = xor i1 %.0, true
-  %67 = and i1 %.082, %66
-  br i1 %67, label %68, label %add_indent.exit102
+64:                                               ; preds = %63, %61
+  %not..082 = xor i1 %.082, true
+  %65 = select i1 %not..082, i1 true, i1 %.0
+  br i1 %65, label %add_indent.exit102, label %66
 
-68:                                               ; preds = %65
-  %69 = load i32, ptr %15, align 8
-  %70 = add i32 %69, 1
-  %71 = load i32, ptr %16, align 4
-  %.not.i101 = icmp slt i32 %70, %71
-  br i1 %.not.i101, label %73, label %72
+66:                                               ; preds = %64
+  %67 = load i32, ptr %15, align 8
+  %68 = add i32 %67, 1
+  %69 = load i32, ptr %16, align 4
+  %.not.i101 = icmp slt i32 %68, %69
+  br i1 %.not.i101, label %71, label %70
 
-72:                                               ; preds = %68
+70:                                               ; preds = %66
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
-  br label %82
+  br label %80
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %.083, align 8
-  %75 = sext i32 %69 to i64
-  %76 = getelementptr i8, ptr %74, i64 %75
-  store i8 10, ptr %76, align 1
-  %77 = load ptr, ptr %.083, align 8
-  %78 = load i32, ptr %15, align 8
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %15, align 8
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr i8, ptr %77, i64 %80
-  store i8 0, ptr %81, align 1
-  br label %82
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %.083, align 8
+  %73 = sext i32 %67 to i64
+  %74 = getelementptr i8, ptr %72, i64 %73
+  store i8 10, ptr %74, align 1
+  %75 = load ptr, ptr %.083, align 8
+  %76 = load i32, ptr %15, align 8
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %15, align 8
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr i8, ptr %75, i64 %78
+  store i8 0, ptr %79, align 1
+  br label %80
 
-82:                                               ; preds = %73, %72
-  %83 = shl i32 %.086, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %83) #11
+80:                                               ; preds = %71, %70
+  %81 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %81) #11
   br label %add_indent.exit102
 
-add_indent.exit102:                               ; preds = %65, %82
-  %84 = load i32, ptr %15, align 8
-  %85 = add i32 %84, 1
-  %86 = load i32, ptr %16, align 4
-  %.not99 = icmp slt i32 %85, %86
-  br i1 %.not99, label %88, label %87
+add_indent.exit102:                               ; preds = %64, %80
+  %82 = load i32, ptr %15, align 8
+  %83 = add i32 %82, 1
+  %84 = load i32, ptr %16, align 4
+  %.not99 = icmp slt i32 %83, %84
+  br i1 %.not99, label %86, label %85
 
-87:                                               ; preds = %add_indent.exit102
+85:                                               ; preds = %add_indent.exit102
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 123) #11
-  br label %97
+  br label %95
 
-88:                                               ; preds = %add_indent.exit102
-  %89 = load ptr, ptr %.083, align 8
-  %90 = sext i32 %84 to i64
-  %91 = getelementptr i8, ptr %89, i64 %90
-  store i8 123, ptr %91, align 1
-  %92 = load ptr, ptr %.083, align 8
-  %93 = load i32, ptr %15, align 8
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %15, align 8
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr i8, ptr %92, i64 %95
-  store i8 0, ptr %96, align 1
-  br label %97
+86:                                               ; preds = %add_indent.exit102
+  %87 = load ptr, ptr %.083, align 8
+  %88 = sext i32 %82 to i64
+  %89 = getelementptr i8, ptr %87, i64 %88
+  store i8 123, ptr %89, align 1
+  %90 = load ptr, ptr %.083, align 8
+  %91 = load i32, ptr %15, align 8
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %15, align 8
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr i8, ptr %90, i64 %93
+  store i8 0, ptr %94, align 1
+  br label %95
 
-97:                                               ; preds = %88, %87
-  %98 = add i32 %.086, 1
-  br label %210
+95:                                               ; preds = %86, %85
+  %96 = add i32 %.086, 1
+  br label %208
 
-99:                                               ; preds = %.critedge
-  %100 = trunc i8 %.091 to i1
-  br i1 %100, label %102, label %101
+97:                                               ; preds = %.critedge
+  %98 = trunc nuw i8 %.091 to i1
+  br i1 %98, label %100, label %99
 
-101:                                              ; preds = %99
+99:                                               ; preds = %97
   call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.37, i32 noundef %7) #11
-  br label %102
+  br label %100
 
-102:                                              ; preds = %101, %99
-  br i1 %.082, label %103, label %add_indent.exit104
+100:                                              ; preds = %99, %97
+  br i1 %.082, label %101, label %add_indent.exit104
 
-103:                                              ; preds = %102
-  %104 = load i32, ptr %15, align 8
-  %105 = add i32 %104, 1
-  %106 = load i32, ptr %16, align 4
-  %.not.i103 = icmp slt i32 %105, %106
-  br i1 %.not.i103, label %108, label %107
+101:                                              ; preds = %100
+  %102 = load i32, ptr %15, align 8
+  %103 = add i32 %102, 1
+  %104 = load i32, ptr %16, align 4
+  %.not.i103 = icmp slt i32 %103, %104
+  br i1 %.not.i103, label %106, label %105
 
-107:                                              ; preds = %103
+105:                                              ; preds = %101
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
-  br label %117
+  br label %115
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %.083, align 8
-  %110 = sext i32 %104 to i64
-  %111 = getelementptr i8, ptr %109, i64 %110
-  store i8 10, ptr %111, align 1
-  %112 = load ptr, ptr %.083, align 8
-  %113 = load i32, ptr %15, align 8
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %15, align 8
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr i8, ptr %112, i64 %115
-  store i8 0, ptr %116, align 1
-  br label %117
+106:                                              ; preds = %101
+  %107 = load ptr, ptr %.083, align 8
+  %108 = sext i32 %102 to i64
+  %109 = getelementptr i8, ptr %107, i64 %108
+  store i8 10, ptr %109, align 1
+  %110 = load ptr, ptr %.083, align 8
+  %111 = load i32, ptr %15, align 8
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %15, align 8
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr i8, ptr %110, i64 %113
+  store i8 0, ptr %114, align 1
+  br label %115
 
-117:                                              ; preds = %108, %107
-  %118 = shl i32 %.086, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %118) #11
+115:                                              ; preds = %106, %105
+  %116 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %116) #11
   br label %add_indent.exit104
 
-add_indent.exit104:                               ; preds = %102, %117
+add_indent.exit104:                               ; preds = %100, %115
   call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
   call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.38, i32 noundef 2) #11
-  %119 = call i32 @JsonbIteratorNext(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false) #11
-  %120 = icmp eq i32 %119, 2
-  br i1 %120, label %121, label %210
+  %117 = call i32 @JsonbIteratorNext(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false) #11
+  %118 = icmp eq i32 %117, 2
+  br i1 %118, label %119, label %208
 
-121:                                              ; preds = %add_indent.exit104
+119:                                              ; preds = %add_indent.exit104
   call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
-  br label %210
+  br label %208
 
-122:                                              ; preds = %.critedge
-  %123 = trunc i8 %.091 to i1
-  br i1 %123, label %125, label %124
+120:                                              ; preds = %.critedge
+  %121 = trunc nuw i8 %.091 to i1
+  br i1 %121, label %123, label %122
 
-124:                                              ; preds = %122
+122:                                              ; preds = %120
   call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.37, i32 noundef %7) #11
-  br label %125
+  br label %123
 
-125:                                              ; preds = %124, %122
-  %126 = trunc i8 %.081 to i1
+123:                                              ; preds = %122, %120
+  %124 = trunc nuw i8 %.081 to i1
   %.082.not = xor i1 %.082, true
-  %brmerge = or i1 %.082.not, %126
-  br i1 %brmerge, label %add_indent.exit106, label %127
+  %brmerge = or i1 %.082.not, %124
+  br i1 %brmerge, label %add_indent.exit106, label %125
 
-127:                                              ; preds = %125
-  %128 = load i32, ptr %15, align 8
-  %129 = add i32 %128, 1
-  %130 = load i32, ptr %16, align 4
-  %.not.i105 = icmp slt i32 %129, %130
-  br i1 %.not.i105, label %132, label %131
+125:                                              ; preds = %123
+  %126 = load i32, ptr %15, align 8
+  %127 = add i32 %126, 1
+  %128 = load i32, ptr %16, align 4
+  %.not.i105 = icmp slt i32 %127, %128
+  br i1 %.not.i105, label %130, label %129
 
-131:                                              ; preds = %127
+129:                                              ; preds = %125
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
-  br label %141
+  br label %139
 
-132:                                              ; preds = %127
-  %133 = load ptr, ptr %.083, align 8
-  %134 = sext i32 %128 to i64
-  %135 = getelementptr i8, ptr %133, i64 %134
-  store i8 10, ptr %135, align 1
-  %136 = load ptr, ptr %.083, align 8
-  %137 = load i32, ptr %15, align 8
-  %138 = add i32 %137, 1
-  store i32 %138, ptr %15, align 8
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr i8, ptr %136, i64 %139
-  store i8 0, ptr %140, align 1
-  br label %141
+130:                                              ; preds = %125
+  %131 = load ptr, ptr %.083, align 8
+  %132 = sext i32 %126 to i64
+  %133 = getelementptr i8, ptr %131, i64 %132
+  store i8 10, ptr %133, align 1
+  %134 = load ptr, ptr %.083, align 8
+  %135 = load i32, ptr %15, align 8
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %15, align 8
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr i8, ptr %134, i64 %137
+  store i8 0, ptr %138, align 1
+  br label %139
 
-141:                                              ; preds = %132, %131
-  %142 = shl i32 %.086, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %142) #11
+139:                                              ; preds = %130, %129
+  %140 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %140) #11
   br label %add_indent.exit106
 
-add_indent.exit106:                               ; preds = %125, %141
+add_indent.exit106:                               ; preds = %123, %139
   call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
-  br label %210
+  br label %208
 
-143:                                              ; preds = %.critedge
-  %144 = add i32 %.086, -1
-  %145 = trunc i8 %.081 to i1
-  br i1 %145, label %210, label %146
+141:                                              ; preds = %.critedge
+  %142 = add i32 %.086, -1
+  %143 = trunc nuw i8 %.081 to i1
+  br i1 %143, label %208, label %144
 
-146:                                              ; preds = %143
-  br i1 %.082, label %147, label %add_indent.exit108
+144:                                              ; preds = %141
+  br i1 %.082, label %145, label %add_indent.exit108
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %15, align 8
-  %149 = add i32 %148, 1
-  %150 = load i32, ptr %16, align 4
-  %.not.i107 = icmp slt i32 %149, %150
-  br i1 %.not.i107, label %152, label %151
+145:                                              ; preds = %144
+  %146 = load i32, ptr %15, align 8
+  %147 = add i32 %146, 1
+  %148 = load i32, ptr %16, align 4
+  %.not.i107 = icmp slt i32 %147, %148
+  br i1 %.not.i107, label %150, label %149
 
-151:                                              ; preds = %147
+149:                                              ; preds = %145
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
-  br label %161
+  br label %159
 
-152:                                              ; preds = %147
-  %153 = load ptr, ptr %.083, align 8
-  %154 = sext i32 %148 to i64
-  %155 = getelementptr i8, ptr %153, i64 %154
-  store i8 10, ptr %155, align 1
-  %156 = load ptr, ptr %.083, align 8
-  %157 = load i32, ptr %15, align 8
-  %158 = add i32 %157, 1
-  store i32 %158, ptr %15, align 8
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr i8, ptr %156, i64 %159
-  store i8 0, ptr %160, align 1
-  br label %161
+150:                                              ; preds = %145
+  %151 = load ptr, ptr %.083, align 8
+  %152 = sext i32 %146 to i64
+  %153 = getelementptr i8, ptr %151, i64 %152
+  store i8 10, ptr %153, align 1
+  %154 = load ptr, ptr %.083, align 8
+  %155 = load i32, ptr %15, align 8
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %15, align 8
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr i8, ptr %154, i64 %157
+  store i8 0, ptr %158, align 1
+  br label %159
 
-161:                                              ; preds = %152, %151
-  %162 = shl i32 %144, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %162) #11
+159:                                              ; preds = %150, %149
+  %160 = shl i32 %142, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %160) #11
   br label %add_indent.exit108
 
-add_indent.exit108:                               ; preds = %146, %161
-  %163 = load i32, ptr %15, align 8
-  %164 = add i32 %163, 1
-  %165 = load i32, ptr %16, align 4
-  %.not98 = icmp slt i32 %164, %165
-  br i1 %.not98, label %167, label %166
+add_indent.exit108:                               ; preds = %144, %159
+  %161 = load i32, ptr %15, align 8
+  %162 = add i32 %161, 1
+  %163 = load i32, ptr %16, align 4
+  %.not98 = icmp slt i32 %162, %163
+  br i1 %.not98, label %165, label %164
 
-166:                                              ; preds = %add_indent.exit108
+164:                                              ; preds = %add_indent.exit108
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 93) #11
-  br label %210
+  br label %208
 
-167:                                              ; preds = %add_indent.exit108
-  %168 = load ptr, ptr %.083, align 8
-  %169 = sext i32 %163 to i64
-  %170 = getelementptr i8, ptr %168, i64 %169
-  store i8 93, ptr %170, align 1
-  %171 = load ptr, ptr %.083, align 8
-  %172 = load i32, ptr %15, align 8
-  %173 = add i32 %172, 1
-  store i32 %173, ptr %15, align 8
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr i8, ptr %171, i64 %174
-  store i8 0, ptr %175, align 1
-  br label %210
+165:                                              ; preds = %add_indent.exit108
+  %166 = load ptr, ptr %.083, align 8
+  %167 = sext i32 %161 to i64
+  %168 = getelementptr i8, ptr %166, i64 %167
+  store i8 93, ptr %168, align 1
+  %169 = load ptr, ptr %.083, align 8
+  %170 = load i32, ptr %15, align 8
+  %171 = add i32 %170, 1
+  store i32 %171, ptr %15, align 8
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr i8, ptr %169, i64 %172
+  store i8 0, ptr %173, align 1
+  br label %208
 
-176:                                              ; preds = %.critedge
-  %177 = add i32 %.086, -1
-  br i1 %.082, label %178, label %add_indent.exit110
+174:                                              ; preds = %.critedge
+  %175 = add i32 %.086, -1
+  br i1 %.082, label %176, label %add_indent.exit110
 
-178:                                              ; preds = %176
-  %179 = load i32, ptr %15, align 8
-  %180 = add i32 %179, 1
-  %181 = load i32, ptr %16, align 4
-  %.not.i109 = icmp slt i32 %180, %181
-  br i1 %.not.i109, label %183, label %182
+176:                                              ; preds = %174
+  %177 = load i32, ptr %15, align 8
+  %178 = add i32 %177, 1
+  %179 = load i32, ptr %16, align 4
+  %.not.i109 = icmp slt i32 %178, %179
+  br i1 %.not.i109, label %181, label %180
 
-182:                                              ; preds = %178
+180:                                              ; preds = %176
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
-  br label %192
+  br label %190
 
-183:                                              ; preds = %178
-  %184 = load ptr, ptr %.083, align 8
-  %185 = sext i32 %179 to i64
-  %186 = getelementptr i8, ptr %184, i64 %185
-  store i8 10, ptr %186, align 1
-  %187 = load ptr, ptr %.083, align 8
-  %188 = load i32, ptr %15, align 8
-  %189 = add i32 %188, 1
-  store i32 %189, ptr %15, align 8
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr i8, ptr %187, i64 %190
-  store i8 0, ptr %191, align 1
-  br label %192
+181:                                              ; preds = %176
+  %182 = load ptr, ptr %.083, align 8
+  %183 = sext i32 %177 to i64
+  %184 = getelementptr i8, ptr %182, i64 %183
+  store i8 10, ptr %184, align 1
+  %185 = load ptr, ptr %.083, align 8
+  %186 = load i32, ptr %15, align 8
+  %187 = add i32 %186, 1
+  store i32 %187, ptr %15, align 8
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr i8, ptr %185, i64 %188
+  store i8 0, ptr %189, align 1
+  br label %190
 
-192:                                              ; preds = %183, %182
-  %193 = shl i32 %177, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %193) #11
+190:                                              ; preds = %181, %180
+  %191 = shl i32 %175, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %191) #11
   br label %add_indent.exit110
 
-add_indent.exit110:                               ; preds = %176, %192
-  %194 = load i32, ptr %15, align 8
-  %195 = add i32 %194, 1
-  %196 = load i32, ptr %16, align 4
-  %.not97 = icmp slt i32 %195, %196
-  br i1 %.not97, label %198, label %197
+add_indent.exit110:                               ; preds = %174, %190
+  %192 = load i32, ptr %15, align 8
+  %193 = add i32 %192, 1
+  %194 = load i32, ptr %16, align 4
+  %.not97 = icmp slt i32 %193, %194
+  br i1 %.not97, label %196, label %195
 
-197:                                              ; preds = %add_indent.exit110
+195:                                              ; preds = %add_indent.exit110
   call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 125) #11
-  br label %210
+  br label %208
 
-198:                                              ; preds = %add_indent.exit110
-  %199 = load ptr, ptr %.083, align 8
-  %200 = sext i32 %194 to i64
-  %201 = getelementptr i8, ptr %199, i64 %200
-  store i8 125, ptr %201, align 1
-  %202 = load ptr, ptr %.083, align 8
-  %203 = load i32, ptr %15, align 8
-  %204 = add i32 %203, 1
-  store i32 %204, ptr %15, align 8
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr i8, ptr %202, i64 %205
-  store i8 0, ptr %206, align 1
-  br label %210
+196:                                              ; preds = %add_indent.exit110
+  %197 = load ptr, ptr %.083, align 8
+  %198 = sext i32 %192 to i64
+  %199 = getelementptr i8, ptr %197, i64 %198
+  store i8 125, ptr %199, align 1
+  %200 = load ptr, ptr %.083, align 8
+  %201 = load i32, ptr %15, align 8
+  %202 = add i32 %201, 1
+  store i32 %202, ptr %15, align 8
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr i8, ptr %200, i64 %203
+  store i8 0, ptr %204, align 1
+  br label %208
 
-207:                                              ; preds = %.critedge
-  %208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %208)
-  %209 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39) #11
+205:                                              ; preds = %.critedge
+  %206 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %206)
+  %207 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 608, ptr noundef nonnull @__func__.JsonbToCStringWorker) #11
   unreachable
 
-210:                                              ; preds = %197, %198, %143, %167, %166, %add_indent.exit104, %121, %add_indent.exit106, %97, %60
-  %.192 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %121 ], [ 1, %97 ], [ 1, %60 ], [ 1, %add_indent.exit104 ], [ 0, %166 ], [ 0, %167 ], [ 0, %143 ], [ 0, %198 ], [ 0, %197 ]
-  %.290 = phi i32 [ 3, %add_indent.exit106 ], [ 2, %121 ], [ 6, %97 ], [ 4, %60 ], [ %119, %add_indent.exit104 ], [ 5, %166 ], [ 5, %167 ], [ 5, %143 ], [ 7, %198 ], [ 7, %197 ]
-  %.187 = phi i32 [ %.086, %add_indent.exit106 ], [ %.086, %121 ], [ %98, %97 ], [ %61, %60 ], [ %.086, %add_indent.exit104 ], [ %144, %166 ], [ %144, %167 ], [ %144, %143 ], [ %177, %198 ], [ %177, %197 ]
-  %.185 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %121 ], [ 0, %97 ], [ 0, %60 ], [ 1, %add_indent.exit104 ], [ 0, %166 ], [ 0, %167 ], [ 0, %143 ], [ 0, %198 ], [ 0, %197 ]
-  %.2 = phi i8 [ %.081, %add_indent.exit106 ], [ %.081, %121 ], [ %.081, %97 ], [ %.1, %60 ], [ %.081, %add_indent.exit104 ], [ %.081, %166 ], [ %.081, %167 ], [ %.081, %143 ], [ %.081, %198 ], [ %.081, %197 ]
-  %211 = trunc i8 %.185 to i1
+208:                                              ; preds = %195, %196, %141, %165, %164, %add_indent.exit104, %119, %add_indent.exit106, %95, %59
+  %.192 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %119 ], [ 1, %95 ], [ 1, %59 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
+  %.290 = phi i32 [ 3, %add_indent.exit106 ], [ 2, %119 ], [ 6, %95 ], [ 4, %59 ], [ %117, %add_indent.exit104 ], [ 5, %164 ], [ 5, %165 ], [ 5, %141 ], [ 7, %196 ], [ 7, %195 ]
+  %.187 = phi i32 [ %.086, %add_indent.exit106 ], [ %.086, %119 ], [ %96, %95 ], [ %60, %59 ], [ %.086, %add_indent.exit104 ], [ %142, %164 ], [ %142, %165 ], [ %142, %141 ], [ %175, %196 ], [ %175, %195 ]
+  %.185 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %119 ], [ 0, %95 ], [ 0, %59 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
+  %.2 = phi i8 [ %.081, %add_indent.exit106 ], [ %.081, %119 ], [ %.081, %95 ], [ %.1, %59 ], [ %.081, %add_indent.exit104 ], [ %.081, %164 ], [ %.081, %165 ], [ %.081, %141 ], [ %.081, %196 ], [ %.081, %195 ]
+  %209 = trunc nuw i8 %.185 to i1
   br label %18, !llvm.loop !8
 
-212:                                              ; preds = %20
-  %213 = load ptr, ptr %.083, align 8
-  ret ptr %213
+210:                                              ; preds = %20
+  %211 = load ptr, ptr %.083, align 8
+  ret ptr %211
 }
 
 ; Function Attrs: nounwind uwtable

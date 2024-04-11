@@ -12278,12 +12278,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h57da00b70
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554
   %..i.i.i = select i1 %3, i64 10, i64 4
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -14580,12 +14581,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h7410a677a
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.868.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.866.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.866, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.868
   %..i.i.i = select i1 %3, i64 8, i64 5
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.868.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.866.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -14637,12 +14639,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h76800dbf1
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554
   %..i.i.i = select i1 %3, i64 10, i64 4
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -14872,12 +14875,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h7aa0f35bb
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554
   %..i.i.i = select i1 %3, i64 10, i64 4
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -15408,12 +15412,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h894bcb056
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554
   %..i.i.i = select i1 %3, i64 10, i64 4
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.894.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -18760,7 +18765,7 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17ha6b31da1b
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.783.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.783
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.783.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.554.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
@@ -19651,12 +19656,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17hb834c0294
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.665.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.666.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.666, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.665
   %..i.i.i = select i1 %3, i64 6, i64 3
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.665.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.666.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -20384,12 +20390,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17hc2ac7ce66
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.675.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.676.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.676, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.675
   %..i.i.i = select i1 %3, i64 4, i64 5
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.675.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.676.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -26168,12 +26175,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17hfade28e0c
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.641.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.642.i.i.i = select i1 %3, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.642, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.641
   %..i.i.i = select i1 %3, i64 6, i64 5
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.641.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.642.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -30552,7 +30560,7 @@ define hidden void @_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE
   br label %7
 
 7:                                                ; preds = %6, %.lr.ph.preheader.i
-  %8 = trunc nuw i64 %2 to i8
+  %8 = trunc nuw nsw i64 %2 to i8
   %9 = or disjoint i8 %8, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %0, ptr noundef nonnull align 8 dereferenceable(15) %4, i64 15, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 15
@@ -30637,7 +30645,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 .lr.ph.i:                                         ; preds = %11, %28
   %.06250.i = phi i64 [ %29, %28 ], [ 0, %11 ]
   %.06449.i = phi i8 [ %.2.i, %28 ], [ 0, %11 ]
-  %16 = trunc i8 %.06449.i to i1
+  %16 = trunc nuw i8 %.06449.i to i1
   br i1 %16, label %._crit_edge.i, label %19
 
 ._crit_edge.i:                                    ; preds = %28, %.lr.ph.i, %11
@@ -30693,7 +30701,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 37:                                               ; preds = %.preheader.i
   %38 = shl nuw nsw i64 %.sroa.025.048.i, 4
   %39 = add nuw nsw i64 %38, %.06250.i
-  %40 = trunc i8 %.16547.i to i1
+  %40 = trunc nuw i8 %.16547.i to i1
   %41 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %39, i16 noundef %34, i1 noundef zeroext %40)
   %42 = or i1 %41, %40
   %43 = zext i1 %42 to i8
@@ -30702,7 +30710,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 .lr.ph58.i:                                       ; preds = %._crit_edge.i, %61
   %.16356.i = phi i64 [ %62, %61 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.355.i = phi i8 [ %.4.i, %61 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %44 = trunc i8 %.355.i to i1
+  %44 = trunc nuw i8 %.355.i to i1
   br i1 %44, label %._crit_edge59.i, label %53
 
 ._crit_edge59.i:                                  ; preds = %61, %.lr.ph58.i, %._crit_edge.i
@@ -30746,11 +30754,11 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 68:                                               ; preds = %70, %._crit_edge59.i
   %.5.i = phi i8 [ %.3.lcssa.i, %._crit_edge59.i ], [ %74, %70 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !7146
-  %69 = trunc i8 %.5.i to i1
+  %69 = trunc nuw i8 %.5.i to i1
   br label %_ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit
 
 70:                                               ; preds = %._crit_edge59.i
-  %71 = trunc i8 %.3.lcssa.i to i1
+  %71 = trunc nuw i8 %.3.lcssa.i to i1
   %72 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %45, i16 noundef %51, i1 noundef zeroext %71)
   %73 = or i1 %72, %71
   %74 = zext i1 %73 to i8
@@ -60255,7 +60263,7 @@ _ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.l
           to label %_ZN5typst4math8fragment13GlyphFragment3new17ha82d380105918fa6E.exit unwind label %90
 
 88:                                               ; preds = %286, %116
-  %89 = trunc i8 %.182 to i1
+  %89 = trunc nuw i8 %.182 to i1
   br i1 %89, label %.thread, label %.thread258
 
 90:                                               ; preds = %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit.i, %81, %_ZN5typst4math3row7MathRun5class17hdae603b3f066a6f6E.exit
@@ -60334,7 +60342,7 @@ _ZN5typst4math8fragment12MathFragment5width17h744da2c285327185E.exit: ; preds = 
   %.085 = phi i8 [ %.2, %118 ], [ %.287, %"_ZN4core3ptr46drop_in_place$LT$typst..math..row..MathRun$GT$17h36b24750aa65ba66E.exit" ]
   %.182 = phi i8 [ %.2, %118 ], [ %.3, %"_ZN4core3ptr46drop_in_place$LT$typst..math..row..MathRun$GT$17h36b24750aa65ba66E.exit" ]
   %.pn105 = phi { ptr, i32 } [ %119, %118 ], [ %.pn, %"_ZN4core3ptr46drop_in_place$LT$typst..math..row..MathRun$GT$17h36b24750aa65ba66E.exit" ]
-  %117 = trunc i8 %.085 to i1
+  %117 = trunc nuw i8 %.085 to i1
   br i1 %117, label %286, label %88
 
 118:                                              ; preds = %115, %"_ZN4core3ptr110drop_in_place$LT$$u5b$typst..util..hash..LazyHash$LT$typst..foundations..styles..Style$GT$$u3b$$u20$2$u5d$$GT$17hcc9fbf3080e78aadE.exit175"
@@ -60530,7 +60538,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.7325118056162354838.ex
   %.093.lpad-body = phi i8 [ %.093, %162 ], [ %.194, %219 ]
   %.088.lpad-body = phi i1 [ %.088, %162 ], [ false, %219 ]
   %eh.lpad-body123 = phi { ptr, i32 } [ %163, %162 ], [ %220, %219 ]
-  %164 = trunc i8 %.096.lpad-body to i1
+  %164 = trunc nuw i8 %.096.lpad-body to i1
   br i1 %164, label %282, label %.body156
 
 165:                                              ; preds = %.noexc.i118
@@ -60835,7 +60843,7 @@ _ZN4core3ptr19swap_nonoverlapping17h59a3bf40ff6f7abcE.exit.i.i: ; preds = %195
   %.295 = phi i8 [ %.093.lpad-body, %282 ], [ %.093.lpad-body, %.body122 ], [ %.194, %236 ], [ %.194, %239 ], [ %.194, %266 ], [ %.194, %263 ]
   %.189 = phi i1 [ %.088.lpad-body, %282 ], [ %.088.lpad-body, %.body122 ], [ false, %236 ], [ false, %239 ], [ true, %266 ], [ true, %263 ]
   %.pn101 = phi { ptr, i32 } [ %eh.lpad-body123, %282 ], [ %eh.lpad-body123, %.body122 ], [ %237, %236 ], [ %237, %239 ], [ %264, %266 ], [ %264, %263 ]
-  %243 = trunc i8 %.295 to i1
+  %243 = trunc nuw i8 %.295 to i1
   br i1 %243, label %285, label %.body161
 
 "_ZN4core3ptr110drop_in_place$LT$$u5b$typst..util..hash..LazyHash$LT$typst..foundations..styles..Style$GT$$u3b$$u20$2$u5d$$GT$17hcc9fbf3080e78aadE.exit163": ; preds = %"_ZN4core3ptr89drop_in_place$LT$typst..util..hash..LazyHash$LT$typst..foundations..styles..Style$GT$$GT$17h40ab78bbaf76a97eE.exit.i158", %"_ZN4core3ptr110drop_in_place$LT$$u5b$typst..util..hash..LazyHash$LT$typst..foundations..styles..Style$GT$$u3b$$u20$2$u5d$$GT$17hcc9fbf3080e78aadE.exit"
@@ -91319,7 +91327,7 @@ default.unreachable:                              ; preds = %772, %531
 .body439:                                         ; preds = %916, %540, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit"
   %.10 = phi i1 [ false, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit" ], [ %.11, %540 ], [ false, %916 ]
   %.pn150.pn = phi { ptr, i32 } [ %.pn150, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit" ], [ %541, %540 ], [ %917, %916 ]
-  %539 = trunc i8 %.3128 to i1
+  %539 = trunc nuw i8 %.3128 to i1
   br i1 %539, label %982, label %.body322
 
 540:                                              ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hffcf1f2faf8b9785E.llvm.16845035774076767816.exit.i", %556
@@ -91594,7 +91602,7 @@ default.unreachable:                              ; preds = %772, %531
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
-  %627 = trunc i8 %.3128 to i1
+  %627 = trunc nuw i8 %.3128 to i1
   br i1 %627, label %638, label %628
 
 628:                                              ; preds = %638, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit337"
@@ -92497,7 +92505,7 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit: ; preds = %.n
 928:                                              ; preds = %924, %920, %.noexc438
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !20295
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
-  %929 = trunc i8 %.3128 to i1
+  %929 = trunc nuw i8 %.3128 to i1
   br i1 %929, label %939, label %"_ZN4core3ptr111drop_in_place$LT$alloc..borrow..Cow$LT$core..option..Option$LT$typst..foundations..content..Content$GT$$GT$$GT$17hfe916d406ad7879bE.exit446"
 
 "_ZN4core3ptr111drop_in_place$LT$alloc..borrow..Cow$LT$core..option..Option$LT$typst..foundations..content..Content$GT$$GT$$GT$17hfe916d406ad7879bE.exit446": ; preds = %945, %942, %939, %.noexc444, %928
@@ -97766,7 +97774,7 @@ _ZN5typst4math3ctx11MathContext15layout_into_run17h791fbc85b59509ecE.exit.i: ; p
 "_ZN4core3ptr89drop_in_place$LT$typst..util..hash..LazyHash$LT$typst..foundations..styles..Style$GT$$GT$17h40ab78bbaf76a97eE.exit": ; preds = %.body, %123
   %.0 = phi i8 [ %.1, %123 ], [ %.2, %.body ]
   %.pn254 = phi { ptr, i32 } [ %124, %123 ], [ %.pn252, %.body ]
-  %122 = trunc i8 %.0 to i1
+  %122 = trunc nuw i8 %.0 to i1
   br i1 %122, label %388, label %103
 
 123:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit467", %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit444", %119
@@ -97962,7 +97970,7 @@ _ZN5typst4math3ctx11MathContext15layout_into_run17h791fbc85b59509ecE.exit.i.i.i:
 .body312:                                         ; preds = %.thread635, %379, %154, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit465"
   %.3 = phi i8 [ %.5, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit465" ], [ %.4, %154 ], [ %.5639, %379 ], [ %.5639, %.thread635 ]
   %.pn250 = phi { ptr, i32 } [ %.pn248, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit465" ], [ %155, %154 ], [ %.pn248640, %379 ], [ %.pn248640, %.thread635 ]
-  %153 = trunc i8 %.3 to i1
+  %153 = trunc nuw i8 %.3 to i1
   br i1 %153, label %.body312.thread, label %.body
 
 154:                                              ; preds = %370, %333, %.noexc310, %175, %156
@@ -98162,7 +98170,7 @@ _ZN5typst4math3ctx11MathContext15layout_into_run17h791fbc85b59509ecE.exit.i.i.i2
   %.0228 = phi i8 [ %.1229, %.body356 ], [ %.1229717, %373 ], [ %.1229717, %.body356.thread ]
   %.5 = phi i8 [ %.6, %.body356 ], [ %.6718, %373 ], [ %.6718, %.body356.thread ]
   %.pn248 = phi { ptr, i32 } [ %.pn246, %.body356 ], [ %.pn246719, %373 ], [ %.pn246719, %.body356.thread ]
-  %181 = trunc i8 %.0228 to i1
+  %181 = trunc nuw i8 %.0228 to i1
   br i1 %181, label %.thread635, label %.body312
 
 182:                                              ; preds = %367, %.noexc350, %203, %184
@@ -98416,7 +98424,7 @@ _ZN5typst4math3ctx11MathContext15layout_into_run17h791fbc85b59509ecE.exit.i.i.i3
   %.1229 = phi i8 [ %.3231, %.body395 ], [ %.2230, %220 ]
   %.6 = phi i8 [ %.8, %.body395 ], [ %.7, %220 ]
   %.pn246 = phi { ptr, i32 } [ %.pn244, %.body395 ], [ %221, %220 ]
-  %219 = trunc i8 %.6 to i1
+  %219 = trunc nuw i8 %.6 to i1
   br i1 %219, label %.body356.thread, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit465"
 
 220:                                              ; preds = %207, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit440"
@@ -98634,7 +98642,7 @@ _ZN5typst4math3ctx11MathContext15layout_into_run17h791fbc85b59509ecE.exit.i.i.i3
   %.4232 = phi i8 [ %.5233, %251 ], [ %.6234694, %351 ], [ %.6234694, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit447.thread" ]
   %.9 = phi i8 [ %.10, %251 ], [ %.11695, %351 ], [ %.11695, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit447.thread" ]
   %.pn242 = phi { ptr, i32 } [ %252, %251 ], [ %.pn696, %351 ], [ %.pn696, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$typst..math..fragment..MathFragment$GT$$GT$17hf098db8a5d9c4edaE.exit447.thread" ]
-  %250 = trunc i8 %.9 to i1
+  %250 = trunc nuw i8 %.9 to i1
   br i1 %250, label %.body435.thread, label %.body395
 
 251:                                              ; preds = %327, %307, %.noexc433, %272, %253
@@ -101542,7 +101550,7 @@ _ZN5typst4math8fragment12MathFragment12is_text_like17hd0a8fc21e17f6107E.exit: ; 
   %.075 = phi i8 [ %.176, %166 ], [ %.277, %.body ]
   %.2 = phi i1 [ %.3, %166 ], [ %.4, %.body ]
   %.pn89 = phi { ptr, i32 } [ %167, %166 ], [ %.pn87, %.body ]
-  %165 = trunc i8 %.075 to i1
+  %165 = trunc nuw i8 %.075 to i1
   br i1 %165, label %.thread331, label %111
 
 166:                                              ; preds = %.noexc170, %403, %.noexc168, %397, %.noexc165, %376, %.noexc163, %370, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8cde8082be4c193bE.exit.i.i", %.noexc140, %.noexc139, %204, %200, %197, %186, %182, %179, %168, %163
@@ -111808,7 +111816,7 @@ _ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i: ; preds = %.no
   br label %"_ZN4core3ptr48drop_in_place$LT$typst..layout..frame..Frame$GT$17h70b9fd71c3f114e6E.exit394.i"
 
 298:                                              ; preds = %679, %"_ZN4core3ptr89drop_in_place$LT$typst..util..hash..LazyHash$LT$typst..foundations..styles..Style$GT$$GT$17h40ab78bbaf76a97eE.exit221.i"
-  %299 = trunc i8 %.1.i to i1
+  %299 = trunc nuw i8 %.1.i to i1
   br i1 %299, label %.thread504.i, label %283
 
 300:                                              ; preds = %.noexc389.i, %674, %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit.i.i, %322, %302
@@ -111913,7 +111921,7 @@ _ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.l
   %.0101.i = phi i8 [ %.2.i, %337 ], [ %.2103.i, %342 ]
   %.1.i = phi i8 [ %.2.i, %337 ], [ %.3.i, %342 ]
   %.pn129.i = phi { ptr, i32 } [ %338, %337 ], [ %.pn127.i, %342 ]
-  %336 = trunc i8 %.0101.i to i1
+  %336 = trunc nuw i8 %.0101.i to i1
   br i1 %336, label %679, label %298
 
 337:                                              ; preds = %"_ZN4core3ptr48drop_in_place$LT$typst..layout..frame..Frame$GT$17h70b9fd71c3f114e6E.exit.i", %349, %335, %"_ZN5typst4math7stretch54_$LT$impl$u20$typst..math..fragment..GlyphFragment$GT$16stretch_vertical17h4c426bc0e4ec4d52E.exit.i"
@@ -112840,7 +112848,7 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit381.i: ; preds 
           to label %.body.i unwind label %611
 
 667:                                              ; preds = %.body.i
-  %668 = trunc i8 %.0112.i to i1
+  %668 = trunc nuw i8 %.0112.i to i1
   br i1 %668, label %669, label %342
 
 669:                                              ; preds = %667
@@ -135759,7 +135767,7 @@ _ZN5typst11foundations7content7Content4func17hef183a5d0681b689E.exit: ; preds = 
 .body:                                            ; preds = %.thread314.thread, %.thread314, %582, %583, %535, %169, %.thread287
   %.0114 = phi i8 [ %.2116291, %.thread287 ], [ %.4, %535 ], [ %.1115, %169 ], [ %.4, %583 ], [ %.4, %582 ], [ %.4, %.thread314 ], [ %.4, %.thread314.thread ]
   %.pn131 = phi { ptr, i32 } [ %.pn127292, %.thread287 ], [ %lpad.thr_comm.split-lp296, %535 ], [ %170, %169 ], [ %.pn125308321, %583 ], [ %.pn125309, %582 ], [ %lpad.thr_comm312, %.thread314 ], [ %lpad.thr_comm312328, %.thread314.thread ]
-  %168 = trunc i8 %.0114 to i1
+  %168 = trunc nuw i8 %.0114 to i1
   br i1 %168, label %.thread257, label %.thread243
 
 169:                                              ; preds = %.noexc158, %174, %.noexc156, %142, %585, %555, %508, %507, %308
@@ -161439,7 +161447,7 @@ define void @"_ZN96_$LT$typst..visualize..gradient..GradientStop$u20$as$u20$typs
   br label %30
 
 156:                                              ; preds = %112
-  %157 = trunc i8 %.068 to i1
+  %157 = trunc nuw i8 %.068 to i1
   br i1 %157, label %160, label %158
 
 158:                                              ; preds = %160, %156, %112
@@ -161452,7 +161460,7 @@ define void @"_ZN96_$LT$typst..visualize..gradient..GradientStop$u20$as$u20$typs
           to label %158 unwind label %131
 
 161:                                              ; preds = %158
-  %162 = trunc i8 %.068 to i1
+  %162 = trunc nuw i8 %.068 to i1
   br i1 %162, label %167, label %163
 
 163:                                              ; preds = %167, %161, %158
@@ -165654,7 +165662,7 @@ define void @"_ZN81_$LT$typst..text..StylisticSet$u20$as$u20$typst..foundations.
   unreachable
 
 47:                                               ; preds = %25
-  %48 = trunc nuw i64 %26 to i8
+  %48 = trunc nuw nsw i64 %26 to i8
   %49 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %48, ptr %49, align 1
   store i8 0, ptr %0, align 8

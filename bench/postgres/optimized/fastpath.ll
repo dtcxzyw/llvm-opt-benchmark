@@ -257,7 +257,7 @@ fetch_fp_info.exit:                               ; preds = %53
   unreachable
 
 128:                                              ; preds = %.loopexit.i51
-  %129 = trunc i32 %116 to i16
+  %129 = trunc nsw i32 %116 to i16
   store i16 %129, ptr %105, align 2
   %130 = icmp slt i32 %106, 2
   %.not.i52 = icmp eq i32 %106, %116
@@ -415,7 +415,7 @@ parse_fcall_arguments.exit:                       ; preds = %191, %135
   %195 = load i8, ptr %194, align 2
   %196 = trunc i8 %195 to i1
   %197 = icmp sgt i16 %129, 0
-  %or.cond = and i1 %197, %196
+  %or.cond = select i1 %196, i1 %197, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %parse_fcall_arguments.exit

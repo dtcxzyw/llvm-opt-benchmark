@@ -53444,7 +53444,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i:         ; preds = %573
 
 _ZNK12_GLOBAL__N_19FlowGraph9NodePrimeneERKS1_.exit: ; preds = %580, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i, %575, %_ZNSt6vectorIN12_GLOBAL__N_19FlowGraph9NodePrimeESaIS2_EE9push_backEOS2_.exit.thread
   %585 = phi i1 [ true, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i ], [ %584, %580 ], [ true, %575 ], [ true, %_ZNSt6vectorIN12_GLOBAL__N_19FlowGraph9NodePrimeESaIS2_EE9push_backEOS2_.exit.thread ]
-  %586 = and i1 %.1, %585
+  %586 = select i1 %585, i1 %.1, i1 false
   br i1 %586, label %42, label %587, !llvm.loop !331
 
 587:                                              ; preds = %_ZNK12_GLOBAL__N_19FlowGraph9NodePrimeneERKS1_.exit
@@ -53490,7 +53490,7 @@ _ZNK12_GLOBAL__N_19FlowGraph9NodePrimeeqERKS1_.exit: ; preds = %591, %_ZNK5Yosys
   %.sroa.5.0..val61.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0488.7562, i64 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..val61.sroa_idx, align 8
   %.sroa.5.sroa.6.0.extract.shift = lshr i32 %.sroa.5.0.copyload, 8
-  %.sroa.5.sroa.6.0.extract.trunc = trunc i32 %.sroa.5.sroa.6.0.extract.shift to i24
+  %.sroa.5.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.5.sroa.6.0.extract.shift to i24
   %.sroa.5.sroa.0.0.extract.trunc = trunc i32 %.sroa.5.0.copyload to i8
   %.sroa.0369.0.copyload = load ptr, ptr %.sroa.0488.7562, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
@@ -53767,7 +53767,7 @@ _ZNK5Yosys7hashlib4dictISt4pairINS_5RTLIL6SigBitES4_EiNS0_8hash_opsIS5_EEE7do_ha
   %695 = add nsw i32 %694, %.sink747
   store i32 %695, ptr %.sink, align 4
   %.sroa.5.sroa.6.0.extract.shift395 = lshr i32 %.sroa.7.0.copyload, 8
-  %.sroa.5.sroa.6.0.extract.trunc396 = trunc i32 %.sroa.5.sroa.6.0.extract.shift395 to i24
+  %.sroa.5.sroa.6.0.extract.trunc396 = trunc nuw i32 %.sroa.5.sroa.6.0.extract.shift395 to i24
   br label %696
 
 696:                                              ; preds = %_ZNK12_GLOBAL__N_19FlowGraph9NodePrimeeqERKS1_.exit175, %693
@@ -75617,7 +75617,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i200: ;
 .loopexit1778:                                    ; preds = %757, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i204
   %764 = add nsw i32 %.0992221, 1
   %.sroa.31642.sroa.3.0.extract.shift = lshr i32 %.sroa.5.0.copyload1595, 8
-  %.sroa.31642.sroa.3.0.extract.trunc = trunc i32 %.sroa.31642.sroa.3.0.extract.shift to i24
+  %.sroa.31642.sroa.3.0.extract.trunc = trunc nuw i32 %.sroa.31642.sroa.3.0.extract.shift to i24
   br label %.thread
 
 .loopexit1769:                                    ; preds = %1333
@@ -118658,7 +118658,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit804:          ; preds = %_ZNK5Yosys5RTLIL6Si
   %1698 = icmp eq i8 %1697, 1
   %1699 = select i1 %1695, i1 %1698, i1 false
   %1700 = xor i1 %1554, %1699
-  %1701 = trunc i8 %.02761146 to i1
+  %1701 = trunc nuw i8 %.02761146 to i1
   %1702 = xor i1 %1700, %1701
   %1703 = xor i1 %1693, %1702
   %brmerge.not = and i1 %1693, %1700

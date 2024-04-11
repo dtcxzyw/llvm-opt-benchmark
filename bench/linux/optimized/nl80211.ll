@@ -4239,7 +4239,7 @@ split:                                            ; preds = %367, %._crit_edge11
   %751 = add nuw nsw i64 %746, 1
   %752 = load ptr, ptr %744, align 16
   %753 = getelementptr %struct.mac_address, ptr %752, i64 %746
-  %754 = trunc i64 %751 to i32
+  %754 = trunc nuw nsw i64 %751 to i32
   %755 = call i32 @nla_put(ptr noundef %2, i32 noundef %754, i32 noundef 6, ptr noundef %753) #25
   %756 = icmp eq i32 %755, 0
   br i1 %756, label %745, label %.thread43, !llvm.loop !65
@@ -5390,7 +5390,7 @@ define internal fastcc noundef i32 @nl80211_prep_scan_msg(ptr noundef %0, ptr no
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = trunc i32 %3 to i8
+  %12 = trunc nuw nsw i32 %3 to i8
   %13 = tail call ptr @genlmsg_put(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @nl80211_fam, i32 noundef 0, i8 noundef zeroext %12) #25
   %14 = icmp eq ptr %13, null
   br i1 %14, label %211, label %15
@@ -6426,7 +6426,7 @@ define internal fastcc void @nl80211_send_mlme_timeout(ptr nocapture noundef rea
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %5
-  %11 = trunc i32 %2 to i8
+  %11 = trunc nuw nsw i32 %2 to i8
   %12 = tail call ptr @genlmsg_put(ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @nl80211_fam, i32 noundef 0, i8 noundef zeroext %11) #25
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -8805,7 +8805,7 @@ define internal fastcc void @nl80211_send_remain_on_chan_event(i32 noundef %0, p
   br i1 %16, label %82, label %17
 
 17:                                               ; preds = %7
-  %18 = trunc i32 %0 to i8
+  %18 = trunc nuw nsw i32 %0 to i8
   %19 = tail call ptr @genlmsg_put(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @nl80211_fam, i32 noundef 0, i8 noundef zeroext %18) #25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
@@ -9185,7 +9185,7 @@ define internal fastcc noundef i32 @nl80211_send_station(ptr noundef %0, i32 nou
   %51 = alloca i32, align 4
   %52 = alloca i32, align 4
   %53 = alloca i32, align 4
-  %54 = trunc i32 %1 to i8
+  %54 = trunc nuw nsw i32 %1 to i8
   %55 = tail call ptr @genlmsg_put(ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @nl80211_fam, i32 noundef %4, i8 noundef zeroext %54) #25
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %60
@@ -11330,7 +11330,7 @@ define internal fastcc void @nl80211_frame_tx_status(ptr noundef %0, ptr nocaptu
   br i1 %73, label %152, label %74
 
 74:                                               ; preds = %66
-  %75 = trunc i32 %3 to i8
+  %75 = trunc nuw i32 %3 to i8
   %76 = tail call ptr @genlmsg_put(ptr noundef nonnull %72, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @nl80211_fam, i32 noundef 0, i8 noundef zeroext %75) #25
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %79
@@ -12939,7 +12939,7 @@ define internal fastcc void @nl80211_ch_switch_notify(ptr nocapture noundef read
   br i1 %16, label %67, label %17
 
 17:                                               ; preds = %8
-  %18 = trunc i32 %4 to i8
+  %18 = trunc nuw nsw i32 %4 to i8
   %19 = tail call ptr @genlmsg_put(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @nl80211_fam, i32 noundef 0, i8 noundef zeroext %18) #25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
@@ -25099,7 +25099,7 @@ select.unfold:                                    ; preds = %243, %240, %237, %1
   br i1 %265, label %.loopexit, label %266
 
 266:                                              ; preds = %263
-  %267 = trunc nuw i16 %264 to i8
+  %267 = trunc nuw nsw i16 %264 to i8
   %268 = load ptr, ptr %99, align 8
   %269 = sext i32 %257 to i64
   %270 = getelementptr %struct.cfg80211_ssid, ptr %268, i64 %269, i32 1
@@ -45053,7 +45053,7 @@ default.unreachable107:                           ; preds = %376
   %266 = phi i64 [ %271, %249 ], [ 0, %229 ]
   %267 = getelementptr i8, ptr %223, i64 %264
   %268 = load i8, ptr %267, align 1
-  %269 = trunc i32 %265 to i8
+  %269 = trunc nuw i32 %265 to i8
   %270 = or i8 %268, %269
   store i8 %270, ptr %267, align 1
   %271 = add nuw nsw i64 %266, 1
@@ -46607,7 +46607,7 @@ define internal fastcc void @nl80211_send_ap_started(ptr noundef %0, i32 noundef
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %52
-  %57 = trunc i32 %1 to i8
+  %57 = trunc nuw i32 %1 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
   store i8 %57, ptr %3, align 1
   %58 = call i32 @nla_put(ptr noundef nonnull %11, i32 noundef 313, i32 noundef 1, ptr noundef nonnull %3) #25
@@ -49789,7 +49789,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   br i1 %391, label %.thread85, label %392
 
 392:                                              ; preds = %389
-  %393 = trunc nuw i16 %390 to i8
+  %393 = trunc nuw nsw i16 %390 to i8
   %394 = load ptr, ptr %379, align 8
   %395 = sext i32 %384 to i64
   %396 = getelementptr %struct.cfg80211_ssid, ptr %394, i64 %395, i32 1
@@ -55781,7 +55781,7 @@ define internal fastcc noundef i32 @nl80211_put_iface_combinations(ptr nocapture
   %53 = load i32, ptr %12, align 8
   %54 = zext i32 %53 to i64
   %55 = getelementptr i8, ptr %52, i64 %54
-  %56 = trunc i64 %51 to i32
+  %56 = trunc nuw nsw i64 %51 to i32
   %57 = call i32 @nla_put(ptr noundef %1, i32 noundef %56, i32 noundef 0, ptr noundef null) #25
   %58 = icmp slt i32 %57, 0
   %59 = icmp eq ptr %55, null

@@ -11917,7 +11917,7 @@ if.then60.i17945:                                 ; preds = %for.body.i17939
   %mul62.i = shl nuw nsw i64 %indvars.iv11281, 6
   %1843 = call i64 @llvm.cttz.i64(i64 %1842, i1 true), !range !121
   %add65.i = or disjoint i64 %1843, %mul62.i
-  %conv66.i17948 = trunc i64 %add65.i to i32
+  %conv66.i17948 = trunc nuw nsw i64 %add65.i to i32
   br label %mmbit_iterate.exit17873
 
 if.end67.i17943:                                  ; preds = %for.body.i17939
@@ -12264,7 +12264,7 @@ if.then60.i18121:                                 ; preds = %for.body.i18113
   %mul62.i18123 = shl nuw nsw i64 %indvars.iv11286, 6
   %1878 = call i64 @llvm.cttz.i64(i64 %1877, i1 true), !range !121
   %add65.i18126 = or disjoint i64 %1878, %mul62.i18123
-  %conv66.i18127 = trunc i64 %add65.i18126 to i32
+  %conv66.i18127 = trunc nuw nsw i64 %add65.i18126 to i32
   br label %mmbit_iterate.exit17850
 
 if.end67.i18118:                                  ; preds = %for.body.i18113
@@ -17083,7 +17083,7 @@ if.then60.i18883:                                 ; preds = %for.body.i18875
   %mul62.i18885 = shl nuw nsw i64 %indvars.iv11172, 6
   %2588 = call i64 @llvm.cttz.i64(i64 %2587, i1 true), !range !121
   %add65.i18888 = or disjoint i64 %2588, %mul62.i18885
-  %conv66.i18889 = trunc i64 %add65.i18888 to i32
+  %conv66.i18889 = trunc nuw nsw i64 %add65.i18888 to i32
   br label %mmbit_iterate.exit17781
 
 if.end67.i18880:                                  ; preds = %for.body.i18875
@@ -18545,7 +18545,7 @@ if.then60.i19137:                                 ; preds = %for.body.i19129
   %mul62.i19139 = shl nuw nsw i64 %indvars.iv11264, 6
   %2857 = call i64 @llvm.cttz.i64(i64 %2856, i1 true), !range !121
   %add65.i19142 = or disjoint i64 %2857, %mul62.i19139
-  %conv66.i19143 = trunc i64 %add65.i19142 to i32
+  %conv66.i19143 = trunc nuw nsw i64 %add65.i19142 to i32
   br label %mmbit_iterate.exit
 
 if.end67.i19134:                                  ; preds = %for.body.i19129
@@ -19151,7 +19151,7 @@ if.then60.i18375:                                 ; preds = %for.body.i18367
   %mul62.i18377 = shl nuw nsw i64 %indvars.iv10953, 6
   %2928 = call i64 @llvm.cttz.i64(i64 %2927, i1 true), !range !121
   %add65.i18380 = or disjoint i64 %2928, %mul62.i18377
-  %conv66.i18381 = trunc i64 %add65.i18380 to i32
+  %conv66.i18381 = trunc nuw nsw i64 %add65.i18380 to i32
   br label %mmbit_iterate.exit17827
 
 if.end67.i18372:                                  ; preds = %for.body.i18367
@@ -20610,7 +20610,7 @@ if.then60.i18629:                                 ; preds = %for.body.i18621
   %mul62.i18631 = shl nuw nsw i64 %indvars.iv11041, 6
   %3197 = call i64 @llvm.cttz.i64(i64 %3196, i1 true), !range !121
   %add65.i18634 = or disjoint i64 %3197, %mul62.i18631
-  %conv66.i18635 = trunc i64 %add65.i18634 to i32
+  %conv66.i18635 = trunc nuw nsw i64 %add65.i18634 to i32
   br label %mmbit_iterate.exit17804
 
 if.end67.i18626:                                  ; preds = %for.body.i18621
@@ -27449,7 +27449,7 @@ if.then60.i8983:                                  ; preds = %for.body.i8975
   %mul62.i8985 = shl nuw nsw i64 %indvars.iv6174, 6
   %802 = tail call i64 @llvm.cttz.i64(i64 %801, i1 true), !range !121
   %add65.i8988 = or disjoint i64 %802, %mul62.i8985
-  %conv66.i8989 = trunc i64 %add65.i8988 to i32
+  %conv66.i8989 = trunc nuw nsw i64 %add65.i8988 to i32
   br label %mmbit_iterate.exit8458
 
 if.end67.i8980:                                   ; preds = %for.body.i8975
@@ -28897,7 +28897,7 @@ if.then60.i9237:                                  ; preds = %for.body.i9229
   %mul62.i9239 = shl nuw nsw i64 %indvars.iv6266, 6
   %1070 = tail call i64 @llvm.cttz.i64(i64 %1069, i1 true), !range !121
   %add65.i9242 = or disjoint i64 %1070, %mul62.i9239
-  %conv66.i9243 = trunc i64 %add65.i9242 to i32
+  %conv66.i9243 = trunc nuw nsw i64 %add65.i9242 to i32
   br label %mmbit_iterate.exit
 
 if.end67.i9234:                                   ; preds = %for.body.i9229
@@ -29482,7 +29482,7 @@ if.then60.i8563:                                  ; preds = %for.body.i8559
   %mul62.i = shl nuw nsw i64 %indvars.iv, 6
   %1141 = tail call i64 @llvm.cttz.i64(i64 %1140, i1 true), !range !121
   %add65.i = or disjoint i64 %1141, %mul62.i
-  %conv66.i = trunc i64 %add65.i to i32
+  %conv66.i = trunc nuw nsw i64 %add65.i to i32
   br label %mmbit_iterate.exit8504
 
 if.end67.i8561:                                   ; preds = %for.body.i8559
@@ -30927,7 +30927,7 @@ if.then60.i8729:                                  ; preds = %for.body.i8721
   %mul62.i8731 = shl nuw nsw i64 %indvars.iv6042, 6
   %1409 = tail call i64 @llvm.cttz.i64(i64 %1408, i1 true), !range !121
   %add65.i8734 = or disjoint i64 %1409, %mul62.i8731
-  %conv66.i8735 = trunc i64 %add65.i8734 to i32
+  %conv66.i8735 = trunc nuw nsw i64 %add65.i8734 to i32
   br label %mmbit_iterate.exit8481
 
 if.end67.i8726:                                   ; preds = %for.body.i8721
