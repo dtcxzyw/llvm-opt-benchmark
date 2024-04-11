@@ -939,7 +939,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 43:                                               ; preds = %281, %.thread78
   %.083 = phi i8 [ %.982, %.thread78 ], [ %.8, %281 ]
   %.pn104 = phi { ptr, i32 } [ %.pn10283, %.thread78 ], [ %282, %281 ]
-  %44 = trunc i8 %.083 to i1
+  %44 = trunc nuw i8 %.083 to i1
   br i1 %44, label %317, label %316
 
 .thread:                                          ; preds = %10, %283
@@ -1893,7 +1893,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 43:                                               ; preds = %281, %.thread78
   %.083 = phi i8 [ %.982, %.thread78 ], [ %.8, %281 ]
   %.pn104 = phi { ptr, i32 } [ %.pn10283, %.thread78 ], [ %282, %281 ]
-  %44 = trunc i8 %.083 to i1
+  %44 = trunc nuw i8 %.083 to i1
   br i1 %44, label %317, label %316
 
 .thread:                                          ; preds = %10, %283
@@ -2847,7 +2847,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 43:                                               ; preds = %281, %.thread78
   %.083 = phi i8 [ %.982, %.thread78 ], [ %.8, %281 ]
   %.pn104 = phi { ptr, i32 } [ %.pn10283, %.thread78 ], [ %282, %281 ]
-  %44 = trunc i8 %.083 to i1
+  %44 = trunc nuw i8 %.083 to i1
   br i1 %44, label %317, label %316
 
 .thread:                                          ; preds = %10, %283
@@ -15780,7 +15780,7 @@ define void @_ZN15tree_sitter_cli9highlight11parse_style17hdf988472ce253b08E(ptr
 .body:                                            ; preds = %192, %208, %73, %53
   %.1.lpad-body = phi i8 [ %.1, %53 ], [ 1, %73 ], [ %.2, %208 ], [ %.2, %192 ]
   %eh.lpad-body = phi { ptr, i32 } [ %54, %53 ], [ %74, %73 ], [ %193, %208 ], [ %193, %192 ]
-  %55 = trunc i8 %.1.lpad-body to i1
+  %55 = trunc nuw i8 %.1.lpad-body to i1
   %56 = xor i1 %55, true
   br label %50
 
@@ -25169,7 +25169,7 @@ _ZN4core3ops8function6FnOnce9call_once17hebba7e2b30c84cacE.exit: ; preds = %.noe
           to label %768 unwind label %.loopexit.split-lp895.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 695:                                              ; preds = %691
-  %696 = trunc i8 %.0613 to i1
+  %696 = trunc nuw i8 %.0613 to i1
   br i1 %696, label %698, label %697
 
 697:                                              ; preds = %700, %695
@@ -25476,7 +25476,7 @@ _ZN4core3ops8function6FnOnce9call_once17hebba7e2b30c84cacE.exit: ; preds = %.noe
   br i1 %689, label %.thread856, label %786
 
 786:                                              ; preds = %783
-  %787 = trunc i8 %.1614 to i1
+  %787 = trunc nuw i8 %.1614 to i1
   br i1 %787, label %788, label %.thread856
 
 .thread856:                                       ; preds = %.preheader903, %786, %783
@@ -25864,7 +25864,7 @@ _ZN4core3ops8function6FnOnce9call_once17hebba7e2b30c84cacE.exit: ; preds = %.noe
   br i1 %903, label %936, label %942
 
 904:                                              ; preds = %893
-  %905 = trunc i8 %.3616 to i1
+  %905 = trunc nuw i8 %.3616 to i1
   br i1 %905, label %906, label %.thread862
 
 906:                                              ; preds = %904
@@ -27053,7 +27053,7 @@ select.unfold:                                    ; preds = %1239
   br label %1280
 
 1277:                                             ; preds = %282
-  %1278 = trunc i8 %.1 to i1
+  %1278 = trunc nuw i8 %.1 to i1
   br i1 %1278, label %1279, label %"_ZN4core3ptr38drop_in_place$LT$tree_sitter..Tree$GT$17h7871ab78d24a3633E.exit814"
 
 1279:                                             ; preds = %1277
@@ -28927,10 +28927,10 @@ select.unfold478:                                 ; preds = %400
 .body419:                                         ; preds = %.loopexit519, %.loopexit.split-lp520, %482, %464
   %.2293.lpad-body = phi i8 [ 1, %464 ], [ %.3294, %482 ], [ %.2293.ph, %.loopexit519 ], [ %.2293.ph521, %.loopexit.split-lp520 ]
   %eh.lpad-body410 = phi { ptr, i32 } [ %465, %464 ], [ %483, %482 ], [ %lpad.loopexit522, %.loopexit519 ], [ %lpad.loopexit.split-lp523, %.loopexit.split-lp520 ]
-  %437 = trunc i8 %.2293.lpad-body to i1
+  %437 = trunc nuw i8 %.2293.lpad-body to i1
   %438 = load i64, ptr %54, align 8, !range !142, !noundef !4
   %.not317 = icmp ne i64 %438, -9223372036854775808
-  %brmerge347.not = and i1 %.not317, %437
+  %brmerge347.not = select i1 %.not317, i1 %437, i1 false
   br i1 %brmerge347.not, label %552, label %.thread484
 
 .loopexit519:                                     ; preds = %439, %442, %456, %470, %472, %488, %490, %512, %514
@@ -29483,7 +29483,7 @@ select.unfold500:                                 ; preds = %527
           to label %.thread484 unwind label %308
 
 553:                                              ; preds = %435
-  %554 = trunc i8 %.0291 to i1
+  %554 = trunc nuw i8 %.0291 to i1
   br i1 %554, label %556, label %555
 
 555:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit458", %553, %435
@@ -33583,7 +33583,7 @@ default.unreachable:                              ; preds = %653
   %745 = ptrtoint ptr %.sink to i64
   %746 = sub i64 %.sroa.11.1608, %704
   %747 = add i64 %746, %745
-  %748 = trunc i8 %.189610 to i1
+  %748 = trunc nuw i8 %.189610 to i1
   %749 = sub i64 %.sroa.11.1608, %.186612
   %750 = add i64 %749, %.177616
   %.278 = select i1 %748, i64 0, i64 %750

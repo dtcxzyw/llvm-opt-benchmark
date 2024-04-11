@@ -9341,12 +9341,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h2f49f40aa
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.984efe779a4077b66be6415f964eeb42.1650.llvm.13383457361836014260.anon.984efe779a4077b66be6415f964eeb42.2056.i.i.i = select i1 %3, ptr @anon.984efe779a4077b66be6415f964eeb42.2056, ptr @anon.984efe779a4077b66be6415f964eeb42.1650.llvm.13383457361836014260
   %..i.i.i = select i1 %3, i64 8, i64 6
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.984efe779a4077b66be6415f964eeb42.1650.llvm.13383457361836014260.anon.984efe779a4077b66be6415f964eeb42.2056.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -11753,12 +11754,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h6eb6be9e6
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.984efe779a4077b66be6415f964eeb42.1650.llvm.13383457361836014260.anon.984efe779a4077b66be6415f964eeb42.2056.i.i.i = select i1 %3, ptr @anon.984efe779a4077b66be6415f964eeb42.2056, ptr @anon.984efe779a4077b66be6415f964eeb42.1650.llvm.13383457361836014260
   %..i.i.i = select i1 %3, i64 8, i64 6
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.984efe779a4077b66be6415f964eeb42.1650.llvm.13383457361836014260.anon.984efe779a4077b66be6415f964eeb42.2056.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -13550,12 +13552,13 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17hd29c8e8df
   %switch.selectcmp1.i.i = icmp eq i8 %0, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i8 0, i8 %switch.select.i.i
   %2 = icmp eq i8 %switch.select2.i.i, 2
-  %3 = trunc i8 %switch.select2.i.i to i1
+  %3 = trunc nuw i8 %switch.select2.i.i to i1
   %anon.984efe779a4077b66be6415f964eeb42.2151.anon.984efe779a4077b66be6415f964eeb42.2115.i.i.i = select i1 %3, ptr @anon.984efe779a4077b66be6415f964eeb42.2115, ptr @anon.984efe779a4077b66be6415f964eeb42.2151
   %..i.i.i = select i1 %3, i64 4, i64 5
+  %.sroa.3.0.i = select i1 %2, i64 undef, i64 %..i.i.i
   %.sroa.0.0.i = select i1 %2, ptr null, ptr %anon.984efe779a4077b66be6415f964eeb42.2151.anon.984efe779a4077b66be6415f964eeb42.2115.i.i.i
   %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %..i.i.i, 1
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %5
 }
 
@@ -29192,7 +29195,7 @@ define hidden void @_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE
   br label %7
 
 7:                                                ; preds = %6, %.lr.ph.preheader.i
-  %8 = trunc nuw i64 %2 to i8
+  %8 = trunc nuw nsw i64 %2 to i8
   %9 = or disjoint i8 %8, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %0, ptr noundef nonnull align 8 dereferenceable(15) %4, i64 15, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 15
@@ -29247,7 +29250,7 @@ define hidden void @_ZN4ecow7dynamic9InlineVec10from_slice17hf2339a8bafc08660E.l
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %6
-  %7 = trunc nuw i64 %2 to i8
+  %7 = trunc nuw nsw i64 %2 to i8
   %8 = or disjoint i8 %7, -128
   %9 = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %9, ptr noundef nonnull align 1 dereferenceable(15) %4, i64 15, i1 false)
@@ -29950,7 +29953,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 .lr.ph.i:                                         ; preds = %11, %28
   %.06250.i = phi i64 [ %29, %28 ], [ 0, %11 ]
   %.06449.i = phi i8 [ %.2.i, %28 ], [ 0, %11 ]
-  %16 = trunc i8 %.06449.i to i1
+  %16 = trunc nuw i8 %.06449.i to i1
   br i1 %16, label %._crit_edge.i, label %19
 
 ._crit_edge.i:                                    ; preds = %28, %.lr.ph.i, %11
@@ -30006,7 +30009,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 37:                                               ; preds = %.preheader.i
   %38 = shl nuw nsw i64 %.sroa.025.048.i, 4
   %39 = add nuw nsw i64 %38, %.06250.i
-  %40 = trunc i8 %.16547.i to i1
+  %40 = trunc nuw i8 %.16547.i to i1
   %41 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %39, i16 noundef %34, i1 noundef zeroext %40)
   %42 = or i1 %41, %40
   %43 = zext i1 %42 to i8
@@ -30015,7 +30018,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 .lr.ph58.i:                                       ; preds = %._crit_edge.i, %61
   %.16356.i = phi i64 [ %62, %61 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.355.i = phi i8 [ %.4.i, %61 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %44 = trunc i8 %.355.i to i1
+  %44 = trunc nuw i8 %.355.i to i1
   br i1 %44, label %._crit_edge59.i, label %53
 
 ._crit_edge59.i:                                  ; preds = %61, %.lr.ph58.i, %._crit_edge.i
@@ -30059,11 +30062,11 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
 68:                                               ; preds = %70, %._crit_edge59.i
   %.5.i = phi i8 [ %.3.lcssa.i, %._crit_edge59.i ], [ %74, %70 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !6978
-  %69 = trunc i8 %.5.i to i1
+  %69 = trunc nuw i8 %.5.i to i1
   br label %_ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit
 
 70:                                               ; preds = %._crit_edge59.i
-  %71 = trunc i8 %.3.lcssa.i to i1
+  %71 = trunc nuw i8 %.3.lcssa.i to i1
   %72 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h32454c0621bc4523E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, i64 noundef %45, i16 noundef %51, i1 noundef zeroext %71)
   %73 = or i1 %72, %71
   %74 = zext i1 %73 to i8
@@ -57234,7 +57237,7 @@ default.unreachable161:                           ; preds = %"_ZN9hayagriva3csl9
   br i1 %121, label %.critedge, label %.critedge93
 
 122:                                              ; preds = %117
-  %123 = trunc i8 %.073 to i1
+  %123 = trunc nuw i8 %.073 to i1
   br i1 %123, label %.critedge, label %.critedge93
 
 .critedge93:                                      ; preds = %120, %117, %.critedge, %122
@@ -57309,7 +57312,7 @@ default.unreachable161:                           ; preds = %"_ZN9hayagriva3csl9
   br i1 %142, label %149, label %148
 
 143:                                              ; preds = %139
-  %144 = trunc i8 %.073 to i1
+  %144 = trunc nuw i8 %.073 to i1
   br i1 %144, label %149, label %148
 
 145:                                              ; preds = %132, %137
@@ -111776,7 +111779,7 @@ define hidden void @_ZN5typst5model12bibliography9Generator5drive17h69fed58b920a
 315:                                              ; preds = %639, %438
   %.0125 = phi i8 [ %.3388, %639 ], [ %.1126356, %438 ]
   %.pn150.pn = phi { ptr, i32 } [ %.pn150389, %639 ], [ %.pn148357, %438 ]
-  %316 = trunc i8 %.0125 to i1
+  %316 = trunc nuw i8 %.0125 to i1
   br i1 %316, label %640, label %.thread
 
 .thread345:                                       ; preds = %313, %"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$typst..foundations..content..Content$C$ecow..vec..EcoVec$LT$typst..diag..SourceDiagnostic$GT$$GT$$GT$$GT$17hca8d2db0483b829fE.exit"
@@ -115199,7 +115202,7 @@ define hidden void @_ZN5typst5model12bibliography12ElemRenderer12display_elem17h
   br label %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit64"
 
 257:                                              ; preds = %.thread76.thread
-  %258 = trunc i8 %.023 to i1
+  %258 = trunc nuw i8 %.023 to i1
   br i1 %258, label %260, label %259
 
 259:                                              ; preds = %260, %257, %.thread76.thread
@@ -141871,7 +141874,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbd076e674af18fdaE.exit: ; preds = %.thr
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17h8357875c587acf79E.exit: ; preds = %60
-  %65 = trunc i8 %19 to i1
+  %65 = trunc nuw i8 %19 to i1
   %.sroa.0.0.insert.insert.i.i.i = select i1 %65, i16 516, i16 4
   store i64 1, ptr %62, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
@@ -185771,7 +185774,7 @@ define void @"_ZN90_$LT$typst..visualize..path..PathVertex$u20$as$u20$typst..fou
 229:                                              ; preds = %235, %231
   %.285 = phi i8 [ %.184264, %231 ], [ %.083.ph, %235 ]
   %.pn122 = phi { ptr, i32 } [ %232, %231 ], [ %lpad.thr_comm239, %235 ]
-  %230 = trunc i8 %.285 to i1
+  %230 = trunc nuw i8 %.285 to i1
   br i1 %230, label %236, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit"
 
 231:                                              ; preds = %227
@@ -185865,7 +185868,7 @@ define void @"_ZN90_$LT$typst..visualize..path..PathVertex$u20$as$u20$typst..fou
           to label %254 unwind label %202
 
 257:                                              ; preds = %246
-  %258 = trunc i8 %.699257 to i1
+  %258 = trunc nuw i8 %.699257 to i1
   br i1 %258, label %261, label %259
 
 259:                                              ; preds = %261, %257, %246
@@ -185883,7 +185886,7 @@ define void @"_ZN90_$LT$typst..visualize..path..PathVertex$u20$as$u20$typst..fou
   br label %254
 
 264:                                              ; preds = %254
-  %265 = trunc i8 %.6259 to i1
+  %265 = trunc nuw i8 %.6259 to i1
   br i1 %265, label %270, label %266
 
 266:                                              ; preds = %278, %270, %264, %254
@@ -185901,7 +185904,7 @@ define void @"_ZN90_$LT$typst..visualize..path..PathVertex$u20$as$u20$typst..fou
           to label %266 unwind label %202
 
 271:                                              ; preds = %259
-  %272 = trunc i8 %.6258 to i1
+  %272 = trunc nuw i8 %.6258 to i1
   br i1 %272, label %277, label %273
 
 273:                                              ; preds = %277, %271, %259
@@ -185927,7 +185930,7 @@ define void @"_ZN90_$LT$typst..visualize..path..PathVertex$u20$as$u20$typst..fou
   br label %53
 
 280:                                              ; preds = %217
-  %281 = trunc i8 %.4104 to i1
+  %281 = trunc nuw i8 %.4104 to i1
   br i1 %281, label %284, label %282
 
 282:                                              ; preds = %284, %280, %217
@@ -185940,7 +185943,7 @@ define void @"_ZN90_$LT$typst..visualize..path..PathVertex$u20$as$u20$typst..fou
           to label %282 unwind label %202
 
 285:                                              ; preds = %282
-  %286 = trunc i8 %.497 to i1
+  %286 = trunc nuw i8 %.497 to i1
   br i1 %286, label %289, label %287
 
 287:                                              ; preds = %289, %285, %282
@@ -185953,7 +185956,7 @@ define void @"_ZN90_$LT$typst..visualize..path..PathVertex$u20$as$u20$typst..fou
           to label %287 unwind label %202
 
 290:                                              ; preds = %287
-  %291 = trunc i8 %.4 to i1
+  %291 = trunc nuw i8 %.4 to i1
   br i1 %291, label %296, label %292
 
 292:                                              ; preds = %296, %290, %287

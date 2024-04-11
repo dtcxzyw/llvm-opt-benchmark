@@ -88,7 +88,7 @@ define hidden i32 @php_sprintf_get_argnum(ptr nocapture noundef %0, ptr nocaptur
 
 php_sprintf_getnumber.exit:                       ; preds = %15, %18
   %or.cond.i = icmp ugt i64 %16, 2147483646
-  %24 = trunc nuw i64 %16 to i32
+  %24 = trunc nuw nsw i64 %16 to i32
   %.0.i = select i1 %or.cond.i, i32 -1, i32 %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %25 = icmp slt i32 %.0.i, 1
@@ -555,7 +555,7 @@ php_sprintf_getnumber.exit.i:                     ; preds = %197
   %198 = call i64 @strtoll(ptr noundef nonnull %135, ptr noundef nonnull %19, i32 noundef 10) #15
   %199 = load ptr, ptr %19, align 8
   %or.cond.i.i = icmp ugt i64 %198, 2147483646
-  %200 = trunc nuw i64 %198 to i32
+  %200 = trunc nuw nsw i64 %198 to i32
   %.0.i.i = select i1 %or.cond.i.i, i32 -1, i32 %200
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   %201 = icmp slt i32 %.0.i.i, 1
@@ -655,7 +655,7 @@ php_sprintf_getnumber.exit.i291:                  ; preds = %233
   %234 = call i64 @strtoll(ptr noundef nonnull %224, ptr noundef nonnull %18, i32 noundef 10) #15
   %235 = load ptr, ptr %18, align 8
   %or.cond.i.i292 = icmp ugt i64 %234, 2147483646
-  %236 = trunc nuw i64 %234 to i32
+  %236 = trunc nuw nsw i64 %234 to i32
   %.0.i.i293 = select i1 %or.cond.i.i292, i32 -1, i32 %236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %237 = icmp slt i32 %.0.i.i293, 1
@@ -738,7 +738,7 @@ php_sprintf_get_argnum.exit294.thread429:         ; preds = %233
   br label %724
 
 264:                                              ; preds = %261
-  %265 = trunc nuw i64 %262 to i32
+  %265 = trunc nuw nsw i64 %262 to i32
   br label %281
 
 266:                                              ; preds = %209
@@ -762,7 +762,7 @@ php_sprintf_getnumber.exit:                       ; preds = %266
   %276 = select i1 %.not.i295, i64 0, i64 %.neg.i
   %.8 = add i64 %276, %.4405
   %or.cond.i = icmp ugt i64 %272, 2147483646
-  %277 = trunc nuw i64 %272 to i32
+  %277 = trunc nuw nsw i64 %272 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %278 = icmp slt i32 %277, 0
   %279 = select i1 %or.cond.i, i1 true, i1 %278
@@ -813,7 +813,7 @@ php_sprintf_getnumber.exit.i303:                  ; preds = %299
   %300 = call i64 @strtoll(ptr noundef nonnull %290, ptr noundef nonnull %16, i32 noundef 10) #15
   %301 = load ptr, ptr %16, align 8
   %or.cond.i.i304 = icmp ugt i64 %300, 2147483646
-  %302 = trunc nuw i64 %300 to i32
+  %302 = trunc nuw nsw i64 %300 to i32
   %.0.i.i305 = select i1 %or.cond.i.i304, i32 -1, i32 %302
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %303 = icmp slt i32 %.0.i.i305, 1
@@ -889,7 +889,7 @@ php_sprintf_get_argnum.exit306.thread440:         ; preds = %299
   br label %724
 
 331:                                              ; preds = %327
-  %332 = trunc i64 %328 to i32
+  %332 = trunc nsw i64 %328 to i32
   br label %349
 
 333:                                              ; preds = %284
@@ -906,7 +906,7 @@ php_sprintf_getnumber.exit311:                    ; preds = %333
   %339 = call i64 @strtoll(ptr noundef nonnull %285, ptr noundef nonnull %15, i32 noundef 10) #15
   %340 = load ptr, ptr %15, align 8
   %or.cond.i309 = icmp ugt i64 %339, 2147483646
-  %341 = trunc nuw i64 %339 to i32
+  %341 = trunc nuw nsw i64 %339 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %342 = icmp slt i32 %341, 0
   %343 = select i1 %or.cond.i309, i1 true, i1 %342
@@ -958,7 +958,7 @@ php_sprintf_getnumber.exit311:                    ; preds = %333
 
 359:                                              ; preds = %349
   %360 = icmp eq i32 %.0222, -1
-  %or.cond = and i1 %360, %351
+  %or.cond = select i1 %351, i1 %360, i1 false
   %361 = load i8, ptr %.14421, align 1
   br i1 %or.cond, label %362, label %thread-pre-split
 

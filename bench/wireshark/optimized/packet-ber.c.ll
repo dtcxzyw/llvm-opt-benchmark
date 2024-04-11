@@ -1551,7 +1551,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   %.0..0..0..0.159 = load volatile i32, ptr %8, align 4
   %268 = add i32 %.0..0..0..0.159, %.0243268
   %269 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %268) #14
-  %270 = trunc i8 %.0242269 to i1
+  %270 = trunc nuw i8 %.0242269 to i1
   br i1 %270, label %271, label %276
 
 271:                                              ; preds = %267
@@ -1573,7 +1573,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   br i1 %280, label %267, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %276
-  %281 = trunc i8 %.1 to i1
+  %281 = trunc nuw i8 %.1 to i1
   br i1 %281, label %282, label %290
 
 282:                                              ; preds = %._crit_edge
@@ -2220,7 +2220,7 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
 111:                                              ; preds = %106, %103
   %.159.i.us = phi i32 [ %100, %103 ], [ %spec.select.i.us, %106 ]
   %.1.i.us = phi i8 [ %.057.i118.us, %103 ], [ %spec.select72.i.us, %106 ]
-  %112 = trunc i8 %.1.i.us to i1
+  %112 = trunc nuw i8 %.1.i.us to i1
   %brmerge.i.us = or i1 %.056.not.i119.us, %112
   br i1 %brmerge.i.us, label %113, label %.split123.us
 
@@ -2257,7 +2257,7 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %127 = sub i32 %123, %.082
   %.not70.i = icmp ult i32 %127, %81
   %spec.select73.i = select i1 %.not70.i, i8 %.057.i118, i8 0
-  %128 = trunc i8 %spec.select73.i to i1
+  %128 = trunc nuw i8 %spec.select73.i to i1
   %brmerge.i = or i1 %.056.not.i119, %128
   br i1 %brmerge.i, label %147, label %.split123.us
 
@@ -3853,7 +3853,7 @@ split:                                            ; preds = %get_ber_identifier.
   br i1 %.not232, label %.loopexit, label %.critedge242
 
 126:                                              ; preds = %122
-  %127 = trunc i8 %.0198289 to i1
+  %127 = trunc nuw i8 %.0198289 to i1
   br i1 %127, label %128, label %.critedge242
 
 128:                                              ; preds = %126
@@ -3980,8 +3980,8 @@ split:                                            ; preds = %get_ber_identifier.
   %198 = getelementptr i8, ptr %.1196258, i64 56
   %199 = load ptr, ptr %198, align 8
   %200 = icmp ne ptr %199, null
-  %201 = trunc i8 %.1199253 to i1
-  %202 = or i1 %200, %201
+  %201 = trunc nuw i8 %.1199253 to i1
+  %202 = select i1 %200, i1 true, i1 %201
   br i1 %202, label %122, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %124, %195, %179, %192, %187
@@ -5919,7 +5919,7 @@ thread-pre-split:                                 ; preds = %27, %19, %50
   %141 = load i8, ptr %140, align 1
   %142 = icmp sgt i32 %133, 7
   %143 = lshr i32 255, %133
-  %144 = trunc i32 %143 to i8
+  %144 = trunc nuw i32 %143 to i8
   %145 = and i8 %141, %144
   %.sink = select i1 %142, i8 0, i8 %145
   store i8 %.sink, ptr %140, align 1
@@ -5986,7 +5986,7 @@ thread-pre-split:                                 ; preds = %27, %19, %50
   %171 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %170) #14
   %172 = sub nuw nsw i32 8, %67
   %173 = lshr i32 255, %172
-  %174 = trunc i32 %173 to i8
+  %174 = trunc nuw i32 %173 to i8
   %175 = and i8 %171, %174
   %.not183 = icmp eq i8 %175, 0
   br i1 %.not183, label %.thread, label %176

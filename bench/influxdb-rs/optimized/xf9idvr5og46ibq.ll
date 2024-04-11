@@ -8709,7 +8709,7 @@ define void @"_ZN70_$LT$influxdb3_write..wal..WalImpl$u20$as$u20$influxdb3_write
 .body.i.i:                                        ; preds = %117, %84, %37
   %.0.i.i = phi i8 [ %.2.i.i, %84 ], [ %.1.i.i, %37 ], [ %.4.i.i, %117 ]
   %.pn55.i.i = phi { ptr, i32 } [ %.pn.i.i, %84 ], [ %38, %37 ], [ %118, %117 ]
-  %36 = trunc i8 %.0.i.i to i1
+  %36 = trunc nuw i8 %.0.i.i to i1
   br i1 %36, label %.body.thread.i.i, label %common.resume.i
 
 37:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17hcf8210b8d29b4e78E.exit.i.i.i", %47, %_ZN3std2fs11OpenOptions4open17hb336d0be8d272330E.exit.i.i.i, %3
@@ -9559,7 +9559,7 @@ define void @"_ZN70_$LT$influxdb3_write..wal..WalImpl$u20$as$u20$influxdb3_write
 "_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$influxdb3_write..SegmentId$C$influxdb3_write..wal..Error$GT$$GT$17he06ba33acda2a43fE.exit.i": ; preds = %265, %.body.i, %.loopexit436.i
   %.0268.i = phi i8 [ %.3.lpad-body.i, %265 ], [ %.3.lpad-body.i, %.body.i ], [ %.1.ph.i, %.loopexit436.i ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %265 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.loopexit438.i, %.loopexit436.i ]
-  %169 = trunc i8 %.0268.i to i1
+  %169 = trunc nuw i8 %.0268.i to i1
   br i1 %169, label %447, label %154
 
 .loopexit436.i:                                   ; preds = %429, %.noexc433.i, %.critedge9.i431.i, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97c8a1bf4cc93346E.exit428.i", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97c8a1bf4cc93346E.exit422.i", %391, %384, %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit399.thread.i, %361, %274, %252, %.noexc352.i, %.critedge9.i.i, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97c8a1bf4cc93346E.exit350.i", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97c8a1bf4cc93346E.exit344.i", %215, %208, %_ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit.thread.i, %185, %178, %176, %171, %165
@@ -11021,7 +11021,7 @@ _ZN3std2fs11OpenOptions4open17h579c2c43deb27850E.exit: ; preds = %54
 .body.i:                                          ; preds = %247, %.thread227.i, %.thread214.i
   %.0.i = phi i8 [ %.3.ph.i, %.thread214.i ], [ %.4.i, %.thread227.i ], [ %.6.i, %247 ]
   %.pn119.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread214.i ], [ %.pn115.i, %.thread227.i ], [ %248, %247 ]
-  %119 = trunc i8 %.0.i to i1
+  %119 = trunc nuw i8 %.0.i to i1
   br i1 %119, label %.thread.i, label %.thread
 
 .body.thread.i:                                   ; preds = %263, %261, %.thread250.i, %129, %_ZN3std2fs11OpenOptions4open17hb336d0be8d272330E.exit.i.i, %114
@@ -11573,7 +11573,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit.i:  ; preds = %242
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h07cc6dc7760c5442E.exit.i": ; preds = %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17hcf8210b8d29b4e78E.exit.i153.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %24), !noalias !2107
-  %257 = trunc i8 %.6.i to i1
+  %257 = trunc nuw i8 %.6.i to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27), !noalias !2107
   br i1 %257, label %265, label %.thread224
 
@@ -12209,7 +12209,7 @@ common.resume:                                    ; preds = %50, %97, %37
 50:                                               ; preds = %59, %52
   %.036 = phi i8 [ %.137, %52 ], [ %.2, %59 ]
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %60, %59 ]
-  %51 = trunc i8 %.036 to i1
+  %51 = trunc nuw i8 %.036 to i1
   br i1 %51, label %97, label %common.resume
 
 52:                                               ; preds = %86, %83, %"_ZN4snap4read21FrameDecoder$LT$R$GT$3new17haa4d07beaba8382dE.exit"

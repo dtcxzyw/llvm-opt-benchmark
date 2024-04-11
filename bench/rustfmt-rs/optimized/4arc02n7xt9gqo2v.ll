@@ -9240,7 +9240,7 @@ _ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.llvm.5923418642108526
   br label %_ZN4core5slice6memchr12memchr_naive17h80d69771a2a986d1E.llvm.5923418642108526555.exit
 
 43:                                               ; preds = %3
-  %44 = trunc nuw i32 %0 to i8
+  %44 = trunc nuw nsw i32 %0 to i8
   %45 = icmp ult i64 %2, 16
   br i1 %45, label %50, label %46
 
@@ -9659,7 +9659,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 .lr.ph.i44:                                       ; preds = %60, %75
   %.062144.i = phi i64 [ %76, %75 ], [ 0, %60 ]
   %.064143.i = phi i8 [ %.2.i, %75 ], [ 0, %60 ]
-  %70 = trunc i8 %.064143.i to i1
+  %70 = trunc nuw i8 %.064143.i to i1
   br i1 %70, label %._crit_edge.i, label %74
 
 ._crit_edge.i:                                    ; preds = %75, %.lr.ph.i44, %60
@@ -9700,7 +9700,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 84:                                               ; preds = %.preheader.i
   %85 = shl nuw nsw i64 %.sroa.025.0142.i, 4
   %86 = add nuw nsw i64 %85, %.062144.i
-  %87 = trunc i8 %.165141.i to i1
+  %87 = trunc nuw i8 %.165141.i to i1
   %88 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %86, i16 noundef %81, i1 noundef zeroext %87)
   %89 = or i1 %88, %87
   %90 = zext i1 %89 to i8
@@ -9725,7 +9725,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 .lr.ph152.i:                                      ; preds = %._crit_edge.i, %117
   %.163150.i = phi i64 [ %118, %117 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.3149.i = phi i8 [ %.4.i, %117 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %99 = trunc i8 %.3149.i to i1
+  %99 = trunc nuw i8 %.3149.i to i1
   br i1 %99, label %._crit_edge153.i, label %109
 
 ._crit_edge153.i:                                 ; preds = %117, %.lr.ph152.i, %._crit_edge.i
@@ -9773,7 +9773,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
 125:                                              ; preds = %._crit_edge153.i
-  %126 = trunc i8 %.3.lcssa.i to i1
+  %126 = trunc nuw i8 %.3.lcssa.i to i1
   %127 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %101, i16 noundef %107, i1 noundef zeroext %126)
   %128 = or i1 %127, %126
   %129 = zext i1 %128 to i8
@@ -15201,7 +15201,7 @@ define hidden void @_ZN15rustfmt_nightly5items11format_impl17hd61a1b924fad1c20E.
 111:                                              ; preds = %.body.i, %113
   %.0.i = phi i8 [ %.1.i, %113 ], [ %.2.i, %.body.i ]
   %.pn117.i = phi { ptr, i32 } [ %114, %113 ], [ %.pn.i, %.body.i ]
-  %112 = trunc i8 %.0.i to i1
+  %112 = trunc nuw i8 %.0.i to i1
   br i1 %112, label %.thread.i, label %.body.thread
 
 113:                                              ; preds = %622, %619, %407, %404, %"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h9a5de01caf2283b9E.exit.i.i", %198, %193, %.noexc159.i, %171, %.noexc142.i, %165, %152, %142, %134, %131, %.noexc
@@ -16725,7 +16725,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.5923418642108526555.exit39.i.i: ; 
 .body:                                            ; preds = %637, %643
   %.0 = phi i8 [ %.2, %643 ], [ %.1, %637 ]
   %.pn208 = phi { ptr, i32 } [ %.pn206, %643 ], [ %638, %637 ]
-  %636 = trunc i8 %.0 to i1
+  %636 = trunc nuw i8 %.0 to i1
   br i1 %636, label %.body.thread, label %1314
 
 637:                                              ; preds = %1300, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h36a183da958ee33fE.llvm.5923418642108526555.exit", %632, %.critedge.i, %6, %1206
@@ -18748,7 +18748,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.5923418642108526555.exit: ; preds 
 1304:                                             ; preds = %.noexc495, %1300
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3301
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %96)
-  %1305 = trunc i8 %.8 to i1
+  %1305 = trunc nuw i8 %.8 to i1
   br i1 %1305, label %1307, label %1306
 
 1306:                                             ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit499", %1304
@@ -21743,7 +21743,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 952:                                              ; preds = %.noexc545, %948
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !3792
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77)
-  %953 = trunc i8 %.9 to i1
+  %953 = trunc nuw i8 %.9 to i1
   br i1 %953, label %955, label %954
 
 954:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit549", %952
@@ -22990,7 +22990,7 @@ define hidden void @_ZN15rustfmt_nightly5items20format_struct_struct17hfd49ff5cf
 81:                                               ; preds = %94, %83
   %.0 = phi i8 [ %.1, %83 ], [ %.2, %94 ]
   %.pn121 = phi { ptr, i32 } [ %84, %83 ], [ %.pn119, %94 ]
-  %82 = trunc i8 %.0 to i1
+  %82 = trunc nuw i8 %.0 to i1
   br i1 %82, label %621, label %620
 
 83:                                               ; preds = %606, %603, %590, %587, %9
@@ -24632,7 +24632,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.5923418642108526555.exit282: ; pre
 610:                                              ; preds = %.noexc304, %606
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !4319
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67)
-  %611 = trunc i8 %.5 to i1
+  %611 = trunc nuw i8 %.5 to i1
   br i1 %611, label %613, label %612
 
 612:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit308", %610
@@ -28253,7 +28253,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 162:                                              ; preds = %200, %164
   %.0 = phi i8 [ %.1, %164 ], [ %.2, %200 ]
   %.pn131 = phi { ptr, i32 } [ %165, %164 ], [ %.pn129, %200 ]
-  %163 = trunc i8 %.0 to i1
+  %163 = trunc nuw i8 %.0 to i1
   br i1 %163, label %526, label %common.resume
 
 164:                                              ; preds = %511, %508, %492, %489, %151, %166
@@ -28891,7 +28891,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %.0107 = phi i8 [ %.2109, %405 ], [ %.1108.ph, %.loopexit.split-lp ]
   %.6 = phi i8 [ %.8, %405 ], [ %.7.ph, %.loopexit.split-lp ]
   %.pn126 = phi { ptr, i32 } [ %.pn, %405 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %354 = trunc i8 %.0107 to i1
+  %354 = trunc nuw i8 %.0107 to i1
   br i1 %354, label %507, label %311
 
 .thread:                                          ; preds = %366
@@ -29367,7 +29367,7 @@ _ZN15rustfmt_nightly4expr18rewrite_assign_rhs17h8cff1aaffe47bf77E.exit: ; preds 
 515:                                              ; preds = %.noexc243, %511
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !5146
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
-  %516 = trunc i8 %.11 to i1
+  %516 = trunc nuw i8 %.11 to i1
   br i1 %516, label %518, label %517
 
 517:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit247", %515, %161

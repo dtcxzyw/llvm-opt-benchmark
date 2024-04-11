@@ -28434,7 +28434,7 @@ _ZN15rustfmt_nightly5shape5Shape11offset_left17hac40967f303a7b96E.exit: ; preds 
 168:                                              ; preds = %.loopexit.split-lp, %285
   %.090 = phi i8 [ %.292.ph, %285 ], [ %.191.ph, %.loopexit.split-lp ]
   %.pn112 = phi { ptr, i32 } [ %.pn.ph, %285 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %169 = trunc i8 %.090 to i1
+  %169 = trunc nuw i8 %.090 to i1
   br i1 %169, label %291, label %.thread431
 
 .thread544:                                       ; preds = %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b64d97ed9807a49E.exit.i", %176
@@ -38187,7 +38187,7 @@ _ZN15rustfmt_nightly5shape5Shape11offset_left17hac40967f303a7b96E.exit: ; preds 
   store i64 %storemerge.i.i, ptr %57, align 8, !alias.scope !5770, !noalias !5773
   %86 = call fastcc { i8, ptr } @_ZN15rustfmt_nightly7matches16flatten_arm_body17hefe0b104a5c65538E(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.0.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %57)
   %87 = extractvalue { i8, ptr } %86, 0
-  %88 = trunc i8 %87 to i1
+  %88 = trunc nuw i8 %87 to i1
   %89 = extractvalue { i8, ptr } %86, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %57)
   %90 = load i8, ptr %89, align 8, !range !239, !noundef !10

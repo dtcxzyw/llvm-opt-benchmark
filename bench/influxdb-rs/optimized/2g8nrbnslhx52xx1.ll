@@ -13112,7 +13112,7 @@ switch.lookup445:                                 ; preds = %979
   br i1 %.not92.i.i.i, label %1005, label %1003
 
 1003:                                             ; preds = %1001
-  %1004 = trunc i8 %.065.i.i.i to i1
+  %1004 = trunc nuw i8 %.065.i.i.i to i1
   br i1 %1004, label %1006, label %1005
 
 1005:                                             ; preds = %1006, %1003, %1001
@@ -14520,7 +14520,7 @@ define void @_ZN15influxdb3_write12write_buffer11Partitioner22partition_key_for_
   %.lobit.i = ashr i64 %23, 63
   %.0.i = add nsw i64 %.lobit.i, %22
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %13), !noalias !2223
-  %26 = trunc nsw i64 %.05.i to i32
+  %26 = trunc nuw nsw i64 %.05.i to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2226)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2229
   call void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17hb48126ac9de62455E.llvm.6305840527560983182(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %12, i64 noundef %.0.i, i32 noundef %26), !noalias !2229

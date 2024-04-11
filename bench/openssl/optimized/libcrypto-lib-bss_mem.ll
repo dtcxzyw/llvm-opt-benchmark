@@ -220,11 +220,11 @@ entry:
 cond.end:                                         ; preds = %entry
   %conv = zext nneg i32 %outl to i64
   %cmp1 = icmp ult i64 %.pre, %conv
-  %conv4 = trunc i64 %.pre to i32
+  %conv4 = trunc nuw nsw i64 %.pre to i32
   %spec.select22 = select i1 %cmp1, i32 %conv4, i32 %outl
   %cmp5 = icmp ne ptr %out, null
   %cmp8 = icmp sgt i32 %spec.select22, 0
-  %or.cond = and i1 %cmp5, %cmp8
+  %or.cond = select i1 %cmp5, i1 %cmp8, i1 false
   br i1 %or.cond, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %cond.end
@@ -336,11 +336,11 @@ for.end:                                          ; preds = %for.inc, %if.then15
 cond.end.i:                                       ; preds = %for.end
   %conv.i = zext nneg i32 %i.1 to i64
   %cmp1.i = icmp ult i64 %.pre.i, %conv.i
-  %conv4.i = trunc i64 %.pre.i to i32
+  %conv4.i = trunc nuw nsw i64 %.pre.i to i32
   %spec.select22.i = select i1 %cmp1.i, i32 %conv4.i, i32 %i.1
   %cmp5.i = icmp ne ptr %buf, null
   %cmp8.i = icmp sgt i32 %spec.select22.i, 0
-  %or.cond.i = and i1 %cmp5.i, %cmp8.i
+  %or.cond.i = select i1 %cmp5.i, i1 %cmp8.i, i1 false
   br i1 %or.cond.i, label %mem_read.exit.thread, label %if.else.i
 
 mem_read.exit.thread:                             ; preds = %cond.end.i

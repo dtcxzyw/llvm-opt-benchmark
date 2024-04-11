@@ -6625,7 +6625,7 @@ _ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.llvm.1747684134628880
   br label %_ZN4core5slice6memchr12memchr_naive17h80d69771a2a986d1E.llvm.17476841346288807550.exit
 
 43:                                               ; preds = %3
-  %44 = trunc nuw i32 %0 to i8
+  %44 = trunc nuw nsw i32 %0 to i8
   %45 = icmp ult i64 %2, 16
   br i1 %45, label %50, label %46
 
@@ -6795,7 +6795,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 .lr.ph.i44:                                       ; preds = %59, %82
   %.062145.i = phi i64 [ %83, %82 ], [ 0, %59 ]
   %.064144.i = phi i8 [ %.2.i, %82 ], [ 0, %59 ]
-  %69 = trunc i8 %.064144.i to i1
+  %69 = trunc nuw i8 %.064144.i to i1
   br i1 %69, label %._crit_edge.i, label %73
 
 ._crit_edge.i:                                    ; preds = %82, %.lr.ph.i44, %59
@@ -6852,7 +6852,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 91:                                               ; preds = %.preheader.i
   %92 = shl nuw nsw i64 %.sroa.025.0143.i, 4
   %93 = add nuw nsw i64 %92, %.062145.i
-  %94 = trunc i8 %.165142.i to i1
+  %94 = trunc nuw i8 %.165142.i to i1
   %95 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %93, i16 noundef %88, i1 noundef zeroext %94)
   %96 = or i1 %95, %94
   %97 = zext i1 %96 to i8
@@ -6861,7 +6861,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 .lr.ph153.i:                                      ; preds = %._crit_edge.i, %116
   %.163151.i = phi i64 [ %117, %116 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.3150.i = phi i8 [ %.4.i, %116 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %98 = trunc i8 %.3150.i to i1
+  %98 = trunc nuw i8 %.3150.i to i1
   br i1 %98, label %._crit_edge154.i, label %108
 
 ._crit_edge154.i:                                 ; preds = %116, %.lr.ph153.i, %._crit_edge.i
@@ -6909,7 +6909,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
 124:                                              ; preds = %._crit_edge154.i
-  %125 = trunc i8 %.3.lcssa.i to i1
+  %125 = trunc nuw i8 %.3.lcssa.i to i1
   %126 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %100, i16 noundef %106, i1 noundef zeroext %125)
   %127 = or i1 %126, %125
   %128 = zext i1 %127 to i8
@@ -16772,7 +16772,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.llvm.17476841346288807550.exit.
   br i1 %1160, label %1172, label %1164
 
 1161:                                             ; preds = %1150
-  %1162 = trunc i8 %.3.i to i1
+  %1162 = trunc nuw i8 %.3.i to i1
   br i1 %1162, label %1163, label %.body.thread
 
 1163:                                             ; preds = %1161
@@ -32614,7 +32614,7 @@ _ZN15rustfmt_nightly17format_code_block21enclose_in_main_block17haff956e342ef99e
 189:                                              ; preds = %193, %191
   %.058 = phi i8 [ %.159, %191 ], [ %.2, %193 ]
   %.pn72 = phi { ptr, i32 } [ %192, %191 ], [ %.pn70, %193 ]
-  %190 = trunc i8 %.058 to i1
+  %190 = trunc nuw i8 %.058 to i1
   br i1 %190, label %438, label %183
 
 191:                                              ; preds = %417, %298, %186
@@ -33322,7 +33322,7 @@ _ZN15rustfmt_nightly5utils16indent_next_line17h6bdec64a42dd4121E.exit: ; preds =
   unreachable
 
 420:                                              ; preds = %214
-  %421 = trunc i8 %.4 to i1
+  %421 = trunc nuw i8 %.4 to i1
   br i1 %421, label %422, label %193
 
 422:                                              ; preds = %420

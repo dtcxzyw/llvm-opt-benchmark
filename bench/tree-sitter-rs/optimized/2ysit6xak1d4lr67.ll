@@ -1179,7 +1179,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !129, !noalias !126
   %12 = trunc i32 %1 to i8
@@ -1191,7 +1191,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !129, !noalias !126
   %19 = lshr i32 %1, 6
@@ -1259,7 +1259,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !142, !noundef !4
   %58 = load i64, ptr %0, align 8, !alias.scope !142, !noundef !4
@@ -1684,7 +1684,7 @@ define noundef i8 @"_ZN81_$LT$tree_sitter..CaptureQuantifier$u20$as$u20$core..co
   unreachable
 
 switch.lookup:                                    ; preds = %1
-  %switch.idx.cast = trunc i32 %0 to i8
+  %switch.idx.cast = trunc nuw i32 %0 to i8
   ret i8 %switch.idx.cast
 }
 
@@ -1728,7 +1728,7 @@ define { ptr, i64 } @_ZN11tree_sitter8Language16node_kind_for_id17ha574e509477d4
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   %10 = load i64, ptr %4, align 8, !range !191, !alias.scope !188, !noalias !192, !noundef !4
-  %trunc.i.i = trunc i64 %10 to i1
+  %trunc.i.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i.i, label %11, label %"_ZN11tree_sitter8Language16node_kind_for_id28_$u7b$$u7b$closure$u7d$$u7d$17he732f12cd0775f62E.exit"
 
 11:                                               ; preds = %7
@@ -1802,7 +1802,7 @@ define { ptr, i64 } @_ZN11tree_sitter8Language17field_name_for_id17h385ee68d53dd
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
   %10 = load i64, ptr %4, align 8, !range !191, !alias.scope !195, !noalias !198, !noundef !4
-  %trunc.i.i = trunc i64 %10 to i1
+  %trunc.i.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i.i, label %11, label %"_ZN11tree_sitter8Language17field_name_for_id28_$u7b$$u7b$closure$u7d$$u7d$17h90cbd91b6bea39deE.exit"
 
 11:                                               ; preds = %7
@@ -1919,7 +1919,7 @@ define void @_ZN11tree_sitter6Parser10set_logger17h8321483bacc9785eE(ptr noalias
   %.0 = phi i8 [ %.1, %51 ], [ 1, %3 ]
   %7 = landingpad { ptr, i32 }
           cleanup
-  %8 = trunc i8 %.0 to i1
+  %8 = trunc nuw i8 %.0 to i1
   %9 = xor i1 %8, true
   br label %.body
 
@@ -1927,7 +1927,7 @@ define void @_ZN11tree_sitter6Parser10set_logger17h8321483bacc9785eE(ptr noalias
   %.0.lpad-body = phi i1 [ %9, %6 ], [ false, %35 ]
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %35 ]
   %.not13 = icmp eq ptr %1, null
-  %brmerge = or i1 %.not13, %.0.lpad-body
+  %brmerge = select i1 %.not13, i1 true, i1 %.0.lpad-body
   br i1 %brmerge, label %common.resume, label %75
 
 10:                                               ; preds = %3
@@ -2037,7 +2037,7 @@ define void @_ZN11tree_sitter6Parser10set_logger17h8321483bacc9785eE(ptr noalias
   br i1 %.not, label %"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit", label %53
 
 53:                                               ; preds = %52
-  %54 = trunc i8 %.1 to i1
+  %54 = trunc nuw i8 %.1 to i1
   br i1 %54, label %55, label %"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit"
 
 "_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit": ; preds = %74, %67, %53, %52
@@ -2581,7 +2581,7 @@ define { ptr, i64 } @_ZN11tree_sitter4Node4kind17habec0513fe3fd623E(ptr noalias 
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
   %7 = load i64, ptr %3, align 8, !range !191, !alias.scope !275, !noalias !278, !noundef !4
-  %trunc.i = trunc i64 %7 to i1
+  %trunc.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h02f4b1c9a4bae432E.exit"
 
 8:                                                ; preds = %1
@@ -2613,7 +2613,7 @@ define { ptr, i64 } @_ZN11tree_sitter4Node12grammar_name17h1c64ac077984a0b1E(ptr
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
   %7 = load i64, ptr %3, align 8, !range !191, !alias.scope !281, !noalias !284, !noundef !4
-  %trunc.i = trunc i64 %7 to i1
+  %trunc.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h02f4b1c9a4bae432E.exit"
 
 8:                                                ; preds = %1
@@ -2862,7 +2862,7 @@ define { ptr, i64 } @_ZN11tree_sitter4Node20field_name_for_child17h80fede78bd9d7
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
   %9 = load i64, ptr %4, align 8, !range !191, !alias.scope !305, !noalias !308, !noundef !4
-  %trunc.i.i = trunc i64 %9 to i1
+  %trunc.i.i = trunc nuw i64 %9 to i1
   br i1 %trunc.i.i, label %10, label %"_ZN11tree_sitter4Node20field_name_for_child28_$u7b$$u7b$closure$u7d$$u7d$17h81ce9d5d9212eceeE.exit"
 
 10:                                               ; preds = %6
@@ -3203,7 +3203,7 @@ define void @_ZN11tree_sitter4Node7to_sexp17h11392cded9052699E(ptr noalias nocap
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
   %9 = load i64, ptr %4, align 8, !range !191, !alias.scope !368, !noalias !371, !noundef !4
-  %trunc.i = trunc i64 %9 to i1
+  %trunc.i = trunc nuw i64 %9 to i1
   br i1 %trunc.i, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h02f4b1c9a4bae432E.exit"
 
 10:                                               ; preds = %2
@@ -3378,7 +3378,7 @@ define noundef zeroext i1 @"_ZN54_$LT$tree_sitter..Node$u20$as$u20$core..fmt..De
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12), !noalias !389
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
   %13 = load i64, ptr %4, align 8, !range !191, !alias.scope !392, !noalias !395, !noundef !4
-  %trunc.i.i = trunc i64 %13 to i1
+  %trunc.i.i = trunc nuw i64 %13 to i1
   br i1 %trunc.i.i, label %14, label %_ZN11tree_sitter4Node4kind17habec0513fe3fd623E.exit
 
 14:                                               ; preds = %2
@@ -3471,7 +3471,7 @@ define { ptr, i64 } @_ZN11tree_sitter10TreeCursor10field_name17hd610ec580a7a0082
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %8 = load i64, ptr %3, align 8, !range !191, !alias.scope !405, !noalias !408, !noundef !4
-  %trunc.i.i = trunc i64 %8 to i1
+  %trunc.i.i = trunc nuw i64 %8 to i1
   br i1 %trunc.i.i, label %9, label %"_ZN11tree_sitter10TreeCursor10field_name28_$u7b$$u7b$closure$u7d$$u7d$17h478388c600c0826bE.exit"
 
 9:                                                ; preds = %5
@@ -3619,7 +3619,7 @@ define { ptr, i64 } @_ZN11tree_sitter17LookaheadIterator19current_symbol_name17h
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
   %8 = load i64, ptr %3, align 8, !range !191, !alias.scope !411, !noalias !414, !noundef !4
-  %trunc.i = trunc i64 %8 to i1
+  %trunc.i = trunc nuw i64 %8 to i1
   br i1 %trunc.i, label %9, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h02f4b1c9a4bae432E.exit"
 
 9:                                                ; preds = %1
@@ -3679,7 +3679,7 @@ define { ptr, i64 } @"_ZN94_$LT$tree_sitter..LookaheadNamesIterator$u20$as$u20$c
   call void @_ZN4core3ffi5c_str4CStr6to_str17h24cea925356da7a6E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11), !noalias !417
   tail call void @llvm.experimental.noalias.scope.decl(metadata !420)
   %12 = load i64, ptr %3, align 8, !range !191, !alias.scope !420, !noalias !423, !noundef !4
-  %trunc.i.i = trunc i64 %12 to i1
+  %trunc.i.i = trunc nuw i64 %12 to i1
   br i1 %trunc.i.i, label %13, label %_ZN11tree_sitter17LookaheadIterator19current_symbol_name17hbe91e73d77c06e88E.exit
 
 13:                                               ; preds = %7
@@ -3958,7 +3958,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i: ; preds = %66,
 
 88:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hb9debffcee3972e7E.exit.i"
   %89 = add i64 %.028131, 1
-  %90 = trunc i8 %84 to i1
+  %90 = trunc nuw i8 %84 to i1
   br i1 %90, label %.thread, label %55
 
 .noexc:                                           ; preds = %.thread
@@ -4491,7 +4491,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 97:                                               ; preds = %902, %115
   %.0 = phi i8 [ %.1900, %902 ], [ %.1, %115 ]
   %.pn473.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn473.pn.pn.pn.pn.pn901, %902 ], [ %.pn473.pn.pn.pn.pn.pn, %115 ]
-  %98 = trunc i8 %.0 to i1
+  %98 = trunc nuw i8 %.0 to i1
   br i1 %98, label %903, label %"_ZN4core3ptr68drop_in_place$LT$tree_sitter..Query..from_raw_parts..TSQueryDrop$GT$17hf1176b7e62ab49baE.exit"
 
 .thread:                                          ; preds = %4, %100, %102, %105, %832, %835
@@ -4531,7 +4531,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.0393 = phi i8 [ %.1394907, %.thread902 ], [ %.1394, %124 ]
   %.1 = phi i8 [ %.2908, %.thread902 ], [ %.2, %124 ]
   %.pn473.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn473.pn.pn.pn.pn909, %.thread902 ], [ %.pn473.pn.pn.pn.pn, %124 ]
-  %116 = trunc i8 %.0393 to i1
+  %116 = trunc nuw i8 %.0393 to i1
   br i1 %116, label %902, label %97
 
 .thread896:                                       ; preds = %109, %831
@@ -4556,7 +4556,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.1394 = phi i8 [ %.2395917, %.thread910 ], [ %.2395, %134 ]
   %.2 = phi i8 [ %.3918, %.thread910 ], [ %.3, %134 ]
   %.pn473.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn473.pn.pn.pn919, %.thread910 ], [ %.pn473.pn.pn.pn, %134 ]
-  %125 = trunc i8 %.0401 to i1
+  %125 = trunc nuw i8 %.0401 to i1
   br i1 %125, label %.thread902, label %115
 
 126:                                              ; preds = %825, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd8e48adcd3272dE.llvm.3039913483822116442.exit.i", %118
@@ -4582,7 +4582,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.2395 = phi i8 [ %.3396929, %.thread920 ], [ %.3396, %144 ]
   %.3 = phi i8 [ %.4930, %.thread920 ], [ %.4, %144 ]
   %.pn473.pn.pn.pn = phi { ptr, i32 } [ %.pn473.pn.pn931, %.thread920 ], [ %.pn473.pn.pn, %144 ]
-  %135 = trunc i8 %.0408 to i1
+  %135 = trunc nuw i8 %.0408 to i1
   br i1 %135, label %.thread910, label %124
 
 136:                                              ; preds = %812, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h62d69aafd3b08c2fE.llvm.3039913483822116442.exit", %128
@@ -4609,7 +4609,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.3396 = phi i8 [ %.4397943, %901 ], [ %.4397, %154 ]
   %.4 = phi i8 [ %.5944, %901 ], [ %.5, %154 ]
   %.pn473.pn.pn = phi { ptr, i32 } [ %.pn473.pn945, %901 ], [ %.pn473.pn, %154 ]
-  %145 = trunc i8 %.0415 to i1
+  %145 = trunc nuw i8 %.0415 to i1
   br i1 %145, label %.thread920, label %134
 
 146:                                              ; preds = %780, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h353a01dd44d2ec8eE.llvm.3039913483822116442.exit", %138
@@ -4637,7 +4637,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.4397 = phi i8 [ %.5398965, %.thread952 ], [ %.5398, %.loopexit.split-lp1398 ]
   %.5 = phi i8 [ %.6966, %.thread952 ], [ %.6, %.loopexit.split-lp1398 ]
   %.pn473.pn = phi { ptr, i32 } [ %.pn473967, %.thread952 ], [ %.pn473, %.loopexit.split-lp1398 ]
-  %155 = trunc i8 %.0422 to i1
+  %155 = trunc nuw i8 %.0422 to i1
   br i1 %155, label %901, label %144
 
 .thread932:                                       ; preds = %148, %753
@@ -4674,7 +4674,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.5398 = phi i8 [ %.7400, %"_ZN4core3ptr63drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$RF$str$u5d$$GT$$GT$17he9b4ff8b4c50f6b6E.exit" ], [ %.7.ph.ph, %.loopexit.split-lp1398.loopexit.split-lp ]
   %.6 = phi i8 [ 1, %"_ZN4core3ptr63drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$RF$str$u5d$$GT$$GT$17he9b4ff8b4c50f6b6E.exit" ], [ %.7.ph.ph, %.loopexit.split-lp1398.loopexit.split-lp ]
   %.pn473 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr63drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$RF$str$u5d$$GT$$GT$17he9b4ff8b4c50f6b6E.exit" ], [ %lpad.loopexit.split-lp1403, %.loopexit.split-lp1398.loopexit.split-lp ]
-  %164 = trunc i8 %.0429 to i1
+  %164 = trunc nuw i8 %.0429 to i1
   br i1 %164, label %.thread952, label %154
 
 .loopexit1397:                                    ; preds = %209
@@ -6968,7 +6968,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   unreachable
 
 switch.lookup:                                    ; preds = %869
-  %switch.idx.cast = trunc i32 %850 to i8
+  %switch.idx.cast = trunc nuw i32 %850 to i8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %877 = load i64, ptr %163, align 8, !alias.scope !921, !noundef !4
   %878 = load i64, ptr %87, align 8, !alias.scope !921, !noundef !4
@@ -8059,7 +8059,7 @@ define { ptr, i64 } @"_ZN81_$LT$tree_sitter..LossyUtf8$u20$as$u20$core..iter..tr
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8, !range !1025, !noundef !4
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %17, label %13
 
 10:                                               ; preds = %1, %23, %17
@@ -8074,7 +8074,7 @@ define { ptr, i64 } @"_ZN81_$LT$tree_sitter..LossyUtf8$u20$as$u20$core..iter..tr
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !align !181, !noundef !4
   call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %4)
   %15 = load i64, ptr %2, align 8, !range !191, !noundef !4
-  %trunc = trunc i64 %15 to i1
+  %trunc = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   br i1 %trunc, label %21, label %18

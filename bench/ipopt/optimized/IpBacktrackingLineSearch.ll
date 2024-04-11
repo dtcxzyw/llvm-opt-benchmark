@@ -5113,7 +5113,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit208:     ; preds = %377, %_ZN5Ipopt8Sma
 .critedge165.thread:                              ; preds = %283, %385, %.critedge165
   store i32 0, ptr %8, align 4
   store double 0.000000e+00, ptr %9, align 8
-  %389 = trunc i8 %.1 to i1
+  %389 = trunc nuw i8 %.1 to i1
   br i1 %389, label %430, label %428
 
 390:                                              ; preds = %313
@@ -5213,9 +5213,10 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit214: ; preds = %390, %402, %40
 
 442:                                              ; preds = %438
   %443 = load i8, ptr %434, align 8
-  %444 = or i8 %443, %.3
-  %445 = trunc i8 %444 to i1
-  %or.cond173 = or i1 %.0105.shrunk, %445
+  %444 = trunc i8 %443 to i1
+  %445 = trunc nuw i8 %.3 to i1
+  %brmerge166 = or i1 %.0105.shrunk, %445
+  %or.cond173 = select i1 %444, i1 true, i1 %brmerge166
   br i1 %or.cond173, label %456, label %446
 
 446:                                              ; preds = %442
@@ -5812,11 +5813,11 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit293: ; preds = %713, %725, %73
 754:                                              ; preds = %712, %751, %752
   %.0108 = phi i8 [ 0, %752 ], [ 1, %751 ], [ 1, %712 ]
   %.2107 = phi i8 [ 0, %752 ], [ %.1106462, %751 ], [ %.1106462, %712 ]
-  %755 = trunc i8 %.3 to i1
+  %755 = trunc nuw i8 %.3 to i1
   br i1 %755, label %810, label %756
 
 756:                                              ; preds = %754
-  %757 = trunc i8 %.2107 to i1
+  %757 = trunc nuw i8 %.2107 to i1
   br i1 %757, label %810, label %758
 
 758:                                              ; preds = %756
@@ -5953,7 +5954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 810:                                              ; preds = %.loopexit, %756, %754
   %.3111 = phi i8 [ %.0108, %754 ], [ %.0108, %756 ], [ %.2110.le, %.loopexit ]
-  %811 = trunc i8 %.3111 to i1
+  %811 = trunc nuw i8 %.3111 to i1
   br i1 %811, label %.thread471, label %.thread474
 
 .thread474:                                       ; preds = %764, %772, %810
@@ -6033,7 +6034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.thread478
 
 849:                                              ; preds = %821, %824
-  %850 = trunc i8 %.3111476 to i1
+  %850 = trunc nuw i8 %.3111476 to i1
   br i1 %850, label %.thread478, label %.thread480
 
 .thread480:                                       ; preds = %..thread480_crit_edge, %849
@@ -6525,7 +6526,7 @@ _ZN5Ipopt22BacktrackingLineSearch19CurrentIsAcceptableEv.exit303.thread: ; preds
   br i1 %1025, label %1026, label %1028
 
 1026:                                             ; preds = %.thread471
-  %1027 = trunc i8 %.2107 to i1
+  %1027 = trunc nuw i8 %.2107 to i1
   br i1 %1027, label %1028, label %.thread478
 
 1028:                                             ; preds = %1026, %.thread471

@@ -7214,7 +7214,7 @@ thread-pre-split4462.thread:                      ; preds = %.thread, %2253, %22
 
 2325:                                             ; preds = %2321
   store i32 6, ptr %897, align 4
-  %2326 = trunc i8 %.11570 to i1
+  %2326 = trunc nuw i8 %.11570 to i1
   br label %2327
 
 2327:                                             ; preds = %2335, %2325
@@ -7772,7 +7772,7 @@ thread-pre-split4477:                             ; preds = %2551, %2555
   %2573 = phi ptr [ %2562, %.preheader5200 ], [ %.pre6891.pre, %2566 ], [ %.pre6891.pre, %2572 ]
   %.31.lcssa = phi i8 [ %.3046364653, %.preheader5200 ], [ %.316007, %2572 ], [ 1, %2566 ]
   %2574 = load i8, ptr @_ZZN5Yosys3AST7AstNode8simplifyEbiibE23unevaluated_tern_branch, align 1
-  %2575 = trunc i8 %2574 to i1
+  %2575 = trunc nuw i8 %2574 to i1
   %2576 = and i8 %2574, 1
   %2577 = invoke noundef i32 @_ZNK5Yosys3AST7AstNode7isConstEv(ptr noundef nonnull align 8 dereferenceable(284) %2573)
           to label %.noexc2839 unwind label %.loopexit.split-lp5190.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -8064,12 +8064,12 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2851: ; preds = %_ZNSt6vecto
   %.0180746694680.ph = phi i1 [ %.01807.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2851 ], [ false, %2338 ], [ false, %2321 ], [ false, %2339 ], [ %.01807.ph, %2681 ], [ %.01807.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2848 ], [ %.01807.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2845 ], [ %.01807.ph, %2661 ], [ %.01807.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit ]
   %.1180646704679.ph = phi i1 [ %.11806.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2851 ], [ false, %2338 ], [ false, %2321 ], [ false, %2339 ], [ %.11806.ph, %2681 ], [ %.11806.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2848 ], [ %.11806.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2845 ], [ %.11806.ph, %2661 ], [ %.11806.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit ]
   %.3546714678.ph = phi i8 [ %.35.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2851 ], [ 1, %2338 ], [ %.121586, %2321 ], [ %.121586, %2339 ], [ %.35.ph, %2681 ], [ %.35.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2848 ], [ %.35.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2845 ], [ %.35.ph, %2661 ], [ %.35.ph, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit ]
-  %2699 = trunc i8 %.11570 to i1
+  %2699 = trunc nuw i8 %.11570 to i1
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit2882
 
 .thread4465.thread.thread.thread.thread:          ; preds = %.thread4465.thread.thread.thread.thread.loopexit, %.thread4465.thread.thread.thread
   %2700 = phi i32 [ %2679, %.thread4465.thread.thread.thread ], [ %.pre6897, %.thread4465.thread.thread.thread.thread.loopexit ]
-  %2701 = trunc i8 %.11570 to i1
+  %2701 = trunc nuw i8 %.11570 to i1
   %2702 = icmp eq i32 %2700, 85
   %or.cond2456 = select i1 %2701, i1 %2702, i1 false
   br i1 %or.cond2456, label %2703, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit2882
@@ -8800,7 +8800,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4
 
 2910:                                             ; preds = %2908
   %2911 = load i8, ptr @_ZZN5Yosys3AST7AstNode8simplifyEbiibE23unevaluated_tern_branch, align 1
-  %2912 = trunc i8 %2911 to i1
+  %2912 = trunc nuw i8 %2911 to i1
   br i1 %2912, label %2948, label %2913
 
 2913:                                             ; preds = %2910
@@ -8890,7 +8890,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4
   %2949 = phi i1 [ %2907, %.thread4499 ], [ %2907, %.thread4502 ], [ %2907, %2910 ], [ %2907, %2908 ], [ %2905, %.thread7078 ]
   %2950 = and i1 %.01804447646324646466646837056, %2949
   %2951 = icmp eq i64 %.018216063, 1
-  %2952 = and i1 %.11806467046797060, %2951
+  %2952 = and i1 %2951, %.11806467046797060
   %2953 = or i1 %2952, %2950
   %2954 = icmp eq i64 %.018216063, 2
   %2955 = and i1 %.01807466946807059, %2954
@@ -11466,7 +11466,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3092:               ; preds = %4033, %4036
   %.masked = and i8 %4059, 1
   %.not2078 = icmp eq i8 %4079, %.masked
   %spec.select2472 = select i1 %.not2078, i8 %.45, i8 1
-  %4093 = trunc i8 %4079 to i1
+  %4093 = trunc nuw i8 %4079 to i1
   %4094 = icmp sgt i32 %4092, %4078
   %or.cond7536 = select i1 %4093, i1 %4094, i1 false
   br i1 %or.cond7536, label %4095, label %.thread4531
@@ -16736,7 +16736,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EED2Ev.exit3442: ; preds = %_ZNSt6vector
   br i1 %6354, label %.thread7148, label %6355
 
 6355:                                             ; preds = %6350
-  %6356 = trunc i8 %.66 to i1
+  %6356 = trunc nuw i8 %.66 to i1
   br i1 %6356, label %.thread7148, label %6357
 
 6357:                                             ; preds = %6355
@@ -23828,7 +23828,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3610:               ; preds = %9551, %9554
 9606:                                             ; preds = %9604
   %9607 = load ptr, ptr %9605, align 8
   %9608 = load i8, ptr @_ZZN5Yosys3AST7AstNode8simplifyEbiibE23unevaluated_tern_branch, align 1
-  %9609 = trunc i8 %9608 to i1
+  %9609 = trunc nuw i8 %9608 to i1
   br i1 %9609, label %9610, label %9617
 
 9610:                                             ; preds = %9606
@@ -28474,7 +28474,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3094:               ; preds = %_ZNSt6vectorIPN5Yos
   br label %11742
 
 11738:                                            ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit3828
-  %11739 = trunc i8 %.68 to i1
+  %11739 = trunc nuw i8 %.68 to i1
   br i1 %11739, label %11742, label %11740
 
 11740:                                            ; preds = %11738
@@ -43142,7 +43142,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 .lr.ph347:                                        ; preds = %.preheader260, %159
   %indvars.iv = phi i64 [ %indvars.iv.next, %159 ], [ 0, %.preheader260 ]
   %.1105345 = phi i8 [ %.3107, %159 ], [ %.0104, %.preheader260 ]
-  %142 = trunc i8 %.1105345 to i1
+  %142 = trunc nuw i8 %.1105345 to i1
   br i1 %142, label %143, label %.critedge
 
 143:                                              ; preds = %.lr.ph347
@@ -43199,7 +43199,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 155:                                              ; preds = %145, %153
   %.2106 = phi i8 [ %spec.select133, %153 ], [ %.1105345, %145 ]
-  %156 = trunc i8 %.2106 to i1
+  %156 = trunc nuw i8 %.2106 to i1
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %155
@@ -47243,7 +47243,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = trunc i32 %.0.lcssa.i to i8
+  %58 = trunc nuw i32 %.0.lcssa.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

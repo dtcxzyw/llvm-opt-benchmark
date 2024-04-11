@@ -160590,7 +160590,7 @@ _ZNK4CGAL23CartesianKernelFunctors14Bounded_side_3INS_16Simple_cartesianINS_11In
 
 _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit: ; preds = %_ZNK4CGAL23CartesianKernelFunctors14Bounded_side_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Sphere_3IS5_EERKNS_7Point_3IS5_EE.exit43, %318
   %.sroa.07.0.insert.insert.i.i = phi i16 [ 0, %_ZNK4CGAL23CartesianKernelFunctors14Bounded_side_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Sphere_3IS5_EERKNS_7Point_3IS5_EE.exit43 ], [ %321, %318 ]
-  %trunc.i.i = trunc i16 %.sroa.07.0.insert.insert.i.i to i9
+  %trunc.i.i = trunc nuw i16 %.sroa.07.0.insert.insert.i.i to i9
   %322 = and i9 %trunc.i.i, -255
   %323 = xor i9 %322, -255
   %324 = tail call i9 @llvm.bitreverse.i9(i9 %323)
@@ -160615,7 +160615,7 @@ _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit: ; preds = %_Z
 
 _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56: ; preds = %326, %329
   %.sroa.07.0.insert.insert.i.i53 = phi i16 [ 0, %326 ], [ %332, %329 ]
-  %trunc.i.i54 = trunc i16 %.sroa.07.0.insert.insert.i.i53 to i9
+  %trunc.i.i54 = trunc nuw i16 %.sroa.07.0.insert.insert.i.i53 to i9
   %333 = and i9 %trunc.i.i54, -255
   %334 = xor i9 %333, -255
   %335 = call i9 @llvm.bitreverse.i9(i9 %334)
@@ -160640,7 +160640,7 @@ _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56: ; preds = %
 
 _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69: ; preds = %337, %340
   %.sroa.07.0.insert.insert.i.i66 = phi i16 [ 0, %337 ], [ %343, %340 ]
-  %trunc.i.i67 = trunc i16 %.sroa.07.0.insert.insert.i.i66 to i9
+  %trunc.i.i67 = trunc nuw i16 %.sroa.07.0.insert.insert.i.i66 to i9
   %344 = and i9 %trunc.i.i67, -255
   %345 = xor i9 %344, -255
   %346 = call i9 @llvm.bitreverse.i9(i9 %345)

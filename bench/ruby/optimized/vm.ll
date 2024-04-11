@@ -9121,7 +9121,7 @@ vm_check_match.exit:                              ; preds = %RARRAY_AREF.exit, %
 1387:                                             ; preds = %1385
   %1388 = lshr i64 %1383, 1
   %1389 = trunc i64 %1388 to i32
-  %1390 = trunc nuw i64 %1375 to i32
+  %1390 = trunc nuw nsw i64 %1375 to i32
   %1391 = shl nuw nsw i32 1, %1390
   %1392 = and i32 %1391, %1389
   %.not10.i = icmp eq i32 %1392, 0
@@ -29839,7 +29839,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %62 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %6, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %8, i64 36
-  %64 = trunc nsw i32 %.1150157166 to i8
+  %64 = trunc nuw nsw i32 %.1150157166 to i8
   %65 = lshr i8 %64, 6
   store i8 %65, ptr %63, align 4
   %66 = getelementptr inbounds i8, ptr %8, i64 24
@@ -56436,7 +56436,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %107 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %5, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %10, i64 36
-  %109 = trunc nsw i32 %.192135142151 to i8
+  %109 = trunc nuw nsw i32 %.192135142151 to i8
   %110 = lshr i8 %109, 6
   store i8 %110, ptr %108, align 4
   %111 = getelementptr inbounds i8, ptr %10, i64 24

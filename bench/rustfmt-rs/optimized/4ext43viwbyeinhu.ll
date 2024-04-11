@@ -2717,7 +2717,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit213.i.i.i: ; preds = %1
 .body.thread.i.i.i:                               ; preds = %549, %.body.i.i.i, %.loopexit.i
   %.0132.i.i.i = phi i8 [ %.2134.i.i.i, %549 ], [ %.2134.i.i.i, %.body.i.i.i ], [ %.1133.i.i.ph.i, %.loopexit.i ]
   %.pn167.i.i.i = phi { ptr, i32 } [ %.pn165.i.i.i, %549 ], [ %.pn165.i.i.i, %.body.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ]
-  %131 = trunc i8 %.0132.i.i.i to i1
+  %131 = trunc nuw i8 %.0132.i.i.i to i1
   br i1 %131, label %.thread.i.i.i, label %.body.i
 
 .loopexit.i:                                      ; preds = %546, %544, %530, %528, %333, %331, %316, %313, %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit297.i.i.i, %280, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit291.i.i.i", %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit289.thread.i.i.i, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit289.thread418.i.i.i, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i284.i.i.i", %267, %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit.i.i.i, %_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit272.i.i.i, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit270.i.i.i", %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit268.thread.i.i.i, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit268.thread414.i.i.i, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i263.i.i.i", %248, %_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit247.i.i.i, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit245.i.i.i", %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit243.thread.i.i.i, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit243.thread410.i.i.i, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit229.i.i.i", %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i238.i.i.i", %222, %215, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i222.i.i.i", %199, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit211.i.i.i", %186, %183, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i204.i.i.i", %169, %_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit.i.i.i, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit190.i.i.i", %155, %152, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit.i.i.i", %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i183.i.i.i", %137, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread394.i.i.i, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i.i.i.i", %123
@@ -3478,7 +3478,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit297
   %.1138.i.i.i = phi i8 [ %.3140.i.i.i, %.loopexit.split-lp.i.i.i ], [ %.2139.i.i.i, %343 ]
   %.2134.i.i.i = phi i8 [ %.4136.i.i.i, %.loopexit.split-lp.i.i.i ], [ %.3135.i.i.i, %343 ]
   %.pn165.i.i.i = phi { ptr, i32 } [ %.pn163.i.i.i, %.loopexit.split-lp.i.i.i ], [ %344, %343 ]
-  %342 = trunc i8 %.1138.i.i.i to i1
+  %342 = trunc nuw i8 %.1138.i.i.i to i1
   br i1 %342, label %549, label %.body.thread.i.i.i
 
 343:                                              ; preds = %521, %519, %431, %429, %351
@@ -12943,7 +12943,7 @@ _ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.llvm.3200710723383270
   br label %_ZN4core5slice6memchr12memchr_naive17h80d69771a2a986d1E.llvm.3200710723383270248.exit
 
 43:                                               ; preds = %3
-  %44 = trunc nuw i32 %0 to i8
+  %44 = trunc nuw nsw i32 %0 to i8
   %45 = icmp ult i64 %2, 16
   br i1 %45, label %50, label %46
 
@@ -13107,7 +13107,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 .lr.ph.i44:                                       ; preds = %59, %82
   %.062145.i = phi i64 [ %83, %82 ], [ 0, %59 ]
   %.064144.i = phi i8 [ %.2.i, %82 ], [ 0, %59 ]
-  %69 = trunc i8 %.064144.i to i1
+  %69 = trunc nuw i8 %.064144.i to i1
   br i1 %69, label %._crit_edge.i, label %73
 
 ._crit_edge.i:                                    ; preds = %82, %.lr.ph.i44, %59
@@ -13164,7 +13164,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 91:                                               ; preds = %.preheader.i
   %92 = shl nuw nsw i64 %.sroa.025.0143.i, 4
   %93 = add nuw nsw i64 %92, %.062145.i
-  %94 = trunc i8 %.165142.i to i1
+  %94 = trunc nuw i8 %.165142.i to i1
   %95 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %93, i16 noundef %88, i1 noundef zeroext %94)
   %96 = or i1 %95, %94
   %97 = zext i1 %96 to i8
@@ -13173,7 +13173,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 .lr.ph153.i:                                      ; preds = %._crit_edge.i, %116
   %.163151.i = phi i64 [ %117, %116 ], [ %.062.lcssa.i, %._crit_edge.i ]
   %.3150.i = phi i8 [ %.4.i, %116 ], [ %.064.lcssa.i, %._crit_edge.i ]
-  %98 = trunc i8 %.3150.i to i1
+  %98 = trunc nuw i8 %.3150.i to i1
   br i1 %98, label %._crit_edge154.i, label %108
 
 ._crit_edge154.i:                                 ; preds = %116, %.lr.ph153.i, %._crit_edge.i
@@ -13221,7 +13221,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
 124:                                              ; preds = %._crit_edge154.i
-  %125 = trunc i8 %.3.lcssa.i to i1
+  %125 = trunc nuw i8 %.3.lcssa.i to i1
   %126 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %100, i16 noundef %106, i1 noundef zeroext %125)
   %127 = or i1 %126, %125
   %128 = zext i1 %127 to i8
@@ -20448,7 +20448,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 "_ZN4core3ptr56drop_in_place$LT$rustc_ast..tokenstream..TokenStream$GT$17h6201ca0dffbda814E.exit": ; preds = %.body, %90, %78
   %.044 = phi i8 [ %.1, %78 ], [ %.2, %90 ], [ %.2, %.body ]
   %.pn57 = phi { ptr, i32 } [ %79, %78 ], [ %.pn55, %90 ], [ %.pn55, %.body ]
-  %77 = trunc i8 %.044 to i1
+  %77 = trunc nuw i8 %.044 to i1
   br i1 %77, label %676, label %675
 
 78:                                               ; preds = %654, %303
@@ -22079,7 +22079,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
 
 "_ZN4core3ptr56drop_in_place$LT$rustc_ast..tokenstream..TokenStream$GT$17h6201ca0dffbda814E.exit64": ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustfmt_nightly..macros..Macro$GT$17h628335fd6161136cE.exit149", %303
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
-  %595 = trunc i8 %.4 to i1
+  %595 = trunc nuw i8 %.4 to i1
   br i1 %595, label %665, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf27d367143ed6714E.exit185"
 
 596:                                              ; preds = %584
@@ -31600,7 +31600,7 @@ define hidden void @_ZN15rustfmt_nightly5types12rewrite_path17h8227bca52de88007E
 56:                                               ; preds = %89, %58
   %.1 = phi i8 [ %.2, %58 ], [ %.3, %89 ]
   %.pn56 = phi { ptr, i32 } [ %59, %58 ], [ %.pn, %89 ]
-  %57 = trunc i8 %.1 to i1
+  %57 = trunc nuw i8 %.1 to i1
   br i1 %57, label %268, label %.thread
 
 58:                                               ; preds = %217, %214, %207, %202, %69, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread151, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i", %52, %50, %45, %70, %"_ZN97_$LT$rustc_data_structures..atomic_ref..AtomicRef$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb766b2ce54f5f072E.exit"

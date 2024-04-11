@@ -688,7 +688,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %.lr.ph.split
-  %15 = trunc i8 %.027 to i1
+  %15 = trunc nuw i8 %.027 to i1
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
@@ -716,7 +716,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef %1, ptr n
 ._crit_edge:                                      ; preds = %22, %9, %3
   %.0.lcssa = phi i8 [ 1, %3 ], [ 1, %9 ], [ %.2, %22 ]
   %.lcssa = phi i32 [ %5, %3 ], [ %10, %9 ], [ %23, %22 ]
-  %25 = trunc i8 %.0.lcssa to i1
+  %25 = trunc nuw i8 %.0.lcssa to i1
   %26 = icmp ne ptr %1, null
   %or.cond3 = and i1 %26, %25
   br i1 %or.cond3, label %27, label %30
@@ -755,7 +755,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef %1, ptr n
 
 39:                                               ; preds = %37, %34
   %.5 = phi i8 [ 0, %37 ], [ %.4, %34 ]
-  %40 = trunc i8 %.5 to i1
+  %40 = trunc nuw i8 %.5 to i1
   ret i1 %40
 }
 
@@ -909,10 +909,10 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %.152 = phi i1 [ %.05171, %39 ], [ true, %63 ], [ true, %60 ], [ false, %44 ]
   %.250 = phi i8 [ 1, %39 ], [ %.149, %63 ], [ %.149, %60 ], [ %.04872, %44 ]
   %67 = icmp sgt i32 %.154, 8186
-  %68 = trunc i8 %.250 to i1
+  %68 = trunc nuw i8 %.250 to i1
   %69 = icmp sgt i32 %.154, 0
   %or.cond = and i1 %69, %68
-  %or.cond65 = or i1 %67, %or.cond
+  %or.cond65 = select i1 %67, i1 true, i1 %or.cond
   br i1 %or.cond65, label %70, label %73
 
 70:                                               ; preds = %66
@@ -929,7 +929,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %74 = call i32 @ferror(ptr noundef %1) #10
   %.not61 = icmp eq i32 %74, 0
   %spec.select = select i1 %.not61, i8 %.0, i8 0
-  %75 = trunc i8 %spec.select to i1
+  %75 = trunc nuw i8 %spec.select to i1
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %.loopexit
@@ -981,7 +981,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
 
 100:                                              ; preds = %98, %._crit_edge
   %.4 = phi i8 [ 0, %98 ], [ %.3.lcssa, %._crit_edge ]
-  %101 = trunc i8 %.4 to i1
+  %101 = trunc nuw i8 %.4 to i1
   ret i1 %101
 }
 

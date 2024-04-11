@@ -12898,7 +12898,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %29 unwind label %.thread
 
 26:                                               ; preds = %175, %172
-  %27 = trunc i8 %.153108 to i1
+  %27 = trunc nuw i8 %.153108 to i1
   br i1 %27, label %._crit_edge, label %"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit91"
 
 ._crit_edge:                                      ; preds = %26
@@ -12934,7 +12934,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %41 unwind label %.thread101
 
 38:                                               ; preds = %171, %"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17hbe47bce70ef0b11cE.exit"
-  %39 = trunc i8 %.038123 to i1
+  %39 = trunc nuw i8 %.038123 to i1
   br i1 %39, label %174, label %172
 
 .thread101:                                       ; preds = %29, %.noexc
@@ -13312,7 +13312,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   br i1 %162, label %165, label %163
 
 163:                                              ; preds = %165, %161
-  %164 = trunc i8 %.030 to i1
+  %164 = trunc nuw i8 %.030 to i1
   br i1 %164, label %166, label %167
 
 165:                                              ; preds = %161
@@ -13328,7 +13328,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   %.035134 = phi i8 [ %.035135, %.thread161 ], [ %.028, %163 ]
   %.143132 = phi i8 [ %.143133, %.thread161 ], [ 0, %163 ]
   %.pn.pn.pn130 = phi { ptr, i32 } [ %.pn.pn.pn131, %.thread161 ], [ %.pn.pn, %163 ]
-  %168 = trunc i8 %.035134 to i1
+  %168 = trunc nuw i8 %.035134 to i1
   br i1 %168, label %169, label %"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17hbe47bce70ef0b11cE.exit"
 
 .thread161:                                       ; preds = %166, %.thread125
@@ -13348,7 +13348,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   %.042121 = phi i8 [ %.042122, %.thread160 ], [ %.143132, %167 ]
   %.254119 = phi i8 [ %.254120, %.thread160 ], [ %.032136, %167 ]
   %.pn.pn.pn.pn117 = phi { ptr, i32 } [ %.pn.pn.pn.pn118, %.thread160 ], [ %.pn.pn.pn130, %167 ]
-  %170 = trunc i8 %.042121 to i1
+  %170 = trunc nuw i8 %.042121 to i1
   br i1 %170, label %171, label %38
 
 .thread160:                                       ; preds = %169, %.thread112
@@ -13367,7 +13367,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   %.049110 = phi i8 [ %.049111, %174 ], [ %.042121, %38 ]
   %.153108 = phi i8 [ %.153109, %174 ], [ %.254119, %38 ]
   %.pn.pn.pn.pn.pn106 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn107, %174 ], [ %.pn.pn.pn.pn117, %38 ]
-  %173 = trunc i8 %.049110 to i1
+  %173 = trunc nuw i8 %.049110 to i1
   br i1 %173, label %175, label %26
 
 174:                                              ; preds = %.thread101, %38

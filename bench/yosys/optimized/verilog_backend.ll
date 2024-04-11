@@ -4310,10 +4310,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %196 = load i32, ptr %191, align 4, !noalias !34
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr %191, align 4, !noalias !34
-  %198 = shl i64 %195, 32
-  %sext = add i64 %198, -4294967296
-  %199 = ashr exact i64 %sext, 32
-  %200 = trunc i8 %.0120 to i1
+  %198 = trunc nuw i8 %.0120 to i1
+  %199 = shl i64 %195, 32
+  %sext = add i64 %199, -4294967296
+  %200 = ashr exact i64 %sext, 32
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit: ; preds = %273
@@ -4429,7 +4429,7 @@ _ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EE5clearEv.exit75: ; preds = 
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit80
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit: ; preds = %273, %.lr.ph136
-  %indvars.iv = phi i64 [ %199, %.lr.ph136 ], [ %indvars.iv.next, %273 ]
+  %indvars.iv = phi i64 [ %200, %.lr.ph136 ], [ %indvars.iv.next, %273 ]
   %235 = load ptr, ptr %186, align 8
   %236 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Module *>::entry_t", ptr %235, i64 %indvars.iv, i32 0, i32 1
   %237 = load ptr, ptr %236, align 8
@@ -4441,14 +4441,14 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit: ; preds = %273, %.lr.ph136
   br i1 %239, label %.noexc._ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit_crit_edge, label %240
 
 .noexc._ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit_crit_edge: ; preds = %.noexc
-  br i1 %200, label %243, label %273
+  br i1 %198, label %243, label %273
 
 240:                                              ; preds = %.noexc
   %241 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(56) %238, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8whiteboxE)
           to label %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit unwind label %.loopexit
 
 _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit: ; preds = %240
-  %242 = xor i1 %241, %200
+  %242 = xor i1 %241, %198
   br i1 %242, label %273, label %243
 
 243:                                              ; preds = %.noexc._ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit_crit_edge, %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit
@@ -9862,7 +9862,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit139.i:           ; preds = %2156, %2137, %2130,
   br label %.body.i
 
 2192:                                             ; preds = %2188
-  %2193 = trunc i8 %.084.i to i1
+  %2193 = trunc nuw i8 %.084.i to i1
   br i1 %2193, label %2200, label %2194
 
 2194:                                             ; preds = %2192
@@ -9983,7 +9983,7 @@ _ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE1
   br i1 %.not237.i, label %.thread.i445, label %2227, !llvm.loop !100
 
 .thread.i445:                                     ; preds = %2241, %_ZNKSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i444, %2231
-  %2243 = trunc i8 %.185.i.ph to i1
+  %2243 = trunc nuw i8 %.185.i.ph to i1
   br i1 %2243, label %2250, label %2244
 
 2244:                                             ; preds = %.thread.i445
@@ -35578,7 +35578,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110dump_constERSoRKN5Yosys5RTLIL5Co
 
 64:                                               ; preds = %58
   %65 = load i8, ptr @_ZN12_GLOBAL__N_17decimalE, align 1
-  %66 = trunc i8 %65 to i1
+  %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %64
