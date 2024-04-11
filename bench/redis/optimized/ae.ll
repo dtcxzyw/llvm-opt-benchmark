@@ -1018,11 +1018,14 @@ if.then14:                                        ; preds = %if.end11
   %revents = getelementptr inbounds i8, ptr %pfd, i64 6
   %1 = load i16, ptr %revents, align 2
   %2 = and i16 %1, 1
-  %spec.select = zext nneg i16 %2 to i32
-  %or26 = or disjoint i32 %spec.select, 2
-  %3 = and i16 %1, 28
-  %4 = icmp eq i16 %3, 0
-  %retmask.3 = select i1 %4, i32 %spec.select, i32 %or26
+  %3 = lshr i16 %1, 1
+  %4 = and i16 %3, 2
+  %retmask.16 = or disjoint i16 %4, %2
+  %retmask.1 = zext nneg i16 %retmask.16 to i32
+  %or33 = or i32 %retmask.1, 2
+  %5 = and i16 %1, 24
+  %6 = icmp eq i16 %5, 0
+  %retmask.3 = select i1 %6, i32 %retmask.1, i32 %or33
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then14
