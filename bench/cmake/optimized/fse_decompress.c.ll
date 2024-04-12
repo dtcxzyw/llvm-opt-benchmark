@@ -38,7 +38,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   br i1 %23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
-  %24 = trunc i32 %3 to i16
+  %24 = trunc nuw nsw i32 %3 to i16
   %sext = shl nuw nsw i32 32768, %3
   %25 = lshr exact i32 %sext, 16
   br label %26
@@ -90,6 +90,8 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %43 = add nuw nsw i32 %42, 3
   %44 = add nuw nsw i32 %43, %40
   %45 = zext nneg i32 %44 to i64
+  %umax174 = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
+  %wide.trip.count175 = zext nneg i32 %umax174 to i64
   br label %.lr.ph158
 
 .preheader134:                                    ; preds = %._crit_edge153
@@ -98,10 +100,10 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   br label %.preheader
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %._crit_edge153
-  %indvars.iv174 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next175, %._crit_edge153 ]
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next172, %._crit_edge153 ]
   %.0119156 = phi i64 [ 0, %.lr.ph158.preheader ], [ %56, %._crit_edge153 ]
   %.0121155 = phi i64 [ 0, %.lr.ph158.preheader ], [ %57, %._crit_edge153 ]
-  %48 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv174
+  %48 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv171
   %49 = load i16, ptr %48, align 2
   %50 = getelementptr inbounds i8, ptr %10, i64 %.0119156
   store i64 %.0121155, ptr %50, align 1
@@ -113,20 +115,20 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   br label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
-  %indvars.iv171 = phi i64 [ 8, %.lr.ph152.preheader ], [ %indvars.iv.next172, %.lr.ph152 ]
-  %53 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv171
+  %indvars.iv168 = phi i64 [ 8, %.lr.ph152.preheader ], [ %indvars.iv.next169, %.lr.ph152 ]
+  %53 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv168
   store i64 %.0121155, ptr %53, align 1
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 8
-  %54 = icmp ult i64 %indvars.iv.next172, %52
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 8
+  %54 = icmp ult i64 %indvars.iv.next169, %52
   br i1 %54, label %.lr.ph152, label %._crit_edge153, !llvm.loop !8
 
 ._crit_edge153:                                   ; preds = %.lr.ph152, %.lr.ph158
   %55 = sext i16 %49 to i64
   %56 = add i64 %.0119156, %55
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %57 = add i64 %.0121155, 72340172838076673
-  %exitcond178.not = icmp eq i64 %indvars.iv.next175, %14
-  br i1 %exitcond178.not, label %.preheader134, label %.lr.ph158, !llvm.loop !9
+  %exitcond176.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count175
+  br i1 %exitcond176.not, label %.preheader134, label %.lr.ph158, !llvm.loop !9
 
 .preheader:                                       ; preds = %.preheader134, %.preheader
   %.0122161 = phi i64 [ 0, %.preheader134 ], [ %70, %.preheader ]
@@ -153,18 +155,20 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %72 = lshr i32 %12, 3
   %73 = add nuw nsw i32 %72, 3
   %74 = add nuw nsw i32 %73, %40
+  %umax = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
+  %wide.trip.count166 = zext nneg i32 %umax to i64
   br label %.preheader136
 
 .preheader136:                                    ; preds = %.preheader136.lr.ph, %._crit_edge144
-  %indvars.iv166 = phi i64 [ 0, %.preheader136.lr.ph ], [ %indvars.iv.next167, %._crit_edge144 ]
+  %indvars.iv163 = phi i64 [ 0, %.preheader136.lr.ph ], [ %indvars.iv.next164, %._crit_edge144 ]
   %.0115147 = phi i32 [ 0, %.preheader136.lr.ph ], [ %.1116.lcssa, %._crit_edge144 ]
-  %75 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv166
+  %75 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv163
   %76 = load i16, ptr %75, align 2
   %77 = icmp sgt i16 %76, 0
   br i1 %77, label %.lr.ph143, label %._crit_edge144
 
 .lr.ph143:                                        ; preds = %.preheader136
-  %78 = trunc i64 %indvars.iv166 to i8
+  %78 = trunc i64 %indvars.iv163 to i8
   br label %79
 
 79:                                               ; preds = %.lr.ph143, %84
@@ -191,50 +195,50 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
 
 ._crit_edge144:                                   ; preds = %84, %.preheader136
   %.1116.lcssa = phi i32 [ %.0115147, %.preheader136 ], [ %.2, %84 ]
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next167, %14
-  br i1 %exitcond170.not, label %._crit_edge148, label %.preheader136, !llvm.loop !13
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
+  br i1 %exitcond167.not, label %._crit_edge148, label %.preheader136, !llvm.loop !13
 
 ._crit_edge148:                                   ; preds = %._crit_edge144
-  %89 = icmp eq i32 %.1116.lcssa, 0
-  br i1 %89, label %._crit_edge148..loopexit135_crit_edge, label %.loopexit
+  %.not = icmp eq i32 %.1116.lcssa, 0
+  br i1 %.not, label %._crit_edge148..loopexit135_crit_edge, label %.loopexit
 
 ._crit_edge148..loopexit135_crit_edge:            ; preds = %._crit_edge148
   %.pre = zext nneg i32 %12 to i64
   br label %.loopexit135
 
 .loopexit135:                                     ; preds = %.preheader, %._crit_edge148..loopexit135_crit_edge
-  %wide.trip.count182.pre-phi = phi i64 [ %.pre, %._crit_edge148..loopexit135_crit_edge ], [ %46, %.preheader ]
-  br label %90
+  %wide.trip.count181.pre-phi = phi i64 [ %.pre, %._crit_edge148..loopexit135_crit_edge ], [ %46, %.preheader ]
+  br label %89
 
-90:                                               ; preds = %.loopexit135, %90
-  %indvars.iv179 = phi i64 [ 0, %.loopexit135 ], [ %indvars.iv.next180, %90 ]
-  %91 = getelementptr inbounds %struct.FSE_decode_t, ptr %7, i64 %indvars.iv179
-  %92 = getelementptr inbounds i8, ptr %91, i64 2
-  %93 = load i8, ptr %92, align 2
-  %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds i16, ptr %4, i64 %94
-  %96 = load i16, ptr %95, align 2
-  %97 = add i16 %96, 1
-  store i16 %97, ptr %95, align 2
-  %98 = zext i16 %96 to i32
-  %99 = tail call i32 @llvm.ctlz.i32(i32 %98, i1 true), !range !14
-  %100 = xor i32 %99, 31
-  %101 = sub nsw i32 %3, %100
-  %102 = trunc i32 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %91, i64 3
-  store i8 %102, ptr %103, align 1
-  %104 = and i32 %101, 255
-  %105 = shl i32 %98, %104
-  %106 = sub i32 %105, %12
-  %107 = trunc i32 %106 to i16
-  store i16 %107, ptr %91, align 2
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182.pre-phi
-  br i1 %exitcond183.not, label %.loopexit, label %90, !llvm.loop !15
+89:                                               ; preds = %.loopexit135, %89
+  %indvars.iv177 = phi i64 [ 0, %.loopexit135 ], [ %indvars.iv.next178, %89 ]
+  %90 = getelementptr inbounds %struct.FSE_decode_t, ptr %7, i64 %indvars.iv177
+  %91 = getelementptr inbounds i8, ptr %90, i64 2
+  %92 = load i8, ptr %91, align 2
+  %93 = zext i8 %92 to i64
+  %94 = getelementptr inbounds i16, ptr %4, i64 %93
+  %95 = load i16, ptr %94, align 2
+  %96 = add i16 %95, 1
+  store i16 %96, ptr %94, align 2
+  %97 = zext i16 %95 to i32
+  %98 = tail call i32 @llvm.ctlz.i32(i32 %97, i1 true), !range !14
+  %99 = xor i32 %98, 31
+  %100 = sub nsw i32 %3, %99
+  %101 = trunc nsw i32 %100 to i8
+  %102 = getelementptr inbounds i8, ptr %90, i64 3
+  store i8 %101, ptr %102, align 1
+  %103 = and i32 %100, 255
+  %104 = shl i32 %97, %103
+  %105 = sub i32 %104, %12
+  %106 = trunc i32 %105 to i16
+  store i16 %106, ptr %90, align 2
+  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %exitcond182.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count181.pre-phi
+  br i1 %exitcond182.not, label %.loopexit, label %89, !llvm.loop !15
 
-.loopexit:                                        ; preds = %90, %._crit_edge148, %22, %6
-  %.0 = phi i64 [ -46, %6 ], [ -44, %22 ], [ -1, %._crit_edge148 ], [ 0, %90 ]
+.loopexit:                                        ; preds = %89, %._crit_edge148, %22, %6
+  %.0 = phi i64 [ -46, %6 ], [ -44, %22 ], [ -1, %._crit_edge148 ], [ 0, %89 ]
   ret i64 %.0
 }
 
@@ -261,7 +265,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %17, label %FSE_decompress_wksp_body_default.exit, label %18
 
 18:                                               ; preds = %8
-  %19 = call i64 @FSE_readNCount_bmi2(ptr noundef %5, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef %2, i64 noundef %3, i32 noundef 0) #8
+  %19 = call i64 @FSE_readNCount_bmi2(ptr noundef %5, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef %2, i64 noundef %3, i32 noundef 0) #9
   %20 = icmp ult i64 %19, -119
   br i1 %20, label %21, label %FSE_decompress_wksp_body_default.exit
 
@@ -1126,7 +1130,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
   %75 = zext i8 %72 to i32
   %76 = tail call i32 @llvm.ctlz.i32(i32 %75, i1 true), !range !14
   %77 = getelementptr inbounds i8, ptr %0, i64 8
-  %78 = trunc i64 %2 to i32
+  %78 = trunc nuw i64 %2 to i32
   %79 = shl nuw nsw i32 %78, 3
   %80 = sub nsw i32 %76, %79
   %81 = add nsw i32 %80, 41
@@ -1220,11 +1224,14 @@ BIT_reloadDStreamFast.exit:                       ; preds = %19
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1233,8 +1240,9 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

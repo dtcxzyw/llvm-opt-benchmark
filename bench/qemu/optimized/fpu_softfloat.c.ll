@@ -3868,7 +3868,7 @@ parts64_canonicalize.exit86.i:                    ; preds = %if.else49.i63.i, %i
   %shl3.i.i = shl nuw nsw i32 1, %conv2.i.i
   %or.i.i = or i32 %shl3.i.i, %shl.i.i
   %31 = xor i8 %frombool.i.i49.i, %frombool.i.i.i
-  %trunc104.i = trunc nuw i32 %or.i.i to i8
+  %trunc104.i = trunc nuw nsw i32 %or.i.i to i8
   switch i8 %trunc104.i, label %if.end32.i.i [
     i8 4, label %if.then.i.i8
     i8 10, label %if.then31.i.i
@@ -4302,7 +4302,7 @@ parts64_canonicalize.exit86.i:                    ; preds = %if.else49.i63.i, %i
   %shl3.i.i = shl nuw nsw i32 1, %conv2.i.i
   %or.i.i = or i32 %shl3.i.i, %shl.i.i
   %29 = xor i8 %frombool.i.i49.i, %frombool.i.i.i
-  %trunc.i = trunc nuw i32 %or.i.i to i8
+  %trunc.i = trunc nuw nsw i32 %or.i.i to i8
   switch i8 %trunc.i, label %if.end32.i.i [
     i8 4, label %if.then.i.i9
     i8 10, label %if.then31.i.i
@@ -7108,7 +7108,7 @@ if.end.i.i:                                       ; preds = %parts64_canonicaliz
   %51 = and i8 %50, 1
   %spec.select.i = xor i8 %51, %49
   store i8 %spec.select.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %trunc200.i = trunc nuw i32 %or.i.i to i8
+  %trunc200.i = trunc nuw nsw i32 %or.i.i to i8
   switch i8 %trunc200.i, label %if.end54.i.i [
     i8 4, label %if.end108.i.i
     i8 10, label %d_nan.i.i
@@ -7711,7 +7711,7 @@ if.end.i.i:                                       ; preds = %parts64_canonicaliz
   %48 = and i8 %47, 1
   %spec.select.i = xor i8 %48, %46
   store i8 %spec.select.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
-  %trunc.i = trunc nuw i32 %or.i.i to i8
+  %trunc.i = trunc nuw nsw i32 %or.i.i to i8
   switch i8 %trunc.i, label %if.end54.i.i [
     i8 4, label %if.end108.i.i
     i8 10, label %d_nan.i.i
@@ -9628,7 +9628,7 @@ parts64_canonicalize.exit82.i:                    ; preds = %if.else49.i59.i, %i
   %shl3.i.i = shl nuw nsw i32 1, %conv2.i.i
   %or.i.i = or i32 %shl3.i.i, %shl.i.i
   %28 = xor i8 %frombool.i.i45.i, %frombool.i.i.i
-  %trunc102.i = trunc nuw i32 %or.i.i to i8
+  %trunc102.i = trunc nuw nsw i32 %or.i.i to i8
   switch i8 %trunc102.i, label %if.end38.i.i [
     i8 4, label %if.then.i.i10
     i8 2, label %d_nan.i.i
@@ -10056,7 +10056,7 @@ parts64_canonicalize.exit82.i:                    ; preds = %if.else49.i59.i, %i
   %shl3.i.i = shl nuw nsw i32 1, %conv2.i.i
   %or.i.i = or i32 %shl3.i.i, %shl.i.i
   %28 = xor i8 %frombool.i.i45.i, %frombool.i.i.i
-  %trunc.i = trunc nuw i32 %or.i.i to i8
+  %trunc.i = trunc nuw nsw i32 %or.i.i to i8
   switch i8 %trunc.i, label %if.end38.i.i [
     i8 4, label %if.then.i.i9
     i8 2, label %d_nan.i.i
@@ -31486,7 +31486,7 @@ lor.lhs.false129:                                 ; preds = %if.then126
   br i1 %or.cond2, label %land.lhs.true135, label %if.end162
 
 land.lhs.true135:                                 ; preds = %lor.lhs.false129
-  %tobool136 = trunc i8 %increment.0 to i1
+  %tobool136 = trunc nuw i8 %increment.0 to i1
   br i1 %tobool136, label %overflow, label %if.end229
 
 overflow:                                         ; preds = %if.then126, %land.lhs.true135, %lor.lhs.false, %if.then
@@ -31532,7 +31532,7 @@ lor.end177:                                       ; preds = %if.then165
   br i1 %cmp2.i, label %if.then4.i, label %if.else10.i
 
 lor.end177.thread:                                ; preds = %if.then165
-  %tobool173 = trunc i8 %increment.0 to i1
+  %tobool173 = trunc nuw i8 %increment.0 to i1
   %cmp175 = icmp ne i64 %zSig0, -1
   %not.tobool173 = xor i1 %tobool173, true
   %spec.select174 = or i1 %cmp175, %not.tobool173
@@ -31659,7 +31659,7 @@ if.then231:                                       ; preds = %if.end229
   br label %if.end232
 
 if.end232:                                        ; preds = %if.then231, %if.end229
-  %tobool233 = trunc i8 %increment.0 to i1
+  %tobool233 = trunc nuw i8 %increment.0 to i1
   br i1 %tobool233, label %if.then234, label %if.else249
 
 if.then234:                                       ; preds = %if.end232
@@ -33853,45 +33853,41 @@ if.end162:                                        ; preds = %sw.epilog157, %frac
   %46 = phi i64 [ %and161, %sw.epilog157 ], [ %43, %frac64_shrjam.exit ]
   %flags.3 = phi i16 [ 16, %sw.epilog157 ], [ 0, %frac64_shrjam.exit ]
   %tobool164.not = icmp sgt i64 %46, -1
-  br i1 %tobool164.not, label %land.end.thread, label %land.end
-
-land.end.thread:                                  ; preds = %if.end162
-  %sh_prom.i118121 = zext nneg i32 %1 to i64
-  %shr.i119122 = lshr i64 %46, %sh_prom.i118121
-  store i64 %shr.i119122, ptr %41, align 8
-  %or174123 = or disjoint i16 %flags.3, 8
-  %spec.select124 = select i1 %tobool137.not, i16 %flags.3, i16 %or174123
-  %flags.4125 = select i1 %is_tiny.0.in, i16 %spec.select124, i16 %flags.3
-  br label %land.lhs.true178
+  br i1 %tobool164.not, label %land.lhs.true178, label %land.end
 
 land.end:                                         ; preds = %if.end162
   %47 = load i8, ptr %m68k_denormal, align 1
   %48 = and i8 %47, 1
-  %.not = icmp eq i8 %48, 0
   %sh_prom.i118 = zext nneg i32 %1 to i64
   %shr.i119 = lshr i64 %46, %sh_prom.i118
   store i64 %shr.i119, ptr %41, align 8
   %or174 = or disjoint i16 %flags.3, 8
   %spec.select = select i1 %tobool137.not, i16 %flags.3, i16 %or174
   %flags.4 = select i1 %is_tiny.0.in, i16 %spec.select, i16 %flags.3
-  br i1 %.not, label %if.end186, label %land.lhs.true178
+  %49 = xor i8 %48, 1
+  %spec.select130 = zext nneg i8 %49 to i32
+  br label %if.end186
 
-land.lhs.true178:                                 ; preds = %land.end.thread, %land.end
-  %flags.4127 = phi i16 [ %flags.4125, %land.end.thread ], [ %flags.4, %land.end ]
-  %shr.i119126 = phi i64 [ %shr.i119122, %land.end.thread ], [ %shr.i119, %land.end ]
-  %cmp.i = icmp eq i64 %shr.i119126, 0
-  br i1 %cmp.i, label %if.then181, label %if.end186
+land.lhs.true178:                                 ; preds = %if.end162
+  %sh_prom.i118121 = zext nneg i32 %1 to i64
+  %shr.i119122 = lshr i64 %46, %sh_prom.i118121
+  store i64 %shr.i119122, ptr %41, align 8
+  %or174123 = or disjoint i16 %flags.3, 8
+  %spec.select124 = select i1 %tobool137.not, i16 %flags.3, i16 %or174123
+  %flags.4125 = select i1 %is_tiny.0.in, i16 %spec.select124, i16 %flags.3
+  %50 = icmp eq i64 %shr.i119122, 0
+  br i1 %50, label %if.then181, label %if.end186
 
 if.then181:                                       ; preds = %land.lhs.true178
   store i8 1, ptr %p, align 8
   br label %if.end186
 
-if.end186:                                        ; preds = %if.end113, %land.end, %land.lhs.true178, %if.then181, %if.then116, %if.end89
-  %exp.5 = phi i32 [ %exp.2, %if.end89 ], [ %exp.4, %if.end113 ], [ 0, %if.then116 ], [ 0, %if.then181 ], [ 0, %land.lhs.true178 ], [ 1, %land.end ]
-  %flags.5 = phi i16 [ %flags.1, %if.end89 ], [ %flags.2, %if.end113 ], [ 64, %if.then116 ], [ %flags.4127, %if.then181 ], [ %flags.4127, %land.lhs.true178 ], [ %flags.4, %land.end ]
+if.end186:                                        ; preds = %land.end, %if.end113, %land.lhs.true178, %if.then181, %if.then116, %if.end89
+  %exp.5 = phi i32 [ %exp.2, %if.end89 ], [ %exp.4, %if.end113 ], [ 0, %if.then116 ], [ 0, %if.then181 ], [ 0, %land.lhs.true178 ], [ %spec.select130, %land.end ]
+  %flags.5 = phi i16 [ %flags.1, %if.end89 ], [ %flags.2, %if.end113 ], [ 64, %if.then116 ], [ %flags.4125, %if.then181 ], [ %flags.4125, %land.lhs.true178 ], [ %flags.4, %land.end ]
   store i32 %exp.5, ptr %exp34, align 4
-  %49 = load i16, ptr %s, align 2
-  %or1.i = or i16 %49, %flags.5
+  %51 = load i16, ptr %s, align 2
+  %or1.i = or i16 %51, %flags.5
   store i16 %or1.i, ptr %s, align 2
   ret void
 }

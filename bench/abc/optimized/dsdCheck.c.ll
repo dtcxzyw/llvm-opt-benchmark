@@ -26,13 +26,13 @@ define void @Dsd_CheckCacheAllocate(i32 noundef %0) local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %.loopexit.i
   %.not15.i = icmp ult i32 %3, 9
-  br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
+  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i
 
 5:                                                ; preds = %.lr.ph.i
   %6 = add nuw nsw i32 %.01116.i, 2
   %7 = mul nsw i32 %6, %6
   %.not.i = icmp ugt i32 %7, %3
-  br i1 %.not.i, label %Abc_PrimeCudd.exit.thread, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %5
   %.01116.i = phi i32 [ %6, %5 ], [ 3, %.preheader.i ]
@@ -40,11 +40,7 @@ define void @Dsd_CheckCacheAllocate(i32 noundef %0) local_unnamed_addr #0 {
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit.i.backedge, label %5, !llvm.loop !4
 
-Abc_PrimeCudd.exit:                               ; preds = %.preheader.i
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %Dsd_CheckCacheClear.exit, label %Abc_PrimeCudd.exit.thread
-
-Abc_PrimeCudd.exit.thread:                        ; preds = %5, %Abc_PrimeCudd.exit
+.loopexit:                                        ; preds = %.preheader.i, %5
   %10 = getelementptr inbounds i8, ptr %calloc, i64 8
   store i32 %3, ptr %10, align 8
   %11 = sext i32 %3 to i64
@@ -54,8 +50,8 @@ Abc_PrimeCudd.exit.thread:                        ; preds = %5, %Abc_PrimeCudd.e
   %14 = icmp ult i32 %.012.i, 2147483647
   br i1 %14, label %.lr.ph.i7, label %Dsd_CheckCacheClear.exit
 
-.lr.ph.i7:                                        ; preds = %Abc_PrimeCudd.exit.thread, %.lr.ph.i7
-  %.02.i = phi i32 [ %16, %.lr.ph.i7 ], [ 0, %Abc_PrimeCudd.exit.thread ]
+.lr.ph.i7:                                        ; preds = %.loopexit, %.lr.ph.i7
+  %.02.i = phi i32 [ %16, %.lr.ph.i7 ], [ 0, %.loopexit ]
   %15 = load ptr, ptr %calloc, align 8
   store ptr null, ptr %15, align 8
   %16 = add nuw nsw i32 %.02.i, 1
@@ -63,7 +59,7 @@ Abc_PrimeCudd.exit.thread:                        ; preds = %5, %Abc_PrimeCudd.e
   %18 = icmp slt i32 %16, %17
   br i1 %18, label %.lr.ph.i7, label %Dsd_CheckCacheClear.exit, !llvm.loop !7
 
-Dsd_CheckCacheClear.exit:                         ; preds = %.lr.ph.i7, %Abc_PrimeCudd.exit, %Abc_PrimeCudd.exit.thread
+Dsd_CheckCacheClear.exit:                         ; preds = %.lr.ph.i7, %.loopexit
   ret void
 }
 

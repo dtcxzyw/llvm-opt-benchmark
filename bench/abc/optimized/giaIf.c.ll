@@ -945,7 +945,7 @@ define i32 @Gia_ManComputeOverlap2One_rec(ptr noundef %0, i32 noundef %1, ptr no
   %15 = tail call i32 @Gia_ManComputeOverlap2One_rec(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %2, ptr noundef %3)
   %.val21 = load i64, ptr %11, align 4
   %16 = lshr i64 %.val21, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 536870911
   %19 = sub nsw i32 %1, %18
   %20 = tail call i32 @Gia_ManComputeOverlap2One_rec(ptr noundef %0, i32 noundef %19, ptr noundef nonnull %2, ptr noundef %3)
@@ -1435,7 +1435,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %15 = tail call i32 @Gia_ManComputeOverlapOne_rec(ptr noundef nonnull %0, i32 noundef %14)
   %.val13 = load i64, ptr %11, align 4
   %16 = lshr i64 %.val13, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 536870911
   %19 = sub nsw i32 %.tr1823, %18
   %20 = add i32 %accumulator.tr22, 1
@@ -1692,7 +1692,7 @@ define i32 @Gia_ManCountDupLut(ptr noundef %0) local_unnamed_addr #3 {
   %50 = and i32 %49, 1
   %51 = add nsw i32 %50, %.06794
   %52 = lshr i64 %.val82, 62
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw nsw i64 %52 to i32
   %54 = and i32 %53, 1
   %55 = add nsw i32 %54, %.096
   %56 = or i64 %.val82, 1073741824
@@ -1711,7 +1711,7 @@ define i32 @Gia_ManCountDupLut(ptr noundef %0) local_unnamed_addr #3 {
   %64 = and i32 %63, 1
   %65 = add nsw i32 %51, %64
   %66 = lshr i64 %.val83, 62
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw nsw i64 %66 to i32
   %68 = and i32 %67, 1
   %69 = add nsw i32 %55, %68
   br label %.sink.split
@@ -1740,7 +1740,7 @@ define i32 @Gia_ManCountDupLut(ptr noundef %0) local_unnamed_addr #3 {
   %86 = and i32 %85, 1
   %87 = add nsw i32 %86, %.06794
   %88 = lshr i64 %.val84, 62
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw nsw i64 %88 to i32
   %90 = and i32 %89, 1
   %91 = add nsw i32 %90, %.096
   br label %.sink.split
@@ -2510,7 +2510,7 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
 
 20:                                               ; preds = %19
   %21 = lshr i64 %.val80, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = and i32 %22, 536870911
   %24 = tail call i32 @Tim_ManBoxForCi(ptr noundef nonnull %4, i32 noundef %23) #26
   %25 = icmp sgt i32 %24, -1
@@ -4734,7 +4734,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %59 = shl nuw nsw i64 %indvars.iv92, 2
   %60 = add nuw nsw i64 %59, 48
   %61 = lshr i64 %11, %60
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = and i32 %62, 7
   switch i32 %63, label %90 [
     i32 6, label %64
@@ -5542,7 +5542,7 @@ Vec_IntFree.exit:                                 ; preds = %214, %217
   br i1 %or.cond3, label %226, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %222
-  %wide.trip.count = and i64 %223, 2147483647
+  %wide.trip.count = and i64 %223, 4294967295
   br label %.lr.ph
 
 226:                                              ; preds = %222
@@ -8712,7 +8712,7 @@ Vec_IntPrint.exit:                                ; preds = %98, %.critedge
   %135 = getelementptr inbounds i32, ptr %.val88, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = lshr i64 %.val3.i.i, 61
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw nsw i64 %137 to i32
   %139 = and i32 %138, 1
   %140 = xor i32 %139, %136
   %141 = call fastcc i32 @Gia_ManAppendAnd(ptr noundef %1, i32 noundef %130, i32 noundef %140), !range !44
@@ -9204,7 +9204,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %170, %Abc_TtHasVar.
   br i1 %172, label %.lr.ph.i.i131, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i131:                                    ; preds = %.lr.ph.split.split.split.i
-  %173 = trunc i64 %indvars.iv.i124 to i32
+  %173 = trunc nuw i64 %indvars.iv.i124 to i32
   %174 = shl nuw nsw i32 1, %173
   %175 = zext nneg i32 %174 to i64
   %176 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i124
@@ -12970,7 +12970,7 @@ define void @Gia_ManMappingVerify(ptr noundef %0) local_unnamed_addr #3 {
   %12 = trunc i64 %.val58 to i32
   %13 = and i32 %12, 536870911
   %14 = lshr i64 %.val58, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = and i32 %15, 536870911
   %17 = icmp ne i32 %13, %16
   %.not.i = icmp eq i32 %13, 536870911
@@ -15018,7 +15018,7 @@ Abc_UtilStrsav.exit101:                           ; preds = %Abc_UtilStrsav.exit
   %57 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %41, i64 %56, i32 1
   %58 = load i32, ptr %57, align 4
   %59 = lshr i64 %.val95, 61
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw nsw i64 %59 to i32
   %61 = and i32 %60, 1
   %62 = xor i32 %58, %61
   %63 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %3, i32 noundef %53, i32 noundef %62) #26

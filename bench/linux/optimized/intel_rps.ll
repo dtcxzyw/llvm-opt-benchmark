@@ -1136,7 +1136,7 @@ define dso_local i32 @intel_rps_set_boost_frequency(ptr noundef %0, i32 noundef 
   br i1 %78, label %90, label %79
 
 79:                                               ; preds = %74
-  %80 = trunc i32 %64 to i8
+  %80 = trunc nuw i32 %64 to i8
   store i8 %80, ptr %75, align 2
   %81 = getelementptr inbounds i8, ptr %0, i64 208
   %82 = load volatile i32, ptr %81, align 4
@@ -2307,7 +2307,7 @@ define internal fastcc void @gen5_rps_enable(ptr nocapture noundef %0) unnamed_a
   %165 = udiv i32 %164, 1000
   %166 = mul nuw nsw i32 %165, 255
   %167 = udiv i32 %166, 14516100
-  %168 = trunc i32 %167 to i8
+  %168 = trunc nuw nsw i32 %167 to i8
   %169 = getelementptr [16 x i8], ptr %2, i64 0, i64 %143
   store i8 %168, ptr %169, align 1
   %170 = add nuw nsw i64 %143, 1
@@ -2659,48 +2659,44 @@ define dso_local void @gen6_rps_irq_handler(ptr noundef %0, i32 noundef %1) loca
   %22 = getelementptr inbounds i8, ptr %21, i64 7176
   %23 = load i8, ptr %22, align 8
   %24 = icmp ugt i8 %23, 7
-  br i1 %24, label %48, label %25
+  br i1 %24, label %46, label %25
 
 25:                                               ; preds = %20
   %26 = and i32 %1, 1024
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %37, label %28
+  br i1 %27, label %35, label %28
 
 28:                                               ; preds = %25
   %29 = lshr i32 %1, 10
   %30 = trunc i32 %29 to i16
-  %31 = icmp eq i16 %30, 0
-  br i1 %31, label %37, label %32
-
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %0, i64 488
+  %31 = getelementptr i8, ptr %0, i64 488
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 784
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 784
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef %34, i16 noundef zeroext %30) #10
-  br label %37
+  tail call void %34(ptr noundef %32, i16 noundef zeroext %30) #10
+  br label %35
 
-37:                                               ; preds = %32, %28, %25
-  %38 = and i32 %1, 4096
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %48, label %40
+35:                                               ; preds = %28, %25
+  %36 = and i32 %1, 4096
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %46, label %38
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %3, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %46, label %43
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %3, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %44, label %41
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
-  %45 = load ptr, ptr %44, align 8
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = load ptr, ptr %42, align 8
+  br label %44
+
+44:                                               ; preds = %41, %38
+  %45 = phi ptr [ %43, %41 ], [ null, %38 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %45, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef %1) #10
   br label %46
 
-46:                                               ; preds = %43, %40
-  %47 = phi ptr [ %45, %43 ], [ null, %40 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %47, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef %1) #10
-  br label %48
-
-48:                                               ; preds = %46, %37, %20
+46:                                               ; preds = %44, %35, %20
   ret void
 }
 
@@ -3324,7 +3320,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %62, label %97, label %63
 
 63:                                               ; preds = %61
-  %64 = trunc i32 %56 to i16
+  %64 = trunc nuw nsw i32 %56 to i16
   %65 = mul nuw nsw i16 %64, 50
   %.lhs.trunc35 = or disjoint i16 %65, 1
   %66 = udiv i16 %.lhs.trunc35, 3
@@ -3401,7 +3397,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %115, label %150, label %116
 
 116:                                              ; preds = %114
-  %117 = trunc i32 %109 to i16
+  %117 = trunc nuw nsw i32 %109 to i16
   %118 = mul nuw nsw i16 %117, 50
   %.lhs.trunc33 = or disjoint i16 %118, 1
   %119 = udiv i16 %.lhs.trunc33, 3
@@ -3477,7 +3473,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %167, label %202, label %168
 
 168:                                              ; preds = %166
-  %169 = trunc i32 %161 to i16
+  %169 = trunc nuw nsw i32 %161 to i16
   %170 = mul nuw nsw i16 %169, 50
   %.lhs.trunc31 = or disjoint i16 %170, 1
   %171 = udiv i16 %.lhs.trunc31, 3
@@ -3554,7 +3550,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %220, label %255, label %221
 
 221:                                              ; preds = %219
-  %222 = trunc i32 %214 to i16
+  %222 = trunc nuw nsw i32 %214 to i16
   %223 = mul nuw nsw i16 %222, 50
   %.lhs.trunc29 = or disjoint i16 %223, 1
   %224 = udiv i16 %.lhs.trunc29, 3
@@ -3674,7 +3670,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   %299 = lshr i32 %298, 3
   %300 = and i32 %299, 255
   %301 = tail call i32 @llvm.umin.i32(i32 %300, i32 234)
-  %302 = trunc i32 %301 to i8
+  %302 = trunc nuw i32 %301 to i8
   %303 = getelementptr inbounds i8, ptr %0, i64 140
   store i8 %302, ptr %303, align 4
   %304 = getelementptr inbounds i8, ptr %0, i64 146
@@ -3700,7 +3696,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %316, label %351, label %317
 
 317:                                              ; preds = %315
-  %318 = trunc i32 %301 to i16
+  %318 = trunc nuw nsw i32 %301 to i16
   %319 = mul nuw nsw i16 %318, 50
   %.lhs.trunc27 = or disjoint i16 %319, 1
   %320 = udiv i16 %.lhs.trunc27, 3
@@ -3778,7 +3774,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %370, label %405, label %371
 
 371:                                              ; preds = %369
-  %372 = trunc i32 %364 to i16
+  %372 = trunc nuw nsw i32 %364 to i16
   %373 = mul nuw nsw i16 %372, 50
   %.lhs.trunc25 = or disjoint i16 %373, 1
   %374 = udiv i16 %.lhs.trunc25, 3
@@ -3855,7 +3851,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %423, label %458, label %424
 
 424:                                              ; preds = %422
-  %425 = trunc i32 %417 to i16
+  %425 = trunc nuw nsw i32 %417 to i16
   %426 = mul nuw nsw i16 %425, 50
   %.lhs.trunc23 = or disjoint i16 %426, 1
   %427 = udiv i16 %.lhs.trunc23, 3
@@ -3909,7 +3905,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   %461 = tail call i32 @vlv_punit_read(ptr noundef %460, i32 noundef 211) #10
   %462 = and i32 %461, 255
   %463 = tail call i32 @llvm.umax.i32(i32 %462, i32 192)
-  %464 = trunc i32 %463 to i8
+  %464 = trunc nuw i32 %463 to i8
   %465 = getelementptr inbounds i8, ptr %0, i64 141
   store i8 %464, ptr %465, align 1
   br i1 %305, label %469, label %466
@@ -3928,7 +3924,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %474, label %475, label %479
 
 475:                                              ; preds = %469
-  %476 = trunc i32 %463 to i16
+  %476 = trunc nuw nsw i32 %463 to i16
   %477 = mul nuw nsw i16 %476, 50
   %.lhs.trunc = or disjoint i16 %477, 1
   %478 = udiv i16 %.lhs.trunc, 3
@@ -4083,7 +4079,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   %567 = load i8, ptr %523, align 1
   %568 = zext i8 %567 to i32
   %569 = call i32 @llvm.umax.i32(i32 %562, i32 %568)
-  %570 = trunc i32 %569 to i8
+  %570 = trunc nuw i32 %569 to i8
   br label %571
 
 571:                                              ; preds = %566, %558
@@ -4403,7 +4399,7 @@ define dso_local i32 @intel_rps_read_actual_frequency(ptr nocapture noundef read
   br label %55
 
 22:                                               ; preds = %16
-  %23 = trunc i32 %17 to i16
+  %23 = trunc nsw i32 %17 to i16
   %.lhs.trunc = add nsw i16 %23, -1
   %24 = sdiv i16 %.lhs.trunc, 3
   %.sext = sext i16 %24 to i32
@@ -4483,7 +4479,7 @@ define dso_local i32 @intel_rps_read_actual_frequency_fw(ptr nocapture noundef r
   br label %49
 
 14:                                               ; preds = %8
-  %15 = trunc i32 %9 to i16
+  %15 = trunc nsw i32 %9 to i16
   %.lhs.trunc = add nsw i16 %15, -1
   %16 = sdiv i16 %.lhs.trunc, 3
   %.sext = sext i16 %16 to i32
@@ -4724,7 +4720,7 @@ define dso_local i32 @intel_rps_read_punit_req_frequency(ptr nocapture noundef r
   br i1 %24, label %.thread2, label %25
 
 25:                                               ; preds = %23
-  %26 = trunc i32 %12 to i16
+  %26 = trunc nuw nsw i32 %12 to i16
   %27 = mul nuw nsw i16 %26, 50
   %.lhs.trunc = or disjoint i16 %27, 1
   %28 = udiv i16 %.lhs.trunc, 3
@@ -6104,7 +6100,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br i1 %558, label %595, label %559
 
 559:                                              ; preds = %557
-  %560 = trunc i32 %552 to i16
+  %560 = trunc nuw nsw i32 %552 to i16
   %561 = mul nuw nsw i16 %560, 50
   %.lhs.trunc40 = or disjoint i16 %561, 1
   %562 = udiv i16 %.lhs.trunc40, 3
@@ -7173,7 +7169,7 @@ define dso_local i32 @intel_rps_set_max_frequency(ptr noundef %0, i32 noundef %1
   br label %129
 
 129:                                              ; preds = %127, %80
-  %130 = trunc i32 %65 to i8
+  %130 = trunc nuw i32 %65 to i8
   %131 = getelementptr inbounds i8, ptr %0, i64 139
   store i8 %130, ptr %131, align 1
   %132 = getelementptr inbounds i8, ptr %0, i64 136
@@ -7453,7 +7449,7 @@ define dso_local i32 @intel_rps_set_min_frequency(ptr noundef %0, i32 noundef %1
   br i1 %78, label %90, label %79
 
 79:                                               ; preds = %74
-  %80 = trunc i32 %64 to i8
+  %80 = trunc nuw i32 %64 to i8
   %81 = getelementptr inbounds i8, ptr %0, i64 138
   store i8 %80, ptr %81, align 2
   %82 = getelementptr inbounds i8, ptr %0, i64 136
@@ -7461,7 +7457,7 @@ define dso_local i32 @intel_rps_set_min_frequency(ptr noundef %0, i32 noundef %1
   %84 = icmp ult i8 %83, %76
   %85 = zext i8 %83 to i32
   %86 = tail call i32 @llvm.umax.i32(i32 %64, i32 %85)
-  %87 = trunc i32 %86 to i8
+  %87 = trunc nuw i32 %86 to i8
   %88 = select i1 %84, i8 %87, i8 %76
   %89 = tail call i32 @intel_rps_set(ptr noundef %0, i8 noundef zeroext %88)
   br label %90
@@ -7897,7 +7893,7 @@ define dso_local i64 @i915_read_mch_val() #0 align 16 {
   %79 = tail call i32 %78(ptr noundef %71, i32 %76, i1 noundef zeroext true) #10
   %80 = lshr i32 %79, 24
   %81 = load ptr, ptr %28, align 8
-  %82 = trunc i32 %80 to i8
+  %82 = trunc nuw i32 %80 to i8
   %83 = and i8 %82, 127
   %84 = icmp eq i8 %83, 0
   br i1 %84, label %92, label %85
@@ -7927,7 +7923,7 @@ define dso_local i64 @i915_read_mch_val() #0 align 16 {
   %105 = lshr i32 %99, 8
   %106 = and i32 %105, 255
   %107 = mul nuw nsw i32 %106, %103
-  %.lhs.trunc = trunc i32 %107 to i16
+  %.lhs.trunc = trunc nuw i32 %107 to i16
   %108 = udiv i16 %.lhs.trunc, 127
   %.zext = zext nneg i16 %108 to i32
   %109 = sub nsw i32 %.zext, %104

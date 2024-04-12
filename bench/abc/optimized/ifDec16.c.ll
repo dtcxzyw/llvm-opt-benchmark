@@ -439,7 +439,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %Abc_TtSwapVars.exit
   br i1 %.not.i.i, label %Abc_TtHasVar.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %73
-  %74 = trunc i64 %indvars.iv.i56 to i32
+  %74 = trunc nuw i64 %indvars.iv.i56 to i32
   %75 = shl nuw nsw i32 1, %74
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i56
@@ -516,7 +516,7 @@ Abc_TtHasVar.exit.thread4.i:                      ; preds = %80, %95
 
 .lr.ph.i35.i:                                     ; preds = %106
   %.neg.i.i = shl nsw i32 -1, %.019.i
-  %107 = trunc i64 %indvars.iv.i56 to i32
+  %107 = trunc nuw i64 %indvars.iv.i56 to i32
   %108 = shl nuw nsw i32 1, %107
   %109 = add nsw i32 %.neg.i.i, %108
   %110 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %103, i64 %indvars.iv.i56
@@ -679,7 +679,7 @@ Abc_TtMinBase.exit:                               ; preds = %Abc_TtHasVar.exit.t
   br i1 %or.cond, label %187, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Abc_TtMinBase.exit
-  %wide.trip.count = and i64 %184, 2147483647
+  %wide.trip.count = and i64 %184, 4294967295
   br label %.lr.ph
 
 187:                                              ; preds = %Abc_TtMinBase.exit
@@ -839,7 +839,7 @@ If_CluHasVar.exit.us.us:                          ; preds = %.preheader.lr.ph.i.
   br label %If_CluHasVar.exit.thread.us.us
 
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph.split.us.split.us
-  %28 = trunc i64 %indvars.iv47 to i32
+  %28 = trunc nuw i64 %indvars.iv47 to i32
   %29 = shl nuw nsw i32 1, %28
   %30 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv47
   %31 = load i64, ptr %30, align 8
@@ -2251,7 +2251,7 @@ If_CluChangePhase.exit:                           ; preds = %._crit_edge.us.i, %
   br i1 %59, label %If_CluSwapAdjacent.exit.us, label %.lr.ph135.i.us
 
 .lr.ph135.i.us:                                   ; preds = %120
-  %121 = trunc i64 %indvars.iv129 to i32
+  %121 = trunc nuw i64 %indvars.iv129 to i32
   %122 = shl nuw nsw i32 1, %121
   %123 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %indvars.iv129
   %124 = load i64, ptr %123, align 8
@@ -2615,7 +2615,7 @@ If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheade
   br i1 %12, label %If_CluSwapAdjacent.exit.us, label %.lr.ph135.i.us
 
 .lr.ph135.i.us:                                   ; preds = %64
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw i64 %indvars.iv to i32
   %66 = shl nuw nsw i32 1, %65
   %67 = getelementptr inbounds [5 x [3 x i64]], ptr @PMasks, i64 0, i64 %indvars.iv
   %68 = load i64, ptr %67, align 8
@@ -5398,7 +5398,7 @@ If_CluCopy.exit:                                  ; preds = %.lr.ph.preheader.i,
   br i1 %37, label %.lr.ph.i85, label %.loopexit.i
 
 .lr.ph.i85:                                       ; preds = %42
-  %43 = trunc i64 %indvars.iv138 to i32
+  %43 = trunc nuw i64 %indvars.iv138 to i32
   %44 = shl nuw nsw i32 1, %43
   %45 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv138
   %46 = load i64, ptr %45, align 8
@@ -7196,7 +7196,7 @@ define noundef i32 @If_CluMinimumBase(ptr nocapture noundef %0, ptr noundef %1, 
   br i1 %29, label %.preheader.us.i.us, label %If_CluHasVar.exit.thread.us, !llvm.loop !8
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.split.us
-  %30 = trunc i64 %indvars.iv84 to i32
+  %30 = trunc nuw i64 %indvars.iv84 to i32
   %31 = shl nuw nsw i32 1, %30
   %32 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv84
   %33 = load i64, ptr %32, align 8
@@ -7614,7 +7614,7 @@ If_CluHasVar.exit.us.us.i:                        ; preds = %.preheader.lr.ph.i.
   br label %If_CluHasVar.exit.thread.us.us.i
 
 .lr.ph.i.us.us.i:                                 ; preds = %.lr.ph.split.us.split.us.i
-  %71 = trunc i64 %indvars.iv47.i to i32
+  %71 = trunc nuw i64 %indvars.iv47.i to i32
   %72 = shl nuw nsw i32 1, %71
   %73 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv47.i
   %74 = load i64, ptr %73, align 8
@@ -9324,7 +9324,7 @@ define float @If_CutDelayLutStruct(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %exitcond136.not, label %._crit_edge, label %56, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %56, %.critedge.thread, %49
-  %59 = trunc i32 %11 to i8
+  %59 = trunc nuw nsw i32 %11 to i8
   %60 = icmp sgt i8 %59, 0
   br i1 %60, label %.lr.ph.i, label %If_CluDelayMax.exit
 
@@ -9549,7 +9549,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
 
 166:                                              ; preds = %154, %._crit_edge121.loopexit
   %167 = phi i8 [ %.pre, %._crit_edge121.loopexit ], [ 0, %154 ]
-  %168 = trunc i32 %11 to i8
+  %168 = trunc nuw i32 %11 to i8
   %169 = getelementptr inbounds i8, ptr %8, i64 2
   %170 = add i8 %167, 1
   store i8 %170, ptr %8, align 1

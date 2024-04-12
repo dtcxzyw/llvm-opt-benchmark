@@ -86,7 +86,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   br i1 %50, label %51, label %28, !llvm.loop !6
 
 51:                                               ; preds = %44
-  %52 = trunc i32 %3 to i16
+  %52 = trunc nuw nsw i32 %3 to i16
   store i16 %52, ptr %0, align 4
   %53 = getelementptr inbounds i8, ptr %0, i64 2
   store i16 %47, ptr %53, align 2
@@ -107,10 +107,10 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %64 = shl nuw nsw i64 %62, 1
   br label %.critedge
 
-65:                                               ; preds = %55, %.loopexit12
-  %66 = phi i64 [ %82, %.loopexit12 ], [ 0, %55 ]
-  %67 = phi i64 [ %83, %.loopexit12 ], [ 0, %55 ]
-  %68 = phi i64 [ %81, %.loopexit12 ], [ 0, %55 ]
+65:                                               ; preds = %.loopexit12, %55
+  %66 = phi i64 [ 0, %55 ], [ %82, %.loopexit12 ]
+  %67 = phi i64 [ 0, %55 ], [ %83, %.loopexit12 ]
+  %68 = phi i64 [ 0, %55 ], [ %81, %.loopexit12 ]
   %69 = getelementptr i16, ptr %1, i64 %66
   %70 = load i16, ptr %69, align 2
   %71 = getelementptr i8, ptr %10, i64 %68
@@ -232,7 +232,7 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %144 = tail call i32 @llvm.ctlz.i32(i32 %143, i1 true), !range !15
   %145 = xor i32 %144, 31
   %146 = sub nsw i32 %3, %145
-  %147 = trunc i32 %146 to i8
+  %147 = trunc nsw i32 %146 to i8
   %148 = getelementptr inbounds i8, ptr %136, i64 3
   store i8 %147, ptr %148, align 1
   %149 = and i32 %146, 255
@@ -404,7 +404,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 .thread53:                                        ; preds = %65
   %71 = zext i8 %69 to i32
   %72 = tail call i32 @llvm.ctlz.i32(i32 %71, i1 true), !range !15
-  %73 = trunc i64 %3 to i32
+  %73 = trunc nuw nsw i64 %3 to i32
   %74 = shl nuw nsw i32 %73, 3
   %75 = sub nsw i32 %72, %74
   %76 = add nsw i32 %75, 41
@@ -924,7 +924,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 .thread70:                                        ; preds = %458
   %464 = zext i8 %462 to i32
   %465 = tail call i32 @llvm.ctlz.i32(i32 %464, i1 true), !range !15
-  %466 = trunc i64 %3 to i32
+  %466 = trunc nuw nsw i64 %3 to i32
   %467 = shl nuw nsw i32 %466, 3
   %468 = sub nsw i32 %465, %467
   %469 = add nsw i32 %468, 41
@@ -1471,7 +1471,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   store i64 %71, ptr %9, align 8
   %72 = lshr i64 %71, 56
   %73 = icmp ult i64 %71, 72057594037927936
-  %74 = trunc i64 %72 to i32
+  %74 = trunc nuw nsw i64 %72 to i32
   %75 = call i32 @llvm.ctlz.i32(i32 %74, i1 true), !range !15
   %76 = xor i32 %75, 31
   %77 = sub nuw nsw i32 8, %76
@@ -1561,7 +1561,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %131 = zext i8 %128 to i32
   %132 = call i32 @llvm.ctlz.i32(i32 %131, i1 true), !range !15
   %133 = xor i32 %132, 31
-  %134 = trunc i64 %30 to i32
+  %134 = trunc nuw nsw i64 %30 to i32
   %135 = shl nuw nsw i32 %134, 3
   %136 = add nuw nsw i32 %133, %135
   %137 = sub nsw i32 72, %136
@@ -2355,7 +2355,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   store i64 %66, ptr %8, align 8
   %67 = lshr i64 %66, 56
   %68 = icmp ult i64 %66, 72057594037927936
-  %69 = trunc i64 %67 to i32
+  %69 = trunc nuw nsw i64 %67 to i32
   %70 = call i32 @llvm.ctlz.i32(i32 %69, i1 true), !range !15
   %71 = xor i32 %70, 31
   %72 = sub nuw nsw i32 8, %71
@@ -2445,7 +2445,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %126 = zext i8 %123 to i32
   %127 = call i32 @llvm.ctlz.i32(i32 %126, i1 true), !range !15
   %128 = xor i32 %127, 31
-  %129 = trunc i64 %25 to i32
+  %129 = trunc nuw nsw i64 %25 to i32
   %130 = shl nuw nsw i32 %129, 3
   %131 = add nuw nsw i32 %128, %130
   %132 = sub nsw i32 72, %131
@@ -2813,7 +2813,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   store i64 %394, ptr %11, align 8
   %395 = lshr i64 %394, 56
   %396 = icmp ult i64 %394, 72057594037927936
-  %397 = trunc i64 %395 to i32
+  %397 = trunc nuw nsw i64 %395 to i32
   %398 = call i32 @llvm.ctlz.i32(i32 %397, i1 true), !range !15
   %399 = xor i32 %398, 31
   %400 = sub nuw nsw i32 8, %399
@@ -2903,7 +2903,7 @@ BIT_initDStream.exit.thread40:                    ; preds = %448
   %454 = zext i8 %451 to i32
   %455 = call i32 @llvm.ctlz.i32(i32 %454, i1 true), !range !15
   %456 = xor i32 %455, 31
-  %457 = trunc i64 %25 to i32
+  %457 = trunc nuw nsw i64 %25 to i32
   %458 = shl nuw nsw i32 %457, 3
   %459 = add nuw nsw i32 %456, %458
   %460 = sub nsw i32 72, %459
@@ -3389,7 +3389,7 @@ define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeo
   br i1 %74, label %86, label %81
 
 81:                                               ; preds = %70
-  %82 = trunc i64 %2 to i32
+  %82 = trunc nuw nsw i64 %2 to i32
   %83 = shl nuw nsw i32 %82, 3
   %reass.sub = sub nsw i32 %78, %83
   %84 = add nsw i32 %reass.sub, 64

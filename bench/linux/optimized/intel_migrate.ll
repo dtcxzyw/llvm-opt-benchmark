@@ -550,7 +550,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %74, %79, %123, %.loopexit64
-  %.pre-phi = phi i64 [ %.pre92, %79 ], [ %.pre92, %123 ], [ %48, %.loopexit64 ], [ %.pre92, %74 ]
+  %.pre-phi = phi i64 [ %.pre92, %79 ], [ 1, %123 ], [ %48, %.loopexit64 ], [ %.pre92, %74 ]
   %125 = phi i1 [ %54, %79 ], [ %54, %123 ], [ false, %.loopexit64 ], [ %54, %74 ]
   %126 = phi i1 [ %55, %79 ], [ %55, %123 ], [ false, %.loopexit64 ], [ %55, %74 ]
   %127 = phi i8 [ %75, %79 ], [ %75, %123 ], [ 0, %.loopexit64 ], [ %75, %74 ]
@@ -638,7 +638,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   %185 = icmp eq i64 %161, 0
   %186 = or i1 %185, %4
   %187 = tail call i64 @llvm.umin.i64(i64 %162, i64 8388608)
-  %188 = trunc i64 %187 to i32
+  %188 = trunc nuw nsw i64 %187 to i32
   %189 = select i1 %186, i32 8388608, i32 %188
   %190 = call fastcc i32 @emit_pte(ptr noundef %159, ptr noundef nonnull %10, i32 noundef %3, i1 noundef zeroext %4, i64 noundef %149, i32 noundef %189)
   %191 = icmp eq i32 %190, 0
@@ -1113,11 +1113,11 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   %68 = tail call i32 @llvm.umin.i32(i32 %60, i32 %67)
   %69 = getelementptr i8, ptr %43, i64 4
   store i32 270532608, ptr %43, align 4
-  %70 = trunc i64 %36 to i32
+  %70 = trunc nuw nsw i64 %36 to i32
   %71 = getelementptr i8, ptr %43, i64 8
   store i32 %70, ptr %69, align 4
   %72 = lshr i64 %51, 32
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw nsw i64 %72 to i32
   %74 = getelementptr i8, ptr %43, i64 12
   store i32 %73, ptr %71, align 4
   %75 = getelementptr inbounds i8, ptr %24, i64 16
@@ -1210,7 +1210,7 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   %141 = getelementptr i8, ptr %104, i64 8
   store i32 %140, ptr %139, align 4
   %142 = lshr i64 %121, 32
-  %143 = trunc i64 %142 to i32
+  %143 = trunc nuw i64 %142 to i32
   %144 = getelementptr i8, ptr %104, i64 12
   store i32 %143, ptr %141, align 4
   br label %145
@@ -1228,7 +1228,7 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   %154 = load i64, ptr %77, align 8
   %155 = or i64 %154, %22
   %156 = lshr i64 %155, 32
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw i64 %156 to i32
   %158 = getelementptr i8, ptr %149, i64 8
   store i32 %157, ptr %153, align 4
   %159 = add i64 %146, 8

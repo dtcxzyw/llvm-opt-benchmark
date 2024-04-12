@@ -420,7 +420,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntFill.exit66,
   %98 = getelementptr inbounds i8, ptr %1, i64 88
   %99 = load i32, ptr %98, align 8
   %.not41 = icmp eq i32 %99, 0
-  br i1 %.not41, label %132, label %100
+  br i1 %.not41, label %131, label %100
 
 100:                                              ; preds = %Vec_IntGrow.exit
   %101 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
@@ -464,59 +464,49 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %113 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %106
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
   store i32 %spec.store.select.i.i.i.i, ptr %113, align 8
-  %.not.i.i.i.i = icmp eq i32 %spec.store.select.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %Vec_IntAlloc.exit.thread.i.i.i, label %Vec_IntAlloc.exit.i.i.i
-
-Vec_IntAlloc.exit.thread.i.i.i:                   ; preds = %Abc_PrimeCudd.exit.i.i
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
-  store ptr null, ptr %115, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %115 = sext i32 %spec.store.select.i.i.i.i to i64
+  %116 = shl nsw i64 %115, 2
+  %117 = call noalias ptr @malloc(i64 noundef %116) #25
+  %118 = getelementptr inbounds i8, ptr %113, i64 8
+  store ptr %117, ptr %118, align 8
   store i32 %106, ptr %114, align 4
+  %.not.i3.i.i = icmp eq ptr %117, null
+  br i1 %.not.i3.i.i, label %Vec_MemAllocForTT.exit, label %119
+
+119:                                              ; preds = %Abc_PrimeCudd.exit.i.i
+  %120 = sext i32 %106 to i64
+  %121 = shl nsw i64 %120, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %117, i8 -1, i64 %121, i1 false)
   br label %Vec_MemAllocForTT.exit
 
-Vec_IntAlloc.exit.i.i.i:                          ; preds = %Abc_PrimeCudd.exit.i.i
-  %116 = sext i32 %spec.store.select.i.i.i.i to i64
-  %117 = shl nsw i64 %116, 2
-  %118 = call noalias ptr @malloc(i64 noundef %117) #25
-  %119 = getelementptr inbounds i8, ptr %113, i64 8
-  store ptr %118, ptr %119, align 8
-  store i32 %106, ptr %114, align 4
-  %.not.i3.i.i = icmp eq ptr %118, null
-  br i1 %.not.i3.i.i, label %Vec_MemAllocForTT.exit, label %120
-
-120:                                              ; preds = %Vec_IntAlloc.exit.i.i.i
-  %121 = sext i32 %106 to i64
-  %122 = shl nsw i64 %121, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %118, i8 -1, i64 %122, i1 false)
-  br label %Vec_MemAllocForTT.exit
-
-Vec_MemAllocForTT.exit:                           ; preds = %Vec_IntAlloc.exit.thread.i.i.i, %Vec_IntAlloc.exit.i.i.i, %120
-  %123 = getelementptr inbounds i8, ptr %102, i64 32
-  store ptr %113, ptr %123, align 8
-  %124 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
-  store i32 0, ptr %125, align 4
-  store i32 10000, ptr %124, align 8
-  %126 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #25
-  %127 = getelementptr inbounds i8, ptr %124, i64 8
-  store ptr %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %102, i64 40
-  store ptr %124, ptr %128, align 8
+Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.i.i, %119
+  %122 = getelementptr inbounds i8, ptr %102, i64 32
+  store ptr %113, ptr %122, align 8
+  %123 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  store i32 0, ptr %124, align 4
+  store i32 10000, ptr %123, align 8
+  %125 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #25
+  %126 = getelementptr inbounds i8, ptr %123, i64 8
+  store ptr %125, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %102, i64 40
+  store ptr %123, ptr %127, align 8
   store i64 0, ptr %101, align 8
-  %129 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
+  %128 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
   store i64 -6148914691236517206, ptr %101, align 8
-  %130 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
+  %129 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
   call void @free(ptr noundef %101) #23
-  %131 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %102, ptr %131, align 8
-  br label %132
+  %130 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %102, ptr %130, align 8
+  br label %131
 
-132:                                              ; preds = %Vec_MemAllocForTT.exit, %Vec_IntGrow.exit
-  %133 = load ptr, ptr %4, align 8
+131:                                              ; preds = %Vec_MemAllocForTT.exit, %Vec_IntGrow.exit
+  %132 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
   call void @Of_ManAreaFlow(ptr noundef nonnull %25)
-  store ptr %133, ptr %4, align 8
+  store ptr %132, ptr %4, align 8
   ret ptr %25
 }
 
@@ -939,7 +929,7 @@ Of_ManPrepareCuts.exit:                           ; preds = %32, %._crit_edge.i,
   %.val167 = phi i64 [ %.val167.pre, %74 ], [ %.val166, %83 ], [ %.val166, %._crit_edge.i ], [ %.val166, %32 ]
   %.0.i = phi i32 [ %82, %74 ], [ 1, %83 ], [ %71, %._crit_edge.i ], [ %41, %32 ]
   %91 = lshr i64 %.val167, 32
-  %92 = trunc i64 %91 to i32
+  %92 = trunc nuw i64 %91 to i32
   %93 = and i32 %92, 536870911
   %94 = sub nsw i32 %1, %93
   %95 = sext i32 %94 to i64
@@ -1075,7 +1065,7 @@ Of_ManPrepareCuts.exit204:                        ; preds = %._crit_edge.i180, %
   %161 = lshr i32 %160, 29
   %162 = and i32 %161, 1
   %163 = lshr i64 %.val168, 61
-  %164 = trunc i64 %163 to i32
+  %164 = trunc nuw nsw i64 %163 to i32
   %165 = and i32 %164, 1
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr i8, ptr %166, i64 208
@@ -1238,7 +1228,7 @@ Of_ManPrepareCuts.exit234:                        ; preds = %Of_CutGetSign.exit.
 .lr.ph554:                                        ; preds = %Of_ManPrepareCuts.exit234.thread, %Of_ManPrepareCuts.exit234
   %241 = phi ptr [ %237, %Of_ManPrepareCuts.exit234.thread ], [ %239, %Of_ManPrepareCuts.exit234 ]
   %.lobit = lshr i64 %184, 63
-  %242 = trunc i64 %.lobit to i32
+  %242 = trunc nuw nsw i64 %.lobit to i32
   %243 = getelementptr i8, ptr %0, i64 80
   %244 = getelementptr i8, ptr %0, i64 64
   %245 = call i32 @llvm.umax.i32(i32 %18, i32 1)
@@ -1543,7 +1533,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Of_ManPrepareCuts.e
   %397 = load i64, ptr %.0145556.us.us.us, align 8
   %398 = or i64 %396, %397
   %399 = call i64 @llvm.ctpop.i64(i64 %398), !range !16
-  %400 = trunc i64 %399 to i32
+  %400 = trunc nuw nsw i64 %399 to i32
   %401 = icmp slt i32 %21, %400
   br i1 %401, label %Of_SetAddCut.exit.us.us.us, label %402
 
@@ -2452,7 +2442,7 @@ Gia_ObjIsMuxId.exit.thread:                       ; preds = %.loopexit501, %Gia_
   %885 = trunc i64 %.val175 to i32
   %886 = and i32 %885, 536870911
   %887 = lshr i64 %.val175, 32
-  %888 = trunc i64 %887 to i32
+  %888 = trunc nuw i64 %887 to i32
   %889 = and i32 %888, 536870911
   %890 = icmp uge i32 %886, %889
   br label %Gia_ObjIsXor.exit
@@ -2505,7 +2495,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %918 = load i64, ptr %.1144577.us, align 8
   %919 = or i64 %918, %917
   %920 = call i64 @llvm.ctpop.i64(i64 %919), !range !16
-  %921 = trunc i64 %920 to i32
+  %921 = trunc nuw nsw i64 %920 to i32
   %922 = icmp slt i32 %21, %921
   br i1 %922, label %Of_SetAddCut.exit457.us, label %923
 
@@ -3859,7 +3849,7 @@ define void @Of_ManComputeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %16 = trunc i64 %.val38 to i32
   %17 = and i32 %16, 536870911
   %18 = lshr i64 %.val38, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 536870911
   %21 = icmp eq i32 %17, %20
   %.not.i48 = icmp ne i32 %17, 536870911
@@ -3931,7 +3921,7 @@ define void @Of_ManComputeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %52 = trunc i64 %.val37 to i32
   %53 = and i32 %52, 536870911
   %54 = lshr i64 %.val37, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 536870911
   %57 = icmp eq i32 %53, %56
   %.not.i52 = icmp ne i32 %53, 536870911
@@ -4393,7 +4383,7 @@ define void @Of_ManComputeForward1(ptr nocapture noundef readonly %0) local_unna
   %20 = trunc i64 %.val16 to i32
   %21 = and i32 %20, 536870911
   %22 = lshr i64 %.val16, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 536870911
   %25 = icmp eq i32 %21, %24
   %.not.i21 = icmp ne i32 %21, 536870911
@@ -4972,7 +4962,7 @@ define void @Of_ManComputeForward2(ptr nocapture noundef %0) local_unnamed_addr 
   %21 = trunc i64 %.val16 to i32
   %22 = and i32 %21, 536870911
   %23 = lshr i64 %.val16, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 536870911
   %26 = icmp eq i32 %22, %25
   %.not.i21 = icmp ne i32 %22, 536870911
@@ -5227,7 +5217,7 @@ define void @Of_ManComputeBackward1(ptr nocapture noundef readonly %0) local_unn
   %29 = trunc i64 %.val71 to i32
   %30 = and i32 %29, 536870911
   %31 = lshr i64 %.val71, 32
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, 536870911
   %34 = icmp eq i32 %30, %33
   %.not.i85 = icmp ne i32 %30, 536870911
@@ -5668,7 +5658,7 @@ define void @Of_ManComputeBackward2(ptr nocapture noundef readonly %0) local_unn
   %28 = trunc i64 %.val42 to i32
   %29 = and i32 %28, 536870911
   %30 = lshr i64 %.val42, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   %32 = and i32 %31, 536870911
   %33 = icmp eq i32 %29, %32
   %.not.i53 = icmp ne i32 %29, 536870911
@@ -5824,7 +5814,7 @@ define void @Of_ManComputeBackward3(ptr nocapture noundef %0) local_unnamed_addr
   %31 = trunc i64 %.val72 to i32
   %32 = and i32 %31, 536870911
   %33 = lshr i64 %.val72, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = and i32 %34, 536870911
   %36 = icmp eq i32 %32, %35
   %.not.i86 = icmp ne i32 %32, 536870911
@@ -6406,7 +6396,7 @@ define void @Of_ManComputeForwardDircon1(ptr nocapture noundef readonly %0) loca
   %16 = trunc i64 %.val21 to i32
   %17 = and i32 %16, 536870911
   %18 = lshr i64 %.val21, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 536870911
   %21 = icmp eq i32 %17, %20
   %.not.i29 = icmp ne i32 %17, 536870911
@@ -6535,7 +6525,7 @@ Vec_BitStart.exit:                                ; preds = %1, %24
   %52 = trunc i64 %.val82 to i32
   %53 = and i32 %52, 536870911
   %54 = lshr i64 %.val82, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 536870911
   %57 = icmp eq i32 %53, %56
   %.not.i103 = icmp ne i32 %53, 536870911
@@ -8926,7 +8916,7 @@ define noundef ptr @Of_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_u
   %78 = trunc i64 %.val21.i to i32
   %79 = and i32 %78, 536870911
   %80 = lshr i64 %.val21.i, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   %82 = and i32 %81, 536870911
   %83 = icmp eq i32 %79, %82
   %.not.i29.i = icmp ne i32 %79, 536870911
@@ -8989,7 +8979,7 @@ define noundef ptr @Of_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_u
   %112 = trunc i64 %.val21.i109 to i32
   %113 = and i32 %112, 536870911
   %114 = lshr i64 %.val21.i109, 32
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw i64 %114 to i32
   %116 = and i32 %115, 536870911
   %117 = icmp eq i32 %113, %116
   %.not.i29.i113 = icmp ne i32 %113, 536870911
@@ -9710,7 +9700,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #23
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #23
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -9729,7 +9719,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -9740,22 +9730,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #17
+declare double @llvm.fmuladd.f64(double, double, double) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
@@ -9805,9 +9795,9 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nofree nounwind }
 attributes #20 = { nofree nounwind willreturn memory(argmem: read) }

@@ -448,7 +448,7 @@ define dso_local i32 @cpuidle_enter_state(ptr noundef %0, ptr noundef %1, i32 no
   %10 = and i32 %9, 4
   %11 = icmp eq i32 %10, 0
   %12 = lshr exact i32 %10, 2
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   tail call void asm sideeffect "833: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 833b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 833) #19, !srcloc !32
   br i1 %11, label %26, label %14
 
@@ -474,7 +474,7 @@ define dso_local i32 @cpuidle_enter_state(ptr noundef %0, ptr noundef %1, i32 no
   br label %26
 
 26:                                               ; preds = %23, %14, %3
-  %27 = phi i8 [ 0, %23 ], [ %13, %14 ], [ %13, %3 ]
+  %27 = phi i8 [ 0, %23 ], [ 1, %14 ], [ %13, %3 ]
   %28 = phi ptr [ %25, %23 ], [ %7, %14 ], [ %7, %3 ]
   %29 = phi i32 [ %20, %23 ], [ %2, %14 ], [ %2, %3 ]
   %30 = getelementptr inbounds i8, ptr %28, i64 64

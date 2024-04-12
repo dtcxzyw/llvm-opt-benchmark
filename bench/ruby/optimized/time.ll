@@ -3835,10 +3835,10 @@ rb_num2long_inline.exit:                          ; preds = %116, %118
   %spec.select = tail call i64 @llvm.abs.i64(i64 %.0.i43, i1 false)
   %spec.select40 = select i1 %120, i32 45, i32 43
   %121 = srem i64 %spec.select, 60
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nsw i64 %121 to i32
   %123 = sdiv i64 %spec.select, 60
   %124 = srem i64 %123, 60
-  %125 = trunc i64 %124 to i32
+  %125 = trunc nsw i64 %124 to i32
   %126 = sdiv i64 %spec.select, 3600
   %127 = trunc i64 %126 to i32
   %128 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %10, ptr noundef nonnull @.str.124, i32 noundef %spec.select40, i32 noundef %127, i32 noundef %125) #18
@@ -6941,16 +6941,16 @@ RSTRING_PTR.exit.i:                               ; preds = %138, %129
 
 166:                                              ; preds = %165
   %167 = srem i64 %74, 10
-  %.tr.i = trunc i64 %167 to i8
+  %.tr.i = trunc nsw i64 %167 to i8
   %168 = shl i8 %.tr.i, 4
   %169 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %168, ptr %169, align 1
   %170 = sdiv i64 %74, 10
   %171 = srem i64 %170, 10
-  %172 = trunc i64 %171 to i8
+  %172 = trunc nsw i64 %171 to i8
   %173 = sdiv i64 %74, 100
   %174 = srem i64 %173, 10
-  %.tr106.i = trunc i64 %174 to i8
+  %.tr106.i = trunc nsw i64 %174 to i8
   %175 = shl i8 %.tr106.i, 4
   %176 = or i8 %175, %172
   store i8 %176, ptr %6, align 1
@@ -7420,7 +7420,7 @@ wquo.exit.i:                                      ; preds = %143, %140, %135, %q
   %214 = or disjoint i32 %213, %204
   %215 = lshr i32 %209, 20
   %216 = getelementptr inbounds i8, ptr %5, i64 36
-  %217 = trunc i32 %215 to i16
+  %217 = trunc nuw nsw i32 %215 to i16
   %218 = and i16 %217, 63
   %219 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 1, ptr %219, align 8
@@ -8452,7 +8452,7 @@ rb_num2ull_inline.exit:                           ; preds = %29, %27, %RSTRING_E
 
 58:                                               ; preds = %55
   %59 = load i64, ptr @rb_eArgError, align 8
-  %60 = trunc i64 %56 to i32
+  %60 = trunc nuw nsw i64 %56 to i32
   %61 = load ptr, ptr %6, align 8
   %62 = sub nsw i64 0, %56
   %63 = getelementptr i8, ptr %61, i64 %62
@@ -8911,7 +8911,7 @@ rb_num2ull_inline.exit:                           ; preds = %29, %27, %RSTRING_E
   store i32 %303, ptr %284, align 8
   %304 = getelementptr inbounds i8, ptr %8, i64 36
   %305 = call i32 @llvm.smax.i32(i32 %.1100160, i32 0)
-  %306 = trunc i32 %305 to i16
+  %306 = trunc nuw nsw i32 %305 to i16
   %307 = load i16, ptr %304, align 4
   %308 = and i16 %306, 63
   %309 = and i16 %307, -32768
@@ -9138,7 +9138,7 @@ obj2ubits.exit28:                                 ; preds = %obj2int.exit.i24
 
 111:                                              ; preds = %106
   %112 = call fastcc i32 @obj2subsecx(i64 noundef %7, ptr noundef nonnull %11), !range !42
-  %113 = trunc i32 %112 to i16
+  %113 = trunc nuw nsw i32 %112 to i16
   %114 = or disjoint i16 %113, -64
   %115 = load i64, ptr %11, align 8
   br label %116
@@ -9272,7 +9272,7 @@ define internal fastcc i64 @wmul(i64 noundef %0, i64 noundef %1) unnamed_addr #1
 
 16:                                               ; preds = %5
   %.sroa.2.0.extract.shift.i.i = lshr i128 %10, 64
-  %.sroa.2.0.extract.trunc.i.i = trunc i128 %.sroa.2.0.extract.shift.i.i to i64
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i to i64
   %17 = tail call i64 @rb_int128t2big(i64 noundef %12, i64 noundef %.sroa.2.0.extract.trunc.i.i) #18
   br label %mulv.exit
 
@@ -9596,7 +9596,7 @@ define internal fastcc noundef i32 @timew_out_of_timet_range(i64 noundef %0) unn
 
 15:                                               ; preds = %6
   %.sroa.2.0.extract.shift.i.i = lshr i128 %9, 64
-  %.sroa.2.0.extract.trunc.i.i = trunc i128 %.sroa.2.0.extract.shift.i.i to i64
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i to i64
   %16 = tail call i64 @rb_int128t2big(i64 noundef %11, i64 noundef %.sroa.2.0.extract.trunc.i.i) #18
   br label %mulv.exit
 
@@ -9701,7 +9701,7 @@ addv.exit:                                        ; preds = %41, %44, %56, %.cri
 
 69:                                               ; preds = %60
   %.sroa.2.0.extract.shift.i.i13 = lshr i128 %63, 64
-  %.sroa.2.0.extract.trunc.i.i14 = trunc i128 %.sroa.2.0.extract.shift.i.i13 to i64
+  %.sroa.2.0.extract.trunc.i.i14 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i13 to i64
   %70 = tail call i64 @rb_int128t2big(i64 noundef %65, i64 noundef %.sroa.2.0.extract.trunc.i.i14) #18
   br label %mulv.exit17
 
@@ -10405,7 +10405,7 @@ rb_num2int_inline.exit:                           ; preds = %100, %102
   %104 = trunc i64 %.0.i to i32
   %105 = add i32 %104, 4
   %106 = srem i32 %105, 7
-  %107 = trunc i32 %106 to i16
+  %107 = trunc nsw i32 %106 to i16
   %108 = load i16, ptr %9, align 4
   %109 = shl nsw i16 %107, 6
   %110 = and i16 %109, 448
@@ -10429,7 +10429,7 @@ rb_num2int_inline.exit65:                         ; preds = %115, %117
   %.0.i64 = phi i64 [ %116, %115 ], [ %118, %117 ]
   %119 = trunc i64 %.0.i64 to i32
   %120 = srem i32 %119, 60
-  %121 = trunc i32 %120 to i16
+  %121 = trunc nsw i32 %120 to i16
   %122 = load i16, ptr %9, align 4
   %123 = and i16 %121, 63
   %124 = and i16 %122, -64
@@ -10471,7 +10471,7 @@ rb_num2int_inline.exit65:                         ; preds = %115, %117
 
 150:                                              ; preds = %141
   %.sroa.2.0.extract.shift.i.i = lshr i128 %144, 64
-  %.sroa.2.0.extract.trunc.i.i = trunc i128 %.sroa.2.0.extract.shift.i.i to i64
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i to i64
   %151 = call i64 @rb_int128t2big(i64 noundef %146, i64 noundef %.sroa.2.0.extract.trunc.i.i) #18
   br label %mulv.exit
 
@@ -10577,7 +10577,7 @@ rb_num2int_inline.exit69:                         ; preds = %167, %169
 
 205:                                              ; preds = %203, %192
   %.2 = phi i32 [ %204, %203 ], [ %194, %192 ]
-  %.lhs.trunc84 = trunc i32 %.2 to i16
+  %.lhs.trunc84 = trunc nsw i32 %.2 to i16
   %206 = sdiv i16 %.lhs.trunc84, 365
   %.sext = sext i16 %206 to i32
   %207 = srem i16 %.lhs.trunc84, 365
@@ -10653,7 +10653,7 @@ addv.exit.leap_year_p.exit.thread_crit_edge:      ; preds = %addv.exit
   br label %leap_year_p.exit.thread
 
 244:                                              ; preds = %addv.exit
-  %.lhs.trunc = trunc i64 %242 to i32
+  %.lhs.trunc = trunc nuw i64 %242 to i32
   %245 = udiv i32 %.lhs.trunc, 100
   %.zext = zext nneg i32 %245 to i64
   %246 = mul nuw nsw i64 %.zext, 100
@@ -10914,10 +10914,10 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   %.083 = tail call i64 @llvm.abs.i64(i64 %10, i1 false)
   %.082 = select i1 %11, i32 1, i32 -1
   %12 = srem i64 %.083, 60
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nsw i64 %12 to i32
   %14 = sdiv i64 %.083, 60
   %15 = srem i64 %14, 60
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   %17 = sdiv i64 %.083, 3600
   %18 = trunc i64 %17 to i32
   %19 = mul nsw i32 %.082, %16
@@ -11287,7 +11287,7 @@ leap_year_p.exit.thread.i:                        ; preds = %45
 
 49:                                               ; preds = %45
   %50 = add nuw nsw i64 %.fr18.i, 1900
-  %.lhs.trunc.i = trunc i64 %50 to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %50 to i16
   %51 = udiv i16 %.lhs.trunc.i, 100
   %.zext.i = zext nneg i16 %51 to i64
   %52 = mul nuw nsw i64 %.zext.i, 100
@@ -11381,7 +11381,7 @@ rb_long2num_inline.exit31:                        ; preds = %87, %84
 
 110:                                              ; preds = %101
   %.sroa.2.0.extract.shift.i.i = lshr i128 %104, 64
-  %.sroa.2.0.extract.trunc.i.i = trunc i128 %.sroa.2.0.extract.shift.i.i to i64
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i to i64
   %111 = call i64 @rb_int128t2big(i64 noundef %106, i64 noundef %.sroa.2.0.extract.trunc.i.i) #18
   br label %mulv.exit
 
@@ -11455,7 +11455,7 @@ addv.exit:                                        ; preds = %130, %133, %.crited
 
 146:                                              ; preds = %137
   %.sroa.2.0.extract.shift.i.i42 = lshr i128 %140, 64
-  %.sroa.2.0.extract.trunc.i.i43 = trunc i128 %.sroa.2.0.extract.shift.i.i42 to i64
+  %.sroa.2.0.extract.trunc.i.i43 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i42 to i64
   %147 = call i64 @rb_int128t2big(i64 noundef %142, i64 noundef %.sroa.2.0.extract.trunc.i.i43) #18
   br label %mulv.exit46
 
@@ -11619,7 +11619,7 @@ leap_year_p.exit.thread:                          ; preds = %11
 
 15:                                               ; preds = %11
   %16 = add nuw nsw i64 %.fr18, 1900
-  %.lhs.trunc = trunc i64 %16 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %16 to i16
   %17 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %17 to i64
   %18 = mul nuw nsw i64 %.zext, 100
@@ -13501,7 +13501,7 @@ obj2ubits.exit51:                                 ; preds = %obj2int.exit.i47
   %278 = call i64 @rb_struct_aref(i64 noundef %58, i64 noundef %277) #18
   %279 = call fastcc i32 @obj2subsecx(i64 noundef %278, ptr noundef nonnull %6), !range !42
   %280 = getelementptr inbounds i8, ptr %21, i64 44
-  %281 = trunc i32 %279 to i16
+  %281 = trunc nuw nsw i32 %279 to i16
   %282 = load i16, ptr %280, align 4
   %283 = and i16 %282, -64
   %284 = or disjoint i16 %283, %281
@@ -13840,7 +13840,7 @@ obj2ubits.exit:                                   ; preds = %obj2int.exit.i
   %463 = call i64 @rb_funcallv(i64 noundef %58, i64 noundef %462, i32 noundef 0, ptr noundef null) #18
   %464 = call fastcc i32 @obj2subsecx(i64 noundef %463, ptr noundef nonnull %8), !range !42
   %465 = getelementptr inbounds i8, ptr %21, i64 44
-  %466 = trunc i32 %464 to i16
+  %466 = trunc nuw nsw i32 %464 to i16
   %467 = load i16, ptr %465, align 4
   %468 = and i16 %467, -64
   %469 = or disjoint i16 %468, %466
@@ -14281,7 +14281,7 @@ rb_num2int_inline.exit.i:                         ; preds = %185, %183
   %189 = load i32, ptr %188, align 8
   %190 = lshr i32 %189, 9
   %191 = and i32 %190, 15
-  %192 = trunc i32 %191 to i8
+  %192 = trunc nuw nsw i32 %191 to i8
   %.lhs.trunc.i = sub nsw i8 14, %192
   %193 = sdiv i8 %.lhs.trunc.i, 12
   %.sext.i = zext nneg i8 %193 to i32
@@ -14289,7 +14289,7 @@ rb_num2int_inline.exit.i:                         ; preds = %185, %183
   %195 = sub i32 %194, %.sext.i
   %196 = mul nuw nsw i32 %.sext.i, 12
   %197 = add nuw nsw i32 %196, %191
-  %198 = trunc i32 %197 to i16
+  %198 = trunc nuw nsw i32 %197 to i16
   %199 = mul nuw nsw i16 %198, 153
   %.lhs.trunc54.i = add nsw i16 %199, -457
   %200 = sdiv i16 %.lhs.trunc54.i, 5
@@ -14317,7 +14317,7 @@ rb_num2int_inline.exit.i:                         ; preds = %185, %183
   br i1 %.not.i41.i, label %216, label %leap_year_p.exit.thread.i
 
 216:                                              ; preds = %212
-  %.lhs.trunc56.i = trunc i64 %214 to i32
+  %.lhs.trunc56.i = trunc nuw i64 %214 to i32
   %217 = udiv i32 %.lhs.trunc56.i, 100
   %.zext.i = zext nneg i32 %217 to i64
   %218 = mul nuw nsw i64 %.zext.i, 100
@@ -14526,152 +14526,122 @@ v2w.exit:                                         ; preds = %guess_local_offset.
 define internal fastcc i32 @month_arg(i64 noundef %0) unnamed_addr #1 {
   %2 = and i64 %0, 1
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %20, label %3
+  br i1 %.not, label %7, label %.critedge.i.i
 
-3:                                                ; preds = %1
-  %4 = and i64 %0, 7
-  %.not30 = icmp eq i64 %4, 0
-  br i1 %.not30, label %5, label %.critedge.i.i
+.critedge.i.i:                                    ; preds = %1
+  %3 = tail call i64 @rb_fix2int(i64 noundef %0) #18
+  %4 = trunc i64 %3 to i32
+  %.not.not.not.i = icmp ult i32 %4, 16
+  br i1 %.not.not.not.i, label %obj2ubits.exit, label %5
 
-5:                                                ; preds = %3
-  %6 = inttoptr i64 %0 to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = and i64 %7, 31
-  %9 = icmp eq i64 %8, 5
-  br i1 %9, label %10, label %.critedge.i.i
-
-10:                                               ; preds = %5
-  %11 = tail call i64 @rb_str_to_inum(i64 noundef %0, i32 noundef 10, i32 noundef 1) #18
-  br label %.critedge.i.i
-
-.critedge.i.i:                                    ; preds = %10, %5, %3
-  %.0.i.i = phi i64 [ %11, %10 ], [ %0, %5 ], [ %0, %3 ]
-  %12 = and i64 %.0.i.i, 1
-  %.not.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i, label %15, label %13
-
-13:                                               ; preds = %.critedge.i.i
-  %14 = tail call i64 @rb_fix2int(i64 noundef %.0.i.i) #18
-  br label %obj2int.exit.i
-
-15:                                               ; preds = %.critedge.i.i
-  %16 = tail call i64 @rb_num2int(i64 noundef %.0.i.i) #18
-  br label %obj2int.exit.i
-
-obj2int.exit.i:                                   ; preds = %15, %13
-  %.0.i.i.i = phi i64 [ %14, %13 ], [ %16, %15 ]
-  %17 = trunc i64 %.0.i.i.i to i32
-  %.not.not.not.i = icmp ult i32 %17, 16
-  br i1 %.not.not.not.i, label %obj2ubits.exit, label %18
-
-18:                                               ; preds = %obj2int.exit.i
-  %19 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.102) #19
+5:                                                ; preds = %.critedge.i.i
+  %6 = load i64, ptr @rb_eArgError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.102) #19
   unreachable
 
-20:                                               ; preds = %1
-  %21 = tail call i64 @rb_check_string_type(i64 noundef %0) #18
-  %22 = icmp eq i64 %21, 4
-  br i1 %22, label %.loopexit, label %23
+7:                                                ; preds = %1
+  %8 = tail call i64 @rb_check_string_type(i64 noundef %0) #18
+  %9 = icmp eq i64 %8, 4
+  br i1 %9, label %.loopexit, label %10
 
-23:                                               ; preds = %20
-  %24 = inttoptr i64 %21 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %.preheader, label %.loopexit
+10:                                               ; preds = %7
+  %11 = inttoptr i64 %8 to ptr
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp sgt i64 %13, 0
+  br i1 %14, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %23
-  %28 = icmp eq i64 %26, 3
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
-  br i1 %28, label %.preheader.split.us, label %.loopexit
+.preheader:                                       ; preds = %10
+  %15 = icmp eq i64 %13, 3
+  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  br i1 %15, label %.preheader.split.us, label %.loopexit
 
 .preheader.split.us:                              ; preds = %.preheader
-  %30 = load i64, ptr %24, align 8, !noalias !45
-  %31 = and i64 %30, 8192
-  %.not.i.i.us = icmp eq i64 %31, 0
+  %17 = load i64, ptr %11, align 8, !noalias !45
+  %18 = and i64 %17, 8192
+  %.not.i.i.us = icmp eq i64 %18, 0
   br i1 %.not.i.i.us, label %RSTRING_PTR.exit.us.us, label %.preheader.split.us.split
 
-RSTRING_PTR.exit.us.us:                           ; preds = %.preheader.split.us, %35
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %35 ], [ 0, %.preheader.split.us ]
-  %32 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv39
-  %33 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %32, ptr noundef nonnull %29, i64 noundef 3) #21
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.split.us, label %35
+RSTRING_PTR.exit.us.us:                           ; preds = %.preheader.split.us, %22
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %22 ], [ 0, %.preheader.split.us ]
+  %19 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv38
+  %20 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %19, ptr noundef nonnull %16, i64 noundef 3) #21
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.split.us, label %22
 
-35:                                               ; preds = %RSTRING_PTR.exit.us.us
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next40, 12
-  br i1 %exitcond42.not, label %.loopexit, label %RSTRING_PTR.exit.us.us, !llvm.loop !48
+22:                                               ; preds = %RSTRING_PTR.exit.us.us
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 12
+  br i1 %exitcond41.not, label %.loopexit, label %RSTRING_PTR.exit.us.us, !llvm.loop !48
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us
-  %.sroa.2.0.copyload.i.us = load ptr, ptr %29, align 8
+  %.sroa.2.0.copyload.i.us = load ptr, ptr %16, align 8
   br label %RSTRING_PTR.exit.us
 
-RSTRING_PTR.exit.us:                              ; preds = %39, %.preheader.split.us.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader.split.us.split ]
-  %36 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv
-  %37 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %36, ptr noundef %.sroa.2.0.copyload.i.us, i64 noundef 3) #21
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.split.us, label %39
+RSTRING_PTR.exit.us:                              ; preds = %26, %.preheader.split.us.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader.split.us.split ]
+  %23 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv
+  %24 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %23, ptr noundef %.sroa.2.0.copyload.i.us, i64 noundef 3) #21
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %.split.us, label %26
 
-39:                                               ; preds = %RSTRING_PTR.exit.us
+26:                                               ; preds = %RSTRING_PTR.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.loopexit, label %RSTRING_PTR.exit.us, !llvm.loop !48
 
 .split.us:                                        ; preds = %RSTRING_PTR.exit.us, %RSTRING_PTR.exit.us.us
-  %.us-phi.in = phi i64 [ %indvars.iv39, %RSTRING_PTR.exit.us.us ], [ %indvars.iv, %RSTRING_PTR.exit.us ]
+  %.us-phi.in = phi i64 [ %indvars.iv38, %RSTRING_PTR.exit.us.us ], [ %indvars.iv, %RSTRING_PTR.exit.us ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  %40 = add nuw nsw i32 %.us-phi, 1
+  %27 = add nuw nsw i32 %.us-phi, 1
   br label %obj2ubits.exit
 
-.loopexit:                                        ; preds = %39, %35, %.preheader, %20, %23
-  %.018.ph = phi i64 [ %0, %23 ], [ %0, %20 ], [ %21, %.preheader ], [ %21, %35 ], [ %21, %39 ]
-  %41 = and i64 %.018.ph, 7
-  %42 = icmp ne i64 %41, 0
-  %43 = icmp eq i64 %.018.ph, 0
-  %44 = or i1 %43, %42
-  br i1 %44, label %.critedge.i.i19, label %45
+.loopexit:                                        ; preds = %26, %22, %.preheader, %7, %10
+  %.018.ph = phi i64 [ %0, %10 ], [ %0, %7 ], [ %8, %.preheader ], [ %8, %22 ], [ %8, %26 ]
+  %28 = and i64 %.018.ph, 7
+  %29 = icmp ne i64 %28, 0
+  %30 = icmp eq i64 %.018.ph, 0
+  %31 = or i1 %30, %29
+  br i1 %31, label %.critedge.i.i19, label %32
 
-45:                                               ; preds = %.loopexit
-  %46 = inttoptr i64 %.018.ph to ptr
-  %47 = load i64, ptr %46, align 8
-  %48 = and i64 %47, 31
-  %49 = icmp eq i64 %48, 5
-  br i1 %49, label %50, label %.critedge.i.i19
+32:                                               ; preds = %.loopexit
+  %33 = inttoptr i64 %.018.ph to ptr
+  %34 = load i64, ptr %33, align 8
+  %35 = and i64 %34, 31
+  %36 = icmp eq i64 %35, 5
+  br i1 %36, label %37, label %.critedge.i.i19
 
-50:                                               ; preds = %45
-  %51 = tail call i64 @rb_str_to_inum(i64 noundef %.018.ph, i32 noundef 10, i32 noundef 1) #18
+37:                                               ; preds = %32
+  %38 = tail call i64 @rb_str_to_inum(i64 noundef %.018.ph, i32 noundef 10, i32 noundef 1) #18
   br label %.critedge.i.i19
 
-.critedge.i.i19:                                  ; preds = %50, %45, %.loopexit
-  %.0.i.i20 = phi i64 [ %51, %50 ], [ %.018.ph, %45 ], [ %.018.ph, %.loopexit ]
-  %52 = and i64 %.0.i.i20, 1
-  %.not.i.i.i21 = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i21, label %55, label %53
+.critedge.i.i19:                                  ; preds = %37, %32, %.loopexit
+  %.0.i.i20 = phi i64 [ %38, %37 ], [ %.018.ph, %32 ], [ %.018.ph, %.loopexit ]
+  %39 = and i64 %.0.i.i20, 1
+  %.not.i.i.i21 = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i21, label %42, label %40
 
-53:                                               ; preds = %.critedge.i.i19
-  %54 = tail call i64 @rb_fix2int(i64 noundef %.0.i.i20) #18
+40:                                               ; preds = %.critedge.i.i19
+  %41 = tail call i64 @rb_fix2int(i64 noundef %.0.i.i20) #18
   br label %obj2int.exit.i22
 
-55:                                               ; preds = %.critedge.i.i19
-  %56 = tail call i64 @rb_num2int(i64 noundef %.0.i.i20) #18
+42:                                               ; preds = %.critedge.i.i19
+  %43 = tail call i64 @rb_num2int(i64 noundef %.0.i.i20) #18
   br label %obj2int.exit.i22
 
-obj2int.exit.i22:                                 ; preds = %55, %53
-  %.0.i.i.i23 = phi i64 [ %54, %53 ], [ %56, %55 ]
-  %57 = trunc i64 %.0.i.i.i23 to i32
-  %.not.not.not.i25 = icmp ult i32 %57, 16
-  br i1 %.not.not.not.i25, label %obj2ubits.exit, label %58
+obj2int.exit.i22:                                 ; preds = %42, %40
+  %.0.i.i.i23 = phi i64 [ %41, %40 ], [ %43, %42 ]
+  %44 = trunc i64 %.0.i.i.i23 to i32
+  %.not.not.not.i25 = icmp ult i32 %44, 16
+  br i1 %.not.not.not.i25, label %obj2ubits.exit, label %45
 
-58:                                               ; preds = %obj2int.exit.i22
-  %59 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %59, ptr noundef nonnull @.str.102) #19
+45:                                               ; preds = %obj2int.exit.i22
+  %46 = load i64, ptr @rb_eArgError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %46, ptr noundef nonnull @.str.102) #19
   unreachable
 
-obj2ubits.exit:                                   ; preds = %obj2int.exit.i22, %.split.us, %obj2int.exit.i
-  %.0 = phi i32 [ %40, %.split.us ], [ %17, %obj2int.exit.i ], [ %57, %obj2int.exit.i22 ]
+obj2ubits.exit:                                   ; preds = %obj2int.exit.i22, %.split.us, %.critedge.i.i
+  %.0 = phi i32 [ %27, %.split.us ], [ %4, %.critedge.i.i ], [ %44, %obj2int.exit.i22 ]
   ret i32 %.0
 }
 
@@ -15479,7 +15449,7 @@ leap_year_p.exit.thread.i.i:                      ; preds = %53
 
 57:                                               ; preds = %53
   %58 = add nuw nsw i64 %.fr18.i.i, 1900
-  %.lhs.trunc.i.i = trunc i64 %58 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %58 to i16
   %59 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext.i.i = zext nneg i16 %59 to i64
   %60 = mul nuw nsw i64 %.zext.i.i, 100
@@ -16107,7 +16077,7 @@ select.unfold360:                                 ; preds = %.select.unfold360_c
   %372 = and i64 %.fr18.i.i217, 3
   %.not.i.i.i218 = icmp eq i64 %372, 0
   %373 = add nuw nsw i64 %.fr18.i.i217, 1900
-  %.lhs.trunc.i.i229 = trunc i64 %373 to i16
+  %.lhs.trunc.i.i229 = trunc nuw nsw i64 %373 to i16
   %374 = udiv i16 %.lhs.trunc.i.i229, 100
   %.zext.i.i230 = zext nneg i16 %374 to i64
   %375 = mul nuw nsw i64 %.zext.i.i230, 100
@@ -16123,7 +16093,7 @@ select.unfold360:                                 ; preds = %.select.unfold360_c
   %380 = and i64 %.fr18.i.i240, 3
   %.not.i.i.i241 = icmp eq i64 %380, 0
   %381 = add nuw nsw i64 %.fr18.i.i240, 1900
-  %.lhs.trunc.i.i252 = trunc i64 %381 to i16
+  %.lhs.trunc.i.i252 = trunc nuw nsw i64 %381 to i16
   %382 = udiv i16 %.lhs.trunc.i.i252, 100
   %.zext.i.i253 = zext nneg i16 %382 to i64
   %383 = mul nuw nsw i64 %.zext.i.i253, 100
@@ -17302,7 +17272,7 @@ obj2ubits.exit83:                                 ; preds = %obj2int.exit.i79
 
 276:                                              ; preds = %267
   %.sroa.2.0.extract.shift.i.i.i = lshr i128 %270, 64
-  %.sroa.2.0.extract.trunc.i.i.i = trunc i128 %.sroa.2.0.extract.shift.i.i.i to i64
+  %.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i to i64
   %277 = call i64 @rb_int128t2big(i64 noundef %272, i64 noundef %.sroa.2.0.extract.trunc.i.i.i) #18
   br label %mulv.exit.i
 
@@ -17392,7 +17362,7 @@ usec2subsecx.exit:                                ; preds = %quor.exit.i.i, %306
 
 322:                                              ; preds = %318
   %323 = call fastcc i32 @obj2subsecx(i64 noundef %224, ptr noundef nonnull %5), !range !42
-  %324 = trunc i32 %323 to i16
+  %324 = trunc nuw nsw i32 %323 to i16
   %325 = load i16, ptr %9, align 4
   %326 = and i16 %325, -64
   %327 = or disjoint i16 %326, %324

@@ -846,7 +846,7 @@ define dso_local i32 @xhci_reset(ptr noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %67, label %.loopexit5, label %53, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %53, %62, %49, %.split.us, %60, %34, %27
-  %.pre-phi = phi i32 [ %.pre15, %60 ], [ %30, %34 ], [ %30, %27 ], [ %45, %.split.us ], [ %45, %49 ], [ %64, %62 ], [ %64, %53 ]
+  %.pre-phi = phi i32 [ %.pre15, %60 ], [ 1, %34 ], [ %30, %27 ], [ %45, %.split.us ], [ 1, %49 ], [ %64, %62 ], [ 1, %53 ]
   %68 = phi i32 [ %61, %60 ], [ %29, %34 ], [ %29, %27 ], [ %44, %.split.us ], [ %44, %49 ], [ %63, %62 ], [ %63, %53 ]
   %69 = icmp eq i32 %.pre-phi, 0
   %70 = icmp eq i32 %68, -1
@@ -1664,7 +1664,7 @@ define dso_local noundef i32 @xhci_suspend(ptr noundef %0, i1 noundef zeroext %1
   %182 = trunc i64 %179 to i32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %182, ptr elementtype(i32) %181) #21, !srcloc !11
   %183 = lshr i64 %172, 32
-  %184 = trunc i64 %183 to i32
+  %184 = trunc nuw i64 %183 to i32
   %185 = getelementptr i8, ptr %180, i64 28
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %184, ptr elementtype(i32) %185) #21, !srcloc !11
   %186 = load ptr, ptr %101, align 8
@@ -1979,7 +1979,7 @@ define dso_local i32 @xhci_resume(ptr noundef %0, i32 %1) #0 align 16 {
   %80 = trunc i64 %77 to i32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %80, ptr elementtype(i32) %79) #21, !srcloc !11
   %81 = lshr i64 %77, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   %83 = getelementptr i8, ptr %78, i64 52
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %82, ptr elementtype(i32) %83) #21, !srcloc !11
   %84 = getelementptr inbounds i8, ptr %0, i64 2480
@@ -2019,7 +2019,7 @@ define dso_local i32 @xhci_resume(ptr noundef %0, i32 %1) #0 align 16 {
   %110 = trunc i64 %107 to i32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %110, ptr elementtype(i32) %109) #21, !srcloc !11
   %111 = lshr i64 %107, 32
-  %112 = trunc i64 %111 to i32
+  %112 = trunc nuw i64 %111 to i32
   %113 = getelementptr i8, ptr %108, i64 20
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %112, ptr elementtype(i32) %113) #21, !srcloc !11
   %114 = getelementptr inbounds i8, ptr %98, i64 72
@@ -2029,7 +2029,7 @@ define dso_local i32 @xhci_resume(ptr noundef %0, i32 %1) #0 align 16 {
   %118 = trunc i64 %115 to i32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %118, ptr elementtype(i32) %117) #21, !srcloc !11
   %119 = lshr i64 %115, 32
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nuw i64 %119 to i32
   %121 = getelementptr i8, ptr %116, i64 28
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %120, ptr elementtype(i32) %121) #21, !srcloc !11
   %122 = getelementptr inbounds i8, ptr %98, i64 52
@@ -2078,7 +2078,7 @@ define dso_local i32 @xhci_resume(ptr noundef %0, i32 %1) #0 align 16 {
   %156 = trunc i64 %153 to i32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %156, ptr elementtype(i32) %155) #21, !srcloc !11
   %157 = lshr i64 %146, 32
-  %158 = trunc i64 %157 to i32
+  %158 = trunc nuw i64 %157 to i32
   %159 = getelementptr i8, ptr %154, i64 28
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %158, ptr elementtype(i32) %159) #21, !srcloc !11
   %160 = load ptr, ptr %41, align 8
@@ -5341,7 +5341,7 @@ define dso_local i32 @xhci_gen_setup(ptr noundef %0, ptr noundef readonly %1) #0
   %81 = load ptr, ptr %55, align 8
   %82 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81) #21, !srcloc !6
   %83 = lshr i32 %82, 16
-  %84 = trunc i32 %83 to i16
+  %84 = trunc nuw i32 %83 to i16
   %85 = getelementptr inbounds i8, ptr %15, i64 682
   store i16 %84, ptr %85, align 2
   %86 = load ptr, ptr %55, align 8
@@ -9772,13 +9772,13 @@ define internal i32 @xhci_enable_usb3_lpm_timeout(ptr noundef %0, ptr noundef %1
   br label %205
 
 203:                                              ; preds = %197
-  %204 = trunc i64 %199 to i32
+  %204 = trunc nuw nsw i64 %199 to i32
   br label %205
 
 205:                                              ; preds = %203, %201
   %206 = phi i32 [ -7, %201 ], [ %204, %203 ]
   %207 = tail call i32 @llvm.smax.i32(i32 %206, i32 0)
-  %208 = trunc i32 %207 to i16
+  %208 = trunc nuw i32 %207 to i16
   %209 = tail call fastcc i32 @xhci_change_max_exit_latency(ptr noundef nonnull %12, ptr noundef %1, i16 noundef zeroext %208), !range !43
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %215
@@ -9873,7 +9873,7 @@ define internal noundef i32 @xhci_disable_usb3_lpm_timeout(ptr noundef %0, ptr n
   br label %59
 
 57:                                               ; preds = %51
-  %58 = trunc i64 %53 to i16
+  %58 = trunc nuw i64 %53 to i16
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -11057,9 +11057,9 @@ default.unreachable7:                             ; preds = %27
   br i1 %140, label %.thread4, label %.thread6
 
 141:                                              ; preds = %127
-  %.lhs.trunc = trunc i64 %129 to i32
+  %.lhs.trunc = trunc nuw i64 %129 to i32
   %142 = udiv i32 %.lhs.trunc, 256000
-  %143 = trunc i32 %142 to i16
+  %143 = trunc nuw nsw i32 %142 to i16
   %144 = icmp eq i16 %143, 0
   br i1 %144, label %.thread4, label %.thread6
 

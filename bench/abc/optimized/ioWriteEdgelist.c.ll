@@ -1718,7 +1718,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %141 = getelementptr inbounds ptr, ptr %.val125.val.val, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr @Abc_ObjName(ptr noundef %142) #11
-  %144 = trunc i64 %indvars.iv202 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv202 to i32
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %143, i32 noundef %144) #11
   %fputs119 = call i32 @fputs(ptr %.0.i, ptr %0)
   br i1 %110, label %109, label %.loopexit, !llvm.loop !24
@@ -1922,7 +1922,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 2147483647
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.lr.ph
 
 17:                                               ; preds = %4
@@ -2473,7 +2473,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 2147483647
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.lr.ph
 
 17:                                               ; preds = %4

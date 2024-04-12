@@ -647,7 +647,7 @@ define internal zeroext i8 @sr_init_command(ptr noundef %0) #2 align 16 {
   store i8 0, ptr %90, align 1
   %91 = getelementptr i8, ptr %0, i64 170
   store i8 0, ptr %91, align 2
-  %92 = trunc i32 %87 to i16
+  %92 = trunc nuw i32 %87 to i16
   %93 = getelementptr i8, ptr %0, i64 171
   %94 = tail call i16 @llvm.bswap.i16(i16 %92)
   store i16 %94, ptr %93, align 1
@@ -690,7 +690,7 @@ define internal i32 @sr_done(ptr nocapture noundef readonly %0) #2 align 16 {
   %13 = load ptr, ptr %12, align 8
   %14 = and i32 %3, -2147483394
   %15 = icmp eq i32 %14, 2
-  br i1 %15, label %16, label %79
+  br i1 %15, label %16, label %76
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds i8, ptr %0, i64 248
@@ -698,7 +698,7 @@ define internal i32 @sr_done(ptr nocapture noundef readonly %0) #2 align 16 {
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 127
   %21 = icmp eq i8 %20, 112
-  br i1 %21, label %22, label %79
+  br i1 %21, label %22, label %76
 
 22:                                               ; preds = %16
   %23 = getelementptr i8, ptr %18, i64 2
@@ -706,82 +706,77 @@ define internal i32 @sr_done(ptr nocapture noundef readonly %0) #2 align 16 {
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %25, -1
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 31)
-  switch i32 %27, label %79 [
+  switch i32 %27, label %76 [
     i32 1, label %28
     i32 6, label %28
     i32 2, label %28
-    i32 0, label %78
+    i32 0, label %75
   ]
 
 28:                                               ; preds = %22, %22, %22
-  %29 = and i8 %19, -112
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %79, label %31
+  %29 = getelementptr i8, ptr %18, i64 3
+  %30 = load i32, ptr %29, align 1
+  %31 = tail call i32 @llvm.bswap.i32(i32 %30)
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr i8, ptr %0, i64 -192
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %40, label %36
 
-31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %18, i64 3
-  %33 = load i32, ptr %32, align 1
-  %34 = tail call i32 @llvm.bswap.i32(i32 %33)
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr i8, ptr %0, i64 -192
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %43, label %39
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds i8, ptr %34, i64 40
+  %38 = load i32, ptr %37, align 8
+  %39 = lshr i32 %38, 9
+  br label %40
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %37, i64 40
-  %41 = load i32, ptr %40, align 8
-  %42 = lshr i32 %41, 9
-  br label %43
+40:                                               ; preds = %36, %28
+  %41 = phi i32 [ %39, %36 ], [ 0, %28 ]
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 4)
+  %43 = getelementptr inbounds i8, ptr %13, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 164
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, 2048
+  %48 = shl nuw nsw i64 %32, 2
+  %49 = select i1 %47, i64 %48, i64 %32
+  %50 = sub nsw i32 0, %42
+  %51 = sext i32 %50 to i64
+  %52 = and i64 %49, %51
+  %53 = getelementptr i8, ptr %0, i64 -200
+  %54 = load i64, ptr %53, align 8
+  %55 = sub i64 %52, %54
+  %56 = trunc i64 %55 to i32
+  %57 = shl i32 %56, 9
+  %58 = icmp sgt i32 %57, -1
+  %59 = icmp slt i32 %57, %5
+  %60 = select i1 %58, i1 %59, i1 false
+  %61 = select i1 %60, i32 %57, i32 0
+  %62 = getelementptr inbounds i8, ptr %13, i64 208
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp ult i64 %52, %67
+  br i1 %68, label %69, label %76
 
-43:                                               ; preds = %39, %31
-  %44 = phi i32 [ %42, %39 ], [ 0, %31 ]
-  %45 = tail call i32 @llvm.umax.i32(i32 %44, i32 4)
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 164
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 2048
-  %51 = shl nuw nsw i64 %35, 2
-  %52 = select i1 %50, i64 %51, i64 %35
-  %53 = sub nsw i32 0, %45
-  %54 = sext i32 %53 to i64
-  %55 = and i64 %52, %54
-  %56 = getelementptr i8, ptr %0, i64 -200
-  %57 = load i64, ptr %56, align 8
-  %58 = sub i64 %55, %57
-  %59 = trunc i64 %58 to i32
-  %60 = shl i32 %59, 9
-  %61 = icmp sgt i32 %60, -1
-  %62 = icmp slt i32 %60, %5
-  %63 = select i1 %61, i1 %62, i1 false
-  %64 = select i1 %63, i32 %60, i32 0
-  %65 = getelementptr inbounds i8, ptr %13, i64 208
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 64
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ult i64 %55, %70
-  br i1 %71, label %72, label %79
+69:                                               ; preds = %40
+  %70 = load i32, ptr %13, align 8
+  %71 = zext i32 %70 to i64
+  %72 = sub nsw i64 %71, %52
+  %73 = icmp slt i64 %72, 300
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %43
-  %73 = load i32, ptr %13, align 8
-  %74 = zext i32 %73 to i64
-  %75 = sub nsw i64 %74, %55
-  %76 = icmp slt i64 %75, 300
-  br i1 %76, label %77, label %79
+74:                                               ; preds = %69
+  tail call void @set_capacity(ptr noundef %63, i64 noundef %52) #10
+  br label %76
 
-77:                                               ; preds = %72
-  tail call void @set_capacity(ptr noundef %66, i64 noundef %55) #10
-  br label %79
+75:                                               ; preds = %22
+  br label %76
 
-78:                                               ; preds = %22
-  br label %79
-
-79:                                               ; preds = %78, %77, %72, %43, %28, %22, %16, %1
-  %80 = phi i32 [ %7, %22 ], [ %5, %78 ], [ %64, %77 ], [ %64, %72 ], [ %64, %43 ], [ %7, %28 ], [ %7, %16 ], [ %7, %1 ]
-  ret i32 %80
+76:                                               ; preds = %75, %74, %69, %40, %22, %16, %1
+  %77 = phi i32 [ %7, %22 ], [ %5, %75 ], [ %61, %74 ], [ %61, %69 ], [ %61, %40 ], [ %7, %16 ], [ %7, %1 ]
+  ret i32 %77
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1281,7 +1276,7 @@ define internal i32 @sr_check_events(ptr nocapture noundef readonly %0, i32 noun
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   %54 = getelementptr inbounds i8, ptr %10, i64 40
   %55 = load i8, ptr %54, align 8
-  %56 = trunc i32 %53 to i8
+  %56 = trunc nuw nsw i32 %53 to i8
   %57 = shl nuw nsw i8 %56, 1
   %58 = and i8 %57, 2
   %59 = or i8 %55, %58
@@ -1532,7 +1527,7 @@ define internal i32 @sr_read_cdda_bpc(ptr nocapture noundef readonly %0, ptr nou
   %24 = getelementptr i8, ptr %11, i64 413
   store i8 4, ptr %24, align 1
   %25 = lshr i32 %2, 24
-  %26 = trunc i32 %25 to i8
+  %26 = trunc nuw i32 %25 to i8
   %27 = getelementptr i8, ptr %11, i64 414
   store i8 %26, ptr %27, align 2
   %28 = lshr i32 %2, 16

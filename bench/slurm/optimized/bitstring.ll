@@ -522,12 +522,12 @@ define void @bit_set_all(ptr nocapture noundef %0) #3 {
 
 .lr.ph27.i:                                       ; preds = %1, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %3, %1 ]
-  %.026.i = add nsw i64 %.026.i.in, -1
   %4 = and i64 %.026.i.in, -9223372036854775801
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge2.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph27.i
+  %.026.i = add nsw i64 %.026.i.in, -1
   %5 = and i64 %.026.i, 63
   %6 = shl nuw i64 1, %5
   %7 = ashr i64 %.026.i, 6
@@ -535,19 +535,15 @@ define void @bit_set_all(ptr nocapture noundef %0) #3 {
   %8 = load i64, ptr %gep24.i, align 8
   %9 = or i64 %8, %6
   store i64 %9, ptr %gep24.i, align 8
-  %.not18.not.i = icmp ugt i64 %.026.i.in, 1
+  %.not18.not.i = icmp sgt i64 %.026.i.in, 1
   br i1 %.not18.not.i, label %.lr.ph27.i, label %bit_nset.exit, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %.lr.ph27.i
-  %.not3 = icmp eq i64 %.026.i, 0
-  br i1 %.not3, label %bit_nset.exit, label %10
-
-10:                                               ; preds = %.critedge2.i
-  %11 = lshr exact i64 %.026.i.in, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 -1, i64 %11, i1 false)
+  %10 = lshr exact i64 %.026.i.in, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 -1, i64 %10, i1 false)
   br label %bit_nset.exit
 
-bit_nset.exit:                                    ; preds = %.critedge.i, %1, %.critedge2.i, %10
+bit_nset.exit:                                    ; preds = %.critedge.i, %1, %.critedge2.i
   ret void
 }
 
@@ -561,12 +557,12 @@ define void @bit_clear_all(ptr nocapture noundef %0) #3 {
 
 .lr.ph27.i:                                       ; preds = %1, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %3, %1 ]
-  %.026.i = add nsw i64 %.026.i.in, -1
   %4 = and i64 %.026.i.in, -9223372036854775801
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge2.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph27.i
+  %.026.i = add nsw i64 %.026.i.in, -1
   %5 = and i64 %.026.i, 63
   %6 = shl nuw i64 1, %5
   %7 = xor i64 %6, -1
@@ -575,19 +571,15 @@ define void @bit_clear_all(ptr nocapture noundef %0) #3 {
   %9 = load i64, ptr %gep24.i, align 8
   %10 = and i64 %9, %7
   store i64 %10, ptr %gep24.i, align 8
-  %.not18.not.i = icmp ugt i64 %.026.i.in, 1
+  %.not18.not.i = icmp sgt i64 %.026.i.in, 1
   br i1 %.not18.not.i, label %.lr.ph27.i, label %bit_nclear.exit, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %.lr.ph27.i
-  %.not3 = icmp eq i64 %.026.i, 0
-  br i1 %.not3, label %bit_nclear.exit, label %11
-
-11:                                               ; preds = %.critedge2.i
-  %12 = lshr exact i64 %.026.i.in, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %12, i1 false)
+  %11 = lshr exact i64 %.026.i.in, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %11, i1 false)
   br label %bit_nclear.exit
 
-bit_nclear.exit:                                  ; preds = %.critedge.i, %1, %.critedge2.i, %11
+bit_nclear.exit:                                  ; preds = %.critedge.i, %1, %.critedge2.i
   ret void
 }
 
@@ -836,7 +828,7 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
   %gep = getelementptr i64, ptr %invariant.gep, i64 %5
   %6 = load i64, ptr %gep, align 8
   %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !13
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019, %8
   %10 = add nuw i64 %4, 64
   %.not = icmp ugt i64 %10, %3
@@ -858,7 +850,7 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
   %20 = tail call i64 @llvm.ctpop.i64(i64 %19), !range !19
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = add nuw nsw i32 %.0.lcssa, %21
   br label %23
 
@@ -914,7 +906,7 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
   %.sink = phi i64 [ %26, %21 ], [ %19, %14 ]
   %31 = and i64 %.sink, %.sink60
   %32 = tail call i64 @llvm.ctpop.i64(i64 %31), !range !13
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = sext i32 %12 to i64
   br label %35
 
@@ -935,7 +927,7 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
   %gep = getelementptr i64, ptr %invariant.gep, i64 %39
   %40 = load i64, ptr %gep, align 8
   %41 = tail call i64 @llvm.ctpop.i64(i64 %40), !range !13
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %43 = add nsw i32 %.154, %42
   %44 = add i64 %38, 64
   %.not49 = icmp ugt i64 %44, %36
@@ -957,7 +949,7 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, %48
   %54 = tail call i64 @llvm.ctpop.i64(i64 %53), !range !19
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = add nsw i32 %.1.lcssa, %55
   br label %57
 
@@ -982,7 +974,7 @@ define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %5
   %6 = load i64, ptr %gep.i, align 8
   %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !13
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019.i, %8
   %10 = add nuw i64 %4, 64
   %.not.i = icmp ugt i64 %10, %3
@@ -1004,7 +996,7 @@ define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
   %20 = tail call i64 @llvm.ctpop.i64(i64 %19), !range !19
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = add nuw nsw i32 %.0.lcssa.i, %21
   br label %bit_set_count.exit
 
@@ -1067,7 +1059,7 @@ define i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef
   %.sink.i = phi i64 [ %29, %24 ], [ %22, %17 ]
   %34 = and i64 %.sink.i, %.sink60.i
   %35 = tail call i64 @llvm.ctpop.i64(i64 %34), !range !13
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = sext i32 %15 to i64
   br label %38
 
@@ -1088,7 +1080,7 @@ define i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %42
   %43 = load i64, ptr %gep.i, align 8
   %44 = tail call i64 @llvm.ctpop.i64(i64 %43), !range !13
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = add nsw i32 %.154.i, %45
   %47 = add i64 %41, 64
   %.not49.i = icmp ugt i64 %47, %39
@@ -1110,7 +1102,7 @@ define i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, %51
   %57 = tail call i64 @llvm.ctpop.i64(i64 %56), !range !19
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = add nsw i32 %.1.lcssa.i, %58
   br label %bit_set_count_range.exit
 
@@ -1205,12 +1197,12 @@ define noundef ptr @bit_rotate_copy(ptr nocapture noundef readonly %0, i32 nound
 
 .lr.ph27.i:                                       ; preds = %3, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %2, %3 ]
-  %.026.i = add nsw i64 %.026.i.in, -1
   %19 = and i64 %.026.i.in, -9223372036854775801
   %.not43 = icmp eq i64 %19, 0
   br i1 %.not43, label %.critedge2.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph27.i
+  %.026.i = add nsw i64 %.026.i.in, -1
   %20 = and i64 %.026.i, 63
   %21 = shl nuw i64 1, %20
   %22 = xor i64 %21, -1
@@ -1219,89 +1211,85 @@ define noundef ptr @bit_rotate_copy(ptr nocapture noundef readonly %0, i32 nound
   %24 = load i64, ptr %gep24.i, align 8
   %25 = and i64 %24, %22
   store i64 %25, ptr %gep24.i, align 8
-  %.not18.not.i = icmp ugt i64 %.026.i.in, 1
+  %.not18.not.i = icmp sgt i64 %.026.i.in, 1
   br i1 %.not18.not.i, label %.lr.ph27.i, label %bit_nclear.exit, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %.lr.ph27.i
-  %.not44 = icmp eq i64 %.026.i, 0
-  br i1 %.not44, label %bit_nclear.exit, label %26
-
-26:                                               ; preds = %.critedge2.i
-  %27 = lshr exact i64 %.026.i.in, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %27, i1 false)
+  %26 = lshr exact i64 %.026.i.in, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %26, i1 false)
   br label %bit_nclear.exit
 
-bit_nclear.exit:                                  ; preds = %.critedge.i, %3, %.critedge2.i, %26
-  %28 = add i64 %.0.neg, %5
+bit_nclear.exit:                                  ; preds = %.critedge.i, %3, %.critedge2.i
+  %27 = add i64 %.0.neg, %5
   %invariant.gep = getelementptr i8, ptr %0, i64 16
-  %29 = icmp sgt i64 %28, 0
-  br i1 %29, label %.lr.ph, label %.preheader
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %44, %bit_nclear.exit
-  %.033.lcssa = phi i64 [ 0, %bit_nclear.exit ], [ %45, %44 ]
-  %30 = icmp slt i64 %.033.lcssa, %5
-  br i1 %30, label %.lr.ph56.preheader, label %._crit_edge
+.preheader:                                       ; preds = %43, %bit_nclear.exit
+  %.033.lcssa = phi i64 [ 0, %bit_nclear.exit ], [ %44, %43 ]
+  %29 = icmp slt i64 %.033.lcssa, %5
+  br i1 %29, label %.lr.ph54.preheader, label %._crit_edge
 
-.lr.ph56.preheader:                               ; preds = %.preheader
-  %31 = sub i64 %5, %.033.lcssa
-  br label %.lr.ph56
+.lr.ph54.preheader:                               ; preds = %.preheader
+  %30 = sub i64 %5, %.033.lcssa
+  br label %.lr.ph54
 
-.lr.ph:                                           ; preds = %bit_nclear.exit, %44
-  %.03349 = phi i64 [ %45, %44 ], [ 0, %bit_nclear.exit ]
-  %32 = lshr i64 %.03349, 6
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %32
-  %33 = load i64, ptr %gep, align 8
-  %34 = and i64 %.03349, 63
-  %35 = shl nuw i64 1, %34
-  %36 = and i64 %33, %35
-  %.not.i.not = icmp eq i64 %36, 0
-  br i1 %.not.i.not, label %44, label %37
+.lr.ph:                                           ; preds = %bit_nclear.exit, %43
+  %.03347 = phi i64 [ %44, %43 ], [ 0, %bit_nclear.exit ]
+  %31 = lshr i64 %.03347, 6
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %31
+  %32 = load i64, ptr %gep, align 8
+  %33 = and i64 %.03347, 63
+  %34 = shl nuw i64 1, %33
+  %35 = and i64 %32, %34
+  %.not.i.not = icmp eq i64 %35, 0
+  br i1 %.not.i.not, label %43, label %36
 
-37:                                               ; preds = %.lr.ph
-  %38 = add nsw i64 %.03349, %11
-  %39 = and i64 %38, 63
-  %40 = shl nuw i64 1, %39
-  %41 = ashr i64 %38, 6
-  %gep48 = getelementptr i64, ptr %invariant.gep.i, i64 %41
-  %42 = load i64, ptr %gep48, align 8
-  %43 = or i64 %42, %40
-  store i64 %43, ptr %gep48, align 8
-  br label %44
+36:                                               ; preds = %.lr.ph
+  %37 = add nsw i64 %.03347, %11
+  %38 = and i64 %37, 63
+  %39 = shl nuw i64 1, %38
+  %40 = ashr i64 %37, 6
+  %gep46 = getelementptr i64, ptr %invariant.gep.i, i64 %40
+  %41 = load i64, ptr %gep46, align 8
+  %42 = or i64 %41, %39
+  store i64 %42, ptr %gep46, align 8
+  br label %43
 
-44:                                               ; preds = %.lr.ph, %37
-  %45 = add nuw nsw i64 %.03349, 1
-  %46 = icmp slt i64 %45, %28
-  br i1 %46, label %.lr.ph, label %.preheader, !llvm.loop !22
+43:                                               ; preds = %.lr.ph, %36
+  %44 = add nuw nsw i64 %.03347, 1
+  %45 = icmp slt i64 %44, %27
+  br i1 %45, label %.lr.ph, label %.preheader, !llvm.loop !22
 
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %58
-  %.155 = phi i64 [ %59, %58 ], [ %.033.lcssa, %.lr.ph56.preheader ]
-  %.03454 = phi i64 [ %60, %58 ], [ 0, %.lr.ph56.preheader ]
-  %47 = lshr i64 %.155, 6
-  %gep51 = getelementptr i64, ptr %invariant.gep, i64 %47
-  %48 = load i64, ptr %gep51, align 8
-  %49 = and i64 %.155, 63
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %48, %50
-  %.not.i41.not = icmp eq i64 %51, 0
-  br i1 %.not.i41.not, label %58, label %52
+.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %57
+  %.153 = phi i64 [ %58, %57 ], [ %.033.lcssa, %.lr.ph54.preheader ]
+  %.03452 = phi i64 [ %59, %57 ], [ 0, %.lr.ph54.preheader ]
+  %46 = lshr i64 %.153, 6
+  %gep49 = getelementptr i64, ptr %invariant.gep, i64 %46
+  %47 = load i64, ptr %gep49, align 8
+  %48 = and i64 %.153, 63
+  %49 = shl nuw i64 1, %48
+  %50 = and i64 %47, %49
+  %.not.i41.not = icmp eq i64 %50, 0
+  br i1 %.not.i41.not, label %57, label %51
 
-52:                                               ; preds = %.lr.ph56
-  %53 = and i64 %.03454, 63
-  %54 = shl nuw i64 1, %53
-  %55 = lshr i64 %.03454, 6
-  %gep53 = getelementptr i64, ptr %invariant.gep.i, i64 %55
-  %56 = load i64, ptr %gep53, align 8
-  %57 = or i64 %56, %54
-  store i64 %57, ptr %gep53, align 8
-  br label %58
+51:                                               ; preds = %.lr.ph54
+  %52 = and i64 %.03452, 63
+  %53 = shl nuw i64 1, %52
+  %54 = lshr i64 %.03452, 6
+  %gep51 = getelementptr i64, ptr %invariant.gep.i, i64 %54
+  %55 = load i64, ptr %gep51, align 8
+  %56 = or i64 %55, %53
+  store i64 %56, ptr %gep51, align 8
+  br label %57
 
-58:                                               ; preds = %.lr.ph56, %52
-  %59 = add nuw nsw i64 %.155, 1
-  %60 = add nuw i64 %.03454, 1
-  %exitcond.not = icmp eq i64 %60, %31
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph56, !llvm.loop !23
+57:                                               ; preds = %.lr.ph54, %51
+  %58 = add nuw nsw i64 %.153, 1
+  %59 = add nuw i64 %.03452, 1
+  %exitcond.not = icmp eq i64 %59, %30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %58, %.preheader
+._crit_edge:                                      ; preds = %57, %.preheader
   ret ptr %17
 }
 
@@ -1726,12 +1714,12 @@ define noundef i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #0 {
 
 .lr.ph27.i:                                       ; preds = %5, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %8, %5 ]
-  %.026.i = add nsw i64 %.026.i.in, -1
   %12 = and i64 %.026.i.in, -9223372036854775801
   %.not71 = icmp eq i64 %12, 0
   br i1 %.not71, label %.critedge2.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph27.i
+  %.026.i = add nsw i64 %.026.i.in, -1
   %13 = and i64 %.026.i, 63
   %14 = shl nuw i64 1, %13
   %15 = xor i64 %14, -1
@@ -1740,150 +1728,146 @@ define noundef i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #0 {
   %17 = load i64, ptr %gep24.i, align 8
   %18 = and i64 %17, %15
   store i64 %18, ptr %gep24.i, align 8
-  %.not18.not.i = icmp ugt i64 %.026.i.in, 1
+  %.not18.not.i = icmp sgt i64 %.026.i.in, 1
   br i1 %.not18.not.i, label %.lr.ph27.i, label %bit_nclear.exit, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %.lr.ph27.i
-  %.not72 = icmp eq i64 %.026.i, 0
-  br i1 %.not72, label %bit_nclear.exit, label %19
-
-19:                                               ; preds = %.critedge2.i
-  %20 = lshr exact i64 %.026.i.in, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %20, i1 false)
+  %19 = lshr exact i64 %.026.i.in, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %19, i1 false)
   br label %bit_nclear.exit
 
-bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.critedge2.i, %19
-  %21 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 2) #17
-  %22 = icmp eq i32 %21, 0
-  %spec.select.idx = select i1 %22, i64 2, i64 0
+bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.critedge2.i
+  %20 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 2) #17
+  %21 = icmp eq i32 %20, 0
+  %spec.select.idx = select i1 %21, i64 2, i64 0
   %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
-  %.not83 = icmp ult ptr %11, %spec.select
-  br i1 %.not83, label %.loopexit, label %.lr.ph
+  %.not81 = icmp ult ptr %11, %spec.select
+  br i1 %.not81, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bit_nclear.exit
-  %23 = tail call ptr @__ctype_b_loc() #19
-  br label %24
+  %22 = tail call ptr @__ctype_b_loc() #19
+  br label %23
 
-24:                                               ; preds = %.lr.ph, %.backedge
+23:                                               ; preds = %.lr.ph, %.backedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.backedge ]
-  %.05285 = phi ptr [ %11, %.lr.ph ], [ %.052.be, %.backedge ]
-  %25 = load i8, ptr %.05285, align 1
-  %26 = sext i8 %25 to i64
-  %27 = load ptr, ptr %23, align 8
-  %28 = sext i8 %25 to i32
-  %29 = getelementptr inbounds i16, ptr %27, i64 %26
-  %30 = load i16, ptr %29, align 2
-  %31 = zext i16 %30 to i32
-  %32 = and i32 %31, 4096
-  %.not62 = icmp eq i32 %32, 0
-  br i1 %.not62, label %.loopexit, label %33
+  %.05283 = phi ptr [ %11, %.lr.ph ], [ %.052.be, %.backedge ]
+  %24 = load i8, ptr %.05283, align 1
+  %25 = sext i8 %24 to i64
+  %26 = load ptr, ptr %22, align 8
+  %27 = sext i8 %24 to i32
+  %28 = getelementptr inbounds i16, ptr %26, i64 %25
+  %29 = load i16, ptr %28, align 2
+  %30 = zext i16 %29 to i32
+  %31 = and i32 %30, 4096
+  %.not62 = icmp eq i32 %31, 0
+  br i1 %.not62, label %.loopexit, label %32
 
-33:                                               ; preds = %24
-  %34 = and i32 %31, 2048
-  %.not63 = icmp eq i32 %34, 0
-  br i1 %.not63, label %37, label %35
+32:                                               ; preds = %23
+  %33 = and i32 %30, 2048
+  %.not63 = icmp eq i32 %33, 0
+  br i1 %.not63, label %36, label %34
 
-35:                                               ; preds = %33
-  %36 = add nsw i64 %26, -48
-  br label %41
+34:                                               ; preds = %32
+  %35 = add nsw i64 %25, -48
+  br label %40
 
-37:                                               ; preds = %33
-  %38 = tail call i32 @toupper(i32 noundef %28) #18
-  %39 = zext i32 %38 to i64
-  %40 = add nsw i64 %39, -55
-  br label %41
+36:                                               ; preds = %32
+  %37 = tail call i32 @toupper(i32 noundef %27) #18
+  %38 = zext i32 %37 to i64
+  %39 = add nsw i64 %38, -55
+  br label %40
 
-41:                                               ; preds = %35, %37
-  %.051 = phi i64 [ %36, %35 ], [ %40, %37 ]
-  %42 = or disjoint i64 %indvars.iv, 3
-  %43 = icmp sgt i64 %8, %42
-  br i1 %43, label %44, label %53
+40:                                               ; preds = %34, %36
+  %.051 = phi i64 [ %35, %34 ], [ %39, %36 ]
+  %41 = or disjoint i64 %indvars.iv, 3
+  %42 = icmp sgt i64 %8, %41
+  br i1 %42, label %43, label %52
 
-44:                                               ; preds = %41
-  %45 = and i64 %.051, 15
-  %46 = trunc i64 %indvars.iv to i32
-  %47 = and i64 %indvars.iv, 60
-  %48 = shl nuw i64 %45, %47
-  %49 = ashr i32 %46, 6
-  %50 = sext i32 %49 to i64
-  %gep82 = getelementptr i64, ptr %invariant.gep.i, i64 %50
-  %51 = load i64, ptr %gep82, align 8
-  %52 = or i64 %51, %48
-  store i64 %52, ptr %gep82, align 8
+43:                                               ; preds = %40
+  %44 = and i64 %.051, 15
+  %45 = trunc i64 %indvars.iv to i32
+  %46 = and i64 %indvars.iv, 60
+  %47 = shl nuw i64 %44, %46
+  %48 = ashr i32 %45, 6
+  %49 = sext i32 %48 to i64
+  %gep80 = getelementptr i64, ptr %invariant.gep.i, i64 %49
+  %50 = load i64, ptr %gep80, align 8
+  %51 = or i64 %50, %47
+  store i64 %51, ptr %gep80, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %85, %44
-  %.052.be = getelementptr inbounds i8, ptr %.05285, i64 -1
+.backedge:                                        ; preds = %84, %43
+  %.052.be = getelementptr inbounds i8, ptr %.05283, i64 -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp ult ptr %.052.be, %spec.select
-  br i1 %.not, label %.loopexit, label %24, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !31
 
-53:                                               ; preds = %41
-  %54 = and i64 %.051, 1
-  %.not65 = icmp eq i64 %54, 0
-  br i1 %.not65, label %63, label %55
+52:                                               ; preds = %40
+  %53 = and i64 %.051, 1
+  %.not65 = icmp eq i64 %53, 0
+  br i1 %.not65, label %62, label %54
 
-55:                                               ; preds = %53
-  %56 = icmp sgt i64 %8, %indvars.iv
-  br i1 %56, label %57, label %.loopexit
+54:                                               ; preds = %52
+  %55 = icmp sgt i64 %8, %indvars.iv
+  br i1 %55, label %56, label %.loopexit
 
-57:                                               ; preds = %55
-  %58 = and i64 %indvars.iv, 60
-  %59 = shl nuw nsw i64 1, %58
-  %60 = lshr i64 %indvars.iv, 6
-  %gep = getelementptr i64, ptr %invariant.gep.i, i64 %60
-  %61 = load i64, ptr %gep, align 8
-  %62 = or i64 %61, %59
-  store i64 %62, ptr %gep, align 8
-  br label %63
+56:                                               ; preds = %54
+  %57 = and i64 %indvars.iv, 60
+  %58 = shl nuw nsw i64 1, %57
+  %59 = lshr i64 %indvars.iv, 6
+  %gep = getelementptr i64, ptr %invariant.gep.i, i64 %59
+  %60 = load i64, ptr %gep, align 8
+  %61 = or i64 %60, %58
+  store i64 %61, ptr %gep, align 8
+  br label %62
 
-63:                                               ; preds = %57, %53
-  %64 = and i64 %.051, 2
-  %.not66 = icmp eq i64 %64, 0
-  br i1 %.not66, label %74, label %65
+62:                                               ; preds = %56, %52
+  %63 = and i64 %.051, 2
+  %.not66 = icmp eq i64 %63, 0
+  br i1 %.not66, label %73, label %64
 
-65:                                               ; preds = %63
-  %66 = or disjoint i64 %indvars.iv, 1
-  %67 = icmp sgt i64 %8, %66
-  br i1 %67, label %68, label %.loopexit
+64:                                               ; preds = %62
+  %65 = or disjoint i64 %indvars.iv, 1
+  %66 = icmp sgt i64 %8, %65
+  br i1 %66, label %67, label %.loopexit
 
-68:                                               ; preds = %65
-  %69 = and i64 %66, 61
-  %70 = shl nuw nsw i64 1, %69
-  %71 = lshr i64 %indvars.iv, 6
-  %gep76 = getelementptr i64, ptr %invariant.gep.i, i64 %71
-  %72 = load i64, ptr %gep76, align 8
-  %73 = or i64 %72, %70
-  store i64 %73, ptr %gep76, align 8
-  br label %74
+67:                                               ; preds = %64
+  %68 = and i64 %65, 61
+  %69 = shl nuw nsw i64 1, %68
+  %70 = lshr i64 %indvars.iv, 6
+  %gep74 = getelementptr i64, ptr %invariant.gep.i, i64 %70
+  %71 = load i64, ptr %gep74, align 8
+  %72 = or i64 %71, %69
+  store i64 %72, ptr %gep74, align 8
+  br label %73
 
-74:                                               ; preds = %68, %63
-  %75 = and i64 %.051, 4
-  %.not67 = icmp eq i64 %75, 0
-  br i1 %.not67, label %85, label %76
+73:                                               ; preds = %67, %62
+  %74 = and i64 %.051, 4
+  %.not67 = icmp eq i64 %74, 0
+  br i1 %.not67, label %84, label %75
 
-76:                                               ; preds = %74
-  %77 = or disjoint i64 %indvars.iv, 2
-  %78 = icmp sgt i64 %8, %77
-  br i1 %78, label %79, label %.loopexit
+75:                                               ; preds = %73
+  %76 = or disjoint i64 %indvars.iv, 2
+  %77 = icmp sgt i64 %8, %76
+  br i1 %77, label %78, label %.loopexit
 
-79:                                               ; preds = %76
-  %80 = and i64 %77, 62
-  %81 = shl nuw nsw i64 1, %80
-  %82 = lshr i64 %indvars.iv, 6
-  %gep78 = getelementptr i64, ptr %invariant.gep.i, i64 %82
-  %83 = load i64, ptr %gep78, align 8
-  %84 = or i64 %83, %81
-  store i64 %84, ptr %gep78, align 8
-  br label %85
+78:                                               ; preds = %75
+  %79 = and i64 %76, 62
+  %80 = shl nuw nsw i64 1, %79
+  %81 = lshr i64 %indvars.iv, 6
+  %gep76 = getelementptr i64, ptr %invariant.gep.i, i64 %81
+  %82 = load i64, ptr %gep76, align 8
+  %83 = or i64 %82, %80
+  store i64 %83, ptr %gep76, align 8
+  br label %84
 
-85:                                               ; preds = %79, %74
-  %86 = and i64 %.051, 8
-  %.not68 = icmp eq i64 %86, 0
+84:                                               ; preds = %78, %73
+  %85 = and i64 %.051, 8
+  %.not68 = icmp eq i64 %85, 0
   br i1 %.not68, label %.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %76, %65, %55, %24, %.backedge, %85, %bit_nclear.exit, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %bit_nclear.exit ], [ -1, %85 ], [ -1, %76 ], [ -1, %65 ], [ -1, %55 ], [ -1, %24 ], [ 0, %.backedge ]
+.loopexit:                                        ; preds = %75, %64, %54, %23, %.backedge, %84, %bit_nclear.exit, %2
+  %.0 = phi i32 [ -1, %2 ], [ 0, %bit_nclear.exit ], [ -1, %84 ], [ -1, %75 ], [ -1, %64 ], [ -1, %54 ], [ -1, %23 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 
@@ -1934,12 +1918,12 @@ define void @bit_unfmt_binmask(ptr nocapture noundef %0, ptr noundef readonly %1
 
 .lr.ph27.i:                                       ; preds = %2, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %7, %2 ]
-  %.026.i = add nsw i64 %.026.i.in, -1
   %8 = and i64 %.026.i.in, -9223372036854775801
   %.not20 = icmp eq i64 %8, 0
   br i1 %.not20, label %.critedge2.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph27.i
+  %.026.i = add nsw i64 %.026.i.in, -1
   %9 = and i64 %.026.i, 63
   %10 = shl nuw i64 1, %9
   %11 = xor i64 %10, -1
@@ -1948,50 +1932,46 @@ define void @bit_unfmt_binmask(ptr nocapture noundef %0, ptr noundef readonly %1
   %13 = load i64, ptr %gep24.i, align 8
   %14 = and i64 %13, %11
   store i64 %14, ptr %gep24.i, align 8
-  %.not18.not.i = icmp ugt i64 %.026.i.in, 1
+  %.not18.not.i = icmp sgt i64 %.026.i.in, 1
   br i1 %.not18.not.i, label %.lr.ph27.i, label %bit_nclear.exit, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %.lr.ph27.i
-  %.not21 = icmp eq i64 %.026.i, 0
-  br i1 %.not21, label %bit_nclear.exit, label %15
-
-15:                                               ; preds = %.critedge2.i
-  %16 = lshr exact i64 %.026.i.in, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %16, i1 false)
+  %15 = lshr exact i64 %.026.i.in, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 0, i64 %15, i1 false)
   br label %bit_nclear.exit
 
-bit_nclear.exit:                                  ; preds = %.critedge.i, %2, %.critedge2.i, %15
-  %.01624 = getelementptr inbounds i8, ptr %5, i64 -1
-  %.not25 = icmp ult ptr %.01624, %1
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+bit_nclear.exit:                                  ; preds = %.critedge.i, %2, %.critedge2.i
+  %.01622 = getelementptr inbounds i8, ptr %5, i64 -1
+  %.not23 = icmp ult ptr %.01622, %1
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %bit_nclear.exit, %26
-  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %bit_nclear.exit ]
-  %.01627 = phi ptr [ %.016, %26 ], [ %.01624, %bit_nclear.exit ]
-  %17 = load i8, ptr %.01627, align 1
-  %18 = and i8 %17, 1
-  %.not18 = icmp ne i8 %18, 0
-  %19 = icmp sgt i64 %7, %indvars.iv
-  %or.cond = select i1 %.not18, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %26
+.lr.ph:                                           ; preds = %bit_nclear.exit, %25
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %bit_nclear.exit ]
+  %.01625 = phi ptr [ %.016, %25 ], [ %.01622, %bit_nclear.exit ]
+  %16 = load i8, ptr %.01625, align 1
+  %17 = and i8 %16, 1
+  %.not18 = icmp ne i8 %17, 0
+  %18 = icmp sgt i64 %7, %indvars.iv
+  %or.cond = select i1 %.not18, i1 %18, i1 false
+  br i1 %or.cond, label %19, label %25
 
-20:                                               ; preds = %.lr.ph
-  %21 = and i64 %indvars.iv, 63
-  %22 = shl nuw i64 1, %21
-  %23 = lshr i64 %indvars.iv, 6
-  %gep = getelementptr i64, ptr %invariant.gep.i, i64 %23
-  %24 = load i64, ptr %gep, align 8
-  %25 = or i64 %24, %22
-  store i64 %25, ptr %gep, align 8
-  br label %26
+19:                                               ; preds = %.lr.ph
+  %20 = and i64 %indvars.iv, 63
+  %21 = shl nuw i64 1, %20
+  %22 = lshr i64 %indvars.iv, 6
+  %gep = getelementptr i64, ptr %invariant.gep.i, i64 %22
+  %23 = load i64, ptr %gep, align 8
+  %24 = or i64 %23, %21
+  store i64 %24, ptr %gep, align 8
+  br label %25
 
-26:                                               ; preds = %20, %.lr.ph
+25:                                               ; preds = %19, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.016 = getelementptr inbounds i8, ptr %.01627, i64 -1
+  %.016 = getelementptr inbounds i8, ptr %.01625, i64 -1
   %.not = icmp ult ptr %.016, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %26, %bit_nclear.exit
+._crit_edge:                                      ; preds = %25, %bit_nclear.exit
   ret void
 }
 
@@ -2340,7 +2320,7 @@ define i32 @bit_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   %16 = tail call i64 @llvm.ctpop.i64(i64 %15), !range !13
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = add nuw nsw i32 %.02736.us.i, %17
   %19 = icmp slt i64 %8, %4
   br i1 %19, label %.lr.ph.split.us.i, label %_bit_overlap_internal.exit, !llvm.loop !37
@@ -2358,7 +2338,7 @@ define i32 @bit_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %28 = and i64 %25, %21
   %29 = and i64 %28, %27
   %30 = tail call i64 @llvm.ctpop.i64(i64 %29), !range !19
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %32 = add nuw nsw i32 %.02736.us.i, %31
   br label %_bit_overlap_internal.exit
 
@@ -3651,7 +3631,7 @@ define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %5
   %6 = load i64, ptr %gep.i, align 8
   %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !13
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019.i, %8
   %10 = add nuw i64 %4, 64
   %.not.i = icmp ugt i64 %10, %3
@@ -3673,7 +3653,7 @@ define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
   %20 = tail call i64 @llvm.ctpop.i64(i64 %19), !range !19
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = add nuw nsw i32 %.0.lcssa.i, %21
   br label %bit_set_count.exit
 

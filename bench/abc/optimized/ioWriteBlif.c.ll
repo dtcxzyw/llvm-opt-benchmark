@@ -1402,7 +1402,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %112, %119, %121, %1
   %145 = getelementptr inbounds ptr, ptr %.val130.val.val, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = call ptr @Abc_ObjName(ptr noundef %146) #10
-  %148 = trunc i64 %indvars.iv207 to i32
+  %148 = trunc nuw nsw i64 %indvars.iv207 to i32
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef %147, i32 noundef %148) #10
   %fputs123 = call i32 @fputs(ptr %.0.i, ptr %0)
   br i1 %113, label %112, label %.loopexit, !llvm.loop !19
@@ -1607,7 +1607,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 2147483647
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.lr.ph
 
 17:                                               ; preds = %4
@@ -2188,7 +2188,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   br i1 %or.cond, label %26, label %.lr.ph202.preheader
 
 .lr.ph202.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count = and i64 %23, 2147483647
+  %wide.trip.count = and i64 %23, 4294967295
   br label %.lr.ph202
 
 26:                                               ; preds = %._crit_edge

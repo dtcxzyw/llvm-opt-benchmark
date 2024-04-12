@@ -384,24 +384,15 @@ if.else17:                                        ; preds = %do.body
   %2 = trunc i32 %flags to i8
   %3 = lshr i8 %2, 6
   %and20 = and i32 %flags, -65
-  %and21 = and i32 %flags, 2
-  %tobool22.not = icmp eq i32 %and21, 0
-  %or24 = or i32 %and20, 16
-  br i1 %tobool22.not, label %if.end26, label %lor.lhs.false28
-
-if.end26:                                         ; preds = %if.else17
-  %tobool27.not = icmp eq i32 %and20, 0
-  br i1 %tobool27.not, label %if.then30, label %lor.lhs.false28
-
-lor.lhs.false28:                                  ; preds = %if.else17, %if.end26
-  %flags.addr.038 = phi i32 [ %and20, %if.end26 ], [ %or24, %if.else17 ]
+  %and21 = shl i32 %flags, 3
+  %4 = and i32 %and21, 16
+  %spec.select = or i32 %and20, %4
   %tobool29 = trunc i8 %3 to i1
   br i1 %tobool29, label %if.then30, label %if.then39
 
-if.then30:                                        ; preds = %do.body, %lor.lhs.false28, %if.end26
-  %tobool27.not33 = phi i1 [ false, %lor.lhs.false28 ], [ true, %if.end26 ], [ true, %do.body ]
-  %reset.031 = phi i8 [ %3, %lor.lhs.false28 ], [ %3, %if.end26 ], [ 0, %do.body ]
-  %flags.addr.029 = phi i32 [ %flags.addr.038, %lor.lhs.false28 ], [ 0, %if.end26 ], [ 0, %do.body ]
+if.then30:                                        ; preds = %do.body, %if.else17
+  %reset.031 = phi i8 [ %3, %if.else17 ], [ 0, %do.body ]
+  %flags.addr.029 = phi i32 [ %spec.select, %if.else17 ], [ 0, %do.body ]
   %call.i30.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %and13, i64 noundef %or) #16
   %tobool.not.i31.i = icmp eq ptr %call.i30.i, null
   %add.ptr.i32.i = getelementptr i8, ptr %call.i30.i, i64 -16
@@ -418,40 +409,40 @@ if.end.i:                                         ; preds = %if.end24.i, %if.end
   %call.i36.i = phi ptr [ %call.i30.i, %if.end.lr.ph.i ], [ %call.i.i, %if.end24.i ]
   %inval_tb.035.i = phi i1 [ false, %if.end.lr.ph.i ], [ %spec.select.i, %if.end24.i ]
   %flags.i = getelementptr i8, ptr %call.i36.i, i64 48
-  %4 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %4, 4
+  %5 = load i32, ptr %flags.i, align 8
+  %and.i = and i32 %5, 4
   %tobool1.not.i = icmp ne i32 %and.i, 0
   %spec.select.i = select i1 %tobool1.not.i, i1 true, i1 %inval_tb.035.i
   tail call void @interval_tree_remove(ptr noundef nonnull %call.i36.i, ptr noundef nonnull @pageflags_root) #16
   %last5.i = getelementptr i8, ptr %call.i36.i, i64 32
-  %5 = load i64, ptr %last5.i, align 8
+  %6 = load i64, ptr %last5.i, align 8
   %start7.i = getelementptr i8, ptr %call.i36.i, i64 24
-  %6 = load i64, ptr %start7.i, align 8
-  %cmp.i = icmp ult i64 %6, %and13
+  %7 = load i64, ptr %start7.i, align 8
+  %cmp.i = icmp ult i64 %7, %and13
   br i1 %cmp.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.end.i
   store i64 %sub.i, ptr %last5.i, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %call.i36.i, ptr noundef nonnull @pageflags_root) #16
-  %cmp12.i = icmp ugt i64 %5, %or
+  %cmp12.i = icmp ugt i64 %6, %or
   br i1 %cmp12.i, label %if.then13.i, label %if.end24.i
 
 if.then13.i:                                      ; preds = %if.then8.i
   %flags.i.le = getelementptr i8, ptr %call.i36.i, i64 48
   %add.i = add nuw i64 %or, 1
-  %7 = load i32, ptr %flags.i.le, align 8
+  %8 = load i32, ptr %flags.i.le, align 8
   %call.i19.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
   %itree.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 16
   %start1.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 40
   store i64 %add.i, ptr %start1.i.i, align 8
   %last3.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 48
-  store i64 %5, ptr %last3.i.i, align 8
+  store i64 %6, ptr %last3.i.i, align 8
   %flags4.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 64
-  store i32 %7, ptr %flags4.i.i, align 8
+  store i32 %8, ptr %flags4.i.i, align 8
   br label %while.end.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp16.not.i = icmp ugt i64 %5, %or
+  %cmp16.not.i = icmp ugt i64 %6, %or
   br i1 %cmp16.not.i, label %if.else18.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.else.i
@@ -479,17 +470,17 @@ while.end.sink.split.i:                           ; preds = %if.else18.i, %if.th
 
 if.end37:                                         ; preds = %if.end24.i, %while.end.sink.split.i, %if.then30
   %inval_tb.2.i = phi i1 [ false, %if.then30 ], [ %spec.select.i, %while.end.sink.split.i ], [ %spec.select.i, %if.end24.i ]
-  br i1 %tobool27.not33, label %if.end50, label %if.then39
+  br i1 %tobool15.not, label %if.end50, label %if.then39
 
-if.then39:                                        ; preds = %lor.lhs.false28, %if.end37
-  %inval_tb.047 = phi i1 [ %inval_tb.2.i, %if.end37 ], [ false, %lor.lhs.false28 ]
-  %flags.addr.02846 = phi i32 [ %flags.addr.029, %if.end37 ], [ %flags.addr.038, %lor.lhs.false28 ]
-  %reset.03045 = phi i8 [ %reset.031, %if.end37 ], [ %3, %lor.lhs.false28 ]
+if.then39:                                        ; preds = %if.else17, %if.end37
+  %inval_tb.047 = phi i1 [ %inval_tb.2.i, %if.end37 ], [ false, %if.else17 ]
+  %flags.addr.02846 = phi i32 [ %flags.addr.029, %if.end37 ], [ %spec.select, %if.else17 ]
+  %reset.03045 = phi i8 [ %reset.031, %if.end37 ], [ %3, %if.else17 ]
   %tobool40 = trunc i8 %reset.03045 to i1
   %not = select i1 %tobool40, i32 -1, i32 -2177
   %call43 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %and13, i64 noundef %or, i32 noundef %flags.addr.02846, i32 noundef %not)
-  %8 = or i1 %inval_tb.047, %call43
-  br i1 %8, label %if.then52, label %if.end53
+  %9 = or i1 %inval_tb.047, %call43
+  br i1 %9, label %if.then52, label %if.end53
 
 if.end50:                                         ; preds = %if.end37
   br i1 %inval_tb.2.i, label %if.then52, label %if.end53
@@ -1458,7 +1449,7 @@ entry:
 define dso_local zeroext i8 @cpu_ldb_code_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %and.i.i = and i32 %oi, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -1503,7 +1494,7 @@ cpu_mmu_lookup.exit:                              ; preds = %get_alignment_bits.
 define dso_local zeroext i16 @cpu_ldw_code_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %and.i.i = and i32 %oi, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -1555,7 +1546,7 @@ declare i16 @llvm.bswap.i16(i16) #1
 define dso_local i32 @cpu_ldl_code_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %and.i.i = and i32 %oi, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -1607,7 +1598,7 @@ declare i32 @llvm.bswap.i32(i32) #1
 define dso_local i64 @cpu_ldq_code_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %and.i.i = and i32 %oi, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -1663,7 +1654,7 @@ entry:
   %cmp = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp)
   %and.i.i.i = and i32 %shr.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %get_alignment_bits.exit.i.i
@@ -1718,7 +1709,7 @@ define internal fastcc zeroext i16 @do_ld2_mmu(ptr noundef %cpu, i64 noundef %ad
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -2007,7 +1998,7 @@ define internal fastcc i32 @do_ld4_mmu(ptr noundef %cpu, i64 noundef %addr, i32 
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -2321,7 +2312,7 @@ define internal fastcc i64 @do_ld8_mmu(ptr noundef %cpu, i64 noundef %addr, i32 
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -2508,7 +2499,7 @@ if.then12.i.i.i:                                  ; preds = %if.end8.i.i.i
   %18 = load i128, ptr %15, align 16
   %retval.sroa.0.0.extract.trunc5.i.i.i = trunc i128 %18 to i64
   %retval.sroa.4.0.extract.shift7.i.i.i = lshr i128 %18, 64
-  %retval.sroa.4.0.extract.trunc8.i.i.i = trunc i128 %retval.sroa.4.0.extract.shift7.i.i.i to i64
+  %retval.sroa.4.0.extract.trunc8.i.i.i = trunc nuw i128 %retval.sroa.4.0.extract.shift7.i.i.i to i64
   br label %load_atom_extract_al16_or_exit.exit.i
 
 if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
@@ -2529,7 +2520,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   %22 = extractvalue { i128, i1 } %21, 0
   %extract.t2.i.i.i.i = trunc i128 %22 to i64
   %extract4.i.i.i.i = lshr i128 %22, 64
-  %extract.t5.i.i.i.i = trunc i128 %extract4.i.i.i.i to i64
+  %extract.t5.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i to i64
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
@@ -2587,7 +2578,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i)
   %and.i.i.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i.i.i = trunc i32 %and.i.i.i.i to i8
+  %trunc.i.i.i.i = trunc nuw i32 %and.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i, label %if.else4.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i
@@ -2665,7 +2656,7 @@ define internal fastcc { i64, i64 } @do_ld16_mmu(ptr noundef %cpu, i64 noundef %
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -2791,7 +2782,7 @@ sw.bb.i:                                          ; preds = %required_atomicity.
   %r.0.copyload.i = load i128, ptr %1, align 1
   %retval.sroa.0.0.extract.trunc14.i = trunc i128 %r.0.copyload.i to i64
   %retval.sroa.5.0.extract.shift17.i = lshr i128 %r.0.copyload.i, 64
-  %retval.sroa.5.0.extract.trunc18.i = trunc i128 %retval.sroa.5.0.extract.shift17.i to i64
+  %retval.sroa.5.0.extract.trunc18.i = trunc nuw i128 %retval.sroa.5.0.extract.shift17.i to i64
   br label %load_atom_16.exit
 
 sw.bb12.i:                                        ; preds = %required_atomicity.exit.i
@@ -2942,7 +2933,7 @@ if.then12.i.i:                                    ; preds = %if.end8.i.i
   %40 = load i128, ptr %1, align 16
   %retval.sroa.0.0.extract.trunc5.i.i = trunc i128 %40 to i64
   %retval.sroa.4.0.extract.shift7.i.i = lshr i128 %40, 64
-  %retval.sroa.4.0.extract.trunc8.i.i = trunc i128 %retval.sroa.4.0.extract.shift7.i.i to i64
+  %retval.sroa.4.0.extract.trunc8.i.i = trunc nuw i128 %retval.sroa.4.0.extract.shift7.i.i to i64
   br label %cleanup.i.i
 
 if.end13.i.i:                                     ; preds = %if.end8.i.i
@@ -2963,7 +2954,7 @@ if.else.i.i.i:                                    ; preds = %if.end13.i.i
   %44 = extractvalue { i128, i1 } %43, 0
   %extract.t2.i.i.i = trunc i128 %44 to i64
   %extract4.i.i.i = lshr i128 %44, 64
-  %extract.t5.i.i.i = trunc i128 %extract4.i.i.i to i64
+  %extract.t5.i.i.i = trunc nuw i128 %extract4.i.i.i to i64
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %if.else.i.i.i, %if.then.i.i.i, %if.then12.i.i
@@ -3016,7 +3007,7 @@ entry:
   %cmp = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp)
   %and.i.i.i = and i32 %shr.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %get_alignment_bits.exit.i.i
@@ -3071,7 +3062,7 @@ define internal fastcc void @do_st2_mmu(ptr noundef %cpu, i64 noundef %addr, i16
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -3292,7 +3283,7 @@ define internal fastcc void @do_st4_mmu(ptr noundef %cpu, i64 noundef %addr, i32
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -3434,13 +3425,13 @@ sw.bb2.i:                                         ; preds = %required_atomicity.
   store atomic i16 %conv.i23.i, ptr %1 monotonic, align 2
   %add.ptr.i.i = getelementptr i8, ptr %1, i64 2
   %shr1.i.i = lshr i32 %spec.select, 16
-  %conv2.i.i = trunc i32 %shr1.i.i to i16
+  %conv2.i.i = trunc nuw i32 %shr1.i.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 2) ]
   store atomic i16 %conv2.i.i, ptr %add.ptr.i.i monotonic, align 2
   br label %store_atom_4.exit
 
 sw.bb3.i:                                         ; preds = %required_atomicity.exit.i
-  %conv6.i = trunc i64 %and.i6 to i32
+  %conv6.i = trunc nuw nsw i64 %and.i6 to i32
   switch i32 %conv6.i, label %do.body.i [
     i32 1, label %sw.bb7.i
     i32 3, label %sw.bb12.i
@@ -3470,7 +3461,7 @@ do.body1.i.i.i:                                   ; preds = %do.body1.i.i.i, %sw
 
 store_whole_le4.exit.i:                           ; preds = %do.body1.i.i.i
   %16 = lshr i32 %spec.select, 24
-  %conv11.i = trunc i32 %16 to i8
+  %conv11.i = trunc nuw i32 %16 to i8
   %add.ptr.i = getelementptr i8, ptr %1, i64 3
   store i8 %conv11.i, ptr %add.ptr.i, align 1
   br label %store_atom_4.exit
@@ -3590,7 +3581,7 @@ define internal fastcc void @do_st8_mmu(ptr noundef %cpu, i64 noundef %addr, i64
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -3743,7 +3734,7 @@ sw.bb2.i:                                         ; preds = %required_atomicity.
   store atomic i16 %conv.i3.i.i, ptr %add.ptr.i.i monotonic, align 2
   %add.ptr.i4.i.i = getelementptr i8, ptr %1, i64 6
   %sum.shift.i.i = lshr i64 %spec.select, 48
-  %conv2.i6.i.i = trunc i64 %sum.shift.i.i to i16
+  %conv2.i6.i.i = trunc nuw i64 %sum.shift.i.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i.i, i64 2) ]
   store atomic i16 %conv2.i6.i.i, ptr %add.ptr.i4.i.i monotonic, align 2
   br label %store_atom_8.exit
@@ -3754,13 +3745,13 @@ sw.bb3.i:                                         ; preds = %required_atomicity.
   store atomic i32 %conv.i26.i, ptr %1 monotonic, align 4
   %add.ptr.i27.i = getelementptr i8, ptr %1, i64 4
   %shr1.i28.i = lshr i64 %spec.select, 32
-  %conv2.i.i = trunc i64 %shr1.i28.i to i32
+  %conv2.i.i = trunc nuw i64 %shr1.i28.i to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i27.i, i64 4) ]
   store atomic i32 %conv2.i.i, ptr %add.ptr.i27.i monotonic, align 4
   br label %store_atom_8.exit
 
 sw.bb4.i:                                         ; preds = %required_atomicity.exit.i
-  %conv7.i = trunc i64 %and.i6 to i32
+  %conv7.i = trunc nuw nsw i64 %and.i6 to i32
   %sub.i8 = sub nuw nsw i32 8, %conv7.i
   switch i32 %conv7.i, label %do.body.i [
     i32 1, label %sw.bb8.i
@@ -3920,7 +3911,7 @@ define internal fastcc void @do_st16_mmu(ptr noundef %cpu, i64 noundef %addr, i6
 entry:
   %shr.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -4093,7 +4084,7 @@ sw.bb7.i:                                         ; preds = %required_atomicity.
   store atomic i16 %conv.i3.i.i, ptr %add.ptr.i.i monotonic, align 2
   %add.ptr.i4.i.i = getelementptr i8, ptr %1, i64 6
   %sum.shift.i.i = lshr i64 %val.addr.0.off0, 48
-  %conv2.i6.i.i = trunc i64 %sum.shift.i.i to i16
+  %conv2.i6.i.i = trunc nuw i64 %sum.shift.i.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i.i, i64 2) ]
   store atomic i16 %conv2.i6.i.i, ptr %add.ptr.i4.i.i monotonic, align 2
   %add.ptr.i = getelementptr i8, ptr %1, i64 8
@@ -4112,7 +4103,7 @@ sw.bb7.i:                                         ; preds = %required_atomicity.
   store atomic i16 %conv.i3.i41.i, ptr %add.ptr.i39.i monotonic, align 2
   %add.ptr.i4.i42.i = getelementptr i8, ptr %1, i64 14
   %sum.shift.i43.i = lshr i64 %val.addr.0.off64, 48
-  %conv2.i6.i44.i = trunc i64 %sum.shift.i43.i to i16
+  %conv2.i6.i44.i = trunc nuw i64 %sum.shift.i43.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i42.i, i64 2) ]
   store atomic i16 %conv2.i6.i44.i, ptr %add.ptr.i4.i42.i monotonic, align 2
   br label %store_atom_16.exit
@@ -4123,7 +4114,7 @@ sw.bb8.i:                                         ; preds = %required_atomicity.
   store atomic i32 %conv.i45.i, ptr %1 monotonic, align 4
   %add.ptr.i46.i = getelementptr i8, ptr %1, i64 4
   %shr1.i47.i = lshr i64 %val.addr.0.off0, 32
-  %conv2.i.i = trunc i64 %shr1.i47.i to i32
+  %conv2.i.i = trunc nuw i64 %shr1.i47.i to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i46.i, i64 4) ]
   store atomic i32 %conv2.i.i, ptr %add.ptr.i46.i monotonic, align 4
   %add.ptr9.i = getelementptr i8, ptr %1, i64 8
@@ -4132,7 +4123,7 @@ sw.bb8.i:                                         ; preds = %required_atomicity.
   store atomic i32 %conv.i48.i, ptr %add.ptr9.i monotonic, align 4
   %add.ptr.i49.i = getelementptr i8, ptr %1, i64 12
   %shr1.i50.i = lshr i64 %val.addr.0.off64, 32
-  %conv2.i51.i = trunc i64 %shr1.i50.i to i32
+  %conv2.i51.i = trunc nuw i64 %shr1.i50.i to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i49.i, i64 4) ]
   store atomic i32 %conv2.i51.i, ptr %add.ptr.i49.i monotonic, align 4
   br label %store_atom_16.exit
@@ -4146,7 +4137,7 @@ sw.bb10.i:                                        ; preds = %required_atomicity.
   br label %store_atom_16.exit
 
 sw.bb12.i:                                        ; preds = %required_atomicity.exit.i
-  %conv14.i = trunc i64 %and.i10 to i32
+  %conv14.i = trunc nuw nsw i64 %and.i10 to i32
   %sub.i11 = sub nuw nsw i32 16, %conv14.i
   switch i32 %conv14.i, label %do.body.i [
     i32 1, label %sw.bb15.i
@@ -4325,7 +4316,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %and.i.i.i = and i32 %shr.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %get_alignment_bits.exit.i.i
@@ -4418,7 +4409,7 @@ entry:
   %cmp.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i)
   %and.i.i.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i.i.i = trunc i32 %and.i.i.i.i to i8
+  %trunc.i.i.i.i = trunc nuw i32 %and.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i, label %if.else4.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i
@@ -4514,7 +4505,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %and.i.i.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i.i.i = trunc i32 %and.i.i.i.i to i8
+  %trunc.i.i.i.i = trunc nuw i32 %and.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i, label %if.else4.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i
@@ -4561,7 +4552,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %and.i.i.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i.i.i = trunc i32 %and.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i, label %if.else4.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i
@@ -4715,7 +4706,7 @@ entry:
   %cmp.i.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
   %and.i.i.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i.i.i = trunc i32 %and.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i, label %if.else4.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i
@@ -4845,7 +4836,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %and.i.i.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i.i.i = trunc i32 %and.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i, label %if.else4.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i
@@ -4895,7 +4886,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %and.i.i.i.i.i.i = and i32 %shr.i.i.i.i, 224
-  %trunc.i.i.i.i.i.i = trunc i32 %and.i.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i.i, label %if.else4.i.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i.i
@@ -5058,7 +5049,7 @@ entry:
   %cmp.i.i.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %and.i.i.i.i.i.i = and i32 %shr.i.i.i.i, 224
-  %trunc.i.i.i.i.i.i = trunc i32 %and.i.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i.i, label %if.else4.i.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i.i
@@ -5194,7 +5185,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %and.i.i.i.i.i.i = and i32 %shr.i.i.i.i, 224
-  %trunc.i.i.i.i.i.i = trunc i32 %and.i.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i.i, label %if.else4.i.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i.i
@@ -5242,7 +5233,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %and.i.i.i.i.i.i.i = and i32 %shr.i.i.i.i.i, 224
-  %trunc.i.i.i.i.i.i.i = trunc i32 %and.i.i.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i.i.i, label %if.else4.i.i.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i.i.i
@@ -5405,7 +5396,7 @@ entry:
   %cmp.i.i.i.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %and.i.i.i.i.i.i.i = and i32 %shr.i.i.i.i.i, 224
-  %trunc.i.i.i.i.i.i.i = trunc i32 %and.i.i.i.i.i.i.i to i8
+  %trunc.i.i.i.i.i.i.i = trunc nuw i32 %and.i.i.i.i.i.i.i to i8
   switch i8 %trunc.i.i.i.i.i.i.i, label %if.else4.i.i.i.i.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i.i.i.i.i
     i8 -32, label %get_alignment_bits.exit.i.i.i.i.i.i
@@ -5539,7 +5530,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5590,7 +5581,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -5643,7 +5634,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5706,7 +5697,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -5771,7 +5762,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5831,7 +5822,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -5893,7 +5884,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5953,7 +5944,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6015,7 +6006,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6072,7 +6063,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6131,7 +6122,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6191,7 +6182,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6253,7 +6244,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6310,7 +6301,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6376,7 +6367,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6437,7 +6428,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %15 = extractvalue { i128, i1 } %13, 0
   %extract.t2.i = trunc i128 %15 to i64
   %extract4.i = lshr i128 %15, 64
-  %extract.t5.i = trunc i128 %extract4.i to i64
+  %extract.t5.i = trunc nuw i128 %extract4.i to i64
   %_old.0.off0.i = select i1 %14, i64 %3, i64 %extract.t2.i
   %_old.0.off64.i = select i1 %14, i64 %4, i64 %extract.t5.i
   fence syncscope("singlethread") seq_cst
@@ -6465,7 +6456,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6522,7 +6513,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %5 = extractvalue { i128, i1 } %3, 0
   %extract.t2.i = trunc i128 %5 to i64
   %extract4.i = lshr i128 %5, 64
-  %extract.t5.i = trunc i128 %extract4.i to i64
+  %extract.t5.i = trunc nuw i128 %extract4.i to i64
   %_old.0.off0.i = select i1 %4, i64 %cmpv.coerce0, i64 %extract.t2.i
   %_old.0.off64.i = select i1 %4, i64 %cmpv.coerce1, i64 %extract.t5.i
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %_old.0.off0.i, 0
@@ -6548,7 +6539,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6597,7 +6588,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6655,7 +6646,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6730,7 +6721,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6788,7 +6779,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6855,7 +6846,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -6928,7 +6919,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6984,7 +6975,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7049,7 +7040,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7122,7 +7113,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7178,7 +7169,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7236,7 +7227,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7285,7 +7276,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7336,7 +7327,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7396,7 +7387,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7458,7 +7449,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7516,7 +7507,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7576,7 +7567,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7634,7 +7625,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7694,7 +7685,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7750,7 +7741,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7808,7 +7799,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7866,7 +7857,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -7926,7 +7917,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -7982,7 +7973,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8040,7 +8031,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8089,7 +8080,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8140,7 +8131,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8200,7 +8191,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8262,7 +8253,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8320,7 +8311,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8380,7 +8371,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8438,7 +8429,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8498,7 +8489,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8554,7 +8545,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8612,7 +8603,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8670,7 +8661,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8730,7 +8721,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8786,7 +8777,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8844,7 +8835,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -8893,7 +8884,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -8944,7 +8935,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -9004,7 +8995,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9066,7 +9057,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -9124,7 +9115,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9184,7 +9175,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -9242,7 +9233,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9302,7 +9293,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -9358,7 +9349,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9416,7 +9407,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -9474,7 +9465,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9534,7 +9525,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -9590,7 +9581,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9648,7 +9639,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -9693,7 +9684,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -9712,7 +9703,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9757,7 +9748,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -9785,7 +9776,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9840,7 +9831,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %4 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -9869,7 +9860,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -9923,7 +9914,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -9951,7 +9942,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10024,7 +10015,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -10093,7 +10084,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10171,7 +10162,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10244,7 +10235,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -10313,7 +10304,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10384,7 +10375,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -10428,7 +10419,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -10447,7 +10438,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10491,7 +10482,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -10519,7 +10510,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10573,7 +10564,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %4 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -10602,7 +10593,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10655,7 +10646,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -10683,7 +10674,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10756,7 +10747,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -10825,7 +10816,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10903,7 +10894,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -10976,7 +10967,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -11045,7 +11036,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11116,7 +11107,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -11161,7 +11152,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -11180,7 +11171,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11225,7 +11216,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -11253,7 +11244,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11308,7 +11299,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %4 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -11337,7 +11328,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11391,7 +11382,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -11419,7 +11410,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11492,7 +11483,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -11561,7 +11552,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11639,7 +11630,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11712,7 +11703,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -11781,7 +11772,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11852,7 +11843,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -11896,7 +11887,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -11915,7 +11906,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -11959,7 +11950,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -11987,7 +11978,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12041,7 +12032,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %4 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -12070,7 +12061,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12123,7 +12114,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -12151,7 +12142,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12224,7 +12215,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -12293,7 +12284,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12371,7 +12362,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12444,7 +12435,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -12513,7 +12504,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12584,7 +12575,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -12634,7 +12625,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12693,7 +12684,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12768,7 +12759,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -12827,7 +12818,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12895,7 +12886,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -12968,7 +12959,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13025,7 +13016,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13091,7 +13082,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13164,7 +13155,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13221,7 +13212,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13280,7 +13271,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13330,7 +13321,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13382,7 +13373,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13443,7 +13434,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13506,7 +13497,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13565,7 +13556,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13626,7 +13617,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13685,7 +13676,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13746,7 +13737,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13803,7 +13794,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13862,7 +13853,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -13921,7 +13912,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -13982,7 +13973,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14039,7 +14030,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14098,7 +14089,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14148,7 +14139,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14200,7 +14191,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14261,7 +14252,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14324,7 +14315,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14383,7 +14374,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14444,7 +14435,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14503,7 +14494,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14564,7 +14555,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14621,7 +14612,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14680,7 +14671,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14739,7 +14730,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14800,7 +14791,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14857,7 +14848,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -14916,7 +14907,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -14966,7 +14957,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15018,7 +15009,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -15079,7 +15070,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15142,7 +15133,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -15201,7 +15192,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15262,7 +15253,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -15321,7 +15312,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15382,7 +15373,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -15439,7 +15430,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15498,7 +15489,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -15557,7 +15548,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15618,7 +15609,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -15675,7 +15666,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15734,7 +15725,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -15779,7 +15770,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -15798,7 +15789,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15843,7 +15834,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -15871,7 +15862,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -15926,7 +15917,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %4 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -15955,7 +15946,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16009,7 +16000,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -16037,7 +16028,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16110,7 +16101,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -16179,7 +16170,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16257,7 +16248,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16330,7 +16321,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -16399,7 +16390,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16470,7 +16461,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -16514,7 +16505,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -16533,7 +16524,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16577,7 +16568,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -16605,7 +16596,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16659,7 +16650,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %4 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -16688,7 +16679,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16741,7 +16732,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -16769,7 +16760,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16842,7 +16833,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -16911,7 +16902,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -16989,7 +16980,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17062,7 +17053,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -17131,7 +17122,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17202,7 +17193,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -17247,7 +17238,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -17266,7 +17257,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17311,7 +17302,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -17339,7 +17330,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17394,7 +17385,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %4 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -17423,7 +17414,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17477,7 +17468,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -17505,7 +17496,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17578,7 +17569,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -17647,7 +17638,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17725,7 +17716,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17798,7 +17789,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -17867,7 +17858,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -17938,7 +17929,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -17982,7 +17973,7 @@ do.body.i:                                        ; preds = %do.body.i, %atomic_
   %cmp.0.i = phi i8 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %6 = cmpxchg ptr %3, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 0
   %cmp10.not.i = extractvalue { i8, i1 } %6, 1
@@ -18001,7 +17992,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18045,7 +18036,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i8 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %4 = cmpxchg ptr %1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 0
   %cmp10.not = extractvalue { i8, i1 } %4, 1
@@ -18073,7 +18064,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18127,7 +18118,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %4 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %4 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %6 = cmpxchg ptr %1, i16 %ldn.0, i16 %5 seq_cst seq_cst, align 2
   %7 = extractvalue { i16, i1 } %6, 0
@@ -18156,7 +18147,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18209,7 +18200,7 @@ do.body:                                          ; preds = %do.body, %atomic_mm
   %cmp.0 = phi i16 [ %3, %atomic_mmu_lookup.exit ], [ %5, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %4 = cmpxchg ptr %1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
   %cmp10.not = extractvalue { i16, i1 } %4, 1
@@ -18237,7 +18228,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18310,7 +18301,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -18379,7 +18370,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18457,7 +18448,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18530,7 +18521,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -18599,7 +18590,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18670,7 +18661,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -18719,7 +18710,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18770,7 +18761,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -18830,7 +18821,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -18892,7 +18883,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -18950,7 +18941,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -19010,7 +19001,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -19068,7 +19059,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -19128,7 +19119,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -19184,7 +19175,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -19242,7 +19233,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -19300,7 +19291,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -19360,7 +19351,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -19416,7 +19407,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i = lshr i32 %oi, 4
   %and.i.i = and i32 %shr.i.i, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i

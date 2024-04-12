@@ -1320,8 +1320,7 @@ lpad1.i:                                          ; preds = %lpad1.loopexit.spli
 
 if.end.i:                                         ; preds = %if.end26
   store ptr %call.i, ptr %ranges.i, align 8, !noalias !12
-  %cmp13.not.i = icmp eq i32 %add, 0
-  br i1 %cmp13.not.i, label %for.end.i, label %for.body.i
+  br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %i.014.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end.i ]
@@ -1350,7 +1349,7 @@ for.inc.i:                                        ; preds = %if.end11.i
   %exitcond.not.i = icmp eq i64 %inc.i, %conv
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15
 
-for.end.i:                                        ; preds = %for.inc.i, %if.end.i
+for.end.i:                                        ; preds = %for.inc.i
   invoke void @_ZN4base12BucketRanges13ResetChecksumEv(ptr noundef nonnull align 8 dereferenceable(28) %call.i)
           to label %invoke.cont16.i unwind label %lpad1.loopexit.split-lp.i, !noalias !12
 

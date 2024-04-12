@@ -1633,7 +1633,7 @@ define dso_local i32 @inet_shutdown(ptr nocapture noundef %0, i32 noundef %1) #0
   %23 = phi i32 [ 0, %18 ], [ -107, %21 ]
   %24 = getelementptr inbounds i8, ptr %4, i64 620
   %25 = load i8, ptr %24, align 4
-  %26 = trunc i32 %5 to i8
+  %26 = trunc nuw i32 %5 to i8
   %27 = or i8 %25, %26
   store volatile i8 %27, ptr %24, align 4
   %28 = getelementptr inbounds i8, ptr %4, i64 40
@@ -2523,7 +2523,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
   %16 = sub nsw i64 %12, %15
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nsw i64 %16 to i32
   %18 = getelementptr inbounds i8, ptr %0, i64 112
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 116
@@ -2649,7 +2649,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 
   %100 = and i32 %96, 8
   %101 = icmp eq i32 %100, 0
   %102 = lshr exact i32 %100, 3
-  %103 = trunc i32 %102 to i8
+  %103 = trunc nuw nsw i32 %102 to i8
   br i1 %101, label %112, label %104
 
 104:                                              ; preds = %90
@@ -2663,7 +2663,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 
   br i1 %111, label %.thread, label %112
 
 112:                                              ; preds = %104, %90, %76
-  %113 = phi i8 [ %103, %104 ], [ %103, %90 ], [ 0, %76 ]
+  %113 = phi i8 [ 1, %104 ], [ %103, %90 ], [ 0, %76 ]
   %114 = phi i8 [ %99, %104 ], [ %99, %90 ], [ 0, %76 ]
   %115 = zext i8 %46 to i64
   %116 = getelementptr [256 x ptr], ptr @inet_offloads, i64 0, i64 %115
@@ -3138,7 +3138,7 @@ define dso_local ptr @inet_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 
 ..loopexit_crit_edge:                             ; preds = %53
   %70 = lshr i32 %57, 16
-  %71 = trunc i32 %70 to i16
+  %71 = trunc nuw i32 %70 to i16
   %.pre9 = trunc i32 %67 to i16
   br label %.loopexit
 
@@ -3149,7 +3149,7 @@ define dso_local ptr @inet_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %76 = getelementptr inbounds i8, ptr %27, i64 8
   %77 = getelementptr inbounds i8, ptr %27, i64 1
   %78 = trunc i32 %67 to i16
-  %79 = trunc i32 %73 to i16
+  %79 = trunc nuw i32 %73 to i16
   %80 = getelementptr inbounds i8, ptr %1, i64 70
   br label %81
 
@@ -3354,7 +3354,7 @@ define dso_local i32 @inet_current_timestamp() #0 align 16 {
   call void @ktime_get_real_ts64(ptr noundef nonnull %1) #15
   %2 = load i64, ptr %1, align 8
   %3 = urem i64 %2, 86400
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %5 = mul nuw nsw i32 %4, 1000
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -4202,7 +4202,7 @@ define internal i32 @inet_create(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %100, i32 -3, ptr elementtype(i8) %100) #15, !srcloc !76
   %101 = load i16, ptr %6, align 4
   %102 = icmp eq i16 %101, 3
-  %103 = trunc i32 %.us-phi21 to i16
+  %103 = trunc nuw i32 %.us-phi21 to i16
   br i1 %102, label %104, label %._crit_edge
 
 104:                                              ; preds = %99

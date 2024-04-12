@@ -11481,7 +11481,7 @@ define noundef i32 @zend_hash_index_del(ptr noundef %0, i64 noundef %1) local_un
   br i1 %.not135, label %.loopexit143, label %19
 
 19:                                               ; preds = %13
-  %20 = trunc i64 %1 to i32
+  %20 = trunc nuw i64 %1 to i32
   %21 = getelementptr inbounds i8, ptr %0, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, -1
@@ -12438,258 +12438,255 @@ define void @zend_hash_clean(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not130 = icmp eq ptr %12, null
-  br i1 %.not129, label %28, label %13
+  br i1 %.not129, label %27, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds %struct._zval_struct, ptr %9, i64 %10
-  %15 = and i32 %6, 20
-  %.not151 = icmp eq i32 %15, 0
-  %or.cond = or i1 %.not151, %.not130
-  br i1 %or.cond, label %.loopexit, label %16
+  br i1 %.not130, label %.loopexit, label %15
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %3, %18
-  br i1 %19, label %.preheader164, label %.preheader166
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %3, %17
+  br i1 %18, label %.preheader163, label %.preheader165
 
-.preheader164:                                    ; preds = %16, %.preheader164
-  %.0117 = phi ptr [ %21, %.preheader164 ], [ %9, %16 ]
-  %20 = load ptr, ptr %11, align 8
-  tail call void %20(ptr noundef %.0117) #27
-  %21 = getelementptr inbounds i8, ptr %.0117, i64 16
-  %.not154 = icmp eq ptr %21, %14
-  br i1 %.not154, label %.loopexit, label %.preheader164
+.preheader163:                                    ; preds = %15, %.preheader163
+  %.0117 = phi ptr [ %20, %.preheader163 ], [ %9, %15 ]
+  %19 = load ptr, ptr %11, align 8
+  tail call void %19(ptr noundef %.0117) #27
+  %20 = getelementptr inbounds i8, ptr %.0117, i64 16
+  %.not153 = icmp eq ptr %20, %14
+  br i1 %.not153, label %.loopexit, label %.preheader163
 
-.preheader166:                                    ; preds = %16, %26
-  %.1 = phi ptr [ %27, %26 ], [ %9, %16 ]
-  %22 = getelementptr inbounds i8, ptr %.1, i64 8
-  %23 = load i8, ptr %22, align 8
-  %.not152 = icmp eq i8 %23, 0
-  br i1 %.not152, label %26, label %24
+.preheader165:                                    ; preds = %15, %25
+  %.1 = phi ptr [ %26, %25 ], [ %9, %15 ]
+  %21 = getelementptr inbounds i8, ptr %.1, i64 8
+  %22 = load i8, ptr %21, align 8
+  %.not151 = icmp eq i8 %22, 0
+  br i1 %.not151, label %25, label %23
 
-24:                                               ; preds = %.preheader166
-  %25 = load ptr, ptr %11, align 8
-  tail call void %25(ptr noundef nonnull %.1) #27
-  br label %26
+23:                                               ; preds = %.preheader165
+  %24 = load ptr, ptr %11, align 8
+  tail call void %24(ptr noundef nonnull %.1) #27
+  br label %25
 
-26:                                               ; preds = %.preheader166, %24
-  %27 = getelementptr inbounds i8, ptr %.1, i64 16
-  %.not153 = icmp eq ptr %27, %14
-  br i1 %.not153, label %.loopexit, label %.preheader166
+25:                                               ; preds = %.preheader165, %23
+  %26 = getelementptr inbounds i8, ptr %.1, i64 16
+  %.not152 = icmp eq ptr %26, %14
+  br i1 %.not152, label %.loopexit, label %.preheader165
 
-28:                                               ; preds = %4
-  %29 = getelementptr inbounds %struct._Bucket, ptr %9, i64 %10
-  %30 = and i32 %6, 16
-  %.not131 = icmp eq i32 %30, 0
-  br i1 %.not130, label %84, label %31
+27:                                               ; preds = %4
+  %28 = getelementptr inbounds %struct._Bucket, ptr %9, i64 %10
+  %29 = and i32 %6, 16
+  %.not131 = icmp eq i32 %29, 0
+  br i1 %.not130, label %83, label %30
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %3, %33
-  br i1 %.not131, label %44, label %35
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %3, %32
+  br i1 %.not131, label %43, label %34
 
-35:                                               ; preds = %31
-  br i1 %34, label %.preheader160, label %.preheader162
+34:                                               ; preds = %30
+  br i1 %33, label %.preheader159, label %.preheader161
 
-.preheader160:                                    ; preds = %35, %.preheader160
-  %.0118 = phi ptr [ %37, %.preheader160 ], [ %9, %35 ]
-  %36 = load ptr, ptr %11, align 8
-  tail call void %36(ptr noundef %.0118) #27
-  %37 = getelementptr inbounds i8, ptr %.0118, i64 32
-  %.not148 = icmp eq ptr %37, %29
-  br i1 %.not148, label %.loopexit155, label %.preheader160
+.preheader159:                                    ; preds = %34, %.preheader159
+  %.0118 = phi ptr [ %36, %.preheader159 ], [ %9, %34 ]
+  %35 = load ptr, ptr %11, align 8
+  tail call void %35(ptr noundef %.0118) #27
+  %36 = getelementptr inbounds i8, ptr %.0118, i64 32
+  %.not148 = icmp eq ptr %36, %28
+  br i1 %.not148, label %.loopexit154, label %.preheader159
 
-.preheader162:                                    ; preds = %35, %42
-  %.1119 = phi ptr [ %43, %42 ], [ %9, %35 ]
-  %38 = getelementptr inbounds i8, ptr %.1119, i64 8
-  %39 = load i8, ptr %38, align 8
-  %.not146 = icmp eq i8 %39, 0
-  br i1 %.not146, label %42, label %40
+.preheader161:                                    ; preds = %34, %41
+  %.1119 = phi ptr [ %42, %41 ], [ %9, %34 ]
+  %37 = getelementptr inbounds i8, ptr %.1119, i64 8
+  %38 = load i8, ptr %37, align 8
+  %.not146 = icmp eq i8 %38, 0
+  br i1 %.not146, label %41, label %39
 
-40:                                               ; preds = %.preheader162
-  %41 = load ptr, ptr %11, align 8
-  tail call void %41(ptr noundef nonnull %.1119) #27
-  br label %42
+39:                                               ; preds = %.preheader161
+  %40 = load ptr, ptr %11, align 8
+  tail call void %40(ptr noundef nonnull %.1119) #27
+  br label %41
 
-42:                                               ; preds = %.preheader162, %40
-  %43 = getelementptr inbounds i8, ptr %.1119, i64 32
-  %.not147 = icmp eq ptr %43, %29
-  br i1 %.not147, label %.loopexit155, label %.preheader162
+41:                                               ; preds = %.preheader161, %39
+  %42 = getelementptr inbounds i8, ptr %.1119, i64 32
+  %.not147 = icmp eq ptr %42, %28
+  br i1 %.not147, label %.loopexit154, label %.preheader161
 
-44:                                               ; preds = %31
-  br i1 %34, label %.preheader156, label %.preheader158
+43:                                               ; preds = %30
+  br i1 %33, label %.preheader155, label %.preheader157
 
-.preheader156:                                    ; preds = %44, %61
-  %.2 = phi ptr [ %62, %61 ], [ %9, %44 ]
-  %45 = load ptr, ptr %11, align 8
-  tail call void %45(ptr noundef %.2) #27
-  %46 = getelementptr inbounds i8, ptr %.2, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %.not142 = icmp eq ptr %47, null
-  br i1 %.not142, label %61, label %48
+.preheader155:                                    ; preds = %43, %60
+  %.2 = phi ptr [ %61, %60 ], [ %9, %43 ]
+  %44 = load ptr, ptr %11, align 8
+  tail call void %44(ptr noundef %.2) #27
+  %45 = getelementptr inbounds i8, ptr %.2, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %.not142 = icmp eq ptr %46, null
+  br i1 %.not142, label %60, label %47
 
-48:                                               ; preds = %.preheader156
-  %49 = getelementptr inbounds i8, ptr %47, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 64
-  %.not143 = icmp eq i32 %51, 0
-  br i1 %.not143, label %52, label %61
+47:                                               ; preds = %.preheader155
+  %48 = getelementptr inbounds i8, ptr %46, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, 64
+  %.not143 = icmp eq i32 %50, 0
+  br i1 %.not143, label %51, label %60
 
-52:                                               ; preds = %48
-  %53 = load i32, ptr %47, align 4
-  %54 = icmp ne i32 %53, 0
-  tail call void @llvm.assume(i1 %54)
-  %55 = add i32 %53, -1
-  store i32 %55, ptr %47, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %61
+51:                                               ; preds = %47
+  %52 = load i32, ptr %46, align 4
+  %53 = icmp ne i32 %52, 0
+  tail call void @llvm.assume(i1 %53)
+  %54 = add i32 %52, -1
+  store i32 %54, ptr %46, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %60
 
-57:                                               ; preds = %52
-  %58 = and i32 %50, 128
-  %.not144 = icmp eq i32 %58, 0
-  br i1 %.not144, label %60, label %59
+56:                                               ; preds = %51
+  %57 = and i32 %49, 128
+  %.not144 = icmp eq i32 %57, 0
+  br i1 %.not144, label %59, label %58
 
-59:                                               ; preds = %57
-  tail call void @free(ptr noundef nonnull %47) #27
-  br label %61
+58:                                               ; preds = %56
+  tail call void @free(ptr noundef nonnull %46) #27
+  br label %60
 
-60:                                               ; preds = %57
-  tail call void @_efree(ptr noundef nonnull %47) #27
-  br label %61
+59:                                               ; preds = %56
+  tail call void @_efree(ptr noundef nonnull %46) #27
+  br label %60
 
-61:                                               ; preds = %.preheader156, %52, %60, %59, %48
-  %62 = getelementptr inbounds i8, ptr %.2, i64 32
-  %.not145 = icmp eq ptr %62, %29
-  br i1 %.not145, label %.loopexit155, label %.preheader156
+60:                                               ; preds = %.preheader155, %51, %59, %58, %47
+  %61 = getelementptr inbounds i8, ptr %.2, i64 32
+  %.not145 = icmp eq ptr %61, %28
+  br i1 %.not145, label %.loopexit154, label %.preheader155
 
-.preheader158:                                    ; preds = %44, %82
-  %.3 = phi ptr [ %83, %82 ], [ %9, %44 ]
-  %63 = getelementptr inbounds i8, ptr %.3, i64 8
-  %64 = load i8, ptr %63, align 8
-  %.not137 = icmp eq i8 %64, 0
-  br i1 %.not137, label %82, label %65
+.preheader157:                                    ; preds = %43, %81
+  %.3 = phi ptr [ %82, %81 ], [ %9, %43 ]
+  %62 = getelementptr inbounds i8, ptr %.3, i64 8
+  %63 = load i8, ptr %62, align 8
+  %.not137 = icmp eq i8 %63, 0
+  br i1 %.not137, label %81, label %64
 
-65:                                               ; preds = %.preheader158
-  %66 = load ptr, ptr %11, align 8
-  tail call void %66(ptr noundef nonnull %.3) #27
-  %67 = getelementptr inbounds i8, ptr %.3, i64 24
-  %68 = load ptr, ptr %67, align 8
-  %.not138 = icmp eq ptr %68, null
-  br i1 %.not138, label %82, label %69
+64:                                               ; preds = %.preheader157
+  %65 = load ptr, ptr %11, align 8
+  tail call void %65(ptr noundef nonnull %.3) #27
+  %66 = getelementptr inbounds i8, ptr %.3, i64 24
+  %67 = load ptr, ptr %66, align 8
+  %.not138 = icmp eq ptr %67, null
+  br i1 %.not138, label %81, label %68
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %68, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = and i32 %71, 64
-  %.not139 = icmp eq i32 %72, 0
-  br i1 %.not139, label %73, label %82
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %67, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, 64
+  %.not139 = icmp eq i32 %71, 0
+  br i1 %.not139, label %72, label %81
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %68, align 4
-  %75 = icmp ne i32 %74, 0
-  tail call void @llvm.assume(i1 %75)
-  %76 = add i32 %74, -1
-  store i32 %76, ptr %68, align 4
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %82
+72:                                               ; preds = %68
+  %73 = load i32, ptr %67, align 4
+  %74 = icmp ne i32 %73, 0
+  tail call void @llvm.assume(i1 %74)
+  %75 = add i32 %73, -1
+  store i32 %75, ptr %67, align 4
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %81
 
-78:                                               ; preds = %73
-  %79 = and i32 %71, 128
-  %.not140 = icmp eq i32 %79, 0
-  br i1 %.not140, label %81, label %80
+77:                                               ; preds = %72
+  %78 = and i32 %70, 128
+  %.not140 = icmp eq i32 %78, 0
+  br i1 %.not140, label %80, label %79
 
-80:                                               ; preds = %78
-  tail call void @free(ptr noundef nonnull %68) #27
-  br label %82
+79:                                               ; preds = %77
+  tail call void @free(ptr noundef nonnull %67) #27
+  br label %81
 
-81:                                               ; preds = %78
-  tail call void @_efree(ptr noundef nonnull %68) #27
-  br label %82
+80:                                               ; preds = %77
+  tail call void @_efree(ptr noundef nonnull %67) #27
+  br label %81
 
-82:                                               ; preds = %.preheader158, %69, %80, %81, %73, %65
-  %83 = getelementptr inbounds i8, ptr %.3, i64 32
-  %.not141 = icmp eq ptr %83, %29
-  br i1 %.not141, label %.loopexit155, label %.preheader158
+81:                                               ; preds = %.preheader157, %68, %79, %80, %72, %64
+  %82 = getelementptr inbounds i8, ptr %.3, i64 32
+  %.not141 = icmp eq ptr %82, %28
+  br i1 %.not141, label %.loopexit154, label %.preheader157
 
-84:                                               ; preds = %28
-  br i1 %.not131, label %.preheader, label %.loopexit155
+83:                                               ; preds = %27
+  br i1 %.not131, label %.preheader, label %.loopexit154
 
-.preheader:                                       ; preds = %84, %100
-  %.4 = phi ptr [ %101, %100 ], [ %9, %84 ]
-  %85 = getelementptr inbounds i8, ptr %.4, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %.not132 = icmp eq ptr %86, null
-  br i1 %.not132, label %100, label %87
+.preheader:                                       ; preds = %83, %99
+  %.4 = phi ptr [ %100, %99 ], [ %9, %83 ]
+  %84 = getelementptr inbounds i8, ptr %.4, i64 24
+  %85 = load ptr, ptr %84, align 8
+  %.not132 = icmp eq ptr %85, null
+  br i1 %.not132, label %99, label %86
 
-87:                                               ; preds = %.preheader
-  %88 = getelementptr inbounds i8, ptr %86, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = and i32 %89, 64
-  %.not133 = icmp eq i32 %90, 0
-  br i1 %.not133, label %91, label %100
+86:                                               ; preds = %.preheader
+  %87 = getelementptr inbounds i8, ptr %85, i64 4
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, 64
+  %.not133 = icmp eq i32 %89, 0
+  br i1 %.not133, label %90, label %99
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr %86, align 4
-  %93 = icmp ne i32 %92, 0
-  tail call void @llvm.assume(i1 %93)
-  %94 = add i32 %92, -1
-  store i32 %94, ptr %86, align 4
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %100
+90:                                               ; preds = %86
+  %91 = load i32, ptr %85, align 4
+  %92 = icmp ne i32 %91, 0
+  tail call void @llvm.assume(i1 %92)
+  %93 = add i32 %91, -1
+  store i32 %93, ptr %85, align 4
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %99
 
-96:                                               ; preds = %91
-  %97 = and i32 %89, 128
-  %.not134 = icmp eq i32 %97, 0
-  br i1 %.not134, label %99, label %98
+95:                                               ; preds = %90
+  %96 = and i32 %88, 128
+  %.not134 = icmp eq i32 %96, 0
+  br i1 %.not134, label %98, label %97
 
-98:                                               ; preds = %96
-  tail call void @free(ptr noundef nonnull %86) #27
-  br label %100
+97:                                               ; preds = %95
+  tail call void @free(ptr noundef nonnull %85) #27
+  br label %99
 
-99:                                               ; preds = %96
-  tail call void @_efree(ptr noundef nonnull %86) #27
-  br label %100
+98:                                               ; preds = %95
+  tail call void @_efree(ptr noundef nonnull %85) #27
+  br label %99
 
-100:                                              ; preds = %.preheader, %91, %99, %98, %87
-  %101 = getelementptr inbounds i8, ptr %.4, i64 32
-  %.not135 = icmp eq ptr %101, %29
-  br i1 %.not135, label %.loopexit155, label %.preheader
+99:                                               ; preds = %.preheader, %90, %98, %97, %86
+  %100 = getelementptr inbounds i8, ptr %.4, i64 32
+  %.not135 = icmp eq ptr %100, %28
+  br i1 %.not135, label %.loopexit154, label %.preheader
 
-.loopexit155:                                     ; preds = %42, %.preheader160, %82, %61, %100, %84
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 12
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %102, i64 %105
-  %107 = sub i32 0, %104
-  %108 = zext i32 %107 to i64
-  %109 = shl nuw nsw i64 %108, 2
-  %110 = icmp ugt i32 %107, 15
-  %111 = and i64 %108, 15
-  %112 = icmp eq i64 %111, 0
-  tail call void @llvm.assume(i1 %110)
-  tail call void @llvm.assume(i1 %112)
-  br label %113
+.loopexit154:                                     ; preds = %41, %.preheader159, %81, %60, %99, %83
+  %101 = load ptr, ptr %8, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 12
+  %103 = load i32, ptr %102, align 4
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i32, ptr %101, i64 %104
+  %106 = sub i32 0, %103
+  %107 = zext i32 %106 to i64
+  %108 = shl nuw nsw i64 %107, 2
+  %109 = icmp ugt i32 %106, 15
+  %110 = and i64 %107, 15
+  %111 = icmp eq i64 %110, 0
+  tail call void @llvm.assume(i1 %109)
+  tail call void @llvm.assume(i1 %111)
+  br label %112
 
-113:                                              ; preds = %113, %.loopexit155
-  %.0116 = phi ptr [ %106, %.loopexit155 ], [ %114, %113 ]
-  %.0 = phi i64 [ %109, %.loopexit155 ], [ %115, %113 ]
-  %114 = getelementptr inbounds i8, ptr %.0116, i64 64
-  %115 = add i64 %.0, -64
-  %.not149 = icmp eq i64 %115, 0
+112:                                              ; preds = %112, %.loopexit154
+  %.0116 = phi ptr [ %105, %.loopexit154 ], [ %113, %112 ]
+  %.0 = phi i64 [ %108, %.loopexit154 ], [ %114, %112 ]
+  %113 = getelementptr inbounds i8, ptr %.0116, i64 64
+  %114 = add i64 %.0, -64
+  %.not149 = icmp eq i64 %114, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.0116, i8 -1, i64 64, i1 false)
-  br i1 %.not149, label %.loopexit, label %113
+  br i1 %.not149, label %.loopexit, label %112
 
-.loopexit:                                        ; preds = %26, %.preheader164, %113, %13, %1
+.loopexit:                                        ; preds = %25, %.preheader163, %112, %13, %1
   store i32 0, ptr %2, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 0, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 -9223372036854775808, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 0, ptr %118, align 4
+  %115 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %115, align 4
+  %116 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 -9223372036854775808, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 0, ptr %117, align 4
   ret void
 }
 
@@ -14440,7 +14437,7 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
   br i1 %34, label %77, label %35
 
 35:                                               ; preds = %28
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   store i64 %indvars.iv, ptr %7, align 8
   store ptr null, ptr %14, align 8
   %36 = call i32 %1(ptr noundef nonnull %31, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #27
@@ -14530,7 +14527,7 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
 74:                                               ; preds = %69, %73, %35
   %75 = and i32 %36, 2
   %.not183 = icmp eq i32 %75, 0
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br i1 %.not183, label %76, label %.loopexit190
 
 76:                                               ; preds = %74
@@ -14555,7 +14552,7 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
   br i1 %87, label %175, label %88
 
 88:                                               ; preds = %81
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %89 = getelementptr inbounds i8, ptr %84, i64 16
   %90 = load i64, ptr %89, align 8
   store i64 %90, ptr %7, align 8
@@ -14733,7 +14730,7 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
 172:                                              ; preds = %167, %171, %88
   %173 = and i32 %93, 2
   %.not177 = icmp eq i32 %173, 0
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br i1 %.not177, label %174, label %.loopexit190
 
 174:                                              ; preds = %172
@@ -14750,12 +14747,6 @@ define void @zend_hash_apply_with_arguments(ptr noundef %0, ptr nocapture nounde
 .loopexit190:                                     ; preds = %77, %74, %175, %172, %.preheader193, %.preheader189
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
 
 ; Function Attrs: nounwind uwtable
 define void @zend_hash_reverse_apply(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
@@ -16397,7 +16388,7 @@ define ptr @zend_hash_find_known_hash(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @zend_hash_str_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #17 {
+define ptr @zend_hash_str_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #16 {
   %4 = icmp ugt i64 %2, 7
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -16587,7 +16578,7 @@ define ptr @zend_hash_str_find(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #18 {
+define ptr @zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -16660,7 +16651,7 @@ define ptr @zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define ptr @_zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #18 {
+define ptr @_zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -16712,7 +16703,7 @@ define ptr @_zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @zend_hash_internal_pointer_reset_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #19 {
+define void @zend_hash_internal_pointer_reset_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -16775,7 +16766,7 @@ define void @zend_hash_internal_pointer_reset_ex(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @zend_hash_internal_pointer_end_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #19 {
+define void @zend_hash_internal_pointer_end_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16827,7 +16818,7 @@ define void @zend_hash_internal_pointer_end_ex(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @zend_hash_move_forward_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #19 {
+define noundef i32 @zend_hash_move_forward_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #18 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -16940,7 +16931,7 @@ define noundef i32 @zend_hash_move_forward_ex(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @zend_hash_move_backwards_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #19 {
+define noundef i32 @zend_hash_move_backwards_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #18 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -17001,7 +16992,7 @@ define noundef i32 @zend_hash_move_backwards_ex(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @zend_hash_get_current_key_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #19 {
+define noundef i32 @zend_hash_get_current_key_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #18 {
   %5 = load i32, ptr %3, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -17376,7 +17367,7 @@ define ptr @zend_hash_get_current_data_ex(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_hash_bucket_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #20 {
+define void @zend_hash_bucket_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #19 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17397,7 +17388,7 @@ define void @zend_hash_bucket_swap(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_hash_bucket_renum_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #20 {
+define void @zend_hash_bucket_renum_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #19 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -17406,7 +17397,7 @@ define void @zend_hash_bucket_renum_swap(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_hash_bucket_packed_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #20 {
+define void @zend_hash_bucket_packed_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #19 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -18388,7 +18379,7 @@ define ptr @zend_hash_minmax(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #19 {
+define noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 45
@@ -19013,7 +19004,7 @@ _zend_handle_numeric_str_ex.exit121:              ; preds = %165, %163, %131
 declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #21
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_hash_do_resize(ptr noundef %0) unnamed_addr #0 {
@@ -19108,7 +19099,7 @@ declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #22
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #21
 
 declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #1
 
@@ -19151,6 +19142,12 @@ define internal fastcc void @zend_array_dup_ht_iterators(ptr noundef readnone %0
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #22
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
 
@@ -19182,13 +19179,13 @@ attributes #12 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { nofree nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

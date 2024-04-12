@@ -5619,45 +5619,35 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %4
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %or.cond.i.i = icmp ult i32 %.012.i, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %2
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %spec.store.select.i.i, ptr %9, align 8
-  %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
-  br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
-
-Vec_IntAlloc.exit.thread.i:                       ; preds = %Abc_PrimeCudd.exit
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr null, ptr %11, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = sext i32 %spec.store.select.i.i to i64
+  %12 = shl nsw i64 %11, 2
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #29
+  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %13, ptr %14, align 8
   store i32 %2, ptr %10, align 4
+  %.not.i3 = icmp eq ptr %13, null
+  br i1 %.not.i3, label %Vec_IntStartFull.exit, label %15
+
+15:                                               ; preds = %Abc_PrimeCudd.exit
+  %16 = sext i32 %2 to i64
+  %17 = shl nsw i64 %16, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %13, i8 -1, i64 %17, i1 false)
   br label %Vec_IntStartFull.exit
 
-Vec_IntAlloc.exit.i:                              ; preds = %Abc_PrimeCudd.exit
-  %12 = sext i32 %spec.store.select.i.i to i64
-  %13 = shl nsw i64 %12, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #29
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %14, ptr %15, align 8
-  store i32 %2, ptr %10, align 4
-  %.not.i3 = icmp eq ptr %14, null
-  br i1 %.not.i3, label %Vec_IntStartFull.exit, label %16
-
-16:                                               ; preds = %Vec_IntAlloc.exit.i
-  %17 = sext i32 %2 to i64
-  %18 = shl nsw i64 %17, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 -1, i64 %18, i1 false)
-  br label %Vec_IntStartFull.exit
-
-Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %9, ptr %19, align 8
-  %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
-  store i32 0, ptr %21, align 4
-  store i32 4096, ptr %20, align 8
-  %22 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #29
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %20, ptr %24, align 8
+Vec_IntStartFull.exit:                            ; preds = %Abc_PrimeCudd.exit, %15
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %9, ptr %18, align 8
+  %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
+  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 0, ptr %20, align 4
+  store i32 4096, ptr %19, align 8
+  %21 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #29
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %19, ptr %23, align 8
   ret void
 }
 

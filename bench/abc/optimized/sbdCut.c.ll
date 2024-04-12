@@ -52,7 +52,7 @@ define void @Sbd_StoMergeCuts(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %16 = trunc i64 %.val132 to i32
   %17 = and i32 %16, 536870911
   %18 = lshr i64 %.val132, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 536870911
   %21 = icmp ult i32 %17, %20
   %22 = zext i1 %21 to i32
@@ -69,7 +69,7 @@ Gia_ObjIsXor.exit:                                ; preds = %2, %15
   %.not = icmp eq ptr %29, null
   %30 = trunc i64 %.val132 to i32
   %.pre468 = lshr i64 %.val132, 32
-  %.pre469 = trunc i64 %.pre468 to i32
+  %.pre469 = trunc nuw i64 %.pre468 to i32
   %.pre470 = and i32 %.pre469, 536870911
   %.pre471 = sub nsw i32 %1, %.pre470
   br i1 %.not, label %.thread320, label %35
@@ -78,7 +78,7 @@ Gia_ObjIsXor.exit:                                ; preds = %2, %15
   %31 = lshr i32 %30, 29
   %32 = and i32 %31, 1
   %33 = lshr i64 %.val132, 61
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %.pre = and i32 %30, 536870911
   %.pre458 = sub nsw i32 %1, %.pre
   br label %.thread325
@@ -101,7 +101,7 @@ Gia_ObjIsXor.exit:                                ; preds = %2, %15
   %spec.select331 = select i1 %47, i32 %48, i32 0
   %49 = xor i32 %spec.select331, %46
   %50 = lshr i64 %.val132, 61
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = icmp sgt i32 %44, -1
   br i1 %52, label %53, label %58
 
@@ -195,7 +195,7 @@ Sbd_StoInitResult.exit:                           ; preds = %68
   %102 = load i64, ptr %.0116383.us, align 8
   %103 = or i64 %102, %101
   %104 = call i64 @llvm.ctpop.i64(i64 %103), !range !6
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw nsw i64 %104 to i32
   %106 = icmp slt i32 %25, %105
   br i1 %106, label %Sbd_CutSetAddCut.exit.us, label %107
 
@@ -3377,60 +3377,50 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %88 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %81
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
   store i32 %spec.store.select.i.i.i.i, ptr %88, align 8
-  %.not.i.i.i.i = icmp eq i32 %spec.store.select.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %Vec_IntAlloc.exit.thread.i.i.i, label %Vec_IntAlloc.exit.i.i.i
-
-Vec_IntAlloc.exit.thread.i.i.i:                   ; preds = %Abc_PrimeCudd.exit.i.i
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
-  store ptr null, ptr %90, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %90 = sext i32 %spec.store.select.i.i.i.i to i64
+  %91 = shl nsw i64 %90, 2
+  %92 = call noalias ptr @malloc(i64 noundef %91) #21
+  %93 = getelementptr inbounds i8, ptr %88, i64 8
+  store ptr %92, ptr %93, align 8
   store i32 %81, ptr %89, align 4
+  %.not.i3.i.i = icmp eq ptr %92, null
+  br i1 %.not.i3.i.i, label %Vec_MemHashAlloc.exit.i, label %94
+
+94:                                               ; preds = %Abc_PrimeCudd.exit.i.i
+  %95 = sext i32 %81 to i64
+  %96 = shl nsw i64 %95, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %92, i8 -1, i64 %96, i1 false)
   br label %Vec_MemHashAlloc.exit.i
 
-Vec_IntAlloc.exit.i.i.i:                          ; preds = %Abc_PrimeCudd.exit.i.i
-  %91 = sext i32 %spec.store.select.i.i.i.i to i64
-  %92 = shl nsw i64 %91, 2
-  %93 = call noalias ptr @malloc(i64 noundef %92) #21
-  %94 = getelementptr inbounds i8, ptr %88, i64 8
-  store ptr %93, ptr %94, align 8
-  store i32 %81, ptr %89, align 4
-  %.not.i3.i.i = icmp eq ptr %93, null
-  br i1 %.not.i3.i.i, label %Vec_MemHashAlloc.exit.i, label %95
-
-95:                                               ; preds = %Vec_IntAlloc.exit.i.i.i
-  %96 = sext i32 %81 to i64
-  %97 = shl nsw i64 %96, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %93, i8 -1, i64 %97, i1 false)
-  br label %Vec_MemHashAlloc.exit.i
-
-Vec_MemHashAlloc.exit.i:                          ; preds = %95, %Vec_IntAlloc.exit.i.i.i, %Vec_IntAlloc.exit.thread.i.i.i
-  %98 = getelementptr inbounds i8, ptr %77, i64 32
-  store ptr %88, ptr %98, align 8
-  %99 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
-  store i32 0, ptr %100, align 4
-  store i32 10000, ptr %99, align 8
-  %101 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #21
-  %102 = getelementptr inbounds i8, ptr %99, i64 8
-  store ptr %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %77, i64 40
-  store ptr %99, ptr %103, align 8
+Vec_MemHashAlloc.exit.i:                          ; preds = %94, %Abc_PrimeCudd.exit.i.i
+  %97 = getelementptr inbounds i8, ptr %77, i64 32
+  store ptr %88, ptr %97, align 8
+  %98 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  store i32 0, ptr %99, align 4
+  store i32 10000, ptr %98, align 8
+  %100 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #21
+  %101 = getelementptr inbounds i8, ptr %98, i64 8
+  store ptr %100, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %77, i64 40
+  store ptr %98, ptr %102, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %76, i8 0, i64 %75, i1 false)
-  %104 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %77, ptr noundef %76)
+  %103 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %77, ptr noundef %76)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %76, i8 -86, i64 %75, i1 false)
-  %105 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %77, ptr noundef %76)
+  %104 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %77, ptr noundef %76)
   %.not.i40 = icmp eq ptr %76, null
-  br i1 %.not.i40, label %Vec_MemAllocForTT.exit, label %106
+  br i1 %.not.i40, label %Vec_MemAllocForTT.exit, label %105
 
-106:                                              ; preds = %Vec_MemHashAlloc.exit.i
+105:                                              ; preds = %Vec_MemHashAlloc.exit.i
   call void @free(ptr noundef nonnull %76) #23
   br label %Vec_MemAllocForTT.exit
 
-Vec_MemAllocForTT.exit:                           ; preds = %106, %Vec_MemHashAlloc.exit.i, %Vec_WecStart.exit
-  %107 = phi ptr [ null, %Vec_WecStart.exit ], [ %77, %Vec_MemHashAlloc.exit.i ], [ %77, %106 ]
-  %108 = getelementptr inbounds i8, ptr %9, i64 72
-  store ptr %107, ptr %108, align 8
+Vec_MemAllocForTT.exit:                           ; preds = %105, %Vec_MemHashAlloc.exit.i, %Vec_WecStart.exit
+  %106 = phi ptr [ null, %Vec_WecStart.exit ], [ %77, %Vec_MemHashAlloc.exit.i ], [ %77, %105 ]
+  %107 = getelementptr inbounds i8, ptr %9, i64 72
+  store ptr %106, ptr %107, align 8
   ret ptr %9
 }
 
@@ -4133,7 +4123,7 @@ define i32 @Sbd_StoComputeCutsNode(ptr noundef %0, i32 noundef %1) local_unnamed
   %15 = getelementptr inbounds i32, ptr %.val18, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = lshr i64 %.val15, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 536870911
   %20 = sub nsw i32 %1, %19
   %21 = sext i32 %20 to i64
@@ -4317,7 +4307,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %65 = getelementptr inbounds i32, ptr %.val45, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = lshr i64 %.val38, 32
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw i64 %67 to i32
   %69 = and i32 %68, 536870911
   %70 = sub nsw i32 %1, %69
   %71 = sext i32 %70 to i64
@@ -5315,7 +5305,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #23
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #23
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -5334,7 +5324,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -5345,19 +5335,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #13
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
@@ -5394,8 +5384,8 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
