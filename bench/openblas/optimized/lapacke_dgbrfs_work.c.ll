@@ -54,7 +54,7 @@ define i32 @LAPACKE_dgbrfs_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   %40 = shl nsw i32 %3, 1
   %41 = add nsw i32 %40, %4
   %42 = icmp slt i32 %41, 0
-  %43 = add nsw i32 %41, 1
+  %43 = add nuw nsw i32 %41, 1
   %44 = select i1 %42, i32 1, i32 %43
   store i32 %44, ptr %31, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #6
@@ -91,7 +91,7 @@ define i32 @LAPACKE_dgbrfs_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br label %86
 
 60:                                               ; preds = %53
-  %61 = zext nneg i32 %44 to i64
+  %61 = sext i32 %44 to i64
   %62 = mul i64 %56, %61
   %63 = tail call noalias ptr @malloc(i64 noundef %62) #7
   %64 = icmp eq ptr %63, null

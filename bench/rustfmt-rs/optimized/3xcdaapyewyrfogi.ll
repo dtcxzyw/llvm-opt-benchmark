@@ -13181,7 +13181,7 @@ common.resume:                                    ; preds = %47, %48, %18
 
 44:                                               ; preds = %43
   %45 = icmp eq i64 %34, 0
-  %46 = shl i64 %34, 1
+  %46 = shl nuw i64 %34, 1
   %.inv.i.i = icmp sgt i64 %34, -1
   %spec.select.i.i.i = select i1 %.inv.i.i, i64 %46, i64 -1
   %.0.i.i = select i1 %45, i64 4, i64 %spec.select.i.i.i

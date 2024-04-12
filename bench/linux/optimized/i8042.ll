@@ -1641,9 +1641,9 @@ define internal fastcc noundef i32 @i8042_flush() unnamed_addr #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef i32 @i8042_create_aux_port(i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp slt i32 %0, 0
-  %3 = add nsw i32 %0, 2
+  %3 = add nuw nsw i32 %0, 2
   %4 = select i1 %2, i32 1, i32 %3
-  %5 = zext nneg i32 %4 to i64
+  %5 = sext i32 %4 to i64
   %6 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %5
   %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 1096) #12
