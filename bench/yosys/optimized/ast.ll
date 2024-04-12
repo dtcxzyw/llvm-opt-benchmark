@@ -4867,7 +4867,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit376: ; preds = %_ZStplIcS
   br i1 %switch334, label %477, label %483
 
 477:                                              ; preds = %.lr.ph674
-  %478 = trunc i8 %.5672 to i1
+  %478 = trunc nuw i8 %.5672 to i1
   %479 = select i1 %478, ptr @.str.172, ptr @.str.157
   %480 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull %479) #34
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #34
@@ -4906,7 +4906,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit376: ; preds = %_ZStplIcS
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EED2Ev.exit415
 
 ._crit_edge675.loopexit:                          ; preds = %483
-  %490 = trunc i8 %.6 to i1
+  %490 = trunc nuw i8 %.6 to i1
   %491 = select i1 %490, ptr @.str.176, ptr @.str.177
   br label %._crit_edge675
 
@@ -6858,7 +6858,7 @@ define noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5St
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 1
   %21 = zext i1 %20 to i32
-  %22 = trunc i64 %.026.us to i32
+  %22 = trunc nuw nsw i64 %.026.us to i32
   %23 = shl nuw i32 %21, %22
   %24 = load i32, ptr %11, align 4
   %25 = or i32 %23, %24
@@ -6893,7 +6893,7 @@ define noundef ptr @_ZN5Yosys3AST7AstNode12mkconst_bitsERKSt6vectorINS_5RTLIL5St
   %34 = load i8, ptr %.sink42, align 1
   %35 = icmp eq i8 %34, 1
   %36 = zext i1 %35 to i32
-  %37 = trunc i64 %.026 to i32
+  %37 = trunc nuw nsw i64 %.026 to i32
   %38 = shl nuw i32 %36, %37
   %39 = load i32, ptr %11, align 4
   %40 = or i32 %38, %39
@@ -7420,7 +7420,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %.body, %52
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 1
   %72 = zext i1 %71 to i32
-  %73 = trunc i64 %.026.us.i to i32
+  %73 = trunc nuw nsw i64 %.026.us.i to i32
   %74 = shl nuw i32 %72, %73
   %75 = load i32, ptr %63, align 4
   %76 = or i32 %74, %75
@@ -8641,9 +8641,9 @@ define noundef i64 @_ZN5Yosys3AST7AstNode5asIntEb(ptr nocapture noundef nonnull 
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  switch i32 %5, label %30 [
+  switch i32 %5, label %28 [
     i32 16, label %6
-    i32 17, label %26
+    i32 17, label %24
   ]
 
 6:                                                ; preds = %2
@@ -8656,60 +8656,57 @@ define noundef i64 @_ZN5Yosys3AST7AstNode5asIntEb(ptr nocapture noundef nonnull 
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %.not = icmp ult i64 %13, 64
-  br label %14
+  br i1 %.not, label %19, label %.split
 
-14:                                               ; preds = %6, %16
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %16 ]
-  %.01019 = phi i64 [ 0, %6 ], [ %.1, %16 ]
-  br i1 %.not, label %15, label %16
-
-15:                                               ; preds = %14
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.265, i64 noundef %13, i64 noundef %13) #35
-          to label %.noexc unwind label %22
-
-.noexc:                                           ; preds = %15
-  unreachable
-
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 1
-  %20 = shl nuw i64 1, %indvars.iv
-  %21 = select i1 %19, i64 %20, i64 0
-  %.1 = or i64 %21, %.01019
+.split:                                           ; preds = %6, %.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %6 ]
+  %.01019 = phi i64 [ %.1, %.split ], [ 0, %6 ]
+  %14 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 1
+  %17 = shl nuw i64 1, %indvars.iv
+  %18 = select i1 %16, i64 %17, i64 0
+  %.1 = or i64 %18, %.01019
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %25, label %14, !llvm.loop !42
+  br i1 %exitcond.not, label %23, label %.split, !llvm.loop !42
 
-22:                                               ; preds = %15
-  %23 = landingpad { ptr, i32 }
+19:                                               ; preds = %6
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.265, i64 noundef %13, i64 noundef %13) #35
+          to label %.noexc unwind label %20
+
+.noexc:                                           ; preds = %19
+  unreachable
+
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %24
+  br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %22
 
-24:                                               ; preds = %22
+22:                                               ; preds = %20
   tail call void @_ZdlPv(ptr noundef nonnull %10) #33
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
-_ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %22, %24
-  resume { ptr, i32 } %23
+_ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %20, %22
+  resume { ptr, i32 } %21
 
-25:                                               ; preds = %16
+23:                                               ; preds = %.split
   tail call void @_ZdlPv(ptr noundef nonnull %10) #33
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit14
 
-26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 168
-  %28 = load double, ptr %27, align 8
-  %29 = fptoui double %28 to i64
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds i8, ptr %0, i64 168
+  %26 = load double, ptr %25, align 8
+  %27 = fptoui double %26 to i64
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit14
 
-30:                                               ; preds = %2
+28:                                               ; preds = %2
   tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120, i32 noundef 999) #35
   unreachable
 
-_ZN5Yosys5RTLIL5ConstD2Ev.exit14:                 ; preds = %25, %26
-  %.0 = phi i64 [ %29, %26 ], [ %.1, %25 ]
+_ZN5Yosys5RTLIL5ConstD2Ev.exit14:                 ; preds = %23, %24
+  %.0 = phi i64 [ %27, %24 ], [ %.1, %23 ]
   ret i64 %.0
 }
 

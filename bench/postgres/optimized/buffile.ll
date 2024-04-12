@@ -906,111 +906,106 @@ define dso_local noundef i32 @BufFileSeek(ptr noundef %0, i32 noundef %1, i64 no
   %50 = lshr i64 %49, 30
   %51 = zext i32 %46 to i64
   %.not83 = icmp ult i64 %50, %51
-  br label %.lr.ph
+  br i1 %.not83, label %.lr.ph.preheader.split, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
-  %.168 = phi i64 [ %54, %52 ], [ %.0, %.lr.ph.preheader ]
-  %.14867 = phi i32 [ %53, %52 ], [ %.047, %.lr.ph.preheader ]
-  br i1 %.not83, label %52, label %.loopexit
+.lr.ph.preheader.split:                           ; preds = %.lr.ph.preheader
+  %52 = and i64 %49, -1073741824
+  %53 = add i64 %.0, %52
+  %54 = add i64 %53, 1073741824
+  %55 = trunc i64 %50 to i32
+  %56 = sub i32 %45, %55
+  br label %._crit_edge
 
-52:                                               ; preds = %.lr.ph
-  %53 = add i32 %.14867, -1
-  %54 = add nsw i64 %.168, 1073741824
-  %55 = icmp slt i64 %.168, -1073741824
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+._crit_edge:                                      ; preds = %17, %.lr.ph.preheader.split, %43
+  %.148.lcssa = phi i32 [ %.047, %43 ], [ %56, %.lr.ph.preheader.split ], [ %19, %17 ]
+  %.1.lcssa = phi i64 [ %.0, %43 ], [ %54, %.lr.ph.preheader.split ], [ %25, %17 ]
+  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %.148.lcssa, %58
+  br i1 %59, label %60, label %72
 
-._crit_edge:                                      ; preds = %52, %17, %43
-  %.148.lcssa = phi i32 [ %.047, %43 ], [ %19, %17 ], [ %53, %52 ]
-  %.1.lcssa = phi i64 [ %.0, %43 ], [ %25, %17 ], [ %54, %52 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 48
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %.148.lcssa, %57
-  br i1 %58, label %59, label %71
+60:                                               ; preds = %._crit_edge
+  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = load i64, ptr %61, align 8
+  %.not = icmp slt i64 %.1.lcssa, %62
+  br i1 %.not, label %72, label %63
 
-59:                                               ; preds = %._crit_edge
-  %60 = getelementptr inbounds i8, ptr %0, i64 56
-  %61 = load i64, ptr %60, align 8
-  %.not = icmp slt i64 %.1.lcssa, %61
-  br i1 %.not, label %71, label %62
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %0, i64 68
+  %65 = load i32, ptr %64, align 4
+  %66 = sext i32 %65 to i64
+  %67 = add i64 %62, %66
+  %.not57 = icmp sgt i64 %.1.lcssa, %67
+  br i1 %.not57, label %72, label %68
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 68
-  %64 = load i32, ptr %63, align 4
-  %65 = sext i32 %64 to i64
-  %66 = add i64 %61, %65
-  %.not57 = icmp sgt i64 %.1.lcssa, %66
-  br i1 %.not57, label %71, label %67
-
-67:                                               ; preds = %62
-  %68 = sub i64 %.1.lcssa, %61
-  %69 = trunc i64 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %69, ptr %70, align 8
+68:                                               ; preds = %63
+  %69 = sub i64 %.1.lcssa, %62
+  %70 = trunc i64 %69 to i32
+  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %70, ptr %71, align 8
   br label %.loopexit
 
-71:                                               ; preds = %62, %59, %._crit_edge
-  %72 = getelementptr inbounds i8, ptr %0, i64 17
-  %73 = load i8, ptr %72, align 1
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %75, label %BufFileFlush.exit
+72:                                               ; preds = %63, %60, %._crit_edge
+  %73 = getelementptr inbounds i8, ptr %0, i64 17
+  %74 = load i8, ptr %73, align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %BufFileFlush.exit
 
-75:                                               ; preds = %71
+76:                                               ; preds = %72
   tail call fastcc void @BufFileDumpBuffer(ptr noundef nonnull %0)
   br label %BufFileFlush.exit
 
-BufFileFlush.exit:                                ; preds = %71, %75
-  %76 = load i32, ptr %0, align 8
-  %77 = icmp eq i32 %.148.lcssa, %76
-  %78 = icmp eq i64 %.1.lcssa, 0
-  %or.cond = and i1 %78, %77
-  %79 = sext i1 %or.cond to i32
-  %spec.select = add i32 %.148.lcssa, %79
+BufFileFlush.exit:                                ; preds = %72, %76
+  %77 = load i32, ptr %0, align 8
+  %78 = icmp eq i32 %.148.lcssa, %77
+  %79 = icmp eq i64 %.1.lcssa, 0
+  %or.cond = and i1 %79, %78
+  %80 = sext i1 %or.cond to i32
+  %spec.select = add i32 %.148.lcssa, %80
   %spec.select61 = select i1 %or.cond, i64 1073741824, i64 %.1.lcssa
-  %80 = icmp ugt i64 %spec.select61, 1073741824
-  br i1 %80, label %.lr.ph72.preheader, label %select.unfold._crit_edge
+  %81 = icmp sgt i64 %spec.select61, 1073741824
+  br i1 %81, label %.lr.ph72.preheader, label %select.unfold._crit_edge
 
 .lr.ph72.preheader:                               ; preds = %BufFileFlush.exit
-  %81 = add i32 %spec.select, 1
-  %smax80 = tail call i32 @llvm.smax.i32(i32 %76, i32 %81)
-  %82 = xor i32 %.148.lcssa, -1
-  %83 = add i32 %smax80, %82
-  %84 = sub i32 %83, %79
-  %85 = tail call i64 @llvm.usub.sat.i64(i64 %spec.select61, i64 2147483648)
-  %86 = add nuw i64 %85, 1073741823
-  %87 = lshr i64 %86, 30
-  %88 = zext i32 %84 to i64
-  %.not84.not = icmp ult i64 %87, %88
-  br label %.lr.ph72
+  %82 = add i32 %spec.select, 1
+  %smax80 = tail call i32 @llvm.smax.i32(i32 %77, i32 %82)
+  %83 = xor i32 %.148.lcssa, -1
+  %84 = add i32 %smax80, %83
+  %85 = sub i32 %84, %80
+  %86 = tail call i64 @llvm.usub.sat.i64(i64 %spec.select61, i64 2147483648)
+  %87 = add nuw i64 %86, 1073741823
+  %88 = lshr i64 %87, 30
+  %89 = zext i32 %85 to i64
+  %.not84.not = icmp ult i64 %88, %89
+  br i1 %.not84.not, label %.lr.ph72.preheader.split, label %.loopexit
 
-.lr.ph72:                                         ; preds = %.lr.ph72.preheader, %select.unfold
-  %.371 = phi i64 [ %90, %select.unfold ], [ %.1.lcssa, %.lr.ph72.preheader ]
-  %.35070 = phi i32 [ %89, %select.unfold ], [ %spec.select, %.lr.ph72.preheader ]
-  br i1 %.not84.not, label %select.unfold, label %.loopexit
+.lr.ph72.preheader.split:                         ; preds = %.lr.ph72.preheader
+  %90 = and i64 %87, -1073741824
+  %91 = trunc i64 %88 to i32
+  %92 = add i32 %spec.select, %91
+  %93 = add nsw i64 %spec.select61, -1073741824
+  %94 = sub nsw i64 %93, %90
+  %95 = add i32 %92, 1
+  br label %select.unfold._crit_edge
 
-select.unfold:                                    ; preds = %.lr.ph72
-  %89 = add i32 %.35070, 1
-  %90 = add nsw i64 %.371, -1073741824
-  %91 = icmp sgt i64 %.371, 2147483648
-  br i1 %91, label %.lr.ph72, label %select.unfold._crit_edge, !llvm.loop !12
+select.unfold._crit_edge:                         ; preds = %.lr.ph72.preheader.split, %BufFileFlush.exit
+  %.350.lcssa = phi i32 [ %spec.select, %BufFileFlush.exit ], [ %95, %.lr.ph72.preheader.split ]
+  %.3.lcssa = phi i64 [ %spec.select61, %BufFileFlush.exit ], [ %94, %.lr.ph72.preheader.split ]
+  %.not58 = icmp slt i32 %.350.lcssa, %77
+  br i1 %.not58, label %96, label %.loopexit
 
-select.unfold._crit_edge:                         ; preds = %select.unfold, %BufFileFlush.exit
-  %.350.lcssa = phi i32 [ %spec.select, %BufFileFlush.exit ], [ %89, %select.unfold ]
-  %.3.lcssa = phi i64 [ %spec.select61, %BufFileFlush.exit ], [ %90, %select.unfold ]
-  %.not58 = icmp slt i32 %.350.lcssa, %76
-  br i1 %.not58, label %92, label %.loopexit
-
-92:                                               ; preds = %select.unfold._crit_edge
-  store i32 %.350.lcssa, ptr %56, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %.3.lcssa, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 0, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 0, ptr %95, align 4
+96:                                               ; preds = %select.unfold._crit_edge
+  store i32 %.350.lcssa, ptr %57, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %.3.lcssa, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 0, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 0, ptr %99, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph72, %select.unfold._crit_edge, %5, %92, %67
-  %.051 = phi i32 [ 0, %67 ], [ 0, %92 ], [ -1, %5 ], [ -1, %select.unfold._crit_edge ], [ -1, %.lr.ph72 ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph.preheader, %.lr.ph72.preheader, %select.unfold._crit_edge, %5, %96, %68
+  %.051 = phi i32 [ 0, %68 ], [ 0, %96 ], [ -1, %5 ], [ -1, %select.unfold._crit_edge ], [ -1, %.lr.ph72.preheader ], [ -1, %.lr.ph.preheader ]
   ret i32 %.051
 }
 
@@ -1039,7 +1034,7 @@ define dso_local noundef i32 @BufFileSeekBlock(ptr noundef %0, i64 noundef %1) l
   %4 = trunc i64 %3 to i32
   %5 = srem i64 %1, 131072
   %6 = shl nsw i64 %5, 13
-  %7 = tail call i32 @BufFileSeek(ptr noundef %0, i32 noundef %4, i64 noundef %6, i32 noundef 0), !range !13
+  %7 = tail call i32 @BufFileSeek(ptr noundef %0, i32 noundef %4, i64 noundef %6, i32 noundef 0), !range !11
   ret i32 %7
 }
 
@@ -1131,7 +1126,7 @@ define dso_local i64 @BufFileAppend(ptr nocapture noundef %0, ptr nocapture noun
   store i32 %30, ptr %32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %23, %13
   %33 = sext i32 %3 to i64
@@ -1221,7 +1216,7 @@ define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noun
   %.1 = phi i64 [ 1073741824, %28 ], [ %2, %32 ]
   %.0 = add i32 %.083, -1
   %.not = icmp slt i32 %.0, %1
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %47, %3
   %.065.lcssa = phi i32 [ %5, %3 ], [ %.166, %47 ]
@@ -1355,8 +1350,6 @@ attributes #11 = { cold nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!11 = !{i32 -1, i32 1}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -1, i32 1}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!13 = distinct !{!13, !6}

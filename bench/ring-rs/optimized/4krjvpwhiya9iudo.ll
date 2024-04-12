@@ -131,7 +131,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr n
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !24
   call void @_ZN4ring2ec7suite_b3ops12PublicKeyOps10elem_parse17h2c4b2e31dc8bca06E(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %7), !noalias !25
   %17 = load i64, ptr %6, align 8, !range !26, !noalias !24, !noundef !4
-  %trunc12.i = trunc i64 %17 to i1
+  %trunc12.i = trunc nuw i64 %17 to i1
   br i1 %trunc12.i, label %21, label %18
 
 18:                                               ; preds = %16
@@ -141,7 +141,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr n
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !24
   call void @_ZN4ring2ec7suite_b3ops12PublicKeyOps10elem_parse17h2c4b2e31dc8bca06E(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %7), !noalias !25
   %20 = load i64, ptr %5, align 8, !range !26, !noalias !24, !noundef !4
-  %trunc14.i = trunc i64 %20 to i1
+  %trunc14.i = trunc nuw i64 %20 to i1
   br i1 %trunc14.i, label %22, label %23
 
 21:                                               ; preds = %16
@@ -487,45 +487,38 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h62e39d318f3b2ce1E(ptr n
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
   %.not.i.i.not = icmp eq i64 %7, 0
-  br i1 %.not.i.i.not, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.preheader.i, label %8
-
-_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.preheader.i: ; preds = %8, %4
-  %.not.not.not = icmp eq i64 %7, 0
-  br label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
+  br i1 %.not.i.i.not, label %.loopexit, label %8
 
 8:                                                ; preds = %4
   %9 = load i8, ptr %5, align 1, !noalias !66, !noundef !4
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %.loopexit, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.preheader.i
+  br i1 %10, label %.loopexit, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
 
-_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i: ; preds = %12, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.preheader.i
-  %11 = phi i64 [ %14, %12 ], [ 0, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.preheader.i ]
-  %.0.i = phi i64 [ %17, %12 ], [ 0, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.preheader.i ]
-  br i1 %.not.not.not, label %.loopexit, label %12
+_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i: ; preds = %8, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
+  %11 = phi i64 [ %13, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i ], [ 0, %8 ]
+  %.0.i = phi i64 [ %16, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i ], [ 0, %8 ]
+  %12 = getelementptr inbounds i8, ptr %5, i64 %11
+  %13 = add nuw i64 %11, 1
+  %14 = load i8, ptr %12, align 1, !noalias !72, !noundef !4
+  %.sroa.7.8.insert.ext13.i = zext i8 %14 to i64
+  %15 = shl i64 %.0.i, 8
+  %16 = or disjoint i64 %15, %.sroa.7.8.insert.ext13.i
+  %17 = icmp eq i64 %13, %7
+  br i1 %17, label %"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit", label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
 
-12:                                               ; preds = %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
-  %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = add nuw i64 %11, 1
-  %15 = load i8, ptr %13, align 1, !noalias !72, !noundef !4
-  %.sroa.7.8.insert.ext13.i = zext i8 %15 to i64
-  %16 = shl i64 %.0.i, 8
-  %17 = or disjoint i64 %16, %.sroa.7.8.insert.ext13.i
-  %18 = icmp eq i64 %14, %7
-  br i1 %18, label %"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit", label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
-
-.loopexit:                                        ; preds = %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i, %8
+.loopexit:                                        ; preds = %4, %8
   store ptr @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, ptr %0, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 15, ptr %18, align 8
+  br label %20
+
+"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit": ; preds = %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.i
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 15, ptr %19, align 8
-  br label %21
-
-"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit": ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %17, ptr %20, align 8
+  store i64 %16, ptr %19, align 8
   store ptr null, ptr %0, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit", %.loopexit
+20:                                               ; preds = %"_ZN4ring3rsa15public_exponent14PublicExponent13from_be_bytes28_$u7b$$u7b$closure$u7d$$u7d$17h2ffba84083072211E.exit", %.loopexit
   ret void
 }
 

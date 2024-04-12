@@ -3071,7 +3071,7 @@ land.lhs.true10:                                  ; preds = %if.end4
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %land.lhs.true10
-  %conv = trunc i32 %0 to i8
+  %conv = trunc nuw i32 %0 to i8
   %cmp.i = icmp sgt i8 %conv, -1
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
@@ -3778,7 +3778,7 @@ if.then2:                                         ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
-  %conv.i = trunc i16 %0 to i8
+  %conv.i = trunc nuw i16 %0 to i8
   %cmp.i.i = icmp sgt i8 %conv.i, -1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
@@ -4047,7 +4047,7 @@ if.then2:                                         ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
-  %conv.i = trunc i32 %0 to i8
+  %conv.i = trunc nuw i32 %0 to i8
   %cmp.i.i = icmp sgt i8 %conv.i, -1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
@@ -4975,7 +4975,7 @@ entry:
   store i64 %add, ptr %min_length, align 8
   %overallocate = getelementptr inbounds i8, ptr %writer, i64 52
   store i8 1, ptr %overallocate, align 4
-  call void @llvm.va_copy(ptr nonnull %vargs2, ptr %vargs)
+  call void @llvm.va_copy.p0(ptr nonnull %vargs2, ptr %vargs)
   %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %vargs2, i64 8
   %0 = getelementptr inbounds i8, ptr %vargs2, i64 16
   %arrayidx571.i = getelementptr inbounds i8, ptr %number.i, i64 1
@@ -6468,12 +6468,12 @@ for.cond.backedge:                                ; preds = %if.end24, %unicode_
   br label %for.cond, !llvm.loop !47
 
 for.end:                                          ; preds = %for.cond
-  call void @llvm.va_end(ptr nonnull %vargs2)
+  call void @llvm.va_end.p0(ptr nonnull %vargs2)
   %call32 = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %writer)
   br label %return
 
 fail:                                             ; preds = %if.end24, %unicode_fromformat_arg.exit, %unicode_fromformat_arg.exit.thread, %if.then9
-  call void @llvm.va_end(ptr nonnull %vargs2)
+  call void @llvm.va_end.p0(ptr nonnull %vargs2)
   %178 = load ptr, ptr %writer, align 8
   %cmp.not.i = icmp eq ptr %178, null
   br i1 %cmp.not.i, label %return, label %if.then.i15
@@ -6507,9 +6507,6 @@ entry:
   store i32 127, ptr %min_char, align 8
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @_PyUnicodeWriter_WriteASCIIString(ptr nocapture noundef %writer, ptr noundef readonly %ascii, i64 noundef %len) local_unnamed_addr #0 {
@@ -6790,9 +6787,6 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyUnicodeWriter_Finish(ptr nocapture noundef %writer) local_unnamed_addr #0 {
 entry:
@@ -6970,14 +6964,11 @@ do.end:                                           ; preds = %entry, %if.then, %i
 define dso_local ptr @PyUnicode_FromFormat(ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs)
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @PyUnicode_AsWideChar(ptr noundef readonly %unicode, ptr noundef writeonly %w, i64 noundef %size) local_unnamed_addr #0 {
@@ -7392,7 +7383,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %conv.i = trunc i32 %ordinal to i8
+  %conv.i = trunc nuw i32 %ordinal to i8
   %cmp.i.i = icmp sgt i8 %conv.i, -1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
@@ -8229,7 +8220,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Py_normalize_encoding(ptr nocapture noundef readonly %encoding, ptr noundef writeonly %lower, i64 noundef %lower_len) local_unnamed_addr #12 {
+define hidden noundef i32 @_Py_normalize_encoding(ptr nocapture noundef readonly %encoding, ptr noundef writeonly %lower, i64 noundef %lower_len) local_unnamed_addr #11 {
 entry:
   %0 = getelementptr i8, ptr %lower, i64 %lower_len
   %arrayidx = getelementptr i8, ptr %0, i64 -1
@@ -8782,7 +8773,7 @@ if.then.i41:                                      ; preds = %if.else
   br label %if.end53
 
 if.then3.i38:                                     ; preds = %if.else
-  %conv4.i39 = trunc i32 %add to i16
+  %conv4.i39 = trunc nuw i32 %add to i16
   %arrayidx5.i40 = getelementptr i16, ptr %46, i64 %47
   store i16 %conv4.i39, ptr %arrayidx5.i40, align 2
   br label %if.end53
@@ -9938,7 +9929,7 @@ return:                                           ; preds = %if.end7.i, %PyUnico
 declare ptr @_PyInterpreterState_GetConfig(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @get_error_handler_wide(ptr noundef readonly %errors) unnamed_addr #13 {
+define internal fastcc i32 @get_error_handler_wide(ptr noundef readonly %errors) unnamed_addr #12 {
 entry:
   %cmp = icmp eq ptr %errors, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -10370,7 +10361,7 @@ while.body.i101:                                  ; preds = %while.cond.preheade
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i103
 
 if.then2.i:                                       ; preds = %while.body.i101
-  %conv.i113 = trunc i32 %36 to i16
+  %conv.i113 = trunc nuw i32 %36 to i16
   %incdec.ptr3.i = getelementptr i8, ptr %out.051.i, i64 2
   store i16 %conv.i113, ptr %out.051.i, align 2
   br label %if.end20.i
@@ -10397,7 +10388,7 @@ if.then10.i:                                      ; preds = %if.else7.i
   br label %if.end20.i
 
 if.else16.i:                                      ; preds = %if.else7.i
-  %conv17.i = trunc i32 %36 to i16
+  %conv17.i = trunc nuw i32 %36 to i16
   %incdec.ptr18.i = getelementptr i8, ptr %out.051.i, i64 2
   store i16 %conv17.i, ptr %out.051.i, align 2
   br label %if.end20.i
@@ -12559,7 +12550,7 @@ if.end.i56:                                       ; preds = %while.body8.i52
   %arrayidx36.i = getelementptr i8, ptr %_p.0113.i, i64 6
   store i8 %conv35.i, ptr %arrayidx36.i, align 1
   %shr37.i = lshr i64 %40, 56
-  %conv39.i = trunc i64 %shr37.i to i8
+  %conv39.i = trunc nuw i64 %shr37.i to i8
   %arrayidx40.i = getelementptr i8, ptr %_p.0113.i, i64 7
   store i8 %conv39.i, ptr %arrayidx40.i, align 1
   %add.ptr42.i = getelementptr i8, ptr %_p.0113.i, i64 8
@@ -12587,7 +12578,7 @@ if.end48.i:                                       ; preds = %if.end46.i, %if.the
 
 if.then51.i:                                      ; preds = %if.end48.i
   %incdec.ptr.i50 = getelementptr i8, ptr %s.1.i, i64 1
-  %conv52.i = trunc i32 %ch.0.i to i8
+  %conv52.i = trunc nuw nsw i32 %ch.0.i to i8
   %incdec.ptr53.i = getelementptr i8, ptr %p.1.i, i64 1
   store i8 %conv52.i, ptr %p.1.i, align 1
   %cmp.i51 = icmp ult ptr %incdec.ptr.i50, %31
@@ -12861,7 +12852,7 @@ if.end.i126:                                      ; preds = %while.body8.i117
   %arrayidx36.i145 = getelementptr i8, ptr %_p.0121.i, i64 6
   store i8 %conv35.i144, ptr %arrayidx36.i145, align 1
   %shr37.i146 = lshr i64 %53, 56
-  %conv39.i147 = trunc i64 %shr37.i146 to i8
+  %conv39.i147 = trunc nuw i64 %shr37.i146 to i8
   %arrayidx40.i148 = getelementptr i8, ptr %_p.0121.i, i64 7
   store i8 %conv39.i147, ptr %arrayidx40.i148, align 1
   %add.ptr42.i149 = getelementptr i8, ptr %_p.0121.i, i64 8
@@ -12895,7 +12886,7 @@ while.cond.backedge.i:                            ; preds = %if.end74.i98, %if.t
   %ch.0.sink.i = phi i32 [ %ch.0.i112, %if.then51.i114 ], [ %sub.i102, %if.end74.i98 ]
   %p.1.sink.i = phi ptr [ %p.1.i110, %if.then51.i114 ], [ %p.2.i68, %if.end74.i98 ]
   %s.0.be.i = phi ptr [ %incdec.ptr.i115, %if.then51.i114 ], [ %add.ptr75.i103, %if.end74.i98 ]
-  %conv52.i104 = trunc i32 %ch.0.sink.i to i8
+  %conv52.i104 = trunc nuw i32 %ch.0.sink.i to i8
   store i8 %conv52.i104, ptr %p.1.sink.i, align 1
   %p.0.be.i = getelementptr i8, ptr %p.1.sink.i, i64 1
   %cmp.i105 = icmp ult ptr %s.0.be.i, %31
@@ -13168,12 +13159,12 @@ if.end.i236:                                      ; preds = %while.body8.i227
   %arrayidx32.i250 = getelementptr i8, ptr %_p.0131.i, i64 10
   store i16 %conv31.i249, ptr %arrayidx32.i250, align 2
   %shr33.i251 = lshr i64 %68, 48
-  %75 = trunc i64 %shr33.i251 to i16
+  %75 = trunc nuw i64 %shr33.i251 to i16
   %conv35.i252 = and i16 %75, 127
   %arrayidx36.i253 = getelementptr i8, ptr %_p.0131.i, i64 12
   store i16 %conv35.i252, ptr %arrayidx36.i253, align 2
   %shr37.i254 = lshr i64 %68, 56
-  %conv39.i255 = trunc i64 %shr37.i254 to i16
+  %conv39.i255 = trunc nuw nsw i64 %shr37.i254 to i16
   %arrayidx40.i256 = getelementptr i8, ptr %_p.0131.i, i64 14
   store i16 %conv39.i255, ptr %arrayidx40.i256, align 2
   %add.ptr42.i257 = getelementptr i8, ptr %_p.0131.i, i64 16
@@ -13201,7 +13192,7 @@ if.end48.i217:                                    ; preds = %if.end46.i234, %if.
 
 if.then51.i222:                                   ; preds = %if.end48.i217
   %incdec.ptr.i223 = getelementptr i8, ptr %s.1.i219, i64 1
-  %conv52.i224 = trunc i32 %ch.0.i220 to i16
+  %conv52.i224 = trunc nuw nsw i32 %ch.0.i220 to i16
   %incdec.ptr53.i225 = getelementptr i8, ptr %p.1.i218, i64 2
   store i16 %conv52.i224, ptr %p.1.i218, align 2
   br label %while.cond.backedge.i189
@@ -13240,7 +13231,7 @@ if.end74.i209:                                    ; preds = %if.end66.i206
   %shl.i211 = shl nuw nsw i32 %ch.1.i164, 6
   %add.i212 = add nuw nsw i32 %shl.i211, %conv68.i210
   %add.ptr75.i213 = getelementptr i8, ptr %s.2.i163, i64 2
-  %78 = trunc i32 %add.i212 to i16
+  %78 = trunc nuw nsw i32 %add.i212 to i16
   %conv76.i = add nsw i16 %78, -12416
   %incdec.ptr77.i = getelementptr i8, ptr %p.2.i162, i64 2
   store i16 %conv76.i, ptr %p.2.i162, align 2
@@ -14185,7 +14176,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i64 @findchar(ptr noundef %s, i32 noundef %kind, i64 noundef %size, i32 noundef %ch, i32 noundef %direction) unnamed_addr #14 {
+define internal fastcc i64 @findchar(ptr noundef %s, i32 noundef %kind, i64 noundef %size, i32 noundef %ch, i32 noundef %direction) unnamed_addr #13 {
 entry:
   switch i32 %kind, label %sw.default [
     i32 1, label %sw.bb
@@ -15459,8 +15450,8 @@ if.then108:                                       ; preds = %if.else105
 if.end112:                                        ; preds = %if.else105, %if.else97
   %base64buffer.0.ph.lcssa446 = phi i64 [ 0, %if.else105 ], [ %base64buffer.0.ph, %if.else97 ]
   %cmp115 = icmp sgt i8 %6, -1
-  %or.cond8 = select i1 %tobool223, i1 %cmp115, i1 false
-  br i1 %or.cond8, label %if.then120, label %if.end126
+  %or.cond9 = select i1 %tobool223, i1 %cmp115, i1 false
+  br i1 %or.cond9, label %if.then120, label %if.end126
 
 if.then120:                                       ; preds = %if.end112
   %33 = load i32, ptr %maxchar.i, align 4
@@ -15665,7 +15656,7 @@ if.then.i.i210:                                   ; preds = %if.end.i200
   br label %_PyUnicodeWriter_WriteCharInline.exit214
 
 if.then3.i.i204:                                  ; preds = %if.end.i200
-  %conv4.i.i205 = trunc i32 %conv280 to i16
+  %conv4.i.i205 = trunc nuw nsw i32 %conv280 to i16
   %arrayidx5.i.i206 = getelementptr i16, ptr %62, i64 %60
   store i16 %conv4.i.i205, ptr %arrayidx5.i.i206, align 2
   br label %_PyUnicodeWriter_WriteCharInline.exit214
@@ -16478,7 +16469,7 @@ if.then66:                                        ; preds = %switch.early.test, 
 
 if.end68:                                         ; preds = %switch.early.test, %if.then66
   %out.2 = phi ptr [ %incdec.ptr67, %if.then66 ], [ %out.1, %switch.early.test ]
-  %conv69 = trunc i32 %retval.0.i73.fr to i8
+  %conv69 = trunc nuw nsw i32 %retval.0.i73.fr to i8
   %incdec.ptr70 = getelementptr i8, ptr %out.2, i64 1
   store i8 %conv69, ptr %out.2, align 1
   br label %for.inc
@@ -16513,7 +16504,7 @@ land.lhs.true84:                                  ; preds = %if.else78
   br i1 %or.cond100, label %if.then106, label %if.else109
 
 if.then106:                                       ; preds = %land.lhs.true84
-  %conv107 = trunc i32 %retval.0.i73.fr to i8
+  %conv107 = trunc nuw i32 %retval.0.i73.fr to i8
   %incdec.ptr108 = getelementptr i8, ptr %out.093, i64 1
   store i8 %conv107, ptr %out.093, align 1
   br label %for.inc
@@ -16818,7 +16809,7 @@ return:                                           ; preds = %if.end62, %if.then6
 declare ptr @PyMem_RawMalloc(i64 noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ucs4lib_utf8_decode(ptr nocapture noundef %inptr, ptr noundef %end, ptr noundef %dest, ptr nocapture noundef %outpos) unnamed_addr #12 {
+define internal fastcc i32 @ucs4lib_utf8_decode(ptr nocapture noundef %inptr, ptr noundef %end, ptr noundef %dest, ptr nocapture noundef %outpos) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %inptr, align 8
   %1 = load i64, ptr %outpos, align 8
@@ -16874,22 +16865,22 @@ if.end:                                           ; preds = %while.body8
   %arrayidx24 = getelementptr i8, ptr %_p.0132, i64 12
   store i32 %8, ptr %arrayidx24, align 4
   %shr25 = lshr i64 %4, 32
-  %9 = trunc i64 %shr25 to i32
+  %9 = trunc nuw i64 %shr25 to i32
   %conv27 = and i32 %9, 127
   %arrayidx28 = getelementptr i8, ptr %_p.0132, i64 16
   store i32 %conv27, ptr %arrayidx28, align 4
   %shr29 = lshr i64 %4, 40
-  %10 = trunc i64 %shr29 to i32
+  %10 = trunc nuw nsw i64 %shr29 to i32
   %conv31 = and i32 %10, 127
   %arrayidx32 = getelementptr i8, ptr %_p.0132, i64 20
   store i32 %conv31, ptr %arrayidx32, align 4
   %shr33 = lshr i64 %4, 48
-  %11 = trunc i64 %shr33 to i32
+  %11 = trunc nuw nsw i64 %shr33 to i32
   %conv35 = and i32 %11, 127
   %arrayidx36 = getelementptr i8, ptr %_p.0132, i64 24
   store i32 %conv35, ptr %arrayidx36, align 4
   %shr37 = lshr i64 %4, 56
-  %conv39 = trunc i64 %shr37 to i32
+  %conv39 = trunc nuw nsw i64 %shr37 to i32
   %arrayidx40 = getelementptr i8, ptr %_p.0132, i64 28
   store i32 %conv39, ptr %arrayidx40, align 4
   %add.ptr42 = getelementptr i8, ptr %_p.0132, i64 32
@@ -17309,7 +17300,7 @@ if.else69.us:                                     ; preds = %if.else24.us
 
 if.then55.us:                                     ; preds = %if.else24.us
   %shr56.us = lshr i32 %0, 12
-  %8 = trunc i32 %shr56.us to i8
+  %8 = trunc nuw i32 %shr56.us to i8
   %conv58.us = or disjoint i8 %8, -32
   store i8 %conv58.us, ptr %p.058.us, align 1
   %shr60.us = lshr i32 %0, 6
@@ -17326,7 +17317,7 @@ if.then55.us:                                     ; preds = %if.else24.us
 
 if.then18.us:                                     ; preds = %if.else15.us
   %shr.us = lshr i32 %0, 6
-  %13 = trunc i32 %shr.us to i8
+  %13 = trunc nuw i32 %shr.us to i8
   %conv19.us = or disjoint i8 %13, -64
   %incdec.ptr20.us = getelementptr i8, ptr %p.058.us, i64 1
   store i8 %conv19.us, ptr %p.058.us, align 1
@@ -17338,7 +17329,7 @@ if.then18.us:                                     ; preds = %if.else15.us
   br label %if.end91.us
 
 if.then14.us:                                     ; preds = %for.body.us
-  %conv.us = trunc i32 %0 to i8
+  %conv.us = trunc nuw nsw i32 %0 to i8
   %incdec.ptr.us = getelementptr i8, ptr %p.058.us, i64 1
   store i8 %conv.us, ptr %p.058.us, align 1
   br label %if.end91.us
@@ -17358,7 +17349,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp13, label %if.then14, label %if.else15
 
 if.then14:                                        ; preds = %for.body
-  %conv = trunc i32 %16 to i8
+  %conv = trunc nuw nsw i32 %16 to i8
   %incdec.ptr = getelementptr i8, ptr %p.058, i64 1
   store i8 %conv, ptr %p.058, align 1
   br label %if.end91
@@ -17369,7 +17360,7 @@ if.else15:                                        ; preds = %for.body
 
 if.then18:                                        ; preds = %if.else15
   %shr = lshr i32 %16, 6
-  %17 = trunc i32 %shr to i8
+  %17 = trunc nuw i32 %shr to i8
   %conv19 = or disjoint i8 %17, -64
   %incdec.ptr20 = getelementptr i8, ptr %p.058, i64 1
   store i8 %conv19, ptr %p.058, align 1
@@ -17432,7 +17423,7 @@ if.else52:                                        ; preds = %if.else24
 
 if.then55:                                        ; preds = %if.else52
   %shr56 = lshr i32 %16, 12
-  %23 = trunc i32 %shr56 to i8
+  %23 = trunc nuw i32 %shr56 to i8
   %conv58 = or disjoint i8 %23, -32
   store i8 %conv58, ptr %p.058, align 1
   %shr60 = lshr i32 %16, 6
@@ -18698,7 +18689,7 @@ if.end19.us.us.i:                                 ; preds = %while.body9.us.us.i
   %arrayidx28.us.us.i = getelementptr i8, ptr %p.150.us.us.i, i64 2
   store i8 %conv27.us.us.i, ptr %arrayidx28.us.us.i, align 1
   %shr29.us.us.i = lshr i64 %17, 48
-  %conv30.us.us.i = trunc i64 %shr29.us.us.i to i8
+  %conv30.us.us.i = trunc nuw i64 %shr29.us.us.i to i8
   %arrayidx31.us.us.i = getelementptr i8, ptr %p.150.us.us.i, i64 3
   store i8 %conv30.us.us.i, ptr %arrayidx31.us.us.i, align 1
   %add.ptr33.us.us.i = getelementptr i8, ptr %p.150.us.us.i, i64 4
@@ -18741,7 +18732,7 @@ if.end18.i:                                       ; preds = %while.body9.i
   %arrayidx28.i = getelementptr i8, ptr %p.150.i, i64 2
   store i8 %conv27.i, ptr %arrayidx28.i, align 1
   %shr29.i = lshr i64 %19, 56
-  %conv30.i = trunc i64 %shr29.i to i8
+  %conv30.i = trunc nuw i64 %shr29.i to i8
   %arrayidx31.i = getelementptr i8, ptr %p.150.i, i64 3
   store i8 %conv30.i, ptr %arrayidx31.i, align 1
   %add.ptr33.i = getelementptr i8, ptr %p.150.i, i64 4
@@ -18899,7 +18890,7 @@ if.end19.us.us.i146:                              ; preds = %while.body9.us.us.i
   %arrayidx28.us.us.i153 = getelementptr i8, ptr %p.150.us.us.i139, i64 2
   store i8 %conv27.us.us.i152, ptr %arrayidx28.us.us.i153, align 1
   %shr29.us.us.i154 = lshr i64 %31, 48
-  %conv30.us.us.i155 = trunc i64 %shr29.us.us.i154 to i8
+  %conv30.us.us.i155 = trunc nuw i64 %shr29.us.us.i154 to i8
   %arrayidx31.us.us.i156 = getelementptr i8, ptr %p.150.us.us.i139, i64 3
   store i8 %conv30.us.us.i155, ptr %arrayidx31.us.us.i156, align 1
   %add.ptr33.us.us.i157 = getelementptr i8, ptr %p.150.us.us.i139, i64 4
@@ -18942,7 +18933,7 @@ if.end18.i97:                                     ; preds = %while.body9.i87
   %arrayidx28.i105 = getelementptr i8, ptr %p.150.i90, i64 2
   store i8 %conv27.i104, ptr %arrayidx28.i105, align 1
   %shr29.i106 = lshr i64 %33, 56
-  %conv30.i107 = trunc i64 %shr29.i106 to i8
+  %conv30.i107 = trunc nuw i64 %shr29.i106 to i8
   %arrayidx31.i108 = getelementptr i8, ptr %p.150.i90, i64 3
   store i8 %conv30.i107, ptr %arrayidx31.i108, align 1
   %add.ptr33.i109 = getelementptr i8, ptr %p.150.i90, i64 4
@@ -19070,7 +19061,7 @@ if.end40.us.i:                                    ; preds = %while.end.us.i240, 
   br i1 %.not.us.i228, label %if.end53.i182, label %if.then50.us.i
 
 if.then50.us.i:                                   ; preds = %if.end40.us.i
-  %conv51.us.i = trunc i32 %or47.us.i to i16
+  %conv51.us.i = trunc nuw i32 %or47.us.i to i16
   %incdec.ptr52.us.i229 = getelementptr i8, ptr %p.2.us.i226, i64 2
   store i16 %conv51.us.i, ptr %p.2.us.i226, align 2
   %cmp.us.i230 = icmp ult ptr %add.ptr48.us.i, %incdec.ptr.i161
@@ -19102,7 +19093,7 @@ if.end21.us.us.i:                                 ; preds = %while.body9.us.us.i
   %arrayidx30.us.us.i = getelementptr i8, ptr %p.150.us.us.i237, i64 4
   store i16 %conv29.us.us.i, ptr %arrayidx30.us.us.i, align 2
   %shr31.us.us.i = lshr i64 %47, 48
-  %conv32.us.us.i = trunc i64 %shr31.us.us.i to i16
+  %conv32.us.us.i = trunc nuw i64 %shr31.us.us.i to i16
   %arrayidx33.us.us.i = getelementptr i8, ptr %p.150.us.us.i237, i64 6
   store i16 %conv32.us.us.i, ptr %arrayidx33.us.us.i, align 2
   %add.ptr35.us.us.i = getelementptr i8, ptr %p.150.us.us.i237, i64 8
@@ -19149,7 +19140,7 @@ if.end18.i214:                                    ; preds = %while.body9.i205
   %arrayidx30.i = getelementptr i8, ptr %p.150.i208, i64 4
   store i16 %conv29.i, ptr %arrayidx30.i, align 2
   %shr31.i = lshr i64 %or.i217, 48
-  %conv32.i = trunc i64 %shr31.i to i16
+  %conv32.i = trunc nuw nsw i64 %shr31.i to i16
   %arrayidx33.i = getelementptr i8, ptr %p.150.i208, i64 6
   store i16 %conv32.i, ptr %arrayidx33.i, align 2
   %add.ptr35.i = getelementptr i8, ptr %p.150.i208, i64 8
@@ -19180,7 +19171,7 @@ if.end40.i:                                       ; preds = %while.end.i211, %wh
   br i1 %.not.i179, label %if.end53.i182, label %if.then50.i
 
 if.then50.i:                                      ; preds = %if.end40.i
-  %conv51.i = trunc i32 %or47.i to i16
+  %conv51.i = trunc nuw i32 %or47.i to i16
   %incdec.ptr52.i180 = getelementptr i8, ptr %p.2.i177, i64 2
   store i16 %conv51.i, ptr %p.2.i177, align 2
   %cmp.i181 = icmp ult ptr %add.ptr48.i, %incdec.ptr.i161
@@ -19335,12 +19326,12 @@ if.end21.us.us.i327:                              ; preds = %while.body9.us.us.i
   %arrayidx26.us.us.i329 = getelementptr i8, ptr %p.152.us.us.i, i64 4
   store i32 %69, ptr %arrayidx26.us.us.i329, align 4
   %shr27.us.us.i330 = lshr i64 %67, 32
-  %70 = trunc i64 %shr27.us.us.i330 to i32
+  %70 = trunc nuw i64 %shr27.us.us.i330 to i32
   %conv29.us.us.i331 = and i32 %70, 32767
   %arrayidx30.us.us.i332 = getelementptr i8, ptr %p.152.us.us.i, i64 8
   store i32 %conv29.us.us.i331, ptr %arrayidx30.us.us.i332, align 4
   %shr31.us.us.i333 = lshr i64 %67, 48
-  %conv32.us.us.i334 = trunc i64 %shr31.us.us.i333 to i32
+  %conv32.us.us.i334 = trunc nuw nsw i64 %shr31.us.us.i333 to i32
   %arrayidx33.us.us.i335 = getelementptr i8, ptr %p.152.us.us.i, i64 12
   store i32 %conv32.us.us.i334, ptr %arrayidx33.us.us.i335, align 4
   %add.ptr35.us.us.i336 = getelementptr i8, ptr %p.152.us.us.i, i64 16
@@ -19383,12 +19374,12 @@ if.end18.i287:                                    ; preds = %while.body9.i280
   %arrayidx26.i294 = getelementptr i8, ptr %p.152.i, i64 4
   store i32 %74, ptr %arrayidx26.i294, align 4
   %shr27.i295 = lshr i64 %or.i292, 32
-  %75 = trunc i64 %shr27.i295 to i32
+  %75 = trunc nuw nsw i64 %shr27.i295 to i32
   %conv29.i296 = and i32 %75, 32767
   %arrayidx30.i297 = getelementptr i8, ptr %p.152.i, i64 8
   store i32 %conv29.i296, ptr %arrayidx30.i297, align 4
   %shr31.i298 = lshr i64 %or.i292, 48
-  %conv32.i299 = trunc i64 %shr31.i298 to i32
+  %conv32.i299 = trunc nuw nsw i64 %shr31.i298 to i32
   %arrayidx33.i300 = getelementptr i8, ptr %p.152.i, i64 12
   store i32 %conv32.i299, ptr %arrayidx33.i300, align 4
   %add.ptr35.i301 = getelementptr i8, ptr %p.152.i, i64 16
@@ -20541,7 +20532,7 @@ if.then275:                                       ; preds = %if.end270
 land.lhs.true279:                                 ; preds = %if.then275
   %getcode = getelementptr inbounds i8, ptr %ucnhash_capi.0.i, i64 8
   %89 = load ptr, ptr %getcode, align 8
-  %conv280 = trunc i64 %sub.ptr.sub273 to i32
+  %conv280 = trunc nuw nsw i64 %sub.ptr.sub273 to i32
   %call281 = call i32 %89(ptr noundef %incdec.ptr258, i32 noundef %conv280, ptr noundef nonnull %ch, i32 noundef 0) #33
   %tobool282.not = icmp eq i32 %call281, 0
   br i1 %tobool282.not, label %error, label %do.body284
@@ -21035,7 +21026,7 @@ if.then30:                                        ; preds = %if.then25
   br i1 %cmp31.not, label %if.else, label %if.then33
 
 if.then33:                                        ; preds = %if.then30
-  %conv34 = trunc i32 %retval.0.i6167 to i8
+  %conv34 = trunc nuw nsw i32 %retval.0.i6167 to i8
   %incdec.ptr = getelementptr i8, ptr %p.069, i64 1
   store i8 %conv34, ptr %p.069, align 1
   br label %for.inc
@@ -21048,7 +21039,7 @@ if.else:                                          ; preds = %if.then30
   br label %for.inc
 
 if.else38:                                        ; preds = %if.then25
-  %trunc = trunc i32 %retval.0.i6167 to i8
+  %trunc = trunc nuw i32 %retval.0.i6167 to i8
   %incdec.ptr57 = getelementptr i8, ptr %p.069, i64 1
   store i8 92, ptr %p.069, align 1
   %incdec.ptr58 = getelementptr i8, ptr %p.069, i64 2
@@ -21857,7 +21848,7 @@ PyUnicode_READ.exit:                              ; preds = %if.then3.i, %if.end
 
 if.then29:                                        ; preds = %PyUnicode_READ.exit.thread, %PyUnicode_READ.exit
   %retval.0.i4450 = phi i32 [ %conv.i46, %PyUnicode_READ.exit.thread ], [ %retval.0.i44, %PyUnicode_READ.exit ]
-  %conv30 = trunc i32 %retval.0.i4450 to i8
+  %conv30 = trunc nuw i32 %retval.0.i4450 to i8
   %incdec.ptr = getelementptr i8, ptr %p.055, i64 1
   store i8 %conv30, ptr %p.055, align 1
   br label %for.inc
@@ -22111,7 +22102,7 @@ land.rhs.us202:                                   ; preds = %while.cond14.us198
   br i1 %cmp18.not.us205, label %while.end, label %while.cond14.us198, !llvm.loop !132
 
 if.then13:                                        ; preds = %PyUnicode_READ.exit
-  %conv = trunc i32 %retval.0.i100 to i8
+  %conv = trunc nuw i32 %retval.0.i100 to i8
   %incdec.ptr = getelementptr i8, ptr %str.0220, i64 1
   store i8 %conv, ptr %str.0220, align 1
   %inc = add nsw i64 %pos.0222, 1
@@ -23250,7 +23241,7 @@ if.then27.i:                                      ; preds = %if.end22.i
   br label %if.then.i83.i
 
 if.end29.i:                                       ; preds = %if.end22.i
-  %conv30.i = trunc i64 %call18.i to i32
+  %conv30.i = trunc nuw i64 %call18.i to i32
   %81 = load i32, ptr %maxchar, align 4
   %cmp.not.i.i38 = icmp ult i32 %81, %conv30.i
   br i1 %cmp.not.i.i38, label %cond.false.i.i42, label %land.lhs.true.i.i39
@@ -23833,9 +23824,9 @@ for.end:                                          ; preds = %for.inc, %PyUnicode
   %count2.0.lcssa = phi i32 [ 0, %PyUnicode_READ.exit ], [ %count2.2, %for.inc ]
   %cmp48 = icmp sgt i32 %count2.0.lcssa, 254
   %cmp51 = icmp sgt i32 %count3.0.lcssa, 254
-  %or.cond1.not.not = select i1 %cmp48, i1 true, i1 %cmp51
-  %16 = select i1 %or.cond1.not.not, i1 true, i1 %cmp9.not
-  br i1 %16, label %if.then56, label %if.end89
+  %or.cond1.not.not143 = select i1 %cmp48, i1 true, i1 %cmp51
+  %tobool55.not.not = select i1 %or.cond1.not.not143, i1 true, i1 %cmp9.not
+  br i1 %tobool55.not.not, label %if.then56, label %if.end89
 
 if.then56:                                        ; preds = %PyUnicode_READ.exit95, %for.end
   %call58 = tail call ptr @PyDict_New() #33
@@ -23862,36 +23853,36 @@ for.body66:                                       ; preds = %for.cond62.preheade
 
 if.then.i100:                                     ; preds = %for.body66
   %arrayidx.i101 = getelementptr i8, ptr %retval.0.i, i64 %conv63138
-  %17 = load i8, ptr %arrayidx.i101, align 1
-  %conv.i102 = zext i8 %17 to i32
+  %16 = load i8, ptr %arrayidx.i101, align 1
+  %conv.i102 = zext i8 %16 to i32
   br label %PyUnicode_READ.exit105
 
 if.then3.i96:                                     ; preds = %for.body66
   %arrayidx4.i97 = getelementptr i16, ptr %retval.0.i, i64 %conv63138
-  %18 = load i16, ptr %arrayidx4.i97, align 2
-  %conv5.i98 = zext i16 %18 to i32
+  %17 = load i16, ptr %arrayidx4.i97, align 2
+  %conv5.i98 = zext i16 %17 to i32
   br label %PyUnicode_READ.exit105
 
 if.end6.i103:                                     ; preds = %for.body66
   %arrayidx7.i104 = getelementptr i32, ptr %retval.0.i, i64 %conv63138
-  %19 = load i32, ptr %arrayidx7.i104, align 4
+  %18 = load i32, ptr %arrayidx7.i104, align 4
   br label %PyUnicode_READ.exit105
 
 PyUnicode_READ.exit105:                           ; preds = %if.then.i100, %if.then3.i96, %if.end6.i103
-  %retval.0.i99 = phi i32 [ %conv.i102, %if.then.i100 ], [ %conv5.i98, %if.then3.i96 ], [ %19, %if.end6.i103 ]
+  %retval.0.i99 = phi i32 [ %conv.i102, %if.then.i100 ], [ %conv5.i98, %if.then3.i96 ], [ %18, %if.end6.i103 ]
   %conv69 = zext i32 %retval.0.i99 to i64
   %call70 = tail call ptr @PyLong_FromLong(i64 noundef %conv69) #33
   %cmp71 = icmp eq ptr %call70, null
   br i1 %cmp71, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %PyUnicode_READ.exit105
-  %20 = load i64, ptr %call58, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i200.not = icmp eq i64 %21, 0
+  %19 = load i64, ptr %call58, align 8
+  %20 = and i64 %19, 2147483648
+  %cmp.i200.not = icmp eq i64 %20, 0
   br i1 %cmp.i200.not, label %if.end.i193, label %return
 
 if.end.i193:                                      ; preds = %if.then73
-  %dec.i194 = add i64 %20, -1
+  %dec.i194 = add i64 %19, -1
   store i64 %dec.i194, ptr %call58, align 8
   %cmp.i195 = icmp eq i64 %dec.i194, 0
   br i1 %cmp.i195, label %if.then1.i196, label %return
@@ -23906,13 +23897,13 @@ if.end74:                                         ; preds = %PyUnicode_READ.exit
   br i1 %cmp77, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.end74
-  %22 = load i64, ptr %call70, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i203.not = icmp eq i64 %23, 0
+  %21 = load i64, ptr %call70, align 8
+  %22 = and i64 %21, 2147483648
+  %cmp.i203.not = icmp eq i64 %22, 0
   br i1 %cmp.i203.not, label %if.end.i184, label %Py_DECREF.exit189
 
 if.end.i184:                                      ; preds = %if.then79
-  %dec.i185 = add i64 %22, -1
+  %dec.i185 = add i64 %21, -1
   store i64 %dec.i185, ptr %call70, align 8
   %cmp.i186 = icmp eq i64 %dec.i185, 0
   br i1 %cmp.i186, label %if.then1.i187, label %Py_DECREF.exit189
@@ -23922,13 +23913,13 @@ if.then1.i187:                                    ; preds = %if.end.i184
   br label %Py_DECREF.exit189
 
 Py_DECREF.exit189:                                ; preds = %if.then79, %if.then1.i187, %if.end.i184
-  %24 = load i64, ptr %call58, align 8
-  %25 = and i64 %24, 2147483648
-  %cmp.i207.not = icmp eq i64 %25, 0
+  %23 = load i64, ptr %call58, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i207.not = icmp eq i64 %24, 0
   br i1 %cmp.i207.not, label %if.end.i175, label %return
 
 if.end.i175:                                      ; preds = %Py_DECREF.exit189
-  %dec.i176 = add i64 %24, -1
+  %dec.i176 = add i64 %23, -1
   store i64 %dec.i176, ptr %call58, align 8
   %cmp.i177 = icmp eq i64 %dec.i176, 0
   br i1 %cmp.i177, label %if.then1.i178, label %return
@@ -23939,13 +23930,13 @@ if.then1.i178:                                    ; preds = %if.end.i175
 
 if.end80:                                         ; preds = %if.end74
   %call81 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call58, ptr noundef nonnull %call70, ptr noundef nonnull %call76) #33
-  %26 = load i64, ptr %call70, align 8
-  %27 = and i64 %26, 2147483648
-  %cmp.i211.not = icmp eq i64 %27, 0
+  %25 = load i64, ptr %call70, align 8
+  %26 = and i64 %25, 2147483648
+  %cmp.i211.not = icmp eq i64 %26, 0
   br i1 %cmp.i211.not, label %if.end.i166, label %Py_DECREF.exit171
 
 if.end.i166:                                      ; preds = %if.end80
-  %dec.i167 = add i64 %26, -1
+  %dec.i167 = add i64 %25, -1
   store i64 %dec.i167, ptr %call70, align 8
   %cmp.i168 = icmp eq i64 %dec.i167, 0
   br i1 %cmp.i168, label %if.then1.i169, label %Py_DECREF.exit171
@@ -23955,13 +23946,13 @@ if.then1.i169:                                    ; preds = %if.end.i166
   br label %Py_DECREF.exit171
 
 Py_DECREF.exit171:                                ; preds = %if.end80, %if.then1.i169, %if.end.i166
-  %28 = load i64, ptr %call76, align 8
-  %29 = and i64 %28, 2147483648
-  %cmp.i215.not = icmp eq i64 %29, 0
+  %27 = load i64, ptr %call76, align 8
+  %28 = and i64 %27, 2147483648
+  %cmp.i215.not = icmp eq i64 %28, 0
   br i1 %cmp.i215.not, label %if.end.i157, label %Py_DECREF.exit162
 
 if.end.i157:                                      ; preds = %Py_DECREF.exit171
-  %dec.i158 = add i64 %28, -1
+  %dec.i158 = add i64 %27, -1
   store i64 %dec.i158, ptr %call76, align 8
   %cmp.i159 = icmp eq i64 %dec.i158, 0
   br i1 %cmp.i159, label %if.then1.i160, label %Py_DECREF.exit162
@@ -23975,13 +23966,13 @@ Py_DECREF.exit162:                                ; preds = %Py_DECREF.exit171, 
   br i1 %cmp82, label %if.then84, label %for.cond62
 
 if.then84:                                        ; preds = %Py_DECREF.exit162
-  %30 = load i64, ptr %call58, align 8
-  %31 = and i64 %30, 2147483648
-  %cmp.i219.not = icmp eq i64 %31, 0
+  %29 = load i64, ptr %call58, align 8
+  %30 = and i64 %29, 2147483648
+  %cmp.i219.not = icmp eq i64 %30, 0
   br i1 %cmp.i219.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then84
-  %dec.i = add i64 %30, -1
+  %dec.i = add i64 %29, -1
   store i64 %dec.i, ptr %call58, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -24009,13 +24000,13 @@ if.end98:                                         ; preds = %if.end89
   %ob_type.i.i = getelementptr inbounds i8, ptr %call94, i64 8
   store ptr @EncodingMapType, ptr %ob_type.i.i, align 8
   %typeobj.val.i = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @EncodingMapType, i64 0, i32 19), align 8
-  %32 = and i64 %typeobj.val.i, 512
-  %tobool.not.i106 = icmp eq i64 %32, 0
+  %31 = and i64 %typeobj.val.i, 512
+  %tobool.not.i106 = icmp eq i64 %31, 0
   br i1 %tobool.not.i106, label %_PyObject_Init.exit, label %if.then.i107
 
 if.then.i107:                                     ; preds = %if.end98
-  %33 = load i32, ptr @EncodingMapType, align 8
-  %add.i.i = add i32 %33, 1
+  %32 = load i32, ptr @EncodingMapType, align 8
+  %add.i.i = add i32 %32, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_PyObject_Init.exit, label %if.end.i.i
 
@@ -24048,23 +24039,23 @@ for.body116:                                      ; preds = %_PyObject_Init.exit
 
 PyUnicode_READ.exit118.thread:                    ; preds = %for.body116
   %arrayidx.i114 = getelementptr i8, ptr %retval.0.i, i64 %conv113142
-  %34 = load i8, ptr %arrayidx.i114, align 1
-  %conv.i115 = zext i8 %34 to i32
+  %33 = load i8, ptr %arrayidx.i114, align 1
+  %conv.i115 = zext i8 %33 to i32
   br label %if.end123
 
 if.then3.i109:                                    ; preds = %for.body116
   %arrayidx4.i110 = getelementptr i16, ptr %retval.0.i, i64 %conv113142
-  %35 = load i16, ptr %arrayidx4.i110, align 2
-  %conv5.i111 = zext i16 %35 to i32
+  %34 = load i16, ptr %arrayidx4.i110, align 2
+  %conv5.i111 = zext i16 %34 to i32
   br label %PyUnicode_READ.exit118
 
 if.end6.i116:                                     ; preds = %for.body116
   %arrayidx7.i117 = getelementptr i32, ptr %retval.0.i, i64 %conv113142
-  %36 = load i32, ptr %arrayidx7.i117, align 4
+  %35 = load i32, ptr %arrayidx7.i117, align 4
   br label %PyUnicode_READ.exit118
 
 PyUnicode_READ.exit118:                           ; preds = %if.then3.i109, %if.end6.i116
-  %retval.0.i112 = phi i32 [ %conv5.i111, %if.then3.i109 ], [ %36, %if.end6.i116 ]
+  %retval.0.i112 = phi i32 [ %conv5.i111, %if.then3.i109 ], [ %35, %if.end6.i116 ]
   %cmp120 = icmp eq i32 %retval.0.i112, 65534
   br i1 %cmp120, label %for.inc151, label %if.end123
 
@@ -24075,14 +24066,14 @@ if.end123:                                        ; preds = %PyUnicode_READ.exit
   %and = and i32 %shr125, 15
   %idxprom126 = zext nneg i32 %shr124 to i64
   %arrayidx127 = getelementptr i8, ptr %level1101, i64 %idxprom126
-  %37 = load i8, ptr %arrayidx127, align 1
-  %conv128 = zext i8 %37 to i32
+  %36 = load i8, ptr %arrayidx127, align 1
+  %conv128 = zext i8 %36 to i32
   %mul129 = shl nuw nsw i32 %conv128, 4
   %add130 = or disjoint i32 %mul129, %and
   %idxprom131 = zext nneg i32 %add130 to i64
   %arrayidx132 = getelementptr i8, ptr %level23, i64 %idxprom131
-  %38 = load i8, ptr %arrayidx132, align 1
-  %cmp134 = icmp eq i8 %38, -1
+  %37 = load i8, ptr %arrayidx132, align 1
+  %cmp134 = icmp eq i8 %37, -1
   br i1 %cmp134, label %if.then136, label %if.end141
 
 if.then136:                                       ; preds = %if.end123
@@ -24091,10 +24082,10 @@ if.then136:                                       ; preds = %if.end123
   br label %if.end141
 
 if.end141:                                        ; preds = %if.then136, %if.end123
-  %39 = phi i8 [ %count3.2140, %if.then136 ], [ %38, %if.end123 ]
+  %38 = phi i8 [ %count3.2140, %if.then136 ], [ %37, %if.end123 ]
   %count3.3 = phi i8 [ %inc137, %if.then136 ], [ %count3.2140, %if.end123 ]
   %and142 = and i32 %retval.0.i112121, 127
-  %conv145 = zext i8 %39 to i32
+  %conv145 = zext i8 %38 to i32
   %mul146 = shl nuw nsw i32 %conv145, 7
   %add147 = or disjoint i32 %mul146, %and142
   %conv148 = trunc i32 %i.2141 to i8
@@ -25541,7 +25532,7 @@ PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit
   br i1 %cmp33.i.i, label %exit.i.i, label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %PyUnicode_READ_CHAR.exit.i
-  %conv37.i.i = trunc i32 %retval.0.i49.i to i8
+  %conv37.i.i = trunc nuw nsw i32 %retval.0.i49.i to i8
   br label %exit.sink.split.i.i
 
 exit.sink.split.i.i:                              ; preds = %if.end36.i.i, %if.end17.i.i, %if.end.i28.i
@@ -26465,7 +26456,7 @@ PyUnicode_READ.exit:                              ; preds = %if.then.i39, %if.th
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %PyUnicode_READ.exit
-  %conv = trunc i32 %retval.0.i38 to i8
+  %conv = trunc nuw nsw i32 %retval.0.i38 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %PyUnicode_READ.exit
@@ -27273,7 +27264,7 @@ return:                                           ; preds = %PyUnicode_READ.exit
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i64 @PyUnicode_FindChar(ptr noundef %str, i32 noundef %ch, i64 noundef %start, i64 noundef %end, i32 noundef %direction) local_unnamed_addr #14 {
+define dso_local i64 @PyUnicode_FindChar(ptr noundef %str, i32 noundef %ch, i64 noundef %start, i64 noundef %end, i32 noundef %direction) local_unnamed_addr #13 {
 entry:
   %0 = getelementptr i8, ptr %str, i64 16
   %str.val = load i64, ptr %0, align 8
@@ -27381,7 +27372,7 @@ return:                                           ; preds = %ensure_unicode.exit
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @tailmatch(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %substring, i64 noundef %start, i64 noundef %end, i32 noundef %direction) unnamed_addr #15 {
+define internal fastcc i32 @tailmatch(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %substring, i64 noundef %start, i64 noundef %end, i32 noundef %direction) unnamed_addr #14 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val49 = load i64, ptr %0, align 8
@@ -28244,7 +28235,7 @@ return:                                           ; preds = %if.then1.i.i146, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyUnicode_FastFill(ptr noundef %unicode, i64 noundef %start, i64 noundef %length, i32 noundef %fill_char) local_unnamed_addr #16 {
+define hidden void @_PyUnicode_FastFill(ptr noundef %unicode, i64 noundef %start, i64 noundef %length, i32 noundef %fill_char) local_unnamed_addr #15 {
 entry:
   %state = getelementptr inbounds i8, ptr %unicode, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -29342,7 +29333,7 @@ return:                                           ; preds = %if.end60.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @_PyUnicode_Equal(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #17 {
+define dso_local i32 @_PyUnicode_Equal(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %str1, %str2
   br i1 %cmp, label %return, label %if.end
@@ -29459,7 +29450,7 @@ return:                                           ; preds = %if.then, %if.end7, 
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i32 @unicode_compare(ptr noundef readonly %str1, ptr noundef readonly %str2) unnamed_addr #14 {
+define internal fastcc i32 @unicode_compare(ptr noundef readonly %str1, ptr noundef readonly %str2) unnamed_addr #13 {
 entry:
   %state = getelementptr inbounds i8, ptr %str1, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -29757,7 +29748,7 @@ return:                                           ; preds = %if.end200, %sw.epil
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyUnicode_CompareWithASCIIString(ptr nocapture noundef readonly %uni, ptr nocapture noundef readonly %str) local_unnamed_addr #15 {
+define dso_local i32 @PyUnicode_CompareWithASCIIString(ptr nocapture noundef readonly %uni, ptr nocapture noundef readonly %str) local_unnamed_addr #14 {
 entry:
   %state = getelementptr inbounds i8, ptr %uni, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -29939,7 +29930,7 @@ return:                                           ; preds = %land.rhs.us56, %lan
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyUnicode_EqualToUTF8(ptr nocapture noundef readonly %unicode, ptr noundef readonly %str) local_unnamed_addr #15 {
+define dso_local i32 @PyUnicode_EqualToUTF8(ptr nocapture noundef readonly %unicode, ptr noundef readonly %str) local_unnamed_addr #14 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #34
   %call1 = tail call i32 @PyUnicode_EqualToUTF8AndSize(ptr noundef %unicode, ptr noundef %str, i64 noundef %call), !range !158
@@ -29947,7 +29938,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyUnicode_EqualToUTF8AndSize(ptr nocapture noundef readonly %unicode, ptr noundef %str, i64 noundef %size) local_unnamed_addr #15 {
+define dso_local i32 @PyUnicode_EqualToUTF8AndSize(ptr nocapture noundef readonly %unicode, ptr noundef %str, i64 noundef %size) local_unnamed_addr #14 {
 entry:
   %0 = getelementptr i8, ptr %unicode, i64 32
   %unicode.val = load i32, ptr %0, align 8
@@ -30198,7 +30189,7 @@ return:                                           ; preds = %if.else106, %lor.lh
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @_PyUnicode_EqualToASCIIString(ptr nocapture noundef readonly %unicode, ptr nocapture noundef readonly %str) local_unnamed_addr #17 {
+define dso_local i32 @_PyUnicode_EqualToASCIIString(ptr nocapture noundef readonly %unicode, ptr nocapture noundef readonly %str) local_unnamed_addr #16 {
 entry:
   %0 = getelementptr i8, ptr %unicode, i64 32
   %unicode.val = load i32, ptr %0, align 8
@@ -30534,7 +30525,7 @@ if.end50:                                         ; preds = %switch.lookup, %sw.
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_PyUnicode_EQ(ptr nocapture noundef readonly %aa, ptr nocapture noundef readonly %bb) local_unnamed_addr #17 {
+define hidden i32 @_PyUnicode_EQ(ptr nocapture noundef readonly %aa, ptr nocapture noundef readonly %bb) local_unnamed_addr #16 {
 entry:
   %0 = getelementptr i8, ptr %aa, i64 16
   %a.val11.i = load i64, ptr %0, align 8
@@ -44385,7 +44376,7 @@ if.end14.i.i.i:                                   ; preds = %if.else.i70.i.i
   br i1 %or.cond.i.i.i, label %formatchar.exit.thread.sink.split.i.i, label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.end14.i.i.i
-  %conv.i71.i.i = trunc i64 %call5.i.i.i to i32
+  %conv.i71.i.i = trunc nuw nsw i64 %call5.i.i.i to i32
   br label %formatchar.exit.thread80.i.i
 
 formatchar.exit.thread.sink.split.i.i:            ; preds = %if.end14.i.i.i, %if.then.i66.i.i, %if.then9.i.i.i, %land.lhs.true.i72.i.i
@@ -44807,13 +44798,13 @@ if.then219.i.i:                                   ; preds = %if.end211.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then219.i.i
-  %conv.i186.i.i = trunc i32 %fill.0.i.i to i8
+  %conv.i186.i.i = trunc nuw nsw i32 %fill.0.i.i to i8
   %add.ptr.i.i.i = getelementptr i8, ptr %209, i64 %210
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i, i8 %conv.i186.i.i, i64 %sub221.i.i, i1 false)
   br label %unicode_fill.exit.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %if.then219.i.i
-  %conv4.i185.i.i = trunc i32 %fill.0.i.i to i16
+  %conv4.i185.i.i = trunc nuw nsw i32 %fill.0.i.i to i16
   %add.ptr6.i.i.i = getelementptr i16, ptr %209, i64 %210
   %add.ptr7.i.i.i = getelementptr i16, ptr %add.ptr6.i.i.i, i64 %sub221.i.i
   %cmp18.i.i89.i = icmp ult ptr %add.ptr6.i.i.i, %add.ptr7.i.i.i
@@ -45522,7 +45513,7 @@ PyUnicode_DATA.exit180:                           ; preds = %if.then.i173, %if.e
   ]
 
 PyUnicode_WRITE.exit.thread:                      ; preds = %PyUnicode_DATA.exit180
-  %conv.i183 = trunc i32 %11 to i8
+  %conv.i183 = trunc nuw nsw i32 %11 to i8
   store i8 %conv.i183, ptr %retval.0.i177, align 1
   %sub49448 = add i64 %osize.1, 1
   %arrayidx.i188 = getelementptr i8, ptr %retval.0.i177, i64 %sub49448
@@ -45530,7 +45521,7 @@ PyUnicode_WRITE.exit.thread:                      ; preds = %PyUnicode_DATA.exit
   br label %PyUnicode_WRITE.exit191
 
 PyUnicode_WRITE.exit.thread450:                   ; preds = %PyUnicode_DATA.exit180
-  %conv4.i = trunc i32 %11 to i16
+  %conv4.i = trunc nuw nsw i32 %11 to i16
   store i16 %conv4.i, ptr %retval.0.i177, align 2
   %sub49451 = add i64 %osize.1, 1
   %arrayidx5.i = getelementptr i16, ptr %retval.0.i177, i64 %sub49451
@@ -45804,13 +45795,13 @@ if.then104:                                       ; preds = %if.else101
   ]
 
 if.then.i293:                                     ; preds = %if.then104
-  %conv.i294 = trunc i32 %retval.0.i195 to i8
+  %conv.i294 = trunc nuw i32 %retval.0.i195 to i8
   %arrayidx.i295 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 %conv.i294, ptr %arrayidx.i295, align 1
   br label %for.inc213
 
 if.then3.i290:                                    ; preds = %if.then104
-  %conv4.i291 = trunc i32 %retval.0.i195 to i16
+  %conv4.i291 = trunc nuw i32 %retval.0.i195 to i16
   %arrayidx5.i292 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 %conv4.i291, ptr %arrayidx5.i292, align 2
   br label %for.inc213
@@ -46458,71 +46449,71 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add34 = add i64 %kwargs.val, %args.val
-  %ob_item39 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item36 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
-  %or.cond1 = icmp ult i64 %args.val, 4
+  %2 = icmp ult i64 %args.val, 4
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
-  br i1 %or.cond1, label %if.end, label %cond.end15
+  br i1 %2, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
-  %ob_item42 = phi ptr [ %ob_item39, %cond.end.thread ], [ %ob_item, %cond.end ]
-  %add40 = phi i64 [ %add34, %cond.end.thread ], [ %args.val, %cond.end ]
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item42, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @unicode_new._parser, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %argsbuf) #33
+  %ob_item39 = phi ptr [ %ob_item36, %cond.end.thread ], [ %ob_item, %cond.end ]
+  %add37 = phi i64 [ %add34, %cond.end.thread ], [ %args.val, %cond.end ]
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item39, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @unicode_new._parser, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %argsbuf) #33
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %cond.end, %cond.end15
-  %cond1647 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
-  %add4146 = phi i64 [ %add40, %cond.end15 ], [ %args.val, %cond.end ]
-  %tobool18.not = icmp eq i64 %add4146, 0
+  %cond1644 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
+  %add3843 = phi i64 [ %add37, %cond.end15 ], [ %args.val, %cond.end ]
+  %tobool18.not = icmp eq i64 %add3843, 0
   br i1 %tobool18.not, label %if.end7.i, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  %2 = load ptr, ptr %cond1647, align 8
-  %tobool21.not = icmp eq ptr %2, null
+  %3 = load ptr, ptr %cond1644, align 8
+  %tobool21.not = icmp eq ptr %3, null
   br i1 %tobool21.not, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %dec = add i64 %add4146, -1
+  %dec = add i64 %add3843, -1
   %tobool24.not = icmp eq i64 %dec, 0
   br i1 %tobool24.not, label %if.else.i, label %if.end27
 
 if.end27:                                         ; preds = %if.then22, %if.end20
-  %noptargs.0 = phi i64 [ %dec, %if.then22 ], [ %add4146, %if.end20 ]
-  %arrayidx28 = getelementptr i8, ptr %cond1647, i64 8
-  %3 = load ptr, ptr %arrayidx28, align 8
-  %tobool29.not = icmp eq ptr %3, null
+  %noptargs.0 = phi i64 [ %dec, %if.then22 ], [ %add3843, %if.end20 ]
+  %arrayidx28 = getelementptr i8, ptr %cond1644, i64 8
+  %4 = load ptr, ptr %arrayidx28, align 8
+  %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %if.end51, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  %4 = getelementptr i8, ptr %3, i64 8
-  %.val28 = load ptr, ptr %4, align 8
-  %5 = getelementptr i8, ptr %.val28, i64 168
-  %call32.val = load i64, ptr %5, align 8
-  %6 = and i64 %call32.val, 268435456
-  %tobool34.not = icmp eq i64 %6, 0
+  %5 = getelementptr i8, ptr %4, i64 8
+  %.val28 = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %.val28, i64 168
+  %call32.val = load i64, ptr %6, align 8
+  %7 = and i64 %call32.val, 268435456
+  %tobool34.not = icmp eq i64 %7, 0
   br i1 %tobool34.not, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %if.then30
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.115, ptr noundef nonnull %3) #33
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.115, ptr noundef nonnull %4) #33
   br label %exit
 
 if.end37:                                         ; preds = %if.then30
-  %call39 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %3, ptr noundef nonnull %encoding_length)
+  %call39 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %4, ptr noundef nonnull %encoding_length)
   %cmp40 = icmp eq ptr %call39, null
   br i1 %cmp40, label %exit, label %if.end42
 
 if.end42:                                         ; preds = %if.end37
   %call43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call39) #34
-  %7 = load i64, ptr %encoding_length, align 8
-  %cmp44.not = icmp eq i64 %call43, %7
+  %8 = load i64, ptr %encoding_length, align 8
+  %cmp44.not = icmp eq i64 %call43, %8
   br i1 %cmp44.not, label %if.end46, label %if.then45
 
 if.then45:                                        ; preds = %if.end42
-  %8 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.38) #33
+  %9 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.38) #33
   br label %exit
 
 if.end46:                                         ; preds = %if.end42
@@ -46531,34 +46522,34 @@ if.end46:                                         ; preds = %if.end42
 
 if.end51:                                         ; preds = %if.end46, %if.end27
   %encoding.0 = phi ptr [ %call39, %if.end46 ], [ null, %if.end27 ]
-  %arrayidx52 = getelementptr i8, ptr %cond1647, i64 16
-  %9 = load ptr, ptr %arrayidx52, align 8
-  %10 = getelementptr i8, ptr %9, i64 8
-  %.val = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %.val, i64 168
-  %call53.val = load i64, ptr %11, align 8
-  %12 = and i64 %call53.val, 268435456
-  %tobool55.not = icmp eq i64 %12, 0
+  %arrayidx52 = getelementptr i8, ptr %cond1644, i64 16
+  %10 = load ptr, ptr %arrayidx52, align 8
+  %11 = getelementptr i8, ptr %10, i64 8
+  %.val = load ptr, ptr %11, align 8
+  %12 = getelementptr i8, ptr %.val, i64 168
+  %call53.val = load i64, ptr %12, align 8
+  %13 = and i64 %call53.val, 268435456
+  %tobool55.not = icmp eq i64 %13, 0
   br i1 %tobool55.not, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %if.end51
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.115, ptr noundef nonnull %9) #33
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.115, ptr noundef nonnull %10) #33
   br label %exit
 
 if.end58:                                         ; preds = %if.end51
-  %call60 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %9, ptr noundef nonnull %errors_length)
+  %call60 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %10, ptr noundef nonnull %errors_length)
   %cmp61 = icmp eq ptr %call60, null
   br i1 %cmp61, label %exit, label %if.end63
 
 if.end63:                                         ; preds = %if.end58
   %call64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call60) #34
-  %13 = load i64, ptr %errors_length, align 8
-  %cmp65.not = icmp eq i64 %call64, %13
+  %14 = load i64, ptr %errors_length, align 8
+  %cmp65.not = icmp eq i64 %call64, %14
   br i1 %cmp65.not, label %skip_optional_pos, label %if.then66
 
 if.then66:                                        ; preds = %if.end63
-  %14 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.38) #33
+  %15 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.38) #33
   br label %exit
 
 skip_optional_pos:                                ; preds = %if.end63, %if.end46
@@ -46567,19 +46558,19 @@ skip_optional_pos:                                ; preds = %if.end63, %if.end46
   br i1 %tobool21.not, label %if.end7.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then22, %skip_optional_pos
-  %errors.059 = phi ptr [ %errors.0, %skip_optional_pos ], [ null, %if.then22 ]
-  %encoding.158 = phi ptr [ %encoding.1, %skip_optional_pos ], [ null, %if.then22 ]
-  %cmp1.i = icmp eq ptr %encoding.158, null
-  %cmp2.i = icmp eq ptr %errors.059, null
+  %errors.056 = phi ptr [ %errors.0, %skip_optional_pos ], [ null, %if.then22 ]
+  %encoding.155 = phi ptr [ %encoding.1, %skip_optional_pos ], [ null, %if.then22 ]
+  %cmp1.i = icmp eq ptr %encoding.155, null
+  %cmp2.i = icmp eq ptr %errors.056, null
   %or.cond.i = and i1 %cmp2.i, %cmp1.i
   br i1 %or.cond.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %call4.i = call ptr @PyObject_Str(ptr noundef nonnull %2) #33
+  %call4.i = call ptr @PyObject_Str(ptr noundef nonnull %3) #33
   br label %if.end7.i
 
 if.else5.i:                                       ; preds = %if.else.i
-  %call6.i = call ptr @PyUnicode_FromEncodedObject(ptr noundef nonnull %2, ptr noundef %encoding.158, ptr noundef %errors.059)
+  %call6.i = call ptr @PyUnicode_FromEncodedObject(ptr noundef nonnull %3, ptr noundef %encoding.155, ptr noundef %errors.056)
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end, %if.else5.i, %if.then3.i, %skip_optional_pos
@@ -46591,8 +46582,8 @@ if.end7.i:                                        ; preds = %if.end, %if.else5.i
 
 do.body.i:                                        ; preds = %if.end7.i
   %tp_alloc.i.i = getelementptr inbounds i8, ptr %type, i64 304
-  %15 = load ptr, ptr %tp_alloc.i.i, align 8
-  %call.i.i = call ptr %15(ptr noundef %type, i64 noundef 0) #33
+  %16 = load ptr, ptr %tp_alloc.i.i, align 8
+  %call.i.i = call ptr %16(ptr noundef %type, i64 noundef 0) #33
   %cmp.i13.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i13.i, label %unicode_subtype_new.exit.i, label %if.end.i14.i
 
@@ -46601,14 +46592,14 @@ if.end.i14.i:                                     ; preds = %do.body.i
   %bf.load.i.i = load i32, ptr %state.i.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 2
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 7
-  %16 = getelementptr i8, ptr %unicode.0.i, i64 16
-  %unicode.val.i.i = load i64, ptr %16, align 8
+  %17 = getelementptr i8, ptr %unicode.0.i, i64 16
+  %unicode.val.i.i = load i64, ptr %17, align 8
   %length2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %unicode.val.i.i, ptr %length2.i.i, align 8
   %hash.i.i = getelementptr inbounds i8, ptr %unicode.0.i, i64 24
-  %17 = load i64, ptr %hash.i.i, align 8
+  %18 = load i64, ptr %hash.i.i, align 8
   %hash3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store i64 %17, ptr %hash3.i.i, align 8
+  store i64 %18, ptr %hash3.i.i, align 8
   %state4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %bf.load5.i.i = load i32, ptr %state4.i.i, align 8
   %bf.shl.i.i = shl nuw nsw i32 %bf.clear.i.i, 2
@@ -46631,8 +46622,8 @@ if.end.i14.i:                                     ; preds = %do.body.i
 
 if.then31.i.i:                                    ; preds = %if.end.i14.i
   %unicode.val35.i.i = load i32, ptr %state.i.i, align 8
-  %18 = and i32 %unicode.val35.i.i, 64
-  %tobool.not.i.i.i = icmp eq i32 %18, 0
+  %19 = and i32 %unicode.val35.i.i, 64
+  %tobool.not.i.i.i = icmp eq i32 %19, 0
   br label %if.end40.i.i
 
 if.else38.i.i:                                    ; preds = %if.end.i14.i
@@ -46663,20 +46654,20 @@ if.then51.i.i:                                    ; preds = %if.end49.i.i
 
 if.end54.i.i:                                     ; preds = %if.then51.i.i, %if.end49.i.i
   %op.val.i.i.i = load i32, ptr %state.i.i, align 8
-  %19 = and i32 %op.val.i.i.i, 32
-  %tobool.not.i37.i.i = icmp eq i32 %19, 0
+  %20 = and i32 %op.val.i.i.i, 32
+  %tobool.not.i37.i.i = icmp eq i32 %20, 0
   br i1 %tobool.not.i37.i.i, label %if.end.i39.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end54.i.i
-  %20 = and i32 %op.val.i.i.i, 64
-  %tobool.not.i.i.i.i = icmp eq i32 %20, 0
+  %21 = and i32 %op.val.i.i.i, 64
+  %tobool.not.i.i.i.i = icmp eq i32 %21, 0
   %retval.0.v.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 56, i64 40
   %retval.0.i.i.i.i = getelementptr i8, ptr %unicode.0.i, i64 %retval.0.v.i.i.i.i
   br label %PyUnicode_DATA.exit.i.i
 
 if.end.i39.i.i:                                   ; preds = %if.end54.i.i
-  %21 = getelementptr i8, ptr %unicode.0.i, i64 56
-  %op.val3.i.i.i = load ptr, ptr %21, align 8
+  %22 = getelementptr i8, ptr %unicode.0.i, i64 56
+  %op.val3.i.i.i = load ptr, ptr %22, align 8
   br label %PyUnicode_DATA.exit.i.i
 
 PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i39.i.i, %if.then.i.i.i
@@ -46688,13 +46679,13 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i39.i.i, %if
 
 onError.i.i:                                      ; preds = %if.end44.i.i, %if.end40.i.i
   %call48.i.i = call ptr @PyErr_NoMemory() #33
-  %22 = load i64, ptr %call.i.i, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i59.not.i.i = icmp eq i64 %23, 0
+  %23 = load i64, ptr %call.i.i, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i59.not.i.i = icmp eq i64 %24, 0
   br i1 %cmp.i59.not.i.i, label %if.end.i.i.i, label %unicode_subtype_new.exit.i
 
 if.end.i.i.i:                                     ; preds = %onError.i.i
-  %dec.i.i.i = add i64 %22, -1
+  %dec.i.i.i = add i64 %23, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %unicode_subtype_new.exit.i
@@ -46705,13 +46696,13 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 unicode_subtype_new.exit.i:                       ; preds = %if.then1.i.i.i, %if.end.i.i.i, %onError.i.i, %PyUnicode_DATA.exit.i.i, %do.body.i
   %retval.0.i.i = phi ptr [ %call.i.i, %PyUnicode_DATA.exit.i.i ], [ null, %do.body.i ], [ null, %onError.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.end.i.i.i ]
-  %24 = load i64, ptr %unicode.0.i, align 8
-  %25 = and i64 %24, 2147483648
-  %cmp.i15.not.i = icmp eq i64 %25, 0
+  %25 = load i64, ptr %unicode.0.i, align 8
+  %26 = and i64 %25, 2147483648
+  %cmp.i15.not.i = icmp eq i64 %26, 0
   br i1 %cmp.i15.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %unicode_subtype_new.exit.i
-  %dec.i.i = add i64 %24, -1
+  %dec.i.i = add i64 %25, -1
   store i64 %dec.i.i, ptr %unicode.0.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit
@@ -46728,7 +46719,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 declare void @PyObject_Free(ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_PyUnicode_InitState(ptr noundef readnone %interp) local_unnamed_addr #18 {
+define hidden void @_PyUnicode_InitState(ptr noundef readnone %interp) local_unnamed_addr #17 {
 entry:
   %linebreak.i = alloca [8 x i16], align 16
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
@@ -48648,7 +48639,7 @@ PyUnicode_READ.exit:                              ; preds = %if.then3.i, %if.end
 
 if.then.i19:                                      ; preds = %PyUnicode_READ.exit.thread, %PyUnicode_READ.exit
   %retval.0.i1224 = phi i32 [ %conv.i, %PyUnicode_READ.exit.thread ], [ %retval.0.i12, %PyUnicode_READ.exit ]
-  %conv.i20 = trunc i32 %retval.0.i1224 to i8
+  %conv.i20 = trunc nuw i32 %retval.0.i1224 to i8
   %cmp.i.i = icmp sgt i8 %conv.i20, -1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
@@ -49028,7 +49019,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #18
 
 declare void @_Py_NewReference(ptr noundef) local_unnamed_addr #1
 
@@ -49039,7 +49030,7 @@ declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #1
 declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
@@ -49300,7 +49291,7 @@ declare ptr @PyCodec_StrictErrors(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBytes_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #21
+declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #20
 
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -49313,7 +49304,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @wmemchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #21
+declare ptr @wmemchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #20
 
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -49371,7 +49362,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp6, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %for.body
-  %conv9 = trunc i16 %0 to i8
+  %conv9 = trunc nuw i16 %0 to i8
   %incdec.ptr = getelementptr i8, ptr %p.0198, i64 1
   store i8 %conv9, ptr %p.0198, align 1
   br label %if.end180
@@ -49382,7 +49373,7 @@ if.else:                                          ; preds = %for.body
 
 if.then12:                                        ; preds = %if.else
   %shr = lshr i16 %0, 6
-  %1 = trunc i16 %shr to i8
+  %1 = trunc nuw i16 %shr to i8
   %conv13 = or disjoint i8 %1, -64
   %incdec.ptr14 = getelementptr i8, ptr %p.0198, i64 1
   store i8 %conv13, ptr %p.0198, align 1
@@ -49470,7 +49461,7 @@ for.body45:                                       ; preds = %for.cond42.preheade
   %arrayidx46 = getelementptr i16, ptr %data, i64 %k.0195
   %9 = load i16, ptr %arrayidx46, align 2
   %shr48 = lshr i16 %9, 12
-  %10 = trunc i16 %shr48 to i8
+  %10 = trunc nuw nsw i16 %shr48 to i8
   %conv50 = or disjoint i8 %10, -32
   %incdec.ptr51 = getelementptr i8, ptr %p.2194, i64 1
   store i8 %conv50, ptr %p.2194, align 1
@@ -49632,7 +49623,7 @@ do.end:                                           ; preds = %if.then162, %if.the
 
 if.else164:                                       ; preds = %if.else18
   %shr165 = lshr i16 %0, 12
-  %33 = trunc i16 %shr165 to i8
+  %33 = trunc nuw nsw i16 %shr165 to i8
   %conv167 = or disjoint i8 %33, -32
   %incdec.ptr168 = getelementptr i8, ptr %p.0198, i64 1
   store i8 %conv167, ptr %p.0198, align 1
@@ -49804,7 +49795,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %for.body
-  %conv = trunc i32 %0 to i8
+  %conv = trunc nuw nsw i32 %0 to i8
   %incdec.ptr = getelementptr i8, ptr %p.0209, i64 1
   store i8 %conv, ptr %p.0209, align 1
   br label %if.end198
@@ -49815,7 +49806,7 @@ if.else:                                          ; preds = %for.body
 
 if.then10:                                        ; preds = %if.else
   %shr = lshr i32 %0, 6
-  %1 = trunc i32 %shr to i8
+  %1 = trunc nuw i32 %shr to i8
   %conv11 = or disjoint i8 %1, -64
   %incdec.ptr12 = getelementptr i8, ptr %p.0209, i64 1
   store i8 %conv11, ptr %p.0209, align 1
@@ -50071,7 +50062,7 @@ if.else159:                                       ; preds = %if.else16
 
 if.then162:                                       ; preds = %if.else159
   %shr163 = lshr i32 %0, 12
-  %33 = trunc i32 %shr163 to i8
+  %33 = trunc nuw i32 %shr163 to i8
   %conv165 = or disjoint i8 %33, -32
   store i8 %conv165, ptr %p.0209, align 1
   %shr167 = lshr i32 %0, 6
@@ -50267,18 +50258,7 @@ for.body.lr.ph:                                   ; preds = %PyUnicode_DATA.exit
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %3 = sub i64 %collstart, %collend
   %4 = icmp ult i64 %3, -2305843009213693951
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %if.end9.us
-  %i.065.us = phi i64 [ %inc.us, %if.end9.us ], [ %collstart, %for.body.us.preheader ]
-  %size.064.us = phi i64 [ %add.us, %if.end9.us ], [ 0, %for.body.us.preheader ]
-  br i1 %4, label %if.then8, label %if.end9.us
-
-if.end9.us:                                       ; preds = %for.body.us
-  %add.us = add nuw i64 %size.064.us, 4
-  %inc.us = add i64 %i.065.us, 1
-  %exitcond94.not = icmp eq i64 %inc.us, %collend
-  br i1 %exitcond94.not, label %for.end, label %for.body.us, !llvm.loop !280
+  br i1 %4, label %if.then8, label %for.end.thread102
 
 for.body.us67:                                    ; preds = %for.body.lr.ph, %if.end9.us78
   %i.065.us68 = phi i64 [ %inc.us80, %if.end9.us78 ], [ %collstart, %for.body.lr.ph ]
@@ -50310,7 +50290,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %cmp7 = icmp sgt i64 %size.064, %sub
   br i1 %cmp7, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %for.body.us67, %for.body.us, %for.body
+if.then8:                                         ; preds = %for.body.us67, %for.body, %for.body.us.preheader
   %7 = load ptr, ptr @PyExc_OverflowError, align 8
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.180) #33
   br label %return
@@ -50321,20 +50301,31 @@ if.end9:                                          ; preds = %for.body
   %exitcond95.not = icmp eq i64 %inc, %collend
   br i1 %exitcond95.not, label %for.end, label %for.body, !llvm.loop !280
 
-for.end:                                          ; preds = %if.end9.us78, %if.end9.us, %if.end9
-  %size.0.lcssa = phi i64 [ %add, %if.end9 ], [ %add.us, %if.end9.us ], [ %add.us79, %if.end9.us78 ]
+for.end:                                          ; preds = %if.end9.us78, %if.end9
+  %size.0.lcssa = phi i64 [ %add, %if.end9 ], [ %add.us79, %if.end9.us78 ]
   %call10 = tail call ptr @_PyBytesWriter_Prepare(ptr noundef %writer, ptr noundef %str, i64 noundef %size.0.lcssa) #33
   %cmp11 = icmp eq ptr %call10, null
   %brmerge = or i1 %cmp11, %cmp63
-  br i1 %brmerge, label %return, label %for.body16
+  br i1 %brmerge, label %return, label %for.body16.preheader
+
+for.end.thread102:                                ; preds = %for.body.us.preheader
+  %8 = sub i64 %collend, %collstart
+  %9 = shl i64 %8, 2
+  %call10104 = tail call ptr @_PyBytesWriter_Prepare(ptr noundef %writer, ptr noundef %str, i64 noundef %9) #33
+  %cmp11105 = icmp eq ptr %call10104, null
+  br i1 %cmp11105, label %return, label %for.body16.preheader
+
+for.body16.preheader:                             ; preds = %for.end, %for.end.thread102
+  %str.addr.088.ph = phi ptr [ %call10, %for.end ], [ %call10104, %for.end.thread102 ]
+  br label %for.body16
 
 for.end.thread:                                   ; preds = %PyUnicode_DATA.exit
   %call1098 = tail call ptr @_PyBytesWriter_Prepare(ptr noundef %writer, ptr noundef %str, i64 noundef 0) #33
   br label %return
 
-for.body16:                                       ; preds = %for.end, %if.end64
-  %str.addr.088 = phi ptr [ %incdec.ptr73, %if.end64 ], [ %call10, %for.end ]
-  %i.185 = phi i64 [ %inc75, %if.end64 ], [ %collstart, %for.end ]
+for.body16:                                       ; preds = %for.body16.preheader, %if.end64
+  %str.addr.088 = phi ptr [ %incdec.ptr73, %if.end64 ], [ %str.addr.088.ph, %for.body16.preheader ]
+  %i.185 = phi i64 [ %inc75, %if.end64 ], [ %collstart, %for.body16.preheader ]
   switch i32 %bf.clear, label %PyUnicode_READ.exit54 [
     i32 1, label %if.then.i49
     i32 2, label %if.then3.i45
@@ -50342,14 +50333,14 @@ for.body16:                                       ; preds = %for.end, %if.end64
 
 if.then.i49:                                      ; preds = %for.body16
   %arrayidx.i50 = getelementptr i8, ptr %retval.0.i, i64 %i.185
-  %8 = load i8, ptr %arrayidx.i50, align 1
-  %conv.i51 = zext i8 %8 to i32
+  %10 = load i8, ptr %arrayidx.i50, align 1
+  %conv.i51 = zext i8 %10 to i32
   br label %PyUnicode_READ.exit54.thread
 
 if.then3.i45:                                     ; preds = %for.body16
   %arrayidx4.i46 = getelementptr i16, ptr %retval.0.i, i64 %i.185
-  %9 = load i16, ptr %arrayidx4.i46, align 2
-  %conv5.i47 = zext i16 %9 to i32
+  %11 = load i16, ptr %arrayidx4.i46, align 2
+  %conv5.i47 = zext i16 %11 to i32
   br label %PyUnicode_READ.exit54.thread
 
 PyUnicode_READ.exit54.thread:                     ; preds = %if.then.i49, %if.then3.i45
@@ -50360,88 +50351,88 @@ PyUnicode_READ.exit54.thread:                     ; preds = %if.then.i49, %if.th
 
 PyUnicode_READ.exit54:                            ; preds = %for.body16
   %arrayidx7.i53 = getelementptr i32, ptr %retval.0.i, i64 %i.185
-  %10 = load i32, ptr %arrayidx7.i53, align 4
+  %12 = load i32, ptr %arrayidx7.i53, align 4
   %incdec.ptr = getelementptr i8, ptr %str.addr.088, i64 1
   store i8 92, ptr %str.addr.088, align 1
-  %cmp18 = icmp ugt i32 %10, 65535
+  %cmp18 = icmp ugt i32 %12, 65535
   br i1 %cmp18, label %if.then19, label %if.else47
 
 if.then19:                                        ; preds = %PyUnicode_READ.exit54
   %incdec.ptr20 = getelementptr i8, ptr %str.addr.088, i64 2
   store i8 85, ptr %incdec.ptr, align 1
-  %11 = load ptr, ptr @Py_hexdigits, align 8
-  %shr = lshr i32 %10, 28
-  %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr i8, ptr %11, i64 %idxprom
-  %12 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr21 = getelementptr i8, ptr %str.addr.088, i64 3
-  store i8 %12, ptr %incdec.ptr20, align 1
   %13 = load ptr, ptr @Py_hexdigits, align 8
-  %shr22 = lshr i32 %10, 24
+  %shr = lshr i32 %12, 28
+  %idxprom = zext nneg i32 %shr to i64
+  %arrayidx = getelementptr i8, ptr %13, i64 %idxprom
+  %14 = load i8, ptr %arrayidx, align 1
+  %incdec.ptr21 = getelementptr i8, ptr %str.addr.088, i64 3
+  store i8 %14, ptr %incdec.ptr20, align 1
+  %15 = load ptr, ptr @Py_hexdigits, align 8
+  %shr22 = lshr i32 %12, 24
   %and23 = and i32 %shr22, 15
   %idxprom24 = zext nneg i32 %and23 to i64
-  %arrayidx25 = getelementptr i8, ptr %13, i64 %idxprom24
-  %14 = load i8, ptr %arrayidx25, align 1
+  %arrayidx25 = getelementptr i8, ptr %15, i64 %idxprom24
+  %16 = load i8, ptr %arrayidx25, align 1
   %incdec.ptr26 = getelementptr i8, ptr %str.addr.088, i64 4
-  store i8 %14, ptr %incdec.ptr21, align 1
-  %15 = load ptr, ptr @Py_hexdigits, align 8
-  %shr27 = lshr i32 %10, 20
+  store i8 %16, ptr %incdec.ptr21, align 1
+  %17 = load ptr, ptr @Py_hexdigits, align 8
+  %shr27 = lshr i32 %12, 20
   %and28 = and i32 %shr27, 15
   %idxprom29 = zext nneg i32 %and28 to i64
-  %arrayidx30 = getelementptr i8, ptr %15, i64 %idxprom29
-  %16 = load i8, ptr %arrayidx30, align 1
+  %arrayidx30 = getelementptr i8, ptr %17, i64 %idxprom29
+  %18 = load i8, ptr %arrayidx30, align 1
   %incdec.ptr31 = getelementptr i8, ptr %str.addr.088, i64 5
-  store i8 %16, ptr %incdec.ptr26, align 1
-  %17 = load ptr, ptr @Py_hexdigits, align 8
-  %shr32 = lshr i32 %10, 16
+  store i8 %18, ptr %incdec.ptr26, align 1
+  %19 = load ptr, ptr @Py_hexdigits, align 8
+  %shr32 = lshr i32 %12, 16
   %and33 = and i32 %shr32, 15
   %idxprom34 = zext nneg i32 %and33 to i64
-  %arrayidx35 = getelementptr i8, ptr %17, i64 %idxprom34
-  %18 = load i8, ptr %arrayidx35, align 1
+  %arrayidx35 = getelementptr i8, ptr %19, i64 %idxprom34
+  %20 = load i8, ptr %arrayidx35, align 1
   %incdec.ptr36 = getelementptr i8, ptr %str.addr.088, i64 6
-  store i8 %18, ptr %incdec.ptr31, align 1
-  %19 = load ptr, ptr @Py_hexdigits, align 8
-  %shr37 = lshr i32 %10, 12
+  store i8 %20, ptr %incdec.ptr31, align 1
+  %21 = load ptr, ptr @Py_hexdigits, align 8
+  %shr37 = lshr i32 %12, 12
   %and38 = and i32 %shr37, 15
   %idxprom39 = zext nneg i32 %and38 to i64
-  %arrayidx40 = getelementptr i8, ptr %19, i64 %idxprom39
-  %20 = load i8, ptr %arrayidx40, align 1
+  %arrayidx40 = getelementptr i8, ptr %21, i64 %idxprom39
+  %22 = load i8, ptr %arrayidx40, align 1
   %incdec.ptr41 = getelementptr i8, ptr %str.addr.088, i64 7
-  store i8 %20, ptr %incdec.ptr36, align 1
-  %21 = load ptr, ptr @Py_hexdigits, align 8
-  %shr42 = lshr i32 %10, 8
+  store i8 %22, ptr %incdec.ptr36, align 1
+  %23 = load ptr, ptr @Py_hexdigits, align 8
+  %shr42 = lshr i32 %12, 8
   %and43 = and i32 %shr42, 15
   %idxprom44 = zext nneg i32 %and43 to i64
-  %arrayidx45 = getelementptr i8, ptr %21, i64 %idxprom44
-  %22 = load i8, ptr %arrayidx45, align 1
+  %arrayidx45 = getelementptr i8, ptr %23, i64 %idxprom44
+  %24 = load i8, ptr %arrayidx45, align 1
   %incdec.ptr46 = getelementptr i8, ptr %str.addr.088, i64 8
-  store i8 %22, ptr %incdec.ptr41, align 1
+  store i8 %24, ptr %incdec.ptr41, align 1
   br label %if.end64
 
 if.else47:                                        ; preds = %PyUnicode_READ.exit54.thread, %PyUnicode_READ.exit54
   %incdec.ptr61 = phi ptr [ %incdec.ptr56, %PyUnicode_READ.exit54.thread ], [ %incdec.ptr, %PyUnicode_READ.exit54 ]
-  %retval.0.i4858 = phi i32 [ %retval.0.i48.ph, %PyUnicode_READ.exit54.thread ], [ %10, %PyUnicode_READ.exit54 ]
+  %retval.0.i4858 = phi i32 [ %retval.0.i48.ph, %PyUnicode_READ.exit54.thread ], [ %12, %PyUnicode_READ.exit54 ]
   %cmp48 = icmp ugt i32 %retval.0.i4858, 255
   %incdec.ptr50 = getelementptr i8, ptr %str.addr.088, i64 2
   br i1 %cmp48, label %if.then49, label %if.else61
 
 if.then49:                                        ; preds = %if.else47
   store i8 117, ptr %incdec.ptr61, align 1
-  %23 = load ptr, ptr @Py_hexdigits, align 8
+  %25 = load ptr, ptr @Py_hexdigits, align 8
   %shr51 = lshr i32 %retval.0.i4858, 12
   %idxprom53 = zext nneg i32 %shr51 to i64
-  %arrayidx54 = getelementptr i8, ptr %23, i64 %idxprom53
-  %24 = load i8, ptr %arrayidx54, align 1
+  %arrayidx54 = getelementptr i8, ptr %25, i64 %idxprom53
+  %26 = load i8, ptr %arrayidx54, align 1
   %incdec.ptr55 = getelementptr i8, ptr %str.addr.088, i64 3
-  store i8 %24, ptr %incdec.ptr50, align 1
-  %25 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %26, ptr %incdec.ptr50, align 1
+  %27 = load ptr, ptr @Py_hexdigits, align 8
   %shr56 = lshr i32 %retval.0.i4858, 8
   %and57 = and i32 %shr56, 15
   %idxprom58 = zext nneg i32 %and57 to i64
-  %arrayidx59 = getelementptr i8, ptr %25, i64 %idxprom58
-  %26 = load i8, ptr %arrayidx59, align 1
+  %arrayidx59 = getelementptr i8, ptr %27, i64 %idxprom58
+  %28 = load i8, ptr %arrayidx59, align 1
   %incdec.ptr60 = getelementptr i8, ptr %str.addr.088, i64 4
-  store i8 %26, ptr %incdec.ptr55, align 1
+  store i8 %28, ptr %incdec.ptr55, align 1
   br label %if.end64
 
 if.else61:                                        ; preds = %if.else47
@@ -50449,29 +50440,29 @@ if.else61:                                        ; preds = %if.else47
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then49, %if.else61, %if.then19
-  %retval.0.i4859 = phi i32 [ %10, %if.then19 ], [ %retval.0.i4858, %if.then49 ], [ %retval.0.i4858, %if.else61 ]
+  %retval.0.i4859 = phi i32 [ %12, %if.then19 ], [ %retval.0.i4858, %if.then49 ], [ %retval.0.i4858, %if.else61 ]
   %str.addr.1 = phi ptr [ %incdec.ptr46, %if.then19 ], [ %incdec.ptr60, %if.then49 ], [ %incdec.ptr50, %if.else61 ]
-  %27 = load ptr, ptr @Py_hexdigits, align 8
+  %29 = load ptr, ptr @Py_hexdigits, align 8
   %shr65 = lshr i32 %retval.0.i4859, 4
   %and66 = and i32 %shr65, 15
   %idxprom67 = zext nneg i32 %and66 to i64
-  %arrayidx68 = getelementptr i8, ptr %27, i64 %idxprom67
-  %28 = load i8, ptr %arrayidx68, align 1
+  %arrayidx68 = getelementptr i8, ptr %29, i64 %idxprom67
+  %30 = load i8, ptr %arrayidx68, align 1
   %incdec.ptr69 = getelementptr i8, ptr %str.addr.1, i64 1
-  store i8 %28, ptr %str.addr.1, align 1
-  %29 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %30, ptr %str.addr.1, align 1
+  %31 = load ptr, ptr @Py_hexdigits, align 8
   %and70 = and i32 %retval.0.i4859, 15
   %idxprom71 = zext nneg i32 %and70 to i64
-  %arrayidx72 = getelementptr i8, ptr %29, i64 %idxprom71
-  %30 = load i8, ptr %arrayidx72, align 1
+  %arrayidx72 = getelementptr i8, ptr %31, i64 %idxprom71
+  %32 = load i8, ptr %arrayidx72, align 1
   %incdec.ptr73 = getelementptr i8, ptr %str.addr.1, i64 2
-  store i8 %30, ptr %incdec.ptr69, align 1
+  store i8 %32, ptr %incdec.ptr69, align 1
   %inc75 = add nsw i64 %i.185, 1
   %exitcond96.not = icmp eq i64 %inc75, %collend
   br i1 %exitcond96.not, label %return, label %for.body16, !llvm.loop !281
 
-return:                                           ; preds = %if.end64, %for.end.thread, %for.end, %if.then8
-  %retval.0 = phi ptr [ null, %if.then8 ], [ %call10, %for.end ], [ %call1098, %for.end.thread ], [ %incdec.ptr73, %if.end64 ]
+return:                                           ; preds = %if.end64, %for.end.thread, %for.end, %for.end.thread102, %if.then8
+  %retval.0 = phi ptr [ null, %if.then8 ], [ %call10, %for.end ], [ null, %for.end.thread102 ], [ %call1098, %for.end.thread ], [ %incdec.ptr73, %if.end64 ]
   ret ptr %retval.0
 }
 
@@ -50684,7 +50675,7 @@ declare ptr @_PyBytesWriter_Prepare(ptr noundef, ptr noundef, i64 noundef) local
 declare ptr @_PyBytesWriter_WriteBytes(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #19
+declare i32 @llvm.bswap.i32(i32) #18
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @make_encode_exception(ptr nocapture noundef %exceptionObject, ptr noundef %encoding, ptr noundef %unicode, i64 noundef %startpos, i64 noundef %endpos, ptr noundef %reason) unnamed_addr #0 {
@@ -51007,7 +50998,7 @@ declare i32 @PyUnicodeTranslateError_SetReason(ptr noundef, ptr noundef) local_u
 declare i32 @_PyUnicode_IsWhitespace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %if.end
@@ -51361,7 +51352,7 @@ return:                                           ; preds = %if.end48.us.i, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs1lib__pre, align 8
   call fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -51370,7 +51361,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs1lib__pre, align 8
   call fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -51401,7 +51392,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %p.i69 = alloca %struct.ucs1lib__pre, align 8
   %p.i = alloca %struct.ucs1lib__pre, align 8
@@ -51669,7 +51660,7 @@ return:                                           ; preds = %for.body20.us92, %f
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #22 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -52288,7 +52279,7 @@ return:                                           ; preds = %periodicwindowloop.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -52768,7 +52759,7 @@ return:                                           ; preds = %if.end48.us.i, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs2lib__pre, align 8
   call fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -52777,7 +52768,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs2lib__pre, align 8
   call fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -52808,7 +52799,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %p.i69 = alloca %struct.ucs2lib__pre, align 8
   %p.i = alloca %struct.ucs2lib__pre, align 8
@@ -53076,7 +53067,7 @@ return:                                           ; preds = %for.body20.us92, %f
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #22 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -53698,7 +53689,7 @@ return:                                           ; preds = %periodicwindowloop.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc i64 @ucs4lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #24 {
+define internal fastcc i64 @ucs4lib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #23 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %if.end
@@ -54110,7 +54101,7 @@ return:                                           ; preds = %if.end34.us.i, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs4lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #22 {
+define internal fastcc i64 @ucs4lib__two_way_find(ptr noundef readonly %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs4lib__pre, align 8
   call fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -54119,7 +54110,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs4lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #22 {
+define internal fastcc i64 @ucs4lib__two_way_count(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle, i64 noundef %maxcount) unnamed_addr #21 {
 entry:
   %p = alloca %struct.ucs4lib__pre, align 8
   call fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr noundef nonnull %p)
@@ -54150,7 +54141,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #22 {
+define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m, i64 noundef %maxcount, i32 noundef %mode) unnamed_addr #21 {
 entry:
   %p.i69 = alloca %struct.ucs4lib__pre, align 8
   %p.i = alloca %struct.ucs4lib__pre, align 8
@@ -54431,7 +54422,7 @@ return:                                           ; preds = %for.body15.us92, %f
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #22 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -55053,7 +55044,7 @@ return:                                           ; preds = %periodicwindowloop.
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @asciilib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef readonly %p, i64 noundef %m, i32 noundef %mode) unnamed_addr #15 {
+define internal fastcc i64 @asciilib_fastsearch(ptr noundef %s, i64 noundef %n, ptr noundef readonly %p, i64 noundef %m, i32 noundef %mode) unnamed_addr #14 {
 entry:
   %cmp = icmp slt i64 %n, %m
   br i1 %cmp, label %return, label %if.end
@@ -55350,7 +55341,7 @@ return:                                           ; preds = %for.inc80.us.i, %fo
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @asciilib__two_way_find(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #15 {
+define internal fastcc i64 @asciilib__two_way_find(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef %needle, i64 noundef %len_needle) unnamed_addr #14 {
 entry:
   %p = alloca %struct.asciilib__pre, align 8
   store ptr %needle, ptr %p, align 8
@@ -55952,7 +55943,7 @@ asciilib__two_way.exit:                           ; preds = %if.end109.i, %if.th
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m) unnamed_addr #15 {
+define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %s, i64 noundef %n, ptr noundef %p, i64 noundef %m) unnamed_addr #14 {
 entry:
   %sub = sub nsw i64 %n, %m
   %sub1 = add i64 %m, -1
@@ -56140,10 +56131,10 @@ declare i32 @_PyUnicode_IsLinebreak(i32 noundef) local_unnamed_addr #1
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wmemcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #21
+declare i32 @wmemcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @replace_1char_inplace(ptr noundef %u, i64 noundef %pos, i32 noundef %u1, i32 noundef %u2, i64 noundef %maxcount) unnamed_addr #25 {
+define internal fastcc void @replace_1char_inplace(ptr noundef %u, i64 noundef %pos, i32 noundef %u1, i32 noundef %u2, i64 noundef %maxcount) unnamed_addr #24 {
 entry:
   %state = getelementptr inbounds i8, ptr %u, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -56518,7 +56509,7 @@ if.end10:                                         ; preds = %if.end26.i, %ucs2li
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc i64 @anylib_find(i32 noundef %kind, ptr nocapture noundef readonly %str1, ptr noundef %buf1, i64 noundef %len1, ptr nocapture noundef readonly %str2, ptr noundef %buf2, i64 noundef %len2, i64 noundef %offset) unnamed_addr #24 {
+define internal fastcc i64 @anylib_find(i32 noundef %kind, ptr nocapture noundef readonly %str1, ptr noundef %buf1, i64 noundef %len1, ptr nocapture noundef readonly %str2, ptr noundef %buf2, i64 noundef %len2, i64 noundef %offset) unnamed_addr #23 {
 entry:
   switch i32 %kind, label %sw.epilog [
     i32 1, label %sw.bb
@@ -57045,7 +57036,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @unicode_length(ptr nocapture noundef readonly %self) #26 {
+define internal i64 @unicode_length(ptr nocapture noundef readonly %self) #25 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %0, align 8
@@ -57346,7 +57337,7 @@ PyUnicode_READ.exit:                              ; preds = %if.then3.i, %if.end
 
 if.then.i15:                                      ; preds = %PyUnicode_READ.exit.thread, %PyUnicode_READ.exit
   %retval.0.i719 = phi i32 [ %conv.i9, %PyUnicode_READ.exit.thread ], [ %retval.0.i7, %PyUnicode_READ.exit ]
-  %conv.i16 = trunc i32 %retval.0.i719 to i8
+  %conv.i16 = trunc nuw i32 %retval.0.i719 to i8
   %cmp.i.i = icmp sgt i8 %conv.i16, -1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
@@ -63179,7 +63170,7 @@ return:                                           ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #27
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #26
 
 declare i32 @_PyEval_SliceIndex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -66151,7 +66142,7 @@ unicode_hash.exit:                                ; preds = %entry, %PyUnicode_D
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @hashtable_unicode_compare(ptr noundef readonly %key1, ptr noundef readonly %key2) #17 {
+define internal i32 @hashtable_unicode_compare(ptr noundef readonly %key1, ptr noundef readonly %key2) #16 {
 entry:
   %cmp = icmp ne ptr %key1, null
   %cmp1 = icmp ne ptr %key2, null
@@ -66454,7 +66445,7 @@ if.else16:                                        ; preds = %if.end12
   br i1 %cmp.i.i49, label %if.then.i.i, label %if.end.i.i50
 
 if.then.i.i:                                      ; preds = %if.else16
-  %conv.i.i = trunc i32 %7 to i8
+  %conv.i.i = trunc nuw i32 %7 to i8
   %idxprom.i.i.i = zext nneg i32 %7 to i64
   %arrayidx.i.i.i = getelementptr %struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 2, i64 %idxprom.i.i.i
   %9 = and i8 %conv.i.i, 127
@@ -67023,6 +67014,15 @@ return:                                           ; preds = %if.end, %_Py_NewRef
 
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #27
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #27
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #27
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #28
 
@@ -67079,23 +67079,23 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #30 = { nofree nounwind willreturn memory(argmem: read) }
