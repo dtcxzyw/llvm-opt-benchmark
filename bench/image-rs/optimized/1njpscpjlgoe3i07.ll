@@ -1027,7 +1027,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$12seek_read_to17h733faf
   br i1 %13, label %29, label %24
 
 14:                                               ; preds = %2
-  %15 = trunc nuw i128 %10 to i64
+  %15 = trunc nuw nsw i128 %10 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !105
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !105
@@ -1101,7 +1101,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$12seek_read_to17h841406
   br i1 %15, label %35, label %26
 
 16:                                               ; preds = %2
-  %17 = trunc nuw i128 %12 to i64
+  %17 = trunc nuw nsw i128 %12 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !114
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !114
@@ -1314,7 +1314,7 @@ define hidden noundef ptr @"_ZN3exr2io42PeekRead$LT$exr..io..Tracking$LT$T$GT$$G
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = trunc nuw i128 %11 to i64
+  %17 = trunc nuw nsw i128 %11 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !149
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !152
@@ -22712,14 +22712,14 @@ define void @_ZN5image8imageops18overlay_bounds_ext17h2c74f5ee07cfece4E(ptr noal
   %28 = select i1 %26, i32 0, i32 %27
   %29 = sub i32 %21, %25
   %30 = sub i32 %22, %28
-  %31 = sub i64 0, %5
+  %31 = sub nsw i64 0, %5
   %.not.i = icmp eq i64 %5, -9223372036854775808
   %.0.i = select i1 %.not.i, i64 9223372036854775807, i64 %31
   %32 = icmp slt i64 %.0.i, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i16 = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %13)
   %33 = trunc nuw i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i16 to i32
   %34 = select i1 %32, i32 0, i32 %33
-  %35 = sub i64 0, %6
+  %35 = sub nsw i64 0, %6
   %.not.i18 = icmp eq i64 %6, -9223372036854775808
   %.0.i19 = select i1 %.not.i18, i64 9223372036854775807, i64 %35
   %36 = icmp slt i64 %.0.i19, 0
@@ -23508,16 +23508,16 @@ define { i16, i16 } @_ZN5image6codecs3gif6Repeat11to_gif_enum17hec37d9fa9a5d5aab
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define i48 @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$14gif_dimensions16inner_dimensions17hd3657403bd0340d1E"(i32 noundef %0, i32 noundef %1) unnamed_addr #18 {
   %3 = icmp ult i32 %0, 65536
-  %4 = or i32 %0, %1
-  %5 = icmp ult i32 %4, 65536
-  %narrow19 = select i1 %5, i32 %1, i32 0
-  %.sroa.5.0.insert.ext = zext nneg i32 %narrow19 to i48
+  %4 = shl nuw i32 %0, 16
+  %narrow = select i1 %3, i32 %4, i32 0
+  %5 = or i32 %0, %1
+  %6 = icmp ult i32 %5, 65536
+  %narrow20 = select i1 %6, i32 %1, i32 0
+  %.sroa.5.0.insert.ext = zext nneg i32 %narrow20 to i48
   %.sroa.5.0.insert.shift = shl nuw i48 %.sroa.5.0.insert.ext, 32
-  %6 = shl i32 %0, 16
-  %7 = select i1 %3, i32 %6, i32 0
-  %.sroa.4.0.insert.shift = zext i32 %7 to i48
+  %.sroa.4.0.insert.shift = zext i32 %narrow to i48
   %.sroa.4.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i1 %5 to i48
+  %.sroa.0.0.insert.ext = zext i1 %6 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.4.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }

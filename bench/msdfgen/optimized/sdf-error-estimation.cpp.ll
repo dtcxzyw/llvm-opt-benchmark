@@ -665,7 +665,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %direction198 = getelementptr inbounds i8, ptr %arrayidx197, i64 8
   %69 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %69, 0
-  %tobool201 = trunc i8 %inside.1263 to i1
+  %tobool201 = trunc nuw i8 %inside.1263 to i1
   %cmp203 = xor i1 %cmp199, %tobool201
   br i1 %cmp203, label %if.then204, label %for.inc212
 
@@ -741,7 +741,8 @@ _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_
 
 invoke.cont207:                                   ; preds = %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i232, %if.then.i207
   %74 = phi ptr [ %incdec.ptr.i.i229, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i232 ], [ %incdec.ptr.i208, %if.then.i207 ]
-  %frombool210 = xor i8 %inside.1263, 1
+  %lnot = and i8 %inside.1263, 1
+  %frombool210 = xor i8 %lnot, 1
   br label %for.inc212
 
 for.inc212:                                       ; preds = %for.body195, %invoke.cont207
@@ -768,8 +769,8 @@ invoke.cont218:                                   ; preds = %for.inc212, %if.end
   %cmp.i7.i246 = fcmp olt float %84, %85
   %cond.i8.i247 = select i1 %cmp.i7.i246, float %85, float %84
   %cmp220 = fcmp ogt float %cond.i8.i247, 5.000000e-01
-  %86 = trunc i8 %inside.1.lcssa to i1
-  %cmp224 = xor i1 %cmp220, %86
+  %86 = zext i1 %cmp220 to i8
+  %cmp224 = icmp ne i8 %inside.1.lcssa, %86
   %cmp226 = fcmp une float %cond.i8.i247, 5.000000e-01
   %or.cond1 = and i1 %cmp226, %cmp224
   br i1 %or.cond1, label %land.lhs.true227, label %for.inc234
@@ -782,7 +783,8 @@ land.lhs.true227:                                 ; preds = %invoke.cont218
 if.then229:                                       ; preds = %land.lhs.true227
   %incdec.ptr.i250 = getelementptr inbounds i8, ptr %77, i64 -16
   store ptr %incdec.ptr.i250, ptr %_M_finish.i204, align 8
-  %frombool232 = xor i8 %inside.1.lcssa, 1
+  %lnot231 = and i8 %inside.1.lcssa, 1
+  %frombool232 = xor i8 %lnot231, 1
   br label %for.inc234
 
 for.inc234:                                       ; preds = %invoke.cont218, %land.lhs.true227, %if.then229
@@ -1171,7 +1173,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %direction198 = getelementptr inbounds i8, ptr %arrayidx197, i64 8
   %69 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %69, 0
-  %tobool201 = trunc i8 %inside.1263 to i1
+  %tobool201 = trunc nuw i8 %inside.1263 to i1
   %cmp203 = xor i1 %cmp199, %tobool201
   br i1 %cmp203, label %if.then204, label %for.inc212
 
@@ -1247,7 +1249,8 @@ _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_
 
 invoke.cont207:                                   ; preds = %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i232, %if.then.i207
   %74 = phi ptr [ %incdec.ptr.i.i229, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i232 ], [ %incdec.ptr.i208, %if.then.i207 ]
-  %frombool210 = xor i8 %inside.1263, 1
+  %lnot = and i8 %inside.1263, 1
+  %frombool210 = xor i8 %lnot, 1
   br label %for.inc212
 
 for.inc212:                                       ; preds = %for.body195, %invoke.cont207
@@ -1274,8 +1277,8 @@ invoke.cont218:                                   ; preds = %for.inc212, %if.end
   %cmp.i7.i246 = fcmp olt float %84, %85
   %cond.i8.i247 = select i1 %cmp.i7.i246, float %85, float %84
   %cmp220 = fcmp ogt float %cond.i8.i247, 5.000000e-01
-  %86 = trunc i8 %inside.1.lcssa to i1
-  %cmp224 = xor i1 %cmp220, %86
+  %86 = zext i1 %cmp220 to i8
+  %cmp224 = icmp ne i8 %inside.1.lcssa, %86
   %cmp226 = fcmp une float %cond.i8.i247, 5.000000e-01
   %or.cond1 = and i1 %cmp226, %cmp224
   br i1 %or.cond1, label %land.lhs.true227, label %for.inc234
@@ -1288,7 +1291,8 @@ land.lhs.true227:                                 ; preds = %invoke.cont218
 if.then229:                                       ; preds = %land.lhs.true227
   %incdec.ptr.i250 = getelementptr inbounds i8, ptr %77, i64 -16
   store ptr %incdec.ptr.i250, ptr %_M_finish.i204, align 8
-  %frombool232 = xor i8 %inside.1.lcssa, 1
+  %lnot231 = and i8 %inside.1.lcssa, 1
+  %frombool232 = xor i8 %lnot231, 1
   br label %for.inc234
 
 for.inc234:                                       ; preds = %invoke.cont218, %land.lhs.true227, %if.then229

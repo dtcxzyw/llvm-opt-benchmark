@@ -848,7 +848,7 @@ if.else240:                                       ; preds = %if.then233
   br i1 %tobool245.not, label %do.body, label %if.else250
 
 do.body:                                          ; preds = %if.else240
-  %tobool247 = trunc i8 %outputSpecified.03193 to i1
+  %tobool247 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select580 = select i1 %tobool247, ptr %output.03197, ptr @.str
   br label %while.cond.backedge
 
@@ -858,7 +858,7 @@ if.else250:                                       ; preds = %if.else240
   br i1 %tobool255.not, label %do.body257, label %if.else262
 
 do.body257:                                       ; preds = %if.else250
-  %tobool258 = trunc i8 %outputSpecified.03193 to i1
+  %tobool258 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select581 = select i1 %tobool258, ptr %output.03197, ptr @.str.34
   br label %while.cond.backedge
 
@@ -873,7 +873,7 @@ lor.lhs.false268:                                 ; preds = %if.else262
   br i1 %tobool273.not, label %do.body275, label %if.else280
 
 do.body275:                                       ; preds = %if.else262, %lor.lhs.false268
-  %tobool276 = trunc i8 %outputSpecified.03193 to i1
+  %tobool276 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select582 = select i1 %tobool276, ptr %output.03197, ptr @.str.37
   br label %while.cond.backedge
 
@@ -888,7 +888,7 @@ lor.lhs.false286:                                 ; preds = %if.else280
   br i1 %tobool291.not, label %do.body293, label %if.else298
 
 do.body293:                                       ; preds = %if.else280, %lor.lhs.false286
-  %tobool294 = trunc i8 %outputSpecified.03193 to i1
+  %tobool294 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select583 = select i1 %tobool294, ptr %output.03197, ptr @.str.40
   br label %while.cond.backedge
 
@@ -903,7 +903,7 @@ lor.lhs.false304:                                 ; preds = %if.else298
   br i1 %tobool309.not, label %do.body311, label %if.else316
 
 do.body311:                                       ; preds = %if.else298, %lor.lhs.false304
-  %tobool312 = trunc i8 %outputSpecified.03193 to i1
+  %tobool312 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select584 = select i1 %tobool312, ptr %output.03197, ptr @.str.40
   br label %while.cond.backedge
 
@@ -918,7 +918,7 @@ lor.lhs.false322:                                 ; preds = %if.else316
   br i1 %tobool327.not, label %do.body329, label %if.else334
 
 do.body329:                                       ; preds = %if.else316, %lor.lhs.false322
-  %tobool330 = trunc i8 %outputSpecified.03193 to i1
+  %tobool330 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select585 = select i1 %tobool330, ptr %output.03197, ptr @.str.45
   br label %while.cond.backedge
 
@@ -933,7 +933,7 @@ lor.lhs.false340:                                 ; preds = %if.else334
   br i1 %tobool345.not, label %do.body347, label %if.else352
 
 do.body347:                                       ; preds = %if.else334, %lor.lhs.false340
-  %tobool348 = trunc i8 %outputSpecified.03193 to i1
+  %tobool348 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select586 = select i1 %tobool348, ptr %output.03197, ptr @.str.45
   br label %while.cond.backedge
 
@@ -943,7 +943,7 @@ if.else352:                                       ; preds = %lor.lhs.false340
   br i1 %tobool357.not, label %do.body359, label %if.else364
 
 do.body359:                                       ; preds = %if.else352
-  %tobool360 = trunc i8 %outputSpecified.03193 to i1
+  %tobool360 = trunc nuw i8 %outputSpecified.03193 to i1
   %spec.select587 = select i1 %tobool360, ptr %output.03197, ptr @.str.45
   br label %while.cond.backedge
 
@@ -1990,12 +1990,12 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i
   %140 = load i8, ptr %a.0.i, align 1
   %141 = add i8 %140, -97
   %or.cond.i.i = icmp ult i8 %141, 26
-  %add.i.i = add i8 %140, -32
+  %add.i.i = add nsw i8 %140, -32
   %cond.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %140
   %142 = load i8, ptr %b.0.i, align 1
   %143 = add i8 %142, -97
   %or.cond.i9.i = icmp ult i8 %143, 26
-  %add.i10.i = add i8 %142, -32
+  %add.i10.i = add nsw i8 %142, -32
   %cond.i11.i = select i1 %or.cond.i9.i, i8 %add.i10.i, i8 %142
   %cmp9.not.i = icmp eq i8 %cond.i.i, %cond.i11.i
   br i1 %cmp9.not.i, label %for.cond.i, label %if.end1034, !llvm.loop !10
@@ -2406,7 +2406,7 @@ if.then1207:                                      ; preds = %if.end1205
   %196 = sitofp <2 x i32> %6 to <2 x double>
   %conv1216 = fpext float %outputDistanceShift.0.be to double
   %add1217 = fadd double %conv1216, 5.000000e-01
-  %tobool1218 = trunc i8 %scaleSpecified.0.be to i1
+  %tobool1218 = trunc nuw i8 %scaleSpecified.0.be to i1
   br i1 %tobool1218, label %if.end1235, label %if.then1219
 
 if.then1219:                                      ; preds = %if.then1207
@@ -2559,7 +2559,7 @@ if.then1340:                                      ; preds = %lor.lhs.false1338
 
 land.lhs.true1342:                                ; preds = %if.end1336
   %247 = load ptr, ptr @stdout, align 8
-  %tobool1343 = trunc i8 %outputSpecified.0.be to i1
+  %tobool1343 = trunc nuw i8 %outputSpecified.0.be to i1
   br i1 %tobool1343, label %if.then1344, label %if.end1347
 
 if.then1344:                                      ; preds = %land.lhs.true1342
@@ -2632,7 +2632,7 @@ if.end1396:                                       ; preds = %if.then1393, %if.en
   br i1 %autoFrame.0.be, label %if.then1398, label %if.end1408
 
 if.then1398:                                      ; preds = %if.end1396
-  %tobool1399 = trunc i8 %scaleSpecified.0.be to i1
+  %tobool1399 = trunc nuw i8 %scaleSpecified.0.be to i1
   br i1 %tobool1399, label %if.end1403, label %if.then1400
 
 if.then1400:                                      ; preds = %if.then1398
@@ -2656,7 +2656,7 @@ if.end1413:                                       ; preds = %if.then1410, %if.en
   br i1 %cmp1197, label %land.lhs.true1415, label %if.end1421
 
 land.lhs.true1415:                                ; preds = %if.end1413
-  %tobool1416 = trunc i8 %outputSpecified.0.be to i1
+  %tobool1416 = trunc nuw i8 %outputSpecified.0.be to i1
   br i1 %tobool1416, label %if.then1417, label %if.end1421
 
 if.then1417:                                      ; preds = %land.lhs.true1415
@@ -2732,7 +2732,7 @@ _ZN7msdfgen6BitmapIfLi1EED2Ev.exit:               ; preds = %sw.bb1452
   %sdf.sroa.19.12.insert.ext = zext i32 %270 to i64
   %sdf.sroa.19.12.insert.shift = shl nuw i64 %sdf.sroa.19.12.insert.ext, 32
   %sdf.sroa.19.12.insert.insert = or disjoint i64 %sdf.sroa.19.12.insert.shift, %sdf.sroa.19.8.insert.ext
-  %tobool1458 = trunc i8 %legacyMode.0.be to i1
+  %tobool1458 = trunc nuw i8 %legacyMode.0.be to i1
   br i1 %tobool1458, label %invoke.cont1461, label %invoke.cont1466
 
 invoke.cont1461:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit
@@ -2765,7 +2765,7 @@ _ZN7msdfgen6BitmapIfLi1EED2Ev.exit776:            ; preds = %sw.bb1470
   %sdf.sroa.19.12.insert.ext1796 = zext i32 %277 to i64
   %sdf.sroa.19.12.insert.shift1797 = shl nuw i64 %sdf.sroa.19.12.insert.ext1796, 32
   %sdf.sroa.19.12.insert.insert1799 = or disjoint i64 %sdf.sroa.19.12.insert.shift1797, %sdf.sroa.19.8.insert.ext1791
-  %tobool1476 = trunc i8 %legacyMode.0.be to i1
+  %tobool1476 = trunc nuw i8 %legacyMode.0.be to i1
   br i1 %tobool1476, label %invoke.cont1479, label %invoke.cont1484
 
 invoke.cont1479:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit776
@@ -2816,7 +2816,7 @@ _ZN7msdfgen6BitmapIfLi3EED2Ev.exit:               ; preds = %if.end1496
   %msdf.sroa.17.12.insert.ext = zext i32 %285 to i64
   %msdf.sroa.17.12.insert.shift = shl nuw i64 %msdf.sroa.17.12.insert.ext, 32
   %msdf.sroa.17.12.insert.insert = or disjoint i64 %msdf.sroa.17.12.insert.shift, %msdf.sroa.17.8.insert.ext
-  %tobool1502 = trunc i8 %legacyMode.0.be to i1
+  %tobool1502 = trunc nuw i8 %legacyMode.0.be to i1
   br i1 %tobool1502, label %invoke.cont1505, label %invoke.cont1512
 
 invoke.cont1505:                                  ; preds = %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit
@@ -2867,7 +2867,7 @@ _ZN7msdfgen6BitmapIfLi4EED2Ev.exit:               ; preds = %if.end1524
   %mtsdf.sroa.15.12.insert.ext = zext i32 %293 to i64
   %mtsdf.sroa.15.12.insert.shift = shl nuw i64 %mtsdf.sroa.15.12.insert.ext, 32
   %mtsdf.sroa.15.12.insert.insert = or disjoint i64 %mtsdf.sroa.15.12.insert.shift, %mtsdf.sroa.15.8.insert.ext
-  %tobool1530 = trunc i8 %legacyMode.0.be to i1
+  %tobool1530 = trunc nuw i8 %legacyMode.0.be to i1
   br i1 %tobool1530, label %invoke.cont1533, label %invoke.cont1540
 
 invoke.cont1533:                                  ; preds = %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit
@@ -2922,7 +2922,7 @@ if.then1567:                                      ; preds = %if.end1565
 invoke.cont1570:                                  ; preds = %if.then1567, %if.then1567
   %ref.tmp1569.sroa.2.8.extract.trunc = trunc i64 %sdf.sroa.19.0 to i32
   %ref.tmp1569.sroa.4.8.extract.shift = lshr i64 %sdf.sroa.19.0, 32
-  %ref.tmp1569.sroa.4.8.extract.trunc = trunc i64 %ref.tmp1569.sroa.4.8.extract.shift to i32
+  %ref.tmp1569.sroa.4.8.extract.trunc = trunc nuw i64 %ref.tmp1569.sroa.4.8.extract.shift to i32
   %mul1.i833 = mul nsw i32 %ref.tmp1569.sroa.4.8.extract.trunc, %ref.tmp1569.sroa.2.8.extract.trunc
   %idx.ext.i = sext i32 %mul1.i833 to i64
   %add.ptr.i834 = getelementptr inbounds float, ptr %sdf.sroa.0.1, i64 %idx.ext.i
@@ -2941,7 +2941,7 @@ for.body.i:                                       ; preds = %invoke.cont1570, %f
 invoke.cont1575:                                  ; preds = %if.then1567
   %ref.tmp1574.sroa.2.8.extract.trunc = trunc i64 %msdf.sroa.17.0 to i32
   %ref.tmp1574.sroa.4.8.extract.shift = lshr i64 %msdf.sroa.17.0, 32
-  %ref.tmp1574.sroa.4.8.extract.trunc = trunc i64 %ref.tmp1574.sroa.4.8.extract.shift to i32
+  %ref.tmp1574.sroa.4.8.extract.trunc = trunc nuw i64 %ref.tmp1574.sroa.4.8.extract.shift to i32
   %mul.i842 = mul nsw i32 %ref.tmp1574.sroa.2.8.extract.trunc, 3
   %mul1.i844 = mul nsw i32 %mul.i842, %ref.tmp1574.sroa.4.8.extract.trunc
   %idx.ext.i845 = sext i32 %mul1.i844 to i64
@@ -2961,7 +2961,7 @@ for.body.i848:                                    ; preds = %invoke.cont1575, %f
 invoke.cont1580:                                  ; preds = %if.then1567
   %ref.tmp1579.sroa.2.8.extract.trunc = trunc i64 %mtsdf.sroa.15.0 to i32
   %ref.tmp1579.sroa.4.8.extract.shift = lshr i64 %mtsdf.sroa.15.0, 32
-  %ref.tmp1579.sroa.4.8.extract.trunc = trunc i64 %ref.tmp1579.sroa.4.8.extract.shift to i32
+  %ref.tmp1579.sroa.4.8.extract.trunc = trunc nuw i64 %ref.tmp1579.sroa.4.8.extract.shift to i32
   %mul.i857 = shl nsw i32 %ref.tmp1579.sroa.2.8.extract.trunc, 2
   %mul1.i859 = mul nsw i32 %mul.i857, %ref.tmp1579.sroa.4.8.extract.trunc
   %idx.ext.i860 = sext i32 %mul1.i859 to i64
@@ -3057,7 +3057,7 @@ sw.bb1637:                                        ; preds = %if.then1615
   %mtsdf.sroa.15.8.extract.trunc = trunc i64 %mtsdf.sroa.15.0 to i32
   %mul1642 = shl nsw i32 %mtsdf.sroa.15.8.extract.trunc, 2
   %mtsdf.sroa.15.12.extract.shift = lshr i64 %mtsdf.sroa.15.0, 32
-  %mtsdf.sroa.15.12.extract.trunc = trunc i64 %mtsdf.sroa.15.12.extract.shift to i32
+  %mtsdf.sroa.15.12.extract.trunc = trunc nuw i64 %mtsdf.sroa.15.12.extract.shift to i32
   %mul1645 = mul nsw i32 %mul1642, %mtsdf.sroa.15.12.extract.trunc
   %idx.ext1646 = sext i32 %mul1645 to i64
   %add.ptr1647 = getelementptr inbounds float, ptr %mtsdf.sroa.0.1, i64 %idx.ext1646
@@ -3115,7 +3115,7 @@ invoke.cont1675:                                  ; preds = %if.end1672, %if.end
   %tobool.not.i892 = icmp eq ptr %output.0.be, null
   %312 = trunc i64 %sdf.sroa.19.0 to i32
   %313 = lshr i64 %sdf.sroa.19.0, 32
-  %314 = trunc i64 %313 to i32
+  %314 = trunc nuw i64 %313 to i32
   br i1 %tobool.not.i892, label %if.else83.i, label %if.then.i893
 
 if.then.i893:                                     ; preds = %invoke.cont1675
@@ -3150,12 +3150,12 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i
   %315 = load i8, ptr %a.0.i.i, align 1
   %316 = add i8 %315, -97
   %or.cond.i.i.i = icmp ult i8 %316, 26
-  %add.i.i.i = add i8 %315, -32
+  %add.i.i.i = add nsw i8 %315, -32
   %cond.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %315
   %317 = load i8, ptr %b.0.i.i, align 1
   %318 = add i8 %317, -97
   %or.cond.i9.i.i = icmp ult i8 %318, 26
-  %add.i10.i.i = add i8 %317, -32
+  %add.i10.i.i = add nsw i8 %317, -32
   %cond.i11.i.i = select i1 %or.cond.i9.i.i, i8 %add.i10.i.i, i8 %317
   %cmp9.not.i.i = icmp eq i8 %cond.i.i.i, %cond.i11.i.i
   br i1 %cmp9.not.i.i, label %for.cond.i.i, label %for.cond.i62.i.preheader, !llvm.loop !10
@@ -3180,12 +3180,12 @@ lor.lhs.false.i70.i:                              ; preds = %for.cond.i62.i
   %319 = load i8, ptr %a.0.i66.i, align 1
   %320 = add i8 %319, -97
   %or.cond.i.i71.i = icmp ult i8 %320, 26
-  %add.i.i72.i = add i8 %319, -32
+  %add.i.i72.i = add nsw i8 %319, -32
   %cond.i.i73.i = select i1 %or.cond.i.i71.i, i8 %add.i.i72.i, i8 %319
   %321 = load i8, ptr %b.0.i65.i, align 1
   %322 = add i8 %321, -97
   %or.cond.i9.i74.i = icmp ult i8 %322, 26
-  %add.i10.i75.i = add i8 %321, -32
+  %add.i10.i75.i = add nsw i8 %321, -32
   %cond.i11.i76.i = select i1 %or.cond.i9.i74.i, i8 %add.i10.i75.i, i8 %321
   %cmp9.not.i77.i = icmp eq i8 %cond.i.i73.i, %cond.i11.i76.i
   br i1 %cmp9.not.i77.i, label %for.cond.i62.i, label %for.cond.i84.i.preheader, !llvm.loop !10
@@ -3210,12 +3210,12 @@ lor.lhs.false.i92.i:                              ; preds = %for.cond.i84.i
   %323 = load i8, ptr %a.0.i88.i, align 1
   %324 = add i8 %323, -97
   %or.cond.i.i93.i = icmp ult i8 %324, 26
-  %add.i.i94.i = add i8 %323, -32
+  %add.i.i94.i = add nsw i8 %323, -32
   %cond.i.i95.i = select i1 %or.cond.i.i93.i, i8 %add.i.i94.i, i8 %323
   %325 = load i8, ptr %b.0.i87.i, align 1
   %326 = add i8 %325, -97
   %or.cond.i9.i96.i = icmp ult i8 %326, 26
-  %add.i10.i97.i = add i8 %325, -32
+  %add.i10.i97.i = add nsw i8 %325, -32
   %cond.i11.i98.i = select i1 %or.cond.i9.i96.i, i8 %add.i10.i97.i, i8 %325
   %cmp9.not.i99.i = icmp eq i8 %cond.i.i95.i, %cond.i11.i98.i
   br i1 %cmp9.not.i99.i, label %for.cond.i84.i, label %for.cond.i106.i.preheader, !llvm.loop !10
@@ -3240,12 +3240,12 @@ lor.lhs.false.i114.i:                             ; preds = %for.cond.i106.i
   %327 = load i8, ptr %a.0.i110.i, align 1
   %328 = add i8 %327, -97
   %or.cond.i.i115.i = icmp ult i8 %328, 26
-  %add.i.i116.i = add i8 %327, -32
+  %add.i.i116.i = add nsw i8 %327, -32
   %cond.i.i117.i = select i1 %or.cond.i.i115.i, i8 %add.i.i116.i, i8 %327
   %329 = load i8, ptr %b.0.i109.i, align 1
   %330 = add i8 %329, -97
   %or.cond.i9.i118.i = icmp ult i8 %330, 26
-  %add.i10.i119.i = add i8 %329, -32
+  %add.i10.i119.i = add nsw i8 %329, -32
   %cond.i11.i120.i = select i1 %or.cond.i9.i118.i, i8 %add.i10.i119.i, i8 %329
   %cmp9.not.i121.i = icmp eq i8 %cond.i.i117.i, %cond.i11.i120.i
   br i1 %cmp9.not.i121.i, label %for.cond.i106.i, label %if.else9.i, !llvm.loop !10
@@ -3591,7 +3591,7 @@ land.lhs.true1686:                                ; preds = %call21.i898.noexc, 
   br i1 %or.cond20, label %invoke.cont1694, label %lor.lhs.false1690
 
 lor.lhs.false1690:                                ; preds = %land.lhs.true1686
-  %tobool1691 = trunc i8 %estimateError.0.be to i1
+  %tobool1691 = trunc nuw i8 %estimateError.0.be to i1
   br i1 %tobool1691, label %invoke.cont1694, label %if.end1697
 
 invoke.cont1694:                                  ; preds = %land.lhs.true1686, %lor.lhs.false1690
@@ -3602,7 +3602,7 @@ invoke.cont1694:                                  ; preds = %land.lhs.true1686, 
           to label %if.end1697 unwind label %lpad1443
 
 if.end1697:                                       ; preds = %for.cond1.preheader.i183.i, %for.cond1.for.end_crit_edge.us.i201.i, %call26.i897.noexc, %if.then95.i, %if.end1683, %invoke.cont1694, %lor.lhs.false1690
-  %tobool1698 = trunc i8 %estimateError.0.be to i1
+  %tobool1698 = trunc nuw i8 %estimateError.0.be to i1
   br i1 %tobool1698, label %invoke.cont1701, label %if.end1707
 
 invoke.cont1701:                                  ; preds = %if.end1697
@@ -3732,7 +3732,7 @@ invoke.cont1759:                                  ; preds = %if.end1672
   %tobool.not.i962 = icmp eq ptr %output.0.be, null
   %381 = trunc i64 %msdf.sroa.17.0 to i32
   %382 = lshr i64 %msdf.sroa.17.0, 32
-  %383 = trunc i64 %382 to i32
+  %383 = trunc nuw i64 %382 to i32
   br i1 %tobool.not.i962, label %if.else83.i1172, label %if.then.i963
 
 if.then.i963:                                     ; preds = %invoke.cont1759
@@ -3767,12 +3767,12 @@ lor.lhs.false.i.i1100:                            ; preds = %for.cond.i.i1092
   %384 = load i8, ptr %a.0.i.i1096, align 1
   %385 = add i8 %384, -97
   %or.cond.i.i.i1101 = icmp ult i8 %385, 26
-  %add.i.i.i1102 = add i8 %384, -32
+  %add.i.i.i1102 = add nsw i8 %384, -32
   %cond.i.i.i1103 = select i1 %or.cond.i.i.i1101, i8 %add.i.i.i1102, i8 %384
   %386 = load i8, ptr %b.0.i.i1095, align 1
   %387 = add i8 %386, -97
   %or.cond.i9.i.i1104 = icmp ult i8 %387, 26
-  %add.i10.i.i1105 = add i8 %386, -32
+  %add.i10.i.i1105 = add nsw i8 %386, -32
   %cond.i11.i.i1106 = select i1 %or.cond.i9.i.i1104, i8 %add.i10.i.i1105, i8 %386
   %cmp9.not.i.i1107 = icmp eq i8 %cond.i.i.i1103, %cond.i11.i.i1106
   br i1 %cmp9.not.i.i1107, label %for.cond.i.i1092, label %for.cond.i62.i1109.preheader, !llvm.loop !10
@@ -3797,12 +3797,12 @@ lor.lhs.false.i70.i1117:                          ; preds = %for.cond.i62.i1109
   %388 = load i8, ptr %a.0.i66.i1113, align 1
   %389 = add i8 %388, -97
   %or.cond.i.i71.i1118 = icmp ult i8 %389, 26
-  %add.i.i72.i1119 = add i8 %388, -32
+  %add.i.i72.i1119 = add nsw i8 %388, -32
   %cond.i.i73.i1120 = select i1 %or.cond.i.i71.i1118, i8 %add.i.i72.i1119, i8 %388
   %390 = load i8, ptr %b.0.i65.i1112, align 1
   %391 = add i8 %390, -97
   %or.cond.i9.i74.i1121 = icmp ult i8 %391, 26
-  %add.i10.i75.i1122 = add i8 %390, -32
+  %add.i10.i75.i1122 = add nsw i8 %390, -32
   %cond.i11.i76.i1123 = select i1 %or.cond.i9.i74.i1121, i8 %add.i10.i75.i1122, i8 %390
   %cmp9.not.i77.i1124 = icmp eq i8 %cond.i.i73.i1120, %cond.i11.i76.i1123
   br i1 %cmp9.not.i77.i1124, label %for.cond.i62.i1109, label %for.cond.i84.i1126.preheader, !llvm.loop !10
@@ -3827,12 +3827,12 @@ lor.lhs.false.i92.i1134:                          ; preds = %for.cond.i84.i1126
   %392 = load i8, ptr %a.0.i88.i1130, align 1
   %393 = add i8 %392, -97
   %or.cond.i.i93.i1135 = icmp ult i8 %393, 26
-  %add.i.i94.i1136 = add i8 %392, -32
+  %add.i.i94.i1136 = add nsw i8 %392, -32
   %cond.i.i95.i1137 = select i1 %or.cond.i.i93.i1135, i8 %add.i.i94.i1136, i8 %392
   %394 = load i8, ptr %b.0.i87.i1129, align 1
   %395 = add i8 %394, -97
   %or.cond.i9.i96.i1138 = icmp ult i8 %395, 26
-  %add.i10.i97.i1139 = add i8 %394, -32
+  %add.i10.i97.i1139 = add nsw i8 %394, -32
   %cond.i11.i98.i1140 = select i1 %or.cond.i9.i96.i1138, i8 %add.i10.i97.i1139, i8 %394
   %cmp9.not.i99.i1141 = icmp eq i8 %cond.i.i95.i1137, %cond.i11.i98.i1140
   br i1 %cmp9.not.i99.i1141, label %for.cond.i84.i1126, label %for.cond.i106.i1143.preheader, !llvm.loop !10
@@ -3857,12 +3857,12 @@ lor.lhs.false.i114.i1151:                         ; preds = %for.cond.i106.i1143
   %396 = load i8, ptr %a.0.i110.i1147, align 1
   %397 = add i8 %396, -97
   %or.cond.i.i115.i1152 = icmp ult i8 %397, 26
-  %add.i.i116.i1153 = add i8 %396, -32
+  %add.i.i116.i1153 = add nsw i8 %396, -32
   %cond.i.i117.i1154 = select i1 %or.cond.i.i115.i1152, i8 %add.i.i116.i1153, i8 %396
   %398 = load i8, ptr %b.0.i109.i1146, align 1
   %399 = add i8 %398, -97
   %or.cond.i9.i118.i1155 = icmp ult i8 %399, 26
-  %add.i10.i119.i1156 = add i8 %398, -32
+  %add.i10.i119.i1156 = add nsw i8 %398, -32
   %cond.i11.i120.i1157 = select i1 %or.cond.i9.i118.i1155, i8 %add.i10.i119.i1156, i8 %398
   %cmp9.not.i121.i1158 = icmp eq i8 %cond.i.i117.i1154, %cond.i11.i120.i1157
   br i1 %cmp9.not.i121.i1158, label %for.cond.i106.i1143, label %if.else9.i1159, !llvm.loop !10
@@ -4215,7 +4215,7 @@ land.lhs.true1770:                                ; preds = %call21.i1087.noexc,
   br i1 %or.cond21, label %invoke.cont1778, label %lor.lhs.false1774
 
 lor.lhs.false1774:                                ; preds = %land.lhs.true1770
-  %tobool1775 = trunc i8 %estimateError.0.be to i1
+  %tobool1775 = trunc nuw i8 %estimateError.0.be to i1
   br i1 %tobool1775, label %invoke.cont1778, label %if.end1781
 
 invoke.cont1778:                                  ; preds = %land.lhs.true1770, %lor.lhs.false1774
@@ -4226,7 +4226,7 @@ invoke.cont1778:                                  ; preds = %land.lhs.true1770, 
           to label %if.end1781 unwind label %lpad1443
 
 if.end1781:                                       ; preds = %for.cond1.preheader.i183.i1179, %for.cond1.for.end_crit_edge.us.i201.i1198, %call26.i1082.noexc, %if.then95.i1173, %if.end1767, %invoke.cont1778, %lor.lhs.false1774
-  %tobool1782 = trunc i8 %estimateError.0.be to i1
+  %tobool1782 = trunc nuw i8 %estimateError.0.be to i1
   br i1 %tobool1782, label %invoke.cont1786, label %if.end1792
 
 invoke.cont1786:                                  ; preds = %if.end1781
@@ -4356,7 +4356,7 @@ invoke.cont1845:                                  ; preds = %if.end1672
   %tobool.not.i1292 = icmp eq ptr %output.0.be, null
   %450 = trunc i64 %mtsdf.sroa.15.0 to i32
   %451 = lshr i64 %mtsdf.sroa.15.0, 32
-  %452 = trunc i64 %451 to i32
+  %452 = trunc nuw i64 %451 to i32
   br i1 %tobool.not.i1292, label %if.else83.i1506, label %if.then.i1293
 
 if.then.i1293:                                    ; preds = %invoke.cont1845
@@ -4391,12 +4391,12 @@ lor.lhs.false.i.i1434:                            ; preds = %for.cond.i.i1426
   %453 = load i8, ptr %a.0.i.i1430, align 1
   %454 = add i8 %453, -97
   %or.cond.i.i.i1435 = icmp ult i8 %454, 26
-  %add.i.i.i1436 = add i8 %453, -32
+  %add.i.i.i1436 = add nsw i8 %453, -32
   %cond.i.i.i1437 = select i1 %or.cond.i.i.i1435, i8 %add.i.i.i1436, i8 %453
   %455 = load i8, ptr %b.0.i.i1429, align 1
   %456 = add i8 %455, -97
   %or.cond.i9.i.i1438 = icmp ult i8 %456, 26
-  %add.i10.i.i1439 = add i8 %455, -32
+  %add.i10.i.i1439 = add nsw i8 %455, -32
   %cond.i11.i.i1440 = select i1 %or.cond.i9.i.i1438, i8 %add.i10.i.i1439, i8 %455
   %cmp9.not.i.i1441 = icmp eq i8 %cond.i.i.i1437, %cond.i11.i.i1440
   br i1 %cmp9.not.i.i1441, label %for.cond.i.i1426, label %for.cond.i62.i1443.preheader, !llvm.loop !10
@@ -4421,12 +4421,12 @@ lor.lhs.false.i70.i1451:                          ; preds = %for.cond.i62.i1443
   %457 = load i8, ptr %a.0.i66.i1447, align 1
   %458 = add i8 %457, -97
   %or.cond.i.i71.i1452 = icmp ult i8 %458, 26
-  %add.i.i72.i1453 = add i8 %457, -32
+  %add.i.i72.i1453 = add nsw i8 %457, -32
   %cond.i.i73.i1454 = select i1 %or.cond.i.i71.i1452, i8 %add.i.i72.i1453, i8 %457
   %459 = load i8, ptr %b.0.i65.i1446, align 1
   %460 = add i8 %459, -97
   %or.cond.i9.i74.i1455 = icmp ult i8 %460, 26
-  %add.i10.i75.i1456 = add i8 %459, -32
+  %add.i10.i75.i1456 = add nsw i8 %459, -32
   %cond.i11.i76.i1457 = select i1 %or.cond.i9.i74.i1455, i8 %add.i10.i75.i1456, i8 %459
   %cmp9.not.i77.i1458 = icmp eq i8 %cond.i.i73.i1454, %cond.i11.i76.i1457
   br i1 %cmp9.not.i77.i1458, label %for.cond.i62.i1443, label %for.cond.i84.i1460.preheader, !llvm.loop !10
@@ -4451,12 +4451,12 @@ lor.lhs.false.i92.i1468:                          ; preds = %for.cond.i84.i1460
   %461 = load i8, ptr %a.0.i88.i1464, align 1
   %462 = add i8 %461, -97
   %or.cond.i.i93.i1469 = icmp ult i8 %462, 26
-  %add.i.i94.i1470 = add i8 %461, -32
+  %add.i.i94.i1470 = add nsw i8 %461, -32
   %cond.i.i95.i1471 = select i1 %or.cond.i.i93.i1469, i8 %add.i.i94.i1470, i8 %461
   %463 = load i8, ptr %b.0.i87.i1463, align 1
   %464 = add i8 %463, -97
   %or.cond.i9.i96.i1472 = icmp ult i8 %464, 26
-  %add.i10.i97.i1473 = add i8 %463, -32
+  %add.i10.i97.i1473 = add nsw i8 %463, -32
   %cond.i11.i98.i1474 = select i1 %or.cond.i9.i96.i1472, i8 %add.i10.i97.i1473, i8 %463
   %cmp9.not.i99.i1475 = icmp eq i8 %cond.i.i95.i1471, %cond.i11.i98.i1474
   br i1 %cmp9.not.i99.i1475, label %for.cond.i84.i1460, label %for.cond.i106.i1477.preheader, !llvm.loop !10
@@ -4481,12 +4481,12 @@ lor.lhs.false.i114.i1485:                         ; preds = %for.cond.i106.i1477
   %465 = load i8, ptr %a.0.i110.i1481, align 1
   %466 = add i8 %465, -97
   %or.cond.i.i115.i1486 = icmp ult i8 %466, 26
-  %add.i.i116.i1487 = add i8 %465, -32
+  %add.i.i116.i1487 = add nsw i8 %465, -32
   %cond.i.i117.i1488 = select i1 %or.cond.i.i115.i1486, i8 %add.i.i116.i1487, i8 %465
   %467 = load i8, ptr %b.0.i109.i1480, align 1
   %468 = add i8 %467, -97
   %or.cond.i9.i118.i1489 = icmp ult i8 %468, 26
-  %add.i10.i119.i1490 = add i8 %467, -32
+  %add.i10.i119.i1490 = add nsw i8 %467, -32
   %cond.i11.i120.i1491 = select i1 %or.cond.i9.i118.i1489, i8 %add.i10.i119.i1490, i8 %467
   %cmp9.not.i121.i1492 = icmp eq i8 %cond.i.i117.i1488, %cond.i11.i120.i1491
   br i1 %cmp9.not.i121.i1492, label %for.cond.i106.i1477, label %if.else9.i1493, !llvm.loop !10
@@ -4839,7 +4839,7 @@ land.lhs.true1856:                                ; preds = %call21.i1421.noexc,
   br i1 %or.cond22, label %invoke.cont1864, label %lor.lhs.false1860
 
 lor.lhs.false1860:                                ; preds = %land.lhs.true1856
-  %tobool1861 = trunc i8 %estimateError.0.be to i1
+  %tobool1861 = trunc nuw i8 %estimateError.0.be to i1
   br i1 %tobool1861, label %invoke.cont1864, label %if.end1867
 
 invoke.cont1864:                                  ; preds = %land.lhs.true1856, %lor.lhs.false1860
@@ -4850,7 +4850,7 @@ invoke.cont1864:                                  ; preds = %land.lhs.true1856, 
           to label %if.end1867 unwind label %lpad1443
 
 if.end1867:                                       ; preds = %for.cond1.preheader.i183.i1514, %for.cond1.for.end_crit_edge.us.i201.i1533, %call26.i1416.noexc, %if.then95.i1507, %if.end1853, %invoke.cont1864, %lor.lhs.false1860
-  %tobool1868 = trunc i8 %estimateError.0.be to i1
+  %tobool1868 = trunc nuw i8 %estimateError.0.be to i1
   br i1 %tobool1868, label %invoke.cont1872, label %if.end1878
 
 invoke.cont1872:                                  ; preds = %if.end1867
@@ -5171,12 +5171,12 @@ lor.lhs.false:                                    ; preds = %for.cond
   %0 = load i8, ptr %a.0, align 1
   %1 = add i8 %0, -97
   %or.cond.i = icmp ult i8 %1, 26
-  %add.i = add i8 %0, -32
+  %add.i = add nsw i8 %0, -32
   %cond.i = select i1 %or.cond.i, i8 %add.i, i8 %0
   %2 = load i8, ptr %b.0, align 1
   %3 = add i8 %2, -97
   %or.cond.i9 = icmp ult i8 %3, 26
-  %add.i10 = add i8 %2, -32
+  %add.i10 = add nsw i8 %2, -32
   %cond.i11 = select i1 %or.cond.i9, i8 %add.i10, i8 %2
   %cmp9.not = icmp eq i8 %cond.i, %cond.i11
   br i1 %cmp9.not, label %for.cond, label %return, !llvm.loop !10
@@ -5323,9 +5323,8 @@ sw.bb29:                                          ; preds = %for.cond
   br label %for.inc
 
 sw.bb30:                                          ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond
-  %tobool31 = trunc i8 %change.0 to i1
-  %tobool31.mask = and i8 %change.0, 1
-  %inc33 = zext nneg i8 %tobool31.mask to i32
+  %tobool31 = trunc nuw i8 %change.0 to i1
+  %inc33 = zext nneg i8 %change.0 to i32
   %spec.select28 = add i32 %e.0, %inc33
   %spec.select29 = select i1 %tobool31, i8 0, i8 %change.0
   %conv35 = zext i32 %spec.select28 to i64

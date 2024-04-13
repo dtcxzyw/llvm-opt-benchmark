@@ -628,7 +628,7 @@ checkFlatAdjacent.exit144:                        ; preds = %.preheader.i133, %.
   br i1 %.not109, label %._crit_edge196, label %.lr.ph195
 
 ._crit_edge196:                                   ; preds = %.loopexit
-  %336 = trunc i8 %.5 to i1
+  %336 = trunc nuw i8 %.5 to i1
   br i1 %336, label %337, label %._crit_edge196.thread
 
 337:                                              ; preds = %._crit_edge196
@@ -638,8 +638,7 @@ checkFlatAdjacent.exit144:                        ; preds = %.preheader.i133, %.
 
 ._crit_edge196.thread:                            ; preds = %.loopexit154, %337, %._crit_edge196
   %.092.lcssa207 = phi i8 [ %.5, %337 ], [ %.5, %._crit_edge196 ], [ 0, %.loopexit154 ]
-  %.mask = and i8 %.092.lcssa207, 1
-  %338 = zext nneg i8 %.mask to i32
+  %338 = zext nneg i8 %.092.lcssa207 to i32
   ret i32 %338
 }
 
@@ -1171,7 +1170,7 @@ define internal fastcc void @setbounds(ptr nocapture readonly %.16.val, ptr noca
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %70 = trunc i8 %.1 to i1
+  %70 = trunc nuw i8 %.1 to i1
   br i1 %.148, label %71, label %74
 
 71:                                               ; preds = %._crit_edge

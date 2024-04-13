@@ -4067,22 +4067,28 @@ entry:
   store i32 0, ptr %nReadCount, align 4
   store i32 0, ptr %bOverflow, align 4
   %call = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %cmp.not237 = icmp ne i32 %call, -1
-  %cmp2.not238 = icmp sgt i32 %nMaxFieldWidth, 0
-  %or.cond146.not188239 = and i1 %cmp.not237, %cmp2.not238
-  br i1 %or.cond146.not188239, label %while.body, label %while.end236
+  %cmp.not236 = icmp ne i32 %call, -1
+  %cmp2.not237 = icmp sgt i32 %nMaxFieldWidth, 0
+  %or.cond146.not188238 = and i1 %cmp.not236, %cmp2.not237
+  br i1 %or.cond146.not188238, label %while.body, label %if.else271.thread
+
+if.else271.thread:                                ; preds = %entry
+  %call237338 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %call, ptr noundef %pContext)
+  store i32 0, ptr %nReadCount, align 4
+  store i32 0, ptr %bOverflow, align 4
+  br label %return
 
 while.body:                                       ; preds = %entry, %sw.epilog235
-  %c.0248 = phi i32 [ %c.5, %sw.epilog235 ], [ %call, %entry ]
-  %state.0247 = phi i32 [ %state.1, %sw.epilog235 ], [ 1, %entry ]
-  %bExponentNegative.0246 = phi i1 [ %bExponentNegative.2, %sw.epilog235 ], [ false, %entry ]
-  %bNegative.0245 = phi i8 [ %bNegative.2, %sw.epilog235 ], [ 0, %entry ]
-  %nExponentAdd.0244 = phi i32 [ %nExponentAdd.3, %sw.epilog235 ], [ 0, %entry ]
-  %nExponent.0243 = phi i32 [ %nExponent.1, %sw.epilog235 ], [ 0, %entry ]
-  %nFieldCount.0242 = phi i32 [ %nFieldCount.5, %sw.epilog235 ], [ 1, %entry ]
-  %nSignCount.0241 = phi i32 [ %nSignCount.1, %sw.epilog235 ], [ 0, %entry ]
-  %nSpaceCount.0240 = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ 0, %entry ]
-  switch i32 %state.0247, label %sw.epilog235 [
+  %c.0247 = phi i32 [ %c.5, %sw.epilog235 ], [ %call, %entry ]
+  %state.0246 = phi i32 [ %state.1, %sw.epilog235 ], [ 1, %entry ]
+  %bExponentNegative.0245 = phi i1 [ %bExponentNegative.2, %sw.epilog235 ], [ false, %entry ]
+  %bNegative.0244 = phi i8 [ %bNegative.2, %sw.epilog235 ], [ 0, %entry ]
+  %nExponentAdd.0243 = phi i32 [ %nExponentAdd.3, %sw.epilog235 ], [ 0, %entry ]
+  %nExponent.0242 = phi i32 [ %nExponent.1, %sw.epilog235 ], [ 0, %entry ]
+  %nFieldCount.0241 = phi i32 [ %nFieldCount.5, %sw.epilog235 ], [ 1, %entry ]
+  %nSignCount.0240 = phi i32 [ %nSignCount.1, %sw.epilog235 ], [ 0, %entry ]
+  %nSpaceCount.0239 = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ 0, %entry ]
+  switch i32 %state.0246, label %sw.epilog235 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb18
     i32 4, label %sw.bb36
@@ -4099,11 +4105,11 @@ while.body:                                       ; preds = %entry, %sw.epilog23
   ]
 
 land.rhs184.preheader:                            ; preds = %while.body
-  %0 = add i32 %nFieldCount.0242, 3
+  %0 = add i32 %nFieldCount.0241, 3
   br label %land.rhs184
 
 sw.bb:                                            ; preds = %while.body
-  %1 = and i32 %c.0248, 255
+  %1 = and i32 %c.0247, 255
   %idxprom.i = zext nneg i32 %1 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -4113,11 +4119,11 @@ sw.bb:                                            ; preds = %while.body
 
 if.then:                                          ; preds = %sw.bb
   %call5 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc6 = add nsw i32 %nSpaceCount.0240, 1
+  %inc6 = add nsw i32 %nSpaceCount.0239, 1
   br label %sw.epilog235
 
 if.end:                                           ; preds = %sw.bb
-  switch i32 %c.0248, label %sw.epilog235 [
+  switch i32 %c.0247, label %sw.epilog235 [
     i32 45, label %sw.bb7
     i32 43, label %sw.bb8
     i32 105, label %sw.bb12
@@ -4130,42 +4136,42 @@ sw.bb7:                                           ; preds = %if.end
   br label %sw.bb8
 
 sw.bb8:                                           ; preds = %sw.bb7, %if.end
-  %bNegative.1 = phi i8 [ %bNegative.0245, %if.end ], [ 1, %sw.bb7 ]
+  %bNegative.1 = phi i8 [ %bNegative.0244, %if.end ], [ 1, %sw.bb7 ]
   %call9 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc10 = add nsw i32 %nFieldCount.0242, 1
-  %inc11 = add nsw i32 %nSignCount.0241, 1
+  %inc10 = add nsw i32 %nFieldCount.0241, 1
+  %inc11 = add nsw i32 %nSignCount.0240, 1
   br label %sw.epilog235
 
 sw.bb12:                                          ; preds = %if.end, %if.end
   %call13 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc14 = add nsw i32 %nFieldCount.0242, 1
+  %inc14 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb15:                                          ; preds = %if.end, %if.end
   %call16 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc17 = add nsw i32 %nFieldCount.0242, 1
+  %inc17 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb18:                                          ; preds = %while.body
-  %cmp19 = icmp eq i32 %c.0248, %cDecimalPoint
+  %cmp19 = icmp eq i32 %c.0247, %cDecimalPoint
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %sw.bb18
   %call21 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc22 = add nsw i32 %nFieldCount.0242, 1
+  %inc22 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 if.else:                                          ; preds = %sw.bb18
-  %cmp23 = icmp eq i32 %c.0248, 48
+  %cmp23 = icmp eq i32 %c.0247, 48
   br i1 %cmp23, label %if.then24, label %if.else27
 
 if.then24:                                        ; preds = %if.else
   %call25 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc26 = add nsw i32 %nFieldCount.0242, 1
+  %inc26 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 if.else27:                                        ; preds = %if.else
-  %4 = and i32 %c.0248, 255
+  %4 = and i32 %c.0247, 255
   %idxprom.i153 = zext nneg i32 %4 to i64
   %arrayidx.i154 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i153
   %5 = load i8, ptr %arrayidx.i154, align 1
@@ -4175,17 +4181,17 @@ if.else27:                                        ; preds = %if.else
   br label %sw.epilog235
 
 sw.bb36:                                          ; preds = %while.body
-  %cmp37 = icmp eq i32 %c.0248, 48
+  %cmp37 = icmp eq i32 %c.0247, 48
   br i1 %cmp37, label %if.then38, label %sw.epilog235
 
 if.then38:                                        ; preds = %sw.bb36
   %call39 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc40 = add nsw i32 %nFieldCount.0242, 1
+  %inc40 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb43:                                          ; preds = %while.body
-  %conv44 = trunc i32 %c.0248 to i8
-  %conv44.mask = and i32 %c.0248, 255
+  %conv44 = trunc i32 %c.0247 to i8
+  %conv44.mask = and i32 %c.0247, 255
   %idxprom.i156 = zext nneg i32 %conv44.mask to i64
   %arrayidx.i157 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i156
   %7 = load i8, ptr %arrayidx.i157, align 1
@@ -4207,26 +4213,26 @@ if.then50:                                        ; preds = %if.then47
   br label %if.end56
 
 if.else54:                                        ; preds = %if.then47
-  %inc55 = add nsw i32 %nExponentAdd.0244, 1
+  %inc55 = add nsw i32 %nExponentAdd.0243, 1
   br label %if.end56
 
 if.end56:                                         ; preds = %if.else54, %if.then50
-  %nExponentAdd.1 = phi i32 [ %nExponentAdd.0244, %if.then50 ], [ %inc55, %if.else54 ]
+  %nExponentAdd.1 = phi i32 [ %nExponentAdd.0243, %if.then50 ], [ %inc55, %if.else54 ]
   %call57 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc58 = add nsw i32 %nFieldCount.0242, 1
+  %inc58 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 if.else59:                                        ; preds = %sw.bb43
-  %cmp60 = icmp eq i32 %c.0248, %cDecimalPoint
+  %cmp60 = icmp eq i32 %c.0247, %cDecimalPoint
   br i1 %cmp60, label %if.then61, label %sw.epilog235
 
 if.then61:                                        ; preds = %if.else59
   %call62 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc63 = add nsw i32 %nFieldCount.0242, 1
+  %inc63 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb67:                                          ; preds = %while.body
-  %10 = and i32 %c.0248, 255
+  %10 = and i32 %c.0247, 255
   %idxprom.i159 = zext nneg i32 %10 to i64
   %arrayidx.i160 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i159
   %11 = load i8, ptr %arrayidx.i160, align 1
@@ -4236,8 +4242,8 @@ sw.bb67:                                          ; preds = %while.body
   br label %sw.epilog235
 
 sw.bb74:                                          ; preds = %while.body
-  %conv75 = trunc i32 %c.0248 to i8
-  %conv75.mask = and i32 %c.0248, 255
+  %conv75 = trunc i32 %c.0247 to i8
+  %conv75.mask = and i32 %c.0247, 255
   %idxprom.i162 = zext nneg i32 %conv75.mask to i64
   %arrayidx.i163 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i162
   %13 = load i8, ptr %arrayidx.i163, align 1
@@ -4251,8 +4257,8 @@ if.then78:                                        ; preds = %sw.bb74
   br i1 %cmp81, label %if.then82, label %if.end94
 
 if.then82:                                        ; preds = %if.then78
-  %dec = add nsw i32 %nExponentAdd.0244, -1
-  %cmp83 = icmp ne i32 %c.0248, 48
+  %dec = add nsw i32 %nExponentAdd.0243, -1
+  %cmp83 = icmp ne i32 %c.0247, 48
   %tobool85 = icmp ne i16 %15, 0
   %or.cond = or i1 %cmp83, %tobool85
   br i1 %or.cond, label %if.then86, label %if.end94
@@ -4266,51 +4272,51 @@ if.then86:                                        ; preds = %if.then82
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then86, %if.then82, %if.then78
-  %nExponentAdd.2 = phi i32 [ %dec, %if.then86 ], [ %dec, %if.then82 ], [ %nExponentAdd.0244, %if.then78 ]
+  %nExponentAdd.2 = phi i32 [ %dec, %if.then86 ], [ %dec, %if.then82 ], [ %nExponentAdd.0243, %if.then78 ]
   %call95 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc96 = add nsw i32 %nFieldCount.0242, 1
+  %inc96 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb99:                                          ; preds = %while.body
-  %16 = and i32 %c.0248, 255
+  %16 = and i32 %c.0247, 255
   %idxprom.i165 = zext nneg i32 %16 to i64
   %arrayidx.i166 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %idxprom.i165
   %17 = load i8, ptr %arrayidx.i166, align 1
   %cmp103 = icmp eq i8 %17, 69
-  br i1 %cmp103, label %if.then104, label %while.end236.loopexit.loopexit
+  br i1 %cmp103, label %if.then104, label %while.end236
 
 if.then104:                                       ; preds = %sw.bb99
   %call105 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc106 = add nsw i32 %nFieldCount.0242, 1
+  %inc106 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb108:                                         ; preds = %while.body
-  switch i32 %c.0248, label %sw.epilog235 [
+  switch i32 %c.0247, label %sw.epilog235 [
     i32 43, label %if.then110
     i32 45, label %if.then115
   ]
 
 if.then110:                                       ; preds = %sw.bb108
   %call111 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc112 = add nsw i32 %nFieldCount.0242, 1
+  %inc112 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 if.then115:                                       ; preds = %sw.bb108
   %call116 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc117 = add nsw i32 %nFieldCount.0242, 1
+  %inc117 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb120:                                         ; preds = %while.body
-  %cmp121 = icmp eq i32 %c.0248, 48
+  %cmp121 = icmp eq i32 %c.0247, 48
   br i1 %cmp121, label %if.then122, label %if.else125
 
 if.then122:                                       ; preds = %sw.bb120
   %call123 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc124 = add nsw i32 %nFieldCount.0242, 1
+  %inc124 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 if.else125:                                       ; preds = %sw.bb120
-  %18 = and i32 %c.0248, 255
+  %18 = and i32 %c.0247, 255
   %idxprom.i167 = zext nneg i32 %18 to i64
   %arrayidx.i168 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i167
   %19 = load i8, ptr %arrayidx.i168, align 1
@@ -4320,27 +4326,27 @@ if.else125:                                       ; preds = %sw.bb120
   br label %sw.epilog235
 
 sw.bb133:                                         ; preds = %while.body
-  %cmp134 = icmp eq i32 %c.0248, 48
+  %cmp134 = icmp eq i32 %c.0247, 48
   br i1 %cmp134, label %if.then135, label %sw.epilog235
 
 if.then135:                                       ; preds = %sw.bb133
   %call136 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc137 = add nsw i32 %nFieldCount.0242, 1
+  %inc137 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 sw.bb140:                                         ; preds = %while.body
-  %21 = and i32 %c.0248, 255
+  %21 = and i32 %c.0247, 255
   %idxprom.i170 = zext nneg i32 %21 to i64
   %arrayidx.i171 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i170
   %22 = load i8, ptr %arrayidx.i171, align 1
   %23 = and i8 %22, 16
   %tobool143.not = icmp eq i8 %23, 0
-  br i1 %tobool143.not, label %while.end236.loopexit.loopexit, label %if.then144
+  br i1 %tobool143.not, label %while.end236, label %if.then144
 
 if.then144:                                       ; preds = %sw.bb140
-  %mul = mul nsw i32 %nExponent.0243, 10
+  %mul = mul nsw i32 %nExponent.0242, 10
   %sub = add i32 %mul, -48
-  %add = add i32 %sub, %c.0248
+  %add = add i32 %sub, %c.0247
   %cmp145 = icmp sgt i32 %add, 308
   br i1 %cmp145, label %if.then146, label %if.end147
 
@@ -4350,50 +4356,50 @@ if.then146:                                       ; preds = %if.then144
 
 if.end147:                                        ; preds = %if.then146, %if.then144
   %call148 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc149 = add nsw i32 %nFieldCount.0242, 1
+  %inc149 = add nsw i32 %nFieldCount.0241, 1
   br label %sw.epilog235
 
 land.rhs155:                                      ; preds = %while.body, %while.body164
-  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %while.body164 ], [ 1, %while.body ]
-  %c.2235 = phi i32 [ %call166, %while.body164 ], [ %c.0248, %while.body ]
-  %nFieldCount.2234 = phi i32 [ %inc167, %while.body164 ], [ %nFieldCount.0242, %while.body ]
-  %24 = and i32 %c.2235, 255
+  %indvars.iv281 = phi i64 [ %indvars.iv.next282, %while.body164 ], [ 1, %while.body ]
+  %c.2234 = phi i32 [ %call166, %while.body164 ], [ %c.0247, %while.body ]
+  %nFieldCount.2233 = phi i32 [ %inc167, %while.body164 ], [ %nFieldCount.0241, %while.body ]
+  %24 = and i32 %c.2234, 255
   %idxprom.i173 = zext nneg i32 %24 to i64
   %arrayidx.i174 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %idxprom.i173
   %25 = load i8, ptr %arrayidx.i174, align 1
-  %arrayidx160 = getelementptr inbounds [9 x i8], ptr @.str, i64 0, i64 %indvars.iv282
+  %arrayidx160 = getelementptr inbounds [9 x i8], ptr @.str, i64 0, i64 %indvars.iv281
   %26 = load i8, ptr %arrayidx160, align 1
   %cmp162 = icmp eq i8 %25, %26
   br i1 %cmp162, label %while.body164, label %while.end
 
 while.body164:                                    ; preds = %land.rhs155
-  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
+  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %call166 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc167 = add nsw i32 %nFieldCount.2234, 1
-  %exitcond285.not = icmp eq i64 %indvars.iv.next283, 8
-  br i1 %exitcond285.not, label %if.then171, label %land.rhs155, !llvm.loop !38
+  %inc167 = add nsw i32 %nFieldCount.2233, 1
+  %exitcond284.not = icmp eq i64 %indvars.iv.next282, 8
+  br i1 %exitcond284.not, label %if.then171, label %land.rhs155, !llvm.loop !38
 
 while.end:                                        ; preds = %land.rhs155
-  %27 = trunc i64 %indvars.iv282 to i32
-  switch i32 %27, label %while.end236.loopexit [
+  %27 = trunc i64 %indvars.iv281 to i32
+  switch i32 %27, label %while.end236 [
     i32 8, label %if.then171
     i32 3, label %if.then171
   ]
 
 if.then171:                                       ; preds = %while.body164, %while.end, %while.end
-  %i.0.lcssa293 = phi i32 [ %27, %while.end ], [ %27, %while.end ], [ 8, %while.body164 ]
-  %tobool172 = trunc i8 %bNegative.0245 to i1
+  %i.0.lcssa292 = phi i32 [ %27, %while.end ], [ %27, %while.end ], [ 8, %while.body164 ]
+  %tobool172 = trunc nuw i8 %bNegative.0244 to i1
   %.150 = select i1 %tobool172, double 0xFFF0000000000000, double 0x7FF0000000000000
-  %add176 = add nsw i32 %nSignCount.0241, %nSpaceCount.0240
-  %add177 = add nsw i32 %add176, %i.0.lcssa293
+  %add176 = add nsw i32 %nSignCount.0240, %nSpaceCount.0239
+  %add177 = add nsw i32 %add176, %i.0.lcssa292
   store i32 %add177, ptr %nReadCount, align 4
   br label %return
 
 land.rhs184:                                      ; preds = %land.rhs184.preheader, %while.body193
   %indvars.iv = phi i64 [ 1, %land.rhs184.preheader ], [ %indvars.iv.next, %while.body193 ]
-  %c.3229 = phi i32 [ %c.0248, %land.rhs184.preheader ], [ %call194, %while.body193 ]
-  %nFieldCount.3228 = phi i32 [ %nFieldCount.0242, %land.rhs184.preheader ], [ %inc195, %while.body193 ]
-  %28 = and i32 %c.3229, 255
+  %c.3228 = phi i32 [ %c.0247, %land.rhs184.preheader ], [ %call194, %while.body193 ]
+  %nFieldCount.3227 = phi i32 [ %nFieldCount.0241, %land.rhs184.preheader ], [ %inc195, %while.body193 ]
+  %28 = and i32 %c.3228, 255
   %idxprom.i175 = zext nneg i32 %28 to i64
   %arrayidx.i176 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %idxprom.i175
   %29 = load i8, ptr %arrayidx.i176, align 1
@@ -4404,7 +4410,7 @@ land.rhs184:                                      ; preds = %land.rhs184.prehead
 
 while.body193:                                    ; preds = %land.rhs184
   %call194 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc195 = add nsw i32 %nFieldCount.3228, 1
+  %inc195 = add nsw i32 %nFieldCount.3227, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %land.rhs206.preheader, label %land.rhs184, !llvm.loop !39
@@ -4413,176 +4419,169 @@ while.end197:                                     ; preds = %land.rhs184
   %31 = trunc i64 %indvars.iv to i32
   %32 = add nsw i32 %31, -3
   %or.cond2 = icmp ult i32 %32, 2
-  br i1 %or.cond2, label %if.then201, label %while.end236.loopexit
+  br i1 %or.cond2, label %if.then201, label %while.end236
 
 if.then201:                                       ; preds = %while.end197
   %cmp200 = icmp eq i32 %31, 4
   br i1 %cmp200, label %land.rhs206.preheader, label %if.end224
 
 land.rhs206.preheader:                            ; preds = %while.body193, %if.then201
-  %nFieldCount.3.lcssa298306 = phi i32 [ %nFieldCount.3228, %if.then201 ], [ %0, %while.body193 ]
-  %c.3.lcssa299305 = phi i32 [ %c.3229, %if.then201 ], [ %call194, %while.body193 ]
-  %33 = add i32 %nFieldCount.3.lcssa298306, 32
+  %nFieldCount.3.lcssa297305 = phi i32 [ %nFieldCount.3227, %if.then201 ], [ %0, %while.body193 ]
+  %c.3.lcssa298304 = phi i32 [ %c.3228, %if.then201 ], [ %call194, %while.body193 ]
+  %33 = add i32 %nFieldCount.3.lcssa297305, 32
   br label %land.rhs206
 
 land.rhs206:                                      ; preds = %land.rhs206.preheader, %while.body214
-  %j.0233 = phi i32 [ %inc217, %while.body214 ], [ 0, %land.rhs206.preheader ]
-  %c.4232 = phi i32 [ %call215, %while.body214 ], [ %c.3.lcssa299305, %land.rhs206.preheader ]
-  %nFieldCount.4231 = phi i32 [ %inc216, %while.body214 ], [ %nFieldCount.3.lcssa298306, %land.rhs206.preheader ]
-  %34 = and i32 %c.4232, 255
+  %j.0232 = phi i32 [ %inc217, %while.body214 ], [ 0, %land.rhs206.preheader ]
+  %c.4231 = phi i32 [ %call215, %while.body214 ], [ %c.3.lcssa298304, %land.rhs206.preheader ]
+  %nFieldCount.4230 = phi i32 [ %inc216, %while.body214 ], [ %nFieldCount.3.lcssa297305, %land.rhs206.preheader ]
+  %34 = and i32 %c.4231, 255
   %idxprom.i177 = zext nneg i32 %34 to i64
   %arrayidx.i178 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i177
   %35 = load i8, ptr %arrayidx.i178, align 1
   %36 = and i8 %35, -48
-  %or.cond191 = icmp eq i8 %36, 0
-  br i1 %or.cond191, label %while.end218, label %while.body214
+  %or.cond190 = icmp eq i8 %36, 0
+  br i1 %or.cond190, label %while.end218, label %while.body214
 
 while.body214:                                    ; preds = %land.rhs206
   %call215 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc216 = add nsw i32 %nFieldCount.4231, 1
-  %inc217 = add nuw nsw i32 %j.0233, 1
-  %exitcond281.not = icmp eq i32 %inc217, 32
-  br i1 %exitcond281.not, label %while.end218, label %land.rhs206, !llvm.loop !40
+  %inc216 = add nsw i32 %nFieldCount.4230, 1
+  %inc217 = add nuw nsw i32 %j.0232, 1
+  %exitcond280.not = icmp eq i32 %inc217, 32
+  br i1 %exitcond280.not, label %while.end218, label %land.rhs206, !llvm.loop !40
 
 while.end218:                                     ; preds = %land.rhs206, %while.body214
-  %nFieldCount.4.lcssa = phi i32 [ %nFieldCount.4231, %land.rhs206 ], [ %33, %while.body214 ]
-  %c.4.lcssa = phi i32 [ %c.4232, %land.rhs206 ], [ %call215, %while.body214 ]
-  %j.0.lcssa = phi i32 [ %j.0233, %land.rhs206 ], [ 32, %while.body214 ]
+  %nFieldCount.4.lcssa = phi i32 [ %nFieldCount.4230, %land.rhs206 ], [ %33, %while.body214 ]
+  %c.4.lcssa = phi i32 [ %c.4231, %land.rhs206 ], [ %call215, %while.body214 ]
+  %j.0.lcssa = phi i32 [ %j.0232, %land.rhs206 ], [ 32, %while.body214 ]
   %cmp219.not = icmp eq i32 %c.4.lcssa, 41
-  br i1 %cmp219.not, label %if.else221, label %while.end236.loopexit
+  br i1 %cmp219.not, label %if.else221, label %while.end236
 
 if.else221:                                       ; preds = %while.end218
   %inc222 = add nuw nsw i32 %j.0.lcssa, 1
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then201, %if.else221
-  %i181.0.lcssa267 = phi i32 [ 4, %if.else221 ], [ 3, %if.then201 ]
+  %i181.0.lcssa266 = phi i32 [ 4, %if.else221 ], [ 3, %if.then201 ]
   %j.1 = phi i32 [ %inc222, %if.else221 ], [ 0, %if.then201 ]
-  %tobool225 = trunc i8 %bNegative.0245 to i1
+  %tobool225 = trunc nuw i8 %bNegative.0244 to i1
   %.151 = select i1 %tobool225, double 0xFFFFFFFFFFFFFFFF, double 0x7FFFFFFFFFFFFFFF
-  %add230 = add nsw i32 %nSignCount.0241, %nSpaceCount.0240
-  %add231 = add nsw i32 %add230, %i181.0.lcssa267
+  %add230 = add nsw i32 %nSignCount.0240, %nSpaceCount.0239
+  %add231 = add nsw i32 %add230, %i181.0.lcssa266
   %add232 = add nsw i32 %add231, %j.1
   store i32 %add232, ptr %nReadCount, align 4
   br label %return
 
 sw.epilog235:                                     ; preds = %sw.bb133, %if.else125, %if.then110, %if.then115, %sw.bb108, %sw.bb74, %sw.bb67, %if.else59, %sw.bb36, %if.else27, %if.end, %if.end147, %if.then135, %if.then122, %if.end94, %if.end56, %if.then61, %if.then38, %if.then20, %if.then24, %sw.bb8, %sw.bb12, %sw.bb15, %if.then104, %if.then, %while.body
-  %nSpaceCount.1 = phi i32 [ %nSpaceCount.0240, %while.body ], [ %nSpaceCount.0240, %if.end147 ], [ %nSpaceCount.0240, %if.then135 ], [ %nSpaceCount.0240, %if.then122 ], [ %nSpaceCount.0240, %if.then104 ], [ %nSpaceCount.0240, %if.end94 ], [ %nSpaceCount.0240, %if.end56 ], [ %nSpaceCount.0240, %if.then61 ], [ %nSpaceCount.0240, %if.then38 ], [ %nSpaceCount.0240, %if.then20 ], [ %nSpaceCount.0240, %if.then24 ], [ %inc6, %if.then ], [ %nSpaceCount.0240, %sw.bb15 ], [ %nSpaceCount.0240, %sw.bb12 ], [ %nSpaceCount.0240, %sw.bb8 ], [ %nSpaceCount.0240, %if.end ], [ %nSpaceCount.0240, %if.else27 ], [ %nSpaceCount.0240, %sw.bb36 ], [ %nSpaceCount.0240, %if.else59 ], [ %nSpaceCount.0240, %sw.bb67 ], [ %nSpaceCount.0240, %sw.bb74 ], [ %nSpaceCount.0240, %sw.bb108 ], [ %nSpaceCount.0240, %if.then115 ], [ %nSpaceCount.0240, %if.then110 ], [ %nSpaceCount.0240, %if.else125 ], [ %nSpaceCount.0240, %sw.bb133 ]
-  %nSignCount.1 = phi i32 [ %nSignCount.0241, %while.body ], [ %nSignCount.0241, %if.end147 ], [ %nSignCount.0241, %if.then135 ], [ %nSignCount.0241, %if.then122 ], [ %nSignCount.0241, %if.then104 ], [ %nSignCount.0241, %if.end94 ], [ %nSignCount.0241, %if.end56 ], [ %nSignCount.0241, %if.then61 ], [ %nSignCount.0241, %if.then38 ], [ %nSignCount.0241, %if.then20 ], [ %nSignCount.0241, %if.then24 ], [ %nSignCount.0241, %if.then ], [ %nSignCount.0241, %sw.bb15 ], [ %nSignCount.0241, %sw.bb12 ], [ %inc11, %sw.bb8 ], [ %nSignCount.0241, %if.end ], [ %nSignCount.0241, %if.else27 ], [ %nSignCount.0241, %sw.bb36 ], [ %nSignCount.0241, %if.else59 ], [ %nSignCount.0241, %sw.bb67 ], [ %nSignCount.0241, %sw.bb74 ], [ %nSignCount.0241, %sw.bb108 ], [ %nSignCount.0241, %if.then115 ], [ %nSignCount.0241, %if.then110 ], [ %nSignCount.0241, %if.else125 ], [ %nSignCount.0241, %sw.bb133 ]
-  %nFieldCount.5 = phi i32 [ %nFieldCount.0242, %while.body ], [ %inc149, %if.end147 ], [ %inc137, %if.then135 ], [ %inc124, %if.then122 ], [ %inc106, %if.then104 ], [ %inc96, %if.end94 ], [ %inc58, %if.end56 ], [ %inc63, %if.then61 ], [ %inc40, %if.then38 ], [ %inc22, %if.then20 ], [ %inc26, %if.then24 ], [ %nFieldCount.0242, %if.then ], [ %inc17, %sw.bb15 ], [ %inc14, %sw.bb12 ], [ %inc10, %sw.bb8 ], [ %nFieldCount.0242, %if.end ], [ %nFieldCount.0242, %if.else27 ], [ %nFieldCount.0242, %sw.bb36 ], [ %nFieldCount.0242, %if.else59 ], [ %nFieldCount.0242, %sw.bb67 ], [ %nFieldCount.0242, %sw.bb74 ], [ %nFieldCount.0242, %sw.bb108 ], [ %inc117, %if.then115 ], [ %inc112, %if.then110 ], [ %nFieldCount.0242, %if.else125 ], [ %nFieldCount.0242, %sw.bb133 ]
-  %nExponent.1 = phi i32 [ %nExponent.0243, %while.body ], [ %add, %if.end147 ], [ %nExponent.0243, %if.then135 ], [ %nExponent.0243, %if.then122 ], [ %nExponent.0243, %if.then104 ], [ %nExponent.0243, %if.end94 ], [ %nExponent.0243, %if.end56 ], [ %nExponent.0243, %if.then61 ], [ %nExponent.0243, %if.then38 ], [ %nExponent.0243, %if.then20 ], [ %nExponent.0243, %if.then24 ], [ %nExponent.0243, %if.then ], [ %nExponent.0243, %sw.bb15 ], [ %nExponent.0243, %sw.bb12 ], [ %nExponent.0243, %sw.bb8 ], [ %nExponent.0243, %if.end ], [ %nExponent.0243, %if.else27 ], [ %nExponent.0243, %sw.bb36 ], [ %nExponent.0243, %if.else59 ], [ %nExponent.0243, %sw.bb67 ], [ %nExponent.0243, %sw.bb74 ], [ %nExponent.0243, %sw.bb108 ], [ %nExponent.0243, %if.then115 ], [ %nExponent.0243, %if.then110 ], [ %nExponent.0243, %if.else125 ], [ %nExponent.0243, %sw.bb133 ]
-  %nExponentAdd.3 = phi i32 [ %nExponentAdd.0244, %while.body ], [ %nExponentAdd.0244, %if.end147 ], [ %nExponentAdd.0244, %if.then135 ], [ %nExponentAdd.0244, %if.then122 ], [ %nExponentAdd.0244, %if.then104 ], [ %nExponentAdd.2, %if.end94 ], [ %nExponentAdd.1, %if.end56 ], [ %nExponentAdd.0244, %if.then61 ], [ %nExponentAdd.0244, %if.then38 ], [ %nExponentAdd.0244, %if.then20 ], [ %nExponentAdd.0244, %if.then24 ], [ %nExponentAdd.0244, %if.then ], [ %nExponentAdd.0244, %sw.bb15 ], [ %nExponentAdd.0244, %sw.bb12 ], [ %nExponentAdd.0244, %sw.bb8 ], [ %nExponentAdd.0244, %if.end ], [ %nExponentAdd.0244, %if.else27 ], [ %nExponentAdd.0244, %sw.bb36 ], [ %nExponentAdd.0244, %if.else59 ], [ %nExponentAdd.0244, %sw.bb67 ], [ %nExponentAdd.0244, %sw.bb74 ], [ %nExponentAdd.0244, %sw.bb108 ], [ %nExponentAdd.0244, %if.then115 ], [ %nExponentAdd.0244, %if.then110 ], [ %nExponentAdd.0244, %if.else125 ], [ %nExponentAdd.0244, %sw.bb133 ]
-  %bNegative.2 = phi i8 [ %bNegative.0245, %while.body ], [ %bNegative.0245, %if.end147 ], [ %bNegative.0245, %if.then135 ], [ %bNegative.0245, %if.then122 ], [ %bNegative.0245, %if.then104 ], [ %bNegative.0245, %if.end94 ], [ %bNegative.0245, %if.end56 ], [ %bNegative.0245, %if.then61 ], [ %bNegative.0245, %if.then38 ], [ %bNegative.0245, %if.then20 ], [ %bNegative.0245, %if.then24 ], [ %bNegative.0245, %if.then ], [ %bNegative.0245, %sw.bb15 ], [ %bNegative.0245, %sw.bb12 ], [ %bNegative.1, %sw.bb8 ], [ %bNegative.0245, %if.end ], [ %bNegative.0245, %if.else27 ], [ %bNegative.0245, %sw.bb36 ], [ %bNegative.0245, %if.else59 ], [ %bNegative.0245, %sw.bb67 ], [ %bNegative.0245, %sw.bb74 ], [ %bNegative.0245, %sw.bb108 ], [ %bNegative.0245, %if.then115 ], [ %bNegative.0245, %if.then110 ], [ %bNegative.0245, %if.else125 ], [ %bNegative.0245, %sw.bb133 ]
-  %bExponentNegative.2 = phi i1 [ %bExponentNegative.0246, %while.body ], [ %bExponentNegative.0246, %if.end147 ], [ %bExponentNegative.0246, %if.then135 ], [ %bExponentNegative.0246, %if.then122 ], [ %bExponentNegative.0246, %if.then104 ], [ %bExponentNegative.0246, %if.end94 ], [ %bExponentNegative.0246, %if.end56 ], [ %bExponentNegative.0246, %if.then61 ], [ %bExponentNegative.0246, %if.then38 ], [ %bExponentNegative.0246, %if.then20 ], [ %bExponentNegative.0246, %if.then24 ], [ %bExponentNegative.0246, %if.then ], [ %bExponentNegative.0246, %sw.bb15 ], [ %bExponentNegative.0246, %sw.bb12 ], [ %bExponentNegative.0246, %sw.bb8 ], [ %bExponentNegative.0246, %if.end ], [ %bExponentNegative.0246, %if.else27 ], [ %bExponentNegative.0246, %sw.bb36 ], [ %bExponentNegative.0246, %if.else59 ], [ %bExponentNegative.0246, %sw.bb67 ], [ %bExponentNegative.0246, %sw.bb74 ], [ %bExponentNegative.0246, %sw.bb108 ], [ true, %if.then115 ], [ %bExponentNegative.0246, %if.then110 ], [ %bExponentNegative.0246, %if.else125 ], [ %bExponentNegative.0246, %sw.bb133 ]
-  %state.1 = phi i32 [ %state.0247, %while.body ], [ 2048, %if.end147 ], [ 1024, %if.then135 ], [ 1024, %if.then122 ], [ 256, %if.then104 ], [ 64, %if.end94 ], [ 8, %if.end56 ], [ 64, %if.then61 ], [ 4, %if.then38 ], [ 16, %if.then20 ], [ 4, %if.then24 ], [ 1, %if.then ], [ 8192, %sw.bb15 ], [ 4096, %sw.bb12 ], [ 1, %sw.bb8 ], [ 2, %if.end ], [ %., %if.else27 ], [ 8, %sw.bb36 ], [ 128, %if.else59 ], [ %.148, %sw.bb67 ], [ 128, %sw.bb74 ], [ 512, %sw.bb108 ], [ 512, %if.then115 ], [ 512, %if.then110 ], [ %.149, %if.else125 ], [ 2048, %sw.bb133 ]
-  %c.5 = phi i32 [ %c.0248, %while.body ], [ %call148, %if.end147 ], [ %call136, %if.then135 ], [ %call123, %if.then122 ], [ %call105, %if.then104 ], [ %call95, %if.end94 ], [ %call57, %if.end56 ], [ %call62, %if.then61 ], [ %call39, %if.then38 ], [ %call21, %if.then20 ], [ %call25, %if.then24 ], [ %call5, %if.then ], [ %call16, %sw.bb15 ], [ %call13, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %c.0248, %if.end ], [ %c.0248, %if.else27 ], [ %c.0248, %sw.bb36 ], [ %c.0248, %if.else59 ], [ %c.0248, %sw.bb67 ], [ %c.0248, %sw.bb74 ], [ %c.0248, %sw.bb108 ], [ %call116, %if.then115 ], [ %call111, %if.then110 ], [ %c.0248, %if.else125 ], [ %c.0248, %sw.bb133 ]
+  %nSpaceCount.1 = phi i32 [ %nSpaceCount.0239, %while.body ], [ %nSpaceCount.0239, %if.end147 ], [ %nSpaceCount.0239, %if.then135 ], [ %nSpaceCount.0239, %if.then122 ], [ %nSpaceCount.0239, %if.then104 ], [ %nSpaceCount.0239, %if.end94 ], [ %nSpaceCount.0239, %if.end56 ], [ %nSpaceCount.0239, %if.then61 ], [ %nSpaceCount.0239, %if.then38 ], [ %nSpaceCount.0239, %if.then20 ], [ %nSpaceCount.0239, %if.then24 ], [ %inc6, %if.then ], [ %nSpaceCount.0239, %sw.bb15 ], [ %nSpaceCount.0239, %sw.bb12 ], [ %nSpaceCount.0239, %sw.bb8 ], [ %nSpaceCount.0239, %if.end ], [ %nSpaceCount.0239, %if.else27 ], [ %nSpaceCount.0239, %sw.bb36 ], [ %nSpaceCount.0239, %if.else59 ], [ %nSpaceCount.0239, %sw.bb67 ], [ %nSpaceCount.0239, %sw.bb74 ], [ %nSpaceCount.0239, %sw.bb108 ], [ %nSpaceCount.0239, %if.then115 ], [ %nSpaceCount.0239, %if.then110 ], [ %nSpaceCount.0239, %if.else125 ], [ %nSpaceCount.0239, %sw.bb133 ]
+  %nSignCount.1 = phi i32 [ %nSignCount.0240, %while.body ], [ %nSignCount.0240, %if.end147 ], [ %nSignCount.0240, %if.then135 ], [ %nSignCount.0240, %if.then122 ], [ %nSignCount.0240, %if.then104 ], [ %nSignCount.0240, %if.end94 ], [ %nSignCount.0240, %if.end56 ], [ %nSignCount.0240, %if.then61 ], [ %nSignCount.0240, %if.then38 ], [ %nSignCount.0240, %if.then20 ], [ %nSignCount.0240, %if.then24 ], [ %nSignCount.0240, %if.then ], [ %nSignCount.0240, %sw.bb15 ], [ %nSignCount.0240, %sw.bb12 ], [ %inc11, %sw.bb8 ], [ %nSignCount.0240, %if.end ], [ %nSignCount.0240, %if.else27 ], [ %nSignCount.0240, %sw.bb36 ], [ %nSignCount.0240, %if.else59 ], [ %nSignCount.0240, %sw.bb67 ], [ %nSignCount.0240, %sw.bb74 ], [ %nSignCount.0240, %sw.bb108 ], [ %nSignCount.0240, %if.then115 ], [ %nSignCount.0240, %if.then110 ], [ %nSignCount.0240, %if.else125 ], [ %nSignCount.0240, %sw.bb133 ]
+  %nFieldCount.5 = phi i32 [ %nFieldCount.0241, %while.body ], [ %inc149, %if.end147 ], [ %inc137, %if.then135 ], [ %inc124, %if.then122 ], [ %inc106, %if.then104 ], [ %inc96, %if.end94 ], [ %inc58, %if.end56 ], [ %inc63, %if.then61 ], [ %inc40, %if.then38 ], [ %inc22, %if.then20 ], [ %inc26, %if.then24 ], [ %nFieldCount.0241, %if.then ], [ %inc17, %sw.bb15 ], [ %inc14, %sw.bb12 ], [ %inc10, %sw.bb8 ], [ %nFieldCount.0241, %if.end ], [ %nFieldCount.0241, %if.else27 ], [ %nFieldCount.0241, %sw.bb36 ], [ %nFieldCount.0241, %if.else59 ], [ %nFieldCount.0241, %sw.bb67 ], [ %nFieldCount.0241, %sw.bb74 ], [ %nFieldCount.0241, %sw.bb108 ], [ %inc117, %if.then115 ], [ %inc112, %if.then110 ], [ %nFieldCount.0241, %if.else125 ], [ %nFieldCount.0241, %sw.bb133 ]
+  %nExponent.1 = phi i32 [ %nExponent.0242, %while.body ], [ %add, %if.end147 ], [ %nExponent.0242, %if.then135 ], [ %nExponent.0242, %if.then122 ], [ %nExponent.0242, %if.then104 ], [ %nExponent.0242, %if.end94 ], [ %nExponent.0242, %if.end56 ], [ %nExponent.0242, %if.then61 ], [ %nExponent.0242, %if.then38 ], [ %nExponent.0242, %if.then20 ], [ %nExponent.0242, %if.then24 ], [ %nExponent.0242, %if.then ], [ %nExponent.0242, %sw.bb15 ], [ %nExponent.0242, %sw.bb12 ], [ %nExponent.0242, %sw.bb8 ], [ %nExponent.0242, %if.end ], [ %nExponent.0242, %if.else27 ], [ %nExponent.0242, %sw.bb36 ], [ %nExponent.0242, %if.else59 ], [ %nExponent.0242, %sw.bb67 ], [ %nExponent.0242, %sw.bb74 ], [ %nExponent.0242, %sw.bb108 ], [ %nExponent.0242, %if.then115 ], [ %nExponent.0242, %if.then110 ], [ %nExponent.0242, %if.else125 ], [ %nExponent.0242, %sw.bb133 ]
+  %nExponentAdd.3 = phi i32 [ %nExponentAdd.0243, %while.body ], [ %nExponentAdd.0243, %if.end147 ], [ %nExponentAdd.0243, %if.then135 ], [ %nExponentAdd.0243, %if.then122 ], [ %nExponentAdd.0243, %if.then104 ], [ %nExponentAdd.2, %if.end94 ], [ %nExponentAdd.1, %if.end56 ], [ %nExponentAdd.0243, %if.then61 ], [ %nExponentAdd.0243, %if.then38 ], [ %nExponentAdd.0243, %if.then20 ], [ %nExponentAdd.0243, %if.then24 ], [ %nExponentAdd.0243, %if.then ], [ %nExponentAdd.0243, %sw.bb15 ], [ %nExponentAdd.0243, %sw.bb12 ], [ %nExponentAdd.0243, %sw.bb8 ], [ %nExponentAdd.0243, %if.end ], [ %nExponentAdd.0243, %if.else27 ], [ %nExponentAdd.0243, %sw.bb36 ], [ %nExponentAdd.0243, %if.else59 ], [ %nExponentAdd.0243, %sw.bb67 ], [ %nExponentAdd.0243, %sw.bb74 ], [ %nExponentAdd.0243, %sw.bb108 ], [ %nExponentAdd.0243, %if.then115 ], [ %nExponentAdd.0243, %if.then110 ], [ %nExponentAdd.0243, %if.else125 ], [ %nExponentAdd.0243, %sw.bb133 ]
+  %bNegative.2 = phi i8 [ %bNegative.0244, %while.body ], [ %bNegative.0244, %if.end147 ], [ %bNegative.0244, %if.then135 ], [ %bNegative.0244, %if.then122 ], [ %bNegative.0244, %if.then104 ], [ %bNegative.0244, %if.end94 ], [ %bNegative.0244, %if.end56 ], [ %bNegative.0244, %if.then61 ], [ %bNegative.0244, %if.then38 ], [ %bNegative.0244, %if.then20 ], [ %bNegative.0244, %if.then24 ], [ %bNegative.0244, %if.then ], [ %bNegative.0244, %sw.bb15 ], [ %bNegative.0244, %sw.bb12 ], [ %bNegative.1, %sw.bb8 ], [ %bNegative.0244, %if.end ], [ %bNegative.0244, %if.else27 ], [ %bNegative.0244, %sw.bb36 ], [ %bNegative.0244, %if.else59 ], [ %bNegative.0244, %sw.bb67 ], [ %bNegative.0244, %sw.bb74 ], [ %bNegative.0244, %sw.bb108 ], [ %bNegative.0244, %if.then115 ], [ %bNegative.0244, %if.then110 ], [ %bNegative.0244, %if.else125 ], [ %bNegative.0244, %sw.bb133 ]
+  %bExponentNegative.2 = phi i1 [ %bExponentNegative.0245, %while.body ], [ %bExponentNegative.0245, %if.end147 ], [ %bExponentNegative.0245, %if.then135 ], [ %bExponentNegative.0245, %if.then122 ], [ %bExponentNegative.0245, %if.then104 ], [ %bExponentNegative.0245, %if.end94 ], [ %bExponentNegative.0245, %if.end56 ], [ %bExponentNegative.0245, %if.then61 ], [ %bExponentNegative.0245, %if.then38 ], [ %bExponentNegative.0245, %if.then20 ], [ %bExponentNegative.0245, %if.then24 ], [ %bExponentNegative.0245, %if.then ], [ %bExponentNegative.0245, %sw.bb15 ], [ %bExponentNegative.0245, %sw.bb12 ], [ %bExponentNegative.0245, %sw.bb8 ], [ %bExponentNegative.0245, %if.end ], [ %bExponentNegative.0245, %if.else27 ], [ %bExponentNegative.0245, %sw.bb36 ], [ %bExponentNegative.0245, %if.else59 ], [ %bExponentNegative.0245, %sw.bb67 ], [ %bExponentNegative.0245, %sw.bb74 ], [ %bExponentNegative.0245, %sw.bb108 ], [ true, %if.then115 ], [ %bExponentNegative.0245, %if.then110 ], [ %bExponentNegative.0245, %if.else125 ], [ %bExponentNegative.0245, %sw.bb133 ]
+  %state.1 = phi i32 [ %state.0246, %while.body ], [ 2048, %if.end147 ], [ 1024, %if.then135 ], [ 1024, %if.then122 ], [ 256, %if.then104 ], [ 64, %if.end94 ], [ 8, %if.end56 ], [ 64, %if.then61 ], [ 4, %if.then38 ], [ 16, %if.then20 ], [ 4, %if.then24 ], [ 1, %if.then ], [ 8192, %sw.bb15 ], [ 4096, %sw.bb12 ], [ 1, %sw.bb8 ], [ 2, %if.end ], [ %., %if.else27 ], [ 8, %sw.bb36 ], [ 128, %if.else59 ], [ %.148, %sw.bb67 ], [ 128, %sw.bb74 ], [ 512, %sw.bb108 ], [ 512, %if.then115 ], [ 512, %if.then110 ], [ %.149, %if.else125 ], [ 2048, %sw.bb133 ]
+  %c.5 = phi i32 [ %c.0247, %while.body ], [ %call148, %if.end147 ], [ %call136, %if.then135 ], [ %call123, %if.then122 ], [ %call105, %if.then104 ], [ %call95, %if.end94 ], [ %call57, %if.end56 ], [ %call62, %if.then61 ], [ %call39, %if.then38 ], [ %call21, %if.then20 ], [ %call25, %if.then24 ], [ %call5, %if.then ], [ %call16, %sw.bb15 ], [ %call13, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %c.0247, %if.end ], [ %c.0247, %if.else27 ], [ %c.0247, %sw.bb36 ], [ %c.0247, %if.else59 ], [ %c.0247, %sw.bb67 ], [ %c.0247, %sw.bb74 ], [ %c.0247, %sw.bb108 ], [ %call116, %if.then115 ], [ %call111, %if.then110 ], [ %c.0247, %if.else125 ], [ %c.0247, %sw.bb133 ]
   %cmp.not = icmp ne i32 %c.5, -1
   %cmp2.not = icmp sle i32 %nFieldCount.5, %nMaxFieldWidth
   %or.cond146.not188 = select i1 %cmp.not, i1 %cmp2.not, i1 false
   %and = and i32 %state.1, 49152
   %tobool.not = icmp eq i32 %and, 0
   %or.cond147 = select i1 %or.cond146.not188, i1 %tobool.not, i1 false
-  br i1 %or.cond147, label %while.body, label %while.end236.loopexit.loopexit, !llvm.loop !41
+  br i1 %or.cond147, label %while.body, label %while.end236, !llvm.loop !41
 
-while.end236.loopexit.loopexit:                   ; preds = %sw.epilog235, %sw.bb99, %sw.bb140
-  %c.5329.ph = phi i32 [ %c.5, %sw.epilog235 ], [ %c.0248, %sw.bb140 ], [ %c.0248, %sw.bb99 ]
-  %state.1328.ph = phi i32 [ %state.1, %sw.epilog235 ], [ 16384, %sw.bb140 ], [ 16384, %sw.bb99 ]
-  %bExponentNegative.2327.ph = phi i1 [ %bExponentNegative.2, %sw.epilog235 ], [ %bExponentNegative.0246, %sw.bb140 ], [ %bExponentNegative.0246, %sw.bb99 ]
-  %bNegative.2326.ph = phi i8 [ %bNegative.2, %sw.epilog235 ], [ %bNegative.0245, %sw.bb140 ], [ %bNegative.0245, %sw.bb99 ]
-  %nExponentAdd.3325.ph = phi i32 [ %nExponentAdd.3, %sw.epilog235 ], [ %nExponentAdd.0244, %sw.bb140 ], [ %nExponentAdd.0244, %sw.bb99 ]
-  %nExponent.1324.ph = phi i32 [ %nExponent.1, %sw.epilog235 ], [ %nExponent.0243, %sw.bb140 ], [ %nExponent.0243, %sw.bb99 ]
-  %nFieldCount.5323.ph = phi i32 [ %nFieldCount.5, %sw.epilog235 ], [ %nFieldCount.0242, %sw.bb140 ], [ %nFieldCount.0242, %sw.bb99 ]
-  %nSpaceCount.1322.ph = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ %nSpaceCount.0240, %sw.bb140 ], [ %nSpaceCount.0240, %sw.bb99 ]
-  %37 = and i32 %state.1328.ph, 19564
-  %38 = icmp eq i32 %37, 0
-  br label %while.end236.loopexit
-
-while.end236.loopexit:                            ; preds = %while.end236.loopexit.loopexit, %while.end197, %while.end218, %while.end
-  %c.5329 = phi i32 [ %c.3229, %while.end197 ], [ %c.4.lcssa, %while.end218 ], [ %c.2235, %while.end ], [ %c.5329.ph, %while.end236.loopexit.loopexit ]
-  %state.1328 = phi i1 [ true, %while.end197 ], [ true, %while.end218 ], [ true, %while.end ], [ %38, %while.end236.loopexit.loopexit ]
-  %bExponentNegative.2327 = phi i1 [ %bExponentNegative.0246, %while.end197 ], [ %bExponentNegative.0246, %while.end218 ], [ %bExponentNegative.0246, %while.end ], [ %bExponentNegative.2327.ph, %while.end236.loopexit.loopexit ]
-  %bNegative.2326 = phi i8 [ %bNegative.0245, %while.end197 ], [ %bNegative.0245, %while.end218 ], [ %bNegative.0245, %while.end ], [ %bNegative.2326.ph, %while.end236.loopexit.loopexit ]
-  %nExponentAdd.3325 = phi i32 [ %nExponentAdd.0244, %while.end197 ], [ %nExponentAdd.0244, %while.end218 ], [ %nExponentAdd.0244, %while.end ], [ %nExponentAdd.3325.ph, %while.end236.loopexit.loopexit ]
-  %nExponent.1324 = phi i32 [ %nExponent.0243, %while.end197 ], [ %nExponent.0243, %while.end218 ], [ %nExponent.0243, %while.end ], [ %nExponent.1324.ph, %while.end236.loopexit.loopexit ]
-  %nFieldCount.5323 = phi i32 [ %nFieldCount.3228, %while.end197 ], [ %nFieldCount.4.lcssa, %while.end218 ], [ %nFieldCount.2234, %while.end ], [ %nFieldCount.5323.ph, %while.end236.loopexit.loopexit ]
-  %nSpaceCount.1322 = phi i32 [ %nSpaceCount.0240, %while.end197 ], [ %nSpaceCount.0240, %while.end218 ], [ %nSpaceCount.0240, %while.end ], [ %nSpaceCount.1322.ph, %while.end236.loopexit.loopexit ]
+while.end236:                                     ; preds = %sw.bb140, %sw.bb99, %sw.epilog235, %while.end197, %while.end218, %while.end
+  %c.5328 = phi i32 [ %c.3228, %while.end197 ], [ %c.4.lcssa, %while.end218 ], [ %c.2234, %while.end ], [ %c.0247, %sw.bb99 ], [ %c.0247, %sw.bb140 ], [ %c.5, %sw.epilog235 ]
+  %state.1327 = phi i32 [ 32768, %while.end197 ], [ 32768, %while.end218 ], [ 32768, %while.end ], [ 16384, %sw.bb99 ], [ 16384, %sw.bb140 ], [ %state.1, %sw.epilog235 ]
+  %bExponentNegative.2326 = phi i1 [ %bExponentNegative.0245, %while.end197 ], [ %bExponentNegative.0245, %while.end218 ], [ %bExponentNegative.0245, %while.end ], [ %bExponentNegative.0245, %sw.bb99 ], [ %bExponentNegative.0245, %sw.bb140 ], [ %bExponentNegative.2, %sw.epilog235 ]
+  %bNegative.2325 = phi i8 [ %bNegative.0244, %while.end197 ], [ %bNegative.0244, %while.end218 ], [ %bNegative.0244, %while.end ], [ %bNegative.0244, %sw.bb99 ], [ %bNegative.0244, %sw.bb140 ], [ %bNegative.2, %sw.epilog235 ]
+  %nExponentAdd.3324 = phi i32 [ %nExponentAdd.0243, %while.end197 ], [ %nExponentAdd.0243, %while.end218 ], [ %nExponentAdd.0243, %while.end ], [ %nExponentAdd.0243, %sw.bb99 ], [ %nExponentAdd.0243, %sw.bb140 ], [ %nExponentAdd.3, %sw.epilog235 ]
+  %nExponent.1323 = phi i32 [ %nExponent.0242, %while.end197 ], [ %nExponent.0242, %while.end218 ], [ %nExponent.0242, %while.end ], [ %nExponent.0242, %sw.bb99 ], [ %nExponent.0242, %sw.bb140 ], [ %nExponent.1, %sw.epilog235 ]
+  %nFieldCount.5322 = phi i32 [ %nFieldCount.3227, %while.end197 ], [ %nFieldCount.4.lcssa, %while.end218 ], [ %nFieldCount.2233, %while.end ], [ %nFieldCount.0241, %sw.bb99 ], [ %nFieldCount.0241, %sw.bb140 ], [ %nFieldCount.5, %sw.epilog235 ]
+  %nSpaceCount.1321 = phi i32 [ %nSpaceCount.0239, %while.end197 ], [ %nSpaceCount.0239, %while.end218 ], [ %nSpaceCount.0239, %while.end ], [ %nSpaceCount.0239, %sw.bb99 ], [ %nSpaceCount.0239, %sw.bb140 ], [ %nSpaceCount.1, %sw.epilog235 ]
+  %cond.fr359 = freeze i1 %bExponentNegative.2326
   %.pre = load i16, ptr %mSigLen.i, align 2
-  %39 = add i32 %nSpaceCount.1322, -1
-  %40 = freeze i1 %bExponentNegative.2327
-  %41 = trunc i8 %bNegative.2326 to i1
-  br label %while.end236
+  %state.1327.fr = freeze i32 %state.1327
+  %37 = and i32 %state.1327.fr, 19564
+  %38 = icmp eq i32 %37, 0
+  %bNegative.2325.fr = freeze i8 %bNegative.2325
+  %39 = trunc i8 %bNegative.2325.fr to i1
+  %call237 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.5328, ptr noundef %pContext)
+  %sub247358 = sub nsw i32 0, %nExponent.1323
+  br i1 %38, label %40, label %41
 
-while.end236:                                     ; preds = %while.end236.loopexit, %entry
-  %42 = phi i16 [ 0, %entry ], [ %.pre, %while.end236.loopexit ]
-  %nSpaceCount.0.lcssa = phi i32 [ -1, %entry ], [ %39, %while.end236.loopexit ]
-  %nFieldCount.0.lcssa = phi i32 [ 1, %entry ], [ %nFieldCount.5323, %while.end236.loopexit ]
-  %nExponent.0.lcssa = phi i32 [ 0, %entry ], [ %nExponent.1324, %while.end236.loopexit ]
-  %nExponentAdd.0.lcssa = phi i32 [ 0, %entry ], [ %nExponentAdd.3325, %while.end236.loopexit ]
-  %bNegative.0.lcssa = phi i1 [ false, %entry ], [ %41, %while.end236.loopexit ]
-  %bExponentNegative.0.lcssa = phi i1 [ false, %entry ], [ %40, %while.end236.loopexit ]
-  %state.0.lcssa = phi i1 [ true, %entry ], [ %state.1328, %while.end236.loopexit ]
-  %c.0.lcssa = phi i32 [ %call, %entry ], [ %c.5329, %while.end236.loopexit ]
-  %call237 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.0.lcssa, ptr noundef %pContext)
-  %add242 = add i32 %nSpaceCount.0.lcssa, %nFieldCount.0.lcssa
-  %storemerge = select i1 %state.0.lcssa, i32 0, i32 %add242
-  store i32 %storemerge, ptr %nReadCount, align 4
-  %sub247 = sub nsw i32 0, %nExponent.0.lcssa
-  %spec.select = select i1 %bExponentNegative.0.lcssa, i32 %sub247, i32 %nExponent.0.lcssa
-  %conv251 = sext i16 %42 to i32
-  %cmp254257 = icmp sgt i16 %42, 1
-  br i1 %cmp254257, label %land.rhs255.preheader, label %while.end265
+40:                                               ; preds = %while.end236
+  store i32 0, ptr %nReadCount, align 4
+  br i1 %cond.fr359, label %43, label %44
 
-land.rhs255.preheader:                            ; preds = %while.end236
-  %43 = zext nneg i32 %conv251 to i64
-  %44 = add i32 %nExponentAdd.0.lcssa, %conv251
-  %45 = add i32 %44, -1
+41:                                               ; preds = %while.end236
+  %42 = add i32 %nSpaceCount.1321, -1
+  %add242 = add i32 %42, %nFieldCount.5322
+  store i32 %add242, ptr %nReadCount, align 4
+  br i1 %cond.fr359, label %43, label %44
+
+43:                                               ; preds = %40, %41
+  br label %44
+
+44:                                               ; preds = %40, %41, %43
+  %45 = phi i32 [ %sub247358, %43 ], [ %nExponent.1323, %41 ], [ %nExponent.1323, %40 ]
+  %conv251 = sext i16 %.pre to i32
+  %cmp254256 = icmp sgt i16 %.pre, 1
+  br i1 %cmp254256, label %land.rhs255.preheader, label %while.end265
+
+land.rhs255.preheader:                            ; preds = %44
+  %46 = zext nneg i32 %conv251 to i64
+  %47 = add i32 %nExponentAdd.3324, %conv251
+  %48 = add i32 %47, -1
   br label %land.rhs255
 
 land.rhs255:                                      ; preds = %land.rhs255.preheader, %while.body262
-  %indvars.iv286 = phi i64 [ %43, %land.rhs255.preheader ], [ %indvars.iv.next287, %while.body262 ]
-  %nExponentAdd.4258 = phi i32 [ %nExponentAdd.0.lcssa, %land.rhs255.preheader ], [ %inc263, %while.body262 ]
-  %indvars.iv.next287 = add nsw i64 %indvars.iv286, -1
-  %arrayidx258 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv.next287
-  %46 = load i8, ptr %arrayidx258, align 1
-  %cmp260 = icmp eq i8 %46, 48
+  %indvars.iv285 = phi i64 [ %46, %land.rhs255.preheader ], [ %indvars.iv.next286, %while.body262 ]
+  %nExponentAdd.4257 = phi i32 [ %nExponentAdd.3324, %land.rhs255.preheader ], [ %inc263, %while.body262 ]
+  %indvars.iv.next286 = add nsw i64 %indvars.iv285, -1
+  %arrayidx258 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv.next286
+  %49 = load i8, ptr %arrayidx258, align 1
+  %cmp260 = icmp eq i8 %49, 48
   br i1 %cmp260, label %while.body262, label %if.then267.loopexit
 
 while.body262:                                    ; preds = %land.rhs255
-  %inc263 = add i32 %nExponentAdd.4258, 1
-  %exitcond289.not = icmp eq i32 %inc263, %45
-  br i1 %exitcond289.not, label %while.end265.loopexit, label %land.rhs255, !llvm.loop !42
+  %inc263 = add i32 %nExponentAdd.4257, 1
+  %exitcond288.not = icmp eq i32 %inc263, %48
+  br i1 %exitcond288.not, label %while.end265.loopexit, label %land.rhs255, !llvm.loop !42
 
 while.end265.loopexit:                            ; preds = %while.body262
-  %47 = trunc i64 %indvars.iv.next287 to i32
+  %50 = trunc i64 %indvars.iv.next286 to i32
   br label %while.end265
 
-while.end265:                                     ; preds = %while.end265.loopexit, %while.end236
-  %nExponentAdd.4.lcssa = phi i32 [ %nExponentAdd.0.lcssa, %while.end236 ], [ %45, %while.end265.loopexit ]
-  %i249.0.in.lcssa = phi i32 [ %conv251, %while.end236 ], [ %47, %while.end265.loopexit ]
+while.end265:                                     ; preds = %while.end265.loopexit, %44
+  %nExponentAdd.4.lcssa = phi i32 [ %nExponentAdd.3324, %44 ], [ %48, %while.end265.loopexit ]
+  %i249.0.in.lcssa = phi i32 [ %conv251, %44 ], [ %50, %while.end265.loopexit ]
   %cmp266 = icmp eq i32 %i249.0.in.lcssa, 1
   br i1 %cmp266, label %if.then267, label %if.else271
 
 if.then267.loopexit:                              ; preds = %land.rhs255
-  %48 = trunc i64 %indvars.iv286 to i32
+  %51 = trunc i64 %indvars.iv285 to i32
   br label %if.then267
 
 if.then267:                                       ; preds = %if.then267.loopexit, %while.end265
-  %nExponentAdd.4195 = phi i32 [ %nExponentAdd.4.lcssa, %while.end265 ], [ %nExponentAdd.4258, %if.then267.loopexit ]
-  %i249.0.in193 = phi i32 [ 1, %while.end265 ], [ %48, %if.then267.loopexit ]
-  %conv269 = trunc i32 %i249.0.in193 to i16
+  %nExponentAdd.4194 = phi i32 [ %nExponentAdd.4.lcssa, %while.end265 ], [ %nExponentAdd.4257, %if.then267.loopexit ]
+  %i249.0.in192 = phi i32 [ 1, %while.end265 ], [ %51, %if.then267.loopexit ]
+  %conv269 = trunc nuw nsw i32 %i249.0.in192 to i16
   store i16 %conv269, ptr %mSigLen.i, align 2
-  %add274 = add nsw i32 %nExponentAdd.4195, %spec.select
+  %add274 = add nsw i32 %nExponentAdd.4194, %45
   %conv275 = trunc i32 %add274 to i16
   store i16 %conv275, ptr %mExponent.i, align 2
   %sext = shl i32 %add274, 16
   %conv277 = ashr exact i32 %sext, 16
-  %49 = add nsw i32 %conv277, -309
-  %or.cond3 = icmp ult i32 %49, -616
+  %52 = add nsw i32 %conv277, -309
+  %or.cond3 = icmp ult i32 %52, -616
   br i1 %or.cond3, label %if.end284.thread, label %if.end284
 
 if.else271:                                       ; preds = %while.end265
   store i32 0, ptr %bOverflow, align 4
-  %cond = select i1 %bNegative.0.lcssa, double -0.000000e+00, double 0.000000e+00
+  br i1 %39, label %53, label %return
+
+53:                                               ; preds = %if.else271
   br label %return
 
 if.end284.thread:                                 ; preds = %if.then267
@@ -4595,16 +4594,16 @@ if.end284:                                        ; preds = %if.then267
   br i1 %tobool285.not, label %if.end293, label %if.then286
 
 if.then286:                                       ; preds = %if.end284.thread, %if.end284
-  br i1 %bExponentNegative.0.lcssa, label %return, label %if.else289
+  br i1 %cond.fr359, label %return, label %if.else289
 
 if.else289:                                       ; preds = %if.then286
-  %.152 = select i1 %bNegative.0.lcssa, double 0xFFF0000000000000, double 0x7FF0000000000000
+  %.152 = select i1 %39, double 0xFFF0000000000000, double 0x7FF0000000000000
   br label %return
 
 if.end293:                                        ; preds = %if.end284
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
-  %50 = add i16 %conv275, 6
-  %or.cond.i = icmp ult i16 %50, 18
+  %54 = add i16 %conv275, 6
+  %or.cond.i = icmp ult i16 %54, 18
   %cmp625.i = icmp sgt i16 %conv269, 0
   br i1 %or.cond.i, label %for.cond.preheader.i, label %for.cond15.preheader.i
 
@@ -4612,44 +4611,43 @@ for.cond15.preheader.i:                           ; preds = %if.end293
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i249.0.in193, 32767
-  %51 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %51, i1 false)
+  %conv17.i = and i32 %i249.0.in192, 32767
+  %55 = zext nneg i32 %i249.0.in192 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %55, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end293
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv269.mask190 = and i32 %i249.0.in193, 32767
-  %conv5.i = zext nneg i32 %conv269.mask190 to i64
+  %conv5.i = zext nneg i32 %i249.0.in192 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next32.i, %for.body.i ]
-  %result.026.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %53, %for.body.i ]
+  %result.026.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %57, %for.body.i ]
   %arrayidx.i185 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv31.i
-  %52 = load i8, ptr %arrayidx.i185, align 1
-  %conv7.i = sext i8 %52 to i32
+  %56 = load i8, ptr %arrayidx.i185, align 1
+  %conv7.i = sext i8 %56 to i32
   %sub.i = add nsw i32 %conv7.i, -48
   %conv8.i = sitofp i32 %sub.i to float
   %conv9.i = fpext float %conv8.i to double
-  %53 = tail call double @llvm.fmuladd.f64(double %result.026.i, double 1.000000e+01, double %conv9.i)
+  %57 = tail call double @llvm.fmuladd.f64(double %result.026.i, double 1.000000e+01, double %conv9.i)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next32.i, %conv5.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %53, %for.body.i ]
+  %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %57, %for.body.i ]
   %conv11.i = sext i16 %conv275 to i64
   %add.i = add nsw i64 %conv11.i, 6
   %arrayidx13.i = getelementptr inbounds [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
-  %54 = load double, ptr %arrayidx13.i, align 8
-  %mul.i = fmul double %result.0.lcssa.i, %54
+  %58 = load double, ptr %arrayidx13.i, align 8
+  %mul.i = fmul double %result.0.lcssa.i, %58
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
-if.then29.i:                                      ; preds = %for.cond15.preheader.i, %for.body19.preheader.i
-  %i14.0.lcssa.i = phi i32 [ %conv17.i, %for.body19.preheader.i ], [ 0, %for.cond15.preheader.i ]
+if.then29.i:                                      ; preds = %for.body19.preheader.i, %for.cond15.preheader.i
+  %i14.0.lcssa.i = phi i32 [ 0, %for.cond15.preheader.i ], [ %conv17.i, %for.body19.preheader.i ]
   %inc32.i = add nuw nsw i32 %i14.0.lcssa.i, 1
   %idxprom33.i = zext nneg i32 %i14.0.lcssa.i to i64
   %arrayidx34.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom33.i
@@ -4671,17 +4669,17 @@ if.end.i:                                         ; preds = %if.then36.i, %if.th
   %cmp44.inv.i = icmp slt i32 %e.0.i, 10
   %..i = select i1 %cmp44.inv.i, i32 1, i32 10
   %cmp41.inv.i = icmp slt i32 %e.0.i, 100
-  %55 = zext nneg i32 %i14.1.i to i64
-  %spec.select357 = select i1 %cmp41.inv.i, i32 %..i, i32 100
+  %59 = zext nneg i32 %i14.1.i to i64
+  %spec.select = select i1 %cmp41.inv.i, i32 %..i, i32 100
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %55, %if.end.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %59, %if.end.i ]
   %e.124.i = phi i32 [ %rem.i, %while.body.i ], [ %e.0.i, %if.end.i ]
-  %multiplier.123.i = phi i32 [ %div55.i, %while.body.i ], [ %spec.select357, %if.end.i ]
+  %multiplier.123.i = phi i32 [ %div55.i, %while.body.i ], [ %spec.select, %if.end.i ]
   %div.i = udiv i32 %e.124.i, %multiplier.123.i
-  %56 = trunc i32 %div.i to i8
-  %conv51.i = add i8 %56, 48
+  %60 = trunc i32 %div.i to i8
+  %conv51.i = add i8 %60, 48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx54.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %indvars.iv.i
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
@@ -4716,11 +4714,11 @@ if.end303.sink.split:                             ; preds = %if.else297, %_ZNK2E
 if.end303:                                        ; preds = %if.end303.sink.split, %if.else297
   %dValue.2 = phi double [ %retval.0.i, %if.else297 ], [ %dValue.2.ph, %if.end303.sink.split ]
   %fneg306 = fneg double %dValue.2
-  %dValue.3 = select i1 %bNegative.0.lcssa, double %fneg306, double %dValue.2
+  %dValue.3 = select i1 %39, double %fneg306, double %dValue.2
   br label %return
 
-return:                                           ; preds = %if.else289, %if.then286, %if.end303, %if.else271, %if.end224, %if.then171
-  %retval.0 = phi double [ %.151, %if.end224 ], [ %.150, %if.then171 ], [ %dValue.3, %if.end303 ], [ %cond, %if.else271 ], [ 0.000000e+00, %if.then286 ], [ %.152, %if.else289 ]
+return:                                           ; preds = %53, %if.else271, %if.else271.thread, %if.else289, %if.then286, %if.end303, %if.end224, %if.then171
+  %retval.0 = phi double [ %.151, %if.end224 ], [ %.150, %if.then171 ], [ %dValue.3, %if.end303 ], [ 0.000000e+00, %if.then286 ], [ %.152, %if.else289 ], [ -0.000000e+00, %53 ], [ 0.000000e+00, %if.else271 ], [ 0.000000e+00, %if.else271.thread ]
   ret double %retval.0
 }
 
@@ -5413,22 +5411,28 @@ entry:
   store i32 0, ptr %nReadCount, align 4
   store i32 0, ptr %bOverflow, align 4
   %call = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %cmp.not269 = icmp ne i32 %call, -1
-  %cmp2.not270 = icmp sgt i32 %nMaxFieldWidth, 0
-  %or.cond146.not218271 = and i1 %cmp.not269, %cmp2.not270
-  br i1 %or.cond146.not218271, label %while.body, label %while.end236
+  %cmp.not268 = icmp ne i32 %call, -1
+  %cmp2.not269 = icmp sgt i32 %nMaxFieldWidth, 0
+  %or.cond146.not218270 = and i1 %cmp.not268, %cmp2.not269
+  br i1 %or.cond146.not218270, label %while.body, label %if.else271.thread
+
+if.else271.thread:                                ; preds = %entry
+  %call237372 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %call, ptr noundef %pContext)
+  store i32 0, ptr %nReadCount, align 4
+  store i32 0, ptr %bOverflow, align 4
+  br label %return
 
 while.body:                                       ; preds = %entry, %sw.epilog235
-  %c.0280 = phi i32 [ %c.5, %sw.epilog235 ], [ %call, %entry ]
-  %state.0279 = phi i32 [ %state.1, %sw.epilog235 ], [ 1, %entry ]
-  %bExponentNegative.0278 = phi i1 [ %bExponentNegative.2, %sw.epilog235 ], [ false, %entry ]
-  %bNegative.0277 = phi i8 [ %bNegative.2, %sw.epilog235 ], [ 0, %entry ]
-  %nExponentAdd.0276 = phi i32 [ %nExponentAdd.3, %sw.epilog235 ], [ 0, %entry ]
-  %nExponent.0275 = phi i32 [ %nExponent.1, %sw.epilog235 ], [ 0, %entry ]
-  %nFieldCount.0274 = phi i32 [ %nFieldCount.5, %sw.epilog235 ], [ 1, %entry ]
-  %nSignCount.0273 = phi i32 [ %nSignCount.1, %sw.epilog235 ], [ 0, %entry ]
-  %nSpaceCount.0272 = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ 0, %entry ]
-  switch i32 %state.0279, label %sw.epilog235 [
+  %c.0279 = phi i32 [ %c.5, %sw.epilog235 ], [ %call, %entry ]
+  %state.0278 = phi i32 [ %state.1, %sw.epilog235 ], [ 1, %entry ]
+  %bExponentNegative.0277 = phi i1 [ %bExponentNegative.2, %sw.epilog235 ], [ false, %entry ]
+  %bNegative.0276 = phi i8 [ %bNegative.2, %sw.epilog235 ], [ 0, %entry ]
+  %nExponentAdd.0275 = phi i32 [ %nExponentAdd.3, %sw.epilog235 ], [ 0, %entry ]
+  %nExponent.0274 = phi i32 [ %nExponent.1, %sw.epilog235 ], [ 0, %entry ]
+  %nFieldCount.0273 = phi i32 [ %nFieldCount.5, %sw.epilog235 ], [ 1, %entry ]
+  %nSignCount.0272 = phi i32 [ %nSignCount.1, %sw.epilog235 ], [ 0, %entry ]
+  %nSpaceCount.0271 = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ 0, %entry ]
+  switch i32 %state.0278, label %sw.epilog235 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb18
     i32 4, label %sw.bb36
@@ -5445,16 +5449,16 @@ while.body:                                       ; preds = %entry, %sw.epilog23
   ]
 
 land.rhs184.preheader:                            ; preds = %while.body
-  %0 = add i32 %nFieldCount.0274, 3
+  %0 = add i32 %nFieldCount.0273, 3
   br label %land.rhs184
 
 sw.bb:                                            ; preds = %while.body
-  %1 = and i32 %c.0280, 65280
+  %1 = and i32 %c.0279, 65280
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %_ZN2EA4StdC7IsspaceEDs.exit, label %if.end
 
 _ZN2EA4StdC7IsspaceEDs.exit:                      ; preds = %sw.bb
-  %conv.mask = and i32 %c.0280, 255
+  %conv.mask = and i32 %c.0279, 255
   %conv.i = zext nneg i32 %conv.mask to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -5464,11 +5468,11 @@ _ZN2EA4StdC7IsspaceEDs.exit:                      ; preds = %sw.bb
 
 if.then:                                          ; preds = %_ZN2EA4StdC7IsspaceEDs.exit
   %call5 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc6 = add nsw i32 %nSpaceCount.0272, 1
+  %inc6 = add nsw i32 %nSpaceCount.0271, 1
   br label %sw.epilog235
 
 if.end:                                           ; preds = %sw.bb, %_ZN2EA4StdC7IsspaceEDs.exit
-  switch i32 %c.0280, label %sw.epilog235 [
+  switch i32 %c.0279, label %sw.epilog235 [
     i32 45, label %sw.bb7
     i32 43, label %sw.bb8
     i32 105, label %sw.bb12
@@ -5481,58 +5485,58 @@ sw.bb7:                                           ; preds = %if.end
   br label %sw.bb8
 
 sw.bb8:                                           ; preds = %sw.bb7, %if.end
-  %bNegative.1 = phi i8 [ %bNegative.0277, %if.end ], [ 1, %sw.bb7 ]
+  %bNegative.1 = phi i8 [ %bNegative.0276, %if.end ], [ 1, %sw.bb7 ]
   %call9 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc10 = add nsw i32 %nFieldCount.0274, 1
-  %inc11 = add nsw i32 %nSignCount.0273, 1
+  %inc10 = add nsw i32 %nFieldCount.0273, 1
+  %inc11 = add nsw i32 %nSignCount.0272, 1
   br label %sw.epilog235
 
 sw.bb12:                                          ; preds = %if.end, %if.end
   %call13 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc14 = add nsw i32 %nFieldCount.0274, 1
+  %inc14 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb15:                                          ; preds = %if.end, %if.end
   %call16 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc17 = add nsw i32 %nFieldCount.0274, 1
+  %inc17 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb18:                                          ; preds = %while.body
-  %cmp19 = icmp eq i32 %c.0280, %cDecimalPoint
+  %cmp19 = icmp eq i32 %c.0279, %cDecimalPoint
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %sw.bb18
   %call21 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc22 = add nsw i32 %nFieldCount.0274, 1
+  %inc22 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 if.else:                                          ; preds = %sw.bb18
-  %cmp23 = icmp eq i32 %c.0280, 48
+  %cmp23 = icmp eq i32 %c.0279, 48
   br i1 %cmp23, label %if.then24, label %if.else27
 
 if.then24:                                        ; preds = %if.else
   %call25 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc26 = add nsw i32 %nFieldCount.0274, 1
+  %inc26 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 if.else27:                                        ; preds = %if.else
-  %conv.i153 = and i32 %c.0280, 65534
+  %conv.i153 = and i32 %c.0279, 65534
   %4 = add nsw i32 %conv.i153, -58
   %cmp.i154 = icmp ult i32 %4, -10
   %. = select i1 %cmp.i154, i32 32768, i32 8
   br label %sw.epilog235
 
 sw.bb36:                                          ; preds = %while.body
-  %cmp37 = icmp eq i32 %c.0280, 48
+  %cmp37 = icmp eq i32 %c.0279, 48
   br i1 %cmp37, label %if.then38, label %sw.epilog235
 
 if.then38:                                        ; preds = %sw.bb36
   %call39 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc40 = add nsw i32 %nFieldCount.0274, 1
+  %inc40 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb43:                                          ; preds = %while.body
-  %conv.i156 = and i32 %c.0280, 65534
+  %conv.i156 = and i32 %c.0279, 65534
   %5 = add nsw i32 %conv.i156, -58
   %cmp.i158 = icmp ult i32 %5, -10
   br i1 %cmp.i158, label %if.else59, label %if.then47
@@ -5543,7 +5547,7 @@ if.then47:                                        ; preds = %sw.bb43
   br i1 %cmp49, label %if.then50, label %if.else54
 
 if.then50:                                        ; preds = %if.then47
-  %conv51 = trunc i32 %c.0280 to i8
+  %conv51 = trunc i32 %c.0279 to i8
   %inc53 = add nsw i16 %6, 1
   store i16 %inc53, ptr %mSigLen.i, align 2
   %idxprom = sext i16 %6 to i64
@@ -5552,33 +5556,33 @@ if.then50:                                        ; preds = %if.then47
   br label %if.end56
 
 if.else54:                                        ; preds = %if.then47
-  %inc55 = add nsw i32 %nExponentAdd.0276, 1
+  %inc55 = add nsw i32 %nExponentAdd.0275, 1
   br label %if.end56
 
 if.end56:                                         ; preds = %if.else54, %if.then50
-  %nExponentAdd.1 = phi i32 [ %nExponentAdd.0276, %if.then50 ], [ %inc55, %if.else54 ]
+  %nExponentAdd.1 = phi i32 [ %nExponentAdd.0275, %if.then50 ], [ %inc55, %if.else54 ]
   %call57 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc58 = add nsw i32 %nFieldCount.0274, 1
+  %inc58 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 if.else59:                                        ; preds = %sw.bb43
-  %cmp60 = icmp eq i32 %c.0280, %cDecimalPoint
+  %cmp60 = icmp eq i32 %c.0279, %cDecimalPoint
   br i1 %cmp60, label %if.then61, label %sw.epilog235
 
 if.then61:                                        ; preds = %if.else59
   %call62 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc63 = add nsw i32 %nFieldCount.0274, 1
+  %inc63 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb67:                                          ; preds = %while.body
-  %conv.i160 = and i32 %c.0280, 65534
+  %conv.i160 = and i32 %c.0279, 65534
   %7 = add nsw i32 %conv.i160, -58
   %cmp.i162 = icmp ult i32 %7, -10
   %.148 = select i1 %cmp.i162, i32 32768, i32 64
   br label %sw.epilog235
 
 sw.bb74:                                          ; preds = %while.body
-  %conv.i164 = and i32 %c.0280, 65534
+  %conv.i164 = and i32 %c.0279, 65534
   %8 = add nsw i32 %conv.i164, -58
   %cmp.i166 = icmp ult i32 %8, -10
   br i1 %cmp.i166, label %sw.epilog235, label %if.then78
@@ -5589,14 +5593,14 @@ if.then78:                                        ; preds = %sw.bb74
   br i1 %cmp81, label %if.then82, label %if.end94
 
 if.then82:                                        ; preds = %if.then78
-  %dec = add nsw i32 %nExponentAdd.0276, -1
-  %cmp83 = icmp ne i32 %c.0280, 48
+  %dec = add nsw i32 %nExponentAdd.0275, -1
+  %cmp83 = icmp ne i32 %c.0279, 48
   %tobool85 = icmp ne i16 %9, 0
   %or.cond = or i1 %cmp83, %tobool85
   br i1 %or.cond, label %if.then86, label %if.end94
 
 if.then86:                                        ; preds = %if.then82
-  %conv87 = trunc i32 %c.0280 to i8
+  %conv87 = trunc i32 %c.0279 to i8
   %inc90 = add nsw i16 %9, 1
   store i16 %inc90, ptr %mSigLen.i, align 2
   %idxprom91 = sext i16 %9 to i64
@@ -5605,80 +5609,80 @@ if.then86:                                        ; preds = %if.then82
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then86, %if.then82, %if.then78
-  %nExponentAdd.2 = phi i32 [ %dec, %if.then86 ], [ %dec, %if.then82 ], [ %nExponentAdd.0276, %if.then78 ]
+  %nExponentAdd.2 = phi i32 [ %dec, %if.then86 ], [ %dec, %if.then82 ], [ %nExponentAdd.0275, %if.then78 ]
   %call95 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc96 = add nsw i32 %nFieldCount.0274, 1
+  %inc96 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb99:                                          ; preds = %while.body
-  %10 = and i32 %c.0280, 65280
+  %10 = and i32 %c.0279, 65280
   %cmp.i168 = icmp eq i32 %10, 0
-  br i1 %cmp.i168, label %_ZN2EA4StdC7ToupperEDs.exit, label %while.end236.loopexit.loopexit395
+  br i1 %cmp.i168, label %_ZN2EA4StdC7ToupperEDs.exit, label %while.end236
 
 _ZN2EA4StdC7ToupperEDs.exit:                      ; preds = %sw.bb99
-  %conv100.mask = and i32 %c.0280, 255
+  %conv100.mask = and i32 %c.0279, 255
   %conv.i171 = zext nneg i32 %conv100.mask to i64
   %arrayidx.i172 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv.i171
   %11 = load i8, ptr %arrayidx.i172, align 1
   %cmp103 = icmp eq i8 %11, 69
-  br i1 %cmp103, label %if.then104, label %while.end236.loopexit.loopexit395
+  br i1 %cmp103, label %if.then104, label %while.end236
 
 if.then104:                                       ; preds = %_ZN2EA4StdC7ToupperEDs.exit
   %call105 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc106 = add nsw i32 %nFieldCount.0274, 1
+  %inc106 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb108:                                         ; preds = %while.body
-  switch i32 %c.0280, label %sw.epilog235 [
+  switch i32 %c.0279, label %sw.epilog235 [
     i32 43, label %if.then110
     i32 45, label %if.then115
   ]
 
 if.then110:                                       ; preds = %sw.bb108
   %call111 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc112 = add nsw i32 %nFieldCount.0274, 1
+  %inc112 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 if.then115:                                       ; preds = %sw.bb108
   %call116 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc117 = add nsw i32 %nFieldCount.0274, 1
+  %inc117 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb120:                                         ; preds = %while.body
-  %cmp121 = icmp eq i32 %c.0280, 48
+  %cmp121 = icmp eq i32 %c.0279, 48
   br i1 %cmp121, label %if.then122, label %if.else125
 
 if.then122:                                       ; preds = %sw.bb120
   %call123 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc124 = add nsw i32 %nFieldCount.0274, 1
+  %inc124 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 if.else125:                                       ; preds = %sw.bb120
-  %conv.i173 = and i32 %c.0280, 65534
+  %conv.i173 = and i32 %c.0279, 65534
   %12 = add nsw i32 %conv.i173, -58
   %cmp.i175 = icmp ult i32 %12, -10
   %.149 = select i1 %cmp.i175, i32 32768, i32 2048
   br label %sw.epilog235
 
 sw.bb133:                                         ; preds = %while.body
-  %cmp134 = icmp eq i32 %c.0280, 48
+  %cmp134 = icmp eq i32 %c.0279, 48
   br i1 %cmp134, label %if.then135, label %sw.epilog235
 
 if.then135:                                       ; preds = %sw.bb133
   %call136 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc137 = add nsw i32 %nFieldCount.0274, 1
+  %inc137 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 sw.bb140:                                         ; preds = %while.body
-  %conv.i177 = and i32 %c.0280, 65534
+  %conv.i177 = and i32 %c.0279, 65534
   %13 = add nsw i32 %conv.i177, -58
   %cmp.i179 = icmp ult i32 %13, -10
-  br i1 %cmp.i179, label %while.end236.loopexit.loopexit395, label %if.then144
+  br i1 %cmp.i179, label %while.end236, label %if.then144
 
 if.then144:                                       ; preds = %sw.bb140
-  %mul = mul nsw i32 %nExponent.0275, 10
+  %mul = mul nsw i32 %nExponent.0274, 10
   %sub = add i32 %mul, -48
-  %add = add i32 %sub, %c.0280
+  %add = add i32 %sub, %c.0279
   %cmp145 = icmp sgt i32 %add, 308
   br i1 %cmp145, label %if.then146, label %if.end147
 
@@ -5688,19 +5692,19 @@ if.then146:                                       ; preds = %if.then144
 
 if.end147:                                        ; preds = %if.then146, %if.then144
   %call148 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc149 = add nsw i32 %nFieldCount.0274, 1
+  %inc149 = add nsw i32 %nFieldCount.0273, 1
   br label %sw.epilog235
 
 land.rhs155:                                      ; preds = %while.body, %while.body164
-  %indvars.iv316 = phi i64 [ %indvars.iv.next317, %while.body164 ], [ 1, %while.body ]
-  %c.2267 = phi i32 [ %call166, %while.body164 ], [ %c.0280, %while.body ]
-  %nFieldCount.2266 = phi i32 [ %inc167, %while.body164 ], [ %nFieldCount.0274, %while.body ]
-  %14 = and i32 %c.2267, 65280
+  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %while.body164 ], [ 1, %while.body ]
+  %c.2266 = phi i32 [ %call166, %while.body164 ], [ %c.0279, %while.body ]
+  %nFieldCount.2265 = phi i32 [ %inc167, %while.body164 ], [ %nFieldCount.0273, %while.body ]
+  %14 = and i32 %c.2266, 65280
   %cmp.i181 = icmp eq i32 %14, 0
   br i1 %cmp.i181, label %cond.true.i183, label %_ZN2EA4StdC7ToupperEDs.exit187
 
 cond.true.i183:                                   ; preds = %land.rhs155
-  %conv156.mask = and i32 %c.2267, 255
+  %conv156.mask = and i32 %c.2266, 255
   %conv.i184 = zext nneg i32 %conv156.mask to i64
   %arrayidx.i185 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv.i184
   %15 = load i8, ptr %arrayidx.i185, align 1
@@ -5708,47 +5712,47 @@ cond.true.i183:                                   ; preds = %land.rhs155
   br label %_ZN2EA4StdC7ToupperEDs.exit187
 
 _ZN2EA4StdC7ToupperEDs.exit187:                   ; preds = %land.rhs155, %cond.true.i183
-  %cond.i182 = phi i32 [ %conv1.i186, %cond.true.i183 ], [ %c.2267, %land.rhs155 ]
+  %cond.i182 = phi i32 [ %conv1.i186, %cond.true.i183 ], [ %c.2266, %land.rhs155 ]
   %conv158 = and i32 %cond.i182, 65535
-  %arrayidx160 = getelementptr inbounds [9 x i8], ptr @.str, i64 0, i64 %indvars.iv316
+  %arrayidx160 = getelementptr inbounds [9 x i8], ptr @.str, i64 0, i64 %indvars.iv315
   %16 = load i8, ptr %arrayidx160, align 1
   %conv161 = sext i8 %16 to i32
   %cmp162 = icmp eq i32 %conv158, %conv161
   br i1 %cmp162, label %while.body164, label %while.end
 
 while.body164:                                    ; preds = %_ZN2EA4StdC7ToupperEDs.exit187
-  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
+  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %call166 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc167 = add nsw i32 %nFieldCount.2266, 1
-  %exitcond319.not = icmp eq i64 %indvars.iv.next317, 8
-  br i1 %exitcond319.not, label %if.then171, label %land.rhs155, !llvm.loop !47
+  %inc167 = add nsw i32 %nFieldCount.2265, 1
+  %exitcond318.not = icmp eq i64 %indvars.iv.next316, 8
+  br i1 %exitcond318.not, label %if.then171, label %land.rhs155, !llvm.loop !47
 
 while.end:                                        ; preds = %_ZN2EA4StdC7ToupperEDs.exit187
-  %17 = trunc i64 %indvars.iv316 to i32
-  switch i32 %17, label %while.end236.loopexit [
+  %17 = trunc i64 %indvars.iv315 to i32
+  switch i32 %17, label %while.end236 [
     i32 8, label %if.then171
     i32 3, label %if.then171
   ]
 
 if.then171:                                       ; preds = %while.body164, %while.end, %while.end
-  %i.0.lcssa327 = phi i32 [ %17, %while.end ], [ %17, %while.end ], [ 8, %while.body164 ]
-  %tobool172 = trunc i8 %bNegative.0277 to i1
+  %i.0.lcssa326 = phi i32 [ %17, %while.end ], [ %17, %while.end ], [ 8, %while.body164 ]
+  %tobool172 = trunc nuw i8 %bNegative.0276 to i1
   %.150 = select i1 %tobool172, double 0xFFF0000000000000, double 0x7FF0000000000000
-  %add176 = add nsw i32 %nSignCount.0273, %nSpaceCount.0272
-  %add177 = add nsw i32 %add176, %i.0.lcssa327
+  %add176 = add nsw i32 %nSignCount.0272, %nSpaceCount.0271
+  %add177 = add nsw i32 %add176, %i.0.lcssa326
   store i32 %add177, ptr %nReadCount, align 4
   br label %return
 
 land.rhs184:                                      ; preds = %land.rhs184.preheader, %while.body193
   %indvars.iv = phi i64 [ 1, %land.rhs184.preheader ], [ %indvars.iv.next, %while.body193 ]
-  %c.3261 = phi i32 [ %c.0280, %land.rhs184.preheader ], [ %call194, %while.body193 ]
-  %nFieldCount.3260 = phi i32 [ %nFieldCount.0274, %land.rhs184.preheader ], [ %inc195, %while.body193 ]
-  %18 = and i32 %c.3261, 65280
+  %c.3260 = phi i32 [ %c.0279, %land.rhs184.preheader ], [ %call194, %while.body193 ]
+  %nFieldCount.3259 = phi i32 [ %nFieldCount.0273, %land.rhs184.preheader ], [ %inc195, %while.body193 ]
+  %18 = and i32 %c.3260, 65280
   %cmp.i188 = icmp eq i32 %18, 0
   br i1 %cmp.i188, label %cond.true.i190, label %_ZN2EA4StdC7ToupperEDs.exit194
 
 cond.true.i190:                                   ; preds = %land.rhs184
-  %conv185.mask = and i32 %c.3261, 255
+  %conv185.mask = and i32 %c.3260, 255
   %conv.i191 = zext nneg i32 %conv185.mask to i64
   %arrayidx.i192 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv.i191
   %19 = load i8, ptr %arrayidx.i192, align 1
@@ -5756,7 +5760,7 @@ cond.true.i190:                                   ; preds = %land.rhs184
   br label %_ZN2EA4StdC7ToupperEDs.exit194
 
 _ZN2EA4StdC7ToupperEDs.exit194:                   ; preds = %land.rhs184, %cond.true.i190
-  %cond.i189 = phi i32 [ %conv1.i193, %cond.true.i190 ], [ %c.3261, %land.rhs184 ]
+  %cond.i189 = phi i32 [ %conv1.i193, %cond.true.i190 ], [ %c.3260, %land.rhs184 ]
   %conv187 = and i32 %cond.i189, 65535
   %arrayidx189 = getelementptr inbounds [5 x i8], ptr @.str.1, i64 0, i64 %indvars.iv
   %20 = load i8, ptr %arrayidx189, align 1
@@ -5766,7 +5770,7 @@ _ZN2EA4StdC7ToupperEDs.exit194:                   ; preds = %land.rhs184, %cond.
 
 while.body193:                                    ; preds = %_ZN2EA4StdC7ToupperEDs.exit194
   %call194 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc195 = add nsw i32 %nFieldCount.3260, 1
+  %inc195 = add nsw i32 %nFieldCount.3259, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %land.rhs206.preheader, label %land.rhs184, !llvm.loop !48
@@ -5775,34 +5779,34 @@ while.end197:                                     ; preds = %_ZN2EA4StdC7Toupper
   %21 = trunc i64 %indvars.iv to i32
   %22 = add nsw i32 %21, -3
   %or.cond2 = icmp ult i32 %22, 2
-  br i1 %or.cond2, label %if.then201, label %while.end236.loopexit
+  br i1 %or.cond2, label %if.then201, label %while.end236
 
 if.then201:                                       ; preds = %while.end197
   %cmp200 = icmp eq i32 %21, 4
   br i1 %cmp200, label %land.rhs206.preheader, label %if.end224
 
 land.rhs206.preheader:                            ; preds = %while.body193, %if.then201
-  %nFieldCount.3.lcssa332340 = phi i32 [ %nFieldCount.3260, %if.then201 ], [ %0, %while.body193 ]
-  %c.3.lcssa333339 = phi i32 [ %c.3261, %if.then201 ], [ %call194, %while.body193 ]
-  %23 = add i32 %nFieldCount.3.lcssa332340, 32
+  %nFieldCount.3.lcssa331339 = phi i32 [ %nFieldCount.3259, %if.then201 ], [ %0, %while.body193 ]
+  %c.3.lcssa332338 = phi i32 [ %c.3260, %if.then201 ], [ %call194, %while.body193 ]
+  %23 = add i32 %nFieldCount.3.lcssa331339, 32
   br label %land.rhs206
 
 land.rhs206:                                      ; preds = %land.rhs206.preheader, %while.body214
-  %j.0265 = phi i32 [ %inc217, %while.body214 ], [ 0, %land.rhs206.preheader ]
-  %c.4264 = phi i32 [ %call215, %while.body214 ], [ %c.3.lcssa333339, %land.rhs206.preheader ]
-  %nFieldCount.4263 = phi i32 [ %inc216, %while.body214 ], [ %nFieldCount.3.lcssa332340, %land.rhs206.preheader ]
-  %conv.i195 = and i32 %c.4264, 65534
+  %j.0264 = phi i32 [ %inc217, %while.body214 ], [ 0, %land.rhs206.preheader ]
+  %c.4263 = phi i32 [ %call215, %while.body214 ], [ %c.3.lcssa332338, %land.rhs206.preheader ]
+  %nFieldCount.4262 = phi i32 [ %inc216, %while.body214 ], [ %nFieldCount.3.lcssa331339, %land.rhs206.preheader ]
+  %conv.i195 = and i32 %c.4263, 65534
   %24 = add nsw i32 %conv.i195, -58
   %cmp.i197 = icmp ult i32 %24, -10
   br i1 %cmp.i197, label %lor.rhs, label %while.body214
 
 lor.rhs:                                          ; preds = %land.rhs206
-  %25 = and i32 %c.4264, 65280
+  %25 = and i32 %c.4263, 65280
   %cmp.i199 = icmp eq i32 %25, 0
-  br i1 %cmp.i199, label %_ZN2EA4StdC7IsalphaEDs.exit, label %while.end236.loopexit
+  br i1 %cmp.i199, label %_ZN2EA4StdC7IsalphaEDs.exit, label %while.end236
 
 _ZN2EA4StdC7IsalphaEDs.exit:                      ; preds = %lor.rhs
-  %conv207.mask = and i32 %c.4264, 255
+  %conv207.mask = and i32 %c.4263, 255
   %conv.i202 = zext nneg i32 %conv207.mask to i64
   %arrayidx.i203 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i202
   %26 = load i8, ptr %arrayidx.i203, align 1
@@ -5811,150 +5815,143 @@ _ZN2EA4StdC7IsalphaEDs.exit:                      ; preds = %lor.rhs
 
 while.body214:                                    ; preds = %land.rhs206, %_ZN2EA4StdC7IsalphaEDs.exit
   %call215 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc216 = add nsw i32 %nFieldCount.4263, 1
-  %inc217 = add nuw nsw i32 %j.0265, 1
-  %exitcond315.not = icmp eq i32 %inc217, 32
-  br i1 %exitcond315.not, label %while.end218, label %land.rhs206, !llvm.loop !49
+  %inc216 = add nsw i32 %nFieldCount.4262, 1
+  %inc217 = add nuw nsw i32 %j.0264, 1
+  %exitcond314.not = icmp eq i32 %inc217, 32
+  br i1 %exitcond314.not, label %while.end218, label %land.rhs206, !llvm.loop !49
 
 while.end218:                                     ; preds = %while.body214, %_ZN2EA4StdC7IsalphaEDs.exit
-  %nFieldCount.4.lcssa = phi i32 [ %23, %while.body214 ], [ %nFieldCount.4263, %_ZN2EA4StdC7IsalphaEDs.exit ]
-  %c.4.lcssa = phi i32 [ %call215, %while.body214 ], [ %c.4264, %_ZN2EA4StdC7IsalphaEDs.exit ]
-  %j.0.lcssa = phi i32 [ 32, %while.body214 ], [ %j.0265, %_ZN2EA4StdC7IsalphaEDs.exit ]
+  %nFieldCount.4.lcssa = phi i32 [ %23, %while.body214 ], [ %nFieldCount.4262, %_ZN2EA4StdC7IsalphaEDs.exit ]
+  %c.4.lcssa = phi i32 [ %call215, %while.body214 ], [ %c.4263, %_ZN2EA4StdC7IsalphaEDs.exit ]
+  %j.0.lcssa = phi i32 [ 32, %while.body214 ], [ %j.0264, %_ZN2EA4StdC7IsalphaEDs.exit ]
   %cmp219.not = icmp eq i32 %c.4.lcssa, 41
-  br i1 %cmp219.not, label %if.else221, label %while.end236.loopexit
+  br i1 %cmp219.not, label %if.else221, label %while.end236
 
 if.else221:                                       ; preds = %while.end218
   %inc222 = add nuw nsw i32 %j.0.lcssa, 1
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then201, %if.else221
-  %i181.0.lcssa301 = phi i32 [ 4, %if.else221 ], [ 3, %if.then201 ]
+  %i181.0.lcssa300 = phi i32 [ 4, %if.else221 ], [ 3, %if.then201 ]
   %j.1 = phi i32 [ %inc222, %if.else221 ], [ 0, %if.then201 ]
-  %tobool225 = trunc i8 %bNegative.0277 to i1
+  %tobool225 = trunc nuw i8 %bNegative.0276 to i1
   %.151 = select i1 %tobool225, double 0xFFFFFFFFFFFFFFFF, double 0x7FFFFFFFFFFFFFFF
-  %add230 = add nsw i32 %nSignCount.0273, %nSpaceCount.0272
-  %add231 = add nsw i32 %add230, %i181.0.lcssa301
+  %add230 = add nsw i32 %nSignCount.0272, %nSpaceCount.0271
+  %add231 = add nsw i32 %add230, %i181.0.lcssa300
   %add232 = add nsw i32 %add231, %j.1
   store i32 %add232, ptr %nReadCount, align 4
   br label %return
 
 sw.epilog235:                                     ; preds = %sw.bb133, %if.else125, %if.then110, %if.then115, %sw.bb108, %sw.bb74, %sw.bb67, %if.else59, %sw.bb36, %if.else27, %if.end, %if.end147, %if.then135, %if.then122, %if.end94, %if.end56, %if.then61, %if.then38, %if.then20, %if.then24, %sw.bb8, %sw.bb12, %sw.bb15, %if.then104, %if.then, %while.body
-  %nSpaceCount.1 = phi i32 [ %nSpaceCount.0272, %while.body ], [ %nSpaceCount.0272, %if.end147 ], [ %nSpaceCount.0272, %if.then135 ], [ %nSpaceCount.0272, %if.then122 ], [ %nSpaceCount.0272, %if.then104 ], [ %nSpaceCount.0272, %if.end94 ], [ %nSpaceCount.0272, %if.end56 ], [ %nSpaceCount.0272, %if.then61 ], [ %nSpaceCount.0272, %if.then38 ], [ %nSpaceCount.0272, %if.then20 ], [ %nSpaceCount.0272, %if.then24 ], [ %inc6, %if.then ], [ %nSpaceCount.0272, %sw.bb15 ], [ %nSpaceCount.0272, %sw.bb12 ], [ %nSpaceCount.0272, %sw.bb8 ], [ %nSpaceCount.0272, %if.end ], [ %nSpaceCount.0272, %if.else27 ], [ %nSpaceCount.0272, %sw.bb36 ], [ %nSpaceCount.0272, %if.else59 ], [ %nSpaceCount.0272, %sw.bb67 ], [ %nSpaceCount.0272, %sw.bb74 ], [ %nSpaceCount.0272, %sw.bb108 ], [ %nSpaceCount.0272, %if.then115 ], [ %nSpaceCount.0272, %if.then110 ], [ %nSpaceCount.0272, %if.else125 ], [ %nSpaceCount.0272, %sw.bb133 ]
-  %nSignCount.1 = phi i32 [ %nSignCount.0273, %while.body ], [ %nSignCount.0273, %if.end147 ], [ %nSignCount.0273, %if.then135 ], [ %nSignCount.0273, %if.then122 ], [ %nSignCount.0273, %if.then104 ], [ %nSignCount.0273, %if.end94 ], [ %nSignCount.0273, %if.end56 ], [ %nSignCount.0273, %if.then61 ], [ %nSignCount.0273, %if.then38 ], [ %nSignCount.0273, %if.then20 ], [ %nSignCount.0273, %if.then24 ], [ %nSignCount.0273, %if.then ], [ %nSignCount.0273, %sw.bb15 ], [ %nSignCount.0273, %sw.bb12 ], [ %inc11, %sw.bb8 ], [ %nSignCount.0273, %if.end ], [ %nSignCount.0273, %if.else27 ], [ %nSignCount.0273, %sw.bb36 ], [ %nSignCount.0273, %if.else59 ], [ %nSignCount.0273, %sw.bb67 ], [ %nSignCount.0273, %sw.bb74 ], [ %nSignCount.0273, %sw.bb108 ], [ %nSignCount.0273, %if.then115 ], [ %nSignCount.0273, %if.then110 ], [ %nSignCount.0273, %if.else125 ], [ %nSignCount.0273, %sw.bb133 ]
-  %nFieldCount.5 = phi i32 [ %nFieldCount.0274, %while.body ], [ %inc149, %if.end147 ], [ %inc137, %if.then135 ], [ %inc124, %if.then122 ], [ %inc106, %if.then104 ], [ %inc96, %if.end94 ], [ %inc58, %if.end56 ], [ %inc63, %if.then61 ], [ %inc40, %if.then38 ], [ %inc22, %if.then20 ], [ %inc26, %if.then24 ], [ %nFieldCount.0274, %if.then ], [ %inc17, %sw.bb15 ], [ %inc14, %sw.bb12 ], [ %inc10, %sw.bb8 ], [ %nFieldCount.0274, %if.end ], [ %nFieldCount.0274, %if.else27 ], [ %nFieldCount.0274, %sw.bb36 ], [ %nFieldCount.0274, %if.else59 ], [ %nFieldCount.0274, %sw.bb67 ], [ %nFieldCount.0274, %sw.bb74 ], [ %nFieldCount.0274, %sw.bb108 ], [ %inc117, %if.then115 ], [ %inc112, %if.then110 ], [ %nFieldCount.0274, %if.else125 ], [ %nFieldCount.0274, %sw.bb133 ]
-  %nExponent.1 = phi i32 [ %nExponent.0275, %while.body ], [ %add, %if.end147 ], [ %nExponent.0275, %if.then135 ], [ %nExponent.0275, %if.then122 ], [ %nExponent.0275, %if.then104 ], [ %nExponent.0275, %if.end94 ], [ %nExponent.0275, %if.end56 ], [ %nExponent.0275, %if.then61 ], [ %nExponent.0275, %if.then38 ], [ %nExponent.0275, %if.then20 ], [ %nExponent.0275, %if.then24 ], [ %nExponent.0275, %if.then ], [ %nExponent.0275, %sw.bb15 ], [ %nExponent.0275, %sw.bb12 ], [ %nExponent.0275, %sw.bb8 ], [ %nExponent.0275, %if.end ], [ %nExponent.0275, %if.else27 ], [ %nExponent.0275, %sw.bb36 ], [ %nExponent.0275, %if.else59 ], [ %nExponent.0275, %sw.bb67 ], [ %nExponent.0275, %sw.bb74 ], [ %nExponent.0275, %sw.bb108 ], [ %nExponent.0275, %if.then115 ], [ %nExponent.0275, %if.then110 ], [ %nExponent.0275, %if.else125 ], [ %nExponent.0275, %sw.bb133 ]
-  %nExponentAdd.3 = phi i32 [ %nExponentAdd.0276, %while.body ], [ %nExponentAdd.0276, %if.end147 ], [ %nExponentAdd.0276, %if.then135 ], [ %nExponentAdd.0276, %if.then122 ], [ %nExponentAdd.0276, %if.then104 ], [ %nExponentAdd.2, %if.end94 ], [ %nExponentAdd.1, %if.end56 ], [ %nExponentAdd.0276, %if.then61 ], [ %nExponentAdd.0276, %if.then38 ], [ %nExponentAdd.0276, %if.then20 ], [ %nExponentAdd.0276, %if.then24 ], [ %nExponentAdd.0276, %if.then ], [ %nExponentAdd.0276, %sw.bb15 ], [ %nExponentAdd.0276, %sw.bb12 ], [ %nExponentAdd.0276, %sw.bb8 ], [ %nExponentAdd.0276, %if.end ], [ %nExponentAdd.0276, %if.else27 ], [ %nExponentAdd.0276, %sw.bb36 ], [ %nExponentAdd.0276, %if.else59 ], [ %nExponentAdd.0276, %sw.bb67 ], [ %nExponentAdd.0276, %sw.bb74 ], [ %nExponentAdd.0276, %sw.bb108 ], [ %nExponentAdd.0276, %if.then115 ], [ %nExponentAdd.0276, %if.then110 ], [ %nExponentAdd.0276, %if.else125 ], [ %nExponentAdd.0276, %sw.bb133 ]
-  %bNegative.2 = phi i8 [ %bNegative.0277, %while.body ], [ %bNegative.0277, %if.end147 ], [ %bNegative.0277, %if.then135 ], [ %bNegative.0277, %if.then122 ], [ %bNegative.0277, %if.then104 ], [ %bNegative.0277, %if.end94 ], [ %bNegative.0277, %if.end56 ], [ %bNegative.0277, %if.then61 ], [ %bNegative.0277, %if.then38 ], [ %bNegative.0277, %if.then20 ], [ %bNegative.0277, %if.then24 ], [ %bNegative.0277, %if.then ], [ %bNegative.0277, %sw.bb15 ], [ %bNegative.0277, %sw.bb12 ], [ %bNegative.1, %sw.bb8 ], [ %bNegative.0277, %if.end ], [ %bNegative.0277, %if.else27 ], [ %bNegative.0277, %sw.bb36 ], [ %bNegative.0277, %if.else59 ], [ %bNegative.0277, %sw.bb67 ], [ %bNegative.0277, %sw.bb74 ], [ %bNegative.0277, %sw.bb108 ], [ %bNegative.0277, %if.then115 ], [ %bNegative.0277, %if.then110 ], [ %bNegative.0277, %if.else125 ], [ %bNegative.0277, %sw.bb133 ]
-  %bExponentNegative.2 = phi i1 [ %bExponentNegative.0278, %while.body ], [ %bExponentNegative.0278, %if.end147 ], [ %bExponentNegative.0278, %if.then135 ], [ %bExponentNegative.0278, %if.then122 ], [ %bExponentNegative.0278, %if.then104 ], [ %bExponentNegative.0278, %if.end94 ], [ %bExponentNegative.0278, %if.end56 ], [ %bExponentNegative.0278, %if.then61 ], [ %bExponentNegative.0278, %if.then38 ], [ %bExponentNegative.0278, %if.then20 ], [ %bExponentNegative.0278, %if.then24 ], [ %bExponentNegative.0278, %if.then ], [ %bExponentNegative.0278, %sw.bb15 ], [ %bExponentNegative.0278, %sw.bb12 ], [ %bExponentNegative.0278, %sw.bb8 ], [ %bExponentNegative.0278, %if.end ], [ %bExponentNegative.0278, %if.else27 ], [ %bExponentNegative.0278, %sw.bb36 ], [ %bExponentNegative.0278, %if.else59 ], [ %bExponentNegative.0278, %sw.bb67 ], [ %bExponentNegative.0278, %sw.bb74 ], [ %bExponentNegative.0278, %sw.bb108 ], [ true, %if.then115 ], [ %bExponentNegative.0278, %if.then110 ], [ %bExponentNegative.0278, %if.else125 ], [ %bExponentNegative.0278, %sw.bb133 ]
-  %state.1 = phi i32 [ %state.0279, %while.body ], [ 2048, %if.end147 ], [ 1024, %if.then135 ], [ 1024, %if.then122 ], [ 256, %if.then104 ], [ 64, %if.end94 ], [ 8, %if.end56 ], [ 64, %if.then61 ], [ 4, %if.then38 ], [ 16, %if.then20 ], [ 4, %if.then24 ], [ 1, %if.then ], [ 8192, %sw.bb15 ], [ 4096, %sw.bb12 ], [ 1, %sw.bb8 ], [ 2, %if.end ], [ %., %if.else27 ], [ 8, %sw.bb36 ], [ 128, %if.else59 ], [ %.148, %sw.bb67 ], [ 128, %sw.bb74 ], [ 512, %sw.bb108 ], [ 512, %if.then115 ], [ 512, %if.then110 ], [ %.149, %if.else125 ], [ 2048, %sw.bb133 ]
-  %c.5 = phi i32 [ %c.0280, %while.body ], [ %call148, %if.end147 ], [ %call136, %if.then135 ], [ %call123, %if.then122 ], [ %call105, %if.then104 ], [ %call95, %if.end94 ], [ %call57, %if.end56 ], [ %call62, %if.then61 ], [ %call39, %if.then38 ], [ %call21, %if.then20 ], [ %call25, %if.then24 ], [ %call5, %if.then ], [ %call16, %sw.bb15 ], [ %call13, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %c.0280, %if.end ], [ %c.0280, %if.else27 ], [ %c.0280, %sw.bb36 ], [ %c.0280, %if.else59 ], [ %c.0280, %sw.bb67 ], [ %c.0280, %sw.bb74 ], [ %c.0280, %sw.bb108 ], [ %call116, %if.then115 ], [ %call111, %if.then110 ], [ %c.0280, %if.else125 ], [ %c.0280, %sw.bb133 ]
+  %nSpaceCount.1 = phi i32 [ %nSpaceCount.0271, %while.body ], [ %nSpaceCount.0271, %if.end147 ], [ %nSpaceCount.0271, %if.then135 ], [ %nSpaceCount.0271, %if.then122 ], [ %nSpaceCount.0271, %if.then104 ], [ %nSpaceCount.0271, %if.end94 ], [ %nSpaceCount.0271, %if.end56 ], [ %nSpaceCount.0271, %if.then61 ], [ %nSpaceCount.0271, %if.then38 ], [ %nSpaceCount.0271, %if.then20 ], [ %nSpaceCount.0271, %if.then24 ], [ %inc6, %if.then ], [ %nSpaceCount.0271, %sw.bb15 ], [ %nSpaceCount.0271, %sw.bb12 ], [ %nSpaceCount.0271, %sw.bb8 ], [ %nSpaceCount.0271, %if.end ], [ %nSpaceCount.0271, %if.else27 ], [ %nSpaceCount.0271, %sw.bb36 ], [ %nSpaceCount.0271, %if.else59 ], [ %nSpaceCount.0271, %sw.bb67 ], [ %nSpaceCount.0271, %sw.bb74 ], [ %nSpaceCount.0271, %sw.bb108 ], [ %nSpaceCount.0271, %if.then115 ], [ %nSpaceCount.0271, %if.then110 ], [ %nSpaceCount.0271, %if.else125 ], [ %nSpaceCount.0271, %sw.bb133 ]
+  %nSignCount.1 = phi i32 [ %nSignCount.0272, %while.body ], [ %nSignCount.0272, %if.end147 ], [ %nSignCount.0272, %if.then135 ], [ %nSignCount.0272, %if.then122 ], [ %nSignCount.0272, %if.then104 ], [ %nSignCount.0272, %if.end94 ], [ %nSignCount.0272, %if.end56 ], [ %nSignCount.0272, %if.then61 ], [ %nSignCount.0272, %if.then38 ], [ %nSignCount.0272, %if.then20 ], [ %nSignCount.0272, %if.then24 ], [ %nSignCount.0272, %if.then ], [ %nSignCount.0272, %sw.bb15 ], [ %nSignCount.0272, %sw.bb12 ], [ %inc11, %sw.bb8 ], [ %nSignCount.0272, %if.end ], [ %nSignCount.0272, %if.else27 ], [ %nSignCount.0272, %sw.bb36 ], [ %nSignCount.0272, %if.else59 ], [ %nSignCount.0272, %sw.bb67 ], [ %nSignCount.0272, %sw.bb74 ], [ %nSignCount.0272, %sw.bb108 ], [ %nSignCount.0272, %if.then115 ], [ %nSignCount.0272, %if.then110 ], [ %nSignCount.0272, %if.else125 ], [ %nSignCount.0272, %sw.bb133 ]
+  %nFieldCount.5 = phi i32 [ %nFieldCount.0273, %while.body ], [ %inc149, %if.end147 ], [ %inc137, %if.then135 ], [ %inc124, %if.then122 ], [ %inc106, %if.then104 ], [ %inc96, %if.end94 ], [ %inc58, %if.end56 ], [ %inc63, %if.then61 ], [ %inc40, %if.then38 ], [ %inc22, %if.then20 ], [ %inc26, %if.then24 ], [ %nFieldCount.0273, %if.then ], [ %inc17, %sw.bb15 ], [ %inc14, %sw.bb12 ], [ %inc10, %sw.bb8 ], [ %nFieldCount.0273, %if.end ], [ %nFieldCount.0273, %if.else27 ], [ %nFieldCount.0273, %sw.bb36 ], [ %nFieldCount.0273, %if.else59 ], [ %nFieldCount.0273, %sw.bb67 ], [ %nFieldCount.0273, %sw.bb74 ], [ %nFieldCount.0273, %sw.bb108 ], [ %inc117, %if.then115 ], [ %inc112, %if.then110 ], [ %nFieldCount.0273, %if.else125 ], [ %nFieldCount.0273, %sw.bb133 ]
+  %nExponent.1 = phi i32 [ %nExponent.0274, %while.body ], [ %add, %if.end147 ], [ %nExponent.0274, %if.then135 ], [ %nExponent.0274, %if.then122 ], [ %nExponent.0274, %if.then104 ], [ %nExponent.0274, %if.end94 ], [ %nExponent.0274, %if.end56 ], [ %nExponent.0274, %if.then61 ], [ %nExponent.0274, %if.then38 ], [ %nExponent.0274, %if.then20 ], [ %nExponent.0274, %if.then24 ], [ %nExponent.0274, %if.then ], [ %nExponent.0274, %sw.bb15 ], [ %nExponent.0274, %sw.bb12 ], [ %nExponent.0274, %sw.bb8 ], [ %nExponent.0274, %if.end ], [ %nExponent.0274, %if.else27 ], [ %nExponent.0274, %sw.bb36 ], [ %nExponent.0274, %if.else59 ], [ %nExponent.0274, %sw.bb67 ], [ %nExponent.0274, %sw.bb74 ], [ %nExponent.0274, %sw.bb108 ], [ %nExponent.0274, %if.then115 ], [ %nExponent.0274, %if.then110 ], [ %nExponent.0274, %if.else125 ], [ %nExponent.0274, %sw.bb133 ]
+  %nExponentAdd.3 = phi i32 [ %nExponentAdd.0275, %while.body ], [ %nExponentAdd.0275, %if.end147 ], [ %nExponentAdd.0275, %if.then135 ], [ %nExponentAdd.0275, %if.then122 ], [ %nExponentAdd.0275, %if.then104 ], [ %nExponentAdd.2, %if.end94 ], [ %nExponentAdd.1, %if.end56 ], [ %nExponentAdd.0275, %if.then61 ], [ %nExponentAdd.0275, %if.then38 ], [ %nExponentAdd.0275, %if.then20 ], [ %nExponentAdd.0275, %if.then24 ], [ %nExponentAdd.0275, %if.then ], [ %nExponentAdd.0275, %sw.bb15 ], [ %nExponentAdd.0275, %sw.bb12 ], [ %nExponentAdd.0275, %sw.bb8 ], [ %nExponentAdd.0275, %if.end ], [ %nExponentAdd.0275, %if.else27 ], [ %nExponentAdd.0275, %sw.bb36 ], [ %nExponentAdd.0275, %if.else59 ], [ %nExponentAdd.0275, %sw.bb67 ], [ %nExponentAdd.0275, %sw.bb74 ], [ %nExponentAdd.0275, %sw.bb108 ], [ %nExponentAdd.0275, %if.then115 ], [ %nExponentAdd.0275, %if.then110 ], [ %nExponentAdd.0275, %if.else125 ], [ %nExponentAdd.0275, %sw.bb133 ]
+  %bNegative.2 = phi i8 [ %bNegative.0276, %while.body ], [ %bNegative.0276, %if.end147 ], [ %bNegative.0276, %if.then135 ], [ %bNegative.0276, %if.then122 ], [ %bNegative.0276, %if.then104 ], [ %bNegative.0276, %if.end94 ], [ %bNegative.0276, %if.end56 ], [ %bNegative.0276, %if.then61 ], [ %bNegative.0276, %if.then38 ], [ %bNegative.0276, %if.then20 ], [ %bNegative.0276, %if.then24 ], [ %bNegative.0276, %if.then ], [ %bNegative.0276, %sw.bb15 ], [ %bNegative.0276, %sw.bb12 ], [ %bNegative.1, %sw.bb8 ], [ %bNegative.0276, %if.end ], [ %bNegative.0276, %if.else27 ], [ %bNegative.0276, %sw.bb36 ], [ %bNegative.0276, %if.else59 ], [ %bNegative.0276, %sw.bb67 ], [ %bNegative.0276, %sw.bb74 ], [ %bNegative.0276, %sw.bb108 ], [ %bNegative.0276, %if.then115 ], [ %bNegative.0276, %if.then110 ], [ %bNegative.0276, %if.else125 ], [ %bNegative.0276, %sw.bb133 ]
+  %bExponentNegative.2 = phi i1 [ %bExponentNegative.0277, %while.body ], [ %bExponentNegative.0277, %if.end147 ], [ %bExponentNegative.0277, %if.then135 ], [ %bExponentNegative.0277, %if.then122 ], [ %bExponentNegative.0277, %if.then104 ], [ %bExponentNegative.0277, %if.end94 ], [ %bExponentNegative.0277, %if.end56 ], [ %bExponentNegative.0277, %if.then61 ], [ %bExponentNegative.0277, %if.then38 ], [ %bExponentNegative.0277, %if.then20 ], [ %bExponentNegative.0277, %if.then24 ], [ %bExponentNegative.0277, %if.then ], [ %bExponentNegative.0277, %sw.bb15 ], [ %bExponentNegative.0277, %sw.bb12 ], [ %bExponentNegative.0277, %sw.bb8 ], [ %bExponentNegative.0277, %if.end ], [ %bExponentNegative.0277, %if.else27 ], [ %bExponentNegative.0277, %sw.bb36 ], [ %bExponentNegative.0277, %if.else59 ], [ %bExponentNegative.0277, %sw.bb67 ], [ %bExponentNegative.0277, %sw.bb74 ], [ %bExponentNegative.0277, %sw.bb108 ], [ true, %if.then115 ], [ %bExponentNegative.0277, %if.then110 ], [ %bExponentNegative.0277, %if.else125 ], [ %bExponentNegative.0277, %sw.bb133 ]
+  %state.1 = phi i32 [ %state.0278, %while.body ], [ 2048, %if.end147 ], [ 1024, %if.then135 ], [ 1024, %if.then122 ], [ 256, %if.then104 ], [ 64, %if.end94 ], [ 8, %if.end56 ], [ 64, %if.then61 ], [ 4, %if.then38 ], [ 16, %if.then20 ], [ 4, %if.then24 ], [ 1, %if.then ], [ 8192, %sw.bb15 ], [ 4096, %sw.bb12 ], [ 1, %sw.bb8 ], [ 2, %if.end ], [ %., %if.else27 ], [ 8, %sw.bb36 ], [ 128, %if.else59 ], [ %.148, %sw.bb67 ], [ 128, %sw.bb74 ], [ 512, %sw.bb108 ], [ 512, %if.then115 ], [ 512, %if.then110 ], [ %.149, %if.else125 ], [ 2048, %sw.bb133 ]
+  %c.5 = phi i32 [ %c.0279, %while.body ], [ %call148, %if.end147 ], [ %call136, %if.then135 ], [ %call123, %if.then122 ], [ %call105, %if.then104 ], [ %call95, %if.end94 ], [ %call57, %if.end56 ], [ %call62, %if.then61 ], [ %call39, %if.then38 ], [ %call21, %if.then20 ], [ %call25, %if.then24 ], [ %call5, %if.then ], [ %call16, %sw.bb15 ], [ %call13, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %c.0279, %if.end ], [ %c.0279, %if.else27 ], [ %c.0279, %sw.bb36 ], [ %c.0279, %if.else59 ], [ %c.0279, %sw.bb67 ], [ %c.0279, %sw.bb74 ], [ %c.0279, %sw.bb108 ], [ %call116, %if.then115 ], [ %call111, %if.then110 ], [ %c.0279, %if.else125 ], [ %c.0279, %sw.bb133 ]
   %cmp.not = icmp ne i32 %c.5, -1
   %cmp2.not = icmp sle i32 %nFieldCount.5, %nMaxFieldWidth
   %or.cond146.not218 = select i1 %cmp.not, i1 %cmp2.not, i1 false
   %and = and i32 %state.1, 49152
   %tobool.not = icmp eq i32 %and, 0
   %or.cond147 = select i1 %or.cond146.not218, i1 %tobool.not, i1 false
-  br i1 %or.cond147, label %while.body, label %while.end236.loopexit.loopexit395, !llvm.loop !50
+  br i1 %or.cond147, label %while.body, label %while.end236, !llvm.loop !50
 
-while.end236.loopexit.loopexit395:                ; preds = %sw.epilog235, %_ZN2EA4StdC7ToupperEDs.exit, %sw.bb140, %sw.bb99
-  %c.5363.ph = phi i32 [ %c.5, %sw.epilog235 ], [ %c.0280, %sw.bb99 ], [ %c.0280, %sw.bb140 ], [ %c.0280, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %state.1362.ph = phi i32 [ %state.1, %sw.epilog235 ], [ 16384, %sw.bb99 ], [ 16384, %sw.bb140 ], [ 16384, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %bExponentNegative.2361.ph = phi i1 [ %bExponentNegative.2, %sw.epilog235 ], [ %bExponentNegative.0278, %sw.bb99 ], [ %bExponentNegative.0278, %sw.bb140 ], [ %bExponentNegative.0278, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %bNegative.2360.ph = phi i8 [ %bNegative.2, %sw.epilog235 ], [ %bNegative.0277, %sw.bb99 ], [ %bNegative.0277, %sw.bb140 ], [ %bNegative.0277, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %nExponentAdd.3359.ph = phi i32 [ %nExponentAdd.3, %sw.epilog235 ], [ %nExponentAdd.0276, %sw.bb99 ], [ %nExponentAdd.0276, %sw.bb140 ], [ %nExponentAdd.0276, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %nExponent.1358.ph = phi i32 [ %nExponent.1, %sw.epilog235 ], [ %nExponent.0275, %sw.bb99 ], [ %nExponent.0275, %sw.bb140 ], [ %nExponent.0275, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %nFieldCount.5357.ph = phi i32 [ %nFieldCount.5, %sw.epilog235 ], [ %nFieldCount.0274, %sw.bb99 ], [ %nFieldCount.0274, %sw.bb140 ], [ %nFieldCount.0274, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %nSpaceCount.1356.ph = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ %nSpaceCount.0272, %sw.bb99 ], [ %nSpaceCount.0272, %sw.bb140 ], [ %nSpaceCount.0272, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %27 = and i32 %state.1362.ph, 19564
-  %28 = icmp eq i32 %27, 0
-  br label %while.end236.loopexit
-
-while.end236.loopexit:                            ; preds = %lor.rhs, %while.end236.loopexit.loopexit395, %while.end197, %while.end218, %while.end
-  %c.5363 = phi i32 [ %c.3261, %while.end197 ], [ %c.4.lcssa, %while.end218 ], [ %c.2267, %while.end ], [ %c.5363.ph, %while.end236.loopexit.loopexit395 ], [ %c.4264, %lor.rhs ]
-  %state.1362 = phi i1 [ true, %while.end197 ], [ true, %while.end218 ], [ true, %while.end ], [ %28, %while.end236.loopexit.loopexit395 ], [ true, %lor.rhs ]
-  %bExponentNegative.2361 = phi i1 [ %bExponentNegative.0278, %while.end197 ], [ %bExponentNegative.0278, %while.end218 ], [ %bExponentNegative.0278, %while.end ], [ %bExponentNegative.2361.ph, %while.end236.loopexit.loopexit395 ], [ %bExponentNegative.0278, %lor.rhs ]
-  %bNegative.2360 = phi i8 [ %bNegative.0277, %while.end197 ], [ %bNegative.0277, %while.end218 ], [ %bNegative.0277, %while.end ], [ %bNegative.2360.ph, %while.end236.loopexit.loopexit395 ], [ %bNegative.0277, %lor.rhs ]
-  %nExponentAdd.3359 = phi i32 [ %nExponentAdd.0276, %while.end197 ], [ %nExponentAdd.0276, %while.end218 ], [ %nExponentAdd.0276, %while.end ], [ %nExponentAdd.3359.ph, %while.end236.loopexit.loopexit395 ], [ %nExponentAdd.0276, %lor.rhs ]
-  %nExponent.1358 = phi i32 [ %nExponent.0275, %while.end197 ], [ %nExponent.0275, %while.end218 ], [ %nExponent.0275, %while.end ], [ %nExponent.1358.ph, %while.end236.loopexit.loopexit395 ], [ %nExponent.0275, %lor.rhs ]
-  %nFieldCount.5357 = phi i32 [ %nFieldCount.3260, %while.end197 ], [ %nFieldCount.4.lcssa, %while.end218 ], [ %nFieldCount.2266, %while.end ], [ %nFieldCount.5357.ph, %while.end236.loopexit.loopexit395 ], [ %nFieldCount.4263, %lor.rhs ]
-  %nSpaceCount.1356 = phi i32 [ %nSpaceCount.0272, %while.end197 ], [ %nSpaceCount.0272, %while.end218 ], [ %nSpaceCount.0272, %while.end ], [ %nSpaceCount.1356.ph, %while.end236.loopexit.loopexit395 ], [ %nSpaceCount.0272, %lor.rhs ]
+while.end236:                                     ; preds = %sw.bb99, %sw.bb140, %_ZN2EA4StdC7ToupperEDs.exit, %sw.epilog235, %lor.rhs, %while.end197, %while.end218, %while.end
+  %c.5362 = phi i32 [ %c.3260, %while.end197 ], [ %c.4.lcssa, %while.end218 ], [ %c.2266, %while.end ], [ %c.4263, %lor.rhs ], [ %c.0279, %_ZN2EA4StdC7ToupperEDs.exit ], [ %c.0279, %sw.bb140 ], [ %c.0279, %sw.bb99 ], [ %c.5, %sw.epilog235 ]
+  %state.1361 = phi i32 [ 32768, %while.end197 ], [ 32768, %while.end218 ], [ 32768, %while.end ], [ 32768, %lor.rhs ], [ 16384, %_ZN2EA4StdC7ToupperEDs.exit ], [ 16384, %sw.bb140 ], [ 16384, %sw.bb99 ], [ %state.1, %sw.epilog235 ]
+  %bExponentNegative.2360 = phi i1 [ %bExponentNegative.0277, %while.end197 ], [ %bExponentNegative.0277, %while.end218 ], [ %bExponentNegative.0277, %while.end ], [ %bExponentNegative.0277, %lor.rhs ], [ %bExponentNegative.0277, %_ZN2EA4StdC7ToupperEDs.exit ], [ %bExponentNegative.0277, %sw.bb140 ], [ %bExponentNegative.0277, %sw.bb99 ], [ %bExponentNegative.2, %sw.epilog235 ]
+  %bNegative.2359 = phi i8 [ %bNegative.0276, %while.end197 ], [ %bNegative.0276, %while.end218 ], [ %bNegative.0276, %while.end ], [ %bNegative.0276, %lor.rhs ], [ %bNegative.0276, %_ZN2EA4StdC7ToupperEDs.exit ], [ %bNegative.0276, %sw.bb140 ], [ %bNegative.0276, %sw.bb99 ], [ %bNegative.2, %sw.epilog235 ]
+  %nExponentAdd.3358 = phi i32 [ %nExponentAdd.0275, %while.end197 ], [ %nExponentAdd.0275, %while.end218 ], [ %nExponentAdd.0275, %while.end ], [ %nExponentAdd.0275, %lor.rhs ], [ %nExponentAdd.0275, %_ZN2EA4StdC7ToupperEDs.exit ], [ %nExponentAdd.0275, %sw.bb140 ], [ %nExponentAdd.0275, %sw.bb99 ], [ %nExponentAdd.3, %sw.epilog235 ]
+  %nExponent.1357 = phi i32 [ %nExponent.0274, %while.end197 ], [ %nExponent.0274, %while.end218 ], [ %nExponent.0274, %while.end ], [ %nExponent.0274, %lor.rhs ], [ %nExponent.0274, %_ZN2EA4StdC7ToupperEDs.exit ], [ %nExponent.0274, %sw.bb140 ], [ %nExponent.0274, %sw.bb99 ], [ %nExponent.1, %sw.epilog235 ]
+  %nFieldCount.5356 = phi i32 [ %nFieldCount.3259, %while.end197 ], [ %nFieldCount.4.lcssa, %while.end218 ], [ %nFieldCount.2265, %while.end ], [ %nFieldCount.4262, %lor.rhs ], [ %nFieldCount.0273, %_ZN2EA4StdC7ToupperEDs.exit ], [ %nFieldCount.0273, %sw.bb140 ], [ %nFieldCount.0273, %sw.bb99 ], [ %nFieldCount.5, %sw.epilog235 ]
+  %nSpaceCount.1355 = phi i32 [ %nSpaceCount.0271, %while.end197 ], [ %nSpaceCount.0271, %while.end218 ], [ %nSpaceCount.0271, %while.end ], [ %nSpaceCount.0271, %lor.rhs ], [ %nSpaceCount.0271, %_ZN2EA4StdC7ToupperEDs.exit ], [ %nSpaceCount.0271, %sw.bb140 ], [ %nSpaceCount.0271, %sw.bb99 ], [ %nSpaceCount.1, %sw.epilog235 ]
+  %cond.fr393 = freeze i1 %bExponentNegative.2360
   %.pre = load i16, ptr %mSigLen.i, align 2
-  %29 = add i32 %nSpaceCount.1356, -1
-  %30 = freeze i1 %bExponentNegative.2361
-  %31 = trunc i8 %bNegative.2360 to i1
-  br label %while.end236
+  %state.1361.fr = freeze i32 %state.1361
+  %27 = and i32 %state.1361.fr, 19564
+  %28 = icmp eq i32 %27, 0
+  %bNegative.2359.fr = freeze i8 %bNegative.2359
+  %29 = trunc i8 %bNegative.2359.fr to i1
+  %call237 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.5362, ptr noundef %pContext)
+  %sub247392 = sub nsw i32 0, %nExponent.1357
+  br i1 %28, label %30, label %31
 
-while.end236:                                     ; preds = %while.end236.loopexit, %entry
-  %32 = phi i16 [ 0, %entry ], [ %.pre, %while.end236.loopexit ]
-  %nSpaceCount.0.lcssa = phi i32 [ -1, %entry ], [ %29, %while.end236.loopexit ]
-  %nFieldCount.0.lcssa = phi i32 [ 1, %entry ], [ %nFieldCount.5357, %while.end236.loopexit ]
-  %nExponent.0.lcssa = phi i32 [ 0, %entry ], [ %nExponent.1358, %while.end236.loopexit ]
-  %nExponentAdd.0.lcssa = phi i32 [ 0, %entry ], [ %nExponentAdd.3359, %while.end236.loopexit ]
-  %bNegative.0.lcssa = phi i1 [ false, %entry ], [ %31, %while.end236.loopexit ]
-  %bExponentNegative.0.lcssa = phi i1 [ false, %entry ], [ %30, %while.end236.loopexit ]
-  %state.0.lcssa = phi i1 [ true, %entry ], [ %state.1362, %while.end236.loopexit ]
-  %c.0.lcssa = phi i32 [ %call, %entry ], [ %c.5363, %while.end236.loopexit ]
-  %call237 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.0.lcssa, ptr noundef %pContext)
-  %add242 = add i32 %nSpaceCount.0.lcssa, %nFieldCount.0.lcssa
-  %storemerge = select i1 %state.0.lcssa, i32 0, i32 %add242
-  store i32 %storemerge, ptr %nReadCount, align 4
-  %sub247 = sub nsw i32 0, %nExponent.0.lcssa
-  %spec.select = select i1 %bExponentNegative.0.lcssa, i32 %sub247, i32 %nExponent.0.lcssa
-  %conv251 = sext i16 %32 to i32
-  %cmp254289 = icmp sgt i16 %32, 1
-  br i1 %cmp254289, label %land.rhs255.preheader, label %while.end265
+30:                                               ; preds = %while.end236
+  store i32 0, ptr %nReadCount, align 4
+  br i1 %cond.fr393, label %33, label %34
 
-land.rhs255.preheader:                            ; preds = %while.end236
-  %33 = zext nneg i32 %conv251 to i64
-  %34 = add i32 %nExponentAdd.0.lcssa, %conv251
-  %35 = add i32 %34, -1
+31:                                               ; preds = %while.end236
+  %32 = add i32 %nSpaceCount.1355, -1
+  %add242 = add i32 %32, %nFieldCount.5356
+  store i32 %add242, ptr %nReadCount, align 4
+  br i1 %cond.fr393, label %33, label %34
+
+33:                                               ; preds = %30, %31
+  br label %34
+
+34:                                               ; preds = %30, %31, %33
+  %35 = phi i32 [ %sub247392, %33 ], [ %nExponent.1357, %31 ], [ %nExponent.1357, %30 ]
+  %conv251 = sext i16 %.pre to i32
+  %cmp254288 = icmp sgt i16 %.pre, 1
+  br i1 %cmp254288, label %land.rhs255.preheader, label %while.end265
+
+land.rhs255.preheader:                            ; preds = %34
+  %36 = zext nneg i32 %conv251 to i64
+  %37 = add i32 %nExponentAdd.3358, %conv251
+  %38 = add i32 %37, -1
   br label %land.rhs255
 
 land.rhs255:                                      ; preds = %land.rhs255.preheader, %while.body262
-  %indvars.iv320 = phi i64 [ %33, %land.rhs255.preheader ], [ %indvars.iv.next321, %while.body262 ]
-  %nExponentAdd.4290 = phi i32 [ %nExponentAdd.0.lcssa, %land.rhs255.preheader ], [ %inc263, %while.body262 ]
-  %indvars.iv.next321 = add nsw i64 %indvars.iv320, -1
-  %arrayidx258 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv.next321
-  %36 = load i8, ptr %arrayidx258, align 1
-  %cmp260 = icmp eq i8 %36, 48
+  %indvars.iv319 = phi i64 [ %36, %land.rhs255.preheader ], [ %indvars.iv.next320, %while.body262 ]
+  %nExponentAdd.4289 = phi i32 [ %nExponentAdd.3358, %land.rhs255.preheader ], [ %inc263, %while.body262 ]
+  %indvars.iv.next320 = add nsw i64 %indvars.iv319, -1
+  %arrayidx258 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv.next320
+  %39 = load i8, ptr %arrayidx258, align 1
+  %cmp260 = icmp eq i8 %39, 48
   br i1 %cmp260, label %while.body262, label %if.then267.loopexit
 
 while.body262:                                    ; preds = %land.rhs255
-  %inc263 = add i32 %nExponentAdd.4290, 1
-  %exitcond323.not = icmp eq i32 %inc263, %35
-  br i1 %exitcond323.not, label %while.end265.loopexit, label %land.rhs255, !llvm.loop !51
+  %inc263 = add i32 %nExponentAdd.4289, 1
+  %exitcond322.not = icmp eq i32 %inc263, %38
+  br i1 %exitcond322.not, label %while.end265.loopexit, label %land.rhs255, !llvm.loop !51
 
 while.end265.loopexit:                            ; preds = %while.body262
-  %37 = trunc i64 %indvars.iv.next321 to i32
+  %40 = trunc i64 %indvars.iv.next320 to i32
   br label %while.end265
 
-while.end265:                                     ; preds = %while.end265.loopexit, %while.end236
-  %nExponentAdd.4.lcssa = phi i32 [ %nExponentAdd.0.lcssa, %while.end236 ], [ %35, %while.end265.loopexit ]
-  %i249.0.in.lcssa = phi i32 [ %conv251, %while.end236 ], [ %37, %while.end265.loopexit ]
+while.end265:                                     ; preds = %while.end265.loopexit, %34
+  %nExponentAdd.4.lcssa = phi i32 [ %nExponentAdd.3358, %34 ], [ %38, %while.end265.loopexit ]
+  %i249.0.in.lcssa = phi i32 [ %conv251, %34 ], [ %40, %while.end265.loopexit ]
   %cmp266 = icmp eq i32 %i249.0.in.lcssa, 1
   br i1 %cmp266, label %if.then267, label %if.else271
 
 if.then267.loopexit:                              ; preds = %land.rhs255
-  %38 = trunc i64 %indvars.iv320 to i32
+  %41 = trunc i64 %indvars.iv319 to i32
   br label %if.then267
 
 if.then267:                                       ; preds = %if.then267.loopexit, %while.end265
-  %nExponentAdd.4224 = phi i32 [ %nExponentAdd.4.lcssa, %while.end265 ], [ %nExponentAdd.4290, %if.then267.loopexit ]
-  %i249.0.in222 = phi i32 [ 1, %while.end265 ], [ %38, %if.then267.loopexit ]
-  %conv269 = trunc i32 %i249.0.in222 to i16
+  %nExponentAdd.4223 = phi i32 [ %nExponentAdd.4.lcssa, %while.end265 ], [ %nExponentAdd.4289, %if.then267.loopexit ]
+  %i249.0.in221 = phi i32 [ 1, %while.end265 ], [ %41, %if.then267.loopexit ]
+  %conv269 = trunc nuw nsw i32 %i249.0.in221 to i16
   store i16 %conv269, ptr %mSigLen.i, align 2
-  %add274 = add nsw i32 %nExponentAdd.4224, %spec.select
+  %add274 = add nsw i32 %nExponentAdd.4223, %35
   %conv275 = trunc i32 %add274 to i16
   store i16 %conv275, ptr %mExponent.i, align 2
   %sext = shl i32 %add274, 16
   %conv277 = ashr exact i32 %sext, 16
-  %39 = add nsw i32 %conv277, -309
-  %or.cond3 = icmp ult i32 %39, -616
+  %42 = add nsw i32 %conv277, -309
+  %or.cond3 = icmp ult i32 %42, -616
   br i1 %or.cond3, label %if.end284.thread, label %if.end284
 
 if.else271:                                       ; preds = %while.end265
   store i32 0, ptr %bOverflow, align 4
-  %cond = select i1 %bNegative.0.lcssa, double -0.000000e+00, double 0.000000e+00
+  br i1 %29, label %43, label %return
+
+43:                                               ; preds = %if.else271
   br label %return
 
 if.end284.thread:                                 ; preds = %if.then267
@@ -5967,16 +5964,16 @@ if.end284:                                        ; preds = %if.then267
   br i1 %tobool285.not, label %if.end293, label %if.then286
 
 if.then286:                                       ; preds = %if.end284.thread, %if.end284
-  br i1 %bExponentNegative.0.lcssa, label %return, label %if.else289
+  br i1 %cond.fr393, label %return, label %if.else289
 
 if.else289:                                       ; preds = %if.then286
-  %.152 = select i1 %bNegative.0.lcssa, double 0xFFF0000000000000, double 0x7FF0000000000000
+  %.152 = select i1 %29, double 0xFFF0000000000000, double 0x7FF0000000000000
   br label %return
 
 if.end293:                                        ; preds = %if.end284
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
-  %40 = add i16 %conv275, 6
-  %or.cond.i = icmp ult i16 %40, 18
+  %44 = add i16 %conv275, 6
+  %or.cond.i = icmp ult i16 %44, 18
   %cmp625.i = icmp sgt i16 %conv269, 0
   br i1 %or.cond.i, label %for.cond.preheader.i, label %for.cond15.preheader.i
 
@@ -5984,44 +5981,43 @@ for.cond15.preheader.i:                           ; preds = %if.end293
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i249.0.in222, 32767
-  %41 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %41, i1 false)
+  %conv17.i = and i32 %i249.0.in221, 32767
+  %45 = zext nneg i32 %i249.0.in221 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %45, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end293
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv269.mask220 = and i32 %i249.0.in222, 32767
-  %conv5.i = zext nneg i32 %conv269.mask220 to i64
+  %conv5.i = zext nneg i32 %i249.0.in221 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next32.i, %for.body.i ]
-  %result.026.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %43, %for.body.i ]
+  %result.026.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %47, %for.body.i ]
   %arrayidx.i207 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv31.i
-  %42 = load i8, ptr %arrayidx.i207, align 1
-  %conv7.i = sext i8 %42 to i32
+  %46 = load i8, ptr %arrayidx.i207, align 1
+  %conv7.i = sext i8 %46 to i32
   %sub.i208 = add nsw i32 %conv7.i, -48
   %conv8.i = sitofp i32 %sub.i208 to float
   %conv9.i = fpext float %conv8.i to double
-  %43 = tail call double @llvm.fmuladd.f64(double %result.026.i, double 1.000000e+01, double %conv9.i)
+  %47 = tail call double @llvm.fmuladd.f64(double %result.026.i, double 1.000000e+01, double %conv9.i)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next32.i, %conv5.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %43, %for.body.i ]
+  %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %47, %for.body.i ]
   %conv11.i = sext i16 %conv275 to i64
   %add.i = add nsw i64 %conv11.i, 6
   %arrayidx13.i = getelementptr inbounds [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
-  %44 = load double, ptr %arrayidx13.i, align 8
-  %mul.i = fmul double %result.0.lcssa.i, %44
+  %48 = load double, ptr %arrayidx13.i, align 8
+  %mul.i = fmul double %result.0.lcssa.i, %48
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
-if.then29.i:                                      ; preds = %for.cond15.preheader.i, %for.body19.preheader.i
-  %i14.0.lcssa.i = phi i32 [ %conv17.i, %for.body19.preheader.i ], [ 0, %for.cond15.preheader.i ]
+if.then29.i:                                      ; preds = %for.body19.preheader.i, %for.cond15.preheader.i
+  %i14.0.lcssa.i = phi i32 [ 0, %for.cond15.preheader.i ], [ %conv17.i, %for.body19.preheader.i ]
   %inc32.i = add nuw nsw i32 %i14.0.lcssa.i, 1
   %idxprom33.i = zext nneg i32 %i14.0.lcssa.i to i64
   %arrayidx34.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom33.i
@@ -6043,17 +6039,17 @@ if.end.i:                                         ; preds = %if.then36.i, %if.th
   %cmp44.inv.i = icmp slt i32 %e.0.i, 10
   %..i = select i1 %cmp44.inv.i, i32 1, i32 10
   %cmp41.inv.i = icmp slt i32 %e.0.i, 100
-  %45 = zext nneg i32 %i14.1.i to i64
-  %spec.select394 = select i1 %cmp41.inv.i, i32 %..i, i32 100
+  %49 = zext nneg i32 %i14.1.i to i64
+  %spec.select = select i1 %cmp41.inv.i, i32 %..i, i32 100
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %45, %if.end.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %49, %if.end.i ]
   %e.124.i = phi i32 [ %rem.i, %while.body.i ], [ %e.0.i, %if.end.i ]
-  %multiplier.123.i = phi i32 [ %div55.i, %while.body.i ], [ %spec.select394, %if.end.i ]
+  %multiplier.123.i = phi i32 [ %div55.i, %while.body.i ], [ %spec.select, %if.end.i ]
   %div.i = udiv i32 %e.124.i, %multiplier.123.i
-  %46 = trunc i32 %div.i to i8
-  %conv51.i = add i8 %46, 48
+  %50 = trunc i32 %div.i to i8
+  %conv51.i = add i8 %50, 48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx54.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %indvars.iv.i
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
@@ -6088,11 +6084,11 @@ if.end303.sink.split:                             ; preds = %if.else297, %_ZNK2E
 if.end303:                                        ; preds = %if.end303.sink.split, %if.else297
   %dValue.2 = phi double [ %retval.0.i, %if.else297 ], [ %dValue.2.ph, %if.end303.sink.split ]
   %fneg306 = fneg double %dValue.2
-  %dValue.3 = select i1 %bNegative.0.lcssa, double %fneg306, double %dValue.2
+  %dValue.3 = select i1 %29, double %fneg306, double %dValue.2
   br label %return
 
-return:                                           ; preds = %if.else289, %if.then286, %if.end303, %if.else271, %if.end224, %if.then171
-  %retval.0 = phi double [ %.151, %if.end224 ], [ %.150, %if.then171 ], [ %dValue.3, %if.end303 ], [ %cond, %if.else271 ], [ 0.000000e+00, %if.then286 ], [ %.152, %if.else289 ]
+return:                                           ; preds = %43, %if.else271, %if.else271.thread, %if.else289, %if.then286, %if.end303, %if.end224, %if.then171
+  %retval.0 = phi double [ %.151, %if.end224 ], [ %.150, %if.then171 ], [ %dValue.3, %if.end303 ], [ 0.000000e+00, %if.then286 ], [ %.152, %if.else289 ], [ -0.000000e+00, %43 ], [ 0.000000e+00, %if.else271 ], [ 0.000000e+00, %if.else271.thread ]
   ret double %retval.0
 }
 
@@ -6770,22 +6766,28 @@ entry:
   store i32 0, ptr %nReadCount, align 4
   store i32 0, ptr %bOverflow, align 4
   %call = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %cmp.not261 = icmp ne i32 %call, -1
-  %cmp2.not262 = icmp sgt i32 %nMaxFieldWidth, 0
-  %or.cond146.not210263 = and i1 %cmp.not261, %cmp2.not262
-  br i1 %or.cond146.not210263, label %while.body, label %while.end221
+  %cmp.not260 = icmp ne i32 %call, -1
+  %cmp2.not261 = icmp sgt i32 %nMaxFieldWidth, 0
+  %or.cond146.not210262 = and i1 %cmp.not260, %cmp2.not261
+  br i1 %or.cond146.not210262, label %while.body, label %if.else256.thread
+
+if.else256.thread:                                ; preds = %entry
+  %call222364 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %call, ptr noundef %pContext)
+  store i32 0, ptr %nReadCount, align 4
+  store i32 0, ptr %bOverflow, align 4
+  br label %return
 
 while.body:                                       ; preds = %entry, %sw.epilog220
-  %c.0272 = phi i32 [ %c.5, %sw.epilog220 ], [ %call, %entry ]
-  %state.0271 = phi i32 [ %state.1, %sw.epilog220 ], [ 1, %entry ]
-  %bExponentNegative.0270 = phi i1 [ %bExponentNegative.2, %sw.epilog220 ], [ false, %entry ]
-  %bNegative.0269 = phi i8 [ %bNegative.2, %sw.epilog220 ], [ 0, %entry ]
-  %nExponentAdd.0268 = phi i32 [ %nExponentAdd.3, %sw.epilog220 ], [ 0, %entry ]
-  %nExponent.0267 = phi i32 [ %nExponent.1, %sw.epilog220 ], [ 0, %entry ]
-  %nFieldCount.0266 = phi i32 [ %nFieldCount.5, %sw.epilog220 ], [ 1, %entry ]
-  %nSignCount.0265 = phi i32 [ %nSignCount.1, %sw.epilog220 ], [ 0, %entry ]
-  %nSpaceCount.0264 = phi i32 [ %nSpaceCount.1, %sw.epilog220 ], [ 0, %entry ]
-  switch i32 %state.0271, label %sw.epilog220 [
+  %c.0271 = phi i32 [ %c.5, %sw.epilog220 ], [ %call, %entry ]
+  %state.0270 = phi i32 [ %state.1, %sw.epilog220 ], [ 1, %entry ]
+  %bExponentNegative.0269 = phi i1 [ %bExponentNegative.2, %sw.epilog220 ], [ false, %entry ]
+  %bNegative.0268 = phi i8 [ %bNegative.2, %sw.epilog220 ], [ 0, %entry ]
+  %nExponentAdd.0267 = phi i32 [ %nExponentAdd.3, %sw.epilog220 ], [ 0, %entry ]
+  %nExponent.0266 = phi i32 [ %nExponent.1, %sw.epilog220 ], [ 0, %entry ]
+  %nFieldCount.0265 = phi i32 [ %nFieldCount.5, %sw.epilog220 ], [ 1, %entry ]
+  %nSignCount.0264 = phi i32 [ %nSignCount.1, %sw.epilog220 ], [ 0, %entry ]
+  %nSpaceCount.0263 = phi i32 [ %nSpaceCount.1, %sw.epilog220 ], [ 0, %entry ]
+  switch i32 %state.0270, label %sw.epilog220 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb18
     i32 4, label %sw.bb35
@@ -6802,15 +6804,15 @@ while.body:                                       ; preds = %entry, %sw.epilog22
   ]
 
 land.rhs173.preheader:                            ; preds = %while.body
-  %0 = add i32 %nFieldCount.0266, 3
+  %0 = add i32 %nFieldCount.0265, 3
   br label %land.rhs173
 
 sw.bb:                                            ; preds = %while.body
-  %cmp.i = icmp ult i32 %c.0272, 256
+  %cmp.i = icmp ult i32 %c.0271, 256
   br i1 %cmp.i, label %_ZN2EA4StdC7IsspaceEDi.exit, label %if.end
 
 _ZN2EA4StdC7IsspaceEDi.exit:                      ; preds = %sw.bb
-  %conv.i = zext nneg i32 %c.0272 to i64
+  %conv.i = zext nneg i32 %c.0271 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 6
@@ -6819,11 +6821,11 @@ _ZN2EA4StdC7IsspaceEDi.exit:                      ; preds = %sw.bb
 
 if.then:                                          ; preds = %_ZN2EA4StdC7IsspaceEDi.exit
   %call5 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc6 = add nsw i32 %nSpaceCount.0264, 1
+  %inc6 = add nsw i32 %nSpaceCount.0263, 1
   br label %sw.epilog220
 
 if.end:                                           ; preds = %sw.bb, %_ZN2EA4StdC7IsspaceEDi.exit
-  switch i32 %c.0272, label %sw.epilog220 [
+  switch i32 %c.0271, label %sw.epilog220 [
     i32 45, label %sw.bb7
     i32 43, label %sw.bb8
     i32 105, label %sw.bb12
@@ -6836,57 +6838,57 @@ sw.bb7:                                           ; preds = %if.end
   br label %sw.bb8
 
 sw.bb8:                                           ; preds = %sw.bb7, %if.end
-  %bNegative.1 = phi i8 [ %bNegative.0269, %if.end ], [ 1, %sw.bb7 ]
+  %bNegative.1 = phi i8 [ %bNegative.0268, %if.end ], [ 1, %sw.bb7 ]
   %call9 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc10 = add nsw i32 %nFieldCount.0266, 1
-  %inc11 = add nsw i32 %nSignCount.0265, 1
+  %inc10 = add nsw i32 %nFieldCount.0265, 1
+  %inc11 = add nsw i32 %nSignCount.0264, 1
   br label %sw.epilog220
 
 sw.bb12:                                          ; preds = %if.end, %if.end
   %call13 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc14 = add nsw i32 %nFieldCount.0266, 1
+  %inc14 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb15:                                          ; preds = %if.end, %if.end
   %call16 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc17 = add nsw i32 %nFieldCount.0266, 1
+  %inc17 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb18:                                          ; preds = %while.body
-  %cmp19 = icmp eq i32 %c.0272, %cDecimalPoint
+  %cmp19 = icmp eq i32 %c.0271, %cDecimalPoint
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %sw.bb18
   %call21 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc22 = add nsw i32 %nFieldCount.0266, 1
+  %inc22 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 if.else:                                          ; preds = %sw.bb18
-  %cmp23 = icmp eq i32 %c.0272, 48
+  %cmp23 = icmp eq i32 %c.0271, 48
   br i1 %cmp23, label %if.then24, label %if.else27
 
 if.then24:                                        ; preds = %if.else
   %call25 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc26 = add nsw i32 %nFieldCount.0266, 1
+  %inc26 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 if.else27:                                        ; preds = %if.else
-  %3 = add i32 %c.0272, -58
+  %3 = add i32 %c.0271, -58
   %cmp.i153 = icmp ult i32 %3, -10
   %. = select i1 %cmp.i153, i32 32768, i32 8
   br label %sw.epilog220
 
 sw.bb35:                                          ; preds = %while.body
-  %cmp36 = icmp eq i32 %c.0272, 48
+  %cmp36 = icmp eq i32 %c.0271, 48
   br i1 %cmp36, label %if.then37, label %sw.epilog220
 
 if.then37:                                        ; preds = %sw.bb35
   %call38 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc39 = add nsw i32 %nFieldCount.0266, 1
+  %inc39 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb42:                                          ; preds = %while.body
-  %4 = add i32 %c.0272, -58
+  %4 = add i32 %c.0271, -58
   %cmp.i156 = icmp ult i32 %4, -10
   br i1 %cmp.i156, label %if.else56, label %if.then45
 
@@ -6896,7 +6898,7 @@ if.then45:                                        ; preds = %sw.bb42
   br i1 %cmp46, label %if.then47, label %if.else51
 
 if.then47:                                        ; preds = %if.then45
-  %conv48 = trunc i32 %c.0272 to i8
+  %conv48 = trunc nuw i32 %c.0271 to i8
   %inc50 = add nsw i16 %5, 1
   store i16 %inc50, ptr %mSigLen.i, align 2
   %idxprom = sext i16 %5 to i64
@@ -6905,32 +6907,32 @@ if.then47:                                        ; preds = %if.then45
   br label %if.end53
 
 if.else51:                                        ; preds = %if.then45
-  %inc52 = add nsw i32 %nExponentAdd.0268, 1
+  %inc52 = add nsw i32 %nExponentAdd.0267, 1
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else51, %if.then47
-  %nExponentAdd.1 = phi i32 [ %nExponentAdd.0268, %if.then47 ], [ %inc52, %if.else51 ]
+  %nExponentAdd.1 = phi i32 [ %nExponentAdd.0267, %if.then47 ], [ %inc52, %if.else51 ]
   %call54 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc55 = add nsw i32 %nFieldCount.0266, 1
+  %inc55 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 if.else56:                                        ; preds = %sw.bb42
-  %cmp57 = icmp eq i32 %c.0272, %cDecimalPoint
+  %cmp57 = icmp eq i32 %c.0271, %cDecimalPoint
   br i1 %cmp57, label %if.then58, label %sw.epilog220
 
 if.then58:                                        ; preds = %if.else56
   %call59 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc60 = add nsw i32 %nFieldCount.0266, 1
+  %inc60 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb64:                                          ; preds = %while.body
-  %6 = add i32 %c.0272, -58
+  %6 = add i32 %c.0271, -58
   %cmp.i159 = icmp ult i32 %6, -10
   %.148 = select i1 %cmp.i159, i32 32768, i32 64
   br label %sw.epilog220
 
 sw.bb70:                                          ; preds = %while.body
-  %7 = add i32 %c.0272, -58
+  %7 = add i32 %c.0271, -58
   %cmp.i162 = icmp ult i32 %7, -10
   br i1 %cmp.i162, label %sw.epilog220, label %if.then73
 
@@ -6940,14 +6942,14 @@ if.then73:                                        ; preds = %sw.bb70
   br i1 %cmp76, label %if.then77, label %if.end89
 
 if.then77:                                        ; preds = %if.then73
-  %dec = add nsw i32 %nExponentAdd.0268, -1
-  %cmp78 = icmp ne i32 %c.0272, 48
+  %dec = add nsw i32 %nExponentAdd.0267, -1
+  %cmp78 = icmp ne i32 %c.0271, 48
   %tobool80 = icmp ne i16 %8, 0
   %or.cond = or i1 %cmp78, %tobool80
   br i1 %or.cond, label %if.then81, label %if.end89
 
 if.then81:                                        ; preds = %if.then77
-  %conv82 = trunc i32 %c.0272 to i8
+  %conv82 = trunc nuw i32 %c.0271 to i8
   %inc85 = add nsw i16 %8, 1
   store i16 %inc85, ptr %mSigLen.i, align 2
   %idxprom86 = sext i16 %8 to i64
@@ -6956,74 +6958,74 @@ if.then81:                                        ; preds = %if.then77
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then81, %if.then77, %if.then73
-  %nExponentAdd.2 = phi i32 [ %dec, %if.then81 ], [ %dec, %if.then77 ], [ %nExponentAdd.0268, %if.then73 ]
+  %nExponentAdd.2 = phi i32 [ %dec, %if.then81 ], [ %dec, %if.then77 ], [ %nExponentAdd.0267, %if.then73 ]
   %call90 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc91 = add nsw i32 %nFieldCount.0266, 1
+  %inc91 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb94:                                          ; preds = %while.body
-  %cmp.i164 = icmp ult i32 %c.0272, 256
-  br i1 %cmp.i164, label %_ZN2EA4StdC7ToupperEDi.exit, label %while.end221.loopexit.loopexit387
+  %cmp.i164 = icmp ult i32 %c.0271, 256
+  br i1 %cmp.i164, label %_ZN2EA4StdC7ToupperEDi.exit, label %while.end221
 
 _ZN2EA4StdC7ToupperEDi.exit:                      ; preds = %sw.bb94
-  %conv1.i = zext nneg i32 %c.0272 to i64
+  %conv1.i = zext nneg i32 %c.0271 to i64
   %arrayidx.i167 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv1.i
   %9 = load i8, ptr %arrayidx.i167, align 1
   %cmp96 = icmp eq i8 %9, 69
-  br i1 %cmp96, label %if.then97, label %while.end221.loopexit.loopexit387
+  br i1 %cmp96, label %if.then97, label %while.end221
 
 if.then97:                                        ; preds = %_ZN2EA4StdC7ToupperEDi.exit
   %call98 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc99 = add nsw i32 %nFieldCount.0266, 1
+  %inc99 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb101:                                         ; preds = %while.body
-  switch i32 %c.0272, label %sw.epilog220 [
+  switch i32 %c.0271, label %sw.epilog220 [
     i32 43, label %if.then103
     i32 45, label %if.then108
   ]
 
 if.then103:                                       ; preds = %sw.bb101
   %call104 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc105 = add nsw i32 %nFieldCount.0266, 1
+  %inc105 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 if.then108:                                       ; preds = %sw.bb101
   %call109 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc110 = add nsw i32 %nFieldCount.0266, 1
+  %inc110 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb113:                                         ; preds = %while.body
-  %cmp114 = icmp eq i32 %c.0272, 48
+  %cmp114 = icmp eq i32 %c.0271, 48
   br i1 %cmp114, label %if.then115, label %if.else118
 
 if.then115:                                       ; preds = %sw.bb113
   %call116 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc117 = add nsw i32 %nFieldCount.0266, 1
+  %inc117 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 if.else118:                                       ; preds = %sw.bb113
-  %10 = add i32 %c.0272, -58
+  %10 = add i32 %c.0271, -58
   %cmp.i169 = icmp ult i32 %10, -10
   %.149 = select i1 %cmp.i169, i32 32768, i32 2048
   br label %sw.epilog220
 
 sw.bb125:                                         ; preds = %while.body
-  %cmp126 = icmp eq i32 %c.0272, 48
+  %cmp126 = icmp eq i32 %c.0271, 48
   br i1 %cmp126, label %if.then127, label %sw.epilog220
 
 if.then127:                                       ; preds = %sw.bb125
   %call128 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc129 = add nsw i32 %nFieldCount.0266, 1
+  %inc129 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 sw.bb132:                                         ; preds = %while.body
-  %sub.i171 = add i32 %c.0272, -48
+  %sub.i171 = add i32 %c.0271, -48
   %cmp.i172 = icmp ugt i32 %sub.i171, 9
-  br i1 %cmp.i172, label %while.end221.loopexit.loopexit387, label %if.then135
+  br i1 %cmp.i172, label %while.end221, label %if.then135
 
 if.then135:                                       ; preds = %sw.bb132
-  %mul = mul nsw i32 %nExponent.0267, 10
+  %mul = mul nsw i32 %nExponent.0266, 10
   %add = add nsw i32 %sub.i171, %mul
   %cmp136 = icmp sgt i32 %add, 308
   br i1 %cmp136, label %if.then137, label %if.end138
@@ -7034,70 +7036,70 @@ if.then137:                                       ; preds = %if.then135
 
 if.end138:                                        ; preds = %if.then137, %if.then135
   %call139 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc140 = add nsw i32 %nFieldCount.0266, 1
+  %inc140 = add nsw i32 %nFieldCount.0265, 1
   br label %sw.epilog220
 
 land.rhs146:                                      ; preds = %while.body, %while.body153
-  %indvars.iv308 = phi i64 [ %indvars.iv.next309, %while.body153 ], [ 1, %while.body ]
-  %c.2259 = phi i32 [ %call155, %while.body153 ], [ %c.0272, %while.body ]
-  %nFieldCount.2258 = phi i32 [ %inc156, %while.body153 ], [ %nFieldCount.0266, %while.body ]
-  %cmp.i174 = icmp ult i32 %c.2259, 256
+  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %while.body153 ], [ 1, %while.body ]
+  %c.2258 = phi i32 [ %call155, %while.body153 ], [ %c.0271, %while.body ]
+  %nFieldCount.2257 = phi i32 [ %inc156, %while.body153 ], [ %nFieldCount.0265, %while.body ]
+  %cmp.i174 = icmp ult i32 %c.2258, 256
   br i1 %cmp.i174, label %cond.true.i176, label %_ZN2EA4StdC7ToupperEDi.exit180
 
 cond.true.i176:                                   ; preds = %land.rhs146
-  %conv1.i177 = zext nneg i32 %c.2259 to i64
+  %conv1.i177 = zext nneg i32 %c.2258 to i64
   %arrayidx.i178 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv1.i177
   %11 = load i8, ptr %arrayidx.i178, align 1
   %conv2.i179 = zext i8 %11 to i32
   br label %_ZN2EA4StdC7ToupperEDi.exit180
 
 _ZN2EA4StdC7ToupperEDi.exit180:                   ; preds = %land.rhs146, %cond.true.i176
-  %cond.i175 = phi i32 [ %conv2.i179, %cond.true.i176 ], [ %c.2259, %land.rhs146 ]
-  %arrayidx149 = getelementptr inbounds [9 x i8], ptr @.str, i64 0, i64 %indvars.iv308
+  %cond.i175 = phi i32 [ %conv2.i179, %cond.true.i176 ], [ %c.2258, %land.rhs146 ]
+  %arrayidx149 = getelementptr inbounds [9 x i8], ptr @.str, i64 0, i64 %indvars.iv307
   %12 = load i8, ptr %arrayidx149, align 1
   %conv150 = sext i8 %12 to i32
   %cmp151 = icmp eq i32 %cond.i175, %conv150
   br i1 %cmp151, label %while.body153, label %while.end
 
 while.body153:                                    ; preds = %_ZN2EA4StdC7ToupperEDi.exit180
-  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
+  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %call155 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc156 = add nsw i32 %nFieldCount.2258, 1
-  %exitcond311.not = icmp eq i64 %indvars.iv.next309, 8
-  br i1 %exitcond311.not, label %if.then160, label %land.rhs146, !llvm.loop !56
+  %inc156 = add nsw i32 %nFieldCount.2257, 1
+  %exitcond310.not = icmp eq i64 %indvars.iv.next308, 8
+  br i1 %exitcond310.not, label %if.then160, label %land.rhs146, !llvm.loop !56
 
 while.end:                                        ; preds = %_ZN2EA4StdC7ToupperEDi.exit180
-  %13 = trunc i64 %indvars.iv308 to i32
-  switch i32 %13, label %while.end221.loopexit [
+  %13 = trunc i64 %indvars.iv307 to i32
+  switch i32 %13, label %while.end221 [
     i32 8, label %if.then160
     i32 3, label %if.then160
   ]
 
 if.then160:                                       ; preds = %while.body153, %while.end, %while.end
-  %i.0.lcssa319 = phi i32 [ %13, %while.end ], [ %13, %while.end ], [ 8, %while.body153 ]
-  %tobool161 = trunc i8 %bNegative.0269 to i1
+  %i.0.lcssa318 = phi i32 [ %13, %while.end ], [ %13, %while.end ], [ 8, %while.body153 ]
+  %tobool161 = trunc nuw i8 %bNegative.0268 to i1
   %.150 = select i1 %tobool161, double 0xFFF0000000000000, double 0x7FF0000000000000
-  %add165 = add nsw i32 %nSignCount.0265, %nSpaceCount.0264
-  %add166 = add nsw i32 %add165, %i.0.lcssa319
+  %add165 = add nsw i32 %nSignCount.0264, %nSpaceCount.0263
+  %add166 = add nsw i32 %add165, %i.0.lcssa318
   store i32 %add166, ptr %nReadCount, align 4
   br label %return
 
 land.rhs173:                                      ; preds = %land.rhs173.preheader, %while.body180
   %indvars.iv = phi i64 [ 1, %land.rhs173.preheader ], [ %indvars.iv.next, %while.body180 ]
-  %c.3253 = phi i32 [ %c.0272, %land.rhs173.preheader ], [ %call181, %while.body180 ]
-  %nFieldCount.3252 = phi i32 [ %nFieldCount.0266, %land.rhs173.preheader ], [ %inc182, %while.body180 ]
-  %cmp.i181 = icmp ult i32 %c.3253, 256
+  %c.3252 = phi i32 [ %c.0271, %land.rhs173.preheader ], [ %call181, %while.body180 ]
+  %nFieldCount.3251 = phi i32 [ %nFieldCount.0265, %land.rhs173.preheader ], [ %inc182, %while.body180 ]
+  %cmp.i181 = icmp ult i32 %c.3252, 256
   br i1 %cmp.i181, label %cond.true.i183, label %_ZN2EA4StdC7ToupperEDi.exit187
 
 cond.true.i183:                                   ; preds = %land.rhs173
-  %conv1.i184 = zext nneg i32 %c.3253 to i64
+  %conv1.i184 = zext nneg i32 %c.3252 to i64
   %arrayidx.i185 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv1.i184
   %14 = load i8, ptr %arrayidx.i185, align 1
   %conv2.i186 = zext i8 %14 to i32
   br label %_ZN2EA4StdC7ToupperEDi.exit187
 
 _ZN2EA4StdC7ToupperEDi.exit187:                   ; preds = %land.rhs173, %cond.true.i183
-  %cond.i182 = phi i32 [ %conv2.i186, %cond.true.i183 ], [ %c.3253, %land.rhs173 ]
+  %cond.i182 = phi i32 [ %conv2.i186, %cond.true.i183 ], [ %c.3252, %land.rhs173 ]
   %arrayidx176 = getelementptr inbounds [5 x i8], ptr @.str.1, i64 0, i64 %indvars.iv
   %15 = load i8, ptr %arrayidx176, align 1
   %conv177 = sext i8 %15 to i32
@@ -7106,7 +7108,7 @@ _ZN2EA4StdC7ToupperEDi.exit187:                   ; preds = %land.rhs173, %cond.
 
 while.body180:                                    ; preds = %_ZN2EA4StdC7ToupperEDi.exit187
   %call181 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc182 = add nsw i32 %nFieldCount.3252, 1
+  %inc182 = add nsw i32 %nFieldCount.3251, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %land.rhs193.preheader, label %land.rhs173, !llvm.loop !57
@@ -7115,32 +7117,32 @@ while.end184:                                     ; preds = %_ZN2EA4StdC7Toupper
   %16 = trunc i64 %indvars.iv to i32
   %17 = add nsw i32 %16, -3
   %or.cond2 = icmp ult i32 %17, 2
-  br i1 %or.cond2, label %if.then188, label %while.end221.loopexit
+  br i1 %or.cond2, label %if.then188, label %while.end221
 
 if.then188:                                       ; preds = %while.end184
   %cmp187 = icmp eq i32 %16, 4
   br i1 %cmp187, label %land.rhs193.preheader, label %if.end209
 
 land.rhs193.preheader:                            ; preds = %while.body180, %if.then188
-  %nFieldCount.3.lcssa324332 = phi i32 [ %nFieldCount.3252, %if.then188 ], [ %0, %while.body180 ]
-  %c.3.lcssa325331 = phi i32 [ %c.3253, %if.then188 ], [ %call181, %while.body180 ]
-  %18 = add i32 %nFieldCount.3.lcssa324332, 32
+  %nFieldCount.3.lcssa323331 = phi i32 [ %nFieldCount.3251, %if.then188 ], [ %0, %while.body180 ]
+  %c.3.lcssa324330 = phi i32 [ %c.3252, %if.then188 ], [ %call181, %while.body180 ]
+  %18 = add i32 %nFieldCount.3.lcssa323331, 32
   br label %land.rhs193
 
 land.rhs193:                                      ; preds = %land.rhs193.preheader, %while.body199
-  %j.0257 = phi i32 [ %inc202, %while.body199 ], [ 0, %land.rhs193.preheader ]
-  %c.4256 = phi i32 [ %call200, %while.body199 ], [ %c.3.lcssa325331, %land.rhs193.preheader ]
-  %nFieldCount.4255 = phi i32 [ %inc201, %while.body199 ], [ %nFieldCount.3.lcssa324332, %land.rhs193.preheader ]
-  %19 = add i32 %c.4256, -58
+  %j.0256 = phi i32 [ %inc202, %while.body199 ], [ 0, %land.rhs193.preheader ]
+  %c.4255 = phi i32 [ %call200, %while.body199 ], [ %c.3.lcssa324330, %land.rhs193.preheader ]
+  %nFieldCount.4254 = phi i32 [ %inc201, %while.body199 ], [ %nFieldCount.3.lcssa323331, %land.rhs193.preheader ]
+  %19 = add i32 %c.4255, -58
   %cmp.i189 = icmp ult i32 %19, -10
   br i1 %cmp.i189, label %lor.rhs, label %while.body199
 
 lor.rhs:                                          ; preds = %land.rhs193
-  %cmp.i191 = icmp ult i32 %c.4256, 256
-  br i1 %cmp.i191, label %_ZN2EA4StdC7IsalphaEDi.exit, label %while.end221.loopexit
+  %cmp.i191 = icmp ult i32 %c.4255, 256
+  br i1 %cmp.i191, label %_ZN2EA4StdC7IsalphaEDi.exit, label %while.end221
 
 _ZN2EA4StdC7IsalphaEDi.exit:                      ; preds = %lor.rhs
-  %conv.i194 = zext nneg i32 %c.4256 to i64
+  %conv.i194 = zext nneg i32 %c.4255 to i64
   %arrayidx.i195 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i194
   %20 = load i8, ptr %arrayidx.i195, align 1
   %tobool197.not = icmp ult i8 %20, 64
@@ -7148,150 +7150,143 @@ _ZN2EA4StdC7IsalphaEDi.exit:                      ; preds = %lor.rhs
 
 while.body199:                                    ; preds = %land.rhs193, %_ZN2EA4StdC7IsalphaEDi.exit
   %call200 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
-  %inc201 = add nsw i32 %nFieldCount.4255, 1
-  %inc202 = add nuw nsw i32 %j.0257, 1
-  %exitcond307.not = icmp eq i32 %inc202, 32
-  br i1 %exitcond307.not, label %while.end203, label %land.rhs193, !llvm.loop !58
+  %inc201 = add nsw i32 %nFieldCount.4254, 1
+  %inc202 = add nuw nsw i32 %j.0256, 1
+  %exitcond306.not = icmp eq i32 %inc202, 32
+  br i1 %exitcond306.not, label %while.end203, label %land.rhs193, !llvm.loop !58
 
 while.end203:                                     ; preds = %while.body199, %_ZN2EA4StdC7IsalphaEDi.exit
-  %nFieldCount.4.lcssa = phi i32 [ %18, %while.body199 ], [ %nFieldCount.4255, %_ZN2EA4StdC7IsalphaEDi.exit ]
-  %c.4.lcssa = phi i32 [ %call200, %while.body199 ], [ %c.4256, %_ZN2EA4StdC7IsalphaEDi.exit ]
-  %j.0.lcssa = phi i32 [ 32, %while.body199 ], [ %j.0257, %_ZN2EA4StdC7IsalphaEDi.exit ]
+  %nFieldCount.4.lcssa = phi i32 [ %18, %while.body199 ], [ %nFieldCount.4254, %_ZN2EA4StdC7IsalphaEDi.exit ]
+  %c.4.lcssa = phi i32 [ %call200, %while.body199 ], [ %c.4255, %_ZN2EA4StdC7IsalphaEDi.exit ]
+  %j.0.lcssa = phi i32 [ 32, %while.body199 ], [ %j.0256, %_ZN2EA4StdC7IsalphaEDi.exit ]
   %cmp204.not = icmp eq i32 %c.4.lcssa, 41
-  br i1 %cmp204.not, label %if.else206, label %while.end221.loopexit
+  br i1 %cmp204.not, label %if.else206, label %while.end221
 
 if.else206:                                       ; preds = %while.end203
   %inc207 = add nuw nsw i32 %j.0.lcssa, 1
   br label %if.end209
 
 if.end209:                                        ; preds = %if.then188, %if.else206
-  %i170.0.lcssa293 = phi i32 [ 4, %if.else206 ], [ 3, %if.then188 ]
+  %i170.0.lcssa292 = phi i32 [ 4, %if.else206 ], [ 3, %if.then188 ]
   %j.1 = phi i32 [ %inc207, %if.else206 ], [ 0, %if.then188 ]
-  %tobool210 = trunc i8 %bNegative.0269 to i1
+  %tobool210 = trunc nuw i8 %bNegative.0268 to i1
   %.151 = select i1 %tobool210, double 0xFFFFFFFFFFFFFFFF, double 0x7FFFFFFFFFFFFFFF
-  %add215 = add nsw i32 %nSignCount.0265, %nSpaceCount.0264
-  %add216 = add nsw i32 %add215, %i170.0.lcssa293
+  %add215 = add nsw i32 %nSignCount.0264, %nSpaceCount.0263
+  %add216 = add nsw i32 %add215, %i170.0.lcssa292
   %add217 = add nsw i32 %add216, %j.1
   store i32 %add217, ptr %nReadCount, align 4
   br label %return
 
 sw.epilog220:                                     ; preds = %sw.bb125, %if.else118, %if.then103, %if.then108, %sw.bb101, %sw.bb70, %sw.bb64, %if.else56, %sw.bb35, %if.else27, %if.end, %if.end138, %if.then127, %if.then115, %if.end89, %if.end53, %if.then58, %if.then37, %if.then20, %if.then24, %sw.bb8, %sw.bb12, %sw.bb15, %if.then97, %if.then, %while.body
-  %nSpaceCount.1 = phi i32 [ %nSpaceCount.0264, %while.body ], [ %nSpaceCount.0264, %if.end138 ], [ %nSpaceCount.0264, %if.then127 ], [ %nSpaceCount.0264, %if.then115 ], [ %nSpaceCount.0264, %if.then97 ], [ %nSpaceCount.0264, %if.end89 ], [ %nSpaceCount.0264, %if.end53 ], [ %nSpaceCount.0264, %if.then58 ], [ %nSpaceCount.0264, %if.then37 ], [ %nSpaceCount.0264, %if.then20 ], [ %nSpaceCount.0264, %if.then24 ], [ %inc6, %if.then ], [ %nSpaceCount.0264, %sw.bb15 ], [ %nSpaceCount.0264, %sw.bb12 ], [ %nSpaceCount.0264, %sw.bb8 ], [ %nSpaceCount.0264, %if.end ], [ %nSpaceCount.0264, %if.else27 ], [ %nSpaceCount.0264, %sw.bb35 ], [ %nSpaceCount.0264, %if.else56 ], [ %nSpaceCount.0264, %sw.bb64 ], [ %nSpaceCount.0264, %sw.bb70 ], [ %nSpaceCount.0264, %sw.bb101 ], [ %nSpaceCount.0264, %if.then108 ], [ %nSpaceCount.0264, %if.then103 ], [ %nSpaceCount.0264, %if.else118 ], [ %nSpaceCount.0264, %sw.bb125 ]
-  %nSignCount.1 = phi i32 [ %nSignCount.0265, %while.body ], [ %nSignCount.0265, %if.end138 ], [ %nSignCount.0265, %if.then127 ], [ %nSignCount.0265, %if.then115 ], [ %nSignCount.0265, %if.then97 ], [ %nSignCount.0265, %if.end89 ], [ %nSignCount.0265, %if.end53 ], [ %nSignCount.0265, %if.then58 ], [ %nSignCount.0265, %if.then37 ], [ %nSignCount.0265, %if.then20 ], [ %nSignCount.0265, %if.then24 ], [ %nSignCount.0265, %if.then ], [ %nSignCount.0265, %sw.bb15 ], [ %nSignCount.0265, %sw.bb12 ], [ %inc11, %sw.bb8 ], [ %nSignCount.0265, %if.end ], [ %nSignCount.0265, %if.else27 ], [ %nSignCount.0265, %sw.bb35 ], [ %nSignCount.0265, %if.else56 ], [ %nSignCount.0265, %sw.bb64 ], [ %nSignCount.0265, %sw.bb70 ], [ %nSignCount.0265, %sw.bb101 ], [ %nSignCount.0265, %if.then108 ], [ %nSignCount.0265, %if.then103 ], [ %nSignCount.0265, %if.else118 ], [ %nSignCount.0265, %sw.bb125 ]
-  %nFieldCount.5 = phi i32 [ %nFieldCount.0266, %while.body ], [ %inc140, %if.end138 ], [ %inc129, %if.then127 ], [ %inc117, %if.then115 ], [ %inc99, %if.then97 ], [ %inc91, %if.end89 ], [ %inc55, %if.end53 ], [ %inc60, %if.then58 ], [ %inc39, %if.then37 ], [ %inc22, %if.then20 ], [ %inc26, %if.then24 ], [ %nFieldCount.0266, %if.then ], [ %inc17, %sw.bb15 ], [ %inc14, %sw.bb12 ], [ %inc10, %sw.bb8 ], [ %nFieldCount.0266, %if.end ], [ %nFieldCount.0266, %if.else27 ], [ %nFieldCount.0266, %sw.bb35 ], [ %nFieldCount.0266, %if.else56 ], [ %nFieldCount.0266, %sw.bb64 ], [ %nFieldCount.0266, %sw.bb70 ], [ %nFieldCount.0266, %sw.bb101 ], [ %inc110, %if.then108 ], [ %inc105, %if.then103 ], [ %nFieldCount.0266, %if.else118 ], [ %nFieldCount.0266, %sw.bb125 ]
-  %nExponent.1 = phi i32 [ %nExponent.0267, %while.body ], [ %add, %if.end138 ], [ %nExponent.0267, %if.then127 ], [ %nExponent.0267, %if.then115 ], [ %nExponent.0267, %if.then97 ], [ %nExponent.0267, %if.end89 ], [ %nExponent.0267, %if.end53 ], [ %nExponent.0267, %if.then58 ], [ %nExponent.0267, %if.then37 ], [ %nExponent.0267, %if.then20 ], [ %nExponent.0267, %if.then24 ], [ %nExponent.0267, %if.then ], [ %nExponent.0267, %sw.bb15 ], [ %nExponent.0267, %sw.bb12 ], [ %nExponent.0267, %sw.bb8 ], [ %nExponent.0267, %if.end ], [ %nExponent.0267, %if.else27 ], [ %nExponent.0267, %sw.bb35 ], [ %nExponent.0267, %if.else56 ], [ %nExponent.0267, %sw.bb64 ], [ %nExponent.0267, %sw.bb70 ], [ %nExponent.0267, %sw.bb101 ], [ %nExponent.0267, %if.then108 ], [ %nExponent.0267, %if.then103 ], [ %nExponent.0267, %if.else118 ], [ %nExponent.0267, %sw.bb125 ]
-  %nExponentAdd.3 = phi i32 [ %nExponentAdd.0268, %while.body ], [ %nExponentAdd.0268, %if.end138 ], [ %nExponentAdd.0268, %if.then127 ], [ %nExponentAdd.0268, %if.then115 ], [ %nExponentAdd.0268, %if.then97 ], [ %nExponentAdd.2, %if.end89 ], [ %nExponentAdd.1, %if.end53 ], [ %nExponentAdd.0268, %if.then58 ], [ %nExponentAdd.0268, %if.then37 ], [ %nExponentAdd.0268, %if.then20 ], [ %nExponentAdd.0268, %if.then24 ], [ %nExponentAdd.0268, %if.then ], [ %nExponentAdd.0268, %sw.bb15 ], [ %nExponentAdd.0268, %sw.bb12 ], [ %nExponentAdd.0268, %sw.bb8 ], [ %nExponentAdd.0268, %if.end ], [ %nExponentAdd.0268, %if.else27 ], [ %nExponentAdd.0268, %sw.bb35 ], [ %nExponentAdd.0268, %if.else56 ], [ %nExponentAdd.0268, %sw.bb64 ], [ %nExponentAdd.0268, %sw.bb70 ], [ %nExponentAdd.0268, %sw.bb101 ], [ %nExponentAdd.0268, %if.then108 ], [ %nExponentAdd.0268, %if.then103 ], [ %nExponentAdd.0268, %if.else118 ], [ %nExponentAdd.0268, %sw.bb125 ]
-  %bNegative.2 = phi i8 [ %bNegative.0269, %while.body ], [ %bNegative.0269, %if.end138 ], [ %bNegative.0269, %if.then127 ], [ %bNegative.0269, %if.then115 ], [ %bNegative.0269, %if.then97 ], [ %bNegative.0269, %if.end89 ], [ %bNegative.0269, %if.end53 ], [ %bNegative.0269, %if.then58 ], [ %bNegative.0269, %if.then37 ], [ %bNegative.0269, %if.then20 ], [ %bNegative.0269, %if.then24 ], [ %bNegative.0269, %if.then ], [ %bNegative.0269, %sw.bb15 ], [ %bNegative.0269, %sw.bb12 ], [ %bNegative.1, %sw.bb8 ], [ %bNegative.0269, %if.end ], [ %bNegative.0269, %if.else27 ], [ %bNegative.0269, %sw.bb35 ], [ %bNegative.0269, %if.else56 ], [ %bNegative.0269, %sw.bb64 ], [ %bNegative.0269, %sw.bb70 ], [ %bNegative.0269, %sw.bb101 ], [ %bNegative.0269, %if.then108 ], [ %bNegative.0269, %if.then103 ], [ %bNegative.0269, %if.else118 ], [ %bNegative.0269, %sw.bb125 ]
-  %bExponentNegative.2 = phi i1 [ %bExponentNegative.0270, %while.body ], [ %bExponentNegative.0270, %if.end138 ], [ %bExponentNegative.0270, %if.then127 ], [ %bExponentNegative.0270, %if.then115 ], [ %bExponentNegative.0270, %if.then97 ], [ %bExponentNegative.0270, %if.end89 ], [ %bExponentNegative.0270, %if.end53 ], [ %bExponentNegative.0270, %if.then58 ], [ %bExponentNegative.0270, %if.then37 ], [ %bExponentNegative.0270, %if.then20 ], [ %bExponentNegative.0270, %if.then24 ], [ %bExponentNegative.0270, %if.then ], [ %bExponentNegative.0270, %sw.bb15 ], [ %bExponentNegative.0270, %sw.bb12 ], [ %bExponentNegative.0270, %sw.bb8 ], [ %bExponentNegative.0270, %if.end ], [ %bExponentNegative.0270, %if.else27 ], [ %bExponentNegative.0270, %sw.bb35 ], [ %bExponentNegative.0270, %if.else56 ], [ %bExponentNegative.0270, %sw.bb64 ], [ %bExponentNegative.0270, %sw.bb70 ], [ %bExponentNegative.0270, %sw.bb101 ], [ true, %if.then108 ], [ %bExponentNegative.0270, %if.then103 ], [ %bExponentNegative.0270, %if.else118 ], [ %bExponentNegative.0270, %sw.bb125 ]
-  %state.1 = phi i32 [ %state.0271, %while.body ], [ 2048, %if.end138 ], [ 1024, %if.then127 ], [ 1024, %if.then115 ], [ 256, %if.then97 ], [ 64, %if.end89 ], [ 8, %if.end53 ], [ 64, %if.then58 ], [ 4, %if.then37 ], [ 16, %if.then20 ], [ 4, %if.then24 ], [ 1, %if.then ], [ 8192, %sw.bb15 ], [ 4096, %sw.bb12 ], [ 1, %sw.bb8 ], [ 2, %if.end ], [ %., %if.else27 ], [ 8, %sw.bb35 ], [ 128, %if.else56 ], [ %.148, %sw.bb64 ], [ 128, %sw.bb70 ], [ 512, %sw.bb101 ], [ 512, %if.then108 ], [ 512, %if.then103 ], [ %.149, %if.else118 ], [ 2048, %sw.bb125 ]
-  %c.5 = phi i32 [ %c.0272, %while.body ], [ %call139, %if.end138 ], [ %call128, %if.then127 ], [ %call116, %if.then115 ], [ %call98, %if.then97 ], [ %call90, %if.end89 ], [ %call54, %if.end53 ], [ %call59, %if.then58 ], [ %call38, %if.then37 ], [ %call21, %if.then20 ], [ %call25, %if.then24 ], [ %call5, %if.then ], [ %call16, %sw.bb15 ], [ %call13, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %c.0272, %if.end ], [ %c.0272, %if.else27 ], [ %c.0272, %sw.bb35 ], [ %c.0272, %if.else56 ], [ %c.0272, %sw.bb64 ], [ %c.0272, %sw.bb70 ], [ %c.0272, %sw.bb101 ], [ %call109, %if.then108 ], [ %call104, %if.then103 ], [ %c.0272, %if.else118 ], [ %c.0272, %sw.bb125 ]
+  %nSpaceCount.1 = phi i32 [ %nSpaceCount.0263, %while.body ], [ %nSpaceCount.0263, %if.end138 ], [ %nSpaceCount.0263, %if.then127 ], [ %nSpaceCount.0263, %if.then115 ], [ %nSpaceCount.0263, %if.then97 ], [ %nSpaceCount.0263, %if.end89 ], [ %nSpaceCount.0263, %if.end53 ], [ %nSpaceCount.0263, %if.then58 ], [ %nSpaceCount.0263, %if.then37 ], [ %nSpaceCount.0263, %if.then20 ], [ %nSpaceCount.0263, %if.then24 ], [ %inc6, %if.then ], [ %nSpaceCount.0263, %sw.bb15 ], [ %nSpaceCount.0263, %sw.bb12 ], [ %nSpaceCount.0263, %sw.bb8 ], [ %nSpaceCount.0263, %if.end ], [ %nSpaceCount.0263, %if.else27 ], [ %nSpaceCount.0263, %sw.bb35 ], [ %nSpaceCount.0263, %if.else56 ], [ %nSpaceCount.0263, %sw.bb64 ], [ %nSpaceCount.0263, %sw.bb70 ], [ %nSpaceCount.0263, %sw.bb101 ], [ %nSpaceCount.0263, %if.then108 ], [ %nSpaceCount.0263, %if.then103 ], [ %nSpaceCount.0263, %if.else118 ], [ %nSpaceCount.0263, %sw.bb125 ]
+  %nSignCount.1 = phi i32 [ %nSignCount.0264, %while.body ], [ %nSignCount.0264, %if.end138 ], [ %nSignCount.0264, %if.then127 ], [ %nSignCount.0264, %if.then115 ], [ %nSignCount.0264, %if.then97 ], [ %nSignCount.0264, %if.end89 ], [ %nSignCount.0264, %if.end53 ], [ %nSignCount.0264, %if.then58 ], [ %nSignCount.0264, %if.then37 ], [ %nSignCount.0264, %if.then20 ], [ %nSignCount.0264, %if.then24 ], [ %nSignCount.0264, %if.then ], [ %nSignCount.0264, %sw.bb15 ], [ %nSignCount.0264, %sw.bb12 ], [ %inc11, %sw.bb8 ], [ %nSignCount.0264, %if.end ], [ %nSignCount.0264, %if.else27 ], [ %nSignCount.0264, %sw.bb35 ], [ %nSignCount.0264, %if.else56 ], [ %nSignCount.0264, %sw.bb64 ], [ %nSignCount.0264, %sw.bb70 ], [ %nSignCount.0264, %sw.bb101 ], [ %nSignCount.0264, %if.then108 ], [ %nSignCount.0264, %if.then103 ], [ %nSignCount.0264, %if.else118 ], [ %nSignCount.0264, %sw.bb125 ]
+  %nFieldCount.5 = phi i32 [ %nFieldCount.0265, %while.body ], [ %inc140, %if.end138 ], [ %inc129, %if.then127 ], [ %inc117, %if.then115 ], [ %inc99, %if.then97 ], [ %inc91, %if.end89 ], [ %inc55, %if.end53 ], [ %inc60, %if.then58 ], [ %inc39, %if.then37 ], [ %inc22, %if.then20 ], [ %inc26, %if.then24 ], [ %nFieldCount.0265, %if.then ], [ %inc17, %sw.bb15 ], [ %inc14, %sw.bb12 ], [ %inc10, %sw.bb8 ], [ %nFieldCount.0265, %if.end ], [ %nFieldCount.0265, %if.else27 ], [ %nFieldCount.0265, %sw.bb35 ], [ %nFieldCount.0265, %if.else56 ], [ %nFieldCount.0265, %sw.bb64 ], [ %nFieldCount.0265, %sw.bb70 ], [ %nFieldCount.0265, %sw.bb101 ], [ %inc110, %if.then108 ], [ %inc105, %if.then103 ], [ %nFieldCount.0265, %if.else118 ], [ %nFieldCount.0265, %sw.bb125 ]
+  %nExponent.1 = phi i32 [ %nExponent.0266, %while.body ], [ %add, %if.end138 ], [ %nExponent.0266, %if.then127 ], [ %nExponent.0266, %if.then115 ], [ %nExponent.0266, %if.then97 ], [ %nExponent.0266, %if.end89 ], [ %nExponent.0266, %if.end53 ], [ %nExponent.0266, %if.then58 ], [ %nExponent.0266, %if.then37 ], [ %nExponent.0266, %if.then20 ], [ %nExponent.0266, %if.then24 ], [ %nExponent.0266, %if.then ], [ %nExponent.0266, %sw.bb15 ], [ %nExponent.0266, %sw.bb12 ], [ %nExponent.0266, %sw.bb8 ], [ %nExponent.0266, %if.end ], [ %nExponent.0266, %if.else27 ], [ %nExponent.0266, %sw.bb35 ], [ %nExponent.0266, %if.else56 ], [ %nExponent.0266, %sw.bb64 ], [ %nExponent.0266, %sw.bb70 ], [ %nExponent.0266, %sw.bb101 ], [ %nExponent.0266, %if.then108 ], [ %nExponent.0266, %if.then103 ], [ %nExponent.0266, %if.else118 ], [ %nExponent.0266, %sw.bb125 ]
+  %nExponentAdd.3 = phi i32 [ %nExponentAdd.0267, %while.body ], [ %nExponentAdd.0267, %if.end138 ], [ %nExponentAdd.0267, %if.then127 ], [ %nExponentAdd.0267, %if.then115 ], [ %nExponentAdd.0267, %if.then97 ], [ %nExponentAdd.2, %if.end89 ], [ %nExponentAdd.1, %if.end53 ], [ %nExponentAdd.0267, %if.then58 ], [ %nExponentAdd.0267, %if.then37 ], [ %nExponentAdd.0267, %if.then20 ], [ %nExponentAdd.0267, %if.then24 ], [ %nExponentAdd.0267, %if.then ], [ %nExponentAdd.0267, %sw.bb15 ], [ %nExponentAdd.0267, %sw.bb12 ], [ %nExponentAdd.0267, %sw.bb8 ], [ %nExponentAdd.0267, %if.end ], [ %nExponentAdd.0267, %if.else27 ], [ %nExponentAdd.0267, %sw.bb35 ], [ %nExponentAdd.0267, %if.else56 ], [ %nExponentAdd.0267, %sw.bb64 ], [ %nExponentAdd.0267, %sw.bb70 ], [ %nExponentAdd.0267, %sw.bb101 ], [ %nExponentAdd.0267, %if.then108 ], [ %nExponentAdd.0267, %if.then103 ], [ %nExponentAdd.0267, %if.else118 ], [ %nExponentAdd.0267, %sw.bb125 ]
+  %bNegative.2 = phi i8 [ %bNegative.0268, %while.body ], [ %bNegative.0268, %if.end138 ], [ %bNegative.0268, %if.then127 ], [ %bNegative.0268, %if.then115 ], [ %bNegative.0268, %if.then97 ], [ %bNegative.0268, %if.end89 ], [ %bNegative.0268, %if.end53 ], [ %bNegative.0268, %if.then58 ], [ %bNegative.0268, %if.then37 ], [ %bNegative.0268, %if.then20 ], [ %bNegative.0268, %if.then24 ], [ %bNegative.0268, %if.then ], [ %bNegative.0268, %sw.bb15 ], [ %bNegative.0268, %sw.bb12 ], [ %bNegative.1, %sw.bb8 ], [ %bNegative.0268, %if.end ], [ %bNegative.0268, %if.else27 ], [ %bNegative.0268, %sw.bb35 ], [ %bNegative.0268, %if.else56 ], [ %bNegative.0268, %sw.bb64 ], [ %bNegative.0268, %sw.bb70 ], [ %bNegative.0268, %sw.bb101 ], [ %bNegative.0268, %if.then108 ], [ %bNegative.0268, %if.then103 ], [ %bNegative.0268, %if.else118 ], [ %bNegative.0268, %sw.bb125 ]
+  %bExponentNegative.2 = phi i1 [ %bExponentNegative.0269, %while.body ], [ %bExponentNegative.0269, %if.end138 ], [ %bExponentNegative.0269, %if.then127 ], [ %bExponentNegative.0269, %if.then115 ], [ %bExponentNegative.0269, %if.then97 ], [ %bExponentNegative.0269, %if.end89 ], [ %bExponentNegative.0269, %if.end53 ], [ %bExponentNegative.0269, %if.then58 ], [ %bExponentNegative.0269, %if.then37 ], [ %bExponentNegative.0269, %if.then20 ], [ %bExponentNegative.0269, %if.then24 ], [ %bExponentNegative.0269, %if.then ], [ %bExponentNegative.0269, %sw.bb15 ], [ %bExponentNegative.0269, %sw.bb12 ], [ %bExponentNegative.0269, %sw.bb8 ], [ %bExponentNegative.0269, %if.end ], [ %bExponentNegative.0269, %if.else27 ], [ %bExponentNegative.0269, %sw.bb35 ], [ %bExponentNegative.0269, %if.else56 ], [ %bExponentNegative.0269, %sw.bb64 ], [ %bExponentNegative.0269, %sw.bb70 ], [ %bExponentNegative.0269, %sw.bb101 ], [ true, %if.then108 ], [ %bExponentNegative.0269, %if.then103 ], [ %bExponentNegative.0269, %if.else118 ], [ %bExponentNegative.0269, %sw.bb125 ]
+  %state.1 = phi i32 [ %state.0270, %while.body ], [ 2048, %if.end138 ], [ 1024, %if.then127 ], [ 1024, %if.then115 ], [ 256, %if.then97 ], [ 64, %if.end89 ], [ 8, %if.end53 ], [ 64, %if.then58 ], [ 4, %if.then37 ], [ 16, %if.then20 ], [ 4, %if.then24 ], [ 1, %if.then ], [ 8192, %sw.bb15 ], [ 4096, %sw.bb12 ], [ 1, %sw.bb8 ], [ 2, %if.end ], [ %., %if.else27 ], [ 8, %sw.bb35 ], [ 128, %if.else56 ], [ %.148, %sw.bb64 ], [ 128, %sw.bb70 ], [ 512, %sw.bb101 ], [ 512, %if.then108 ], [ 512, %if.then103 ], [ %.149, %if.else118 ], [ 2048, %sw.bb125 ]
+  %c.5 = phi i32 [ %c.0271, %while.body ], [ %call139, %if.end138 ], [ %call128, %if.then127 ], [ %call116, %if.then115 ], [ %call98, %if.then97 ], [ %call90, %if.end89 ], [ %call54, %if.end53 ], [ %call59, %if.then58 ], [ %call38, %if.then37 ], [ %call21, %if.then20 ], [ %call25, %if.then24 ], [ %call5, %if.then ], [ %call16, %sw.bb15 ], [ %call13, %sw.bb12 ], [ %call9, %sw.bb8 ], [ %c.0271, %if.end ], [ %c.0271, %if.else27 ], [ %c.0271, %sw.bb35 ], [ %c.0271, %if.else56 ], [ %c.0271, %sw.bb64 ], [ %c.0271, %sw.bb70 ], [ %c.0271, %sw.bb101 ], [ %call109, %if.then108 ], [ %call104, %if.then103 ], [ %c.0271, %if.else118 ], [ %c.0271, %sw.bb125 ]
   %cmp.not = icmp ne i32 %c.5, -1
   %cmp2.not = icmp sle i32 %nFieldCount.5, %nMaxFieldWidth
   %or.cond146.not210 = select i1 %cmp.not, i1 %cmp2.not, i1 false
   %and = and i32 %state.1, 49152
   %tobool.not = icmp eq i32 %and, 0
   %or.cond147 = and i1 %or.cond146.not210, %tobool.not
-  br i1 %or.cond147, label %while.body, label %while.end221.loopexit.loopexit387, !llvm.loop !59
+  br i1 %or.cond147, label %while.body, label %while.end221, !llvm.loop !59
 
-while.end221.loopexit.loopexit387:                ; preds = %sw.epilog220, %_ZN2EA4StdC7ToupperEDi.exit, %sw.bb132, %sw.bb94
-  %c.5355.ph = phi i32 [ %c.5, %sw.epilog220 ], [ %c.0272, %sw.bb94 ], [ %c.0272, %sw.bb132 ], [ %c.0272, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %state.1354.ph = phi i32 [ %state.1, %sw.epilog220 ], [ 16384, %sw.bb94 ], [ 16384, %sw.bb132 ], [ 16384, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %bExponentNegative.2353.ph = phi i1 [ %bExponentNegative.2, %sw.epilog220 ], [ %bExponentNegative.0270, %sw.bb94 ], [ %bExponentNegative.0270, %sw.bb132 ], [ %bExponentNegative.0270, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %bNegative.2352.ph = phi i8 [ %bNegative.2, %sw.epilog220 ], [ %bNegative.0269, %sw.bb94 ], [ %bNegative.0269, %sw.bb132 ], [ %bNegative.0269, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %nExponentAdd.3351.ph = phi i32 [ %nExponentAdd.3, %sw.epilog220 ], [ %nExponentAdd.0268, %sw.bb94 ], [ %nExponentAdd.0268, %sw.bb132 ], [ %nExponentAdd.0268, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %nExponent.1350.ph = phi i32 [ %nExponent.1, %sw.epilog220 ], [ %nExponent.0267, %sw.bb94 ], [ %nExponent.0267, %sw.bb132 ], [ %nExponent.0267, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %nFieldCount.5349.ph = phi i32 [ %nFieldCount.5, %sw.epilog220 ], [ %nFieldCount.0266, %sw.bb94 ], [ %nFieldCount.0266, %sw.bb132 ], [ %nFieldCount.0266, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %nSpaceCount.1348.ph = phi i32 [ %nSpaceCount.1, %sw.epilog220 ], [ %nSpaceCount.0264, %sw.bb94 ], [ %nSpaceCount.0264, %sw.bb132 ], [ %nSpaceCount.0264, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %21 = and i32 %state.1354.ph, 19564
-  %22 = icmp eq i32 %21, 0
-  br label %while.end221.loopexit
-
-while.end221.loopexit:                            ; preds = %lor.rhs, %while.end221.loopexit.loopexit387, %while.end184, %while.end203, %while.end
-  %c.5355 = phi i32 [ %c.3253, %while.end184 ], [ %c.4.lcssa, %while.end203 ], [ %c.2259, %while.end ], [ %c.5355.ph, %while.end221.loopexit.loopexit387 ], [ %c.4256, %lor.rhs ]
-  %state.1354 = phi i1 [ true, %while.end184 ], [ true, %while.end203 ], [ true, %while.end ], [ %22, %while.end221.loopexit.loopexit387 ], [ true, %lor.rhs ]
-  %bExponentNegative.2353 = phi i1 [ %bExponentNegative.0270, %while.end184 ], [ %bExponentNegative.0270, %while.end203 ], [ %bExponentNegative.0270, %while.end ], [ %bExponentNegative.2353.ph, %while.end221.loopexit.loopexit387 ], [ %bExponentNegative.0270, %lor.rhs ]
-  %bNegative.2352 = phi i8 [ %bNegative.0269, %while.end184 ], [ %bNegative.0269, %while.end203 ], [ %bNegative.0269, %while.end ], [ %bNegative.2352.ph, %while.end221.loopexit.loopexit387 ], [ %bNegative.0269, %lor.rhs ]
-  %nExponentAdd.3351 = phi i32 [ %nExponentAdd.0268, %while.end184 ], [ %nExponentAdd.0268, %while.end203 ], [ %nExponentAdd.0268, %while.end ], [ %nExponentAdd.3351.ph, %while.end221.loopexit.loopexit387 ], [ %nExponentAdd.0268, %lor.rhs ]
-  %nExponent.1350 = phi i32 [ %nExponent.0267, %while.end184 ], [ %nExponent.0267, %while.end203 ], [ %nExponent.0267, %while.end ], [ %nExponent.1350.ph, %while.end221.loopexit.loopexit387 ], [ %nExponent.0267, %lor.rhs ]
-  %nFieldCount.5349 = phi i32 [ %nFieldCount.3252, %while.end184 ], [ %nFieldCount.4.lcssa, %while.end203 ], [ %nFieldCount.2258, %while.end ], [ %nFieldCount.5349.ph, %while.end221.loopexit.loopexit387 ], [ %nFieldCount.4255, %lor.rhs ]
-  %nSpaceCount.1348 = phi i32 [ %nSpaceCount.0264, %while.end184 ], [ %nSpaceCount.0264, %while.end203 ], [ %nSpaceCount.0264, %while.end ], [ %nSpaceCount.1348.ph, %while.end221.loopexit.loopexit387 ], [ %nSpaceCount.0264, %lor.rhs ]
+while.end221:                                     ; preds = %sw.bb94, %sw.bb132, %_ZN2EA4StdC7ToupperEDi.exit, %sw.epilog220, %lor.rhs, %while.end184, %while.end203, %while.end
+  %c.5354 = phi i32 [ %c.3252, %while.end184 ], [ %c.4.lcssa, %while.end203 ], [ %c.2258, %while.end ], [ %c.4255, %lor.rhs ], [ %c.0271, %_ZN2EA4StdC7ToupperEDi.exit ], [ %c.0271, %sw.bb132 ], [ %c.0271, %sw.bb94 ], [ %c.5, %sw.epilog220 ]
+  %state.1353 = phi i32 [ 32768, %while.end184 ], [ 32768, %while.end203 ], [ 32768, %while.end ], [ 32768, %lor.rhs ], [ 16384, %_ZN2EA4StdC7ToupperEDi.exit ], [ 16384, %sw.bb132 ], [ 16384, %sw.bb94 ], [ %state.1, %sw.epilog220 ]
+  %bExponentNegative.2352 = phi i1 [ %bExponentNegative.0269, %while.end184 ], [ %bExponentNegative.0269, %while.end203 ], [ %bExponentNegative.0269, %while.end ], [ %bExponentNegative.0269, %lor.rhs ], [ %bExponentNegative.0269, %_ZN2EA4StdC7ToupperEDi.exit ], [ %bExponentNegative.0269, %sw.bb132 ], [ %bExponentNegative.0269, %sw.bb94 ], [ %bExponentNegative.2, %sw.epilog220 ]
+  %bNegative.2351 = phi i8 [ %bNegative.0268, %while.end184 ], [ %bNegative.0268, %while.end203 ], [ %bNegative.0268, %while.end ], [ %bNegative.0268, %lor.rhs ], [ %bNegative.0268, %_ZN2EA4StdC7ToupperEDi.exit ], [ %bNegative.0268, %sw.bb132 ], [ %bNegative.0268, %sw.bb94 ], [ %bNegative.2, %sw.epilog220 ]
+  %nExponentAdd.3350 = phi i32 [ %nExponentAdd.0267, %while.end184 ], [ %nExponentAdd.0267, %while.end203 ], [ %nExponentAdd.0267, %while.end ], [ %nExponentAdd.0267, %lor.rhs ], [ %nExponentAdd.0267, %_ZN2EA4StdC7ToupperEDi.exit ], [ %nExponentAdd.0267, %sw.bb132 ], [ %nExponentAdd.0267, %sw.bb94 ], [ %nExponentAdd.3, %sw.epilog220 ]
+  %nExponent.1349 = phi i32 [ %nExponent.0266, %while.end184 ], [ %nExponent.0266, %while.end203 ], [ %nExponent.0266, %while.end ], [ %nExponent.0266, %lor.rhs ], [ %nExponent.0266, %_ZN2EA4StdC7ToupperEDi.exit ], [ %nExponent.0266, %sw.bb132 ], [ %nExponent.0266, %sw.bb94 ], [ %nExponent.1, %sw.epilog220 ]
+  %nFieldCount.5348 = phi i32 [ %nFieldCount.3251, %while.end184 ], [ %nFieldCount.4.lcssa, %while.end203 ], [ %nFieldCount.2257, %while.end ], [ %nFieldCount.4254, %lor.rhs ], [ %nFieldCount.0265, %_ZN2EA4StdC7ToupperEDi.exit ], [ %nFieldCount.0265, %sw.bb132 ], [ %nFieldCount.0265, %sw.bb94 ], [ %nFieldCount.5, %sw.epilog220 ]
+  %nSpaceCount.1347 = phi i32 [ %nSpaceCount.0263, %while.end184 ], [ %nSpaceCount.0263, %while.end203 ], [ %nSpaceCount.0263, %while.end ], [ %nSpaceCount.0263, %lor.rhs ], [ %nSpaceCount.0263, %_ZN2EA4StdC7ToupperEDi.exit ], [ %nSpaceCount.0263, %sw.bb132 ], [ %nSpaceCount.0263, %sw.bb94 ], [ %nSpaceCount.1, %sw.epilog220 ]
+  %cond.fr385 = freeze i1 %bExponentNegative.2352
   %.pre = load i16, ptr %mSigLen.i, align 2
-  %23 = add i32 %nSpaceCount.1348, -1
-  %24 = freeze i1 %bExponentNegative.2353
-  %25 = trunc i8 %bNegative.2352 to i1
-  br label %while.end221
+  %state.1353.fr = freeze i32 %state.1353
+  %21 = and i32 %state.1353.fr, 19564
+  %22 = icmp eq i32 %21, 0
+  %bNegative.2351.fr = freeze i8 %bNegative.2351
+  %23 = trunc i8 %bNegative.2351.fr to i1
+  %call222 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.5354, ptr noundef %pContext)
+  %sub232384 = sub nsw i32 0, %nExponent.1349
+  br i1 %22, label %24, label %25
 
-while.end221:                                     ; preds = %while.end221.loopexit, %entry
-  %26 = phi i16 [ 0, %entry ], [ %.pre, %while.end221.loopexit ]
-  %nSpaceCount.0.lcssa = phi i32 [ -1, %entry ], [ %23, %while.end221.loopexit ]
-  %nFieldCount.0.lcssa = phi i32 [ 1, %entry ], [ %nFieldCount.5349, %while.end221.loopexit ]
-  %nExponent.0.lcssa = phi i32 [ 0, %entry ], [ %nExponent.1350, %while.end221.loopexit ]
-  %nExponentAdd.0.lcssa = phi i32 [ 0, %entry ], [ %nExponentAdd.3351, %while.end221.loopexit ]
-  %bNegative.0.lcssa = phi i1 [ false, %entry ], [ %25, %while.end221.loopexit ]
-  %bExponentNegative.0.lcssa = phi i1 [ false, %entry ], [ %24, %while.end221.loopexit ]
-  %state.0.lcssa = phi i1 [ true, %entry ], [ %state.1354, %while.end221.loopexit ]
-  %c.0.lcssa = phi i32 [ %call, %entry ], [ %c.5355, %while.end221.loopexit ]
-  %call222 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.0.lcssa, ptr noundef %pContext)
-  %add227 = add i32 %nSpaceCount.0.lcssa, %nFieldCount.0.lcssa
-  %storemerge = select i1 %state.0.lcssa, i32 0, i32 %add227
-  store i32 %storemerge, ptr %nReadCount, align 4
-  %sub232 = sub nsw i32 0, %nExponent.0.lcssa
-  %spec.select = select i1 %bExponentNegative.0.lcssa, i32 %sub232, i32 %nExponent.0.lcssa
-  %conv236 = sext i16 %26 to i32
-  %cmp239281 = icmp sgt i16 %26, 1
-  br i1 %cmp239281, label %land.rhs240.preheader, label %while.end250
+24:                                               ; preds = %while.end221
+  store i32 0, ptr %nReadCount, align 4
+  br i1 %cond.fr385, label %27, label %28
 
-land.rhs240.preheader:                            ; preds = %while.end221
-  %27 = zext nneg i32 %conv236 to i64
-  %28 = add i32 %nExponentAdd.0.lcssa, %conv236
-  %29 = add i32 %28, -1
+25:                                               ; preds = %while.end221
+  %26 = add i32 %nSpaceCount.1347, -1
+  %add227 = add i32 %26, %nFieldCount.5348
+  store i32 %add227, ptr %nReadCount, align 4
+  br i1 %cond.fr385, label %27, label %28
+
+27:                                               ; preds = %24, %25
+  br label %28
+
+28:                                               ; preds = %24, %25, %27
+  %29 = phi i32 [ %sub232384, %27 ], [ %nExponent.1349, %25 ], [ %nExponent.1349, %24 ]
+  %conv236 = sext i16 %.pre to i32
+  %cmp239280 = icmp sgt i16 %.pre, 1
+  br i1 %cmp239280, label %land.rhs240.preheader, label %while.end250
+
+land.rhs240.preheader:                            ; preds = %28
+  %30 = zext nneg i32 %conv236 to i64
+  %31 = add i32 %nExponentAdd.3350, %conv236
+  %32 = add i32 %31, -1
   br label %land.rhs240
 
 land.rhs240:                                      ; preds = %land.rhs240.preheader, %while.body247
-  %indvars.iv312 = phi i64 [ %27, %land.rhs240.preheader ], [ %indvars.iv.next313, %while.body247 ]
-  %nExponentAdd.4282 = phi i32 [ %nExponentAdd.0.lcssa, %land.rhs240.preheader ], [ %inc248, %while.body247 ]
-  %indvars.iv.next313 = add nsw i64 %indvars.iv312, -1
-  %arrayidx243 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv.next313
-  %30 = load i8, ptr %arrayidx243, align 1
-  %cmp245 = icmp eq i8 %30, 48
+  %indvars.iv311 = phi i64 [ %30, %land.rhs240.preheader ], [ %indvars.iv.next312, %while.body247 ]
+  %nExponentAdd.4281 = phi i32 [ %nExponentAdd.3350, %land.rhs240.preheader ], [ %inc248, %while.body247 ]
+  %indvars.iv.next312 = add nsw i64 %indvars.iv311, -1
+  %arrayidx243 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv.next312
+  %33 = load i8, ptr %arrayidx243, align 1
+  %cmp245 = icmp eq i8 %33, 48
   br i1 %cmp245, label %while.body247, label %if.then252.loopexit
 
 while.body247:                                    ; preds = %land.rhs240
-  %inc248 = add i32 %nExponentAdd.4282, 1
-  %exitcond315.not = icmp eq i32 %inc248, %29
-  br i1 %exitcond315.not, label %while.end250.loopexit, label %land.rhs240, !llvm.loop !60
+  %inc248 = add i32 %nExponentAdd.4281, 1
+  %exitcond314.not = icmp eq i32 %inc248, %32
+  br i1 %exitcond314.not, label %while.end250.loopexit, label %land.rhs240, !llvm.loop !60
 
 while.end250.loopexit:                            ; preds = %while.body247
-  %31 = trunc i64 %indvars.iv.next313 to i32
+  %34 = trunc i64 %indvars.iv.next312 to i32
   br label %while.end250
 
-while.end250:                                     ; preds = %while.end250.loopexit, %while.end221
-  %nExponentAdd.4.lcssa = phi i32 [ %nExponentAdd.0.lcssa, %while.end221 ], [ %29, %while.end250.loopexit ]
-  %i234.0.in.lcssa = phi i32 [ %conv236, %while.end221 ], [ %31, %while.end250.loopexit ]
+while.end250:                                     ; preds = %while.end250.loopexit, %28
+  %nExponentAdd.4.lcssa = phi i32 [ %nExponentAdd.3350, %28 ], [ %32, %while.end250.loopexit ]
+  %i234.0.in.lcssa = phi i32 [ %conv236, %28 ], [ %34, %while.end250.loopexit ]
   %cmp251 = icmp eq i32 %i234.0.in.lcssa, 1
   br i1 %cmp251, label %if.then252, label %if.else256
 
 if.then252.loopexit:                              ; preds = %land.rhs240
-  %32 = trunc i64 %indvars.iv312 to i32
+  %35 = trunc i64 %indvars.iv311 to i32
   br label %if.then252
 
 if.then252:                                       ; preds = %if.then252.loopexit, %while.end250
-  %nExponentAdd.4216 = phi i32 [ %nExponentAdd.4.lcssa, %while.end250 ], [ %nExponentAdd.4282, %if.then252.loopexit ]
-  %i234.0.in214 = phi i32 [ 1, %while.end250 ], [ %32, %if.then252.loopexit ]
-  %conv254 = trunc i32 %i234.0.in214 to i16
+  %nExponentAdd.4215 = phi i32 [ %nExponentAdd.4.lcssa, %while.end250 ], [ %nExponentAdd.4281, %if.then252.loopexit ]
+  %i234.0.in213 = phi i32 [ 1, %while.end250 ], [ %35, %if.then252.loopexit ]
+  %conv254 = trunc nuw nsw i32 %i234.0.in213 to i16
   store i16 %conv254, ptr %mSigLen.i, align 2
-  %add259 = add nsw i32 %nExponentAdd.4216, %spec.select
+  %add259 = add nsw i32 %nExponentAdd.4215, %29
   %conv260 = trunc i32 %add259 to i16
   store i16 %conv260, ptr %mExponent.i, align 2
   %sext = shl i32 %add259, 16
   %conv262 = ashr exact i32 %sext, 16
-  %33 = add nsw i32 %conv262, -309
-  %or.cond3 = icmp ult i32 %33, -616
+  %36 = add nsw i32 %conv262, -309
+  %or.cond3 = icmp ult i32 %36, -616
   br i1 %or.cond3, label %if.end269.thread, label %if.end269
 
 if.else256:                                       ; preds = %while.end250
   store i32 0, ptr %bOverflow, align 4
-  %cond = select i1 %bNegative.0.lcssa, double -0.000000e+00, double 0.000000e+00
+  br i1 %23, label %37, label %return
+
+37:                                               ; preds = %if.else256
   br label %return
 
 if.end269.thread:                                 ; preds = %if.then252
@@ -7304,16 +7299,16 @@ if.end269:                                        ; preds = %if.then252
   br i1 %tobool270.not, label %if.end278, label %if.then271
 
 if.then271:                                       ; preds = %if.end269.thread, %if.end269
-  br i1 %bExponentNegative.0.lcssa, label %return, label %if.else274
+  br i1 %cond.fr385, label %return, label %if.else274
 
 if.else274:                                       ; preds = %if.then271
-  %.152 = select i1 %bNegative.0.lcssa, double 0xFFF0000000000000, double 0x7FF0000000000000
+  %.152 = select i1 %23, double 0xFFF0000000000000, double 0x7FF0000000000000
   br label %return
 
 if.end278:                                        ; preds = %if.end269
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
-  %34 = add i16 %conv260, 6
-  %or.cond.i = icmp ult i16 %34, 18
+  %38 = add i16 %conv260, 6
+  %or.cond.i = icmp ult i16 %38, 18
   %cmp625.i = icmp sgt i16 %conv254, 0
   br i1 %or.cond.i, label %for.cond.preheader.i, label %for.cond15.preheader.i
 
@@ -7321,44 +7316,43 @@ for.cond15.preheader.i:                           ; preds = %if.end278
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i234.0.in214, 32767
-  %35 = zext nneg i32 %conv17.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %35, i1 false)
+  %conv17.i = and i32 %i234.0.in213, 32767
+  %39 = zext nneg i32 %i234.0.in213 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %39, i1 false)
   br label %if.then29.i
 
 for.cond.preheader.i:                             ; preds = %if.end278
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv254.mask212 = and i32 %i234.0.in214, 32767
-  %conv5.i = zext nneg i32 %conv254.mask212 to i64
+  %conv5.i = zext nneg i32 %i234.0.in213 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next32.i, %for.body.i ]
-  %result.026.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %37, %for.body.i ]
+  %result.026.i = phi double [ 0.000000e+00, %for.body.preheader.i ], [ %41, %for.body.i ]
   %arrayidx.i199 = getelementptr inbounds [25 x i8], ptr %doubleValue, i64 0, i64 %indvars.iv31.i
-  %36 = load i8, ptr %arrayidx.i199, align 1
-  %conv7.i = sext i8 %36 to i32
+  %40 = load i8, ptr %arrayidx.i199, align 1
+  %conv7.i = sext i8 %40 to i32
   %sub.i200 = add nsw i32 %conv7.i, -48
   %conv8.i = sitofp i32 %sub.i200 to float
   %conv9.i = fpext float %conv8.i to double
-  %37 = tail call double @llvm.fmuladd.f64(double %result.026.i, double 1.000000e+01, double %conv9.i)
+  %41 = tail call double @llvm.fmuladd.f64(double %result.026.i, double 1.000000e+01, double %conv9.i)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next32.i, %conv5.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %37, %for.body.i ]
+  %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %41, %for.body.i ]
   %conv11.i = sext i16 %conv260 to i64
   %add.i = add nsw i64 %conv11.i, 6
   %arrayidx13.i = getelementptr inbounds [18 x double], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 0, i64 %add.i
-  %38 = load double, ptr %arrayidx13.i, align 8
-  %mul.i = fmul double %result.0.lcssa.i, %38
+  %42 = load double, ptr %arrayidx13.i, align 8
+  %mul.i = fmul double %result.0.lcssa.i, %42
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
-if.then29.i:                                      ; preds = %for.cond15.preheader.i, %for.body19.preheader.i
-  %i14.0.lcssa.i = phi i32 [ %conv17.i, %for.body19.preheader.i ], [ 0, %for.cond15.preheader.i ]
+if.then29.i:                                      ; preds = %for.body19.preheader.i, %for.cond15.preheader.i
+  %i14.0.lcssa.i = phi i32 [ 0, %for.cond15.preheader.i ], [ %conv17.i, %for.body19.preheader.i ]
   %inc32.i = add nuw nsw i32 %i14.0.lcssa.i, 1
   %idxprom33.i = zext nneg i32 %i14.0.lcssa.i to i64
   %arrayidx34.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom33.i
@@ -7380,17 +7374,17 @@ if.end.i:                                         ; preds = %if.then36.i, %if.th
   %cmp44.inv.i = icmp slt i32 %e.0.i, 10
   %..i = select i1 %cmp44.inv.i, i32 1, i32 10
   %cmp41.inv.i = icmp slt i32 %e.0.i, 100
-  %39 = zext nneg i32 %i14.1.i to i64
-  %spec.select386 = select i1 %cmp41.inv.i, i32 %..i, i32 100
+  %43 = zext nneg i32 %i14.1.i to i64
+  %spec.select = select i1 %cmp41.inv.i, i32 %..i, i32 100
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %39, %if.end.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %43, %if.end.i ]
   %e.124.i = phi i32 [ %rem.i, %while.body.i ], [ %e.0.i, %if.end.i ]
-  %multiplier.123.i = phi i32 [ %div55.i, %while.body.i ], [ %spec.select386, %if.end.i ]
+  %multiplier.123.i = phi i32 [ %div55.i, %while.body.i ], [ %spec.select, %if.end.i ]
   %div.i = udiv i32 %e.124.i, %multiplier.123.i
-  %40 = trunc i32 %div.i to i8
-  %conv51.i = add i8 %40, 48
+  %44 = trunc i32 %div.i to i8
+  %conv51.i = add i8 %44, 48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx54.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %indvars.iv.i
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
@@ -7425,11 +7419,11 @@ if.end288.sink.split:                             ; preds = %if.else282, %_ZNK2E
 if.end288:                                        ; preds = %if.end288.sink.split, %if.else282
   %dValue.2 = phi double [ %retval.0.i, %if.else282 ], [ %dValue.2.ph, %if.end288.sink.split ]
   %fneg291 = fneg double %dValue.2
-  %dValue.3 = select i1 %bNegative.0.lcssa, double %fneg291, double %dValue.2
+  %dValue.3 = select i1 %23, double %fneg291, double %dValue.2
   br label %return
 
-return:                                           ; preds = %if.else274, %if.then271, %if.end288, %if.else256, %if.end209, %if.then160
-  %retval.0 = phi double [ %.151, %if.end209 ], [ %.150, %if.then160 ], [ %dValue.3, %if.end288 ], [ %cond, %if.else256 ], [ 0.000000e+00, %if.then271 ], [ %.152, %if.else274 ]
+return:                                           ; preds = %37, %if.else256, %if.else256.thread, %if.else274, %if.then271, %if.end288, %if.end209, %if.then160
+  %retval.0 = phi double [ %.151, %if.end209 ], [ %.150, %if.then160 ], [ %dValue.3, %if.end288 ], [ 0.000000e+00, %if.then271 ], [ %.152, %if.else274 ], [ -0.000000e+00, %37 ], [ 0.000000e+00, %if.else256 ], [ 0.000000e+00, %if.else256.thread ]
   ret double %retval.0
 }
 

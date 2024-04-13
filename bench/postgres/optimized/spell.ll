@@ -822,8 +822,7 @@ findchar2.exit.thread:                            ; preds = %.preheader, %34
   br i1 %or.cond, label %parse_affentry.exit.thread101, label %.critedge2.thread
 
 parse_affentry.exit.thread101:                    ; preds = %208
-  %.mask = and i8 %.072165, 1
-  %212 = zext nneg i8 %.mask to i32
+  %212 = zext nneg i8 %.072165 to i32
   call fastcc void @NIAddAffix(ptr noundef %0, ptr noundef nonnull %14, i8 noundef signext %.068169, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef %212)
   br label %.critedge2.thread
 

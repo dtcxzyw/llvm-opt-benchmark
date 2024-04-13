@@ -2433,11 +2433,11 @@ tadd.exit351.i:                                   ; preds = %984, %980
 1010:                                             ; preds = %1006
   %1011 = getelementptr inbounds i8, ptr %1008, i64 80
   %1012 = load i64, ptr %1011, align 8
-  %1013 = trunc i8 %.1276.i to i1
+  %1013 = trunc nuw i8 %.1276.i to i1
   %1014 = icmp eq i64 %.1262.i, %.0286725.i
   %or.cond332.i = select i1 %1013, i1 %1014, i1 false
   %.2277.i = select i1 %or.cond332.i, i8 0, i8 %.1276.i
-  %1015 = trunc i8 %.2277.i to i1
+  %1015 = trunc nuw i8 %.2277.i to i1
   br i1 %1015, label %1016, label %1147
 
 1016:                                             ; preds = %1010
@@ -2985,7 +2985,7 @@ addtt.exit.i:                                     ; preds = %size_product.exit.i
   %.1281.lcssa.i = phi i64 [ %.0280726.i, %851 ], [ %.1281702.i, %863 ], [ %.2282.i, %._crit_edge694.thread.i ]
   %.0275.lcssa.i = phi i8 [ %813, %851 ], [ %.0275703.i, %863 ], [ %.3278.i, %._crit_edge694.thread.i ]
   %.1268.lcssa.i = phi i32 [ %.0267728.i, %851 ], [ %.1268704.i, %863 ], [ %.2.i, %._crit_edge694.thread.i ]
-  %1284 = trunc i8 %.0275.lcssa.i to i1
+  %1284 = trunc nuw i8 %.0275.lcssa.i to i1
   br i1 %1284, label %1285, label %.thread421.i
 
 1285:                                             ; preds = %._crit_edge708.i
@@ -4008,7 +4008,7 @@ limitrange.exit487.i.i:                           ; preds = %1632, %.lr.ph44.i47
   %1739 = getelementptr [256 x i8], ptr @isdsts, i64 0, i64 %1735
   %1740 = load i8, ptr %1739, align 1
   %.not448.i.i = icmp eq i8 %1740, 0
-  %1741 = trunc i64 %.4716.i.i to i32
+  %1741 = trunc nsw i64 %.4716.i.i to i32
   %.0357714..i.i = select i1 %.not448.i.i, i32 %.0357714.i.i, i32 %1741
   %..0355715.i.i = select i1 %.not448.i.i, i32 %1741, i32 %.0355715.i.i
   br label %1742
@@ -4277,8 +4277,7 @@ convert.exit492.i.i:                              ; preds = %convert.exit.i.i, %
   br i1 %exitcond.not.i496.i.i, label %convert.exit497.i.i, label %convert.exit492.i.i, !llvm.loop !48
 
 convert.exit497.i.i:                              ; preds = %convert.exit492.i.i
-  %.mask.i.i = and i8 %.3389.i.i, 1
-  %1863 = zext nneg i8 %.mask.i.i to i64
+  %1863 = zext nneg i8 %.3389.i.i to i64
   %1864 = zext i1 %.1385.shrunk.i.i to i64
   %1865 = add nuw nsw i64 %1864, %1863
   %1866 = add i64 %1865, %.2383.i.i
@@ -4322,7 +4321,7 @@ convert.exit507.i.i:                              ; preds = %convert.exit502.i.i
   br i1 %exitcond.not.i511.i.i, label %convert.exit512.i.i, label %convert.exit507.i.i, !llvm.loop !48
 
 convert.exit512.i.i:                              ; preds = %convert.exit507.i.i
-  %1881 = trunc i8 %.3389.i.i to i1
+  %1881 = trunc nuw i8 %.3389.i.i to i1
   %1882 = call i64 @fwrite(ptr noundef nonnull @writezone.tzh, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %.1.i394.i)
   %char.i.i = load i8, ptr getelementptr inbounds (%struct.tzhead, ptr @writezone.tzh, i64 0, i32 1), align 4
   %chari.i.i = sext i8 %char.i.i to i32
@@ -5460,7 +5459,7 @@ getfields.exit:                                   ; preds = %35, %35
   br label %inrule.exit
 
 77:                                               ; preds = %._crit_edge
-  %78 = trunc i8 %.045108 to i1
+  %78 = trunc nuw i8 %.045108 to i1
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %77
@@ -6015,7 +6014,7 @@ inrule.exit:                                      ; preds = %307, %306, %302, %l
   br i1 %.not, label %.lr.ph111, label %._crit_edge112
 
 ._crit_edge112:                                   ; preds = %inrule.exit
-  %315 = trunc i8 %.1 to i1
+  %315 = trunc nuw i8 %.1 to i1
   %316 = load ptr, ptr @filename, align 8
   call fastcc void @close_file(ptr noundef %.043, ptr noundef null, ptr noundef %316)
   br i1 %315, label %317, label %318
@@ -6281,7 +6280,7 @@ relname.exit:                                     ; preds = %._crit_edge.i, %99,
 
 124:                                              ; preds = %relname.exit, %121
   %125 = phi i32 [ %123, %121 ], [ 0, %relname.exit ]
-  %126 = trunc i8 %.184 to i1
+  %126 = trunc nuw i8 %.184 to i1
   br i1 %126, label %136, label %127
 
 127:                                              ; preds = %124
@@ -8131,7 +8130,7 @@ define internal fastcc noundef zeroext i1 @componentcheck(ptr noundef %0, ptr no
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  %29 = trunc nuw i64 %6 to i32
+  %29 = trunc nuw nsw i64 %6 to i32
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef %0, i32 noundef %29, ptr noundef nonnull %1)
   br label %.thread
 

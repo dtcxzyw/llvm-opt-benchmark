@@ -77,9 +77,9 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   %13 = zext i1 %2 to i8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %.051 = phi i8 [ %.1, %55 ], [ %13, %.lr.ph.preheader ]
-  %.04350 = phi ptr [ %14, %55 ], [ %12, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %57
+  %.051 = phi i8 [ %.1, %57 ], [ %13, %.lr.ph.preheader ]
+  %.04350 = phi ptr [ %14, %57 ], [ %12, %.lr.ph.preheader ]
   %14 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.04350) #3
   %15 = load i32, ptr %.04350, align 8
   %16 = and i32 %15, 3
@@ -94,7 +94,7 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %20, %24
-  br i1 %25, label %55, label %26
+  br i1 %25, label %57, label %26
 
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds i8, ptr %24, i64 16
@@ -133,37 +133,39 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
 
 44:                                               ; preds = %.sink.split, %39, %34
   %45 = tail call i32 @agdelete(ptr noundef %0, ptr noundef nonnull %.04350) #3
-  br label %55
+  br label %57
 
 46:                                               ; preds = %26
   %47 = getelementptr inbounds i8, ptr %28, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %55
+  br i1 %49, label %50, label %57
 
 50:                                               ; preds = %46
-  %51 = trunc i8 %.051 to i1
+  %51 = trunc nuw i8 %.051 to i1
   %52 = tail call fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef nonnull %24, i1 noundef zeroext %51, ptr noundef %3)
   %53 = zext i1 %52 to i8
   %54 = or i8 %.051, %53
-  br label %55
+  %55 = icmp ne i8 %54, 0
+  %56 = zext i1 %55 to i8
+  br label %57
 
-55:                                               ; preds = %44, %50, %46, %.lr.ph
-  %.1 = phi i8 [ %.051, %.lr.ph ], [ 1, %44 ], [ %54, %50 ], [ %.051, %46 ]
+57:                                               ; preds = %44, %50, %46, %.lr.ph
+  %.1 = phi i8 [ %.051, %.lr.ph ], [ 1, %44 ], [ %56, %50 ], [ %.051, %46 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %55
-  %56 = trunc i8 %.1 to i1
+._crit_edge.loopexit:                             ; preds = %57
+  %58 = trunc nuw i8 %.1 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i1 [ %2, %4 ], [ %56, %._crit_edge.loopexit ]
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 20
-  %59 = load i8, ptr %58, align 4
-  %60 = and i8 %59, -2
-  store i8 %60, ptr %58, align 4
+  %.0.lcssa = phi i1 [ %2, %4 ], [ %58, %._crit_edge.loopexit ]
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 20
+  %61 = load i8, ptr %60, align 4
+  %62 = and i8 %61, -2
+  store i8 %62, ptr %60, align 4
   ret i1 %.0.lcssa
 }
 

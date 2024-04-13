@@ -232,7 +232,7 @@ define dso_local i64 @cash_in(ptr nocapture noundef readonly %0) local_unnamed_a
   %85 = load i16, ptr %84, align 2
   %86 = and i16 %85, 2048
   %.not140 = icmp eq i16 %86, 0
-  %87 = trunc i8 %.0120191 to i1
+  %87 = trunc nuw i8 %.0120191 to i1
   %88 = icmp sge i64 %.0116192, %.pre
   %or.cond149.not = select i1 %87, i1 %88, i1 false
   %or.cond205 = select i1 %.not140, i1 true, i1 %or.cond149.not
@@ -263,8 +263,7 @@ define dso_local i64 @cash_in(ptr nocapture noundef readonly %0) local_unnamed_a
 
 103:                                              ; preds = %92
   %104 = extractvalue { i64, i1 } %96, 0
-  %.mask = and i8 %.0120191, 1
-  %105 = zext nneg i8 %.mask to i64
+  %105 = zext nneg i8 %.0120191 to i64
   %spec.select150 = add i64 %.0116192, %105
   br label %115
 

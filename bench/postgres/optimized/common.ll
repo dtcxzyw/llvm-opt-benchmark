@@ -246,7 +246,7 @@ openQueryOutputFile.exit:                         ; preds = %13
 34:                                               ; preds = %22, %32, %15
   store ptr %.sink16.i, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 2), align 8
   store i8 %.sink.i, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 3), align 8
-  %35 = trunc i8 %.sink.i to i1
+  %35 = trunc nuw i8 %.sink.i to i1
   call void @set_sigpipe_trap_state(i1 noundef zeroext %35) #15
   call void @restore_sigpipe_trap() #15
   br label %36
@@ -909,7 +909,7 @@ openQueryOutputFile.exit:                         ; preds = %149
   br label %155
 
 150:                                              ; preds = %149
-  %151 = trunc i8 %.sink.i to i1
+  %151 = trunc nuw i8 %.sink.i to i1
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %150
@@ -1038,7 +1038,7 @@ HandleCopyResult.exit:                            ; preds = %159, %166, %168
   br i1 %.not159, label %216, label %213
 
 213:                                              ; preds = %212
-  %214 = trunc i8 %.sink.i99 to i1
+  %214 = trunc nuw i8 %.sink.i99 to i1
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %213
@@ -1069,7 +1069,7 @@ HandleCopyResult.exit:                            ; preds = %159, %166, %168
   br i1 %brmerge, label %226, label %224
 
 224:                                              ; preds = %223
-  %225 = trunc i8 %.6 to i1
+  %225 = trunc nuw i8 %.6 to i1
   call fastcc void @SetResultVariables(ptr noundef %.1147, i1 noundef zeroext %225)
   br label %226
 
@@ -1134,7 +1134,7 @@ ClearOrSaveAllResults.exit109:                    ; preds = %.outer, %103, %Clea
   br i1 %.not88, label %259, label %245
 
 245:                                              ; preds = %ClearOrSaveAllResults.exit109
-  %246 = trunc i8 %.6138 to i1
+  %246 = trunc nuw i8 %.6138 to i1
   br i1 %246, label %247, label %257
 
 247:                                              ; preds = %245
@@ -1167,7 +1167,7 @@ ClearOrSaveAllResults.exit109:                    ; preds = %.outer, %103, %Clea
   br i1 %brmerge91, label %ClearOrSaveAllResults.exit, label %263
 
 263:                                              ; preds = %261
-  %264 = trunc i8 %.7 to i1
+  %264 = trunc nuw i8 %.7 to i1
   %265 = select i1 %264, i32 1, i32 -1
   br label %ClearOrSaveAllResults.exit
 
@@ -2672,7 +2672,7 @@ openQueryOutputFile.exit:                         ; preds = %110
   br label %222
 
 111:                                              ; preds = %110
-  %112 = trunc i8 %.sink.i to i1
+  %112 = trunc nuw i8 %.sink.i to i1
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %111
@@ -2736,7 +2736,7 @@ openQueryOutputFile.exit:                         ; preds = %110
   br i1 %.not86, label %155, label %144
 
 144:                                              ; preds = %141
-  %145 = trunc i8 %.075 to i1
+  %145 = trunc nuw i8 %.075 to i1
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %144
@@ -2809,7 +2809,7 @@ openQueryOutputFile.exit:                         ; preds = %110
   br i1 %173, label %174, label %178
 
 174:                                              ; preds = %171
-  %175 = trunc i8 %.075 to i1
+  %175 = trunc nuw i8 %.075 to i1
   br i1 %175, label %178, label %176
 
 176:                                              ; preds = %174
@@ -2819,7 +2819,7 @@ openQueryOutputFile.exit:                         ; preds = %110
 178:                                              ; preds = %171, %174, %176, %170
   %.2131 = phi ptr [ %.1130, %170 ], [ %.1130, %174 ], [ %177, %176 ], [ %.1130, %171 ]
   %.277 = phi i8 [ %.075, %170 ], [ %.075, %174 ], [ 1, %176 ], [ %.075, %171 ]
-  %179 = trunc i8 %.277 to i1
+  %179 = trunc nuw i8 %.277 to i1
   %180 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i64 0, i32 27), align 8
   call void @printQuery(ptr noundef %142, ptr noundef nonnull %11, ptr noundef %.2131, i1 noundef zeroext %179, ptr noundef %180) #15
   %.not.i109 = icmp eq ptr %142, null
@@ -2870,7 +2870,7 @@ ClearOrSaveResult.exit105:                        ; preds = %ClearOrSaveResult.e
   br i1 %.not89, label %210, label %196
 
 196:                                              ; preds = %ClearOrSaveResult.exit105
-  %197 = trunc i8 %.0128 to i1
+  %197 = trunc nuw i8 %.0128 to i1
   br i1 %197, label %198, label %208
 
 198:                                              ; preds = %196
@@ -2893,7 +2893,7 @@ ClearOrSaveResult.exit105:                        ; preds = %ClearOrSaveResult.e
   br label %213
 
 210:                                              ; preds = %ClearOrSaveResult.exit105
-  %211 = trunc i8 %.378 to i1
+  %211 = trunc nuw i8 %.378 to i1
   br i1 %211, label %212, label %213
 
 212:                                              ; preds = %210
@@ -2976,7 +2976,7 @@ ClearOrSaveResult.exit114:                        ; preds = %246, %244, %239, %2
 
 248:                                              ; preds = %ClearOrSaveResult.exit114
   %249 = load ptr, ptr @pset, align 8
-  %250 = trunc i8 %.2 to i1
+  %250 = trunc nuw i8 %.2 to i1
   %251 = select i1 %250, ptr @.str.63, ptr @.str.66
   %252 = call ptr @PQexec(ptr noundef %249, ptr noundef nonnull %251) #15
   %253 = call fastcc zeroext i1 @AcceptResult(ptr noundef %252, i1 noundef zeroext true)
@@ -2990,7 +2990,7 @@ ClearOrSaveResult.exit114:                        ; preds = %246, %244, %239, %2
 
 258:                                              ; preds = %254, %248
   %259 = phi i8 [ 0, %248 ], [ %257, %254 ]
-  %260 = and i8 %.2, %259
+  %260 = and i8 %259, %.2
   %.not.i115 = icmp eq ptr %252, null
   br i1 %.not.i115, label %ClearOrSaveResult.exit117, label %261
 
@@ -3032,7 +3032,7 @@ ClearOrSaveResult.exit117:                        ; preds = %266, %264, %258, %C
   br label %279
 
 279:                                              ; preds = %267, %ClearOrSaveResult.exit117
-  %280 = trunc i8 %.3 to i1
+  %280 = trunc nuw i8 %.3 to i1
   br label %ClearOrSaveResult.exit94
 
 ClearOrSaveResult.exit94:                         ; preds = %48, %46, %.critedge, %ClearOrSaveResult.exit, %279

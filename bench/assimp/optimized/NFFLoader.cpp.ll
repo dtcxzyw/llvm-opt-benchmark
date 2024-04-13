@@ -10716,9 +10716,8 @@ invoke.cont2212:                                  ; preds = %invoke.cont2209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %data.i, ptr noundef nonnull align 1 dereferenceable(10) @.str.71, i64 10, i1 false)
   %arrayidx.i3324 = getelementptr inbounds i8, ptr %call2210, i64 14
   store i8 0, ptr %arrayidx.i3324, align 1
-  %tobool2215 = trunc i8 %hasCam.4 to i1
-  %tobool2215.mask = and i8 %hasCam.4, 1
-  %cond = zext nneg i8 %tobool2215.mask to i32
+  %tobool2215 = trunc nuw i8 %hasCam.4 to i1
+  %cond = zext nneg i8 %hasCam.4 to i32
   %add2216 = add i32 %numNamed.0.lcssa, %cond
   %_M_finish.i3325 = getelementptr inbounds i8, ptr %lights, i64 8
   %755 = load ptr, ptr %_M_finish.i3325, align 8

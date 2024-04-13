@@ -37725,7 +37725,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vc
   %.1.i = phi i64 [ %16, %39 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.sroa.012.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload to i32
   %.sroa.012.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload, 32
-  %.sroa.012.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.012.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.012.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.012.sroa.3.0.extract.shift.i.i to i32
   %41 = icmp sgt i64 %.1.i, %.0
   br i1 %41, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit
 
@@ -37826,7 +37826,7 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg
   %.1.i = phi i64 [ %37, %35 ], [ %.0.lcssa.i, %31 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.sroa.012.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload to i32
   %.sroa.012.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload, 32
-  %.sroa.012.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.012.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.012.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.012.sroa.3.0.extract.shift.i.i to i32
   %41 = icmp sgt i64 %.1.i, 0
   br i1 %41, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit
 
@@ -48666,7 +48666,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i, %75
   %spec.select = select i1 %.0323.lcssa, i32 81, i32 65
-  %92 = trunc i8 %.0327.lcssa to i1
+  %92 = trunc nuw i8 %.0327.lcssa to i1
   %93 = or disjoint i32 %spec.select, 32
   %spec.select496 = select i1 %92, i32 %93, i32 %spec.select
   store i32 %spec.select496, ptr %2, align 4
@@ -48734,9 +48734,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 .lr.ph575:                                        ; preds = %.preheader530
   %.not388 = icmp ne ptr %3, null
-  %.mask = shl nuw nsw i8 %.0327.lcssa, 1
-  %124 = and i8 %.mask, 2
-  %125 = zext nneg i8 %124 to i32
+  %124 = zext nneg i8 %.0327.lcssa to i32
+  %125 = shl nuw nsw i32 %124, 1
   br label %126
 
 126:                                              ; preds = %.lr.ph575, %.loopexit516
@@ -48850,7 +48849,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %185 = lshr exact i64 %184, 5
   %186 = trunc i64 %185 to i32
   %187 = trunc i64 %.5346 to i32
-  %188 = add i32 %187, %125
+  %188 = add i32 %125, %187
   %189 = sub i32 %186, %188
   %or.cond = icmp ugt i32 %189, 4
   br i1 %or.cond, label %.loopexit679, label %190
@@ -49382,7 +49381,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %492 = sext i32 %491 to i64
   %493 = load ptr, ptr %351, align 8
   %494 = getelementptr inbounds %class.CVertexO, ptr %493, i64 %492
-  %495 = trunc i64 %indvars.iv663 to i32
+  %495 = trunc nuw nsw i64 %indvars.iv663 to i32
   %496 = add i32 %.0349613, %495
   %497 = zext i32 %496 to i64
   %498 = load ptr, ptr %353, align 8
@@ -86203,7 +86202,7 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66:         ; preds = %255, %263
 ._crit_edge:                                      ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit
   %.sroa.15.1.lcssa = phi i32 [ %storemerge.i, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %storemerge.i65, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66 ]
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %217, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66 ]
-  %267 = trunc i32 %.sroa.15.1.lcssa to i8
+  %267 = trunc nsw i32 %.sroa.15.1.lcssa to i8
   %.lhs.trunc109 = add nsw i8 %267, 1
   %268 = srem i8 %.lhs.trunc109, 3
   %269 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa, i64 8
@@ -87984,7 +87983,7 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66:         ; preds = %255, %263
 ._crit_edge:                                      ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit
   %.sroa.15.1.lcssa = phi i32 [ %storemerge.i, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %storemerge.i65, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66 ]
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit ], [ %217, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit66 ]
-  %267 = trunc i32 %.sroa.15.1.lcssa to i8
+  %267 = trunc nsw i32 %.sroa.15.1.lcssa to i8
   %.lhs.trunc109 = add nsw i8 %267, 1
   %268 = srem i8 %.lhs.trunc109, 3
   %269 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa, i64 8

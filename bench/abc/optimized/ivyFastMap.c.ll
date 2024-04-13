@@ -687,7 +687,7 @@ Ivy_FastMapNodeAreaDerefed.exit.i.thread:         ; preds = %Ivy_FastMapNodeArea
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %311, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %311
-  %321 = trunc i32 %.0..i.i to i16
+  %321 = trunc nuw nsw i32 %.0..i.i to i16
   %322 = add nuw i16 %321, 1
   br label %Ivy_FastMapNodeDelay.exit.i
 
@@ -860,7 +860,7 @@ Ivy_ObjFaninId1.exit104.i:                        ; preds = %372, %Ivy_ObjFaninI
   br i1 %exitcond.not.i120.i, label %._crit_edge.loopexit.i121.i, label %388, !llvm.loop !9
 
 ._crit_edge.loopexit.i121.i:                      ; preds = %388
-  %398 = trunc i32 %.0..i118.i to i16
+  %398 = trunc nuw nsw i32 %.0..i118.i to i16
   %399 = add nuw i16 %398, 1
   br label %Ivy_FastMapNodeDelay.exit122.i
 
@@ -899,9 +899,9 @@ Ivy_FastMapNodeAreaDerefed.exit127.i:             ; preds = %403, %Ivy_FastMapNo
 
 412:                                              ; preds = %407, %Ivy_FastMapNodeAreaDerefed.exit127.i
   %413 = load i32, ptr @Ivy_FastMapNodeArea.StoreSize, align 4
-  %414 = trunc i32 %413 to i8
+  %414 = trunc nsw i32 %413 to i8
   store i8 %414, ptr %291, align 4
-  %415 = sext i8 %414 to i64
+  %415 = sext i32 %413 to i64
   %416 = shl nsw i64 %415, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %323, ptr nonnull align 16 @Ivy_FastMapNodeArea.Store, i64 %416, i1 false)
   store i16 %.0.lcssa.i.i, ptr %400, align 4
@@ -1316,7 +1316,7 @@ define internal fastcc void @Ivy_FastMapRequired(ptr nocapture noundef readonly 
 
 .lr.ph136:                                        ; preds = %.critedge2.preheader
   %32 = getelementptr i8, ptr %0, i64 200
-  %33 = trunc i32 %1 to i16
+  %33 = trunc nuw nsw i32 %1 to i16
   br label %.critedge2
 
 34:                                               ; preds = %.lr.ph133, %.critedge
@@ -1618,7 +1618,7 @@ Vec_PtrAlloc.exit22:                              ; preds = %Vec_PtrAlloc.exit, 
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %45, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %45
-  %55 = trunc i32 %.0..i.i to i16
+  %55 = trunc nuw nsw i32 %.0..i.i to i16
   %56 = add nuw i16 %55, 1
   br label %Ivy_FastMapNodeDelay.exit.i
 
@@ -2034,7 +2034,7 @@ Ivy_FastMapNodeUpdate.exit.i:                     ; preds = %216, %Ivy_FastMapCu
   br i1 %exitcond.not.i98.i, label %._crit_edge.loopexit.i99.i, label %231, !llvm.loop !9
 
 ._crit_edge.loopexit.i99.i:                       ; preds = %231
-  %241 = trunc i32 %.0..i96.i to i16
+  %241 = trunc nuw nsw i32 %.0..i96.i to i16
   %242 = add nuw i16 %241, 1
   br label %Ivy_FastMapNodeDelay.exit100.i
 
@@ -2498,7 +2498,7 @@ define void @Ivy_FastMapNodeArea2(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %29, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %29
-  %39 = trunc i32 %.0..i to i16
+  %39 = trunc nuw nsw i32 %.0..i to i16
   %40 = add nuw i16 %39, 1
   br label %Ivy_FastMapNodeDelay.exit
 
@@ -2674,7 +2674,7 @@ Ivy_ObjFaninId1.exit77:                           ; preds = %Ivy_ObjFaninId0.exi
 
 Ivy_FastMapNodeDelay.exit95:                      ; preds = %94, %._crit_edge.loopexit.i94
   %.0.lcssa.i82 = phi i32 [ 1, %94 ], [ %115, %._crit_edge.loopexit.i94 ]
-  %116 = trunc i32 %.0.lcssa.i82 to i16
+  %116 = trunc nuw i32 %.0.lcssa.i82 to i16
   %117 = getelementptr inbounds i8, ptr %23, i64 8
   store i16 %116, ptr %117, align 4
   %sext = shl nuw i32 %.0.lcssa.i82, 16
@@ -4632,7 +4632,7 @@ Ivy_FastMapNodeUpdate.exit:                       ; preds = %66, %Ivy_FastMapCut
   br i1 %exitcond.not.i109, label %._crit_edge.loopexit.i110, label %84, !llvm.loop !9
 
 ._crit_edge.loopexit.i110:                        ; preds = %84
-  %94 = trunc i32 %.0..i107 to i16
+  %94 = trunc nuw nsw i32 %.0..i107 to i16
   %95 = add nuw i16 %94, 1
   br label %Ivy_FastMapNodeDelay.exit111
 
@@ -4755,7 +4755,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -4774,7 +4774,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4785,24 +4785,24 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #10
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 declare void @Ivy_ManCleanTravId(ptr noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #16
@@ -4835,9 +4835,9 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

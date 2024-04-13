@@ -206,7 +206,7 @@ entry:
   %arrayidx28 = getelementptr i8, ptr %st, i64 52
   store i32 %and27, ptr %arrayidx28, align 4
   %shr29 = lshr i64 %and9, 16
-  %conv30 = trunc i64 %shr29 to i32
+  %conv30 = trunc nuw nsw i64 %shr29 to i32
   %arrayidx31 = getelementptr i8, ptr %st, i64 56
   store i32 %conv30, ptr %arrayidx31, align 4
   %pad = getelementptr inbounds i8, ptr %st, i64 104
@@ -261,17 +261,15 @@ if.end55:                                         ; preds = %if.then48, %if.then
   %conv83 = trunc i128 %add to i64
   %and84 = and i64 %conv83, 17592186044415
   %shr86 = lshr i128 %add, 44
-  %conv88 = and i128 %shr86, 18446744073709551615
-  %add90 = add nuw nsw i128 %add71, %conv88
+  %add90 = add nuw nsw i128 %add71, %shr86
   %conv92 = trunc i128 %add90 to i64
   %and93 = and i64 %conv92, 17592186044415
   %shr95 = lshr i128 %add90, 44
-  %conv97 = and i128 %shr95, 18446744073709551615
-  %add99 = add nuw nsw i128 %add80, %conv97
+  %add99 = add nuw nsw i128 %add80, %shr95
   %conv101 = trunc i128 %add99 to i64
   %and102 = and i64 %conv101, 4398046511103
   %shr104 = lshr i128 %add99, 42
-  %conv105 = trunc i128 %shr104 to i64
+  %conv105 = trunc nuw nsw i128 %shr104 to i64
   %mul106 = mul nuw nsw i64 %conv105, 5
   %add107 = add nuw nsw i64 %mul106, %and84
   %shr108 = lshr i64 %add107, 44
@@ -303,7 +301,7 @@ if.end55:                                         ; preds = %if.then48, %if.then
   %arrayidx132 = getelementptr i8, ptr %R.1, i64 12
   store i32 %and131, ptr %arrayidx132, align 4
   %shr133 = lshr i64 %add113, 16
-  %conv134 = trunc i64 %shr133 to i32
+  %conv134 = trunc nuw nsw i64 %shr133 to i32
   %arrayidx135 = getelementptr i8, ptr %R.1, i64 16
   store i32 %conv134, ptr %arrayidx135, align 4
   br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !7

@@ -18137,7 +18137,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i, %75
   %spec.select = select i1 %.0323.lcssa, i32 81, i32 65
-  %92 = trunc i8 %.0327.lcssa to i1
+  %92 = trunc nuw i8 %.0327.lcssa to i1
   %93 = or disjoint i32 %spec.select, 32
   %spec.select496 = select i1 %92, i32 %93, i32 %spec.select
   store i32 %spec.select496, ptr %2, align 4
@@ -18205,9 +18205,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 .lr.ph575:                                        ; preds = %.preheader530
   %.not388 = icmp ne ptr %3, null
-  %.mask = shl nuw nsw i8 %.0327.lcssa, 1
-  %124 = and i8 %.mask, 2
-  %125 = zext nneg i8 %124 to i32
+  %124 = zext nneg i8 %.0327.lcssa to i32
+  %125 = shl nuw nsw i32 %124, 1
   br label %126
 
 126:                                              ; preds = %.lr.ph575, %.loopexit516
@@ -18318,7 +18317,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %181 = lshr exact i64 %180, 5
   %182 = trunc i64 %181 to i32
   %183 = trunc i64 %.5346 to i32
-  %184 = add i32 %183, %125
+  %184 = add i32 %125, %183
   %185 = sub i32 %182, %184
   %or.cond = icmp ugt i32 %185, 4
   br i1 %or.cond, label %.loopexit679, label %186
@@ -18852,7 +18851,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %490 = sext i32 %489 to i64
   %491 = load ptr, ptr %347, align 8
   %492 = getelementptr inbounds %class.MeshVertex, ptr %491, i64 %490
-  %493 = trunc i64 %indvars.iv663 to i32
+  %493 = trunc nuw nsw i64 %indvars.iv663 to i32
   %494 = add i32 %.0349613, %493
   %495 = zext i32 %494 to i64
   %496 = load ptr, ptr %349, align 8
@@ -56525,7 +56524,7 @@ _ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit66:       ; preds = %248, %256
 ._crit_edge:                                      ; preds = %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit66, %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit
   %.sroa.15.1.lcssa = phi i32 [ %storemerge.i, %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit ], [ %storemerge.i65, %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit66 ]
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit ], [ %209, %_ZN3vcg4face3PosI8MeshFaceE5FlipEEv.exit66 ]
-  %260 = trunc i32 %.sroa.15.1.lcssa to i8
+  %260 = trunc nsw i32 %.sroa.15.1.lcssa to i8
   %.lhs.trunc109 = add nsw i8 %260, 1
   %261 = srem i8 %.lhs.trunc109, 3
   %262 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa, i64 8
