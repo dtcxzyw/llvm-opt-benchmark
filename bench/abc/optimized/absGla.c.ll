@@ -132,7 +132,7 @@ common.ret16:                                     ; preds = %9, %common.ret
   %22 = xor i32 %13, %21
   %23 = shl i64 %4, 2
   %24 = ashr i64 %23, 63
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nsw i64 %24 to i32
   %26 = xor i32 %18, %25
   %27 = and i32 %26, %22
   br label %common.ret16
@@ -892,7 +892,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %157 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %157, align 4
   %158 = lshr i64 %.val170, 32
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nuw i64 %158 to i32
   %160 = and i32 %159, 536870911
   %161 = sub i32 %.val.val.i, %.val167.val
   %162 = add i32 %161, %160
@@ -1631,7 +1631,7 @@ Abc_Clock.exit17:                                 ; preds = %Abc_Clock.exit, %17
   %34 = icmp eq i64 %33, 536870911
   %narrow.i.not = or i1 %.not.i, %34
   %.val15.lobit = lshr i64 %.val15, 63
-  %35 = trunc i64 %.val15.lobit to i32
+  %35 = trunc nuw nsw i64 %.val15.lobit to i32
   %spec.select = select i1 %narrow.i.not, i32 0, i32 %35
   %.1 = add nuw nsw i32 %spec.select, %.023
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1736,7 +1736,6 @@ Vec_PtrPush.exit41:                               ; preds = %2, %7
   store i32 %19, ptr %20, align 4
   %21 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #27
   %22 = getelementptr inbounds i8, ptr %21, i64 4
-  store i32 0, ptr %22, align 4
   store i32 1000, ptr %21, align 8
   %23 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #27
   %24 = getelementptr inbounds i8, ptr %21, i64 8
@@ -1744,7 +1743,6 @@ Vec_PtrPush.exit41:                               ; preds = %2, %7
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %21, ptr %25, align 8
   %calloc58 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  store i32 1, ptr %22, align 4
   store ptr %calloc58, ptr %23, align 8
   %calloc59 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   store i32 2, ptr %22, align 4
@@ -3125,7 +3123,7 @@ define void @Ga2_ManAddAbsClauses(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 Gia_ObjIsRo.exit.i:                               ; preds = %57
   %58 = lshr i64 %.val187.i, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   %60 = and i32 %59, 536870911
   %61 = getelementptr i8, ptr %32, i64 16
   %.val.i194.i = load i32, ptr %61, align 8
@@ -3167,7 +3165,7 @@ Gia_ObjIsRo.exit.thread.i.Gia_ObjIsRo.exit207.i_crit_edge: ; preds = %Gia_ObjIsR
   %.phi.trans.insert155 = getelementptr i8, ptr %.val3.i205.i.pre, i64 4
   %.val3.val.i206.i.pre = load i32, ptr %.phi.trans.insert155, align 4
   %.pre170 = lshr i64 %.val187.i, 32
-  %.pre171 = trunc i64 %.pre170 to i32
+  %.pre171 = trunc nuw i64 %.pre170 to i32
   %.pre173 = and i32 %.pre171, 536870911
   %.pre175 = sub nsw i32 %.val3.val.i206.i.pre, %.val.i204.i.pre
   br label %Gia_ObjIsRo.exit207.i
@@ -4702,7 +4700,7 @@ Ga2_ObjFindOrAddLit.exit._crit_edge:              ; preds = %Ga2_ObjFindOrAddLit
 Gia_ObjIsRo.exit:                                 ; preds = %45
   %48 = load ptr, ptr %0, align 8
   %49 = lshr i64 %.val58, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   %51 = and i32 %50, 536870911
   %52 = getelementptr i8, ptr %48, i64 16
   %.val.i = load i32, ptr %52, align 8
@@ -4801,7 +4799,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit, %
 
 105:                                              ; preds = %103
   %106 = lshr i64 %.val60, 32
-  %107 = trunc i64 %106 to i32
+  %107 = trunc nuw i64 %106 to i32
   %108 = and i32 %107, 536870911
   %109 = getelementptr i8, ptr %97, i64 16
   %.val.i67 = load i32, ptr %109, align 8
@@ -4954,7 +4952,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 Gia_ObjIsRo.exit90:                               ; preds = %180
   %182 = lshr i64 %.val61, 32
-  %183 = trunc i64 %182 to i32
+  %183 = trunc nuw i64 %182 to i32
   %184 = and i32 %183, 536870911
   %185 = getelementptr i8, ptr %.val3.i91.pre, i64 16
   %.val.i87 = load i32, ptr %185, align 8
@@ -6340,7 +6338,7 @@ Vec_IntAlloc.exit.i:
 
 Gia_ObjIsRo.exit:                                 ; preds = %30
   %32 = lshr i64 %.val24, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = and i32 %33, 536870911
   %35 = getelementptr i8, ptr %18, i64 16
   %.val.i = load i32, ptr %35, align 8
@@ -6772,7 +6770,7 @@ define noundef ptr @Ga2_ManDeriveCex(ptr nocapture noundef readonly %0, ptr noca
 
 Gia_ObjIsPi.exit:                                 ; preds = %36
   %38 = lshr i64 %.val36, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = and i32 %39, 536870911
   %41 = getelementptr i8, ptr %30, i64 16
   %.val.i = load i32, ptr %41, align 8
@@ -6845,7 +6843,7 @@ Ga2_ObjSatValue.exit:                             ; preds = %64
   %79 = add nsw i32 %78, %75
   %.val35 = load i64, ptr %35, align 4
   %80 = lshr i64 %.val35, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   %82 = and i32 %81, 536870911
   %83 = add nsw i32 %79, %82
   %84 = and i32 %83, 31
@@ -6958,7 +6956,7 @@ define void @Ga2_ManRefinePrint(ptr nocapture noundef readonly %0, ptr nocapture
 Gia_ObjIsRo.exit:                                 ; preds = %12
   %45 = load ptr, ptr %0, align 8
   %46 = lshr i64 %.val49, 32
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   %48 = and i32 %47, 536870911
   %49 = getelementptr i8, ptr %45, i64 16
   %.val.i50 = load i32, ptr %49, align 8
@@ -7039,7 +7037,7 @@ Ga2_ObjIsLeaf0.exit.thread:                       ; preds = %Ga2_ObjIsAbs0.exit.
 Gia_ObjIsRo.exit60:                               ; preds = %71
   %79 = load ptr, ptr %0, align 8
   %80 = lshr i64 %.val48, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   %82 = and i32 %81, 536870911
   %83 = getelementptr i8, ptr %79, i64 16
   %.val.i57 = load i32, ptr %83, align 8
@@ -7627,7 +7625,7 @@ Ga2_ObjIsAbs.exit.thread:                         ; preds = %29, %Ga2_ObjIsAbs.e
 
 Gia_ObjIsPi.exit:                                 ; preds = %Ga2_ObjIsAbs.exit.thread
   %41 = lshr i64 %.val80, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = and i32 %42, 536870911
   %44 = getelementptr i8, ptr %21, i64 16
   %.val.i81 = load i32, ptr %44, align 8
@@ -7909,7 +7907,7 @@ define i32 @Ga2_GlaAbsCount(ptr nocapture noundef readonly %0, i32 noundef %1, i
 
 19:                                               ; preds = %13
   %20 = lshr i64 %.val34, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 536870911
   %.val.i = load i32, ptr %10, align 8
   %.val3.i = load ptr, ptr %11, align 8
@@ -8063,7 +8061,7 @@ define void @Ga2_ManAbsPrintFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
 
 53:                                               ; preds = %47
   %54 = lshr i64 %.val34.i, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 536870911
   %.val.i.i = load i32, ptr %44, align 8
   %.val3.i.i = load ptr, ptr %45, align 8

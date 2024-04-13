@@ -5025,7 +5025,6 @@ define noundef i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr nocapture nou
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  store ptr null, ptr %1, align 8
   %calloc15 = tail call dereferenceable_or_null(112) ptr @calloc(i64 1, i64 112)
   store ptr %calloc15, ptr %1, align 8
   %4 = icmp eq ptr %calloc15, null
