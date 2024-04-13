@@ -131138,7 +131138,7 @@ string_skip_spaces.exit.i:                        ; preds = %string_skip_spaces.
 387:                                              ; preds = %289
   %388 = add i8 %241, -97
   %or.cond.i3.i.i.i = icmp ult i8 %388, 26
-  %389 = add i8 %241, -7
+  %389 = add nsw i8 %241, -7
   %390 = select i1 %or.cond.i3.i.i.i, i8 %389, i8 %241
   br label %.preheader.i.i.i
 
@@ -131149,7 +131149,7 @@ string_skip_spaces.exit.i:                        ; preds = %string_skip_spaces.
   %393 = load i8, ptr %392, align 1
   %394 = add i8 %393, -97
   %or.cond.i144.i.i.i = icmp ult i8 %394, 26
-  %395 = add i8 %393, -7
+  %395 = add nsw i8 %393, -7
   %396 = select i1 %or.cond.i144.i.i.i, i8 %395, i8 %393
   %.not5.i.i.i = icmp eq i8 %390, %396
   br i1 %.not5.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
@@ -131163,13 +131163,13 @@ string_skip_spaces.exit.i:                        ; preds = %string_skip_spaces.
   %402 = load i8, ptr %401, align 1
   %403 = add i8 %402, -97
   %or.cond.i.i.i.i = icmp ult i8 %403, 26
-  %404 = add i8 %402, -7
+  %404 = add nsw i8 %402, -7
   %405 = select i1 %or.cond.i.i.i.i, i8 %404, i8 %402
   %gep.i.i.i = getelementptr i8, ptr %392, i64 %indvars.iv.next.i.i.i
   %406 = load i8, ptr %gep.i.i.i, align 1
   %407 = add i8 %406, -97
   %or.cond.i14.i.i.i = icmp ult i8 %407, 26
-  %408 = add i8 %406, -7
+  %408 = add nsw i8 %406, -7
   %409 = select i1 %or.cond.i14.i.i.i, i8 %408, i8 %406
   %.not.i.i.i = icmp eq i8 %405, %409
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
@@ -131257,11 +131257,11 @@ find_abbrev.exit.i.i:                             ; preds = %.lr.ph.i.i.i
   %439 = load i8, ptr %438, align 1
   %440 = add i8 %439, -97
   %or.cond.i.i.i = icmp ult i8 %440, 26
-  %441 = add i8 %439, -7
+  %441 = add nsw i8 %439, -7
   %442 = select i1 %or.cond.i.i.i, i8 %441, i8 %439
   %443 = add i8 %436, -97
   %or.cond.i11.i.i = icmp ult i8 %443, 26
-  %444 = add i8 %436, -7
+  %444 = add nsw i8 %436, -7
   %445 = select i1 %or.cond.i11.i.i, i8 %444, i8 %436
   %.not10.i.i = icmp eq i8 %442, %445
   br i1 %.not10.i.i, label %446, label %.lr.ph.i185.i
@@ -131293,11 +131293,11 @@ find_abbrev.exit.i.i:                             ; preds = %.lr.ph.i.i.i
   %458 = load i8, ptr %457, align 1
   %459 = add i8 %458, -97
   %or.cond.i.i188.i = icmp ult i8 %459, 26
-  %460 = add i8 %458, -7
+  %460 = add nsw i8 %458, -7
   %461 = select i1 %or.cond.i.i188.i, i8 %460, i8 %458
   %462 = add i8 %455, -97
   %or.cond.i11.i189.i = icmp ult i8 %462, 26
-  %463 = add i8 %455, -7
+  %463 = add nsw i8 %455, -7
   %464 = select i1 %or.cond.i11.i189.i, i8 %463, i8 %455
   %.not10.i190.i = icmp eq i8 %461, %464
   br i1 %.not10.i190.i, label %465, label %.critedge.i
@@ -131330,11 +131330,11 @@ find_abbrev.exit.i.i:                             ; preds = %.lr.ph.i.i.i
   %476 = load i8, ptr %475, align 1
   %477 = add i8 %476, -97
   %or.cond.i.i198.i = icmp ult i8 %477, 26
-  %478 = add i8 %476, -7
+  %478 = add nsw i8 %476, -7
   %479 = select i1 %or.cond.i.i198.i, i8 %478, i8 %476
   %480 = add i8 %473, -97
   %or.cond.i11.i199.i = icmp ult i8 %480, 26
-  %481 = add i8 %473, -7
+  %481 = add nsw i8 %473, -7
   %482 = select i1 %or.cond.i11.i199.i, i8 %481, i8 %473
   %.not10.i200.i = icmp eq i8 %479, %482
   br i1 %.not10.i200.i, label %483, label %.lr.ph.i205.i
@@ -131359,11 +131359,11 @@ string_match.exit204.i:                           ; preds = %483
   %490 = load i8, ptr %489, align 1
   %491 = add i8 %490, -97
   %or.cond.i.i208.i = icmp ult i8 %491, 26
-  %492 = add i8 %490, -7
+  %492 = add nsw i8 %490, -7
   %493 = select i1 %or.cond.i.i208.i, i8 %492, i8 %490
   %494 = add i8 %487, -97
   %or.cond.i11.i209.i = icmp ult i8 %494, 26
-  %495 = add i8 %487, -7
+  %495 = add nsw i8 %487, -7
   %496 = select i1 %or.cond.i11.i209.i, i8 %495, i8 %487
   %.not10.i210.i = icmp eq i8 %493, %496
   br i1 %.not10.i210.i, label %497, label %501
@@ -131392,11 +131392,11 @@ string_match.exit214.i:                           ; preds = %497
   %506 = load i8, ptr %505, align 1
   %507 = add i8 %506, -97
   %or.cond.i.i218.i = icmp ult i8 %507, 26
-  %508 = add i8 %506, -7
+  %508 = add nsw i8 %506, -7
   %509 = select i1 %or.cond.i.i218.i, i8 %508, i8 %506
   %510 = add i8 %503, -97
   %or.cond.i11.i219.i = icmp ult i8 %510, 26
-  %511 = add i8 %503, -7
+  %511 = add nsw i8 %503, -7
   %512 = select i1 %or.cond.i11.i219.i, i8 %511, i8 %503
   %.not10.i220.i = icmp eq i8 %509, %512
   br i1 %.not10.i220.i, label %513, label %517
@@ -132002,11 +132002,11 @@ define internal fastcc noundef i32 @string_match(ptr nocapture noundef readonly 
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, -97
   %or.cond.i = icmp ult i8 %10, 26
-  %11 = add i8 %9, -7
+  %11 = add nsw i8 %9, -7
   %12 = select i1 %or.cond.i, i8 %11, i8 %9
   %13 = add i8 %6, -97
   %or.cond.i11 = icmp ult i8 %13, 26
-  %14 = add i8 %6, -7
+  %14 = add nsw i8 %6, -7
   %15 = select i1 %or.cond.i11, i8 %14, i8 %6
   %.not10 = icmp eq i8 %12, %15
   br i1 %.not10, label %16, label %.loopexit

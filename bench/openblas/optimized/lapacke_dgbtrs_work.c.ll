@@ -43,7 +43,7 @@ define i32 @LAPACKE_dgbtrs_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   %25 = shl nsw i32 %3, 1
   %26 = add nsw i32 %25, %4
   %27 = icmp slt i32 %26, 0
-  %28 = add nsw i32 %26, 1
+  %28 = add nuw nsw i32 %26, 1
   %29 = select i1 %27, i32 1, i32 %28
   store i32 %29, ptr %20, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #6
@@ -57,7 +57,7 @@ define i32 @LAPACKE_dgbtrs_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br i1 %33, label %59, label %34
 
 34:                                               ; preds = %32
-  %35 = zext nneg i32 %29 to i64
+  %35 = sext i32 %29 to i64
   %36 = zext nneg i32 %30 to i64
   %37 = shl nuw nsw i64 %36, 3
   %38 = mul i64 %37, %35

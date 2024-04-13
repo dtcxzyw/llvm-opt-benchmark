@@ -56,7 +56,7 @@ define i32 @LAPACKE_dgbsvx_work(i32 noundef %0, i8 noundef signext %1, i8 nounde
   %46 = shl nsw i32 %4, 1
   %47 = add nsw i32 %46, %5
   %48 = icmp slt i32 %47, 0
-  %49 = add nsw i32 %47, 1
+  %49 = add nuw nsw i32 %47, 1
   %50 = select i1 %48, i32 1, i32 %49
   store i32 %50, ptr %37, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #7
@@ -93,7 +93,7 @@ define i32 @LAPACKE_dgbsvx_work(i32 noundef %0, i8 noundef signext %1, i8 nounde
   br label %146
 
 66:                                               ; preds = %59
-  %67 = zext nneg i32 %50 to i64
+  %67 = sext i32 %50 to i64
   %68 = mul i64 %62, %67
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #8
   %70 = icmp eq ptr %69, null

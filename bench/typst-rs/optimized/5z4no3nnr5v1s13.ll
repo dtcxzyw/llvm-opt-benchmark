@@ -45141,7 +45141,7 @@ _ZN5typst4text3raw10load_theme17hb46966b03ba1c96eE.exit.i.i: ; preds = %340, %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8848)
   %539 = add i64 %536, 9223372036854775802
   %540 = icmp ult i64 %539, 4
-  %541 = add i64 %536, 9223372036854775803
+  %541 = add nsw i64 %536, 9223372036854775803
   %542 = select i1 %540, i64 %541, i64 0
   switch i64 %542, label %543 [
     i64 0, label %547

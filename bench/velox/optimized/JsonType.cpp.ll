@@ -3911,7 +3911,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i:                         ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i
   %word.086.i.i.i.i.i.i.i = phi i64 [ %50, %while.body.lr.ph.i.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %123 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i = trunc i64 %123 to i32
+  %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %123 to i32
   %add9.i.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i.i, %cast.i.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i, i32 noundef %add9.i.i.i.i.i.i.i)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i
@@ -4933,7 +4933,7 @@ for.inc.i.i.i.i.i.i.i123:                         ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i207:                      ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i205
   %word.086.i.i.i.i.i.i.i208 = phi i64 [ %189, %while.body.lr.ph.i.i.i.i.i.i.i205 ], [ %and.i.i.i.i.i.i.i227, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %269 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i208, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i209 = trunc i64 %269 to i32
+  %cast.i.i.i.i.i.i.i209 = trunc nuw nsw i64 %269 to i32
   %add9.i.i.i.i.i.i.i210 = or disjoint i32 %mul8.i.i.i.i.i.i.i206, %cast.i.i.i.i.i.i.i209
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i10, i32 noundef %add9.i.i.i.i.i.i.i210)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i211
@@ -5949,7 +5949,7 @@ for.inc.i.i.i.i.i.i.i455:                         ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i584:                      ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i582
   %word.086.i.i.i.i.i.i.i585 = phi i64 [ %335, %while.body.lr.ph.i.i.i.i.i.i.i582 ], [ %and.i.i.i.i.i.i.i604, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %412 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i585, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i586 = trunc i64 %412 to i32
+  %cast.i.i.i.i.i.i.i586 = trunc nuw nsw i64 %412 to i32
   %add9.i.i.i.i.i.i.i587 = or disjoint i32 %mul8.i.i.i.i.i.i.i583, %cast.i.i.i.i.i.i.i586
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i341, i32 noundef %add9.i.i.i.i.i.i.i587)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i588
@@ -6965,7 +6965,7 @@ for.inc.i.i.i.i.i.i.i832:                         ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i965:                      ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i963
   %word.086.i.i.i.i.i.i.i966 = phi i64 [ %478, %while.body.lr.ph.i.i.i.i.i.i.i963 ], [ %and.i.i.i.i.i.i.i985, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %555 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i966, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i967 = trunc i64 %555 to i32
+  %cast.i.i.i.i.i.i.i967 = trunc nuw nsw i64 %555 to i32
   %add9.i.i.i.i.i.i.i968 = or disjoint i32 %mul8.i.i.i.i.i.i.i964, %cast.i.i.i.i.i.i.i967
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i718, i32 noundef %add9.i.i.i.i.i.i.i968)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i969
@@ -7933,7 +7933,7 @@ for.inc.i.i.i.i.i.i.i1210:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i1324:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i1322
   %word.086.i.i.i.i.i.i.i1325 = phi i64 [ %621, %while.body.lr.ph.i.i.i.i.i.i.i1322 ], [ %and.i.i.i.i.i.i.i1344, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %698 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i1325, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i1326 = trunc i64 %698 to i32
+  %cast.i.i.i.i.i.i.i1326 = trunc nuw nsw i64 %698 to i32
   %add9.i.i.i.i.i.i.i1327 = or disjoint i32 %mul8.i.i.i.i.i.i.i1323, %cast.i.i.i.i.i.i.i1326
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i1096, i32 noundef %add9.i.i.i.i.i.i.i1327)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i1328
@@ -8735,7 +8735,7 @@ for.inc.i.i.i.i.i.i.i1564:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i1613:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i1611
   %word.083.i.i.i.i.i.i.i = phi i64 [ %764, %while.body.lr.ph.i.i.i.i.i.i.i1611 ], [ %and.i.i.i.i.i.i.i1628, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %811 = call i64 @llvm.cttz.i64(i64 %word.083.i.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i1614 = trunc i64 %811 to i32
+  %cast.i.i.i.i.i.i.i1614 = trunc nuw nsw i64 %811 to i32
   %add9.i.i.i.i.i.i.i1615 = or disjoint i32 %mul8.i.i.i.i.i.i.i1612, %cast.i.i.i.i.i.i.i1614
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i1455, i32 noundef %add9.i.i.i.i.i.i.i1615)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i1616
@@ -9738,7 +9738,7 @@ for.inc.i.i.i.i.i.i.i1851:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i1966:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i1964
   %word.086.i.i.i.i.i.i.i1967 = phi i64 [ %877, %while.body.lr.ph.i.i.i.i.i.i.i1964 ], [ %and.i.i.i.i.i.i.i1986, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %955 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i1967, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i1968 = trunc i64 %955 to i32
+  %cast.i.i.i.i.i.i.i1968 = trunc nuw nsw i64 %955 to i32
   %add9.i.i.i.i.i.i.i1969 = or disjoint i32 %mul8.i.i.i.i.i.i.i1965, %cast.i.i.i.i.i.i.i1968
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i1737, i32 noundef %add9.i.i.i.i.i.i.i1969)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i1970
@@ -10693,7 +10693,7 @@ for.inc.i.i.i.i.i.i.i2211:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i2321:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i2319
   %word.086.i.i.i.i.i.i.i2322 = phi i64 [ %1021, %while.body.lr.ph.i.i.i.i.i.i.i2319 ], [ %and.i.i.i.i.i.i.i2341, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %1096 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i2322, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i2323 = trunc i64 %1096 to i32
+  %cast.i.i.i.i.i.i.i2323 = trunc nuw nsw i64 %1096 to i32
   %add9.i.i.i.i.i.i.i2324 = or disjoint i32 %mul8.i.i.i.i.i.i.i2320, %cast.i.i.i.i.i.i.i2323
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i2097, i32 noundef %add9.i.i.i.i.i.i.i2324)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i2325
@@ -11913,7 +11913,7 @@ for.inc.i.i.i.i.i.i.i2566:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i2673:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i2671
   %word.086.i.i.i.i.i.i.i2674 = phi i64 [ %1162, %while.body.lr.ph.i.i.i.i.i.i.i2671 ], [ %and.i.i.i.i.i.i.i2693, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %1273 = call i64 @llvm.cttz.i64(i64 %word.086.i.i.i.i.i.i.i2674, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i2675 = trunc i64 %1273 to i32
+  %cast.i.i.i.i.i.i.i2675 = trunc nuw nsw i64 %1273 to i32
   %add9.i.i.i.i.i.i.i2676 = or disjoint i32 %mul8.i.i.i.i.i.i.i2672, %cast.i.i.i.i.i.i.i2675
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i2453, i32 noundef %add9.i.i.i.i.i.i.i2676)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i2677
@@ -12715,7 +12715,7 @@ for.inc.i.i.i.i.i.i.i2918:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i2983:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i2981
   %word.083.i.i.i.i.i.i.i2984 = phi i64 [ %1339, %while.body.lr.ph.i.i.i.i.i.i.i2981 ], [ %and.i.i.i.i.i.i.i3003, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %1386 = call i64 @llvm.cttz.i64(i64 %word.083.i.i.i.i.i.i.i2984, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i2985 = trunc i64 %1386 to i32
+  %cast.i.i.i.i.i.i.i2985 = trunc nuw nsw i64 %1386 to i32
   %add9.i.i.i.i.i.i.i2986 = or disjoint i32 %mul8.i.i.i.i.i.i.i2982, %cast.i.i.i.i.i.i.i2985
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i2804, i32 noundef %add9.i.i.i.i.i.i.i2986)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i2987
@@ -13517,7 +13517,7 @@ for.inc.i.i.i.i.i.i.i3228:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i3293:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i3291
   %word.083.i.i.i.i.i.i.i3294 = phi i64 [ %1452, %while.body.lr.ph.i.i.i.i.i.i.i3291 ], [ %and.i.i.i.i.i.i.i3313, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %1499 = call i64 @llvm.cttz.i64(i64 %word.083.i.i.i.i.i.i.i3294, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i3295 = trunc i64 %1499 to i32
+  %cast.i.i.i.i.i.i.i3295 = trunc nuw nsw i64 %1499 to i32
   %add9.i.i.i.i.i.i.i3296 = or disjoint i32 %mul8.i.i.i.i.i.i.i3292, %cast.i.i.i.i.i.i.i3295
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i3114, i32 noundef %add9.i.i.i.i.i.i.i3296)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i3297
@@ -14614,7 +14614,7 @@ for.inc.i.i.i.i.i.i.i3531:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i3633:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i3631
   %word.091.i.i.i.i.i.i.i = phi i64 [ %1568, %while.body.lr.ph.i.i.i.i.i.i.i3631 ], [ %and.i.i.i.i.i.i.i3652, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %1670 = call i64 @llvm.cttz.i64(i64 %word.091.i.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i3634 = trunc i64 %1670 to i32
+  %cast.i.i.i.i.i.i.i3634 = trunc nuw nsw i64 %1670 to i32
   %add9.i.i.i.i.i.i.i3635 = or disjoint i32 %mul8.i.i.i.i.i.i.i3632, %cast.i.i.i.i.i.i.i3634
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i3424, i32 noundef %add9.i.i.i.i.i.i.i3635)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i3636
@@ -15694,7 +15694,7 @@ for.inc.i.i.i.i.i.i.i3869:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i3975:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i3973
   %word.090.i.i.i.i.i.i.i = phi i64 [ %1743, %while.body.lr.ph.i.i.i.i.i.i.i3973 ], [ %and.i.i.i.i.i.i.i3994, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %1831 = call i64 @llvm.cttz.i64(i64 %word.090.i.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i3976 = trunc i64 %1831 to i32
+  %cast.i.i.i.i.i.i.i3976 = trunc nuw nsw i64 %1831 to i32
   %add9.i.i.i.i.i.i.i3977 = or disjoint i32 %mul8.i.i.i.i.i.i.i3974, %cast.i.i.i.i.i.i.i3976
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i3761, i32 noundef %add9.i.i.i.i.i.i.i3977)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i3978
@@ -16872,7 +16872,7 @@ call2.i.noexc66.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont72.i.i.i
   %add.i.i.i.i.i.i.i.i.i4317 = or disjoint i64 %mul.i.i.i.i.i.i.i.i.i, 1
   %1995 = load i32, ptr %chunkMask_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i191.i.i.i.i.i.i.i.i = zext i32 %1995 to i64
-  %conv.i107.i.i.i.i.i.i.i.i = trunc i64 %or.i.i.i.i.i.i.i.i.i to i8
+  %conv.i107.i.i.i.i.i.i.i.i = trunc nuw i64 %or.i.i.i.i.i.i.i.i.i to i8
   %vecinit.i.i.i.i.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i107.i.i.i.i.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc.i.i.i.i.i.i.i.i
@@ -17313,7 +17313,7 @@ for.inc.i.i.i.i.i.i.i4211:                        ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i.i4366:                     ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i.i4364
   %word.0102.i.i.i.i.i.i.i = phi i64 [ %1906, %while.body.lr.ph.i.i.i.i.i.i.i4364 ], [ %and.i.i.i.i.i.i.i4385, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i ]
   %2056 = call i64 @llvm.cttz.i64(i64 %word.0102.i.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i.i4367 = trunc i64 %2056 to i32
+  %cast.i.i.i.i.i.i.i4367 = trunc nuw nsw i64 %2056 to i32
   %add9.i.i.i.i.i.i.i4368 = or disjoint i32 %mul8.i.i.i.i.i.i.i4365, %cast.i.i.i.i.i.i.i4367
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_ENKUlT_E_clIiEEDaSE_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2.i4104, i32 noundef %add9.i.i.i.i.i.i.i4368)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i4369
@@ -19830,7 +19830,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.inc.sink.split.
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE33ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.082.i.i.i.i.i.i = phi i64 [ %45, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE33ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %69 = call i64 @llvm.cttz.i64(i64 %word.082.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %69 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   %70 = load ptr, ptr %agg.tmp6, align 8
   %71 = load ptr, ptr %70, align 8
@@ -20559,7 +20559,7 @@ for.inc.i.i.i.i.i.i91:                            ; preds = %for.inc.sink.split.
 while.body.i.i.i.i.i.i112:                        ; preds = %.noexc220, %while.body.lr.ph.i.i.i.i.i.i110
   %word.079.i.i.i.i.i.i = phi i64 [ %141, %while.body.lr.ph.i.i.i.i.i.i110 ], [ %and.i.i.i.i.i.i125, %.noexc220 ]
   %167 = call i64 @llvm.cttz.i64(i64 %word.079.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i113 = trunc i64 %167 to i32
+  %cast.i.i.i.i.i.i113 = trunc nuw nsw i64 %167 to i32
   %add9.i.i.i.i.i.i114 = or disjoint i32 %mul8.i.i.i.i.i.i111, %cast.i.i.i.i.i.i113
   %168 = load ptr, ptr %agg.tmp112, align 8
   %169 = load ptr, ptr %168, align 8
@@ -20881,7 +20881,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE33ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE33ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -21072,7 +21072,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE33ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE33ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -21781,7 +21781,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.077.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.077.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -22583,7 +22583,7 @@ for.inc.i.i.i.i.i.i100:                           ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i131:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i129
   %word.077.i.i.i.i.i.i132 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i129 ], [ %and.i.i.i.i.i.i151, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.077.i.i.i.i.i.i132, i1 true), !range !8
-  %cast.i.i.i.i.i.i133 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i133 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i134 = or disjoint i32 %mul8.i.i.i.i.i.i130, %cast.i.i.i.i.i.i133
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -23376,7 +23376,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -24158,7 +24158,7 @@ for.inc.i.i.i.i.i.i95:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i119:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i117
   %word.076.i.i.i.i.i.i120 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i117 ], [ %and.i.i.i.i.i.i139, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i120, i1 true), !range !8
-  %cast.i.i.i.i.i.i121 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i121 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i122 = or disjoint i32 %mul8.i.i.i.i.i.i118, %cast.i.i.i.i.i.i121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -24937,7 +24937,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -25719,7 +25719,7 @@ for.inc.i.i.i.i.i.i95:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i119:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i117
   %word.076.i.i.i.i.i.i120 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i117 ], [ %and.i.i.i.i.i.i139, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i120, i1 true), !range !8
-  %cast.i.i.i.i.i.i121 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i121 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i122 = or disjoint i32 %mul8.i.i.i.i.i.i118, %cast.i.i.i.i.i.i121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -26498,7 +26498,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -27280,7 +27280,7 @@ for.inc.i.i.i.i.i.i95:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i119:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i117
   %word.076.i.i.i.i.i.i120 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i117 ], [ %and.i.i.i.i.i.i139, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i120, i1 true), !range !8
-  %cast.i.i.i.i.i.i121 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i121 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i122 = or disjoint i32 %mul8.i.i.i.i.i.i118, %cast.i.i.i.i.i.i121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -28059,7 +28059,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -28841,7 +28841,7 @@ for.inc.i.i.i.i.i.i95:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i119:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i117
   %word.076.i.i.i.i.i.i120 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i117 ], [ %and.i.i.i.i.i.i139, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i120, i1 true), !range !8
-  %cast.i.i.i.i.i.i121 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i121 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i122 = or disjoint i32 %mul8.i.i.i.i.i.i118, %cast.i.i.i.i.i.i121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -29620,7 +29620,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -30402,7 +30402,7 @@ for.inc.i.i.i.i.i.i95:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i119:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i117
   %word.076.i.i.i.i.i.i120 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i117 ], [ %and.i.i.i.i.i.i139, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i120, i1 true), !range !8
-  %cast.i.i.i.i.i.i121 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i121 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i122 = or disjoint i32 %mul8.i.i.i.i.i.i118, %cast.i.i.i.i.i.i121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -31181,7 +31181,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -31963,7 +31963,7 @@ for.inc.i.i.i.i.i.i95:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i119:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i117
   %word.076.i.i.i.i.i.i120 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i117 ], [ %and.i.i.i.i.i.i139, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i120, i1 true), !range !8
-  %cast.i.i.i.i.i.i121 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i121 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i122 = or disjoint i32 %mul8.i.i.i.i.i.i118, %cast.i.i.i.i.i.i121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -32742,7 +32742,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %37, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i)
   %69 = load ptr, ptr %agg.tmp6, align 8
@@ -33524,7 +33524,7 @@ for.inc.i.i.i.i.i.i95:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i119:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i117
   %word.076.i.i.i.i.i.i120 = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i117 ], [ %and.i.i.i.i.i.i139, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %164 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i120, i1 true), !range !8
-  %cast.i.i.i.i.i.i121 = trunc i64 %164 to i32
+  %cast.i.i.i.i.i.i121 = trunc nuw nsw i64 %164 to i32
   %add9.i.i.i.i.i.i122 = or disjoint i32 %mul8.i.i.i.i.i.i118, %cast.i.i.i.i.i.i121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %165 = load ptr, ptr %agg.tmp113, align 8
@@ -34368,7 +34368,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.074.i.i.i.i.i.i = phi i64 [ %38, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %75 = call i64 @llvm.cttz.i64(i64 %word.074.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %75 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %75 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbENKUlT_E_clIiEEDaSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, i32 noundef %add9.i.i.i.i.i.i)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
@@ -35138,7 +35138,7 @@ for.inc.i.i.i.i.i.i114:                           ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i151:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i149
   %word.074.i.i.i.i.i.i152 = phi i64 [ %130, %while.body.lr.ph.i.i.i.i.i.i149 ], [ %and.i.i.i.i.i.i169, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %163 = call i64 @llvm.cttz.i64(i64 %word.074.i.i.i.i.i.i152, i1 true), !range !8
-  %cast.i.i.i.i.i.i153 = trunc i64 %163 to i32
+  %cast.i.i.i.i.i.i153 = trunc nuw nsw i64 %163 to i32
   %add9.i.i.i.i.i.i154 = or disjoint i32 %mul8.i.i.i.i.i.i150, %cast.i.i.i.i.i.i153
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbENKUlT_E0_clIiEEDaSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp113, i32 noundef %add9.i.i.i.i.i.i154)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i155
@@ -35913,7 +35913,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.074.i.i.i.i.i.i = phi i64 [ %38, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %75 = call i64 @llvm.cttz.i64(i64 %word.074.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %75 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %75 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbENKUlT_E_clIiEEDaSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, i32 noundef %add9.i.i.i.i.i.i)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
@@ -36683,7 +36683,7 @@ for.inc.i.i.i.i.i.i114:                           ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i151:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i149
   %word.074.i.i.i.i.i.i152 = phi i64 [ %130, %while.body.lr.ph.i.i.i.i.i.i149 ], [ %and.i.i.i.i.i.i169, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %163 = call i64 @llvm.cttz.i64(i64 %word.074.i.i.i.i.i.i152, i1 true), !range !8
-  %cast.i.i.i.i.i.i153 = trunc i64 %163 to i32
+  %cast.i.i.i.i.i.i153 = trunc nuw nsw i64 %163 to i32
   %add9.i.i.i.i.i.i154 = or disjoint i32 %mul8.i.i.i.i.i.i150, %cast.i.i.i.i.i.i153
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbENKUlT_E0_clIiEEDaSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp113, i32 noundef %add9.i.i.i.i.i.i154)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i155
@@ -37421,7 +37421,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %word.076.i.i.i.i.i.i = phi i64 [ %38, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %72 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %72 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %72 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbENKUlT_E_clIiEEDaSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, i32 noundef %add9.i.i.i.i.i.i)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
@@ -38162,7 +38162,7 @@ for.inc.i.i.i.i.i.i107:                           ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i138:                        ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i136
   %word.076.i.i.i.i.i.i139 = phi i64 [ %127, %while.body.lr.ph.i.i.i.i.i.i136 ], [ %and.i.i.i.i.i.i156, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %157 = call i64 @llvm.cttz.i64(i64 %word.076.i.i.i.i.i.i139, i1 true), !range !8
-  %cast.i.i.i.i.i.i140 = trunc i64 %157 to i32
+  %cast.i.i.i.i.i.i140 = trunc nuw nsw i64 %157 to i32
   %add9.i.i.i.i.i.i141 = or disjoint i32 %mul8.i.i.i.i.i.i137, %cast.i.i.i.i.i.i140
   invoke fastcc void @_ZZN8facebook5velox12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbENKUlT_E0_clIiEEDaSK_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp113, i32 noundef %add9.i.i.i.i.i.i141)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i142
@@ -38915,7 +38915,7 @@ for.inc.i.i.i.i.i.i404:                           ; preds = %for.inc.sink.split.
 while.body.i.i.i.i.i.i429:                        ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i427
   %word.079.i.i.i.i.i.i = phi i64 [ %61, %while.body.lr.ph.i.i.i.i.i.i427 ], [ %and.i.i.i.i.i.i442, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %85 = call i64 @llvm.cttz.i64(i64 %word.079.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i430 = trunc i64 %85 to i32
+  %cast.i.i.i.i.i.i430 = trunc nuw nsw i64 %85 to i32
   %add9.i.i.i.i.i.i431 = or disjoint i32 %mul8.i.i.i.i.i.i428, %cast.i.i.i.i.i.i430
   %86 = load ptr, ptr %func.i, align 8
   %87 = load ptr, ptr %86, align 8
@@ -39602,9 +39602,9 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i: ; preds 
   br i1 %cmp.i.i.i.i.i.i.i157, label %for.body.i.i.i.i.i.i.i145, label %for.end.i.i.i.i.i.i.i, !llvm.loop !207
 
 for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %if.end.i23.i.i.i.i.i.i
-  %add10.i.i.i.i.i.i.i = add nsw i32 %160, 1
+  %add10.i.i.i.i.i.i.i = add nuw nsw i32 %160, 1
   %cond.i.i.i.i.i.i.i = select i1 %cmp12.i.i.i.i.i.i.i, i32 %add10.i.i.i.i.i.i.i, i32 2
-  %conv11.i24.i.i.i.i.i.i = zext nneg i32 %cond.i.i.i.i.i.i.i to i64
+  %conv11.i24.i.i.i.i.i.i = sext i32 %cond.i.i.i.i.i.i.i to i64
   %187 = load ptr, ptr %agg.tmp17.i.sroa.4.0.agg.tmp17.i33.sroa_idx, align 8
   %188 = load i64, ptr %187, align 8
   %add12.i.i.i.i.i.i.i = add i64 %188, %conv11.i24.i.i.i.i.i.i
@@ -39739,7 +39739,7 @@ for.inc.i.i.i.i.i.i117:                           ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i161:                        ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i159
   %word.081.i.i.i.i.i.i = phi i64 [ %153, %while.body.lr.ph.i.i.i.i.i.i159 ], [ %and.i.i.i.i.i.i180, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %203 = call i64 @llvm.cttz.i64(i64 %word.081.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i162 = trunc i64 %203 to i32
+  %cast.i.i.i.i.i.i162 = trunc nuw nsw i64 %203 to i32
   %add9.i.i.i.i.i.i163 = or disjoint i32 %mul8.i.i.i.i.i.i160, %cast.i.i.i.i.i.i162
   %204 = load ptr, ptr %agg.tmp17.i33, align 8
   %205 = load ptr, ptr %204, align 8
@@ -39895,9 +39895,9 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i: ; preds = 
   br i1 %cmp.i.i.i.i.i.i225, label %for.body.i40.i.i.i.i.i, label %for.end.i.i.i.i.i.i, !llvm.loop !209
 
 for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  %add7.i.i.i.i.i.i = add nsw i32 %210, 1
+  %add7.i.i.i.i.i.i = add nuw nsw i32 %210, 1
   %cond.i36.i.i.i.i.i = select i1 %cmp11.i.i.i.i.i.i, i32 %add7.i.i.i.i.i.i, i32 2
-  %conv8.i.i.i.i.i.i = zext nneg i32 %cond.i36.i.i.i.i.i to i64
+  %conv8.i.i.i.i.i.i = sext i32 %cond.i36.i.i.i.i.i to i64
   %237 = load ptr, ptr %agg.tmp17.i.sroa.4.0.agg.tmp17.i33.sroa_idx, align 8
   %238 = load i64, ptr %237, align 8
   %add9.i37.i.i.i.i.i = add i64 %238, %conv8.i.i.i.i.i.i
@@ -40886,7 +40886,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i
   %word.091.i.i.i.i.i.i = phi i64 [ %293, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %377 = call i64 @llvm.cttz.i64(i64 %word.091.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %377 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %377 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   invoke fastcc void @"_ZZN8facebook5velox12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEENK3$_2clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22.i10, i32 noundef %add9.i.i.i.i.i.i)
           to label %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" unwind label %lpad.i.i.i.i.i.i.i
@@ -41427,7 +41427,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -41663,7 +41663,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE0ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -41968,7 +41968,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -42018,7 +42018,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -42319,7 +42319,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -42362,7 +42362,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE3ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -42668,7 +42668,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEaEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -42710,7 +42710,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -43012,7 +43012,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEaEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -43055,7 +43055,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE1ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -43361,7 +43361,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEsEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -43403,7 +43403,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -43705,7 +43705,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEsEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -43748,7 +43748,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE2ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -44053,7 +44053,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %8 = lshr i16 %7, 8
-  %conv4.i.i.i.i.i = trunc i16 %8 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %8 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -44095,7 +44095,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -44396,7 +44396,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %8 = lshr i16 %7, 8
-  %conv4.i.i.i.i.i = trunc i16 %8 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %8 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -44439,7 +44439,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE4ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -44747,7 +44747,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEnEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -44789,7 +44789,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -45093,7 +45093,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEnEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -45136,7 +45136,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE10ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -45484,7 +45484,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -45827,7 +45827,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE5ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -46172,7 +46172,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -46514,7 +46514,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE6ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -46857,7 +46857,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -47156,7 +47156,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE7ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -47460,7 +47460,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -47759,7 +47759,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE8ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -48021,7 +48021,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -48278,7 +48278,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_110castToJsonILNS0_8TypeKindE9ETnNSt9enable_ifIXsr10TypeTraitsIXT_EEE15isPrimitiveTypeEiE4typeELi0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEbEUlT_E0_EEvSG_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -48539,7 +48539,7 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   %and.i54.sink.i.i.i = phi i64 [ %and.i54.i.i.i, %if.then26.i.i.i ], [ %14, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %.sink.i.i.i = phi i32 [ %11, %if.then26.i.i.i ], [ %16, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %17 = call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true), !range !8
-  %cast.i58.i.i.i = trunc i64 %17 to i32
+  %cast.i58.i.i.i = trunc nuw nsw i64 %17 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   store i32 %add.i59.i.i.i, ptr %begin_.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
@@ -50059,7 +50059,7 @@ while.body.lr.ph.split.i.i.i.i.i.i:               ; preds = %while.body.lr.ph.i.
 while.body.us92.i.i.i.i.i.i:                      ; preds = %while.body.lr.ph.split.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us96.i.i.i.i.i.i
   %word.091.us93.i.i.i.i.i.i = phi i64 [ %and.us98.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us96.i.i.i.i.i.i ], [ %201, %while.body.lr.ph.split.i.i.i.i.i.i ]
   %204 = call i64 @llvm.cttz.i64(i64 %word.091.us93.i.i.i.i.i.i, i1 true), !range !8
-  %cast.us94.i.i.i.i.i.i = trunc i64 %204 to i32
+  %cast.us94.i.i.i.i.i.i = trunc nuw nsw i64 %204 to i32
   %add9.us95.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.us94.i.i.i.i.i.i
   %conv.i.i.i.i66.us.i.i.i.i.i.i = sext i32 %add9.us95.i.i.i.i.i.i to i64
   %div2.i.i.i.i67.us.i.i.i.i.i.i = lshr i64 %conv.i.i.i.i66.us.i.i.i.i.i.i, 6
@@ -50085,7 +50085,7 @@ while.body.lr.ph.split.split.i.i.i.i.i.i:         ; preds = %while.body.lr.ph.sp
 while.body.us100.i.i.i.i.i.i:                     ; preds = %while.body.lr.ph.split.split.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us112.i.i.i.i.i.i
   %word.091.us101.i.i.i.i.i.i = phi i64 [ %and.us114.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us112.i.i.i.i.i.i ], [ %201, %while.body.lr.ph.split.split.i.i.i.i.i.i ]
   %207 = call i64 @llvm.cttz.i64(i64 %word.091.us101.i.i.i.i.i.i, i1 true), !range !8
-  %cast.us102.i.i.i.i.i.i = trunc i64 %207 to i32
+  %cast.us102.i.i.i.i.i.i = trunc nuw nsw i64 %207 to i32
   %add9.us103.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.us102.i.i.i.i.i.i
   %conv.i.i.i.i66.us105.i.i.i.i.i.i = sext i32 %add9.us103.i.i.i.i.i.i to i64
   %div2.i.i.i.i67.us106.i.i.i.i.i.i = lshr i64 %conv.i.i.i.i66.us105.i.i.i.i.i.i, 6
@@ -50221,7 +50221,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
 while.body.i.i.i.i.i.i:                           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i, %while.body.lr.ph.split.split.split.split.i.i.i.i.i.i
   %word.091.i.i.i.i.i.i = phi i64 [ %201, %while.body.lr.ph.split.split.split.split.i.i.i.i.i.i ], [ %and.i.i.i.i29.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.i.i.i.i.i.i ]
   %222 = call i64 @llvm.cttz.i64(i64 %word.091.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %222 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %222 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   %idxprom.i.i51.i.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
   %arrayidx.i.i52.i.i.i.i.i.i = getelementptr inbounds i32, ptr %211, i64 %idxprom.i.i51.i.i.i.i.i.i
@@ -51233,7 +51233,7 @@ while.body.preheader.i:                           ; preds = %if.then3
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %word.0.i = phi i64 [ %and6.i, %while.body.i ], [ %and.i, %while.body.preheader.i ]
   %10 = call i64 @llvm.cttz.i64(i64 %word.0.i, i1 true), !range !8
-  %cast.i = trunc i64 %10 to i32
+  %cast.i = trunc nuw nsw i64 %10 to i32
   %add.i26 = or disjoint i32 %1, %cast.i
   call void @_ZZN8facebook5velox9functions13toElementRowsINS0_11ArrayVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef %add.i26)
   %sub.i27 = add nsw i64 %word.0.i, -1
@@ -51277,7 +51277,7 @@ while.body.preheader.i40:                         ; preds = %if.then10
 while.body.i42:                                   ; preds = %while.body.i42, %while.body.preheader.i40
   %word.0.i43 = phi i64 [ %and6.i47, %while.body.i42 ], [ %and.i38, %while.body.preheader.i40 ]
   %19 = call i64 @llvm.cttz.i64(i64 %word.0.i43, i1 true), !range !8
-  %cast.i44 = trunc i64 %19 to i32
+  %cast.i44 = trunc nuw nsw i64 %19 to i32
   %add.i45 = or disjoint i32 %mul.i41, %cast.i44
   call void @_ZZN8facebook5velox9functions13toElementRowsINS0_11ArrayVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(40) %18, i32 noundef %add.i45)
   %sub.i46 = add i64 %word.0.i43, -1
@@ -51345,7 +51345,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 while.body.i55:                                   ; preds = %_ZZN8facebook5velox9functions13toElementRowsINS0_11ArrayVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi.exit, %while.body.lr.ph.i
   %word.013.i = phi i64 [ %cond.i53, %while.body.lr.ph.i ], [ %and.i58, %_ZZN8facebook5velox9functions13toElementRowsINS0_11ArrayVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi.exit ]
   %32 = call i64 @llvm.cttz.i64(i64 %word.013.i, i1 true), !range !8
-  %cast.i56 = trunc i64 %32 to i32
+  %cast.i56 = trunc nuw nsw i64 %32 to i32
   %add10.i = or disjoint i32 %mul9.i, %cast.i56
   %33 = load ptr, ptr %21, align 8
   %34 = load ptr, ptr %33, align 8
@@ -51528,7 +51528,7 @@ while.body.preheader.i68:                         ; preds = %if.then19
 while.body.i70:                                   ; preds = %while.body.i70, %while.body.preheader.i68
   %word.0.i71 = phi i64 [ %and6.i75, %while.body.i70 ], [ %and.i66, %while.body.preheader.i68 ]
   %60 = call i64 @llvm.cttz.i64(i64 %word.0.i71, i1 true), !range !8
-  %cast.i72 = trunc i64 %60 to i32
+  %cast.i72 = trunc nuw nsw i64 %60 to i32
   %add.i73 = or disjoint i32 %1, %cast.i72
   call void @_ZZN8facebook5velox9functions13toElementRowsINS0_11ArrayVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(40) %59, i32 noundef %add.i73)
   %sub.i74 = add nsw i64 %word.0.i71, -1
@@ -51586,7 +51586,7 @@ if.then3:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then3
   %add.i26 = or i32 %end, 63
   %9 = tail call i64 @llvm.ctlz.i64(i64 %and.i, i1 true), !range !8
-  %cast.i = trunc i64 %9 to i32
+  %cast.i = trunc nuw nsw i64 %9 to i32
   %sub.i27 = sub nuw nsw i32 %add.i26, %cast.i
   br label %return.sink.split
 
@@ -51618,7 +51618,7 @@ if.then11:                                        ; preds = %if.end9
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42: ; preds = %if.then11
   %add.i39 = or i32 %end, 63
   %17 = tail call i64 @llvm.ctlz.i64(i64 %and.i35, i1 true), !range !8
-  %cast.i40 = trunc i64 %17 to i32
+  %cast.i40 = trunc nuw nsw i64 %17 to i32
   %sub.i41 = sub nuw nsw i32 %add.i39, %cast.i40
   br label %return.sink.split
 
@@ -51649,7 +51649,7 @@ for.body:                                         ; preds = %for.cond
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread: ; preds = %for.body
   %25 = tail call i64 @llvm.ctlz.i64(i64 %cond.i46, i1 true), !range !8
-  %cast.i50 = trunc i64 %25 to i32
+  %cast.i50 = trunc nuw nsw i64 %25 to i32
   %26 = xor i32 %cast.i50, -1
   %sub.i51 = add i32 %i.0.in, %26
   br label %return.sink.split
@@ -51686,7 +51686,7 @@ if.then.i64:                                      ; preds = %if.then27
   %mul.i65 = shl nsw i32 %div28, 6
   %add.i66 = or disjoint i32 %mul.i65, 63
   %34 = tail call i64 @llvm.ctlz.i64(i64 %and.i62, i1 true), !range !8
-  %cast.i67 = trunc i64 %34 to i32
+  %cast.i67 = trunc nuw nsw i64 %34 to i32
   %sub.i68 = sub nuw nsw i32 %add.i66, %cast.i67
   br label %return.sink.split
 
@@ -51735,7 +51735,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -53136,7 +53136,7 @@ while.body.preheader.split:                       ; preds = %while.body.preheade
 while.body.us28:                                  ; preds = %while.body.preheader.split, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us32
   %word.0.us29 = phi i64 [ %and6.us34, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us32 ], [ %and, %while.body.preheader.split ]
   %12 = tail call i64 @llvm.cttz.i64(i64 %word.0.us29, i1 true), !range !8
-  %cast.us30 = trunc i64 %12 to i32
+  %cast.us30 = trunc nuw nsw i64 %12 to i32
   %add.us31 = or disjoint i32 %mul, %cast.us30
   %conv.i.i.i.i.us = sext i32 %add.us31 to i64
   %div2.i.i.i.i.us = lshr i64 %conv.i.i.i.i.us, 6
@@ -53162,7 +53162,7 @@ while.body.preheader.split.split:                 ; preds = %while.body.preheade
 while.body.us36:                                  ; preds = %while.body.preheader.split.split, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us48
   %word.0.us37 = phi i64 [ %and6.us50, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit.us48 ], [ %and, %while.body.preheader.split.split ]
   %15 = tail call i64 @llvm.cttz.i64(i64 %word.0.us37, i1 true), !range !8
-  %cast.us38 = trunc i64 %15 to i32
+  %cast.us38 = trunc nuw nsw i64 %15 to i32
   %add.us39 = or disjoint i32 %mul, %cast.us38
   %conv.i.i.i.i.us41 = sext i32 %add.us39 to i64
   %div2.i.i.i.i.us42 = lshr i64 %conv.i.i.i.i.us41, 6
@@ -53198,7 +53198,7 @@ while.body.preheader.split.split.split.split:     ; preds = %while.body.preheade
 while.body:                                       ; preds = %while.body.preheader.split.split.split.split, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_16AsJsonC1ERS2_RKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEbEUlT_E_EEvSE_SL_ENKUlSL_E_clIiEEDaSL_.exit ], [ %and, %while.body.preheader.split.split.split.split ]
   %20 = tail call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %20 to i32
+  %cast = trunc nuw nsw i64 %20 to i32
   %add = or disjoint i32 %mul, %cast
   %idxprom.i.i = sext i32 %add to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %19, i64 %idxprom.i.i
@@ -53467,9 +53467,9 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit: ; preds = %if.then4.i.
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !209
 
 for.end:                                          ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, %if.end
-  %add7 = add nsw i32 %6, 1
+  %add7 = add nuw nsw i32 %6, 1
   %cond = select i1 %cmp11, i32 %add7, i32 2
-  %conv8 = zext nneg i32 %cond to i64
+  %conv8 = sext i32 %cond to i64
   %34 = getelementptr inbounds i8, ptr %this, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i64, ptr %35, align 8
@@ -53510,7 +53510,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -54131,7 +54131,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_119castToJsonFromArrayERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -54866,7 +54866,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.inc.sink.split.
 while.body.i.i.i.i.i.i:                           ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i
   %word.079.i.i.i.i.i.i = phi i64 [ %67, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %91 = call i64 @llvm.cttz.i64(i64 %word.079.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %91 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %91 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   %92 = load ptr, ptr %func.i, align 8
   %93 = load ptr, ptr %92, align 8
@@ -55603,10 +55603,10 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i: ; preds 
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i, !llvm.loop !274
 
 for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %if.end.i23.i.i.i.i.i.i
-  %mul.i.i.i.i.i.i.i = shl nsw i32 %169, 1
+  %mul.i.i.i.i.i.i.i = shl nuw nsw i32 %169, 1
   %add13.i.i.i.i.i.i.i = or disjoint i32 %mul.i.i.i.i.i.i.i, 1
   %cond.i.i.i.i.i.i.i = select i1 %cmp22.i.i.i.i.i.i.i, i32 %add13.i.i.i.i.i.i.i, i32 2
-  %conv14.i.i.i.i.i.i.i = sext i32 %cond.i.i.i.i.i.i.i to i64
+  %conv14.i.i.i.i.i.i.i = zext nneg i32 %cond.i.i.i.i.i.i.i to i64
   %205 = load ptr, ptr %agg.tmp18.sroa.2.0.agg.tmp1837.sroa_idx, align 8
   %206 = load i64, ptr %205, align 8
   %add15.i.i.i.i.i.i.i = add i64 %206, %conv14.i.i.i.i.i.i.i
@@ -55741,7 +55741,7 @@ for.inc.i.i.i.i.i.i114:                           ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i137:                        ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i135
   %word.081.i.i.i.i.i.i = phi i64 [ %162, %while.body.lr.ph.i.i.i.i.i.i135 ], [ %and.i.i.i.i.i.i150, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %221 = call i64 @llvm.cttz.i64(i64 %word.081.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i138 = trunc i64 %221 to i32
+  %cast.i.i.i.i.i.i138 = trunc nuw nsw i64 %221 to i32
   %add9.i.i.i.i.i.i139 = or disjoint i32 %mul8.i.i.i.i.i.i136, %cast.i.i.i.i.i.i138
   %222 = load ptr, ptr %agg.tmp1837, align 8
   %223 = load ptr, ptr %222, align 8
@@ -55933,10 +55933,10 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i: ; preds = 
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i40.i.i.i.i.i, label %for.end.i.i.i.i.i.i, !llvm.loop !276
 
 for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  %mul.i36.i.i.i.i.i = shl nsw i32 %228, 1
+  %mul.i36.i.i.i.i.i = shl nuw nsw i32 %228, 1
   %add10.i.i.i.i.i.i = or disjoint i32 %mul.i36.i.i.i.i.i, 1
   %cond.i37.i.i.i.i.i = select i1 %cmp21.i.i.i.i.i.i, i32 %add10.i.i.i.i.i.i, i32 2
-  %conv11.i.i.i.i.i.i = sext i32 %cond.i37.i.i.i.i.i to i64
+  %conv11.i.i.i.i.i.i = zext nneg i32 %cond.i37.i.i.i.i.i to i64
   %264 = load ptr, ptr %agg.tmp18.sroa.2.0.agg.tmp1837.sroa_idx, align 8
   %265 = load i64, ptr %264, align 8
   %add12.i.i.i.i.i.i = add i64 %265, %conv11.i.i.i.i.i.i
@@ -57187,7 +57187,7 @@ for.inc.i.i.i.i.i.i327:                           ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i416:                        ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i414
   %word.0114.i.i.i.i.i.i = phi i64 [ %320, %while.body.lr.ph.i.i.i.i.i.i414 ], [ %and.i.i.i.i.i.i432, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %443 = call i64 @llvm.cttz.i64(i64 %word.0114.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i417 = trunc i64 %443 to i32
+  %cast.i.i.i.i.i.i417 = trunc nuw nsw i64 %443 to i32
   %add9.i.i.i.i.i.i418 = or disjoint i32 %mul8.i.i.i.i.i.i415, %cast.i.i.i.i.i.i417
   invoke fastcc void @"_ZZN8facebook5velox12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEENK3$_2clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp23245, i32 noundef %add9.i.i.i.i.i.i418)
           to label %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" unwind label %lpad.i.i.i.i.i.i.i419
@@ -57919,7 +57919,7 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   %and.i54.sink.i.i.i = phi i64 [ %and.i54.i.i.i, %if.then26.i.i.i ], [ %14, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %.sink.i.i.i = phi i32 [ %11, %if.then26.i.i.i ], [ %16, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %17 = call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true), !range !8
-  %cast.i58.i.i.i = trunc i64 %17 to i32
+  %cast.i58.i.i.i = trunc nuw nsw i64 %17 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   store i32 %add.i59.i.i.i, ptr %begin_.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
@@ -58288,7 +58288,7 @@ while.body.preheader.i:                           ; preds = %if.then3
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %word.0.i = phi i64 [ %and6.i, %while.body.i ], [ %and.i, %while.body.preheader.i ]
   %10 = call i64 @llvm.cttz.i64(i64 %word.0.i, i1 true), !range !8
-  %cast.i = trunc i64 %10 to i32
+  %cast.i = trunc nuw nsw i64 %10 to i32
   %add.i26 = or disjoint i32 %1, %cast.i
   call void @_ZZN8facebook5velox9functions13toElementRowsINS0_9MapVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef %add.i26)
   %sub.i27 = add nsw i64 %word.0.i, -1
@@ -58332,7 +58332,7 @@ while.body.preheader.i40:                         ; preds = %if.then10
 while.body.i42:                                   ; preds = %while.body.i42, %while.body.preheader.i40
   %word.0.i43 = phi i64 [ %and6.i47, %while.body.i42 ], [ %and.i38, %while.body.preheader.i40 ]
   %19 = call i64 @llvm.cttz.i64(i64 %word.0.i43, i1 true), !range !8
-  %cast.i44 = trunc i64 %19 to i32
+  %cast.i44 = trunc nuw nsw i64 %19 to i32
   %add.i45 = or disjoint i32 %mul.i41, %cast.i44
   call void @_ZZN8facebook5velox9functions13toElementRowsINS0_9MapVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(40) %18, i32 noundef %add.i45)
   %sub.i46 = add i64 %word.0.i43, -1
@@ -58400,7 +58400,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 while.body.i55:                                   ; preds = %_ZZN8facebook5velox9functions13toElementRowsINS0_9MapVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi.exit, %while.body.lr.ph.i
   %word.013.i = phi i64 [ %cond.i53, %while.body.lr.ph.i ], [ %and.i58, %_ZZN8facebook5velox9functions13toElementRowsINS0_9MapVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi.exit ]
   %32 = call i64 @llvm.cttz.i64(i64 %word.013.i, i1 true), !range !8
-  %cast.i56 = trunc i64 %32 to i32
+  %cast.i56 = trunc nuw nsw i64 %32 to i32
   %add10.i = or disjoint i32 %mul9.i, %cast.i56
   %33 = load ptr, ptr %21, align 8
   %34 = load ptr, ptr %33, align 8
@@ -58583,7 +58583,7 @@ while.body.preheader.i68:                         ; preds = %if.then19
 while.body.i70:                                   ; preds = %while.body.i70, %while.body.preheader.i68
   %word.0.i71 = phi i64 [ %and6.i75, %while.body.i70 ], [ %and.i66, %while.body.preheader.i68 ]
   %60 = call i64 @llvm.cttz.i64(i64 %word.0.i71, i1 true), !range !8
-  %cast.i72 = trunc i64 %60 to i32
+  %cast.i72 = trunc nuw nsw i64 %60 to i32
   %add.i73 = or disjoint i32 %1, %cast.i72
   call void @_ZZN8facebook5velox9functions13toElementRowsINS0_9MapVectorEEENS0_17SelectivityVectorEiRKS4_PKT_PKiENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(40) %59, i32 noundef %add.i73)
   %sub.i74 = add nsw i64 %word.0.i71, -1
@@ -58624,7 +58624,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -58963,10 +58963,10 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit: ; preds = %if.then4.i.
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !276
 
 for.end:                                          ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, %if.end
-  %mul = shl nsw i32 %6, 1
+  %mul = shl nuw nsw i32 %6, 1
   %add10 = or disjoint i32 %mul, 1
   %cond = select i1 %cmp21, i32 %add10, i32 2
-  %conv11 = sext i32 %cond to i64
+  %conv11 = zext nneg i32 %cond to i64
   %44 = getelementptr inbounds i8, ptr %this, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load i64, ptr %45, align 8
@@ -59007,7 +59007,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -60622,7 +60622,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromMapERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_2EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -61747,7 +61747,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i:                           ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i
   %word.073.i.i.i.i.i.i = phi i64 [ %103, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %144 = call i64 @llvm.cttz.i64(i64 %word.073.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i = trunc i64 %144 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %144 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i.i.i.i.i.i
   %145 = load ptr, ptr %agg.tmp12, align 8
   %146 = load ptr, ptr %145, align 8
@@ -62899,7 +62899,7 @@ for.inc.i.i.i.i.i.i99:                            ; preds = %_ZNSt15__exception_
 while.body.i.i.i.i.i.i171:                        ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i169
   %word.091.i.i.i.i.i.i = phi i64 [ %228, %while.body.lr.ph.i.i.i.i.i.i169 ], [ %and.i.i.i.i.i.i188, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" ]
   %305 = call i64 @llvm.cttz.i64(i64 %word.091.i.i.i.i.i.i, i1 true), !range !8
-  %cast.i.i.i.i.i.i172 = trunc i64 %305 to i32
+  %cast.i.i.i.i.i.i172 = trunc nuw nsw i64 %305 to i32
   %add9.i.i.i.i.i.i173 = or disjoint i32 %mul8.i.i.i.i.i.i170, %cast.i.i.i.i.i.i172
   invoke fastcc void @"_ZZN8facebook5velox12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEENK3$_1clIiEEDaT_"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1620, i32 noundef %add9.i.i.i.i.i.i173)
           to label %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit.i.i.i.i.i.i" unwind label %lpad.i.i.i.i.i.i.i174
@@ -63124,7 +63124,7 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
   %9 = load i64, ptr %arrayidx.i33.i.i, align 8
   %and.i34.i.i = and i64 %9, %shl.i31.i.i
   %10 = tail call i64 @llvm.ctpop.i64(i64 %and.i34.i.i), !range !8
-  %cast.i35.i.i = trunc i64 %10 to i32
+  %cast.i35.i.i = trunc nuw nsw i64 %10 to i32
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end8.i.i
@@ -63142,7 +63142,7 @@ for.body.i.i:                                     ; preds = %if.end14.i.i, %for.
   %arrayidx.i38.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i37.i.i
   %11 = load i64, ptr %arrayidx.i38.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !8
-  %cast.i39.i.i = trunc i64 %12 to i32
+  %cast.i39.i.i = trunc nuw nsw i64 %12 to i32
   %add.i40.i.i = add nsw i32 %add.i4057.i.i, %cast.i39.i.i
   %add.i.i = add nsw i32 %add56.i.i, 64
   %cmp15.not.i.i = icmp sgt i32 %add.i.i, %7
@@ -63170,7 +63170,7 @@ if.end23.sink.split.i.i:                          ; preds = %if.then19.i.i, %if.
   %.sink.i.i = phi i64 [ %and7.i.i, %if.then3.i.i ], [ %13, %if.then19.i.i ]
   %and.i46.i.i = and i64 %.sink.i.i, %sub.i43.sink.i.i
   %14 = tail call i64 @llvm.ctpop.i64(i64 %and.i46.i.i), !range !8
-  %cast.i47.i.i = trunc i64 %14 to i32
+  %cast.i47.i.i = trunc nuw nsw i64 %14 to i32
   %add.i48.i.i = add nsw i32 %count.2.i, %cast.i47.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit
 
@@ -63535,7 +63535,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_0EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -63921,7 +63921,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit"
   %word.0 = phi i64 [ %and6, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castToJsonFromRowERKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_10StringViewEEEE3$_1EEvSB_T_ENKUlSH_E_clIiEEDaSH_.exit" ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -67112,7 +67112,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE0EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -67863,7 +67863,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly6detail15toAppendStrImplIlPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr12IsSomeStringINSt14remove_pointerIT0_E4typeEEE5valueEvE4typeERKT_SB_.exit
 
@@ -68837,7 +68837,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit12: ; preds = %if.end.i
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i.i
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = trunc i32 %shl.i.i.i to i8
+  %14 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %13, %14
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %if.end
@@ -70078,7 +70078,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE3EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -71403,7 +71403,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit12: ; preds = %if.end.i
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i.i
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = trunc i32 %shl.i.i.i to i8
+  %14 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %13, %14
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %if.end
@@ -72593,7 +72593,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE1EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -73918,7 +73918,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit12: ; preds = %if.end.i
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i.i
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = trunc i32 %shl.i.i.i to i8
+  %14 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %13, %14
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %if.end
@@ -75159,7 +75159,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE2EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -76391,7 +76391,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit12: ; preds = %if.end.i
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i.i
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = trunc i32 %shl.i.i.i to i8
+  %14 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %13, %14
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %if.end
@@ -77632,7 +77632,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE4EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -77951,7 +77951,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE10EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -79246,7 +79246,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit12: ; preds = %if.end.i
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i.i
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = trunc i32 %shl.i.i.i to i8
+  %14 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %13, %14
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %if.end
@@ -80487,7 +80487,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE5EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -81706,7 +81706,7 @@ _ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit12: ; preds = %if.end.i
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i.i
   %13 = load i8, ptr %arrayidx.i.i.i, align 1
-  %14 = trunc i32 %shl.i.i.i to i8
+  %14 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %13, %14
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %if.end
@@ -82947,7 +82947,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -85853,7 +85853,7 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   %and.i54.sink.i.i.i = phi i64 [ %and.i54.i.i.i, %if.then26.i.i.i ], [ %11, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %.sink.i.i.i = phi i32 [ %8, %if.then26.i.i.i ], [ %13, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %14 = call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true), !range !8
-  %cast.i58.i.i.i = trunc i64 %14 to i32
+  %cast.i58.i.i.i = trunc nuw nsw i64 %14 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   %begin_.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %add.i59.i.i.i, ptr %begin_.i, align 4
@@ -86412,7 +86412,7 @@ if.end.i:                                         ; preds = %if.then
 _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit.thread.i: ; preds = %if.end.i
   %mul.i413.i = shl nuw nsw i64 %capacity, 3
   %add.i14.i = add nuw nsw i64 %mul.i413.i, 16
-  %1 = trunc i64 %capacity to i8
+  %1 = trunc nuw i64 %capacity to i8
   br label %3
 
 if.else11.i.i:                                    ; preds = %if.end.i
@@ -86897,7 +86897,7 @@ if.then.i12.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont73:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i60, align 1
   %control_.i.i62 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %27 = load i8, ptr %control_.i.i62, align 2
@@ -87572,7 +87572,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %8 = lshr i16 %7, 8
-  %conv4.i.i.i.i.i = trunc i16 %8 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %8 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -87669,7 +87669,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i.i = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i.i = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %buffer.i.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -87708,7 +87708,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -88027,7 +88027,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -88346,7 +88346,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -91502,7 +91502,7 @@ call2.i229.noexc:                                 ; preds = %invoke.cont72.i
   %add.i906 = or disjoint i64 %mul.i, 1
   %518 = load i32, ptr %chunkMask_.i.i.i.i, align 8
   %conv.i.i1006 = zext i32 %518 to i64
-  %conv.i907 = trunc i64 %or.i to i8
+  %conv.i907 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i907, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
@@ -94970,7 +94970,7 @@ call2.i214.noexc:                                 ; preds = %invoke.cont72.i
   %add.i601 = or disjoint i64 %mul.i, 1
   %358 = load i32, ptr %chunkMask_.i.i.i.i, align 8
   %conv.i.i701 = zext i32 %358 to i64
-  %conv.i602 = trunc i64 %or.i to i8
+  %conv.i602 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i602, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
@@ -97271,7 +97271,7 @@ call2.i228.noexc:                                 ; preds = %invoke.cont72.i
   %add.i615 = or disjoint i64 %mul.i, 1
   %369 = load i32, ptr %chunkMask_.i.i.i.i, align 8
   %conv.i.i715 = zext i32 %369 to i64
-  %conv.i616 = trunc i64 %or.i to i8
+  %conv.i616 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i616, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
@@ -99471,7 +99471,7 @@ call2.i228.noexc:                                 ; preds = %invoke.cont72.i
   %add.i601 = or disjoint i64 %mul.i, 1
   %369 = load i32, ptr %chunkMask_.i.i.i.i, align 8
   %conv.i.i701 = zext i32 %369 to i64
-  %conv.i602 = trunc i64 %or.i to i8
+  %conv.i602 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i602, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
@@ -103219,7 +103219,7 @@ call2.i229.noexc:                                 ; preds = %invoke.cont72.i
   %add.i849 = or disjoint i64 %mul.i, 1
   %527 = load i32, ptr %chunkMask_.i.i.i.i, align 8
   %conv.i.i949 = zext i32 %527 to i64
-  %conv.i850 = trunc i64 %or.i to i8
+  %conv.i850 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i850, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
@@ -106132,7 +106132,7 @@ call2.i240.noexc:                                 ; preds = %invoke.cont72.i
   %add.i848 = or disjoint i64 %mul.i, 1
   %535 = load i32, ptr %chunkMask_.i.i.i.i, align 8
   %conv.i.i948 = zext i32 %535 to i64
-  %conv.i849 = trunc i64 %or.i to i8
+  %conv.i849 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i849, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
@@ -108851,7 +108851,7 @@ if.then.i12.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont75:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i84, align 1
   %control_.i.i86 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %31 = load i8, ptr %control_.i.i86, align 2
@@ -109432,7 +109432,7 @@ if.then.i12.i122:                                 ; preds = %while.end.i112
   unreachable
 
 invoke.cont79:                                    ; preds = %while.end.i112
-  %conv4.i.i123 = trunc i64 %or.i to i8
+  %conv4.i.i123 = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i123, ptr %arrayidx.i.i.i.i120, align 1
   %control_.i.i124 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i115, i64 14
   %44 = load i8, ptr %control_.i.i124, align 2
@@ -109873,14 +109873,14 @@ if.else11.i:                                      ; preds = %if.end9
   %sub.i15 = add i64 %.sroa.speculated, -1
   %div.i = udiv i64 %sub.i15, 10
   %4 = tail call i64 @llvm.ctlz.i64(i64 %div.i, i1 true), !range !8
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %add.i.i = sub nuw nsw i32 64, %5
   %conv.i16 = zext nneg i32 %add.i.i to i64
   %shl.i = shl nuw nsw i64 1, %conv.i16
   %cmp17.i = icmp ult i32 %5, 53
   %sub18.i = add nsw i64 %conv.i16, -12
   %cond.i = select i1 %cmp17.i, i64 %sub18.i, i64 0
-  %6 = trunc i64 %cond.i to i32
+  %6 = trunc nsw i64 %cond.i to i32
   %sh_prom.i = sub nsw i32 %add.i.i, %6
   %shl25.i = shl i32 10, %sh_prom.i
   %conv26.i = zext i32 %shl25.i to i64
@@ -110265,7 +110265,7 @@ if.then.i12.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont67:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i84, align 1
   %control_.i.i86 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %31 = load i8, ptr %control_.i.i86, align 2
@@ -110984,7 +110984,7 @@ if.else11.i.i:                                    ; preds = %if.then
   %sub.i.i = add i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i, 10
   %3 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !8
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %add.i.i.i = sub nuw nsw i32 64, %4
   %conv.i.i = zext nneg i32 %add.i.i.i to i64
   %shl.i.i = shl nuw nsw i64 1, %conv.i.i
@@ -111124,7 +111124,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -111719,7 +111719,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
@@ -112476,7 +112476,7 @@ call2.i.noexc64:                                  ; preds = %invoke.cont72.i
   %add.i = or disjoint i64 %mul.i, 1
   %106 = load i32, ptr %chunkMask_.i.i.i.i, align 8
   %conv.i.i191 = zext i32 %106 to i64
-  %conv.i107 = trunc i64 %or.i to i8
+  %conv.i107 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i107, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %call6.i.i.noexc
@@ -112814,7 +112814,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit
   %word.0 = phi i64 [ %and6, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit ], [ %and, %while.body.preheader ]
   %9 = call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !8
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr %7, align 8
