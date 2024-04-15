@@ -384,7 +384,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h42a12d6d92b9501eE"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !35, !noundef !14
-  %trunc = trunc i64 %3 to i1
+  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %trunc, label %12, label %5
 
@@ -595,13 +595,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hffa84618911be
   br i1 %7, label %17, label %28
 
 8:                                                ; preds = %2
-  %9 = trunc i32 %1 to i8
+  %9 = trunc nuw i32 %1 to i8
   store i8 %9, ptr %.sroa.0, align 4, !alias.scope !60
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 10:                                               ; preds = %4
   %11 = lshr i32 %1, 6
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %.sroa.0, align 4, !alias.scope !60
   %14 = trunc i32 %1 to i8
@@ -613,7 +613,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hffa84618911be
 
 17:                                               ; preds = %6
   %18 = lshr i32 %1, 12
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.sroa.0, align 4, !alias.scope !60
   %21 = lshr i32 %1, 6
@@ -729,7 +729,7 @@ define hidden { i16, i16 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %4 = load ptr, ptr %3, align 8, !alias.scope !86, !noalias !89, !nonnull !14, !align !48, !noundef !14
   %5 = load i8, ptr %4, align 1, !range !91, !noalias !92, !noundef !14
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   br i1 %6, label %7, label %._ZN6rustls6suites20SupportedCipherSuite19usable_for_protocol17h96e2f94f0cac44dfE.exit.thread_crit_edge.i
 
@@ -740,7 +740,7 @@ define hidden { i16, i16 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
 
 7:                                                ; preds = %2
   %8 = load i64, ptr %1, align 8, !range !35, !alias.scope !101, !noalias !86, !noundef !14
-  %trunc.i.i.i = trunc i64 %8 to i1
+  %trunc.i.i.i = trunc nuw i64 %8 to i1
   br i1 %trunc.i.i.i, label %_ZN6rustls6suites20SupportedCipherSuite19usable_for_protocol17h96e2f94f0cac44dfE.exit.i, label %"_ZN6rustls6client2hs27emit_client_hello_for_retry28_$u7b$$u7b$closure$u7d$$u7d$17h36ce1de3ec391717E.llvm.8163760720121022826.exit"
 
 _ZN6rustls6suites20SupportedCipherSuite19usable_for_protocol17h96e2f94f0cac44dfE.exit.i: ; preds = %7
@@ -2229,7 +2229,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !396, !noalias !393
   %12 = trunc i32 %1 to i8
@@ -2241,7 +2241,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !396, !noalias !393
   %19 = lshr i32 %1, 6
@@ -2309,7 +2309,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc i32 %1 to i8
+  %55 = trunc nuw i32 %1 to i8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !409, !noundef !14
   %58 = load i64, ptr %0, align 8, !alias.scope !409, !noundef !14
@@ -20388,7 +20388,7 @@ define hidden void @_ZN6rustls12common_state11CommonState21process_main_protocol
   %12 = alloca { ptr, ptr, ptr }, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 767
   %14 = load i8, ptr %13, align 1, !range !91, !noundef !14
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %1, i64 760
   %17 = load i16, ptr %16, align 8, !range !441
   %18 = icmp ne i16 %17, 5
@@ -20534,7 +20534,7 @@ define hidden void @_ZN6rustls12common_state11CommonState21process_main_protocol
   %12 = alloca { ptr, ptr, ptr }, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 767
   %14 = load i8, ptr %13, align 1, !range !91, !noundef !14
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds i8, ptr %1, i64 760
   %17 = load i16, ptr %16, align 8, !range !441
   %18 = icmp ne i16 %17, 5
@@ -21039,7 +21039,7 @@ define hidden noundef i64 @_ZN6rustls12common_state11CommonState15write_fragment
   call void @llvm.experimental.noalias.scope.decl(metadata !581)
   call void @llvm.experimental.noalias.scope.decl(metadata !584)
   %76 = load i64, ptr %9, align 8, !range !35, !alias.scope !584, !noalias !586, !noundef !14
-  %trunc.i.i = trunc i64 %76 to i1
+  %trunc.i.i = trunc nuw i64 %76 to i1
   br i1 %trunc.i.i, label %77, label %95
 
 77:                                               ; preds = %.noexc26
@@ -21071,7 +21071,7 @@ define hidden noundef i64 @_ZN6rustls12common_state11CommonState15write_fragment
   unreachable
 
 84:                                               ; preds = %._crit_edge
-  %85 = trunc i8 %.017 to i1
+  %85 = trunc nuw i8 %.017 to i1
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit29", %84, %._crit_edge
@@ -21173,7 +21173,7 @@ define hidden noundef i64 @_ZN6rustls12common_state11CommonState15write_fragment
   br i1 %.not20, label %123, label %121
 
 121:                                              ; preds = %.body
-  %122 = trunc i8 %.118 to i1
+  %122 = trunc nuw i8 %.118 to i1
   br i1 %122, label %124, label %123
 
 123:                                              ; preds = %124, %121, %.body
@@ -21725,7 +21725,7 @@ define internal void @_ZN6rustls6crypto17ActiveKeyExchange24complete_for_tls_ver
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @"_ZN96_$LT$rustls..crypto..aws_lc_rs..kx..KeyExchange$u20$as$u20$rustls..crypto..ActiveKeyExchange$GT$8complete17h1c3aee873f0738ceE"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %8, ptr noalias noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %16 = load i64, ptr %8, align 8, !range !35, !noundef !14
-  %trunc = trunc i64 %16 to i1
+  %trunc = trunc nuw i64 %16 to i1
   %17 = getelementptr inbounds i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
@@ -22830,7 +22830,7 @@ define void @"_ZN84_$LT$rustls..verify..DigitallySignedStruct$u20$as$u20$rustls.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h246be087452a399dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %10 = load i64, ptr %3, align 8, !range !35, !noundef !14
-  %trunc = trunc i64 %10 to i1
+  %trunc = trunc nuw i64 %10 to i1
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -23220,77 +23220,74 @@ define hidden void @_ZN6rustls6webpki9pki_error17ha0180808a2f26a68E(ptr noalias 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6rustls6webpki9crl_error17h759a685cd422f899E.llvm.8163760720121022826(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i8 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = add i8 %1, -26
-  %4 = icmp ult i8 %3, 43
-  %narrow = select i1 %4, i8 %3, i8 27
-  switch i8 %narrow, label %5 [
-    i8 0, label %21
-    i8 1, label %21
-    i8 10, label %12
-    i8 12, label %13
-    i8 13, label %14
-    i8 15, label %15
-    i8 17, label %21
-    i8 31, label %16
-    i8 33, label %17
-    i8 34, label %18
-    i8 35, label %19
-    i8 37, label %20
-    i8 39, label %14
-    i8 41, label %14
+  switch i8 %1, label %3 [
+    i8 26, label %19
+    i8 27, label %19
+    i8 36, label %10
+    i8 38, label %11
+    i8 39, label %12
+    i8 41, label %13
+    i8 43, label %19
+    i8 57, label %14
+    i8 59, label %15
+    i8 60, label %16
+    i8 61, label %17
+    i8 63, label %18
+    i8 65, label %12
+    i8 67, label %12
   ]
 
-5:                                                ; preds = %2
-  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !832
-  %7 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #36, !noalias !832
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit"
+3:                                                ; preds = %2
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !832
+  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #36, !noalias !832
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit"
 
-9:                                                ; preds = %5
+7:                                                ; preds = %3
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #34, !noalias !832
   unreachable
 
-"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit": ; preds = %5
-  store i64 1, ptr %7, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
+"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit": ; preds = %3
+  store i64 1, ptr %5, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   store i8 %1, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @anon.3ce2df9646b429f517193b4dd4e6b070.212, ptr %11, align 8
-  br label %21
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @anon.3ce2df9646b429f517193b4dd4e6b070.212, ptr %9, align 8
+  br label %19
 
-12:                                               ; preds = %2
-  br label %21
+10:                                               ; preds = %2
+  br label %19
+
+11:                                               ; preds = %2
+  br label %19
+
+12:                                               ; preds = %2, %2, %2
+  br label %19
 
 13:                                               ; preds = %2
-  br label %21
+  br label %19
 
-14:                                               ; preds = %2, %2, %2
-  br label %21
+14:                                               ; preds = %2
+  br label %19
 
 15:                                               ; preds = %2
-  br label %21
+  br label %19
 
 16:                                               ; preds = %2
-  br label %21
+  br label %19
 
 17:                                               ; preds = %2
-  br label %21
+  br label %19
 
 18:                                               ; preds = %2
-  br label %21
+  br label %19
 
-19:                                               ; preds = %2
-  br label %21
-
-20:                                               ; preds = %2
-  br label %21
-
-21:                                               ; preds = %2, %2, %2, %20, %19, %18, %17, %16, %15, %14, %13, %12, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit"
-  %.sink = phi i64 [ 10, %20 ], [ 9, %19 ], [ 8, %18 ], [ 6, %17 ], [ 7, %16 ], [ 3, %15 ], [ 0, %14 ], [ 2, %13 ], [ 1, %12 ], [ 4, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit" ], [ 5, %2 ], [ 5, %2 ], [ 5, %2 ]
+19:                                               ; preds = %2, %2, %2, %18, %17, %16, %15, %14, %13, %12, %11, %10, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit"
+  %.sink = phi i64 [ 10, %18 ], [ 9, %17 ], [ 8, %16 ], [ 6, %15 ], [ 7, %14 ], [ 3, %13 ], [ 0, %12 ], [ 2, %11 ], [ 1, %10 ], [ 4, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h1b93f28573c5e3cdE.exit" ], [ 5, %2 ], [ 5, %2 ], [ 5, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -23360,7 +23357,7 @@ define hidden void @_ZN6rustls6webpki10parse_crls17he19ca7ee2f6fd9f4E(ptr noalia
 define hidden { i16, i16 } @"_ZN6rustls6client2hs27emit_client_hello_for_retry28_$u7b$$u7b$closure$u7d$$u7d$17h36ce1de3ec391717E.llvm.8163760720121022826"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #20 {
   %3 = load ptr, ptr %0, align 8, !nonnull !14, !align !48, !noundef !14
   %4 = load i8, ptr %3, align 1, !range !91, !noundef !14
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !841)
   br i1 %5, label %6, label %._ZN6rustls6suites20SupportedCipherSuite19usable_for_protocol17h96e2f94f0cac44dfE.exit.thread_crit_edge
 
@@ -23371,7 +23368,7 @@ define hidden { i16, i16 } @"_ZN6rustls6client2hs27emit_client_hello_for_retry28
 
 6:                                                ; preds = %2
   %7 = load i64, ptr %1, align 8, !range !35, !alias.scope !849, !noundef !14
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %_ZN6rustls6suites20SupportedCipherSuite19usable_for_protocol17h96e2f94f0cac44dfE.exit, label %_ZN6rustls6suites20SupportedCipherSuite19usable_for_protocol17h96e2f94f0cac44dfE.exit.thread2
 
 _ZN6rustls6suites20SupportedCipherSuite19usable_for_protocol17h96e2f94f0cac44dfE.exit: ; preds = %6
@@ -24035,7 +24032,7 @@ _ZN6rustls4msgs9handshake23CertificatePayloadTls1323any_entry_has_extension17h80
 .thread:                                          ; preds = %310, %301, %258, %238
   %.7 = phi i8 [ %.8, %238 ], [ %.10267, %258 ], [ %.0101285, %310 ], [ %.0101285, %301 ]
   %.pn143 = phi { ptr, i32 } [ %239, %238 ], [ %259, %258 ], [ %.pn141287, %310 ], [ %.pn141287, %301 ]
-  %237 = trunc i8 %.7 to i1
+  %237 = trunc nuw i8 %.7 to i1
   br i1 %237, label %.thread.thread, label %.thread.thread254
 
 238:                                              ; preds = %266, %263, %253, %236, %229
@@ -24085,7 +24082,7 @@ _ZN6rustls4msgs9handshake23CertificatePayloadTls1323any_entry_has_extension17h80
           to label %.thread263 unwind label %.thread289
 
 "_ZN4core3ptr48drop_in_place$LT$rustls..msgs..base..Payload$GT$17h1a521351922f61f4E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i", %260, %253
-  %246 = trunc i8 %.10267 to i1
+  %246 = trunc nuw i8 %.10267 to i1
   br i1 %246, label %.thread268, label %"_ZN4core3ptr93drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleTrafficWithClientFinishedPending$GT$17hd9f6c3c7348061caE.exit"
 
 247:                                              ; preds = %.thread263, %244
@@ -24763,7 +24760,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.452 = phi i8 [ %.5, %174 ], [ %.048, %.body84 ]
   %.4 = phi i8 [ %.5, %174 ], [ %.047, %.body84 ]
   %.pn73 = phi { ptr, i32 } [ %175, %174 ], [ %.pn.pn, %.body84 ]
-  %173 = trunc i8 %.452 to i1
+  %173 = trunc nuw i8 %.452 to i1
   br i1 %173, label %181, label %188
 
 174:                                              ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$rustls..verify..HandshakeSignatureValid$C$rustls..error..Error$GT$$GT$17heb0d6ff031ca8d4fE.exit", %97
@@ -24820,7 +24817,7 @@ common.resume:                                    ; preds = %191, %188, %179
           to label %.thread125 unwind label %177
 
 188:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit", %.thread125
-  %189 = trunc i8 %.4 to i1
+  %189 = trunc nuw i8 %.4 to i1
   br i1 %189, label %191, label %common.resume
 
 .thread125:                                       ; preds = %.thread124
@@ -25089,7 +25086,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br label %114
 
 108:                                              ; preds = %110, %91
-  %109 = trunc i8 %.218 to i1
+  %109 = trunc nuw i8 %.218 to i1
   br i1 %109, label %114, label %122
 
 110:                                              ; preds = %91
@@ -25100,7 +25097,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.3 = phi i8 [ %.218, %112 ], [ %.117.lpad-body, %147 ], [ %.117.lpad-body, %.body43 ]
   %.115 = phi i1 [ %.014, %112 ], [ true, %147 ], [ true, %.body43 ]
   %.pn28 = phi { ptr, i32 } [ %113, %112 ], [ %eh.lpad-body, %147 ], [ %eh.lpad-body, %.body43 ]
-  %111 = trunc i8 %.3 to i1
+  %111 = trunc nuw i8 %.3 to i1
   br i1 %111, label %.thread.thread, label %153
 
 112:                                              ; preds = %110
@@ -25633,7 +25630,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.experimental.noalias.scope.decl(metadata !1207)
   %140 = getelementptr inbounds i8, ptr %83, i64 765
   %141 = load i8, ptr %140, align 1, !range !91, !alias.scope !1207, !noalias !1210, !noundef !14
-  %142 = trunc i8 %141 to i1
+  %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %147, label %143
 
 143:                                              ; preds = %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit
@@ -26122,7 +26119,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit.i: ; preds = %234
   %.098.i = phi i8 [ %.4.i, %453 ], [ %.2100.i, %371 ], [ %.199.i, %323 ], [ %.4.i, %.body.i.i ], [ %.4.i, %437 ], [ %.4.i, %451 ]
   %.2.i = phi i1 [ false, %453 ], [ true, %371 ], [ true, %323 ], [ false, %.body.i.i ], [ false, %437 ], [ false, %451 ]
   %.pn.pn.i = phi { ptr, i32 } [ %454, %453 ], [ %372, %371 ], [ %324, %323 ], [ %424, %.body.i.i ], [ %438, %437 ], [ %452, %451 ]
-  %322 = trunc i8 %.098.i to i1
+  %322 = trunc nuw i8 %.098.i to i1
   br i1 %322, label %.thread46.i, label %.body.i
 
 323:                                              ; preds = %386, %355, %350, %348, %341, %325, %321
@@ -26411,7 +26408,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit154.i: ; preds = %347
 
 419:                                              ; preds = %416
   %420 = load i8, ptr %41, align 1, !range !91, !noalias !1241, !noundef !14
-  %421 = trunc i8 %420 to i1
+  %421 = trunc nuw i8 %420 to i1
   br i1 %421, label %431, label %429
 
 422:                                              ; preds = %436, %431, %430, %416
@@ -26534,7 +26531,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit154.i: ; preds = %347
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %31), !noalias !1241
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34), !noalias !1241
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41), !noalias !1241
-  %446 = trunc i8 %.4.i to i1
+  %446 = trunc nuw i8 %.4.i to i1
   br i1 %446, label %.noexc176.i, label %.thread179
 
 .thread179:                                       ; preds = %445, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit178.i"
@@ -26593,7 +26590,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit154.i: ; preds = %347
 456:                                              ; preds = %214, %._crit_edge
   %457 = getelementptr inbounds i8, ptr %83, i64 772
   %458 = load i8, ptr %457, align 4, !range !91, !alias.scope !1395, !noundef !14
-  %459 = trunc i8 %458 to i1
+  %459 = trunc nuw i8 %458 to i1
   br i1 %459, label %469, label %460
 
 460:                                              ; preds = %456
@@ -26864,7 +26861,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit154.i: ; preds = %347
 
 520:                                              ; preds = %522, %518
   %.pn78 = phi { ptr, i32 } [ %523, %522 ], [ %519, %518 ]
-  %521 = trunc i8 %.4 to i1
+  %521 = trunc nuw i8 %.4 to i1
   br i1 %521, label %541, label %.body141
 
 522:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit137"
@@ -26873,7 +26870,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit154.i: ; preds = %347
   br label %520
 
 524:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit137"
-  %525 = trunc i8 %.4 to i1
+  %525 = trunc nuw i8 %.4 to i1
   br i1 %525, label %526, label %"_ZN4core3ptr93drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleTrafficWithClientFinishedPending$GT$17hd9f6c3c7348061caE.exit"
 
 526:                                              ; preds = %524
@@ -26943,7 +26940,7 @@ _ZN6rustls4rand10random_vec17h61554cbe9188f4ecE.exit154.i: ; preds = %347
           to label %543 unwind label %506
 
 543:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17h9933401d189d0153E.exit"
-  %544 = trunc i8 %.267 to i1
+  %544 = trunc nuw i8 %.267 to i1
   br i1 %544, label %545, label %.body141
 
 545:                                              ; preds = %543
@@ -27073,7 +27070,7 @@ _ZN6rustls12common_state11CommonState23take_received_plaintext17hcc896bbef7090c1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1468)
   %46 = getelementptr inbounds i8, ptr %45, i64 772
   %47 = load i8, ptr %46, align 4, !range !91, !alias.scope !1468, !noalias !1471, !noundef !14
-  %48 = trunc i8 %47 to i1
+  %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %42
@@ -27098,7 +27095,7 @@ _ZN6rustls12common_state11CommonState23take_received_plaintext17hcc896bbef7090c1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1483)
   %54 = getelementptr inbounds i8, ptr %45, i64 765
   %55 = load i8, ptr %54, align 1, !range !91, !alias.scope !1486, !noalias !1487, !noundef !14
-  %56 = trunc i8 %55 to i1
+  %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53

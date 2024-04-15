@@ -1823,10 +1823,10 @@ fons__tmpalloc.exit:                              ; preds = %89
   %221 = trunc i32 %218 to i16
   %222 = getelementptr inbounds i8, ptr %214, i64 2
   store i16 %221, ptr %222, align 2
-  %223 = trunc i32 %.0316430 to i16
+  %223 = trunc nsw i32 %.0316430 to i16
   %224 = getelementptr inbounds i8, ptr %214, i64 4
   store i16 %223, ptr %224, align 2
-  %225 = trunc i32 %.0314433 to i16
+  %225 = trunc nsw i32 %.0314433 to i16
   %226 = getelementptr inbounds i8, ptr %214, i64 6
   store i16 %225, ptr %226, align 2
   br label %227
@@ -1842,10 +1842,10 @@ fons__tmpalloc.exit:                              ; preds = %89
   %232 = trunc i32 %.0308437 to i16
   %233 = getelementptr inbounds i8, ptr %229, i64 2
   store i16 %232, ptr %233, align 2
-  %234 = trunc i32 %.0305438 to i16
+  %234 = trunc nsw i32 %.0305438 to i16
   %235 = getelementptr inbounds i8, ptr %229, i64 4
   store i16 %234, ptr %235, align 2
-  %236 = trunc i32 %.0302440 to i16
+  %236 = trunc nsw i32 %.0302440 to i16
   br label %stbtt__close_shape.exit
 
 237:                                              ; preds = %209
@@ -1861,10 +1861,10 @@ fons__tmpalloc.exit:                              ; preds = %89
   store i8 3, ptr %240, align 2
   store i16 %241, ptr %239, align 2
   store i16 %242, ptr %243, align 2
-  %245 = trunc i32 %.0316430 to i16
+  %245 = trunc nsw i32 %.0316430 to i16
   %246 = getelementptr inbounds i8, ptr %239, i64 4
   store i16 %245, ptr %246, align 2
-  %247 = trunc i32 %.0314433 to i16
+  %247 = trunc nsw i32 %.0314433 to i16
   br label %stbtt__close_shape.exit
 
 248:                                              ; preds = %237
@@ -1978,10 +1978,10 @@ stbtt__close_shape.exit:                          ; preds = %227, %244, %248
   %310 = trunc i32 %307 to i16
   %311 = getelementptr inbounds i8, ptr %303, i64 2
   store i16 %310, ptr %311, align 2
-  %312 = trunc i32 %.0316430 to i16
+  %312 = trunc nsw i32 %.0316430 to i16
   %313 = getelementptr inbounds i8, ptr %303, i64 4
   store i16 %312, ptr %313, align 2
-  %314 = trunc i32 %.0314433 to i16
+  %314 = trunc nsw i32 %.0314433 to i16
   %315 = getelementptr inbounds i8, ptr %303, i64 6
   store i16 %314, ptr %315, align 2
   br label %329
@@ -1997,10 +1997,10 @@ stbtt__close_shape.exit:                          ; preds = %227, %244, %248
   store i8 3, ptr %319, align 2
   store i16 %202, ptr %318, align 2
   store i16 %205, ptr %320, align 2
-  %322 = trunc i32 %.0316430 to i16
+  %322 = trunc nsw i32 %.0316430 to i16
   %323 = getelementptr inbounds i8, ptr %318, i64 4
   store i16 %322, ptr %323, align 2
-  %324 = trunc i32 %.0314433 to i16
+  %324 = trunc nsw i32 %.0314433 to i16
   br label %327
 
 325:                                              ; preds = %316
@@ -2058,10 +2058,10 @@ stbtt__close_shape.exit:                          ; preds = %227, %244, %248
   %343 = trunc i32 %340 to i16
   %344 = getelementptr inbounds i8, ptr %336, i64 2
   store i16 %343, ptr %344, align 2
-  %345 = trunc i32 %.1317 to i16
+  %345 = trunc nsw i32 %.1317 to i16
   %346 = getelementptr inbounds i8, ptr %336, i64 4
   store i16 %345, ptr %346, align 2
-  %347 = trunc i32 %.1315 to i16
+  %347 = trunc nsw i32 %.1315 to i16
   %348 = getelementptr inbounds i8, ptr %336, i64 6
   store i16 %347, ptr %348, align 2
   br label %349
@@ -2077,10 +2077,10 @@ stbtt__close_shape.exit:                          ; preds = %227, %244, %248
   %354 = trunc i32 %.2310 to i16
   %355 = getelementptr inbounds i8, ptr %351, i64 2
   store i16 %354, ptr %355, align 2
-  %356 = trunc i32 %.2307 to i16
+  %356 = trunc nsw i32 %.2307 to i16
   %357 = getelementptr inbounds i8, ptr %351, i64 4
   store i16 %356, ptr %357, align 2
-  %358 = trunc i32 %.2304 to i16
+  %358 = trunc nsw i32 %.2304 to i16
   br label %stbtt__close_shape.exit396
 
 359:                                              ; preds = %331
@@ -2096,10 +2096,10 @@ stbtt__close_shape.exit:                          ; preds = %227, %244, %248
   store i8 3, ptr %362, align 2
   store i16 %363, ptr %361, align 2
   store i16 %364, ptr %365, align 2
-  %367 = trunc i32 %.1317 to i16
+  %367 = trunc nsw i32 %.1317 to i16
   %368 = getelementptr inbounds i8, ptr %361, i64 4
   store i16 %367, ptr %368, align 2
-  %369 = trunc i32 %.1315 to i16
+  %369 = trunc nsw i32 %.1315 to i16
   br label %stbtt__close_shape.exit396
 
 370:                                              ; preds = %359
@@ -16448,7 +16448,7 @@ stbi__zhuffman_decode.exit.i.i:                   ; preds = %314, %299
   br i1 %333, label %334, label %339
 
 334:                                              ; preds = %332
-  %335 = trunc nuw i32 %.0.i.i47.i to i8
+  %335 = trunc nuw nsw i32 %.0.i.i47.i to i8
   %336 = add nsw i32 %.045142.i.i, 1
   %337 = sext i32 %.045142.i.i to i64
   %338 = getelementptr inbounds [455 x i8], ptr %7, i64 0, i64 %337
@@ -26471,7 +26471,7 @@ fons__atlasRectFits.exit.thread:                  ; preds = %26, %.lr.ph.i, %15,
 
 .loopexit.i:                                      ; preds = %71, %.._crit_edge_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre33.i.i, %.._crit_edge_crit_edge.i.i ], [ %70, %71 ]
-  %76 = trunc i32 %.141 to i16
+  %76 = trunc nsw i32 %.141 to i16
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds %struct.FONSatlasNode, ptr %78, i64 %.pre-phi.i.i
@@ -29688,7 +29688,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1405 = lshr i32 %1404, 8
   %1406 = add nuw nsw i32 %1405, %1404
   %1407 = lshr i32 %1406, 8
-  %1408 = trunc i32 %1407 to i8
+  %1408 = trunc nuw i32 %1407 to i8
   store i8 %1408, ptr %.1259412.i.i, align 1
   %1409 = getelementptr inbounds i8, ptr %1394, i64 %indvars.iv509.i.i
   %1410 = load i8, ptr %1409, align 1
@@ -29698,7 +29698,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1414 = lshr i32 %1413, 8
   %1415 = add nuw nsw i32 %1414, %1413
   %1416 = lshr i32 %1415, 8
-  %1417 = trunc i32 %1416 to i8
+  %1417 = trunc nuw i32 %1416 to i8
   %1418 = getelementptr inbounds i8, ptr %.1259412.i.i, i64 1
   store i8 %1417, ptr %1418, align 1
   %1419 = getelementptr inbounds i8, ptr %1395, i64 %indvars.iv509.i.i
@@ -29709,7 +29709,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1424 = lshr i32 %1423, 8
   %1425 = add nuw nsw i32 %1424, %1423
   %1426 = lshr i32 %1425, 8
-  %1427 = trunc i32 %1426 to i8
+  %1427 = trunc nuw i32 %1426 to i8
   %1428 = getelementptr inbounds i8, ptr %.1259412.i.i, i64 2
   store i8 %1427, ptr %1428, align 1
   %1429 = getelementptr inbounds i8, ptr %.1259412.i.i, i64 3
@@ -29750,7 +29750,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1451 = lshr i32 %1450, 8
   %1452 = add nuw nsw i32 %1451, %1450
   %1453 = lshr i32 %1452, 8
-  %1454 = trunc i32 %1453 to i8
+  %1454 = trunc nuw i32 %1453 to i8
   store i8 %1454, ptr %.2260408.i.i, align 1
   %1455 = getelementptr inbounds i8, ptr %.2260408.i.i, i64 1
   %1456 = load i8, ptr %1455, align 1
@@ -29761,7 +29761,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1461 = lshr i32 %1460, 8
   %1462 = add nuw nsw i32 %1461, %1460
   %1463 = lshr i32 %1462, 8
-  %1464 = trunc i32 %1463 to i8
+  %1464 = trunc nuw i32 %1463 to i8
   store i8 %1464, ptr %1455, align 1
   %1465 = getelementptr inbounds i8, ptr %.2260408.i.i, i64 2
   %1466 = load i8, ptr %1465, align 1
@@ -29772,7 +29772,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1471 = lshr i32 %1470, 8
   %1472 = add nuw nsw i32 %1471, %1470
   %1473 = lshr i32 %1472, 8
-  %1474 = trunc i32 %1473 to i8
+  %1474 = trunc nuw i32 %1473 to i8
   store i8 %1474, ptr %1465, align 1
   %1475 = getelementptr inbounds i8, ptr %.2260408.i.i, i64 %1303
   %indvars.iv.next507.i.i = add nuw nsw i64 %indvars.iv506.i.i, 1
@@ -29841,7 +29841,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1510 = mul nuw nsw i32 %1506, 29
   %1511 = add nuw nsw i32 %1509, %1510
   %1512 = lshr i32 %1511, 8
-  %1513 = trunc i32 %1512 to i8
+  %1513 = trunc nuw i32 %1512 to i8
   %1514 = getelementptr inbounds i8, ptr %.4262405.i.i, i64 1
   store i8 %1513, ptr %.4262405.i.i, align 1
   %indvars.iv.next504.i.i = add nuw nsw i64 %indvars.iv503.i.i, 1
@@ -29868,7 +29868,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1531 = mul nuw nsw i32 %1527, 29
   %1532 = add nuw nsw i32 %1530, %1531
   %1533 = lshr i32 %1532, 8
-  %1534 = trunc i32 %1533 to i8
+  %1534 = trunc nuw i32 %1533 to i8
   store i8 %1534, ptr %.5263402.i.i, align 1
   %1535 = getelementptr inbounds i8, ptr %.5263402.i.i, i64 1
   store i8 -1, ptr %1535, align 1
@@ -29940,7 +29940,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1582 = mul nuw nsw i32 %1578, 29
   %1583 = add nuw nsw i32 %1581, %1582
   %1584 = lshr i32 %1583, 8
-  %1585 = trunc i32 %1584 to i8
+  %1585 = trunc nuw i32 %1584 to i8
   store i8 %1585, ptr %.6264399.i.i, align 1
   %1586 = getelementptr inbounds i8, ptr %.6264399.i.i, i64 1
   store i8 -1, ptr %1586, align 1
@@ -29976,7 +29976,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1604 = lshr i32 %1603, 8
   %1605 = add nuw nsw i32 %1604, %1603
   %1606 = lshr i32 %1605, 8
-  %1607 = trunc i32 %1606 to i8
+  %1607 = trunc nuw i32 %1606 to i8
   store i8 %1607, ptr %.7265396.i.i, align 1
   %1608 = getelementptr inbounds i8, ptr %.7265396.i.i, i64 1
   store i8 -1, ptr %1608, align 1
@@ -35624,7 +35624,7 @@ stbi__at_eof.exit144.i:                           ; preds = %.stbi__at_eof.exit1
 stbi__at_eof.exit144.thread.i:                    ; preds = %stbi__at_eof.exit144.i, %393
   %402 = zext i8 %.0.i139.i to i32
   %403 = icmp ult i32 %.087302.i, %402
-  %404 = trunc i32 %.087302.i to i8
+  %404 = trunc nuw i32 %.087302.i to i8
   %spec.select.i = select i1 %403, i8 %404, i8 %.0.i139.i
   %405 = load i8, ptr %327, align 1
   %406 = zext i8 %405 to i32
@@ -37100,7 +37100,7 @@ stbi__getn.exit:                                  ; preds = %192, %200, %204
 246:                                              ; preds = %236, %223
   %.sink = phi float [ %235, %223 ], [ %238, %236 ]
   store float %.sink, ptr %213, align 4
-  switch i32 %spec.store.select, label %stbi__hdr_convert.exit [
+  switch i32 %4, label %stbi__hdr_convert.exit [
     i32 2, label %247
     i32 4, label %249
   ]
@@ -40249,7 +40249,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %13 = add nuw nsw i16 %12, 2
   %14 = add nuw nsw i16 %13, %11
   %15 = lshr i16 %14, 2
-  %16 = trunc i16 %15 to i8
+  %16 = trunc nuw i16 %15 to i8
   %17 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %16, ptr %17, align 1
   store i8 %16, ptr %0, align 1
@@ -40288,7 +40288,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %40 = shl nuw nsw <8 x i16> %38, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %41 = add nsw <8 x i16> %40, %39
   %42 = shufflevector <8 x i16> %41, <8 x i16> poison, <8 x i32> <i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6>
-  %43 = trunc nsw i32 %.0146148 to i16
+  %43 = trunc nuw nsw i32 %.0146148 to i16
   %44 = insertelement <8 x i16> %42, i16 %43, i64 0
   %45 = shufflevector <8 x i16> %41, <8 x i16> poison, <8 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
@@ -40348,7 +40348,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %80 = add nuw nsw i32 %.0146.lcssa, 8
   %81 = add nuw nsw i32 %80, %79
   %82 = lshr i32 %81, 4
-  %83 = trunc i32 %82 to i8
+  %83 = trunc nuw i32 %82 to i8
   %84 = shl nuw nsw i32 %.0145.lcssa, 1
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %0, i64 %85
@@ -40378,7 +40378,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %100 = add nuw nsw i32 %99, 8
   %101 = add nuw nsw i32 %100, %98
   %102 = lshr i32 %101, 4
-  %103 = trunc i32 %102 to i8
+  %103 = trunc nuw i32 %102 to i8
   %104 = shl nuw nsw i64 %indvars.iv160, 1
   %105 = getelementptr i8, ptr %0, i64 %104
   %106 = getelementptr i8, ptr %105, i64 -1
@@ -40387,7 +40387,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %108 = add nuw nsw i32 %.1147151, 8
   %109 = add nuw nsw i32 %108, %107
   %110 = lshr i32 %109, 4
-  %111 = trunc i32 %110 to i8
+  %111 = trunc nuw i32 %110 to i8
   store i8 %111, ptr %105, align 1
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
@@ -40397,7 +40397,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %.1147.lcssa = phi i32 [ %.pre-phi172, %._crit_edge ], [ %98, %.lr.ph154 ]
   %112 = add nuw nsw i32 %.1147.lcssa, 2
   %113 = lshr i32 %112, 2
-  %114 = trunc i32 %113 to i8
+  %114 = trunc nuw i32 %113 to i8
   %115 = shl nsw i32 %3, 1
   %116 = sext i32 %115 to i64
   %117 = getelementptr i8, ptr %0, i64 %116
@@ -41596,7 +41596,7 @@ stbi__get8.exit201:                               ; preds = %480, %483, %stbi__r
   %539 = shl nsw i32 %.032.i, 8
   %540 = or disjoint i32 %539, %519
   %541 = or disjoint i32 %540, %525
-  %542 = trunc i32 %541 to i16
+  %542 = trunc nsw i32 %541 to i16
   store i16 %542, ptr %513, align 2
   br label %543
 
@@ -43441,7 +43441,7 @@ define internal noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeon
   %14 = add nuw nsw i16 %13, 2
   %15 = add nuw nsw i16 %14, %10
   %16 = lshr i16 %15, 2
-  %17 = trunc i16 %16 to i8
+  %17 = trunc nuw i16 %16 to i8
   %18 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   store i8 %17, ptr %18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -43474,7 +43474,7 @@ define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeon
   %16 = add nuw nsw i16 %15, 2
   %17 = add nuw nsw i16 %16, %12
   %18 = lshr i16 %17, 2
-  %19 = trunc i16 %18 to i8
+  %19 = trunc nuw i16 %18 to i8
   %20 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %19, ptr %20, align 1
   %21 = add i32 %3, -1
@@ -43497,7 +43497,7 @@ define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeon
   %30 = zext i8 %29 to i32
   %31 = add nuw nsw i32 %27, %30
   %32 = lshr i32 %31, 2
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nuw i32 %32 to i8
   %34 = shl nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds i8, ptr %0, i64 %34
   store i8 %33, ptr %35, align 1
@@ -43507,7 +43507,7 @@ define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeon
   %38 = zext i8 %37 to i32
   %39 = add nuw nsw i32 %27, %38
   %40 = lshr i32 %39, 2
-  %41 = trunc i32 %40 to i8
+  %41 = trunc nuw i32 %40 to i8
   %42 = or disjoint i64 %34, 1
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
   store i8 %41, ptr %43, align 1
@@ -43533,7 +43533,7 @@ define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeon
   %55 = add nuw nsw i16 %54, 2
   %56 = add nuw nsw i16 %55, %50
   %57 = lshr i16 %56, 2
-  %58 = trunc i16 %57 to i8
+  %58 = trunc nuw i16 %57 to i8
   %59 = zext nneg i32 %.037.lcssa to i64
   %60 = getelementptr inbounds i8, ptr %0, i64 %59
   store i8 %58, ptr %60, align 1
@@ -46097,7 +46097,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %81 = mul nuw nsw i32 %77, 29
   %82 = add nuw nsw i32 %80, %81
   %83 = lshr i32 %82, 8
-  %84 = trunc i32 %83 to i8
+  %84 = trunc nuw i32 %83 to i8
   store i8 %84, ptr %.7213, align 1
   %85 = getelementptr inbounds i8, ptr %.7146212, i64 3
   %86 = getelementptr inbounds i8, ptr %.7213, i64 1
@@ -46123,7 +46123,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %98 = mul nuw nsw i32 %94, 29
   %99 = add nuw nsw i32 %97, %98
   %100 = lshr i32 %99, 8
-  %101 = trunc i32 %100 to i8
+  %101 = trunc nuw i32 %100 to i8
   store i8 %101, ptr %.8208, align 1
   %102 = getelementptr inbounds i8, ptr %.8208, i64 1
   store i8 -1, ptr %102, align 1
@@ -46151,7 +46151,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %116 = mul nuw nsw i32 %112, 29
   %117 = add nuw nsw i32 %115, %116
   %118 = lshr i32 %117, 8
-  %119 = trunc i32 %118 to i8
+  %119 = trunc nuw i32 %118 to i8
   store i8 %119, ptr %.9203, align 1
   %120 = getelementptr inbounds i8, ptr %.9148202, i64 4
   %121 = getelementptr inbounds i8, ptr %.9203, i64 1
@@ -46177,7 +46177,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %133 = mul nuw nsw i32 %129, 29
   %134 = add nuw nsw i32 %132, %133
   %135 = lshr i32 %134, 8
-  %136 = trunc i32 %135 to i8
+  %136 = trunc nuw i32 %135 to i8
   store i8 %136, ptr %.10198, align 1
   %137 = getelementptr inbounds i8, ptr %.10149197, i64 3
   %138 = load i8, ptr %137, align 1
@@ -46436,7 +46436,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   %72 = mul nuw nsw i32 %68, 29
   %73 = add nuw nsw i32 %71, %72
   %74 = lshr i32 %73, 8
-  %75 = trunc i32 %74 to i16
+  %75 = trunc nuw i32 %74 to i16
   store i16 %75, ptr %.7212, align 2
   %76 = getelementptr inbounds i8, ptr %.7146211, i64 6
   %77 = getelementptr inbounds i8, ptr %.7212, i64 2
@@ -46462,7 +46462,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   %89 = mul nuw nsw i32 %85, 29
   %90 = add nuw nsw i32 %88, %89
   %91 = lshr i32 %90, 8
-  %92 = trunc i32 %91 to i16
+  %92 = trunc nuw i32 %91 to i16
   store i16 %92, ptr %.8207, align 2
   %93 = getelementptr inbounds i8, ptr %.8207, i64 2
   store i16 -1, ptr %93, align 2
@@ -46490,7 +46490,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   %107 = mul nuw nsw i32 %103, 29
   %108 = add nuw nsw i32 %106, %107
   %109 = lshr i32 %108, 8
-  %110 = trunc i32 %109 to i16
+  %110 = trunc nuw i32 %109 to i16
   store i16 %110, ptr %.9202, align 2
   %111 = getelementptr inbounds i8, ptr %.9148201, i64 8
   %112 = getelementptr inbounds i8, ptr %.9202, i64 2
@@ -46516,7 +46516,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   %124 = mul nuw nsw i32 %120, 29
   %125 = add nuw nsw i32 %123, %124
   %126 = lshr i32 %125, 8
-  %127 = trunc i32 %126 to i16
+  %127 = trunc nuw i32 %126 to i16
   store i16 %127, ptr %.10197, align 2
   %128 = getelementptr inbounds i8, ptr %.10149196, i64 6
   %129 = load i16, ptr %128, align 2
@@ -47211,7 +47211,7 @@ define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr
   %23 = mul nuw nsw i32 %22, 255
   %24 = zext nneg i8 %19 to i32
   %25 = add nuw nsw i32 %23, %24
-  %.lhs.trunc = trunc i32 %25 to i16
+  %.lhs.trunc = trunc nuw i32 %25 to i16
   %.rhs.trunc = zext i8 %16 to i16
   %26 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %27 = trunc i16 %26 to i8
@@ -47221,14 +47221,14 @@ define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr
   %30 = zext i8 %29 to i32
   %31 = mul nuw nsw i32 %30, 255
   %32 = add nuw nsw i32 %31, %24
-  %.lhs.trunc1 = trunc i32 %32 to i16
+  %.lhs.trunc1 = trunc nuw i32 %32 to i16
   %33 = udiv i16 %.lhs.trunc1, %.rhs.trunc
   %34 = trunc i16 %33 to i8
   store i8 %34, ptr %28, align 1
   %35 = zext i8 %17 to i32
   %36 = mul nuw nsw i32 %35, 255
   %37 = add nuw nsw i32 %36, %24
-  %.lhs.trunc4 = trunc i32 %37 to i16
+  %.lhs.trunc4 = trunc nuw i32 %37 to i16
   %38 = udiv i16 %.lhs.trunc4, %.rhs.trunc
   %39 = trunc i16 %38 to i8
   store i8 %39, ptr %20, align 1
@@ -53594,20 +53594,20 @@ stbi__get16le.exit:                               ; preds = %34, %37, %stbi__ref
   %63 = zext nneg i8 %62 to i16
   %.lhs.trunc = mul nuw nsw i16 %63, 255
   %64 = udiv i16 %.lhs.trunc, 31
-  %65 = trunc i16 %64 to i8
+  %65 = trunc nuw i16 %64 to i8
   store i8 %65, ptr %1, align 1
   %66 = lshr i16 %60, 5
   %67 = and i16 %66, 31
   %.lhs.trunc12 = mul nuw nsw i16 %67, 255
   %68 = udiv i16 %.lhs.trunc12, 31
-  %69 = trunc i16 %68 to i8
+  %69 = trunc nuw i16 %68 to i8
   %70 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %69, ptr %70, align 1
   %71 = and i8 %.0.i.i, 31
   %72 = zext nneg i8 %71 to i16
   %.lhs.trunc14 = mul nuw nsw i16 %72, 255
   %73 = udiv i16 %.lhs.trunc14, 31
-  %74 = trunc i16 %73 to i8
+  %74 = trunc nuw i16 %73 to i8
   %75 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %74, ptr %75, align 1
   ret void
@@ -55991,7 +55991,7 @@ nvg__lastPoint.exit:                              ; preds = %15
   store float %1, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %62, i64 4
   store float %2, ptr %64, align 4
-  %65 = trunc i32 %3 to i8
+  %65 = trunc nuw nsw i32 %3 to i8
   %66 = getelementptr inbounds i8, ptr %62, i64 28
   store i8 %65, ptr %66, align 4
   %67 = load ptr, ptr %5, align 8

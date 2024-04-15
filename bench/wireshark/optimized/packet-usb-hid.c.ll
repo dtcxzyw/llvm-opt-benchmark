@@ -4683,7 +4683,7 @@ dissect_usb_hid_report_globalitem_data.exit:      ; preds = %104, %110, %114, %1
   br label %dissect_usb_hid_report_localitem_data.exit
 
 183:                                              ; preds = %178
-  switch i32 %spec.select, label %190 [
+  switch i32 %16, label %190 [
     i32 1, label %184
     i32 2, label %187
   ]
@@ -6009,7 +6009,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %dissect_hid_variable.exit.i
 
 157:                                              ; preds = %147
-  %trunc.i.i = trunc i32 %151 to i16
+  %trunc.i.i = trunc nuw i32 %151 to i16
   switch i16 %trunc.i.i, label %467 [
     i16 1, label %158
     i16 7, label %414

@@ -2487,7 +2487,7 @@ invoke.cont53:                                    ; preds = %if.then50
   br i1 %cmp55, label %if.then56, label %if.end222
 
 if.then56:                                        ; preds = %invoke.cont53
-  switch i32 %spec.store.select, label %cleanup.sink.split [
+  switch i32 %call31, label %cleanup.sink.split [
     i32 4113, label %if.then62
     i32 4112, label %if.then62
     i32 4098, label %if.then62
@@ -2512,7 +2512,7 @@ lor.lhs.false71:                                  ; preds = %if.then62
   br i1 %cmp74, label %cleanup.sink.split, label %if.end222
 
 if.else85:                                        ; preds = %if.end36
-  switch i32 %spec.store.select, label %cleanup.sink.split [
+  switch i32 %call31, label %cleanup.sink.split [
     i32 12288, label %sw.bb
     i32 16389, label %sw.bb101
     i32 28672, label %sw.bb151

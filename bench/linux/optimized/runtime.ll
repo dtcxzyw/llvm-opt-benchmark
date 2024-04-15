@@ -987,7 +987,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   br label %.thread
 
 .thread:                                          ; preds = %82, %343, %358, %.lr.ph, %58, %64, %76, %70, %79, %344, %348, %351, %24, %.thread33, %115, %366, %.loopexit, %284, %272, %269, %147, %143
-  %301 = phi i32 [ -11, %269 ], [ 0, %272 ], [ 0, %.loopexit ], [ 0, %284 ], [ 0, %143 ], [ 0, %147 ], [ %225, %366 ], [ 0, %115 ], [ -115, %.thread33 ], [ -22, %24 ], [ %88, %82 ], [ %223, %343 ], [ -22, %358 ], [ -13, %.lr.ph ], [ -11, %58 ], [ -16, %64 ], [ -11, %76 ], [ -11, %70 ], [ -1, %79 ], [ %223, %344 ], [ %223, %348 ], [ %223, %351 ]
+  %301 = phi i32 [ -11, %269 ], [ 0, %272 ], [ 0, %.loopexit ], [ 0, %284 ], [ 0, %143 ], [ 0, %147 ], [ %225, %366 ], [ 0, %115 ], [ -115, %.thread33 ], [ -22, %24 ], [ %88, %82 ], [ %225, %343 ], [ -22, %358 ], [ -13, %.lr.ph ], [ -11, %58 ], [ -16, %64 ], [ -11, %76 ], [ -11, %70 ], [ -1, %79 ], [ %225, %344 ], [ %225, %348 ], [ %225, %351 ]
   %302 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !27
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_rpm_return_int, i64 0, i32 1), i32 2) #8
           to label %367 [label %303], !srcloc !14
@@ -1059,7 +1059,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %341 = and i16 %340, -33
   store i16 %341, ptr %26, align 8
   %342 = call i32 @__wake_up(ptr noundef %45, i32 noundef 3, i32 noundef 0, ptr noundef null) #8
-  switch i32 %225, label %361 [
+  switch i32 %223, label %361 [
     i32 -11, label %343
     i32 -16, label %343
   ]
