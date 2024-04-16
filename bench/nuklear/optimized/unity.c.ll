@@ -812,12 +812,12 @@ while.body:                                       ; preds = %while.body.preheade
 land.rhs:                                         ; preds = %while.body
   %2 = add nsw i32 %conv, -65
   %or.cond.i = icmp ult i32 %2, 26
-  %sub.i = add nsw i32 %conv, -162
+  %sub.i = add nuw nsw i32 %conv, -162
   %cond.i = select i1 %or.cond.i, i32 %sub.i, i32 %conv
   %conv7 = sext i8 %1 to i32
   %3 = add nsw i32 %conv7, -65
   %or.cond.i52 = icmp ult i32 %3, 26
-  %sub.i53 = add nsw i32 %conv7, -162
+  %sub.i53 = add nuw nsw i32 %conv7, -162
   %cond.i54 = select i1 %or.cond.i52, i32 %sub.i53, i32 %conv7
   %cmp9 = icmp eq i32 %cond.i, %cond.i54
   br label %land.end
@@ -845,11 +845,11 @@ land.rhs27:                                       ; preds = %land.end
 land.rhs34:                                       ; preds = %land.rhs27
   %8 = add nsw i32 %conv13, -65
   %or.cond.i61 = icmp ult i32 %8, 26
-  %sub.i62 = add nsw i32 %conv13, -162
+  %sub.i62 = add nuw nsw i32 %conv13, -162
   %cond.i63 = select i1 %or.cond.i61, i32 %sub.i62, i32 %conv13
   %9 = add nsw i32 %conv, -65
   %or.cond.i64 = icmp ult i32 %9, 26
-  %sub.i65 = add nsw i32 %conv, -162
+  %sub.i65 = add nuw nsw i32 %conv, -162
   %cond.i66 = select i1 %or.cond.i64, i32 %sub.i65, i32 %conv
   %cmp39 = icmp eq i32 %cond.i63, %cond.i66
   br label %land.end41
@@ -1475,7 +1475,7 @@ entry:
   %6 = or disjoint <4 x i32> %4, <i32 48, i32 48, i32 48, i32 48>
   %7 = add nuw nsw <4 x i32> %4, <i32 55, i32 55, i32 55, i32 55>
   %8 = select <4 x i1> %5, <4 x i32> %6, <4 x i32> %7
-  %9 = trunc <4 x i32> %8 to <4 x i8>
+  %9 = trunc nuw nsw <4 x i32> %8 to <4 x i8>
   store <4 x i8> %9, ptr %output, align 1
   %and72 = lshr i32 %col.coerce, 20
   %shr73 = and i32 %and72, 15
@@ -1483,7 +1483,7 @@ entry:
   %add81 = or disjoint i32 %shr73, 48
   %add87 = add nuw nsw i32 %shr73, 55
   %cond89 = select i1 %cmp74, i32 %add81, i32 %add87
-  %conv90 = trunc i32 %cond89 to i8
+  %conv90 = trunc nuw nsw i32 %cond89 to i8
   %arrayidx91 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv90, ptr %arrayidx91, align 1
   %and94 = and i32 %col.sroa.13.0.extract.shift, 15
@@ -1491,7 +1491,7 @@ entry:
   %add101 = or disjoint i32 %and94, 48
   %add106 = add nuw nsw i32 %and94, 55
   %cond108 = select i1 %cmp95, i32 %add101, i32 %add106
-  %conv109 = trunc i32 %cond108 to i8
+  %conv109 = trunc nuw nsw i32 %cond108 to i8
   %arrayidx110 = getelementptr inbounds i8, ptr %output, i64 5
   store i8 %conv109, ptr %arrayidx110, align 1
   %shr113 = lshr i32 %col.coerce, 28
@@ -1499,7 +1499,7 @@ entry:
   %add121 = or disjoint i32 %shr113, 48
   %add127 = add nuw nsw i32 %shr113, 55
   %cond129 = select i1 %cmp114, i32 %add121, i32 %add127
-  %conv130 = trunc i32 %cond129 to i8
+  %conv130 = trunc nuw nsw i32 %cond129 to i8
   %arrayidx131 = getelementptr inbounds i8, ptr %output, i64 6
   store i8 %conv130, ptr %arrayidx131, align 1
   %and134 = and i32 %col.sroa.19.0.extract.shift, 15
@@ -1507,7 +1507,7 @@ entry:
   %add141 = or disjoint i32 %and134, 48
   %add146 = add nuw nsw i32 %and134, 55
   %cond148 = select i1 %cmp135, i32 %add141, i32 %add146
-  %conv149 = trunc i32 %cond148 to i8
+  %conv149 = trunc nuw nsw i32 %cond148 to i8
   %arrayidx150 = getelementptr inbounds i8, ptr %output, i64 7
   store i8 %conv149, ptr %arrayidx150, align 1
   %arrayidx151 = getelementptr inbounds i8, ptr %output, i64 8
@@ -1531,7 +1531,7 @@ entry:
   %6 = or disjoint <4 x i32> %4, <i32 48, i32 48, i32 48, i32 48>
   %7 = add nuw nsw <4 x i32> %4, <i32 55, i32 55, i32 55, i32 55>
   %8 = select <4 x i1> %5, <4 x i32> %6, <4 x i32> %7
-  %9 = trunc <4 x i32> %8 to <4 x i8>
+  %9 = trunc nuw nsw <4 x i32> %8 to <4 x i8>
   store <4 x i8> %9, ptr %output, align 1
   %and72 = lshr i32 %col.coerce, 20
   %shr73 = and i32 %and72, 15
@@ -1539,7 +1539,7 @@ entry:
   %add81 = or disjoint i32 %shr73, 48
   %add87 = add nuw nsw i32 %shr73, 55
   %cond89 = select i1 %cmp74, i32 %add81, i32 %add87
-  %conv90 = trunc i32 %cond89 to i8
+  %conv90 = trunc nuw nsw i32 %cond89 to i8
   %arrayidx91 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv90, ptr %arrayidx91, align 1
   %and94 = and i32 %col.sroa.13.0.extract.shift, 15
@@ -1547,7 +1547,7 @@ entry:
   %add101 = or disjoint i32 %and94, 48
   %add106 = add nuw nsw i32 %and94, 55
   %cond108 = select i1 %cmp95, i32 %add101, i32 %add106
-  %conv109 = trunc i32 %cond108 to i8
+  %conv109 = trunc nuw nsw i32 %cond108 to i8
   %arrayidx110 = getelementptr inbounds i8, ptr %output, i64 5
   store i8 %conv109, ptr %arrayidx110, align 1
   %arrayidx111 = getelementptr inbounds i8, ptr %output, i64 6
@@ -3095,7 +3095,7 @@ entry:
   %in.sroa.3.0.extract.shift = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc = trunc i32 %in.sroa.3.0.extract.shift to i8
   %in.sroa.4.0.extract.shift = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc = trunc i32 %in.sroa.4.0.extract.shift to i8
+  %in.sroa.4.0.extract.trunc = trunc nuw i32 %in.sroa.4.0.extract.shift to i8
   %conv = uitofp i8 %in.sroa.0.0.extract.trunc to float
   %mul = fmul float %conv, 0x3F70101020000000
   store float %mul, ptr %r, align 4
@@ -3157,7 +3157,7 @@ entry:
   %in.sroa.3.0.extract.shift = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc = trunc i32 %in.sroa.3.0.extract.shift to i8
   %in.sroa.4.0.extract.shift = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc = trunc i32 %in.sroa.4.0.extract.shift to i8
+  %in.sroa.4.0.extract.trunc = trunc nuw i32 %in.sroa.4.0.extract.shift to i8
   %conv = uitofp i8 %in.sroa.0.0.extract.trunc to double
   %mul = fmul double %conv, 0x3F70101010101010
   store double %mul, ptr %r, align 8
@@ -3182,7 +3182,7 @@ entry:
   %in.sroa.3.0.extract.shift.i = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc.i = trunc i32 %in.sroa.3.0.extract.shift.i to i8
   %in.sroa.4.0.extract.shift.i = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc.i = trunc i32 %in.sroa.4.0.extract.shift.i to i8
+  %in.sroa.4.0.extract.trunc.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i to i8
   %0 = insertelement <2 x i32> poison, i32 %in.coerce, i64 0
   %1 = insertelement <2 x i32> %0, i32 %in.sroa.2.0.extract.shift.i, i64 1
   %2 = trunc <2 x i32> %1 to <2 x i8>
@@ -3258,7 +3258,7 @@ entry:
   %in.sroa.3.0.extract.shift.i = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc.i = trunc i32 %in.sroa.3.0.extract.shift.i to i8
   %in.sroa.4.0.extract.shift.i = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc.i = trunc i32 %in.sroa.4.0.extract.shift.i to i8
+  %in.sroa.4.0.extract.trunc.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i to i8
   %conv.i = uitofp i8 %in.sroa.0.0.extract.trunc.i to float
   %mul.i = fmul float %conv.i, 0x3F70101020000000
   %col.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i, i64 0
@@ -3457,7 +3457,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i = trunc i32 %in.sroa.3.0.extract.shift.i.i to i8
   %in.sroa.4.0.extract.shift.i.i = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i = trunc i32 %in.sroa.4.0.extract.shift.i.i to i8
+  %in.sroa.4.0.extract.trunc.i.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i to i8
   %conv.i.i = uitofp i8 %in.sroa.0.0.extract.trunc.i.i to float
   %mul.i.i = fmul float %conv.i.i, 0x3F70101020000000
   %col.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
@@ -3515,7 +3515,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i = trunc i32 %in.sroa.3.0.extract.shift.i.i to i8
   %in.sroa.4.0.extract.shift.i.i = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i = trunc i32 %in.sroa.4.0.extract.shift.i.i to i8
+  %in.sroa.4.0.extract.trunc.i.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i to i8
   %conv.i.i = uitofp i8 %in.sroa.0.0.extract.trunc.i.i to float
   %mul.i.i = fmul float %conv.i.i, 0x3F70101020000000
   %col.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
@@ -3585,7 +3585,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i.i = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i.i = trunc i32 %in.sroa.3.0.extract.shift.i.i.i to i8
   %in.sroa.4.0.extract.shift.i.i.i = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i.i = trunc i32 %in.sroa.4.0.extract.shift.i.i.i to i8
+  %in.sroa.4.0.extract.trunc.i.i.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i.i to i8
   %conv.i.i.i = uitofp i8 %in.sroa.0.0.extract.trunc.i.i.i to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3F70101020000000
   %col.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i.i, i64 0
@@ -3645,7 +3645,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i.i = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i.i = trunc i32 %in.sroa.3.0.extract.shift.i.i.i to i8
   %in.sroa.4.0.extract.shift.i.i.i = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i.i = trunc i32 %in.sroa.4.0.extract.shift.i.i.i to i8
+  %in.sroa.4.0.extract.trunc.i.i.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i.i to i8
   %conv.i.i.i = uitofp i8 %in.sroa.0.0.extract.trunc.i.i.i to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3F70101020000000
   %col.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i.i, i64 0
@@ -3704,7 +3704,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i.i = lshr i32 %in.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i.i = trunc i32 %in.sroa.3.0.extract.shift.i.i.i to i8
   %in.sroa.4.0.extract.shift.i.i.i = lshr i32 %in.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i.i = trunc i32 %in.sroa.4.0.extract.shift.i.i.i to i8
+  %in.sroa.4.0.extract.trunc.i.i.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i.i to i8
   %conv.i.i.i = uitofp i8 %in.sroa.0.0.extract.trunc.i.i.i to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3F70101020000000
   %col.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i.i, i64 0
@@ -4027,7 +4027,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit:                          ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %4 = add i32 %3, -1
   %or.cond1 = icmp ult i32 %4, 3
   br i1 %or.cond1, label %for.cond.preheader, label %return
@@ -4145,7 +4145,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %entry
   br i1 %cmp11.i, label %for.cond.i, label %nk_utf_validate.exit, !llvm.loop !22
 
 nk_utf_validate.exit:                             ; preds = %for.cond.i
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %2, %clen
   %tobool = icmp eq i32 %2, 0
   %or.cond.not10 = or i1 %cmp, %tobool
@@ -4224,7 +4224,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -4325,7 +4325,7 @@ for.inc.i.i21:                                    ; preds = %for.body.i.i15
   br i1 %exitcond.not.i.i23, label %nk_utf_decode.exit76, label %for.body.i.i15, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i25:                      ; preds = %for.body.i.i15
-  %17 = trunc i64 %indvars.iv.i.i16 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i16 to i32
   %18 = add i32 %17, -1
   %or.cond1.i26 = icmp ult i32 %18, 3
   br i1 %or.cond1.i26, label %for.cond.preheader.i27, label %nk_utf_decode.exit76
@@ -4443,7 +4443,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %while.body.preheader, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %while.body.preheader
@@ -4585,7 +4585,7 @@ for.inc.i.i32:                                    ; preds = %for.body.i.i26
   br i1 %exitcond.not.i.i34, label %nk_utf_decode.exit87, label %for.body.i.i26, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i36:                      ; preds = %for.body.i.i26
-  %19 = trunc i64 %indvars.iv.i.i27 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i27 to i32
   %20 = add i32 %19, -1
   %or.cond1.i37 = icmp ult i32 %20, 3
   br i1 %or.cond1.i37, label %for.cond.preheader.i38, label %nk_utf_decode.exit87
@@ -5779,7 +5779,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -5902,7 +5902,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -6024,7 +6024,7 @@ for.inc.i.i18:                                    ; preds = %for.body.i.i12
   br i1 %exitcond.not.i.i20, label %nk_utf_decode.exit72, label %for.body.i.i12, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i22:                      ; preds = %for.body.i.i12
-  %19 = trunc i64 %indvars.iv.i.i13 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i13 to i32
   %20 = add i32 %19, -1
   %or.cond1.i23 = icmp ult i32 %20, 3
   br i1 %or.cond1.i23, label %for.cond.preheader.i24, label %nk_utf_decode.exit72
@@ -6194,7 +6194,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp11.i.i, label %for.cond.i.i, label %nk_utf_validate.exit.i, !llvm.loop !22
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %3, 4
   %tobool.i = icmp eq i32 %3, 0
   %or.cond.not10.i = or i1 %cmp.i, %tobool.i
@@ -6297,7 +6297,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %whil
   br i1 %cmp11.i.i, label %for.cond.i.i, label %nk_utf_validate.exit.i, !llvm.loop !22
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
-  %4 = trunc i64 %indvars.iv.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %4, 4
   %tobool.i = icmp eq i32 %4, 0
   %or.cond.not10.i = or i1 %cmp.i, %tobool.i
@@ -6359,7 +6359,7 @@ nk_str_append_text_char.exit:                     ; preds = %nk_utf_validate.exi
   br i1 %cmp.not, label %return.loopexit, label %while.body, !llvm.loop !35
 
 return.loopexit:                                  ; preds = %nk_str_append_text_char.exit
-  %14 = trunc i64 %indvars.iv.next to i32
+  %14 = trunc nuw i64 %indvars.iv.next to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %while.cond.preheader, %entry
@@ -6517,7 +6517,7 @@ for.inc.i.i36:                                    ; preds = %for.body.i.i30
   br i1 %exitcond.not.i.i38, label %while.body.i.preheader, label %for.body.i.i30, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i40:                      ; preds = %for.body.i.i30
-  %5 = trunc i64 %indvars.iv.i.i31 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.i31 to i32
   %6 = add i32 %5, -1
   %or.cond1.i41 = icmp ult i32 %6, 3
   br i1 %or.cond1.i41, label %for.cond.preheader.i42, label %while.body.i.preheader
@@ -6623,7 +6623,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %18 = trunc i64 %indvars.iv.i.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %19 = add i32 %18, -1
   %or.cond1.i24 = icmp ult i32 %19, 3
   br i1 %or.cond1.i24, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -6886,7 +6886,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %nk_utf_decode.exit.i, label %for.body.i.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
-  %3 = trunc i64 %indvars.iv.i.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
@@ -7008,7 +7008,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -7137,7 +7137,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %nk_utf_decode.exit.i, label %for.body.i.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
-  %5 = trunc i64 %indvars.iv.i.i.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %6 = add i32 %5, -1
   %or.cond1.i.i = icmp ult i32 %6, 3
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
@@ -7248,7 +7248,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -7370,7 +7370,7 @@ for.inc.i.i18:                                    ; preds = %for.body.i.i12
   br i1 %exitcond.not.i.i20, label %nk_utf_decode.exit72, label %for.body.i.i12, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i22:                      ; preds = %for.body.i.i12
-  %19 = trunc i64 %indvars.iv.i.i13 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i13 to i32
   %20 = add i32 %19, -1
   %or.cond1.i23 = icmp ult i32 %20, 3
   br i1 %or.cond1.i23, label %for.cond.preheader.i24, label %nk_utf_decode.exit72
@@ -7524,7 +7524,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp11.i.i, label %for.cond.i.i, label %nk_utf_validate.exit.i, !llvm.loop !22
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %3, 4
   %tobool.i = icmp eq i32 %3, 0
   %or.cond.not10.i = or i1 %cmp.i, %tobool.i
@@ -7613,7 +7613,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %whil
   br i1 %cmp11.i.i, label %for.cond.i.i, label %nk_utf_validate.exit.i, !llvm.loop !22
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
-  %4 = trunc i64 %indvars.iv.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %4, 4
   %tobool.i = icmp eq i32 %4, 0
   %or.cond.not10.i = or i1 %cmp.i, %tobool.i
@@ -7669,7 +7669,7 @@ nk_utf_encode.exit:                               ; preds = %nk_utf_validate.exi
   br i1 %cmp.not, label %return.loopexit, label %while.body, !llvm.loop !41
 
 return.loopexit:                                  ; preds = %nk_utf_encode.exit
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nuw i64 %indvars.iv.next to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %while.cond.preheader, %entry
@@ -7757,7 +7757,7 @@ for.inc.i.i29:                                    ; preds = %for.body.i.i23
   br i1 %exitcond.not.i.i31, label %while.body.i.preheader, label %for.body.i.i23, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i33:                      ; preds = %for.body.i.i23
-  %4 = trunc i64 %indvars.iv.i.i24 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i.i24 to i32
   %5 = add i32 %4, -1
   %or.cond1.i34 = icmp ult i32 %5, 3
   br i1 %or.cond1.i34, label %for.cond.preheader.i35, label %while.body.i.preheader
@@ -7863,7 +7863,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %17 = trunc i64 %indvars.iv.i.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %18 = add i32 %17, -1
   %or.cond1.i = icmp ult i32 %18, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -8101,7 +8101,7 @@ for.inc.i.i87:                                    ; preds = %for.body.i.i81
   br i1 %exitcond.not.i.i89, label %while.body.i.preheader, label %for.body.i.i81, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i91:                      ; preds = %for.body.i.i81
-  %6 = trunc i64 %indvars.iv.i.i82 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i.i82 to i32
   %7 = add i32 %6, -1
   %or.cond1.i92 = icmp ult i32 %7, 3
   br i1 %or.cond1.i92, label %for.cond.preheader.i93, label %while.body.i.preheader
@@ -8207,7 +8207,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %19 = trunc i64 %indvars.iv.i.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %20 = add i32 %19, -1
   %or.cond1.i = icmp ult i32 %20, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -8313,7 +8313,7 @@ for.inc.i.i219:                                   ; preds = %for.body.i.i213
   br i1 %exitcond.not.i.i221, label %while.body.i38.preheader, label %for.body.i.i213, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i223:                     ; preds = %for.body.i.i213
-  %32 = trunc i64 %indvars.iv.i.i214 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i.i214 to i32
   %33 = add i32 %32, -1
   %or.cond1.i224 = icmp ult i32 %33, 3
   br i1 %or.cond1.i224, label %for.cond.preheader.i225, label %while.body.i38.preheader
@@ -8419,7 +8419,7 @@ for.inc.i.i153:                                   ; preds = %for.body.i.i147
   br i1 %exitcond.not.i.i155, label %nk_utf_decode.exit208, label %for.body.i.i147, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i157:                     ; preds = %for.body.i.i147
-  %45 = trunc i64 %indvars.iv.i.i148 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i.i148 to i32
   %46 = add i32 %45, -1
   %or.cond1.i158 = icmp ult i32 %46, 3
   br i1 %or.cond1.i158, label %for.cond.preheader.i159, label %nk_utf_decode.exit208
@@ -8709,7 +8709,7 @@ for.inc.i.i14:                                    ; preds = %for.body.i.i8
   br i1 %exitcond.not.i.i16, label %nk_utf_decode.exit69, label %for.body.i.i8, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i18:                      ; preds = %for.body.i.i8
-  %5 = trunc i64 %indvars.iv.i.i9 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.i9 to i32
   %6 = add i32 %5, -1
   %or.cond1.i19 = icmp ult i32 %6, 3
   br i1 %or.cond1.i19, label %for.cond.preheader.i20, label %nk_utf_decode.exit69
@@ -8840,7 +8840,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %21 = trunc i64 %indvars.iv.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %22 = add i32 %21, -1
   %or.cond1.i = icmp ult i32 %22, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -9193,7 +9193,7 @@ define void @nk_stroke_curve(ptr noundef %b, float noundef %ax, float noundef %a
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
-  %col.sroa.2.0.extract.trunc = trunc i32 %col.sroa.2.0.extract.shift to i8
+  %col.sroa.2.0.extract.trunc = trunc nuw i32 %col.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %col.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -9264,7 +9264,7 @@ entry:
   %1 = extractelement <2 x float> %rect.coerce1, i64 0
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
-  %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
+  %c.sroa.2.0.extract.trunc = trunc nuw i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %c.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -9373,7 +9373,7 @@ entry:
   %1 = extractelement <2 x float> %rect.coerce1, i64 0
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
-  %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
+  %c.sroa.2.0.extract.trunc = trunc nuw i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %c.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -9683,7 +9683,7 @@ entry:
   %1 = extractelement <2 x float> %r.coerce1, i64 0
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
-  %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
+  %c.sroa.2.0.extract.trunc = trunc nuw i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %c.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -9783,7 +9783,7 @@ define void @nk_stroke_arc(ptr noundef %b, float noundef %cx, float noundef %cy,
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
-  %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
+  %c.sroa.2.0.extract.trunc = trunc nuw i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %c.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -9849,7 +9849,7 @@ define void @nk_fill_arc(ptr noundef %b, float noundef %cx, float noundef %cy, f
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
-  %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
+  %c.sroa.2.0.extract.trunc = trunc nuw i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %c.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -9912,7 +9912,7 @@ define void @nk_stroke_triangle(ptr noundef %b, float noundef %x0, float noundef
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
-  %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
+  %c.sroa.2.0.extract.trunc = trunc nuw i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %c.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -10062,7 +10062,7 @@ define void @nk_fill_triangle(ptr noundef %b, float noundef %x0, float noundef %
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
-  %c.sroa.2.0.extract.trunc = trunc i32 %c.sroa.2.0.extract.shift to i8
+  %c.sroa.2.0.extract.trunc = trunc nuw i32 %c.sroa.2.0.extract.shift to i8
   %tobool = icmp ne ptr %b, null
   %cmp = icmp ugt i32 %c.coerce, 16777215
   %or.cond.not47 = select i1 %tobool, i1 %cmp, i1 false
@@ -10205,7 +10205,7 @@ define void @nk_stroke_polygon(ptr noundef %b, ptr nocapture noundef readonly %p
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
-  %col.sroa.2.0.extract.trunc = trunc i32 %col.sroa.2.0.extract.shift to i8
+  %col.sroa.2.0.extract.trunc = trunc nuw i32 %col.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %col.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -10291,7 +10291,7 @@ define void @nk_fill_polygon(ptr noundef %b, ptr nocapture noundef readonly %poi
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
-  %col.sroa.2.0.extract.trunc = trunc i32 %col.sroa.2.0.extract.shift to i8
+  %col.sroa.2.0.extract.trunc = trunc nuw i32 %col.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %col.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -10372,7 +10372,7 @@ define void @nk_stroke_polyline(ptr noundef %b, ptr nocapture noundef readonly %
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
-  %col.sroa.2.0.extract.trunc = trunc i32 %col.sroa.2.0.extract.shift to i8
+  %col.sroa.2.0.extract.trunc = trunc nuw i32 %col.sroa.2.0.extract.shift to i8
   %tobool = icmp eq ptr %b, null
   %cmp = icmp ult i32 %col.coerce, 16777216
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
@@ -10844,10 +10844,10 @@ entry:
   %txt_width = alloca float, align 4
   %bg.sroa.0.0.extract.trunc = trunc i32 %bg.coerce to i24
   %bg.sroa.2.0.extract.shift = lshr i32 %bg.coerce, 24
-  %bg.sroa.2.0.extract.trunc = trunc i32 %bg.sroa.2.0.extract.shift to i8
+  %bg.sroa.2.0.extract.trunc = trunc nuw i32 %bg.sroa.2.0.extract.shift to i8
   %fg.sroa.0.0.extract.trunc = trunc i32 %fg.coerce to i24
   %fg.sroa.2.0.extract.shift = lshr i32 %fg.coerce, 24
-  %fg.sroa.2.0.extract.trunc = trunc i32 %fg.sroa.2.0.extract.shift to i8
+  %fg.sroa.2.0.extract.trunc = trunc nuw i32 %fg.sroa.2.0.extract.shift to i8
   %tobool = icmp ne ptr %b, null
   %tobool1 = icmp ne ptr %string, null
   %or.cond = and i1 %tobool, %tobool1
@@ -11017,7 +11017,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -11218,7 +11218,7 @@ for.inc.i.i42:                                    ; preds = %for.body.i.i36
   br i1 %exitcond.not.i.i44, label %nk_utf_decode.exit97, label %for.body.i.i36, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i46:                      ; preds = %for.body.i.i36
-  %27 = trunc i64 %indvars.iv.i.i37 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i.i37 to i32
   %28 = add i32 %27, -1
   %or.cond1.i47 = icmp ult i32 %28, 3
   br i1 %or.cond1.i47, label %for.cond.preheader.i48, label %nk_utf_decode.exit97
@@ -11560,7 +11560,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %color.sroa.2.0.extract.shift = lshr i32 %color.coerce, 24
-  %color.sroa.2.0.extract.trunc = trunc i32 %color.sroa.2.0.extract.shift to i8
+  %color.sroa.2.0.extract.trunc = trunc nuw i32 %color.sroa.2.0.extract.shift to i8
   %conv = uitofp i8 %color.sroa.2.0.extract.trunc to float
   %config = getelementptr inbounds i8, ptr %list, i64 112
   %0 = load float, ptr %config, align 8
@@ -12160,7 +12160,7 @@ nk_draw_list_alloc_elements.exit632:              ; preds = %nk_draw_list_alloc_
   %idx.ext.i.i625 = zext i32 %sub3.i.i624 to i64
   %idx.neg.i.i626 = sub nsw i64 0, %idx.ext.i.i625
   %add.ptr4.i.i627 = getelementptr inbounds %struct.nk_draw_command, ptr %add.ptr.i.i622, i64 %idx.neg.i.i626
-  %146 = trunc i64 %count.0 to i32
+  %146 = trunc nuw i64 %count.0 to i32
   %conv.i628 = mul i32 %146, 6
   %element_count.i629 = getelementptr inbounds i8, ptr %list, i64 200
   %147 = load i32, ptr %element_count.i629, align 8
@@ -12506,7 +12506,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %color.sroa.2.0.extract.shift = lshr i32 %color.coerce, 24
-  %color.sroa.2.0.extract.trunc = trunc i32 %color.sroa.2.0.extract.shift to i8
+  %color.sroa.2.0.extract.trunc = trunc nuw i32 %color.sroa.2.0.extract.shift to i8
   %conv = uitofp i8 %color.sroa.2.0.extract.trunc to float
   %config = getelementptr inbounds i8, ptr %list, i64 112
   %0 = load float, ptr %config, align 8
@@ -13894,7 +13894,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i = lshr i32 %left.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i = trunc i32 %in.sroa.3.0.extract.shift.i.i to i8
   %in.sroa.4.0.extract.shift.i.i = lshr i32 %left.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i = trunc i32 %in.sroa.4.0.extract.shift.i.i to i8
+  %in.sroa.4.0.extract.trunc.i.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i to i8
   %0 = insertelement <2 x i32> poison, i32 %left.coerce, i64 0
   %1 = insertelement <2 x i32> %0, i32 %in.sroa.2.0.extract.shift.i.i, i64 1
   %2 = trunc <2 x i32> %1 to <2 x i8>
@@ -13910,7 +13910,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i58 = lshr i32 %right.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i59 = trunc i32 %in.sroa.3.0.extract.shift.i.i58 to i8
   %in.sroa.4.0.extract.shift.i.i60 = lshr i32 %right.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i61 = trunc i32 %in.sroa.4.0.extract.shift.i.i60 to i8
+  %in.sroa.4.0.extract.trunc.i.i61 = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i60 to i8
   %5 = insertelement <2 x i32> poison, i32 %right.coerce, i64 0
   %6 = insertelement <2 x i32> %5, i32 %in.sroa.2.0.extract.shift.i.i56, i64 1
   %7 = trunc <2 x i32> %6 to <2 x i8>
@@ -13926,7 +13926,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i76 = lshr i32 %top.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i77 = trunc i32 %in.sroa.3.0.extract.shift.i.i76 to i8
   %in.sroa.4.0.extract.shift.i.i78 = lshr i32 %top.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i79 = trunc i32 %in.sroa.4.0.extract.shift.i.i78 to i8
+  %in.sroa.4.0.extract.trunc.i.i79 = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i78 to i8
   %10 = insertelement <2 x i32> poison, i32 %top.coerce, i64 0
   %11 = insertelement <2 x i32> %10, i32 %in.sroa.2.0.extract.shift.i.i74, i64 1
   %12 = trunc <2 x i32> %11 to <2 x i8>
@@ -13942,7 +13942,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i94 = lshr i32 %bottom.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i95 = trunc i32 %in.sroa.3.0.extract.shift.i.i94 to i8
   %in.sroa.4.0.extract.shift.i.i96 = lshr i32 %bottom.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i97 = trunc i32 %in.sroa.4.0.extract.shift.i.i96 to i8
+  %in.sroa.4.0.extract.trunc.i.i97 = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i96 to i8
   %15 = insertelement <2 x i32> poison, i32 %bottom.coerce, i64 0
   %16 = insertelement <2 x i32> %15, i32 %in.sroa.2.0.extract.shift.i.i92, i64 1
   %17 = trunc <2 x i32> %16 to <2 x i8>
@@ -14570,7 +14570,7 @@ entry:
   %in.sroa.3.0.extract.shift.i.i = lshr i32 %color.coerce, 16
   %in.sroa.3.0.extract.trunc.i.i = trunc i32 %in.sroa.3.0.extract.shift.i.i to i8
   %in.sroa.4.0.extract.shift.i.i = lshr i32 %color.coerce, 24
-  %in.sroa.4.0.extract.trunc.i.i = trunc i32 %in.sroa.4.0.extract.shift.i.i to i8
+  %in.sroa.4.0.extract.trunc.i.i = trunc nuw i32 %in.sroa.4.0.extract.shift.i.i to i8
   %0 = insertelement <2 x i32> poison, i32 %color.coerce, i64 0
   %1 = insertelement <2 x i32> %0, i32 %in.sroa.2.0.extract.shift.i.i, i64 1
   %2 = trunc <2 x i32> %1 to <2 x i8>
@@ -14678,7 +14678,7 @@ define void @nk_draw_list_add_text(ptr noundef %list, ptr nocapture noundef read
 entry:
   %g = alloca %struct.nk_user_font_glyph, align 8
   %fg.sroa.2.0.extract.shift = lshr i32 %fg.coerce, 24
-  %fg.sroa.2.0.extract.trunc = trunc i32 %fg.sroa.2.0.extract.shift to i8
+  %fg.sroa.2.0.extract.trunc = trunc nuw i32 %fg.sroa.2.0.extract.shift to i8
   %tobool = icmp ne ptr %list, null
   %tobool1 = icmp ne i32 %len, 0
   %or.cond = and i1 %tobool, %tobool1
@@ -14740,7 +14740,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %while.end, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %10 = trunc i64 %indvars.iv.i.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %11 = add i32 %10, -1
   %or.cond1.i = icmp ult i32 %11, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %while.end
@@ -14888,7 +14888,7 @@ for.inc.i.i47:                                    ; preds = %for.body.i.i41
   br i1 %exitcond.not.i.i49, label %nk_utf_decode.exit102.thread, label %for.body.i.i41, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i51:                      ; preds = %for.body.i.i41
-  %27 = trunc i64 %indvars.iv.i.i42 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i.i42 to i32
   %28 = add i32 %27, -1
   %or.cond1.i52 = icmp ult i32 %28, 3
   br i1 %or.cond1.i52, label %for.cond.preheader.i53, label %nk_utf_decode.exit102.thread
@@ -16664,7 +16664,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %was_packed = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv, i32 5
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %0, ptr %was_packed, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17097,7 +17097,7 @@ if.then38.i:                                      ; preds = %while.end.i
 
 if.then23:                                        ; preds = %if.then38.i, %while.end.i
   %fr.sroa.2.0.extract.shift = lshr i64 %.pn51, 32
-  %fr.sroa.2.0.extract.trunc = trunc i64 %fr.sroa.2.0.extract.shift to i32
+  %fr.sroa.2.0.extract.trunc = trunc nuw i64 %fr.sroa.2.0.extract.shift to i32
   %fr.sroa.0.0.extract.trunc = trunc i64 %.pn51 to i32
   br label %for.inc40
 
@@ -17959,10 +17959,10 @@ if.then2.i87:                                     ; preds = %if.then.i86
   %conv3.i.i97 = trunc i32 %shr4.i94 to i16
   %y4.i.i98 = getelementptr inbounds i8, ptr %arrayidx.i90, i64 2
   store i16 %conv3.i.i97, ptr %y4.i.i98, align 2
-  %conv5.i.i99 = trunc i32 %cx.0.i179 to i16
+  %conv5.i.i99 = trunc nsw i32 %cx.0.i179 to i16
   %cx6.i.i100 = getelementptr inbounds i8, ptr %arrayidx.i90, i64 4
   store i16 %conv5.i.i99, ptr %cx6.i.i100, align 2
-  %conv7.i.i101 = trunc i32 %cy.0.i182 to i16
+  %conv7.i.i101 = trunc nsw i32 %cy.0.i182 to i16
   %cy8.i.i102 = getelementptr inbounds i8, ptr %arrayidx.i90, i64 6
   store i16 %conv7.i.i101, ptr %cy8.i.i102, align 2
   br label %if.end.i103
@@ -17978,10 +17978,10 @@ if.end.i103:                                      ; preds = %if.then2.i87, %if.t
   %conv3.i21.i109 = trunc i32 %sy.0.i186 to i16
   %y4.i22.i110 = getelementptr inbounds i8, ptr %arrayidx7.i106, i64 2
   store i16 %conv3.i21.i109, ptr %y4.i22.i110, align 2
-  %conv5.i23.i111 = trunc i32 %scx.0.i187 to i16
+  %conv5.i23.i111 = trunc nsw i32 %scx.0.i187 to i16
   %cx6.i24.i112 = getelementptr inbounds i8, ptr %arrayidx7.i106, i64 4
   store i16 %conv5.i23.i111, ptr %cx6.i24.i112, align 2
-  %conv7.i25.i113 = trunc i32 %scy.0.i189 to i16
+  %conv7.i25.i113 = trunc nsw i32 %scy.0.i189 to i16
   br label %stbtt__close_shape.exit131
 
 if.else.i118:                                     ; preds = %if.then175.i
@@ -17997,10 +17997,10 @@ if.then9.i125:                                    ; preds = %if.else.i118
   store i8 3, ptr %type1.i35.i121, align 2
   store i16 %conv.i36.i122, ptr %arrayidx16.i120, align 2
   store i16 %conv3.i37.i123, ptr %y4.i38.i124, align 2
-  %conv5.i31.i126 = trunc i32 %cx.0.i179 to i16
+  %conv5.i31.i126 = trunc nsw i32 %cx.0.i179 to i16
   %cx6.i32.i127 = getelementptr inbounds i8, ptr %arrayidx16.i120, i64 4
   store i16 %conv5.i31.i126, ptr %cx6.i32.i127, align 2
-  %conv7.i33.i128 = trunc i32 %cy.0.i182 to i16
+  %conv7.i33.i128 = trunc nsw i32 %cy.0.i182 to i16
   br label %stbtt__close_shape.exit131
 
 if.else13.i129:                                   ; preds = %if.else.i118
@@ -18114,10 +18114,10 @@ if.then240.i:                                     ; preds = %if.then238.i
   %conv3.i = trunc i32 %shr247.i to i16
   %y4.i69 = getelementptr inbounds i8, ptr %arrayidx243.i, i64 2
   store i16 %conv3.i, ptr %y4.i69, align 2
-  %conv5.i70 = trunc i32 %cx.0.i179 to i16
+  %conv5.i70 = trunc nsw i32 %cx.0.i179 to i16
   %cx6.i71 = getelementptr inbounds i8, ptr %arrayidx243.i, i64 4
   store i16 %conv5.i70, ptr %cx6.i71, align 2
-  %conv7.i72 = trunc i32 %cy.0.i182 to i16
+  %conv7.i72 = trunc nsw i32 %cy.0.i182 to i16
   %cy8.i73 = getelementptr inbounds i8, ptr %arrayidx243.i, i64 6
   store i16 %conv7.i72, ptr %cy8.i73, align 2
   br label %for.inc262.i
@@ -18133,10 +18133,10 @@ if.then251.i:                                     ; preds = %if.else249.i
   store i8 3, ptr %type1.i, align 2
   store i16 %42, ptr %arrayidx258.i, align 2
   store i16 %43, ptr %y4.i, align 2
-  %conv5.i = trunc i32 %cx.0.i179 to i16
+  %conv5.i = trunc nsw i32 %cx.0.i179 to i16
   %cx6.i65 = getelementptr inbounds i8, ptr %arrayidx258.i, i64 4
   store i16 %conv5.i, ptr %cx6.i65, align 2
-  %conv7.i = trunc i32 %cy.0.i182 to i16
+  %conv7.i = trunc nsw i32 %cy.0.i182 to i16
   br label %if.end259.i
 
 if.else255.i:                                     ; preds = %if.else249.i
@@ -18194,10 +18194,10 @@ if.then2.i:                                       ; preds = %if.then.i56
   %conv3.i.i = trunc i32 %shr4.i to i16
   %y4.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
   store i16 %conv3.i.i, ptr %y4.i.i, align 2
-  %conv5.i.i = trunc i32 %cx.1.i to i16
+  %conv5.i.i = trunc nsw i32 %cx.1.i to i16
   %cx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i16 %conv5.i.i, ptr %cx6.i.i, align 2
-  %conv7.i.i = trunc i32 %cy.1.i to i16
+  %conv7.i.i = trunc nsw i32 %cy.1.i to i16
   %cy8.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
   store i16 %conv7.i.i, ptr %cy8.i.i, align 2
   br label %if.end.i61
@@ -18213,10 +18213,10 @@ if.end.i61:                                       ; preds = %if.then2.i, %if.the
   %conv3.i21.i = trunc i32 %sy.2.i to i16
   %y4.i22.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 2
   store i16 %conv3.i21.i, ptr %y4.i22.i, align 2
-  %conv5.i23.i = trunc i32 %scx.2.i to i16
+  %conv5.i23.i = trunc nsw i32 %scx.2.i to i16
   %cx6.i24.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 4
   store i16 %conv5.i23.i, ptr %cx6.i24.i, align 2
-  %conv7.i25.i = trunc i32 %scy.2.i to i16
+  %conv7.i25.i = trunc nsw i32 %scy.2.i to i16
   br label %stbtt__close_shape.exit
 
 if.else.i62:                                      ; preds = %for.end264.i
@@ -18232,10 +18232,10 @@ if.then9.i:                                       ; preds = %if.else.i62
   store i8 3, ptr %type1.i35.i, align 2
   store i16 %conv.i36.i, ptr %arrayidx16.i, align 2
   store i16 %conv3.i37.i, ptr %y4.i38.i, align 2
-  %conv5.i31.i = trunc i32 %cx.1.i to i16
+  %conv5.i31.i = trunc nsw i32 %cx.1.i to i16
   %cx6.i32.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 4
   store i16 %conv5.i31.i, ptr %cx6.i32.i, align 2
-  %conv7.i33.i = trunc i32 %cy.1.i to i16
+  %conv7.i33.i = trunc nsw i32 %cy.1.i to i16
   br label %stbtt__close_shape.exit
 
 if.else13.i:                                      ; preds = %if.else.i62
@@ -21424,7 +21424,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   br i1 %71, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !109
 
 while.end.split.loop.exit.i.i.i:                  ; preds = %while.body.i.i.i
-  %72 = trunc i64 %indvars.iv20.i.i.i to i32
+  %72 = trunc nuw i64 %indvars.iv20.i.i.i to i32
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %if.end.i.i.i, %while.end.split.loop.exit.i.i.i
@@ -22112,10 +22112,10 @@ for.body134.lr.ph.i.i.i:                          ; preds = %if.else129.i.i.i
 
 for.body134.i.i.i:                                ; preds = %for.inc197.i.i.i, %for.body134.lr.ph.i.i.i
   %indvars.iv.i.i68.i = phi i64 [ 0, %for.body134.lr.ph.i.i.i ], [ %indvars.iv.next.i.i69.i, %for.inc197.i.i.i ]
-  %146 = trunc i64 %indvars.iv.i.i68.i to i32
+  %146 = trunc nuw nsw i64 %indvars.iv.i.i68.i to i32
   %conv136.i.i.i = sitofp i32 %146 to float
   %indvars.iv.next.i.i69.i = add nuw nsw i64 %indvars.iv.i.i68.i, 1
-  %147 = trunc i64 %indvars.iv.next.i.i69.i to i32
+  %147 = trunc nuw nsw i64 %indvars.iv.next.i.i69.i to i32
   %conv139.i.i.i = sitofp i32 %147 to float
   %sub141.i.i.i = fsub float %conv136.i.i.i, %101
   %div142.i.i.i = fdiv float %sub141.i.i.i, %100
@@ -23377,7 +23377,7 @@ for.body.i.i:                                     ; preds = %if.end63.i.i, %for.
   %274 = load ptr, ptr %pixels.i.i, align 8
   %275 = load i32, ptr %stride.i.i, align 8
   %mul82.i.i = mul nsw i32 %275, %j.0108.i.i
-  %276 = trunc i64 %indvars.iv.i.i to i32
+  %276 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add83.i.i = add nsw i32 %mul82.i.i, %276
   %idxprom84.i.i = sext i32 %add83.i.i to i64
   %arrayidx85.i.i = getelementptr inbounds i8, ptr %274, i64 %idxprom84.i.i
@@ -24228,7 +24228,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
 
 cond.true20:                                      ; preds = %for.body15
   %15 = load i32, ptr %first_unicode_codepoint_in_range, align 4
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add nsw i32 %15, %16
   br label %cond.end29
 
@@ -24476,7 +24476,7 @@ if.end63:                                         ; preds = %stbtt_GetGlyphBitma
   br i1 %cmp13, label %for.body15, label %for.inc65.loopexit, !llvm.loop !120
 
 for.inc65.loopexit:                               ; preds = %if.end63
-  %74 = trunc i64 %indvars.iv.next93 to i32
+  %74 = trunc nsw i64 %indvars.iv.next93 to i32
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.inc65.loopexit, %cond.end
@@ -24637,7 +24637,7 @@ for.body104:                                      ; preds = %for.cond101.prehead
   %arrayidx106 = getelementptr inbounds i8, ptr %pixels.addr.0115, i64 %indvars.iv141
   %13 = load i8, ptr %arrayidx106, align 1
   %conv107 = zext i8 %13 to i32
-  %14 = trunc i64 %indvars.iv141 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv141 to i32
   %and108 = and i64 %indvars.iv141, 7
   %arrayidx110 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %and108
   %15 = load i8, ptr %arrayidx110, align 1
@@ -24679,7 +24679,7 @@ for.body130:                                      ; preds = %for.body130.prehead
   %arrayidx139 = getelementptr inbounds i8, ptr %pixels.addr.0115, i64 %indvars.iv146
   store i8 %conv137, ptr %arrayidx139, align 1
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %18 = trunc i64 %indvars.iv.next147 to i32
+  %18 = trunc nuw i64 %indvars.iv.next147 to i32
   %cmp128 = icmp slt i32 %18, %w
   br i1 %cmp128, label %for.body130, label %for.end142, !llvm.loop !127
 
@@ -24845,7 +24845,7 @@ for.body115:                                      ; preds = %for.cond112.prehead
   %arrayidx118 = getelementptr inbounds i8, ptr %pixels.addr.0130, i64 %18
   %19 = load i8, ptr %arrayidx118, align 1
   %conv119 = zext i8 %19 to i32
-  %20 = trunc i64 %indvars.iv160 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv160 to i32
   %and120 = and i64 %indvars.iv160, 7
   %arrayidx122 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %and120
   %21 = load i8, ptr %arrayidx122, align 1
@@ -25067,7 +25067,7 @@ if.then:                                          ; preds = %land.lhs.true31
 
 cond.true42:                                      ; preds = %if.then
   %36 = load i32, ptr %first_unicode_codepoint_in_range, align 4
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add nsw i32 %36, %37
   br label %cond.end51
 
@@ -25629,7 +25629,7 @@ for.body104.i:                                    ; preds = %for.cond101.prehead
   %arrayidx106.i = getelementptr inbounds i8, ptr %pixels.addr.0115.i, i64 %indvars.iv141.i
   %162 = load i8, ptr %arrayidx106.i, align 1
   %conv107.i = zext i8 %162 to i32
-  %163 = trunc i64 %indvars.iv141.i to i32
+  %163 = trunc nuw nsw i64 %indvars.iv141.i to i32
   %and108.i = and i64 %indvars.iv141.i, 7
   %arrayidx110.i = getelementptr inbounds [8 x i8], ptr %buffer.i, i64 0, i64 %and108.i
   %164 = load i8, ptr %arrayidx110.i, align 1
@@ -25671,7 +25671,7 @@ for.body130.i:                                    ; preds = %for.body130.i, %for
   %arrayidx139.i = getelementptr inbounds i8, ptr %pixels.addr.0115.i, i64 %indvars.iv146.i
   store i8 %conv137.i, ptr %arrayidx139.i, align 1
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
-  %167 = trunc i64 %indvars.iv.next147.i to i32
+  %167 = trunc nuw i64 %indvars.iv.next147.i to i32
   %cmp128.i = icmp sgt i32 %148, %167
   br i1 %cmp128.i, label %for.body130.i, label %for.end142.i, !llvm.loop !127
 
@@ -25850,7 +25850,7 @@ for.body115.i:                                    ; preds = %for.cond112.prehead
   %arrayidx118.i = getelementptr inbounds i8, ptr %pixels.addr.0130.i, i64 %191
   %192 = load i8, ptr %arrayidx118.i, align 1
   %conv119.i = zext i8 %192 to i32
-  %193 = trunc i64 %indvars.iv160.i to i32
+  %193 = trunc nuw nsw i64 %indvars.iv160.i to i32
   %and120.i = and i64 %indvars.iv160.i, 7
   %arrayidx122.i = getelementptr inbounds [8 x i8], ptr %buffer.i176, i64 0, i64 %and120.i
   %194 = load i8, ptr %arrayidx122.i, align 1
@@ -25954,7 +25954,7 @@ if.end118:                                        ; preds = %stbtt__v_prefilter.
   %yoff2 = getelementptr inbounds i8, ptr %arrayidx37, i64 24
   store float %211, ptr %yoff2, align 4
   %cmp149 = icmp eq i32 %call53, 0
-  %212 = trunc i64 %indvars.iv to i32
+  %212 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %cmp149, i32 %212, i32 %missing_glyph.1389
   br label %if.end183
 
@@ -25990,7 +25990,7 @@ if.end183:                                        ; preds = %land.lhs.true31, %f
   br i1 %cmp24, label %for.body26, label %for.inc185.loopexit, !llvm.loop !136
 
 for.inc185.loopexit:                              ; preds = %if.end183
-  %218 = trunc i64 %indvars.iv.next416 to i32
+  %218 = trunc nsw i64 %indvars.iv.next416 to i32
   br label %for.inc185
 
 for.inc185:                                       ; preds = %for.inc185.loopexit, %cond.end
@@ -27287,7 +27287,7 @@ stbtt__cff_get_index.exit724.i:                   ; preds = %if.end.i42.i709.i, 
 
 if.end57.i:                                       ; preds = %stbtt__cff_get_index.exit724.i
   %147 = lshr i64 %140, 32
-  %148 = trunc i64 %147 to i32
+  %148 = trunc nuw i64 %147 to i32
   %149 = load i32, ptr %fdarrayoff.i, align 4
   %tobool58.not.i = icmp eq i32 %149, 0
   br i1 %tobool58.not.i, label %if.end69.i, label %if.then59.i
@@ -28032,7 +28032,7 @@ for.cond141.preheader.us:                         ; preds = %for.cond141.prehead
 
 for.body144.us:                                   ; preds = %for.cond141.preheader.us, %if.end618.us
   %indvars.iv443 = phi i64 [ %29, %for.cond141.preheader.us ], [ %indvars.iv.next444, %if.end618.us ]
-  %32 = trunc i64 %indvars.iv443 to i32
+  %32 = trunc nsw i64 %indvars.iv443 to i32
   %conv145.us = sitofp i32 %32 to float
   %add146.us = fadd float %conv145.us, 5.000000e-01
   %div149.us = fdiv float %add146.us, %scale
@@ -28851,7 +28851,7 @@ for.inc:                                          ; preds = %for.body, %if.then7
   %arrayidx68 = getelementptr inbounds float, ptr %call.i368, i64 %indvars.iv
   store float %cond.sink, ptr %arrayidx68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %203 = trunc i64 %indvars.iv to i32
+  %203 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond137.preheader, label %for.body, !llvm.loop !147
 
@@ -31019,7 +31019,7 @@ while.body.i16:                                   ; preds = %if.end20, %while.bo
   %arrayidx23.i = getelementptr inbounds i8, ptr %dst.addr.032.i, i64 2
   store i8 %conv22.i, ptr %arrayidx23.i, align 1
   %shr24.i = lshr i32 %add14.i, 24
-  %conv26.i = trunc i32 %shr24.i to i8
+  %conv26.i = trunc nuw i32 %shr24.i to i8
   %arrayidx27.i = getelementptr inbounds i8, ptr %dst.addr.032.i, i64 3
   store i8 %conv26.i, ptr %arrayidx27.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.031.i, i64 5
@@ -31945,7 +31945,7 @@ do.cond178:                                       ; preds = %for.inc175, %stbtt_
   br i1 %cmp180.not, label %for.inc183, label %do.body64, !llvm.loop !170
 
 for.inc183:                                       ; preds = %do.cond178
-  %55 = trunc i64 %indvars.iv.next167 to i32
+  %55 = trunc nsw i64 %indvars.iv.next167 to i32
   %56 = load ptr, ptr %config_iter.2155, align 8
   %cmp60 = icmp slt i32 %55, %count
   %tobool62 = icmp ne ptr %56, null
@@ -32096,7 +32096,7 @@ stbtt_PackSetOversampling.exit:                   ; preds = %if.end.i, %if.then3
   br i1 %cmp21.not, label %for.inc, label %do.body, !llvm.loop !172
 
 for.inc:                                          ; preds = %stbtt_PackSetOversampling.exit
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nsw i64 %indvars.iv.next to i32
   %10 = load ptr, ptr %config_iter.0129, align 8
   %cmp = icmp slt i32 %9, %font_count
   %tobool16 = icmp ne ptr %10, null
@@ -32239,7 +32239,7 @@ for.body64:                                       ; preds = %for.body64.lr.ph, %
   %glyph_count.1132 = phi i32 [ %glyph_count.0136, %for.body64.lr.ph ], [ %inc123, %if.end122 ]
   %39 = load ptr, ptr %chardata_for_range, align 8
   %40 = load i32, ptr %first_unicode_codepoint_in_range, align 4
-  %41 = trunc i64 %indvars.iv144 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv144 to i32
   %add = add nsw i32 %40, %41
   %add.ptr.i117 = getelementptr inbounds %struct.stbtt_packedchar, ptr %39, i64 %indvars.iv144
   %xoff17.i = getelementptr inbounds i8, ptr %add.ptr.i117, i64 8
@@ -32337,7 +32337,7 @@ for.end129:                                       ; preds = %for.inc127, %if.end
   br i1 %cmp135.not, label %for.inc138, label %do.body31, !llvm.loop !176
 
 for.inc138:                                       ; preds = %for.end129
-  %68 = trunc i64 %indvars.iv.next148 to i32
+  %68 = trunc nsw i64 %indvars.iv.next148 to i32
   %69 = load ptr, ptr %config_iter.1140, align 8
   %cmp25 = icmp slt i32 %68, %font_count
   %tobool28 = icmp ne ptr %69, null
@@ -32378,7 +32378,7 @@ for.cond6.preheader:                              ; preds = %for.cond.preheader,
 for.body8:                                        ; preds = %for.cond6.preheader, %for.body8
   %indvars.iv5 = phi i64 [ %0, %for.cond6.preheader ], [ %indvars.iv.next6, %for.body8 ]
   %indvars.iv = phi i64 [ 0, %for.cond6.preheader ], [ %indvars.iv.next, %for.body8 ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %add13 = add i32 %add, %1
   %arrayidx = getelementptr inbounds i8, ptr @nk_custom_cursor_data, i64 %indvars.iv5
   %2 = load i8, ptr %arrayidx, align 1
@@ -32890,7 +32890,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %land.lhs.true, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %land.lhs.true
@@ -33013,7 +33013,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.t
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %sub = sub nsw i32 16, %15
-  %17 = trunc i64 %indvars.iv.i.i12 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i12 to i32
   %cmp.i = icmp slt i32 %sub, %17
   %tobool.i15 = icmp eq i32 %17, 0
   %or.cond.not10.i = or i1 %cmp.i, %tobool.i15
@@ -33112,7 +33112,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.e
   br i1 %cmp11.i.i, label %for.cond.i.i, label %nk_utf_validate.exit.i, !llvm.loop !22
 
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
-  %2 = trunc i64 %indvars.iv.i.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %2, 4
   %tobool.i = icmp eq i32 %2, 0
   %or.cond.not10.i = or i1 %cmp.i, %tobool.i
@@ -43779,7 +43779,7 @@ if.then53.i.i:                                    ; preds = %if.else.i.i
   %sub.i.i = fsub float %16, %cond64.i.i
   %div.i.i = fmul float %sub.i.i, 5.000000e-01
   %add75.i.i = fadd float %add69.i.i, %div.i.i
-  %cmp82.i.i = fcmp olt float %add69.i.i, %add75.i.i
+  %cmp82.i.i = fcmp olt float %add4.i, %add75.i.i
   %cond91.i.i = select i1 %cmp82.i.i, float %add75.i.i, float %add69.i.i
   %label.sroa.0.0.vec.insert15.i.i = insertelement <2 x float> %label.sroa.0.4.vec.insert.i.i, float %cond91.i.i, i64 0
   %add95.i.i = fadd float %add4.i, %16
@@ -43804,7 +43804,7 @@ if.then122.i.i:                                   ; preds = %if.else119.i.i
   %add126.i.i = fadd float %add4.i, 0.000000e+00
   %add129.i.i = fadd float %add4.i, %16
   %sub133.i.i = fsub float %add129.i.i, %29
-  %cmp134.i.i = fcmp olt float %add126.i.i, %sub133.i.i
+  %cmp134.i.i = fcmp olt float %add4.i, %sub133.i.i
   %sub133.add126.i.i = select i1 %cmp134.i.i, float %sub133.i.i, float %add126.i.i
   %label.sroa.0.0.vec.insert25.i.i = insertelement <2 x float> %label.sroa.0.4.vec.insert.i.i, float %sub133.add126.i.i, i64 0
   %label.sroa.15.8.vec.insert49.i.i = insertelement <2 x float> %label.sroa.15.12.vec.insert.i.i, float %29, i64 0
@@ -44150,7 +44150,7 @@ nk_draw_button_text_image.exit:                   ; preds = %if.end.i.i, %if.end
   %sub.i.i = fsub float %16, %cond64.i.i
   %div.i.i = fmul float %sub.i.i, 5.000000e-01
   %add75.i.i = fadd float %add69.i.i, %div.i.i
-  %cmp82.i.i = fcmp olt float %add69.i.i, %add75.i.i
+  %cmp82.i.i = fcmp olt float %add4.i, %add75.i.i
   %cond91.i.i = select i1 %cmp82.i.i, float %add75.i.i, float %add69.i.i
   %44 = insertelement <2 x float> poison, float %cond91.i.i, i64 0
   %add95.i.i = fadd float %add4.i, %16
@@ -44544,7 +44544,7 @@ nk_draw_button_text_symbol.exit:                  ; preds = %if.end.i26.i, %nk_r
   %sub.i.i = fsub float %9, %cond64.i.i
   %div.i.i = fmul float %sub.i.i, 5.000000e-01
   %add75.i.i = fadd float %add69.i.i, %div.i.i
-  %cmp82.i.i = fcmp olt float %add69.i.i, %add75.i.i
+  %cmp82.i.i = fcmp olt float %add4.i, %add75.i.i
   %cond91.i.i = select i1 %cmp82.i.i, float %add75.i.i, float %add69.i.i
   %34 = insertelement <2 x float> poison, float %cond91.i.i, i64 0
   %add95.i.i = fadd float %add4.i, %9
@@ -57959,7 +57959,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %nk_utf_decode.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i.i.i:                    ; preds = %for.body.i.i.i.i
-  %22 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %23 = add i32 %22, -1
   %or.cond1.i.i.i = icmp ult i32 %23, 3
   br i1 %or.cond1.i.i.i, label %for.cond.preheader.i.i.i, label %nk_utf_decode.exit.i.i
@@ -58129,7 +58129,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %4 = trunc i64 %indvars.iv.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %5 = add i32 %4, -1
   %or.cond1.i = icmp ult i32 %5, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -58357,7 +58357,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %nk_utf_decode.exit.i, label %for.body.i.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i.i:                      ; preds = %for.body.i.i.i
-  %35 = trunc i64 %indvars.iv.i.i.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %36 = add i32 %35, -1
   %or.cond1.i.i = icmp ult i32 %36, 3
   br i1 %or.cond1.i.i, label %for.cond.preheader.i.i, label %nk_utf_decode.exit.i
@@ -58526,7 +58526,7 @@ for.inc.i.i.i75:                                  ; preds = %for.body.i.i.i68
   br i1 %exitcond.not.i.i.i77, label %nk_utf_decode.exit.i79, label %for.body.i.i.i68, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i.i86:                    ; preds = %for.body.i.i.i68
-  %61 = trunc i64 %indvars.iv.i.i.i70 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv.i.i.i70 to i32
   %62 = add i32 %61, -1
   %or.cond1.i.i87 = icmp ult i32 %62, 3
   br i1 %or.cond1.i.i87, label %for.cond.preheader.i.i88, label %nk_utf_decode.exit.i79
@@ -58669,7 +58669,7 @@ for.inc.i.i143:                                   ; preds = %for.body.i.i137
   br i1 %exitcond.not.i.i145, label %nk_utf_decode.exit198, label %for.body.i.i137, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i147:                     ; preds = %for.body.i.i137
-  %82 = trunc i64 %indvars.iv.i.i138 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv.i.i138 to i32
   %83 = add i32 %82, -1
   %or.cond1.i148 = icmp ult i32 %83, 3
   br i1 %or.cond1.i148, label %for.cond.preheader.i149, label %nk_utf_decode.exit198
@@ -58976,7 +58976,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   br i1 %cmp11.i.i.i, label %for.cond.i.i.i, label %nk_utf_validate.exit.i.i, !llvm.loop !22
 
 nk_utf_validate.exit.i.i:                         ; preds = %for.cond.i.i.i
-  %17 = trunc i64 %indvars.iv.i.i.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i = icmp sgt i32 %17, 4
   %tobool.i.i = icmp eq i32 %17, 0
   %or.cond.not10.i.i = or i1 %cmp.i.i, %tobool.i.i
@@ -59173,7 +59173,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   br i1 %cmp11.i.i.i, label %for.cond.i.i.i, label %nk_utf_validate.exit.i.i, !llvm.loop !22
 
 nk_utf_validate.exit.i.i:                         ; preds = %for.cond.i.i.i
-  %11 = trunc i64 %indvars.iv.i.i.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i = icmp sgt i32 %11, 4
   %tobool.i.i = icmp eq i32 %11, 0
   %or.cond.not10.i.i = or i1 %cmp.i.i, %tobool.i.i
@@ -60362,7 +60362,7 @@ if.end226:                                        ; preds = %if.else170, %if.the
 for.body:                                         ; preds = %if.end226, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end226 ], [ %indvars.iv.next, %for.inc ]
   %cursor_follow.11526 = phi i8 [ %cursor_follow.0, %if.end226 ], [ %cursor_follow.2, %for.inc ]
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = and i32 %61, 30
   %or.cond3 = icmp eq i32 %62, 4
   br i1 %or.cond3, label %for.inc, label %if.end.i624
@@ -60547,7 +60547,7 @@ for.inc.i.i1350:                                  ; preds = %for.body.i.i1344
   br i1 %exitcond.not.i.i1352, label %while.body.i.preheader, label %for.body.i.i1344, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i1354:                    ; preds = %for.body.i.i1344
-  %80 = trunc i64 %indvars.iv.i.i1345 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.i.i1345 to i32
   %81 = add i32 %80, -1
   %or.cond1.i1355 = icmp ult i32 %81, 3
   br i1 %or.cond1.i1355, label %for.cond.preheader.i1356, label %while.body.i.preheader
@@ -60653,7 +60653,7 @@ for.inc.i.i1284:                                  ; preds = %for.body.i.i1278
   br i1 %exitcond.not.i.i1286, label %nk_utf_decode.exit1339, label %for.body.i.i1278, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i1288:                    ; preds = %for.body.i.i1278
-  %93 = trunc i64 %indvars.iv.i.i1279 to i32
+  %93 = trunc nuw nsw i64 %indvars.iv.i.i1279 to i32
   %94 = add i32 %93, -1
   %or.cond1.i1289 = icmp ult i32 %94, 3
   br i1 %or.cond1.i1289, label %for.cond.preheader.i1290, label %nk_utf_decode.exit1339
@@ -61109,7 +61109,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %146 = trunc i64 %indvars.iv.i.i to i32
+  %146 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %147 = add i32 %146, -1
   %or.cond1.i = icmp ult i32 %147, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -61355,7 +61355,7 @@ for.inc.i.i801:                                   ; preds = %for.body.i.i795
   br i1 %exitcond.not.i.i803, label %nk_utf_decode.exit856, label %for.body.i.i795, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i805:                     ; preds = %for.body.i.i795
-  %171 = trunc i64 %indvars.iv.i.i796 to i32
+  %171 = trunc nuw nsw i64 %indvars.iv.i.i796 to i32
   %172 = add i32 %171, -1
   %or.cond1.i806 = icmp ult i32 %172, 3
   br i1 %or.cond1.i806, label %for.cond.preheader.i807, label %nk_utf_decode.exit856
@@ -61487,7 +61487,7 @@ for.inc.i.i867:                                   ; preds = %for.body.i.i861
   br i1 %exitcond.not.i.i869, label %nk_utf_decode.exit922, label %for.body.i.i861, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i871:                     ; preds = %for.body.i.i861
-  %191 = trunc i64 %indvars.iv.i.i862 to i32
+  %191 = trunc nuw nsw i64 %indvars.iv.i.i862 to i32
   %192 = add i32 %191, -1
   %or.cond1.i872 = icmp ult i32 %192, 3
   br i1 %or.cond1.i872, label %for.cond.preheader.i873, label %nk_utf_decode.exit922
@@ -62136,7 +62136,7 @@ for.inc.i.i1057:                                  ; preds = %for.body.i.i1051
   br i1 %exitcond.not.i.i1059, label %nk_widget_text.exit, label %for.body.i.i1051, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i1061:                    ; preds = %for.body.i.i1051
-  %275 = trunc i64 %indvars.iv.i.i1052 to i32
+  %275 = trunc nuw nsw i64 %indvars.iv.i.i1052 to i32
   %276 = add i32 %275, -1
   %or.cond1.i1062 = icmp ult i32 %276, 3
   br i1 %or.cond1.i1062, label %for.cond.preheader.i1063, label %nk_widget_text.exit
@@ -62791,7 +62791,7 @@ while.body.i349.i:                                ; preds = %while.body.i349.i.p
   %i.121.i.i = phi i64 [ %inc8.i.i, %while.body.i349.i ], [ %i.121.i.i.ph, %while.body.i349.i.preheader ]
   %n.addr.120.i.i = phi i64 [ %div.i.i, %while.body.i349.i ], [ %n.addr.120.i.i.ph, %while.body.i349.i.preheader ]
   %rem.i.i = urem i64 %n.addr.120.i.i, 10
-  %37 = trunc i64 %rem.i.i to i8
+  %37 = trunc nuw nsw i64 %rem.i.i to i8
   %conv.i.i = or disjoint i8 %37, 48
   %inc8.i.i = add nuw nsw i64 %i.121.i.i, 1
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %string.i, i64 %i.121.i.i
@@ -63437,7 +63437,7 @@ sw.epilog.i.i:                                    ; preds = %nk_rgb_factor.exit1
   %sub.i.i.i = fsub float %23, %cond64.i.i.i
   %div.i.i.i = fmul float %sub.i.i.i, 5.000000e-01
   %add75.i.i.i = fadd float %add69.i.i.i, %div.i.i.i
-  %cmp82.i.i.i = fcmp olt float %add69.i.i.i, %add75.i.i.i
+  %cmp82.i.i.i = fcmp olt float %add20.i, %add75.i.i.i
   %cond91.i.i.i = select i1 %cmp82.i.i.i, float %add75.i.i.i, float %add69.i.i.i
   %114 = insertelement <2 x float> poison, float %cond91.i.i.i, i64 0
   %add98.i.i.i = fadd float %cond64.i.i.i, %cond91.i.i.i
@@ -63647,7 +63647,7 @@ if.end393.i:                                      ; preds = %if.else390.i, %if.t
   store ptr %150, ptr %filter5.i.i, align 8
   %scrollbar.i.i = getelementptr inbounds i8, ptr %ctx, i64 12912
   store <2 x float> zeroinitializer, ptr %scrollbar.i.i, align 8
-  %conv394.i = trunc i32 %active.0.i to i8
+  %conv394.i = trunc nuw nsw i32 %active.0.i to i8
   %active395.i = getelementptr inbounds i8, ptr %ctx, i64 12937
   store i8 %conv394.i, ptr %active395.i, align 1
   %151 = load i32, ptr %length.1.i, align 4
@@ -65535,20 +65535,22 @@ if.end203.i.i:                                    ; preds = %if.then201.i.i, %if
 if.end.i.i.i:                                     ; preds = %if.end203.i.i
   %pos.i.i.i = getelementptr inbounds i8, ptr %cond, i64 324
   %47 = load float, ptr %pos.i.i.i, align 4
-  %cmp.i.i.i = fcmp ole float %10, %47
-  %48 = fadd <2 x float> %5, %8
-  %add.i.i.i = extractelement <2 x float> %48, i64 0
+  %48 = extractelement <2 x float> %6, i64 0
+  %cmp.i.i.i = fcmp ole float %48, %47
+  %49 = fadd <2 x float> %5, %8
+  %add.i.i.i = extractelement <2 x float> %49, i64 0
   %cmp6.i.i.i = fcmp olt float %47, %add.i.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 %cmp6.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.rhs.i.i.i, label %if.end207.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.end.i.i.i
   %y9.i.i.i = getelementptr inbounds i8, ptr %cond, i64 328
-  %49 = load float, ptr %y9.i.i.i, align 4
-  %50 = extractelement <2 x float> %8, i64 1
-  %cmp10.i.i.i = fcmp ugt float %50, %49
-  %add16.i.i.i = fadd float %bounds.sroa.11.12.vec.extract.i, %50
-  %cmp17.i.i.i = fcmp uge float %49, %add16.i.i.i
+  %50 = load float, ptr %y9.i.i.i, align 4
+  %51 = extractelement <2 x float> %6, i64 1
+  %cmp10.i.i.i = fcmp ugt float %51, %50
+  %52 = fadd <2 x float> %5, %8
+  %add16.i.i.i = extractelement <2 x float> %52, i64 1
+  %cmp17.i.i.i = fcmp uge float %50, %add16.i.i.i
   %or.cond.i.i = select i1 %cmp10.i.i.i, i1 true, i1 %cmp17.i.i.i
   br i1 %or.cond.i.i, label %if.end207.i.i, label %if.end207.thread138.i.i
 
@@ -65572,49 +65574,51 @@ if.end207.thread.i.i:                             ; preds = %if.end203.i.i
   br i1 %tobool209.not121.i.i, label %nk_color_picker_behavior.exit.i, label %if.then212.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end207.i.i, %if.end207.thread138.i.i
-  %51 = phi i32 [ 18, %if.end207.thread138.i.i ], [ %46, %if.end207.i.i ]
+  %53 = phi i32 [ 18, %if.end207.thread138.i.i ], [ %46, %if.end207.i.i ]
   %prev.i.i.i = getelementptr inbounds i8, ptr %cond, i64 332
-  %52 = load float, ptr %prev.i.i.i, align 4
-  %cmp.i80.i.i = fcmp ole float %10, %52
-  %cmp6.i83.i.i = fcmp olt float %52, %add.i.i.i
+  %54 = load float, ptr %prev.i.i.i, align 4
+  %cmp.i80.i.i = fcmp ole float %48, %54
+  %cmp6.i83.i.i = fcmp olt float %54, %add.i.i.i
   %or.cond.i84.i.i = select i1 %cmp.i80.i.i, i1 %cmp6.i83.i.i, i1 false
   br i1 %or.cond.i84.i.i, label %land.rhs.i86.i.i, label %if.then212.i.i
 
 land.rhs.i86.i.i:                                 ; preds = %land.lhs.true.i.i
   %y9.i88.i.i = getelementptr inbounds i8, ptr %cond, i64 336
-  %53 = load float, ptr %y9.i88.i.i, align 4
-  %54 = extractelement <2 x float> %8, i64 1
-  %cmp10.i89.i.i = fcmp ugt float %54, %53
-  %add16.i92.i.i = fadd float %bounds.sroa.11.12.vec.extract.i, %54
-  %cmp17.i93.i.i = fcmp uge float %53, %add16.i92.i.i
+  %55 = load float, ptr %y9.i88.i.i, align 4
+  %56 = extractelement <2 x float> %6, i64 1
+  %cmp10.i89.i.i = fcmp ugt float %56, %55
+  %57 = fadd <2 x float> %5, %8
+  %add16.i92.i.i = extractelement <2 x float> %57, i64 1
+  %cmp17.i93.i.i = fcmp uge float %55, %add16.i92.i.i
   %or.cond129.i.i = select i1 %cmp10.i89.i.i, i1 true, i1 %cmp17.i93.i.i
   br i1 %or.cond129.i.i, label %if.then212.i.i, label %if.end.i95.i.i
 
 if.then212.i.i:                                   ; preds = %land.rhs.i86.i.i, %land.lhs.true.i.i, %if.end207.thread.i.i
-  %55 = phi i32 [ %51, %land.rhs.i86.i.i ], [ %51, %land.lhs.true.i.i ], [ %46, %if.end207.thread.i.i ]
-  %or.i.i = or i32 %55, 8
+  %58 = phi i32 [ %53, %land.rhs.i86.i.i ], [ %53, %land.lhs.true.i.i ], [ %46, %if.end207.thread.i.i ]
+  %or.i.i = or i32 %58, 8
   br label %if.end219.sink.split.i.i
 
 if.end.i95.i.i:                                   ; preds = %land.rhs.i86.i.i, %if.end207.if.end.i95_crit_edge.i.i
-  %56 = phi i32 [ %46, %if.end207.if.end.i95_crit_edge.i.i ], [ %51, %land.rhs.i86.i.i ]
-  %57 = phi float [ %.pre132.i.i, %if.end207.if.end.i95_crit_edge.i.i ], [ %52, %land.rhs.i86.i.i ]
-  %cmp.i98.i.i = fcmp ole float %10, %57
-  %cmp6.i101.i.i = fcmp olt float %57, %add.i.i.i
+  %59 = phi i32 [ %46, %if.end207.if.end.i95_crit_edge.i.i ], [ %53, %land.rhs.i86.i.i ]
+  %60 = phi float [ %.pre132.i.i, %if.end207.if.end.i95_crit_edge.i.i ], [ %54, %land.rhs.i86.i.i ]
+  %cmp.i98.i.i = fcmp ole float %48, %60
+  %cmp6.i101.i.i = fcmp olt float %60, %add.i.i.i
   %or.cond.i102.i.i = select i1 %cmp.i98.i.i, i1 %cmp6.i101.i.i, i1 false
   br i1 %or.cond.i102.i.i, label %land.rhs.i104.i.i, label %nk_color_picker_behavior.exit.i
 
 land.rhs.i104.i.i:                                ; preds = %if.end.i95.i.i
   %y9.i106.i.i = getelementptr inbounds i8, ptr %cond, i64 336
-  %58 = load float, ptr %y9.i106.i.i, align 4
-  %59 = extractelement <2 x float> %8, i64 1
-  %cmp10.i107.i.i = fcmp ugt float %59, %58
-  %add16.i110.i.i = fadd float %bounds.sroa.11.12.vec.extract.i, %59
-  %cmp17.i111.i.i = fcmp uge float %58, %add16.i110.i.i
+  %61 = load float, ptr %y9.i106.i.i, align 4
+  %62 = extractelement <2 x float> %6, i64 1
+  %cmp10.i107.i.i = fcmp ugt float %62, %61
+  %63 = fadd <2 x float> %5, %8
+  %add16.i110.i.i = extractelement <2 x float> %63, i64 1
+  %cmp17.i111.i.i = fcmp uge float %61, %add16.i110.i.i
   %or.cond130.i.i = select i1 %cmp10.i107.i.i, i1 true, i1 %cmp17.i111.i.i
   br i1 %or.cond130.i.i, label %nk_color_picker_behavior.exit.i, label %if.then216.i.i
 
 if.then216.i.i:                                   ; preds = %land.rhs.i104.i.i
-  %or217.i.i = or i32 %56, 64
+  %or217.i.i = or i32 %59, 64
   br label %if.end219.sink.split.i.i
 
 if.end219.sink.split.i.i:                         ; preds = %if.then216.i.i, %if.then212.i.i
@@ -65623,16 +65627,16 @@ if.end219.sink.split.i.i:                         ; preds = %if.then216.i.i, %if
   br label %nk_color_picker_behavior.exit.i
 
 nk_color_picker_behavior.exit.i:                  ; preds = %if.end219.sink.split.i.i, %land.rhs.i104.i.i, %if.end.i95.i.i, %if.end207.thread.i.i
-  %60 = load <2 x float>, ptr %color, align 4
-  %61 = load <2 x float>, ptr %15, align 4
-  %in.sroa.0.4.vec.extract.i.i.i22.i = extractelement <2 x float> %60, i64 1
-  %in.sroa.18.8.vec.extract.i.i.i23.i = extractelement <2 x float> %61, i64 0
+  %64 = load <2 x float>, ptr %color, align 4
+  %65 = load <2 x float>, ptr %15, align 4
+  %in.sroa.0.4.vec.extract.i.i.i22.i = extractelement <2 x float> %64, i64 1
+  %in.sroa.18.8.vec.extract.i.i.i23.i = extractelement <2 x float> %65, i64 0
   %cmp.i.i.i24.i = fcmp olt float %in.sroa.0.4.vec.extract.i.i.i22.i, %in.sroa.18.8.vec.extract.i.i.i23.i
-  %in.sroa.0.4.vec.insert.i.i.i25.i = shufflevector <2 x float> %60, <2 x float> %61, <2 x i32> <i32 0, i32 2>
-  %in.sroa.18.8.vec.insert.i.i.i26.i = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %in.sroa.0.4.vec.insert.i.i.i25.i = shufflevector <2 x float> %64, <2 x float> %65, <2 x i32> <i32 0, i32 2>
+  %in.sroa.18.8.vec.insert.i.i.i26.i = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %K.0.i.i.i27.i = select i1 %cmp.i.i.i24.i, float -1.000000e+00, float 0.000000e+00
-  %in.sroa.0.0.i.i.i28.i = select i1 %cmp.i.i.i24.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i25.i, <2 x float> %60
-  %in.sroa.18.0.i.i.i29.i = select i1 %cmp.i.i.i24.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i26.i, <2 x float> %61
+  %in.sroa.0.0.i.i.i28.i = select i1 %cmp.i.i.i24.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i25.i, <2 x float> %64
+  %in.sroa.18.0.i.i.i29.i = select i1 %cmp.i.i.i24.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i26.i, <2 x float> %65
   %in.sroa.0.0.vec.extract.i.i.i30.i = extractelement <2 x float> %in.sroa.0.0.i.i.i28.i, i64 0
   %in.sroa.0.4.vec.extract20.i.i.i31.i = extractelement <2 x float> %in.sroa.0.0.i.i.i28.i, i64 1
   %cmp6.i.i.i32.i = fcmp olt float %in.sroa.0.0.vec.extract.i.i.i30.i, %in.sroa.0.4.vec.extract20.i.i.i31.i
@@ -65647,27 +65651,27 @@ nk_color_picker_behavior.exit.i:                  ; preds = %if.end219.sink.spli
   %cond.i.i.i41.i = select i1 %cmp17.i.i.i40.i, float %in.sroa.0.4.vec.extract26.i.i.i38.i, float %in.sroa.18.8.vec.extract39.i.i.i39.i
   %sub20.i.i.i42.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i37.i, %cond.i.i.i41.i
   %sub23.i.i.i43.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i38.i, %in.sroa.18.8.vec.extract39.i.i.i39.i
-  %62 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i42.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i44.i = fdiv float %sub23.i.i.i43.i, %62
+  %66 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i42.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i44.i = fdiv float %sub23.i.i.i43.i, %66
   %add.i.i.i45.i = fadd float %K.1.i.i.i35.i, %div.i.i.i44.i
   %div.i50.i = fdiv float %bounds.sroa.11.12.vec.extract.i, 6.000000e+00
   %add3.i.i = fadd float %div.i50.i, 5.000000e-01
   %retval.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> %hue_bar.sroa.8.8.vec.insert.i, float %add3.i.i, i64 1
-  %63 = extractelement <2 x float> %8, i64 1
+  %67 = extractelement <2 x float> %8, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %nk_color_picker_behavior.exit.i
-  %64 = phi i32 [ -16776961, %nk_color_picker_behavior.exit.i ], [ %67, %for.body.i.i ]
+  %68 = phi i32 [ -16776961, %nk_color_picker_behavior.exit.i ], [ %71, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %nk_color_picker_behavior.exit.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %65 = trunc i64 %indvars.iv.i.i to i32
-  %conv.i.i = sitofp i32 %65 to float
-  %66 = tail call float @llvm.fmuladd.f32(float %conv.i.i, float %div.i50.i, float %63)
-  %add.i.i = fadd float %66, 5.000000e-01
+  %69 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %conv.i.i = sitofp i32 %69 to float
+  %70 = tail call float @llvm.fmuladd.f32(float %conv.i.i, float %div.i50.i, float %67)
+  %add.i.i = fadd float %70, 5.000000e-01
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %11, float %add.i.i, i64 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx8.i.i = getelementptr inbounds [7 x %struct.nk_color], ptr @nk_draw_color_picker.hue_colors, i64 0, i64 %indvars.iv.next.i.i
-  %67 = load i32, ptr %arrayidx8.i.i, align 4
-  tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %buffer, <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, <2 x float> %retval.sroa.3.12.vec.insert.i.i.i, i32 %64, i32 %64, i32 %67, i32 %67)
+  %71 = load i32, ptr %arrayidx8.i.i, align 4
+  tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %buffer, <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, <2 x float> %retval.sroa.3.12.vec.insert.i.i.i, i32 %68, i32 %68, i32 %71, i32 %71)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !234
 
@@ -65677,36 +65681,36 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %cmp24.i.i.i51.i = fcmp olt float %add.i.i.i45.i, 0.000000e+00
   %cond38.i.i.i52.i = select i1 %cmp24.i.i.i51.i, float %fneg.i.i.i46.i, float %add.i.i.i45.i
   %div41.i.i.i53.i = fdiv float %sub20.i.i.i42.i, %add40.i.i.i47.i
-  %68 = load ptr, ptr %buffer, align 8
-  %call.i.i.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %68, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %72 = load ptr, ptr %buffer, align 8
+  %call.i.i.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %72, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool1.not.i.i.i.i, label %nk_stroke_line.exit.i.i, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %for.end.i.i
   %add22.i.i = fadd float %add34.i, 2.000000e+00
   %sub.i54.i = fadd float %add28.i, -1.000000e+00
-  %69 = tail call float @llvm.fmuladd.f32(float %cond38.i.i.i52.i, float %bounds.sroa.11.12.vec.extract.i, float %63)
-  %add15.i.i = fadd float %69, 5.000000e-01
+  %73 = tail call float @llvm.fmuladd.f32(float %cond38.i.i.i52.i, float %bounds.sroa.11.12.vec.extract.i, float %67)
+  %add15.i.i = fadd float %73, 5.000000e-01
   %conv16.i.i = fptosi float %add15.i.i to i32
-  %70 = load ptr, ptr %buffer, align 8
-  %memory5.i.i.i.i = getelementptr inbounds i8, ptr %70, i64 64
-  %71 = load ptr, ptr %memory5.i.i.i.i, align 8
+  %74 = load ptr, ptr %buffer, align 8
+  %memory5.i.i.i.i = getelementptr inbounds i8, ptr %74, i64 64
+  %75 = load ptr, ptr %memory5.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %71 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %75 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %last.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i.i.i, ptr %last.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %add.ptr6.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 39
-  %72 = ptrtoint ptr %add.ptr6.i.i.i.i to i64
-  %and.i.i.i.i = and i64 %72, -8
+  %76 = ptrtoint ptr %add.ptr6.i.i.i.i to i64
+  %and.i.i.i.i = and i64 %76, -8
   %sub.ptr.rhs.cast8.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.sub9.i.i.i.i = sub i64 %and.i.i.i.i, %sub.ptr.rhs.cast8.i.i.i.i
   store i32 2, ptr %call.i.i.i.i, align 8
-  %73 = load ptr, ptr %buffer, align 8
-  %allocated.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 88
-  %74 = load i64, ptr %allocated.i.i.i.i, align 8
-  %add.i.i60.i.i = add i64 %74, %sub.ptr.sub9.i.i.i.i
+  %77 = load ptr, ptr %buffer, align 8
+  %allocated.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 88
+  %78 = load i64, ptr %allocated.i.i.i.i, align 8
+  %add.i.i60.i.i = add i64 %78, %sub.ptr.sub9.i.i.i.i
   %next.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i64 %add.i.i60.i.i, ptr %next.i.i.i.i, align 8
   %end.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -65733,8 +65737,8 @@ nk_stroke_line.exit.i.i:                          ; preds = %if.end3.i.i.i, %for
 
 if.then.i57.i:                                    ; preds = %nk_stroke_line.exit.i.i
   tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %buffer, <2 x float> %13, <2 x float> %hue_bar.sroa.8.12.vec.insert.i, i32 -1, i32 -1, i32 -16777216, i32 -16777216)
-  %75 = load ptr, ptr %buffer, align 8
-  %call.i.i63.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %75, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %79 = load ptr, ptr %buffer, align 8
+  %call.i.i63.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %79, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i64.i.i = icmp eq ptr %call.i.i63.i.i, null
   br i1 %tobool1.not.i.i64.i.i, label %if.end.i59.i, label %if.end3.i65.i.i
 
@@ -65742,34 +65746,34 @@ if.end3.i65.i.i:                                  ; preds = %if.then.i57.i
   %add52.i.i = fadd float %7, %add34.i
   %add53.i.i = fadd float %add52.i.i, 2.000000e+00
   %sub49.i.i = fadd float %add34.i, -1.000000e+00
-  %col.sroa.2.12.vec.extract.i.i = extractelement <2 x float> %61, i64 1
+  %col.sroa.2.12.vec.extract.i.i = extractelement <2 x float> %65, i64 1
   %cmp25.i.i = fcmp ogt float %col.sroa.2.12.vec.extract.i.i, 1.000000e+00
   %cond.i58.i = select i1 %cmp25.i.i, float 1.000000e+00, float %col.sroa.2.12.vec.extract.i.i
   %cmp28.i.i = fcmp ogt float %cond.i58.i, 0.000000e+00
   %cond41.i.i = select i1 %cmp28.i.i, float %cond.i58.i, float 0.000000e+00
   %sub43.i.i = fsub float 1.000000e+00, %cond41.i.i
-  %76 = tail call float @llvm.fmuladd.f32(float %sub43.i.i, float %bounds.sroa.11.12.vec.extract.i, float %63)
-  %add45.i.i = fadd float %76, 5.000000e-01
+  %80 = tail call float @llvm.fmuladd.f32(float %sub43.i.i, float %bounds.sroa.11.12.vec.extract.i, float %67)
+  %add45.i.i = fadd float %80, 5.000000e-01
   %conv46.i.i = fptosi float %add45.i.i to i32
-  %77 = load ptr, ptr %buffer, align 8
-  %memory5.i.i66.i.i = getelementptr inbounds i8, ptr %77, i64 64
-  %78 = load ptr, ptr %memory5.i.i66.i.i, align 8
+  %81 = load ptr, ptr %buffer, align 8
+  %memory5.i.i66.i.i = getelementptr inbounds i8, ptr %81, i64 64
+  %82 = load ptr, ptr %memory5.i.i66.i.i, align 8
   %sub.ptr.lhs.cast.i.i67.i.i = ptrtoint ptr %call.i.i63.i.i to i64
-  %sub.ptr.rhs.cast.i.i68.i.i = ptrtoint ptr %78 to i64
+  %sub.ptr.rhs.cast.i.i68.i.i = ptrtoint ptr %82 to i64
   %sub.ptr.sub.i.i69.i.i = sub i64 %sub.ptr.lhs.cast.i.i67.i.i, %sub.ptr.rhs.cast.i.i68.i.i
   %last.i.i70.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i69.i.i, ptr %last.i.i70.i.i, align 8
   %add.ptr.i.i71.i.i = getelementptr inbounds i8, ptr %call.i.i63.i.i, i64 32
   %add.ptr6.i.i72.i.i = getelementptr inbounds i8, ptr %call.i.i63.i.i, i64 39
-  %79 = ptrtoint ptr %add.ptr6.i.i72.i.i to i64
-  %and.i.i73.i.i = and i64 %79, -8
+  %83 = ptrtoint ptr %add.ptr6.i.i72.i.i to i64
+  %and.i.i73.i.i = and i64 %83, -8
   %sub.ptr.rhs.cast8.i.i74.i.i = ptrtoint ptr %add.ptr.i.i71.i.i to i64
   %sub.ptr.sub9.i.i75.i.i = sub i64 %and.i.i73.i.i, %sub.ptr.rhs.cast8.i.i74.i.i
   store i32 2, ptr %call.i.i63.i.i, align 8
-  %80 = load ptr, ptr %buffer, align 8
-  %allocated.i.i76.i.i = getelementptr inbounds i8, ptr %80, i64 88
-  %81 = load i64, ptr %allocated.i.i76.i.i, align 8
-  %add.i.i77.i.i = add i64 %81, %sub.ptr.sub9.i.i75.i.i
+  %84 = load ptr, ptr %buffer, align 8
+  %allocated.i.i76.i.i = getelementptr inbounds i8, ptr %84, i64 88
+  %85 = load i64, ptr %allocated.i.i76.i.i, align 8
+  %add.i.i77.i.i = add i64 %85, %sub.ptr.sub9.i.i75.i.i
   %next.i.i78.i.i = getelementptr inbounds i8, ptr %call.i.i63.i.i, i64 8
   store i64 %add.i.i77.i.i, ptr %next.i.i78.i.i, align 8
   %end.i.i79.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -65796,9 +65800,9 @@ if.end.i59.i:                                     ; preds = %if.end3.i65.i.i, %i
   %conv.i.i.i.i.i = fptosi float %div.i.i.i.i.i to i32
   %conv2.i.i.i.i.i = sitofp i32 %conv.i.i.i.i.i to float
   %sub.i.i.i.i.i = fsub float %div.i.i.i.i.i, %conv2.i.i.i.i.i
-  %82 = tail call float @llvm.fmuladd.f32(float %sub.i.i.i.i.i, float -1.000000e+00, float 1.000000e+00)
+  %86 = tail call float @llvm.fmuladd.f32(float %sub.i.i.i.i.i, float -1.000000e+00, float 1.000000e+00)
   %sub6.i.i.i.i.i = fsub float 1.000000e+00, %sub.i.i.i.i.i
-  %83 = tail call float @llvm.fmuladd.f32(float %sub6.i.i.i.i.i, float -1.000000e+00, float 1.000000e+00)
+  %87 = tail call float @llvm.fmuladd.f32(float %sub6.i.i.i.i.i, float -1.000000e+00, float 1.000000e+00)
   switch i32 %conv.i.i.i.i.i, label %nk_hsv_f.exit.i.i [
     i32 5, label %sw.bb29.i.i.i.i.i
     i32 1, label %sw.bb13.i.i.i.i.i
@@ -65823,71 +65827,71 @@ sw.bb29.i.i.i.i.i:                                ; preds = %if.end.i59.i
   br label %nk_hsv_f.exit.i.i
 
 nk_hsv_f.exit.i.i:                                ; preds = %sw.bb29.i.i.i.i.i, %sw.bb25.i.i.i.i.i, %sw.bb21.i.i.i.i.i, %sw.bb17.i.i.i.i.i, %sw.bb13.i.i.i.i.i, %if.end.i59.i
-  %v.sink.i.i.i.i.i = phi float [ 1.000000e+00, %sw.bb29.i.i.i.i.i ], [ %83, %sw.bb25.i.i.i.i.i ], [ 0.000000e+00, %sw.bb21.i.i.i.i.i ], [ 0.000000e+00, %sw.bb17.i.i.i.i.i ], [ %82, %sw.bb13.i.i.i.i.i ], [ 1.000000e+00, %if.end.i59.i ]
-  %mul.sink.i.i.i.i.i = phi float [ 0.000000e+00, %sw.bb29.i.i.i.i.i ], [ 0.000000e+00, %sw.bb25.i.i.i.i.i ], [ %82, %sw.bb21.i.i.i.i.i ], [ 1.000000e+00, %sw.bb17.i.i.i.i.i ], [ 1.000000e+00, %sw.bb13.i.i.i.i.i ], [ %83, %if.end.i59.i ]
-  %mul5.sink.i.i.i.i.i = phi float [ %82, %sw.bb29.i.i.i.i.i ], [ 1.000000e+00, %sw.bb25.i.i.i.i.i ], [ 1.000000e+00, %sw.bb21.i.i.i.i.i ], [ %83, %sw.bb17.i.i.i.i.i ], [ 0.000000e+00, %sw.bb13.i.i.i.i.i ], [ 0.000000e+00, %if.end.i59.i ]
+  %v.sink.i.i.i.i.i = phi float [ 1.000000e+00, %sw.bb29.i.i.i.i.i ], [ %87, %sw.bb25.i.i.i.i.i ], [ 0.000000e+00, %sw.bb21.i.i.i.i.i ], [ 0.000000e+00, %sw.bb17.i.i.i.i.i ], [ %86, %sw.bb13.i.i.i.i.i ], [ 1.000000e+00, %if.end.i59.i ]
+  %mul.sink.i.i.i.i.i = phi float [ 0.000000e+00, %sw.bb29.i.i.i.i.i ], [ 0.000000e+00, %sw.bb25.i.i.i.i.i ], [ %86, %sw.bb21.i.i.i.i.i ], [ 1.000000e+00, %sw.bb17.i.i.i.i.i ], [ 1.000000e+00, %sw.bb13.i.i.i.i.i ], [ %87, %if.end.i59.i ]
+  %mul5.sink.i.i.i.i.i = phi float [ %86, %sw.bb29.i.i.i.i.i ], [ 1.000000e+00, %sw.bb25.i.i.i.i.i ], [ 1.000000e+00, %sw.bb21.i.i.i.i.i ], [ %87, %sw.bb17.i.i.i.i.i ], [ 0.000000e+00, %sw.bb13.i.i.i.i.i ], [ 0.000000e+00, %if.end.i59.i ]
   %cmp.i1.i.i.i.i = fcmp ogt float %v.sink.i.i.i.i.i, 1.000000e+00
   %cond.i.i.i.i.i = select i1 %cmp.i1.i.i.i.i, float 1.000000e+00, float %v.sink.i.i.i.i.i
   %cmp1.i.i.i.i.i = fcmp ogt float %cond.i.i.i.i.i, 0.000000e+00
-  %84 = fmul float %cond.i.i.i.i.i, 2.550000e+02
-  %85 = fptoui float %84 to i8
-  %86 = zext i8 %85 to i32
-  %87 = or disjoint i32 %86, -16777216
+  %88 = fmul float %cond.i.i.i.i.i, 2.550000e+02
+  %89 = fptoui float %88 to i8
+  %90 = zext i8 %89 to i32
+  %91 = or disjoint i32 %90, -16777216
   %cmp12.i.i.i.i.i = fcmp ogt float %mul.sink.i.i.i.i.i, 1.000000e+00
   %cond17.i.i.i.i.i = select i1 %cmp12.i.i.i.i.i, float 1.000000e+00, float %mul.sink.i.i.i.i.i
   %cmp18.i.i.i.i.i = fcmp ogt float %cond17.i.i.i.i.i, 0.000000e+00
-  %88 = fmul float %cond17.i.i.i.i.i, 2.550000e+02
-  %89 = fptoui float %88 to i8
-  %90 = zext i8 %89 to i32
-  %91 = shl nuw nsw i32 %90, 8
-  %cond29.i.i.i.i.i = select i1 %cmp18.i.i.i.i.i, i32 %91, i32 0
+  %92 = fmul float %cond17.i.i.i.i.i, 2.550000e+02
+  %93 = fptoui float %92 to i8
+  %94 = zext i8 %93 to i32
+  %95 = shl nuw nsw i32 %94, 8
+  %cond29.i.i.i.i.i = select i1 %cmp18.i.i.i.i.i, i32 %95, i32 0
   %cmp33.i.i.i.i.i = fcmp ogt float %mul5.sink.i.i.i.i.i, 1.000000e+00
   %cond38.i.i.i.i.i = select i1 %cmp33.i.i.i.i.i, float 1.000000e+00, float %mul5.sink.i.i.i.i.i
   %cmp39.i.i.i.i.i = fcmp ogt float %cond38.i.i.i.i.i, 0.000000e+00
-  %92 = fmul float %cond38.i.i.i.i.i, 2.550000e+02
-  %93 = fptoui float %92 to i8
-  %94 = zext i8 %93 to i32
-  %95 = shl nuw nsw i32 %94, 16
-  %cond50.i.i.i.i.i = select i1 %cmp39.i.i.i.i.i, i32 %95, i32 0
-  %retval.sroa.3.0.insert.insert.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i32 %87, i32 -16777216
+  %96 = fmul float %cond38.i.i.i.i.i, 2.550000e+02
+  %97 = fptoui float %96 to i8
+  %98 = zext i8 %97 to i32
+  %99 = shl nuw nsw i32 %98, 16
+  %cond50.i.i.i.i.i = select i1 %cmp39.i.i.i.i.i, i32 %99, i32 0
+  %retval.sroa.3.0.insert.insert.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i32 %91, i32 -16777216
   %retval.sroa.2.0.insert.insert.i.i.i.i.i = or disjoint i32 %cond29.i.i.i.i.i, %retval.sroa.3.0.insert.insert.i.i.i.i.i
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i.i.i.i.i, %cond50.i.i.i.i.i
   tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %buffer, <2 x float> %8, <2 x float> %matrix.sroa.10.8.vec.insert.i, i32 -1, i32 %retval.sroa.0.0.insert.insert.i.i.i.i.i, i32 %retval.sroa.0.0.insert.insert.i.i.i.i.i, i32 -1)
   tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %buffer, <2 x float> %8, <2 x float> %matrix.sroa.10.8.vec.insert.i, i32 0, i32 0, i32 -16777216, i32 -16777216)
-  %96 = tail call float @llvm.fmuladd.f32(float %div41.i.i.i53.i, float %sub.i, float %10)
-  %conv62.i.i = fptosi float %96 to i32
+  %100 = tail call float @llvm.fmuladd.f32(float %div41.i.i.i53.i, float %sub.i, float %10)
+  %conv62.i.i = fptosi float %100 to i32
   %conv63.i.i = sitofp i32 %conv62.i.i to float
   %sub66.i.i = fsub float 1.000000e+00, %in.sroa.0.0.vec.extract11.i.i.i37.i
-  %97 = tail call float @llvm.fmuladd.f32(float %sub66.i.i, float %bounds.sroa.11.12.vec.extract.i, float %63)
-  %conv68.i.i = fptosi float %97 to i32
+  %101 = tail call float @llvm.fmuladd.f32(float %sub66.i.i, float %bounds.sroa.11.12.vec.extract.i, float %67)
+  %conv68.i.i = fptosi float %101 to i32
   %conv69.i.i = sitofp i32 %conv68.i.i to float
-  %98 = load ptr, ptr %buffer, align 8
-  %call.i.i93.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %98, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %102 = load ptr, ptr %buffer, align 8
+  %call.i.i93.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %102, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i94.i.i = icmp eq ptr %call.i.i93.i.i, null
   br i1 %tobool1.not.i.i94.i.i, label %if.end.i122.i.i, label %if.end3.i95.i.i
 
 if.end3.i95.i.i:                                  ; preds = %nk_hsv_f.exit.i.i
   %sub75.i.i = fadd float %conv63.i.i, -2.000000e+00
   %sub72.i.i = fadd float %conv63.i.i, -7.000000e+00
-  %99 = load ptr, ptr %buffer, align 8
-  %memory5.i.i96.i.i = getelementptr inbounds i8, ptr %99, i64 64
-  %100 = load ptr, ptr %memory5.i.i96.i.i, align 8
+  %103 = load ptr, ptr %buffer, align 8
+  %memory5.i.i96.i.i = getelementptr inbounds i8, ptr %103, i64 64
+  %104 = load ptr, ptr %memory5.i.i96.i.i, align 8
   %sub.ptr.lhs.cast.i.i97.i.i = ptrtoint ptr %call.i.i93.i.i to i64
-  %sub.ptr.rhs.cast.i.i98.i.i = ptrtoint ptr %100 to i64
+  %sub.ptr.rhs.cast.i.i98.i.i = ptrtoint ptr %104 to i64
   %sub.ptr.sub.i.i99.i.i = sub i64 %sub.ptr.lhs.cast.i.i97.i.i, %sub.ptr.rhs.cast.i.i98.i.i
   %last.i.i100.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i99.i.i, ptr %last.i.i100.i.i, align 8
   %add.ptr.i.i101.i.i = getelementptr inbounds i8, ptr %call.i.i93.i.i, i64 32
   %add.ptr6.i.i102.i.i = getelementptr inbounds i8, ptr %call.i.i93.i.i, i64 39
-  %101 = ptrtoint ptr %add.ptr6.i.i102.i.i to i64
-  %and.i.i103.i.i = and i64 %101, -8
+  %105 = ptrtoint ptr %add.ptr6.i.i102.i.i to i64
+  %and.i.i103.i.i = and i64 %105, -8
   %sub.ptr.rhs.cast8.i.i104.i.i = ptrtoint ptr %add.ptr.i.i101.i.i to i64
   %sub.ptr.sub9.i.i105.i.i = sub i64 %and.i.i103.i.i, %sub.ptr.rhs.cast8.i.i104.i.i
   store i32 2, ptr %call.i.i93.i.i, align 8
-  %102 = load ptr, ptr %buffer, align 8
-  %allocated.i.i106.i.i = getelementptr inbounds i8, ptr %102, i64 88
-  %103 = load i64, ptr %allocated.i.i106.i.i, align 8
-  %add.i.i107.i.i = add i64 %103, %sub.ptr.sub9.i.i105.i.i
+  %106 = load ptr, ptr %buffer, align 8
+  %allocated.i.i106.i.i = getelementptr inbounds i8, ptr %106, i64 88
+  %107 = load i64, ptr %allocated.i.i106.i.i, align 8
+  %add.i.i107.i.i = add i64 %107, %sub.ptr.sub9.i.i105.i.i
   %next.i.i108.i.i = getelementptr inbounds i8, ptr %call.i.i93.i.i, i64 8
   store i64 %add.i.i107.i.i, ptr %next.i.i108.i.i, align 8
   %end.i.i109.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -65910,8 +65914,8 @@ if.end3.i95.i.i:                                  ; preds = %nk_hsv_f.exit.i.i
   br label %if.end.i122.i.i
 
 if.end.i122.i.i:                                  ; preds = %if.end3.i95.i.i, %nk_hsv_f.exit.i.i
-  %104 = load ptr, ptr %buffer, align 8
-  %call.i.i123.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %104, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %108 = load ptr, ptr %buffer, align 8
+  %call.i.i123.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %108, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i124.i.i = icmp eq ptr %call.i.i123.i.i, null
   br i1 %tobool1.not.i.i124.i.i, label %if.end.i152.i.i, label %if.end3.i125.i.i
 
@@ -65919,25 +65923,25 @@ if.end3.i125.i.i:                                 ; preds = %if.end.i122.i.i
   %add82214.i.i = fadd float %conv63.i.i, 3.000000e+00
   %add78212.i.i = fadd float %conv63.i.i, 7.000000e+00
   %add79213.i.i = fadd float %add78212.i.i, 1.000000e+00
-  %105 = load ptr, ptr %buffer, align 8
-  %memory5.i.i126.i.i = getelementptr inbounds i8, ptr %105, i64 64
-  %106 = load ptr, ptr %memory5.i.i126.i.i, align 8
+  %109 = load ptr, ptr %buffer, align 8
+  %memory5.i.i126.i.i = getelementptr inbounds i8, ptr %109, i64 64
+  %110 = load ptr, ptr %memory5.i.i126.i.i, align 8
   %sub.ptr.lhs.cast.i.i127.i.i = ptrtoint ptr %call.i.i123.i.i to i64
-  %sub.ptr.rhs.cast.i.i128.i.i = ptrtoint ptr %106 to i64
+  %sub.ptr.rhs.cast.i.i128.i.i = ptrtoint ptr %110 to i64
   %sub.ptr.sub.i.i129.i.i = sub i64 %sub.ptr.lhs.cast.i.i127.i.i, %sub.ptr.rhs.cast.i.i128.i.i
   %last.i.i130.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i129.i.i, ptr %last.i.i130.i.i, align 8
   %add.ptr.i.i131.i.i = getelementptr inbounds i8, ptr %call.i.i123.i.i, i64 32
   %add.ptr6.i.i132.i.i = getelementptr inbounds i8, ptr %call.i.i123.i.i, i64 39
-  %107 = ptrtoint ptr %add.ptr6.i.i132.i.i to i64
-  %and.i.i133.i.i = and i64 %107, -8
+  %111 = ptrtoint ptr %add.ptr6.i.i132.i.i to i64
+  %and.i.i133.i.i = and i64 %111, -8
   %sub.ptr.rhs.cast8.i.i134.i.i = ptrtoint ptr %add.ptr.i.i131.i.i to i64
   %sub.ptr.sub9.i.i135.i.i = sub i64 %and.i.i133.i.i, %sub.ptr.rhs.cast8.i.i134.i.i
   store i32 2, ptr %call.i.i123.i.i, align 8
-  %108 = load ptr, ptr %buffer, align 8
-  %allocated.i.i136.i.i = getelementptr inbounds i8, ptr %108, i64 88
-  %109 = load i64, ptr %allocated.i.i136.i.i, align 8
-  %add.i.i137.i.i = add i64 %109, %sub.ptr.sub9.i.i135.i.i
+  %112 = load ptr, ptr %buffer, align 8
+  %allocated.i.i136.i.i = getelementptr inbounds i8, ptr %112, i64 88
+  %113 = load i64, ptr %allocated.i.i136.i.i, align 8
+  %add.i.i137.i.i = add i64 %113, %sub.ptr.sub9.i.i135.i.i
   %next.i.i138.i.i = getelementptr inbounds i8, ptr %call.i.i123.i.i, i64 8
   store i64 %add.i.i137.i.i, ptr %next.i.i138.i.i, align 8
   %end.i.i139.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -65960,8 +65964,8 @@ if.end3.i125.i.i:                                 ; preds = %if.end.i122.i.i
   br label %if.end.i152.i.i
 
 if.end.i152.i.i:                                  ; preds = %if.end3.i125.i.i, %if.end.i122.i.i
-  %110 = load ptr, ptr %buffer, align 8
-  %call.i.i153.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %110, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %114 = load ptr, ptr %buffer, align 8
+  %call.i.i153.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %114, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i154.i.i = icmp eq ptr %call.i.i153.i.i, null
   br i1 %tobool1.not.i.i154.i.i, label %if.end.i182.i.i, label %if.end3.i155.i.i
 
@@ -65969,25 +65973,25 @@ if.end3.i155.i.i:                                 ; preds = %if.end.i152.i.i
   %add90219.i.i = fadd float %conv69.i.i, 3.000000e+00
   %add86217.i.i = fadd float %conv69.i.i, 7.000000e+00
   %add87218.i.i = fadd float %add86217.i.i, 1.000000e+00
-  %111 = load ptr, ptr %buffer, align 8
-  %memory5.i.i156.i.i = getelementptr inbounds i8, ptr %111, i64 64
-  %112 = load ptr, ptr %memory5.i.i156.i.i, align 8
+  %115 = load ptr, ptr %buffer, align 8
+  %memory5.i.i156.i.i = getelementptr inbounds i8, ptr %115, i64 64
+  %116 = load ptr, ptr %memory5.i.i156.i.i, align 8
   %sub.ptr.lhs.cast.i.i157.i.i = ptrtoint ptr %call.i.i153.i.i to i64
-  %sub.ptr.rhs.cast.i.i158.i.i = ptrtoint ptr %112 to i64
+  %sub.ptr.rhs.cast.i.i158.i.i = ptrtoint ptr %116 to i64
   %sub.ptr.sub.i.i159.i.i = sub i64 %sub.ptr.lhs.cast.i.i157.i.i, %sub.ptr.rhs.cast.i.i158.i.i
   %last.i.i160.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i159.i.i, ptr %last.i.i160.i.i, align 8
   %add.ptr.i.i161.i.i = getelementptr inbounds i8, ptr %call.i.i153.i.i, i64 32
   %add.ptr6.i.i162.i.i = getelementptr inbounds i8, ptr %call.i.i153.i.i, i64 39
-  %113 = ptrtoint ptr %add.ptr6.i.i162.i.i to i64
-  %and.i.i163.i.i = and i64 %113, -8
+  %117 = ptrtoint ptr %add.ptr6.i.i162.i.i to i64
+  %and.i.i163.i.i = and i64 %117, -8
   %sub.ptr.rhs.cast8.i.i164.i.i = ptrtoint ptr %add.ptr.i.i161.i.i to i64
   %sub.ptr.sub9.i.i165.i.i = sub i64 %and.i.i163.i.i, %sub.ptr.rhs.cast8.i.i164.i.i
   store i32 2, ptr %call.i.i153.i.i, align 8
-  %114 = load ptr, ptr %buffer, align 8
-  %allocated.i.i166.i.i = getelementptr inbounds i8, ptr %114, i64 88
-  %115 = load i64, ptr %allocated.i.i166.i.i, align 8
-  %add.i.i167.i.i = add i64 %115, %sub.ptr.sub9.i.i165.i.i
+  %118 = load ptr, ptr %buffer, align 8
+  %allocated.i.i166.i.i = getelementptr inbounds i8, ptr %118, i64 88
+  %119 = load i64, ptr %allocated.i.i166.i.i, align 8
+  %add.i.i167.i.i = add i64 %119, %sub.ptr.sub9.i.i165.i.i
   %next.i.i168.i.i = getelementptr inbounds i8, ptr %call.i.i153.i.i, i64 8
   store i64 %add.i.i167.i.i, ptr %next.i.i168.i.i, align 8
   %end.i.i169.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -66010,33 +66014,33 @@ if.end3.i155.i.i:                                 ; preds = %if.end.i152.i.i
   br label %if.end.i182.i.i
 
 if.end.i182.i.i:                                  ; preds = %if.end3.i155.i.i, %if.end.i152.i.i
-  %116 = load ptr, ptr %buffer, align 8
-  %call.i.i183.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %116, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %120 = load ptr, ptr %buffer, align 8
+  %call.i.i183.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %120, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i184.i.i = icmp eq ptr %call.i.i183.i.i, null
   br i1 %tobool1.not.i.i184.i.i, label %return, label %if.end3.i185.i.i
 
 if.end3.i185.i.i:                                 ; preds = %if.end.i182.i.i
   %sub96223.i.i = fadd float %conv69.i.i, -2.000000e+00
   %sub93222.i.i = fadd float %conv69.i.i, -7.000000e+00
-  %117 = load ptr, ptr %buffer, align 8
-  %memory5.i.i186.i.i = getelementptr inbounds i8, ptr %117, i64 64
-  %118 = load ptr, ptr %memory5.i.i186.i.i, align 8
+  %121 = load ptr, ptr %buffer, align 8
+  %memory5.i.i186.i.i = getelementptr inbounds i8, ptr %121, i64 64
+  %122 = load ptr, ptr %memory5.i.i186.i.i, align 8
   %sub.ptr.lhs.cast.i.i187.i.i = ptrtoint ptr %call.i.i183.i.i to i64
-  %sub.ptr.rhs.cast.i.i188.i.i = ptrtoint ptr %118 to i64
+  %sub.ptr.rhs.cast.i.i188.i.i = ptrtoint ptr %122 to i64
   %sub.ptr.sub.i.i189.i.i = sub i64 %sub.ptr.lhs.cast.i.i187.i.i, %sub.ptr.rhs.cast.i.i188.i.i
   %last.i.i190.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i189.i.i, ptr %last.i.i190.i.i, align 8
   %add.ptr.i.i191.i.i = getelementptr inbounds i8, ptr %call.i.i183.i.i, i64 32
   %add.ptr6.i.i192.i.i = getelementptr inbounds i8, ptr %call.i.i183.i.i, i64 39
-  %119 = ptrtoint ptr %add.ptr6.i.i192.i.i to i64
-  %and.i.i193.i.i = and i64 %119, -8
+  %123 = ptrtoint ptr %add.ptr6.i.i192.i.i to i64
+  %and.i.i193.i.i = and i64 %123, -8
   %sub.ptr.rhs.cast8.i.i194.i.i = ptrtoint ptr %add.ptr.i.i191.i.i to i64
   %sub.ptr.sub9.i.i195.i.i = sub i64 %and.i.i193.i.i, %sub.ptr.rhs.cast8.i.i194.i.i
   store i32 2, ptr %call.i.i183.i.i, align 8
-  %120 = load ptr, ptr %buffer, align 8
-  %allocated.i.i196.i.i = getelementptr inbounds i8, ptr %120, i64 88
-  %121 = load i64, ptr %allocated.i.i196.i.i, align 8
-  %add.i.i197.i.i = add i64 %121, %sub.ptr.sub9.i.i195.i.i
+  %124 = load ptr, ptr %buffer, align 8
+  %allocated.i.i196.i.i = getelementptr inbounds i8, ptr %124, i64 88
+  %125 = load i64, ptr %allocated.i.i196.i.i, align 8
+  %add.i.i197.i.i = add i64 %125, %sub.ptr.sub9.i.i195.i.i
   %next.i.i198.i.i = getelementptr inbounds i8, ptr %call.i.i183.i.i, i64 8
   store i64 %add.i.i197.i.i, ptr %next.i.i198.i.i, align 8
   %end.i.i199.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -67508,7 +67512,7 @@ if.end.i:                                         ; preds = %cond.end6
   %sub.i = fsub float %b.sroa.14.8.vec.extract118.i, %cond64.i
   %div.i = fmul float %sub.i, 5.000000e-01
   %add75.i = fadd float %add69.i, %div.i
-  %cmp82.i = fcmp olt float %add69.i, %add75.i
+  %cmp82.i = fcmp olt float %b.sroa.0.0.vec.extract94.i, %add75.i
   %cond91.i = select i1 %cmp82.i, float %add75.i, float %add69.i
   %9 = insertelement <2 x float> poison, float %cond91.i, i64 0
   %10 = fadd <2 x float> %content.coerce0, %content.coerce1
@@ -69458,7 +69462,7 @@ nk_combo_item_label.exit:                         ; preds = %while.body.i.i.i, %
   %siz.0.lcssa.i.i.i = phi i32 [ 0, %for.body ], [ 0, %land.rhs.i.preheader.i.i ], [ %inc.i.i.i, %while.body.i.i.i ]
   %call1.i.i = tail call noundef i32 @nk_contextual_item_text(ptr noundef nonnull %ctx, ptr noundef %20, i32 noundef %siz.0.lcssa.i.i.i, i32 noundef 17), !range !14
   %tobool29.not = icmp eq i32 %call1.i.i, 0
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %tobool29.not, i32 %selected.addr.038, i32 %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -70953,7 +70957,7 @@ entry:
   %size = getelementptr inbounds i8, ptr %b, i64 12
   %5 = trunc i64 %4 to i32
   %6 = lshr i64 %4, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %cmp259 = icmp slt i32 %5, %7
   br i1 %cmp259, label %stbtt__buf_get8.exit.lr.ph, label %return
 
@@ -71292,7 +71296,7 @@ for.body173:                                      ; preds = %for.body173.prehead
   br i1 %cmp171, label %for.body173, label %for.end193, !llvm.loop !244
 
 for.end193:                                       ; preds = %for.body173
-  %62 = trunc i64 %indvars.iv.next285 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.next285 to i32
   %add194 = or disjoint i32 %62, 1
   %cmp195.not = icmp slt i32 %add194, %sp.0263
   br i1 %cmp195.not, label %if.end198, label %return
@@ -71330,7 +71334,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   br i1 %cmp212, label %for.body214, label %for.end222, !llvm.loop !245
 
 for.end222:                                       ; preds = %for.body214
-  %70 = trunc i64 %indvars.iv.next280 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.next280 to i32
   %add223 = add nuw nsw i32 %70, 5
   %cmp224.not = icmp slt i32 %add223, %sp.0263
   br i1 %cmp224.not, label %if.end227, label %return
@@ -71614,7 +71618,7 @@ cond.end320:                                      ; preds = %if.end311, %cond.fa
   %agg.tmp.sroa.3.0 = phi i64 [ %agg.tmp.sroa.3.0.copyload47, %cond.false319 ], [ %subrs.sroa.3.2, %if.end311 ]
   %agg.tmp.sroa.0.0 = phi ptr [ %agg.tmp.sroa.0.0.copyload46, %cond.false319 ], [ %subrs.sroa.0.2, %if.end311 ]
   %idx.sroa.7.8.extract.shift.i = lshr i64 %agg.tmp.sroa.3.0, 32
-  %idx.sroa.7.8.extract.trunc.i = trunc i64 %idx.sroa.7.8.extract.shift.i to i32
+  %idx.sroa.7.8.extract.trunc.i = trunc nuw i64 %idx.sroa.7.8.extract.shift.i to i32
   %106 = tail call i32 @llvm.smin.i32(i32 %idx.sroa.7.8.extract.trunc.i, i32 0)
   br label %for.body.i.i.i
 
@@ -71891,7 +71895,7 @@ return:                                           ; preds = %sw.bb8, %sw.bb16, %
 define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %b.coerce0, i64 %b.coerce1, i32 noundef %i) unnamed_addr #9 {
 entry:
   %b.sroa.18.8.extract.shift = lshr i64 %b.coerce1, 32
-  %b.sroa.18.8.extract.trunc = trunc i64 %b.sroa.18.8.extract.shift to i32
+  %b.sroa.18.8.extract.trunc = trunc nuw i64 %b.sroa.18.8.extract.shift to i32
   %0 = tail call i32 @llvm.smin.i32(i32 %b.sroa.18.8.extract.trunc, i32 0)
   br label %for.body.i
 
@@ -72752,7 +72756,7 @@ entry:
   %private_loc = alloca [2 x i32], align 8
   %pdict = alloca %struct.stbtt__buf, align 8
   %cff.sroa.13.8.extract.shift = lshr i64 %cff.coerce1, 32
-  %cff.sroa.13.8.extract.trunc = trunc i64 %cff.sroa.13.8.extract.shift to i32
+  %cff.sroa.13.8.extract.trunc = trunc nuw i64 %cff.sroa.13.8.extract.shift to i32
   store ptr %fontdict.coerce0, ptr %fontdict, align 8
   %0 = getelementptr inbounds i8, ptr %fontdict, i64 8
   store i64 %fontdict.coerce1, ptr %0, align 8
@@ -73656,8 +73660,8 @@ for.cond50:                                       ; preds = %for.cond50, %for.co
   br i1 %cmp56, label %for.cond50, label %for.end61
 
 for.end61:                                        ; preds = %for.cond50
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = trunc i64 %indvars.iv62 to i32
+  %10 = trunc nsw i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv62 to i32
   %cmp62.not = icmp slt i32 %10, %11
   br i1 %cmp62.not, label %if.end65, label %for.end76
 
@@ -74259,7 +74263,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %return, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %4 = trunc i64 %indvars.iv.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %5 = add i32 %4, -1
   %or.cond1.i = icmp ult i32 %5, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %return
@@ -74472,7 +74476,7 @@ for.inc.i.i33:                                    ; preds = %for.body.i.i27
   br i1 %exitcond.not.i.i35, label %return, label %for.body.i.i27, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i37:                      ; preds = %for.body.i.i27
-  %32 = trunc i64 %indvars.iv.i.i28 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i.i28 to i32
   %33 = add i32 %32, -1
   %or.cond1.i38 = icmp ult i32 %33, 3
   br i1 %or.cond1.i38, label %for.cond.preheader.i39, label %return
@@ -77610,7 +77614,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %while.body.lr.ph.preheader, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %4 = add i32 %3, -1
   %or.cond1.i = icmp ult i32 %4, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %while.body.lr.ph.preheader
@@ -77738,7 +77742,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 if.then12:                                        ; preds = %while.body
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nsw i64 %indvars.iv to i32
   %cmp13 = fcmp ogt float %line_width.0.ph252, 0.000000e+00
   %cond = select i1 %cmp13, float %line_width.0.ph252, float 0.000000e+00
   %text_size.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %cond, i64 0
@@ -77756,7 +77760,7 @@ if.then23:                                        ; preds = %while.body
   store i32 %add25, ptr %glyphs, align 4
   %add.ptr27 = getelementptr inbounds i8, ptr %begin, i64 %indvars.iv.next
   %24 = sub nsw i64 %19, %indvars.iv.next
-  %25 = trunc i64 %indvars.iv.next to i32
+  %25 = trunc nsw i64 %indvars.iv.next to i32
   %tobool2.not.i70 = icmp eq i32 %25, %byte_len
   br i1 %tobool2.not.i70, label %while.end, label %if.end4.i72
 
@@ -77780,7 +77784,7 @@ for.inc.i.i79:                                    ; preds = %for.body.i.i73
   br i1 %exitcond.not.i.i81, label %nk_utf_decode.exit134, label %for.body.i.i73, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i83:                      ; preds = %for.body.i.i73
-  %29 = trunc i64 %indvars.iv.i.i74 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i.i74 to i32
   %30 = add i32 %29, -1
   %or.cond1.i84 = icmp ult i32 %30, 3
   br i1 %or.cond1.i84, label %for.cond.preheader.i85, label %nk_utf_decode.exit134
@@ -77878,7 +77882,7 @@ nk_utf_decode.exit134:                            ; preds = %for.inc.i.i79, %nk_
   br i1 %41, label %while.body, label %while.end, !llvm.loop !263
 
 if.end30:                                         ; preds = %while.body
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nsw i64 %indvars.iv to i32
   %43 = load i32, ptr %glyphs, align 4
   %add31 = add nsw i32 %43, 1
   store i32 %add31, ptr %glyphs, align 4
@@ -77910,7 +77914,7 @@ for.inc.i.i145:                                   ; preds = %for.body.i.i139
   br i1 %exitcond.not.i.i147, label %nk_utf_decode.exit200, label %for.body.i.i139, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i149:                     ; preds = %for.body.i.i139
-  %47 = trunc i64 %indvars.iv.i.i140 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i.i140 to i32
   %48 = add i32 %47, -1
   %or.cond1.i150 = icmp ult i32 %48, 3
   br i1 %or.cond1.i150, label %for.cond.preheader.i151, label %nk_utf_decode.exit200
@@ -78114,7 +78118,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %while.cond.preheader, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %4 = trunc i64 %indvars.iv.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %5 = add i32 %4, -1
   %or.cond1.i = icmp ult i32 %5, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %while.cond.preheader
@@ -78256,7 +78260,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 if.then19:                                        ; preds = %while.body
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nsw i64 %indvars.iv to i32
   %add = fadd float %line_offset.0.ph.ph419, %pos_y
   %label.sroa.0.0.vec.insert = insertelement <2 x float> %17, float %add, i64 1
   %tobool20.not = icmp eq i32 %line_count.0.ph.ph420, 0
@@ -78294,7 +78298,7 @@ if.end.i107:                                      ; preds = %if.end27
   %sub.i = fsub float %line_width.0.ph402, %cond64.i
   %div.i = fmul float %sub.i, 5.000000e-01
   %add75.i = fadd float %add69.i, %div.i
-  %cmp82.i = fcmp olt float %add69.i, %add75.i
+  %cmp82.i = fcmp olt float %b.sroa.0.0.vec.extract94.i, %add75.i
   %cond91.i = select i1 %cmp82.i, float %add75.i, float %add69.i
   %26 = insertelement <2 x float> poison, float %cond91.i, i64 0
   %add95.i = fadd float %line_width.0.ph402, %b.sroa.0.0.vec.extract94.i
@@ -78349,7 +78353,7 @@ for.inc.i.i120:                                   ; preds = %for.body.i.i114
   br i1 %exitcond.not.i.i122, label %nk_utf_decode.exit175, label %for.body.i.i114, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i124:                     ; preds = %for.body.i.i114
-  %32 = trunc i64 %indvars.iv.i.i115 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i.i115 to i32
   %33 = add i32 %32, -1
   %or.cond1.i125 = icmp ult i32 %33, 3
   br i1 %or.cond1.i125, label %for.cond.preheader.i126, label %nk_utf_decode.exit175
@@ -78451,7 +78455,7 @@ if.then41:                                        ; preds = %while.body
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %add.ptr44 = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.next
   %46 = sub nsw i64 %18, %indvars.iv.next
-  %47 = trunc i64 %indvars.iv.next to i32
+  %47 = trunc nsw i64 %indvars.iv.next to i32
   %tobool2.not.i177 = icmp eq i32 %47, %byte_len
   br i1 %tobool2.not.i177, label %while.end, label %if.end4.i179
 
@@ -78475,7 +78479,7 @@ for.inc.i.i186:                                   ; preds = %for.body.i.i180
   br i1 %exitcond.not.i.i188, label %nk_utf_decode.exit241, label %for.body.i.i180, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i190:                     ; preds = %for.body.i.i180
-  %51 = trunc i64 %indvars.iv.i.i181 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.i.i181 to i32
   %52 = add i32 %51, -1
   %or.cond1.i191 = icmp ult i32 %52, 3
   br i1 %or.cond1.i191, label %for.cond.preheader.i192, label %nk_utf_decode.exit241
@@ -78573,7 +78577,7 @@ nk_utf_decode.exit241:                            ; preds = %for.inc.i.i186, %nk
   br i1 %63, label %while.body, label %while.end, !llvm.loop !264
 
 if.end47:                                         ; preds = %while.body
-  %64 = trunc i64 %indvars.iv to i32
+  %64 = trunc nsw i64 %indvars.iv to i32
   %65 = load ptr, ptr %width, align 8
   %66 = load float, ptr %height, align 8
   %sext479 = shl i64 %indvars.iv, 32
@@ -78609,7 +78613,7 @@ for.inc.i.i252:                                   ; preds = %for.body.i.i246
   br i1 %exitcond.not.i.i254, label %nk_utf_decode.exit307, label %for.body.i.i246, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i256:                     ; preds = %for.body.i.i246
-  %71 = trunc i64 %indvars.iv.i.i247 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i.i247 to i32
   %72 = add i32 %71, -1
   %or.cond1.i257 = icmp ult i32 %72, 3
   br i1 %or.cond1.i257, label %for.cond.preheader.i258, label %nk_utf_decode.exit307
@@ -78937,7 +78941,7 @@ for.inc.i.i33:                                    ; preds = %for.body.i.i27
   br i1 %exitcond.not.i.i35, label %while.body.i.preheader, label %for.body.i.i27, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i37:                      ; preds = %for.body.i.i27
-  %10 = trunc i64 %indvars.iv.i.i28 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i.i28 to i32
   %11 = add i32 %10, -1
   %or.cond1.i38 = icmp ult i32 %11, 3
   br i1 %or.cond1.i38, label %for.cond.preheader.i39, label %while.body.i.preheader
@@ -79043,7 +79047,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %23 = trunc i64 %indvars.iv.i.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %24 = add i32 %23, -1
   %or.cond1.i = icmp ult i32 %24, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -79181,7 +79185,7 @@ for.inc.i.i15:                                    ; preds = %for.body.i.i9
   br i1 %exitcond.not.i.i17, label %while.body.i.preheader, label %for.body.i.i9, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i19:                      ; preds = %for.body.i.i9
-  %5 = trunc i64 %indvars.iv.i.i10 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.i10 to i32
   %6 = add i32 %5, -1
   %or.cond1.i20 = icmp ult i32 %6, 3
   br i1 %or.cond1.i20, label %for.cond.preheader.i21, label %while.body.i.preheader
@@ -79287,7 +79291,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %18 = trunc i64 %indvars.iv.i.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %19 = add i32 %18, -1
   %or.cond1.i = icmp ult i32 %19, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -79631,7 +79635,7 @@ for.inc.i.i23:                                    ; preds = %for.body.i.i17
   br i1 %exitcond.not.i.i25, label %while.body.i.preheader, label %for.body.i.i17, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i27:                      ; preds = %for.body.i.i17
-  %5 = trunc i64 %indvars.iv.i.i18 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.i18 to i32
   %6 = add i32 %5, -1
   %or.cond1.i28 = icmp ult i32 %6, 3
   br i1 %or.cond1.i28, label %for.cond.preheader.i29, label %while.body.i.preheader
@@ -79769,7 +79773,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
-  %21 = trunc i64 %indvars.iv.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %22 = add i32 %21, -1
   %or.cond1.i = icmp ult i32 %22, 3
   br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
@@ -80089,7 +80093,7 @@ while.body72:                                     ; preds = %while.body72.prehea
   %m1.2107 = phi i32 [ %div78, %while.body72 ], [ %m1.2107.ph, %while.body72.preheader ]
   %m.4106 = phi i32 [ %inc, %while.body72 ], [ 0, %while.body72.preheader ]
   %rem = urem i32 %m1.2107, 10
-  %7 = trunc i32 %rem to i8
+  %7 = trunc nuw nsw i32 %rem to i8
   %conv76 = or disjoint i8 %7, 48
   %incdec.ptr77 = getelementptr inbounds i8, ptr %c.5108, i64 1
   store i8 %conv76, ptr %c.5108, align 1

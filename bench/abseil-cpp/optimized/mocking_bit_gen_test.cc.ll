@@ -12595,7 +12595,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i33 = trunc i64 %shr.i to i32
+  %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -20184,8 +20184,8 @@ if.end.i.i.i:                                     ; preds = %_ZN4absl15random_in
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
   %and.i.i.i = and i64 %shr.i.i.i, 4503599627370495
   %35 = shl nuw nsw i64 %34, 52
-  %reass.sub8 = sub nsw i64 %and.i.i.i, %35
-  %or2.i.i.i = add nsw i64 %reass.sub8, 4602678819172646912
+  %reass.sub7 = sub nsw i64 %and.i.i.i, %35
+  %or2.i.i.i = add nsw i64 %reass.sub7, 4602678819172646912
   %36 = bitcast i64 %or2.i.i.i to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
@@ -41173,9 +41173,9 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i, i64 %4
   %5 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %5, 0
-  br i1 %cmp.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
   %6 = tail call i64 @llvm.ctlz.i64(i64 %5, i1 true), !range !196
   %shl.i.i.i = shl i64 %5, %6
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
@@ -41184,15 +41184,12 @@ if.end.i.i.i:                                     ; preds = %_ZN4absl15random_in
   %reass.sub = sub nsw i64 %and.i.i.i, %7
   %or2.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %8 = bitcast i64 %or2.i.i.i to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %if.end.i.i.i, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
-  %retval.0.i.i.i = phi double [ %8, %if.end.i.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
-  %9 = fadd double %retval.0.i.i.i, 0.000000e+00
-  %cmp.i.i = fcmp uge double %9, 1.000000e+00
+  %cmp.i.i = fcmp uge double %8, 1.000000e+00
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit, !llvm.loop !197
 
-_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+  %retval.0.i.i.i38 = phi double [ %8, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
+  %9 = fadd double %retval.0.i.i.i38, 0.000000e+00
   %10 = load double, ptr %hxm_, align 8
   %11 = load double, ptr %hx0_minus_hxm_, align 8
   %12 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %10)
@@ -46966,7 +46963,7 @@ _ZN4absl15make_from_tupleINS_28log_uniform_int_distributionIiEERSt5tupleIJiiiEEE
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
   %ref.tmp.sroa.2.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i to i32
   %call3.i.i.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIiE8GenerateINS_13MockingBitGenEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(320) %urbg, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i)
   %add.i.i.i.i5 = add i32 %call3.i.i.i.i, %ref.tmp.sroa.0.0.extract.trunc.i.i.i
   %cmp.i.i6 = icmp eq i32 %add.i.i.i.i5, 0
@@ -47013,7 +47010,7 @@ if.end32.i.i:                                     ; preds = %cond.false28.i.i, %
   %retval.sroa.0.0.copyload.i.i24.i.i = load i64, ptr %ref.tmp47.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i25.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i24.i.i to i32
   %ref.tmp.sroa.2.0.extract.shift.i26.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i24.i.i, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i27.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i26.i.i to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i27.i.i = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i26.i.i to i32
   %call3.i.i28.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIiE8GenerateINS_13MockingBitGenEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp47.i.i, ptr noundef nonnull align 8 dereferenceable(320) %urbg, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i27.i.i)
   %add.i.i29.i.i = add i32 %call3.i.i28.i.i, %ref.tmp.sroa.0.0.extract.trunc.i25.i.i
   br label %_ZN4absl28log_uniform_int_distributionIiEclINS_13MockingBitGenEEEiRT_RKNS1_10param_typeE.exit
@@ -65937,7 +65934,7 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc:                 ; preds = %while.body.i.i.i.i.
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc, %if.end.i.i.i.i.i.i.i
   %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %call.i.i.i16.i.i.i.i.i.i.i.noexc ]
   %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
-  %retval.0.i.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i.i.i to i32
+  %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
   br label %invoke.cont78
 
@@ -66466,7 +66463,7 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc263:              ; preds = %while.body.i.i.i.i.
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i241: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc263, %if.end.i.i.i.i.i.i.i232
   %product.1.i.i.i.i.i.i.i239 = phi i64 [ %mul.i.i.i.i.i.i.i.i235, %if.end.i.i.i.i.i.i.i232 ], [ %mul.i20.i.i.i.i.i.i.i251, %call.i.i.i16.i.i.i.i.i.i.i.noexc263 ]
   %shr.i.i.i.i.i.i.i.i240 = lshr i64 %product.1.i.i.i.i.i.i.i239, 32
-  %retval.0.i.i.i.i.i.i.i243 = trunc i64 %shr.i.i.i.i.i.i.i.i240 to i32
+  %retval.0.i.i.i.i.i.i.i243 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i240 to i32
   %add.i.i.i.i.i.i244 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i243, 1
   br label %invoke.cont120
 
@@ -66735,7 +66732,7 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc341:              ; preds = %while.body.i.i.i.i.
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i319: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc341, %if.end.i.i.i.i.i.i.i310
   %product.1.i.i.i.i.i.i.i317 = phi i64 [ %mul.i.i.i.i.i.i.i.i313, %if.end.i.i.i.i.i.i.i310 ], [ %mul.i20.i.i.i.i.i.i.i329, %call.i.i.i16.i.i.i.i.i.i.i.noexc341 ]
   %shr.i.i.i.i.i.i.i.i318 = lshr i64 %product.1.i.i.i.i.i.i.i317, 32
-  %retval.0.i.i.i.i.i.i.i321 = trunc i64 %shr.i.i.i.i.i.i.i.i318 to i32
+  %retval.0.i.i.i.i.i.i.i321 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i318 to i32
   %add.i.i.i.i.i.i322 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i321, 1
   br label %invoke.cont145
 
@@ -67003,7 +67000,7 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc423:              ; preds = %while.body.i.i.i.i.
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i401: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc423, %if.end.i.i.i.i.i.i.i392
   %product.1.i.i.i.i.i.i.i399 = phi i64 [ %mul.i.i.i.i.i.i.i.i395, %if.end.i.i.i.i.i.i.i392 ], [ %mul.i20.i.i.i.i.i.i.i411, %call.i.i.i16.i.i.i.i.i.i.i.noexc423 ]
   %shr.i.i.i.i.i.i.i.i400 = lshr i64 %product.1.i.i.i.i.i.i.i399, 32
-  %retval.0.i.i.i.i.i.i.i403 = trunc i64 %shr.i.i.i.i.i.i.i.i400 to i32
+  %retval.0.i.i.i.i.i.i.i403 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i400 to i32
   %add.i.i.i.i.i.i404 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i403, 1
   br label %invoke.cont170
 
@@ -67271,7 +67268,7 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc505:              ; preds = %while.body.i.i.i.i.
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i483: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc505, %if.end.i.i.i.i.i.i.i474
   %product.1.i.i.i.i.i.i.i481 = phi i64 [ %mul.i.i.i.i.i.i.i.i477, %if.end.i.i.i.i.i.i.i474 ], [ %mul.i20.i.i.i.i.i.i.i493, %call.i.i.i16.i.i.i.i.i.i.i.noexc505 ]
   %shr.i.i.i.i.i.i.i.i482 = lshr i64 %product.1.i.i.i.i.i.i.i481, 32
-  %retval.0.i.i.i.i.i.i.i485 = trunc i64 %shr.i.i.i.i.i.i.i.i482 to i32
+  %retval.0.i.i.i.i.i.i.i485 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i482 to i32
   %add.i.i.i.i.i.i486 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i485, 1
   br label %invoke.cont195
 
@@ -73687,7 +73684,7 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31, %if.then15, %if.end
   %product.1 = phi i32 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i34, %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31 ]
   %shr.i = lshr i32 %product.1, 16
-  %conv.i35 = trunc i32 %shr.i to i16
+  %conv.i35 = trunc nuw i32 %shr.i to i16
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then
@@ -73979,7 +73976,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i33 = trunc i64 %shr.i to i32
+  %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -82935,7 +82932,7 @@ call.i.i.i16.i.i.i.i.i.i.noexc.us:                ; preds = %while.body.i.i.i.i.
 if.end13.i.i.i.i.i.i.us:                          ; preds = %call.i.i.i16.i.i.i.i.i.i.noexc.us, %call.i.i.i.i.i.i.i.i.i.noexc.us
   %product.1.i.i.i.i.i.i.us = phi i64 [ %mul.i.i.i.i.i.i.i.us, %call.i.i.i.i.i.i.i.i.i.noexc.us ], [ %mul.i20.i.i.i.i.i.i.us, %call.i.i.i16.i.i.i.i.i.i.noexc.us ]
   %shr.i.i.i.i.i.i.i.us = lshr i64 %product.1.i.i.i.i.i.i.us, 32
-  %retval.0.i.i.i.i.i.i.us = trunc i64 %shr.i.i.i.i.i.i.i.us to i32
+  %retval.0.i.i.i.i.i.i.us = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.us to i32
   %add.i.i.i.i.i.us = add nuw nsw i32 %retval.0.i.i.i.i.i.i.us, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i.i.i)
@@ -83021,7 +83018,7 @@ if.end13.i.i.i.i.i.i:                             ; preds = %call.i.i.i16.i.i.i.
 
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i: ; preds = %if.end13.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.in.i.i.i.i = phi i64 [ %and2.i.i1.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %shr.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i ]
-  %retval.0.i.i.i.i.i.i = trunc i64 %retval.0.i.i.in.i.i.i.i to i32
+  %retval.0.i.i.i.i.i.i = trunc nuw i64 %retval.0.i.i.in.i.i.i.i to i32
   %add.i.i.i.i.i = add i32 %.pre.i.i.i, %retval.0.i.i.i.i.i.i
   br label %invoke.cont7
 
@@ -95679,7 +95676,7 @@ if.end:                                           ; preds = %_ZN4absl15random_in
   %mul.i.i = mul nuw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %mul.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i = lshr i128 %mul.i.i, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i to i64
   %cmp5 = icmp ugt i64 %add, %coerce3.sroa.0.0.extract.trunc.i.i
   br i1 %cmp5, label %if.then6, label %return
 
@@ -95728,7 +95725,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit28
 
 while.cond.return.loopexit_crit_edge:             ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit28
   %coerce3.sroa.2.0.extract.shift.i.i33.le = lshr i128 %mul.i.i31, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i34.le = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i33.le to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i34.le = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i33.le to i64
   br label %return
 
 return:                                           ; preds = %if.then6, %while.cond.return.loopexit_crit_edge, %if.end, %if.then
@@ -98944,7 +98941,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingB
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingBitGenEEEEEjRT_.exit29, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i33 = trunc i64 %shr.i to i32
+  %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -100586,7 +100583,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13Mocking
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13MockingBitGenEEEEEjRT_.exit29, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i33 = trunc i64 %shr.i to i32
+  %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -102549,7 +102546,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13Mocki
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13MockingBitGenEEEEEjRT_.exit29, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i33 = trunc i64 %shr.i to i32
+  %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then

@@ -4364,7 +4364,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN10btSoftBody14releaseClusterEi.exit.i, label %for.body.i.i.i.i, !llvm.loop !27
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %9 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %cmp.i.i.i.i = icmp sgt i32 %6, %9
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN10btSoftBody14releaseClusterEi.exit.i
 
@@ -5577,7 +5577,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN10btSoftBody14releaseClusterEi.exit, label %for.body.i.i.i, !llvm.loop !27
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i: ; preds = %for.body.i.i.i
-  %7 = trunc i64 %indvars.iv.i.i.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i.i = icmp sgt i32 %4, %7
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN10btSoftBody14releaseClusterEi.exit
 
@@ -5836,7 +5836,7 @@ for.body12:                                       ; preds = %for.body, %if.then
   br i1 %or.cond11, label %if.then, label %for.end
 
 if.then:                                          ; preds = %for.body12
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %5
   %or = or i32 %shl, %c.021
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6200,7 +6200,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %8, ptr %i, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
@@ -6295,7 +6295,7 @@ if.then81:                                        ; preds = %for.body40
 
 for.inc86:                                        ; preds = %for.body40, %if.then81
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %31 = trunc i64 %indvars.iv.next134 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.next134 to i32
   store i32 %31, ptr %i, align 8
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %for.end88, label %for.body40, !llvm.loop !44
@@ -7731,7 +7731,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then4, label %for.body.i, !llvm.loop !63
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit: ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp eq i32 %0, %3
   br i1 %cmp, label %if.then4, label %if.end7
 
@@ -18006,7 +18006,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then109, label %for.body.i, !llvm.loop !198
 
 _ZNK20btAlignedObjectArrayIiE16findLinearSearchERKi.exit: ; preds = %for.body.i
-  %39 = trunc i64 %indvars.iv.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp108 = icmp eq i32 %36, %39
   br i1 %cmp108, label %if.then109, label %if.end114
 
@@ -18136,7 +18136,7 @@ for.inc.i166:                                     ; preds = %for.body.i162
   br i1 %exitcond.not.i168, label %if.then126, label %for.body.i162, !llvm.loop !198
 
 _ZNK20btAlignedObjectArrayIiE16findLinearSearchERKi.exit170: ; preds = %for.body.i162
-  %55 = trunc i64 %indvars.iv.i163 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i163 to i32
   %cmp125 = icmp eq i32 %52, %55
   br i1 %cmp125, label %if.then126, label %for.inc132
 
@@ -18244,7 +18244,7 @@ for.body148.lr.ph:                                ; preds = %for.cond141.prehead
   %m_data.i230 = getelementptr inbounds i8, ptr %arrayidx.i225, i64 16
   %68 = mul nsw i64 %indvars.iv374, %30
   %.pre395 = load ptr, ptr %m_data.i230, align 8
-  %69 = trunc i64 %indvars.iv374 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv374 to i32
   %70 = getelementptr i32, ptr %call2, i64 %68
   %71 = zext nneg i32 %67 to i64
   br label %for.body148
@@ -19028,7 +19028,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEE6removeERKS2_.exit, label %for.body.i.i, !llvm.loop !27
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i: ; preds = %for.body.i.i
-  %6 = trunc i64 %indvars.iv.i.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %3, %6
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIPN10btSoftBody7ClusterEE6removeERKS2_.exit
 
@@ -19204,7 +19204,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN10btSoftBody14releaseClusterEi.exit.i, label %for.body.i.i.i.i, !llvm.loop !27
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %7 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %cmp.i.i.i.i = icmp sgt i32 %4, %7
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN10btSoftBody14releaseClusterEi.exit.i
 
@@ -19735,7 +19735,7 @@ invoke.cont162:                                   ; preds = %invoke.cont162.preh
   %101 = tail call noundef float @llvm.fabs.f32(float %sub14.i.i341)
   %add9.i343 = fadd float %add.i342, %101
   %cmp164 = fcmp olt float %add9.i343, %kdist.01163
-  %102 = trunc i64 %indvars.iv1233 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv1233 to i32
   %kbest.1 = select i1 %cmp164, i32 %102, i32 %kbest.01162
   %kdist.1 = select i1 %cmp164, float %add9.i343, float %kdist.01163
   %indvars.iv.next1234 = add nuw nsw i64 %indvars.iv1233, 1
@@ -19899,7 +19899,7 @@ for.cond198.preheader:                            ; preds = %for.cond198.prehead
   br i1 %cmp2051171, label %for.body206.preheader, label %for.inc222
 
 for.body206.preheader:                            ; preds = %for.cond198.preheader
-  %124 = trunc i64 %indvars.iv1245 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv1245 to i32
   br label %for.body206
 
 for.cond225.preheader:                            ; preds = %for.inc222, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit
@@ -20008,7 +20008,7 @@ for.body271:                                      ; preds = %for.body229, %for.i
   %arrayidx.i474 = getelementptr inbounds i32, ptr %118, i64 %idxprom.i473
   %149 = load i32, ptr %arrayidx.i474, align 4
   %idxprom.i479 = sext i32 %149 to i64
-  %150 = trunc i64 %indvars.iv1249 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv1249 to i32
   br label %for.body277
 
 for.body277:                                      ; preds = %for.body271, %for.inc314
@@ -20054,7 +20054,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i491, label %if.then302, label %for.body.i, !llvm.loop !227
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody4NodeEE16findLinearSearchERKS2_.exit: ; preds = %for.body.i
-  %159 = trunc i64 %indvars.iv.i487 to i32
+  %159 = trunc nuw nsw i64 %indvars.iv.i487 to i32
   %cmp301 = icmp eq i32 %156, %159
   br i1 %cmp301, label %if.then302, label %for.inc314
 
@@ -20500,7 +20500,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i686
   br i1 %exitcond.not.i.i.i690, label %for.inc383, label %for.body.i.i.i686, !llvm.loop !27
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i: ; preds = %for.body.i.i.i686
-  %212 = trunc i64 %indvars.iv.i.i.i687 to i32
+  %212 = trunc nuw nsw i64 %indvars.iv.i.i.i687 to i32
   %cmp.i.i.i = icmp sgt i32 %209, %212
   br i1 %cmp.i.i.i, label %if.then.i.i.i691, label %for.inc383
 
@@ -21202,7 +21202,7 @@ for.body488:                                      ; preds = %for.body488.lr.ph, 
   %arrayidx.i1009 = getelementptr inbounds ptr, ptr %295, i64 %indvars.iv1272
   %296 = load ptr, ptr %arrayidx.i1009, align 8
   %m_clusterIndex = getelementptr inbounds i8, ptr %296, i64 420
-  %297 = trunc i64 %indvars.iv1272 to i32
+  %297 = trunc nuw nsw i64 %indvars.iv1272 to i32
   store i32 %297, ptr %m_clusterIndex, align 4
   %298 = load i32, ptr %m_size.i.i, align 4
   %cmp4941189 = icmp sgt i32 %298, 0
@@ -21266,7 +21266,7 @@ for.inc525:                                       ; preds = %for.cond510, %for.c
 
 for.end527:                                       ; preds = %for.inc525, %for.body514, %for.body495
   %connected.0.lcssa = phi i8 [ 0, %for.body495 ], [ 1, %for.body514 ], [ 0, %for.inc525 ]
-  %309 = trunc i64 %indvars.iv1269 to i32
+  %309 = trunc nuw nsw i64 %indvars.iv1269 to i32
   %mul532 = mul nsw i32 %299, %309
   %add533 = add nsw i32 %mul532, %297
   %310 = load ptr, ptr %m_data.i1026, align 8
@@ -22757,12 +22757,12 @@ for.body120:                                      ; preds = %for.body120.lr.ph, 
   br i1 %cmp122659, label %invoke.cont124.lr.ph, label %for.cond118.loopexit
 
 invoke.cont124.lr.ph:                             ; preds = %for.body120
-  %44 = trunc i64 %indvars.iv705 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv705 to i32
   br label %invoke.cont124
 
 invoke.cont124:                                   ; preds = %invoke.cont124.lr.ph, %for.inc201
   %indvars.iv702 = phi i64 [ %indvars.iv700, %invoke.cont124.lr.ph ], [ %indvars.iv.next703, %for.inc201 ]
-  %45 = trunc i64 %indvars.iv702 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv702 to i32
   %spec.select.i.i253 = call i32 @llvm.smin.i32(i32 %44, i32 %45)
   %spec.select3.i.i254 = call i32 @llvm.smax.i32(i32 %44, i32 %45)
   %add.i.i255 = add nuw nsw i32 %spec.select3.i.i254, 1
@@ -23051,7 +23051,7 @@ invoke.cont241:                                   ; preds = %for.body215
   br i1 %cmp243, label %if.then244, label %for.inc286
 
 if.then244:                                       ; preds = %invoke.cont241
-  %100 = trunc i64 %indvars.iv710 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv710 to i32
   invoke void @_ZN10btSoftBody10appendLinkEiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %this, i32 noundef %100, ptr noundef null)
           to label %invoke.cont245 unwind label %lpad.loopexit.split-lp631.loopexit
 
@@ -23420,7 +23420,7 @@ land.lhs.true512:                                 ; preds = %for.body485
   br i1 %tobool516.not, label %if.else523, label %if.then517
 
 if.then517:                                       ; preds = %land.lhs.true512
-  %170 = trunc i64 %indvars.iv727 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv727 to i32
   invoke void @_ZN10btSoftBody10appendLinkEiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %this, i32 noundef %170, ptr noundef null)
           to label %invoke.cont518 unwind label %lpad421.loopexit.split-lp.loopexit
 
@@ -23455,7 +23455,7 @@ land.lhs.true534:                                 ; preds = %invoke.cont531
 
 invoke.cont542:                                   ; preds = %land.lhs.true534
   %cmp544 = fcmp olt float %call543, %accurary
-  %176 = trunc i64 %indvars.iv727 to i32
+  %176 = trunc nuw nsw i64 %indvars.iv727 to i32
   br i1 %cmp544, label %if.end547, label %for.inc581
 
 if.end547:                                        ; preds = %invoke.cont542, %invoke.cont518
@@ -24053,7 +24053,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp38.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN10btSoftBody10appendLinkEiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %this, i32 noundef %26, ptr noundef null)
   %27 = load ptr, ptr %m_data.i78, align 8
   %28 = load i32, ptr %m_size.i77, align 4
@@ -24847,19 +24847,19 @@ for.cond33.preheader:                             ; preds = %for.cond33.preheade
   br i1 %cmp36237, label %for.cond38.preheader.lr.ph, label %for.inc74
 
 for.cond38.preheader.lr.ph:                       ; preds = %for.cond33.preheader
-  %44 = trunc i64 %indvars.iv260 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv260 to i32
   br label %for.cond38.preheader
 
 for.cond33.loopexit:                              ; preds = %for.inc68
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %45 = load i32, ptr %m_size.i.i30, align 4
-  %46 = trunc i64 %indvars.iv.next258 to i32
+  %46 = trunc nuw i64 %indvars.iv.next258 to i32
   %cmp36 = icmp sgt i32 %45, %46
   br i1 %cmp36, label %for.cond38.preheader, label %for.inc74.loopexit, !llvm.loop !288
 
 for.cond38.preheader:                             ; preds = %for.cond38.preheader.lr.ph, %for.cond33.loopexit
   %indvars.iv257 = phi i64 [ %indvars.iv255, %for.cond38.preheader.lr.ph ], [ %indvars.iv.next258, %for.cond33.loopexit ]
-  %47 = trunc i64 %indvars.iv257 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv257 to i32
   br label %for.cond41.preheader
 
 for.cond41.preheader:                             ; preds = %for.cond38.preheader, %for.inc68
@@ -25451,7 +25451,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then14:                                        ; preds = %for.body
   %inc = add nsw i32 %cnt.056, 1
   store i32 3, ptr %feature, align 4
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %20, ptr %index, align 4
   store float %call12, ptr %mint, align 4
   br label %for.inc
@@ -25516,7 +25516,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %indvars.iv74 = phi i64 [ 0, %for.body32.lr.ph ], [ %indvars.iv.next75, %for.inc71 ]
   %cnt.461 = phi i32 [ %cnt.3, %for.body32.lr.ph ], [ %cnt.6, %for.inc71 ]
   %29 = load ptr, ptr %m_data.i40, align 8
-  %30 = trunc i64 %indvars.iv74 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv74 to i32
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body32, %for.inc68
@@ -26709,7 +26709,7 @@ if.then36.us:                                     ; preds = %for.body.us
   br i1 %.fr, label %if.then38.us, label %if.end40.us
 
 if.then38.us:                                     ; preds = %if.then36.us
-  %34 = trunc i64 %indvars.iv94 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv94 to i32
   call void @_ZN10btSoftBody18addAeroForceToNodeERK9btVector3i(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef nonnull align 4 dereferenceable(16) %m_windVelocity, i32 noundef %34)
   br label %if.end40.us
 
@@ -26772,7 +26772,7 @@ if.then36.us48:                                   ; preds = %for.body.us42
   br i1 %.fr, label %if.then38.us49, label %if.end40.us50
 
 if.then38.us49:                                   ; preds = %if.then36.us48
-  %50 = trunc i64 %indvars.iv89 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv89 to i32
   call void @_ZN10btSoftBody18addAeroForceToNodeERK9btVector3i(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef nonnull align 4 dereferenceable(16) %m_windVelocity, i32 noundef %50)
   br label %if.end40.us50
 
@@ -26819,7 +26819,7 @@ for.body.us69:                                    ; preds = %for.body.us69.prehe
   br i1 %cmp35.us74, label %if.then36.us75, label %for.inc.us78
 
 if.then36.us75:                                   ; preds = %for.body.us69
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN10btSoftBody18addAeroForceToNodeERK9btVector3i(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef nonnull align 4 dereferenceable(16) %m_windVelocity, i32 noundef %62)
   br label %for.inc.us78
 
@@ -28560,7 +28560,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %for.inc.i, label %for.body.i.i.i, !llvm.loop !360
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i: ; preds = %for.body.i.i.i
-  %34 = trunc i64 %indvars.iv.i.i.i to i32
+  %34 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i.i = icmp sgt i32 %31, %34
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.inc.i
 
@@ -28726,7 +28726,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %for.inc, label %for.body.i.i, !llvm.loop !360
 
 _ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i: ; preds = %for.body.i.i
-  %12 = trunc i64 %indvars.iv.i.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %9, %12
   br i1 %cmp.i.i, label %if.then.i.i, label %for.inc
 
@@ -29167,7 +29167,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 if.then.i7.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i
   %retval.0.i.i.i94 = phi ptr [ %call.i.i.i.i47, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i ], [ null, %if.then.i.i ], [ %call.i.i.i.i47, %for.body.i.i.i ]
-  %tobool2.i.i.i42 = trunc i8 %21 to i1
+  %tobool2.i.i.i42 = trunc nuw i8 %21 to i1
   br i1 %tobool2.i.i.i42, label %if.then3.i.i.i45, label %if.end.i43
 
 if.then3.i.i.i45:                                 ; preds = %if.then.i7.i.i
@@ -29250,7 +29250,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool.not.i.i.i57, label %if.end90, label %if.then.i.i.i58
 
 if.then.i.i.i58:                                  ; preds = %do.end
-  %tobool2.i.i.i60 = trunc i8 %71 to i1
+  %tobool2.i.i.i60 = trunc nuw i8 %71 to i1
   br i1 %tobool2.i.i.i60, label %if.then3.i.i.i64, label %if.end90
 
 if.then3.i.i.i64:                                 ; preds = %if.then.i.i.i58
@@ -29884,7 +29884,7 @@ for.cond92.preheader:                             ; preds = %for.cond92.preheade
 for.body96.lr.ph:                                 ; preds = %for.cond92.preheader
   %arrayidx.i291 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.6, i64 %indvars.iv955
   %second125 = getelementptr inbounds i8, ptr %arrayidx.i291, i64 4
-  %28 = trunc i64 %indvars.iv955 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv955 to i32
   br label %for.body96
 
 for.body96:                                       ; preds = %for.body96.lr.ph, %for.inc167
@@ -30052,7 +30052,7 @@ invoke.cont162:                                   ; preds = %_ZN20btAlignedObjec
   %52 = load ptr, ptr %m_data.i337, align 8
   %idxprom.i338 = sext i32 %51 to i64
   %arrayidx.i339 = getelementptr inbounds i32, ptr %52, i64 %idxprom.i338
-  %53 = trunc i64 %indvars.iv950 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv950 to i32
   store i32 %53, ptr %arrayidx.i339, align 4
   %54 = load i32, ptr %m_size.i.i333, align 4
   %inc.i340 = add nsw i32 %54, 1
@@ -31035,7 +31035,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv267 = phi i64 [ 0, %for.body52.lr.ph ], [ %indvars.iv.next268, %for.body52 ]
   %21 = load ptr, ptr %m_data.i108, align 8
   %index56 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %21, i64 %indvars.iv267, i32 13
-  %22 = trunc i64 %indvars.iv267 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv267 to i32
   store i32 %22, ptr %index56, align 8
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %23 = load i32, ptr %m_size.i, align 4
@@ -38191,7 +38191,7 @@ for.body.i.i.i83:                                 ; preds = %for.body.i.i.i83, %
   br i1 %exitcond.not.i.i.i88, label %if.then.i7.i.i73, label %for.body.i.i.i83, !llvm.loop !363
 
 if.then.i7.i.i73:                                 ; preds = %for.body.i.i.i83, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i67
-  %tobool2.i.i.i75 = trunc i8 %0 to i1
+  %tobool2.i.i.i75 = trunc nuw i8 %0 to i1
   br i1 %tobool2.i.i.i75, label %if.then3.i.i.i79, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i76
 
 if.then3.i.i.i79:                                 ; preds = %if.then.i7.i.i73
@@ -38266,7 +38266,7 @@ _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i115: ; preds = %_
   br i1 %tobool.not.i6.i.i117, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i121, label %if.then.i7.i.i118
 
 if.then.i7.i.i118:                                ; preds = %for.body.i.i.i128, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i115
-  %tobool2.i.i.i120 = trunc i8 %15 to i1
+  %tobool2.i.i.i120 = trunc nuw i8 %15 to i1
   br i1 %tobool2.i.i.i120, label %if.then3.i.i.i124, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i121
 
 if.then3.i.i.i124:                                ; preds = %if.then.i7.i.i118
@@ -38317,7 +38317,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool.not.i.i.i140, label %if.end19, label %if.then.i.i.i141
 
 if.then.i.i.i141:                                 ; preds = %do.end
-  %tobool2.i.i.i143 = trunc i8 %27 to i1
+  %tobool2.i.i.i143 = trunc nuw i8 %27 to i1
   br i1 %tobool2.i.i.i143, label %if.then3.i.i.i147, label %if.end19
 
 if.then3.i.i.i147:                                ; preds = %if.then.i.i.i141
@@ -41478,7 +41478,7 @@ for.body1102:                                     ; preds = %for.body1102.prehea
   %332 = ptrtoint ptr %331 to i64
   %ref.tmp1103.sroa.0.0.extract.trunc = trunc i64 %332 to i32
   %ref.tmp1103.sroa.0.4.extract.shift = lshr i64 %332, 32
-  %ref.tmp1103.sroa.0.4.extract.trunc = trunc i64 %ref.tmp1103.sroa.0.4.extract.shift to i32
+  %ref.tmp1103.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp1103.sroa.0.4.extract.shift to i32
   %add.i.i.i = add i32 %ref.tmp1103.sroa.0.4.extract.trunc, %ref.tmp1103.sroa.0.0.extract.trunc
   %shl.i.i.i = shl i32 %add.i.i.i, 15
   %not.i.i.i = xor i32 %shl.i.i.i, -1
@@ -42463,7 +42463,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit, label %for.body.i, !llvm.loop !63
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit: ; preds = %for.inc.i, %entry, %for.end.loopexit.split.loop.exit.i
@@ -45918,8 +45918,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %tobool3.not, label %cond.end8, label %cond.end8.thread
 
 cond.end8:                                        ; preds = %if.then
-  %add = fadd float %4, 0.000000e+00
-  %cmp10 = fcmp ogt float %add, 0.000000e+00
+  %cmp10 = fcmp ogt float %4, 0.000000e+00
   br i1 %cmp10, label %cond.false17, label %if.end125
 
 cond.end8.thread:                                 ; preds = %if.then
@@ -47890,7 +47889,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %16 = load float, ptr %arrayidx12.i.i12, align 4
   %17 = tail call noundef float @llvm.fmuladd.f32(float %5, float %16, float %15)
   %cmp9 = fcmp ogt float %17, %d.016
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %j.1 = select i1 %cmp9, i32 %18, i32 %j.015
   %d.1 = select i1 %cmp9, float %17, float %d.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -53145,7 +53144,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc41
   %indvars.iv38 = phi i64 [ 0, %entry ], [ %indvars.iv.next39, %for.inc41 ]
   %4 = load float, ptr %voxelsz, align 8
-  %5 = trunc i64 %indvars.iv38 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv38 to i32
   %conv17 = sitofp i32 %5 to float
   %6 = call float @llvm.fmuladd.f32(float %4, float %conv17, float %mul8.i20)
   br label %for.body21
@@ -53153,7 +53152,7 @@ for.body:                                         ; preds = %entry, %for.inc41
 for.body21:                                       ; preds = %for.body, %for.inc38
   %indvars.iv34 = phi i64 [ 0, %for.body ], [ %indvars.iv.next35, %for.inc38 ]
   %7 = load float, ptr %voxelsz, align 8
-  %8 = trunc i64 %indvars.iv34 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv34 to i32
   %conv23 = sitofp i32 %8 to float
   %9 = call float @llvm.fmuladd.f32(float %7, float %conv23, float %mul4.i18)
   br label %for.body27
@@ -53161,7 +53160,7 @@ for.body21:                                       ; preds = %for.body, %for.inc3
 for.body27:                                       ; preds = %for.body21, %_ZN11btSparseSdfILi3EE15DistanceToShapeERK9btVector3PK16btCollisionShape.exit
   %indvars.iv = phi i64 [ 0, %for.body21 ], [ %indvars.iv.next, %_ZN11btSparseSdfILi3EE15DistanceToShapeERK9btVector3PK16btCollisionShape.exit ]
   %10 = load float, ptr %voxelsz, align 8
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %conv29 = sitofp i32 %11 to float
   %12 = call float @llvm.fmuladd.f32(float %10, float %conv29, float %mul.i16)
   store float %12, ptr %ref.tmp31, align 4
@@ -54007,7 +54006,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %27, ptr %arrayidx.i74, align 4
   %29 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i70
-  %30 = trunc i64 %indvars.iv90 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %30, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93

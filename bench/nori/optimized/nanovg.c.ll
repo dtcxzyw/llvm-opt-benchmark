@@ -4175,7 +4175,7 @@ fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
   br i1 %228, label %221, label %.split.loop.exit31.i.i.i, !llvm.loop !25
 
 .split.loop.exit.i.i.i:                           ; preds = %221
-  %229 = trunc i64 %indvars.iv27.i.i.i to i32
+  %229 = trunc nuw i64 %indvars.iv27.i.i.i to i32
   br label %.split.loop.exit31.i.i.i
 
 .split.loop.exit31.i.i.i:                         ; preds = %226, %.split.loop.exit.i.i.i
@@ -4871,10 +4871,10 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
 
 627:                                              ; preds = %stbtt__handle_clipped_edge.exit365.i.i.i, %.lr.ph.i.i94.i
   %indvars.iv.i.i95.i = phi i64 [ 0, %.lr.ph.i.i94.i ], [ %indvars.iv.next.i.i96.i, %stbtt__handle_clipped_edge.exit365.i.i.i ]
-  %628 = trunc i64 %indvars.iv.i.i95.i to i32
+  %628 = trunc nuw nsw i64 %indvars.iv.i.i95.i to i32
   %629 = sitofp i32 %628 to float
   %indvars.iv.next.i.i96.i = add nuw nsw i64 %indvars.iv.i.i95.i, 1
-  %630 = trunc i64 %indvars.iv.next.i.i96.i to i32
+  %630 = trunc nuw nsw i64 %indvars.iv.next.i.i96.i to i32
   %631 = sitofp i32 %630 to float
   %632 = fsub float %629, %360
   %633 = fdiv float %632, %357
@@ -6136,7 +6136,7 @@ stbtt__fill_active_edges_new.exit.i.i:            ; preds = %stbtt__fill_active_
   %1395 = load ptr, ptr %270, align 8
   %1396 = load i32, ptr %271, align 8
   %1397 = mul nsw i32 %1396, %.071120.i.i
-  %1398 = trunc i64 %indvars.iv.i.i to i32
+  %1398 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %1399 = add nsw i32 %1397, %1398
   %1400 = sext i32 %1399 to i64
   %1401 = getelementptr inbounds i8, ptr %1395, i64 %1400
@@ -6578,7 +6578,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
   br i1 %.not70, label %106, label %103
 
 103:                                              ; preds = %stbtt_GetGlyphBitmapBox.exit
-  %104 = trunc i64 %indvars.iv to i32
+  %104 = trunc nuw nsw i64 %indvars.iv to i32
   %105 = sub nsw i32 0, %104
   br label %.loopexit
 
@@ -6942,7 +6942,7 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef read
 
 74:                                               ; preds = %71
   %75 = load i32, ptr %69, align 4
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   %77 = add nsw i32 %75, %76
   br label %81
 
@@ -7137,7 +7137,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %157, %91, %81, %160
   br i1 %223, label %71, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit
-  %224 = trunc i64 %indvars.iv.next94 to i32
+  %224 = trunc nsw i64 %indvars.iv.next94 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %57
@@ -7295,7 +7295,7 @@ stbtt__oversample_shift.exit:                     ; preds = %53, %31
 
 109:                                              ; preds = %104
   %110 = load i32, ptr %91, align 4
-  %111 = trunc i64 %indvars.iv to i32
+  %111 = trunc nuw nsw i64 %indvars.iv to i32
   %112 = add nsw i32 %110, %111
   br label %stbtt_GetGlyphHMetrics.exit
 
@@ -7790,7 +7790,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %442 = getelementptr inbounds i8, ptr %.096144.i, i64 %indvars.iv179.i
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
-  %445 = trunc i64 %indvars.iv179.i to i32
+  %445 = trunc nuw nsw i64 %indvars.iv179.i to i32
   %446 = and i64 %indvars.iv179.i, 7
   %447 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %446
   %448 = load i8, ptr %447, align 1
@@ -7832,7 +7832,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %467 = getelementptr inbounds i8, ptr %.096144.i, i64 %indvars.iv184.i
   store i8 %466, ptr %467, align 1
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %468 = trunc i64 %indvars.iv.next185.i to i32
+  %468 = trunc nuw i64 %indvars.iv.next185.i to i32
   %469 = icmp sgt i32 %374, %468
   br i1 %469, label %.lr.ph143.i, label %._crit_edge.i, !llvm.loop !43
 
@@ -8011,7 +8011,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   %552 = getelementptr inbounds i8, ptr %.0111159.i, i64 %551
   %553 = load i8, ptr %552, align 1
   %554 = zext i8 %553 to i32
-  %555 = trunc i64 %indvars.iv194.i to i32
+  %555 = trunc nuw nsw i64 %indvars.iv194.i to i32
   %556 = and i64 %indvars.iv194.i, 7
   %557 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %556
   %558 = load i8, ptr %557, align 1
@@ -8127,7 +8127,7 @@ stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.
   br i1 %618, label %99, label %._crit_edge.loopexit, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %615
-  %619 = trunc i64 %indvars.iv.next280 to i32
+  %619 = trunc nsw i64 %indvars.iv.next280 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %stbtt__oversample_shift.exit
@@ -8218,7 +8218,7 @@ define dso_local void @stbtt_PackFontRangesPackRects(ptr nocapture noundef reado
   br i1 %exitcond.not.i, label %stbrp_pack_rects.exit, label %11, !llvm.loop !54
 
 ._crit_edge.loopexit.i:                           ; preds = %21
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %3
@@ -8422,7 +8422,7 @@ fons__tmpalloc.exit:                              ; preds = %._crit_edge60
   br i1 %exitcond.not.i.i, label %stbtt_PackFontRangesPackRects.exit, label %59, !llvm.loop !54
 
 ._crit_edge.loopexit.i.i:                         ; preds = %69
-  %91 = trunc i64 %indvars.iv.i.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %47
@@ -10360,7 +10360,7 @@ define dso_local i32 @fonsGetFontByName(ptr nocapture noundef readonly %0, ptr n
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !64
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %8
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit12, %2
@@ -11702,7 +11702,7 @@ fons__allocGlyph.exit:                            ; preds = %177, %186
   store i8 0, ptr %264, align 1
   %265 = load i32, ptr %0, align 8
   %266 = mul nsw i32 %265, %249
-  %267 = trunc i64 %indvars.iv214 to i32
+  %267 = trunc nuw nsw i64 %indvars.iv214 to i32
   %268 = add nsw i32 %266, %267
   %269 = sext i32 %268 to i64
   %270 = getelementptr inbounds i8, ptr %245, i64 %269
@@ -14817,7 +14817,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   %32 = mul nsw i32 %31, %30
   %33 = shl nsw i32 %32, 2
   %.not61.i = icmp eq ptr %.04871.i, null
-  %34 = trunc i64 %indvars.iv.next.i to i32
+  %34 = trunc nuw i64 %indvars.iv.next.i to i32
   %35 = mul nsw i32 %33, %34
   %36 = sext i32 %35 to i64
   br i1 %.not61.i, label %43, label %37
@@ -14849,7 +14849,7 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
 
 48:                                               ; preds = %.sink.split.i, %43, %37
   %.149.i = phi ptr [ %38, %37 ], [ %44, %43 ], [ %.149.ph.i, %.sink.split.i ]
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   %50 = mul nsw i32 %33, %49
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %.149.i, i64 %51
@@ -16411,7 +16411,7 @@ stbi__fill_bits.exit.i.i.i:                       ; preds = %stbi__zget8.exit.i.
   br i1 %310, label %311, label %307
 
 311:                                              ; preds = %307
-  %312 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %312 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %313 = icmp eq i32 %312, 16
   br i1 %313, label %stbi__compute_huffman_codes.exit.thread.sink.split.i, label %314
 
@@ -16735,7 +16735,7 @@ stbi__fill_bits.exit.i.i56.i:                     ; preds = %stbi__zget8.exit.i.
   br i1 %469, label %470, label %466
 
 470:                                              ; preds = %466
-  %471 = trunc i64 %indvars.iv.i.i.i68.i to i32
+  %471 = trunc nuw nsw i64 %indvars.iv.i.i.i68.i to i32
   %472 = icmp eq i32 %471, 16
   br i1 %472, label %491, label %473
 
@@ -16964,7 +16964,7 @@ stbi__fill_bits.exit.i85.i.i:                     ; preds = %stbi__zget8.exit.i.
   br i1 %588, label %589, label %585
 
 589:                                              ; preds = %585
-  %590 = trunc i64 %indvars.iv.i.i90.i.i to i32
+  %590 = trunc nuw nsw i64 %indvars.iv.i.i90.i.i to i32
   %591 = icmp eq i32 %590, 16
   br i1 %591, label %stbi__zhuffman_decode.exit97.i.i, label %592
 
@@ -21549,7 +21549,7 @@ define dso_local void @nvgDebugDumpPathCache(ptr nocapture noundef readonly %0) 
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds %struct.NVGpath, ptr %13, i64 %indvars.iv38
-  %15 = trunc i64 %indvars.iv38 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv38 to i32
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %15)
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load i32, ptr %17, align 8
@@ -23673,7 +23673,7 @@ define dso_local i32 @nvgFindFont(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %exitcond.not.i, label %fonsGetFontByName.exit, label %12, !llvm.loop !64
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %12
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %fonsGetFontByName.exit
 
 fonsGetFontByName.exit:                           ; preds = %18, %._crit_edge.loopexit.split.loop.exit12.i, %4, %2
@@ -23749,7 +23749,7 @@ define dso_local noundef i32 @nvgAddFallbackFont(ptr nocapture noundef readonly 
   br i1 %exitcond.not.i.i, label %nvgFindFont.exit, label %13, !llvm.loop !64
 
 ._crit_edge.loopexit.split.loop.exit12.i.i:       ; preds = %13
-  %20 = trunc i64 %indvars.iv.i.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %nvgFindFont.exit
 
 nvgFindFont.exit:                                 ; preds = %19, %3, %5, %._crit_edge.loopexit.split.loop.exit12.i.i
@@ -23786,7 +23786,7 @@ nvgFindFont.exit:                                 ; preds = %19, %3, %5, %._crit
   br i1 %exitcond.not.i.i10, label %nvgAddFallbackFontId.exit, label %30, !llvm.loop !64
 
 nvgFindFont.exit12:                               ; preds = %30
-  %37 = trunc i64 %indvars.iv.i.i8 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv.i.i8 to i32
   %38 = icmp eq i32 %.0.i, -1
   %39 = icmp eq i32 %37, -1
   %or.cond.i = or i1 %38, %39
@@ -23919,7 +23919,7 @@ define dso_local void @nvgFontFace(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %exitcond.not.i, label %fonsGetFontByName.exit, label %12, !llvm.loop !64
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %12
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %fonsGetFontByName.exit
 
 fonsGetFontByName.exit:                           ; preds = %18, %2, %._crit_edge.loopexit.split.loop.exit12.i
@@ -25402,7 +25402,7 @@ define dso_local i32 @nvgTextGlyphPositions(ptr nocapture noundef %0, float noun
   br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !130
 
 .loopexit.loopexit.split.loop.exit57:             ; preds = %105
-  %133 = trunc i64 %indvars.iv to i32
+  %133 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %116, %.loopexit.loopexit.split.loop.exit57, %46, %7
@@ -25558,11 +25558,11 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
 
 29:                                               ; preds = %7
   %.not94 = icmp eq ptr %6, null
-  br i1 %.not94, label %250, label %30
+  br i1 %.not94, label %260, label %30
 
 30:                                               ; preds = %29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %250
+  br label %260
 
 31:                                               ; preds = %7
   %32 = fmul <2 x float> %21, %21
@@ -25662,248 +25662,258 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   br i1 %.not91, label %.preheader.lr.ph.split.us, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %111 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 1>
+  %111 = shufflevector <4 x float> %105, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %112 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 1>
   br label %.preheader
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %112 = and i32 %.fr140, 2
-  %.not92 = icmp eq i32 %112, 0
+  %113 = and i32 %.fr140, 2
+  %.not92 = icmp eq i32 %113, 0
   br i1 %.not92, label %.preheader.lr.ph.split.us.split.us, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph.split.us
-  %113 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 1>
+  %114 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 1>
   br label %.preheader.us
 
 .preheader.lr.ph.split.us.split.us:               ; preds = %.preheader.lr.ph.split.us
   br i1 %.not93, label %.preheader.us.us.us.preheader, label %.preheader.us.us.preheader
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph.split.us.split.us
-  %114 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 1>
+  %115 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 1>
   br label %.preheader.us.us
 
 .preheader.us.us.us.preheader:                    ; preds = %.preheader.lr.ph.split.us.split.us
-  %115 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 1, i32 poison>
-  %116 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 2>
+  %116 = shufflevector <4 x float> %105, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %117 = shufflevector <2 x float> %103, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 1, i32 poison>
+  %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> <i32 poison, i32 0, i32 poison, i32 2>
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us.preheader, %._crit_edge.split.us.us.split.us.us.split.us.us
-  %117 = phi i32 [ %125, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %104, %.preheader.us.us.us.preheader ]
+  %119 = phi i32 [ %127, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %104, %.preheader.us.us.us.preheader ]
   %.076114.us.us.us = phi float [ %.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %2, %.preheader.us.us.us.preheader ]
-  %118 = phi <4 x float> [ %120, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %107, %.preheader.us.us.us.preheader ]
-  %119 = icmp sgt i32 %117, 0
-  br i1 %119, label %.lr.ph.us.us.us, label %._crit_edge.split.us.us.split.us.us.split.us.us
+  %120 = phi <4 x float> [ %122, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %107, %.preheader.us.us.us.preheader ]
+  %121 = icmp sgt i32 %119, 0
+  br i1 %121, label %.lr.ph.us.us.us, label %._crit_edge.split.us.us.split.us.us.split.us.us
 
-._crit_edge.split.us.us.split.us.us.split.us.us:  ; preds = %128, %.preheader.us.us.us
-  %.1.lcssa.us.us.us = phi float [ %.076114.us.us.us, %.preheader.us.us.us ], [ %146, %128 ]
-  %120 = phi <4 x float> [ %118, %.preheader.us.us.us ], [ %145, %128 ]
-  %121 = add nsw i32 %117, -1
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %122, i32 2
-  %124 = load ptr, ptr %123, align 8
-  %125 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %124, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
-  %.not.us.us.us = icmp eq i32 %125, 0
+._crit_edge.split.us.us.split.us.us.split.us.us:  ; preds = %130, %.preheader.us.us.us
+  %.1.lcssa.us.us.us = phi float [ %.076114.us.us.us, %.preheader.us.us.us ], [ %152, %130 ]
+  %122 = phi <4 x float> [ %120, %.preheader.us.us.us ], [ %151, %130 ]
+  %123 = add nsw i32 %119, -1
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %124, i32 2
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %126, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %.not.us.us.us = icmp eq i32 %127, 0
   br i1 %.not.us.us.us, label %._crit_edge115, label %.preheader.us.us.us, !llvm.loop !131
 
 .lr.ph.us.us.us:                                  ; preds = %.preheader.us.us.us
-  %126 = load float, ptr %9, align 4
-  %127 = load float, ptr %110, align 4
-  %wide.trip.count177 = zext nneg i32 %117 to i64
-  br label %128
+  %128 = load float, ptr %9, align 4
+  %129 = load float, ptr %110, align 4
+  %wide.trip.count177 = zext nneg i32 %119 to i64
+  br label %130
 
-128:                                              ; preds = %128, %.lr.ph.us.us.us
-  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %128 ], [ 0, %.lr.ph.us.us.us ]
-  %.1100.us.us.us.us.us.us = phi float [ %146, %128 ], [ %.076114.us.us.us, %.lr.ph.us.us.us ]
-  %129 = phi <4 x float> [ %145, %128 ], [ %118, %.lr.ph.us.us.us ]
-  %130 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv174
-  %131 = getelementptr inbounds i8, ptr %130, i64 28
-  %132 = load float, ptr %131, align 4
-  %133 = fadd float %132, %1
-  %134 = getelementptr inbounds i8, ptr %130, i64 32
-  %135 = load float, ptr %134, align 8
-  %136 = fadd float %135, %1
-  %137 = insertelement <4 x float> %116, float %133, i64 0
+130:                                              ; preds = %130, %.lr.ph.us.us.us
+  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %130 ], [ 0, %.lr.ph.us.us.us ]
+  %.1100.us.us.us.us.us.us = phi float [ %152, %130 ], [ %.076114.us.us.us, %.lr.ph.us.us.us ]
+  %131 = phi <4 x float> [ %151, %130 ], [ %120, %.lr.ph.us.us.us ]
+  %132 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv174
+  %133 = getelementptr inbounds i8, ptr %132, i64 28
+  %134 = load float, ptr %133, align 4
+  %135 = getelementptr inbounds i8, ptr %132, i64 32
+  %136 = load float, ptr %135, align 8
+  %137 = insertelement <4 x float> %118, float %134, i64 0
   %138 = insertelement <4 x float> %137, float %136, i64 2
-  %139 = insertelement <4 x float> <float 0.000000e+00, float poison, float 0.000000e+00, float poison>, float %.1100.us.us.us.us.us.us, i64 1
-  %140 = shufflevector <4 x float> %139, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
+  %139 = insertelement <2 x float> %116, float %.1100.us.us.us.us.us.us, i64 1
+  %140 = shufflevector <2 x float> %139, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %141 = fadd <4 x float> %138, %140
-  %142 = fcmp olt <4 x float> %129, %141
-  %143 = fcmp ogt <4 x float> %129, %141
-  %144 = shufflevector <4 x i1> %142, <4 x i1> %143, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %145 = select <4 x i1> %144, <4 x float> %129, <4 x float> %141
-  %146 = call float @llvm.fmuladd.f32(float %126, float %127, float %.1100.us.us.us.us.us.us)
+  %142 = extractelement <4 x float> %141, i64 0
+  %143 = fadd float %142, 0.000000e+00
+  %144 = extractelement <4 x float> %141, i64 2
+  %145 = fadd float %144, 0.000000e+00
+  %146 = fcmp olt <4 x float> %131, %141
+  %147 = fcmp ogt <4 x float> %131, %141
+  %148 = shufflevector <4 x i1> %146, <4 x i1> %147, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %149 = insertelement <4 x float> %141, float %143, i64 0
+  %150 = insertelement <4 x float> %149, float %145, i64 2
+  %151 = select <4 x i1> %148, <4 x float> %131, <4 x float> %150
+  %152 = call float @llvm.fmuladd.f32(float %128, float %129, float %.1100.us.us.us.us.us.us)
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %._crit_edge.split.us.us.split.us.us.split.us.us, label %128, !llvm.loop !132
+  br i1 %exitcond178.not, label %._crit_edge.split.us.us.split.us.us.split.us.us, label %130, !llvm.loop !132
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us.us.split.us.us.split
-  %147 = phi i32 [ %155, %._crit_edge.split.us.us.split.us.us.split ], [ %104, %.preheader.us.us.preheader ]
+  %153 = phi i32 [ %161, %._crit_edge.split.us.us.split.us.us.split ], [ %104, %.preheader.us.us.preheader ]
   %.076114.us.us = phi float [ %.1.lcssa.us.us, %._crit_edge.split.us.us.split.us.us.split ], [ %2, %.preheader.us.us.preheader ]
-  %148 = phi <4 x float> [ %150, %._crit_edge.split.us.us.split.us.us.split ], [ %107, %.preheader.us.us.preheader ]
-  %149 = icmp sgt i32 %147, 0
-  br i1 %149, label %.lr.ph.us.us, label %._crit_edge.split.us.us.split.us.us.split
+  %154 = phi <4 x float> [ %156, %._crit_edge.split.us.us.split.us.us.split ], [ %107, %.preheader.us.us.preheader ]
+  %155 = icmp sgt i32 %153, 0
+  br i1 %155, label %.lr.ph.us.us, label %._crit_edge.split.us.us.split.us.us.split
 
-._crit_edge.split.us.us.split.us.us.split:        ; preds = %158, %.preheader.us.us
-  %.1.lcssa.us.us = phi float [ %.076114.us.us, %.preheader.us.us ], [ %181, %158 ]
-  %150 = phi <4 x float> [ %148, %.preheader.us.us ], [ %180, %158 ]
-  %151 = add nsw i32 %147, -1
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %152, i32 2
-  %154 = load ptr, ptr %153, align 8
-  %155 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %154, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
-  %.not.us.us = icmp eq i32 %155, 0
+._crit_edge.split.us.us.split.us.us.split:        ; preds = %164, %.preheader.us.us
+  %.1.lcssa.us.us = phi float [ %.076114.us.us, %.preheader.us.us ], [ %187, %164 ]
+  %156 = phi <4 x float> [ %154, %.preheader.us.us ], [ %186, %164 ]
+  %157 = add nsw i32 %153, -1
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %158, i32 2
+  %160 = load ptr, ptr %159, align 8
+  %161 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %160, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %.not.us.us = icmp eq i32 %161, 0
   br i1 %.not.us.us, label %._crit_edge115, label %.preheader.us.us, !llvm.loop !131
 
 .lr.ph.us.us:                                     ; preds = %.preheader.us.us
-  %156 = load float, ptr %9, align 4
-  %157 = load float, ptr %110, align 4
-  %wide.trip.count172 = zext nneg i32 %147 to i64
-  br label %158
+  %162 = load float, ptr %9, align 4
+  %163 = load float, ptr %110, align 4
+  %wide.trip.count172 = zext nneg i32 %153 to i64
+  br label %164
 
-158:                                              ; preds = %158, %.lr.ph.us.us
-  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %158 ], [ 0, %.lr.ph.us.us ]
-  %.1100.us.us.us.us = phi float [ %181, %158 ], [ %.076114.us.us, %.lr.ph.us.us ]
-  %159 = phi <4 x float> [ %180, %158 ], [ %148, %.lr.ph.us.us ]
-  %160 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv169
-  %161 = getelementptr inbounds i8, ptr %160, i64 24
-  %162 = load float, ptr %161, align 8
-  %163 = fsub float %3, %162
-  %164 = getelementptr inbounds i8, ptr %160, i64 28
-  %165 = load float, ptr %164, align 4
-  %166 = fadd float %165, %1
-  %167 = getelementptr inbounds i8, ptr %160, i64 32
+164:                                              ; preds = %164, %.lr.ph.us.us
+  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %164 ], [ 0, %.lr.ph.us.us ]
+  %.1100.us.us.us.us = phi float [ %187, %164 ], [ %.076114.us.us, %.lr.ph.us.us ]
+  %165 = phi <4 x float> [ %186, %164 ], [ %154, %.lr.ph.us.us ]
+  %166 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv169
+  %167 = getelementptr inbounds i8, ptr %166, i64 24
   %168 = load float, ptr %167, align 8
-  %169 = fadd float %168, %1
-  %170 = insertelement <4 x float> %114, float %163, i64 0
-  %171 = shufflevector <4 x float> %170, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %172 = insertelement <4 x float> poison, float %166, i64 0
-  %173 = insertelement <4 x float> %172, float %.1100.us.us.us.us, i64 1
-  %174 = insertelement <4 x float> %173, float %169, i64 2
-  %175 = shufflevector <4 x float> %174, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  %176 = fadd <4 x float> %171, %175
-  %177 = fcmp olt <4 x float> %159, %176
-  %178 = fcmp ogt <4 x float> %159, %176
-  %179 = shufflevector <4 x i1> %177, <4 x i1> %178, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %180 = select <4 x i1> %179, <4 x float> %159, <4 x float> %176
-  %181 = call float @llvm.fmuladd.f32(float %156, float %157, float %.1100.us.us.us.us)
+  %169 = fsub float %3, %168
+  %170 = getelementptr inbounds i8, ptr %166, i64 28
+  %171 = load float, ptr %170, align 4
+  %172 = fadd float %171, %1
+  %173 = getelementptr inbounds i8, ptr %166, i64 32
+  %174 = load float, ptr %173, align 8
+  %175 = fadd float %174, %1
+  %176 = insertelement <4 x float> %115, float %169, i64 0
+  %177 = shufflevector <4 x float> %176, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %178 = insertelement <4 x float> poison, float %172, i64 0
+  %179 = insertelement <4 x float> %178, float %.1100.us.us.us.us, i64 1
+  %180 = insertelement <4 x float> %179, float %175, i64 2
+  %181 = shufflevector <4 x float> %180, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
+  %182 = fadd <4 x float> %177, %181
+  %183 = fcmp olt <4 x float> %165, %182
+  %184 = fcmp ogt <4 x float> %165, %182
+  %185 = shufflevector <4 x i1> %183, <4 x i1> %184, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %186 = select <4 x i1> %185, <4 x float> %165, <4 x float> %182
+  %187 = call float @llvm.fmuladd.f32(float %162, float %163, float %.1100.us.us.us.us)
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge.split.us.us.split.us.us.split, label %158, !llvm.loop !132
+  br i1 %exitcond173.not, label %._crit_edge.split.us.us.split.us.us.split, label %164, !llvm.loop !132
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.split.us.us.split
-  %182 = phi i32 [ %190, %._crit_edge.split.us.us.split ], [ %104, %.preheader.us.preheader ]
+  %188 = phi i32 [ %196, %._crit_edge.split.us.us.split ], [ %104, %.preheader.us.preheader ]
   %.076114.us = phi float [ %.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %2, %.preheader.us.preheader ]
-  %183 = phi <4 x float> [ %185, %._crit_edge.split.us.us.split ], [ %107, %.preheader.us.preheader ]
-  %184 = icmp sgt i32 %182, 0
-  br i1 %184, label %.lr.ph.us, label %._crit_edge.split.us.us.split
+  %189 = phi <4 x float> [ %191, %._crit_edge.split.us.us.split ], [ %107, %.preheader.us.preheader ]
+  %190 = icmp sgt i32 %188, 0
+  br i1 %190, label %.lr.ph.us, label %._crit_edge.split.us.us.split
 
-._crit_edge.split.us.us.split:                    ; preds = %193, %.preheader.us
-  %.1.lcssa.us = phi float [ %.076114.us, %.preheader.us ], [ %217, %193 ]
-  %185 = phi <4 x float> [ %183, %.preheader.us ], [ %216, %193 ]
-  %186 = add nsw i32 %182, -1
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %187, i32 2
-  %189 = load ptr, ptr %188, align 8
-  %190 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %189, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
-  %.not.us = icmp eq i32 %190, 0
+._crit_edge.split.us.us.split:                    ; preds = %199, %.preheader.us
+  %.1.lcssa.us = phi float [ %.076114.us, %.preheader.us ], [ %223, %199 ]
+  %191 = phi <4 x float> [ %189, %.preheader.us ], [ %222, %199 ]
+  %192 = add nsw i32 %188, -1
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %193, i32 2
+  %195 = load ptr, ptr %194, align 8
+  %196 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %195, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %.not.us = icmp eq i32 %196, 0
   br i1 %.not.us, label %._crit_edge115, label %.preheader.us, !llvm.loop !131
 
 .lr.ph.us:                                        ; preds = %.preheader.us
-  %191 = load float, ptr %9, align 4
-  %192 = load float, ptr %110, align 4
-  %wide.trip.count167 = zext nneg i32 %182 to i64
-  br label %193
+  %197 = load float, ptr %9, align 4
+  %198 = load float, ptr %110, align 4
+  %wide.trip.count167 = zext nneg i32 %188 to i64
+  br label %199
 
-193:                                              ; preds = %193, %.lr.ph.us
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %193 ], [ 0, %.lr.ph.us ]
-  %.1100.us.us = phi float [ %217, %193 ], [ %.076114.us, %.lr.ph.us ]
-  %194 = phi <4 x float> [ %216, %193 ], [ %183, %.lr.ph.us ]
-  %195 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv164
-  %196 = getelementptr inbounds i8, ptr %195, i64 24
-  %197 = load float, ptr %196, align 8
-  %198 = fmul float %197, -5.000000e-01
-  %199 = call float @llvm.fmuladd.f32(float %3, float 5.000000e-01, float %198)
-  %200 = getelementptr inbounds i8, ptr %195, i64 28
-  %201 = load float, ptr %200, align 4
-  %202 = fadd float %201, %1
-  %203 = getelementptr inbounds i8, ptr %195, i64 32
-  %204 = load float, ptr %203, align 8
-  %205 = fadd float %204, %1
-  %206 = insertelement <4 x float> %113, float %199, i64 0
-  %207 = shufflevector <4 x float> %206, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %208 = insertelement <4 x float> poison, float %202, i64 0
-  %209 = insertelement <4 x float> %208, float %.1100.us.us, i64 1
-  %210 = insertelement <4 x float> %209, float %205, i64 2
-  %211 = shufflevector <4 x float> %210, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  %212 = fadd <4 x float> %207, %211
-  %213 = fcmp olt <4 x float> %194, %212
-  %214 = fcmp ogt <4 x float> %194, %212
-  %215 = shufflevector <4 x i1> %213, <4 x i1> %214, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %216 = select <4 x i1> %215, <4 x float> %194, <4 x float> %212
-  %217 = call float @llvm.fmuladd.f32(float %191, float %192, float %.1100.us.us)
+199:                                              ; preds = %199, %.lr.ph.us
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %199 ], [ 0, %.lr.ph.us ]
+  %.1100.us.us = phi float [ %223, %199 ], [ %.076114.us, %.lr.ph.us ]
+  %200 = phi <4 x float> [ %222, %199 ], [ %189, %.lr.ph.us ]
+  %201 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv164
+  %202 = getelementptr inbounds i8, ptr %201, i64 24
+  %203 = load float, ptr %202, align 8
+  %204 = fmul float %203, -5.000000e-01
+  %205 = call float @llvm.fmuladd.f32(float %3, float 5.000000e-01, float %204)
+  %206 = getelementptr inbounds i8, ptr %201, i64 28
+  %207 = load float, ptr %206, align 4
+  %208 = fadd float %207, %1
+  %209 = getelementptr inbounds i8, ptr %201, i64 32
+  %210 = load float, ptr %209, align 8
+  %211 = fadd float %210, %1
+  %212 = insertelement <4 x float> %114, float %205, i64 0
+  %213 = shufflevector <4 x float> %212, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %214 = insertelement <4 x float> poison, float %208, i64 0
+  %215 = insertelement <4 x float> %214, float %.1100.us.us, i64 1
+  %216 = insertelement <4 x float> %215, float %211, i64 2
+  %217 = shufflevector <4 x float> %216, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
+  %218 = fadd <4 x float> %213, %217
+  %219 = fcmp olt <4 x float> %200, %218
+  %220 = fcmp ogt <4 x float> %200, %218
+  %221 = shufflevector <4 x i1> %219, <4 x i1> %220, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %222 = select <4 x i1> %221, <4 x float> %200, <4 x float> %218
+  %223 = call float @llvm.fmuladd.f32(float %197, float %198, float %.1100.us.us)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
-  br i1 %exitcond168.not, label %._crit_edge.split.us.us.split, label %193, !llvm.loop !132
+  br i1 %exitcond168.not, label %._crit_edge.split.us.us.split, label %199, !llvm.loop !132
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge.split
-  %218 = phi i32 [ %247, %._crit_edge.split ], [ %104, %.preheader.preheader ]
+  %224 = phi i32 [ %257, %._crit_edge.split ], [ %104, %.preheader.preheader ]
   %.076114 = phi float [ %.1.lcssa, %._crit_edge.split ], [ %2, %.preheader.preheader ]
-  %219 = phi <4 x float> [ %242, %._crit_edge.split ], [ %107, %.preheader.preheader ]
-  %220 = icmp sgt i32 %218, 0
-  br i1 %220, label %.lr.ph, label %._crit_edge.split
+  %225 = phi <4 x float> [ %252, %._crit_edge.split ], [ %107, %.preheader.preheader ]
+  %226 = icmp sgt i32 %224, 0
+  br i1 %226, label %.lr.ph, label %._crit_edge.split
 
 .lr.ph:                                           ; preds = %.preheader
-  %221 = load float, ptr %9, align 4
-  %222 = load float, ptr %110, align 4
-  %wide.trip.count = zext nneg i32 %218 to i64
-  br label %223
+  %227 = load float, ptr %9, align 4
+  %228 = load float, ptr %110, align 4
+  %wide.trip.count = zext nneg i32 %224 to i64
+  br label %229
 
-223:                                              ; preds = %.lr.ph, %223
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %223 ]
-  %.1100 = phi float [ %.076114, %.lr.ph ], [ %241, %223 ]
-  %224 = phi <4 x float> [ %219, %.lr.ph ], [ %240, %223 ]
-  %225 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv
-  %226 = getelementptr inbounds i8, ptr %225, i64 28
-  %227 = load float, ptr %226, align 4
-  %228 = fadd float %227, %1
-  %229 = getelementptr inbounds i8, ptr %225, i64 32
-  %230 = load float, ptr %229, align 8
-  %231 = fadd float %230, %1
-  %232 = insertelement <4 x float> %111, float %228, i64 0
-  %233 = insertelement <4 x float> %232, float %231, i64 2
-  %234 = insertelement <4 x float> <float 0.000000e+00, float poison, float 0.000000e+00, float poison>, float %.1100, i64 1
-  %235 = shufflevector <4 x float> %234, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  %236 = fadd <4 x float> %233, %235
-  %237 = fcmp olt <4 x float> %224, %236
-  %238 = fcmp ogt <4 x float> %224, %236
-  %239 = shufflevector <4 x i1> %237, <4 x i1> %238, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %240 = select <4 x i1> %239, <4 x float> %224, <4 x float> %236
-  %241 = call float @llvm.fmuladd.f32(float %221, float %222, float %.1100)
+229:                                              ; preds = %.lr.ph, %229
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %229 ]
+  %.1100 = phi float [ %.076114, %.lr.ph ], [ %251, %229 ]
+  %230 = phi <4 x float> [ %225, %.lr.ph ], [ %250, %229 ]
+  %231 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv
+  %232 = getelementptr inbounds i8, ptr %231, i64 28
+  %233 = load float, ptr %232, align 4
+  %234 = getelementptr inbounds i8, ptr %231, i64 32
+  %235 = load float, ptr %234, align 8
+  %236 = insertelement <4 x float> %112, float %233, i64 0
+  %237 = insertelement <4 x float> %236, float %235, i64 2
+  %238 = insertelement <2 x float> %111, float %.1100, i64 1
+  %239 = shufflevector <2 x float> %238, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %240 = fadd <4 x float> %237, %239
+  %241 = extractelement <4 x float> %240, i64 0
+  %242 = fadd float %241, 0.000000e+00
+  %243 = extractelement <4 x float> %240, i64 2
+  %244 = fadd float %243, 0.000000e+00
+  %245 = fcmp olt <4 x float> %230, %240
+  %246 = fcmp ogt <4 x float> %230, %240
+  %247 = shufflevector <4 x i1> %245, <4 x i1> %246, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %248 = insertelement <4 x float> %240, float %242, i64 0
+  %249 = insertelement <4 x float> %248, float %244, i64 2
+  %250 = select <4 x i1> %247, <4 x float> %230, <4 x float> %249
+  %251 = call float @llvm.fmuladd.f32(float %227, float %228, float %.1100)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %223, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge.split, label %229, !llvm.loop !132
 
-._crit_edge.split:                                ; preds = %223, %.preheader
-  %.1.lcssa = phi float [ %.076114, %.preheader ], [ %241, %223 ]
-  %242 = phi <4 x float> [ %219, %.preheader ], [ %240, %223 ]
-  %243 = add nsw i32 %218, -1
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %244, i32 2
-  %246 = load ptr, ptr %245, align 8
-  %247 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %246, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
-  %.not = icmp eq i32 %247, 0
+._crit_edge.split:                                ; preds = %229, %.preheader
+  %.1.lcssa = phi float [ %.076114, %.preheader ], [ %251, %229 ]
+  %252 = phi <4 x float> [ %225, %.preheader ], [ %250, %229 ]
+  %253 = add nsw i32 %224, -1
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %254, i32 2
+  %256 = load ptr, ptr %255, align 8
+  %257 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %256, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %.not = icmp eq i32 %257, 0
   br i1 %.not, label %._crit_edge115, label %.preheader, !llvm.loop !131
 
 ._crit_edge115:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us.split, %._crit_edge.split.us.us.split.us.us.split, %._crit_edge.split.us.us.split.us.us.split.us.us, %31
-  %248 = phi <4 x float> [ %107, %31 ], [ %120, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %150, %._crit_edge.split.us.us.split.us.us.split ], [ %185, %._crit_edge.split.us.us.split ], [ %242, %._crit_edge.split ]
+  %258 = phi <4 x float> [ %107, %31 ], [ %122, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %156, %._crit_edge.split.us.us.split.us.us.split ], [ %191, %._crit_edge.split.us.us.split ], [ %252, %._crit_edge.split ]
   store i32 %.fr140, ptr %24, align 4
   %.not90 = icmp eq ptr %6, null
-  br i1 %.not90, label %250, label %249
+  br i1 %.not90, label %260, label %259
 
-249:                                              ; preds = %._crit_edge115
-  store <4 x float> %248, ptr %6, align 4
-  br label %250
+259:                                              ; preds = %._crit_edge115
+  store <4 x float> %258, ptr %6, align 4
+  br label %260
 
-250:                                              ; preds = %29, %30, %249, %._crit_edge115
+260:                                              ; preds = %29, %30, %259, %._crit_edge115
   ret void
 }
 
@@ -26053,8 +26063,8 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 nou
   br i1 %37, label %33, label %38
 
 38:                                               ; preds = %33
-  %39 = trunc i64 %indvars.iv to i32
-  %40 = trunc i64 %indvars.iv81 to i32
+  %39 = trunc nsw i64 %indvars.iv to i32
+  %40 = trunc nsw i64 %indvars.iv81 to i32
   %.not74 = icmp slt i32 %39, %40
   br i1 %.not74, label %41, label %44
 
@@ -26402,7 +26412,7 @@ fons__atlasRectFits.exit:                         ; preds = %33, %21
 
 49:                                               ; preds = %._crit_edge76, %44
   %.pre-phi = phi i32 [ %.pre77, %._crit_edge76 ], [ %47, %44 ]
-  %50 = trunc i64 %indvars.iv to i32
+  %50 = trunc nuw nsw i64 %indvars.iv to i32
   br label %fons__atlasRectFits.exit.thread
 
 fons__atlasRectFits.exit.thread:                  ; preds = %26, %.lr.ph.i, %15, %fons__atlasRectFits.exit, %49, %44, %42
@@ -27285,7 +27295,7 @@ stbi__get8.exit78.i.i.i.i:                        ; preds = %stbi__refill_buffer
   br i1 %exitcond.not.i.i.i.i, label %.loopexit357.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !144
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
-  %240 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %240 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %stbi__get8.exit78.i.i.i.i
@@ -28044,7 +28054,7 @@ stbi__jpeg_get_bit.exit.i.us.i.i.i.i:             ; preds = %575, %572
   br i1 %621, label %622, label %618
 
 622:                                              ; preds = %618
-  %623 = trunc i64 %indvars.iv.i145.i.us.i.i.i.i to i32
+  %623 = trunc nuw nsw i64 %indvars.iv.i145.i.us.i.i.i.i to i32
   %624 = icmp eq i32 %623, 17
   %625 = load i32, ptr %55, align 4
   br i1 %624, label %stbi__jpeg_decode_block_prog_ac.exit.sink.split.sink.split.i.i.i.i, label %626
@@ -28224,11 +28234,11 @@ stbi__jpeg_get_bit.exit152.i.us.i.i.i.i:          ; preds = %681, %678
   br i1 %.not129.not.i.us.i.i.i.i, label %.lr.ph181.i.us.i.i.i.i, label %.loopexit156.loopexit.i.us.i.i.i.i, !llvm.loop !155
 
 .loopexit156.loopexit.i.us.i.i.i.i:               ; preds = %701
-  %704 = trunc i64 %indvars.iv.next193.i.us.i.i.i.i to i32
+  %704 = trunc nsw i64 %indvars.iv.next193.i.us.i.i.i.i to i32
   br label %.loopexit156.i.us.i.i.i.i
 
 705:                                              ; preds = %697
-  %706 = trunc i64 %indvars.iv.next193.i.us.i.i.i.i to i32
+  %706 = trunc nsw i64 %indvars.iv.next193.i.us.i.i.i.i to i32
   %707 = trunc i32 %.0105.i.us.i.i.i.i to i16
   store i16 %707, ptr %676, align 2
   %.pre197.i.us.i.i.i.i = load i32, ptr %51, align 8
@@ -28341,7 +28351,7 @@ stbi__jpeg_get_bit.exit152.i.us.i.i.i.i:          ; preds = %681, %678
   br i1 %765, label %766, label %762
 
 766:                                              ; preds = %762
-  %767 = trunc i64 %indvars.iv.i.i.us.i.i.i.i to i32
+  %767 = trunc nuw nsw i64 %indvars.iv.i.i.us.i.i.i.i to i32
   %768 = icmp eq i32 %767, 17
   %769 = load i32, ptr %55, align 4
   br i1 %768, label %stbi__jpeg_decode_block_prog_ac.exit.sink.split.sink.split.i.i.i.i, label %770
@@ -29133,7 +29143,7 @@ stbi__decode_jpeg_image.exit.i.thread.i:          ; preds = %.preheader35.i.i.i.
   %1153 = load ptr, ptr %1146, align 8
   %1154 = load i32, ptr %1147, align 8
   %1155 = mul nsw i32 %1154, %.03337.us.i.i.i.i
-  %1156 = trunc i64 %indvars.iv.i84.i.i.i to i32
+  %1156 = trunc nuw nsw i64 %indvars.iv.i84.i.i.i to i32
   %1157 = add nsw i32 %1155, %1156
   %1158 = shl nsw i32 %1157, 6
   %1159 = sext i32 %1158 to i64
@@ -31289,13 +31299,13 @@ stbi__get8.exit357.i:                             ; preds = %stbi__refill_buffer
 ._crit_edge58.i.loopexit:                         ; preds = %.lr.ph57.i.us, %2116
   %.pre.i361.i.ph = phi ptr [ %2076, %.lr.ph57.i.us ], [ %2119, %2116 ]
   %.ph = phi ptr [ %2075, %.lr.ph57.i.us ], [ %2118, %2116 ]
-  %2167 = trunc i64 %indvars.iv.next260 to i32
+  %2167 = trunc nsw i64 %indvars.iv.next260 to i32
   br label %._crit_edge58.i
 
 ._crit_edge58.i.loopexit286:                      ; preds = %2162, %.lr.ph57.i
   %.pre.i361.i.ph287 = phi ptr [ %2123, %.lr.ph57.i ], [ %2165, %2162 ]
   %.ph288 = phi ptr [ %2122, %.lr.ph57.i ], [ %2164, %2162 ]
-  %2168 = trunc i64 %indvars.iv.next to i32
+  %2168 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge58.i
 
 ._crit_edge58.i:                                  ; preds = %._crit_edge58.i.loopexit286, %._crit_edge58.i.loopexit, %stbi__get8.exit351.i
@@ -32380,7 +32390,7 @@ stbi__skip.exit451.i:                             ; preds = %2721, %2717
 
 .lr.ph70.us.i:                                    ; preds = %._crit_edge71.us.i, %.lr.ph70.us.preheader.i
   %indvars.iv90.i = phi i64 [ 0, %.lr.ph70.us.preheader.i ], [ %indvars.iv.next91.i, %._crit_edge71.us.i ]
-  %2742 = trunc i64 %indvars.iv90.i to i32
+  %2742 = trunc nuw nsw i64 %indvars.iv90.i to i32
   %2743 = mul i32 %factor.op.mul.i, %2742
   %2744 = zext i32 %2743 to i64
   %2745 = getelementptr inbounds i8, ptr %1896, i64 %2744
@@ -35400,7 +35410,7 @@ stbi__at_eof.exit.thread.i:                       ; preds = %stbi__at_eof.exit.i
 
 .preheader270.i:                                  ; preds = %635, %.preheader270.lr.ph.i
   %indvars.iv336.i = phi i64 [ 0, %.preheader270.lr.ph.i ], [ %indvars.iv.next337.i, %635 ]
-  %318 = trunc i64 %indvars.iv336.i to i32
+  %318 = trunc nuw nsw i64 %indvars.iv336.i to i32
   %319 = mul i32 %213, %318
   %320 = sext i32 %319 to i64
   %321 = getelementptr inbounds i8, ptr %.0.i82, i64 %320
@@ -36932,11 +36942,11 @@ stbi__get8.exit156.us.us:                         ; preds = %158, %stbi__refill_
   br i1 %163, label %.split57.us, label %.preheader.us.us
 
 .loopexit.us.us.loopexit:                         ; preds = %.lr.ph48.us.us
-  %164 = trunc i64 %indvars.iv.next139 to i32
+  %164 = trunc nsw i64 %indvars.iv.next139 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit81:                       ; preds = %stbi__get8.exit162.us.us
-  %165 = trunc i64 %indvars.iv.next135 to i32
+  %165 = trunc nsw i64 %indvars.iv.next135 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %99, %.loopexit.us.us.loopexit81, %.loopexit.us.us.loopexit, %.preheader14.us.us, %.preheader.us.us
@@ -39098,7 +39108,7 @@ stbi__skip.exit:                                  ; preds = %530, %536
   br i1 %.not30.i.us.us, label %stbi__getn.exit.us.us, label %549
 
 549:                                              ; preds = %._crit_edge.i317.us.us
-  %550 = trunc i64 %indvars.iv69 to i32
+  %550 = trunc nuw nsw i64 %indvars.iv69 to i32
   %551 = mul i32 %540, %550
   %552 = sext i32 %551 to i64
   %553 = getelementptr inbounds i8, ptr %518, i64 %552
@@ -39302,7 +39312,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__skip.exit324
   %.not211.not = phi i1 [ true, %.lr.ph45 ], [ false, %.loopexit27 ]
   %.017743 = phi i32 [ 0, %.lr.ph45 ], [ %.117824, %.loopexit27 ]
   %.017942 = phi i32 [ 0, %.lr.ph45 ], [ %753, %.loopexit27 ]
-  %634 = trunc i64 %indvars.iv89 to i32
+  %634 = trunc nuw nsw i64 %indvars.iv89 to i32
   %635 = mul i32 %.0190.ph, %634
   %636 = zext i32 %635 to i64
   %scevgep84 = getelementptr i8, ptr %518, i64 %636
@@ -40167,7 +40177,7 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %0
   br i1 %53, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !245
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %54 = trunc i64 %indvars.iv.next to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %6
@@ -40328,7 +40338,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !247
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %78 = trunc i64 %indvars.iv.next to i32
+  %78 = trunc nuw nsw i64 %indvars.iv.next to i32
   %.phi.trans.insert = and i64 %indvars.iv.next, 4294967288
   %.phi.trans.insert163 = getelementptr inbounds i8, ptr %1, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert163, align 1
@@ -41578,7 +41588,7 @@ stbi__get8.exit201:                               ; preds = %480, %483, %stbi__r
   br i1 %526, label %527, label %543
 
 527:                                              ; preds = %524
-  %528 = trunc i64 %indvars.iv.i to i32
+  %528 = trunc nuw nsw i64 %indvars.iv.i to i32
   %529 = shl i32 %528, %523
   %530 = and i32 %529, 511
   %531 = sub nsw i32 9, %520
@@ -42869,7 +42879,7 @@ stbi__malloc_mad2.exit:                           ; preds = %409, %stbi__mul2siz
   br i1 %433, label %434, label %437
 
 434:                                              ; preds = %428
-  %435 = trunc i64 %indvars.iv296 to i32
+  %435 = trunc nuw nsw i64 %indvars.iv296 to i32
   %436 = add nuw nsw i32 %435, 1
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   tail call fastcc void @stbi__free_jpeg_components(ptr noundef nonnull %0, i32 noundef %436)
@@ -43092,7 +43102,7 @@ define internal fastcc noundef i32 @stbi__build_huffman(ptr nocapture noundef %0
   br i1 %14, label %10, label %._crit_edge.loopexit, !llvm.loop !262
 
 ._crit_edge.loopexit:                             ; preds = %10
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader64
@@ -43139,8 +43149,8 @@ define internal fastcc noundef i32 @stbi__build_huffman(ptr nocapture noundef %0
   br i1 %36, label %.lr.ph73, label %._crit_edge74, !llvm.loop !264
 
 ._crit_edge74:                                    ; preds = %.lr.ph73
-  %37 = trunc i64 %indvars.iv.next92 to i32
-  %38 = trunc i64 %indvars.iv94 to i32
+  %37 = trunc nsw i64 %indvars.iv.next92 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv94 to i32
   %.highbits = lshr i32 %.15772, %38
   %.not = icmp eq i32 %.highbits, 0
   br i1 %.not, label %40, label %39
@@ -43197,7 +43207,7 @@ define internal fastcc noundef i32 @stbi__build_huffman(ptr nocapture noundef %0
   %64 = getelementptr inbounds [512 x i8], ptr %0, i64 0, i64 %63
   store i8 %60, ptr %64, align 1
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %65 = trunc i64 %indvars.iv.next99 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %.2.highbits = lshr i32 %65, %58
   %66 = icmp eq i32 %.2.highbits, 0
   br i1 %66, label %62, label %.loopexit, !llvm.loop !266
@@ -43647,7 +43657,7 @@ define internal fastcc noundef i32 @stbi__jpeg_decode_block(ptr nocapture nounde
   br i1 %39, label %40, label %36
 
 40:                                               ; preds = %36
-  %41 = trunc i64 %indvars.iv.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   %42 = icmp eq i32 %41, 17
   %43 = load i32, ptr %8, align 4
   br i1 %42, label %.loopexit72.sink.split.sink.split, label %44
@@ -43826,7 +43836,7 @@ stbi__extend_receive.exit:                        ; preds = %61, %64
   br i1 %148, label %149, label %145
 
 149:                                              ; preds = %145
-  %150 = trunc i64 %indvars.iv.i64 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv.i64 to i32
   %151 = icmp eq i32 %150, 17
   %152 = load i32, ptr %8, align 4
   br i1 %151, label %.loopexit72.sink.split.sink.split, label %153
@@ -44245,7 +44255,7 @@ define internal fastcc noundef i32 @stbi__jpeg_decode_block_prog_dc(ptr nocaptur
   br i1 %47, label %48, label %44
 
 48:                                               ; preds = %44
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   %50 = icmp eq i32 %49, 17
   %51 = load i32, ptr %9, align 4
   br i1 %50, label %52, label %54
@@ -45913,7 +45923,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 
 25:                                               ; preds = %.lr.ph252, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next, %.loopexit ]
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = mul i32 %26, %3
   %28 = mul i32 %27, %1
   %29 = zext i32 %28 to i64
@@ -46256,7 +46266,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
 
 19:                                               ; preds = %.lr.ph251, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next, %.loopexit ]
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = mul i32 %20, %3
   %22 = mul i32 %21, %1
   %23 = zext i32 %22 to i64
@@ -48158,7 +48168,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %indvars.iv959.be = phi i64 [ %indvars.iv.next960, %.loopexit719 ], [ %indvars.iv.next960980, %.loopexit719.thread ]
   %.0520820.be = phi ptr [ %.10530, %.loopexit719 ], [ %.9529, %.loopexit719.thread ]
   %297 = load ptr, ptr %31, align 8
-  %298 = trunc i64 %indvars.iv959.be to i32
+  %298 = trunc nuw i64 %indvars.iv959.be to i32
   %299 = mul i32 %13, %298
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds i8, ptr %297, i64 %300
@@ -48202,7 +48212,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
 317:                                              ; preds = %.lr.ph859, %.loopexit
   %indvars.iv971 = phi i64 [ 0, %.lr.ph859 ], [ %indvars.iv.next972, %.loopexit ]
   %318 = load ptr, ptr %31, align 8
-  %319 = trunc i64 %indvars.iv971 to i32
+  %319 = trunc nuw i64 %indvars.iv971 to i32
   %320 = mul i32 %13, %319
   %321 = zext i32 %320 to i64
   %322 = getelementptr inbounds i8, ptr %318, i64 %321
@@ -53657,7 +53667,7 @@ define internal fastcc noundef i32 @stbi__zbuild_huffman(ptr nocapture noundef %
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %13 ], [ 1, %._crit_edge.preheader ]
   %17 = getelementptr inbounds [17 x i32], ptr %5, i64 0, i64 %indvars.iv83
   %18 = load i32, ptr %17, align 4
-  %19 = trunc i64 %indvars.iv83 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv83 to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = icmp sgt i32 %18, %20
   br i1 %21, label %.loopexit70.sink.split, label %13
@@ -53678,7 +53688,7 @@ define internal fastcc noundef i32 @stbi__zbuild_huffman(ptr nocapture noundef %
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, %.06573
   %.not68 = icmp ne i32 %29, 0
-  %31 = trunc i64 %indvars.iv87 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv87 to i32
   %32 = shl nuw nsw i32 1, %31
   %.not69.not = icmp sgt i32 %30, %32
   %or.cond = select i1 %.not68, i1 %.not69.not, i1 false
@@ -53728,7 +53738,7 @@ define internal fastcc noundef i32 @stbi__zbuild_huffman(ptr nocapture noundef %
   %58 = zext i16 %57 to i32
   %59 = add nsw i32 %55, %58
   %60 = shl nuw nsw i32 %47, 9
-  %61 = trunc i64 %indvars.iv94 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv94 to i32
   %62 = or i32 %60, %61
   %63 = trunc i32 %62 to i16
   %64 = sext i32 %59 to i64

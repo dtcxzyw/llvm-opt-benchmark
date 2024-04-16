@@ -11747,7 +11747,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i33 = trunc i64 %shr.i to i32
+  %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -19256,8 +19256,8 @@ if.end.i.i.i:                                     ; preds = %_ZN4absl15random_in
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
   %and.i.i.i = and i64 %shr.i.i.i, 4503599627370495
   %35 = shl nuw nsw i64 %34, 52
-  %reass.sub8 = sub nsw i64 %and.i.i.i, %35
-  %or2.i.i.i = add nsw i64 %reass.sub8, 4602678819172646912
+  %reass.sub7 = sub nsw i64 %and.i.i.i, %35
+  %or2.i.i.i = add nsw i64 %reass.sub7, 4602678819172646912
   %36 = bitcast i64 %or2.i.i.i to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
@@ -40847,9 +40847,9 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i, i64 %4
   %5 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %5, 0
-  br i1 %cmp.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
   %6 = tail call i64 @llvm.ctlz.i64(i64 %5, i1 true), !range !196
   %shl.i.i.i = shl i64 %5, %6
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
@@ -40858,15 +40858,12 @@ if.end.i.i.i:                                     ; preds = %_ZN4absl15random_in
   %reass.sub = sub nsw i64 %and.i.i.i, %7
   %or2.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %8 = bitcast i64 %or2.i.i.i to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %if.end.i.i.i, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
-  %retval.0.i.i.i = phi double [ %8, %if.end.i.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
-  %9 = fadd double %retval.0.i.i.i, 0.000000e+00
-  %cmp.i.i = fcmp uge double %9, 1.000000e+00
+  %cmp.i.i = fcmp uge double %8, 1.000000e+00
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit, !llvm.loop !197
 
-_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+  %retval.0.i.i.i38 = phi double [ %8, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
+  %9 = fadd double %retval.0.i.i.i38, 0.000000e+00
   %10 = load double, ptr %hxm_, align 8
   %11 = load double, ptr %hx0_minus_hxm_, align 8
   %12 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %10)
@@ -46640,7 +46637,7 @@ _ZN4absl15make_from_tupleINS_28log_uniform_int_distributionIiEERSt5tupleIJiiiEEE
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
   %ref.tmp.sroa.2.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i to i32
   %call3.i.i.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIiE8GenerateINS_13MockingBitGenEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(320) %urbg, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i)
   %add.i.i.i.i5 = add i32 %call3.i.i.i.i, %ref.tmp.sroa.0.0.extract.trunc.i.i.i
   %cmp.i.i6 = icmp eq i32 %add.i.i.i.i5, 0
@@ -46687,7 +46684,7 @@ if.end32.i.i:                                     ; preds = %cond.false28.i.i, %
   %retval.sroa.0.0.copyload.i.i24.i.i = load i64, ptr %ref.tmp47.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i25.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i24.i.i to i32
   %ref.tmp.sroa.2.0.extract.shift.i26.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i24.i.i, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i27.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i26.i.i to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i27.i.i = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i26.i.i to i32
   %call3.i.i28.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIiE8GenerateINS_13MockingBitGenEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp47.i.i, ptr noundef nonnull align 8 dereferenceable(320) %urbg, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i27.i.i)
   %add.i.i29.i.i = add i32 %call3.i.i28.i.i, %ref.tmp.sroa.0.0.extract.trunc.i25.i.i
   br label %_ZN4absl28log_uniform_int_distributionIiEclINS_13MockingBitGenEEEiRT_RKNS1_10param_typeE.exit

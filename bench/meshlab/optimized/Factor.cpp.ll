@@ -652,16 +652,16 @@ _Z4SqrtPKdPd.exit:                                ; preds = %41, %12, %45
   br i1 %85, label %_Z4SqrtPKdPd.exit68, label %86
 
 86:                                               ; preds = %54
-  %87 = fcmp oeq double %80, 0.000000e+00
+  %87 = fcmp oeq double %79, 0.000000e+00
   %88 = fcmp oeq double %78, 0.000000e+00
-  %or.cond.i.i.i65 = and i1 %88, %87
+  %or.cond.i.i.i65 = and i1 %87, %88
   br i1 %or.cond.i.i.i65, label %_Z4SqrtPKdPd.exit68, label %89
 
 89:                                               ; preds = %86
   br i1 %88, label %90, label %92
 
 90:                                               ; preds = %89
-  %91 = fcmp ogt double %80, 0.000000e+00
+  %91 = fcmp ogt double %79, 0.000000e+00
   %..i.i.i67 = select i1 %91, double 0x3FF921FB54442D18, double 0xBFF921FB54442D18
   br label %_Z4SqrtPKdPd.exit68
 
@@ -675,7 +675,7 @@ _Z4SqrtPKdPd.exit:                                ; preds = %41, %12, %45
   br label %_Z4SqrtPKdPd.exit68
 
 97:                                               ; preds = %92
-  %98 = fcmp ult double %80, 0.000000e+00
+  %98 = fcmp ult double %79, 0.000000e+00
   %99 = fdiv double %80, %78
   %100 = tail call double @atan(double noundef %99) #12
   br i1 %98, label %103, label %101
@@ -1005,7 +1005,7 @@ define noundef i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef readonly %0, ptr noc
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   br label %34
 
 34:                                               ; preds = %25, %29, %32, %.lr.ph128

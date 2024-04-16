@@ -194237,7 +194237,7 @@ _ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11
   br label %33
 
 33:                                               ; preds = %_ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11AABB_traitsIS2_NS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS9_12Property_mapINS_15SM_Vertex_indexES8_EENS_11Boolean_tagILb1EEENSD_ILb0EEEEENS_7DefaultEEEEENS0_19Default_tree_helperISJ_EEE28is_inside_ray_tree_traversalILb0EEEN5boost8optionalINS_12Bounded_sideEEERKNS_5Ray_3IS2_EERKSJ_.exit, %.preheader.preheader
-  %.sroa.3.0 = phi i64 [ 226669296298531, %.preheader.preheader ], [ %49, %_ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11AABB_traitsIS2_NS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS9_12Property_mapINS_15SM_Vertex_indexES8_EENS_11Boolean_tagILb1EEENSD_ILb0EEEEENS_7DefaultEEEEENS0_19Default_tree_helperISJ_EEE28is_inside_ray_tree_traversalILb0EEEN5boost8optionalINS_12Bounded_sideEEERKNS_5Ray_3IS2_EERKSJ_.exit ]
+  %.sroa.3.0 = phi i64 [ 226669296298531, %.preheader.preheader ], [ %48, %_ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11AABB_traitsIS2_NS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS9_12Property_mapINS_15SM_Vertex_indexES8_EENS_11Boolean_tagILb1EEENSD_ILb0EEEEENS_7DefaultEEEEENS0_19Default_tree_helperISJ_EEE28is_inside_ray_tree_traversalILb0EEEN5boost8optionalINS_12Bounded_sideEEERKNS_5Ray_3IS2_EERKSJ_.exit ]
   %.sroa.6.0 = phi double [ 0x3FE389E3B8800000, %.preheader.preheader ], [ %58, %_ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11AABB_traitsIS2_NS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS9_12Property_mapINS_15SM_Vertex_indexES8_EENS_11Boolean_tagILb1EEENSD_ILb0EEEEENS_7DefaultEEEEENS0_19Default_tree_helperISJ_EEE28is_inside_ray_tree_traversalILb0EEEN5boost8optionalINS_12Bounded_sideEEERKNS_5Ray_3IS2_EERKSJ_.exit ]
   %34 = phi <2 x double> [ <double 0x3FE756D272832A9E, double 0x3FD3C0451B3826F4>, %.preheader.preheader ], [ %76, %_ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11AABB_traitsIS2_NS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS9_12Property_mapINS_15SM_Vertex_indexES8_EENS_11Boolean_tagILb1EEENSD_ILb0EEEEENS_7DefaultEEEEENS0_19Default_tree_helperISJ_EEE28is_inside_ray_tree_traversalILb0EEEN5boost8optionalINS_12Bounded_sideEEERKNS_5Ray_3IS2_EERKSJ_.exit ]
   br label %35
@@ -194251,25 +194251,25 @@ _ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = uitofp i32 %41 to double
   %43 = fmul double %42, 0x3E00000000000000
-  %44 = fadd double %43, 0.000000e+00
-  %45 = fcmp olt double %44, 1.000000e+00
-  br i1 %45, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i, label %35, !llvm.loop !3671
+  %44 = fcmp olt double %43, 1.000000e+00
+  br i1 %44, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i, label %35, !llvm.loop !3671
 
 _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i: ; preds = %35, %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i
-  %46 = phi i64 [ %49, %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i ], [ %39, %35 ]
-  %47 = mul i64 %46, 25214903917
-  %48 = add i64 %47, 11
-  %49 = and i64 %48, 281474976710655
-  %50 = lshr i64 %49, 17
-  %51 = trunc nuw nsw i64 %50 to i32
-  %52 = uitofp i32 %51 to double
-  %53 = fmul double %52, 0x3E00000000000000
-  %54 = fadd double %53, 0.000000e+00
-  %55 = fcmp olt double %54, 1.000000e+00
-  br i1 %55, label %_ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEppEi.exit, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i, !llvm.loop !3671
+  %45 = phi i64 [ %48, %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i ], [ %39, %35 ]
+  %46 = mul i64 %45, 25214903917
+  %47 = add i64 %46, 11
+  %48 = and i64 %47, 281474976710655
+  %49 = lshr i64 %48, 17
+  %50 = trunc nuw nsw i64 %49 to i32
+  %51 = uitofp i32 %50 to double
+  %52 = fmul double %51, 0x3E00000000000000
+  %53 = fcmp olt double %52, 1.000000e+00
+  br i1 %53, label %_ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEppEi.exit, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i, !llvm.loop !3671
 
 _ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEppEi.exit: ; preds = %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i
-  %56 = fmul double %44, 2.000000e+00
+  %54 = fadd double %52, 0.000000e+00
+  %55 = fadd double %43, 0.000000e+00
+  %56 = fmul double %55, 2.000000e+00
   %57 = fmul double %56, 0x400921FB54442D18
   %58 = call double @llvm.fmuladd.f64(double %54, double 2.000000e+00, double -1.000000e+00)
   %59 = fneg double %58

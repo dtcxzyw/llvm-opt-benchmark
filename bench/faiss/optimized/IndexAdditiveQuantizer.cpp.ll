@@ -5886,12 +5886,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
           to label %61 unwind label %.loopexit.split.us
 
 61:                                               ; preds = %.lr.ph.split.us
-  %62 = fadd float %60, 0.000000e+00
-  %63 = fcmp olt float %.sroa.1.046.us, %62
-  br i1 %63, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.us, label %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit.us
+  %62 = fcmp olt float %.sroa.1.046.us, %60
+  br i1 %62, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.us, label %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit.us
 
 _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.us: ; preds = %61
-  store float %62, ptr %32, align 4
+  %63 = fadd float %60, 0.000000e+00
+  store float %63, ptr %32, align 4
   store i64 %.02947.us, ptr %34, align 8
   %64 = load float, ptr %32, align 4
   br label %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit.us
@@ -5920,7 +5920,7 @@ _ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resul
 
 73:                                               ; preds = %.lr.ph.split
   %74 = fadd float %72, 0.000000e+00
-  %75 = fcmp olt float %.sroa.1.046, %74
+  %75 = fcmp olt float %.sroa.1.046, %72
   br i1 %75, label %.lr.ph.i.i, label %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resultEfl.exit
 
 .lr.ph.i.i:                                       ; preds = %73, %104
@@ -5954,23 +5954,23 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit.i.i:            ; preds = %79
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i:     ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i, %79, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i
   %92 = phi float [ %.pre.i.i, %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i ], [ %81, %79 ], [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i ]
-  %93 = fcmp ogt float %92, %74
+  %93 = fcmp ogt float %92, %72
   br i1 %93, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.loopexit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
   %94 = getelementptr inbounds i64, ptr %54, i64 %77
   %95 = load i64, ptr %94, align 8
-  %96 = fcmp oeq float %92, %74
+  %96 = fcmp oeq float %92, %72
   %97 = icmp sgt i64 %95, %.02947
   %98 = and i1 %96, %97
   br i1 %98, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.loopexit, label %104
 
 99:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i
-  %100 = fcmp ogt float %83, %74
+  %100 = fcmp ogt float %83, %72
   br i1 %100, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.loopexit, label %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %99
-  %101 = fcmp oeq float %83, %74
+  %101 = fcmp oeq float %83, %72
   %102 = icmp sgt i64 %85, %.02947
   %103 = and i1 %101, %102
   br i1 %103, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.loopexit, label %104
