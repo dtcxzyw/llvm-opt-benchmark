@@ -88,21 +88,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %moonPosition, i8 0, i64 17, i1 false)
   %call.i = tail call double @uprv_getNaN_75()
   %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
-  store double %call.i, ptr %julianDay.i, align 8
-  %julianCentury.i = getelementptr inbounds i8, ptr %this, i64 40
-  store double %call.i, ptr %julianCentury.i, align 8
-  %sunLongitude.i = getelementptr inbounds i8, ptr %this, i64 48
-  store double %call.i, ptr %sunLongitude.i, align 8
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %this, i64 56
-  store double %call.i, ptr %meanAnomalySun.i, align 8
-  %moonLongitude.i = getelementptr inbounds i8, ptr %this, i64 64
-  store double %call.i, ptr %moonLongitude.i, align 8
-  %moonEclipLong.i = getelementptr inbounds i8, ptr %this, i64 72
-  store double %call.i, ptr %moonEclipLong.i, align 8
-  %meanAnomalyMoon.i = getelementptr inbounds i8, ptr %this, i64 80
-  store double %call.i, ptr %meanAnomalyMoon.i, align 8
-  %eclipObliquity.i = getelementptr inbounds i8, ptr %this, i64 88
-  store double %call.i, ptr %eclipObliquity.i, align 8
+  %0 = insertelement <8 x double> poison, double %call.i, i64 0
+  %1 = shufflevector <8 x double> %0, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %1, ptr %julianDay.i, align 8
   %siderealTime.i = getelementptr inbounds i8, ptr %this, i64 104
   store double %call.i, ptr %siderealTime.i, align 8
   %siderealT0.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -118,21 +106,9 @@ define void @_ZN6icu_7518CalendarAstronomer10clearCacheEv(ptr nocapture noundef 
 entry:
   %call = tail call double @uprv_getNaN_75()
   %julianDay = getelementptr inbounds i8, ptr %this, i64 32
-  store double %call, ptr %julianDay, align 8
-  %julianCentury = getelementptr inbounds i8, ptr %this, i64 40
-  store double %call, ptr %julianCentury, align 8
-  %sunLongitude = getelementptr inbounds i8, ptr %this, i64 48
-  store double %call, ptr %sunLongitude, align 8
-  %meanAnomalySun = getelementptr inbounds i8, ptr %this, i64 56
-  store double %call, ptr %meanAnomalySun, align 8
-  %moonLongitude = getelementptr inbounds i8, ptr %this, i64 64
-  store double %call, ptr %moonLongitude, align 8
-  %moonEclipLong = getelementptr inbounds i8, ptr %this, i64 72
-  store double %call, ptr %moonEclipLong, align 8
-  %meanAnomalyMoon = getelementptr inbounds i8, ptr %this, i64 80
-  store double %call, ptr %meanAnomalyMoon, align 8
-  %eclipObliquity = getelementptr inbounds i8, ptr %this, i64 88
-  store double %call, ptr %eclipObliquity, align 8
+  %0 = insertelement <8 x double> poison, double %call, i64 0
+  %1 = shufflevector <8 x double> %0, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %1, ptr %julianDay, align 8
   %siderealTime = getelementptr inbounds i8, ptr %this, i64 104
   store double %call, ptr %siderealTime, align 8
   %siderealT0 = getelementptr inbounds i8, ptr %this, i64 96
@@ -153,21 +129,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %moonPosition, i8 0, i64 17, i1 false)
   %call.i = tail call double @uprv_getNaN_75()
   %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
-  store double %call.i, ptr %julianDay.i, align 8
-  %julianCentury.i = getelementptr inbounds i8, ptr %this, i64 40
-  store double %call.i, ptr %julianCentury.i, align 8
-  %sunLongitude.i = getelementptr inbounds i8, ptr %this, i64 48
-  store double %call.i, ptr %sunLongitude.i, align 8
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %this, i64 56
-  store double %call.i, ptr %meanAnomalySun.i, align 8
-  %moonLongitude.i = getelementptr inbounds i8, ptr %this, i64 64
-  store double %call.i, ptr %moonLongitude.i, align 8
-  %moonEclipLong.i = getelementptr inbounds i8, ptr %this, i64 72
-  store double %call.i, ptr %moonEclipLong.i, align 8
-  %meanAnomalyMoon.i = getelementptr inbounds i8, ptr %this, i64 80
-  store double %call.i, ptr %meanAnomalyMoon.i, align 8
-  %eclipObliquity.i = getelementptr inbounds i8, ptr %this, i64 88
-  store double %call.i, ptr %eclipObliquity.i, align 8
+  %0 = insertelement <8 x double> poison, double %call.i, i64 0
+  %1 = shufflevector <8 x double> %0, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %1, ptr %julianDay.i, align 8
   %siderealTime.i = getelementptr inbounds i8, ptr %this, i64 104
   store double %call.i, ptr %siderealTime.i, align 8
   %siderealT0.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -208,21 +172,9 @@ entry:
   store double %div, ptr %fGmtOffset, align 8
   %call.i = tail call double @uprv_getNaN_75()
   %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
-  store double %call.i, ptr %julianDay.i, align 8
-  %julianCentury.i = getelementptr inbounds i8, ptr %this, i64 40
-  store double %call.i, ptr %julianCentury.i, align 8
-  %sunLongitude.i = getelementptr inbounds i8, ptr %this, i64 48
-  store double %call.i, ptr %sunLongitude.i, align 8
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %this, i64 56
-  store double %call.i, ptr %meanAnomalySun.i, align 8
-  %moonLongitude.i = getelementptr inbounds i8, ptr %this, i64 64
-  store double %call.i, ptr %moonLongitude.i, align 8
-  %moonEclipLong.i = getelementptr inbounds i8, ptr %this, i64 72
-  store double %call.i, ptr %moonEclipLong.i, align 8
-  %meanAnomalyMoon.i = getelementptr inbounds i8, ptr %this, i64 80
-  store double %call.i, ptr %meanAnomalyMoon.i, align 8
-  %eclipObliquity.i = getelementptr inbounds i8, ptr %this, i64 88
-  store double %call.i, ptr %eclipObliquity.i, align 8
+  %3 = insertelement <8 x double> poison, double %call.i, i64 0
+  %4 = shufflevector <8 x double> %3, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %4, ptr %julianDay.i, align 8
   %siderealTime.i = getelementptr inbounds i8, ptr %this, i64 104
   store double %call.i, ptr %siderealTime.i, align 8
   %siderealT0.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -243,21 +195,9 @@ entry:
   store double %aTime, ptr %this, align 8
   %call.i = tail call double @uprv_getNaN_75()
   %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
-  store double %call.i, ptr %julianDay.i, align 8
-  %julianCentury.i = getelementptr inbounds i8, ptr %this, i64 40
-  store double %call.i, ptr %julianCentury.i, align 8
-  %sunLongitude.i = getelementptr inbounds i8, ptr %this, i64 48
-  store double %call.i, ptr %sunLongitude.i, align 8
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %this, i64 56
-  store double %call.i, ptr %meanAnomalySun.i, align 8
-  %moonLongitude.i = getelementptr inbounds i8, ptr %this, i64 64
-  store double %call.i, ptr %moonLongitude.i, align 8
-  %moonEclipLong.i = getelementptr inbounds i8, ptr %this, i64 72
-  store double %call.i, ptr %moonEclipLong.i, align 8
-  %meanAnomalyMoon.i = getelementptr inbounds i8, ptr %this, i64 80
-  store double %call.i, ptr %meanAnomalyMoon.i, align 8
-  %eclipObliquity.i = getelementptr inbounds i8, ptr %this, i64 88
-  store double %call.i, ptr %eclipObliquity.i, align 8
+  %0 = insertelement <8 x double> poison, double %call.i, i64 0
+  %1 = shufflevector <8 x double> %0, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %1, ptr %julianDay.i, align 8
   %siderealTime.i = getelementptr inbounds i8, ptr %this, i64 104
   store double %call.i, ptr %siderealTime.i, align 8
   %siderealT0.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -275,23 +215,11 @@ entry:
   %call.i = tail call double @uprv_getNaN_75()
   %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
   %julianCentury.i = getelementptr inbounds i8, ptr %this, i64 40
-  store double %call.i, ptr %julianCentury.i, align 8
-  %sunLongitude.i = getelementptr inbounds i8, ptr %this, i64 48
-  store double %call.i, ptr %sunLongitude.i, align 8
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %this, i64 56
-  store double %call.i, ptr %meanAnomalySun.i, align 8
-  %moonLongitude.i = getelementptr inbounds i8, ptr %this, i64 64
-  store double %call.i, ptr %moonLongitude.i, align 8
-  %moonEclipLong.i = getelementptr inbounds i8, ptr %this, i64 72
-  store double %call.i, ptr %moonEclipLong.i, align 8
-  %meanAnomalyMoon.i = getelementptr inbounds i8, ptr %this, i64 80
-  store double %call.i, ptr %meanAnomalyMoon.i, align 8
-  %eclipObliquity.i = getelementptr inbounds i8, ptr %this, i64 88
-  store double %call.i, ptr %eclipObliquity.i, align 8
   %siderealTime.i = getelementptr inbounds i8, ptr %this, i64 104
   store double %call.i, ptr %siderealTime.i, align 8
-  %siderealT0.i = getelementptr inbounds i8, ptr %this, i64 96
-  store double %call.i, ptr %siderealT0.i, align 8
+  %1 = insertelement <8 x double> poison, double %call.i, i64 0
+  %2 = shufflevector <8 x double> %1, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %2, ptr %julianCentury.i, align 8
   %moonPositionSet.i = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %moonPositionSet.i, align 8
   store double %jdn, ptr %julianDay.i, align 8
@@ -979,13 +907,6 @@ entry:
   %cond = select i1 %tobool.not, double 0xC01921FB54442D18, double 0.000000e+00
   %mul = fmul double %periodDays, 8.640000e+07
   %julianDay.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %julianCentury.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %sunLongitude.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %meanAnomalySun.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %moonLongitude.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %moonEclipLong.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %meanAnomalyMoon.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %eclipObliquity.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %siderealTime.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %siderealT0.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %moonPositionSet.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -1008,14 +929,9 @@ tailrecurse:                                      ; preds = %if.then, %entry
   %add6 = fadd double %2, %call5
   store double %add6, ptr %this, align 8
   %call.i.i = tail call double @uprv_getNaN_75()
-  store double %call.i.i, ptr %julianDay.i.i, align 8
-  store double %call.i.i, ptr %julianCentury.i.i, align 8
-  store double %call.i.i, ptr %sunLongitude.i.i, align 8
-  store double %call.i.i, ptr %meanAnomalySun.i.i, align 8
-  store double %call.i.i, ptr %moonLongitude.i.i, align 8
-  store double %call.i.i, ptr %moonEclipLong.i.i, align 8
-  store double %call.i.i, ptr %meanAnomalyMoon.i.i, align 8
-  store double %call.i.i, ptr %eclipObliquity.i.i, align 8
+  %3 = insertelement <8 x double> poison, double %call.i.i, i64 0
+  %4 = shufflevector <8 x double> %3, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %4, ptr %julianDay.i.i, align 8
   store double %call.i.i, ptr %siderealTime.i.i, align 8
   store double %call.i.i, ptr %siderealT0.i.i, align 8
   store i8 0, ptr %moonPositionSet.i.i, align 8
@@ -1025,22 +941,22 @@ do.body:                                          ; preds = %if.end, %tailrecurs
   %deltaT.0 = phi double [ %div, %tailrecurse ], [ %mul16, %if.end ]
   %lastAngle.0 = phi double [ %call, %tailrecurse ], [ %call9, %if.end ]
   %vtable7 = load ptr, ptr %func, align 8
-  %3 = load ptr, ptr %vtable7, align 8
-  %call9 = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(129) %this)
+  %5 = load ptr, ptr %vtable7, align 8
+  %call9 = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(129) %this)
   %sub10 = fsub double %call9, %lastAngle.0
   %add.i = fadd double %sub10, 0x400921FB54442D18
   %div.i.i.i20 = fdiv double %add.i, 0x401921FB54442D18
   %call.i.i.i21 = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i20)
-  %4 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i21, double 0xC01921FB54442D18, double %add.i)
-  %sub.i = fadd double %4, 0xC00921FB54442D18
+  %6 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i21, double 0xC01921FB54442D18, double %add.i)
+  %sub.i = fadd double %6, 0xC00921FB54442D18
   %div12 = fdiv double %deltaT.0, %sub.i
   %call13 = tail call double @uprv_fabs_75(double noundef %div12)
   %sub14 = fsub double %desired, %call9
   %add.i22 = fadd double %sub14, 0x400921FB54442D18
   %div.i.i.i23 = fdiv double %add.i22, 0x401921FB54442D18
   %call.i.i.i24 = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i23)
-  %5 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i24, double 0xC01921FB54442D18, double %add.i22)
-  %sub.i25 = fadd double %5, 0xC00921FB54442D18
+  %7 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i24, double 0xC01921FB54442D18, double %add.i22)
+  %sub.i25 = fadd double %7, 0xC00921FB54442D18
   %mul16 = fmul double %call13, %sub.i25
   %call17 = tail call double @uprv_fabs_75(double noundef %mul16)
   %call18 = tail call double @uprv_fabs_75(double noundef %deltaT.0)
@@ -1054,33 +970,23 @@ if.then:                                          ; preds = %do.body
   %add24 = fadd double %2, %cond23
   store double %add24, ptr %this, align 8
   %call.i.i26 = tail call double @uprv_getNaN_75()
-  store double %call.i.i26, ptr %julianDay.i.i, align 8
-  store double %call.i.i26, ptr %julianCentury.i.i, align 8
-  store double %call.i.i26, ptr %sunLongitude.i.i, align 8
-  store double %call.i.i26, ptr %meanAnomalySun.i.i, align 8
-  store double %call.i.i26, ptr %moonLongitude.i.i, align 8
-  store double %call.i.i26, ptr %moonEclipLong.i.i, align 8
-  store double %call.i.i26, ptr %meanAnomalyMoon.i.i, align 8
-  store double %call.i.i26, ptr %eclipObliquity.i.i, align 8
+  %8 = insertelement <8 x double> poison, double %call.i.i26, i64 0
+  %9 = shufflevector <8 x double> %8, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %9, ptr %julianDay.i.i, align 8
   store double %call.i.i26, ptr %siderealTime.i.i, align 8
   store double %call.i.i26, ptr %siderealT0.i.i, align 8
   store i8 0, ptr %moonPositionSet.i.i, align 8
   br label %tailrecurse
 
 if.end:                                           ; preds = %do.body
-  %6 = load double, ptr %this, align 8
+  %10 = load double, ptr %this, align 8
   %call27 = tail call double @uprv_ceil_75(double noundef %mul16)
-  %add28 = fadd double %6, %call27
+  %add28 = fadd double %10, %call27
   store double %add28, ptr %this, align 8
   %call.i.i38 = tail call double @uprv_getNaN_75()
-  store double %call.i.i38, ptr %julianDay.i.i, align 8
-  store double %call.i.i38, ptr %julianCentury.i.i, align 8
-  store double %call.i.i38, ptr %sunLongitude.i.i, align 8
-  store double %call.i.i38, ptr %meanAnomalySun.i.i, align 8
-  store double %call.i.i38, ptr %moonLongitude.i.i, align 8
-  store double %call.i.i38, ptr %moonEclipLong.i.i, align 8
-  store double %call.i.i38, ptr %meanAnomalyMoon.i.i, align 8
-  store double %call.i.i38, ptr %eclipObliquity.i.i, align 8
+  %11 = insertelement <8 x double> poison, double %call.i.i38, i64 0
+  %12 = shufflevector <8 x double> %11, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %12, ptr %julianDay.i.i, align 8
   store double %call.i.i38, ptr %siderealTime.i.i, align 8
   store double %call.i.i38, ptr %siderealT0.i.i, align 8
   store i8 0, ptr %moonPositionSet.i.i, align 8
@@ -1089,8 +995,8 @@ if.end:                                           ; preds = %do.body
   br i1 %cmp30, label %do.body, label %do.end, !llvm.loop !6
 
 do.end:                                           ; preds = %if.end
-  %7 = load double, ptr %this, align 8
-  ret double %7
+  %13 = load double, ptr %this, align 8
+  ret double %13
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1142,21 +1048,9 @@ entry:
   store double %add5, ptr %this, align 8
   %call.i.i = tail call double @uprv_getNaN_75()
   %julianDay.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store double %call.i.i, ptr %julianDay.i.i, align 8
-  %julianCentury.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store double %call.i.i, ptr %julianCentury.i.i, align 8
-  %sunLongitude.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  store double %call.i.i, ptr %sunLongitude.i.i, align 8
-  %meanAnomalySun.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store double %call.i.i, ptr %meanAnomalySun.i.i, align 8
-  %moonLongitude.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store double %call.i.i, ptr %moonLongitude.i.i, align 8
-  %moonEclipLong.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store double %call.i.i, ptr %moonEclipLong.i.i, align 8
-  %meanAnomalyMoon.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store double %call.i.i, ptr %meanAnomalyMoon.i.i, align 8
-  %eclipObliquity.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  store double %call.i.i, ptr %eclipObliquity.i.i, align 8
+  %4 = insertelement <8 x double> poison, double %call.i.i, i64 0
+  %5 = shufflevector <8 x double> %4, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %5, ptr %julianDay.i.i, align 8
   %siderealTime.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store double %call.i.i, ptr %siderealTime.i.i, align 8
   %siderealT0.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -1173,14 +1067,9 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  store double %call.i.i214, ptr %julianDay.i.i, align 8
-  store double %call.i.i214, ptr %julianCentury.i.i, align 8
-  store double %call.i.i214, ptr %sunLongitude.i.i, align 8
-  store double %call.i.i214, ptr %meanAnomalySun.i.i, align 8
-  store double %call.i.i214, ptr %moonLongitude.i.i, align 8
-  store double %call.i.i214, ptr %moonEclipLong.i.i, align 8
-  store double %call.i.i214, ptr %meanAnomalyMoon.i.i, align 8
-  store double %call.i.i214, ptr %eclipObliquity.i.i, align 8
+  %6 = insertelement <8 x double> poison, double %call.i.i214, i64 0
+  %7 = shufflevector <8 x double> %6, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %7, ptr %julianDay.i.i, align 8
   store double %call.i.i214, ptr %siderealTime.i.i, align 8
   store double %call.i.i214, ptr %siderealT0.i.i, align 8
   store i8 0, ptr %moonPositionSet.i.i, align 8
@@ -1188,10 +1077,10 @@ invoke.cont7:                                     ; preds = %invoke.cont
   ret double %call6
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7516RiseSetCoordFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %func) #16
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1206,13 +1095,6 @@ entry:
   %fneg = fneg double %call
   %tobool.not = icmp eq i8 %rise, 0
   %julianDay.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %julianCentury.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %sunLongitude.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %meanAnomalySun.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %moonLongitude.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %moonEclipLong.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %meanAnomalyMoon.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %eclipObliquity.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %siderealTime.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %siderealT0.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %moonPositionSet.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -1235,14 +1117,9 @@ do.body.us:                                       ; preds = %entry, %land.rhs.us
   %4 = load double, ptr %this, align 8
   store double %call5.us, ptr %this, align 8
   %call.i.i.us = call double @uprv_getNaN_75()
-  store double %call.i.i.us, ptr %julianDay.i.i, align 8
-  store double %call.i.i.us, ptr %julianCentury.i.i, align 8
-  store double %call.i.i.us, ptr %sunLongitude.i.i, align 8
-  store double %call.i.i.us, ptr %meanAnomalySun.i.i, align 8
-  store double %call.i.i.us, ptr %moonLongitude.i.i, align 8
-  store double %call.i.i.us, ptr %moonEclipLong.i.i, align 8
-  store double %call.i.i.us, ptr %meanAnomalyMoon.i.i, align 8
-  store double %call.i.i.us, ptr %eclipObliquity.i.i, align 8
+  %5 = insertelement <8 x double> poison, double %call.i.i.us, i64 0
+  %6 = shufflevector <8 x double> %5, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %6, ptr %julianDay.i.i, align 8
   store double %call.i.i.us, ptr %siderealTime.i.i, align 8
   store double %call.i.i.us, ptr %siderealT0.i.i, align 8
   store i8 0, ptr %moonPositionSet.i.i, align 8
@@ -1259,29 +1136,24 @@ land.rhs.us:                                      ; preds = %do.body.us
 do.body:                                          ; preds = %entry, %land.rhs
   %count.0 = phi i32 [ %inc, %land.rhs ], [ 0, %entry ]
   %vtable = load ptr, ptr %func, align 8
-  %5 = load ptr, ptr %vtable, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(16) %pos, ptr noundef nonnull align 8 dereferenceable(129) %this)
-  %6 = load double, ptr %declination.i, align 8
-  %call2 = call double @tan(double noundef %6) #16
+  %7 = load ptr, ptr %vtable, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(16) %pos, ptr noundef nonnull align 8 dereferenceable(129) %this)
+  %8 = load double, ptr %declination.i, align 8
+  %call2 = call double @tan(double noundef %8) #16
   %mul = fmul double %call2, %fneg
   %call3 = call double @acos(double noundef %mul) #16
   %sub = fsub double 0x401921FB54442D18, %call3
-  %7 = load double, ptr %pos, align 8
-  %add = fadd double %7, %sub
+  %9 = load double, ptr %pos, align 8
+  %add = fadd double %9, %sub
   %mul4 = fmul double %add, 2.400000e+01
   %div = fdiv double %mul4, 0x401921FB54442D18
   %call5 = call noundef double @_ZN6icu_7518CalendarAstronomer7lstToUTEd(ptr noundef nonnull align 8 dereferenceable(129) %this, double noundef %div)
-  %8 = load double, ptr %this, align 8
+  %10 = load double, ptr %this, align 8
   store double %call5, ptr %this, align 8
   %call.i.i = call double @uprv_getNaN_75()
-  store double %call.i.i, ptr %julianDay.i.i, align 8
-  store double %call.i.i, ptr %julianCentury.i.i, align 8
-  store double %call.i.i, ptr %sunLongitude.i.i, align 8
-  store double %call.i.i, ptr %meanAnomalySun.i.i, align 8
-  store double %call.i.i, ptr %moonLongitude.i.i, align 8
-  store double %call.i.i, ptr %moonEclipLong.i.i, align 8
-  store double %call.i.i, ptr %meanAnomalyMoon.i.i, align 8
-  store double %call.i.i, ptr %eclipObliquity.i.i, align 8
+  %11 = insertelement <8 x double> poison, double %call.i.i, i64 0
+  %12 = shufflevector <8 x double> %11, <8 x double> poison, <8 x i32> zeroinitializer
+  store <8 x double> %12, ptr %julianDay.i.i, align 8
   store double %call.i.i, ptr %siderealTime.i.i, align 8
   store double %call.i.i, ptr %siderealT0.i.i, align 8
   store i8 0, ptr %moonPositionSet.i.i, align 8
@@ -1290,16 +1162,16 @@ do.body:                                          ; preds = %entry, %land.rhs
 
 land.rhs:                                         ; preds = %do.body
   %inc = add nuw nsw i32 %count.0, 1
-  %sub6 = fsub double %call5, %8
+  %sub6 = fsub double %call5, %10
   %call7 = call double @uprv_fabs_75(double noundef %sub6)
   %cmp8 = fcmp ogt double %call7, %epsilon
   br i1 %cmp8, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %land.rhs, %do.body, %land.rhs.us, %do.body.us
-  %9 = load double, ptr %declination.i, align 8
-  %call10 = call double @cos(double noundef %9) #16
-  %10 = load double, ptr %fLatitude, align 8
-  %call12 = call double @sin(double noundef %10) #16
+  %13 = load double, ptr %declination.i, align 8
+  %call10 = call double @cos(double noundef %13) #16
+  %14 = load double, ptr %fLatitude, align 8
+  %call12 = call double @sin(double noundef %14) #16
   %div13 = fdiv double %call12, %call10
   %call14 = call double @acos(double noundef %div13) #16
   %div15 = fmul double %diameter, 5.000000e-01
@@ -1313,11 +1185,11 @@ do.end:                                           ; preds = %land.rhs, %do.body,
   %div23 = fdiv double %mul22, %call10
   %mul24 = fmul double %div23, 1.000000e+03
   %conv = fptosi double %mul24 to i64
-  %11 = load double, ptr %this, align 8
+  %15 = load double, ptr %this, align 8
   %sub28 = sub nsw i64 0, %conv
   %cond31 = select i1 %tobool.not, i64 %conv, i64 %sub28
   %conv32 = sitofp i64 %cond31 to double
-  %add33 = fadd double %11, %conv32
+  %add33 = fadd double %15, %conv32
   ret double %add33
 }
 

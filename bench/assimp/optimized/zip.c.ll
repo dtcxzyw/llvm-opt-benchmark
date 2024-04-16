@@ -705,21 +705,15 @@ if.then.i:                                        ; preds = %if.end
 tdefl_init.exit:                                  ; preds = %if.end, %if.then.i
   %m_total_lz_bytes.i = getelementptr inbounds i8, ptr %0, i64 84
   %m_output_flush_ofs.i = getelementptr inbounds i8, ptr %0, i64 112
-  %m_lz_code_buf.i = getelementptr inbounds i8, ptr %0, i64 37546
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 37547
+  %6 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %7 = shufflevector <4 x ptr> %6, <4 x ptr> poison, <4 x i32> zeroinitializer
+  %8 = getelementptr i8, <4 x ptr> %7, <4 x i64> <i64 37547, i64 37546, i64 234154, i64 234154>
   %m_pLZ_code_buf.i = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_total_lz_bytes.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_output_flush_ofs.i, i8 0, i64 20, i1 false)
-  store ptr %add.ptr.i, ptr %m_pLZ_code_buf.i, align 8
-  %m_pLZ_flags.i = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %m_lz_code_buf.i, ptr %m_pLZ_flags.i, align 8
   %m_num_flags_left.i = getelementptr inbounds i8, ptr %0, i64 80
   store i32 8, ptr %m_num_flags_left.i, align 8
-  %m_output_buf.i = getelementptr inbounds i8, ptr %0, i64 234154
-  %m_pOutput_buf.i = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %m_output_buf.i, ptr %m_pOutput_buf.i, align 8
-  %m_pOutput_buf_end.i = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %m_output_buf.i, ptr %m_pOutput_buf_end.i, align 8
+  store <4 x ptr> %8, ptr %m_pLZ_code_buf.i, align 8
   %m_prev_return_status.i = getelementptr inbounds i8, ptr %0, i64 132
   store i32 0, ptr %m_prev_return_status.i, align 4
   %m_saved_lit.i = getelementptr inbounds i8, ptr %0, i64 108

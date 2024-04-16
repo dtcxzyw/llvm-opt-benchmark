@@ -238,21 +238,7 @@ define linkonce_odr void @_ZN8cflush_t16get_instructionsEv(ptr dead_on_unwind no
   %.sroa.375.0..sroa_idx76 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 4293951487, ptr %.sroa.375.0..sroa_idx76, align 8
   %.sroa.478.0..sroa_idx79 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.478.0..sroa_idx79, align 8
-  %.sroa.581.0..sroa_idx82 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.581.0..sroa_idx82, align 8
-  %.sroa.684.0..sroa_idx85 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.684.0..sroa_idx85, align 8
-  %.sroa.787.0..sroa_idx88 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.787.0..sroa_idx88, align 8
-  %.sroa.890.0..sroa_idx91 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.890.0..sroa_idx91, align 8
-  %.sroa.993.0..sroa_idx94 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.993.0..sroa_idx94, align 8
-  %.sroa.1096.0..sroa_idx97 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.1096.0..sroa_idx97, align 8
-  %.sroa.1199.0..sroa_idx100 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.1199.0..sroa_idx100, align 8
+  store <8 x ptr> <ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm>, ptr %.sroa.478.0..sroa_idx79, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 80
   store ptr %5, ptr %0, align 8
   store ptr %6, ptr %3, align 8
@@ -271,21 +257,7 @@ _ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit13: ; preds = %2
   %.sroa.346.0..sroa_idx47 = getelementptr inbounds i8, ptr %7, i64 88
   store i64 4293951487, ptr %.sroa.346.0..sroa_idx47, align 8
   %.sroa.449.0..sroa_idx50 = getelementptr inbounds i8, ptr %7, i64 96
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.449.0..sroa_idx50, align 8
-  %.sroa.552.0..sroa_idx53 = getelementptr inbounds i8, ptr %7, i64 104
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.552.0..sroa_idx53, align 8
-  %.sroa.655.0..sroa_idx56 = getelementptr inbounds i8, ptr %7, i64 112
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.655.0..sroa_idx56, align 8
-  %.sroa.758.0..sroa_idx59 = getelementptr inbounds i8, ptr %7, i64 120
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.758.0..sroa_idx59, align 8
-  %.sroa.861.0..sroa_idx62 = getelementptr inbounds i8, ptr %7, i64 128
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.861.0..sroa_idx62, align 8
-  %.sroa.964.0..sroa_idx65 = getelementptr inbounds i8, ptr %7, i64 136
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.964.0..sroa_idx65, align 8
-  %.sroa.1067.0..sroa_idx68 = getelementptr inbounds i8, ptr %7, i64 144
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.1067.0..sroa_idx68, align 8
-  %.sroa.1170.0..sroa_idx71 = getelementptr inbounds i8, ptr %7, i64 152
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.1170.0..sroa_idx71, align 8
+  store <8 x ptr> <ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm>, ptr %.sroa.449.0..sroa_idx50, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   %10 = getelementptr inbounds i8, ptr %7, i64 160
   tail call void @_ZdlPv(ptr noundef nonnull %5) #18
@@ -302,21 +274,7 @@ _ZNSt12_Vector_baseI11insn_desc_tSaIS0_EE11_M_allocateEm.exit.i.i.i18: ; preds =
   %.sroa.3.0..sroa_idx26 = getelementptr inbounds i8, ptr %12, i64 168
   store i64 4293951487, ptr %.sroa.3.0..sroa_idx26, align 8
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds i8, ptr %12, i64 176
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.4.0..sroa_idx28, align 8
-  %.sroa.5.0..sroa_idx30 = getelementptr inbounds i8, ptr %12, i64 184
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.5.0..sroa_idx30, align 8
-  %.sroa.6.0..sroa_idx32 = getelementptr inbounds i8, ptr %12, i64 192
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.6.0..sroa_idx32, align 8
-  %.sroa.7.0..sroa_idx34 = getelementptr inbounds i8, ptr %12, i64 200
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.7.0..sroa_idx34, align 8
-  %.sroa.8.0..sroa_idx36 = getelementptr inbounds i8, ptr %12, i64 208
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.8.0..sroa_idx36, align 8
-  %.sroa.9.0..sroa_idx38 = getelementptr inbounds i8, ptr %12, i64 216
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.9.0..sroa_idx38, align 8
-  %.sroa.10.0..sroa_idx40 = getelementptr inbounds i8, ptr %12, i64 224
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.10.0..sroa_idx40, align 8
-  %.sroa.11.0..sroa_idx42 = getelementptr inbounds i8, ptr %12, i64 232
-  store ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr %.sroa.11.0..sroa_idx42, align 8
+  store <8 x ptr> <ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm, ptr @_ZL13custom_cflushP11processor_t6insn_tm>, ptr %.sroa.4.0..sroa_idx28, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %12, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false)
   tail call void @_ZdlPv(ptr noundef nonnull %7) #18
   %14 = getelementptr inbounds i8, ptr %12, i64 240

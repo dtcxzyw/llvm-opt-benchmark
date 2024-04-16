@@ -209,14 +209,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN11conformance19ConformanceResponseC2Ev.exit:   ; preds = %entry, %if.then.i.i.i.i
   store i32 0, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 20), align 4
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN11conformance38_ConformanceResponse_default_instance_E)
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 1), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 2), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 3), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 4), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 5), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 6), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 7), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 8), align 8
+  store <8 x ptr> <ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E>, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 1), align 8
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 9), align 8
   ret void
 }
@@ -2874,7 +2867,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end8.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %conv5.i.i.i = trunc i64 %shr.i.i.i to i8
+  %conv5.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i8
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i54, i64 2
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %retval.0.i54, i64 3
@@ -2896,7 +2889,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !12
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
-  %conv15.i.i.i = trunc i64 %shr11.i.i.i to i8
+  %conv15.i.i.i = trunc nuw nsw i64 %shr11.i.i.i to i8
   %incdec.ptr16.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 2
   store i8 %conv15.i.i.i, ptr %incdec.ptr12.i.i.i, align 1
   br label %if.end19
@@ -2984,7 +2977,7 @@ if.end.i.i.i88:                                   ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i92, label %if.then4.i.i.i106, label %if.end8.i.i.i93
 
 if.then4.i.i.i106:                                ; preds = %if.end.i.i.i88
-  %conv5.i.i.i107 = trunc i64 %shr.i.i.i91 to i8
+  %conv5.i.i.i107 = trunc nuw nsw i64 %shr.i.i.i91 to i8
   %arrayidx6.i.i.i108 = getelementptr inbounds i8, ptr %retval.0.i82, i64 2
   store i8 %conv5.i.i.i107, ptr %arrayidx6.i.i.i108, align 1
   %add.ptr7.i.i.i109 = getelementptr inbounds i8, ptr %retval.0.i82, i64 3
@@ -3006,7 +2999,7 @@ do.body.i.i.i95:                                  ; preds = %do.body.i.i.i95, %i
   br i1 %cmp13.i.i.i101, label %do.body.i.i.i95, label %do.end.i.i.i102, !llvm.loop !12
 
 do.end.i.i.i102:                                  ; preds = %do.body.i.i.i95
-  %conv15.i.i.i103 = trunc i64 %shr11.i.i.i99 to i8
+  %conv15.i.i.i103 = trunc nuw nsw i64 %shr11.i.i.i99 to i8
   %incdec.ptr16.i.i.i104 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i96, i64 2
   store i8 %conv15.i.i.i103, ptr %incdec.ptr12.i.i.i100, align 1
   br label %if.end39
@@ -3054,7 +3047,7 @@ if.end.i.i122:                                    ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end8.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i122
-  %conv5.i.i = trunc i32 %shr.i.i to i8
+  %conv5.i.i = trunc nuw nsw i32 %shr.i.i to i8
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %retval.0.i117, i64 2
   store i8 %conv5.i.i, ptr %arrayidx6.i.i, align 1
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %retval.0.i117, i64 3
@@ -3076,7 +3069,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !13
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %conv15.i.i = trunc i32 %shr11.i.i to i8
+  %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
   %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 2
   store i8 %conv15.i.i, ptr %incdec.ptr12.i.i, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -3322,7 +3315,7 @@ if.then4.i.i:                                     ; preds = %if.then7
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN11conformance18JspbEncodingConfigEEEmRKT_.exit
 
 if.end7.i.i:                                      ; preds = %if.then7
-  %conv.i.i.i19 = trunc i64 %spec.select.i.i to i32
+  %conv.i.i.i19 = trunc nuw nsw i64 %spec.select.i.i to i32
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %3, i64 20
   store atomic i32 %conv.i.i.i19, ptr %_cached_size_.i.i.i monotonic, align 4
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN11conformance18JspbEncodingConfigEEEmRKT_.exit
@@ -4246,14 +4239,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN11conformance19ConformanceResponse21InitAsDefaultInstanceEv() local_unnamed_addr #9 align 2 {
 entry:
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 1), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 2), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 3), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 4), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 5), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 6), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 7), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 8), align 8
+  store <8 x ptr> <ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E>, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 1), align 8
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 9), align 8
   ret void
 }
@@ -7474,7 +7460,7 @@ if.then4:                                         ; preds = %entry
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %conv.i = trunc i64 %spec.select to i32
+  %conv.i = trunc nuw nsw i64 %spec.select to i32
   %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 20
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 4
   br label %return

@@ -24332,29 +24332,22 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
+  %11 = insertelement <4 x ptr> poison, ptr %__position.coerce, i64 0
+  %12 = shufflevector <4 x ptr> %11, <4 x ptr> poison, <4 x i32> zeroinitializer
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i12)
   %filterOptions.i.i13 = getelementptr inbounds i8, ptr %__k, i64 32
   %encoding.i.i14 = getelementptr inbounds i8, ptr %__k, i64 48
   %wrapMode.i.i15 = getelementptr inbounds i8, ptr %__k, i64 40
   store ptr %wrapMode.i.i15, ptr %ref.tmp.i.i11, align 8, !alias.scope !333
-  %11 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 8
-  store ptr %encoding.i.i14, ptr %11, align 8, !alias.scope !333
-  %12 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 16
-  store ptr %filterOptions.i.i13, ptr %12, align 8, !alias.scope !333
-  %13 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 24
-  store ptr %__k, ptr %13, align 8, !alias.scope !333
-  %filterOptions4.i.i16 = getelementptr inbounds i8, ptr %__position.coerce, i64 64
-  %encoding5.i.i17 = getelementptr inbounds i8, ptr %__position.coerce, i64 80
-  %wrapMode6.i.i18 = getelementptr inbounds i8, ptr %__position.coerce, i64 72
-  store ptr %wrapMode6.i.i18, ptr %ref.tmp2.i.i12, align 8, !alias.scope !336
-  %14 = getelementptr inbounds i8, ptr %ref.tmp2.i.i12, i64 8
-  store ptr %encoding5.i.i17, ptr %14, align 8, !alias.scope !336
-  %15 = getelementptr inbounds i8, ptr %ref.tmp2.i.i12, i64 16
-  store ptr %filterOptions4.i.i16, ptr %15, align 8, !alias.scope !336
-  %16 = getelementptr inbounds i8, ptr %ref.tmp2.i.i12, i64 24
-  store ptr %_M_storage.i.i.i10, ptr %16, align 8, !alias.scope !336
+  %13 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 8
+  store ptr %encoding.i.i14, ptr %13, align 8, !alias.scope !333
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 16
+  store ptr %filterOptions.i.i13, ptr %14, align 8, !alias.scope !333
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 24
+  store ptr %__k, ptr %15, align 8, !alias.scope !333
+  %16 = getelementptr i8, <4 x ptr> %12, <4 x i64> <i64 72, i64 80, i64 64, i64 32>
+  store <4 x ptr> %16, ptr %ref.tmp2.i.i12, align 8, !alias.scope !336
   %call.i.i.i19 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt19MIPMapFilterOptionsERKNS9_13ColorEncodingERKNS9_8WrapModeEEESJ_Lm0ELm4EE6__lessERKSJ_SM_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i12)
@@ -24401,22 +24394,17 @@ if.else42:                                        ; preds = %if.else25
   br label %return
 
 if.else44:                                        ; preds = %if.else12
+  %27 = getelementptr i8, <4 x ptr> %12, <4 x i64> <i64 72, i64 80, i64 64, i64 32>
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i37)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i38)
-  store ptr %wrapMode6.i.i18, ptr %ref.tmp.i.i37, align 8, !alias.scope !345
-  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 8
-  store ptr %encoding5.i.i17, ptr %27, align 8, !alias.scope !345
-  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 16
-  store ptr %filterOptions4.i.i16, ptr %28, align 8, !alias.scope !345
-  %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 24
-  store ptr %_M_storage.i.i.i10, ptr %29, align 8, !alias.scope !345
+  store <4 x ptr> %27, ptr %ref.tmp.i.i37, align 8, !alias.scope !345
   store ptr %wrapMode.i.i15, ptr %ref.tmp2.i.i38, align 8, !alias.scope !348
-  %30 = getelementptr inbounds i8, ptr %ref.tmp2.i.i38, i64 8
-  store ptr %encoding.i.i14, ptr %30, align 8, !alias.scope !348
-  %31 = getelementptr inbounds i8, ptr %ref.tmp2.i.i38, i64 16
-  store ptr %filterOptions.i.i13, ptr %31, align 8, !alias.scope !348
-  %32 = getelementptr inbounds i8, ptr %ref.tmp2.i.i38, i64 24
-  store ptr %__k, ptr %32, align 8, !alias.scope !348
+  %28 = getelementptr inbounds i8, ptr %ref.tmp2.i.i38, i64 8
+  store ptr %encoding.i.i14, ptr %28, align 8, !alias.scope !348
+  %29 = getelementptr inbounds i8, ptr %ref.tmp2.i.i38, i64 16
+  store ptr %filterOptions.i.i13, ptr %29, align 8, !alias.scope !348
+  %30 = getelementptr inbounds i8, ptr %ref.tmp2.i.i38, i64 24
+  store ptr %__k, ptr %30, align 8, !alias.scope !348
   %call.i.i.i45 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt19MIPMapFilterOptionsERKNS9_13ColorEncodingERKNS9_8WrapModeEEESJ_Lm0ELm4EE6__lessERKSJ_SM_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i38)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i37)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i38)
@@ -24424,8 +24412,8 @@ if.else44:                                        ; preds = %if.else12
 
 if.then50:                                        ; preds = %if.else44
   %_M_right.i46 = getelementptr inbounds i8, ptr %this, i64 32
-  %33 = load ptr, ptr %_M_right.i46, align 8
-  %cmp53 = icmp eq ptr %33, %__position.coerce
+  %31 = load ptr, ptr %_M_right.i46, align 8
+  %cmp53 = icmp eq ptr %31, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
@@ -24433,16 +24421,16 @@ if.else57:                                        ; preds = %if.then50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i51)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i.i52)
   store ptr %wrapMode.i.i15, ptr %ref.tmp.i.i51, align 8, !alias.scope !351
-  %34 = getelementptr inbounds i8, ptr %ref.tmp.i.i51, i64 8
-  store ptr %encoding.i.i14, ptr %34, align 8, !alias.scope !351
-  %35 = getelementptr inbounds i8, ptr %ref.tmp.i.i51, i64 16
-  store ptr %filterOptions.i.i13, ptr %35, align 8, !alias.scope !351
-  %36 = getelementptr inbounds i8, ptr %ref.tmp.i.i51, i64 24
-  store ptr %__k, ptr %36, align 8, !alias.scope !351
-  %37 = insertelement <4 x ptr> poison, ptr %call.i49, i64 0
-  %38 = shufflevector <4 x ptr> %37, <4 x ptr> poison, <4 x i32> zeroinitializer
-  %39 = getelementptr i8, <4 x ptr> %38, <4 x i64> <i64 72, i64 80, i64 64, i64 32>
-  store <4 x ptr> %39, ptr %ref.tmp2.i.i52, align 8, !alias.scope !354
+  %32 = getelementptr inbounds i8, ptr %ref.tmp.i.i51, i64 8
+  store ptr %encoding.i.i14, ptr %32, align 8, !alias.scope !351
+  %33 = getelementptr inbounds i8, ptr %ref.tmp.i.i51, i64 16
+  store ptr %filterOptions.i.i13, ptr %33, align 8, !alias.scope !351
+  %34 = getelementptr inbounds i8, ptr %ref.tmp.i.i51, i64 24
+  store ptr %__k, ptr %34, align 8, !alias.scope !351
+  %35 = insertelement <4 x ptr> poison, ptr %call.i49, i64 0
+  %36 = shufflevector <4 x ptr> %35, <4 x ptr> poison, <4 x i32> zeroinitializer
+  %37 = getelementptr i8, <4 x ptr> %36, <4 x i64> <i64 72, i64 80, i64 64, i64 32>
+  store <4 x ptr> %37, ptr %ref.tmp2.i.i52, align 8, !alias.scope !354
   %call.i.i.i59 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt19MIPMapFilterOptionsERKNS9_13ColorEncodingERKNS9_8WrapModeEEESJ_Lm0ELm4EE6__lessERKSJ_SM_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i51, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i52)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i51)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i52)
@@ -24450,21 +24438,21 @@ if.else57:                                        ; preds = %if.then50
 
 if.then64:                                        ; preds = %if.else57
   %_M_right.i60 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
-  %40 = load ptr, ptr %_M_right.i60, align 8
-  %cmp67 = icmp eq ptr %40, null
+  %38 = load ptr, ptr %_M_right.i60, align 8
+  %cmp67 = icmp eq ptr %38, null
   %spec.select78 = select i1 %cmp67, ptr null, ptr %call.i49
   %spec.select79 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i49
   br label %return
 
 if.else74:                                        ; preds = %if.else57
   %call75 = call { ptr, ptr } @_ZNSt8_Rb_treeIN4pbrt7TexInfoESt4pairIKS1_PNS0_6MIPMapEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE24_M_get_insert_unique_posERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(56) %__k)
-  %41 = extractvalue { ptr, ptr } %call75, 0
-  %42 = extractvalue { ptr, ptr } %call75, 1
+  %39 = extractvalue { ptr, ptr } %call75, 0
+  %40 = extractvalue { ptr, ptr } %call75, 1
   br label %return
 
 return:                                           ; preds = %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %if.else74, %if.else42, %if.else, %if.then9
-  %retval.sroa.0.0 = phi ptr [ %9, %if.else ], [ null, %if.then9 ], [ %25, %if.else42 ], [ %41, %if.else74 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select78, %if.then64 ]
-  %retval.sroa.12.0 = phi ptr [ %10, %if.else ], [ %8, %if.then9 ], [ %26, %if.else42 ], [ %42, %if.else74 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select77, %if.then32 ], [ %spec.select79, %if.then64 ]
+  %retval.sroa.0.0 = phi ptr [ %9, %if.else ], [ null, %if.then9 ], [ %25, %if.else42 ], [ %39, %if.else74 ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select78, %if.then64 ]
+  %retval.sroa.12.0 = phi ptr [ %10, %if.else ], [ %8, %if.then9 ], [ %26, %if.else42 ], [ %40, %if.else74 ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select77, %if.then32 ], [ %spec.select79, %if.then64 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

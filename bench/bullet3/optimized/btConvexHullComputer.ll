@@ -1600,97 +1600,89 @@ if.end54:                                         ; preds = %_ZNK20btConvexHullI
   store ptr %1, ptr %1, align 8
   %prev60 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %1, ptr %prev60, align 8
-  store ptr %1, ptr %result, align 8
-  %maxXy62 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %1, ptr %maxXy62, align 8
-  %minYx63 = getelementptr inbounds i8, ptr %result, i64 16
-  store ptr %1, ptr %minYx63, align 8
-  %maxYx64 = getelementptr inbounds i8, ptr %result, i64 24
-  store ptr %1, ptr %maxYx64, align 8
+  %13 = insertelement <4 x ptr> poison, ptr %1, i64 0
+  %14 = shufflevector <4 x ptr> %13, <4 x ptr> poison, <4 x i32> zeroinitializer
+  store <4 x ptr> %14, ptr %result, align 8
   br label %return
 
 sw.bb65:                                          ; preds = %entry
   %m_data.i113 = getelementptr inbounds i8, ptr %this, i64 144
-  %13 = load ptr, ptr %m_data.i113, align 8
+  %15 = load ptr, ptr %m_data.i113, align 8
   %idxprom.i114 = sext i32 %start to i64
-  %arrayidx.i115 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i114
-  %14 = load ptr, ptr %arrayidx.i115, align 8
-  %edges69 = getelementptr inbounds i8, ptr %14, i64 16
+  %arrayidx.i115 = getelementptr inbounds ptr, ptr %15, i64 %idxprom.i114
+  %16 = load ptr, ptr %arrayidx.i115, align 8
+  %edges69 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %edges69, align 8
-  store ptr %14, ptr %14, align 8
-  %prev71 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %14, ptr %prev71, align 8
-  store ptr %14, ptr %result, align 8
-  %maxXy73 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %14, ptr %maxXy73, align 8
-  %minYx74 = getelementptr inbounds i8, ptr %result, i64 16
-  store ptr %14, ptr %minYx74, align 8
-  %maxYx75 = getelementptr inbounds i8, ptr %result, i64 24
-  store ptr %14, ptr %maxYx75, align 8
+  store ptr %16, ptr %16, align 8
+  %prev71 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %16, ptr %prev71, align 8
+  %17 = insertelement <4 x ptr> poison, ptr %16, i64 0
+  %18 = shufflevector <4 x ptr> %17, <4 x ptr> poison, <4 x i32> zeroinitializer
+  store <4 x ptr> %18, ptr %result, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   %div = sdiv i32 %sub, 2
   %add = add nsw i32 %div, %start
   %m_data.i116 = getelementptr inbounds i8, ptr %this, i64 144
-  %15 = load ptr, ptr %m_data.i116, align 8
-  %16 = sext i32 %add to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
-  %arrayidx.i118 = getelementptr i8, ptr %17, i64 -8
-  %18 = load ptr, ptr %arrayidx.i118, align 8
-  %point79 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = load ptr, ptr %m_data.i116, align 8
+  %20 = sext i32 %add to i64
+  %21 = getelementptr ptr, ptr %19, i64 %20
+  %arrayidx.i118 = getelementptr i8, ptr %21, i64 -8
+  %22 = load ptr, ptr %arrayidx.i118, align 8
+  %point79 = getelementptr inbounds i8, ptr %22, i64 104
   %p.sroa.0.0.copyload = load i32, ptr %point79, align 8
-  %p.sroa.2.0.point79.sroa_idx = getelementptr inbounds i8, ptr %18, i64 108
+  %p.sroa.2.0.point79.sroa_idx = getelementptr inbounds i8, ptr %22, i64 108
   %p.sroa.2.0.copyload = load i32, ptr %p.sroa.2.0.point79.sroa_idx, align 4
-  %p.sroa.3.0.point79.sroa_idx = getelementptr inbounds i8, ptr %18, i64 112
+  %p.sroa.3.0.point79.sroa_idx = getelementptr inbounds i8, ptr %22, i64 112
   %p.sroa.3.0.copyload = load i32, ptr %p.sroa.3.0.point79.sroa_idx, align 8
   %cmp80134 = icmp slt i32 %add, %end
   br i1 %cmp80134, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %sw.epilog
-  %19 = sext i32 %end to i64
+  %23 = sext i32 %end to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
-  %indvars.iv = phi i64 [ %16, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
-  %arrayidx.i121 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
-  %20 = load ptr, ptr %arrayidx.i121, align 8
-  %point83 = getelementptr inbounds i8, ptr %20, i64 104
-  %21 = load i32, ptr %point83, align 4
-  %cmp.i = icmp eq i32 %21, %p.sroa.0.0.copyload
+  %indvars.iv = phi i64 [ %20, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
+  %arrayidx.i121 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %24 = load ptr, ptr %arrayidx.i121, align 8
+  %point83 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = load i32, ptr %point83, align 4
+  %cmp.i = icmp eq i32 %25, %p.sroa.0.0.copyload
   br i1 %cmp.i, label %land.lhs.true.i, label %while.end.loopexit.split.loop.exit
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  %y.i122 = getelementptr inbounds i8, ptr %20, i64 108
-  %22 = load i32, ptr %y.i122, align 4
-  %cmp4.i = icmp eq i32 %22, %p.sroa.2.0.copyload
+  %y.i122 = getelementptr inbounds i8, ptr %24, i64 108
+  %26 = load i32, ptr %y.i122, align 4
+  %cmp4.i = icmp eq i32 %26, %p.sroa.2.0.copyload
   br i1 %cmp4.i, label %_ZNK20btConvexHullInternal7Point32eqERKS0_.exit, label %while.end.loopexit.split.loop.exit142
 
 _ZNK20btConvexHullInternal7Point32eqERKS0_.exit:  ; preds = %land.lhs.true.i
-  %z.i124 = getelementptr inbounds i8, ptr %20, i64 112
-  %23 = load i32, ptr %z.i124, align 4
-  %cmp6.i126 = icmp eq i32 %23, %p.sroa.3.0.copyload
+  %z.i124 = getelementptr inbounds i8, ptr %24, i64 112
+  %27 = load i32, ptr %z.i124, align 4
+  %cmp6.i126 = icmp eq i32 %27, %p.sroa.3.0.copyload
   br i1 %cmp6.i126, label %while.body, label %while.end.loopexit.split.loop.exit146
 
 while.body:                                       ; preds = %_ZNK20btConvexHullInternal7Point32eqERKS0_.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp80 = icmp slt i64 %indvars.iv.next, %19
+  %cmp80 = icmp slt i64 %indvars.iv.next, %23
   br i1 %cmp80, label %land.rhs, label %while.end, !llvm.loop !12
 
 while.end.loopexit.split.loop.exit:               ; preds = %land.rhs
-  %24 = trunc nsw i64 %indvars.iv to i32
+  %28 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit.split.loop.exit142:            ; preds = %land.lhs.true.i
-  %25 = trunc nsw i64 %indvars.iv to i32
+  %29 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit.split.loop.exit146:            ; preds = %_ZNK20btConvexHullInternal7Point32eqERKS0_.exit
-  %26 = trunc nsw i64 %indvars.iv to i32
+  %30 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit, %while.end.loopexit.split.loop.exit142, %while.end.loopexit.split.loop.exit146, %sw.epilog
-  %split1.0.lcssa = phi i32 [ %add, %sw.epilog ], [ %24, %while.end.loopexit.split.loop.exit ], [ %25, %while.end.loopexit.split.loop.exit142 ], [ %26, %while.end.loopexit.split.loop.exit146 ], [ %end, %while.body ]
+  %split1.0.lcssa = phi i32 [ %add, %sw.epilog ], [ %28, %while.end.loopexit.split.loop.exit ], [ %29, %while.end.loopexit.split.loop.exit142 ], [ %30, %while.end.loopexit.split.loop.exit146 ], [ %end, %while.body ]
   tail call void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %start, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(32) %result)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hull1, i8 0, i64 32, i1 false)
   call void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %split1.0.lcssa, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %hull1)

@@ -6996,216 +6996,34 @@ entry:
   %colors.i = getelementptr inbounds i8, ptr %this, i64 24
   %collisionbox.i = getelementptr inbounds i8, ptr %this, i64 48
   %selectionbox.i = getelementptr inbounds i8, ptr %this, i64 72
-  %visual.i = getelementptr inbounds i8, ptr %this, i64 96
-  %mesh.i = getelementptr inbounds i8, ptr %this, i64 128
-  %damage_texture_modifier.i = getelementptr inbounds i8, ptr %this, i64 160
-  %nametag.i = getelementptr inbounds i8, ptr %this, i64 192
-  %infotext.i = getelementptr inbounds i8, ptr %this, i64 224
-  %wield_item.i = getelementptr inbounds i8, ptr %this, i64 256
-  %visual_size.i = getelementptr inbounds i8, ptr %this, i64 288
-  %nametag_color.i = getelementptr inbounds i8, ptr %this, i64 300
-  %nametag_bgcolor.i = getelementptr inbounds i8, ptr %this, i64 304
-  %spritediv.i = getelementptr inbounds i8, ptr %this, i64 312
-  %initial_sprite_basepos.i = getelementptr inbounds i8, ptr %this, i64 316
-  %stepheight.i = getelementptr inbounds i8, ptr %this, i64 320
-  %automatic_rotate.i = getelementptr inbounds i8, ptr %this, i64 324
-  %automatic_face_movement_dir_offset.i = getelementptr inbounds i8, ptr %this, i64 328
-  %automatic_face_movement_max_rotation_per_sec.i = getelementptr inbounds i8, ptr %this, i64 332
-  %eye_height.i = getelementptr inbounds i8, ptr %this, i64 336
-  %zoom_fov.i = getelementptr inbounds i8, ptr %this, i64 340
-  %hp_max.i = getelementptr inbounds i8, ptr %this, i64 344
-  %breath_max.i = getelementptr inbounds i8, ptr %this, i64 346
-  %glow.i = getelementptr inbounds i8, ptr %this, i64 348
-  %pointable.i = getelementptr inbounds i8, ptr %this, i64 349
-  %physical.i = getelementptr inbounds i8, ptr %this, i64 350
-  %collideWithObjects.i = getelementptr inbounds i8, ptr %this, i64 351
-  %rotate_selectionbox.i = getelementptr inbounds i8, ptr %this, i64 352
-  %is_visible.i = getelementptr inbounds i8, ptr %this, i64 353
-  %makes_footstep_sound.i = getelementptr inbounds i8, ptr %this, i64 354
-  %automatic_face_movement_dir.i = getelementptr inbounds i8, ptr %this, i64 355
-  %backface_culling.i = getelementptr inbounds i8, ptr %this, i64 356
-  %static_save.i = getelementptr inbounds i8, ptr %this, i64 357
-  %use_texture_alpha.i = getelementptr inbounds i8, ptr %this, i64 358
-  %shaded.i = getelementptr inbounds i8, ptr %this, i64 359
-  %show_on_minimap.i = getelementptr inbounds i8, ptr %this, i64 360
-  store ptr %show_on_minimap.i, ptr %ref.tmp, align 8, !tbaa !80, !alias.scope !224
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %shaded.i, ptr %0, align 8, !tbaa !80, !alias.scope !224
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %use_texture_alpha.i, ptr %1, align 8, !tbaa !80, !alias.scope !224
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr %static_save.i, ptr %2, align 8, !tbaa !80, !alias.scope !224
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store ptr %backface_culling.i, ptr %3, align 8, !tbaa !80, !alias.scope !224
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  store ptr %automatic_face_movement_dir.i, ptr %4, align 8, !tbaa !80, !alias.scope !224
-  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  store ptr %makes_footstep_sound.i, ptr %5, align 8, !tbaa !80, !alias.scope !224
-  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 56
-  store ptr %is_visible.i, ptr %6, align 8, !tbaa !80, !alias.scope !224
-  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 64
-  store ptr %rotate_selectionbox.i, ptr %7, align 8, !tbaa !80, !alias.scope !224
-  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 72
-  store ptr %collideWithObjects.i, ptr %8, align 8, !tbaa !80, !alias.scope !224
-  %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 80
-  store ptr %physical.i, ptr %9, align 8, !tbaa !80, !alias.scope !224
-  %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 88
-  store ptr %pointable.i, ptr %10, align 8, !tbaa !80, !alias.scope !224
-  %11 = getelementptr inbounds i8, ptr %ref.tmp, i64 96
-  store ptr %glow.i, ptr %11, align 8, !tbaa !80, !alias.scope !224
-  %12 = getelementptr inbounds i8, ptr %ref.tmp, i64 104
-  store ptr %breath_max.i, ptr %12, align 8, !tbaa !80, !alias.scope !224
-  %13 = getelementptr inbounds i8, ptr %ref.tmp, i64 112
-  store ptr %hp_max.i, ptr %13, align 8, !tbaa !80, !alias.scope !224
-  %14 = getelementptr inbounds i8, ptr %ref.tmp, i64 120
-  store ptr %zoom_fov.i, ptr %14, align 8, !tbaa !80, !alias.scope !224
-  %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 128
-  store ptr %eye_height.i, ptr %15, align 8, !tbaa !80, !alias.scope !224
-  %16 = getelementptr inbounds i8, ptr %ref.tmp, i64 136
-  store ptr %automatic_face_movement_max_rotation_per_sec.i, ptr %16, align 8, !tbaa !80, !alias.scope !224
-  %17 = getelementptr inbounds i8, ptr %ref.tmp, i64 144
-  store ptr %automatic_face_movement_dir_offset.i, ptr %17, align 8, !tbaa !80, !alias.scope !224
-  %18 = getelementptr inbounds i8, ptr %ref.tmp, i64 152
-  store ptr %automatic_rotate.i, ptr %18, align 8, !tbaa !80, !alias.scope !224
-  %19 = getelementptr inbounds i8, ptr %ref.tmp, i64 160
-  store ptr %stepheight.i, ptr %19, align 8, !tbaa !80, !alias.scope !224
-  %20 = getelementptr inbounds i8, ptr %ref.tmp, i64 168
-  store ptr %initial_sprite_basepos.i, ptr %20, align 8, !tbaa !80, !alias.scope !224
-  %21 = getelementptr inbounds i8, ptr %ref.tmp, i64 176
-  store ptr %spritediv.i, ptr %21, align 8, !tbaa !80, !alias.scope !224
-  %22 = getelementptr inbounds i8, ptr %ref.tmp, i64 184
-  store ptr %nametag_bgcolor.i, ptr %22, align 8, !tbaa !80, !alias.scope !224
-  %23 = getelementptr inbounds i8, ptr %ref.tmp, i64 192
-  store ptr %nametag_color.i, ptr %23, align 8, !tbaa !80, !alias.scope !224
-  %24 = getelementptr inbounds i8, ptr %ref.tmp, i64 200
-  store ptr %visual_size.i, ptr %24, align 8, !tbaa !80, !alias.scope !224
-  %25 = getelementptr inbounds i8, ptr %ref.tmp, i64 208
-  store ptr %wield_item.i, ptr %25, align 8, !tbaa !80, !alias.scope !224
-  %26 = getelementptr inbounds i8, ptr %ref.tmp, i64 216
-  store ptr %infotext.i, ptr %26, align 8, !tbaa !80, !alias.scope !224
-  %27 = getelementptr inbounds i8, ptr %ref.tmp, i64 224
-  store ptr %nametag.i, ptr %27, align 8, !tbaa !80, !alias.scope !224
-  %28 = getelementptr inbounds i8, ptr %ref.tmp, i64 232
-  store ptr %damage_texture_modifier.i, ptr %28, align 8, !tbaa !80, !alias.scope !224
-  %29 = getelementptr inbounds i8, ptr %ref.tmp, i64 240
-  store ptr %mesh.i, ptr %29, align 8, !tbaa !80, !alias.scope !224
-  %30 = getelementptr inbounds i8, ptr %ref.tmp, i64 248
-  store ptr %visual.i, ptr %30, align 8, !tbaa !80, !alias.scope !224
-  %31 = getelementptr inbounds i8, ptr %ref.tmp, i64 256
-  store ptr %selectionbox.i, ptr %31, align 8, !tbaa !80, !alias.scope !224
-  %32 = getelementptr inbounds i8, ptr %ref.tmp, i64 264
-  store ptr %collisionbox.i, ptr %32, align 8, !tbaa !80, !alias.scope !224
-  %33 = getelementptr inbounds i8, ptr %ref.tmp, i64 272
-  store ptr %colors.i, ptr %33, align 8, !tbaa !80, !alias.scope !224
-  %34 = getelementptr inbounds i8, ptr %ref.tmp, i64 280
-  store ptr %this, ptr %34, align 8, !tbaa !80, !alias.scope !224
+  %0 = insertelement <32 x ptr> poison, ptr %this, i64 0
+  %1 = shufflevector <32 x ptr> %0, <32 x ptr> poison, <32 x i32> zeroinitializer
+  %2 = getelementptr i8, <32 x ptr> %1, <32 x i64> <i64 360, i64 359, i64 358, i64 357, i64 356, i64 355, i64 354, i64 353, i64 352, i64 351, i64 350, i64 349, i64 348, i64 346, i64 344, i64 340, i64 336, i64 332, i64 328, i64 324, i64 320, i64 316, i64 312, i64 304, i64 300, i64 288, i64 256, i64 224, i64 192, i64 160, i64 128, i64 96>
+  store <32 x ptr> %2, ptr %ref.tmp, align 8, !tbaa !80, !alias.scope !224
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 256
+  store ptr %selectionbox.i, ptr %3, align 8, !tbaa !80, !alias.scope !224
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 264
+  store ptr %collisionbox.i, ptr %4, align 8, !tbaa !80, !alias.scope !224
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 272
+  store ptr %colors.i, ptr %5, align 8, !tbaa !80, !alias.scope !224
+  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 280
+  store ptr %this, ptr %6, align 8, !tbaa !80, !alias.scope !224
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp2) #30
   %colors.i3 = getelementptr inbounds i8, ptr %other, i64 24
   %collisionbox.i4 = getelementptr inbounds i8, ptr %other, i64 48
   %selectionbox.i5 = getelementptr inbounds i8, ptr %other, i64 72
-  %visual.i6 = getelementptr inbounds i8, ptr %other, i64 96
-  %mesh.i7 = getelementptr inbounds i8, ptr %other, i64 128
-  %damage_texture_modifier.i8 = getelementptr inbounds i8, ptr %other, i64 160
-  %nametag.i9 = getelementptr inbounds i8, ptr %other, i64 192
-  %infotext.i10 = getelementptr inbounds i8, ptr %other, i64 224
-  %wield_item.i11 = getelementptr inbounds i8, ptr %other, i64 256
-  %visual_size.i12 = getelementptr inbounds i8, ptr %other, i64 288
-  %nametag_color.i13 = getelementptr inbounds i8, ptr %other, i64 300
-  %nametag_bgcolor.i14 = getelementptr inbounds i8, ptr %other, i64 304
-  %spritediv.i15 = getelementptr inbounds i8, ptr %other, i64 312
-  %initial_sprite_basepos.i16 = getelementptr inbounds i8, ptr %other, i64 316
-  %stepheight.i17 = getelementptr inbounds i8, ptr %other, i64 320
-  %automatic_rotate.i18 = getelementptr inbounds i8, ptr %other, i64 324
-  %automatic_face_movement_dir_offset.i19 = getelementptr inbounds i8, ptr %other, i64 328
-  %automatic_face_movement_max_rotation_per_sec.i20 = getelementptr inbounds i8, ptr %other, i64 332
-  %eye_height.i21 = getelementptr inbounds i8, ptr %other, i64 336
-  %zoom_fov.i22 = getelementptr inbounds i8, ptr %other, i64 340
-  %hp_max.i23 = getelementptr inbounds i8, ptr %other, i64 344
-  %breath_max.i24 = getelementptr inbounds i8, ptr %other, i64 346
-  %glow.i25 = getelementptr inbounds i8, ptr %other, i64 348
-  %pointable.i26 = getelementptr inbounds i8, ptr %other, i64 349
-  %physical.i27 = getelementptr inbounds i8, ptr %other, i64 350
-  %collideWithObjects.i28 = getelementptr inbounds i8, ptr %other, i64 351
-  %rotate_selectionbox.i29 = getelementptr inbounds i8, ptr %other, i64 352
-  %is_visible.i30 = getelementptr inbounds i8, ptr %other, i64 353
-  %makes_footstep_sound.i31 = getelementptr inbounds i8, ptr %other, i64 354
-  %automatic_face_movement_dir.i32 = getelementptr inbounds i8, ptr %other, i64 355
-  %backface_culling.i33 = getelementptr inbounds i8, ptr %other, i64 356
-  %static_save.i34 = getelementptr inbounds i8, ptr %other, i64 357
-  %use_texture_alpha.i35 = getelementptr inbounds i8, ptr %other, i64 358
-  %shaded.i36 = getelementptr inbounds i8, ptr %other, i64 359
-  %show_on_minimap.i37 = getelementptr inbounds i8, ptr %other, i64 360
-  store ptr %show_on_minimap.i37, ptr %ref.tmp2, align 8, !tbaa !80, !alias.scope !229
-  %35 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store ptr %shaded.i36, ptr %35, align 8, !tbaa !80, !alias.scope !229
-  %36 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store ptr %use_texture_alpha.i35, ptr %36, align 8, !tbaa !80, !alias.scope !229
-  %37 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  store ptr %static_save.i34, ptr %37, align 8, !tbaa !80, !alias.scope !229
-  %38 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  store ptr %backface_culling.i33, ptr %38, align 8, !tbaa !80, !alias.scope !229
-  %39 = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store ptr %automatic_face_movement_dir.i32, ptr %39, align 8, !tbaa !80, !alias.scope !229
-  %40 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store ptr %makes_footstep_sound.i31, ptr %40, align 8, !tbaa !80, !alias.scope !229
-  %41 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
-  store ptr %is_visible.i30, ptr %41, align 8, !tbaa !80, !alias.scope !229
-  %42 = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  store ptr %rotate_selectionbox.i29, ptr %42, align 8, !tbaa !80, !alias.scope !229
-  %43 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store ptr %collideWithObjects.i28, ptr %43, align 8, !tbaa !80, !alias.scope !229
-  %44 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store ptr %physical.i27, ptr %44, align 8, !tbaa !80, !alias.scope !229
-  %45 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
-  store ptr %pointable.i26, ptr %45, align 8, !tbaa !80, !alias.scope !229
-  %46 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
-  store ptr %glow.i25, ptr %46, align 8, !tbaa !80, !alias.scope !229
-  %47 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store ptr %breath_max.i24, ptr %47, align 8, !tbaa !80, !alias.scope !229
-  %48 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
-  store ptr %hp_max.i23, ptr %48, align 8, !tbaa !80, !alias.scope !229
-  %49 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
-  store ptr %zoom_fov.i22, ptr %49, align 8, !tbaa !80, !alias.scope !229
-  %50 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
-  store ptr %eye_height.i21, ptr %50, align 8, !tbaa !80, !alias.scope !229
-  %51 = getelementptr inbounds i8, ptr %ref.tmp2, i64 136
-  store ptr %automatic_face_movement_max_rotation_per_sec.i20, ptr %51, align 8, !tbaa !80, !alias.scope !229
-  %52 = getelementptr inbounds i8, ptr %ref.tmp2, i64 144
-  store ptr %automatic_face_movement_dir_offset.i19, ptr %52, align 8, !tbaa !80, !alias.scope !229
-  %53 = getelementptr inbounds i8, ptr %ref.tmp2, i64 152
-  store ptr %automatic_rotate.i18, ptr %53, align 8, !tbaa !80, !alias.scope !229
-  %54 = getelementptr inbounds i8, ptr %ref.tmp2, i64 160
-  store ptr %stepheight.i17, ptr %54, align 8, !tbaa !80, !alias.scope !229
-  %55 = getelementptr inbounds i8, ptr %ref.tmp2, i64 168
-  store ptr %initial_sprite_basepos.i16, ptr %55, align 8, !tbaa !80, !alias.scope !229
-  %56 = getelementptr inbounds i8, ptr %ref.tmp2, i64 176
-  store ptr %spritediv.i15, ptr %56, align 8, !tbaa !80, !alias.scope !229
-  %57 = getelementptr inbounds i8, ptr %ref.tmp2, i64 184
-  store ptr %nametag_bgcolor.i14, ptr %57, align 8, !tbaa !80, !alias.scope !229
-  %58 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
-  store ptr %nametag_color.i13, ptr %58, align 8, !tbaa !80, !alias.scope !229
-  %59 = getelementptr inbounds i8, ptr %ref.tmp2, i64 200
-  store ptr %visual_size.i12, ptr %59, align 8, !tbaa !80, !alias.scope !229
-  %60 = getelementptr inbounds i8, ptr %ref.tmp2, i64 208
-  store ptr %wield_item.i11, ptr %60, align 8, !tbaa !80, !alias.scope !229
-  %61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 216
-  store ptr %infotext.i10, ptr %61, align 8, !tbaa !80, !alias.scope !229
-  %62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 224
-  store ptr %nametag.i9, ptr %62, align 8, !tbaa !80, !alias.scope !229
-  %63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 232
-  store ptr %damage_texture_modifier.i8, ptr %63, align 8, !tbaa !80, !alias.scope !229
-  %64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 240
-  store ptr %mesh.i7, ptr %64, align 8, !tbaa !80, !alias.scope !229
-  %65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 248
-  store ptr %visual.i6, ptr %65, align 8, !tbaa !80, !alias.scope !229
-  %66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
-  store ptr %selectionbox.i5, ptr %66, align 8, !tbaa !80, !alias.scope !229
-  %67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store ptr %collisionbox.i4, ptr %67, align 8, !tbaa !80, !alias.scope !229
-  %68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
-  store ptr %colors.i3, ptr %68, align 8, !tbaa !80, !alias.scope !229
-  %69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
-  store ptr %other, ptr %69, align 8, !tbaa !80, !alias.scope !229
+  %7 = insertelement <32 x ptr> poison, ptr %other, i64 0
+  %8 = shufflevector <32 x ptr> %7, <32 x ptr> poison, <32 x i32> zeroinitializer
+  %9 = getelementptr i8, <32 x ptr> %8, <32 x i64> <i64 360, i64 359, i64 358, i64 357, i64 356, i64 355, i64 354, i64 353, i64 352, i64 351, i64 350, i64 349, i64 348, i64 346, i64 344, i64 340, i64 336, i64 332, i64 328, i64 324, i64 320, i64 316, i64 312, i64 304, i64 300, i64 288, i64 256, i64 224, i64 192, i64 160, i64 128, i64 96>
+  store <32 x ptr> %9, ptr %ref.tmp2, align 8, !tbaa !80, !alias.scope !229
+  %10 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
+  store ptr %selectionbox.i5, ptr %10, align 8, !tbaa !80, !alias.scope !229
+  %11 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
+  store ptr %collisionbox.i4, ptr %11, align 8, !tbaa !80, !alias.scope !229
+  %12 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store ptr %colors.i3, ptr %12, align 8, !tbaa !80, !alias.scope !229
+  %13 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store ptr %other, ptr %13, align 8, !tbaa !80, !alias.scope !229
   %call.i.i = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKS1_IN3irr5video6SColorESaISE_EERKNSC_4core8aabbox3dIfEESN_RKS7_SP_SP_SP_SP_SP_RKNSJ_8vector3dIfEERKSE_RKSt8optionalISE_ERKNSJ_8vector2dIsEES13_RKfS15_S15_S15_S15_S15_RKtS17_RKaRK16PointabilityTypeRKbS1E_S1E_S1E_S1E_S1E_S1E_S1E_S1E_S1E_S1E_EES1F_Lm0ELm36EE4__eqERKS1F_S1I_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp2)
   %lnot.i = xor i1 %call.i.i, true
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp2) #30

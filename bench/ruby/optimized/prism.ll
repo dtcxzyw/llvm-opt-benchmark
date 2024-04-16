@@ -723,7 +723,7 @@ pm_statements_node_body_length.exit.i:            ; preds = %pm_statements_node_
   %30 = load i8, ptr %29, align 8
   %31 = and i8 %30, 24
   %.not18.i = icmp eq i8 %31, 0
-  br i1 %.not18.i, label %230, label %32
+  br i1 %.not18.i, label %232, label %32
 
 32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -1227,13 +1227,9 @@ pm_call_node_fcall_synthesized_create.exit99.i.i: ; preds = %pm_statements_node_
 223:                                              ; preds = %pm_call_node_fcall_synthesized_create.exit99.i.i
   store i16 147, ptr %218, align 8
   %.sroa.31.0..sroa_idx.i100.i.i = getelementptr inbounds i8, ptr %218, i64 8
-  store ptr %215, ptr %.sroa.31.0..sroa_idx.i100.i.i, align 8
-  %.sroa.4.0..sroa_idx.i101.i.i = getelementptr inbounds i8, ptr %218, i64 16
-  store ptr %215, ptr %.sroa.4.0..sroa_idx.i101.i.i, align 8
-  %.sroa.5.0..sroa_idx.i102.i.i = getelementptr inbounds i8, ptr %218, i64 24
-  store ptr %215, ptr %.sroa.5.0..sroa_idx.i102.i.i, align 8
-  %.sroa.6.0..sroa_idx.i103.i.i = getelementptr inbounds i8, ptr %218, i64 32
-  store ptr %215, ptr %.sroa.6.0..sroa_idx.i103.i.i, align 8
+  %224 = insertelement <4 x ptr> poison, ptr %215, i64 0
+  %225 = shufflevector <4 x ptr> %224, <4 x ptr> poison, <4 x i32> zeroinitializer
+  store <4 x ptr> %225, ptr %.sroa.31.0..sroa_idx.i100.i.i, align 8
   %.sroa.7.0..sroa_idx.i104.i.i = getelementptr inbounds i8, ptr %218, i64 40
   store ptr %215, ptr %.sroa.7.0..sroa_idx.i104.i.i, align 8
   %.sroa.8.0..sroa_idx.i105.i.i = getelementptr inbounds i8, ptr %218, i64 48
@@ -1242,52 +1238,52 @@ pm_call_node_fcall_synthesized_create.exit99.i.i: ; preds = %pm_statements_node_
   store ptr %210, ptr %.sroa.9.0..sroa_idx.i106.i.i, align 8
   %.sroa.10.0..sroa_idx.i107.i.i = getelementptr inbounds i8, ptr %218, i64 64
   store ptr %.0.i, ptr %.sroa.10.0..sroa_idx.i107.i.i, align 8
-  %224 = getelementptr inbounds i8, ptr %203, i64 24
+  %226 = getelementptr inbounds i8, ptr %203, i64 24
   store ptr %215, ptr %.sroa.31.0..sroa_idx.i94.i.i, align 8
-  %225 = icmp ugt ptr %215, %208
-  br i1 %225, label %226, label %pm_statements_node_body_append.exit112.i.i
+  %227 = icmp ugt ptr %215, %208
+  br i1 %227, label %228, label %pm_statements_node_body_append.exit112.i.i
 
-226:                                              ; preds = %223
+228:                                              ; preds = %223
   store ptr %215, ptr %.sroa.4.0..sroa_idx.i95.i.i, align 8
   br label %pm_statements_node_body_append.exit112.i.i
 
-pm_statements_node_body_append.exit112.i.i:       ; preds = %226, %223
-  tail call void @pm_node_list_append(ptr noundef nonnull %224, ptr noundef nonnull %218) #26
-  %227 = getelementptr inbounds i8, ptr %218, i64 2
-  %228 = load i16, ptr %227, align 2
-  %229 = or i16 %228, -32768
-  store i16 %229, ptr %227, align 2
+pm_statements_node_body_append.exit112.i.i:       ; preds = %228, %223
+  tail call void @pm_node_list_append(ptr noundef nonnull %226, ptr noundef nonnull %218) #26
+  %229 = getelementptr inbounds i8, ptr %218, i64 2
+  %230 = load i16, ptr %229, align 2
+  %231 = or i16 %230, -32768
+  store i16 %231, ptr %229, align 2
   br label %wrap_statements.exit.i
 
 wrap_statements.exit.i:                           ; preds = %pm_statements_node_body_append.exit112.i.i, %75
   %.0.i.i = phi ptr [ %203, %pm_statements_node_body_append.exit112.i.i ], [ %.0.i, %75 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %230
+  br label %232
 
-230:                                              ; preds = %wrap_statements.exit.i, %28
+232:                                              ; preds = %wrap_statements.exit.i, %28
   %.1.i = phi ptr [ %.0.i.i, %wrap_statements.exit.i ], [ %.0.i, %28 ]
-  %231 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #29
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %233, label %parse_program.exit
+  %233 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #29
+  %234 = icmp eq ptr %233, null
+  br i1 %234, label %235, label %parse_program.exit
 
-233:                                              ; preds = %230
-  %234 = load ptr, ptr @stderr, align 8
-  %235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.87, i32 noundef 56) #30
+235:                                              ; preds = %232
+  %236 = load ptr, ptr @stderr, align 8
+  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.87, i32 noundef 56) #30
   tail call void @abort() #31
   unreachable
 
-parse_program.exit:                               ; preds = %230
-  %236 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %.sroa.5.0..sroa_idx.i22.i = getelementptr inbounds i8, ptr %231, i64 24
-  %.sroa.31.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %231, i64 8
-  %237 = load <2 x ptr>, ptr %236, align 8
+parse_program.exit:                               ; preds = %232
+  %238 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %.sroa.5.0..sroa_idx.i22.i = getelementptr inbounds i8, ptr %233, i64 24
+  %.sroa.31.0..sroa_idx.i23.i = getelementptr inbounds i8, ptr %233, i64 8
+  %239 = load <2 x ptr>, ptr %238, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i22.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  store i16 120, ptr %231, align 8
-  store <2 x ptr> %237, ptr %.sroa.31.0..sroa_idx.i23.i, align 8
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %231, i64 48
+  store i16 120, ptr %233, align 8
+  store <2 x ptr> %239, ptr %.sroa.31.0..sroa_idx.i23.i, align 8
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %233, i64 48
   store ptr %.1.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  ret ptr %231
+  ret ptr %233
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

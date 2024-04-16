@@ -48,49 +48,18 @@ define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = add i64 %1, -7046029254386353131
-  %4 = lshr i64 %3, 30
-  %5 = xor i64 %4, %3
-  %6 = mul i64 %5, -4658895280553007687
-  %7 = lshr i64 %6, 27
-  %8 = xor i64 %7, %6
-  %9 = mul i64 %8, -7723592293110705685
-  %10 = lshr i64 %9, 31
-  %11 = xor i64 %10, %9
-  %12 = add i64 %1, 4354685564936845354
-  %13 = lshr i64 %12, 30
-  %14 = xor i64 %13, %12
-  %15 = mul i64 %14, -4658895280553007687
-  %16 = lshr i64 %15, 27
-  %17 = xor i64 %16, %15
-  %18 = mul i64 %17, -7723592293110705685
-  %19 = lshr i64 %18, 31
-  %20 = xor i64 %19, %18
-  %21 = add i64 %1, -2691343689449507777
-  %22 = lshr i64 %21, 30
-  %23 = xor i64 %22, %21
-  %24 = mul i64 %23, -4658895280553007687
-  %25 = lshr i64 %24, 27
-  %26 = xor i64 %25, %24
-  %27 = mul i64 %26, -7723592293110705685
-  %28 = lshr i64 %27, 31
-  %29 = xor i64 %28, %27
-  %30 = add i64 %1, 8709371129873690708
-  %31 = lshr i64 %30, 30
-  %32 = xor i64 %31, %30
-  %33 = mul i64 %32, -4658895280553007687
-  %34 = lshr i64 %33, 27
-  %35 = xor i64 %34, %33
-  %36 = mul i64 %35, -7723592293110705685
-  %37 = lshr i64 %36, 31
-  %38 = xor i64 %37, %36
-  store i64 %11, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %20, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %29, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %38, ptr %41, align 8
+  %3 = insertelement <4 x i64> poison, i64 %1, i64 0
+  %4 = shufflevector <4 x i64> %3, <4 x i64> poison, <4 x i32> zeroinitializer
+  %5 = add <4 x i64> %4, <i64 -7046029254386353131, i64 4354685564936845354, i64 -2691343689449507777, i64 8709371129873690708>
+  %6 = lshr <4 x i64> %5, <i64 30, i64 30, i64 30, i64 30>
+  %7 = xor <4 x i64> %6, %5
+  %8 = mul <4 x i64> %7, <i64 -4658895280553007687, i64 -4658895280553007687, i64 -4658895280553007687, i64 -4658895280553007687>
+  %9 = lshr <4 x i64> %8, <i64 27, i64 27, i64 27, i64 27>
+  %10 = xor <4 x i64> %9, %8
+  %11 = mul <4 x i64> %10, <i64 -7723592293110705685, i64 -7723592293110705685, i64 -7723592293110705685, i64 -7723592293110705685>
+  %12 = lshr <4 x i64> %11, <i64 31, i64 31, i64 31, i64 31>
+  %13 = xor <4 x i64> %12, %11
+  store <4 x i64> %13, ptr %0, align 8
   ret void
 }
 
@@ -556,11 +525,11 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 
 12:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #7
-  br label %.thread131
+  br label %.thread130
 
 13:                                               ; preds = %2
   %14 = icmp eq i32 %10, 0
-  br i1 %14, label %.thread113, label %15
+  br i1 %14, label %.thread112, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 80
@@ -568,35 +537,35 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %18 = load i8, ptr %17, align 8
   switch i8 %18, label %21 [
     i8 6, label %19
-    i8 4, label %.thread147.thread
-    i8 1, label %.thread113
+    i8 4, label %.thread145.thread
+    i8 1, label %.thread112
   ]
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8
   store ptr %20, ptr %3, align 8
-  br label %.thread147
+  br label %.thread145
 
 21:                                               ; preds = %15
   %22 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #7
   %.fr = freeze i1 %22
-  br i1 %.fr, label %.thread147thread-pre-split, label %.thread131
+  br i1 %.fr, label %.thread145thread-pre-split, label %.thread130
 
-.thread131:                                       ; preds = %21, %12
-  %.076141 = phi i32 [ 1, %12 ], [ 9, %21 ]
-  %.078140 = phi i32 [ 0, %12 ], [ 1, %21 ]
-  %.079139 = phi i32 [ 0, %12 ], [ 29, %21 ]
-  %.080138 = phi ptr [ null, %12 ], [ %16, %21 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.076141, i32 noundef %.078140, ptr noundef null, i32 noundef %.079139, ptr noundef %.080138) #7
+.thread130:                                       ; preds = %21, %12
+  %.076140 = phi i32 [ 1, %12 ], [ 9, %21 ]
+  %.078139 = phi i32 [ 0, %12 ], [ 1, %21 ]
+  %.079138 = phi i32 [ 0, %12 ], [ 29, %21 ]
+  %.080137 = phi ptr [ null, %12 ], [ %16, %21 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.076140, i32 noundef %.078139, ptr noundef null, i32 noundef %.079138, ptr noundef %.080137) #7
   br label %108
 
-.thread113:                                       ; preds = %15, %13
+.thread112:                                       ; preds = %15, %13
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   %25 = getelementptr inbounds i8, ptr %5, i64 24
   br label %26
 
-26:                                               ; preds = %.thread113, %34
+26:                                               ; preds = %.thread112, %34
   %27 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 32, i1 noundef zeroext true) #7
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %34
@@ -620,8 +589,8 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %or.cond5 = select i1 %or.cond, i1 %40, i1 false
   %41 = load i64, ptr %25, align 8
   %42 = icmp eq i64 %41, 0
-  %or.cond96 = select i1 %or.cond5, i1 %42, i1 false
-  br i1 %or.cond96, label %26, label %.critedge
+  %or.cond95 = select i1 %or.cond5, i1 %42, i1 false
+  br i1 %or.cond95, label %26, label %.critedge
 
 .critedge:                                        ; preds = %34
   store i64 %35, ptr %.sroa.1.0.copyload, align 8
@@ -633,16 +602,16 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   store i64 %41, ptr %45, align 8
   br label %108
 
-.thread147thread-pre-split:                       ; preds = %21
+.thread145thread-pre-split:                       ; preds = %21
   %.pr = load ptr, ptr %3, align 8
-  br label %.thread147
+  br label %.thread145
 
-.thread147:                                       ; preds = %.thread147thread-pre-split, %19
-  %46 = phi ptr [ %.pr, %.thread147thread-pre-split ], [ %20, %19 ]
-  %.not86 = icmp eq ptr %46, null
-  br i1 %.not86, label %.thread147.thread, label %47
+.thread145:                                       ; preds = %.thread145thread-pre-split, %19
+  %46 = phi ptr [ %.pr, %.thread145thread-pre-split ], [ %20, %19 ]
+  %.not85 = icmp eq ptr %46, null
+  br i1 %.not85, label %.thread145.thread, label %47
 
-47:                                               ; preds = %.thread147
+47:                                               ; preds = %.thread145
   %48 = getelementptr inbounds i8, ptr %46, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 32
@@ -653,9 +622,9 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   br label %52
 
 52:                                               ; preds = %.preheader, %64
-  %indvars.iv164 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next165, %64 ]
-  %53 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 %indvars.iv164
-  %54 = shl nuw nsw i64 %indvars.iv164, 3
+  %indvars.iv160 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next161, %64 ]
+  %53 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 %indvars.iv160
+  %54 = shl nuw nsw i64 %indvars.iv160, 3
   br label %55
 
 55:                                               ; preds = %52, %55
@@ -674,9 +643,9 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 
 64:                                               ; preds = %55
   store i64 %63, ptr %53, align 8
-  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
-  %exitcond167.not = icmp eq i64 %indvars.iv.next165, 4
-  br i1 %exitcond167.not, label %65, label %52
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond163.not = icmp eq i64 %indvars.iv.next161, 4
+  br i1 %exitcond163.not, label %65, label %52
 
 65:                                               ; preds = %64
   %66 = load i64, ptr %6, align 16
@@ -692,8 +661,8 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %74 = getelementptr inbounds i8, ptr %6, i64 24
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
-  %or.cond93 = select i1 %or.cond11, i1 %76, i1 false
-  br i1 %or.cond93, label %77, label %.critedge90
+  %or.cond92 = select i1 %or.cond11, i1 %76, i1 false
+  br i1 %or.cond92, label %77, label %.critedge89
 
 77:                                               ; preds = %65
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #7
@@ -702,7 +671,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   call void @llvm.assume(i1 %79)
   br label %108
 
-.critedge90:                                      ; preds = %65
+.critedge89:                                      ; preds = %65
   store i64 %66, ptr %.sroa.1.0.copyload, align 8
   %80 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
   store i64 %69, ptr %80, align 8
@@ -719,8 +688,8 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   call void @llvm.assume(i1 %85)
   br label %108
 
-.thread147.thread:                                ; preds = %.thread147, %15
-  %.in = phi ptr [ %16, %15 ], [ %4, %.thread147 ]
+.thread145.thread:                                ; preds = %.thread145, %15
+  %.in = phi ptr [ %16, %15 ], [ %4, %.thread145 ]
   %86 = load i64, ptr %.in, align 8
   %87 = insertelement <2 x i64> poison, i64 %86, i64 0
   %88 = shufflevector <2 x i64> %87, <2 x i64> poison, <2 x i32> zeroinitializer
@@ -747,7 +716,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   store <2 x i64> %107, ptr %98, align 8
   br label %108
 
-108:                                              ; preds = %.critedge90, %.thread147.thread, %83, %77, %.critedge, %29, %.thread131
+108:                                              ; preds = %.critedge89, %.thread145.thread, %83, %77, %.critedge, %29, %.thread130
   ret void
 }
 

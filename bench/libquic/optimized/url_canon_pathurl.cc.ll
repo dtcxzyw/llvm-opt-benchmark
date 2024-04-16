@@ -103,28 +103,19 @@ define dso_local noundef zeroext i1 @_ZN3url14ReplacePathURLEPKcRKNS_6ParsedERKN
 entry:
   %source = alloca %"struct.url::URLComponentSource", align 8
   %parsed = alloca %"struct.url::Parsed", align 8
-  store ptr %base, ptr %source, align 8
-  %username.i = getelementptr inbounds i8, ptr %source, i64 8
-  store ptr %base, ptr %username.i, align 8
-  %password.i = getelementptr inbounds i8, ptr %source, i64 16
-  store ptr %base, ptr %password.i, align 8
-  %host.i = getelementptr inbounds i8, ptr %source, i64 24
-  store ptr %base, ptr %host.i, align 8
-  %port.i = getelementptr inbounds i8, ptr %source, i64 32
-  store ptr %base, ptr %port.i, align 8
   %path.i = getelementptr inbounds i8, ptr %source, i64 40
-  store ptr %base, ptr %path.i, align 8
   %query.i = getelementptr inbounds i8, ptr %source, i64 48
-  store ptr %base, ptr %query.i, align 8
   %ref.i = getelementptr inbounds i8, ptr %source, i64 56
-  store ptr %base, ptr %ref.i, align 8
+  %0 = insertelement <8 x ptr> poison, ptr %base, i64 0
+  %1 = shufflevector <8 x ptr> %0, <8 x ptr> poison, <8 x i32> zeroinitializer
+  store <8 x ptr> %1, ptr %source, align 8
   call void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
   invoke void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef %base, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef nonnull %source, ptr noundef nonnull %parsed)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %source, align 8
-  %call.i9 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
+  %2 = load ptr, ptr %source, align 8
+  %call.i9 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
@@ -132,24 +123,24 @@ call.i.noexc:                                     ; preds = %invoke.cont
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i2, align 4
   %host.i4 = getelementptr inbounds i8, ptr %new_parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i4, align 4
-  %1 = load ptr, ptr %path.i, align 8
+  %3 = load ptr, ptr %path.i, align 8
   %path3.i = getelementptr inbounds i8, ptr %parsed, i64 40
   %path4.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
-  %call5.i10 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %path3.i, i8 noundef signext 0, ptr noundef %output, ptr noundef nonnull %path4.i)
+  %call5.i10 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %path3.i, i8 noundef signext 0, ptr noundef %output, ptr noundef nonnull %path4.i)
           to label %call5.i.noexc unwind label %lpad
 
 call5.i.noexc:                                    ; preds = %call.i.noexc
-  %2 = load ptr, ptr %query.i, align 8
+  %4 = load ptr, ptr %query.i, align 8
   %query9.i = getelementptr inbounds i8, ptr %parsed, i64 48
   %query10.i = getelementptr inbounds i8, ptr %new_parsed, i64 48
-  %call11.i11 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %query9.i, i8 noundef signext 63, ptr noundef %output, ptr noundef nonnull %query10.i)
+  %call11.i11 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %query9.i, i8 noundef signext 63, ptr noundef %output, ptr noundef nonnull %query10.i)
           to label %call11.i.noexc unwind label %lpad
 
 call11.i.noexc:                                   ; preds = %call5.i.noexc
-  %3 = load ptr, ptr %ref.i, align 8
+  %5 = load ptr, ptr %ref.i, align 8
   %ref18.i = getelementptr inbounds i8, ptr %parsed, i64 56
   %ref19.i = getelementptr inbounds i8, ptr %new_parsed, i64 56
-  %call20.i12 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %ref18.i, i8 noundef signext 35, ptr noundef %output, ptr noundef nonnull %ref19.i)
+  %call20.i12 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %ref18.i, i8 noundef signext 35, ptr noundef %output, ptr noundef nonnull %ref19.i)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %call11.i.noexc
@@ -160,10 +151,10 @@ invoke.cont1:                                     ; preds = %call11.i.noexc
   ret i1 %and2422.i
 
 lpad:                                             ; preds = %call11.i.noexc, %call5.i.noexc, %call.i.noexc, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed) #9
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %6
 }
 
 declare void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
@@ -187,21 +178,12 @@ entry:
   %fixed_buffer_.i.i = getelementptr inbounds i8, ptr %utf8, i64 24
   store ptr %fixed_buffer_.i.i, ptr %buffer_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 0, i32 0, i64 2), ptr %utf8, align 8
-  store ptr %base, ptr %source, align 8
-  %username.i = getelementptr inbounds i8, ptr %source, i64 8
-  store ptr %base, ptr %username.i, align 8
-  %password.i = getelementptr inbounds i8, ptr %source, i64 16
-  store ptr %base, ptr %password.i, align 8
-  %host.i = getelementptr inbounds i8, ptr %source, i64 24
-  store ptr %base, ptr %host.i, align 8
-  %port.i = getelementptr inbounds i8, ptr %source, i64 32
-  store ptr %base, ptr %port.i, align 8
   %path.i = getelementptr inbounds i8, ptr %source, i64 40
-  store ptr %base, ptr %path.i, align 8
   %query.i = getelementptr inbounds i8, ptr %source, i64 48
-  store ptr %base, ptr %query.i, align 8
   %ref.i = getelementptr inbounds i8, ptr %source, i64 56
-  store ptr %base, ptr %ref.i, align 8
+  %1 = insertelement <8 x ptr> poison, ptr %base, i64 0
+  %2 = shufflevector <8 x ptr> %1, <8 x ptr> poison, <8 x i32> zeroinitializer
+  store <8 x ptr> %2, ptr %source, align 8
   invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
           to label %invoke.cont1 unwind label %lpad
 
@@ -210,8 +192,8 @@ invoke.cont1:                                     ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont1
-  %1 = load ptr, ptr %source, align 8
-  %call.i10 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
+  %3 = load ptr, ptr %source, align 8
+  %call.i10 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
           to label %call.i.noexc unwind label %lpad2
 
 call.i.noexc:                                     ; preds = %invoke.cont3
@@ -219,37 +201,37 @@ call.i.noexc:                                     ; preds = %invoke.cont3
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i3, align 4
   %host.i5 = getelementptr inbounds i8, ptr %new_parsed, i64 24
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i5, align 4
-  %2 = load ptr, ptr %path.i, align 8
+  %4 = load ptr, ptr %path.i, align 8
   %path3.i = getelementptr inbounds i8, ptr %parsed, i64 40
   %path4.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
-  %call5.i11 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %path3.i, i8 noundef signext 0, ptr noundef %output, ptr noundef nonnull %path4.i)
+  %call5.i11 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %path3.i, i8 noundef signext 0, ptr noundef %output, ptr noundef nonnull %path4.i)
           to label %call5.i.noexc unwind label %lpad2
 
 call5.i.noexc:                                    ; preds = %call.i.noexc
-  %3 = load ptr, ptr %query.i, align 8
+  %5 = load ptr, ptr %query.i, align 8
   %query9.i = getelementptr inbounds i8, ptr %parsed, i64 48
   %query10.i = getelementptr inbounds i8, ptr %new_parsed, i64 48
-  %call11.i12 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %query9.i, i8 noundef signext 63, ptr noundef %output, ptr noundef nonnull %query10.i)
+  %call11.i12 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %query9.i, i8 noundef signext 63, ptr noundef %output, ptr noundef nonnull %query10.i)
           to label %call11.i.noexc unwind label %lpad2
 
 call11.i.noexc:                                   ; preds = %call5.i.noexc
-  %4 = load ptr, ptr %ref.i, align 8
+  %6 = load ptr, ptr %ref.i, align 8
   %ref18.i = getelementptr inbounds i8, ptr %parsed, i64 56
   %ref19.i = getelementptr inbounds i8, ptr %new_parsed, i64 56
-  %call20.i13 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %ref18.i, i8 noundef signext 35, ptr noundef %output, ptr noundef nonnull %ref19.i)
+  %call20.i13 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(8) %ref18.i, i8 noundef signext 35, ptr noundef %output, ptr noundef nonnull %ref19.i)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %call11.i.noexc
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed) #9
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, i32 0, i64 2), ptr %utf8, align 8
-  %5 = load ptr, ptr %buffer_.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, %fixed_buffer_.i.i
-  %isnull.i.i = icmp eq ptr %5, null
+  %7 = load ptr, ptr %buffer_.i.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %7, %fixed_buffer_.i.i
+  %isnull.i.i = icmp eq ptr %7, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %isnull.i.i
   br i1 %or.cond.i.i, label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont4
-  call void @_ZdaPv(ptr noundef nonnull %5) #10
+  call void @_ZdaPv(ptr noundef nonnull %7) #10
   br label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit
 
 _ZN3url14RawCanonOutputILi1024EED2Ev.exit:        ; preds = %invoke.cont4, %delete.notnull.i.i
@@ -259,27 +241,27 @@ _ZN3url14RawCanonOutputILi1024EED2Ev.exit:        ; preds = %invoke.cont4, %dele
   ret i1 %and2422.i
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %call11.i.noexc, %call5.i.noexc, %call.i.noexc, %invoke.cont3, %invoke.cont1
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed) #9
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad2 ], [ %8, %lpad ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, i32 0, i64 2), ptr %utf8, align 8
-  %8 = load ptr, ptr %buffer_.i.i.i, align 8
-  %cmp.not.i.i17 = icmp eq ptr %8, %fixed_buffer_.i.i
-  %isnull.i.i18 = icmp eq ptr %8, null
+  %10 = load ptr, ptr %buffer_.i.i.i, align 8
+  %cmp.not.i.i17 = icmp eq ptr %10, %fixed_buffer_.i.i
+  %isnull.i.i18 = icmp eq ptr %10, null
   %or.cond.i.i19 = or i1 %cmp.not.i.i17, %isnull.i.i18
   br i1 %or.cond.i.i19, label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit21, label %delete.notnull.i.i20
 
 delete.notnull.i.i20:                             ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %8) #10
+  call void @_ZdaPv(ptr noundef nonnull %10) #10
   br label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit21
 
 _ZN3url14RawCanonOutputILi1024EED2Ev.exit21:      ; preds = %ehcleanup, %delete.notnull.i.i20
@@ -557,7 +539,7 @@ for.inc:                                          ; preds = %do.body.i.i26, %ret
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre51 = load i32, ptr %new_component, align 4
-  %17 = trunc i8 %success.1 to i1
+  %17 = trunc nuw i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
@@ -588,7 +570,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %char_value to i8
+  %conv = trunc nuw nsw i32 %char_value to i8
   br label %if.end39.sink.split
 
 if.else:                                          ; preds = %entry
@@ -597,7 +579,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %char_value, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv3, ptr noundef %output)
   %1 = trunc i32 %char_value to i8
@@ -611,7 +593,7 @@ if.else6:                                         ; preds = %if.else
 
 if.then8:                                         ; preds = %if.else6
   %shr9 = lshr i32 %char_value, 12
-  %3 = trunc i32 %shr9 to i8
+  %3 = trunc nuw i32 %shr9 to i8
   %conv11 = or disjoint i8 %3, -32
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv11, ptr noundef %output)
   %shr12 = lshr i32 %char_value, 6
@@ -630,7 +612,7 @@ if.else19:                                        ; preds = %if.else6
 
 if.then21:                                        ; preds = %if.else19
   %shr22 = lshr i32 %char_value, 18
-  %8 = trunc i32 %shr22 to i8
+  %8 = trunc nuw i32 %shr22 to i8
   %conv24 = or disjoint i8 %8, -16
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %conv24, ptr noundef %output)
   %shr25 = lshr i32 %char_value, 12
@@ -897,7 +879,7 @@ if.then8:                                         ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %conv14 = trunc i16 %8 to i8
+  %conv14 = trunc nuw i16 %8 to i8
   %12 = load i32, ptr %cur_len_.i18, align 4
   %13 = load i32, ptr %buffer_len_.i21, align 8
   %cmp.i22 = icmp slt i32 %12, %13
@@ -947,7 +929,7 @@ for.inc:                                          ; preds = %do.body.i.i26, %ret
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre51 = load i32, ptr %new_component, align 4
-  %18 = trunc i8 %success.1 to i1
+  %18 = trunc nuw i8 %success.1 to i1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end

@@ -472,7 +472,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_Z9GetChartsSt10shared_ptrI13ClusteredSeamES_I9MeshGraphEPb(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
-  %6 = alloca %"class.std::shared_ptr", align 8
+  %6 = alloca %"class.std::shared_ptr", align 16
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -520,7 +520,7 @@ define void @_Z9GetChartsSt10shared_ptrI13ClusteredSeamES_I9MeshGraphEPb(ptr dea
   %31 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 204
   %32 = load i32, ptr %31, align 4
   invoke void @_ZN9MeshGraph8GetChartEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %30, i32 noundef %32)
-          to label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit17 unwind label %49
+          to label %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit17 unwind label %51
 
 _ZNSt10shared_ptrI9FaceGroupED2Ev.exit17:         ; preds = %15
   %33 = load ptr, ptr %5, align 8
@@ -532,53 +532,51 @@ _ZNSt10shared_ptrI9FaceGroupED2Ev.exit17:         ; preds = %15
   store ptr %36, ptr %34, align 8
   store ptr null, ptr %5, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = load ptr, ptr %6, align 8
-  store ptr %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
-  %41 = load ptr, ptr %40, align 8
-  store ptr null, ptr %40, align 8
-  store ptr %41, ptr %39, align 8
-  store ptr null, ptr %6, align 8
-  %42 = invoke noundef i64 @_ZNK9FaceGroup2FNEv(ptr noundef nonnull align 8 dereferenceable(192) %33)
-          to label %43 unwind label %51
+  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = load <2 x ptr>, ptr %6, align 16
+  store ptr null, ptr %38, align 8
+  store <2 x ptr> %39, ptr %37, align 8
+  store ptr null, ptr %6, align 16
+  %40 = invoke noundef i64 @_ZNK9FaceGroup2FNEv(ptr noundef nonnull align 8 dereferenceable(192) %33)
+          to label %41 unwind label %53
 
-43:                                               ; preds = %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit17
-  %44 = invoke noundef i64 @_ZNK9FaceGroup2FNEv(ptr noundef nonnull align 8 dereferenceable(192) %38)
-          to label %45 unwind label %51
+41:                                               ; preds = %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit17
+  %42 = extractelement <2 x ptr> %39, i64 0
+  %43 = invoke noundef i64 @_ZNK9FaceGroup2FNEv(ptr noundef nonnull align 8 dereferenceable(192) %42)
+          to label %44 unwind label %53
 
-45:                                               ; preds = %43
-  %46 = icmp ult i64 %42, %44
-  br i1 %46, label %47, label %53
+44:                                               ; preds = %41
+  %45 = icmp ult i64 %40, %43
+  br i1 %45, label %46, label %55
 
-47:                                               ; preds = %45
-  store ptr %38, ptr %0, align 8
-  store ptr %33, ptr %37, align 8
-  store ptr %36, ptr %39, align 8
-  store ptr %41, ptr %34, align 8
-  br i1 %.not9, label %53, label %48
+46:                                               ; preds = %44
+  %47 = shufflevector <2 x ptr> %39, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %48 = insertelement <4 x ptr> %47, ptr %33, i64 2
+  %49 = insertelement <4 x ptr> %48, ptr %36, i64 3
+  store <4 x ptr> %49, ptr %0, align 8
+  br i1 %.not9, label %55, label %50
 
-48:                                               ; preds = %47
+50:                                               ; preds = %46
   store i8 1, ptr %3, align 1
-  br label %53
+  br label %55
 
-49:                                               ; preds = %15
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt10shared_ptrI9FaceGroupED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  br label %54
-
-51:                                               ; preds = %43, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit17
+51:                                               ; preds = %15
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt4pairISt10shared_ptrI9FaceGroupES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
-  br label %54
+  call void @_ZNSt10shared_ptrI9FaceGroupED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
+  br label %56
 
-53:                                               ; preds = %45, %48, %47
+53:                                               ; preds = %41, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit17
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt4pairISt10shared_ptrI9FaceGroupES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  br label %56
+
+55:                                               ; preds = %44, %50, %46
   ret void
 
-54:                                               ; preds = %51, %49
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
+56:                                               ; preds = %53, %51
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
   resume { ptr, i32 } %.pn
 }
 

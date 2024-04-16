@@ -45717,33 +45717,14 @@ entry:
   br i1 %tobool.not9.i.i, label %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 16
-  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 32
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 40
-  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 48
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 56
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 64
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 72
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 64
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 72
   %hash2.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace4.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key5.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value6.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 24
-  %looks7.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %display8.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 40
-  %view9.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %file10.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse11.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 64
-  %11 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 8
-  %12 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 16
-  %13 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 24
-  %14 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 32
-  %15 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 40
-  %16 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 48
-  %17 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 56
-  %18 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 64
-  %19 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 72
+  %4 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %5 = shufflevector <8 x ptr> %4, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %6 = getelementptr i8, <8 x ptr> %5, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  %7 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 64
+  %8 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i, i64 72
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
@@ -45754,37 +45735,18 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i), !noalias !409
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i.i.i), !noalias !409
   %hash.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 72
-  %outputColorSpace.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 8
-  %context_key.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 16
-  %context_value.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 24
-  %looks.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 32
-  %display.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 40
-  %view.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 48
-  %file.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 56
-  %inverse.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 64
-  store ptr %inverse.i.i.i.i, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !410, !noalias !409
-  store ptr %file.i.i.i.i, ptr %2, align 8, !alias.scope !410, !noalias !409
-  store ptr %view.i.i.i.i, ptr %3, align 8, !alias.scope !410, !noalias !409
-  store ptr %display.i.i.i.i, ptr %4, align 8, !alias.scope !410, !noalias !409
-  store ptr %looks.i.i.i.i, ptr %5, align 8, !alias.scope !410, !noalias !409
-  store ptr %context_value.i.i.i.i, ptr %6, align 8, !alias.scope !410, !noalias !409
-  store ptr %context_key.i.i.i.i, ptr %7, align 8, !alias.scope !410, !noalias !409
-  store ptr %outputColorSpace.i.i.i.i, ptr %8, align 8, !alias.scope !410, !noalias !409
-  store ptr %add.ptr.i.i1.i, ptr %9, align 8, !alias.scope !410, !noalias !409
-  store ptr %hash.i.i.i.i, ptr %10, align 8, !alias.scope !410, !noalias !409
-  store ptr %inverse11.i.i.i.i, ptr %ref.tmp1.i.i.i.i, align 8, !alias.scope !413, !noalias !409
-  store ptr %file10.i.i.i.i, ptr %11, align 8, !alias.scope !413, !noalias !409
-  store ptr %view9.i.i.i.i, ptr %12, align 8, !alias.scope !413, !noalias !409
-  store ptr %display8.i.i.i.i, ptr %13, align 8, !alias.scope !413, !noalias !409
-  store ptr %looks7.i.i.i.i, ptr %14, align 8, !alias.scope !413, !noalias !409
-  store ptr %context_value6.i.i.i.i, ptr %15, align 8, !alias.scope !413, !noalias !409
-  store ptr %context_key5.i.i.i.i, ptr %16, align 8, !alias.scope !413, !noalias !409
-  store ptr %outputColorSpace4.i.i.i.i, ptr %17, align 8, !alias.scope !413, !noalias !409
-  store ptr %k, ptr %18, align 8, !alias.scope !413, !noalias !409
-  store ptr %hash2.i.i.i.i, ptr %19, align 8, !alias.scope !413, !noalias !409
-  %20 = load i64, ptr %hash.i.i.i.i, align 8, !noalias !409
-  %21 = load i64, ptr %hash2.i.i.i.i, align 8, !noalias !409
-  %cmp.i.i.i.i.i.i = icmp ult i64 %20, %21
+  %9 = insertelement <8 x ptr> poison, ptr %add.ptr.i.i1.i, i64 0
+  %10 = shufflevector <8 x ptr> %9, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %11 = getelementptr i8, <8 x ptr> %10, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %11, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !410, !noalias !409
+  store ptr %add.ptr.i.i1.i, ptr %2, align 8, !alias.scope !410, !noalias !409
+  store ptr %hash.i.i.i.i, ptr %3, align 8, !alias.scope !410, !noalias !409
+  store <8 x ptr> %6, ptr %ref.tmp1.i.i.i.i, align 8, !alias.scope !413, !noalias !409
+  store ptr %k, ptr %7, align 8, !alias.scope !413, !noalias !409
+  store ptr %hash2.i.i.i.i, ptr %8, align 8, !alias.scope !413, !noalias !409
+  %12 = load i64, ptr %hash.i.i.i.i, align 8, !noalias !409
+  %13 = load i64, ptr %hash2.i.i.i.i, align 8, !noalias !409
+  %cmp.i.i.i.i.i.i = icmp ult i64 %12, %13
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i.i, label %lor.rhs.i.i.i.i.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i.i: ; preds = %while.body.i.i
@@ -45793,7 +45755,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i.
   br label %if.then.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i
-  %cmp4.i.i.i.i.i.i = icmp ult i64 %21, %20
+  %cmp4.i.i.i.i.i.i = icmp ult i64 %13, %12
   br i1 %cmp4.i.i.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread8.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread8.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
@@ -45825,76 +45787,38 @@ _ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCach
   br label %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit.loopexit, %entry
-  %22 = phi i64 [ 0, %entry ], [ %.pre4, %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit.loopexit ]
-  %23 = phi ptr [ %0, %entry ], [ %.pre, %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit.loopexit ]
-  %24 = phi ptr [ %add.ptr.i.i.i, %entry ], [ %agg.tmp.sroa.0.1.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit.loopexit ]
-  store ptr %24, ptr %agg.result, align 8, !alias.scope !409
-  %add.ptr.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %23, i64 %22
-  %cmp.i.not = icmp eq ptr %24, %add.ptr.i.i
+  %14 = phi i64 [ 0, %entry ], [ %.pre4, %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit.loopexit ]
+  %15 = phi ptr [ %0, %entry ], [ %.pre, %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit.loopexit ]
+  %16 = phi ptr [ %add.ptr.i.i.i, %entry ], [ %agg.tmp.sroa.0.1.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit.loopexit ]
+  store ptr %16, ptr %agg.result, align 8, !alias.scope !409
+  %add.ptr.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %15, i64 %14
+  %cmp.i.not = icmp eq ptr %16, %add.ptr.i.i
   br i1 %cmp.i.not, label %if.end, label %land.rhs
 
 land.rhs:                                         ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE11lower_boundERKS5_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i)
   %hash.i.i = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace.i.i = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value.i.i = getelementptr inbounds i8, ptr %k, i64 24
-  %looks.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %display.i.i = getelementptr inbounds i8, ptr %k, i64 40
-  %view.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %file.i.i = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse.i.i = getelementptr inbounds i8, ptr %k, i64 64
-  store ptr %inverse.i.i, ptr %ref.tmp.i.i, align 8, !alias.scope !422
-  %25 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %file.i.i, ptr %25, align 8, !alias.scope !422
-  %26 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %view.i.i, ptr %26, align 8, !alias.scope !422
-  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  store ptr %display.i.i, ptr %27, align 8, !alias.scope !422
-  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
-  store ptr %looks.i.i, ptr %28, align 8, !alias.scope !422
-  %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
-  store ptr %context_value.i.i, ptr %29, align 8, !alias.scope !422
-  %30 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
-  store ptr %context_key.i.i, ptr %30, align 8, !alias.scope !422
-  %31 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
-  store ptr %outputColorSpace.i.i, ptr %31, align 8, !alias.scope !422
-  %32 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
-  store ptr %k, ptr %32, align 8, !alias.scope !422
-  %33 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
-  store ptr %hash.i.i, ptr %33, align 8, !alias.scope !422
-  %hash2.i.i = getelementptr inbounds i8, ptr %24, i64 72
-  %outputColorSpace4.i.i = getelementptr inbounds i8, ptr %24, i64 8
-  %context_key5.i.i = getelementptr inbounds i8, ptr %24, i64 16
-  %context_value6.i.i = getelementptr inbounds i8, ptr %24, i64 24
-  %looks7.i.i = getelementptr inbounds i8, ptr %24, i64 32
-  %display8.i.i = getelementptr inbounds i8, ptr %24, i64 40
-  %view9.i.i = getelementptr inbounds i8, ptr %24, i64 48
-  %file10.i.i = getelementptr inbounds i8, ptr %24, i64 56
-  %inverse11.i.i = getelementptr inbounds i8, ptr %24, i64 64
-  store ptr %inverse11.i.i, ptr %ref.tmp1.i.i, align 8, !alias.scope !425
-  %34 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
-  store ptr %file10.i.i, ptr %34, align 8, !alias.scope !425
-  %35 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 16
-  store ptr %view9.i.i, ptr %35, align 8, !alias.scope !425
-  %36 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 24
-  store ptr %display8.i.i, ptr %36, align 8, !alias.scope !425
-  %37 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 32
-  store ptr %looks7.i.i, ptr %37, align 8, !alias.scope !425
-  %38 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 40
-  store ptr %context_value6.i.i, ptr %38, align 8, !alias.scope !425
-  %39 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 48
-  store ptr %context_key5.i.i, ptr %39, align 8, !alias.scope !425
-  %40 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 56
-  store ptr %outputColorSpace4.i.i, ptr %40, align 8, !alias.scope !425
-  %41 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
-  store ptr %24, ptr %41, align 8, !alias.scope !425
-  %42 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
-  store ptr %hash2.i.i, ptr %42, align 8, !alias.scope !425
-  %43 = load i64, ptr %hash.i.i, align 8
-  %44 = load i64, ptr %hash2.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %43, %44
+  %17 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %18 = shufflevector <8 x ptr> %17, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %19 = getelementptr i8, <8 x ptr> %18, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %19, ptr %ref.tmp.i.i, align 8, !alias.scope !422
+  %20 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
+  store ptr %k, ptr %20, align 8, !alias.scope !422
+  %21 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
+  store ptr %hash.i.i, ptr %21, align 8, !alias.scope !422
+  %hash2.i.i = getelementptr inbounds i8, ptr %16, i64 72
+  %22 = insertelement <8 x ptr> poison, ptr %16, i64 0
+  %23 = shufflevector <8 x ptr> %22, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %24 = getelementptr i8, <8 x ptr> %23, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %24, ptr %ref.tmp1.i.i, align 8, !alias.scope !425
+  %25 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
+  store ptr %16, ptr %25, align 8, !alias.scope !425
+  %26 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
+  store ptr %hash2.i.i, ptr %26, align 8, !alias.scope !425
+  %27 = load i64, ptr %hash.i.i, align 8
+  %28 = load i64, ptr %hash2.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %27, %28
   br i1 %cmp.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread, label %lor.rhs.i.i.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread: ; preds = %land.rhs
@@ -45903,7 +45827,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread: ;
   br label %if.then
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs
-  %cmp4.i.i.i.i = icmp ult i64 %44, %43
+  %cmp4.i.i.i.i = icmp ult i64 %28, %27
   br i1 %cmp4.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread3, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread3: ; preds = %lor.rhs.i.i.i.i
@@ -47378,33 +47302,14 @@ entry:
   br i1 %tobool.not9.i.i.i, label %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 16
-  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 32
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 40
-  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 48
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 56
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 64
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 72
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 64
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 72
   %hash2.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace4.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key5.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value6.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 24
-  %looks7.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %display8.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 40
-  %view9.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %file10.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse11.i.i.i.i.i = getelementptr inbounds i8, ptr %k, i64 64
-  %11 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 8
-  %12 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 16
-  %13 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 24
-  %14 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 32
-  %15 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 40
-  %16 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 48
-  %17 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 56
-  %18 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 64
-  %19 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 72
+  %4 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %5 = shufflevector <8 x ptr> %4, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %6 = getelementptr i8, <8 x ptr> %5, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  %7 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 64
+  %8 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i.i.i, i64 72
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.lr.ph.i.i.i
@@ -47415,37 +47320,18 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !545
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i.i.i.i), !noalias !545
   %hash.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 72
-  %outputColorSpace.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 8
-  %context_key.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 16
-  %context_value.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 24
-  %looks.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 32
-  %display.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 40
-  %view.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 48
-  %file.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 56
-  %inverse.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i.i, i64 64
-  store ptr %inverse.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i, align 8, !alias.scope !552, !noalias !545
-  store ptr %file.i.i.i.i.i, ptr %2, align 8, !alias.scope !552, !noalias !545
-  store ptr %view.i.i.i.i.i, ptr %3, align 8, !alias.scope !552, !noalias !545
-  store ptr %display.i.i.i.i.i, ptr %4, align 8, !alias.scope !552, !noalias !545
-  store ptr %looks.i.i.i.i.i, ptr %5, align 8, !alias.scope !552, !noalias !545
-  store ptr %context_value.i.i.i.i.i, ptr %6, align 8, !alias.scope !552, !noalias !545
-  store ptr %context_key.i.i.i.i.i, ptr %7, align 8, !alias.scope !552, !noalias !545
-  store ptr %outputColorSpace.i.i.i.i.i, ptr %8, align 8, !alias.scope !552, !noalias !545
-  store ptr %add.ptr.i.i1.i.i, ptr %9, align 8, !alias.scope !552, !noalias !545
-  store ptr %hash.i.i.i.i.i, ptr %10, align 8, !alias.scope !552, !noalias !545
-  store ptr %inverse11.i.i.i.i.i, ptr %ref.tmp1.i.i.i.i.i, align 8, !alias.scope !555, !noalias !545
-  store ptr %file10.i.i.i.i.i, ptr %11, align 8, !alias.scope !555, !noalias !545
-  store ptr %view9.i.i.i.i.i, ptr %12, align 8, !alias.scope !555, !noalias !545
-  store ptr %display8.i.i.i.i.i, ptr %13, align 8, !alias.scope !555, !noalias !545
-  store ptr %looks7.i.i.i.i.i, ptr %14, align 8, !alias.scope !555, !noalias !545
-  store ptr %context_value6.i.i.i.i.i, ptr %15, align 8, !alias.scope !555, !noalias !545
-  store ptr %context_key5.i.i.i.i.i, ptr %16, align 8, !alias.scope !555, !noalias !545
-  store ptr %outputColorSpace4.i.i.i.i.i, ptr %17, align 8, !alias.scope !555, !noalias !545
-  store ptr %k, ptr %18, align 8, !alias.scope !555, !noalias !545
-  store ptr %hash2.i.i.i.i.i, ptr %19, align 8, !alias.scope !555, !noalias !545
-  %20 = load i64, ptr %hash.i.i.i.i.i, align 8, !noalias !545
-  %21 = load i64, ptr %hash2.i.i.i.i.i, align 8, !noalias !545
-  %cmp.i.i.i.i.i.i.i = icmp ult i64 %20, %21
+  %9 = insertelement <8 x ptr> poison, ptr %add.ptr.i.i1.i.i, i64 0
+  %10 = shufflevector <8 x ptr> %9, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %11 = getelementptr i8, <8 x ptr> %10, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %11, ptr %ref.tmp.i.i.i.i.i, align 8, !alias.scope !552, !noalias !545
+  store ptr %add.ptr.i.i1.i.i, ptr %2, align 8, !alias.scope !552, !noalias !545
+  store ptr %hash.i.i.i.i.i, ptr %3, align 8, !alias.scope !552, !noalias !545
+  store <8 x ptr> %6, ptr %ref.tmp1.i.i.i.i.i, align 8, !alias.scope !555, !noalias !545
+  store ptr %k, ptr %7, align 8, !alias.scope !555, !noalias !545
+  store ptr %hash2.i.i.i.i.i, ptr %8, align 8, !alias.scope !555, !noalias !545
+  %12 = load i64, ptr %hash.i.i.i.i.i, align 8, !noalias !545
+  %13 = load i64, ptr %hash2.i.i.i.i.i, align 8, !noalias !545
+  %cmp.i.i.i.i.i.i.i = icmp ult i64 %12, %13
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i.i.i, label %lor.rhs.i.i.i.i.i.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i.i.i: ; preds = %while.body.i.i.i
@@ -47454,7 +47340,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i.
   br label %if.then.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i
-  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %21, %20
+  %cmp4.i.i.i.i.i.i.i = icmp ult i64 %13, %12
   br i1 %cmp4.i.i.i.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread8.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.i.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread8.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i
@@ -47486,75 +47372,37 @@ _ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared
   br label %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit
 
 _ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit: ; preds = %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit.loopexit, %entry
-  %22 = phi i64 [ 0, %entry ], [ %.pre50, %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit.loopexit ]
-  %23 = phi ptr [ %0, %entry ], [ %.pre, %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit.loopexit ]
-  %24 = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %agg.tmp.sroa.0.1.i.i, %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit.loopexit ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %23, i64 %22
-  %cmp.i = icmp eq ptr %24, %add.ptr.i.i.i
+  %14 = phi i64 [ 0, %entry ], [ %.pre50, %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit.loopexit ]
+  %15 = phi ptr [ %0, %entry ], [ %.pre, %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit.loopexit ]
+  %16 = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %agg.tmp.sroa.0.1.i.i, %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit.loopexit ]
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.boost::container::dtl::pair", ptr %15, i64 %14
+  %cmp.i = icmp eq ptr %16, %add.ptr.i.i.i
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i)
   %hash.i.i = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace.i.i = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value.i.i = getelementptr inbounds i8, ptr %k, i64 24
-  %looks.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %display.i.i = getelementptr inbounds i8, ptr %k, i64 40
-  %view.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %file.i.i = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse.i.i = getelementptr inbounds i8, ptr %k, i64 64
-  store ptr %inverse.i.i, ptr %ref.tmp.i.i, align 8, !alias.scope !565
-  %25 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %file.i.i, ptr %25, align 8, !alias.scope !565
-  %26 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %view.i.i, ptr %26, align 8, !alias.scope !565
-  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  store ptr %display.i.i, ptr %27, align 8, !alias.scope !565
-  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
-  store ptr %looks.i.i, ptr %28, align 8, !alias.scope !565
-  %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
-  store ptr %context_value.i.i, ptr %29, align 8, !alias.scope !565
-  %30 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
-  store ptr %context_key.i.i, ptr %30, align 8, !alias.scope !565
-  %31 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
-  store ptr %outputColorSpace.i.i, ptr %31, align 8, !alias.scope !565
-  %32 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
-  store ptr %k, ptr %32, align 8, !alias.scope !565
-  %33 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
-  store ptr %hash.i.i, ptr %33, align 8, !alias.scope !565
-  %hash2.i.i = getelementptr inbounds i8, ptr %24, i64 72
-  %outputColorSpace4.i.i = getelementptr inbounds i8, ptr %24, i64 8
-  %context_key5.i.i = getelementptr inbounds i8, ptr %24, i64 16
-  %context_value6.i.i = getelementptr inbounds i8, ptr %24, i64 24
-  %looks7.i.i = getelementptr inbounds i8, ptr %24, i64 32
-  %display8.i.i = getelementptr inbounds i8, ptr %24, i64 40
-  %view9.i.i = getelementptr inbounds i8, ptr %24, i64 48
-  %file10.i.i = getelementptr inbounds i8, ptr %24, i64 56
-  %inverse11.i.i = getelementptr inbounds i8, ptr %24, i64 64
-  store ptr %inverse11.i.i, ptr %ref.tmp1.i.i, align 8, !alias.scope !568
-  %34 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
-  store ptr %file10.i.i, ptr %34, align 8, !alias.scope !568
-  %35 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 16
-  store ptr %view9.i.i, ptr %35, align 8, !alias.scope !568
-  %36 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 24
-  store ptr %display8.i.i, ptr %36, align 8, !alias.scope !568
-  %37 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 32
-  store ptr %looks7.i.i, ptr %37, align 8, !alias.scope !568
-  %38 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 40
-  store ptr %context_value6.i.i, ptr %38, align 8, !alias.scope !568
-  %39 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 48
-  store ptr %context_key5.i.i, ptr %39, align 8, !alias.scope !568
-  %40 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 56
-  store ptr %outputColorSpace4.i.i, ptr %40, align 8, !alias.scope !568
-  %41 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
-  store ptr %24, ptr %41, align 8, !alias.scope !568
-  %42 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
-  store ptr %hash2.i.i, ptr %42, align 8, !alias.scope !568
-  %43 = load i64, ptr %hash.i.i, align 8
-  %44 = load i64, ptr %hash2.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %43, %44
+  %17 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %18 = shufflevector <8 x ptr> %17, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %19 = getelementptr i8, <8 x ptr> %18, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %19, ptr %ref.tmp.i.i, align 8, !alias.scope !565
+  %20 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
+  store ptr %k, ptr %20, align 8, !alias.scope !565
+  %21 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
+  store ptr %hash.i.i, ptr %21, align 8, !alias.scope !565
+  %hash2.i.i = getelementptr inbounds i8, ptr %16, i64 72
+  %22 = insertelement <8 x ptr> poison, ptr %16, i64 0
+  %23 = shufflevector <8 x ptr> %22, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %24 = getelementptr i8, <8 x ptr> %23, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %24, ptr %ref.tmp1.i.i, align 8, !alias.scope !568
+  %25 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
+  store ptr %16, ptr %25, align 8, !alias.scope !568
+  %26 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
+  store ptr %hash2.i.i, ptr %26, align 8, !alias.scope !568
+  %27 = load i64, ptr %hash.i.i, align 8
+  %28 = load i64, ptr %hash2.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %27, %28
   br i1 %cmp.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread, label %lor.rhs.i.i.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread: ; preds = %lor.rhs
@@ -47563,7 +47411,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread: ;
   br label %if.then
 
 lor.rhs.i.i.i.i:                                  ; preds = %lor.rhs
-  %cmp4.i.i.i.i = icmp ult i64 %44, %43
+  %cmp4.i.i.i.i = icmp ult i64 %28, %27
   br i1 %cmp4.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread49, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread49: ; preds = %lor.rhs.i.i.i.i
@@ -47578,20 +47426,20 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit: ; preds 
   br i1 %call5.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread, %_ZN5boost9container8flat_mapIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS2_14ColorProcessorEESt4lessIS3_EvE11lower_boundERKS3_.exit, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit
-  %45 = load <2 x ptr>, ptr %k, align 8
-  store <2 x ptr> %45, ptr %ref.tmp6, align 16
+  %29 = load <2 x ptr>, ptr %k, align 8
+  store <2 x ptr> %29, ptr %ref.tmp6, align 16
   %context_key.i.i4 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   %context_key4.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %46 = load <2 x ptr>, ptr %context_key4.i.i, align 8
-  store <2 x ptr> %46, ptr %context_key.i.i4, align 16
+  %30 = load <2 x ptr>, ptr %context_key4.i.i, align 8
+  store <2 x ptr> %30, ptr %context_key.i.i4, align 16
   %looks.i.i6 = getelementptr inbounds i8, ptr %ref.tmp6, i64 32
   %looks6.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %47 = load <2 x ptr>, ptr %looks6.i.i, align 8
-  store <2 x ptr> %47, ptr %looks.i.i6, align 16
+  %31 = load <2 x ptr>, ptr %looks6.i.i, align 8
+  store <2 x ptr> %31, ptr %looks.i.i6, align 16
   %view.i.i8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 48
   %view8.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %48 = load <2 x ptr>, ptr %view8.i.i, align 8
-  store <2 x ptr> %48, ptr %view.i.i8, align 16
+  %32 = load <2 x ptr>, ptr %view8.i.i, align 8
+  store <2 x ptr> %32, ptr %view.i.i8, align 16
   %inverse.i.i10 = getelementptr inbounds i8, ptr %ref.tmp6, i64 64
   %inverse10.i.i = getelementptr inbounds i8, ptr %k, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %inverse.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %inverse10.i.i, i64 16, i1 false)
@@ -47606,7 +47454,7 @@ if.then:                                          ; preds = %_ZNKSt4lessIN18Open
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i), !noalias !571
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !571
   store ptr null, ptr %data.i.i, align 8, !noalias !574
-  store ptr %24, ptr %agg.tmp.i.i, align 8, !noalias !574
+  store ptr %16, ptr %agg.tmp.i.i, align 8, !noalias !574
   %call2.i.i12 = invoke noundef zeroext i1 @_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPS9_Lb1EEERKS5_RNSG_18insert_commit_dataE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %data.i.i)
           to label %call2.i.i.noexc unwind label %lpad8
 
@@ -47615,8 +47463,8 @@ call2.i.i.noexc:                                  ; preds = %if.then
 
 cond.true.i.i:                                    ; preds = %call2.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !574
-  %49 = load ptr, ptr %data.i.i, align 8, !noalias !577
-  store ptr %49, ptr %agg.tmp.i.i.i, align 8, !noalias !577
+  %33 = load ptr, ptr %data.i.i, align 8, !noalias !577
+  store ptr %33, ptr %agg.tmp.i.i.i, align 8, !noalias !577
   invoke void @_ZN5boost9container6vectorINS0_3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS0_13new_allocatorIS9_EEvE25priv_forward_range_insertINS2_17insert_move_proxyISB_PS9_EEEENS0_12vec_iteratorISF_Lb0EEERKSF_mT_(ptr nonnull sret(%"class.boost::container::vec_iterator.139") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i, i64 noundef 1, ptr nonnull %ref.tmp6)
           to label %.noexc unwind label %lpad8
 
@@ -47626,12 +47474,12 @@ cond.true.i.i:                                    ; preds = %call2.i.i.noexc
   br label %invoke.cont9
 
 cond.false.i.i:                                   ; preds = %call2.i.i.noexc
-  %50 = load ptr, ptr %this, align 8, !noalias !574
-  %51 = load ptr, ptr %data.i.i, align 8, !noalias !574
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %50 to i64
+  %34 = load ptr, ptr %this, align 8, !noalias !574
+  %35 = load ptr, ptr %data.i.i, align 8, !noalias !574
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %35 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i.i.i11 = getelementptr inbounds i8, ptr %50, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i.i.i11 = getelementptr inbounds i8, ptr %34, i64 %sub.ptr.sub.i.i.i
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %cond.false.i.i, %.noexc
@@ -47639,160 +47487,160 @@ invoke.cont9:                                     ; preds = %cond.false.i.i, %.n
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i), !noalias !571
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !571
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %52 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %52, null
+  %36 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont9
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 8
-  %53 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i = icmp eq i64 %53, 4294967297
-  %54 = trunc i64 %53 to i32
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i.i = icmp eq i64 %37, 4294967297
+  %38 = trunc i64 %37 to i32
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %52, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %36, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
-  %55 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #28
+  %39 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #28
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %56 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i = icmp eq i8 %56, 0
+  %40 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i = icmp eq i8 %40, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %add.i.i.i.i.i.i = add nsw i32 %54, -1
+  %add.i.i.i.i.i.i = add nsw i32 %38, -1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %57 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %41 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i = phi i32 [ %54, %if.then.i.i.i.i.i.i ], [ %57, %if.else.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i = phi i32 [ %38, %if.then.i.i.i.i.i.i ], [ %41, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %52, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %36, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %58 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #28
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 12
-  %59 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %59, 0
+  %42 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %36) #28
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 12
+  %43 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %43, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %60 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %60, -1
+  %44 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %44, -1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %61 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %45 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %60, %if.then.i.i.i.i.i.i.i.i ], [ %61, %if.else.i.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %44, %if.then.i.i.i.i.i.i.i.i ], [ %45, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i14 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i14, label %if.end8.sink.split.i.i.i.i.i, label %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %52, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %36, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
-  %62 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #28
+  %46 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #28
   br label %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit
 
 _ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit: ; preds = %invoke.cont9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %63 = load ptr, ptr %_M_refcount4.i.i.i, align 8
-  %cmp.not.i.i.i.i16 = icmp eq ptr %63, null
+  %47 = load ptr, ptr %_M_refcount4.i.i.i, align 8
+  %cmp.not.i.i.i.i16 = icmp eq ptr %47, null
   br i1 %cmp.not.i.i.i.i16, label %if.end, label %if.then.i.i.i.i17
 
 if.then.i.i.i.i17:                                ; preds = %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit
-  %_M_use_count.i.i.i.i.i18 = getelementptr inbounds i8, ptr %63, i64 8
-  %64 = load atomic i64, ptr %_M_use_count.i.i.i.i.i18 acquire, align 8
-  %cmp.i.i.i.i.i19 = icmp eq i64 %64, 4294967297
-  %65 = trunc i64 %64 to i32
+  %_M_use_count.i.i.i.i.i18 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = load atomic i64, ptr %_M_use_count.i.i.i.i.i18 acquire, align 8
+  %cmp.i.i.i.i.i19 = icmp eq i64 %48, 4294967297
+  %49 = trunc i64 %48 to i32
   br i1 %cmp.i.i.i.i.i19, label %if.then.i.i.i.i.i42, label %if.end.i.i.i.i.i20
 
 if.then.i.i.i.i.i42:                              ; preds = %if.then.i.i.i.i17
   store i32 0, ptr %_M_use_count.i.i.i.i.i18, align 8
-  %_M_weak_count.i.i.i.i.i43 = getelementptr inbounds i8, ptr %63, i64 12
+  %_M_weak_count.i.i.i.i.i43 = getelementptr inbounds i8, ptr %47, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i43, align 4
-  %vtable.i.i.i.i.i44 = load ptr, ptr %63, align 8
+  %vtable.i.i.i.i.i44 = load ptr, ptr %47, align 8
   %vfn.i.i.i.i.i45 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i44, i64 16
-  %66 = load ptr, ptr %vfn.i.i.i.i.i45, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %63) #28
+  %50 = load ptr, ptr %vfn.i.i.i.i.i45, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %47) #28
   br label %if.end8.sink.split.i.i.i.i.i37
 
 if.end.i.i.i.i.i20:                               ; preds = %if.then.i.i.i.i17
-  %67 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i21 = icmp eq i8 %67, 0
+  %51 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i21 = icmp eq i8 %51, 0
   br i1 %tobool.i.not.i.i.i.i.i21, label %if.else.i.i.i.i.i.i41, label %if.then.i.i.i.i.i.i22
 
 if.then.i.i.i.i.i.i22:                            ; preds = %if.end.i.i.i.i.i20
-  %add.i.i.i.i.i.i23 = add nsw i32 %65, -1
+  %add.i.i.i.i.i.i23 = add nsw i32 %49, -1
   store i32 %add.i.i.i.i.i.i23, ptr %_M_use_count.i.i.i.i.i18, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i24
 
 if.else.i.i.i.i.i.i41:                            ; preds = %if.end.i.i.i.i.i20
-  %68 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i18, i32 -1 acq_rel, align 4
+  %52 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i18, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i24
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i24: ; preds = %if.else.i.i.i.i.i.i41, %if.then.i.i.i.i.i.i22
-  %retval.i.0.i.i.i.i.i25 = phi i32 [ %65, %if.then.i.i.i.i.i.i22 ], [ %68, %if.else.i.i.i.i.i.i41 ]
+  %retval.i.0.i.i.i.i.i25 = phi i32 [ %49, %if.then.i.i.i.i.i.i22 ], [ %52, %if.else.i.i.i.i.i.i41 ]
   %cmp6.i.i.i.i.i26 = icmp eq i32 %retval.i.0.i.i.i.i.i25, 1
   br i1 %cmp6.i.i.i.i.i26, label %if.then7.i.i.i.i.i27, label %if.end
 
 if.then7.i.i.i.i.i27:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i24
-  %vtable.i.i.i.i.i.i.i28 = load ptr, ptr %63, align 8
+  %vtable.i.i.i.i.i.i.i28 = load ptr, ptr %47, align 8
   %vfn.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i28, i64 16
-  %69 = load ptr, ptr %vfn.i.i.i.i.i.i.i29, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(16) %63) #28
-  %_M_weak_count.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %63, i64 12
-  %70 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i31 = icmp eq i8 %70, 0
+  %53 = load ptr, ptr %vfn.i.i.i.i.i.i.i29, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %47) #28
+  %_M_weak_count.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %47, i64 12
+  %54 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i31 = icmp eq i8 %54, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i31, label %if.else.i.i.i.i.i.i.i.i40, label %if.then.i.i.i.i.i.i.i.i32
 
 if.then.i.i.i.i.i.i.i.i32:                        ; preds = %if.then7.i.i.i.i.i27
-  %71 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i30, align 4
-  %add.i.i.i.i.i.i.i.i33 = add nsw i32 %71, -1
+  %55 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i30, align 4
+  %add.i.i.i.i.i.i.i.i33 = add nsw i32 %55, -1
   store i32 %add.i.i.i.i.i.i.i.i33, ptr %_M_weak_count.i.i.i.i.i.i.i30, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34
 
 if.else.i.i.i.i.i.i.i.i40:                        ; preds = %if.then7.i.i.i.i.i27
-  %72 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i30, i32 -1 acq_rel, align 4
+  %56 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i30, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34: ; preds = %if.else.i.i.i.i.i.i.i.i40, %if.then.i.i.i.i.i.i.i.i32
-  %retval.i.0.i.i.i.i.i.i.i35 = phi i32 [ %71, %if.then.i.i.i.i.i.i.i.i32 ], [ %72, %if.else.i.i.i.i.i.i.i.i40 ]
+  %retval.i.0.i.i.i.i.i.i.i35 = phi i32 [ %55, %if.then.i.i.i.i.i.i.i.i32 ], [ %56, %if.else.i.i.i.i.i.i.i.i40 ]
   %cmp.i.i.i.i.i.i.i36 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i35, 1
   br i1 %cmp.i.i.i.i.i.i.i36, label %if.end8.sink.split.i.i.i.i.i37, label %if.end
 
 if.end8.sink.split.i.i.i.i.i37:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i42
-  %vtable2.i.i.i.i.i.i.i38 = load ptr, ptr %63, align 8
+  %vtable2.i.i.i.i.i.i.i38 = load ptr, ptr %47, align 8
   %vfn3.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i38, i64 24
-  %73 = load ptr, ptr %vfn3.i.i.i.i.i.i.i39, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %63) #28
+  %57 = load ptr, ptr %vfn3.i.i.i.i.i.i.i39, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(16) %47) #28
   br label %if.end
 
 lpad8:                                            ; preds = %cond.true.i.i, %if.then
-  %74 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #28
   call void @_ZN5boost9container3dtl10value_initISt10shared_ptrIN18OpenImageIO_v2_6_014ColorProcessorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m) #28
-  resume { ptr, i32 } %74
+  resume { ptr, i32 } %58
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i.i37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i24, %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread49, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit
-  %i.sroa.0.0 = phi ptr [ %24, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit ], [ %24, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread49 ], [ %ref.tmp.val.i, %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit ], [ %ref.tmp.val.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i24 ], [ %ref.tmp.val.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34 ], [ %ref.tmp.val.i, %if.end8.sink.split.i.i.i.i.i37 ]
+  %i.sroa.0.0 = phi ptr [ %16, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit ], [ %16, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread49 ], [ %ref.tmp.val.i, %_ZN5boost9container3dtl4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS3_14ColorProcessorEEED2Ev.exit ], [ %ref.tmp.val.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i24 ], [ %ref.tmp.val.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i34 ], [ %ref.tmp.val.i, %if.end8.sink.split.i.i.i.i.i37 ]
   %second = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 80
   ret ptr %second
 }
@@ -47982,64 +47830,26 @@ lor.rhs:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i)
   %hash.i.i = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace.i.i = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value.i.i = getelementptr inbounds i8, ptr %k, i64 24
-  %looks.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %display.i.i = getelementptr inbounds i8, ptr %k, i64 40
-  %view.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %file.i.i = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse.i.i = getelementptr inbounds i8, ptr %k, i64 64
-  store ptr %inverse.i.i, ptr %ref.tmp.i.i, align 8, !alias.scope !587
-  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %file.i.i, ptr %3, align 8, !alias.scope !587
-  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %view.i.i, ptr %4, align 8, !alias.scope !587
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  store ptr %display.i.i, ptr %5, align 8, !alias.scope !587
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
-  store ptr %looks.i.i, ptr %6, align 8, !alias.scope !587
-  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
-  store ptr %context_value.i.i, ptr %7, align 8, !alias.scope !587
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
-  store ptr %context_key.i.i, ptr %8, align 8, !alias.scope !587
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
-  store ptr %outputColorSpace.i.i, ptr %9, align 8, !alias.scope !587
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
-  store ptr %k, ptr %10, align 8, !alias.scope !587
-  %11 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
-  store ptr %hash.i.i, ptr %11, align 8, !alias.scope !587
+  %3 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %4 = shufflevector <8 x ptr> %3, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %5 = getelementptr i8, <8 x ptr> %4, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %5, ptr %ref.tmp.i.i, align 8, !alias.scope !587
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
+  store ptr %k, ptr %6, align 8, !alias.scope !587
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
+  store ptr %hash.i.i, ptr %7, align 8, !alias.scope !587
   %hash2.i.i = getelementptr inbounds i8, ptr %2, i64 72
-  %outputColorSpace4.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %context_key5.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %context_value6.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  %looks7.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  %display8.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %view9.i.i = getelementptr inbounds i8, ptr %2, i64 48
-  %file10.i.i = getelementptr inbounds i8, ptr %2, i64 56
-  %inverse11.i.i = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %inverse11.i.i, ptr %ref.tmp1.i.i, align 8, !alias.scope !590
-  %12 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
-  store ptr %file10.i.i, ptr %12, align 8, !alias.scope !590
-  %13 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 16
-  store ptr %view9.i.i, ptr %13, align 8, !alias.scope !590
-  %14 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 24
-  store ptr %display8.i.i, ptr %14, align 8, !alias.scope !590
-  %15 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 32
-  store ptr %looks7.i.i, ptr %15, align 8, !alias.scope !590
-  %16 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 40
-  store ptr %context_value6.i.i, ptr %16, align 8, !alias.scope !590
-  %17 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 48
-  store ptr %context_key5.i.i, ptr %17, align 8, !alias.scope !590
-  %18 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 56
-  store ptr %outputColorSpace4.i.i, ptr %18, align 8, !alias.scope !590
-  %19 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
-  store ptr %2, ptr %19, align 8, !alias.scope !590
-  %20 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
-  store ptr %hash2.i.i, ptr %20, align 8, !alias.scope !590
-  %21 = load i64, ptr %hash.i.i, align 8
-  %22 = load i64, ptr %hash2.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %21, %22
+  %8 = insertelement <8 x ptr> poison, ptr %2, i64 0
+  %9 = shufflevector <8 x ptr> %8, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %10 = getelementptr i8, <8 x ptr> %9, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %10, ptr %ref.tmp1.i.i, align 8, !alias.scope !590
+  %11 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
+  store ptr %2, ptr %11, align 8, !alias.scope !590
+  %12 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
+  store ptr %hash2.i.i, ptr %12, align 8, !alias.scope !590
+  %13 = load i64, ptr %hash.i.i, align 8
+  %14 = load i64, ptr %hash2.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %13, %14
   br i1 %cmp.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread, label %lor.rhs.i.i.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread: ; preds = %lor.rhs
@@ -48048,7 +47858,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread: ;
   br label %if.then
 
 lor.rhs.i.i.i.i:                                  ; preds = %lor.rhs
-  %cmp4.i.i.i.i = icmp ult i64 %22, %21
+  %cmp4.i.i.i.i = icmp ult i64 %14, %13
   br i1 %cmp4.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread69, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread69: ; preds = %lor.rhs.i.i.i.i
@@ -48072,76 +47882,40 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.else25
   br label %if.else25
 
 if.then:                                          ; preds = %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.then_crit_edge, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread, %entry
-  %23 = phi ptr [ %.pre73, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.then_crit_edge ], [ %2, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread ], [ %add.ptr.i.i.i, %entry ]
-  %24 = phi ptr [ %.pre72, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.then_crit_edge ], [ %0, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread ], [ %0, %entry ]
-  store ptr %23, ptr %commit_data, align 8
-  %25 = load ptr, ptr %pos, align 8
-  %cmp.i10 = icmp eq ptr %25, %24
+  %15 = phi ptr [ %.pre73, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.then_crit_edge ], [ %2, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread ], [ %add.ptr.i.i.i, %entry ]
+  %16 = phi ptr [ %.pre72, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.then_crit_edge ], [ %0, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread ], [ %0, %entry ]
+  store ptr %15, ptr %commit_data, align 8
+  %17 = load ptr, ptr %pos, align 8
+  %cmp.i10 = icmp eq ptr %17, %16
   br i1 %cmp.i10, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %25, i64 -96
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %17, i64 -96
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i11)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i12)
-  %hash.i.i13 = getelementptr inbounds i8, ptr %25, i64 -24
-  %outputColorSpace.i.i14 = getelementptr inbounds i8, ptr %25, i64 -88
-  %context_key.i.i15 = getelementptr inbounds i8, ptr %25, i64 -80
-  %context_value.i.i16 = getelementptr inbounds i8, ptr %25, i64 -72
-  %looks.i.i17 = getelementptr inbounds i8, ptr %25, i64 -64
-  %display.i.i18 = getelementptr inbounds i8, ptr %25, i64 -56
-  %view.i.i19 = getelementptr inbounds i8, ptr %25, i64 -48
-  %file.i.i20 = getelementptr inbounds i8, ptr %25, i64 -40
-  %inverse.i.i21 = getelementptr inbounds i8, ptr %25, i64 -32
-  store ptr %inverse.i.i21, ptr %ref.tmp.i.i11, align 8, !alias.scope !598
-  %26 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 8
-  store ptr %file.i.i20, ptr %26, align 8, !alias.scope !598
-  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 16
-  store ptr %view.i.i19, ptr %27, align 8, !alias.scope !598
-  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 24
-  store ptr %display.i.i18, ptr %28, align 8, !alias.scope !598
-  %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 32
-  store ptr %looks.i.i17, ptr %29, align 8, !alias.scope !598
-  %30 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 40
-  store ptr %context_value.i.i16, ptr %30, align 8, !alias.scope !598
-  %31 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 48
-  store ptr %context_key.i.i15, ptr %31, align 8, !alias.scope !598
-  %32 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 56
-  store ptr %outputColorSpace.i.i14, ptr %32, align 8, !alias.scope !598
-  %33 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 64
-  store ptr %incdec.ptr.i, ptr %33, align 8, !alias.scope !598
-  %34 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 72
-  store ptr %hash.i.i13, ptr %34, align 8, !alias.scope !598
+  %hash.i.i13 = getelementptr inbounds i8, ptr %17, i64 -24
+  %18 = insertelement <8 x ptr> poison, ptr %17, i64 0
+  %19 = shufflevector <8 x ptr> %18, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %20 = getelementptr i8, <8 x ptr> %19, <8 x i64> <i64 -32, i64 -40, i64 -48, i64 -56, i64 -64, i64 -72, i64 -80, i64 -88>
+  %21 = getelementptr i8, <8 x ptr> %19, <8 x i64> <i64 -32, i64 -40, i64 -48, i64 -56, i64 -64, i64 -72, i64 -80, i64 -88>
+  store <8 x ptr> %21, ptr %ref.tmp.i.i11, align 8, !alias.scope !598
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 64
+  store ptr %incdec.ptr.i, ptr %22, align 8, !alias.scope !598
+  %23 = getelementptr inbounds i8, ptr %ref.tmp.i.i11, i64 72
+  store ptr %hash.i.i13, ptr %23, align 8, !alias.scope !598
   %hash2.i.i22 = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace4.i.i23 = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key5.i.i24 = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value6.i.i25 = getelementptr inbounds i8, ptr %k, i64 24
-  %looks7.i.i26 = getelementptr inbounds i8, ptr %k, i64 32
-  %display8.i.i27 = getelementptr inbounds i8, ptr %k, i64 40
-  %view9.i.i28 = getelementptr inbounds i8, ptr %k, i64 48
-  %file10.i.i29 = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse11.i.i30 = getelementptr inbounds i8, ptr %k, i64 64
-  store ptr %inverse11.i.i30, ptr %ref.tmp1.i.i12, align 8, !alias.scope !601
-  %35 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 8
-  store ptr %file10.i.i29, ptr %35, align 8, !alias.scope !601
-  %36 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 16
-  store ptr %view9.i.i28, ptr %36, align 8, !alias.scope !601
-  %37 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 24
-  store ptr %display8.i.i27, ptr %37, align 8, !alias.scope !601
-  %38 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 32
-  store ptr %looks7.i.i26, ptr %38, align 8, !alias.scope !601
-  %39 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 40
-  store ptr %context_value6.i.i25, ptr %39, align 8, !alias.scope !601
-  %40 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 48
-  store ptr %context_key5.i.i24, ptr %40, align 8, !alias.scope !601
-  %41 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 56
-  store ptr %outputColorSpace4.i.i23, ptr %41, align 8, !alias.scope !601
-  %42 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 64
-  store ptr %k, ptr %42, align 8, !alias.scope !601
-  %43 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 72
-  store ptr %hash2.i.i22, ptr %43, align 8, !alias.scope !601
-  %44 = load i64, ptr %hash.i.i13, align 8
-  %45 = load i64, ptr %hash2.i.i22, align 8
-  %cmp.i.i.i.i31 = icmp ult i64 %44, %45
+  %24 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %25 = shufflevector <8 x ptr> %24, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %26 = getelementptr i8, <8 x ptr> %25, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  %27 = getelementptr i8, <8 x ptr> %25, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %27, ptr %ref.tmp1.i.i12, align 8, !alias.scope !601
+  %28 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 64
+  store ptr %k, ptr %28, align 8, !alias.scope !601
+  %29 = getelementptr inbounds i8, ptr %ref.tmp1.i.i12, i64 72
+  store ptr %hash2.i.i22, ptr %29, align 8, !alias.scope !601
+  %30 = load i64, ptr %hash.i.i13, align 8
+  %31 = load i64, ptr %hash2.i.i22, align 8
+  %cmp.i.i.i.i31 = icmp ult i64 %30, %31
   br i1 %cmp.i.i.i.i31, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread, label %lor.rhs.i.i.i.i32
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread: ; preds = %if.end
@@ -48150,7 +47924,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread:
   br label %return
 
 lor.rhs.i.i.i.i32:                                ; preds = %if.end
-  %cmp4.i.i.i.i33 = icmp ult i64 %45, %44
+  %cmp4.i.i.i.i33 = icmp ult i64 %31, %30
   br i1 %cmp4.i.i.i.i33, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread70, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread70: ; preds = %lor.rhs.i.i.i.i32
@@ -48170,49 +47944,21 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.if.else
   br label %if.else
 
 if.else:                                          ; preds = %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.if.else_crit_edge, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread70
-  %46 = phi i64 [ %.pre75, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.if.else_crit_edge ], [ %44, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread70 ]
-  %47 = phi i64 [ %.pre74, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.if.else_crit_edge ], [ %45, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread70 ]
+  %32 = phi i64 [ %.pre75, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.if.else_crit_edge ], [ %30, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread70 ]
+  %33 = phi i64 [ %.pre74, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.if.else_crit_edge ], [ %31, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit36.thread70 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i37)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i38)
-  store ptr %inverse11.i.i30, ptr %ref.tmp.i.i37, align 8, !alias.scope !604
-  %48 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 8
-  store ptr %file10.i.i29, ptr %48, align 8, !alias.scope !604
-  %49 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 16
-  store ptr %view9.i.i28, ptr %49, align 8, !alias.scope !604
-  %50 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 24
-  store ptr %display8.i.i27, ptr %50, align 8, !alias.scope !604
-  %51 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 32
-  store ptr %looks7.i.i26, ptr %51, align 8, !alias.scope !604
-  %52 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 40
-  store ptr %context_value6.i.i25, ptr %52, align 8, !alias.scope !604
-  %53 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 48
-  store ptr %context_key5.i.i24, ptr %53, align 8, !alias.scope !604
-  %54 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 56
-  store ptr %outputColorSpace4.i.i23, ptr %54, align 8, !alias.scope !604
-  %55 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 64
-  store ptr %k, ptr %55, align 8, !alias.scope !604
-  %56 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 72
-  store ptr %hash2.i.i22, ptr %56, align 8, !alias.scope !604
-  store ptr %inverse.i.i21, ptr %ref.tmp1.i.i38, align 8, !alias.scope !607
-  %57 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 8
-  store ptr %file.i.i20, ptr %57, align 8, !alias.scope !607
-  %58 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 16
-  store ptr %view.i.i19, ptr %58, align 8, !alias.scope !607
-  %59 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 24
-  store ptr %display.i.i18, ptr %59, align 8, !alias.scope !607
-  %60 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 32
-  store ptr %looks.i.i17, ptr %60, align 8, !alias.scope !607
-  %61 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 40
-  store ptr %context_value.i.i16, ptr %61, align 8, !alias.scope !607
-  %62 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 48
-  store ptr %context_key.i.i15, ptr %62, align 8, !alias.scope !607
-  %63 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 56
-  store ptr %outputColorSpace.i.i14, ptr %63, align 8, !alias.scope !607
-  %64 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 64
-  store ptr %incdec.ptr.i, ptr %64, align 8, !alias.scope !607
-  %65 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 72
-  store ptr %hash.i.i13, ptr %65, align 8, !alias.scope !607
-  %cmp.i.i.i.i57 = icmp ult i64 %47, %46
+  store <8 x ptr> %26, ptr %ref.tmp.i.i37, align 8, !alias.scope !604
+  %34 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 64
+  store ptr %k, ptr %34, align 8, !alias.scope !604
+  %35 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 72
+  store ptr %hash2.i.i22, ptr %35, align 8, !alias.scope !604
+  store <8 x ptr> %20, ptr %ref.tmp1.i.i38, align 8, !alias.scope !607
+  %36 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 64
+  store ptr %incdec.ptr.i, ptr %36, align 8, !alias.scope !607
+  %37 = getelementptr inbounds i8, ptr %ref.tmp1.i.i38, i64 72
+  store ptr %hash.i.i13, ptr %37, align 8, !alias.scope !607
+  %cmp.i.i.i.i57 = icmp ult i64 %33, %32
   br i1 %cmp.i.i.i.i57, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62.thread, label %lor.rhs.i.i.i.i58
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62.thread: ; preds = %if.else
@@ -48221,7 +47967,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62.thread:
   br label %if.else22
 
 lor.rhs.i.i.i.i58:                                ; preds = %if.else
-  %cmp4.i.i.i.i59 = icmp ult i64 %46, %47
+  %cmp4.i.i.i.i59 = icmp ult i64 %32, %33
   br i1 %cmp4.i.i.i.i59, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62.thread71, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62.thread71: ; preds = %lor.rhs.i.i.i.i58
@@ -48240,14 +47986,14 @@ if.then19:                                        ; preds = %_ZNKSt4lessIN18Open
   br label %return
 
 if.else22:                                        ; preds = %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62.thread, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit62
-  store ptr %24, ptr %agg.tmp, align 8
+  store ptr %16, ptr %agg.tmp, align 8
   store ptr %incdec.ptr.i, ptr %agg.tmp23, align 8
   %call24 = call noundef zeroext i1 @_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPS9_Lb1EEESJ_RKS5_RNSG_18insert_commit_dataE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(80) %k, ptr noundef nonnull align 8 dereferenceable(8) %commit_data)
   br label %return
 
 if.else25:                                        ; preds = %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.else25_crit_edge, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread69
-  %66 = phi ptr [ %.pre, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.else25_crit_edge ], [ %2, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread69 ]
-  store ptr %66, ptr %agg.tmp26, align 8
+  %38 = phi ptr [ %.pre, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.if.else25_crit_edge ], [ %2, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread69 ]
+  store ptr %38, ptr %agg.tmp26, align 8
   store ptr %add.ptr.i.i.i, ptr %agg.tmp27, align 8
   %call28 = call noundef zeroext i1 @_ZN5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE26priv_insert_unique_prepareENS0_12vec_iteratorIPS9_Lb1EEESJ_RKS5_RNSG_18insert_commit_dataE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp26, ptr noundef nonnull %agg.tmp27, ptr noundef nonnull align 8 dereferenceable(80) %k, ptr noundef nonnull align 8 dereferenceable(8) %commit_data)
   br label %return
@@ -48274,33 +48020,14 @@ while.body.lr.ph.i:                               ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
-  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 32
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 40
-  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 48
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 56
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 64
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 72
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 64
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 72
   %hash2.i.i.i = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace4.i.i.i = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key5.i.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value6.i.i.i = getelementptr inbounds i8, ptr %k, i64 24
-  %looks7.i.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %display8.i.i.i = getelementptr inbounds i8, ptr %k, i64 40
-  %view9.i.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %file10.i.i.i = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse11.i.i.i = getelementptr inbounds i8, ptr %k, i64 64
-  %11 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 8
-  %12 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 16
-  %13 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 24
-  %14 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 32
-  %15 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 40
-  %16 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 48
-  %17 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 56
-  %18 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 64
-  %19 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 72
+  %4 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %5 = shufflevector <8 x ptr> %4, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %6 = getelementptr i8, <8 x ptr> %5, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  %7 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 64
+  %8 = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 72
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -48311,37 +48038,18 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i), !noalias !610
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i.i), !noalias !610
   %hash.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
-  %outputColorSpace.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %context_key.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %context_value.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
-  %looks.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
-  %display.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
-  %view.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
-  %file.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 56
-  %inverse.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 64
-  store ptr %inverse.i.i.i, ptr %ref.tmp.i.i.i, align 8, !alias.scope !613, !noalias !610
-  store ptr %file.i.i.i, ptr %2, align 8, !alias.scope !613, !noalias !610
-  store ptr %view.i.i.i, ptr %3, align 8, !alias.scope !613, !noalias !610
-  store ptr %display.i.i.i, ptr %4, align 8, !alias.scope !613, !noalias !610
-  store ptr %looks.i.i.i, ptr %5, align 8, !alias.scope !613, !noalias !610
-  store ptr %context_value.i.i.i, ptr %6, align 8, !alias.scope !613, !noalias !610
-  store ptr %context_key.i.i.i, ptr %7, align 8, !alias.scope !613, !noalias !610
-  store ptr %outputColorSpace.i.i.i, ptr %8, align 8, !alias.scope !613, !noalias !610
-  store ptr %add.ptr.i.i, ptr %9, align 8, !alias.scope !613, !noalias !610
-  store ptr %hash.i.i.i, ptr %10, align 8, !alias.scope !613, !noalias !610
-  store ptr %inverse11.i.i.i, ptr %ref.tmp1.i.i.i, align 8, !alias.scope !616, !noalias !610
-  store ptr %file10.i.i.i, ptr %11, align 8, !alias.scope !616, !noalias !610
-  store ptr %view9.i.i.i, ptr %12, align 8, !alias.scope !616, !noalias !610
-  store ptr %display8.i.i.i, ptr %13, align 8, !alias.scope !616, !noalias !610
-  store ptr %looks7.i.i.i, ptr %14, align 8, !alias.scope !616, !noalias !610
-  store ptr %context_value6.i.i.i, ptr %15, align 8, !alias.scope !616, !noalias !610
-  store ptr %context_key5.i.i.i, ptr %16, align 8, !alias.scope !616, !noalias !610
-  store ptr %outputColorSpace4.i.i.i, ptr %17, align 8, !alias.scope !616, !noalias !610
-  store ptr %k, ptr %18, align 8, !alias.scope !616, !noalias !610
-  store ptr %hash2.i.i.i, ptr %19, align 8, !alias.scope !616, !noalias !610
-  %20 = load i64, ptr %hash.i.i.i, align 8, !noalias !610
-  %21 = load i64, ptr %hash2.i.i.i, align 8, !noalias !610
-  %cmp.i.i.i.i.i = icmp ult i64 %20, %21
+  %9 = insertelement <8 x ptr> poison, ptr %add.ptr.i.i, i64 0
+  %10 = shufflevector <8 x ptr> %9, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %11 = getelementptr i8, <8 x ptr> %10, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %11, ptr %ref.tmp.i.i.i, align 8, !alias.scope !613, !noalias !610
+  store ptr %add.ptr.i.i, ptr %2, align 8, !alias.scope !613, !noalias !610
+  store ptr %hash.i.i.i, ptr %3, align 8, !alias.scope !613, !noalias !610
+  store <8 x ptr> %6, ptr %ref.tmp1.i.i.i, align 8, !alias.scope !616, !noalias !610
+  store ptr %k, ptr %7, align 8, !alias.scope !616, !noalias !610
+  store ptr %hash2.i.i.i, ptr %8, align 8, !alias.scope !616, !noalias !610
+  %12 = load i64, ptr %hash.i.i.i, align 8, !noalias !610
+  %13 = load i64, ptr %hash2.i.i.i, align 8, !noalias !610
+  %cmp.i.i.i.i.i = icmp ult i64 %12, %13
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i, label %lor.rhs.i.i.i.i.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i: ; preds = %while.body.i
@@ -48350,7 +48058,7 @@ _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread.i:
   br label %if.then.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %while.body.i
-  %cmp4.i.i.i.i.i = icmp ult i64 %21, %20
+  %cmp4.i.i.i.i.i = icmp ult i64 %13, %12
   br i1 %cmp4.i.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread8.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.i
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit.thread8.i: ; preds = %lor.rhs.i.i.i.i.i
@@ -48377,78 +48085,40 @@ if.end.i:                                         ; preds = %if.then.i, %_ZNKSt4
   br i1 %tobool.not.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE16priv_lower_boundINS0_12vec_iteratorIPS9_Lb1EEES5_EET_SL_SL_RKT0_.exit, label %while.body.i, !llvm.loop !619
 
 _ZNK5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE16priv_lower_boundINS0_12vec_iteratorIPS9_Lb1EEES5_EET_SL_SL_RKT0_.exit: ; preds = %if.end.i, %entry
-  %22 = phi ptr [ %0, %entry ], [ %agg.tmp.sroa.0.1, %if.end.i ]
-  store ptr %22, ptr %commit_data, align 8
-  %23 = load ptr, ptr %e, align 8
-  %cmp.i = icmp eq ptr %22, %23
+  %14 = phi ptr [ %0, %entry ], [ %agg.tmp.sroa.0.1, %if.end.i ]
+  store ptr %14, ptr %commit_data, align 8
+  %15 = load ptr, ptr %e, align 8
+  %cmp.i = icmp eq ptr %14, %15
   br i1 %cmp.i, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE16priv_lower_boundINS0_12vec_iteratorIPS9_Lb1EEES5_EET_SL_SL_RKT0_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp1.i.i)
   %hash.i.i = getelementptr inbounds i8, ptr %k, i64 72
-  %outputColorSpace.i.i = getelementptr inbounds i8, ptr %k, i64 8
-  %context_key.i.i = getelementptr inbounds i8, ptr %k, i64 16
-  %context_value.i.i = getelementptr inbounds i8, ptr %k, i64 24
-  %looks.i.i = getelementptr inbounds i8, ptr %k, i64 32
-  %display.i.i = getelementptr inbounds i8, ptr %k, i64 40
-  %view.i.i = getelementptr inbounds i8, ptr %k, i64 48
-  %file.i.i = getelementptr inbounds i8, ptr %k, i64 56
-  %inverse.i.i = getelementptr inbounds i8, ptr %k, i64 64
-  store ptr %inverse.i.i, ptr %ref.tmp.i.i, align 8, !alias.scope !620
-  %24 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %file.i.i, ptr %24, align 8, !alias.scope !620
-  %25 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %view.i.i, ptr %25, align 8, !alias.scope !620
-  %26 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  store ptr %display.i.i, ptr %26, align 8, !alias.scope !620
-  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
-  store ptr %looks.i.i, ptr %27, align 8, !alias.scope !620
-  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
-  store ptr %context_value.i.i, ptr %28, align 8, !alias.scope !620
-  %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
-  store ptr %context_key.i.i, ptr %29, align 8, !alias.scope !620
-  %30 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
-  store ptr %outputColorSpace.i.i, ptr %30, align 8, !alias.scope !620
-  %31 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
-  store ptr %k, ptr %31, align 8, !alias.scope !620
-  %32 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
-  store ptr %hash.i.i, ptr %32, align 8, !alias.scope !620
-  %hash2.i.i = getelementptr inbounds i8, ptr %22, i64 72
-  %outputColorSpace4.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %context_key5.i.i = getelementptr inbounds i8, ptr %22, i64 16
-  %context_value6.i.i = getelementptr inbounds i8, ptr %22, i64 24
-  %looks7.i.i = getelementptr inbounds i8, ptr %22, i64 32
-  %display8.i.i = getelementptr inbounds i8, ptr %22, i64 40
-  %view9.i.i = getelementptr inbounds i8, ptr %22, i64 48
-  %file10.i.i = getelementptr inbounds i8, ptr %22, i64 56
-  %inverse11.i.i = getelementptr inbounds i8, ptr %22, i64 64
-  store ptr %inverse11.i.i, ptr %ref.tmp1.i.i, align 8, !alias.scope !623
-  %33 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
-  store ptr %file10.i.i, ptr %33, align 8, !alias.scope !623
-  %34 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 16
-  store ptr %view9.i.i, ptr %34, align 8, !alias.scope !623
-  %35 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 24
-  store ptr %display8.i.i, ptr %35, align 8, !alias.scope !623
-  %36 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 32
-  store ptr %looks7.i.i, ptr %36, align 8, !alias.scope !623
-  %37 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 40
-  store ptr %context_value6.i.i, ptr %37, align 8, !alias.scope !623
-  %38 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 48
-  store ptr %context_key5.i.i, ptr %38, align 8, !alias.scope !623
-  %39 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 56
-  store ptr %outputColorSpace4.i.i, ptr %39, align 8, !alias.scope !623
-  %40 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
-  store ptr %22, ptr %40, align 8, !alias.scope !623
-  %41 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
-  store ptr %hash2.i.i, ptr %41, align 8, !alias.scope !623
-  %42 = load i64, ptr %hash.i.i, align 8
-  %43 = load i64, ptr %hash2.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %42, %43
+  %16 = insertelement <8 x ptr> poison, ptr %k, i64 0
+  %17 = shufflevector <8 x ptr> %16, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %18 = getelementptr i8, <8 x ptr> %17, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %18, ptr %ref.tmp.i.i, align 8, !alias.scope !620
+  %19 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
+  store ptr %k, ptr %19, align 8, !alias.scope !620
+  %20 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
+  store ptr %hash.i.i, ptr %20, align 8, !alias.scope !620
+  %hash2.i.i = getelementptr inbounds i8, ptr %14, i64 72
+  %21 = insertelement <8 x ptr> poison, ptr %14, i64 0
+  %22 = shufflevector <8 x ptr> %21, <8 x ptr> poison, <8 x i32> zeroinitializer
+  %23 = getelementptr i8, <8 x ptr> %22, <8 x i64> <i64 64, i64 56, i64 48, i64 40, i64 32, i64 24, i64 16, i64 8>
+  store <8 x ptr> %23, ptr %ref.tmp1.i.i, align 8, !alias.scope !623
+  %24 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 64
+  store ptr %14, ptr %24, align 8, !alias.scope !623
+  %25 = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 72
+  store ptr %hash2.i.i, ptr %25, align 8, !alias.scope !623
+  %26 = load i64, ptr %hash.i.i, align 8
+  %27 = load i64, ptr %hash2.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %26, %27
   br i1 %cmp.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %lor.rhs
-  %cmp4.i.i.i.i = icmp ult i64 %43, %42
+  %cmp4.i.i.i.i = icmp ult i64 %27, %26
   br i1 %cmp4.i.i.i.i, label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i.i
@@ -48456,14 +48126,14 @@ land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i.i
   br label %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit
 
 _ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit: ; preds = %lor.rhs, %lor.rhs.i.i.i.i, %land.rhs.i.i.i.i
-  %44 = phi i1 [ true, %lor.rhs ], [ false, %lor.rhs.i.i.i.i ], [ %call5.i.i.i.i, %land.rhs.i.i.i.i ]
+  %28 = phi i1 [ true, %lor.rhs ], [ false, %lor.rhs.i.i.i.i ], [ %call5.i.i.i.i, %land.rhs.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp1.i.i)
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE16priv_lower_boundINS0_12vec_iteratorIPS9_Lb1EEES5_EET_SL_SL_RKT0_.exit
-  %45 = phi i1 [ true, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE16priv_lower_boundINS0_12vec_iteratorIPS9_Lb1EEES5_EET_SL_SL_RKT0_.exit ], [ %44, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit ]
-  ret i1 %45
+  %29 = phi i1 [ true, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIN18OpenImageIO_v2_6_017ColorProcCacheKeyESt10shared_ptrINS4_14ColorProcessorEEEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS9_EEE16priv_lower_boundINS0_12vec_iteratorIPS9_Lb1EEES5_EET_SL_SL_RKT0_.exit ], [ %28, %_ZNKSt4lessIN18OpenImageIO_v2_6_017ColorProcCacheKeyEEclERKS1_S4_.exit ]
+  ret i1 %29
 }
 
 ; Function Attrs: mustprogress uwtable

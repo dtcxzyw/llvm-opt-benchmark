@@ -5793,7 +5793,7 @@ define internal fastcc noundef i32 @glad_gl_find_extensions_gl(i32 noundef %0) u
 .lr.ph.i:                                         ; preds = %14, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %14 ]
   %19 = load ptr, ptr @glad_glGetStringi, align 8
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw i64 %indvars.iv.i to i32
   %21 = call ptr %19(i32 noundef 7939, i32 noundef %20) #55
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #56
   %23 = add i64 %22, 1
@@ -18770,7 +18770,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 88:                                               ; preds = %86
   %89 = load i32, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 40), align 8
-  %90 = trunc i64 %indvars.iv229 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv229 to i32
   %91 = mul nuw nsw i32 %89, %90
   %92 = sdiv i32 %91, 2
   %93 = sdiv i32 %89, 2
@@ -22149,7 +22149,7 @@ define noundef ptr @rlReadScreenPixels(i32 noundef %0, i32 noundef %1) local_unn
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv36.in = phi i64 [ %11, %.preheader.us.preheader ], [ %indvars.iv36, %._crit_edge.us ]
   %indvars.iv36 = add nsw i64 %indvars.iv36.in, -1
-  %12 = trunc i64 %indvars.iv36 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv36 to i32
   %factor.op.mul.us = mul i32 %3, %12
   %13 = trunc i64 %indvars.iv36 to i32
   %14 = xor i32 %13, -1
@@ -22960,70 +22960,11 @@ define void @rlSetVertexAttributeDefault(i32 noundef %0, ptr noundef %1, i32 nou
 ; Function Attrs: nounwind uwtable
 define void @rlSetUniformMatrix(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #0 {
   %3 = alloca [16 x float], align 16
-  %4 = load float, ptr %1, align 8
-  store float %4, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load float, ptr %6, align 8
-  store float %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
-  %10 = load float, ptr %9, align 8
-  store float %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
-  %13 = load float, ptr %12, align 8
-  store float %13, ptr %11, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
-  %16 = load float, ptr %15, align 4
-  store float %16, ptr %14, align 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
-  %18 = getelementptr inbounds i8, ptr %1, i64 20
-  %19 = load float, ptr %18, align 4
-  store float %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
-  %21 = getelementptr inbounds i8, ptr %1, i64 36
-  %22 = load float, ptr %21, align 4
-  store float %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 28
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
-  %25 = load float, ptr %24, align 4
-  store float %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load float, ptr %27, align 8
-  store float %28, ptr %26, align 16
-  %29 = getelementptr inbounds i8, ptr %3, i64 36
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
-  %31 = load float, ptr %30, align 8
-  store float %31, ptr %29, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 40
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
-  %34 = load float, ptr %33, align 8
-  store float %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 44
-  %36 = getelementptr inbounds i8, ptr %1, i64 56
-  %37 = load float, ptr %36, align 8
-  store float %37, ptr %35, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 48
-  %39 = getelementptr inbounds i8, ptr %1, i64 12
-  %40 = load float, ptr %39, align 4
-  store float %40, ptr %38, align 16
-  %41 = getelementptr inbounds i8, ptr %3, i64 52
-  %42 = getelementptr inbounds i8, ptr %1, i64 28
-  %43 = load float, ptr %42, align 4
-  store float %43, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 56
-  %45 = getelementptr inbounds i8, ptr %1, i64 44
-  %46 = load float, ptr %45, align 4
-  store float %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 60
-  %48 = getelementptr inbounds i8, ptr %1, i64 60
-  %49 = load float, ptr %48, align 4
-  store float %49, ptr %47, align 4
-  %50 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
-  call void %50(i32 noundef %0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #55
+  %4 = load <16 x float>, ptr %1, align 8
+  %5 = shufflevector <16 x float> %4, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %5, ptr %3, align 16
+  %6 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
+  call void %6(i32 noundef %0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #55
   ret void
 }
 
@@ -23039,7 +22980,7 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = load ptr, ptr @glad_glUniform1i, align 8
   %10 = add nuw nsw i32 %8, 1
   tail call void %9(i32 noundef %0, i32 noundef %10) #55
@@ -23059,7 +23000,7 @@ define void @rlSetUniformSampler(i32 noundef %0, i32 noundef %1) local_unnamed_a
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv23
-  %17 = trunc i64 %indvars.iv23 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv23 to i32
   %18 = load ptr, ptr @glad_glUniform1i, align 8
   %19 = add nuw nsw i32 %17, 1
   tail call void %18(i32 noundef %0, i32 noundef %19) #55
@@ -25389,68 +25330,9 @@ define float @MatrixTrace(ptr nocapture noundef readonly byval(%struct.Matrix) a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @MatrixTranspose(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #19 {
-  %3 = load float, ptr %1, align 8
-  store float %3, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
-  %5 = load float, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store float %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
-  %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  store float %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load float, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
-  %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
-  store float %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = load float, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 36
-  store float %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
-  %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 52
-  store float %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = load float, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
-  %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
-  store float %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
-  %32 = load float, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  store float %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 44
-  %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 56
-  store float %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
-  %38 = load float, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 12
-  store float %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 52
-  %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 28
-  store float %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 56
-  %44 = load float, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 44
-  store float %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 60
-  %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 60
-  store float %47, ptr %48, align 4
+  %3 = load <16 x float>, ptr %1, align 8
+  %4 = shufflevector <16 x float> %3, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %4, ptr %0, align 4
   ret void
 }
 
@@ -26374,68 +26256,9 @@ define void @MatrixLookAt(ptr dead_on_unwind noalias nocapture writable writeonl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @MatrixToFloatV(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.float16) align 4 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #19 {
-  %3 = load float, ptr %1, align 8
-  store float %3, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load float, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
-  %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
-  %11 = load float, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
-  store float %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
-  %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  store float %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
-  %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
-  store float %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
-  %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  store float %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 52
-  %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
-  store float %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = load float, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
-  %29 = load float, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 36
-  store float %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
-  %32 = load float, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  store float %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 56
-  %35 = load float, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
-  store float %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 12
-  %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
-  store float %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 28
-  %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 52
-  store float %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 44
-  %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
-  store float %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 60
-  %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 60
-  store float %47, ptr %48, align 4
+  %3 = load <16 x float>, ptr %1, align 8
+  %4 = shufflevector <16 x float> %3, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %4, ptr %0, align 4
   ret void
 }
 
@@ -27599,10 +27422,10 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %114 = fsub float %111, %113
   store float %114, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6), align 8
   %115 = lshr i64 %109, 32
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nuw i64 %115 to i32
   %117 = bitcast i32 %116 to float
   %118 = lshr i64 %107, 32
-  %119 = trunc i64 %118 to i32
+  %119 = trunc nuw i64 %118 to i32
   %120 = bitcast i32 %119 to float
   %121 = fsub float %117, %120
   store float %121, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6, i32 0, i32 1), align 4
@@ -27635,10 +27458,10 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %140 = fsub float %137, %139
   store float %140, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6), align 8
   %141 = lshr i64 %135, 32
-  %142 = trunc i64 %141 to i32
+  %142 = trunc nuw i64 %141 to i32
   %143 = bitcast i32 %142 to float
   %144 = lshr i64 %133, 32
-  %145 = trunc i64 %144 to i32
+  %145 = trunc nuw i64 %144 to i32
   %146 = bitcast i32 %145 to float
   %147 = fsub float %143, %146
   store float %147, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 6, i32 0, i32 1), align 4
@@ -27648,7 +27471,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %.sroa.05.0.vec.extract.i34 = extractelement <2 x float> %148, i64 0
   %150 = fsub float %.sroa.0.0.vec.extract.i33, %.sroa.05.0.vec.extract.i34
   %extelt.offset = lshr i64 %133, 32
-  %151 = trunc i64 %extelt.offset to i32
+  %151 = trunc nuw i64 %extelt.offset to i32
   %.sroa.0.4.vec.extract.i35 = bitcast i32 %151 to float
   %.sroa.05.4.vec.extract.i36 = extractelement <2 x float> %148, i64 1
   %152 = fsub float %.sroa.0.4.vec.extract.i35, %.sroa.05.4.vec.extract.i36
@@ -27658,7 +27481,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %155 = fcmp ult float %sqrt.i37, 0x3F747AE140000000
   %.pre = load <2 x float>, ptr getelementptr inbounds (%struct.GesturesData, ptr @GESTURES, i64 0, i32 2, i32 10), align 8
   %extelt.offset74 = lshr i64 %135, 32
-  %156 = trunc i64 %extelt.offset74 to i32
+  %156 = trunc nuw i64 %extelt.offset74 to i32
   %.sroa.0.4.vec.extract.i40 = bitcast i32 %156 to float
   br i1 %155, label %158, label %._crit_edge69
 
@@ -31688,7 +31511,7 @@ define hidden noundef i32 @msf_gif_frame(ptr nocapture noundef %0, ptr nocapture
 
 105:                                              ; preds = %._crit_edge.i, %.lr.ph307.i
   %indvars.iv321.i = phi i64 [ 0, %.lr.ph307.i ], [ %indvars.iv.next322.i, %._crit_edge.i ]
-  %106 = trunc i64 %indvars.iv321.i to i32
+  %106 = trunc nuw nsw i64 %indvars.iv321.i to i32
   %107 = shl i32 %106, 2
   %108 = and i32 %107, 12
   br i1 %47, label %.lr.ph.i, label %.preheader.i
@@ -31714,7 +31537,7 @@ define hidden noundef i32 @msf_gif_frame(ptr nocapture noundef %0, ptr nocapture
   br label %129
 
 .preheader.loopexit.i:                            ; preds = %129
-  %124 = trunc i64 %indvars.iv.next.i to i32
+  %124 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %105
@@ -31776,7 +31599,7 @@ define hidden noundef i32 @msf_gif_frame(ptr nocapture noundef %0, ptr nocapture
   br i1 %161, label %196, label %162
 
 162:                                              ; preds = %155
-  %163 = trunc i64 %indvars.iv318.i to i32
+  %163 = trunc nuw nsw i64 %indvars.iv318.i to i32
   %164 = and i32 %163, 3
   %165 = or disjoint i32 %164, %108
   %166 = zext nneg i32 %165 to i64
@@ -31829,7 +31652,7 @@ define hidden noundef i32 @msf_gif_frame(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not315.i, label %._crit_edge313.thread.i, label %.lr.ph312.preheader.i
 
 ._crit_edge313.thread.i:                          ; preds = %.preheader300.i
-  %197 = trunc i64 %indvars.iv336.i to i32
+  %197 = trunc nsw i64 %indvars.iv336.i to i32
   br label %msf_cook_frame.exit
 
 .lr.ph312.preheader.i:                            ; preds = %.preheader300.i
@@ -31870,7 +31693,7 @@ define hidden noundef i32 @msf_gif_frame(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not298.i, label %msf_cook_frame.exit, label %52
 
 .critedge.loopexit.split.loop.exit350.i:          ; preds = %._crit_edge313.i
-  %209 = trunc i64 %indvars.iv336.i to i32
+  %209 = trunc nsw i64 %indvars.iv336.i to i32
   br label %msf_cook_frame.exit
 
 msf_cook_frame.exit:                              ; preds = %207, %._crit_edge313.thread.i, %.critedge.loopexit.split.loop.exit350.i
@@ -31951,7 +31774,7 @@ msf_cook_frame.exit:                              ; preds = %207, %._crit_edge31
   %246 = trunc i32 %.011571.us.i to i8
   %247 = getelementptr inbounds [65537 x i8], ptr %6, i64 0, i64 %indvars.iv87.i
   store i8 %246, ptr %247, align 1
-  %248 = trunc i64 %indvars.iv87.i to i32
+  %248 = trunc nuw nsw i64 %indvars.iv87.i to i32
   %249 = lshr i32 %248, %212
   %250 = lshr i32 %248, %228
   %251 = shl i32 %248, %233
@@ -32008,7 +31831,7 @@ msf_cook_frame.exit:                              ; preds = %207, %._crit_edge31
   %286 = trunc i32 %.011571.i to i8
   %287 = getelementptr inbounds [65537 x i8], ptr %6, i64 0, i64 %indvars.iv.i41
   store i8 %286, ptr %287, align 1
-  %288 = trunc i64 %indvars.iv.i41 to i32
+  %288 = trunc nuw nsw i64 %indvars.iv.i41 to i32
   %289 = lshr i32 %288, %212
   %290 = lshr i32 %288, %228
   %291 = shl i32 %288, %233
@@ -32101,7 +31924,7 @@ msf_cook_frame.exit:                              ; preds = %207, %._crit_edge31
 msf_put_code.exit.i:                              ; preds = %342, %338, %335
   %.0.extract.trunc.i = trunc i32 %2 to i16
   %.0.extract.trunc112.i = trunc i32 %217 to i16
-  %346 = trunc i32 %328 to i8
+  %346 = trunc nuw nsw i32 %328 to i8
   %347 = add nuw i8 %346, 127
   %348 = or i8 %347, -128
   store i32 84212001, ptr %227, align 1
@@ -32226,7 +32049,7 @@ msf_put_code.exit.i:                              ; preds = %342, %338, %335
   %419 = lshr i32 %.011775.i, %418
   %420 = getelementptr i8, ptr %408, i64 2
   %421 = load i8, ptr %420, align 1
-  %422 = trunc i32 %419 to i8
+  %422 = trunc nuw nsw i32 %419 to i8
   %423 = or i8 %421, %422
   store i8 %423, ptr %420, align 1
   %424 = add i32 %403, %.16274.i
@@ -32349,7 +32172,7 @@ msf_put_code.exit131.i:                           ; preds = %458, %435
   %491 = lshr i32 %.0117.lcssa.i, %490
   %492 = getelementptr i8, ptr %480, i64 2
   %493 = load i8, ptr %492, align 1
-  %494 = trunc i32 %491 to i8
+  %494 = trunc nuw nsw i32 %491 to i8
   %495 = or i8 %493, %494
   store i8 %495, ptr %492, align 1
   %496 = add i32 %475, %.162.lcssa.i
@@ -33151,7 +32974,7 @@ sinfl_refill.exit166:                             ; preds = %201, %209
   %notmask.i16.i = shl nsw i64 -1, %228
   %229 = xor i64 %notmask.i16.i, -1
   %230 = and i64 %226, %229
-  %231 = trunc i64 %230 to i32
+  %231 = trunc nuw nsw i64 %230 to i32
   %232 = lshr i32 %222, 16
   %233 = add nuw nsw i32 %232, %231
   %234 = zext nneg i32 %233 to i64
@@ -33302,7 +33125,7 @@ sinfl_get.exit178:                                ; preds = %286, %293
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep327, i8 0, i64 %309, i1 false)
   %310 = add nsw i64 %307, 3
   %311 = add nsw i64 %310, %308
-  %312 = trunc i64 %311 to i32
+  %312 = trunc nsw i64 %311 to i32
   br label %.loopexit
 
 313:                                              ; preds = %sinfl_decode.exit
@@ -33358,11 +33181,11 @@ sinfl_get.exit183:                                ; preds = %317, %324
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %340, i1 false)
   %341 = add nsw i64 %338, 11
   %342 = add nsw i64 %341, %339
-  %343 = trunc i64 %342 to i32
+  %343 = trunc nsw i64 %342 to i32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %279
-  %344 = trunc i64 %indvars.iv.next334 to i32
+  %344 = trunc nsw i64 %indvars.iv.next334 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %sinfl_get.exit183, %sinfl_get.exit178, %.loopexit.loopexit, %245
@@ -33450,7 +33273,7 @@ sinfl_refill.exit187:                             ; preds = %357, %368
   %notmask.i16.i191 = shl nsw i64 -1, %390
   %391 = xor i64 %notmask.i16.i191, -1
   %392 = and i64 %388, %391
-  %393 = trunc i64 %392 to i32
+  %393 = trunc nuw nsw i64 %392 to i32
   %394 = lshr i32 %384, 16
   %395 = add nuw nsw i32 %394, %393
   %396 = zext nneg i32 %395 to i64
@@ -33508,7 +33331,7 @@ sinfl_decode.exit196:                             ; preds = %sinfl_refill.exit18
   %notmask.i16.i200 = shl nsw i64 -1, %424
   %425 = xor i64 %notmask.i16.i200, -1
   %426 = and i64 %421, %425
-  %427 = trunc i64 %426 to i32
+  %427 = trunc nuw nsw i64 %426 to i32
   %428 = lshr i32 %417, 16
   %429 = add nuw nsw i32 %428, %427
   %430 = zext nneg i32 %429 to i64
@@ -33602,7 +33425,7 @@ sinfl_decode.exit205:                             ; preds = %._crit_edge.i202, %
   %notmask.i16.i211 = shl nsw i64 -1, %479
   %480 = xor i64 %notmask.i16.i211, -1
   %481 = and i64 %477, %480
-  %482 = trunc i64 %481 to i32
+  %482 = trunc nuw nsw i64 %481 to i32
   %483 = lshr i32 %473, 16
   %484 = add nuw nsw i32 %483, %482
   %485 = zext nneg i32 %484 to i64
@@ -33921,7 +33744,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef %0, ptr noundef %1, ptr noca
   %8 = alloca [19 x i32], align 16
   %9 = alloca [320 x i32], align 16
   %10 = add nsw i32 %4, 1
-  %11 = shl nuw i32 1, %10
+  %11 = shl nuw nsw i32 1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(131072) %12, i8 -1, i64 131072, i1 false)
   %13 = icmp slt i32 %4, 8
@@ -34031,7 +33854,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %74, label %88, label %.critedge.us.split.loop.exit.i
 
 .critedge.us.split.loop.exit.i:                   ; preds = %.preheader.us.i
-  %75 = trunc i64 %indvars.iv.i to i32
+  %75 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %88, %.critedge.us.split.loop.exit.i
@@ -34127,7 +33950,7 @@ sdefl_fnd.exit:                                   ; preds = %83, %80, %77
   br i1 %119, label %132, label %.critedge.us.split.loop.exit.i147
 
 .critedge.us.split.loop.exit.i147:                ; preds = %.preheader.us.i143
-  %120 = trunc i64 %indvars.iv.i144 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv.i144 to i32
   br label %.critedge.us.i148
 
 .critedge.us.i148:                                ; preds = %132, %.critedge.us.split.loop.exit.i147
@@ -34202,7 +34025,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %.not.i.i.i = icmp eq i32 %153, 0
   %154 = sext i32 %153 to i64
   %155 = call i64 @llvm.ctlz.i64(i64 %154, i1 true), !range !21
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw nsw i64 %155 to i32
   %157 = xor i32 %156, 63
   %158 = shl nuw i32 2, %157
   %159 = ashr i32 %158, 2
@@ -34210,7 +34033,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %.not.i11.i.i = icmp eq i32 %160, 0
   %161 = sext i32 %160 to i64
   %162 = call i64 @llvm.ctlz.i64(i64 %161, i1 true), !range !21
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw nsw i64 %162 to i32
   %164 = xor i32 %163, 63
   %.not.i3.i = icmp eq i32 %164, 0
   %.not.i.i = select i1 %.not.i11.i.i, i1 true, i1 %.not.i3.i
@@ -34286,7 +34109,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds [32768 x i32], ptr %12, i64 0, i64 %203
   %205 = load i32, ptr %204, align 4
-  %206 = trunc i64 %indvars.iv to i32
+  %206 = trunc nsw i64 %indvars.iv to i32
   %207 = and i64 %indvars.iv, 32767
   %208 = getelementptr inbounds [32768 x i32], ptr %21, i64 0, i64 %207
   store i32 %205, ptr %208, align 4
@@ -34296,7 +34119,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   br i1 %209, label %.lr.ph, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %210 = trunc i64 %indvars.iv.next to i32
+  %210 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread356, %.loopexit.loopexit, %.preheader, %175
@@ -34541,7 +34364,7 @@ sdefl_precode.exit.i:                             ; preds = %._crit_edge111.i.i
   br i1 %.not.i160, label %309, label %.split.loop.exit.i
 
 .split.loop.exit.i:                               ; preds = %311
-  %317 = trunc i64 %indvars.iv.i154 to i32
+  %317 = trunc nuw nsw i64 %indvars.iv.i154 to i32
   br label %.split.loop.exit292.i
 
 .split.loop.exit292.i:                            ; preds = %309, %.split.loop.exit.i
@@ -34745,7 +34568,7 @@ sdefl_put.exit138.i:                              ; preds = %.lr.ph.i136.i, %sde
   %426 = trunc i16 %425 to i8
   store i8 %426, ptr %424, align 1
   %427 = lshr i16 %425, 8
-  %428 = trunc i16 %427 to i8
+  %428 = trunc nuw i16 %427 to i8
   %429 = getelementptr inbounds i8, ptr %418, i64 3
   store i8 %428, ptr %429, align 1
   %430 = getelementptr inbounds i8, ptr %418, i64 4
@@ -35182,7 +35005,7 @@ sdefl_put.exit204.i:                              ; preds = %sdefl_put.exit204.l
   %.not.i11.i.i.i = icmp eq i32 %662, 0
   %663 = sext i32 %662 to i64
   %664 = call i64 @llvm.ctlz.i64(i64 %663, i1 true), !range !21
-  %665 = trunc i64 %664 to i32
+  %665 = trunc nuw nsw i64 %664 to i32
   %666 = xor i32 %665, 63
   %.0.i12.i.i.i = select i1 %.not.i11.i.i.i, i32 0, i32 %666
   %.not.i.i.i158 = icmp eq i32 %.0.i12.i.i.i, 0
@@ -35653,7 +35476,7 @@ define hidden void @rprand_set_seed(i64 noundef %0) local_unnamed_addr #1 {
   %19 = lshr i64 %18, 63
   %20 = lshr i64 %18, 32
   %21 = xor i64 %19, %20
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   store i32 %22, ptr @rprand_state.1, align 16
   %23 = add i64 %0, -2691343689449507777
   %24 = lshr i64 %23, 30
@@ -35676,7 +35499,7 @@ define hidden void @rprand_set_seed(i64 noundef %0) local_unnamed_addr #1 {
   %40 = lshr i64 %39, 63
   %41 = lshr i64 %39, 32
   %42 = xor i64 %40, %41
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   store i32 %43, ptr @rprand_state.3, align 16
   ret void
 }
@@ -35982,14 +35805,14 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   br i1 %or.cond, label %47, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %36
-  %.pre76 = trunc i64 %indvars.iv to i32
+  %.pre76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %49
 
 47:                                               ; preds = %36
   %.not50 = icmp sge i32 %.pre, %41
   %.not51.not = icmp slt i32 %.pre, %44
   %or.cond54 = select i1 %.not50, i1 %.not51.not, i1 false
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %or.cond54, label %.loopexit, label %49
 
 49:                                               ; preds = %._crit_edge, %47
@@ -36025,7 +35848,7 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.lr.ph66
-  %63 = trunc i64 %indvars.iv73 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv73 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %47, %20, %.loopexit.loopexit.split.loop.exit, %21, %12, %0
@@ -37568,7 +37391,7 @@ UpdateGestures.exit:                              ; preds = %8, %12
 
 30:                                               ; preds = %28, %30
   %indvars.iv97 = phi i64 [ 0, %28 ], [ %indvars.iv.next98, %30 ]
-  %31 = trunc i64 %indvars.iv97 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv97 to i32
   %32 = tail call i32 @glfwJoystickPresent(i32 noundef %31) #55
   %.not72 = icmp ne i32 %32, 0
   %spec.select = zext i1 %.not72 to i8
@@ -37599,13 +37422,13 @@ UpdateGestures.exit:                              ; preds = %8, %12
 
 42:                                               ; preds = %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1, i8 0, i64 40, i1 false)
-  %43 = trunc i64 %indvar to i32
+  %43 = trunc nuw nsw i64 %indvar to i32
   %44 = call i32 @glfwGetGamepadState(i32 noundef %43, ptr noundef nonnull %1) #55
   br label %45
 
 45:                                               ; preds = %42, %56
   %indvars.iv106 = phi i64 [ 0, %42 ], [ %indvars.iv.next107, %56 ]
-  %46 = trunc i64 %indvars.iv106 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv106 to i32
   %47 = icmp ult i32 %46, 15
   br i1 %47, label %switch.lookup, label %56
 
@@ -38307,7 +38130,7 @@ GetMonitorHeight.exit:                            ; preds = %248, %252, %253
 
 288:                                              ; preds = %273, %295
   %indvars.iv77 = phi i64 [ 0, %273 ], [ %indvars.iv.next78, %295 ]
-  %289 = trunc i64 %indvars.iv77 to i32
+  %289 = trunc nuw nsw i64 %indvars.iv77 to i32
   %290 = call i32 @glfwJoystickPresent(i32 noundef %289) #55
   %.not53 = icmp eq i32 %290, 0
   br i1 %.not53, label %295, label %291
@@ -39021,7 +38844,7 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %79 = lshr i64 %78, 63
   %80 = lshr i64 %78, 32
   %81 = xor i64 %79, %80
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   store i32 %82, ptr @rprand_state.1, align 16
   %83 = add nuw nsw i64 %61, -2691343689449507777
   %84 = lshr i64 %83, 30
@@ -39044,7 +38867,7 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %100 = lshr i64 %99, 63
   %101 = lshr i64 %99, 32
   %102 = xor i64 %100, %101
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw i64 %102 to i32
   store i32 %103, ptr @rprand_state.3, align 16
   ret void
 }
@@ -39079,7 +38902,7 @@ define void @SetRandomSeed(i32 noundef %0) local_unnamed_addr #1 {
   %20 = lshr i64 %19, 63
   %21 = lshr i64 %19, 32
   %22 = xor i64 %20, %21
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   store i32 %23, ptr @rprand_state.1, align 16
   %24 = add nuw nsw i64 %2, -2691343689449507777
   %25 = lshr i64 %24, 30
@@ -39102,7 +38925,7 @@ define void @SetRandomSeed(i32 noundef %0) local_unnamed_addr #1 {
   %41 = lshr i64 %40, 63
   %42 = lshr i64 %40, 32
   %43 = xor i64 %41, %42
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   store i32 %44, ptr @rprand_state.3, align 16
   ret void
 }
@@ -39275,7 +39098,7 @@ define void @ClearBackground(i32 %0) local_unnamed_addr #0 {
   %.sroa.3.0.extract.shift = lshr i32 %0, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %0, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %2 = uitofp i8 %.sroa.0.0.extract.trunc to float
   %3 = fdiv float %2, 2.550000e+02
   %4 = uitofp i8 %.sroa.2.0.extract.trunc to float
@@ -39314,53 +39137,9 @@ define void @BeginDrawing() local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !24
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %.sroa.53.0.copyload, ptr %6, align 4, !alias.scope !24
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %.sroa.97.0.copyload, ptr %7, align 4, !alias.scope !24
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
-  store float %.sroa.1311.0.copyload, ptr %8, align 4, !alias.scope !24
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  store float %.sroa.2.0.copyload, ptr %9, align 4, !alias.scope !24
-  %10 = getelementptr inbounds i8, ptr %1, i64 20
-  store float %.sroa.64.0.copyload, ptr %10, align 4, !alias.scope !24
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  store float %.sroa.108.0.copyload, ptr %11, align 4, !alias.scope !24
-  %12 = getelementptr inbounds i8, ptr %1, i64 28
-  store float %.sroa.1412.0.copyload, ptr %12, align 4, !alias.scope !24
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  store float %.sroa.3.0.copyload, ptr %13, align 4, !alias.scope !24
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
-  store float %.sroa.75.0.copyload, ptr %14, align 4, !alias.scope !24
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
-  store float %.sroa.119.0.copyload, ptr %15, align 4, !alias.scope !24
-  %16 = getelementptr inbounds i8, ptr %1, i64 44
-  store float %.sroa.1513.0.copyload, ptr %16, align 4, !alias.scope !24
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
-  store float %.sroa.42.0.copyload, ptr %17, align 4, !alias.scope !24
-  %18 = getelementptr inbounds i8, ptr %1, i64 52
-  store float %.sroa.86.0.copyload, ptr %18, align 4, !alias.scope !24
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
-  store float %.sroa.1210.0.copyload, ptr %19, align 4, !alias.scope !24
-  %20 = getelementptr inbounds i8, ptr %1, i64 60
-  store float %.sroa.1614.0.copyload, ptr %20, align 4, !alias.scope !24
+  %6 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %7 = shufflevector <16 x float> %6, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %7, ptr %1, align 4, !alias.scope !24
   call void @rlMultMatrixf(ptr noundef nonnull %1)
   ret void
 }
@@ -39421,7 +39200,7 @@ define void @EndDrawing() local_unnamed_addr #25 {
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv36.in.i = phi i64 [ %31, %.preheader.us.preheader.i ], [ %indvars.iv36.i, %._crit_edge.us.i ]
   %indvars.iv36.i = add nsw i64 %indvars.iv36.in.i, -1
-  %32 = trunc i64 %indvars.iv36.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv36.i to i32
   %factor.op.mul.us.i = mul i32 %22, %32
   %33 = xor i32 %32, -1
   %34 = add i32 %23, %33
@@ -39533,7 +39312,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %89 = load i32, ptr %81, align 4
   %90 = zext i32 %89 to i64
   %91 = getelementptr inbounds %struct.AutomationEvent, ptr %88, i64 %90, i32 2
-  %92 = trunc i64 %indvars.iv.i13 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.i13 to i32
   store i32 %92, ptr %91, align 4
   %93 = load ptr, ptr %79, align 8
   %94 = load i32, ptr %81, align 4
@@ -39595,7 +39374,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %136 = load i32, ptr %119, align 4
   %137 = zext i32 %136 to i64
   %138 = getelementptr inbounds %struct.AutomationEvent, ptr %135, i64 %137, i32 2
-  %139 = trunc i64 %indvars.iv.i13 to i32
+  %139 = trunc nuw nsw i64 %indvars.iv.i13 to i32
   store i32 %139, ptr %138, align 4
   %140 = load ptr, ptr %127, align 8
   %141 = load i32, ptr %119, align 4
@@ -39672,7 +39451,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %188 = load i32, ptr %180, align 4
   %189 = zext i32 %188 to i64
   %190 = getelementptr inbounds %struct.AutomationEvent, ptr %187, i64 %189, i32 2
-  %191 = trunc i64 %indvars.iv87.i to i32
+  %191 = trunc nuw nsw i64 %indvars.iv87.i to i32
   store i32 %191, ptr %190, align 4
   %192 = load ptr, ptr %178, align 8
   %193 = load i32, ptr %180, align 4
@@ -39734,7 +39513,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %235 = load i32, ptr %218, align 4
   %236 = zext i32 %235 to i64
   %237 = getelementptr inbounds %struct.AutomationEvent, ptr %234, i64 %236, i32 2
-  %238 = trunc i64 %indvars.iv87.i to i32
+  %238 = trunc nuw nsw i64 %indvars.iv87.i to i32
   store i32 %238, ptr %237, align 4
   %239 = load ptr, ptr %226, align 8
   %240 = load i32, ptr %218, align 4
@@ -39957,7 +39736,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %399 = load i32, ptr %390, align 4
   %400 = zext i32 %399 to i64
   %401 = getelementptr inbounds %struct.AutomationEvent, ptr %398, i64 %400, i32 2
-  %402 = trunc i64 %indvars.iv91.i to i32
+  %402 = trunc nuw nsw i64 %indvars.iv91.i to i32
   store i32 %402, ptr %401, align 4
   %403 = load ptr, ptr %388, align 8
   %404 = load i32, ptr %390, align 4
@@ -40019,7 +39798,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %446 = load i32, ptr %429, align 4
   %447 = zext i32 %446 to i64
   %448 = getelementptr inbounds %struct.AutomationEvent, ptr %445, i64 %447, i32 2
-  %449 = trunc i64 %indvars.iv91.i to i32
+  %449 = trunc nuw nsw i64 %indvars.iv91.i to i32
   store i32 %449, ptr %448, align 4
   %450 = load ptr, ptr %437, align 8
   %451 = load i32, ptr %429, align 4
@@ -40062,7 +39841,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %477 = phi i32 [ %637, %641 ], [ %473, %377 ]
   %478 = phi ptr [ %639, %641 ], [ %475, %377 ]
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %641 ], [ 0, %377 ]
-  %479 = trunc i64 %indvars.iv103.i to i32
+  %479 = trunc nuw nsw i64 %indvars.iv103.i to i32
   br label %481
 
 480:                                              ; preds = %._crit_edge120.i
@@ -40110,7 +39889,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %508 = load i32, ptr %495, align 4
   %509 = zext i32 %508 to i64
   %510 = getelementptr inbounds %struct.AutomationEvent, ptr %507, i64 %509, i32 2, i64 1
-  %511 = trunc i64 %indvars.iv95.i to i32
+  %511 = trunc nuw nsw i64 %indvars.iv95.i to i32
   store i32 %511, ptr %510, align 4
   %512 = load ptr, ptr %493, align 8
   %513 = load i32, ptr %495, align 4
@@ -40174,7 +39953,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %557 = load i32, ptr %536, align 4
   %558 = zext i32 %557 to i64
   %559 = getelementptr inbounds %struct.AutomationEvent, ptr %556, i64 %558, i32 2, i64 1
-  %560 = trunc i64 %indvars.iv95.i to i32
+  %560 = trunc nuw nsw i64 %indvars.iv95.i to i32
   store i32 %560, ptr %559, align 4
   %561 = load ptr, ptr %544, align 8
   %562 = load i32, ptr %536, align 4
@@ -40253,7 +40032,7 @@ rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %
   %610 = load i32, ptr %598, align 4
   %611 = zext i32 %610 to i64
   %612 = getelementptr inbounds %struct.AutomationEvent, ptr %609, i64 %611, i32 2, i64 1
-  %613 = trunc i64 %indvars.iv99.i to i32
+  %613 = trunc nuw nsw i64 %indvars.iv99.i to i32
   store i32 %613, ptr %612, align 4
   %614 = load float, ptr %591, align 4
   %615 = fmul float %614, 3.276800e+04
@@ -40589,7 +40368,7 @@ define void @TakeScreenshot(ptr noundef %0) local_unnamed_addr #25 {
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv36.in.i = phi i64 [ %25, %.preheader.us.preheader.i ], [ %indvars.iv36.i, %._crit_edge.us.i ]
   %indvars.iv36.i = add nsw i64 %indvars.iv36.in.i, -1
-  %26 = trunc i64 %indvars.iv36.i to i32
+  %26 = trunc nuw nsw i64 %indvars.iv36.i to i32
   %factor.op.mul.us.i = mul i32 %16, %26
   %27 = xor i32 %26, -1
   %28 = add i32 %17, %27
@@ -40689,68 +40468,9 @@ define void @BeginMode2D(ptr nocapture noundef readonly byval(%struct.Camera2D) 
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
   call void @GetCameraMatrix2D(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %2, ptr noundef nonnull byval(%struct.Camera2D) align 8 %0)
-  %.sroa.0.0.copyload = load float, ptr %2, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 12
-  %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
-  %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 28
-  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
-  %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 36
-  %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 40
-  %.sroa.13.0.copyload = load float, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 44
-  %.sroa.14.0.copyload = load float, ptr %.sroa.14.0..sroa_idx, align 4
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 48
-  %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 52
-  %.sroa.16.0.copyload = load float, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
-  %.sroa.17.0.copyload = load float, ptr %.sroa.17.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 60
-  %.sroa.18.0.copyload = load float, ptr %.sroa.18.0..sroa_idx, align 4
-  store float %.sroa.0.0.copyload, ptr %3, align 4, !alias.scope !27
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
-  store float %.sroa.7.0.copyload, ptr %6, align 4, !alias.scope !27
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  store float %.sroa.11.0.copyload, ptr %7, align 4, !alias.scope !27
-  %8 = getelementptr inbounds i8, ptr %3, i64 12
-  store float %.sroa.15.0.copyload, ptr %8, align 4, !alias.scope !27
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  store float %.sroa.4.0.copyload, ptr %9, align 4, !alias.scope !27
-  %10 = getelementptr inbounds i8, ptr %3, i64 20
-  store float %.sroa.8.0.copyload, ptr %10, align 4, !alias.scope !27
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  store float %.sroa.12.0.copyload, ptr %11, align 4, !alias.scope !27
-  %12 = getelementptr inbounds i8, ptr %3, i64 28
-  store float %.sroa.16.0.copyload, ptr %12, align 4, !alias.scope !27
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
-  store float %.sroa.5.0.copyload, ptr %13, align 4, !alias.scope !27
-  %14 = getelementptr inbounds i8, ptr %3, i64 36
-  store float %.sroa.9.0.copyload, ptr %14, align 4, !alias.scope !27
-  %15 = getelementptr inbounds i8, ptr %3, i64 40
-  store float %.sroa.13.0.copyload, ptr %15, align 4, !alias.scope !27
-  %16 = getelementptr inbounds i8, ptr %3, i64 44
-  store float %.sroa.17.0.copyload, ptr %16, align 4, !alias.scope !27
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
-  store float %.sroa.6.0.copyload, ptr %17, align 4, !alias.scope !27
-  %18 = getelementptr inbounds i8, ptr %3, i64 52
-  store float %.sroa.10.0.copyload, ptr %18, align 4, !alias.scope !27
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
-  store float %.sroa.14.0.copyload, ptr %19, align 4, !alias.scope !27
-  %20 = getelementptr inbounds i8, ptr %3, i64 60
-  store float %.sroa.18.0.copyload, ptr %20, align 4, !alias.scope !27
+  %6 = load <16 x float>, ptr %2, align 8
+  %7 = shufflevector <16 x float> %6, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %7, ptr %3, align 4, !alias.scope !27
   call void @rlMultMatrixf(ptr noundef nonnull %3)
   ret void
 }
@@ -40964,60 +40684,16 @@ define void @EndMode2D() local_unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %24
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %0
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !33
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
-  store float %.sroa.53.0.copyload, ptr %9, align 4, !alias.scope !33
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  store float %.sroa.97.0.copyload, ptr %10, align 4, !alias.scope !33
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
-  store float %.sroa.1311.0.copyload, ptr %11, align 4, !alias.scope !33
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %.sroa.2.0.copyload, ptr %12, align 4, !alias.scope !33
-  %13 = getelementptr inbounds i8, ptr %2, i64 20
-  store float %.sroa.64.0.copyload, ptr %13, align 4, !alias.scope !33
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
-  store float %.sroa.108.0.copyload, ptr %14, align 4, !alias.scope !33
-  %15 = getelementptr inbounds i8, ptr %2, i64 28
-  store float %.sroa.1412.0.copyload, ptr %15, align 4, !alias.scope !33
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
-  store float %.sroa.3.0.copyload, ptr %16, align 4, !alias.scope !33
-  %17 = getelementptr inbounds i8, ptr %2, i64 36
-  store float %.sroa.75.0.copyload, ptr %17, align 4, !alias.scope !33
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
-  store float %.sroa.119.0.copyload, ptr %18, align 4, !alias.scope !33
-  %19 = getelementptr inbounds i8, ptr %2, i64 44
-  store float %.sroa.1513.0.copyload, ptr %19, align 4, !alias.scope !33
-  %20 = getelementptr inbounds i8, ptr %2, i64 48
-  store float %.sroa.42.0.copyload, ptr %20, align 4, !alias.scope !33
-  %21 = getelementptr inbounds i8, ptr %2, i64 52
-  store float %.sroa.86.0.copyload, ptr %21, align 4, !alias.scope !33
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
-  store float %.sroa.1210.0.copyload, ptr %22, align 4, !alias.scope !33
-  %23 = getelementptr inbounds i8, ptr %2, i64 60
-  store float %.sroa.1614.0.copyload, ptr %23, align 4, !alias.scope !33
+  %9 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %10 = shufflevector <16 x float> %9, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %10, ptr %2, align 4, !alias.scope !33
   call void @rlMultMatrixf(ptr noundef nonnull %2)
-  br label %24
+  br label %11
 
-24:                                               ; preds = %8, %0
+11:                                               ; preds = %8, %0
   ret void
 }
 
@@ -41264,62 +40940,18 @@ rlPopMatrix.exit:                                 ; preds = %0, %6
   %11 = load i32, ptr %1, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %29
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %rlPopMatrix.exit
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !39
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
-  store float %.sroa.53.0.copyload, ptr %14, align 4, !alias.scope !39
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  store float %.sroa.97.0.copyload, ptr %15, align 4, !alias.scope !39
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
-  store float %.sroa.1311.0.copyload, ptr %16, align 4, !alias.scope !39
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %.sroa.2.0.copyload, ptr %17, align 4, !alias.scope !39
-  %18 = getelementptr inbounds i8, ptr %2, i64 20
-  store float %.sroa.64.0.copyload, ptr %18, align 4, !alias.scope !39
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
-  store float %.sroa.108.0.copyload, ptr %19, align 4, !alias.scope !39
-  %20 = getelementptr inbounds i8, ptr %2, i64 28
-  store float %.sroa.1412.0.copyload, ptr %20, align 4, !alias.scope !39
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
-  store float %.sroa.3.0.copyload, ptr %21, align 4, !alias.scope !39
-  %22 = getelementptr inbounds i8, ptr %2, i64 36
-  store float %.sroa.75.0.copyload, ptr %22, align 4, !alias.scope !39
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
-  store float %.sroa.119.0.copyload, ptr %23, align 4, !alias.scope !39
-  %24 = getelementptr inbounds i8, ptr %2, i64 44
-  store float %.sroa.1513.0.copyload, ptr %24, align 4, !alias.scope !39
-  %25 = getelementptr inbounds i8, ptr %2, i64 48
-  store float %.sroa.42.0.copyload, ptr %25, align 4, !alias.scope !39
-  %26 = getelementptr inbounds i8, ptr %2, i64 52
-  store float %.sroa.86.0.copyload, ptr %26, align 4, !alias.scope !39
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
-  store float %.sroa.1210.0.copyload, ptr %27, align 4, !alias.scope !39
-  %28 = getelementptr inbounds i8, ptr %2, i64 60
-  store float %.sroa.1614.0.copyload, ptr %28, align 4, !alias.scope !39
+  %14 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %15 = shufflevector <16 x float> %14, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %15, ptr %2, align 4, !alias.scope !39
   call void @rlMultMatrixf(ptr noundef nonnull %2)
-  br label %29
+  br label %16
 
-29:                                               ; preds = %13, %rlPopMatrix.exit
-  %30 = load ptr, ptr @glad_glDisable, align 8
-  call void %30(i32 noundef 2929) #55
+16:                                               ; preds = %13, %rlPopMatrix.exit
+  %17 = load ptr, ptr @glad_glDisable, align 8
+  call void %17(i32 noundef 2929) #55
   ret void
 }
 
@@ -41403,56 +41035,12 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
-  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
-  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
-  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
-  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
-  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
-  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
-  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
-  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
-  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
-  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
-  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
-  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
-  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
-  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
-  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
-  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !42
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %.sroa.53.0.copyload, ptr %15, align 4, !alias.scope !42
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %.sroa.97.0.copyload, ptr %16, align 4, !alias.scope !42
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
-  store float %.sroa.1311.0.copyload, ptr %17, align 4, !alias.scope !42
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
-  store float %.sroa.2.0.copyload, ptr %18, align 4, !alias.scope !42
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
-  store float %.sroa.64.0.copyload, ptr %19, align 4, !alias.scope !42
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  store float %.sroa.108.0.copyload, ptr %20, align 4, !alias.scope !42
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
-  store float %.sroa.1412.0.copyload, ptr %21, align 4, !alias.scope !42
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
-  store float %.sroa.3.0.copyload, ptr %22, align 4, !alias.scope !42
-  %23 = getelementptr inbounds i8, ptr %1, i64 36
-  store float %.sroa.75.0.copyload, ptr %23, align 4, !alias.scope !42
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
-  store float %.sroa.119.0.copyload, ptr %24, align 4, !alias.scope !42
-  %25 = getelementptr inbounds i8, ptr %1, i64 44
-  store float %.sroa.1513.0.copyload, ptr %25, align 4, !alias.scope !42
-  %26 = getelementptr inbounds i8, ptr %1, i64 48
-  store float %.sroa.42.0.copyload, ptr %26, align 4, !alias.scope !42
-  %27 = getelementptr inbounds i8, ptr %1, i64 52
-  store float %.sroa.86.0.copyload, ptr %27, align 4, !alias.scope !42
-  %28 = getelementptr inbounds i8, ptr %1, i64 56
-  store float %.sroa.1210.0.copyload, ptr %28, align 4, !alias.scope !42
-  %29 = getelementptr inbounds i8, ptr %1, i64 60
-  store float %.sroa.1614.0.copyload, ptr %29, align 4, !alias.scope !42
+  %15 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %16 = shufflevector <16 x float> %15, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %16, ptr %1, align 4, !alias.scope !42
   call void @rlMultMatrixf(ptr noundef nonnull %1)
-  %30 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store <2 x i32> %30, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
+  %17 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  store <2 x i32> %17, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
   store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 7), align 1
   ret void
 }
@@ -41979,80 +41567,21 @@ define void @SetShaderValueV(i32 %0, ptr nocapture readnone %1, i32 noundef %2, 
 define void @SetShaderValueMatrix(i32 %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %3) local_unnamed_addr #0 {
   %5 = alloca [16 x float], align 16
   %6 = icmp sgt i32 %2, -1
-  br i1 %6, label %7, label %25
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @glad_glUseProgram, align 8
   tail call void %8(i32 noundef %0) #55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %.sroa.0.0.copyload = load float, ptr %3, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
-  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
-  %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
-  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 28
-  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 36
-  %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
-  %.sroa.13.0.copyload = load float, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 44
-  %.sroa.14.0.copyload = load float, ptr %.sroa.14.0..sroa_idx, align 4
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
-  %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 52
-  %.sroa.16.0.copyload = load float, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
-  %.sroa.17.0.copyload = load float, ptr %.sroa.17.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 60
-  %.sroa.18.0.copyload = load float, ptr %.sroa.18.0..sroa_idx, align 4
-  store float %.sroa.0.0.copyload, ptr %5, align 16
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
-  store float %.sroa.7.0.copyload, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store float %.sroa.11.0.copyload, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
-  store float %.sroa.15.0.copyload, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store float %.sroa.4.0.copyload, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 20
-  store float %.sroa.8.0.copyload, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
-  store float %.sroa.12.0.copyload, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 28
-  store float %.sroa.16.0.copyload, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  store float %.sroa.5.0.copyload, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 36
-  store float %.sroa.9.0.copyload, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
-  store float %.sroa.13.0.copyload, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 44
-  store float %.sroa.17.0.copyload, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 48
-  store float %.sroa.6.0.copyload, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %5, i64 52
-  store float %.sroa.10.0.copyload, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 56
-  store float %.sroa.14.0.copyload, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 60
-  store float %.sroa.18.0.copyload, ptr %23, align 4
-  %24 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
-  call void %24(i32 noundef %2, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %5) #55
+  %9 = load <16 x float>, ptr %3, align 8
+  %10 = shufflevector <16 x float> %9, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %10, ptr %5, align 16
+  %11 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
+  call void %11(i32 noundef %2, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %5) #55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %25
+  br label %12
 
-25:                                               ; preds = %7, %4
+12:                                               ; preds = %7, %4
   ret void
 }
 
@@ -42075,7 +41604,7 @@ define void @SetShaderValueTexture(i32 %0, ptr nocapture readnone %1, i32 nounde
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %15 = load ptr, ptr @glad_glUniform1i, align 8
   %16 = add nuw nsw i32 %14, 1
   tail call void %15(i32 noundef %2, i32 noundef %16) #55
@@ -42095,7 +41624,7 @@ define void @SetShaderValueTexture(i32 %0, ptr nocapture readnone %1, i32 nounde
 
 21:                                               ; preds = %.preheader.i
   %22 = getelementptr inbounds %struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 19, i64 %indvars.iv23.i
-  %23 = trunc i64 %indvars.iv23.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %24 = load ptr, ptr @glad_glUniform1i, align 8
   %25 = add nuw nsw i32 %23, 1
   tail call void %24(i32 noundef %2, i32 noundef %25) #55
@@ -43302,7 +42831,7 @@ define noundef nonnull ptr @GetPrevDirectoryPath(ptr nocapture noundef readonly 
   ]
 
 12:                                               ; preds = %9, %9
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %13, label %19 [
     i32 3, label %14
     i32 1, label %18
@@ -44036,7 +43565,7 @@ define noalias noundef ptr @DecodeDataBase64(ptr nocapture noundef readonly %0, 
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
   %20 = load i8, ptr %19, align 1
   %.not = icmp eq i8 %20, 0
-  %21 = trunc i64 %18 to i32
+  %21 = trunc nsw i64 %18 to i32
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16, %2
@@ -44281,7 +43810,7 @@ define void @UnloadAutomationEventList(i64 %0, ptr nocapture %1) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @ExportAutomationEventList(i64 %0, ptr nocapture readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %.sroa.1.0.extract.shift = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %4 = shl nuw nsw i64 %.sroa.1.0.extract.shift, 8
   %5 = add nuw nsw i64 %4, 2048
   %6 = and i64 %5, 4294967040
@@ -45195,7 +44724,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   %44 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv131
   store i32 1, ptr %44, align 4
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %45 = trunc i64 %indvars.iv.next132 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.next132 to i32
   %.3.highbits = lshr i32 %45, %2
   %46 = icmp eq i32 %.3.highbits, 0
   br i1 %46, label %.preheader, label %sinfl_build_tbl.exit
@@ -45215,7 +44744,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i.loopexit
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %52 = trunc i64 %indvars.iv.next.i to i32
+  %52 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %47
@@ -45234,8 +44763,8 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   br label %.preheader47.i
 
 .loopexit46.i:                                    ; preds = %88
-  %55 = trunc i64 %indvars.iv127 to i32
-  %56 = trunc i64 %indvars.iv.next128 to i32
+  %55 = trunc nsw i64 %indvars.iv127 to i32
+  %56 = trunc nsw i64 %indvars.iv.next128 to i32
   %.not41.i.not = icmp slt i32 %55, %2
   br i1 %.not41.i.not, label %.preheader47.i, label %.loopexit
 
@@ -45329,7 +44858,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   br label %.loopexit.i.outer
 
 .loopexit.i.loopexit:                             ; preds = %138
-  %93 = trunc i64 %indvars.iv.next76.i to i32
+  %93 = trunc nsw i64 %indvars.iv.next76.i to i32
   br label %.loopexit.i.outer
 
 .loopexit.i.outer:                                ; preds = %.loopexit.i.loopexit, %.loopexit
@@ -45372,7 +44901,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.next.i40
   %102 = load i32, ptr %gep.i, align 4
   %103 = add nsw i32 %102, %101
-  %104 = trunc i64 %indvars.iv.next.i40 to i32
+  %104 = trunc nsw i64 %indvars.iv.next.i40 to i32
   %105 = shl nuw i32 1, %104
   %106 = icmp slt i32 %103, %105
   br i1 %106, label %.lr.ph.i38, label %._crit_edge.i37
@@ -45512,7 +45041,7 @@ define internal fastcc void @sdefl_huff(ptr nocapture noundef %0, ptr nocapture 
 25:                                               ; preds = %22
   %26 = tail call i32 @llvm.umin.i32(i32 %24, i32 %11)
   %27 = shl i32 %24, 10
-  %28 = trunc i64 %indvars.iv74.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv74.i to i32
   %29 = or i32 %27, %28
   %30 = zext i32 %26 to i64
   %31 = getelementptr inbounds [288 x i32], ptr %7, i64 0, i64 %30
@@ -45762,7 +45291,7 @@ sdefl_sort_sym.exit:                              ; preds = %.lr.ph.i.i, %sdefl_
   %147 = and i32 %146, -1024
   %148 = add i32 %147, %143
   %149 = and i32 %142, 1023
-  %150 = trunc i64 %indvars.iv.i35 to i32
+  %150 = trunc nuw i64 %indvars.iv.i35 to i32
   %151 = shl i32 %150, 10
   %152 = or disjoint i32 %149, %151
   store i32 %152, ptr %141, align 4
