@@ -74,7 +74,7 @@ define void @DrawPixelV(<2 x float> %0, i32 %1) local_unnamed_addr #4 {
   %.sroa.3.0.extract.shift = lshr i32 %1, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %1, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %.sroa.0.0.copyload = load i32, ptr @texShapes, align 16
   tail call void @rlSetTexture(i32 noundef %.sroa.0.0.copyload) #16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr @texShapesRec, align 16
@@ -151,7 +151,7 @@ define void @DrawLine(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nounde
   %.sroa.3.0.extract.shift = lshr i32 %4, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %4, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   tail call void @rlBegin(i32 noundef 1) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #16
   %6 = sitofp i32 %0 to float
@@ -172,7 +172,7 @@ define void @DrawLineV(<2 x float> %0, <2 x float> %1, i32 %2) local_unnamed_add
   %.sroa.3.0.extract.shift = lshr i32 %2, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   tail call void @rlBegin(i32 noundef 1) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #16
   %.sroa.02.0.vec.extract = extractelement <2 x float> %0, i64 0
@@ -192,7 +192,7 @@ define void @DrawLineStrip(ptr nocapture noundef readonly %0, i32 noundef %1, i3
 
 .lr.ph.preheader:                                 ; preds = %3
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %.sroa.3.0.extract.shift = lshr i32 %2, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.2.0.extract.shift = lshr i32 %2, 8
@@ -339,7 +339,7 @@ define void @DrawTriangleStrip(ptr nocapture noundef readonly %0, i32 noundef %1
 
 5:                                                ; preds = %3
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %.sroa.3.0.extract.shift = lshr i32 %2, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.2.0.extract.shift = lshr i32 %2, 8
@@ -448,7 +448,7 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
   %.sroa.5.0.extract.shift = lshr i32 %5, 16
   %.sroa.5.0.extract.trunc = trunc i32 %.sroa.5.0.extract.shift to i8
   %.sroa.7.0.extract.shift = lshr i32 %5, 24
-  %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
+  %.sroa.7.0.extract.trunc = trunc nuw i32 %.sroa.7.0.extract.shift to i8
   %7 = fcmp ugt float %1, 0.000000e+00
   %.0125 = select i1 %7, float %1, float 0x3FB99999A0000000
   %8 = fcmp olt float %3, %2
@@ -647,7 +647,7 @@ define void @DrawCircleSectorLines(<2 x float> %0, float noundef %1, float nound
   %.sroa.7.0.extract.shift = lshr i32 %5, 16
   %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
   %.sroa.10.0.extract.shift = lshr i32 %5, 24
-  %.sroa.10.0.extract.trunc = trunc i32 %.sroa.10.0.extract.shift to i8
+  %.sroa.10.0.extract.trunc = trunc nuw i32 %.sroa.10.0.extract.shift to i8
   %7 = fcmp ugt float %1, 0.000000e+00
   %.073 = select i1 %7, float %1, float 0x3FB99999A0000000
   %8 = fcmp olt float %3, %2
@@ -735,14 +735,14 @@ define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2
   %.sroa.320.0.extract.shift = lshr i32 %3, 16
   %.sroa.320.0.extract.trunc = trunc i32 %.sroa.320.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %3, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %.sroa.0.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.3.0.extract.shift = lshr i32 %4, 8
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.5.0.extract.shift = lshr i32 %4, 16
   %.sroa.5.0.extract.trunc = trunc i32 %.sroa.5.0.extract.shift to i8
   %.sroa.7.0.extract.shift = lshr i32 %4, 24
-  %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
+  %.sroa.7.0.extract.trunc = trunc nuw i32 %.sroa.7.0.extract.shift to i8
   tail call void @rlBegin(i32 noundef 4) #16
   %6 = sitofp i32 %0 to float
   %7 = sitofp i32 %1 to float
@@ -787,7 +787,7 @@ define void @DrawCircleLines(i32 noundef %0, i32 noundef %1, float noundef %2, i
   %.sroa.3.0.extract.shift.i = lshr i32 %3, 16
   %.sroa.3.0.extract.trunc.i = trunc i32 %.sroa.3.0.extract.shift.i to i8
   %.sroa.4.0.extract.shift.i = lshr i32 %3, 24
-  %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
+  %.sroa.4.0.extract.trunc.i = trunc nuw i32 %.sroa.4.0.extract.shift.i to i8
   tail call void @rlBegin(i32 noundef 1) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc.i, i8 noundef zeroext %.sroa.2.0.extract.trunc.i, i8 noundef zeroext %.sroa.3.0.extract.trunc.i, i8 noundef zeroext %.sroa.4.0.extract.trunc.i) #16
   br label %7
@@ -825,7 +825,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
   %.sroa.3.0.extract.shift = lshr i32 %2, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   tail call void @rlBegin(i32 noundef 1) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #16
   %.sroa.09.0.vec.extract = extractelement <2 x float> %0, i64 0
@@ -865,7 +865,7 @@ define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float
   %.sroa.3.0.extract.shift = lshr i32 %4, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %4, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   tail call void @rlBegin(i32 noundef 4) #16
   %6 = sitofp i32 %0 to float
   %7 = sitofp i32 %1 to float
@@ -906,7 +906,7 @@ define void @DrawEllipseLines(i32 noundef %0, i32 noundef %1, float noundef %2, 
   %.sroa.3.0.extract.shift = lshr i32 %4, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %4, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   tail call void @rlBegin(i32 noundef 1) #16
   %6 = sitofp i32 %0 to float
   %7 = sitofp i32 %1 to float
@@ -946,7 +946,7 @@ define void @DrawRing(<2 x float> %0, float noundef %1, float noundef %2, float 
   %.sroa.4.0.extract.shift = lshr i32 %6, 16
   %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
   %.sroa.5.0.extract.shift = lshr i32 %6, 24
-  %.sroa.5.0.extract.trunc = trunc i32 %.sroa.5.0.extract.shift to i8
+  %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i8
   %8 = fcmp oeq float %3, %4
   br i1 %8, label %88, label %9
 
@@ -1096,7 +1096,7 @@ define void @DrawRingLines(<2 x float> %0, float noundef %1, float noundef %2, f
   %.sroa.8.0.extract.shift = lshr i32 %6, 16
   %.sroa.8.0.extract.trunc = trunc i32 %.sroa.8.0.extract.shift to i8
   %.sroa.11.0.extract.shift = lshr i32 %6, 24
-  %.sroa.11.0.extract.trunc = trunc i32 %.sroa.11.0.extract.shift to i8
+  %.sroa.11.0.extract.trunc = trunc nuw i32 %.sroa.11.0.extract.shift to i8
   %8 = fcmp oeq float %3, %4
   br i1 %8, label %76, label %9
 
@@ -1290,7 +1290,7 @@ define void @DrawRectanglePro(<2 x float> %0, <2 x float> %1, <2 x float> %2, fl
 45:                                               ; preds = %18, %7
   %46 = phi <8 x float> [ %17, %7 ], [ %44, %18 ]
   %.sroa.483.0.extract.shift = lshr i32 %4, 24
-  %.sroa.483.0.extract.trunc = trunc i32 %.sroa.483.0.extract.shift to i8
+  %.sroa.483.0.extract.trunc = trunc nuw i32 %.sroa.483.0.extract.shift to i8
   %.sroa.3.0.extract.shift = lshr i32 %4, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.282.0.extract.shift = lshr i32 %4, 8
@@ -1380,28 +1380,28 @@ define void @DrawRectangleGradientEx(<2 x float> %0, <2 x float> %1, i32 %2, i32
   %.sroa.328.0.extract.shift = lshr i32 %2, 16
   %.sroa.328.0.extract.trunc = trunc i32 %.sroa.328.0.extract.shift to i8
   %.sroa.429.0.extract.shift = lshr i32 %2, 24
-  %.sroa.429.0.extract.trunc = trunc i32 %.sroa.429.0.extract.shift to i8
+  %.sroa.429.0.extract.trunc = trunc nuw i32 %.sroa.429.0.extract.shift to i8
   %.sroa.022.0.extract.trunc = trunc i32 %3 to i8
   %.sroa.223.0.extract.shift = lshr i32 %3, 8
   %.sroa.223.0.extract.trunc = trunc i32 %.sroa.223.0.extract.shift to i8
   %.sroa.324.0.extract.shift = lshr i32 %3, 16
   %.sroa.324.0.extract.trunc = trunc i32 %.sroa.324.0.extract.shift to i8
   %.sroa.425.0.extract.shift = lshr i32 %3, 24
-  %.sroa.425.0.extract.trunc = trunc i32 %.sroa.425.0.extract.shift to i8
+  %.sroa.425.0.extract.trunc = trunc nuw i32 %.sroa.425.0.extract.shift to i8
   %.sroa.018.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.219.0.extract.shift = lshr i32 %4, 8
   %.sroa.219.0.extract.trunc = trunc i32 %.sroa.219.0.extract.shift to i8
   %.sroa.320.0.extract.shift = lshr i32 %4, 16
   %.sroa.320.0.extract.trunc = trunc i32 %.sroa.320.0.extract.shift to i8
   %.sroa.421.0.extract.shift = lshr i32 %4, 24
-  %.sroa.421.0.extract.trunc = trunc i32 %.sroa.421.0.extract.shift to i8
+  %.sroa.421.0.extract.trunc = trunc nuw i32 %.sroa.421.0.extract.shift to i8
   %.sroa.017.0.extract.trunc = trunc i32 %5 to i8
   %.sroa.2.0.extract.shift = lshr i32 %5, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
   %.sroa.3.0.extract.shift = lshr i32 %5, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %5, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %.sroa.0.0.copyload = load i32, ptr @texShapes, align 16
   tail call void @rlSetTexture(i32 noundef %.sroa.0.0.copyload) #16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr @texShapesRec, align 16
@@ -1567,7 +1567,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %.sroa.16273.0.extract.shift = lshr i32 %4, 16
   %.sroa.16273.0.extract.trunc = trunc i32 %.sroa.16273.0.extract.shift to i8
   %.sroa.23.0.extract.shift = lshr i32 %4, 24
-  %.sroa.23.0.extract.trunc = trunc i32 %.sroa.23.0.extract.shift to i8
+  %.sroa.23.0.extract.trunc = trunc nuw i32 %.sroa.23.0.extract.shift to i8
   %11 = fcmp ole float %2, 0.000000e+00
   %12 = fcmp olt float %7, 1.000000e+00
   %or.cond = select i1 %11, i1 true, i1 %12
@@ -1959,7 +1959,7 @@ define void @DrawRectangleRoundedLines(<2 x float> %0, <2 x float> %1, float nou
   %.sroa.16.0.extract.shift = lshr i32 %5, 16
   %.sroa.16.0.extract.trunc = trunc i32 %.sroa.16.0.extract.shift to i8
   %.sroa.23.0.extract.shift = lshr i32 %5, 24
-  %.sroa.23.0.extract.trunc = trunc i32 %.sroa.23.0.extract.shift to i8
+  %.sroa.23.0.extract.trunc = trunc nuw i32 %.sroa.23.0.extract.shift to i8
   %11 = fcmp olt float %4, 0.000000e+00
   %.0392 = select i1 %11, float 0.000000e+00, float %4
   %12 = fcmp ugt float %2, 0.000000e+00
@@ -2454,7 +2454,7 @@ define void @DrawTriangle(<2 x float> %0, <2 x float> %1, <2 x float> %2, i32 %3
   %.sroa.3.0.extract.shift = lshr i32 %3, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %3, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %.sroa.0.0.copyload = load i32, ptr @texShapes, align 16
   tail call void @rlSetTexture(i32 noundef %.sroa.0.0.copyload) #16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr @texShapesRec, align 16
@@ -2518,7 +2518,7 @@ define void @DrawTriangleLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, i
   %.sroa.3.0.extract.shift = lshr i32 %3, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %3, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   tail call void @rlBegin(i32 noundef 1) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #16
   %.sroa.011.0.vec.extract = extractelement <2 x float> %0, i64 0
@@ -2544,7 +2544,7 @@ define void @DrawTriangleFan(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %3
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %.sroa.3.0.extract.shift = lshr i32 %2, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.2.0.extract.shift = lshr i32 %2, 8
@@ -2634,7 +2634,7 @@ define void @DrawPoly(<2 x float> %0, i32 noundef %1, float noundef %2, float no
   %.sroa.3.0.extract.shift = lshr i32 %4, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %4, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %6 = fmul float %3, 0x3F91DF46A0000000
   %7 = sitofp i32 %spec.store.select to float
@@ -2722,7 +2722,7 @@ define void @DrawPolyLines(<2 x float> %0, i32 noundef %1, float noundef %2, flo
   %.sroa.3.0.extract.shift = lshr i32 %4, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %4, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %6 = fmul float %3, 0x3F91DF46A0000000
   %7 = sitofp i32 %spec.store.select to float
@@ -2765,7 +2765,7 @@ define void @DrawPolyLinesEx(<2 x float> %0, i32 noundef %1, float noundef %2, f
   %.sroa.3.0.extract.shift = lshr i32 %5, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %5, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %7 = fmul float %3, 0x3F91DF46A0000000
   %8 = sitofp i32 %spec.store.select to float
@@ -3913,9 +3913,8 @@ define zeroext i1 @CheckCollisionPointCircle(<2 x float> %0, <2 x float> %1, flo
   %8 = extractelement <2 x float> %7, i64 1
   %9 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %8)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %9)
-  %10 = fadd float %2, 0.000000e+00
-  %11 = fcmp ole float %sqrt.i, %10
-  ret i1 %11
+  %10 = fcmp ole float %sqrt.i, %2
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

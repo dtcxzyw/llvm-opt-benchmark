@@ -1808,7 +1808,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   br label %12
 
 12:                                               ; preds = %9, %7
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %13 = call i32 (...) @Abc_FrameIsBridgeMode() #29
   %.not9 = icmp eq i32 %13, 0
   br i1 %.not9, label %20, label %14
@@ -1827,7 +1827,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   br label %22
 
 22:                                               ; preds = %20, %14
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %2, %22
@@ -2570,7 +2570,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
   %64 = insertelement <2 x float> poison, float %63, i64 0
   %65 = insertelement <2 x float> %64, float %61, i64 1
   %66 = fadd <2 x float> %65, zeroinitializer
-  %67 = fcmp ogt <2 x float> %57, %66
+  %67 = fcmp ogt <2 x float> %57, %65
   %68 = select <2 x i1> %67, <2 x float> %57, <2 x float> %66
   %69 = getelementptr inbounds i8, ptr %23, i64 376
   %70 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %69, float noundef %2, float noundef 0.000000e+00)
@@ -2613,7 +2613,7 @@ Scl_LibPinArrival.exit27:                         ; preds = %56, %59
   %95 = insertelement <2 x float> poison, float %94, i64 0
   %96 = insertelement <2 x float> %95, float %92, i64 1
   %97 = fadd <2 x float> %96, zeroinitializer
-  %98 = fcmp ogt <2 x float> %89, %97
+  %98 = fcmp ogt <2 x float> %89, %96
   %99 = select <2 x i1> %98, <2 x float> %89, <2 x float> %97
   %100 = getelementptr inbounds i8, ptr %23, i64 376
   %101 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %100, float noundef %2, float noundef %35)
@@ -2656,7 +2656,7 @@ Scl_LibPinArrival.exit24:                         ; preds = %88, %90
   %126 = insertelement <2 x float> poison, float %125, i64 0
   %127 = insertelement <2 x float> %126, float %123, i64 1
   %128 = fadd <2 x float> %127, zeroinitializer
-  %129 = fcmp ogt <2 x float> %120, %128
+  %129 = fcmp ogt <2 x float> %120, %127
   %130 = select <2 x i1> %129, <2 x float> %120, <2 x float> %128
   %131 = getelementptr inbounds i8, ptr %23, i64 376
   %132 = tail call fastcc float @Scl_LibLookup(ptr noundef nonnull %131, float noundef %2, float noundef %39)
@@ -3566,7 +3566,7 @@ Scl_LibLookup.exit746.us:                         ; preds = %284, %._crit_edge.i
   %330 = fsub float %328, %329
   %331 = tail call float @llvm.fmuladd.f32(float %294, float %330, float %329)
   %332 = fadd float %331, 0.000000e+00
-  %333 = fcmp ogt float %.sroa.0905.0.us, %332
+  %333 = fcmp ogt float %.sroa.0905.0.us, %331
   %334 = select i1 %333, float %.sroa.0905.0.us, float %332
   %335 = getelementptr i8, ptr %104, i64 212
   %.val63.i681.us = load i32, ptr %335, align 4
@@ -3708,7 +3708,7 @@ Scl_LibLookup.exit746.us:                         ; preds = %284, %._crit_edge.i
 Scl_LibLookup.exit713.us:                         ; preds = %406, %._crit_edge75.i688.us
   %.0.i693.us = phi float [ %410, %406 ], [ %405, %._crit_edge75.i688.us ]
   %411 = fadd float %.0.i693.us, 0.000000e+00
-  %412 = fcmp ogt float %.sroa.8908.0.us, %411
+  %412 = fcmp ogt float %.sroa.8908.0.us, %.0.i693.us
   %413 = select i1 %412, float %.sroa.8908.0.us, float %411
   br label %Scl_LibPinArrival.exit113.us
 
@@ -4095,7 +4095,7 @@ Scl_LibLookup.exit482.us:                         ; preds = %580, %._crit_edge.i
   %626 = fsub float %624, %625
   %627 = tail call float @llvm.fmuladd.f32(float %590, float %626, float %625)
   %628 = fadd float %627, 0.000000e+00
-  %629 = fcmp ogt float %.sroa.0899.0.us, %628
+  %629 = fcmp ogt float %.sroa.0899.0.us, %627
   %630 = select i1 %629, float %.sroa.0899.0.us, float %628
   %631 = getelementptr i8, ptr %104, i64 212
   %.val63.i417.us = load i32, ptr %631, align 4
@@ -4237,7 +4237,7 @@ Scl_LibLookup.exit482.us:                         ; preds = %580, %._crit_edge.i
 Scl_LibLookup.exit449.us:                         ; preds = %702, %._crit_edge75.i424.us
   %.0.i429.us = phi float [ %706, %702 ], [ %701, %._crit_edge75.i424.us ]
   %707 = fadd float %.0.i429.us, 0.000000e+00
-  %708 = fcmp ogt float %.sroa.8902.0.us, %707
+  %708 = fcmp ogt float %.sroa.8902.0.us, %.0.i429.us
   %709 = select i1 %708, float %.sroa.8902.0.us, float %707
   br label %Scl_LibPinArrival.exit110.us
 
@@ -4655,7 +4655,7 @@ Scl_LibLookup.exit251.us:                         ; preds = %Scl_LibLookup.exit3
 Scl_LibLookup.exit218.us:                         ; preds = %927, %._crit_edge75.i193.us
   %.0.i198.us = phi float [ %931, %927 ], [ %926, %._crit_edge75.i193.us ]
   %932 = fadd float %.0.i198.us, 0.000000e+00
-  %933 = fcmp ogt float %.sroa.0894.0.us, %932
+  %933 = fcmp ogt float %.sroa.0894.0.us, %.0.i198.us
   %934 = select i1 %933, float %.sroa.0894.0.us, float %932
   %935 = getelementptr i8, ptr %104, i64 212
   %.val63.i153.us = load i32, ptr %935, align 4
@@ -4797,7 +4797,7 @@ Scl_LibLookup.exit218.us:                         ; preds = %927, %._crit_edge75
 Scl_LibLookup.exit185.us:                         ; preds = %1006, %._crit_edge75.i160.us
   %.0.i165.us = phi float [ %1010, %1006 ], [ %1005, %._crit_edge75.i160.us ]
   %1011 = fadd float %.0.i165.us, 0.000000e+00
-  %1012 = fcmp ogt float %.sroa.8.0.us, %1011
+  %1012 = fcmp ogt float %.sroa.8.0.us, %.0.i165.us
   %1013 = select i1 %1012, float %.sroa.8.0.us, float %1011
   br label %Scl_LibPinArrival.exit.us
 
@@ -7564,7 +7564,7 @@ Scl_LibLookup.exit762:                            ; preds = %270, %._crit_edge.i
   %316 = fsub float %314, %315
   %317 = tail call float @llvm.fmuladd.f32(float %280, float %316, float %315)
   %318 = fadd float %317, 0.000000e+00
-  %319 = fcmp ogt float %.sroa.0917.0, %318
+  %319 = fcmp ogt float %.sroa.0917.0, %317
   %320 = select i1 %319, float %.sroa.0917.0, float %318
   %321 = getelementptr i8, ptr %85, i64 212
   %.val63.i697 = load i32, ptr %321, align 4
@@ -7706,7 +7706,7 @@ Scl_LibLookup.exit762:                            ; preds = %270, %._crit_edge.i
 Scl_LibLookup.exit729:                            ; preds = %327, %._crit_edge75.i704
   %.0.i709 = phi float [ %331, %327 ], [ %396, %._crit_edge75.i704 ]
   %397 = fadd float %.0.i709, 0.000000e+00
-  %398 = fcmp ogt float %.sroa.8920.0, %397
+  %398 = fcmp ogt float %.sroa.8920.0, %.0.i709
   %399 = select i1 %398, float %.sroa.8920.0, float %397
   br label %Scl_LibPinArrival.exit129
 
@@ -8093,7 +8093,7 @@ Scl_LibLookup.exit498:                            ; preds = %566, %._crit_edge.i
   %612 = fsub float %610, %611
   %613 = tail call float @llvm.fmuladd.f32(float %576, float %612, float %611)
   %614 = fadd float %613, 0.000000e+00
-  %615 = fcmp ogt float %.sroa.0911.0, %614
+  %615 = fcmp ogt float %.sroa.0911.0, %613
   %616 = select i1 %615, float %.sroa.0911.0, float %614
   %617 = getelementptr i8, ptr %85, i64 212
   %.val63.i433 = load i32, ptr %617, align 4
@@ -8235,7 +8235,7 @@ Scl_LibLookup.exit498:                            ; preds = %566, %._crit_edge.i
 Scl_LibLookup.exit465:                            ; preds = %623, %._crit_edge75.i440
   %.0.i445 = phi float [ %627, %623 ], [ %692, %._crit_edge75.i440 ]
   %693 = fadd float %.0.i445, 0.000000e+00
-  %694 = fcmp ogt float %.sroa.8914.0, %693
+  %694 = fcmp ogt float %.sroa.8914.0, %.0.i445
   %695 = select i1 %694, float %.sroa.8914.0, float %693
   br label %Scl_LibPinArrival.exit126
 
@@ -8653,7 +8653,7 @@ Scl_LibLookup.exit267:                            ; preds = %Scl_LibLookup.exit3
 Scl_LibLookup.exit234:                            ; preds = %850, %._crit_edge75.i209
   %.0.i214 = phi float [ %854, %850 ], [ %917, %._crit_edge75.i209 ]
   %918 = fadd float %.0.i214, 0.000000e+00
-  %919 = fcmp ogt float %.sroa.0906.0, %918
+  %919 = fcmp ogt float %.sroa.0906.0, %.0.i214
   %920 = select i1 %919, float %.sroa.0906.0, float %918
   %921 = getelementptr i8, ptr %85, i64 212
   %.val63.i169 = load i32, ptr %921, align 4
@@ -8795,7 +8795,7 @@ Scl_LibLookup.exit234:                            ; preds = %850, %._crit_edge75
 Scl_LibLookup.exit201:                            ; preds = %927, %._crit_edge75.i176
   %.0.i181 = phi float [ %931, %927 ], [ %996, %._crit_edge75.i176 ]
   %997 = fadd float %.0.i181, 0.000000e+00
-  %998 = fcmp ogt float %.sroa.8.0, %997
+  %998 = fcmp ogt float %.sroa.8.0, %.0.i181
   %999 = select i1 %998, float %.sroa.8.0, float %997
   br label %Scl_LibPinArrival.exit
 
@@ -9794,7 +9794,7 @@ Scl_LibLookup.exit768:                            ; preds = %281, %._crit_edge.i
   %327 = fsub float %325, %326
   %328 = tail call float @llvm.fmuladd.f32(float %291, float %327, float %326)
   %329 = fadd float %328, 0.000000e+00
-  %330 = fcmp ogt float %.sroa.0923.0, %329
+  %330 = fcmp ogt float %.sroa.0923.0, %328
   %331 = select i1 %330, float %.sroa.0923.0, float %329
   %332 = getelementptr i8, ptr %96, i64 212
   %.val63.i703 = load i32, ptr %332, align 4
@@ -9936,7 +9936,7 @@ Scl_LibLookup.exit768:                            ; preds = %281, %._crit_edge.i
 Scl_LibLookup.exit735:                            ; preds = %338, %._crit_edge75.i710
   %.0.i715 = phi float [ %342, %338 ], [ %407, %._crit_edge75.i710 ]
   %408 = fadd float %.0.i715, 0.000000e+00
-  %409 = fcmp ogt float %.sroa.8926.0, %408
+  %409 = fcmp ogt float %.sroa.8926.0, %.0.i715
   %410 = select i1 %409, float %.sroa.8926.0, float %408
   br label %Scl_LibPinArrival.exit135
 
@@ -10323,7 +10323,7 @@ Scl_LibLookup.exit504:                            ; preds = %577, %._crit_edge.i
   %623 = fsub float %621, %622
   %624 = tail call float @llvm.fmuladd.f32(float %587, float %623, float %622)
   %625 = fadd float %624, 0.000000e+00
-  %626 = fcmp ogt float %.sroa.0917.0, %625
+  %626 = fcmp ogt float %.sroa.0917.0, %624
   %627 = select i1 %626, float %.sroa.0917.0, float %625
   %628 = getelementptr i8, ptr %96, i64 212
   %.val63.i439 = load i32, ptr %628, align 4
@@ -10465,7 +10465,7 @@ Scl_LibLookup.exit504:                            ; preds = %577, %._crit_edge.i
 Scl_LibLookup.exit471:                            ; preds = %634, %._crit_edge75.i446
   %.0.i451 = phi float [ %638, %634 ], [ %703, %._crit_edge75.i446 ]
   %704 = fadd float %.0.i451, 0.000000e+00
-  %705 = fcmp ogt float %.sroa.8920.0, %704
+  %705 = fcmp ogt float %.sroa.8920.0, %.0.i451
   %706 = select i1 %705, float %.sroa.8920.0, float %704
   br label %Scl_LibPinArrival.exit132
 
@@ -10883,7 +10883,7 @@ Scl_LibLookup.exit273:                            ; preds = %Scl_LibLookup.exit3
 Scl_LibLookup.exit240:                            ; preds = %861, %._crit_edge75.i215
   %.0.i220 = phi float [ %865, %861 ], [ %928, %._crit_edge75.i215 ]
   %929 = fadd float %.0.i220, 0.000000e+00
-  %930 = fcmp ogt float %.sroa.0912.0, %929
+  %930 = fcmp ogt float %.sroa.0912.0, %.0.i220
   %931 = select i1 %930, float %.sroa.0912.0, float %929
   %932 = getelementptr i8, ptr %96, i64 212
   %.val63.i175 = load i32, ptr %932, align 4
@@ -11025,7 +11025,7 @@ Scl_LibLookup.exit240:                            ; preds = %861, %._crit_edge75
 Scl_LibLookup.exit207:                            ; preds = %938, %._crit_edge75.i182
   %.0.i187 = phi float [ %942, %938 ], [ %1007, %._crit_edge75.i182 ]
   %1008 = fadd float %.0.i187, 0.000000e+00
-  %1009 = fcmp ogt float %.sroa.8.0, %1008
+  %1009 = fcmp ogt float %.sroa.8.0, %.0.i187
   %1010 = select i1 %1009, float %.sroa.8.0, float %1008
   br label %Scl_LibPinArrival.exit
 
@@ -11891,16 +11891,10 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #17
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #22
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #22
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc float @Scl_LibLookup(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) unnamed_addr #6 {
@@ -12047,7 +12041,13 @@ define internal fastcc float @Scl_LibLookup(ptr nocapture noundef readonly %0, f
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #23
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24
@@ -12095,8 +12095,8 @@ attributes #18 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwt
 attributes #19 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nofree nounwind }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

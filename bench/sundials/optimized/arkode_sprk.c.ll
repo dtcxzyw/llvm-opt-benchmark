@@ -399,34 +399,33 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %7
-  %22 = fadd double %19, 0.000000e+00
-  %23 = fcmp ugt double %22, 0.000000e+00
-  br i1 %23, label %.thread39, label %.thread38
+  %22 = fcmp ugt double %19, 0.000000e+00
+  br i1 %22, label %.thread39, label %.thread38
 
 .thread39:                                        ; preds = %21
-  %24 = tail call double @sqrt(double noundef %22) #14
+  %23 = tail call double @sqrt(double noundef %19) #14
   br label %.thread38
 
 .thread:                                          ; preds = %7
-  %25 = tail call double @sqrt(double noundef %15) #14
-  %26 = fadd double %19, %25
-  %27 = fcmp ugt double %26, 0.000000e+00
-  br i1 %27, label %28, label %.thread37
+  %24 = tail call double @sqrt(double noundef %15) #14
+  %25 = fadd double %19, %24
+  %26 = fcmp ugt double %25, 0.000000e+00
+  br i1 %26, label %27, label %.thread37
 
-28:                                               ; preds = %.thread
-  %29 = tail call double @sqrt(double noundef %15) #14
-  %.pre = fadd double %19, %29
-  %30 = tail call double @sqrt(double noundef %.pre) #14
+27:                                               ; preds = %.thread
+  %28 = tail call double @sqrt(double noundef %15) #14
+  %29 = fadd double %19, %28
+  %30 = tail call double @sqrt(double noundef %29) #14
   br label %.thread37
 
-.thread37:                                        ; preds = %28, %.thread
-  %31 = phi double [ %30, %28 ], [ 0.000000e+00, %.thread ]
+.thread37:                                        ; preds = %27, %.thread
+  %31 = phi double [ %30, %27 ], [ 0.000000e+00, %.thread ]
   %32 = tail call double @sqrt(double noundef %15) #14
   %33 = fmul double %32, 3.000000e+00
   br label %.thread38
 
 .thread38:                                        ; preds = %21, %.thread39, %.thread37
-  %34 = phi double [ %31, %.thread37 ], [ %24, %.thread39 ], [ 0.000000e+00, %21 ]
+  %34 = phi double [ %31, %.thread37 ], [ %23, %.thread39 ], [ 0.000000e+00, %21 ]
   %35 = phi double [ %33, %.thread37 ], [ 0.000000e+00, %.thread39 ], [ 0.000000e+00, %21 ]
   %36 = fdiv double 1.000000e+00, %35
   %37 = fsub double %34, %36

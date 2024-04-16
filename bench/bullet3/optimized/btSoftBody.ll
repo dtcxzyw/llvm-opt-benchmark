@@ -29167,7 +29167,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 if.then.i7.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i
   %retval.0.i.i.i94 = phi ptr [ %call.i.i.i.i47, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i ], [ null, %if.then.i.i ], [ %call.i.i.i.i47, %for.body.i.i.i ]
-  %tobool2.i.i.i42 = trunc i8 %21 to i1
+  %tobool2.i.i.i42 = trunc nuw i8 %21 to i1
   br i1 %tobool2.i.i.i42, label %if.then3.i.i.i45, label %if.end.i43
 
 if.then3.i.i.i45:                                 ; preds = %if.then.i7.i.i
@@ -29250,7 +29250,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool.not.i.i.i57, label %if.end90, label %if.then.i.i.i58
 
 if.then.i.i.i58:                                  ; preds = %do.end
-  %tobool2.i.i.i60 = trunc i8 %71 to i1
+  %tobool2.i.i.i60 = trunc nuw i8 %71 to i1
   br i1 %tobool2.i.i.i60, label %if.then3.i.i.i64, label %if.end90
 
 if.then3.i.i.i64:                                 ; preds = %if.then.i.i.i58
@@ -38191,7 +38191,7 @@ for.body.i.i.i83:                                 ; preds = %for.body.i.i.i83, %
   br i1 %exitcond.not.i.i.i88, label %if.then.i7.i.i73, label %for.body.i.i.i83, !llvm.loop !363
 
 if.then.i7.i.i73:                                 ; preds = %for.body.i.i.i83, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i67
-  %tobool2.i.i.i75 = trunc i8 %0 to i1
+  %tobool2.i.i.i75 = trunc nuw i8 %0 to i1
   br i1 %tobool2.i.i.i75, label %if.then3.i.i.i79, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i76
 
 if.then3.i.i.i79:                                 ; preds = %if.then.i7.i.i73
@@ -38266,7 +38266,7 @@ _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i115: ; preds = %_
   br i1 %tobool.not.i6.i.i117, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i121, label %if.then.i7.i.i118
 
 if.then.i7.i.i118:                                ; preds = %for.body.i.i.i128, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i115
-  %tobool2.i.i.i120 = trunc i8 %15 to i1
+  %tobool2.i.i.i120 = trunc nuw i8 %15 to i1
   br i1 %tobool2.i.i.i120, label %if.then3.i.i.i124, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i121
 
 if.then3.i.i.i124:                                ; preds = %if.then.i7.i.i118
@@ -38317,7 +38317,7 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool.not.i.i.i140, label %if.end19, label %if.then.i.i.i141
 
 if.then.i.i.i141:                                 ; preds = %do.end
-  %tobool2.i.i.i143 = trunc i8 %27 to i1
+  %tobool2.i.i.i143 = trunc nuw i8 %27 to i1
   br i1 %tobool2.i.i.i143, label %if.then3.i.i.i147, label %if.end19
 
 if.then3.i.i.i147:                                ; preds = %if.then.i.i.i141
@@ -41478,7 +41478,7 @@ for.body1102:                                     ; preds = %for.body1102.prehea
   %332 = ptrtoint ptr %331 to i64
   %ref.tmp1103.sroa.0.0.extract.trunc = trunc i64 %332 to i32
   %ref.tmp1103.sroa.0.4.extract.shift = lshr i64 %332, 32
-  %ref.tmp1103.sroa.0.4.extract.trunc = trunc i64 %ref.tmp1103.sroa.0.4.extract.shift to i32
+  %ref.tmp1103.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp1103.sroa.0.4.extract.shift to i32
   %add.i.i.i = add i32 %ref.tmp1103.sroa.0.4.extract.trunc, %ref.tmp1103.sroa.0.0.extract.trunc
   %shl.i.i.i = shl i32 %add.i.i.i, 15
   %not.i.i.i = xor i32 %shl.i.i.i, -1
@@ -45918,8 +45918,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %tobool3.not, label %cond.end8, label %cond.end8.thread
 
 cond.end8:                                        ; preds = %if.then
-  %add = fadd float %4, 0.000000e+00
-  %cmp10 = fcmp ogt float %add, 0.000000e+00
+  %cmp10 = fcmp ogt float %4, 0.000000e+00
   br i1 %cmp10, label %cond.false17, label %if.end125
 
 cond.end8.thread:                                 ; preds = %if.then

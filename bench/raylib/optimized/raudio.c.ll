@@ -1195,7 +1195,7 @@ define hidden noundef i32 @ma_itoa_s(i32 noundef %0, ptr noundef %1, i64 noundef
   %.046 = phi ptr [ %1, %9 ], [ %15, %11 ]
   %12 = urem i32 %.148, %3
   %13 = icmp sgt i32 %12, 9
-  %14 = trunc i32 %12 to i8
+  %14 = trunc nuw i32 %12 to i8
   %storemerge.v = select i1 %13, i8 87, i8 48
   %storemerge = add nuw i8 %storemerge.v, %14
   store i8 %storemerge, ptr %.046, align 1
@@ -4361,7 +4361,7 @@ define hidden noundef i32 @ma_get_enabled_backends(ptr nocapture noundef writeon
 .preheader:                                       ; preds = %3, %ma_is_backend_enabled.exit
   %.01622 = phi i64 [ %11, %ma_is_backend_enabled.exit ], [ 0, %3 ]
   %.01721 = phi i64 [ %.1, %ma_is_backend_enabled.exit ], [ 0, %3 ]
-  %5 = trunc i64 %.01622 to i32
+  %5 = trunc nuw nsw i64 %.01622 to i32
   switch i32 %5, label %ma_is_backend_enabled.exit [
     i32 14, label %6
     i32 13, label %6
@@ -11364,7 +11364,7 @@ ma_device_get_master_volume.exit.i.i:             ; preds = %.loopexit.i
   %261 = getelementptr inbounds i8, ptr %17, i64 %241
   store i8 %260, ptr %261, align 1
   %262 = lshr i32 %255, 24
-  %263 = trunc i32 %262 to i8
+  %263 = trunc nuw i32 %262 to i8
   %264 = getelementptr inbounds i8, ptr %17, i64 %247
   store i8 %263, ptr %264, align 1
   %265 = add nuw nsw i64 %.026.i.i.i.i, 1
@@ -11691,7 +11691,7 @@ ma_device_get_master_volume.exit.i:               ; preds = %343
   %425 = getelementptr inbounds i8, ptr %5, i64 %405
   store i8 %424, ptr %425, align 1
   %426 = lshr i32 %419, 24
-  %427 = trunc i32 %426 to i8
+  %427 = trunc nuw i32 %426 to i8
   %428 = getelementptr inbounds i8, ptr %5, i64 %411
   store i8 %427, ptr %428, align 1
   %429 = add nuw nsw i64 %.026.i.i.i, 1
@@ -11950,7 +11950,7 @@ ma_device_get_master_volume.exit.i151.i:          ; preds = %474
   %558 = getelementptr inbounds i8, ptr %10, i64 %538
   store i8 %557, ptr %558, align 1
   %559 = lshr i32 %552, 24
-  %560 = trunc i32 %559 to i8
+  %560 = trunc nuw i32 %559 to i8
   %561 = getelementptr inbounds i8, ptr %10, i64 %544
   store i8 %560, ptr %561, align 1
   %562 = add nuw nsw i64 %.026.i.i.i184.i, 1
@@ -12575,7 +12575,7 @@ ma_aligned_malloc.exit.i:                         ; preds = %80
   %133 = add nuw nsw i64 %132, %112
   %134 = zext nneg i32 %131 to i64
   %135 = icmp ugt i64 %133, %134
-  %136 = trunc i64 %133 to i32
+  %136 = trunc nuw nsw i64 %133 to i32
   %spec.select.i.i = select i1 %135, i32 %131, i32 %136
   br label %ma_pcm_rb_seek_write.exit
 
@@ -14168,7 +14168,7 @@ ma_data_converter_get_required_input_frame_count.exit: ; preds = %89, %92, %96, 
   br i1 %.not78, label %104, label %102
 
 102:                                              ; preds = %ma_data_converter_get_required_input_frame_count.exit
-  %103 = trunc i64 %.1 to i32
+  %103 = trunc nuw nsw i64 %.1 to i32
   call fastcc void @ma_device__handle_data_callback(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null, i32 noundef %103)
   br label %104
 
@@ -14335,7 +14335,7 @@ define hidden void @ma_clip_samples_u8(ptr nocapture noundef writeonly %0, ptr n
   %5 = load i16, ptr %4, align 2
   %6 = tail call i16 @llvm.smin.i16(i16 %5, i16 127)
   %7 = tail call i16 @llvm.smax.i16(i16 %6, i16 -128)
-  %8 = trunc i16 %7 to i8
+  %8 = trunc nsw i16 %7 to i8
   %9 = xor i8 %8, -128
   %10 = getelementptr inbounds i8, ptr %0, i64 %.010
   store i8 %9, ptr %10, align 1
@@ -14358,7 +14358,7 @@ define hidden void @ma_clip_samples_s16(ptr nocapture noundef writeonly %0, ptr 
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @llvm.smin.i32(i32 %5, i32 32767)
   %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 -32768)
-  %8 = trunc i32 %7 to i16
+  %8 = trunc nsw i32 %7 to i16
   %9 = getelementptr inbounds i16, ptr %0, i64 %.010
   store i16 %8, ptr %9, align 2
   %10 = add nuw i64 %.010, 1
@@ -14411,7 +14411,7 @@ define hidden void @ma_clip_samples_s32(ptr nocapture noundef writeonly %0, ptr 
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @llvm.smin.i64(i64 %5, i64 2147483647)
   %7 = tail call i64 @llvm.smax.i64(i64 %6, i64 -2147483648)
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nsw i64 %7 to i32
   %9 = getelementptr inbounds i32, ptr %0, i64 %.017
   store i32 %8, ptr %9, align 4
   %10 = add nuw i64 %.017, 1
@@ -14467,7 +14467,7 @@ define hidden void @ma_clip_pcm_frames(ptr nocapture noundef writeonly %0, ptr n
   %10 = load i16, ptr %9, align 2
   %11 = tail call i16 @llvm.smin.i16(i16 %10, i16 127)
   %12 = tail call i16 @llvm.smax.i16(i16 %11, i16 -128)
-  %13 = trunc i16 %12 to i8
+  %13 = trunc nsw i16 %12 to i8
   %14 = xor i8 %13, -128
   %15 = getelementptr inbounds i8, ptr %0, i64 %.010.i
   store i8 %14, ptr %15, align 1
@@ -14485,7 +14485,7 @@ define hidden void @ma_clip_pcm_frames(ptr nocapture noundef writeonly %0, ptr n
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @llvm.smin.i32(i32 %19, i32 32767)
   %21 = tail call i32 @llvm.smax.i32(i32 %20, i32 -32768)
-  %22 = trunc i32 %21 to i16
+  %22 = trunc nsw i32 %21 to i16
   %23 = getelementptr inbounds i16, ptr %0, i64 %.010.i19
   store i16 %22, ptr %23, align 2
   %24 = add nuw i64 %.010.i19, 1
@@ -14528,7 +14528,7 @@ define hidden void @ma_clip_pcm_frames(ptr nocapture noundef writeonly %0, ptr n
   %42 = load i64, ptr %41, align 8
   %43 = tail call i64 @llvm.smin.i64(i64 %42, i64 2147483647)
   %44 = tail call i64 @llvm.smax.i64(i64 %43, i64 -2147483648)
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nsw i64 %44 to i32
   %46 = getelementptr inbounds i32, ptr %0, i64 %.017.i26
   store i32 %45, ptr %46, align 4
   %47 = add nuw i64 %.017.i26, 1
@@ -14649,7 +14649,7 @@ define hidden void @ma_copy_and_apply_volume_factor_s24(ptr noundef writeonly %0
   %33 = getelementptr inbounds i8, ptr %0, i64 %13
   store i8 %32, ptr %33, align 1
   %34 = lshr i32 %27, 24
-  %35 = trunc i32 %34 to i8
+  %35 = trunc nuw i32 %34 to i8
   %36 = getelementptr inbounds i8, ptr %0, i64 %19
   store i8 %35, ptr %36, align 1
   %37 = add nuw i64 %.026, 1
@@ -14817,7 +14817,7 @@ define hidden void @ma_apply_volume_factor_s24(ptr noundef %0, i64 noundef %1, f
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %gep, align 1
   %26 = lshr i32 %21, 24
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw i32 %26 to i8
   store i8 %27, ptr %gep4, align 1
   %28 = add nuw i64 %.026.i, 1
   %exitcond.not.i = icmp eq i64 %28, %1
@@ -14971,7 +14971,7 @@ define hidden void @ma_copy_and_apply_volume_factor_pcm_frames_s24(ptr noundef w
   %36 = getelementptr inbounds i8, ptr %0, i64 %16
   store i8 %35, ptr %36, align 1
   %37 = lshr i32 %30, 24
-  %38 = trunc i32 %37 to i8
+  %38 = trunc nuw i32 %37 to i8
   %39 = getelementptr inbounds i8, ptr %0, i64 %22
   store i8 %38, ptr %39, align 1
   %40 = add nuw i64 %.026.i, 1
@@ -15155,7 +15155,7 @@ define hidden void @ma_copy_and_apply_volume_factor_pcm_frames(ptr noundef write
   %64 = getelementptr inbounds i8, ptr %0, i64 %44
   store i8 %63, ptr %64, align 1
   %65 = lshr i32 %58, 24
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw i32 %65 to i8
   %67 = getelementptr inbounds i8, ptr %0, i64 %50
   store i8 %66, ptr %67, align 1
   %68 = add nuw i64 %.026.i.i, 1
@@ -15323,7 +15323,7 @@ define hidden void @ma_apply_volume_factor_pcm_frames_s24(ptr noundef %0, i64 no
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %gep, align 1
   %29 = lshr i32 %24, 24
-  %30 = trunc i32 %29 to i8
+  %30 = trunc nuw i32 %29 to i8
   store i8 %30, ptr %gep5, align 1
   %31 = add nuw i64 %.026.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %31, %6
@@ -15448,7 +15448,7 @@ define hidden void @ma_copy_and_apply_volume_and_clip_samples_u8(ptr nocapture n
   %14 = ashr i32 %13, 16
   %15 = tail call i32 @llvm.smin.i32(i32 %14, i32 127)
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 -128)
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nsw i32 %16 to i8
   %18 = xor i8 %17, -128
   %19 = getelementptr inbounds i8, ptr %0, i64 %.015
   store i8 %18, ptr %19, align 1
@@ -15479,7 +15479,7 @@ define hidden void @ma_copy_and_apply_volume_and_clip_samples_s16(ptr nocapture 
   %12 = ashr i32 %11, 8
   %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 32767)
   %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 -32768)
-  %15 = trunc i32 %14 to i16
+  %15 = trunc nsw i32 %14 to i16
   %16 = getelementptr inbounds i16, ptr %0, i64 %.015
   store i16 %15, ptr %16, align 2
   %17 = add nuw i64 %.015, 1
@@ -15548,7 +15548,7 @@ define hidden void @ma_copy_and_apply_volume_and_clip_samples_s32(ptr nocapture 
   %12 = ashr i64 %11, 8
   %13 = tail call i64 @llvm.smin.i64(i64 %12, i64 2147483647)
   %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 -2147483648)
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   %16 = getelementptr inbounds i32, ptr %0, i64 %.022
   store i32 %15, ptr %16, align 4
   %17 = add nuw i64 %.022, 1
@@ -15668,7 +15668,7 @@ define hidden void @ma_copy_and_apply_volume_and_clip_pcm_frames(ptr noundef wri
   %40 = ashr i32 %39, 16
   %41 = tail call i32 @llvm.smin.i32(i32 %40, i32 127)
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 -128)
-  %43 = trunc i32 %42 to i8
+  %43 = trunc nsw i32 %42 to i8
   %44 = xor i8 %43, -128
   %45 = getelementptr inbounds i8, ptr %0, i64 %.015.i
   store i8 %44, ptr %45, align 1
@@ -15694,7 +15694,7 @@ define hidden void @ma_copy_and_apply_volume_and_clip_pcm_frames(ptr noundef wri
   %55 = ashr i32 %54, 8
   %56 = tail call i32 @llvm.smin.i32(i32 %55, i32 32767)
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 -32768)
-  %58 = trunc i32 %57 to i16
+  %58 = trunc nsw i32 %57 to i16
   %59 = getelementptr inbounds i16, ptr %0, i64 %.015.i37
   store i16 %58, ptr %59, align 2
   %60 = add nuw i64 %.015.i37, 1
@@ -15753,7 +15753,7 @@ define hidden void @ma_copy_and_apply_volume_and_clip_pcm_frames(ptr noundef wri
   %90 = ashr i64 %89, 8
   %91 = tail call i64 @llvm.smin.i64(i64 %90, i64 2147483647)
   %92 = tail call i64 @llvm.smax.i64(i64 %91, i64 -2147483648)
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nsw i64 %92 to i32
   %94 = getelementptr inbounds i32, ptr %0, i64 %.022.i44
   store i32 %93, ptr %94, align 4
   %95 = add nuw i64 %.022.i44, 1
@@ -16145,7 +16145,7 @@ define hidden void @ma_pcm_s16_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %38 = getelementptr inbounds i16, ptr %1, i64 %.0186203
   %39 = load i16, ptr %38, align 2
   %40 = lshr i16 %39, 8
-  %41 = trunc i16 %40 to i8
+  %41 = trunc nuw i16 %40 to i8
   %42 = xor i8 %41, -128
   %43 = getelementptr inbounds i8, ptr %0, i64 %.0186203
   store i8 %42, ptr %43, align 1
@@ -16158,7 +16158,7 @@ define hidden void @ma_pcm_s16_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %45 = getelementptr inbounds i16, ptr %1, i64 %.0187197
   %46 = load i16, ptr %45, align 2
   %47 = lshr i16 %46, 8
-  %48 = trunc i16 %47 to i8
+  %48 = trunc nuw i16 %47 to i8
   %49 = xor i8 %48, -128
   %50 = getelementptr inbounds i8, ptr %0, i64 %.0187197
   store i8 %49, ptr %50, align 1
@@ -16214,7 +16214,7 @@ define hidden void @ma_pcm_s16_to_s24(ptr nocapture noundef writeonly %0, ptr no
   store i8 %9, ptr %10, align 1
   %11 = load i16, ptr %7, align 2
   %12 = lshr i16 %11, 8
-  %13 = trunc i16 %12 to i8
+  %13 = trunc nuw i16 %12 to i8
   %14 = getelementptr i8, ptr %6, i64 2
   store i8 %13, ptr %14, align 1
   %15 = add nuw i64 %.050, 1
@@ -16380,7 +16380,7 @@ define hidden void @ma_pcm_s24_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %24 = icmp slt i64 %23, 2147483648
   %25 = add nsw i32 %20, %16
   %26 = lshr i32 %25, 24
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw i32 %26 to i8
   %28 = xor i8 %27, -128
   %29 = select i1 %24, i8 %28, i8 -1
   %30 = getelementptr inbounds i8, ptr %0, i64 %.0185197.us
@@ -16416,7 +16416,7 @@ define hidden void @ma_pcm_s24_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %54 = icmp slt i64 %53, 2147483648
   %55 = add nsw i32 %50, %42
   %56 = lshr i32 %55, 24
-  %57 = trunc i32 %56 to i8
+  %57 = trunc nuw i32 %56 to i8
   %58 = xor i8 %57, -128
   %59 = select i1 %54, i8 %58, i8 -1
   %60 = getelementptr inbounds i8, ptr %0, i64 %.0185197.us199
@@ -16506,7 +16506,7 @@ define hidden void @ma_pcm_s24_to_s16(ptr nocapture noundef writeonly %0, ptr no
   %24 = icmp slt i64 %23, 2147483648
   %25 = add nsw i32 %20, %16
   %26 = lshr i32 %25, 16
-  %27 = trunc i32 %26 to i16
+  %27 = trunc nuw i32 %26 to i16
   %28 = select i1 %24, i16 %27, i16 32767
   %29 = getelementptr inbounds i16, ptr %0, i64 %.0191203.us
   store i16 %28, ptr %29, align 2
@@ -16541,7 +16541,7 @@ define hidden void @ma_pcm_s24_to_s16(ptr nocapture noundef writeonly %0, ptr no
   %53 = icmp slt i64 %52, 2147483648
   %54 = add nsw i32 %49, %41
   %55 = lshr i32 %54, 16
-  %56 = trunc i32 %55 to i16
+  %56 = trunc nuw i32 %55 to i16
   %57 = select i1 %53, i16 %56, i16 32767
   %58 = getelementptr inbounds i16, ptr %0, i64 %.0191203.us205
   store i16 %57, ptr %58, align 2
@@ -16578,7 +16578,7 @@ define hidden void @ma_pcm_s24_to_s16(ptr nocapture noundef writeonly %0, ptr no
   %72 = shl nuw i32 %71, 24
   %73 = or disjoint i32 %72, %68
   %74 = lshr i32 %73, 16
-  %75 = trunc i32 %74 to i16
+  %75 = trunc nuw i32 %74 to i16
   %76 = getelementptr inbounds i16, ptr %0, i64 %.0191203
   store i16 %75, ptr %76, align 2
   %77 = add nuw i64 %.0191203, 1
@@ -16830,7 +16830,7 @@ define hidden void @ma_pcm_s32_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %16 = icmp slt i64 %15, 2147483648
   %17 = add nsw i32 %12, %8
   %18 = lshr i32 %17, 24
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw i32 %18 to i8
   %20 = xor i8 %19, -128
   %21 = select i1 %16, i8 %20, i8 -1
   %22 = getelementptr inbounds i8, ptr %0, i64 %.0183195.us
@@ -16858,7 +16858,7 @@ define hidden void @ma_pcm_s32_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %38 = icmp slt i64 %37, 2147483648
   %39 = add nsw i32 %34, %26
   %40 = lshr i32 %39, 24
-  %41 = trunc i32 %40 to i8
+  %41 = trunc nuw i32 %40 to i8
   %42 = xor i8 %41, -128
   %43 = select i1 %38, i8 %42, i8 -1
   %44 = getelementptr inbounds i8, ptr %0, i64 %.0183195.us197
@@ -16875,7 +16875,7 @@ define hidden void @ma_pcm_s32_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %46 = getelementptr inbounds i32, ptr %1, i64 %.0182200
   %47 = load i32, ptr %46, align 4
   %48 = lshr i32 %47, 24
-  %49 = trunc i32 %48 to i8
+  %49 = trunc nuw i32 %48 to i8
   %50 = xor i8 %49, -128
   %51 = getelementptr inbounds i8, ptr %0, i64 %.0182200
   store i8 %50, ptr %51, align 1
@@ -16888,7 +16888,7 @@ define hidden void @ma_pcm_s32_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %53 = getelementptr inbounds i32, ptr %1, i64 %.0183195
   %54 = load i32, ptr %53, align 4
   %55 = lshr i32 %54, 24
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nuw i32 %55 to i8
   %57 = xor i8 %56, -128
   %58 = getelementptr inbounds i8, ptr %0, i64 %.0183195
   store i8 %57, ptr %58, align 1
@@ -16936,7 +16936,7 @@ define hidden void @ma_pcm_s32_to_s16(ptr nocapture noundef writeonly %0, ptr no
   %16 = icmp slt i64 %15, 2147483648
   %17 = add nsw i32 %12, %8
   %18 = lshr i32 %17, 16
-  %19 = trunc i32 %18 to i16
+  %19 = trunc nuw i32 %18 to i16
   %20 = select i1 %16, i16 %19, i16 32767
   %21 = getelementptr inbounds i16, ptr %0, i64 %.0179191.us
   store i16 %20, ptr %21, align 2
@@ -16963,7 +16963,7 @@ define hidden void @ma_pcm_s32_to_s16(ptr nocapture noundef writeonly %0, ptr no
   %37 = icmp slt i64 %36, 2147483648
   %38 = add nsw i32 %33, %25
   %39 = lshr i32 %38, 16
-  %40 = trunc i32 %39 to i16
+  %40 = trunc nuw i32 %39 to i16
   %41 = select i1 %37, i16 %40, i16 32767
   %42 = getelementptr inbounds i16, ptr %0, i64 %.0179191.us193
   store i16 %41, ptr %42, align 2
@@ -16979,7 +16979,7 @@ define hidden void @ma_pcm_s32_to_s16(ptr nocapture noundef writeonly %0, ptr no
   %44 = getelementptr inbounds i32, ptr %1, i64 %.0178196
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %45, 16
-  %47 = trunc i32 %46 to i16
+  %47 = trunc nuw i32 %46 to i16
   %48 = getelementptr inbounds i16, ptr %0, i64 %.0178196
   store i16 %47, ptr %48, align 2
   %49 = add nuw i64 %.0178196, 1
@@ -16991,7 +16991,7 @@ define hidden void @ma_pcm_s32_to_s16(ptr nocapture noundef writeonly %0, ptr no
   %50 = getelementptr inbounds i32, ptr %1, i64 %.0179191
   %51 = load i32, ptr %50, align 4
   %52 = lshr i32 %51, 16
-  %53 = trunc i32 %52 to i16
+  %53 = trunc nuw i32 %52 to i16
   %54 = getelementptr inbounds i16, ptr %0, i64 %.0179191
   store i16 %53, ptr %54, align 2
   %55 = add nuw i64 %.0179191, 1
@@ -17026,7 +17026,7 @@ define hidden void @ma_pcm_s32_to_s24(ptr nocapture noundef writeonly %0, ptr no
   %13 = getelementptr i8, ptr %10, i64 1
   store i8 %12, ptr %13, align 1
   %14 = lshr i32 %6, 24
-  %15 = trunc i32 %14 to i8
+  %15 = trunc nuw i32 %14 to i8
   %16 = getelementptr i8, ptr %10, i64 2
   store i8 %15, ptr %16, align 1
   %17 = add nuw i64 %.052, 1
@@ -17229,7 +17229,7 @@ define hidden void @ma_pcm_f32_to_u8(ptr nocapture noundef writeonly %0, ptr noc
   %49 = getelementptr inbounds float, ptr %1, i64 %.0170179
   %50 = load float, ptr %49, align 4
   %51 = fadd float %50, 0.000000e+00
-  %52 = fcmp olt float %51, -1.000000e+00
+  %52 = fcmp olt float %50, -1.000000e+00
   %53 = fcmp ogt float %51, 1.000000e+00
   %54 = select i1 %53, float 1.000000e+00, float %51
   %55 = fadd float %54, 1.000000e+00
@@ -17952,7 +17952,7 @@ define hidden void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %
   store i8 %59, ptr %60, align 1
   %61 = load i16, ptr %57, align 2
   %62 = lshr i16 %61, 8
-  %63 = trunc i16 %62 to i8
+  %63 = trunc nuw i16 %62 to i8
   %64 = getelementptr i8, ptr %56, i64 2
   store i8 %63, ptr %64, align 1
   %65 = add nuw i64 %.050.i120, 1
@@ -18088,7 +18088,7 @@ define hidden void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %
   %124 = getelementptr i8, ptr %121, i64 1
   store i8 %123, ptr %124, align 1
   %125 = lshr i32 %117, 24
-  %126 = trunc i32 %125 to i8
+  %126 = trunc nuw i32 %125 to i8
   %127 = getelementptr i8, ptr %121, i64 2
   store i8 %126, ptr %127, align 1
   %128 = add nuw i64 %.052.i, 1
@@ -18956,7 +18956,7 @@ define hidden noundef i32 @ma_biquad_process_pcm_frames(ptr noundef readonly %0,
   %91 = sub nsw i32 %89, %90
   %92 = tail call i32 @llvm.smin.i32(i32 %84, i32 32767)
   %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 -32768)
-  %94 = trunc i32 %93 to i16
+  %94 = trunc nsw i32 %93 to i16
   %95 = getelementptr inbounds i16, ptr %.0109124, i64 %indvars.iv
   store i16 %94, ptr %95, align 2
   %96 = load ptr, ptr %16, align 8
@@ -21495,7 +21495,7 @@ ma_lpf2_process_pcm_frames.exit:                  ; preds = %85
   %256 = sub nsw i32 %254, %255
   %257 = tail call i32 @llvm.smin.i32(i32 %249, i32 32767)
   %258 = tail call i32 @llvm.smax.i32(i32 %257, i32 -32768)
-  %259 = trunc i32 %258 to i16
+  %259 = trunc nsw i32 %258 to i16
   store i16 %259, ptr %244, align 2
   %260 = load ptr, ptr %235, align 8
   %261 = getelementptr inbounds %union.ma_biquad_coefficient, ptr %260, i64 %indvars.iv301
@@ -23901,7 +23901,7 @@ ma_hpf2_process_pcm_frames.exit:                  ; preds = %85
   %256 = sub nsw i32 %254, %255
   %257 = tail call i32 @llvm.smin.i32(i32 %249, i32 32767)
   %258 = tail call i32 @llvm.smax.i32(i32 %257, i32 -32768)
-  %259 = trunc i32 %258 to i16
+  %259 = trunc nsw i32 %258 to i16
   store i16 %259, ptr %244, align 2
   %260 = load ptr, ptr %235, align 8
   %261 = getelementptr inbounds %union.ma_biquad_coefficient, ptr %260, i64 %indvars.iv296
@@ -25304,7 +25304,7 @@ ma_bpf2_process_pcm_frames.exit:                  ; preds = %15
   %130 = sub nsw i32 %128, %129
   %131 = tail call i32 @llvm.smin.i32(i32 %123, i32 32767)
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 -32768)
-  %133 = trunc i32 %132 to i16
+  %133 = trunc nsw i32 %132 to i16
   store i16 %133, ptr %118, align 2
   %134 = load ptr, ptr %109, align 8
   %135 = getelementptr inbounds %union.ma_biquad_coefficient, ptr %134, i64 %indvars.iv
@@ -28124,7 +28124,7 @@ define hidden noundef i32 @ma_gainer_process_pcm_frames(ptr noundef %0, ptr noun
   %155 = add nuw nsw i64 %spec.select.i, %154
   %156 = zext i32 %13 to i64
   %157 = icmp ult i64 %155, %156
-  %158 = trunc i64 %155 to i32
+  %158 = trunc nuw i64 %155 to i32
   %159 = select i1 %157, i32 %158, i32 %13
   store i32 %159, ptr %10, align 8, !noalias !160
   %160 = sub i64 %3, %spec.select.i
@@ -28243,7 +28243,7 @@ ma_copy_and_apply_volume_factor_per_channel_f32.exit.i: ; preds = %205, %._crit_
 208:                                              ; preds = %ma_copy_and_apply_volume_factor_per_channel_f32.exit.i
   %209 = zext i32 %13 to i64
   %210 = icmp ugt i64 %.0328.i, %209
-  %211 = trunc i64 %.0328.i to i32
+  %211 = trunc nuw i64 %.0328.i to i32
   %212 = select i1 %210, i32 %13, i32 %211
   store i32 %212, ptr %10, align 8, !noalias !160
   br label %ma_gainer_process_pcm_frames_internal.exit
@@ -31998,7 +31998,7 @@ ma_channel_map_get_channel.exit.i335:             ; preds = %ma_channel_map_get_
   br i1 %exitcond366.not.i, label %ma_channel_map_apply_mono_in_f32.exit, label %.preheader298.us.i
 
 112:                                              ; preds = %._crit_edge.i
-  %trunc.i = trunc i32 %2 to i8
+  %trunc.i = trunc nuw i32 %2 to i8
   switch i8 %trunc.i, label %156 [
     i8 2, label %113
     i8 6, label %128
@@ -34523,7 +34523,7 @@ define hidden noundef i32 @ma_linear_resampler_process_pcm_frames(ptr noundef %0
   %127 = sub nsw i32 %125, %126
   %128 = tail call i32 @llvm.smin.i32(i32 %120, i32 32767)
   %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 -32768)
-  %130 = trunc i32 %129 to i16
+  %130 = trunc nsw i32 %129 to i16
   store i16 %130, ptr %115, align 2
   %131 = load ptr, ptr %106, align 8
   %132 = getelementptr inbounds %union.ma_biquad_coefficient, ptr %131, i64 %indvars.iv215.i.i
@@ -34884,7 +34884,7 @@ ma_linear_resampler_interpolate_frame_s16.exit.i23.i: ; preds = %244
   %324 = sub nsw i32 %322, %323
   %325 = tail call i32 @llvm.smin.i32(i32 %317, i32 32767)
   %326 = tail call i32 @llvm.smax.i32(i32 %325, i32 -32768)
-  %327 = trunc i32 %326 to i16
+  %327 = trunc nsw i32 %326 to i16
   store i16 %327, ptr %312, align 2
   %328 = load ptr, ptr %303, align 8
   %329 = getelementptr inbounds %union.ma_biquad_coefficient, ptr %328, i64 %indvars.iv216.i.i
@@ -36952,7 +36952,7 @@ ma_channel_map_get_channel.exit.us.us.i:          ; preds = %99, %96
   br i1 %or.cond.i58.i.us.us.us.i, label %118, label %ma_channel_map_get_channel.exit43.us.us.us.i
 
 118:                                              ; preds = %116
-  %119 = trunc i32 %.03448.us.us.us.i to i8
+  %119 = trunc nuw i32 %.03448.us.us.us.i to i8
   %120 = add nuw nsw i8 %119, 12
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
@@ -36977,7 +36977,7 @@ switch.lookup579:                                 ; preds = %107
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
 switch.lookup583:                                 ; preds = %109
-  %switch.idx.cast = trunc i32 %.03448.us.us.us.i to i8
+  %switch.idx.cast = trunc nuw i32 %.03448.us.us.us.i to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 2
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
@@ -38523,7 +38523,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %54 = udiv i32 %.0108.lcssa.i, %53
   %55 = tail call i32 @llvm.smin.i32(i32 %54, i32 127)
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 -128)
-  %57 = trunc i32 %56 to i8
+  %57 = trunc nsw i32 %56 to i8
   %58 = xor i8 %57, -128
   %59 = getelementptr inbounds i8, ptr %1, i64 %.0101166.i
   store i8 %58, ptr %59, align 1
@@ -39408,7 +39408,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %432 = add nsw i32 %416, %431
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %432, i32 127)
   %spec.select245.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 -128)
-  %433 = trunc i32 %spec.select245.i to i8
+  %433 = trunc nsw i32 %spec.select245.i to i8
   %434 = xor i8 %433, -128
   store i8 %434, ptr %413, align 1
   %indvars.iv.next360.i = add nuw nsw i64 %indvars.iv359.i, 1
@@ -39487,7 +39487,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %476 = add nsw i32 %475, %461
   %477 = tail call i32 @llvm.smin.i32(i32 %476, i32 32767)
   %478 = tail call i32 @llvm.smax.i32(i32 %477, i32 -32768)
-  %479 = trunc i32 %478 to i16
+  %479 = trunc nsw i32 %478 to i16
   store i16 %479, ptr %459, align 2
   %indvars.iv.next354.i = add nuw nsw i64 %indvars.iv353.i, 1
   %480 = load i32, ptr %360, align 8
@@ -39668,7 +39668,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %587 = add nsw i64 %586, %571
   %588 = tail call i64 @llvm.smin.i64(i64 %587, i64 2147483647)
   %589 = tail call i64 @llvm.smax.i64(i64 %588, i64 -2147483648)
-  %590 = trunc i64 %589 to i32
+  %590 = trunc nsw i64 %589 to i32
   store i32 %590, ptr %569, align 4
   %indvars.iv.next342.i = add nuw nsw i64 %indvars.iv341.i, 1
   %591 = load i32, ptr %360, align 8
@@ -42379,7 +42379,7 @@ define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noun
   br i1 %or.cond.i, label %22, label %ma_channel_map_init_standard_channel_alsa.exit
 
 22:                                               ; preds = %19
-  %23 = trunc i32 %2 to i8
+  %23 = trunc nuw i32 %2 to i8
   %24 = add nuw nsw i8 %23, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42422,7 +42422,7 @@ define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noun
   br i1 %or.cond.i25, label %38, label %ma_channel_map_init_standard_channel_alsa.exit
 
 38:                                               ; preds = %35
-  %39 = trunc i32 %2 to i8
+  %39 = trunc nuw i32 %2 to i8
   %40 = add nuw nsw i8 %39, 14
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42475,7 +42475,7 @@ define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noun
   br i1 %or.cond.i32, label %58, label %ma_channel_map_init_standard_channel_alsa.exit
 
 58:                                               ; preds = %55
-  %59 = trunc i32 %2 to i8
+  %59 = trunc nuw i32 %2 to i8
   %60 = add nuw nsw i8 %59, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42528,7 +42528,7 @@ define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noun
   br i1 %or.cond.i39, label %78, label %ma_channel_map_init_standard_channel_alsa.exit
 
 78:                                               ; preds = %75
-  %79 = trunc i32 %2 to i8
+  %79 = trunc nuw i32 %2 to i8
   %80 = add nuw nsw i8 %79, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42581,7 +42581,7 @@ define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noun
   br i1 %or.cond.i46, label %98, label %ma_channel_map_init_standard_channel_alsa.exit
 
 98:                                               ; preds = %95
-  %99 = trunc i32 %2 to i8
+  %99 = trunc nuw i32 %2 to i8
   %100 = add nuw nsw i8 %99, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42624,7 +42624,7 @@ define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noun
   br i1 %or.cond.i53, label %114, label %ma_channel_map_init_standard_channel_alsa.exit
 
 114:                                              ; preds = %111
-  %115 = trunc i32 %2 to i8
+  %115 = trunc nuw i32 %2 to i8
   %116 = add nuw nsw i8 %115, 14
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42677,12 +42677,12 @@ define internal fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noun
   br i1 %or.cond.i58, label %134, label %ma_channel_map_init_standard_channel_alsa.exit
 
 134:                                              ; preds = %131
-  %135 = trunc i32 %2 to i8
+  %135 = trunc nuw i32 %2 to i8
   %136 = add nuw nsw i8 %135, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup:                                    ; preds = %7
-  %switch.idx.cast = trunc i32 %2 to i8
+  %switch.idx.cast = trunc nuw i32 %2 to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 2
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42721,7 +42721,7 @@ switch.lookup74:                                  ; preds = %17
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup79:                                  ; preds = %27
-  %switch.idx.cast80 = trunc i32 %2 to i8
+  %switch.idx.cast80 = trunc nuw i32 %2 to i8
   %switch.offset81 = add nuw nsw i8 %switch.idx.cast80, 2
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42746,7 +42746,7 @@ switch.lookup91:                                  ; preds = %33
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup96:                                  ; preds = %43
-  %switch.idx.cast97 = trunc i32 %2 to i8
+  %switch.idx.cast97 = trunc nuw i32 %2 to i8
   %switch.offset98 = add nuw nsw i8 %switch.idx.cast97, 2
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42764,7 +42764,7 @@ switch.lookup103:                                 ; preds = %47
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup108:                                 ; preds = %49
-  %switch.idx.cast109 = trunc i32 %2 to i8
+  %switch.idx.cast109 = trunc nuw i32 %2 to i8
   %switch.offset110 = add nuw nsw i8 %switch.idx.cast109, 2
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42783,7 +42783,7 @@ switch.lookup116:                                 ; preds = %53
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup121:                                 ; preds = %63
-  %switch.cast122 = trunc i32 %2 to i24
+  %switch.cast122 = trunc nuw i32 %2 to i24
   %switch.shiftamt123 = shl nuw nsw i24 %switch.cast122, 3
   %switch.downshift124 = lshr i24 197634, %switch.shiftamt123
   %switch.masked125 = trunc i24 %switch.downshift124 to i8
@@ -42824,7 +42824,7 @@ switch.lookup145:                                 ; preds = %73
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup150:                                 ; preds = %83
-  %switch.idx.cast151 = trunc i32 %2 to i8
+  %switch.idx.cast151 = trunc nuw i32 %2 to i8
   %switch.offset152 = add nuw nsw i8 %switch.idx.cast151, 2
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42863,7 +42863,7 @@ switch.lookup172:                                 ; preds = %93
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup177:                                 ; preds = %103
-  %switch.idx.cast178 = trunc i32 %2 to i8
+  %switch.idx.cast178 = trunc nuw i32 %2 to i8
   %switch.offset179 = add nuw nsw i8 %switch.idx.cast178, 2
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42888,7 +42888,7 @@ switch.lookup189:                                 ; preds = %109
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 switch.lookup194:                                 ; preds = %119
-  %switch.idx.cast195 = trunc i32 %2 to i8
+  %switch.idx.cast195 = trunc nuw i32 %2 to i8
   %switch.offset196 = add nuw nsw i8 %switch.idx.cast195, 2
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -43437,7 +43437,7 @@ define hidden noundef i32 @ma_rb_init_ex(i64 noundef %0, i64 noundef %1, i64 nou
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %40, %31, %15
-  %41 = trunc i64 %0 to i32
+  %41 = trunc nuw nsw i64 %0 to i32
   %42 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %41, ptr %42, align 8
   %43 = trunc i64 %1 to i32
@@ -43915,7 +43915,7 @@ define hidden noundef i32 @ma_rb_seek_read(ptr noundef %0, i64 noundef %1) local
   %21 = add nuw nsw i64 %20, %1
   %22 = zext nneg i32 %19 to i64
   %23 = icmp ugt i64 %21, %22
-  %24 = trunc i64 %21 to i32
+  %24 = trunc nuw nsw i64 %21 to i32
   %spec.select = select i1 %23, i32 %19, i32 %24
   br label %34
 
@@ -43982,7 +43982,7 @@ define hidden noundef i32 @ma_rb_seek_write(ptr noundef %0, i64 noundef %1) loca
   %26 = add i64 %25, %1
   %27 = zext nneg i32 %24 to i64
   %28 = icmp ugt i64 %26, %27
-  %29 = trunc i64 %26 to i32
+  %29 = trunc nuw nsw i64 %26 to i32
   %spec.select = select i1 %28, i32 %24, i32 %29
   br label %30
 
@@ -44671,7 +44671,7 @@ define hidden noundef i32 @ma_pcm_rb_seek_read(ptr noundef %0, i32 noundef %1) l
   %30 = add nuw nsw i64 %29, %14
   %31 = zext nneg i32 %28 to i64
   %32 = icmp ugt i64 %30, %31
-  %33 = trunc i64 %30 to i32
+  %33 = trunc nuw nsw i64 %30 to i32
   %spec.select.i = select i1 %32, i32 %28, i32 %33
   br label %43
 
@@ -44748,7 +44748,7 @@ define hidden noundef i32 @ma_pcm_rb_seek_write(ptr noundef %0, i32 noundef %1) 
   %36 = add nuw nsw i64 %35, %14
   %37 = zext nneg i32 %34 to i64
   %38 = icmp ugt i64 %36, %37
-  %39 = trunc i64 %36 to i32
+  %39 = trunc nuw nsw i64 %36 to i32
   %spec.select.i = select i1 %38, i32 %34, i32 %39
   br label %ma_rb_seek_write.exit
 
@@ -54839,7 +54839,7 @@ drwav__seek_forward.exit:                         ; preds = %192
 
 drwav__seek_forward.exit791:                      ; preds = %.lr.ph.i785, %.lr.ph.i785.preheader
   %.013.i786.lcssa = phi i64 [ %219, %.lr.ph.i785.preheader ], [ %225, %.lr.ph.i785 ]
-  %227 = trunc i64 %.013.i786.lcssa to i32
+  %227 = trunc nuw nsw i64 %.013.i786.lcssa to i32
   %228 = call i32 %221(ptr noundef %222, i32 noundef %227, i32 noundef 1) #68
   %.not10.i787.not = icmp eq i32 %228, 0
   br i1 %.not10.i787.not, label %drwav_fourcc_equal.exit855, label %drwav__seek_forward.exit791.thread945
@@ -55088,7 +55088,7 @@ drwav__read_chunk_header.exit796.thread:          ; preds = %309, %311, %332, %3
 drwav__seek_from_start.exit:                      ; preds = %.preheader.i, %349
   %.014.lcssa.sink.i = phi i64 [ %342, %349 ], [ %.014.i, %.preheader.i ]
   %.sink20.i = phi i32 [ 0, %349 ], [ 1, %.preheader.i ]
-  %358 = trunc i64 %.014.lcssa.sink.i to i32
+  %358 = trunc nuw nsw i64 %.014.lcssa.sink.i to i32
   %359 = call i32 %350(ptr noundef %351, i32 noundef %358, i32 noundef %.sink20.i) #68
   %360 = icmp eq i32 %359, 0
   br i1 %360, label %drwav_fourcc_equal.exit855, label %361
@@ -55454,7 +55454,7 @@ drwav_guid_equal.exit804:                         ; preds = %363, %367
 
 drwav__seek_forward.exit812:                      ; preds = %.lr.ph.i806, %535
   %.013.i807.lcssa = phi i64 [ %537, %535 ], [ %541, %.lr.ph.i806 ]
-  %543 = trunc i64 %.013.i807.lcssa to i32
+  %543 = trunc nuw nsw i64 %.013.i807.lcssa to i32
   %544 = call i32 %536(ptr noundef %538, i32 noundef %543, i32 noundef 1) #68
   %.not10.i808.not = icmp eq i32 %544, 0
   br i1 %.not10.i808.not, label %drwav__seek_forward.exit812.thread.loopexit1306.loopexit.loopexit1314, label %545
@@ -55542,7 +55542,7 @@ drwav_guid_equal.exit819:                         ; preds = %549
 
 drwav__seek_forward.exit827:                      ; preds = %.lr.ph.i821, %.lr.ph.i821.preheader
   %.013.i822.lcssa = phi i64 [ %562, %.lr.ph.i821.preheader ], [ %567, %.lr.ph.i821 ]
-  %569 = trunc i64 %.013.i822.lcssa to i32
+  %569 = trunc nuw nsw i64 %.013.i822.lcssa to i32
   %570 = call i32 %563(ptr noundef %564, i32 noundef %569, i32 noundef 1) #68
   %.not10.i823.not = icmp eq i32 %570, 0
   br i1 %.not10.i823.not, label %drwav__seek_forward.exit812.thread, label %drwav__seek_forward.exit827.thread962
@@ -55687,7 +55687,7 @@ drwav_guid_equal.exit834:                         ; preds = %575, %572
 
 drwav__seek_forward.exit842:                      ; preds = %.lr.ph.i836, %.lr.ph.i836.preheader
   %.013.i837.lcssa = phi i64 [ %622, %.lr.ph.i836.preheader ], [ %627, %.lr.ph.i836 ]
-  %629 = trunc i64 %.013.i837.lcssa to i32
+  %629 = trunc nuw nsw i64 %.013.i837.lcssa to i32
   %630 = call i32 %623(ptr noundef %624, i32 noundef %629, i32 noundef 1) #68
   %.not10.i838.not = icmp eq i32 %630, 0
   br i1 %.not10.i838.not, label %drwav__seek_forward.exit812.thread.loopexit1306.loopexit.loopexit, label %drwav__seek_forward.exit842.thread968
@@ -55962,7 +55962,7 @@ drwav_guid_equal.exit834.thread:                  ; preds = %.preheader1301, %dr
   %or.cond39 = phi i1 [ false, %710 ], [ false, %708 ], [ false, %717 ], [ false, %693 ], [ false, %696 ], [ false, %718 ], [ false, %.thread984 ], [ false, %725 ], [ false, %.thread995 ], [ true, %732 ], [ true, %738 ], [ true, %744 ], [ true, %750 ]
   store i16 %.0603, ptr %10, align 4
   store i16 %.0623, ptr %259, align 2
-  %757 = trunc i64 %692 to i32
+  %757 = trunc nuw i64 %692 to i32
   store i32 %757, ptr %264, align 4
   %758 = zext i16 %.0623 to i32
   %759 = zext i16 %.0625 to i32
@@ -56012,7 +56012,7 @@ drwav_guid_equal.exit834.thread:                  ; preds = %.preheader1301, %dr
 
 drwav__seek_forward.exit863:                      ; preds = %.lr.ph.i857, %.lr.ph.i857.preheader
   %.013.i858.lcssa = phi i64 [ %773, %.lr.ph.i857.preheader ], [ %777, %.lr.ph.i857 ]
-  %779 = trunc i64 %.013.i858.lcssa to i32
+  %779 = trunc nuw nsw i64 %.013.i858.lcssa to i32
   %780 = call i32 %772(ptr noundef %774, i32 noundef %779, i32 noundef 1) #68
   %.not10.i859.not = icmp eq i32 %780, 0
   br i1 %.not10.i859.not, label %drwav_fourcc_equal.exit855, label %drwav__seek_forward.exit863.thread1022
@@ -56098,7 +56098,7 @@ drwav_fourcc_equal.exit843.thread:                ; preds = %633
 
 drwav__seek_forward.exit872:                      ; preds = %.lr.ph.i866, %.lr.ph.i866.preheader
   %.013.i867.lcssa = phi i64 [ %.0631, %.lr.ph.i866.preheader ], [ %815, %.lr.ph.i866 ]
-  %817 = trunc i64 %.013.i867.lcssa to i32
+  %817 = trunc nuw nsw i64 %.013.i867.lcssa to i32
   %818 = call i32 %811(ptr noundef %812, i32 noundef %817, i32 noundef 1) #68
   %.not10.i868.not = icmp eq i32 %818, 0
   br i1 %.not10.i868.not, label %drwav_fourcc_equal.exit855, label %drwav__seek_forward.exit872.thread1028
@@ -56132,7 +56132,7 @@ drwav__seek_forward.exit872.thread1028:           ; preds = %810, %drwav__seek_f
 
 drwav__seek_forward.exit880:                      ; preds = %.lr.ph.i874, %.lr.ph.i874.preheader
   %.013.i875.lcssa = phi i64 [ %.sink59.i, %.lr.ph.i874.preheader ], [ %825, %.lr.ph.i874 ]
-  %827 = trunc i64 %.013.i875.lcssa to i32
+  %827 = trunc nuw nsw i64 %.013.i875.lcssa to i32
   %828 = call i32 %821(ptr noundef %822, i32 noundef %827, i32 noundef 1) #68
   %.not10.i876.not = icmp eq i32 %828, 0
   br i1 %.not10.i876.not, label %drwav__seek_forward.exit812.thread, label %drwav__seek_forward.exit880.thread1031
@@ -56178,7 +56178,7 @@ drwav_fourcc_equal.exit864.thread:                ; preds = %drwav_fourcc_equal.
 
 drwav__seek_forward.exit888:                      ; preds = %.lr.ph.i882, %.lr.ph.i882.preheader
   %.013.i883.lcssa = phi i64 [ %839, %.lr.ph.i882.preheader ], [ %844, %.lr.ph.i882 ]
-  %846 = trunc i64 %.013.i883.lcssa to i32
+  %846 = trunc nuw nsw i64 %.013.i883.lcssa to i32
   %847 = call i32 %840(ptr noundef %841, i32 noundef %846, i32 noundef 1) #68
   %.not10.i884.not = icmp eq i32 %847, 0
   br i1 %.not10.i884.not, label %drwav__seek_forward.exit812.thread.loopexit1306.loopexit.loopexit, label %drwav__seek_forward.exit888.thread1034
@@ -56336,7 +56336,7 @@ drwav__seek_forward.exit812.thread:               ; preds = %drwav__seek_forward
 
 .lr.ph.i890._crit_edge:                           ; preds = %.lr.ph.i890, %.lr.ph.i890.preheader
   %.013.i891.lcssa = phi i64 [ %914, %.lr.ph.i890.preheader ], [ %920, %.lr.ph.i890 ]
-  %918 = trunc i64 %.013.i891.lcssa to i32
+  %918 = trunc nuw nsw i64 %.013.i891.lcssa to i32
   %919 = call i32 %909(ptr noundef %915, i32 noundef %918, i32 noundef 1) #68
   %.not10.i892 = icmp ne i32 %919, 0
   %spec.select.i893 = zext i1 %.not10.i892 to i32
@@ -58685,7 +58685,7 @@ define hidden i32 @drwav_uninit(ptr noundef readonly %0) local_unnamed_addr #5 {
   %47 = add i64 %46, %45
   %48 = add i64 %47, %44
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %48, i64 4294967295)
-  %49 = trunc i64 %spec.store.select.i to i32
+  %49 = trunc nuw i64 %spec.store.select.i to i32
   %.val79 = load ptr, ptr %11, align 8
   %.val80 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -58709,7 +58709,7 @@ define hidden i32 @drwav_uninit(ptr noundef readonly %0) local_unnamed_addr #5 {
   %60 = getelementptr inbounds i8, ptr %0, i64 128
   %61 = load i64, ptr %60, align 8
   %62 = icmp ult i64 %61, 4294967296
-  %63 = trunc i64 %61 to i32
+  %63 = trunc nuw i64 %61 to i32
   %.0.i = select i1 %62, i32 %63, i32 -1
   %.val81 = load ptr, ptr %11, align 8
   %.val82 = load ptr, ptr %34, align 8
@@ -58991,7 +58991,7 @@ drwav_get_bytes_per_pcm_frame.exit:               ; preds = %27
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %47, i64 2147483647)
   %48 = load ptr, ptr %38, align 8
   %49 = load ptr, ptr %37, align 8
-  %50 = trunc i64 %spec.store.select to i32
+  %50 = trunc nuw nsw i64 %spec.store.select to i32
   %51 = tail call i32 %48(ptr noundef %49, i32 noundef %50, i32 noundef 1) #68
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %._crit_edge, label %43
@@ -59636,7 +59636,7 @@ drwav_get_bytes_per_pcm_frame.exit:               ; preds = %73
 95:                                               ; preds = %.lr.ph94, %101
   %.193 = phi i64 [ %.060, %.lr.ph94 ], [ %108, %101 ]
   %96 = tail call i64 @llvm.umin.i64(i64 %.193, i64 2147483647)
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw nsw i64 %96 to i32
   %98 = load ptr, ptr %6, align 8
   %99 = load ptr, ptr %93, align 8
   %100 = tail call i32 %98(ptr noundef %99, i32 noundef %97, i32 noundef 1) #68
@@ -60965,7 +60965,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %25, %31
   %74 = getelementptr inbounds i32, ptr %7, i64 %.08.i.i.i
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 16
-  %77 = trunc i32 %76 to i16
+  %77 = trunc nuw i32 %76 to i16
   %78 = getelementptr inbounds i16, ptr %.03753.i, i64 %.08.i.i.i
   store i16 %77, ptr %78, align 2
   %79 = add nuw i64 %.08.i.i.i, 1
@@ -61003,7 +61003,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %25, %31
 ._crit_edge.us.i.i:                               ; preds = %81
   %89 = getelementptr inbounds i8, ptr %.04262.us.i.i, i64 %44
   %90 = lshr i64 %87, 48
-  %91 = trunc i64 %90 to i16
+  %91 = trunc nuw i64 %90 to i16
   %92 = getelementptr inbounds i8, ptr %.14163.us.i.i, i64 2
   store i16 %91, ptr %.14163.us.i.i, align 2
   %93 = add nuw i64 %.164.us.i.i, 1
@@ -61500,7 +61500,7 @@ define hidden void @drwav_s32_to_s16(ptr nocapture noundef writeonly %0, ptr noc
   %4 = getelementptr inbounds i32, ptr %1, i64 %.08
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 16
-  %7 = trunc i32 %6 to i16
+  %7 = trunc nuw i32 %6 to i16
   %8 = getelementptr inbounds i16, ptr %0, i64 %.08
   store i16 %7, ptr %8, align 2
   %9 = add nuw i64 %.08, 1
@@ -62766,7 +62766,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %27, %33
 ._crit_edge.us.i.i:                               ; preds = %102
   %110 = getelementptr inbounds i8, ptr %.04265.us.i.i, i64 %46
   %111 = lshr i64 %108, 32
-  %112 = trunc i64 %111 to i32
+  %112 = trunc nuw i64 %111 to i32
   %113 = getelementptr inbounds i8, ptr %.14166.us.i.i, i64 4
   store i32 %112, ptr %.14166.us.i.i, align 4
   %114 = add i32 %.167.us.i.i, 1
@@ -72316,7 +72316,7 @@ ilog.exit.i:                                      ; preds = %470, %463, %454, %4
   %481 = sdiv i16 %.lhs.trunc.i, 8
   %.sext.i = sext i16 %481 to i32
   %482 = load i8, ptr %406, align 4
-  %483 = trunc i16 %481 to i8
+  %483 = trunc nsw i16 %481 to i8
   %484 = add i8 %482, %483
   store i8 %484, ptr %406, align 4
   %485 = load i32, ptr %407, align 4
@@ -76367,10 +76367,10 @@ drmp3_hdr_padding.exit:                           ; preds = %drmp3_hdr_compare.e
   %118 = icmp ne i8 %117, 0
   %119 = icmp ult i8 %110, 16
   %.not89 = xor i1 %51, %119
-  %or.cond550 = or i1 %118, %.not89
+  %or.cond549 = or i1 %118, %.not89
   %.not90 = icmp eq i32 %90, 0
-  %or.cond552 = or i1 %or.cond550, %.not90
-  br i1 %or.cond552, label %.lr.ph120.preheader.i, label %.thread277
+  %or.cond551 = or i1 %or.cond549, %.not90
+  br i1 %or.cond551, label %.lr.ph120.preheader.i, label %.thread277
 
 120:                                              ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6668) %0, i8 0, i64 6668, i1 false)
@@ -76726,14 +76726,14 @@ drmp3_hdr_padding.exit.i.i:                       ; preds = %329, %257
 
 drmp3d_match_frame.exit.i:                        ; preds = %drmp3_hdr_padding.exit.i.i
   %.not.i118 = icmp eq i32 %.021.i.i, 0
-  br i1 %.not.i118, label %.critedge.thread.i, label %drmp3d_find_frame.exit.loopexit394
+  br i1 %.not.i118, label %.critedge.thread.i, label %drmp3d_find_frame.exit.loopexit393
 
 .critedge.thread.i:                               ; preds = %178, %324, %317, %308, %303, %drmp3d_match_frame.exit.i, %.critedge.i
   %.054105.i = phi i32 [ %.054.lcssa.i, %drmp3d_match_frame.exit.i ], [ %.054.lcssa.i, %.critedge.i ], [ %.054.lcssa.i, %303 ], [ %.054.lcssa.i, %308 ], [ %.054.lcssa.i, %317 ], [ %.054.lcssa.i, %324 ], [ %.054111.i, %178 ]
   %.not64.i = icmp eq i64 %indvars.iv135.i, 0
   %331 = icmp eq i32 %.054105.i, %2
   %or.cond68.i = select i1 %.not64.i, i1 %331, i1 false
-  br i1 %or.cond68.i, label %drmp3d_find_frame.exit.loopexit394, label %332
+  br i1 %or.cond68.i, label %drmp3d_find_frame.exit.loopexit393, label %332
 
 332:                                              ; preds = %.critedge.thread.i
   store i32 0, ptr %121, align 4
@@ -76745,16 +76745,16 @@ drmp3_hdr_valid.exit.thread.i:                    ; preds = %332, %135, %126, %.
   %exitcond.not.i = icmp eq i64 %indvars.iv.next136.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %drmp3d_find_frame.exit.thread, label %.lr.ph120.i
 
-drmp3d_find_frame.exit.loopexit394:               ; preds = %drmp3d_match_frame.exit.i, %.critedge.thread.i
+drmp3d_find_frame.exit.loopexit393:               ; preds = %drmp3d_match_frame.exit.i, %.critedge.thread.i
   %storemerge.i.ph = phi i32 [ %2, %.critedge.thread.i ], [ %.054.lcssa.i, %drmp3d_match_frame.exit.i ]
   %.0.i.ph = phi i32 [ 0, %.critedge.thread.i ], [ %255, %drmp3d_match_frame.exit.i ]
-  %.pre474 = add nsw i32 %.0.i.ph, %storemerge.i.ph
+  %.pre473 = add nsw i32 %.0.i.ph, %storemerge.i.ph
   br label %drmp3d_find_frame.exit
 
-drmp3d_find_frame.exit:                           ; preds = %329, %drmp3d_find_frame.exit.loopexit394
-  %.pre-phi = phi i32 [ %.pre474, %drmp3d_find_frame.exit.loopexit394 ], [ %256, %329 ]
-  %storemerge.i = phi i32 [ %storemerge.i.ph, %drmp3d_find_frame.exit.loopexit394 ], [ %.054.lcssa.i, %329 ]
-  %.0.i = phi i32 [ %.0.i.ph, %drmp3d_find_frame.exit.loopexit394 ], [ %255, %329 ]
+drmp3d_find_frame.exit:                           ; preds = %329, %drmp3d_find_frame.exit.loopexit393
+  %.pre-phi = phi i32 [ %.pre473, %drmp3d_find_frame.exit.loopexit393 ], [ %256, %329 ]
+  %storemerge.i = phi i32 [ %storemerge.i.ph, %drmp3d_find_frame.exit.loopexit393 ], [ %.054.lcssa.i, %329 ]
+  %.0.i = phi i32 [ %.0.i.ph, %drmp3d_find_frame.exit.loopexit393 ], [ %255, %329 ]
   %.not91 = icmp eq i32 %storemerge.i, 0
   %334 = icmp sgt i32 %.pre-phi, %2
   %or.cond95 = select i1 %.not91, i1 true, i1 %334
@@ -76833,7 +76833,7 @@ drmp3d_find_frame.exit.thread:                    ; preds = %drmp3_hdr_valid.exi
   %382 = shl i8 %.fr, 4
   %383 = and i8 %382, 16
   %384 = xor i8 %383, 16
-  %spec.select551 = zext nneg i8 %384 to i32
+  %spec.select550 = zext nneg i8 %384 to i32
   %385 = icmp eq i8 %361, 1
   br i1 %385, label %386, label %1849
 
@@ -76863,12 +76863,12 @@ drmp3d_find_frame.exit.thread:                    ; preds = %drmp3_hdr_valid.exi
 
 406:                                              ; preds = %386
   %407 = shl nuw nsw i32 %390, 1
-  %408 = or disjoint i32 %spec.select551, 9
+  %408 = or disjoint i32 %spec.select550, 9
   %409 = icmp sgt i32 %408, %380
   br i1 %409, label %drmp3_bs_get_bits.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %406
-  %410 = lshr exact i32 %spec.select551, 3
+  %410 = lshr exact i32 %spec.select550, 3
   %411 = zext nneg i32 %410 to i64
   %412 = getelementptr inbounds i8, ptr %378, i64 %411
   %413 = load i8, ptr %412, align 1
@@ -76883,7 +76883,7 @@ drmp3d_find_frame.exit.thread:                    ; preds = %drmp3_hdr_valid.exi
 
 drmp3_bs_get_bits.exit.i:                         ; preds = %.lr.ph.i.i, %406
   %.019.i.i = phi i32 [ %419, %.lr.ph.i.i ], [ 0, %406 ]
-  %420 = add nuw nsw i32 %spec.select551, 16
+  %420 = add nuw nsw i32 %spec.select550, 16
   %421 = or disjoint i32 %420, %407
   %422 = icmp sgt i32 %421, %380
   br i1 %422, label %drmp3_bs_get_bits.exit119.i, label %.lr.ph.i113.preheader.i
@@ -76907,12 +76907,12 @@ drmp3_bs_get_bits.exit.i:                         ; preds = %.lr.ph.i.i, %406
 
 436:                                              ; preds = %386
   %437 = or disjoint i32 %390, 8
-  %438 = or disjoint i32 %437, %spec.select551
+  %438 = or disjoint i32 %437, %spec.select550
   %439 = icmp sgt i32 %438, %380
   br i1 %439, label %drmp3_bs_get_bits.exit131.i, label %.lr.ph.i125.i
 
 .lr.ph.i125.i:                                    ; preds = %436
-  %440 = lshr exact i32 %spec.select551, 3
+  %440 = lshr exact i32 %spec.select550, 3
   %441 = zext nneg i32 %440 to i64
   %442 = getelementptr inbounds i8, ptr %378, i64 %441
   %443 = load i8, ptr %442, align 1
@@ -77021,7 +77021,7 @@ drmp3_bs_get_bits.exit155.thread.i:               ; preds = %drmp3_bs_get_bits.e
   %499 = xor i32 %490, 7
   %500 = lshr i32 %498, %499
   %501 = or i32 %500, %496
-  %502 = trunc i32 %501 to i16
+  %502 = trunc nuw i32 %501 to i16
   %503 = getelementptr inbounds i8, ptr %.099.i, i64 10
   store i16 %502, ptr %503, align 2
   %504 = icmp ugt i32 %501, 288
@@ -77193,7 +77193,7 @@ drmp3_bs_get_bits.exit203.i:                      ; preds = %.lr.ph.i197.prehead
 
 drmp3_bs_get_bits.exit215.i:                      ; preds = %._crit_edge.i204.i, %585
   %.019.i208.i = phi i32 [ %596, %._crit_edge.i204.i ], [ 0, %585 ]
-  %597 = trunc i32 %.019.i208.i to i8
+  %597 = trunc nuw i32 %.019.i208.i to i8
   %598 = getelementptr inbounds i8, ptr %.099.i, i64 16
   store i8 %597, ptr %598, align 8
   %599 = getelementptr inbounds i8, ptr %.099.i, i64 22
@@ -77552,7 +77552,7 @@ drmp3_bs_get_bits.exit299.i:                      ; preds = %._crit_edge.i288.i,
 drmp3_bs_get_bits.exit311.i:                      ; preds = %785, %._crit_edge.i300.i, %773
   %.sroa.24.4 = phi i32 [ %.sroa.24.3, %785 ], [ %774, %._crit_edge.i300.i ], [ %774, %773 ]
   %788 = phi i32 [ %787, %785 ], [ %784, %._crit_edge.i300.i ], [ 0, %773 ]
-  %789 = trunc i32 %788 to i8
+  %789 = trunc nuw i32 %788 to i8
   %790 = getelementptr inbounds i8, ptr %.099.i, i64 28
   store i8 %789, ptr %790, align 4
   %791 = add nsw i32 %.sroa.24.4, 1
@@ -77574,7 +77574,7 @@ drmp3_bs_get_bits.exit311.i:                      ; preds = %785, %._crit_edge.i
 
 drmp3_bs_get_bits.exit323.i:                      ; preds = %._crit_edge.i312.i, %drmp3_bs_get_bits.exit311.i
   %.019.i316.i = phi i32 [ %801, %._crit_edge.i312.i ], [ 0, %drmp3_bs_get_bits.exit311.i ]
-  %802 = trunc i32 %.019.i316.i to i8
+  %802 = trunc nuw i32 %.019.i316.i to i8
   %803 = getelementptr inbounds i8, ptr %.099.i, i64 29
   store i8 %802, ptr %803, align 1
   %804 = add nsw i32 %.sroa.24.4, 2
@@ -77596,7 +77596,7 @@ drmp3_bs_get_bits.exit323.i:                      ; preds = %._crit_edge.i312.i,
 
 drmp3_bs_get_bits.exit335.i:                      ; preds = %._crit_edge.i324.i, %drmp3_bs_get_bits.exit323.i
   %.019.i328.i = phi i32 [ %814, %._crit_edge.i324.i ], [ 0, %drmp3_bs_get_bits.exit323.i ]
-  %815 = trunc i32 %.019.i328.i to i8
+  %815 = trunc nuw i32 %.019.i328.i to i8
   %816 = getelementptr inbounds i8, ptr %.099.i, i64 30
   store i8 %815, ptr %816, align 2
   %817 = lshr i32 %.4.i, 12
@@ -77687,11 +77687,11 @@ drmp3_L3_read_side_info.exit.thread:              ; preds = %drmp3_bs_get_bits.e
 
 879:                                              ; preds = %.preheader, %drmp3_L3_decode.exit
   %880 = phi i32 [ %342, %.preheader ], [ %1829, %drmp3_L3_decode.exit ]
-  %.074385 = phi ptr [ %3, %.preheader ], [ %1832, %drmp3_L3_decode.exit ]
+  %.074384 = phi ptr [ %3, %.preheader ], [ %1832, %drmp3_L3_decode.exit ]
   %881 = phi i1 [ true, %.preheader ], [ false, %drmp3_L3_decode.exit ]
-  %.076384 = phi i32 [ 0, %.preheader ], [ 1, %drmp3_L3_decode.exit ]
+  %.076383 = phi i32 [ 0, %.preheader ], [ 1, %drmp3_L3_decode.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4608) %854, i8 0, i64 4608, i1 false)
-  %882 = mul nuw nsw i32 %880, %.076384
+  %882 = mul nuw nsw i32 %880, %.076383
   %883 = sext i32 %882 to i64
   %884 = getelementptr inbounds %struct.drmp3_L3_gr_info, ptr %387, i64 %883
   %885 = icmp sgt i32 %880, 0
@@ -77777,7 +77777,7 @@ drmp3_L3_read_side_info.exit.thread:              ; preds = %drmp3_bs_get_bits.e
   %935 = load i8, ptr %934, align 1
   %936 = zext i8 %935 to i32
   %937 = urem i32 %932, %936
-  %938 = trunc i32 %937 to i8
+  %938 = trunc nuw i32 %937 to i8
   %939 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i
   store i8 %938, ptr %939, align 1
   %940 = mul nsw i32 %.07593.i.i, %936
@@ -78938,8 +78938,8 @@ drmp3_L3_ldexp_q2.exit.i.i.i:                     ; preds = %1487
 
 ._crit_edge.i.i.i77.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i, %1510
   %.0.lcssa.i.i.i.i = phi i32 [ 0, %1510 ], [ %1523, %._crit_edge.loopexit.i.i.i.i ]
-  %.not628 = icmp slt i32 %.0.lcssa.i.i.i.i, %1511
-  br i1 %.not628, label %.lr.ph45.preheader.i.i.i.i, label %drmp3_L3_intensity_stereo_band.exit.i.i.i
+  %.not627 = icmp slt i32 %.0.lcssa.i.i.i.i, %1511
+  br i1 %.not627, label %.lr.ph45.preheader.i.i.i.i, label %drmp3_L3_intensity_stereo_band.exit.i.i.i
 
 .lr.ph45.preheader.i.i.i.i:                       ; preds = %._crit_edge.i.i.i77.i
   %1524 = zext nneg i32 %.0.lcssa.i.i.i.i to i64
@@ -79481,11 +79481,11 @@ drmp3_L3_change_sign.exit.i:                      ; preds = %1823
 
 drmp3_L3_decode.exit:                             ; preds = %drmp3_L3_change_sign.exit.i, %drmp3_L3_midside_stereo.exit.i
   %1828 = load i32, ptr %343, align 4
-  call fastcc void @drmp3d_synth_granule(ptr noundef nonnull %878, ptr noundef nonnull %854, i32 noundef 18, i32 noundef %1828, ptr noundef %.074385, ptr noundef nonnull %867)
+  call fastcc void @drmp3d_synth_granule(ptr noundef nonnull %878, ptr noundef nonnull %854, i32 noundef 18, i32 noundef %1828, ptr noundef %.074384, ptr noundef nonnull %867)
   %1829 = load i32, ptr %343, align 4
   %1830 = sext i32 %1829 to i64
   %1831 = mul nsw i64 %1830, 1152
-  %1832 = getelementptr inbounds i8, ptr %.074385, i64 %1831
+  %1832 = getelementptr inbounds i8, ptr %.074384, i64 %1831
   %1833 = load i8, ptr %344, align 1
   %1834 = and i8 %1833, 8
   %.not93 = icmp ne i8 %1834, 0
@@ -79494,13 +79494,13 @@ drmp3_L3_decode.exit:                             ; preds = %drmp3_L3_change_sig
 
 .loopexit.loopexit:                               ; preds = %drmp3_L3_decode.exit
   %.pre = load i32, ptr %848, align 8
-  %.pre473 = load i32, ptr %850, align 4
+  %.pre472 = load i32, ptr %850, align 4
   %1836 = add nsw i32 %.pre, 7
   %1837 = lshr i32 %1836, 3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %831
-  %1838 = phi i32 [ %.pre473, %.loopexit.loopexit ], [ %849, %831 ]
+  %1838 = phi i32 [ %.pre472, %.loopexit.loopexit ], [ %849, %831 ]
   %1839 = phi i32 [ %1837, %.loopexit.loopexit ], [ 0, %831 ]
   %1840 = lshr i32 %1838, 3
   %1841 = sub nsw i32 %1840, %1839
@@ -79520,7 +79520,7 @@ drmp3_L3_decode.exit:                             ; preds = %drmp3_L3_change_sig
 
 drmp3_L3_save_reservoir.exit:                     ; preds = %.loopexit, %1843
   store i32 %spec.select14.i, ptr %832, align 4
-  br label %.loopexit301
+  br label %.loopexit300
 
 1849:                                             ; preds = %.thread277
   %1850 = icmp eq ptr %3, null
@@ -79604,11 +79604,11 @@ drmp3_L3_save_reservoir.exit:                     ; preds = %.loopexit, %1843
 .lr.ph.i146:                                      ; preds = %1896, %1893, %1873, %1868
   %.022.i.i = phi i32 [ %1895, %1893 ], [ 32, %1868 ], [ 30, %1873 ], [ %spec.select.i.i145, %1896 ]
   %.0.i.i147 = phi ptr [ @drmp3_L12_subband_alloc_table.g_alloc_L2M1_lowrate, %1893 ], [ @drmp3_L12_subband_alloc_table.g_alloc_L1, %1868 ], [ @drmp3_L12_subband_alloc_table.g_alloc_L2M2, %1873 ], [ @drmp3_L12_subband_alloc_table.g_alloc_L2M1, %1896 ]
-  %1899 = trunc i32 %.022.i.i to i8
+  %1899 = trunc nuw nsw i32 %.022.i.i to i8
   %1900 = getelementptr inbounds i8, ptr %16, i64 768
   store i8 %1899, ptr %1900, align 16
   %1901 = tail call i32 @llvm.umin.i32(i32 %1869, i32 %.022.i.i)
-  %1902 = trunc i32 %1901 to i8
+  %1902 = trunc nuw nsw i32 %1901 to i8
   %1903 = getelementptr inbounds i8, ptr %16, i64 769
   store i8 %1902, ptr %1903, align 1
   %1904 = getelementptr inbounds i8, ptr %16, i64 770
@@ -79634,11 +79634,11 @@ drmp3_L3_save_reservoir.exit:                     ; preds = %.loopexit, %1843
   %1915 = getelementptr inbounds [64 x i8], ptr %1907, i64 0, i64 %indvars.iv121.i.us
   store i8 %1914, ptr %1915, align 1
   %indvars.iv.next122.i.us = add nuw nsw i64 %indvars.iv121.i.us, 1
-  %exitcond468.not = icmp eq i64 %indvars.iv.next122.i.us, %1909
-  br i1 %exitcond468.not, label %.lr.ph.i83.i.preheader, label %.lr.ph103.i.split.us
+  %exitcond467.not = icmp eq i64 %indvars.iv.next122.i.us, %1909
+  br i1 %exitcond467.not, label %.lr.ph.i83.i.preheader, label %.lr.ph103.i.split.us
 
 1916:                                             ; preds = %1986, %.lr.ph.i146
-  %.sroa.24.6 = phi i32 [ %spec.select551, %.lr.ph.i146 ], [ %.sroa.24.7, %1986 ]
+  %.sroa.24.6 = phi i32 [ %spec.select550, %.lr.ph.i146 ], [ %.sroa.24.7, %1986 ]
   %indvars.iv.i148 = phi i64 [ 0, %.lr.ph.i146 ], [ %indvars.iv.next.i155, %1986 ]
   %.046101.i = phi ptr [ @drmp3_L12_read_scale_info.g_bitalloc_code_tab, %.lr.ph.i146 ], [ %.1.i149, %1986 ]
   %.047100.i = phi i32 [ 0, %.lr.ph.i146 ], [ %.148.i, %1986 ]
@@ -79826,8 +79826,8 @@ drmp3_bs_get_bits.exit81.i:                       ; preds = %._crit_edge.i70.i, 
   %2013 = getelementptr inbounds [64 x i8], ptr %1907, i64 0, i64 %indvars.iv121.i
   store i8 %2012, ptr %2013, align 1
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
-  %exitcond467.not = icmp eq i64 %indvars.iv.next122.i, %1909
-  br i1 %exitcond467.not, label %.lr.ph.i83.i.preheader, label %.lr.ph103.i.split
+  %exitcond466.not = icmp eq i64 %indvars.iv.next122.i, %1909
+  br i1 %exitcond466.not, label %.lr.ph.i83.i.preheader, label %.lr.ph103.i.split
 
 .lr.ph.i83.i.preheader:                           ; preds = %drmp3_bs_get_bits.exit81.i, %.lr.ph103.i.split.us
   %.sroa.24.10.ph = phi i32 [ %.sroa.24.7, %.lr.ph103.i.split.us ], [ %.sroa.24.9, %drmp3_bs_get_bits.exit81.i ]
@@ -79962,15 +79962,15 @@ drmp3_L12_read_scale_info.exit:                   ; preds = %.lr.ph106.i, %drmp3
 
 2072:                                             ; preds = %2194
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond472.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond472.not, label %.loopexit301, label %2073
+  %exitcond471.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond471.not, label %.loopexit300, label %2073
 
 2073:                                             ; preds = %drmp3_L12_read_scale_info.exit, %2072
   %indvars.iv = phi i64 [ 0, %drmp3_L12_read_scale_info.exit ], [ %indvars.iv.next, %2072 ]
-  %.1382 = phi ptr [ %3, %drmp3_L12_read_scale_info.exit ], [ %.2, %2072 ]
-  %.179380 = phi i32 [ 0, %drmp3_L12_read_scale_info.exit ], [ %.280, %2072 ]
-  %.sroa.24.14379 = phi i32 [ %.sroa.24.12, %drmp3_L12_read_scale_info.exit ], [ %.sroa.24.19, %2072 ]
-  %2074 = sext i32 %.179380 to i64
+  %.1381 = phi ptr [ %3, %drmp3_L12_read_scale_info.exit ], [ %.2, %2072 ]
+  %.179379 = phi i32 [ 0, %drmp3_L12_read_scale_info.exit ], [ %.280, %2072 ]
+  %.sroa.24.14378 = phi i32 [ %.sroa.24.12, %drmp3_L12_read_scale_info.exit ], [ %.sroa.24.19, %2072 ]
+  %2074 = sext i32 %.179379 to i64
   %2075 = getelementptr inbounds float, ptr %2068, i64 %2074
   %2076 = load i32, ptr %363, align 4
   %2077 = or i32 %2076, 1
@@ -79984,7 +79984,7 @@ drmp3_L12_read_scale_info.exit:                   ; preds = %.lr.ph106.i, %drmp3
   br label %2082
 
 2082:                                             ; preds = %._crit_edge.i170, %2073
-  %.sroa.24.15 = phi i32 [ %.sroa.24.14379, %2073 ], [ %.sroa.24.19, %._crit_edge.i170 ]
+  %.sroa.24.15 = phi i32 [ %.sroa.24.14378, %2073 ], [ %.sroa.24.19, %._crit_edge.i170 ]
   %2083 = phi i8 [ %.pre.i167, %2073 ], [ %2157, %._crit_edge.i170 ]
   %indvars.iv92.i = phi i64 [ 0, %2073 ], [ %indvars.iv.next93.i, %._crit_edge.i170 ]
   %.04273.i = phi i32 [ 576, %2073 ], [ %.143.lcssa.i, %._crit_edge.i170 ]
@@ -80144,8 +80144,8 @@ drmp3_bs_get_bits.exit56.i:                       ; preds = %._crit_edge.i45.i, 
   %2155 = getelementptr inbounds float, ptr %.04169.i, i64 %2154
   %2156 = sub nsw i32 18, %.14368.i
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
-  %exitcond469.not = icmp eq i64 %indvars.iv.next90.i, %umax
-  br i1 %exitcond469.not, label %._crit_edge.i170, label %.lr.ph72.i
+  %exitcond468.not = icmp eq i64 %indvars.iv.next90.i, %umax
+  br i1 %exitcond468.not, label %._crit_edge.i170, label %.lr.ph72.i
 
 ._crit_edge.i170:                                 ; preds = %.loopexit.i, %2082
   %.sroa.24.19 = phi i32 [ %.sroa.24.15, %2082 ], [ %.sroa.24.18, %.loopexit.i ]
@@ -80157,7 +80157,7 @@ drmp3_bs_get_bits.exit56.i:                       ; preds = %._crit_edge.i45.i, 
 
 drmp3_L12_dequantize_granule.exit:                ; preds = %._crit_edge.i170
   %2158 = shl nsw i32 %2077, 2
-  %2159 = add nsw i32 %2158, %.179380
+  %2159 = add nsw i32 %2158, %.179379
   %2160 = icmp eq i32 %2159, 12
   br i1 %2160, label %2161, label %2194
 
@@ -80209,22 +80209,22 @@ drmp3_L12_dequantize_granule.exit:                ; preds = %._crit_edge.i170
   %2186 = add nuw nsw i32 %.01824.i, 1
   %2187 = getelementptr inbounds i8, ptr %.01923.i, i64 72
   %2188 = getelementptr inbounds i8, ptr %.02022.i, i64 24
-  %exitcond470.not = icmp eq i32 %2186, %2168
-  br i1 %exitcond470.not, label %drmp3_L12_apply_scf_384.exit, label %.preheader.i189
+  %exitcond469.not = icmp eq i32 %2186, %2168
+  br i1 %exitcond469.not, label %drmp3_L12_apply_scf_384.exit, label %.preheader.i189
 
 drmp3_L12_apply_scf_384.exit:                     ; preds = %2185, %2161
   %2189 = load i32, ptr %343, align 4
-  call fastcc void @drmp3d_synth_granule(ptr noundef nonnull %2070, ptr noundef nonnull %2068, i32 noundef 12, i32 noundef %2189, ptr noundef %.1382, ptr noundef nonnull %2071)
+  call fastcc void @drmp3d_synth_granule(ptr noundef nonnull %2070, ptr noundef nonnull %2068, i32 noundef 12, i32 noundef %2189, ptr noundef %.1381, ptr noundef nonnull %2071)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4608) %2068, i8 0, i64 4608, i1 false)
   %2190 = load i32, ptr %343, align 4
   %2191 = sext i32 %2190 to i64
   %2192 = mul nsw i64 %2191, 768
-  %2193 = getelementptr inbounds i8, ptr %.1382, i64 %2192
+  %2193 = getelementptr inbounds i8, ptr %.1381, i64 %2192
   br label %2194
 
 2194:                                             ; preds = %drmp3_L12_apply_scf_384.exit, %drmp3_L12_dequantize_granule.exit
   %.280 = phi i32 [ 0, %drmp3_L12_apply_scf_384.exit ], [ %2159, %drmp3_L12_dequantize_granule.exit ]
-  %.2 = phi ptr [ %2193, %drmp3_L12_apply_scf_384.exit ], [ %.1382, %drmp3_L12_dequantize_granule.exit ]
+  %.2 = phi ptr [ %2193, %drmp3_L12_apply_scf_384.exit ], [ %.1381, %drmp3_L12_dequantize_granule.exit ]
   %2195 = icmp sgt i32 %.sroa.24.19, %380
   br i1 %2195, label %2196, label %2072
 
@@ -80232,7 +80232,7 @@ drmp3_L12_apply_scf_384.exit:                     ; preds = %2185, %2161
   store i8 0, ptr %19, align 4
   br label %2207
 
-.loopexit301:                                     ; preds = %2072, %drmp3_L3_save_reservoir.exit
+.loopexit300:                                     ; preds = %2072, %drmp3_L3_save_reservoir.exit
   %.075 = phi i32 [ %852, %drmp3_L3_save_reservoir.exit ], [ 1, %2072 ]
   %2197 = getelementptr i8, ptr %0, i64 6153
   %.val96 = load i8, ptr %2197, align 1
@@ -80247,8 +80247,8 @@ drmp3_L12_apply_scf_384.exit:                     ; preds = %2185, %2161
   %2206 = mul nuw nsw i32 %2205, %.075
   br label %2207
 
-2207:                                             ; preds = %.loopexit301, %2196, %1851, %drmp3_L3_read_side_info.exit.thread, %drmp3d_find_frame.exit.thread
-  %.0 = phi i32 [ 0, %drmp3_L3_read_side_info.exit.thread ], [ %2206, %.loopexit301 ], [ %1859, %1851 ], [ 0, %2196 ], [ 0, %drmp3d_find_frame.exit.thread ]
+2207:                                             ; preds = %.loopexit300, %2196, %1851, %drmp3_L3_read_side_info.exit.thread, %drmp3d_find_frame.exit.thread
+  %.0 = phi i32 [ 0, %drmp3_L3_read_side_info.exit.thread ], [ %2206, %.loopexit300 ], [ %1859, %1851 ], [ 0, %2196 ], [ 0, %drmp3d_find_frame.exit.thread ]
   ret i32 %.0
 }
 
@@ -81185,7 +81185,7 @@ define internal noundef i32 @drmp3__on_seek_memory(ptr nocapture noundef %0, i32
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %18
-  %23 = trunc i64 %8 to i32
+  %23 = trunc nuw nsw i64 %8 to i32
   %24 = sub nsw i32 0, %23
   br label %25
 
@@ -81614,7 +81614,7 @@ define hidden i64 @drmp3_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr
   %22 = load i32, ptr %13, align 4
   %23 = zext i32 %22 to i64
   %.0..i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %23)
-  %24 = trunc i64 %.0..i to i32
+  %24 = trunc nuw i64 %.0..i to i32
   %25 = shl i64 %.030.i, 1
   %26 = load i32, ptr %11, align 4
   %27 = zext i32 %26 to i64
@@ -81712,7 +81712,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   %15 = load i32, ptr %10, align 4
   %16 = zext i32 %15 to i64
   %.0..us.i = tail call i64 @llvm.umin.i64(i64 %.0.us.i, i64 %16)
-  %17 = trunc i64 %.0..us.i to i32
+  %17 = trunc nuw i64 %.0..us.i to i32
   %18 = load i64, ptr %11, align 8
   %19 = add i64 %.0..us.i, %18
   store i64 %19, ptr %11, align 8
@@ -81737,7 +81737,7 @@ define hidden i64 @drmp3_read_pcm_frames_s16(ptr noundef %0, i64 noundef %1, ptr
   %28 = load i32, ptr %10, align 4
   %29 = zext i32 %28 to i64
   %.0..i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %29)
-  %30 = trunc i64 %.0..i to i32
+  %30 = trunc nuw i64 %.0..i to i32
   %31 = shl i64 %.030.i, 1
   %32 = load i32, ptr %13, align 4
   %33 = zext i32 %32 to i64
@@ -81872,7 +81872,7 @@ drmp3_find_closest_seek_point.exit.thread29.i:    ; preds = %drmp3_find_closest_
   %.sroa.0.038.i = phi i64 [ %.sroa.0.0.copyload.i, %drmp3_find_closest_seek_point.exit.i ], [ 0, %29 ]
   %.sroa.3.037.i = phi i64 [ %.sroa.3.0.copyload.i, %drmp3_find_closest_seek_point.exit.i ], [ 0, %29 ]
   %.sroa.5.035.i = phi i32 [ %41, %drmp3_find_closest_seek_point.exit.i ], [ 0, %29 ]
-  %44 = trunc i64 %.sroa.0.038.i to i32
+  %44 = trunc nuw nsw i64 %.sroa.0.038.i to i32
   %45 = getelementptr inbounds i8, ptr %0, i64 6696
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %6(ptr noundef %46, i32 noundef %44, i32 noundef 0) #68
@@ -81900,7 +81900,7 @@ drmp3_find_closest_seek_point.exit.thread29.i:    ; preds = %drmp3_find_closest_
 
 ._crit_edge.i:                                    ; preds = %67, %.lr.ph.i23.i
   %.lcssa47.i = phi i64 [ %55, %.lr.ph.i23.i ], [ %70, %67 ]
-  %57 = trunc i64 %.lcssa47.i to i32
+  %57 = trunc nuw nsw i64 %.lcssa47.i to i32
   %58 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr %51, align 8
   %60 = tail call i32 %58(ptr noundef %59, i32 noundef %57, i32 noundef 1) #68
@@ -81990,7 +81990,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   %93 = load i32, ptr %73, align 4
   %94 = zext i32 %93 to i64
   %.0..us.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.0.us.i.i.i.i, i64 %94)
-  %95 = trunc i64 %.0..us.i.i.i.i to i32
+  %95 = trunc nuw i64 %.0..us.i.i.i.i to i32
   %96 = load i64, ptr %74, align 8
   %97 = add i64 %.0..us.i.i.i.i, %96
   store i64 %97, ptr %74, align 8
@@ -82069,7 +82069,7 @@ drmp3_seek_to_start_of_stream.exit.i:             ; preds = %112
   %132 = load i32, ptr %130, align 4
   %133 = zext i32 %132 to i64
   %.0..us.i.i.i.i20 = tail call i64 @llvm.umin.i64(i64 %.0.us.i.i.i.i19, i64 %133)
-  %134 = trunc i64 %.0..us.i.i.i.i20 to i32
+  %134 = trunc nuw i64 %.0..us.i.i.i.i20 to i32
   %135 = load i64, ptr %107, align 8
   %136 = add i64 %.0..us.i.i.i.i20, %135
   store i64 %136, ptr %107, align 8
@@ -82417,7 +82417,7 @@ drmp3__realloc_from_callbacks.exit.thread92.i:    ; preds = %drmp3__realloc_from
 120:                                              ; preds = %117
   %121 = load i64, ptr %56, align 8
   %122 = getelementptr inbounds i8, ptr %118, i64 %121
-  %123 = trunc i64 %112 to i32
+  %123 = trunc nuw nsw i64 %112 to i32
   %124 = call i32 @drmp3dec_decode_frame(ptr noundef nonnull %0, ptr noundef nonnull %122, i32 noundef %123, ptr noundef %1, ptr noundef nonnull %3), !range !260
   %125 = load i32, ptr %3, align 4
   %126 = icmp sgt i32 %125, 0
@@ -83174,7 +83174,7 @@ define internal fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef %0, ptr n
   %22 = load i32, ptr %8, align 4
   %23 = zext i32 %22 to i64
   %.0..i.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i, i64 %23)
-  %24 = trunc i64 %.0..i.i to i32
+  %24 = trunc nuw i64 %.0..i.i to i32
   %25 = shl i64 %.030.i.i, 1
   %26 = load i32, ptr %5, align 4
   %27 = zext i32 %26 to i64
@@ -83647,7 +83647,7 @@ define hidden noundef i32 @qoa_encode_header(ptr nocapture noundef readonly %0, 
   %4 = load i32, ptr %3, align 4
   store <4 x i8> <i8 113, i8 111, i8 97, i8 102>, ptr %1, align 1
   %5 = lshr i32 %4, 24
-  %6 = trunc i32 %5 to i8
+  %6 = trunc nuw i32 %5 to i8
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   store i8 %6, ptr %7, align 1
   %8 = lshr i32 %4, 16
@@ -83691,7 +83691,7 @@ define hidden i32 @qoa_encode_frame(ptr nocapture noundef readonly %0, ptr nocap
   %26 = or i64 %24, %25
   %27 = or i64 %26, %22
   %28 = lshr i64 %22, 56
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw i64 %28 to i8
   store i8 %29, ptr %3, align 1
   %30 = lshr i32 %19, 16
   %31 = trunc i32 %30 to i8
@@ -83799,7 +83799,7 @@ define hidden i32 @qoa_encode_frame(ptr nocapture noundef readonly %0, ptr nocap
   %77 = getelementptr inbounds i8, ptr %3, i64 %76
   %78 = add i32 %.2146168.us, 8
   %79 = lshr i64 %75, 56
-  %80 = trunc i64 %79 to i8
+  %80 = trunc nuw i64 %79 to i8
   store i8 %80, ptr %77, align 1
   %81 = lshr i64 %75, 48
   %82 = trunc i64 %81 to i8
@@ -83996,7 +83996,7 @@ qoa_lms_predict.exit._crit_edge.us.us:            ; preds = %qoa_lms_update.exit
   %185 = getelementptr inbounds i8, ptr %3, i64 %184
   %186 = add i32 %.0144151, 8
   %187 = lshr i64 %171, 56
-  %188 = trunc i64 %187 to i8
+  %188 = trunc nuw i64 %187 to i8
   store i8 %188, ptr %185, align 1
   %189 = lshr i64 %171, 48
   %190 = trunc i64 %189 to i8
@@ -84018,7 +84018,7 @@ qoa_lms_predict.exit._crit_edge.us.us:            ; preds = %qoa_lms_update.exit
   %202 = getelementptr inbounds i8, ptr %185, i64 5
   store i8 %201, ptr %202, align 1
   %203 = lshr i64 %175, 8
-  %204 = trunc i64 %203 to i8
+  %204 = trunc nuw i64 %203 to i8
   %205 = getelementptr inbounds i8, ptr %185, i64 6
   store i8 %204, ptr %205, align 1
   %206 = trunc i32 %173 to i8
@@ -84028,7 +84028,7 @@ qoa_lms_predict.exit._crit_edge.us.us:            ; preds = %qoa_lms_update.exit
   %209 = getelementptr inbounds i8, ptr %3, i64 %208
   %210 = add i32 %.0144151, 16
   %211 = lshr i64 %177, 56
-  %212 = trunc i64 %211 to i8
+  %212 = trunc nuw i64 %211 to i8
   store i8 %212, ptr %209, align 1
   %213 = lshr i64 %177, 48
   %214 = trunc i64 %213 to i8
@@ -84050,7 +84050,7 @@ qoa_lms_predict.exit._crit_edge.us.us:            ; preds = %qoa_lms_update.exit
   %226 = getelementptr inbounds i8, ptr %209, i64 5
   store i8 %225, ptr %226, align 1
   %227 = lshr i64 %181, 8
-  %228 = trunc i64 %227 to i8
+  %228 = trunc nuw i64 %227 to i8
   %229 = getelementptr inbounds i8, ptr %209, i64 6
   store i8 %228, ptr %229, align 1
   %230 = trunc i32 %179 to i8
@@ -84118,7 +84118,7 @@ define hidden noalias noundef ptr @qoa_encode(ptr nocapture noundef readonly %0,
 .lr.ph64.preheader:                               ; preds = %26
   store <4 x i8> <i8 113, i8 111, i8 97, i8 102>, ptr %24, align 1
   %30 = lshr i32 %5, 24
-  %31 = trunc i32 %30 to i8
+  %31 = trunc nuw i32 %30 to i8
   %32 = getelementptr inbounds i8, ptr %24, i64 4
   store i8 %31, ptr %32, align 1
   %33 = lshr i32 %5, 16
@@ -84397,7 +84397,7 @@ qoa_lms_predict.exit.us:                          ; preds = %70
   %82 = add nsw i32 %81, %77
   %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 -32768)
   %.0.i.us = tail call noundef i32 @llvm.smin.i32(i32 %83, i32 32767)
-  %84 = trunc i32 %.0.i.us to i16
+  %84 = trunc nsw i32 %.0.i.us to i16
   %85 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv138
   store i16 %84, ptr %85, align 2
   %86 = ashr i32 %81, 4
@@ -84562,13 +84562,13 @@ qoa_lms_update.exit.us:                           ; preds = %88
   %.076103 = phi i64 [ %175, %137 ], [ %220, %217 ]
   %.077102 = phi i64 [ %214, %137 ], [ %223, %217 ]
   %sh.diff = lshr i64 %.076103, 32
-  %tr.sh.diff = trunc i64 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %218 = ashr i32 %tr.sh.diff, 16
   %219 = getelementptr inbounds [4 x i32], ptr %215, i64 0, i64 %indvars.iv
   store i32 %218, ptr %219, align 4
   %220 = shl i64 %.076103, 16
   %sh.diff87 = lshr i64 %.077102, 32
-  %tr.sh.diff88 = trunc i64 %sh.diff87 to i32
+  %tr.sh.diff88 = trunc nuw i64 %sh.diff87 to i32
   %221 = ashr i32 %tr.sh.diff88, 16
   %222 = getelementptr inbounds [4 x i32], ptr %216, i64 0, i64 %indvars.iv
   store i32 %221, ptr %222, align 4
@@ -88910,7 +88910,7 @@ jar_xm_post_pattern_change.exit.i:                ; preds = %jar_xm_post_pattern
   br label %86
 
 86:                                               ; preds = %83, %82
-  %87 = trunc i8 %.066.i to i1
+  %87 = trunc nuw i8 %.066.i to i1
   br i1 %87, label %91, label %88
 
 88:                                               ; preds = %86
@@ -88929,7 +88929,7 @@ jar_xm_post_pattern_change.exit.i:                ; preds = %jar_xm_post_pattern
   br i1 %95, label %63, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %91
-  %96 = trunc i8 %.1.i to i1
+  %96 = trunc nuw i8 %.1.i to i1
   br i1 %96, label %108, label %._crit_edge.i.._crit_edge.thread.i_crit_edge
 
 ._crit_edge.i.._crit_edge.thread.i_crit_edge:     ; preds = %._crit_edge.i
@@ -90129,7 +90129,7 @@ jar_xm_tremolo.exit:                              ; preds = %700, %711, %717, %7
   br i1 %.not222, label %jar_xm_tone_portamento.exit245, label %776
 
 776:                                              ; preds = %774
-  %.rhs.trunc279 = trunc i32 %775 to i16
+  %.rhs.trunc279 = trunc nuw nsw i32 %775 to i16
   %777 = urem i16 %773, %.rhs.trunc279
   %.not223 = icmp eq i16 %777, 0
   br i1 %.not223, label %778, label %jar_xm_tone_portamento.exit245
@@ -90386,7 +90386,7 @@ jar_xm_tremolo.exit:                              ; preds = %700, %711, %717, %7
   br i1 %926, label %jar_xm_tone_portamento.exit245, label %927
 
 927:                                              ; preds = %921
-  %.rhs.trunc276 = trunc i32 %925 to i16
+  %.rhs.trunc276 = trunc nuw nsw i32 %925 to i16
   %928 = urem i16 %919, %.rhs.trunc276
   %929 = icmp eq i16 %928, 0
   br i1 %929, label %930, label %jar_xm_tone_portamento.exit245
@@ -90430,7 +90430,7 @@ jar_xm_tremolo.exit:                              ; preds = %700, %711, %717, %7
   %952 = lshr i32 %951, 4
   %953 = and i32 %951, 15
   %954 = add nuw nsw i32 %952, %953
-  %955 = trunc i32 %954 to i16
+  %955 = trunc nuw nsw i32 %954 to i16
   %.rhs.trunc = add nuw nsw i16 %955, 2
   %956 = urem i16 %.lhs.trunc, %.rhs.trunc
   %.zext = zext nneg i16 %956 to i32
@@ -90748,7 +90748,7 @@ define hidden void @jar_xm_table_jump(ptr nocapture noundef %0, i32 noundef %1) 
   %21 = trunc i32 %1 to i8
   %22 = getelementptr inbounds i8, ptr %0, i64 372
   store i8 %21, ptr %22, align 4
-  %23 = trunc i32 %1 to i16
+  %23 = trunc nuw i32 %1 to i16
   %24 = getelementptr inbounds i8, ptr %0, i64 52
   store i16 %23, ptr %24, align 4
   br label %34
@@ -90858,7 +90858,7 @@ define hidden noundef zeroext i1 @jar_mod_init(ptr noundef writeonly %0) local_u
   %10 = sext i16 %9 to i32
   %11 = sub nsw i32 %7, %10
   %.neg = sdiv i32 %11, -8
-  %12 = trunc i32 %.neg to i16
+  %12 = trunc nsw i32 %.neg to i16
   %13 = shl nuw nsw i64 %indvars.iv, 3
   br label %14
 
@@ -91447,11 +91447,11 @@ memcopy.exit284:                                  ; preds = %.lr.ph.i281
   %spec.store.select9 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 -32768)
   %spec.store.select8 = tail call i32 @llvm.smin.i32(i32 %.4, i32 32767)
   %spec.store.select10 = tail call i32 @llvm.smax.i32(i32 %spec.store.select8, i32 -32768)
-  %312 = trunc i32 %spec.store.select9 to i16
+  %312 = trunc nsw i32 %spec.store.select9 to i16
   %313 = shl i64 %.1307, 1
   %314 = getelementptr inbounds i16, ptr %1, i64 %313
   store i16 %312, ptr %314, align 2
-  %315 = trunc i32 %spec.store.select10 to i16
+  %315 = trunc nsw i32 %spec.store.select10 to i16
   %316 = or disjoint i64 %313, 1
   %317 = getelementptr inbounds i16, ptr %1, i64 %316
   store i16 %315, ptr %317, align 2
@@ -91519,14 +91519,14 @@ define internal fastcc void @worknote(ptr nocapture noundef readonly %0, ptr nou
   %16 = zext i8 %15 to i32
   %17 = or disjoint i32 %13, %16
   %.fr = freeze i32 %17
-  %18 = trunc i32 %.fr to i16
+  %18 = trunc nuw nsw i32 %.fr to i16
   %19 = shl nuw nsw i32 %9, 8
   %20 = and i32 %19, 3840
   %21 = getelementptr inbounds i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23
-  %25 = trunc i32 %24 to i16
+  %25 = trunc nuw nsw i32 %24 to i16
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %27 = load i16, ptr %26, align 8
   %28 = icmp ne i32 %.fr, 0
@@ -91545,7 +91545,7 @@ define internal fastcc void @worknote(ptr nocapture noundef readonly %0, ptr nou
   br label %36
 
 32:                                               ; preds = %30
-  %33 = trunc i32 %11 to i16
+  %33 = trunc nuw nsw i32 %11 to i16
   %34 = add nsw i16 %33, -1
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   store i16 %34, ptr %35, align 8
@@ -91813,7 +91813,7 @@ getnote.exit269:                                  ; preds = %102, %.split.loop.e
   %139 = getelementptr inbounds i8, ptr %1, i64 63
   %140 = load i8, ptr %139, align 1
   %141 = and i8 %140, -16
-  %142 = trunc i32 %137 to i8
+  %142 = trunc nuw nsw i32 %137 to i8
   %143 = or disjoint i8 %141, %142
   store i8 %143, ptr %139, align 1
   br label %144
@@ -91827,7 +91827,7 @@ getnote.exit269:                                  ; preds = %102, %.split.loop.e
   %147 = getelementptr inbounds i8, ptr %1, i64 63
   %148 = load i8, ptr %147, align 1
   %149 = and i8 %148, 15
-  %150 = trunc i32 %145 to i8
+  %150 = trunc nuw i32 %145 to i8
   %151 = or disjoint i8 %149, %150
   store i8 %151, ptr %147, align 1
   br label %281
@@ -91905,7 +91905,7 @@ getnote.exit269:                                  ; preds = %102, %.split.loop.e
   %183 = add nuw nsw i32 %181, %182
   %184 = getelementptr inbounds i8, ptr %2, i64 4728
   %185 = load i16, ptr %184, align 8
-  %186 = trunc i32 %183 to i16
+  %186 = trunc nuw nsw i32 %183 to i16
   %187 = mul i16 %185, %186
   %188 = getelementptr inbounds i8, ptr %2, i64 2370
   store i16 %187, ptr %188, align 2
@@ -92003,7 +92003,7 @@ getnote.exit269:                                  ; preds = %102, %.split.loop.e
   br label %281
 
 233:                                              ; preds = %219
-  %234 = trunc i32 %218 to i16
+  %234 = trunc nuw nsw i32 %218 to i16
   store i16 %234, ptr %220, align 4
   %235 = getelementptr inbounds i8, ptr %1, i64 70
   %236 = load i16, ptr %235, align 2
@@ -92247,7 +92247,7 @@ define internal fastcc void @workeffect(ptr nocapture noundef %0) unnamed_addr #
   %85 = sext i16 %84 to i32
   %86 = mul nsw i32 %85, %78
   %87 = ashr i32 %86, 7
-  %88 = trunc i32 %87 to i16
+  %88 = trunc nsw i32 %87 to i16
   %89 = getelementptr inbounds i8, ptr %0, i64 50
   %90 = icmp ugt i8 %80, 31
   %91 = sub nsw i16 0, %88
@@ -92361,7 +92361,7 @@ define hidden void @jar_mod_unload(ptr noundef %0) local_unnamed_addr #5 {
   %14 = sext i16 %13 to i32
   %15 = sub nsw i32 %11, %14
   %.neg.i.i = sdiv i32 %15, -8
-  %16 = trunc i32 %.neg.i.i to i16
+  %16 = trunc nsw i32 %.neg.i.i to i16
   %17 = shl nuw nsw i64 %indvars.iv.i.i, 3
   br label %18
 
@@ -92418,7 +92418,7 @@ define hidden noundef i64 @jar_mod_load_file(ptr noundef %0, ptr nocapture nound
   %15 = tail call i64 @fread(ptr noundef %calloc, i64 noundef %10, i64 noundef 1, ptr noundef nonnull %7)
   %16 = tail call i32 @fclose(ptr noundef nonnull %7)
   %17 = load ptr, ptr %3, align 8
-  %18 = trunc i64 %10 to i32
+  %18 = trunc nuw nsw i64 %10 to i32
   %19 = tail call fastcc zeroext i1 @jar_mod_load(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %18)
   %spec.select = select i1 %19, i64 %10, i64 0
   br label %20
@@ -92749,7 +92749,7 @@ define hidden i64 @jar_mod_max_samples(ptr noundef %0) local_unnamed_addr #3 {
   %19 = sext i16 %18 to i32
   %20 = sub nsw i32 %16, %19
   %.neg.i.i.i = sdiv i32 %20, -8
-  %21 = trunc i32 %.neg.i.i.i to i16
+  %21 = trunc nsw i32 %.neg.i.i.i to i16
   %22 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   br label %23
 
@@ -92815,7 +92815,7 @@ define hidden void @jar_mod_seek_start(ptr noundef %0) local_unnamed_addr #3 {
   %17 = sext i16 %16 to i32
   %18 = sub nsw i32 %14, %17
   %.neg.i.i = sdiv i32 %18, -8
-  %19 = trunc i32 %.neg.i.i to i16
+  %19 = trunc nsw i32 %.neg.i.i to i16
   %20 = shl nuw nsw i64 %indvars.iv.i.i, 3
   br label %21
 
@@ -94966,7 +94966,7 @@ drwav_init_memory_write__internal.exit:           ; preds = %2
   store ptr @drwav__realloc_default, ptr %.sroa.4.0..sroa_idx53.i.i, align 8
   %.sroa.5.0..sroa_idx54.i.i = getelementptr inbounds i8, ptr %4, i64 56
   store ptr @drwav__free_default, ptr %.sroa.5.0..sroa_idx54.i.i, align 8
-  %24 = trunc i32 %spec.select to i16
+  %24 = trunc nuw nsw i32 %spec.select to i16
   %25 = getelementptr inbounds i8, ptr %4, i64 68
   store i16 %24, ptr %25, align 4
   %26 = trunc i32 %15 to i16
@@ -96485,7 +96485,7 @@ qoaplay_close.exit:                               ; preds = %261, %264, %267
   %288 = sext i16 %287 to i32
   %289 = sub nsw i32 %285, %288
   %.neg.i.i.i = sdiv i32 %289, -8
-  %290 = trunc i32 %.neg.i.i.i to i16
+  %290 = trunc nsw i32 %.neg.i.i.i to i16
   %291 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   br label %292
 
@@ -97218,7 +97218,7 @@ qoaplay_close.exit:                               ; preds = %275, %278, %281
   %302 = sext i16 %301 to i32
   %303 = sub nsw i32 %299, %302
   %.neg.i.i.i = sdiv i32 %303, -8
-  %304 = trunc i32 %.neg.i.i.i to i16
+  %304 = trunc nsw i32 %.neg.i.i.i to i16
   %305 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   br label %306
 
@@ -97437,7 +97437,7 @@ jar_xm_free_context.exit:                         ; preds = %4
   %54 = sext i16 %53 to i32
   %55 = sub nsw i32 %51, %54
   %.neg.i.i.i = sdiv i32 %55, -8
-  %56 = trunc i32 %.neg.i.i.i to i16
+  %56 = trunc nsw i32 %.neg.i.i.i to i16
   %57 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   br label %58
 
@@ -97799,7 +97799,7 @@ jar_xm_reset.exit:                                ; preds = %84, %78
   %118 = sext i16 %117 to i32
   %119 = sub nsw i32 %115, %118
   %.neg.i.i.i = sdiv i32 %119, -8
-  %120 = trunc i32 %.neg.i.i.i to i16
+  %120 = trunc nsw i32 %.neg.i.i.i to i16
   %121 = shl nuw nsw i64 %indvars.iv.i.i.i, 3
   br label %122
 
@@ -99863,7 +99863,7 @@ ma_device_get_log.exit369:                        ; preds = %ma_device_get_conte
   br label %ma_format_from_pulse.exit.thread
 
 switch.hole_check:                                ; preds = %140
-  %switch.maskindex = trunc i32 %141 to i16
+  %switch.maskindex = trunc nuw i32 %141 to i16
   %switch.shifted = lshr i16 681, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %ma_format_from_pulse.exit.thread, label %ma_device_get_context.exit.i367
@@ -100048,7 +100048,7 @@ ma_strncpy_s.exit.i:                              ; preds = %219, %.lr.ph.i.i
   %.046.i.idx.i = phi i64 [ 8, %.preheader.i.i.preheader ], [ %.046.i.add.i, %222 ]
   %.046.i.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.046.i.idx.i
   %223 = urem i32 %.148.i.i, 10
-  %224 = trunc i32 %223 to i8
+  %224 = trunc nuw nsw i32 %223 to i8
   %storemerge.i.i = or disjoint i8 %224, 48
   store i8 %storemerge.i.i, ptr %.046.i.ptr.i, align 1
   %.046.i.add.i = add nuw nsw i64 %.046.i.idx.i, 1
@@ -101904,7 +101904,7 @@ ma_strcpy_s.exit:                                 ; preds = %.preheader.i
   %.046.i.idx = phi i64 [ 8, %ma_strcpy_s.exit ], [ %.046.i.add, %17 ]
   %.046.i.ptr = getelementptr inbounds i8, ptr %5, i64 %.046.i.idx
   %18 = urem i32 %.148.i, 10
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %storemerge.i = or disjoint i8 %19, 48
   store i8 %storemerge.i, ptr %.046.i.ptr, align 1
   %.046.i.add = add nuw nsw i64 %.046.i.idx, 1
@@ -103040,7 +103040,7 @@ ma_strncpy_s.exit.i:                              ; preds = %131, %.lr.ph.i54.i,
   %.046.i.idx.i = phi i64 [ 3, %152 ], [ %.046.i.add.i, %153 ]
   %.046.i.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.046.i.idx.i
   %154 = urem i32 %.148.i.i, 10
-  %155 = trunc i32 %154 to i8
+  %155 = trunc nuw nsw i32 %154 to i8
   %storemerge.i.i = or disjoint i8 %155, 48
   store i8 %storemerge.i.i, ptr %.046.i.ptr.i, align 1
   %.046.i.add.i = add nuw nsw i64 %.046.i.idx.i, 1
@@ -109224,7 +109224,7 @@ define internal noundef i32 @ma_pcm_rb_data_source__on_read(ptr noundef %0, ptr 
   %.036 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
   %16 = sub i64 %2, %.036
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %16, i64 4294967295)
-  %17 = trunc i64 %spec.store.select to i32
+  %17 = trunc nuw i64 %spec.store.select to i32
   %18 = load i32, ptr %7, align 8
   %19 = load i32, ptr %8, align 4
   %20 = zext i32 %18 to i64
@@ -110155,7 +110155,7 @@ define internal fastcc i32 @drwav__seek_from_start(ptr nocapture noundef readonl
 .loopexit.sink.split:                             ; preds = %.preheader, %3
   %.014.lcssa.sink = phi i64 [ %1, %3 ], [ %.014, %.preheader ]
   %.sink20 = phi i32 [ 0, %3 ], [ 1, %.preheader ]
-  %10 = trunc i64 %.014.lcssa.sink to i32
+  %10 = trunc nuw nsw i64 %.014.lcssa.sink to i32
   %11 = tail call i32 %0(ptr noundef %2, i32 noundef %10, i32 noundef %.sink20) #68
   br label %.loopexit
 
@@ -111675,7 +111675,7 @@ define internal fastcc i64 @drwav__read_list_label_or_note_to_metadata_obj(ptr n
   %12 = load i32, ptr %5, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %12, ptr %13, align 8
-  %14 = trunc i64 %2 to i32
+  %14 = trunc nuw i64 %2 to i32
   %15 = add i32 %14, -4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %28, label %16
@@ -111732,7 +111732,7 @@ define internal fastcc i64 @drwav__read_list_labelled_cue_region_to_metadata_obj
   %17 = getelementptr inbounds i8, ptr %1, i64 20
   %18 = load <4 x i16>, ptr %16, align 4
   store <4 x i16> %18, ptr %17, align 4
-  %19 = trunc i64 %2 to i32
+  %19 = trunc nuw i64 %2 to i32
   %20 = add i32 %19, -20
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %33, label %21
@@ -111768,7 +111768,7 @@ define internal fastcc i64 @drwav__read_list_labelled_cue_region_to_metadata_obj
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @drwav__metadata_process_info_text_chunk(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 {
-  %4 = trunc i64 %1 to i32
+  %4 = trunc nuw i64 %1 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -112758,7 +112758,7 @@ drwav__write_or_count.exit730:                    ; preds = %359, %drwav__write_
   %367 = load i64, ptr %366, align 8
   %368 = trunc i64 %367 to i32
   %369 = lshr i64 %367, 32
-  %370 = trunc i64 %369 to i32
+  %370 = trunc nuw i64 %369 to i32
   %.val.i691 = load ptr, ptr %74, align 8
   %.val4.i692 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
@@ -113858,7 +113858,7 @@ define internal noundef i32 @drwav__on_seek_memory_write(ptr nocapture noundef %
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %18
-  %23 = trunc i64 %8 to i32
+  %23 = trunc nuw nsw i64 %8 to i32
   %24 = sub nsw i32 0, %23
   br label %25
 
@@ -120807,10 +120807,10 @@ define internal fastcc void @jar_xm_update_frequency(ptr nocapture noundef reado
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %45 to i32
   %49 = lshr i32 %48, %.pre-phi
-  %50 = trunc i32 %49 to i16
+  %50 = trunc nuw i32 %49 to i16
   %51 = zext i16 %47 to i32
   %52 = lshr i32 %51, %.pre-phi
-  %53 = trunc i32 %52 to i16
+  %53 = trunc nuw i32 %52 to i16
   %54 = uitofp i16 %53 to float
   %55 = fcmp ult float %4, %54
   %56 = uitofp i16 %50 to float
@@ -120916,10 +120916,10 @@ define internal fastcc void @jar_xm_update_frequency(ptr nocapture noundef reado
 111:                                              ; preds = %.loopexit.i
   %112 = zext i16 %104 to i32
   %113 = lshr i32 %112, %109
-  %114 = trunc i32 %113 to i16
+  %114 = trunc nuw i32 %113 to i16
   %115 = zext i16 %108 to i32
   %116 = lshr i32 %115, %109
-  %117 = trunc i32 %116 to i16
+  %117 = trunc nuw i32 %116 to i16
   br label %jar_xm_amiga_period.exit.i
 
 118:                                              ; preds = %.loopexit.i
@@ -121113,10 +121113,10 @@ define internal fastcc void @jar_xm_trigger_note(ptr nocapture noundef readonly 
 63:                                               ; preds = %48
   %64 = zext i16 %56 to i32
   %65 = lshr i32 %64, %61
-  %66 = trunc i32 %65 to i16
+  %66 = trunc nuw i32 %65 to i16
   %67 = zext i16 %60 to i32
   %68 = lshr i32 %67, %61
-  %69 = trunc i32 %68 to i16
+  %69 = trunc nuw i32 %68 to i16
   br label %jar_xm_amiga_period.exit.i
 
 70:                                               ; preds = %48
@@ -121405,10 +121405,10 @@ jar_xm_trigger_note.exit:                         ; preds = %jar_xm_trigger_note
 128:                                              ; preds = %113
   %129 = zext i16 %121 to i32
   %130 = lshr i32 %129, %126
-  %131 = trunc i32 %130 to i16
+  %131 = trunc nuw i32 %130 to i16
   %132 = zext i16 %125 to i32
   %133 = lshr i32 %132, %126
-  %134 = trunc i32 %133 to i16
+  %134 = trunc nuw i32 %133 to i16
   br label %jar_xm_amiga_period.exit.i
 
 135:                                              ; preds = %113
@@ -121907,7 +121907,7 @@ jar_xm_key_off.exit:                              ; preds = %213, %209, %202, %j
   br label %393
 
 390:                                              ; preds = %388
-  %391 = trunc i32 %389 to i8
+  %391 = trunc nuw nsw i32 %389 to i8
   %392 = getelementptr inbounds i8, ptr %1, i64 92
   store i8 %391, ptr %392, align 4
   br label %393
@@ -121942,7 +121942,7 @@ jar_xm_key_off.exit:                              ; preds = %213, %209, %202, %j
   br label %411
 
 408:                                              ; preds = %406
-  %409 = trunc i32 %407 to i8
+  %409 = trunc nuw nsw i32 %407 to i8
   %410 = getelementptr inbounds i8, ptr %1, i64 93
   store i8 %409, ptr %410, align 1
   br label %411
@@ -122078,7 +122078,7 @@ jar_xm_key_off.exit:                              ; preds = %213, %209, %202, %j
   br label %489
 
 486:                                              ; preds = %484
-  %487 = trunc i32 %485 to i8
+  %487 = trunc nuw nsw i32 %485 to i8
   %488 = getelementptr inbounds i8, ptr %1, i64 87
   store i8 %487, ptr %488, align 1
   br label %489
@@ -122100,7 +122100,7 @@ jar_xm_key_off.exit:                              ; preds = %213, %209, %202, %j
   br label %497
 
 494:                                              ; preds = %492
-  %495 = trunc i32 %493 to i8
+  %495 = trunc nuw nsw i32 %493 to i8
   %496 = getelementptr inbounds i8, ptr %1, i64 87
   store i8 %495, ptr %496, align 1
   br label %497
@@ -122274,7 +122274,7 @@ jar_xm_key_off.exit:                              ; preds = %213, %209, %202, %j
   br label %588
 
 585:                                              ; preds = %583
-  %586 = trunc i32 %584 to i8
+  %586 = trunc nuw nsw i32 %584 to i8
   %587 = getelementptr inbounds i8, ptr %1, i64 94
   store i8 %586, ptr %587, align 2
   br label %588
@@ -122308,7 +122308,7 @@ jar_xm_key_off.exit:                              ; preds = %213, %209, %202, %j
   br label %605
 
 602:                                              ; preds = %600
-  %603 = trunc i32 %601 to i8
+  %603 = trunc nuw nsw i32 %601 to i8
   %604 = getelementptr inbounds i8, ptr %1, i64 95
   store i8 %603, ptr %604, align 1
   br label %605
@@ -122538,10 +122538,10 @@ define internal fastcc float @jar_xm_period(i32 %.64.val, float noundef %0) unna
 20:                                               ; preds = %5
   %21 = zext i16 %13 to i32
   %22 = lshr i32 %21, %18
-  %23 = trunc i32 %22 to i16
+  %23 = trunc nuw i32 %22 to i16
   %24 = zext i16 %17 to i32
   %25 = lshr i32 %24, %18
-  %26 = trunc i32 %25 to i16
+  %26 = trunc nuw i32 %25 to i16
   br label %jar_xm_amiga_period.exit
 
 27:                                               ; preds = %5
@@ -122921,11 +122921,11 @@ define internal fastcc void @jar_mod_fillbuffer.specialized.1(ptr noundef %0, pt
   %spec.store.select9 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 -32768)
   %spec.store.select8 = tail call i32 @llvm.smin.i32(i32 %.4, i32 32767)
   %spec.store.select10 = tail call i32 @llvm.smax.i32(i32 %spec.store.select8, i32 -32768)
-  %188 = trunc i32 %spec.store.select9 to i16
+  %188 = trunc nsw i32 %spec.store.select9 to i16
   %189 = shl i64 %.119, 1
   %190 = getelementptr inbounds i16, ptr %1, i64 %189
   store i16 %188, ptr %190, align 2
-  %191 = trunc i32 %spec.store.select10 to i16
+  %191 = trunc nsw i32 %spec.store.select10 to i16
   %192 = or disjoint i64 %189, 1
   %193 = getelementptr inbounds i16, ptr %1, i64 %192
   store i16 %191, ptr %193, align 2

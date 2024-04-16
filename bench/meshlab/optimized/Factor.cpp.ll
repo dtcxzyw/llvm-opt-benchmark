@@ -652,16 +652,16 @@ _Z4SqrtPKdPd.exit:                                ; preds = %41, %12, %45
   br i1 %85, label %_Z4SqrtPKdPd.exit68, label %86
 
 86:                                               ; preds = %54
-  %87 = fcmp oeq double %80, 0.000000e+00
+  %87 = fcmp oeq double %79, 0.000000e+00
   %88 = fcmp oeq double %78, 0.000000e+00
-  %or.cond.i.i.i65 = and i1 %88, %87
+  %or.cond.i.i.i65 = and i1 %87, %88
   br i1 %or.cond.i.i.i65, label %_Z4SqrtPKdPd.exit68, label %89
 
 89:                                               ; preds = %86
   br i1 %88, label %90, label %92
 
 90:                                               ; preds = %89
-  %91 = fcmp ogt double %80, 0.000000e+00
+  %91 = fcmp ogt double %79, 0.000000e+00
   %..i.i.i67 = select i1 %91, double 0x3FF921FB54442D18, double 0xBFF921FB54442D18
   br label %_Z4SqrtPKdPd.exit68
 
@@ -675,7 +675,7 @@ _Z4SqrtPKdPd.exit:                                ; preds = %41, %12, %45
   br label %_Z4SqrtPKdPd.exit68
 
 97:                                               ; preds = %92
-  %98 = fcmp ult double %80, 0.000000e+00
+  %98 = fcmp ult double %79, 0.000000e+00
   %99 = fdiv double %80, %78
   %100 = tail call double @atan(double noundef %99) #12
   br i1 %98, label %103, label %101

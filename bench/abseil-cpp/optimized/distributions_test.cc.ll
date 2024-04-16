@@ -601,7 +601,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -616,7 +616,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -626,7 +626,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   %6 = getelementptr inbounds i8, ptr %gen, i64 8
@@ -644,41 +644,43 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN4absl15random_in
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i to i64
   %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %7 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i128 %7 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEtfEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.thread, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
 
-if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i
+_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEtfEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.thread: ; preds = %while.body.i.i.i.i.i
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i, ptr %gen, align 16
+  store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, ptr %6, align 8
+  store float 0.000000e+00, ptr %ref.tmp2, align 4
+  br label %if.then.i
+
+_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i)
   %8 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i.i.i, i1 true), !range !7
-  %cast.i.i.i.i.i.i.i.i = trunc i64 %8 to i32
+  %cast.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %8 to i32
   %shl.i.i.i.i.i.i = shl i64 %or.i.i.i.i.i.i.i.i.i.i.i.i, %8
   %shr.i.i.i.i.i.i = lshr i64 %shl.i.i.i.i.i.i, 40
-  %conv.i.i.i.i.i.i25 = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i25 = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   %and.i.i.i.i.i.i = and i32 %conv.i.i.i.i.i.i25, 8388607
   %9 = shl nuw nsw i32 %cast.i.i.i.i.i.i.i.i, 23
   %reass.sub = sub nsw i32 %and.i.i.i.i.i.i, %9
   %or2.i.i.i.i.i.i = add nsw i32 %reass.sub, 1056964608
   %10 = bitcast i32 %or2.i.i.i.i.i.i to float
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %while.body.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi float [ %10, %if.end.i.i.i.i.i.i ], [ 0.000000e+00, %while.body.i.i.i.i.i ]
-  %11 = fadd float %retval.0.i.i.i.i.i.i, 0.000000e+00
-  %cmp.i.i.i.i.i = fcmp uge float %11, 1.000000e+00
+  %cmp.i.i.i.i.i = fcmp uge float %10, 1.000000e+00
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEtfEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit, !llvm.loop !8
 
 _ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEtfEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
+  %11 = fadd float %10, 0.000000e+00
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i, ptr %gen, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, ptr %6, align 8
   store float %11, ptr %ref.tmp2, align 4
-  %cmp.i = fcmp une float %11, 1.000000e+00
+  %cmp.i = fcmp une float %10, 1.000000e+00
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEtfEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit
+if.then.i:                                        ; preds = %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEtfEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.thread, %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEtfEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   br label %_ZN7testing8internal11CmpHelperNEIifEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
 
@@ -793,13 +795,19 @@ while.body.i.i.i.i.i35:                           ; preds = %_ZN4absl15random_in
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i43 = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i42, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i44 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i43 to i64
   %22 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i43, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i45 = trunc i128 %22 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i45 = trunc nuw i128 %22 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i46 = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i45, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i47 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i46, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i44
   %cmp.i.i.i.i.i.i48 = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i47, 0
-  br i1 %cmp.i.i.i.i.i.i48, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i49
+  br i1 %cmp.i.i.i.i.i.i48, label %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.thread, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
 
-if.end.i.i.i.i.i.i49:                             ; preds = %while.body.i.i.i.i.i35
+_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.thread: ; preds = %while.body.i.i.i.i.i35
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i44, ptr %gen, align 16
+  store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i46, ptr %6, align 8
+  store double 0.000000e+00, ptr %ref.tmp16, align 8
+  br label %if.then.i62
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i35
   %shr.i.i.i.i.i.i.i.i.i.i.i50 = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i46, 58
   %or.i.i.i.i.i.i.i.i.i.i.i.i51 = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i47, i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i47, i64 %shr.i.i.i.i.i.i.i.i.i.i.i50)
   %23 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i.i.i51, i1 true), !range !7
@@ -807,25 +815,21 @@ if.end.i.i.i.i.i.i49:                             ; preds = %while.body.i.i.i.i.
   %shr.i.i.i.i.i.i53 = lshr i64 %shl.i.i.i.i.i.i52, 11
   %and.i.i.i.i.i.i54 = and i64 %shr.i.i.i.i.i.i53, 4503599627370495
   %24 = shl nuw nsw i64 %23, 52
-  %reass.sub274 = sub nsw i64 %and.i.i.i.i.i.i54, %24
-  %or2.i.i.i.i.i.i56 = add nsw i64 %reass.sub274, 4602678819172646912
+  %reass.sub272 = sub nsw i64 %and.i.i.i.i.i.i54, %24
+  %or2.i.i.i.i.i.i56 = add nsw i64 %reass.sub272, 4602678819172646912
   %25 = bitcast i64 %or2.i.i.i.i.i.i56 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i49, %while.body.i.i.i.i.i35
-  %retval.0.i.i.i.i.i.i57 = phi double [ %25, %if.end.i.i.i.i.i.i49 ], [ 0.000000e+00, %while.body.i.i.i.i.i35 ]
-  %26 = fadd double %retval.0.i.i.i.i.i.i57, 0.000000e+00
-  %cmp.i.i.i.i.i58 = fcmp uge double %26, 1.000000e+00
+  %cmp.i.i.i.i.i58 = fcmp uge double %25, 1.000000e+00
   br i1 %cmp.i.i.i.i.i58, label %while.body.i.i.i.i.i35, label %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit, !llvm.loop !9
 
 _ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
+  %26 = fadd double %25, 0.000000e+00
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i44, ptr %gen, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i46, ptr %6, align 8
   store double %26, ptr %ref.tmp16, align 8
-  %cmp.i60 = fcmp une double %26, 1.000000e+00
+  %cmp.i60 = fcmp une double %25, 1.000000e+00
   br i1 %cmp.i60, label %if.then.i62, label %if.else.i61
 
-if.then.i62:                                      ; preds = %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit
+if.then.i62:                                      ; preds = %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.thread, %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar14)
   br label %_ZN7testing8internal11CmpHelperNEIidEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
 
@@ -1475,41 +1479,43 @@ while.body.i.i.i.i.i217:                          ; preds = %_ZN4absl15random_in
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i225 = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i224, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i226 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i225 to i64
   %92 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i225, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i227 = trunc i128 %92 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i227 = trunc nuw i128 %92 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i228 = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i227, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i229 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i228, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i226
   %cmp.i.i.i.i.i.i230 = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i229, 0
-  br i1 %cmp.i.i.i.i.i.i230, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i240, label %if.end.i.i.i.i.i.i231
+  br i1 %cmp.i.i.i.i.i.i230, label %_ZN4absl7UniformIfRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.thread, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i240
 
-if.end.i.i.i.i.i.i231:                            ; preds = %while.body.i.i.i.i.i217
+_ZN4absl7UniformIfRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.thread: ; preds = %while.body.i.i.i.i.i217
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i226, ptr %gen, align 16
+  store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i228, ptr %6, align 8
+  store float 0.000000e+00, ptr %ref.tmp152, align 4
+  br label %if.then.i246
+
+_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i240: ; preds = %while.body.i.i.i.i.i217
   %shr.i.i.i.i.i.i.i.i.i.i.i232 = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i228, 58
   %or.i.i.i.i.i.i.i.i.i.i.i.i233 = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i229, i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i229, i64 %shr.i.i.i.i.i.i.i.i.i.i.i232)
   %93 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i.i.i233, i1 true), !range !7
-  %cast.i.i.i.i.i.i.i.i234 = trunc i64 %93 to i32
+  %cast.i.i.i.i.i.i.i.i234 = trunc nuw nsw i64 %93 to i32
   %shl.i.i.i.i.i.i235 = shl i64 %or.i.i.i.i.i.i.i.i.i.i.i.i233, %93
   %shr.i.i.i.i.i.i236 = lshr i64 %shl.i.i.i.i.i.i235, 40
-  %conv.i.i.i.i.i.i237 = trunc i64 %shr.i.i.i.i.i.i236 to i32
+  %conv.i.i.i.i.i.i237 = trunc nuw nsw i64 %shr.i.i.i.i.i.i236 to i32
   %and.i.i.i.i.i.i238 = and i32 %conv.i.i.i.i.i.i237, 8388607
   %94 = shl nuw nsw i32 %cast.i.i.i.i.i.i.i.i234, 23
-  %reass.sub275 = sub nsw i32 %and.i.i.i.i.i.i238, %94
-  %or2.i.i.i.i.i.i239 = add nsw i32 %reass.sub275, 1056964608
+  %reass.sub273 = sub nsw i32 %and.i.i.i.i.i.i238, %94
+  %or2.i.i.i.i.i.i239 = add nsw i32 %reass.sub273, 1056964608
   %95 = bitcast i32 %or2.i.i.i.i.i.i239 to float
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i240
-
-_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i240: ; preds = %if.end.i.i.i.i.i.i231, %while.body.i.i.i.i.i217
-  %retval.0.i.i.i.i.i.i241 = phi float [ %95, %if.end.i.i.i.i.i.i231 ], [ 0.000000e+00, %while.body.i.i.i.i.i217 ]
-  %96 = fadd float %retval.0.i.i.i.i.i.i241, 0.000000e+00
-  %cmp.i.i.i.i.i242 = fcmp uge float %96, 1.000000e+00
+  %cmp.i.i.i.i.i242 = fcmp uge float %95, 1.000000e+00
   br i1 %cmp.i.i.i.i.i242, label %while.body.i.i.i.i.i217, label %_ZN4absl7UniformIfRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit, !llvm.loop !8
 
 _ZN4absl7UniformIfRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i240
+  %96 = fadd float %95, 0.000000e+00
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i226, ptr %gen, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i228, ptr %6, align 8
   store float %96, ptr %ref.tmp152, align 4
-  %cmp.i244 = fcmp une float %96, 1.000000e+00
+  %cmp.i244 = fcmp une float %95, 1.000000e+00
   br i1 %cmp.i244, label %if.then.i246, label %if.else.i245
 
-if.then.i246:                                     ; preds = %_ZN4absl7UniformIfRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit
+if.then.i246:                                     ; preds = %_ZN4absl7UniformIfRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.thread, %_ZN4absl7UniformIfRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar150)
   br label %_ZN7testing8internal11CmpHelperNEIifEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit247
 
@@ -1673,7 +1679,7 @@ while.body.i.i.us.i:                              ; preds = %if.end
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i = add i128 %mul.i.i.i.i.i.i.i.i.us.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i to i64
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i, 64
-  %.tr.i.i.i.i.i.i.i.i.us.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i.i.i.us.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i.i.i.us.i = add i64 %.tr.i.i.i.i.i.i.i.i.us.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.us.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.us.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i
   %cmp.i.i.i.us.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, 0
@@ -1683,10 +1689,10 @@ if.end.i.i.i.us.i:                                ; preds = %while.body.i.i.us.i
   %shr.i.i.i.i.i.i.i.i.us.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.us.i, 58
   %or.i.i.i.i.i.i.i.i.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, i64 %shr.i.i.i.i.i.i.i.i.us.i)
   %5 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.us.i, i1 true), !range !7
-  %cast.i.i.i.i.i.us.i = trunc i64 %5 to i32
+  %cast.i.i.i.i.i.us.i = trunc nuw nsw i64 %5 to i32
   %shl.i.i.i.us.i = shl i64 %or.i.i.i.i.i.i.i.i.i.us.i, %5
   %shr.i.i.i.us.i = lshr i64 %shl.i.i.i.us.i, 40
-  %conv.i.i.i.us.i = trunc i64 %shr.i.i.i.us.i to i32
+  %conv.i.i.i.us.i = trunc nuw nsw i64 %shr.i.i.i.us.i to i32
   %and.i.i.i.us.i = and i32 %conv.i.i.i.us.i, 8388607
   %6 = shl nuw nsw i32 %cast.i.i.i.i.i.us.i, 23
   %reass.sub = sub nsw i32 %and.i.i.i.us.i, %6
@@ -1710,7 +1716,7 @@ while.body.i.i.i:                                 ; preds = %if.end, %_ZN4absl15
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i to i64
   %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc i128 %9 to i64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %9 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i, 0
@@ -1720,10 +1726,10 @@ if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %10 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true), !range !7
-  %cast.i.i.i.i.i.i = trunc i64 %10 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
   %shl.i.i.i.i = shl i64 %or.i.i.i.i.i.i.i.i.i.i, %10
   %shr.i.i.i.i = lshr i64 %shl.i.i.i.i, 40
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %and.i.i.i.i = and i32 %conv.i.i.i.i, 8388607
   %11 = shl nuw nsw i32 %cast.i.i.i.i.i.i, 23
   %reass.sub8 = sub nsw i32 %and.i.i.i.i, %11
@@ -1780,7 +1786,7 @@ while.body.i.i.us.i:                              ; preds = %if.end
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i = add i128 %mul.i.i.i.i.i.i.i.i.us.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i to i64
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i, 64
-  %.tr.i.i.i.i.i.i.i.i.us.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i.i.i.us.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i.i.i.us.i = add i64 %.tr.i.i.i.i.i.i.i.i.us.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.us.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.us.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i
   %cmp.i.i.i.us.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, 0
@@ -1815,7 +1821,7 @@ while.body.i.i.i:                                 ; preds = %if.end, %_ZN4absl15
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i to i64
   %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc i128 %9 to i64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %9 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i, 0
@@ -1882,7 +1888,7 @@ while.body.i.i.us.i:                              ; preds = %if.end
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i = add i128 %mul.i.i.i.i.i.i.i.i.us.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i to i64
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i, 64
-  %.tr.i.i.i.i.i.i.i.i.us.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i.i.i.us.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i.i.i.us.i = add i64 %.tr.i.i.i.i.i.i.i.i.us.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.us.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.us.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i
   %cmp.i.i.i.us.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, 0
@@ -1917,7 +1923,7 @@ while.body.i.i.i:                                 ; preds = %if.end, %_ZN4absl15
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i to i64
   %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc i128 %9 to i64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %9 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i, 0
@@ -1984,7 +1990,7 @@ while.body.i.i.us.i:                              ; preds = %if.end
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i = add i128 %mul.i.i.i.i.i.i.i.i.us.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i to i64
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i, 64
-  %.tr.i.i.i.i.i.i.i.i.us.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i.i.i.us.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i.i.i.us.i = add i64 %.tr.i.i.i.i.i.i.i.i.us.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.us.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.us.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i
   %cmp.i.i.i.us.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, 0
@@ -1994,10 +2000,10 @@ if.end.i.i.i.us.i:                                ; preds = %while.body.i.i.us.i
   %shr.i.i.i.i.i.i.i.i.us.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.us.i, 58
   %or.i.i.i.i.i.i.i.i.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, i64 %xor.i.i12.i.i.i.i.i.i.i.us.i, i64 %shr.i.i.i.i.i.i.i.i.us.i)
   %5 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.us.i, i1 true), !range !7
-  %cast.i.i.i.i.i.us.i = trunc i64 %5 to i32
+  %cast.i.i.i.i.i.us.i = trunc nuw nsw i64 %5 to i32
   %shl.i.i.i.us.i = shl i64 %or.i.i.i.i.i.i.i.i.i.us.i, %5
   %shr.i.i.i.us.i = lshr i64 %shl.i.i.i.us.i, 40
-  %conv.i.i.i.us.i = trunc i64 %shr.i.i.i.us.i to i32
+  %conv.i.i.i.us.i = trunc nuw nsw i64 %shr.i.i.i.us.i to i32
   %and.i.i.i.us.i = and i32 %conv.i.i.i.us.i, 8388607
   %6 = shl nuw nsw i32 %cast.i.i.i.i.i.us.i, 23
   %reass.sub = sub nsw i32 %and.i.i.i.us.i, %6
@@ -2021,7 +2027,7 @@ while.body.i.i.i:                                 ; preds = %if.end, %_ZN4absl15
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i to i64
   %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc i128 %9 to i64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %9 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i, 0
@@ -2031,10 +2037,10 @@ if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i)
   %10 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true), !range !7
-  %cast.i.i.i.i.i.i = trunc i64 %10 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
   %shl.i.i.i.i = shl i64 %or.i.i.i.i.i.i.i.i.i.i, %10
   %shr.i.i.i.i = lshr i64 %shl.i.i.i.i, 40
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %and.i.i.i.i = and i32 %conv.i.i.i.i, 8388607
   %11 = shl nuw nsw i32 %cast.i.i.i.i.i.i, 23
   %reass.sub6 = sub nsw i32 %and.i.i.i.i, %11
@@ -3718,7 +3724,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -3733,7 +3739,7 @@ _ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integra
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -3742,7 +3748,7 @@ _ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integra
   %mul.i.i.i.i.i.i.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i, 47026247687942121848144207491837523525
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   %6 = getelementptr inbounds i8, ptr %gen, i64 8
@@ -3754,7 +3760,7 @@ _ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integra
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i to i64
   %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %7 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i128 %7 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i, ptr %gen, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i, ptr %6, align 8
@@ -4328,7 +4334,7 @@ _ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integra
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i226 = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i225, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i227 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i226 to i64
   %69 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i226, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i.i228 = trunc i128 %69 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i.i228 = trunc nuw i128 %69 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i.i229 = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i.i228, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i227, ptr %gen, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i229, ptr %6, align 8
@@ -5098,7 +5104,7 @@ _ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integra
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i444 = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i443, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i445 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i444 to i64
   %152 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i444, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i.i446 = trunc i128 %152 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i.i446 = trunc nuw i128 %152 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i.i447 = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i.i446, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i445, ptr %gen, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i447, ptr %6, align 8
@@ -5411,7 +5417,7 @@ _ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integra
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i533 = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i532, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i534 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i533 to i64
   %185 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i533, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i.i535 = trunc i128 %185 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i.i535 = trunc nuw i128 %185 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i.i536 = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i.i535, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i534, ptr %gen, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i536, ptr %6, align 8
@@ -5942,7 +5948,7 @@ while.body.i.i.us.i.i.i:                          ; preds = %if.end.i
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.us.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i.i.i to i64
   %244 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.us.i.i.i = trunc i128 %244 to i64
+  %.tr.i.i.i.i.i.i.i.i.us.i.i.i = trunc nuw i128 %244 to i64
   %.narrow.i.i.i.i.i.i.i.i.us.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.us.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.us.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.us.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i.i.i
   %cmp.i.i.i.us.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.us.i.i.i, 0
@@ -5977,7 +5983,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i, %_ZN4absl
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i to i64
   %249 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %249 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i128 %249 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i, 0
@@ -6139,7 +6145,7 @@ while.body.i.i.us.i.i.i697:                       ; preds = %if.end.i693
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i.i.i703 = add i128 %mul.i.i.i.i.i.i.i.i.us.i.i.i702, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i.i.i704 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i.i.i703 to i64
   %269 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.us.i.i.i703, 64
-  %.tr.i.i.i.i.i.i.i.i.us.i.i.i705 = trunc i128 %269 to i64
+  %.tr.i.i.i.i.i.i.i.i.us.i.i.i705 = trunc nuw i128 %269 to i64
   %.narrow.i.i.i.i.i.i.i.i.us.i.i.i706 = add i64 %.tr.i.i.i.i.i.i.i.i.us.i.i.i705, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.us.i.i.i707 = xor i64 %.narrow.i.i.i.i.i.i.i.i.us.i.i.i706, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.us.i.i.i704
   %cmp.i.i.i.us.i.i.i708 = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.us.i.i.i707, 0
@@ -6174,7 +6180,7 @@ while.body.i.i.i.i.i723:                          ; preds = %if.end.i693, %_ZN4a
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i731 = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i730, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i732 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i731 to i64
   %274 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i731, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i733 = trunc i128 %274 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i733 = trunc nuw i128 %274 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i734 = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i733, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i735 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i734, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i732
   %cmp.i.i.i.i.i.i736 = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i735, 0
@@ -6324,7 +6330,7 @@ while.body.i.i.i.i.i778:                          ; preds = %_ZN4absl15random_in
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i786 = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i785, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i787 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i786 to i64
   %289 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i786, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i788 = trunc i128 %289 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i788 = trunc nuw i128 %289 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i789 = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i788, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i790 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i789, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i787
   %cmp.i.i.i.i.i.i791 = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i790, 0
@@ -7107,7 +7113,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -7122,7 +7128,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -7132,7 +7138,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   br label %while.body.i.i.i.i.i.preheader
@@ -7154,13 +7160,13 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i to i64
   %6 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %6 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i128 %6 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %invoke.cont4, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
 
-if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i)
   %7 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i.i.i, i1 true), !range !7
@@ -7171,15 +7177,12 @@ if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %reass.sub = sub nsw i64 %and.i.i.i.i.i.i, %8
   %or2.i.i.i.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %9 = bitcast i64 %or2.i.i.i.i.i.i to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %while.body.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi double [ %9, %if.end.i.i.i.i.i.i ], [ 0.000000e+00, %while.body.i.i.i.i.i ]
-  %10 = fadd double %retval.0.i.i.i.i.i.i, 0.000000e+00
-  %cmp.i.i.i.i.i = fcmp uge double %10, 1.000000e+00
+  %cmp.i.i.i.i.i = fcmp uge double %9, 1.000000e+00
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %invoke.cont4, !llvm.loop !9
 
-invoke.cont4:                                     ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
+invoke.cont4:                                     ; preds = %while.body.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i100 = phi double [ %9, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ 0.000000e+00, %while.body.i.i.i.i.i ]
+  %10 = fadd double %retval.0.i.i.i.i.i.i100, 0.000000e+00
   %add.ptr.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i17, i64 %indvars.iv
   store double %10, ptr %add.ptr.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7698,7 +7701,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -7713,7 +7716,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -7723,7 +7726,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   br label %for.body
@@ -7740,7 +7743,7 @@ for.body:                                         ; preds = %_ZN4absl15random_in
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i to i64
   %6 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %6 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i128 %6 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i, 58
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i
@@ -7749,7 +7752,7 @@ for.body:                                         ; preds = %_ZN4absl15random_in
   %mul.i.i.i.i.i.i.i.i = mul nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i, 1000000000001
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i.i.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc nuw nsw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i64
   %cmp1140.i.i.i.i.i.i = icmp ult i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i, 73691104872
   br i1 %cmp1140.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %invoke.cont4
 
@@ -7764,7 +7767,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %for.body, %while.bo
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i22.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i.i.i.i to i64
   %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i25.i.i.i.i.i.i = trunc i128 %7 to i64
+  %.tr.i.i.i.i.i.i25.i.i.i.i.i.i = trunc nuw i128 %7 to i64
   %.narrow.i.i.i.i.i.i26.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i25.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i27.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i26.i.i.i.i.i.i, 58
   %xor.i.i12.i.i.i.i.i28.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i26.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i
@@ -7777,7 +7780,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %for.body, %while.bo
 
 while.cond.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
   %coerce3.sroa.2.0.extract.shift.i.i34.le.i.i.i.i.i.i = lshr i128 %mul.i.i32.i.i.i.i.i.i, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i35.le.i.i.i.i.i.i = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i34.le.i.i.i.i.i.i to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i35.le.i.i.i.i.i.i = trunc nuw nsw i128 %coerce3.sroa.2.0.extract.shift.i.i34.le.i.i.i.i.i.i to i64
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %while.cond.return.loopexit_crit_edge.i.i.i.i.i.i, %for.body
@@ -8301,7 +8304,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -8316,7 +8319,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -8326,7 +8329,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   br label %invoke.cont4
@@ -8343,7 +8346,7 @@ invoke.cont4:                                     ; preds = %_ZN4absl15random_in
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i to i64
   %6 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %6 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i128 %6 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, 58
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i
@@ -9429,7 +9432,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -9444,7 +9447,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -9454,7 +9457,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, ptr %gen, align 16
@@ -9965,7 +9968,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i to i64
   %1 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %1 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %1 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -10019,7 +10022,7 @@ for.cond7:                                        ; preds = %for.cond7.backedge,
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i29 = add i128 %mul.i.i.i.i.i.i28, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i30 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i29 to i64
   %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i29, 64
-  %.tr.i.i.i.i.i.i31 = trunc i128 %7 to i64
+  %.tr.i.i.i.i.i.i31 = trunc nuw i128 %7 to i64
   %.narrow.i.i.i.i.i.i32 = add i64 %.tr.i.i.i.i.i.i31, 6364136223846793005
   %shr.i.i.i.i.i.i33 = lshr i64 %.narrow.i.i.i.i.i.i32, 58
   %xor.i.i12.i.i.i.i.i34 = xor i64 %.narrow.i.i.i.i.i.i32, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i30
@@ -10041,7 +10044,7 @@ for.cond7:                                        ; preds = %for.cond7.backedge,
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i51 = add i128 %mul.i.i.i.i.i.i50, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i51 to i64
   %11 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i51, 64
-  %.tr.i.i.i.i.i.i53 = trunc i128 %11 to i64
+  %.tr.i.i.i.i.i.i53 = trunc nuw i128 %11 to i64
   %.narrow.i.i.i.i.i.i54 = add i64 %.tr.i.i.i.i.i.i53, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i52, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i54, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22, align 8
@@ -10207,7 +10210,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -10222,7 +10225,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -10232,7 +10235,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, ptr %gen, align 16
@@ -10775,7 +10778,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -10790,7 +10793,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -10800,7 +10803,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   br label %while.body.i.i.i.i.i.preheader
@@ -10825,7 +10828,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i to i64
   %6 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %6 to i64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i128 %6 to i64
   %.narrow.i.i.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, 58
   %xor.i.i12.i.i.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i
@@ -11054,7 +11057,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -11069,7 +11072,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -11079,7 +11082,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, ptr %gen, align 16
@@ -11273,7 +11276,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, ptr %urbg, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i, align 8
@@ -11445,7 +11448,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i to i64
   %0 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %0 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %0 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %xor.i.i12.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
@@ -11467,7 +11470,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i31 = add i128 %mul.i.i.i.i.i.i30, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i32 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i31 to i64
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i31, 64
-  %.tr.i.i.i.i.i.i33 = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i33 = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i34 = add i64 %.tr.i.i.i.i.i.i33, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i32, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i34, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -11565,7 +11568,7 @@ for.cond:                                         ; preds = %if.end24, %entry
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i to i64
   %1 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %1 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %1 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i, 58
   %xor.i.i12.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i
@@ -11587,7 +11590,7 @@ for.cond:                                         ; preds = %if.end24, %entry
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i32 = add i128 %mul.i.i.i.i.i.i31, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i33 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i32 to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i32, 64
-  %.tr.i.i.i.i.i.i34 = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i34 = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i35 = add i64 %.tr.i.i.i.i.i.i34, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i33, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i35, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -11740,7 +11743,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -11755,7 +11758,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -11765,7 +11768,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, ptr %gen, align 16
@@ -11957,13 +11960,13 @@ while.body.i.i:                                   ; preds = %_ZN4absl15random_in
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i to i64
   %0 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i = trunc i128 %0 to i64
+  %.tr.i.i.i.i.i.i.i.i = trunc nuw i128 %0 to i64
   %.narrow.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i, 6364136223846793005
   %xor.i.i12.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %xor.i.i12.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %while.body.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %while.body.i.i
   %shr.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i, 58
   %or.i.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %xor.i.i12.i.i.i.i.i.i.i, i64 %xor.i.i12.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i)
   %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true), !range !7
@@ -11974,17 +11977,14 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
   %reass.sub = sub nsw i64 %and.i.i.i, %2
   %or2.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %3 = bitcast i64 %or2.i.i.i to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %if.end.i.i.i, %while.body.i.i
-  %retval.0.i.i.i = phi double [ %3, %if.end.i.i.i ], [ 0.000000e+00, %while.body.i.i ]
-  %4 = fadd double %retval.0.i.i.i, 0.000000e+00
-  %cmp.i.i = fcmp uge double %4, 1.000000e+00
+  %cmp.i.i = fcmp uge double %3, 1.000000e+00
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit, !llvm.loop !9
 
-_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %while.body.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+  %retval.0.i.i.i38 = phi double [ %3, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %while.body.i.i ]
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i, align 8
+  %4 = fadd double %retval.0.i.i.i38, 0.000000e+00
   %5 = load double, ptr %hxm_, align 8
   %6 = load double, ptr %hx0_minus_hxm_, align 8
   %7 = tail call double @llvm.fmuladd.f64(double %4, double %6, double %5)
@@ -12169,7 +12169,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -12184,7 +12184,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -12194,7 +12194,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, ptr %gen, align 16
@@ -12664,7 +12664,7 @@ while.body:                                       ; preds = %if.end10, %entry
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i to i64
   %0 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %0 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %0 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -12715,7 +12715,7 @@ if.end10:                                         ; preds = %if.end
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i22 = add i128 %mul.i.i.i.i.i.i21, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i23 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i22 to i64
   %9 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i22, 64
-  %.tr.i.i.i.i.i.i24 = trunc i128 %9 to i64
+  %.tr.i.i.i.i.i.i24 = trunc nuw i128 %9 to i64
   %.narrow.i.i.i.i.i.i25 = add i64 %.tr.i.i.i.i.i.i24, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i23, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i25, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -12765,7 +12765,7 @@ do.body:                                          ; preds = %do.body, %entry
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i to i64
   %0 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %0 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %0 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -12793,7 +12793,7 @@ do.body:                                          ; preds = %do.body, %entry
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14 = add i128 %mul.i.i.i.i.i.i13, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14 to i64
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i14, 64
-  %.tr.i.i.i.i.i.i16 = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i16 = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i17 = add i64 %.tr.i.i.i.i.i.i16, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i15, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i17, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
@@ -12904,7 +12904,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %shl.i.i.i.i.i.i.i = or disjoint i128 %2, %1
   %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %2 to i64
   %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %shl.i.i.i.i.i.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
   %arrayidx4.i.i.i.i.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i, i64 0, i64 %i.018.i.i.i.i.i
   %3 = load i32, ptr %arrayidx4.i.i.i.i.i, align 4
   %conv.i3.i.i.i.i.i = zext i32 %3 to i64
@@ -12919,7 +12919,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i, 1442695040888963407
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i
   %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i = trunc i128 %4 to i64
+  %.tr.i.i.i.i.i.i = trunc nuw i128 %4 to i64
   %.narrow.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i, 6364136223846793005
   %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i, 64
@@ -12929,7 +12929,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i to i64
   %5 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i = trunc i128 %5 to i64
+  %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, ptr %gen, align 16
@@ -13108,7 +13108,7 @@ entry:
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i to i64
   %1 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc i128 %1 to i64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %1 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i, align 8
@@ -13150,7 +13150,7 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i = add i128 %mul.i.i.i.i.i.i22.i.i.i, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i to i64
   %2 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i, 64
-  %.tr.i.i.i.i.i.i25.i.i.i = trunc i128 %2 to i64
+  %.tr.i.i.i.i.i.i25.i.i.i = trunc nuw i128 %2 to i64
   %.narrow.i.i.i.i.i.i26.i.i.i = add i64 %.tr.i.i.i.i.i.i25.i.i.i, 6364136223846793005
   %shr.i.i.i.i.i.i27.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i26.i.i.i, 58
   %xor.i.i12.i.i.i.i.i28.i.i.i = xor i64 %.narrow.i.i.i.i.i.i26.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i
@@ -13173,7 +13173,7 @@ if.end13.i.i.i:                                   ; preds = %while.cond.if.end13
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
   %retval.0.i.i.in.i = phi i64 [ %and2.i.i1.i, %if.then.i.i.i ], [ %shr.i.i.i.i, %if.end13.i.i.i ]
-  %retval.0.i.i.i = trunc i64 %retval.0.i.i.in.i to i32
+  %retval.0.i.i.i = trunc nuw i64 %retval.0.i.i.in.i to i32
   %cmp = icmp eq i32 %retval.0.i.i.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -13230,7 +13230,7 @@ if.end33:                                         ; preds = %if.else, %if.then5,
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i33 = add i128 %mul.i.i.i.i.i.i.i.i.i32, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i34 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i33 to i64
   %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i33, 64
-  %.tr.i.i.i.i.i.i.i.i.i35 = trunc i128 %7 to i64
+  %.tr.i.i.i.i.i.i.i.i.i35 = trunc nuw i128 %7 to i64
   %.narrow.i.i.i.i.i.i.i.i.i36 = add i64 %.tr.i.i.i.i.i.i.i.i.i35, 6364136223846793005
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i34, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i36, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i, align 8
@@ -13252,7 +13252,7 @@ if.end.i.i.i43:                                   ; preds = %if.end33
   %mul.i.i.i.i.i = mul nuw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i.i to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i.i to i64
   %cmp5.i.i.i44 = icmp ugt i64 %add.i.i.i40, %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i
   br i1 %cmp5.i.i.i44, label %if.then6.i.i.i47, label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_.exit
 
@@ -13273,7 +13273,7 @@ while.body.i.i.i50:                               ; preds = %if.then6.i.i.i47, %
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i56 = add i128 %mul.i.i.i.i.i.i22.i.i.i55, 1442695040888963407
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i57 = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i56 to i64
   %8 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i23.i.i.i56, 64
-  %.tr.i.i.i.i.i.i25.i.i.i58 = trunc i128 %8 to i64
+  %.tr.i.i.i.i.i.i25.i.i.i58 = trunc nuw i128 %8 to i64
   %.narrow.i.i.i.i.i.i26.i.i.i59 = add i64 %.tr.i.i.i.i.i.i25.i.i.i58, 6364136223846793005
   %shr.i.i.i.i.i.i27.i.i.i60 = lshr i64 %.narrow.i.i.i.i.i.i26.i.i.i59, 58
   %xor.i.i12.i.i.i.i.i28.i.i.i61 = xor i64 %.narrow.i.i.i.i.i.i26.i.i.i59, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i57
@@ -13288,7 +13288,7 @@ while.cond.return.loopexit_crit_edge.i.i.i:       ; preds = %while.body.i.i.i50
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i57, ptr %g, align 16
   store i64 %.narrow.i.i.i.i.i.i26.i.i.i59, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i, align 8
   %coerce3.sroa.2.0.extract.shift.i.i34.le.i.i.i = lshr i128 %mul.i.i32.i.i.i, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i35.le.i.i.i = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i34.le.i.i.i to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i35.le.i.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i34.le.i.i.i to i64
   br label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_.exit
 
 _ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_.exit: ; preds = %if.then.i.i.i63, %if.end.i.i.i43, %if.then6.i.i.i47, %while.cond.return.loopexit_crit_edge.i.i.i

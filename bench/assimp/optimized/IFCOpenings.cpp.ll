@@ -5303,7 +5303,7 @@ if.else.i67:                                      ; preds = %if.then.i
   %102 = extractelement <2 x i64> %bc, i64 0
   %isect0.sroa.0.0.extract.trunc = trunc i64 %102 to i8
   %isect0.sroa.0.1.extract.shift = lshr i64 %102, 8
-  %isect0.sroa.0.1.extract.trunc = trunc i64 %isect0.sroa.0.1.extract.shift to i56
+  %isect0.sroa.0.1.extract.trunc = trunc nuw i64 %isect0.sroa.0.1.extract.shift to i56
   %add.ptr.i9.i = getelementptr inbounds i8, ptr %99, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i, i64 16, i1 false)
   %103 = load ptr, ptr %_M_finish.i34, align 8
@@ -5501,7 +5501,7 @@ if.else.i110:                                     ; preds = %if.then.i108
   %122 = extractelement <2 x i64> %bc312, i64 0
   %isect1.sroa.0.0.extract.trunc = trunc i64 %122 to i8
   %isect1.sroa.0.1.extract.shift = lshr i64 %122, 8
-  %isect1.sroa.0.1.extract.trunc = trunc i64 %isect1.sroa.0.1.extract.shift to i56
+  %isect1.sroa.0.1.extract.trunc = trunc nuw i64 %isect1.sroa.0.1.extract.shift to i56
   %add.ptr.i9.i114 = getelementptr inbounds i8, ptr %119, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i114, i64 16, i1 false)
   %123 = load ptr, ptr %_M_finish.i34, align 8
@@ -5711,7 +5711,7 @@ lor.lhs.false14:                                  ; preds = %for.body
   br i1 %or.cond10, label %if.end36, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false14, %for.body
-  %tobool = trunc i8 %outer_border.047 to i1
+  %tobool = trunc nuw i8 %outer_border.047 to i1
   br i1 %tobool, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then
@@ -5760,7 +5760,7 @@ if.end36:                                         ; preds = %if.else, %lor.lhs.f
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !120
 
 for.end:                                          ; preds = %if.end36
-  %10 = trunc i8 %outer_border.1 to i1
+  %10 = trunc nuw i8 %outer_border.1 to i1
   %11 = select i1 %10, i1 %start_on_outer_border.2, i1 false
   br i1 %11, label %if.then40, label %if.end53
 
@@ -8024,10 +8024,10 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt
 
 for.body.preheader:                               ; preds = %_ZNSt6vectorI10aiVector2tIdESaIS1_EE7reserveEm.exit
   %17 = shufflevector <2 x double> %5, <2 x double> %6, <2 x i32> <i32 0, i32 2>
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = insertelement <2 x double> %18, double %3, i64 1
-  %20 = extractelement <2 x double> %7, i64 0
-  %21 = extractelement <2 x double> %7, i64 1
+  %18 = extractelement <2 x double> %7, i64 0
+  %19 = extractelement <2 x double> %7, i64 1
+  %20 = insertelement <2 x double> poison, double %2, i64 0
+  %21 = insertelement <2 x double> %20, double %3, i64 1
   %22 = shufflevector <2 x double> %5, <2 x double> %6, <2 x i32> <i32 1, i32 3>
   br label %for.body
 
@@ -8045,21 +8045,21 @@ for.body:                                         ; preds = %for.body.preheader,
   %29 = insertelement <2 x double> poison, double %27, i64 0
   %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
   %31 = fmul <2 x double> %17, %30
-  %32 = insertelement <2 x double> poison, double %26, i64 0
-  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
-  %34 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %33, <2 x double> %31)
-  %mul11.i = fmul double %20, %27
-  %35 = call double @llvm.fmuladd.f64(double %4, double %26, double %mul11.i)
-  %36 = call double @llvm.fmuladd.f64(double %21, double %28, double %35)
-  %add13.i = fadd double %36, 0.000000e+00
+  %mul11.i = fmul double %18, %27
+  %32 = call double @llvm.fmuladd.f64(double %4, double %26, double %mul11.i)
+  %33 = call double @llvm.fmuladd.f64(double %19, double %28, double %32)
+  %add13.i = fadd double %33, 0.000000e+00
   %add = fadd double %zcoord.0166, %add13.i
+  %34 = insertelement <2 x double> poison, double %26, i64 0
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
+  %36 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %21, <2 x double> %35, <2 x double> %31)
   %37 = insertelement <2 x double> poison, double %28, i64 0
   %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> zeroinitializer
-  %39 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %38, <2 x double> %34)
+  %39 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %38, <2 x double> %36)
   %40 = fadd <2 x double> %39, zeroinitializer
-  %41 = fcmp olt <2 x double> %24, %40
+  %41 = fcmp olt <2 x double> %24, %39
   %42 = select <2 x i1> %41, <2 x double> %24, <2 x double> %40
-  %43 = fcmp olt <2 x double> %40, %25
+  %43 = fcmp olt <2 x double> %39, %25
   %44 = select <2 x i1> %43, <2 x double> %25, <2 x double> %40
   %45 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %23, %45
@@ -13472,7 +13472,7 @@ invoke.cont164:                                   ; preds = %if.else
 
 if.end167:                                        ; preds = %for.body139, %invoke.cont164
   %80 = phi <2 x double> [ %79, %invoke.cont164 ], [ %70, %for.body139 ]
-  %tobool = trunc i8 %gotFirstPoint.11043 to i1
+  %tobool = trunc nuw i8 %gotFirstPoint.11043 to i1
   br i1 %tobool, label %if.else189, label %if.then168
 
 if.then168:                                       ; preds = %if.end167
@@ -13614,7 +13614,7 @@ for.inc200:                                       ; preds = %for.inc200.sink.spl
 
 for.end202:                                       ; preds = %for.inc200, %if.end
   %gotFirstPoint.1.lcssa = phi i8 [ %gotFirstPoint.0, %if.end ], [ %gotFirstPoint.2, %for.inc200 ]
-  %tobool203 = trunc i8 %gotFirstPoint.1.lcssa to i1
+  %tobool203 = trunc nuw i8 %gotFirstPoint.1.lcssa to i1
   br i1 %tobool203, label %if.then204, label %for.inc209
 
 if.then204:                                       ; preds = %for.end202

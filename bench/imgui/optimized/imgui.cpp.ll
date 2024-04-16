@@ -1568,7 +1568,7 @@ entry:
   %2 = load i8, ptr %arrayidx, align 1
   %conv1 = sext i8 %2 to i32
   %3 = lshr i64 2164195328, %idxprom
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %cond = and i32 %4, 1
   %add = add nsw i32 %cond, %conv1
   %cmp = icmp eq ptr %in_text_end, null
@@ -1710,7 +1710,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %4 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -2695,7 +2695,7 @@ entry:
   %1 = trunc i64 %0 to i32
   %2 = bitcast i32 %1 to float
   %3 = lshr i64 %0, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = bitcast i32 %4 to float
   %6 = load float, ptr %p2, align 4
   %y2 = getelementptr inbounds i8, ptr %p2, i64 4
@@ -3271,7 +3271,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %4 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -3344,7 +3344,7 @@ if.then.i:                                        ; preds = %if.then
   %conv.i = sext i16 %4 to i32
   %add.i = add nsw i32 %conv.i, 1
   %rem.i = srem i32 %add.i, 6
-  %conv3.i = trunc i32 %rem.i to i16
+  %conv3.i = trunc nsw i32 %rem.i to i16
   store i16 %conv3.i, ptr %LastEntriesIdx.i, align 4
   %idxprom7.i = sext i32 %rem.i to i64
   %arrayidx8.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i, i64 0, i64 %idxprom7.i
@@ -3433,7 +3433,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -3484,7 +3484,7 @@ if.then.i.i18:                                    ; preds = %if.then.i11
   %conv.i.i19 = sext i16 %14 to i32
   %add.i.i20 = add nsw i32 %conv.i.i19, 1
   %rem.i.i21 = srem i32 %add.i.i20, 6
-  %conv3.i.i22 = trunc i32 %rem.i.i21 to i16
+  %conv3.i.i22 = trunc nsw i32 %rem.i.i21 to i16
   store i16 %conv3.i.i22, ptr %LastEntriesIdx.i.i14, align 4
   %idxprom7.i.i23 = sext i32 %rem.i.i21 to i64
   %arrayidx8.i.i24 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i13, i64 0, i64 %idxprom7.i.i23
@@ -3562,7 +3562,7 @@ if.then.i:                                        ; preds = %if.then1
   %conv.i = sext i16 %2 to i32
   %add.i = add nsw i32 %conv.i, 1
   %rem.i = srem i32 %add.i, 6
-  %conv3.i = trunc i32 %rem.i to i16
+  %conv3.i = trunc nsw i32 %rem.i to i16
   store i16 %conv3.i, ptr %LastEntriesIdx.i, align 4
   %idxprom7.i = sext i32 %rem.i to i64
   %arrayidx8.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i, i64 0, i64 %idxprom7.i
@@ -4360,7 +4360,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %4 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -4433,7 +4433,7 @@ if.then.i.i38:                                    ; preds = %if.then1.i
   %conv.i.i39 = sext i16 %11 to i32
   %add.i.i40 = add nsw i32 %conv.i.i39, 1
   %rem.i.i41 = srem i32 %add.i.i40, 6
-  %conv3.i.i42 = trunc i32 %rem.i.i41 to i16
+  %conv3.i.i42 = trunc nsw i32 %rem.i.i41 to i16
   store i16 %conv3.i.i42, ptr %LastEntriesIdx.i.i34, align 4
   %idxprom7.i.i43 = sext i32 %rem.i.i41 to i64
   %arrayidx8.i.i44 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i33, i64 0, i64 %idxprom7.i.i43
@@ -4613,7 +4613,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i32 %c to i8
+  %conv.i = trunc nuw nsw i32 %c to i8
   store i8 %conv.i, ptr %out_buf, align 1
   br label %_ZL23ImTextCharToUtf8_inlinePcij.exit
 
@@ -4623,7 +4623,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %shr.i = lshr i32 %c, 6
-  %0 = trunc i32 %shr.i to i8
+  %0 = trunc nuw i32 %shr.i to i8
   %conv6.i = or disjoint i8 %0, -64
   store i8 %conv6.i, ptr %out_buf, align 1
   %1 = trunc i32 %c to i8
@@ -4639,7 +4639,7 @@ if.end11.i:                                       ; preds = %if.end.i
 
 if.then13.i:                                      ; preds = %if.end11.i
   %shr17.i = lshr i32 %c, 12
-  %3 = trunc i32 %shr17.i to i8
+  %3 = trunc nuw i32 %shr17.i to i8
   %conv19.i = or disjoint i8 %3, -32
   store i8 %conv19.i, ptr %out_buf, align 1
   %shr21.i = lshr i32 %c, 6
@@ -4661,7 +4661,7 @@ if.end30.i:                                       ; preds = %if.end11.i
 
 if.end35.i:                                       ; preds = %if.end30.i
   %shr36.i = lshr i32 %c, 18
-  %8 = trunc i32 %shr36.i to i8
+  %8 = trunc nuw i32 %shr36.i to i8
   %conv38.i = or disjoint i8 %8, -16
   store i8 %conv38.i, ptr %out_buf, align 1
   %shr40.i = lshr i32 %c, 12
@@ -4738,7 +4738,7 @@ if.end11.i.us:                                    ; preds = %if.end.i.us
 
 if.end16.i.us:                                    ; preds = %if.end11.i.us
   %shr17.i.us = lshr i16 %0, 12
-  %2 = trunc i16 %shr17.i.us to i8
+  %2 = trunc nuw nsw i16 %shr17.i.us to i8
   %conv19.i.us = or disjoint i8 %2, -32
   store i8 %conv19.i.us, ptr %buf_p.016.us, align 1
   %shr21.i.us = lshr i16 %0, 6
@@ -4755,7 +4755,7 @@ if.then2.i.us:                                    ; preds = %if.end.i.us
 
 if.end5.i.us:                                     ; preds = %if.then2.i.us
   %shr.i.us = lshr i16 %0, 6
-  %5 = trunc i16 %shr.i.us to i8
+  %5 = trunc nuw i16 %shr.i.us to i8
   %conv6.i.us = or disjoint i8 %5, -64
   store i8 %conv6.i.us, ptr %buf_p.016.us, align 1
   br label %_ZL23ImTextCharToUtf8_inlinePcij.exit.us.sink.split
@@ -4776,7 +4776,7 @@ _ZL23ImTextCharToUtf8_inlinePcij.exit.us:         ; preds = %_ZL23ImTextCharToUt
   br label %if.end.us
 
 if.then.us:                                       ; preds = %while.body.us
-  %conv5.us = trunc i16 %0 to i8
+  %conv5.us = trunc nuw i16 %0 to i8
   %incdec.ptr6.us = getelementptr inbounds i8, ptr %buf_p.016.us, i64 1
   store i8 %conv5.us, ptr %buf_p.016.us, align 1
   br label %if.end.us
@@ -4803,7 +4803,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp4, label %if.then, label %if.end.i
 
 if.then:                                          ; preds = %while.body
-  %conv5 = trunc i16 %8 to i8
+  %conv5 = trunc nuw i16 %8 to i8
   %incdec.ptr6 = getelementptr inbounds i8, ptr %buf_p.016, i64 1
   store i8 %conv5, ptr %buf_p.016, align 1
   br label %if.end
@@ -4822,7 +4822,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then2.i
   %shr.i = lshr i16 %8, 6
-  %10 = trunc i16 %shr.i to i8
+  %10 = trunc nuw i16 %shr.i to i8
   %conv6.i = or disjoint i8 %10, -64
   store i8 %conv6.i, ptr %buf_p.016, align 1
   br label %_ZL23ImTextCharToUtf8_inlinePcij.exit.sink.split
@@ -4833,7 +4833,7 @@ if.end11.i:                                       ; preds = %if.end.i
 
 if.end16.i:                                       ; preds = %if.end11.i
   %shr17.i = lshr i16 %8, 12
-  %11 = trunc i16 %shr17.i to i8
+  %11 = trunc nuw nsw i16 %shr17.i to i8
   %conv19.i = or disjoint i8 %11, -32
   store i8 %conv19.i, ptr %buf_p.016, align 1
   %shr21.i = lshr i16 %8, 6
@@ -6389,7 +6389,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -6757,7 +6757,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -6830,7 +6830,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -7409,7 +7409,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %18 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -7563,7 +7563,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -9565,7 +9565,7 @@ entry:
   %1 = trunc i64 %0 to i32
   %2 = bitcast i32 %1 to float
   %3 = lshr i64 %0, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = bitcast i32 %4 to float
   br i1 %tobool.not, label %cond.false, label %cond.true
 
@@ -10811,7 +10811,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -11086,7 +11086,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -11529,7 +11529,7 @@ if.then.i.i11:                                    ; preds = %if.then.i
   %conv.i.i = sext i16 %16 to i32
   %add.i.i12 = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i12, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -11691,7 +11691,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -11768,7 +11768,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %6 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -11829,7 +11829,7 @@ if.then.i.i.i64:                                  ; preds = %if.then1.i.i57
   %conv.i.i.i65 = sext i16 %16 to i32
   %add.i.i.i66 = add nsw i32 %conv.i.i.i65, 1
   %rem.i.i.i67 = srem i32 %add.i.i.i66, 6
-  %conv3.i.i.i68 = trunc i32 %rem.i.i.i67 to i16
+  %conv3.i.i.i68 = trunc nsw i32 %rem.i.i.i67 to i16
   store i16 %conv3.i.i.i68, ptr %LastEntriesIdx.i.i.i60, align 4
   %idxprom7.i.i.i69 = sext i32 %rem.i.i.i67 to i64
   %arrayidx8.i.i.i70 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i59, i64 0, i64 %idxprom7.i.i.i69
@@ -11941,7 +11941,7 @@ if.then.i.i.i91:                                  ; preds = %if.then1.i.i84
   %conv.i.i.i92 = sext i16 %33 to i32
   %add.i.i.i93 = add nsw i32 %conv.i.i.i92, 1
   %rem.i.i.i94 = srem i32 %add.i.i.i93, 6
-  %conv3.i.i.i95 = trunc i32 %rem.i.i.i94 to i16
+  %conv3.i.i.i95 = trunc nsw i32 %rem.i.i.i94 to i16
   store i16 %conv3.i.i.i95, ptr %LastEntriesIdx.i.i.i87, align 4
   %idxprom7.i.i.i96 = sext i32 %rem.i.i.i94 to i64
   %arrayidx8.i.i.i97 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i86, i64 0, i64 %idxprom7.i.i.i96
@@ -12002,7 +12002,7 @@ if.then.i.i.i118:                                 ; preds = %if.then1.i.i111
   %conv.i.i.i119 = sext i16 %43 to i32
   %add.i.i.i120 = add nsw i32 %conv.i.i.i119, 1
   %rem.i.i.i121 = srem i32 %add.i.i.i120, 6
-  %conv3.i.i.i122 = trunc i32 %rem.i.i.i121 to i16
+  %conv3.i.i.i122 = trunc nsw i32 %rem.i.i.i121 to i16
   store i16 %conv3.i.i.i122, ptr %LastEntriesIdx.i.i.i114, align 4
   %idxprom7.i.i.i123 = sext i32 %rem.i.i.i121 to i64
   %arrayidx8.i.i.i124 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i113, i64 0, i64 %idxprom7.i.i.i123
@@ -12065,7 +12065,7 @@ if.then.i.i.i146:                                 ; preds = %if.then1.i.i139
   %conv.i.i.i147 = sext i16 %53 to i32
   %add.i.i.i148 = add nsw i32 %conv.i.i.i147, 1
   %rem.i.i.i149 = srem i32 %add.i.i.i148, 6
-  %conv3.i.i.i150 = trunc i32 %rem.i.i.i149 to i16
+  %conv3.i.i.i150 = trunc nsw i32 %rem.i.i.i149 to i16
   store i16 %conv3.i.i.i150, ptr %LastEntriesIdx.i.i.i142, align 4
   %idxprom7.i.i.i151 = sext i32 %rem.i.i.i149 to i64
   %arrayidx8.i.i.i152 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i141, i64 0, i64 %idxprom7.i.i.i151
@@ -12126,7 +12126,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %63 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -12197,7 +12197,7 @@ if.then.i.i.i176:                                 ; preds = %if.then1.i.i169
   %conv.i.i.i177 = sext i16 %73 to i32
   %add.i.i.i178 = add nsw i32 %conv.i.i.i177, 1
   %rem.i.i.i179 = srem i32 %add.i.i.i178, 6
-  %conv3.i.i.i180 = trunc i32 %rem.i.i.i179 to i16
+  %conv3.i.i.i180 = trunc nsw i32 %rem.i.i.i179 to i16
   store i16 %conv3.i.i.i180, ptr %LastEntriesIdx.i.i.i172, align 4
   %idxprom7.i.i.i181 = sext i32 %rem.i.i.i179 to i64
   %arrayidx8.i.i.i182 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i171, i64 0, i64 %idxprom7.i.i.i181
@@ -12258,7 +12258,7 @@ if.then.i.i.i203:                                 ; preds = %if.then1.i.i196
   %conv.i.i.i204 = sext i16 %83 to i32
   %add.i.i.i205 = add nsw i32 %conv.i.i.i204, 1
   %rem.i.i.i206 = srem i32 %add.i.i.i205, 6
-  %conv3.i.i.i207 = trunc i32 %rem.i.i.i206 to i16
+  %conv3.i.i.i207 = trunc nsw i32 %rem.i.i.i206 to i16
   store i16 %conv3.i.i.i207, ptr %LastEntriesIdx.i.i.i199, align 4
   %idxprom7.i.i.i208 = sext i32 %rem.i.i.i206 to i64
   %arrayidx8.i.i.i209 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i198, i64 0, i64 %idxprom7.i.i.i208
@@ -12319,7 +12319,7 @@ if.then.i.i.i230:                                 ; preds = %if.then1.i.i223
   %conv.i.i.i231 = sext i16 %93 to i32
   %add.i.i.i232 = add nsw i32 %conv.i.i.i231, 1
   %rem.i.i.i233 = srem i32 %add.i.i.i232, 6
-  %conv3.i.i.i234 = trunc i32 %rem.i.i.i233 to i16
+  %conv3.i.i.i234 = trunc nsw i32 %rem.i.i.i233 to i16
   store i16 %conv3.i.i.i234, ptr %LastEntriesIdx.i.i.i226, align 4
   %idxprom7.i.i.i235 = sext i32 %rem.i.i.i233 to i64
   %arrayidx8.i.i.i236 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i225, i64 0, i64 %idxprom7.i.i.i235
@@ -12380,7 +12380,7 @@ if.then.i.i.i257:                                 ; preds = %if.then1.i.i250
   %conv.i.i.i258 = sext i16 %103 to i32
   %add.i.i.i259 = add nsw i32 %conv.i.i.i258, 1
   %rem.i.i.i260 = srem i32 %add.i.i.i259, 6
-  %conv3.i.i.i261 = trunc i32 %rem.i.i.i260 to i16
+  %conv3.i.i.i261 = trunc nsw i32 %rem.i.i.i260 to i16
   store i16 %conv3.i.i.i261, ptr %LastEntriesIdx.i.i.i253, align 4
   %idxprom7.i.i.i262 = sext i32 %rem.i.i.i260 to i64
   %arrayidx8.i.i.i263 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i252, i64 0, i64 %idxprom7.i.i.i262
@@ -12441,7 +12441,7 @@ if.then.i.i.i284:                                 ; preds = %if.then1.i.i277
   %conv.i.i.i285 = sext i16 %113 to i32
   %add.i.i.i286 = add nsw i32 %conv.i.i.i285, 1
   %rem.i.i.i287 = srem i32 %add.i.i.i286, 6
-  %conv3.i.i.i288 = trunc i32 %rem.i.i.i287 to i16
+  %conv3.i.i.i288 = trunc nsw i32 %rem.i.i.i287 to i16
   store i16 %conv3.i.i.i288, ptr %LastEntriesIdx.i.i.i280, align 4
   %idxprom7.i.i.i289 = sext i32 %rem.i.i.i287 to i64
   %arrayidx8.i.i.i290 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i279, i64 0, i64 %idxprom7.i.i.i289
@@ -12502,7 +12502,7 @@ if.then.i.i.i312:                                 ; preds = %if.then1.i.i305
   %conv.i.i.i313 = sext i16 %123 to i32
   %add.i.i.i314 = add nsw i32 %conv.i.i.i313, 1
   %rem.i.i.i315 = srem i32 %add.i.i.i314, 6
-  %conv3.i.i.i316 = trunc i32 %rem.i.i.i315 to i16
+  %conv3.i.i.i316 = trunc nsw i32 %rem.i.i.i315 to i16
   store i16 %conv3.i.i.i316, ptr %LastEntriesIdx.i.i.i308, align 4
   %idxprom7.i.i.i317 = sext i32 %rem.i.i.i315 to i64
   %arrayidx8.i.i.i318 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i307, i64 0, i64 %idxprom7.i.i.i317
@@ -12567,7 +12567,7 @@ if.then.i.i.i339:                                 ; preds = %if.then1.i.i332
   %conv.i.i.i340 = sext i16 %133 to i32
   %add.i.i.i341 = add nsw i32 %conv.i.i.i340, 1
   %rem.i.i.i342 = srem i32 %add.i.i.i341, 6
-  %conv3.i.i.i343 = trunc i32 %rem.i.i.i342 to i16
+  %conv3.i.i.i343 = trunc nsw i32 %rem.i.i.i342 to i16
   store i16 %conv3.i.i.i343, ptr %LastEntriesIdx.i.i.i335, align 4
   %idxprom7.i.i.i344 = sext i32 %rem.i.i.i342 to i64
   %arrayidx8.i.i.i345 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i334, i64 0, i64 %idxprom7.i.i.i344
@@ -12628,7 +12628,7 @@ if.then.i.i.i366:                                 ; preds = %if.then1.i.i359
   %conv.i.i.i367 = sext i16 %143 to i32
   %add.i.i.i368 = add nsw i32 %conv.i.i.i367, 1
   %rem.i.i.i369 = srem i32 %add.i.i.i368, 6
-  %conv3.i.i.i370 = trunc i32 %rem.i.i.i369 to i16
+  %conv3.i.i.i370 = trunc nsw i32 %rem.i.i.i369 to i16
   store i16 %conv3.i.i.i370, ptr %LastEntriesIdx.i.i.i362, align 4
   %idxprom7.i.i.i371 = sext i32 %rem.i.i.i369 to i64
   %arrayidx8.i.i.i372 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i361, i64 0, i64 %idxprom7.i.i.i371
@@ -12695,7 +12695,7 @@ if.then.i.i.i393:                                 ; preds = %if.then1.i.i386
   %conv.i.i.i394 = sext i16 %153 to i32
   %add.i.i.i395 = add nsw i32 %conv.i.i.i394, 1
   %rem.i.i.i396 = srem i32 %add.i.i.i395, 6
-  %conv3.i.i.i397 = trunc i32 %rem.i.i.i396 to i16
+  %conv3.i.i.i397 = trunc nsw i32 %rem.i.i.i396 to i16
   store i16 %conv3.i.i.i397, ptr %LastEntriesIdx.i.i.i389, align 4
   %idxprom7.i.i.i398 = sext i32 %rem.i.i.i396 to i64
   %arrayidx8.i.i.i399 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i388, i64 0, i64 %idxprom7.i.i.i398
@@ -12756,7 +12756,7 @@ if.then.i.i.i420:                                 ; preds = %if.then1.i.i413
   %conv.i.i.i421 = sext i16 %163 to i32
   %add.i.i.i422 = add nsw i32 %conv.i.i.i421, 1
   %rem.i.i.i423 = srem i32 %add.i.i.i422, 6
-  %conv3.i.i.i424 = trunc i32 %rem.i.i.i423 to i16
+  %conv3.i.i.i424 = trunc nsw i32 %rem.i.i.i423 to i16
   store i16 %conv3.i.i.i424, ptr %LastEntriesIdx.i.i.i416, align 4
   %idxprom7.i.i.i425 = sext i32 %rem.i.i.i423 to i64
   %arrayidx8.i.i.i426 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i415, i64 0, i64 %idxprom7.i.i.i425
@@ -12817,7 +12817,7 @@ if.then.i.i.i447:                                 ; preds = %if.then1.i.i440
   %conv.i.i.i448 = sext i16 %173 to i32
   %add.i.i.i449 = add nsw i32 %conv.i.i.i448, 1
   %rem.i.i.i450 = srem i32 %add.i.i.i449, 6
-  %conv3.i.i.i451 = trunc i32 %rem.i.i.i450 to i16
+  %conv3.i.i.i451 = trunc nsw i32 %rem.i.i.i450 to i16
   store i16 %conv3.i.i.i451, ptr %LastEntriesIdx.i.i.i443, align 4
   %idxprom7.i.i.i452 = sext i32 %rem.i.i.i450 to i64
   %arrayidx8.i.i.i453 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i442, i64 0, i64 %idxprom7.i.i.i452
@@ -12882,7 +12882,7 @@ if.then.i.i.i.i474:                               ; preds = %if.then1.i.i.i467
   %conv.i.i.i.i475 = sext i16 %183 to i32
   %add.i.i.i.i476 = add nsw i32 %conv.i.i.i.i475, 1
   %rem.i.i.i.i477 = srem i32 %add.i.i.i.i476, 6
-  %conv3.i.i.i.i478 = trunc i32 %rem.i.i.i.i477 to i16
+  %conv3.i.i.i.i478 = trunc nsw i32 %rem.i.i.i.i477 to i16
   store i16 %conv3.i.i.i.i478, ptr %LastEntriesIdx.i.i.i.i470, align 4
   %idxprom7.i.i.i.i479 = sext i32 %rem.i.i.i.i477 to i64
   %arrayidx8.i.i.i.i480 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i469, i64 0, i64 %idxprom7.i.i.i.i479
@@ -12943,7 +12943,7 @@ if.then.i.i.i.i501:                               ; preds = %if.then1.i.i.i494
   %conv.i.i.i.i502 = sext i16 %193 to i32
   %add.i.i.i.i503 = add nsw i32 %conv.i.i.i.i502, 1
   %rem.i.i.i.i504 = srem i32 %add.i.i.i.i503, 6
-  %conv3.i.i.i.i505 = trunc i32 %rem.i.i.i.i504 to i16
+  %conv3.i.i.i.i505 = trunc nsw i32 %rem.i.i.i.i504 to i16
   store i16 %conv3.i.i.i.i505, ptr %LastEntriesIdx.i.i.i.i497, align 4
   %idxprom7.i.i.i.i506 = sext i32 %rem.i.i.i.i504 to i64
   %arrayidx8.i.i.i.i507 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i496, i64 0, i64 %idxprom7.i.i.i.i506
@@ -13004,7 +13004,7 @@ if.then.i.i.i528:                                 ; preds = %if.then1.i.i521
   %conv.i.i.i529 = sext i16 %203 to i32
   %add.i.i.i530 = add nsw i32 %conv.i.i.i529, 1
   %rem.i.i.i531 = srem i32 %add.i.i.i530, 6
-  %conv3.i.i.i532 = trunc i32 %rem.i.i.i531 to i16
+  %conv3.i.i.i532 = trunc nsw i32 %rem.i.i.i531 to i16
   store i16 %conv3.i.i.i532, ptr %LastEntriesIdx.i.i.i524, align 4
   %idxprom7.i.i.i533 = sext i32 %rem.i.i.i531 to i64
   %arrayidx8.i.i.i534 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i523, i64 0, i64 %idxprom7.i.i.i533
@@ -13084,7 +13084,7 @@ if.then.i.i.i.i555:                               ; preds = %if.then1.i.i.i548
   %conv.i.i.i.i556 = sext i16 %215 to i32
   %add.i.i.i.i557 = add nsw i32 %conv.i.i.i.i556, 1
   %rem.i.i.i.i558 = srem i32 %add.i.i.i.i557, 6
-  %conv3.i.i.i.i559 = trunc i32 %rem.i.i.i.i558 to i16
+  %conv3.i.i.i.i559 = trunc nsw i32 %rem.i.i.i.i558 to i16
   store i16 %conv3.i.i.i.i559, ptr %LastEntriesIdx.i.i.i.i551, align 4
   %idxprom7.i.i.i.i560 = sext i32 %rem.i.i.i.i558 to i64
   %arrayidx8.i.i.i.i561 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i550, i64 0, i64 %idxprom7.i.i.i.i560
@@ -13145,7 +13145,7 @@ if.then.i.i.i.i582:                               ; preds = %if.then1.i.i.i575
   %conv.i.i.i.i583 = sext i16 %225 to i32
   %add.i.i.i.i584 = add nsw i32 %conv.i.i.i.i583, 1
   %rem.i.i.i.i585 = srem i32 %add.i.i.i.i584, 6
-  %conv3.i.i.i.i586 = trunc i32 %rem.i.i.i.i585 to i16
+  %conv3.i.i.i.i586 = trunc nsw i32 %rem.i.i.i.i585 to i16
   store i16 %conv3.i.i.i.i586, ptr %LastEntriesIdx.i.i.i.i578, align 4
   %idxprom7.i.i.i.i587 = sext i32 %rem.i.i.i.i585 to i64
   %arrayidx8.i.i.i.i588 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i577, i64 0, i64 %idxprom7.i.i.i.i587
@@ -13206,7 +13206,7 @@ if.then.i.i.i.i610:                               ; preds = %if.then1.i.i.i603
   %conv.i.i.i.i611 = sext i16 %235 to i32
   %add.i.i.i.i612 = add nsw i32 %conv.i.i.i.i611, 1
   %rem.i.i.i.i613 = srem i32 %add.i.i.i.i612, 6
-  %conv3.i.i.i.i614 = trunc i32 %rem.i.i.i.i613 to i16
+  %conv3.i.i.i.i614 = trunc nsw i32 %rem.i.i.i.i613 to i16
   store i16 %conv3.i.i.i.i614, ptr %LastEntriesIdx.i.i.i.i606, align 4
   %idxprom7.i.i.i.i615 = sext i32 %rem.i.i.i.i613 to i64
   %arrayidx8.i.i.i.i616 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i605, i64 0, i64 %idxprom7.i.i.i.i615
@@ -13298,7 +13298,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %7 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -13728,7 +13728,7 @@ if.end7:                                          ; preds = %land.lhs.true.i.i, 
   %20 = load i32, ptr %Flags, align 4
   %IsChild = getelementptr inbounds i8, ptr %settings.0, i64 13
   %and11 = lshr i32 %20, 24
-  %21 = trunc i32 %and11 to i8
+  %21 = trunc nuw i32 %and11 to i8
   %frombool = and i8 %21, 1
   store i8 %frombool, ptr %IsChild, align 1
   %Collapsed = getelementptr inbounds i8, ptr %2, i64 193
@@ -14004,7 +14004,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -14237,7 +14237,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %6 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -14304,7 +14304,7 @@ if.then.i.i.i13:                                  ; preds = %if.then1.i.i6
   %conv.i.i.i14 = sext i16 %18 to i32
   %add.i.i.i15 = add nsw i32 %conv.i.i.i14, 1
   %rem.i.i.i16 = srem i32 %add.i.i.i15, 6
-  %conv3.i.i.i17 = trunc i32 %rem.i.i.i16 to i16
+  %conv3.i.i.i17 = trunc nsw i32 %rem.i.i.i16 to i16
   store i16 %conv3.i.i.i17, ptr %LastEntriesIdx.i.i.i9, align 4
   %idxprom7.i.i.i18 = sext i32 %rem.i.i.i16 to i64
   %arrayidx8.i.i.i19 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i8, i64 0, i64 %idxprom7.i.i.i18
@@ -14372,7 +14372,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -14433,7 +14433,7 @@ if.then.i.i.i15:                                  ; preds = %if.then1.i.i8
   %conv.i.i.i16 = sext i16 %13 to i32
   %add.i.i.i17 = add nsw i32 %conv.i.i.i16, 1
   %rem.i.i.i18 = srem i32 %add.i.i.i17, 6
-  %conv3.i.i.i19 = trunc i32 %rem.i.i.i18 to i16
+  %conv3.i.i.i19 = trunc nsw i32 %rem.i.i.i18 to i16
   store i16 %conv3.i.i.i19, ptr %LastEntriesIdx.i.i.i11, align 4
   %idxprom7.i.i.i20 = sext i32 %rem.i.i.i18 to i64
   %arrayidx8.i.i.i21 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i10, i64 0, i64 %idxprom7.i.i.i20
@@ -14509,7 +14509,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %6 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -14576,7 +14576,7 @@ if.then.i.i.i13:                                  ; preds = %if.then1.i.i6
   %conv.i.i.i14 = sext i16 %18 to i32
   %add.i.i.i15 = add nsw i32 %conv.i.i.i14, 1
   %rem.i.i.i16 = srem i32 %add.i.i.i15, 6
-  %conv3.i.i.i17 = trunc i32 %rem.i.i.i16 to i16
+  %conv3.i.i.i17 = trunc nsw i32 %rem.i.i.i16 to i16
   store i16 %conv3.i.i.i17, ptr %LastEntriesIdx.i.i.i9, align 4
   %idxprom7.i.i.i18 = sext i32 %rem.i.i.i16 to i64
   %arrayidx8.i.i.i19 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i8, i64 0, i64 %idxprom7.i.i.i18
@@ -14677,7 +14677,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %11 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -14737,7 +14737,7 @@ if.then.i.i.i9:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %21 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -14816,7 +14816,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %6 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -14893,7 +14893,7 @@ if.then.i.i.i4:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %20 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -14994,7 +14994,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %11 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -15054,7 +15054,7 @@ if.then.i.i.i9:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %21 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -15138,7 +15138,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then1.i.i.i.i
   %conv.i.i.i.i.i = sext i16 %5 to i32
   %add.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, 1
   %rem.i.i.i.i.i = srem i32 %add.i.i.i.i.i, 6
-  %conv3.i.i.i.i.i = trunc i32 %rem.i.i.i.i.i to i16
+  %conv3.i.i.i.i.i = trunc nsw i32 %rem.i.i.i.i.i to i16
   store i16 %conv3.i.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i.i, align 4
   %idxprom7.i.i.i.i.i = sext i32 %rem.i.i.i.i.i to i64
   %arrayidx8.i.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i.i
@@ -15218,7 +15218,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %21 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -15285,7 +15285,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -15346,7 +15346,7 @@ if.then.i.i.i13:                                  ; preds = %if.then1.i.i6
   %conv.i.i.i14 = sext i16 %13 to i32
   %add.i.i.i15 = add nsw i32 %conv.i.i.i14, 1
   %rem.i.i.i16 = srem i32 %add.i.i.i15, 6
-  %conv3.i.i.i17 = trunc i32 %rem.i.i.i16 to i16
+  %conv3.i.i.i17 = trunc nsw i32 %rem.i.i.i16 to i16
   store i16 %conv3.i.i.i17, ptr %LastEntriesIdx.i.i.i9, align 4
   %idxprom7.i.i.i18 = sext i32 %rem.i.i.i16 to i64
   %arrayidx8.i.i.i19 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i8, i64 0, i64 %idxprom7.i.i.i18
@@ -15407,7 +15407,7 @@ if.then.i.i.i40:                                  ; preds = %if.then1.i.i33
   %conv.i.i.i41 = sext i16 %23 to i32
   %add.i.i.i42 = add nsw i32 %conv.i.i.i41, 1
   %rem.i.i.i43 = srem i32 %add.i.i.i42, 6
-  %conv3.i.i.i44 = trunc i32 %rem.i.i.i43 to i16
+  %conv3.i.i.i44 = trunc nsw i32 %rem.i.i.i43 to i16
   store i16 %conv3.i.i.i44, ptr %LastEntriesIdx.i.i.i36, align 4
   %idxprom7.i.i.i45 = sext i32 %rem.i.i.i43 to i64
   %arrayidx8.i.i.i46 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i35, i64 0, i64 %idxprom7.i.i.i45
@@ -15560,7 +15560,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %conv.i.i.i = sext i16 %5 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -15944,7 +15944,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %3 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -16014,7 +16014,7 @@ if.then.i.i.i2:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %17 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -16077,7 +16077,7 @@ if.then.i.i.i15:                                  ; preds = %if.then1.i.i8
   %conv.i.i.i16 = sext i16 %29 to i32
   %add.i.i.i17 = add nsw i32 %conv.i.i.i16, 1
   %rem.i.i.i18 = srem i32 %add.i.i.i17, 6
-  %conv3.i.i.i19 = trunc i32 %rem.i.i.i18 to i16
+  %conv3.i.i.i19 = trunc nsw i32 %rem.i.i.i18 to i16
   store i16 %conv3.i.i.i19, ptr %LastEntriesIdx.i.i.i11, align 4
   %idxprom7.i.i.i20 = sext i32 %rem.i.i.i18 to i64
   %arrayidx8.i.i.i21 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i10, i64 0, i64 %idxprom7.i.i.i20
@@ -16140,7 +16140,7 @@ if.then.i.i.i42:                                  ; preds = %if.then1.i.i35
   %conv.i.i.i43 = sext i16 %41 to i32
   %add.i.i.i44 = add nsw i32 %conv.i.i.i43, 1
   %rem.i.i.i45 = srem i32 %add.i.i.i44, 6
-  %conv3.i.i.i46 = trunc i32 %rem.i.i.i45 to i16
+  %conv3.i.i.i46 = trunc nsw i32 %rem.i.i.i45 to i16
   store i16 %conv3.i.i.i46, ptr %LastEntriesIdx.i.i.i38, align 4
   %idxprom7.i.i.i47 = sext i32 %rem.i.i.i45 to i64
   %arrayidx8.i.i.i48 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i37, i64 0, i64 %idxprom7.i.i.i47
@@ -16203,7 +16203,7 @@ if.then.i.i.i69:                                  ; preds = %if.then1.i.i62
   %conv.i.i.i70 = sext i16 %53 to i32
   %add.i.i.i71 = add nsw i32 %conv.i.i.i70, 1
   %rem.i.i.i72 = srem i32 %add.i.i.i71, 6
-  %conv3.i.i.i73 = trunc i32 %rem.i.i.i72 to i16
+  %conv3.i.i.i73 = trunc nsw i32 %rem.i.i.i72 to i16
   store i16 %conv3.i.i.i73, ptr %LastEntriesIdx.i.i.i65, align 4
   %idxprom7.i.i.i74 = sext i32 %rem.i.i.i72 to i64
   %arrayidx8.i.i.i75 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i64, i64 0, i64 %idxprom7.i.i.i74
@@ -16266,7 +16266,7 @@ if.then.i.i.i96:                                  ; preds = %if.then1.i.i89
   %conv.i.i.i97 = sext i16 %65 to i32
   %add.i.i.i98 = add nsw i32 %conv.i.i.i97, 1
   %rem.i.i.i99 = srem i32 %add.i.i.i98, 6
-  %conv3.i.i.i100 = trunc i32 %rem.i.i.i99 to i16
+  %conv3.i.i.i100 = trunc nsw i32 %rem.i.i.i99 to i16
   store i16 %conv3.i.i.i100, ptr %LastEntriesIdx.i.i.i92, align 4
   %idxprom7.i.i.i101 = sext i32 %rem.i.i.i99 to i64
   %arrayidx8.i.i.i102 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i91, i64 0, i64 %idxprom7.i.i.i101
@@ -16329,7 +16329,7 @@ if.then.i.i.i123:                                 ; preds = %if.then1.i.i116
   %conv.i.i.i124 = sext i16 %77 to i32
   %add.i.i.i125 = add nsw i32 %conv.i.i.i124, 1
   %rem.i.i.i126 = srem i32 %add.i.i.i125, 6
-  %conv3.i.i.i127 = trunc i32 %rem.i.i.i126 to i16
+  %conv3.i.i.i127 = trunc nsw i32 %rem.i.i.i126 to i16
   store i16 %conv3.i.i.i127, ptr %LastEntriesIdx.i.i.i119, align 4
   %idxprom7.i.i.i128 = sext i32 %rem.i.i.i126 to i64
   %arrayidx8.i.i.i129 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i118, i64 0, i64 %idxprom7.i.i.i128
@@ -16405,7 +16405,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -16474,7 +16474,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -16543,7 +16543,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -16606,7 +16606,7 @@ if.then.i.i.i12:                                  ; preds = %if.then1.i.i5
   %conv.i.i.i13 = sext i16 %15 to i32
   %add.i.i.i14 = add nsw i32 %conv.i.i.i13, 1
   %rem.i.i.i15 = srem i32 %add.i.i.i14, 6
-  %conv3.i.i.i16 = trunc i32 %rem.i.i.i15 to i16
+  %conv3.i.i.i16 = trunc nsw i32 %rem.i.i.i15 to i16
   store i16 %conv3.i.i.i16, ptr %LastEntriesIdx.i.i.i8, align 4
   %idxprom7.i.i.i17 = sext i32 %rem.i.i.i15 to i64
   %arrayidx8.i.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i7, i64 0, i64 %idxprom7.i.i.i17
@@ -16669,7 +16669,7 @@ if.then.i.i.i40:                                  ; preds = %if.then1.i.i33
   %conv.i.i.i41 = sext i16 %27 to i32
   %add.i.i.i42 = add nsw i32 %conv.i.i.i41, 1
   %rem.i.i.i43 = srem i32 %add.i.i.i42, 6
-  %conv3.i.i.i44 = trunc i32 %rem.i.i.i43 to i16
+  %conv3.i.i.i44 = trunc nsw i32 %rem.i.i.i43 to i16
   store i16 %conv3.i.i.i44, ptr %LastEntriesIdx.i.i.i36, align 4
   %idxprom7.i.i.i45 = sext i32 %rem.i.i.i43 to i64
   %arrayidx8.i.i.i46 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i35, i64 0, i64 %idxprom7.i.i.i45
@@ -16738,7 +16738,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -16807,7 +16807,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -16887,7 +16887,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %17 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -16948,7 +16948,7 @@ if.then.i.i.i15:                                  ; preds = %if.then1.i.i8
   %conv.i.i.i16 = sext i16 %27 to i32
   %add.i.i.i17 = add nsw i32 %conv.i.i.i16, 1
   %rem.i.i.i18 = srem i32 %add.i.i.i17, 6
-  %conv3.i.i.i19 = trunc i32 %rem.i.i.i18 to i16
+  %conv3.i.i.i19 = trunc nsw i32 %rem.i.i.i18 to i16
   store i16 %conv3.i.i.i19, ptr %LastEntriesIdx.i.i.i11, align 4
   %idxprom7.i.i.i20 = sext i32 %rem.i.i.i18 to i64
   %arrayidx8.i.i.i21 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i10, i64 0, i64 %idxprom7.i.i.i20
@@ -17011,7 +17011,7 @@ if.then.i.i.i.i40:                                ; preds = %if.then1.i.i.i33
   %conv.i.i.i.i41 = sext i16 %39 to i32
   %add.i.i.i.i42 = add nsw i32 %conv.i.i.i.i41, 1
   %rem.i.i.i.i43 = srem i32 %add.i.i.i.i42, 6
-  %conv3.i.i.i.i44 = trunc i32 %rem.i.i.i.i43 to i16
+  %conv3.i.i.i.i44 = trunc nsw i32 %rem.i.i.i.i43 to i16
   store i16 %conv3.i.i.i.i44, ptr %LastEntriesIdx.i.i.i.i36, align 4
   %idxprom7.i.i.i.i45 = sext i32 %rem.i.i.i.i43 to i64
   %arrayidx8.i.i.i.i46 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i35, i64 0, i64 %idxprom7.i.i.i.i45
@@ -17076,7 +17076,7 @@ if.then.i.i.i65:                                  ; preds = %if.then1.i.i58
   %conv.i.i.i66 = sext i16 %51 to i32
   %add.i.i.i67 = add nsw i32 %conv.i.i.i66, 1
   %rem.i.i.i68 = srem i32 %add.i.i.i67, 6
-  %conv3.i.i.i69 = trunc i32 %rem.i.i.i68 to i16
+  %conv3.i.i.i69 = trunc nsw i32 %rem.i.i.i68 to i16
   store i16 %conv3.i.i.i69, ptr %LastEntriesIdx.i.i.i61, align 4
   %idxprom7.i.i.i70 = sext i32 %rem.i.i.i68 to i64
   %arrayidx8.i.i.i71 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i60, i64 0, i64 %idxprom7.i.i.i70
@@ -17467,7 +17467,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -17525,7 +17525,7 @@ if.then.i.i.i14:                                  ; preds = %if.then1.i.i7
   %conv.i.i.i15 = sext i16 %13 to i32
   %add.i.i.i16 = add nsw i32 %conv.i.i.i15, 1
   %rem.i.i.i17 = srem i32 %add.i.i.i16, 6
-  %conv3.i.i.i18 = trunc i32 %rem.i.i.i17 to i16
+  %conv3.i.i.i18 = trunc nsw i32 %rem.i.i.i17 to i16
   store i16 %conv3.i.i.i18, ptr %LastEntriesIdx.i.i.i10, align 4
   %idxprom7.i.i.i19 = sext i32 %rem.i.i.i17 to i64
   %arrayidx8.i.i.i20 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i9, i64 0, i64 %idxprom7.i.i.i19
@@ -17607,7 +17607,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %6 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -17671,7 +17671,7 @@ if.then.i.i.i22:                                  ; preds = %if.then1.i.i15
   %conv.i.i.i23 = sext i16 %17 to i32
   %add.i.i.i24 = add nsw i32 %conv.i.i.i23, 1
   %rem.i.i.i25 = srem i32 %add.i.i.i24, 6
-  %conv3.i.i.i26 = trunc i32 %rem.i.i.i25 to i16
+  %conv3.i.i.i26 = trunc nsw i32 %rem.i.i.i25 to i16
   store i16 %conv3.i.i.i26, ptr %LastEntriesIdx.i.i.i18, align 4
   %idxprom7.i.i.i27 = sext i32 %rem.i.i.i25 to i64
   %arrayidx8.i.i.i28 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i17, i64 0, i64 %idxprom7.i.i.i27
@@ -17732,7 +17732,7 @@ if.then.i.i.i49:                                  ; preds = %if.then1.i.i42
   %conv.i.i.i50 = sext i16 %27 to i32
   %add.i.i.i51 = add nsw i32 %conv.i.i.i50, 1
   %rem.i.i.i52 = srem i32 %add.i.i.i51, 6
-  %conv3.i.i.i53 = trunc i32 %rem.i.i.i52 to i16
+  %conv3.i.i.i53 = trunc nsw i32 %rem.i.i.i52 to i16
   store i16 %conv3.i.i.i53, ptr %LastEntriesIdx.i.i.i45, align 4
   %idxprom7.i.i.i54 = sext i32 %rem.i.i.i52 to i64
   %arrayidx8.i.i.i55 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i44, i64 0, i64 %idxprom7.i.i.i54
@@ -17793,7 +17793,7 @@ if.then.i.i.i76:                                  ; preds = %if.then1.i.i69
   %conv.i.i.i77 = sext i16 %37 to i32
   %add.i.i.i78 = add nsw i32 %conv.i.i.i77, 1
   %rem.i.i.i79 = srem i32 %add.i.i.i78, 6
-  %conv3.i.i.i80 = trunc i32 %rem.i.i.i79 to i16
+  %conv3.i.i.i80 = trunc nsw i32 %rem.i.i.i79 to i16
   store i16 %conv3.i.i.i80, ptr %LastEntriesIdx.i.i.i72, align 4
   %idxprom7.i.i.i81 = sext i32 %rem.i.i.i79 to i64
   %arrayidx8.i.i.i82 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i71, i64 0, i64 %idxprom7.i.i.i81
@@ -17885,7 +17885,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -17943,7 +17943,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -18016,7 +18016,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -18074,7 +18074,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -19279,7 +19279,7 @@ if.then:                                          ; preds = %entry
   %conv = sext i16 %0 to i32
   %add = add nsw i32 %conv, 1
   %rem = srem i32 %add, 6
-  %conv3 = trunc i32 %rem to i16
+  %conv3 = trunc nsw i32 %rem to i16
   store i16 %conv3, ptr %LastEntriesIdx, align 4
   %idxprom7 = sext i32 %rem to i64
   %arrayidx8 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf, i64 0, i64 %idxprom7
@@ -19446,7 +19446,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %6 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -21190,7 +21190,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   %hit_padding.sroa.0.0.extract.trunc.i = trunc i64 %16 to i32
   %17 = bitcast i32 %hit_padding.sroa.0.0.extract.trunc.i to float
   %hit_padding.sroa.2.0.extract.shift.i = lshr i64 %16, 32
-  %hit_padding.sroa.2.0.extract.trunc.i = trunc i64 %hit_padding.sroa.2.0.extract.shift.i to i32
+  %hit_padding.sroa.2.0.extract.trunc.i = trunc nuw i64 %hit_padding.sroa.2.0.extract.shift.i to i32
   %18 = bitcast i32 %hit_padding.sroa.2.0.extract.trunc.i to float
   %OuterRectClipped.i = getelementptr inbounds i8, ptr %12, i64 504
   %19 = load float, ptr %MousePos.i, align 4
@@ -21681,7 +21681,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %20 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -22780,22 +22780,22 @@ _ZL21GetMergedModsFromKeysv.exit.i:               ; preds = %_ZN5ImGui9IsKeyDown
   store i32 %202, ptr %KeyMods.i, align 8
   %KeyCtrl325.i = getelementptr inbounds i8, ptr %147, i64 3684
   %and323.i = lshr i32 %202, 12
-  %203 = trunc i32 %and323.i to i8
+  %203 = trunc nuw nsw i32 %and323.i to i8
   %frombool326.i = and i8 %203, 1
   store i8 %frombool326.i, ptr %KeyCtrl325.i, align 4
   %KeyShift330.i = getelementptr inbounds i8, ptr %147, i64 3685
   %and328.i = lshr i32 %202, 13
-  %204 = trunc i32 %and328.i to i8
+  %204 = trunc nuw nsw i32 %and328.i to i8
   %frombool331.i = and i8 %204, 1
   store i8 %frombool331.i, ptr %KeyShift330.i, align 1
   %KeyAlt335.i = getelementptr inbounds i8, ptr %147, i64 3686
   %and333.i = lshr i32 %202, 14
-  %205 = trunc i32 %and333.i to i8
+  %205 = trunc nuw nsw i32 %and333.i to i8
   %frombool336.i = and i8 %205, 1
   store i8 %frombool336.i, ptr %KeyAlt335.i, align 2
   %KeySuper340.i = getelementptr inbounds i8, ptr %147, i64 3687
   %and338.i = lshr i32 %202, 15
-  %206 = trunc i32 %and338.i to i8
+  %206 = trunc nuw nsw i32 %and338.i to i8
   store i8 %206, ptr %KeySuper340.i, align 1
   %BackendFlags342.i = getelementptr inbounds i8, ptr %147, i64 12
   %207 = load i32, ptr %BackendFlags342.i, align 4
@@ -22987,7 +22987,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i168.i
   %conv.i.i.i.i.i = sext i16 %229 to i32
   %add.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, 1
   %rem.i.i.i.i.i = srem i32 %add.i.i.i.i.i, 6
-  %conv3.i.i.i.i.i = trunc i32 %rem.i.i.i.i.i to i16
+  %conv3.i.i.i.i.i = trunc nsw i32 %rem.i.i.i.i.i to i16
   store i16 %conv3.i.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i.i, align 4
   %idxprom7.i.i.i.i.i = sext i32 %rem.i.i.i.i.i to i64
   %arrayidx8.i.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i.i
@@ -23044,7 +23044,7 @@ if.then.i.i12.i.i.i:                              ; preds = %if.then1.i.i.i.i
   %conv.i.i13.i.i.i = sext i16 %239 to i32
   %add.i.i14.i.i.i = add nsw i32 %conv.i.i13.i.i.i, 1
   %rem.i.i15.i.i.i = srem i32 %add.i.i14.i.i.i, 6
-  %conv3.i.i16.i.i.i = trunc i32 %rem.i.i15.i.i.i to i16
+  %conv3.i.i16.i.i.i = trunc nsw i32 %rem.i.i15.i.i.i to i16
   store i16 %conv3.i.i16.i.i.i, ptr %LastEntriesIdx.i.i8.i.i.i, align 4
   %idxprom7.i.i17.i.i.i = sext i32 %rem.i.i15.i.i.i to i64
   %arrayidx8.i.i18.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7.i.i.i, i64 0, i64 %idxprom7.i.i17.i.i.i
@@ -23506,7 +23506,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   br i1 %cmp5.i.i.i.i, label %if.then6.i.i.i.i, label %if.end8.i.i.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %if.end3.i.i.i.i
-  %trunc.i.i.i.i = trunc i32 %key_chord.addr.0.i.i.i.i to i16
+  %trunc.i.i.i.i = trunc nuw i32 %key_chord.addr.0.i.i.i.i to i16
   switch i16 %trunc.i.i.i.i, label %if.end12.i.i.i.i.i [
     i16 4096, label %if.end8.i.i.i.i
     i16 8192, label %if.then2.i.i.i.i.i
@@ -23574,7 +23574,7 @@ if.end3.i.i172.i.i:                               ; preds = %if.end.i.i167.i.i
   br i1 %cmp5.i.i174.i.i, label %if.then6.i.i178.i.i, label %if.end8.i.i175.i.i
 
 if.then6.i.i178.i.i:                              ; preds = %if.end3.i.i172.i.i
-  %trunc.i.i179.i.i = trunc i32 %key_chord.addr.0.i.i168.i.i to i16
+  %trunc.i.i179.i.i = trunc nuw i32 %key_chord.addr.0.i.i168.i.i to i16
   switch i16 %trunc.i.i179.i.i, label %if.end12.i.i.i187.i.i [
     i16 4096, label %if.end8.i.i175.i.i
     i16 8192, label %if.then2.i.i.i186.i.i
@@ -28457,7 +28457,7 @@ land.end140.i:                                    ; preds = %land.end133.i
   %cmp139.i = fcmp une float %1281, 0.000000e+00
   %frombool141.i = zext i1 %cmp139.i to i8
   store i8 %frombool141.i, ptr %arrayinit.element.i, align 1
-  %tobool142.i = trunc i8 %frombool.i472 to i1
+  %tobool142.i = trunc nuw i8 %frombool.i472 to i1
   %1282 = select i1 %tobool142.i, i1 %cmp139.i, i1 false
   br i1 %1282, label %if.then146.i, label %if.end154.i
 
@@ -29324,7 +29324,7 @@ cond.false382:                                    ; preds = %if.then378
   %cond388 = zext i1 %cmp387 to i16
   %add389 = add nsw i16 %cond388, %conv379
   %rem390798 = srem i16 %add389, 10
-  %1421 = trunc i16 %rem390798 to i8
+  %1421 = trunc nsw i16 %rem390798 to i8
   br label %if.end397
 
 if.end397:                                        ; preds = %if.end373, %cond.false382, %if.then378
@@ -29433,15 +29433,15 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp9.not, label %lor.lhs.false, label %for.end
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %tobool10 = trunc i8 %mouse_wheeled.0167 to i1
+  %tobool10 = trunc nuw i8 %mouse_wheeled.0167 to i1
   br i1 %tobool10, label %for.end, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false
-  %tobool12 = trunc i8 %key_changed.0166 to i1
+  %tobool12 = trunc nuw i8 %key_changed.0166 to i1
   br i1 %tobool12, label %for.end, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false11
-  %tobool14 = trunc i8 %text_inputted.0165 to i1
+  %tobool14 = trunc nuw i8 %text_inputted.0165 to i1
   br i1 %tobool14, label %for.end, label %if.end16
 
 if.end16:                                         ; preds = %lor.lhs.false13, %if.end
@@ -29463,7 +29463,7 @@ land.lhs.true22:                                  ; preds = %if.then20
   br i1 %tobool23.not, label %lor.lhs.false24, label %for.end
 
 lor.lhs.false24:                                  ; preds = %land.lhs.true22
-  %tobool25 = trunc i8 %mouse_wheeled.0167 to i1
+  %tobool25 = trunc nuw i8 %mouse_wheeled.0167 to i1
   br i1 %tobool25, label %for.end, label %if.end27
 
 if.end27:                                         ; preds = %lor.lhs.false24
@@ -29473,7 +29473,7 @@ if.end27:                                         ; preds = %lor.lhs.false24
   br i1 %cmp31, label %land.lhs.true32, label %if.end35
 
 land.lhs.true32:                                  ; preds = %if.end27
-  %tobool33 = trunc i8 %mouse_moved.0168 to i1
+  %tobool33 = trunc nuw i8 %mouse_moved.0168 to i1
   br i1 %tobool33, label %for.end, label %if.end35
 
 if.end35:                                         ; preds = %if.then20, %land.lhs.true32, %if.end27
@@ -29490,7 +29490,7 @@ if.end35:                                         ; preds = %if.then20, %land.lh
   br label %for.inc
 
 if.then44:                                        ; preds = %for.body
-  %tobool47 = trunc i8 %mouse_moved.0168 to i1
+  %tobool47 = trunc nuw i8 %mouse_moved.0168 to i1
   %cmp49 = icmp ne i32 %mouse_button_changed.0164, 0
   %or.cond = select i1 %tobool47, i1 true, i1 %cmp49
   %or.cond98 = select i1 %trickle_fast_inputs, i1 %or.cond, i1 false
@@ -29595,7 +29595,7 @@ land.lhs.true70:                                  ; preds = %land.lhs.true62
   %shl.i = shl nuw i32 1, %and.i
   %and2.i = and i32 %31, %shl.i
   %cmp.i = icmp ne i32 %and2.i, 0
-  %tobool73 = trunc i8 %text_inputted.0165 to i1
+  %tobool73 = trunc nuw i8 %text_inputted.0165 to i1
   %cmp75 = icmp ne i32 %mouse_button_changed.0164, 0
   %32 = select i1 %cmp.i, i1 true, i1 %tobool73
   %or.cond99 = select i1 %32, i1 true, i1 %cmp75
@@ -29638,7 +29638,7 @@ if.then105:                                       ; preds = %for.body
   br i1 %trickle_fast_inputs, label %land.lhs.true107, label %if.end118
 
 land.lhs.true107:                                 ; preds = %if.then105
-  %tobool108 = trunc i8 %key_changed.0166 to i1
+  %tobool108 = trunc nuw i8 %key_changed.0166 to i1
   br i1 %tobool108, label %land.lhs.true109, label %lor.lhs.false111
 
 land.lhs.true109:                                 ; preds = %land.lhs.true107
@@ -29651,11 +29651,11 @@ lor.lhs.false111:                                 ; preds = %land.lhs.true107
   br i1 %cmp112.old.not, label %lor.lhs.false113, label %for.end
 
 lor.lhs.false113:                                 ; preds = %land.lhs.true109, %lor.lhs.false111
-  %tobool114 = trunc i8 %mouse_moved.0168 to i1
+  %tobool114 = trunc nuw i8 %mouse_moved.0168 to i1
   br i1 %tobool114, label %for.end, label %lor.lhs.false115
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false113
-  %tobool116 = trunc i8 %mouse_wheeled.0167 to i1
+  %tobool116 = trunc nuw i8 %mouse_wheeled.0167 to i1
   br i1 %tobool116, label %for.end, label %if.end118
 
 if.end118:                                        ; preds = %lor.lhs.false115, %if.then105
@@ -30489,7 +30489,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %conv.i.i.i = sext i16 %15 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -31988,7 +31988,7 @@ if.then441:                                       ; preds = %if.end438
   %lnot = and i8 %241, 1
   %frombool444 = xor i8 %lnot, 1
   store i8 %frombool444, ptr %Collapsed, align 1
-  %tobool446 = trunc i8 %frombool444 to i1
+  %tobool446 = trunc nuw i8 %frombool444 to i1
   %spec.select250 = select i1 %tobool446, i8 %frombool1434, i8 1
   %and.i453 = and i32 %223, 256
   %tobool.not.i454 = icmp eq i32 %and.i453, 0
@@ -33749,9 +33749,9 @@ cond.false742:                                    ; preds = %if.then728
 
 cond.end748:                                      ; preds = %if.then728, %cond.false742
   %needed_size_from_last_frame.sroa.0.0 = phi <2 x float> [ %664, %cond.false742 ], [ zeroinitializer, %if.then728 ]
-  %tobool749 = trunc i8 %use_current_size_for_scrollbar_x.4 to i1
+  %tobool749 = trunc nuw i8 %use_current_size_for_scrollbar_x.4 to i1
   %cond755 = select i1 %tobool749, float %.pre1516, float %add.i711
-  %tobool756 = trunc i8 %use_current_size_for_scrollbar_y.4 to i1
+  %tobool756 = trunc nuw i8 %use_current_size_for_scrollbar_y.4 to i1
   %cond762 = select i1 %tobool756, float %sub736, float %add3.i712
   %and763 = and i32 %flags.addr.1, 16384
   %tobool764.not = icmp eq i32 %and763, 0
@@ -33826,7 +33826,7 @@ lor.end792:                                       ; preds = %cond.end781
   %tobool790.not1507 = icmp eq i32 %and789, 0
   %ScrollbarX = getelementptr inbounds i8, ptr %window.0, i64 188
   %and789.lobit = lshr exact i32 %and789, 11
-  %frombool793 = trunc i32 %and789.lobit to i8
+  %frombool793 = trunc nuw nsw i32 %and789.lobit to i8
   store i8 %frombool793, ptr %ScrollbarX, align 4
   %brmerge1497 = or i1 %tobool790.not1507, %667
   br i1 %brmerge1497, label %if.end809, label %lor.end792.if.then799_crit_edge
@@ -37383,7 +37383,7 @@ if.then.i.i.i.i75:                                ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %123 to i32
   %add.i.i.i.i76 = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i76, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -37935,7 +37935,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -38015,7 +38015,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -38073,7 +38073,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -43673,7 +43673,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %13 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -48340,7 +48340,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %trunc = trunc i32 %key_chord.addr.0 to i16
+  %trunc = trunc nuw i32 %key_chord.addr.0 to i16
   switch i16 %trunc, label %if.end12.i [
     i16 4096, label %if.end5
     i16 8192, label %if.then2.i
@@ -48440,7 +48440,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataE9push_backERKS0_.exit: ; preds = %for.end, %_
   %10 = load ptr, ptr %Data.i, align 8
   %idxprom.i30 = sext i32 %conv17 to i64
   %arrayidx.i31 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %10, i64 %idxprom.i30
-  %conv19 = trunc i32 %and2 to i16
+  %conv19 = trunc nuw i32 %and2 to i16
   %Mods20 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 2
   store i16 %conv19, ptr %Mods20, align 2
   %11 = load i16, ptr %arrayidx, align 2
@@ -48674,7 +48674,7 @@ if.end.i1:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i1
-  %trunc = trunc i32 %key to i16
+  %trunc = trunc nuw i32 %key to i16
   switch i16 %trunc, label %if.end12.i.i.i [
     i16 4096, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i
     i16 8192, label %if.then2.i.i.i
@@ -49192,7 +49192,7 @@ if.end.i1:                                        ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i1
-  %trunc = trunc i32 %key to i16
+  %trunc = trunc nuw i32 %key to i16
   switch i16 %trunc, label %if.end12.i.i.i [
     i16 4096, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i
     i16 8192, label %if.then2.i.i.i
@@ -50235,7 +50235,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %trunc.i = trunc i32 %key_chord.addr.0.i to i16
+  %trunc.i = trunc nuw i32 %key_chord.addr.0.i to i16
   switch i16 %trunc.i, label %if.end8.i [
     i16 4096, label %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i
     i16 8192, label %if.then2.i.i
@@ -50416,7 +50416,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end3
-  %trunc = trunc i32 %key_chord.addr.0 to i16
+  %trunc = trunc nuw i32 %key_chord.addr.0 to i16
   switch i16 %trunc, label %if.end12.i [
     i16 4096, label %if.end8
     i16 8192, label %if.then2.i
@@ -50494,7 +50494,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %trunc.i = trunc i32 %key_chord.addr.0.i to i16
+  %trunc.i = trunc nuw i32 %key_chord.addr.0.i to i16
   switch i16 %trunc.i, label %if.end12.i.i [
     i16 4096, label %if.end8.i
     i16 8192, label %if.then2.i.i
@@ -56543,7 +56543,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %38 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -56719,7 +56719,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %6 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -57433,7 +57433,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %4 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -58321,7 +58321,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %3 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -58417,7 +58417,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -60452,7 +60452,7 @@ _ZN5ImGui8SameLineEff.exit91:                     ; preds = %_ZN5ImGui7PopFontEv
   br i1 %cmp.i.i92, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5ImGui8SameLineEff.exit91
-  %conv.i.i = trunc i16 %49 to i8
+  %conv.i.i = trunc nuw i16 %49 to i8
   store i8 %conv.i.i, ptr %c_str, align 1
   br label %_Z16ImTextCharToUtf8Pcj.exit
 
@@ -60462,7 +60462,7 @@ if.end.i.i:                                       ; preds = %_ZN5ImGui8SameLineE
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %shr.i.i = lshr i16 %49, 6
-  %50 = trunc i16 %shr.i.i to i8
+  %50 = trunc nuw i16 %shr.i.i to i8
   %conv6.i.i = or disjoint i8 %50, -64
   store i8 %conv6.i.i, ptr %c_str, align 1
   %51 = trunc i16 %49 to i8
@@ -60473,7 +60473,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
   %shr17.i.i = lshr i16 %49, 12
-  %53 = trunc i16 %shr17.i.i to i8
+  %53 = trunc nuw nsw i16 %shr17.i.i to i8
   %conv19.i.i = or disjoint i8 %53, -32
   store i8 %conv19.i.i, ptr %c_str, align 1
   %shr21.i.i = lshr i16 %49, 6
@@ -60498,7 +60498,7 @@ _Z16ImTextCharToUtf8Pcj.exit:                     ; preds = %if.then.i.i, %if.th
   br i1 %cmp.i.i93, label %if.then.i.i111, label %if.end.i.i94
 
 if.then.i.i111:                                   ; preds = %_Z16ImTextCharToUtf8Pcj.exit
-  %conv.i.i112 = trunc i16 %58 to i8
+  %conv.i.i112 = trunc nuw i16 %58 to i8
   store i8 %conv.i.i112, ptr %c_str, align 1
   br label %_Z16ImTextCharToUtf8Pcj.exit113
 
@@ -60508,7 +60508,7 @@ if.end.i.i94:                                     ; preds = %_Z16ImTextCharToUtf
 
 if.then2.i.i106:                                  ; preds = %if.end.i.i94
   %shr.i.i107 = lshr i16 %58, 6
-  %59 = trunc i16 %shr.i.i107 to i8
+  %59 = trunc nuw i16 %shr.i.i107 to i8
   %conv6.i.i108 = or disjoint i8 %59, -64
   store i8 %conv6.i.i108, ptr %c_str, align 1
   %60 = trunc i16 %58 to i8
@@ -60519,7 +60519,7 @@ if.then2.i.i106:                                  ; preds = %if.end.i.i94
 
 if.end11.i.i96:                                   ; preds = %if.end.i.i94
   %shr17.i.i97 = lshr i16 %58, 12
-  %62 = trunc i16 %shr17.i.i97 to i8
+  %62 = trunc nuw nsw i16 %shr17.i.i97 to i8
   %conv19.i.i98 = or disjoint i8 %62, -32
   store i8 %conv19.i.i98, ptr %c_str, align 1
   %shr21.i.i99 = lshr i16 %58, 6
@@ -62767,7 +62767,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then1.i.i.i.i
   %conv.i.i.i.i.i = sext i16 %384 to i32
   %add.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, 1
   %rem.i.i.i.i.i = srem i32 %add.i.i.i.i.i, 6
-  %conv3.i.i.i.i.i = trunc i32 %rem.i.i.i.i.i to i16
+  %conv3.i.i.i.i.i = trunc nsw i32 %rem.i.i.i.i.i to i16
   store i16 %conv3.i.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i.i, align 4
   %idxprom7.i.i.i.i.i = sext i32 %rem.i.i.i.i.i to i64
   %arrayidx8.i.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i.i
@@ -65668,7 +65668,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %58 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -65729,7 +65729,7 @@ if.then.i.i.i.i136:                               ; preds = %if.then1.i.i.i129
   %conv.i.i.i.i137 = sext i16 %68 to i32
   %add.i.i.i.i138 = add nsw i32 %conv.i.i.i.i137, 1
   %rem.i.i.i.i139 = srem i32 %add.i.i.i.i138, 6
-  %conv3.i.i.i.i140 = trunc i32 %rem.i.i.i.i139 to i16
+  %conv3.i.i.i.i140 = trunc nsw i32 %rem.i.i.i.i139 to i16
   store i16 %conv3.i.i.i.i140, ptr %LastEntriesIdx.i.i.i.i132, align 4
   %idxprom7.i.i.i.i141 = sext i32 %rem.i.i.i.i139 to i64
   %arrayidx8.i.i.i.i142 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i131, i64 0, i64 %idxprom7.i.i.i.i141
@@ -66247,7 +66247,7 @@ land.lhs.true.i.i227:                             ; preds = %invoke.cont90
   %..i6.i.i = select i1 %cmp.i.i.i224, float %157, float %Max5.val.i.i
   %158 = getelementptr inbounds i8, ptr %152, i64 588
   %r.val3.i.i = load float, ptr %158, align 4
-  %cmp5.inv.i.i.i = fcmp oge float %add3.i, %r.val3.i.i
+  %cmp5.inv.i.i.i = fcmp oge float %139, %r.val3.i.i
   %cond11.i.i.i = select i1 %cmp5.inv.i.i.i, float %add3.i, float %r.val3.i.i
   %y.i.i = getelementptr inbounds i8, ptr %151, i64 3660
   %159 = load float, ptr %y.i.i, align 4
@@ -66446,7 +66446,7 @@ if.then.i.i.i269:                                 ; preds = %if.then.i.i267
   %conv.i.i.i = sext i16 %190 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -69471,7 +69471,7 @@ for.body:                                         ; preds = %cond.end, %_ZN5ImGu
 if.then115:                                       ; preds = %for.body
   %arrayidx117 = getelementptr inbounds [2 x i32], ptr %NavLastIds, i64 0, i64 %indvars.iv
   %66 = load i32, ptr %arrayidx117, align 4
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.394, i32 noundef %67, i32 noundef %66)
   br label %if.end133
 
@@ -69484,7 +69484,7 @@ if.else:                                          ; preds = %for.body
   %conv126 = fpext float %r.sroa.3.0.copyload to double
   %conv129 = fpext float %r.sroa.5.0.copyload to double
   %conv132 = fpext float %r.sroa.6.0.copyload to double
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.395, i32 noundef %69, i32 noundef %68, double noundef %conv123, double noundef %conv126, double noundef %conv129, double noundef %conv132)
   br label %if.end133
 
@@ -69543,7 +69543,7 @@ for.body140:                                      ; preds = %for.end, %for.body1
   %cmp156 = fcmp oeq float %79, 0x47EFFFFFE0000000
   %cond163 = select i1 %cmp156, float -9.999900e+04, float %79
   %conv164 = fpext float %cond163 to double
-  %80 = trunc i64 %indvars.iv131 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv131 to i32
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.396, i32 noundef %80, double noundef %conv152, double noundef %conv164)
   br i1 %cmp139, label %for.body140, label %for.end167, !llvm.loop !177
 
@@ -70005,7 +70005,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -70063,7 +70063,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -70159,7 +70159,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -70228,7 +70228,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -70297,7 +70297,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -70366,7 +70366,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -70435,7 +70435,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -70504,7 +70504,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -70573,7 +70573,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -70642,7 +70642,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -70714,7 +70714,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -70783,7 +70783,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -70846,7 +70846,7 @@ if.then.i.i.i12:                                  ; preds = %if.then1.i.i5
   %conv.i.i.i13 = sext i16 %15 to i32
   %add.i.i.i14 = add nsw i32 %conv.i.i.i13, 1
   %rem.i.i.i15 = srem i32 %add.i.i.i14, 6
-  %conv3.i.i.i16 = trunc i32 %rem.i.i.i15 to i16
+  %conv3.i.i.i16 = trunc nsw i32 %rem.i.i.i15 to i16
   store i16 %conv3.i.i.i16, ptr %LastEntriesIdx.i.i.i8, align 4
   %idxprom7.i.i.i17 = sext i32 %rem.i.i.i15 to i64
   %arrayidx8.i.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i7, i64 0, i64 %idxprom7.i.i.i17
@@ -70909,7 +70909,7 @@ if.then.i.i.i40:                                  ; preds = %if.then1.i.i33
   %conv.i.i.i41 = sext i16 %27 to i32
   %add.i.i.i42 = add nsw i32 %conv.i.i.i41, 1
   %rem.i.i.i43 = srem i32 %add.i.i.i42, 6
-  %conv3.i.i.i44 = trunc i32 %rem.i.i.i43 to i16
+  %conv3.i.i.i44 = trunc nsw i32 %rem.i.i.i43 to i16
   store i16 %conv3.i.i.i44, ptr %LastEntriesIdx.i.i.i36, align 4
   %idxprom7.i.i.i45 = sext i32 %rem.i.i.i43 to i64
   %arrayidx8.i.i.i46 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i35, i64 0, i64 %idxprom7.i.i.i45
@@ -70978,7 +70978,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71047,7 +71047,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71120,7 +71120,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %3 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -71183,7 +71183,7 @@ if.then.i.i.i2:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %15 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -71259,7 +71259,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71328,7 +71328,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71401,7 +71401,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %3 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -71464,7 +71464,7 @@ if.then.i.i.i2:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %15 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -71540,7 +71540,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71609,7 +71609,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71678,7 +71678,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71747,7 +71747,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71816,7 +71816,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71885,7 +71885,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -71954,7 +71954,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72023,7 +72023,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72092,7 +72092,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72161,7 +72161,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72230,7 +72230,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72299,7 +72299,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -72362,7 +72362,7 @@ if.then.i.i.i12:                                  ; preds = %if.then1.i.i5
   %conv.i.i.i13 = sext i16 %15 to i32
   %add.i.i.i14 = add nsw i32 %conv.i.i.i13, 1
   %rem.i.i.i15 = srem i32 %add.i.i.i14, 6
-  %conv3.i.i.i16 = trunc i32 %rem.i.i.i15 to i16
+  %conv3.i.i.i16 = trunc nsw i32 %rem.i.i.i15 to i16
   store i16 %conv3.i.i.i16, ptr %LastEntriesIdx.i.i.i8, align 4
   %idxprom7.i.i.i17 = sext i32 %rem.i.i.i15 to i64
   %arrayidx8.i.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i7, i64 0, i64 %idxprom7.i.i.i17
@@ -72431,7 +72431,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72500,7 +72500,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72569,7 +72569,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72638,7 +72638,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -72707,7 +72707,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -72776,7 +72776,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -72847,7 +72847,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -73077,7 +73077,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -73135,7 +73135,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -73208,7 +73208,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -73266,7 +73266,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -73552,7 +73552,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -73610,7 +73610,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -73693,7 +73693,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -73751,7 +73751,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -74224,7 +74224,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -74282,7 +74282,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -74355,7 +74355,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -74413,7 +74413,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -74486,7 +74486,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -74544,7 +74544,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -74617,7 +74617,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -74675,7 +74675,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -74748,7 +74748,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -74806,7 +74806,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -74879,7 +74879,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -74937,7 +74937,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -75010,7 +75010,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -75068,7 +75068,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -75141,7 +75141,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -75199,7 +75199,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -75272,7 +75272,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -75330,7 +75330,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -75397,7 +75397,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -75460,7 +75460,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %15 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -75523,7 +75523,7 @@ if.then.i.i.i.i14:                                ; preds = %if.then1.i.i.i7
   %conv.i.i.i.i15 = sext i16 %27 to i32
   %add.i.i.i.i16 = add nsw i32 %conv.i.i.i.i15, 1
   %rem.i.i.i.i17 = srem i32 %add.i.i.i.i16, 6
-  %conv3.i.i.i.i18 = trunc i32 %rem.i.i.i.i17 to i16
+  %conv3.i.i.i.i18 = trunc nsw i32 %rem.i.i.i.i17 to i16
   store i16 %conv3.i.i.i.i18, ptr %LastEntriesIdx.i.i.i.i10, align 4
   %idxprom7.i.i.i.i19 = sext i32 %rem.i.i.i.i17 to i64
   %arrayidx8.i.i.i.i20 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i9, i64 0, i64 %idxprom7.i.i.i.i19
@@ -75586,7 +75586,7 @@ if.then.i.i.i.i41:                                ; preds = %if.then1.i.i.i34
   %conv.i.i.i.i42 = sext i16 %39 to i32
   %add.i.i.i.i43 = add nsw i32 %conv.i.i.i.i42, 1
   %rem.i.i.i.i44 = srem i32 %add.i.i.i.i43, 6
-  %conv3.i.i.i.i45 = trunc i32 %rem.i.i.i.i44 to i16
+  %conv3.i.i.i.i45 = trunc nsw i32 %rem.i.i.i.i44 to i16
   store i16 %conv3.i.i.i.i45, ptr %LastEntriesIdx.i.i.i.i37, align 4
   %idxprom7.i.i.i.i46 = sext i32 %rem.i.i.i.i44 to i64
   %arrayidx8.i.i.i.i47 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i36, i64 0, i64 %idxprom7.i.i.i.i46
@@ -75649,7 +75649,7 @@ if.then.i.i.i.i68:                                ; preds = %if.then1.i.i.i61
   %conv.i.i.i.i69 = sext i16 %51 to i32
   %add.i.i.i.i70 = add nsw i32 %conv.i.i.i.i69, 1
   %rem.i.i.i.i71 = srem i32 %add.i.i.i.i70, 6
-  %conv3.i.i.i.i72 = trunc i32 %rem.i.i.i.i71 to i16
+  %conv3.i.i.i.i72 = trunc nsw i32 %rem.i.i.i.i71 to i16
   store i16 %conv3.i.i.i.i72, ptr %LastEntriesIdx.i.i.i.i64, align 4
   %idxprom7.i.i.i.i73 = sext i32 %rem.i.i.i.i71 to i64
   %arrayidx8.i.i.i.i74 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i63, i64 0, i64 %idxprom7.i.i.i.i73
@@ -75712,7 +75712,7 @@ if.then.i.i.i96:                                  ; preds = %if.then1.i.i89
   %conv.i.i.i97 = sext i16 %63 to i32
   %add.i.i.i98 = add nsw i32 %conv.i.i.i97, 1
   %rem.i.i.i99 = srem i32 %add.i.i.i98, 6
-  %conv3.i.i.i100 = trunc i32 %rem.i.i.i99 to i16
+  %conv3.i.i.i100 = trunc nsw i32 %rem.i.i.i99 to i16
   store i16 %conv3.i.i.i100, ptr %LastEntriesIdx.i.i.i92, align 4
   %idxprom7.i.i.i101 = sext i32 %rem.i.i.i99 to i64
   %arrayidx8.i.i.i102 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i91, i64 0, i64 %idxprom7.i.i.i101
@@ -75775,7 +75775,7 @@ if.then.i.i.i.i123:                               ; preds = %if.then1.i.i.i116
   %conv.i.i.i.i124 = sext i16 %75 to i32
   %add.i.i.i.i125 = add nsw i32 %conv.i.i.i.i124, 1
   %rem.i.i.i.i126 = srem i32 %add.i.i.i.i125, 6
-  %conv3.i.i.i.i127 = trunc i32 %rem.i.i.i.i126 to i16
+  %conv3.i.i.i.i127 = trunc nsw i32 %rem.i.i.i.i126 to i16
   store i16 %conv3.i.i.i.i127, ptr %LastEntriesIdx.i.i.i.i119, align 4
   %idxprom7.i.i.i.i128 = sext i32 %rem.i.i.i.i126 to i64
   %arrayidx8.i.i.i.i129 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i118, i64 0, i64 %idxprom7.i.i.i.i128
@@ -75838,7 +75838,7 @@ if.then.i.i.i.i150:                               ; preds = %if.then1.i.i.i143
   %conv.i.i.i.i151 = sext i16 %87 to i32
   %add.i.i.i.i152 = add nsw i32 %conv.i.i.i.i151, 1
   %rem.i.i.i.i153 = srem i32 %add.i.i.i.i152, 6
-  %conv3.i.i.i.i154 = trunc i32 %rem.i.i.i.i153 to i16
+  %conv3.i.i.i.i154 = trunc nsw i32 %rem.i.i.i.i153 to i16
   store i16 %conv3.i.i.i.i154, ptr %LastEntriesIdx.i.i.i.i146, align 4
   %idxprom7.i.i.i.i155 = sext i32 %rem.i.i.i.i153 to i64
   %arrayidx8.i.i.i.i156 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i145, i64 0, i64 %idxprom7.i.i.i.i155
@@ -75901,7 +75901,7 @@ if.then.i.i.i177:                                 ; preds = %if.then1.i.i170
   %conv.i.i.i178 = sext i16 %99 to i32
   %add.i.i.i179 = add nsw i32 %conv.i.i.i178, 1
   %rem.i.i.i180 = srem i32 %add.i.i.i179, 6
-  %conv3.i.i.i181 = trunc i32 %rem.i.i.i180 to i16
+  %conv3.i.i.i181 = trunc nsw i32 %rem.i.i.i180 to i16
   store i16 %conv3.i.i.i181, ptr %LastEntriesIdx.i.i.i173, align 4
   %idxprom7.i.i.i182 = sext i32 %rem.i.i.i180 to i64
   %arrayidx8.i.i.i183 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i172, i64 0, i64 %idxprom7.i.i.i182
@@ -75964,7 +75964,7 @@ if.then.i.i.i.i204:                               ; preds = %if.then1.i.i.i197
   %conv.i.i.i.i205 = sext i16 %111 to i32
   %add.i.i.i.i206 = add nsw i32 %conv.i.i.i.i205, 1
   %rem.i.i.i.i207 = srem i32 %add.i.i.i.i206, 6
-  %conv3.i.i.i.i208 = trunc i32 %rem.i.i.i.i207 to i16
+  %conv3.i.i.i.i208 = trunc nsw i32 %rem.i.i.i.i207 to i16
   store i16 %conv3.i.i.i.i208, ptr %LastEntriesIdx.i.i.i.i200, align 4
   %idxprom7.i.i.i.i209 = sext i32 %rem.i.i.i.i207 to i64
   %arrayidx8.i.i.i.i210 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i199, i64 0, i64 %idxprom7.i.i.i.i209
@@ -76027,7 +76027,7 @@ if.then.i.i.i232:                                 ; preds = %if.then1.i.i225
   %conv.i.i.i233 = sext i16 %123 to i32
   %add.i.i.i234 = add nsw i32 %conv.i.i.i233, 1
   %rem.i.i.i235 = srem i32 %add.i.i.i234, 6
-  %conv3.i.i.i236 = trunc i32 %rem.i.i.i235 to i16
+  %conv3.i.i.i236 = trunc nsw i32 %rem.i.i.i235 to i16
   store i16 %conv3.i.i.i236, ptr %LastEntriesIdx.i.i.i228, align 4
   %idxprom7.i.i.i237 = sext i32 %rem.i.i.i235 to i64
   %arrayidx8.i.i.i238 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i227, i64 0, i64 %idxprom7.i.i.i237
@@ -76090,7 +76090,7 @@ if.then.i.i.i259:                                 ; preds = %if.then1.i.i252
   %conv.i.i.i260 = sext i16 %135 to i32
   %add.i.i.i261 = add nsw i32 %conv.i.i.i260, 1
   %rem.i.i.i262 = srem i32 %add.i.i.i261, 6
-  %conv3.i.i.i263 = trunc i32 %rem.i.i.i262 to i16
+  %conv3.i.i.i263 = trunc nsw i32 %rem.i.i.i262 to i16
   store i16 %conv3.i.i.i263, ptr %LastEntriesIdx.i.i.i255, align 4
   %idxprom7.i.i.i264 = sext i32 %rem.i.i.i262 to i64
   %arrayidx8.i.i.i265 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i254, i64 0, i64 %idxprom7.i.i.i264
@@ -76155,7 +76155,7 @@ if.then.i.i.i.i287:                               ; preds = %if.then1.i.i.i280
   %conv.i.i.i.i288 = sext i16 %147 to i32
   %add.i.i.i.i289 = add nsw i32 %conv.i.i.i.i288, 1
   %rem.i.i.i.i290 = srem i32 %add.i.i.i.i289, 6
-  %conv3.i.i.i.i291 = trunc i32 %rem.i.i.i.i290 to i16
+  %conv3.i.i.i.i291 = trunc nsw i32 %rem.i.i.i.i290 to i16
   store i16 %conv3.i.i.i.i291, ptr %LastEntriesIdx.i.i.i.i283, align 4
   %idxprom7.i.i.i.i292 = sext i32 %rem.i.i.i.i290 to i64
   %arrayidx8.i.i.i.i293 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i282, i64 0, i64 %idxprom7.i.i.i.i292
@@ -76220,7 +76220,7 @@ if.then.i.i.i314:                                 ; preds = %if.then1.i.i307
   %conv.i.i.i315 = sext i16 %159 to i32
   %add.i.i.i316 = add nsw i32 %conv.i.i.i315, 1
   %rem.i.i.i317 = srem i32 %add.i.i.i316, 6
-  %conv3.i.i.i318 = trunc i32 %rem.i.i.i317 to i16
+  %conv3.i.i.i318 = trunc nsw i32 %rem.i.i.i317 to i16
   store i16 %conv3.i.i.i318, ptr %LastEntriesIdx.i.i.i310, align 4
   %idxprom7.i.i.i319 = sext i32 %rem.i.i.i317 to i64
   %arrayidx8.i.i.i320 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i309, i64 0, i64 %idxprom7.i.i.i319
@@ -76283,7 +76283,7 @@ if.then.i.i.i341:                                 ; preds = %if.then1.i.i334
   %conv.i.i.i342 = sext i16 %171 to i32
   %add.i.i.i343 = add nsw i32 %conv.i.i.i342, 1
   %rem.i.i.i344 = srem i32 %add.i.i.i343, 6
-  %conv3.i.i.i345 = trunc i32 %rem.i.i.i344 to i16
+  %conv3.i.i.i345 = trunc nsw i32 %rem.i.i.i344 to i16
   store i16 %conv3.i.i.i345, ptr %LastEntriesIdx.i.i.i337, align 4
   %idxprom7.i.i.i346 = sext i32 %rem.i.i.i344 to i64
   %arrayidx8.i.i.i347 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i336, i64 0, i64 %idxprom7.i.i.i346
@@ -76348,7 +76348,7 @@ if.then.i.i.i368:                                 ; preds = %if.then1.i.i361
   %conv.i.i.i369 = sext i16 %183 to i32
   %add.i.i.i370 = add nsw i32 %conv.i.i.i369, 1
   %rem.i.i.i371 = srem i32 %add.i.i.i370, 6
-  %conv3.i.i.i372 = trunc i32 %rem.i.i.i371 to i16
+  %conv3.i.i.i372 = trunc nsw i32 %rem.i.i.i371 to i16
   store i16 %conv3.i.i.i372, ptr %LastEntriesIdx.i.i.i364, align 4
   %idxprom7.i.i.i373 = sext i32 %rem.i.i.i371 to i64
   %arrayidx8.i.i.i374 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i363, i64 0, i64 %idxprom7.i.i.i373
@@ -76411,7 +76411,7 @@ if.then.i.i.i395:                                 ; preds = %if.then1.i.i388
   %conv.i.i.i396 = sext i16 %195 to i32
   %add.i.i.i397 = add nsw i32 %conv.i.i.i396, 1
   %rem.i.i.i398 = srem i32 %add.i.i.i397, 6
-  %conv3.i.i.i399 = trunc i32 %rem.i.i.i398 to i16
+  %conv3.i.i.i399 = trunc nsw i32 %rem.i.i.i398 to i16
   store i16 %conv3.i.i.i399, ptr %LastEntriesIdx.i.i.i391, align 4
   %idxprom7.i.i.i400 = sext i32 %rem.i.i.i398 to i64
   %arrayidx8.i.i.i401 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i390, i64 0, i64 %idxprom7.i.i.i400
@@ -76476,7 +76476,7 @@ if.then.i.i.i422:                                 ; preds = %if.then1.i.i415
   %conv.i.i.i423 = sext i16 %207 to i32
   %add.i.i.i424 = add nsw i32 %conv.i.i.i423, 1
   %rem.i.i.i425 = srem i32 %add.i.i.i424, 6
-  %conv3.i.i.i426 = trunc i32 %rem.i.i.i425 to i16
+  %conv3.i.i.i426 = trunc nsw i32 %rem.i.i.i425 to i16
   store i16 %conv3.i.i.i426, ptr %LastEntriesIdx.i.i.i418, align 4
   %idxprom7.i.i.i427 = sext i32 %rem.i.i.i425 to i64
   %arrayidx8.i.i.i428 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i417, i64 0, i64 %idxprom7.i.i.i427
@@ -76539,7 +76539,7 @@ if.then.i.i.i449:                                 ; preds = %if.then1.i.i442
   %conv.i.i.i450 = sext i16 %219 to i32
   %add.i.i.i451 = add nsw i32 %conv.i.i.i450, 1
   %rem.i.i.i452 = srem i32 %add.i.i.i451, 6
-  %conv3.i.i.i453 = trunc i32 %rem.i.i.i452 to i16
+  %conv3.i.i.i453 = trunc nsw i32 %rem.i.i.i452 to i16
   store i16 %conv3.i.i.i453, ptr %LastEntriesIdx.i.i.i445, align 4
   %idxprom7.i.i.i454 = sext i32 %rem.i.i.i452 to i64
   %arrayidx8.i.i.i455 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i444, i64 0, i64 %idxprom7.i.i.i454
@@ -76602,7 +76602,7 @@ if.then.i.i.i476:                                 ; preds = %if.then1.i.i469
   %conv.i.i.i477 = sext i16 %231 to i32
   %add.i.i.i478 = add nsw i32 %conv.i.i.i477, 1
   %rem.i.i.i479 = srem i32 %add.i.i.i478, 6
-  %conv3.i.i.i480 = trunc i32 %rem.i.i.i479 to i16
+  %conv3.i.i.i480 = trunc nsw i32 %rem.i.i.i479 to i16
   store i16 %conv3.i.i.i480, ptr %LastEntriesIdx.i.i.i472, align 4
   %idxprom7.i.i.i481 = sext i32 %rem.i.i.i479 to i64
   %arrayidx8.i.i.i482 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i471, i64 0, i64 %idxprom7.i.i.i481
@@ -76665,7 +76665,7 @@ if.then.i.i.i503:                                 ; preds = %if.then1.i.i496
   %conv.i.i.i504 = sext i16 %243 to i32
   %add.i.i.i505 = add nsw i32 %conv.i.i.i504, 1
   %rem.i.i.i506 = srem i32 %add.i.i.i505, 6
-  %conv3.i.i.i507 = trunc i32 %rem.i.i.i506 to i16
+  %conv3.i.i.i507 = trunc nsw i32 %rem.i.i.i506 to i16
   store i16 %conv3.i.i.i507, ptr %LastEntriesIdx.i.i.i499, align 4
   %idxprom7.i.i.i508 = sext i32 %rem.i.i.i506 to i64
   %arrayidx8.i.i.i509 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i498, i64 0, i64 %idxprom7.i.i.i508
@@ -76728,7 +76728,7 @@ if.then.i.i.i530:                                 ; preds = %if.then1.i.i523
   %conv.i.i.i531 = sext i16 %255 to i32
   %add.i.i.i532 = add nsw i32 %conv.i.i.i531, 1
   %rem.i.i.i533 = srem i32 %add.i.i.i532, 6
-  %conv3.i.i.i534 = trunc i32 %rem.i.i.i533 to i16
+  %conv3.i.i.i534 = trunc nsw i32 %rem.i.i.i533 to i16
   store i16 %conv3.i.i.i534, ptr %LastEntriesIdx.i.i.i526, align 4
   %idxprom7.i.i.i535 = sext i32 %rem.i.i.i533 to i64
   %arrayidx8.i.i.i536 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i525, i64 0, i64 %idxprom7.i.i.i535
@@ -76791,7 +76791,7 @@ if.then.i.i.i557:                                 ; preds = %if.then1.i.i550
   %conv.i.i.i558 = sext i16 %267 to i32
   %add.i.i.i559 = add nsw i32 %conv.i.i.i558, 1
   %rem.i.i.i560 = srem i32 %add.i.i.i559, 6
-  %conv3.i.i.i561 = trunc i32 %rem.i.i.i560 to i16
+  %conv3.i.i.i561 = trunc nsw i32 %rem.i.i.i560 to i16
   store i16 %conv3.i.i.i561, ptr %LastEntriesIdx.i.i.i553, align 4
   %idxprom7.i.i.i562 = sext i32 %rem.i.i.i560 to i64
   %arrayidx8.i.i.i563 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i552, i64 0, i64 %idxprom7.i.i.i562
@@ -76854,7 +76854,7 @@ if.then.i.i.i584:                                 ; preds = %if.then1.i.i577
   %conv.i.i.i585 = sext i16 %279 to i32
   %add.i.i.i586 = add nsw i32 %conv.i.i.i585, 1
   %rem.i.i.i587 = srem i32 %add.i.i.i586, 6
-  %conv3.i.i.i588 = trunc i32 %rem.i.i.i587 to i16
+  %conv3.i.i.i588 = trunc nsw i32 %rem.i.i.i587 to i16
   store i16 %conv3.i.i.i588, ptr %LastEntriesIdx.i.i.i580, align 4
   %idxprom7.i.i.i589 = sext i32 %rem.i.i.i587 to i64
   %arrayidx8.i.i.i590 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i579, i64 0, i64 %idxprom7.i.i.i589
@@ -76917,7 +76917,7 @@ if.then.i.i.i612:                                 ; preds = %if.then1.i.i605
   %conv.i.i.i613 = sext i16 %291 to i32
   %add.i.i.i614 = add nsw i32 %conv.i.i.i613, 1
   %rem.i.i.i615 = srem i32 %add.i.i.i614, 6
-  %conv3.i.i.i616 = trunc i32 %rem.i.i.i615 to i16
+  %conv3.i.i.i616 = trunc nsw i32 %rem.i.i.i615 to i16
   store i16 %conv3.i.i.i616, ptr %LastEntriesIdx.i.i.i608, align 4
   %idxprom7.i.i.i617 = sext i32 %rem.i.i.i615 to i64
   %arrayidx8.i.i.i618 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i607, i64 0, i64 %idxprom7.i.i.i617
@@ -76980,7 +76980,7 @@ if.then.i.i.i639:                                 ; preds = %if.then1.i.i632
   %conv.i.i.i640 = sext i16 %303 to i32
   %add.i.i.i641 = add nsw i32 %conv.i.i.i640, 1
   %rem.i.i.i642 = srem i32 %add.i.i.i641, 6
-  %conv3.i.i.i643 = trunc i32 %rem.i.i.i642 to i16
+  %conv3.i.i.i643 = trunc nsw i32 %rem.i.i.i642 to i16
   store i16 %conv3.i.i.i643, ptr %LastEntriesIdx.i.i.i635, align 4
   %idxprom7.i.i.i644 = sext i32 %rem.i.i.i642 to i64
   %arrayidx8.i.i.i645 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i634, i64 0, i64 %idxprom7.i.i.i644
@@ -77043,7 +77043,7 @@ if.then.i.i.i666:                                 ; preds = %if.then1.i.i659
   %conv.i.i.i667 = sext i16 %315 to i32
   %add.i.i.i668 = add nsw i32 %conv.i.i.i667, 1
   %rem.i.i.i669 = srem i32 %add.i.i.i668, 6
-  %conv3.i.i.i670 = trunc i32 %rem.i.i.i669 to i16
+  %conv3.i.i.i670 = trunc nsw i32 %rem.i.i.i669 to i16
   store i16 %conv3.i.i.i670, ptr %LastEntriesIdx.i.i.i662, align 4
   %idxprom7.i.i.i671 = sext i32 %rem.i.i.i669 to i64
   %arrayidx8.i.i.i672 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i661, i64 0, i64 %idxprom7.i.i.i671
@@ -77106,7 +77106,7 @@ if.then.i.i.i694:                                 ; preds = %if.then1.i.i687
   %conv.i.i.i695 = sext i16 %327 to i32
   %add.i.i.i696 = add nsw i32 %conv.i.i.i695, 1
   %rem.i.i.i697 = srem i32 %add.i.i.i696, 6
-  %conv3.i.i.i698 = trunc i32 %rem.i.i.i697 to i16
+  %conv3.i.i.i698 = trunc nsw i32 %rem.i.i.i697 to i16
   store i16 %conv3.i.i.i698, ptr %LastEntriesIdx.i.i.i690, align 4
   %idxprom7.i.i.i699 = sext i32 %rem.i.i.i697 to i64
   %arrayidx8.i.i.i700 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i689, i64 0, i64 %idxprom7.i.i.i699
@@ -77169,7 +77169,7 @@ if.then.i.i.i721:                                 ; preds = %if.then1.i.i714
   %conv.i.i.i722 = sext i16 %339 to i32
   %add.i.i.i723 = add nsw i32 %conv.i.i.i722, 1
   %rem.i.i.i724 = srem i32 %add.i.i.i723, 6
-  %conv3.i.i.i725 = trunc i32 %rem.i.i.i724 to i16
+  %conv3.i.i.i725 = trunc nsw i32 %rem.i.i.i724 to i16
   store i16 %conv3.i.i.i725, ptr %LastEntriesIdx.i.i.i717, align 4
   %idxprom7.i.i.i726 = sext i32 %rem.i.i.i724 to i64
   %arrayidx8.i.i.i727 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i716, i64 0, i64 %idxprom7.i.i.i726
@@ -77232,7 +77232,7 @@ if.then.i.i.i748:                                 ; preds = %if.then1.i.i741
   %conv.i.i.i749 = sext i16 %351 to i32
   %add.i.i.i750 = add nsw i32 %conv.i.i.i749, 1
   %rem.i.i.i751 = srem i32 %add.i.i.i750, 6
-  %conv3.i.i.i752 = trunc i32 %rem.i.i.i751 to i16
+  %conv3.i.i.i752 = trunc nsw i32 %rem.i.i.i751 to i16
   store i16 %conv3.i.i.i752, ptr %LastEntriesIdx.i.i.i744, align 4
   %idxprom7.i.i.i753 = sext i32 %rem.i.i.i751 to i64
   %arrayidx8.i.i.i754 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i743, i64 0, i64 %idxprom7.i.i.i753
@@ -77297,7 +77297,7 @@ if.then.i.i.i.i775:                               ; preds = %if.then1.i.i.i768
   %conv.i.i.i.i776 = sext i16 %363 to i32
   %add.i.i.i.i777 = add nsw i32 %conv.i.i.i.i776, 1
   %rem.i.i.i.i778 = srem i32 %add.i.i.i.i777, 6
-  %conv3.i.i.i.i779 = trunc i32 %rem.i.i.i.i778 to i16
+  %conv3.i.i.i.i779 = trunc nsw i32 %rem.i.i.i.i778 to i16
   store i16 %conv3.i.i.i.i779, ptr %LastEntriesIdx.i.i.i.i771, align 4
   %idxprom7.i.i.i.i780 = sext i32 %rem.i.i.i.i778 to i64
   %arrayidx8.i.i.i.i781 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i770, i64 0, i64 %idxprom7.i.i.i.i780
@@ -77360,7 +77360,7 @@ if.then.i.i.i802:                                 ; preds = %if.then1.i.i795
   %conv.i.i.i803 = sext i16 %375 to i32
   %add.i.i.i804 = add nsw i32 %conv.i.i.i803, 1
   %rem.i.i.i805 = srem i32 %add.i.i.i804, 6
-  %conv3.i.i.i806 = trunc i32 %rem.i.i.i805 to i16
+  %conv3.i.i.i806 = trunc nsw i32 %rem.i.i.i805 to i16
   store i16 %conv3.i.i.i806, ptr %LastEntriesIdx.i.i.i798, align 4
   %idxprom7.i.i.i807 = sext i32 %rem.i.i.i805 to i64
   %arrayidx8.i.i.i808 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i797, i64 0, i64 %idxprom7.i.i.i807
@@ -77423,7 +77423,7 @@ if.then.i.i.i829:                                 ; preds = %if.then1.i.i822
   %conv.i.i.i830 = sext i16 %387 to i32
   %add.i.i.i831 = add nsw i32 %conv.i.i.i830, 1
   %rem.i.i.i832 = srem i32 %add.i.i.i831, 6
-  %conv3.i.i.i833 = trunc i32 %rem.i.i.i832 to i16
+  %conv3.i.i.i833 = trunc nsw i32 %rem.i.i.i832 to i16
   store i16 %conv3.i.i.i833, ptr %LastEntriesIdx.i.i.i825, align 4
   %idxprom7.i.i.i834 = sext i32 %rem.i.i.i832 to i64
   %arrayidx8.i.i.i835 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i824, i64 0, i64 %idxprom7.i.i.i834
@@ -77486,7 +77486,7 @@ if.then.i.i.i856:                                 ; preds = %if.then1.i.i849
   %conv.i.i.i857 = sext i16 %399 to i32
   %add.i.i.i858 = add nsw i32 %conv.i.i.i857, 1
   %rem.i.i.i859 = srem i32 %add.i.i.i858, 6
-  %conv3.i.i.i860 = trunc i32 %rem.i.i.i859 to i16
+  %conv3.i.i.i860 = trunc nsw i32 %rem.i.i.i859 to i16
   store i16 %conv3.i.i.i860, ptr %LastEntriesIdx.i.i.i852, align 4
   %idxprom7.i.i.i861 = sext i32 %rem.i.i.i859 to i64
   %arrayidx8.i.i.i862 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i851, i64 0, i64 %idxprom7.i.i.i861
@@ -77549,7 +77549,7 @@ if.then.i.i.i884:                                 ; preds = %if.then1.i.i877
   %conv.i.i.i885 = sext i16 %411 to i32
   %add.i.i.i886 = add nsw i32 %conv.i.i.i885, 1
   %rem.i.i.i887 = srem i32 %add.i.i.i886, 6
-  %conv3.i.i.i888 = trunc i32 %rem.i.i.i887 to i16
+  %conv3.i.i.i888 = trunc nsw i32 %rem.i.i.i887 to i16
   store i16 %conv3.i.i.i888, ptr %LastEntriesIdx.i.i.i880, align 4
   %idxprom7.i.i.i889 = sext i32 %rem.i.i.i887 to i64
   %arrayidx8.i.i.i890 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i879, i64 0, i64 %idxprom7.i.i.i889
@@ -77612,7 +77612,7 @@ if.then.i.i.i912:                                 ; preds = %if.then1.i.i905
   %conv.i.i.i913 = sext i16 %423 to i32
   %add.i.i.i914 = add nsw i32 %conv.i.i.i913, 1
   %rem.i.i.i915 = srem i32 %add.i.i.i914, 6
-  %conv3.i.i.i916 = trunc i32 %rem.i.i.i915 to i16
+  %conv3.i.i.i916 = trunc nsw i32 %rem.i.i.i915 to i16
   store i16 %conv3.i.i.i916, ptr %LastEntriesIdx.i.i.i908, align 4
   %idxprom7.i.i.i917 = sext i32 %rem.i.i.i915 to i64
   %arrayidx8.i.i.i918 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i907, i64 0, i64 %idxprom7.i.i.i917
@@ -77675,7 +77675,7 @@ if.then.i.i.i939:                                 ; preds = %if.then1.i.i932
   %conv.i.i.i940 = sext i16 %435 to i32
   %add.i.i.i941 = add nsw i32 %conv.i.i.i940, 1
   %rem.i.i.i942 = srem i32 %add.i.i.i941, 6
-  %conv3.i.i.i943 = trunc i32 %rem.i.i.i942 to i16
+  %conv3.i.i.i943 = trunc nsw i32 %rem.i.i.i942 to i16
   store i16 %conv3.i.i.i943, ptr %LastEntriesIdx.i.i.i935, align 4
   %idxprom7.i.i.i944 = sext i32 %rem.i.i.i942 to i64
   %arrayidx8.i.i.i945 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i934, i64 0, i64 %idxprom7.i.i.i944
@@ -77738,7 +77738,7 @@ if.then.i.i.i.i967:                               ; preds = %if.then1.i.i.i960
   %conv.i.i.i.i968 = sext i16 %447 to i32
   %add.i.i.i.i969 = add nsw i32 %conv.i.i.i.i968, 1
   %rem.i.i.i.i970 = srem i32 %add.i.i.i.i969, 6
-  %conv3.i.i.i.i971 = trunc i32 %rem.i.i.i.i970 to i16
+  %conv3.i.i.i.i971 = trunc nsw i32 %rem.i.i.i.i970 to i16
   store i16 %conv3.i.i.i.i971, ptr %LastEntriesIdx.i.i.i.i963, align 4
   %idxprom7.i.i.i.i972 = sext i32 %rem.i.i.i.i970 to i64
   %arrayidx8.i.i.i.i973 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i962, i64 0, i64 %idxprom7.i.i.i.i972
@@ -77801,7 +77801,7 @@ if.then.i.i.i.i994:                               ; preds = %if.then1.i.i.i987
   %conv.i.i.i.i995 = sext i16 %459 to i32
   %add.i.i.i.i996 = add nsw i32 %conv.i.i.i.i995, 1
   %rem.i.i.i.i997 = srem i32 %add.i.i.i.i996, 6
-  %conv3.i.i.i.i998 = trunc i32 %rem.i.i.i.i997 to i16
+  %conv3.i.i.i.i998 = trunc nsw i32 %rem.i.i.i.i997 to i16
   store i16 %conv3.i.i.i.i998, ptr %LastEntriesIdx.i.i.i.i990, align 4
   %idxprom7.i.i.i.i999 = sext i32 %rem.i.i.i.i997 to i64
   %arrayidx8.i.i.i.i1000 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i989, i64 0, i64 %idxprom7.i.i.i.i999
@@ -77876,7 +77876,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -77934,7 +77934,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -78005,7 +78005,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %3 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -78062,7 +78062,7 @@ if.then.i.i.i12:                                  ; preds = %if.then1.i.i5
   %conv.i.i.i13 = sext i16 %13 to i32
   %add.i.i.i14 = add nsw i32 %conv.i.i.i13, 1
   %rem.i.i.i15 = srem i32 %add.i.i.i14, 6
-  %conv3.i.i.i16 = trunc i32 %rem.i.i.i15 to i16
+  %conv3.i.i.i16 = trunc nsw i32 %rem.i.i.i15 to i16
   store i16 %conv3.i.i.i16, ptr %LastEntriesIdx.i.i.i8, align 4
   %idxprom7.i.i.i17 = sext i32 %rem.i.i.i15 to i64
   %arrayidx8.i.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i7, i64 0, i64 %idxprom7.i.i.i17
@@ -78118,7 +78118,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %23 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -78181,7 +78181,7 @@ if.then.i.i.i.i42:                                ; preds = %if.then1.i.i.i35
   %conv.i.i.i.i43 = sext i16 %35 to i32
   %add.i.i.i.i44 = add nsw i32 %conv.i.i.i.i43, 1
   %rem.i.i.i.i45 = srem i32 %add.i.i.i.i44, 6
-  %conv3.i.i.i.i46 = trunc i32 %rem.i.i.i.i45 to i16
+  %conv3.i.i.i.i46 = trunc nsw i32 %rem.i.i.i.i45 to i16
   store i16 %conv3.i.i.i.i46, ptr %LastEntriesIdx.i.i.i.i38, align 4
   %idxprom7.i.i.i.i47 = sext i32 %rem.i.i.i.i45 to i64
   %arrayidx8.i.i.i.i48 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i37, i64 0, i64 %idxprom7.i.i.i.i47
@@ -78257,7 +78257,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %3 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -78320,7 +78320,7 @@ if.then.i.i.i2:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %15 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -78389,7 +78389,7 @@ if.then.i.i:                                      ; preds = %if.then1.i
   %conv.i.i = sext i16 %3 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -78445,7 +78445,7 @@ if.then.i.i.i:                                    ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %13 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -78508,7 +78508,7 @@ if.then.i.i.i14:                                  ; preds = %if.then1.i.i7
   %conv.i.i.i15 = sext i16 %25 to i32
   %add.i.i.i16 = add nsw i32 %conv.i.i.i15, 1
   %rem.i.i.i17 = srem i32 %add.i.i.i16, 6
-  %conv3.i.i.i18 = trunc i32 %rem.i.i.i17 to i16
+  %conv3.i.i.i18 = trunc nsw i32 %rem.i.i.i17 to i16
   store i16 %conv3.i.i.i18, ptr %LastEntriesIdx.i.i.i10, align 4
   %idxprom7.i.i.i19 = sext i32 %rem.i.i.i17 to i64
   %arrayidx8.i.i.i20 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i9, i64 0, i64 %idxprom7.i.i.i19
@@ -78571,7 +78571,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %37 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -78653,7 +78653,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -78711,7 +78711,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -78783,7 +78783,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then1.i.i.i
   %conv.i.i.i.i = sext i16 %3 to i32
   %add.i.i.i.i = add nsw i32 %conv.i.i.i.i, 1
   %rem.i.i.i.i = srem i32 %add.i.i.i.i, 6
-  %conv3.i.i.i.i = trunc i32 %rem.i.i.i.i to i16
+  %conv3.i.i.i.i = trunc nsw i32 %rem.i.i.i.i to i16
   store i16 %conv3.i.i.i.i, ptr %LastEntriesIdx.i.i.i.i, align 4
   %idxprom7.i.i.i.i = sext i32 %rem.i.i.i.i to i64
   %arrayidx8.i.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i.i, i64 0, i64 %idxprom7.i.i.i.i
@@ -78853,7 +78853,7 @@ if.then.i.i.i2:                                   ; preds = %if.then1.i.i
   %conv.i.i.i = sext i16 %17 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, 1
   %rem.i.i.i = srem i32 %add.i.i.i, 6
-  %conv3.i.i.i = trunc i32 %rem.i.i.i to i16
+  %conv3.i.i.i = trunc nsw i32 %rem.i.i.i to i16
   store i16 %conv3.i.i.i, ptr %LastEntriesIdx.i.i.i, align 4
   %idxprom7.i.i.i = sext i32 %rem.i.i.i to i64
   %arrayidx8.i.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i.i, i64 0, i64 %idxprom7.i.i.i
@@ -78928,7 +78928,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -78986,7 +78986,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -79059,7 +79059,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -79117,7 +79117,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -79190,7 +79190,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -79248,7 +79248,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -79321,7 +79321,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -79379,7 +79379,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -79452,7 +79452,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -79510,7 +79510,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -79582,7 +79582,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -79655,7 +79655,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17
@@ -79728,7 +79728,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %conv.i.i = sext i16 %5 to i32
   %add.i.i = add nsw i32 %conv.i.i, 1
   %rem.i.i = srem i32 %add.i.i, 6
-  %conv3.i.i = trunc i32 %rem.i.i to i16
+  %conv3.i.i = trunc nsw i32 %rem.i.i to i16
   store i16 %conv3.i.i, ptr %LastEntriesIdx.i.i, align 4
   %idxprom7.i.i = sext i32 %rem.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i, i64 0, i64 %idxprom7.i.i
@@ -79786,7 +79786,7 @@ if.then.i.i12:                                    ; preds = %if.then1.i
   %conv.i.i13 = sext i16 %15 to i32
   %add.i.i14 = add nsw i32 %conv.i.i13, 1
   %rem.i.i15 = srem i32 %add.i.i14, 6
-  %conv3.i.i16 = trunc i32 %rem.i.i15 to i16
+  %conv3.i.i16 = trunc nsw i32 %rem.i.i15 to i16
   store i16 %conv3.i.i16, ptr %LastEntriesIdx.i.i8, align 4
   %idxprom7.i.i17 = sext i32 %rem.i.i15 to i64
   %arrayidx8.i.i18 = getelementptr inbounds [6 x %struct.ImGuiDebugAllocEntry], ptr %LastEntriesBuf.i.i7, i64 0, i64 %idxprom7.i.i17

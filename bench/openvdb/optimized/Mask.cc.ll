@@ -5749,10 +5749,9 @@ entry:
 define linkonce_odr void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEE9pruneGridEf(ptr noundef nonnull align 8 dereferenceable(88) %this, float noundef %tolerance) unnamed_addr #5 comdat align 2 {
 entry:
   %ref.tmp4 = alloca i8, align 1
-  %add.i = fadd float %tolerance, 0.000000e+00
   %mTree.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  %tobool = fcmp une float %add.i, 0.000000e+00
+  %tobool = fcmp une float %tolerance, 0.000000e+00
   %frombool5 = zext i1 %tobool to i8
   store i8 %frombool5, ptr %ref.tmp4, align 1
   tail call void @_ZN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEE17clearAllAccessorsEv(ptr noundef nonnull align 8 dereferenceable(1232) %0)
@@ -12385,7 +12384,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   %cmp.i.i.i.not19 = icmp eq i32 %add.i.i.i, 32768
   br i1 %cmp.i.i.i.not19, label %for.end, label %invoke.cont3
@@ -12418,7 +12417,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %4, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %6
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EED2Ev.exit, label %invoke.cont3.i
@@ -12479,7 +12478,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %9, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %11 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %12
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -12536,7 +12535,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %14, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %16 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i5 = or disjoint i32 %shl14.i.i.i.i, %17
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -13414,7 +13413,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !156
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -13476,7 +13475,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %8, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %10 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %11
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -13512,7 +13511,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   %cmp.i.i.i.not15 = icmp eq i32 %add.i.i.i, 4096
   br i1 %cmp.i.i.i.not15, label %for.end, label %for.body.lr.ph
@@ -13667,7 +13666,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %13, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %15 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %add.i.i.i.i8 = or disjoint i32 %shl14.i.i.i.i, %16
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -15956,7 +15955,7 @@ while.body:                                       ; preds = %_ZN3tbb6detail2d219
   br i1 %cmp, label %if.then, label %if.else28
 
 if.then:                                          ; preds = %while.body
-  %tobool.i = trunc i8 %b_old.sroa.10.2 to i1
+  %tobool.i = trunc nuw i8 %b_old.sroa.10.2 to i1
   br i1 %tobool.i, label %if.end16, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -16013,7 +16012,7 @@ while.body.backedge:                              ; preds = %if.end30, %restart.
 
 if.then.i.i26:                                    ; preds = %if.end30, %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorC2EPSQ_mb.exit
   %b_old.sroa.10.5 = phi i8 [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISH_EENSI_13tbb_allocatorISt4pairIKSH_bEEEE15bucket_accessorC2EPSQ_mb.exit ], [ %b_old.sroa.10.4, %if.end30 ]
-  %tobool.i.i.i28 = trunc i8 %b_old.sroa.10.5 to i1
+  %tobool.i.i.i28 = trunc nuw i8 %b_old.sroa.10.5 to i1
   br i1 %tobool.i.i.i28, label %if.then.i.i.i31, label %if.else.i.i.i29
 
 if.then.i.i.i31:                                  ; preds = %restart.loopexit, %if.then.i.i26
@@ -18757,7 +18756,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbe
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %10 = tail call i64 @llvm.cttz.i64(i64 %9, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %11
   store ptr %this, ptr %i, align 8, !alias.scope !194
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %i, i64 8
@@ -18850,7 +18849,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %32, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %34 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i11 = or disjoint i32 %shl14.i.i.i.i, %35
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -18885,7 +18884,7 @@ for.inc.i.i.i22:                                  ; preds = %land.rhs.i.i.i12
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i12
   %shl.i.i.i17 = shl i32 %n.011.i.i.i14, 6
   %37 = call i64 @llvm.cttz.i64(i64 %36, i1 true), !range !91
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %add.i.i.i18 = or disjoint i32 %shl.i.i.i17, %38
   store ptr %this, ptr %i7, align 8, !alias.scope !198
   %mMaskIter.i.i.i.i20 = getelementptr inbounds i8, ptr %i7, i64 8
@@ -18947,7 +18946,7 @@ cond.false.i.i.i.i48:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i50 = phi i64 [ %and7.i.i.i.i46, %if.end4.i.i.i.i44 ], [ %44, %cond.false.loopexit.i.i.i.i60 ]
   %shl14.i.i.i.i51 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i49, 6
   %46 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i50, i1 true), !range !91
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw nsw i64 %46 to i32
   %add.i.i.i.i52 = or disjoint i32 %shl14.i.i.i.i51, %47
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit61
 
@@ -19028,7 +19027,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnE
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %10 = tail call i64 @llvm.cttz.i64(i64 %9, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %11
   store ptr %this, ptr %i, align 8, !alias.scope !202
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %i, i64 8
@@ -19121,7 +19120,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %32, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %34 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i11 = or disjoint i32 %shl14.i.i.i.i, %35
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -19156,7 +19155,7 @@ for.inc.i.i.i22:                                  ; preds = %land.rhs.i.i.i12
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i12
   %shl.i.i.i17 = shl i32 %n.011.i.i.i14, 6
   %37 = call i64 @llvm.cttz.i64(i64 %36, i1 true), !range !91
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %add.i.i.i18 = or disjoint i32 %shl.i.i.i17, %38
   store ptr %this, ptr %i7, align 8, !alias.scope !206
   %mMaskIter.i.i.i.i20 = getelementptr inbounds i8, ptr %i7, i64 8
@@ -19218,7 +19217,7 @@ cond.false.i.i.i.i48:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i50 = phi i64 [ %and7.i.i.i.i46, %if.end4.i.i.i.i44 ], [ %44, %cond.false.loopexit.i.i.i.i60 ]
   %shl14.i.i.i.i51 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i49, 6
   %46 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i50, i1 true), !range !91
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw nsw i64 %46 to i32
   %add.i.i.i.i52 = or disjoint i32 %shl14.i.i.i.i51, %47
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit61
 
@@ -19314,7 +19313,7 @@ entry:
   %this_bbox.sroa.0.0.copyload = load i64, ptr %mOrigin.i, align 8
   %this_bbox.sroa.0.sroa.0.0.extract.trunc = trunc i64 %this_bbox.sroa.0.0.copyload to i32
   %this_bbox.sroa.0.sroa.8.0.extract.shift = lshr i64 %this_bbox.sroa.0.0.copyload, 32
-  %this_bbox.sroa.0.sroa.8.0.extract.trunc = trunc i64 %this_bbox.sroa.0.sroa.8.0.extract.shift to i32
+  %this_bbox.sroa.0.sroa.8.0.extract.trunc = trunc nuw i64 %this_bbox.sroa.0.sroa.8.0.extract.shift to i32
   %3 = load i32, ptr %bbox, align 4
   %cmp.i.i = icmp sle i32 %3, %this_bbox.sroa.0.sroa.0.0.extract.trunc
   %arrayidx.i.i.i5.i.i = getelementptr inbounds i8, ptr %bbox, i64 4
@@ -19355,7 +19354,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree8LeafNodeIbLj3EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %10 = tail call i64 @llvm.cttz.i64(i64 %9, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %11
   %cmp.i.i.i.not = icmp eq i32 %add.i.i.i, 512
   br i1 %cmp.i.i.i.not, label %if.end12, label %if.then3
@@ -19424,7 +19423,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %19, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %21 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %add.i.i.i.i9 = or disjoint i32 %shl14.i.i.i.i, %22
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEEppEv.exit
 
@@ -19599,7 +19598,7 @@ _ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseINS1_4TreeINS1_8RootN
   %b.0.lcssa.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i, %6
   store i32 %add.i.i.i.i.i.i, ptr %mMaskIter.i.i.i, align 8
   %cmp.i.i.i.i3.i.not = icmp eq i32 %add.i.i.i.i.i.i, 4096
@@ -19877,7 +19876,7 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
   %9 = tail call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !91
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %10
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEENS6_9ChildIterIS6_S5_NS0_4util14OnMaskIteratorINS8_8NodeMaskILj4EEEEENS6_7ChildOnEEEE5beginERS6_.exit.i
 
@@ -19931,7 +19930,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
   %16 = tail call i64 @llvm.cttz.i64(i64 %15, i1 true), !range !91
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %17
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEENS7_9ChildIterIS7_S6_NS0_4util14OnMaskIteratorINS9_8NodeMaskILj5EEEEENS7_7ChildOnEEEE5beginERS7_.exit.i.i
 
@@ -20078,7 +20077,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIbLj3EEEE4nextEv.exit
 
@@ -20136,7 +20135,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %12 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE4nextEv.exit.i
 
@@ -20212,7 +20211,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE4nextEv.exit
 
@@ -20407,7 +20406,7 @@ _ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseIKNS1_4TreeINS1_8Root
   %b.0.lcssa.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i, %6
   store i32 %add.i.i.i.i.i.i, ptr %mMaskIter.i.i.i, align 8
   %cmp.i.i.i.i3.i.not = icmp eq i32 %add.i.i.i.i.i.i, 4096
@@ -20685,7 +20684,7 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
 cond.false.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
   %9 = tail call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !91
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %10
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEENS6_9ChildIterIKS6_KS5_NS0_4util14OnMaskIteratorINSA_8NodeMaskILj4EEEEENS6_7ChildOnEEEE5beginERS8_.exit.i
 
@@ -20739,7 +20738,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %land.rhs.i.i.i.i.i.
 cond.false.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
   %16 = tail call i64 @llvm.cttz.i64(i64 %15, i1 true), !range !91
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %17
   br label %_ZN7openvdb5v11_04tree10IterTraitsINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEENS7_9ChildIterIKS7_KS6_NS0_4util14OnMaskIteratorINSB_8NodeMaskILj5EEEEENS7_7ChildOnEEEE5beginERS9_.exit.i.i
 
@@ -20819,7 +20818,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEE4nextEv.exit
 
@@ -20877,7 +20876,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %12 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE4nextEv.exit.i
 
@@ -20953,7 +20952,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %3, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %6
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE4nextEv.exit
 
@@ -21025,7 +21024,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !247
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -21052,7 +21051,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %5 = load i64, ptr %w.05.i.i, align 8
   %6 = call i64 @llvm.ctpop.i64(i64 %5), !range !91
-  %conv.i.i.i = trunc i64 %6 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %6 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
@@ -21105,7 +21104,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %12 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -21134,7 +21133,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %dec.i = add nsw i32 %n.04.i, -1
   %0 = load i64, ptr %w.05.i, align 8
   %1 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !91
-  %conv.i.i = trunc i64 %1 to i32
+  %conv.i.i = trunc nuw nsw i64 %1 to i32
   %add.i = add i32 %sum.03.i, %conv.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %w.05.i, i64 8
   %tobool.not.i = icmp eq i32 %dec.i, 0
@@ -21172,7 +21171,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbe
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %3 = tail call i64 @llvm.cttz.i64(i64 %2, i1 true), !range !91
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %4
   store ptr %this, ptr %iter, align 8, !alias.scope !253
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -21198,7 +21197,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %7 = load i64, ptr %w.05.i.i, align 8
   %8 = call i64 @llvm.ctpop.i64(i64 %7), !range !91
-  %conv.i.i.i = trunc i64 %8 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %8 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
@@ -21254,7 +21253,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %14, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %16 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %17
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -21322,7 +21321,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %3 = call i64 @llvm.cttz.i64(i64 %2, i1 true), !range !91
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %4
   store ptr %1, ptr %iter.i, align 8, !alias.scope !257
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !257
@@ -21379,7 +21378,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %8, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %10 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %11
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit.i
 
@@ -21512,7 +21511,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i, -1
   %10 = load i64, ptr %w.05.i.i.i.i.i.i, align 8
   %11 = call i64 @llvm.ctpop.i64(i64 %10), !range !91
-  %conv.i.i.i.i.i.i.i = trunc i64 %11 to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
@@ -21805,7 +21804,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %10 = load i64, ptr %w.05.i.i, align 8
   %11 = call i64 @llvm.ctpop.i64(i64 %10), !range !91
-  %conv.i.i.i = trunc i64 %11 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %11 to i32
   %add.i.i27 = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i28 = icmp eq i32 %dec.i.i, 0
@@ -22134,7 +22133,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %46 = call i64 @llvm.cttz.i64(i64 %45, i1 true), !range !91
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw nsw i64 %46 to i32
   %add.i.i.i.i125 = or disjoint i32 %shl.i.i.i.i, %47
   store ptr %44, ptr %iter, align 8, !alias.scope !280
   store i32 %add.i.i.i.i125, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !280
@@ -22199,7 +22198,7 @@ cond.false.i.i.i.i133:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %53, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %55 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw nsw i64 %55 to i32
   %add.i.i.i.i134 = or disjoint i32 %shl14.i.i.i.i, %56
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -22533,7 +22532,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %3 = call i64 @llvm.cttz.i64(i64 %2, i1 true), !range !91
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %4
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 32768
   br i1 %cmp.i.i.i.not8.i, label %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE8getNodesISt5dequeIPKS5_SaISA_EEEEvRT_.exit, label %for.body.i
@@ -22605,7 +22604,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %12 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit.i
 
@@ -23294,7 +23293,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %11 = load i64, ptr %w.05.i.i.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -23549,7 +23548,7 @@ for.body.i.i.i.i61:                               ; preds = %for.body.i.i.i.i61,
   %dec.i.i.i.i65 = add nsw i32 %n.04.i.i.i.i63, -1
   %53 = load i64, ptr %w.05.i.i.i.i62, align 8
   %54 = call i64 @llvm.ctpop.i64(i64 %53), !range !91
-  %conv.i.i.i.i.i66 = trunc i64 %54 to i32
+  %conv.i.i.i.i.i66 = trunc nuw nsw i64 %54 to i32
   %add.i.i.i.i67 = add i32 %sum.03.i.i.i.i64, %conv.i.i.i.i.i66
   %incdec.ptr.i.i.i.i68 = getelementptr inbounds i8, ptr %w.05.i.i.i.i62, i64 8
   %tobool.not.i.i.i.i69 = icmp eq i32 %dec.i.i.i.i65, 0
@@ -24341,7 +24340,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i8 = or disjoint i32 %shl.i.i.i.i, %19
   store ptr %16, ptr %iter, align 8, !alias.scope !308
   store i32 %add.i.i.i.i8, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !308
@@ -24403,7 +24402,7 @@ cond.false.i.i.i.i15:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %25, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %27 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %add.i.i.i.i16 = or disjoint i32 %shl14.i.i.i.i, %28
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -26175,7 +26174,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %dec.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i, -1
   %9 = load i64, ptr %w.05.i.i.i.i.i, align 8
   %10 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !91
-  %conv.i.i.i.i.i.i = trunc i64 %10 to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i, %conv.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i, 0
@@ -26411,7 +26410,7 @@ for.body.i.i.i.i.i45:                             ; preds = %for.body.i.i.i.i.i4
   %dec.i.i.i.i.i49 = add nsw i32 %n.04.i.i.i.i.i47, -1
   %51 = load i64, ptr %w.05.i.i.i.i.i46, align 8
   %52 = call i64 @llvm.ctpop.i64(i64 %51), !range !91
-  %conv.i.i.i.i.i.i50 = trunc i64 %52 to i32
+  %conv.i.i.i.i.i.i50 = trunc nuw nsw i64 %52 to i32
   %add.i.i.i.i.i51 = add i32 %sum.03.i.i.i.i.i48, %conv.i.i.i.i.i.i50
   %incdec.ptr.i.i.i.i.i52 = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i46, i64 8
   %tobool.not.i.i.i.i.i53 = icmp eq i32 %dec.i.i.i.i.i49, 0
@@ -26656,7 +26655,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i.i, -1
   %10 = load i64, ptr %w.05.i.i.i.i.i.i.i, align 8
   %11 = call i64 @llvm.ctpop.i64(i64 %10), !range !91
-  %conv.i.i.i.i.i.i.i.i = trunc i64 %11 to i32
+  %conv.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i, 0
@@ -27152,7 +27151,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i, -1
   %9 = load i64, ptr %w.05.i.i.i.i.i.i, align 8
   %10 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !91
-  %conv.i.i.i.i.i.i.i = trunc i64 %10 to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
@@ -27389,7 +27388,7 @@ for.body.i.i.i.i.i.i46:                           ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i50 = add nsw i32 %n.04.i.i.i.i.i.i48, -1
   %51 = load i64, ptr %w.05.i.i.i.i.i.i47, align 8
   %52 = call i64 @llvm.ctpop.i64(i64 %51), !range !91
-  %conv.i.i.i.i.i.i.i51 = trunc i64 %52 to i32
+  %conv.i.i.i.i.i.i.i51 = trunc nuw nsw i64 %52 to i32
   %add.i.i.i.i.i.i52 = add i32 %sum.03.i.i.i.i.i.i49, %conv.i.i.i.i.i.i.i51
   %incdec.ptr.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i47, i64 8
   %tobool.not.i.i.i.i.i.i54 = icmp eq i32 %dec.i.i.i.i.i.i50, 0
@@ -27877,7 +27876,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i.i, -1
   %26 = load i64, ptr %w.05.i.i.i.i.i.i.i, align 8
   %27 = call i64 @llvm.ctpop.i64(i64 %26), !range !91
-  %conv.i.i.i.i.i.i.i.i = trunc i64 %27 to i32
+  %conv.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %27 to i32
   %add.i.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i, 0
@@ -28291,7 +28290,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -28579,7 +28578,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !368
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !368
@@ -28644,7 +28643,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -28858,7 +28857,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -29146,7 +29145,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !378
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !378
@@ -29211,7 +29210,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -29351,7 +29350,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %land.rhs.i.i.i.i.i.
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i
   %shl.i.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i.i, 6
   %8 = tail call i64 @llvm.cttz.i64(i64 %7, i1 true), !range !91
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %9
   %cmp.i.i.i.not7.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i, 32768
   br i1 %cmp.i.i.i.not7.i.i.i.i, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal18ActiveVoxelCountOpINS1_4TreeINS1_8RootNodeIS7_EEEEEEEEEEvRT_RNS9_9NodeRange8IteratorE.exit.i, label %for.body.preheader.i.i.i.i
@@ -29408,7 +29407,7 @@ cond.false.i.i.i.i.i.i.i.i:                       ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i.i.i ], [ %12, %cond.false.loopexit.i.i.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i.i, 6
   %14 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i.i, i1 true), !range !91
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %add.i.i.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i.i.i, %15
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit.i.i.i.i
 
@@ -29914,7 +29913,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i.i.i.
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
   %shl.i.i.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i.i.i, 6
   %11 = tail call i64 @llvm.cttz.i64(i64 %10, i1 true), !range !91
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i, %12
   %cmp.i.i.i.not7.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i, 32768
   br i1 %cmp.i.i.i.not7.i.i.i.i.i, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal18ActiveVoxelCountOpINS1_4TreeINS1_8RootNodeIS7_EEEEEEEEEEvRT_RNS9_9NodeRange8IteratorE.exit.i.i, label %for.body.preheader.i.i.i.i.i
@@ -29971,7 +29970,7 @@ cond.false.i.i.i.i.i.i.i.i.i:                     ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i.i.i.i ], [ %15, %cond.false.loopexit.i.i.i.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i.i.i, 6
   %17 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i.i.i, i1 true), !range !91
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %add.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i.i.i.i, %18
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit.i.i.i.i.i
 
@@ -30222,7 +30221,7 @@ for.inc.i.i.i.i.i.i.i.i95:                        ; preds = %land.rhs.i.i.i.i.i.
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.i.i.i.i.i50: ; preds = %land.rhs.i.i.i.i.i.i.i.i46
   %shl.i.i.i.i.i.i.i.i51 = shl i32 %n.011.i.i.i.i.i.i.i.i48, 6
   %61 = call i64 @llvm.cttz.i64(i64 %60, i1 true), !range !91
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %add.i.i.i.i.i.i.i.i52 = or disjoint i32 %shl.i.i.i.i.i.i.i.i51, %62
   %cmp.i.i.i.not7.i.i.i.i.i53 = icmp eq i32 %add.i.i.i.i.i.i.i.i52, 32768
   br i1 %cmp.i.i.i.not7.i.i.i.i.i53, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal18ActiveVoxelCountOpINS1_4TreeINS1_8RootNodeIS7_EEEEEEEEEEvRT_RNS9_9NodeRange8IteratorE.exit.i.i73, label %for.body.preheader.i.i.i.i.i54
@@ -30279,7 +30278,7 @@ cond.false.i.i.i.i.i.i.i.i.i82:                   ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i.i.i84 = phi i64 [ %and7.i.i.i.i.i.i.i.i.i80, %if.end4.i.i.i.i.i.i.i.i.i78 ], [ %65, %cond.false.loopexit.i.i.i.i.i.i.i.i.i94 ]
   %shl14.i.i.i.i.i.i.i.i.i85 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i.i.i83, 6
   %67 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i.i.i84, i1 true), !range !91
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw nsw i64 %67 to i32
   %add.i.i.i.i.i.i.i.i.i86 = or disjoint i32 %shl14.i.i.i.i.i.i.i.i.i85, %68
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit.i.i.i.i.i70
 
@@ -30890,7 +30889,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -31118,7 +31117,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -31880,7 +31879,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !413
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !413
@@ -31942,7 +31941,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -32024,7 +32023,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %land.rhs.i.i.i.i.i.
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnEv.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i
   %shl.i.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i.i, 6
   %8 = tail call i64 @llvm.cttz.i64(i64 %7, i1 true), !range !91
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %9
   %cmp.i.i.i.not7.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not7.i.i.i.i, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal18ActiveVoxelCountOpINS1_4TreeINS1_8RootNodeINS3_IS6_Lj5EEEEEEEEEEEEEvRT_RNS8_9NodeRange8IteratorE.exit.i, label %for.body.preheader.i.i.i.i
@@ -32081,7 +32080,7 @@ cond.false.i.i.i.i.i.i.i.i:                       ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i.i.i ], [ %12, %cond.false.loopexit.i.i.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i.i, 6
   %14 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i.i, i1 true), !range !91
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %add.i.i.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i.i.i, %15
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i.i.i.i
 
@@ -32587,7 +32586,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i.i.i.
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnEv.exit.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
   %shl.i.i.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i.i.i, 6
   %11 = tail call i64 @llvm.cttz.i64(i64 %10, i1 true), !range !91
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i, %12
   %cmp.i.i.i.not7.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not7.i.i.i.i.i, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal18ActiveVoxelCountOpINS1_4TreeINS1_8RootNodeINS3_IS6_Lj5EEEEEEEEEEEEEvRT_RNS8_9NodeRange8IteratorE.exit.i.i, label %for.body.preheader.i.i.i.i.i
@@ -32644,7 +32643,7 @@ cond.false.i.i.i.i.i.i.i.i.i:                     ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i.i.i.i ], [ %15, %cond.false.loopexit.i.i.i.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i.i.i, 6
   %17 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i.i.i, i1 true), !range !91
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %add.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i.i.i.i, %18
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i.i.i.i.i
 
@@ -32895,7 +32894,7 @@ for.inc.i.i.i.i.i.i.i.i95:                        ; preds = %land.rhs.i.i.i.i.i.
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnEv.exit.i.i.i.i.i50: ; preds = %land.rhs.i.i.i.i.i.i.i.i46
   %shl.i.i.i.i.i.i.i.i51 = shl i32 %n.011.i.i.i.i.i.i.i.i48, 6
   %61 = call i64 @llvm.cttz.i64(i64 %60, i1 true), !range !91
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %add.i.i.i.i.i.i.i.i52 = or disjoint i32 %shl.i.i.i.i.i.i.i.i51, %62
   %cmp.i.i.i.not7.i.i.i.i.i53 = icmp eq i32 %add.i.i.i.i.i.i.i.i52, 4096
   br i1 %cmp.i.i.i.not7.i.i.i.i.i53, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal18ActiveVoxelCountOpINS1_4TreeINS1_8RootNodeINS3_IS6_Lj5EEEEEEEEEEEEEvRT_RNS8_9NodeRange8IteratorE.exit.i.i73, label %for.body.preheader.i.i.i.i.i54
@@ -32952,7 +32951,7 @@ cond.false.i.i.i.i.i.i.i.i.i82:                   ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i.i.i84 = phi i64 [ %and7.i.i.i.i.i.i.i.i.i80, %if.end4.i.i.i.i.i.i.i.i.i78 ], [ %65, %cond.false.loopexit.i.i.i.i.i.i.i.i.i94 ]
   %shl14.i.i.i.i.i.i.i.i.i85 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i.i.i83, 6
   %67 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i.i.i84, i1 true), !range !91
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw nsw i64 %67 to i32
   %add.i.i.i.i.i.i.i.i.i86 = or disjoint i32 %shl14.i.i.i.i.i.i.i.i.i85, %68
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i.i.i.i.i70
 
@@ -33563,7 +33562,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -33791,7 +33790,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -34553,7 +34552,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !449
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !449
@@ -34615,7 +34614,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -35056,7 +35055,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i, -1
   %9 = load i64, ptr %w.05.i.i.i.i.i.i, align 8
   %10 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !91
-  %conv.i.i.i.i.i.i.i = trunc i64 %10 to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
@@ -35292,7 +35291,7 @@ for.body.i.i.i.i.i.i44:                           ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i48 = add nsw i32 %n.04.i.i.i.i.i.i46, -1
   %51 = load i64, ptr %w.05.i.i.i.i.i.i45, align 8
   %52 = call i64 @llvm.ctpop.i64(i64 %51), !range !91
-  %conv.i.i.i.i.i.i.i49 = trunc i64 %52 to i32
+  %conv.i.i.i.i.i.i.i49 = trunc nuw nsw i64 %52 to i32
   %add.i.i.i.i.i.i50 = add i32 %sum.03.i.i.i.i.i.i47, %conv.i.i.i.i.i.i.i49
   %incdec.ptr.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i45, i64 8
   %tobool.not.i.i.i.i.i.i52 = icmp eq i32 %dec.i.i.i.i.i.i48, 0
@@ -35695,7 +35694,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i.i.i, -1
   %21 = load i64, ptr %w.05.i.i.i.i.i.i.i.i, align 8
   %22 = call i64 @llvm.ctpop.i64(i64 %21), !range !91
-  %conv.i.i.i.i.i.i.i.i.i = trunc i64 %22 to i32
+  %conv.i.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %22 to i32
   %add.i.i.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i.i, 0
@@ -36014,7 +36013,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -36302,7 +36301,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !482
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !482
@@ -36367,7 +36366,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -36653,7 +36652,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -36941,7 +36940,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !495
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !495
@@ -37006,7 +37005,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -37173,7 +37172,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE14cbe
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
   %not3.i.i.i.i.i.i = xor i64 %7, -1
   %8 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true), !range !91
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %9
   %cmp.i.i.i.not10.i.i.i = icmp eq i32 %add.i.i.i.i.i.i, 32768
   br i1 %cmp.i.i.i.not10.i.i.i, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal20InactiveVoxelCountOpINS1_4TreeINS1_8RootNodeIS7_EEEEEEEEEEvRT_RNS9_9NodeRange8IteratorE.exit, label %for.body.lr.ph.i.i.i
@@ -37249,7 +37248,7 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i.i ], [ %not13.i.i.i.i.i.i.i, %cond.false.loopexit.i.i.i.i.i.i.i ]
   %shl15.i.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i, 6
   %17 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i, i1 true), !range !91
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl15.i.i.i.i.i.i.i, %18
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit.i.i.i
 
@@ -38478,7 +38477,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -38706,7 +38705,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -39468,7 +39467,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !525
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !525
@@ -39530,7 +39529,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -39639,7 +39638,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE14cbeginValueOff
   %shl.i.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i.i, 6
   %not3.i.i.i.i.i.i = xor i64 %7, -1
   %8 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i.i.i.i, i1 true), !range !91
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %9
   %cmp.i.i.i.not10.i.i.i = icmp eq i32 %add.i.i.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not10.i.i.i, label %_ZN7openvdb5v11_04tree8NodeListIKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE11OpWithIndex4evalINS1_14ReduceFilterOpINS0_5tools14count_internal20InactiveVoxelCountOpINS1_4TreeINS1_8RootNodeINS3_IS6_Lj5EEEEEEEEEEEEEvRT_RNS8_9NodeRange8IteratorE.exit, label %for.body.lr.ph.i.i.i
@@ -39715,7 +39714,7 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i.i ], [ %not13.i.i.i.i.i.i.i, %cond.false.loopexit.i.i.i.i.i.i.i ]
   %shl15.i.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i.i, 6
   %17 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i.i, i1 true), !range !91
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl15.i.i.i.i.i.i.i, %18
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i.i.i
 
@@ -40944,7 +40943,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -41172,7 +41171,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -41934,7 +41933,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !556
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !556
@@ -41996,7 +41995,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -42437,7 +42436,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i.i, -1
   %9 = load i64, ptr %w.05.i.i.i.i.i.i.i, align 8
   %10 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !91
-  %conv.i.i.i.i.i.i.i.i = trunc i64 %10 to i32
+  %conv.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i, 0
@@ -42674,7 +42673,7 @@ for.body.i.i.i.i.i.i.i44:                         ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i.i48 = add nsw i32 %n.04.i.i.i.i.i.i.i46, -1
   %51 = load i64, ptr %w.05.i.i.i.i.i.i.i45, align 8
   %52 = call i64 @llvm.ctpop.i64(i64 %51), !range !91
-  %conv.i.i.i.i.i.i.i.i49 = trunc i64 %52 to i32
+  %conv.i.i.i.i.i.i.i.i49 = trunc nuw nsw i64 %52 to i32
   %add.i.i.i.i.i.i.i50 = add i32 %sum.03.i.i.i.i.i.i.i47, %conv.i.i.i.i.i.i.i.i49
   %incdec.ptr.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i.i45, i64 8
   %tobool.not.i.i.i.i.i.i.i52 = icmp eq i32 %dec.i.i.i.i.i.i.i48, 0
@@ -42967,7 +42966,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i, -1
   %15 = load i64, ptr %w.05.i.i.i.i.i.i, align 8
   %16 = call i64 @llvm.ctpop.i64(i64 %15), !range !91
-  %conv.i.i.i.i.i.i.i = trunc i64 %16 to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %16 to i32
   %add.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
@@ -43110,7 +43109,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i, -1
   %4 = load i64, ptr %w.05.i.i.i.i.i.i, align 8
   %5 = tail call i64 @llvm.ctpop.i64(i64 %4), !range !91
-  %conv.i.i.i.i.i.i.i = trunc i64 %5 to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
@@ -43322,7 +43321,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -43610,7 +43609,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !585
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !585
@@ -43675,7 +43674,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -44236,7 +44235,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i.i, -1
   %10 = load i64, ptr %w.05.i.i.i.i.i.i, align 8
   %11 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !91
-  %conv.i.i.i.i.i.i.i = trunc i64 %11 to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
@@ -44479,7 +44478,7 @@ for.body.i.i.i.i.i.i46:                           ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i50 = add nsw i32 %n.04.i.i.i.i.i.i48, -1
   %54 = load i64, ptr %w.05.i.i.i.i.i.i47, align 8
   %55 = call i64 @llvm.ctpop.i64(i64 %54), !range !91
-  %conv.i.i.i.i.i.i.i51 = trunc i64 %55 to i32
+  %conv.i.i.i.i.i.i.i51 = trunc nuw nsw i64 %55 to i32
   %add.i.i.i.i.i.i52 = add i32 %sum.03.i.i.i.i.i.i49, %conv.i.i.i.i.i.i.i51
   %incdec.ptr.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i.i47, i64 8
   %tobool.not.i.i.i.i.i.i54 = icmp eq i32 %dec.i.i.i.i.i.i50, 0
@@ -45091,7 +45090,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -45319,7 +45318,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -46081,7 +46080,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !608
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !608
@@ -46143,7 +46142,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -46585,7 +46584,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %dec.i.i.i.i.i = add nsw i32 %n.04.i.i.i.i.i, -1
   %9 = load i64, ptr %w.05.i.i.i.i.i, align 8
   %10 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !91
-  %conv.i.i.i.i.i.i = trunc i64 %10 to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i.i = add i32 %sum.03.i.i.i.i.i, %conv.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i, 0
@@ -46822,7 +46821,7 @@ for.body.i.i.i.i.i45:                             ; preds = %for.body.i.i.i.i.i4
   %dec.i.i.i.i.i49 = add nsw i32 %n.04.i.i.i.i.i47, -1
   %51 = load i64, ptr %w.05.i.i.i.i.i46, align 8
   %52 = call i64 @llvm.ctpop.i64(i64 %51), !range !91
-  %conv.i.i.i.i.i.i50 = trunc i64 %52 to i32
+  %conv.i.i.i.i.i.i50 = trunc nuw nsw i64 %52 to i32
   %add.i.i.i.i.i51 = add i32 %sum.03.i.i.i.i.i48, %conv.i.i.i.i.i.i50
   %incdec.ptr.i.i.i.i.i52 = getelementptr inbounds i8, ptr %w.05.i.i.i.i.i46, i64 8
   %tobool.not.i.i.i.i.i53 = icmp eq i32 %dec.i.i.i.i.i49, 0
@@ -47458,7 +47457,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -47746,7 +47745,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !638
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !638
@@ -47811,7 +47810,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -48112,7 +48111,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -48400,7 +48399,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !652
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !652
@@ -48465,7 +48464,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -49840,7 +49839,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -50068,7 +50067,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -50830,7 +50829,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !675
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !675
@@ -50892,7 +50891,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -52209,7 +52208,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -52437,7 +52436,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -53199,7 +53198,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !699
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !699
@@ -53261,7 +53260,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -54971,7 +54970,7 @@ for.body.i.i:                                     ; preds = %if.else26, %for.bod
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %15 = load i64, ptr %w.05.i.i, align 8
   %16 = tail call i64 @llvm.ctpop.i64(i64 %15), !range !91
-  %conv.i.i.i = trunc i64 %16 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %16 to i32
   %add.i.i25 = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
@@ -55008,7 +55007,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13begi
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %not3.i.i.i = xor i64 %17, -1
   %18 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %19
   %cmp.i.i.i.not178 = icmp eq i32 %add.i.i.i, 32768
   br i1 %cmp.i.i.i.not178, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit88, label %for.body53
@@ -55069,7 +55068,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %not13.i.i.i.i, %cond.false.loopexit.i.i.i.i ]
   %shl15.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %25 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %add.i.i.i.i = or disjoint i32 %shl15.i.i.i.i, %26
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -55101,7 +55100,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13begi
   %shl.i.i.i37 = shl i32 %n.011.i.i.i34, 6
   %not3.i.i.i38 = xor i64 %28, -1
   %29 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i38, i1 true), !range !91
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   %add.i.i.i39 = or disjoint i32 %shl.i.i.i37, %30
   %cmp.i.i.i49.not176 = icmp eq i32 %add.i.i.i39, 32768
   br i1 %cmp.i.i.i49.not176, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit88, label %for.body72
@@ -55159,7 +55158,7 @@ cond.false.i.i.i.i70:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i72 = phi i64 [ %and7.i.i.i.i68, %if.end4.i.i.i.i65 ], [ %not13.i.i.i.i84, %cond.false.loopexit.i.i.i.i83 ]
   %shl15.i.i.i.i73 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i71, 6
   %36 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i72, i1 true), !range !91
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl15.i.i.i.i73, %37
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit85
 
@@ -55189,7 +55188,7 @@ for.inc.i.i.i100:                                 ; preds = %land.rhs.i.i.i90
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i90
   %shl.i.i.i95 = shl i32 %n.011.i.i.i92, 6
   %39 = tail call i64 @llvm.cttz.i64(i64 %38, i1 true), !range !91
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %add.i.i.i96 = or disjoint i32 %shl.i.i.i95, %40
   store ptr %this, ptr %iter87, align 8, !alias.scope !728
   %mMaskIter.i.i.i.i98 = getelementptr inbounds i8, ptr %iter87, i64 8
@@ -55288,7 +55287,7 @@ cond.false.i.i.i.i143:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i145 = phi i64 [ %and7.i.i.i.i141, %if.end4.i.i.i.i139 ], [ %54, %cond.false.loopexit.i.i.i.i154 ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i144, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i145, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i146 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -55448,7 +55447,7 @@ for.body.i.i:                                     ; preds = %if.else27, %for.bod
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %13 = load i64, ptr %w.05.i.i, align 8
   %14 = tail call i64 @llvm.ctpop.i64(i64 %13), !range !91
-  %conv.i.i.i = trunc i64 %14 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %14 to i32
   %add.i.i31 = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
@@ -55485,7 +55484,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13beginValueAllEv
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %not3.i.i.i = xor i64 %15, -1
   %16 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i, i1 true), !range !91
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %17
   %cmp.i.i.i.not197 = icmp eq i32 %add.i.i.i, 4096
   br i1 %cmp.i.i.i.not197, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit95, label %for.body54
@@ -55546,7 +55545,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %not13.i.i.i.i, %cond.false.loopexit.i.i.i.i ]
   %shl15.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %23 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %add.i.i.i.i = or disjoint i32 %shl15.i.i.i.i, %24
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -55578,7 +55577,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13beginValueAllEv
   %shl.i.i.i44 = shl i32 %n.011.i.i.i41, 6
   %not3.i.i.i45 = xor i64 %26, -1
   %27 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i.i45, i1 true), !range !91
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %add.i.i.i46 = or disjoint i32 %shl.i.i.i44, %28
   %cmp.i.i.i56.not195 = icmp eq i32 %add.i.i.i46, 4096
   br i1 %cmp.i.i.i56.not195, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit95, label %for.body73
@@ -55636,7 +55635,7 @@ cond.false.i.i.i.i77:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i79 = phi i64 [ %and7.i.i.i.i75, %if.end4.i.i.i.i72 ], [ %not13.i.i.i.i91, %cond.false.loopexit.i.i.i.i90 ]
   %shl15.i.i.i.i80 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i78, 6
   %34 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i79, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i81 = or disjoint i32 %shl15.i.i.i.i80, %35
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit92
 
@@ -55666,7 +55665,7 @@ for.inc.i.i.i107:                                 ; preds = %land.rhs.i.i.i97
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i97
   %shl.i.i.i102 = shl i32 %n.011.i.i.i99, 6
   %37 = tail call i64 @llvm.cttz.i64(i64 %36, i1 true), !range !91
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %add.i.i.i103 = or disjoint i32 %shl.i.i.i102, %38
   store ptr %this, ptr %iter88, align 8, !alias.scope !740
   %mMaskIter.i.i.i.i105 = getelementptr inbounds i8, ptr %iter88, i64 8
@@ -55774,7 +55773,7 @@ cond.false.i.i.i.i163:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i165 = phi i64 [ %and7.i.i.i.i161, %if.end4.i.i.i.i159 ], [ %48, %cond.false.loopexit.i.i.i.i174 ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i164, 6
   %50 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i165, i1 true), !range !91
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %add.i.i.i.i166 = or disjoint i32 %shl14.i.i.i.i, %51
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -56083,7 +56082,7 @@ for.body.i:                                       ; preds = %invoke.cont135, %fo
   %dec.i = add nsw i32 %n.04.i, -1
   %24 = load i64, ptr %w.05.i, align 8
   %25 = call i64 @llvm.ctpop.i64(i64 %24), !range !91
-  %conv.i.i = trunc i64 %25 to i32
+  %conv.i.i = trunc nuw nsw i64 %25 to i32
   %add.i = add i32 %sum.03.i, %conv.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %w.05.i, i64 8
   %tobool.not.i = icmp eq i32 %dec.i, 0
@@ -56627,7 +56626,7 @@ for.body.i:                                       ; preds = %invoke.cont136, %fo
   %dec.i = add nsw i32 %n.04.i, -1
   %24 = load i64, ptr %w.05.i, align 8
   %25 = call i64 @llvm.ctpop.i64(i64 %24), !range !91
-  %conv.i.i = trunc i64 %25 to i32
+  %conv.i.i = trunc nuw nsw i64 %25 to i32
   %add.i = add i32 %sum.03.i, %conv.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %w.05.i, i64 8
   %tobool.not.i = icmp eq i32 %dec.i, 0
@@ -57493,7 +57492,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %4 = tail call i64 @llvm.cttz.i64(i64 %3, i1 true), !range !91
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %5
   store ptr %this, ptr %iter, align 8, !alias.scope !758
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -57555,7 +57554,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %11, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %13 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %14
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -57682,7 +57681,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
 invoke.cont74:                                    ; preds = %land.rhs.i.i
   %shl.i.i = shl i32 %n.011.i.i, 6
   %9 = call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !91
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %add.i.i = or disjoint i32 %shl.i.i, %10
   %cmp.i.i.not82 = icmp eq i32 %add.i.i, 32768
   br i1 %cmp.i.i.not82, label %if.end118, label %for.body
@@ -57740,7 +57739,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i = phi i64 [ %and7.i.i.i, %if.end4.i.i.i ], [ %13, %cond.false.loopexit.i.i.i ]
   %shl14.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i, 6
   %15 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i, i1 true), !range !91
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %add.i.i.i = or disjoint i32 %shl14.i.i.i, %16
   br label %invoke.cont85
 
@@ -57953,7 +57952,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %4 = tail call i64 @llvm.cttz.i64(i64 %3, i1 true), !range !91
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %5
   store ptr %this, ptr %iter, align 8, !alias.scope !765
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -58015,7 +58014,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %11, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %13 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %14
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -58058,7 +58057,7 @@ _ZNK7openvdb5v11_04util8NodeMaskILj5EE8beginOffEv.exit: ; preds = %land.rhs.i.i
   %shl.i.i = shl i32 %n.011.i.i, 6
   %not3.i.i = xor i64 %1, -1
   %2 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i, i1 true), !range !91
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %add.i.i = or disjoint i32 %shl.i.i, %3
   %cmp.i.i44.not = icmp eq i32 %add.i.i, 32768
   br i1 %cmp.i.i44.not, label %if.else105.thread, label %for.body
@@ -58160,7 +58159,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i = phi i64 [ %and7.i.i.i, %if.end4.i.i.i ], [ %not13.i.i.i, %cond.false.loopexit.i.i.i ]
   %shl15.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i, 6
   %15 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i, i1 true), !range !91
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %add.i.i.i = or disjoint i32 %shl15.i.i.i, %16
   br label %_ZN7openvdb5v11_04util15OffMaskIteratorINS1_8NodeMaskILj5EEEEppEv.exit
 
@@ -58361,7 +58360,7 @@ for.inc.i.i:                                      ; preds = %land.rhs.i.i
 invoke.cont74:                                    ; preds = %land.rhs.i.i
   %shl.i.i = shl i32 %n.011.i.i, 6
   %9 = call i64 @llvm.cttz.i64(i64 %8, i1 true), !range !91
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %add.i.i = or disjoint i32 %shl.i.i, %10
   %cmp.i.i.not82 = icmp eq i32 %add.i.i, 4096
   br i1 %cmp.i.i.not82, label %if.end118, label %for.body
@@ -58419,7 +58418,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i = phi i64 [ %and7.i.i.i, %if.end4.i.i.i ], [ %13, %cond.false.loopexit.i.i.i ]
   %shl14.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i, 6
   %15 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i, i1 true), !range !91
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %add.i.i.i = or disjoint i32 %shl14.i.i.i, %16
   br label %invoke.cont85
 
@@ -58593,7 +58592,7 @@ _ZNK7openvdb5v11_04util8NodeMaskILj4EE8beginOffEv.exit: ; preds = %land.rhs.i.i
   %shl.i.i = shl i32 %n.011.i.i, 6
   %not3.i.i = xor i64 %1, -1
   %2 = tail call i64 @llvm.cttz.i64(i64 %not3.i.i, i1 true), !range !91
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %add.i.i = or disjoint i32 %shl.i.i, %3
   %cmp.i.i44.not = icmp eq i32 %add.i.i, 4096
   br i1 %cmp.i.i44.not, label %if.else105.thread, label %for.body
@@ -58695,7 +58694,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i = phi i64 [ %and7.i.i.i, %if.end4.i.i.i ], [ %not13.i.i.i, %cond.false.loopexit.i.i.i ]
   %shl15.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i, 6
   %15 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i, i1 true), !range !91
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %add.i.i.i = or disjoint i32 %shl15.i.i.i, %16
   br label %_ZN7openvdb5v11_04util15OffMaskIteratorINS1_8NodeMaskILj4EEEEppEv.exit
 
@@ -58803,7 +58802,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !773
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -58865,7 +58864,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %8, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %10 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %11
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -58903,7 +58902,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !777
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -58965,7 +58964,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %8, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %10 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %11
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -59107,7 +59106,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12begi
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !783
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -59169,7 +59168,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %8, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %10 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %11
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -59657,7 +59656,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !790
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -59735,7 +59734,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %12 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %13
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -60476,7 +60475,7 @@ invoke.cont43:                                    ; preds = %land.rhs.i.i
   %shl.i.i = shl i32 %n.011.i.i, 6
   %not3.i.i = xor i64 %30, -1
   %31 = call i64 @llvm.cttz.i64(i64 %not3.i.i, i1 true), !range !91
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw nsw i64 %31 to i32
   %add.i.i = or disjoint i32 %shl.i.i, %32
   %cmp.i.i45.not75 = icmp eq i32 %add.i.i, 512
   br i1 %cmp.i.i45.not75, label %return, label %for.inc53.lr.ph
@@ -60548,7 +60547,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i = phi i64 [ %and7.i.i.i, %if.end4.i.i.i ], [ %not13.i.i.i, %cond.false.loopexit.i.i.i ]
   %shl15.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i, 6
   %39 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i, i1 true), !range !91
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %add.i.i.i = or disjoint i32 %shl15.i.i.i, %40
   br label %_ZN7openvdb5v11_04util15OffMaskIteratorINS1_8NodeMaskILj3EEEEppEv.exit
 
@@ -61454,7 +61453,7 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i.i: ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i2.i = shl i32 %n.011.i.i.i.i.i, 6
   %31 = call i64 @llvm.cttz.i64(i64 %30, i1 true), !range !91
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw nsw i64 %31 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i2.i, %32
   %cmp.i.i.i.not8.i.i = icmp eq i32 %add.i.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EED2Ev.exit.i, label %invoke.cont3.i.i
@@ -61515,7 +61514,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %35, %cond.false.loopexit.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i, 6
   %37 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true), !range !91
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i, %38
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i.i
 
@@ -61619,7 +61618,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i2 = shl i32 %n.011.i.i.i.i, 6
   %5 = tail call i64 @llvm.cttz.i64(i64 %4, i1 true), !range !91
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i2, %6
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EED2Ev.exit, label %invoke.cont3.i
@@ -61680,7 +61679,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %9, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %11 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %12
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -62891,7 +62890,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %89 = call i64 @llvm.cttz.i64(i64 %88, i1 true), !range !91
-  %90 = trunc i64 %89 to i32
+  %90 = trunc nuw nsw i64 %89 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %90
   %cmp.i.i.i.not19.i = icmp eq i32 %add.i.i.i.i, 32768
   br i1 %cmp.i.i.i.not19.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EED2Ev.exit, label %invoke.cont3.i
@@ -62924,7 +62923,7 @@ for.inc.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i.i: ; preds = %land.rhs.i.i.i.i.i
   %shl.i.i.i.i.i = shl i32 %n.011.i.i.i.i.i, 6
   %93 = call i64 @llvm.cttz.i64(i64 %92, i1 true), !range !91
-  %94 = trunc i64 %93 to i32
+  %94 = trunc nuw nsw i64 %93 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %94
   %cmp.i.i.i.not8.i.i = icmp eq i32 %add.i.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EED2Ev.exit.i, label %invoke.cont3.i.i
@@ -62985,7 +62984,7 @@ cond.false.i.i.i.i.i.i226:                        ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %97, %cond.false.loopexit.i.i.i.i.i.i ]
   %shl14.i.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i.i, 6
   %99 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i.i, i1 true), !range !91
-  %100 = trunc i64 %99 to i32
+  %100 = trunc nuw nsw i64 %99 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i.i, %100
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i.i
 
@@ -63042,7 +63041,7 @@ cond.false.i.i.i.i.i225:                          ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %102, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %104 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw nsw i64 %104 to i32
   %add.i.i.i.i5.i = or disjoint i32 %shl14.i.i.i.i.i, %105
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit.i
 
@@ -63132,7 +63131,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   %cmp.i.i.i.not36 = icmp eq i32 %add.i.i.i, 32768
   br i1 %cmp.i.i.i.not36, label %for.end, label %for.body.lr.ph
@@ -63222,7 +63221,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %12 = tail call i64 @llvm.cttz.i64(i64 %11, i1 true), !range !91
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %13
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EED2Ev.exit, label %invoke.cont3.i
@@ -63283,7 +63282,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %16, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %18 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %19
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -63357,7 +63356,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %23, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %25 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %add.i.i.i.i15 = or disjoint i32 %shl14.i.i.i.i, %26
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -63494,7 +63493,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   %cmp.i.i.i.not19 = icmp eq i32 %add.i.i.i, 4096
   br i1 %cmp.i.i.i.not19, label %for.end, label %for.body.lr.ph
@@ -63648,7 +63647,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %13, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %15 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %16
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -63887,7 +63886,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !878
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -63949,7 +63948,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %8, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %10 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %11
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -63987,7 +63986,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %1 = tail call i64 @llvm.cttz.i64(i64 %0, i1 true), !range !91
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %2
   store ptr %this, ptr %iter, align 8, !alias.scope !882
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -64053,7 +64052,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %8, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %10 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %11
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -64812,7 +64811,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -65100,7 +65099,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !909
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !909
@@ -65165,7 +65164,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -65485,7 +65484,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %dec.i.i = add nsw i32 %n.04.i.i, -1
   %11 = load i64, ptr %w.05.i.i, align 8
   %12 = tail call i64 @llvm.ctpop.i64(i64 %11), !range !91
-  %conv.i.i.i = trunc i64 %12 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %12 to i32
   %add.i.i = add i32 %sum.03.i.i, %conv.i.i.i
   %incdec.ptr.i.i33 = getelementptr inbounds i8, ptr %w.05.i.i, i64 8
   %tobool.not.i.i34 = icmp eq i32 %dec.i.i, 0
@@ -65773,7 +65772,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %47 = call i64 @llvm.cttz.i64(i64 %46, i1 true), !range !91
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %add.i.i.i.i95 = or disjoint i32 %shl.i.i.i.i, %48
   store ptr %45, ptr %iter, align 8, !alias.scope !923
   store i32 %add.i.i.i.i95, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !923
@@ -65838,7 +65837,7 @@ cond.false.i.i.i.i103:                            ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %54, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %56 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i104 = or disjoint i32 %shl14.i.i.i.i, %57
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -66843,7 +66842,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 true), !range !91
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %3
   store ptr %node, ptr %iter, align 8, !alias.scope !935
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -66918,7 +66917,7 @@ if.end:                                           ; preds = %if.end4.i.i.i.i, %c
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %9, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %11 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %12
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i, align 8
   %cmp.i.i.i4.not53 = icmp eq i32 %add.i.i.i.i, 32768
@@ -67001,7 +67000,7 @@ cond.false.i.i.i.i28:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i30 = phi i64 [ %and7.i.i.i.i26, %if.end4.i.i.i.i24 ], [ %22, %cond.false.loopexit.i.i.i.i40 ]
   %shl14.i.i.i.i31 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i29, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i30, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i32 = or disjoint i32 %shl14.i.i.i.i31, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit41
 
@@ -67460,7 +67459,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -67688,7 +67687,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -68450,7 +68449,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !950
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !950
@@ -68512,7 +68511,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -69459,7 +69458,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 true), !range !91
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %3
   store ptr %node, ptr %iter, align 8, !alias.scope !963
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -69534,7 +69533,7 @@ if.end:                                           ; preds = %if.end4.i.i.i.i, %c
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %9, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %11 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %12
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i, align 8
   %cmp.i.i.i4.not53 = icmp eq i32 %add.i.i.i.i, 4096
@@ -69617,7 +69616,7 @@ cond.false.i.i.i.i28:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i30 = phi i64 [ %and7.i.i.i.i26, %if.end4.i.i.i.i24 ], [ %22, %cond.false.loopexit.i.i.i.i40 ]
   %shl14.i.i.i.i31 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i29, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i30, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i32 = or disjoint i32 %shl14.i.i.i.i31, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit41
 
@@ -70076,7 +70075,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %dec.i.i.i.i = add nsw i32 %n.04.i.i.i.i, -1
   %12 = load i64, ptr %w.05.i.i.i.i, align 8
   %13 = tail call i64 @llvm.ctpop.i64(i64 %12), !range !91
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i = add i32 %sum.03.i.i.i.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %w.05.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
@@ -70304,7 +70303,7 @@ for.body.i.i.i.i54:                               ; preds = %for.body.i.i.i.i54,
   %dec.i.i.i.i58 = add nsw i32 %n.04.i.i.i.i56, -1
   %55 = load i64, ptr %w.05.i.i.i.i55, align 8
   %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !91
-  %conv.i.i.i.i.i59 = trunc i64 %56 to i32
+  %conv.i.i.i.i.i59 = trunc nuw nsw i64 %56 to i32
   %add.i.i.i.i60 = add i32 %sum.03.i.i.i.i57, %conv.i.i.i.i.i59
   %incdec.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %w.05.i.i.i.i55, i64 8
   %tobool.not.i.i.i.i62 = icmp eq i32 %dec.i.i.i.i58, 0
@@ -71066,7 +71065,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %19 = call i64 @llvm.cttz.i64(i64 %18, i1 true), !range !91
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %20
   store ptr %17, ptr %iter, align 8, !alias.scope !978
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i.i, align 8, !alias.scope !978
@@ -71128,7 +71127,7 @@ cond.false.i.i.i.i13:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %26, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %28 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %add.i.i.i.i14 = or disjoint i32 %shl14.i.i.i.i, %29
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
 
@@ -71977,7 +71976,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZNK7openvdb5v11_04tree8LeafNodeIbLj3EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 true), !range !91
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %3
   store ptr %node, ptr %iter, align 8, !alias.scope !987
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -72057,7 +72056,7 @@ if.end:                                           ; preds = %if.end4.i.i.i.i, %c
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %10, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %12 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %add.i.i.i.i = or disjoint i32 %shl14.i.i.i.i, %13
   store i32 %add.i.i.i.i, ptr %mMaskIter.i.i.i.i, align 8
   %cmp.i.i.i4.not61 = icmp eq i32 %add.i.i.i.i, 512
@@ -72147,7 +72146,7 @@ cond.false.i.i.i.i36:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i38 = phi i64 [ %and7.i.i.i.i34, %if.end4.i.i.i.i32 ], [ %24, %cond.false.loopexit.i.i.i.i48 ]
   %shl14.i.i.i.i39 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i37, 6
   %26 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i38, i1 true), !range !91
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %add.i.i.i.i40 = or disjoint i32 %shl14.i.i.i.i39, %27
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIbLj3EEEEppEv.exit49
 
@@ -74007,7 +74006,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit: ; preds = %land.rhs.i.i.i
   %shl.i.i.i = shl i32 %n.011.i.i.i, 6
   %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 true), !range !91
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %3
   %cmp.i.i.i.not23 = icmp eq i32 %add.i.i.i, 32768
   br i1 %cmp.i.i.i.not23, label %for.end, label %for.body
@@ -74054,7 +74053,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %7 = tail call i64 @llvm.cttz.i64(i64 %6, i1 true), !range !91
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %8
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i4
@@ -74108,7 +74107,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %11, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %13 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %14
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -74162,7 +74161,7 @@ cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %16, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
   %18 = tail call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i9 = or disjoint i32 %shl14.i.i.i.i, %19
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
 
@@ -76987,7 +76986,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %19
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i
@@ -77041,7 +77040,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -77125,7 +77124,7 @@ for.inc.i.i.i.i111:                               ; preds = %land.rhs.i.i.i.i68
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i72: ; preds = %land.rhs.i.i.i.i68
   %shl.i.i.i.i73 = shl i32 %n.011.i.i.i.i70, 6
   %34 = call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl.i.i.i.i73, %35
   %cmp.i.i.i.not8.i75 = icmp eq i32 %add.i.i.i.i74, 4096
   br i1 %cmp.i.i.i.not8.i75, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit115, label %for.body.i76
@@ -77179,7 +77178,7 @@ cond.false.i.i.i.i.i98:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i100 = phi i64 [ %and7.i.i.i.i.i96, %if.end4.i.i.i.i.i94 ], [ %38, %cond.false.loopexit.i.i.i.i.i110 ]
   %shl14.i.i.i.i.i101 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i99, 6
   %40 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i100, i1 true), !range !91
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %add.i.i.i.i.i102 = or disjoint i32 %shl14.i.i.i.i.i101, %41
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i91
 
@@ -81778,7 +81777,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %19
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i
@@ -81832,7 +81831,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -81916,7 +81915,7 @@ for.inc.i.i.i.i111:                               ; preds = %land.rhs.i.i.i.i68
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i72: ; preds = %land.rhs.i.i.i.i68
   %shl.i.i.i.i73 = shl i32 %n.011.i.i.i.i70, 6
   %34 = call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl.i.i.i.i73, %35
   %cmp.i.i.i.not8.i75 = icmp eq i32 %add.i.i.i.i74, 4096
   br i1 %cmp.i.i.i.not8.i75, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit115, label %for.body.i76
@@ -81970,7 +81969,7 @@ cond.false.i.i.i.i.i98:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i100 = phi i64 [ %and7.i.i.i.i.i96, %if.end4.i.i.i.i.i94 ], [ %38, %cond.false.loopexit.i.i.i.i.i110 ]
   %shl14.i.i.i.i.i101 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i99, 6
   %40 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i100, i1 true), !range !91
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %add.i.i.i.i.i102 = or disjoint i32 %shl14.i.i.i.i.i101, %41
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i91
 
@@ -86573,7 +86572,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %19
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i
@@ -86627,7 +86626,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -86711,7 +86710,7 @@ for.inc.i.i.i.i111:                               ; preds = %land.rhs.i.i.i.i68
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i72: ; preds = %land.rhs.i.i.i.i68
   %shl.i.i.i.i73 = shl i32 %n.011.i.i.i.i70, 6
   %34 = call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl.i.i.i.i73, %35
   %cmp.i.i.i.not8.i75 = icmp eq i32 %add.i.i.i.i74, 4096
   br i1 %cmp.i.i.i.not8.i75, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit115, label %for.body.i76
@@ -86765,7 +86764,7 @@ cond.false.i.i.i.i.i98:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i100 = phi i64 [ %and7.i.i.i.i.i96, %if.end4.i.i.i.i.i94 ], [ %38, %cond.false.loopexit.i.i.i.i.i110 ]
   %shl14.i.i.i.i.i101 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i99, 6
   %40 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i100, i1 true), !range !91
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %add.i.i.i.i.i102 = or disjoint i32 %shl14.i.i.i.i.i101, %41
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i91
 
@@ -91366,7 +91365,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %19
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i
@@ -91420,7 +91419,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -91504,7 +91503,7 @@ for.inc.i.i.i.i111:                               ; preds = %land.rhs.i.i.i.i68
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i72: ; preds = %land.rhs.i.i.i.i68
   %shl.i.i.i.i73 = shl i32 %n.011.i.i.i.i70, 6
   %34 = call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl.i.i.i.i73, %35
   %cmp.i.i.i.not8.i75 = icmp eq i32 %add.i.i.i.i74, 4096
   br i1 %cmp.i.i.i.not8.i75, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit115, label %for.body.i76
@@ -91558,7 +91557,7 @@ cond.false.i.i.i.i.i98:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i100 = phi i64 [ %and7.i.i.i.i.i96, %if.end4.i.i.i.i.i94 ], [ %38, %cond.false.loopexit.i.i.i.i.i110 ]
   %shl14.i.i.i.i.i101 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i99, 6
   %40 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i100, i1 true), !range !91
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %add.i.i.i.i.i102 = or disjoint i32 %shl14.i.i.i.i.i101, %41
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i91
 
@@ -96157,7 +96156,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %19
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i
@@ -96211,7 +96210,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -96295,7 +96294,7 @@ for.inc.i.i.i.i111:                               ; preds = %land.rhs.i.i.i.i68
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i72: ; preds = %land.rhs.i.i.i.i68
   %shl.i.i.i.i73 = shl i32 %n.011.i.i.i.i70, 6
   %34 = call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl.i.i.i.i73, %35
   %cmp.i.i.i.not8.i75 = icmp eq i32 %add.i.i.i.i74, 4096
   br i1 %cmp.i.i.i.not8.i75, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit115, label %for.body.i76
@@ -96349,7 +96348,7 @@ cond.false.i.i.i.i.i98:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i100 = phi i64 [ %and7.i.i.i.i.i96, %if.end4.i.i.i.i.i94 ], [ %38, %cond.false.loopexit.i.i.i.i.i110 ]
   %shl14.i.i.i.i.i101 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i99, 6
   %40 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i100, i1 true), !range !91
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %add.i.i.i.i.i102 = or disjoint i32 %shl14.i.i.i.i.i101, %41
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i91
 
@@ -100948,7 +100947,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %19
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i
@@ -101002,7 +101001,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -101086,7 +101085,7 @@ for.inc.i.i.i.i111:                               ; preds = %land.rhs.i.i.i.i68
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i72: ; preds = %land.rhs.i.i.i.i68
   %shl.i.i.i.i73 = shl i32 %n.011.i.i.i.i70, 6
   %34 = call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl.i.i.i.i73, %35
   %cmp.i.i.i.not8.i75 = icmp eq i32 %add.i.i.i.i74, 4096
   br i1 %cmp.i.i.i.not8.i75, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit115, label %for.body.i76
@@ -101140,7 +101139,7 @@ cond.false.i.i.i.i.i98:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i100 = phi i64 [ %and7.i.i.i.i.i96, %if.end4.i.i.i.i.i94 ], [ %38, %cond.false.loopexit.i.i.i.i.i110 ]
   %shl14.i.i.i.i.i101 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i99, 6
   %40 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i100, i1 true), !range !91
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %add.i.i.i.i.i102 = or disjoint i32 %shl14.i.i.i.i.i101, %41
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i91
 
@@ -105739,7 +105738,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i: ; preds = %land.rhs.i.i.i.i
   %shl.i.i.i.i = shl i32 %n.011.i.i.i.i, 6
   %18 = call i64 @llvm.cttz.i64(i64 %17, i1 true), !range !91
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %19
   %cmp.i.i.i.not8.i = icmp eq i32 %add.i.i.i.i, 4096
   br i1 %cmp.i.i.i.not8.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit, label %for.body.i
@@ -105793,7 +105792,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %22, %cond.false.loopexit.i.i.i.i.i ]
   %shl14.i.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i, 6
   %24 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i, i1 true), !range !91
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl14.i.i.i.i.i, %25
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i
 
@@ -105877,7 +105876,7 @@ for.inc.i.i.i.i111:                               ; preds = %land.rhs.i.i.i.i68
 _ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.i72: ; preds = %land.rhs.i.i.i.i68
   %shl.i.i.i.i73 = shl i32 %n.011.i.i.i.i70, 6
   %34 = call i64 @llvm.cttz.i64(i64 %33, i1 true), !range !91
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %add.i.i.i.i74 = or disjoint i32 %shl.i.i.i.i73, %35
   %cmp.i.i.i.not8.i75 = icmp eq i32 %add.i.i.i.i74, 4096
   br i1 %cmp.i.i.i.not8.i75, label %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE11setValuesOnEv.exit115, label %for.body.i76
@@ -105931,7 +105930,7 @@ cond.false.i.i.i.i.i98:                           ; preds = %cond.false.loopexit
   %b.0.lcssa.i.i.i.i.i100 = phi i64 [ %and7.i.i.i.i.i96, %if.end4.i.i.i.i.i94 ], [ %38, %cond.false.loopexit.i.i.i.i.i110 ]
   %shl14.i.i.i.i.i101 = shl nuw nsw i32 %n.0.lcssa.i.i.i.i.i99, 6
   %40 = call i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i.i100, i1 true), !range !91
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %add.i.i.i.i.i102 = or disjoint i32 %shl14.i.i.i.i.i101, %41
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit.i91
 

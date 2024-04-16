@@ -9404,7 +9404,7 @@ _ZN5ImGui12TableNextRowEif.exit:                  ; preds = %if.end.i13, %if.the
   %RowPosY1.i = getelementptr inbounds i8, ptr %1, i64 124
   %25 = load float, ptr %RowPosY1.i, align 4
   %add.i19 = fadd float %25, 0.000000e+00
-  %cmp.i.i20 = fcmp oge float %24, %add.i19
+  %cmp.i.i20 = fcmp oge float %24, %25
   %cond.i.i21 = select i1 %cmp.i.i20, float %24, float %add.i19
   store float %cond.i.i21, ptr %RowPosY2.i18, align 8
   %InnerWindow.i22 = getelementptr inbounds i8, ptr %1, i64 392
